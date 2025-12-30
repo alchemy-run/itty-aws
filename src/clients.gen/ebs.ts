@@ -3,42 +3,42 @@ import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperat
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const CompleteSnapshotRequest = Schema.Struct({SnapshotId: Schema.String, ChangedBlocksCount: Header("x-amz-ChangedBlocksCount", Schema.Number), Checksum: Schema.optional(Header("x-amz-Checksum")), ChecksumAlgorithm: Schema.optional(Header("x-amz-Checksum-Algorithm")), ChecksumAggregationMethod: Schema.optional(Header("x-amz-Checksum-Aggregation-Method"))});
-export const GetSnapshotBlockRequest = Schema.Struct({SnapshotId: Schema.String, BlockIndex: Schema.Number, BlockToken: Schema.String});
-export const ListChangedBlocksRequest = Schema.Struct({FirstSnapshotId: Schema.optional(Schema.String), SecondSnapshotId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), StartingBlockIndex: Schema.optional(Schema.Number)});
-export const ListSnapshotBlocksRequest = Schema.Struct({SnapshotId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), StartingBlockIndex: Schema.optional(Schema.Number)});
-export const PutSnapshotBlockRequest = Schema.Struct({SnapshotId: Schema.String, BlockIndex: Schema.Number, BlockData: Body("undefined", StreamBody()), DataLength: Header("x-amz-Data-Length", Schema.Number), Progress: Schema.optional(Header("x-amz-Progress", Schema.Number)), Checksum: Header("x-amz-Checksum"), ChecksumAlgorithm: Header("x-amz-Checksum-Algorithm")});
-export const Tag = Schema.Struct({Key: Schema.optional(Schema.String), Value: Schema.optional(Schema.String)});
+export class CompleteSnapshotRequest extends Schema.Class<CompleteSnapshotRequest>("CompleteSnapshotRequest")({SnapshotId: Schema.String, ChangedBlocksCount: Header("x-amz-ChangedBlocksCount", Schema.Number), Checksum: Schema.optional(Header("x-amz-Checksum")), ChecksumAlgorithm: Schema.optional(Header("x-amz-Checksum-Algorithm")), ChecksumAggregationMethod: Schema.optional(Header("x-amz-Checksum-Aggregation-Method"))}) {}
+export class GetSnapshotBlockRequest extends Schema.Class<GetSnapshotBlockRequest>("GetSnapshotBlockRequest")({SnapshotId: Schema.String, BlockIndex: Schema.Number, BlockToken: Schema.String}) {}
+export class ListChangedBlocksRequest extends Schema.Class<ListChangedBlocksRequest>("ListChangedBlocksRequest")({FirstSnapshotId: Schema.optional(Schema.String), SecondSnapshotId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), StartingBlockIndex: Schema.optional(Schema.Number)}) {}
+export class ListSnapshotBlocksRequest extends Schema.Class<ListSnapshotBlocksRequest>("ListSnapshotBlocksRequest")({SnapshotId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), StartingBlockIndex: Schema.optional(Schema.Number)}) {}
+export class PutSnapshotBlockRequest extends Schema.Class<PutSnapshotBlockRequest>("PutSnapshotBlockRequest")({SnapshotId: Schema.String, BlockIndex: Schema.Number, BlockData: Body("undefined", StreamBody()), DataLength: Header("x-amz-Data-Length", Schema.Number), Progress: Schema.optional(Header("x-amz-Progress", Schema.Number)), Checksum: Header("x-amz-Checksum"), ChecksumAlgorithm: Header("x-amz-Checksum-Algorithm")}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.optional(Schema.String), Value: Schema.optional(Schema.String)}) {}
 export const Tags = Schema.Array(Tag);
-export const CompleteSnapshotResponse = Schema.Struct({Status: Schema.optional(Schema.String)});
-export const GetSnapshotBlockResponse = Schema.Struct({DataLength: Schema.optional(Header("x-amz-Data-Length", Schema.Number)), BlockData: Schema.optional(Body("undefined", StreamBody())), Checksum: Schema.optional(Header("x-amz-Checksum")), ChecksumAlgorithm: Schema.optional(Header("x-amz-Checksum-Algorithm"))});
-export const PutSnapshotBlockResponse = Schema.Struct({Checksum: Schema.optional(Header("x-amz-Checksum")), ChecksumAlgorithm: Schema.optional(Header("x-amz-Checksum-Algorithm"))});
-export const StartSnapshotRequest = Schema.Struct({VolumeSize: Schema.Number, ParentSnapshotId: Schema.optional(Schema.String), Tags: Schema.optional(Tags), Description: Schema.optional(Schema.String), ClientToken: Schema.optional(Schema.String), Encrypted: Schema.optional(Schema.Boolean), KmsKeyArn: Schema.optional(Schema.String), Timeout: Schema.optional(Schema.Number)});
-export const ChangedBlock = Schema.Struct({BlockIndex: Schema.optional(Schema.Number), FirstBlockToken: Schema.optional(Schema.String), SecondBlockToken: Schema.optional(Schema.String)});
+export class CompleteSnapshotResponse extends Schema.Class<CompleteSnapshotResponse>("CompleteSnapshotResponse")({Status: Schema.optional(Schema.String)}) {}
+export class GetSnapshotBlockResponse extends Schema.Class<GetSnapshotBlockResponse>("GetSnapshotBlockResponse")({DataLength: Schema.optional(Header("x-amz-Data-Length", Schema.Number)), BlockData: Schema.optional(Body("undefined", StreamBody())), Checksum: Schema.optional(Header("x-amz-Checksum")), ChecksumAlgorithm: Schema.optional(Header("x-amz-Checksum-Algorithm"))}) {}
+export class PutSnapshotBlockResponse extends Schema.Class<PutSnapshotBlockResponse>("PutSnapshotBlockResponse")({Checksum: Schema.optional(Header("x-amz-Checksum")), ChecksumAlgorithm: Schema.optional(Header("x-amz-Checksum-Algorithm"))}) {}
+export class StartSnapshotRequest extends Schema.Class<StartSnapshotRequest>("StartSnapshotRequest")({VolumeSize: Schema.Number, ParentSnapshotId: Schema.optional(Schema.String), Tags: Schema.optional(Tags), Description: Schema.optional(Schema.String), ClientToken: Schema.optional(Schema.String), Encrypted: Schema.optional(Schema.Boolean), KmsKeyArn: Schema.optional(Schema.String), Timeout: Schema.optional(Schema.Number)}) {}
+export class ChangedBlock extends Schema.Class<ChangedBlock>("ChangedBlock")({BlockIndex: Schema.optional(Schema.Number), FirstBlockToken: Schema.optional(Schema.String), SecondBlockToken: Schema.optional(Schema.String)}) {}
 export const ChangedBlocks = Schema.Array(ChangedBlock);
-export const Block = Schema.Struct({BlockIndex: Schema.optional(Schema.Number), BlockToken: Schema.optional(Schema.String)});
+export class Block extends Schema.Class<Block>("Block")({BlockIndex: Schema.optional(Schema.Number), BlockToken: Schema.optional(Schema.String)}) {}
 export const Blocks = Schema.Array(Block);
-export const AccessDeniedException = Schema.Struct({Message: Schema.optional(Schema.String), Reason: Schema.String});
-export const InternalServerException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ListChangedBlocksResponse = Schema.Struct({ChangedBlocks: Schema.optional(ChangedBlocks), ExpiryTime: Schema.optional(Schema.Date), VolumeSize: Schema.optional(Schema.Number), BlockSize: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListSnapshotBlocksResponse = Schema.Struct({Blocks: Schema.optional(Blocks), ExpiryTime: Schema.optional(Schema.Date), VolumeSize: Schema.optional(Schema.Number), BlockSize: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const RequestThrottledException = Schema.Struct({Message: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String)});
-export const StartSnapshotResponse = Schema.Struct({Description: Schema.optional(Schema.String), SnapshotId: Schema.optional(Schema.String), OwnerId: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.Date), VolumeSize: Schema.optional(Schema.Number), BlockSize: Schema.optional(Schema.Number), Tags: Schema.optional(Tags), ParentSnapshotId: Schema.optional(Schema.String), KmsKeyArn: Schema.optional(Schema.String), SseType: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String)});
-export const ServiceQuotaExceededException = Schema.Struct({Message: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String)});
-export const ValidationException = Schema.Struct({Message: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String)});
-export const ConcurrentLimitExceededException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ConflictException = Schema.Struct({Message: Schema.optional(Schema.String)});
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({Message: Schema.optional(Schema.String), Reason: Schema.String}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({Message: Schema.optional(Schema.String)}) {}
+export class ListChangedBlocksResponse extends Schema.Class<ListChangedBlocksResponse>("ListChangedBlocksResponse")({ChangedBlocks: Schema.optional(ChangedBlocks), ExpiryTime: Schema.optional(Schema.Date), VolumeSize: Schema.optional(Schema.Number), BlockSize: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListSnapshotBlocksResponse extends Schema.Class<ListSnapshotBlocksResponse>("ListSnapshotBlocksResponse")({Blocks: Schema.optional(Blocks), ExpiryTime: Schema.optional(Schema.Date), VolumeSize: Schema.optional(Schema.Number), BlockSize: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class RequestThrottledException extends Schema.Class<RequestThrottledException>("RequestThrottledException")({Message: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String)}) {}
+export class StartSnapshotResponse extends Schema.Class<StartSnapshotResponse>("StartSnapshotResponse")({Description: Schema.optional(Schema.String), SnapshotId: Schema.optional(Schema.String), OwnerId: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.Date), VolumeSize: Schema.optional(Schema.Number), BlockSize: Schema.optional(Schema.Number), Tags: Schema.optional(Tags), ParentSnapshotId: Schema.optional(Schema.String), KmsKeyArn: Schema.optional(Schema.String), SseType: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({Message: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String)}) {}
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({Message: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({Message: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String)}) {}
+export class ConcurrentLimitExceededException extends Schema.Class<ConcurrentLimitExceededException>("ConcurrentLimitExceededException")({Message: Schema.optional(Schema.String)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({Message: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class RequestThrottledExceptionError extends Schema.TaggedError<RequestThrottledExceptionError>()("RequestThrottledException", RequestThrottledException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class ConcurrentLimitExceededExceptionError extends Schema.TaggedError<ConcurrentLimitExceededExceptionError>()("ConcurrentLimitExceededException", ConcurrentLimitExceededException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class RequestThrottledExceptionError extends Schema.TaggedError<RequestThrottledExceptionError>()("RequestThrottledException", RequestThrottledException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class ConcurrentLimitExceededExceptionError extends Schema.TaggedError<ConcurrentLimitExceededExceptionError>()("ConcurrentLimitExceededException", ConcurrentLimitExceededException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
 
 //# Operations
 export const listSnapshotBlocks = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-11-02", uri: "/snapshots/{SnapshotId}/blocks", method: "GET", sdkId: "EBS", sigV4ServiceName: "ebs", name: "Ebs.ListSnapshotBlocks" }, ListSnapshotBlocksRequest, ListSnapshotBlocksResponse, [AccessDeniedExceptionError, InternalServerExceptionError, RequestThrottledExceptionError, ResourceNotFoundExceptionError, ServiceQuotaExceededExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

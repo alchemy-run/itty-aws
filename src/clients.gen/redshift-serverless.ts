@@ -3,64 +3,69 @@ import { FormatAwsJSON11Request,FormatJSONResponse,FormatAwsRestJSONError, makeO
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
+export const WorkgroupNameList = Schema.Array(Schema.String);
 export const TagKeyList = Schema.Array(Schema.String);
-export const CreateCustomDomainAssociationRequest = Schema.Struct({workgroupName: Schema.String, customDomainName: Schema.String, customDomainCertificateArn: Schema.String});
-export const DeleteCustomDomainAssociationRequest = Schema.Struct({workgroupName: Schema.String, customDomainName: Schema.String});
-export const DeleteCustomDomainAssociationResponse = Schema.Struct({});
-export const DeleteResourcePolicyRequest = Schema.Struct({resourceArn: Schema.String});
-export const DeleteResourcePolicyResponse = Schema.Struct({});
-export const GetCredentialsRequest = Schema.Struct({dbName: Schema.optional(Schema.String), durationSeconds: Schema.optional(Schema.Number), workgroupName: Schema.optional(Schema.String), customDomainName: Schema.optional(Schema.String)});
-export const GetCustomDomainAssociationRequest = Schema.Struct({customDomainName: Schema.String, workgroupName: Schema.String});
-export const GetResourcePolicyRequest = Schema.Struct({resourceArn: Schema.String});
-export const GetTrackRequest = Schema.Struct({trackName: Schema.String});
-export const ListCustomDomainAssociationsRequest = Schema.Struct({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), customDomainName: Schema.optional(Schema.String), customDomainCertificateArn: Schema.optional(Schema.String)});
-export const ListTagsForResourceRequest = Schema.Struct({resourceArn: Schema.String});
-export const ListTracksRequest = Schema.Struct({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const PutResourcePolicyRequest = Schema.Struct({resourceArn: Schema.String, policy: Schema.String});
-export const UntagResourceRequest = Schema.Struct({resourceArn: Schema.String, tagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
-export const UpdateCustomDomainAssociationRequest = Schema.Struct({workgroupName: Schema.String, customDomainName: Schema.String, customDomainCertificateArn: Schema.String});
-export const UpdateTarget = Schema.Struct({trackName: Schema.optional(Schema.String), workgroupVersion: Schema.optional(Schema.String)});
+export class CreateCustomDomainAssociationRequest extends Schema.Class<CreateCustomDomainAssociationRequest>("CreateCustomDomainAssociationRequest")({workgroupName: Schema.String, customDomainName: Schema.String, customDomainCertificateArn: Schema.String}) {}
+export class DeleteCustomDomainAssociationRequest extends Schema.Class<DeleteCustomDomainAssociationRequest>("DeleteCustomDomainAssociationRequest")({workgroupName: Schema.String, customDomainName: Schema.String}) {}
+export class DeleteCustomDomainAssociationResponse extends Schema.Class<DeleteCustomDomainAssociationResponse>("DeleteCustomDomainAssociationResponse")({}) {}
+export class DeleteResourcePolicyRequest extends Schema.Class<DeleteResourcePolicyRequest>("DeleteResourcePolicyRequest")({resourceArn: Schema.String}) {}
+export class DeleteResourcePolicyResponse extends Schema.Class<DeleteResourcePolicyResponse>("DeleteResourcePolicyResponse")({}) {}
+export class GetCredentialsRequest extends Schema.Class<GetCredentialsRequest>("GetCredentialsRequest")({dbName: Schema.optional(Schema.String), durationSeconds: Schema.optional(Schema.Number), workgroupName: Schema.optional(Schema.String), customDomainName: Schema.optional(Schema.String)}) {}
+export class GetCustomDomainAssociationRequest extends Schema.Class<GetCustomDomainAssociationRequest>("GetCustomDomainAssociationRequest")({customDomainName: Schema.String, workgroupName: Schema.String}) {}
+export class GetIdentityCenterAuthTokenRequest extends Schema.Class<GetIdentityCenterAuthTokenRequest>("GetIdentityCenterAuthTokenRequest")({workgroupNames: WorkgroupNameList}) {}
+export class GetResourcePolicyRequest extends Schema.Class<GetResourcePolicyRequest>("GetResourcePolicyRequest")({resourceArn: Schema.String}) {}
+export class GetTrackRequest extends Schema.Class<GetTrackRequest>("GetTrackRequest")({trackName: Schema.String}) {}
+export class ListCustomDomainAssociationsRequest extends Schema.Class<ListCustomDomainAssociationsRequest>("ListCustomDomainAssociationsRequest")({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), customDomainName: Schema.optional(Schema.String), customDomainCertificateArn: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({resourceArn: Schema.String}) {}
+export class ListTracksRequest extends Schema.Class<ListTracksRequest>("ListTracksRequest")({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class PutResourcePolicyRequest extends Schema.Class<PutResourcePolicyRequest>("PutResourcePolicyRequest")({resourceArn: Schema.String, policy: Schema.String}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({resourceArn: Schema.String, tagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class UpdateCustomDomainAssociationRequest extends Schema.Class<UpdateCustomDomainAssociationRequest>("UpdateCustomDomainAssociationRequest")({workgroupName: Schema.String, customDomainName: Schema.String, customDomainCertificateArn: Schema.String}) {}
+export class UpdateTarget extends Schema.Class<UpdateTarget>("UpdateTarget")({trackName: Schema.optional(Schema.String), workgroupVersion: Schema.optional(Schema.String)}) {}
 export const UpdateTargetsList = Schema.Array(UpdateTarget);
-export const ServerlessTrack = Schema.Struct({trackName: Schema.optional(Schema.String), workgroupVersion: Schema.optional(Schema.String), updateTargets: Schema.optional(UpdateTargetsList)});
+export class ServerlessTrack extends Schema.Class<ServerlessTrack>("ServerlessTrack")({trackName: Schema.optional(Schema.String), workgroupVersion: Schema.optional(Schema.String), updateTargets: Schema.optional(UpdateTargetsList)}) {}
 export const TrackList = Schema.Array(ServerlessTrack);
-export const Tag = Schema.Struct({key: Schema.String, value: Schema.String});
+export class Tag extends Schema.Class<Tag>("Tag")({key: Schema.String, value: Schema.String}) {}
 export const TagList = Schema.Array(Tag);
-export const CreateCustomDomainAssociationResponse = Schema.Struct({customDomainName: Schema.optional(Schema.String), workgroupName: Schema.optional(Schema.String), customDomainCertificateArn: Schema.optional(Schema.String), customDomainCertificateExpiryTime: Schema.optional(Schema.Date)});
-export const AccessDeniedException = Schema.Struct({code: Schema.optional(Schema.String), message: Schema.optional(Schema.String)});
-export const InternalServerException = Schema.Struct({message: Schema.String});
-export const GetCredentialsResponse = Schema.Struct({dbUser: Schema.optional(Schema.String), dbPassword: Schema.optional(Schema.String), expiration: Schema.optional(Schema.Date), nextRefreshTime: Schema.optional(Schema.Date)});
-export const GetCustomDomainAssociationResponse = Schema.Struct({customDomainName: Schema.optional(Schema.String), workgroupName: Schema.optional(Schema.String), customDomainCertificateArn: Schema.optional(Schema.String), customDomainCertificateExpiryTime: Schema.optional(Schema.Date)});
-export const ListTagsForResourceResponse = Schema.Struct({tags: Schema.optional(TagList)});
-export const ListTracksResponse = Schema.Struct({tracks: Schema.optional(TrackList), nextToken: Schema.optional(Schema.String)});
-export const ResourcePolicy = Schema.Struct({resourceArn: Schema.optional(Schema.String), policy: Schema.optional(Schema.String)});
-export const PutResourcePolicyResponse = Schema.Struct({resourcePolicy: Schema.optional(ResourcePolicy)});
-export const TagResourceRequest = Schema.Struct({resourceArn: Schema.String, tags: TagList});
-export const TagResourceResponse = Schema.Struct({});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.String, resourceName: Schema.optional(Schema.String)});
-export const UpdateCustomDomainAssociationResponse = Schema.Struct({customDomainName: Schema.optional(Schema.String), workgroupName: Schema.optional(Schema.String), customDomainCertificateArn: Schema.optional(Schema.String), customDomainCertificateExpiryTime: Schema.optional(Schema.Date)});
-export const Association = Schema.Struct({customDomainCertificateArn: Schema.optional(Schema.String), customDomainCertificateExpiryTime: Schema.optional(Schema.Date), customDomainName: Schema.optional(Schema.String), workgroupName: Schema.optional(Schema.String)});
+export class CreateCustomDomainAssociationResponse extends Schema.Class<CreateCustomDomainAssociationResponse>("CreateCustomDomainAssociationResponse")({customDomainName: Schema.optional(Schema.String), workgroupName: Schema.optional(Schema.String), customDomainCertificateArn: Schema.optional(Schema.String), customDomainCertificateExpiryTime: Schema.optional(Schema.Date)}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({code: Schema.optional(Schema.String), message: Schema.optional(Schema.String)}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({message: Schema.String}) {}
+export class GetCredentialsResponse extends Schema.Class<GetCredentialsResponse>("GetCredentialsResponse")({dbUser: Schema.optional(Schema.String), dbPassword: Schema.optional(Schema.String), expiration: Schema.optional(Schema.Date), nextRefreshTime: Schema.optional(Schema.Date)}) {}
+export class GetCustomDomainAssociationResponse extends Schema.Class<GetCustomDomainAssociationResponse>("GetCustomDomainAssociationResponse")({customDomainName: Schema.optional(Schema.String), workgroupName: Schema.optional(Schema.String), customDomainCertificateArn: Schema.optional(Schema.String), customDomainCertificateExpiryTime: Schema.optional(Schema.Date)}) {}
+export class GetIdentityCenterAuthTokenResponse extends Schema.Class<GetIdentityCenterAuthTokenResponse>("GetIdentityCenterAuthTokenResponse")({token: Schema.optional(Schema.String), expirationTime: Schema.optional(Schema.Date)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({tags: Schema.optional(TagList)}) {}
+export class ListTracksResponse extends Schema.Class<ListTracksResponse>("ListTracksResponse")({tracks: Schema.optional(TrackList), nextToken: Schema.optional(Schema.String)}) {}
+export class ResourcePolicy extends Schema.Class<ResourcePolicy>("ResourcePolicy")({resourceArn: Schema.optional(Schema.String), policy: Schema.optional(Schema.String)}) {}
+export class PutResourcePolicyResponse extends Schema.Class<PutResourcePolicyResponse>("PutResourcePolicyResponse")({resourcePolicy: Schema.optional(ResourcePolicy)}) {}
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({resourceArn: Schema.String, tags: TagList}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.String, resourceName: Schema.optional(Schema.String)}) {}
+export class UpdateCustomDomainAssociationResponse extends Schema.Class<UpdateCustomDomainAssociationResponse>("UpdateCustomDomainAssociationResponse")({customDomainName: Schema.optional(Schema.String), workgroupName: Schema.optional(Schema.String), customDomainCertificateArn: Schema.optional(Schema.String), customDomainCertificateExpiryTime: Schema.optional(Schema.Date)}) {}
+export class Association extends Schema.Class<Association>("Association")({customDomainCertificateArn: Schema.optional(Schema.String), customDomainCertificateExpiryTime: Schema.optional(Schema.Date), customDomainName: Schema.optional(Schema.String), workgroupName: Schema.optional(Schema.String)}) {}
 export const AssociationList = Schema.Array(Association);
-export const ConflictException = Schema.Struct({message: Schema.String});
-export const ThrottlingException = Schema.Struct({code: Schema.optional(Schema.String), message: Schema.optional(Schema.String)});
-export const ValidationException = Schema.Struct({message: Schema.String});
-export const GetResourcePolicyResponse = Schema.Struct({resourcePolicy: Schema.optional(ResourcePolicy)});
-export const ListCustomDomainAssociationsResponse = Schema.Struct({nextToken: Schema.optional(Schema.String), associations: Schema.optional(AssociationList)});
-export const InvalidPaginationException = Schema.Struct({message: Schema.String});
-export const ServiceQuotaExceededException = Schema.Struct({message: Schema.String});
-export const TooManyTagsException = Schema.Struct({message: Schema.optional(Schema.String), resourceName: Schema.optional(Schema.String)});
-export const GetTrackResponse = Schema.Struct({track: Schema.optional(ServerlessTrack)});
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({message: Schema.String}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({code: Schema.optional(Schema.String), message: Schema.optional(Schema.String)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({message: Schema.String}) {}
+export class DryRunException extends Schema.Class<DryRunException>("DryRunException")({message: Schema.String}) {}
+export class GetResourcePolicyResponse extends Schema.Class<GetResourcePolicyResponse>("GetResourcePolicyResponse")({resourcePolicy: Schema.optional(ResourcePolicy)}) {}
+export class ListCustomDomainAssociationsResponse extends Schema.Class<ListCustomDomainAssociationsResponse>("ListCustomDomainAssociationsResponse")({nextToken: Schema.optional(Schema.String), associations: Schema.optional(AssociationList)}) {}
+export class InvalidPaginationException extends Schema.Class<InvalidPaginationException>("InvalidPaginationException")({message: Schema.String}) {}
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({message: Schema.String}) {}
+export class TooManyTagsException extends Schema.Class<TooManyTagsException>("TooManyTagsException")({message: Schema.optional(Schema.String), resourceName: Schema.optional(Schema.String)}) {}
+export class GetTrackResponse extends Schema.Class<GetTrackResponse>("GetTrackResponse")({track: Schema.optional(ServerlessTrack)}) {}
 
 //# Errors
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class InvalidPaginationExceptionError extends Schema.TaggedError<InvalidPaginationExceptionError>()("InvalidPaginationException", InvalidPaginationException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
-export class TooManyTagsExceptionError extends Schema.TaggedError<TooManyTagsExceptionError>()("TooManyTagsException", TooManyTagsException) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class DryRunExceptionError extends Schema.TaggedError<DryRunExceptionError>()("DryRunException", DryRunException.fields) {};
+export class InvalidPaginationExceptionError extends Schema.TaggedError<InvalidPaginationExceptionError>()("InvalidPaginationException", InvalidPaginationException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
+export class TooManyTagsExceptionError extends Schema.TaggedError<TooManyTagsExceptionError>()("TooManyTagsException", TooManyTagsException.fields) {};
 
 //# Operations
 export const getCredentials = /*#__PURE__*/ makeOperation(() => Operation({ version: "2021-04-21", uri: "/", method: "POST", sdkId: "Redshift Serverless", sigV4ServiceName: "redshift-serverless", name: "RedshiftServerless.GetCredentials" }, GetCredentialsRequest, GetCredentialsResponse, [InternalServerExceptionError, ResourceNotFoundExceptionError, ValidationExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -71,9 +76,10 @@ export const updateCustomDomainAssociation = /*#__PURE__*/ makeOperation(() => O
 export const createCustomDomainAssociation = /*#__PURE__*/ makeOperation(() => Operation({ version: "2021-04-21", uri: "/", method: "POST", sdkId: "Redshift Serverless", sigV4ServiceName: "redshift-serverless", name: "RedshiftServerless.CreateCustomDomainAssociation" }, CreateCustomDomainAssociationRequest, CreateCustomDomainAssociationResponse, [AccessDeniedExceptionError, ConflictExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const deleteCustomDomainAssociation = /*#__PURE__*/ makeOperation(() => Operation({ version: "2021-04-21", uri: "/", method: "POST", sdkId: "Redshift Serverless", sigV4ServiceName: "redshift-serverless", name: "RedshiftServerless.DeleteCustomDomainAssociation" }, DeleteCustomDomainAssociationRequest, DeleteCustomDomainAssociationResponse, [AccessDeniedExceptionError, ConflictExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const deleteResourcePolicy = /*#__PURE__*/ makeOperation(() => Operation({ version: "2021-04-21", uri: "/", method: "POST", sdkId: "Redshift Serverless", sigV4ServiceName: "redshift-serverless", name: "RedshiftServerless.DeleteResourcePolicy" }, DeleteResourcePolicyRequest, DeleteResourcePolicyResponse, [InternalServerExceptionError, ResourceNotFoundExceptionError, ValidationExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const getIdentityCenterAuthToken = /*#__PURE__*/ makeOperation(() => Operation({ version: "2021-04-21", uri: "/", method: "POST", sdkId: "Redshift Serverless", sigV4ServiceName: "redshift-serverless", name: "RedshiftServerless.GetIdentityCenterAuthToken" }, GetIdentityCenterAuthTokenRequest, GetIdentityCenterAuthTokenResponse, [AccessDeniedExceptionError, ConflictExceptionError, DryRunExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const getResourcePolicy = /*#__PURE__*/ makeOperation(() => Operation({ version: "2021-04-21", uri: "/", method: "POST", sdkId: "Redshift Serverless", sigV4ServiceName: "redshift-serverless", name: "RedshiftServerless.GetResourcePolicy" }, GetResourcePolicyRequest, GetResourcePolicyResponse, [InternalServerExceptionError, ResourceNotFoundExceptionError, ValidationExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const listCustomDomainAssociations = /*#__PURE__*/ makeOperation(() => Operation({ version: "2021-04-21", uri: "/", method: "POST", sdkId: "Redshift Serverless", sigV4ServiceName: "redshift-serverless", name: "RedshiftServerless.ListCustomDomainAssociations" }, ListCustomDomainAssociationsRequest, ListCustomDomainAssociationsResponse, [AccessDeniedExceptionError, InternalServerExceptionError, InvalidPaginationExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const listTracks = /*#__PURE__*/ makeOperation(() => Operation({ version: "2021-04-21", uri: "/", method: "POST", sdkId: "Redshift Serverless", sigV4ServiceName: "redshift-serverless", name: "RedshiftServerless.ListTracks" }, ListTracksRequest, ListTracksResponse, [AccessDeniedExceptionError, InternalServerExceptionError, InvalidPaginationExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const putResourcePolicy = /*#__PURE__*/ makeOperation(() => Operation({ version: "2021-04-21", uri: "/", method: "POST", sdkId: "Redshift Serverless", sigV4ServiceName: "redshift-serverless", name: "RedshiftServerless.PutResourcePolicy" }, PutResourcePolicyRequest, PutResourcePolicyResponse, [ConflictExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ServiceQuotaExceededExceptionError, ValidationExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const tagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2021-04-21", uri: "/", method: "POST", sdkId: "Redshift Serverless", sigV4ServiceName: "redshift-serverless", name: "RedshiftServerless.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, TooManyTagsExceptionError, ValidationExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getTrack = /*#__PURE__*/ makeOperation(() => Operation({ version: "2021-04-21", uri: "/", method: "POST", sdkId: "Redshift Serverless", sigV4ServiceName: "redshift-serverless", name: "RedshiftServerless.GetTrack" }, GetTrackRequest, GetTrackResponse, [AccessDeniedExceptionError, ConflictExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const getTrack = /*#__PURE__*/ makeOperation(() => Operation({ version: "2021-04-21", uri: "/", method: "POST", sdkId: "Redshift Serverless", sigV4ServiceName: "redshift-serverless", name: "RedshiftServerless.GetTrack" }, GetTrackRequest, GetTrackResponse, [AccessDeniedExceptionError, ConflictExceptionError, DryRunExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

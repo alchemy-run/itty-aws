@@ -3,48 +3,48 @@ import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperat
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const CreateConfigurationSetRequest = Schema.Struct({ConfigurationSetName: Schema.optional(Schema.String)});
-export const CreateConfigurationSetResponse = Schema.Struct({});
-export const DeleteConfigurationSetRequest = Schema.Struct({ConfigurationSetName: Schema.String});
-export const DeleteConfigurationSetResponse = Schema.Struct({});
-export const DeleteConfigurationSetEventDestinationRequest = Schema.Struct({ConfigurationSetName: Schema.String, EventDestinationName: Schema.String});
-export const DeleteConfigurationSetEventDestinationResponse = Schema.Struct({});
-export const GetConfigurationSetEventDestinationsRequest = Schema.Struct({ConfigurationSetName: Schema.String});
-export const ListConfigurationSetsRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), PageSize: Schema.optional(Schema.String)});
-export const CloudWatchLogsDestination = Schema.Struct({IamRoleArn: Schema.optional(Schema.String), LogGroupArn: Schema.optional(Schema.String)});
-export const KinesisFirehoseDestination = Schema.Struct({DeliveryStreamArn: Schema.optional(Schema.String), IamRoleArn: Schema.optional(Schema.String)});
+export class CreateConfigurationSetRequest extends Schema.Class<CreateConfigurationSetRequest>("CreateConfigurationSetRequest")({ConfigurationSetName: Schema.optional(Schema.String)}) {}
+export class CreateConfigurationSetResponse extends Schema.Class<CreateConfigurationSetResponse>("CreateConfigurationSetResponse")({}) {}
+export class DeleteConfigurationSetRequest extends Schema.Class<DeleteConfigurationSetRequest>("DeleteConfigurationSetRequest")({ConfigurationSetName: Schema.String}) {}
+export class DeleteConfigurationSetResponse extends Schema.Class<DeleteConfigurationSetResponse>("DeleteConfigurationSetResponse")({}) {}
+export class DeleteConfigurationSetEventDestinationRequest extends Schema.Class<DeleteConfigurationSetEventDestinationRequest>("DeleteConfigurationSetEventDestinationRequest")({ConfigurationSetName: Schema.String, EventDestinationName: Schema.String}) {}
+export class DeleteConfigurationSetEventDestinationResponse extends Schema.Class<DeleteConfigurationSetEventDestinationResponse>("DeleteConfigurationSetEventDestinationResponse")({}) {}
+export class GetConfigurationSetEventDestinationsRequest extends Schema.Class<GetConfigurationSetEventDestinationsRequest>("GetConfigurationSetEventDestinationsRequest")({ConfigurationSetName: Schema.String}) {}
+export class ListConfigurationSetsRequest extends Schema.Class<ListConfigurationSetsRequest>("ListConfigurationSetsRequest")({NextToken: Schema.optional(Schema.String), PageSize: Schema.optional(Schema.String)}) {}
+export class CloudWatchLogsDestination extends Schema.Class<CloudWatchLogsDestination>("CloudWatchLogsDestination")({IamRoleArn: Schema.optional(Schema.String), LogGroupArn: Schema.optional(Schema.String)}) {}
+export class KinesisFirehoseDestination extends Schema.Class<KinesisFirehoseDestination>("KinesisFirehoseDestination")({DeliveryStreamArn: Schema.optional(Schema.String), IamRoleArn: Schema.optional(Schema.String)}) {}
 export const EventTypes = Schema.Array(Schema.String);
-export const SnsDestination = Schema.Struct({TopicArn: Schema.optional(Schema.String)});
-export const EventDestinationDefinition = Schema.Struct({CloudWatchLogsDestination: Schema.optional(CloudWatchLogsDestination), Enabled: Schema.optional(Schema.Boolean), KinesisFirehoseDestination: Schema.optional(KinesisFirehoseDestination), MatchingEventTypes: Schema.optional(EventTypes), SnsDestination: Schema.optional(SnsDestination)});
-export const UpdateConfigurationSetEventDestinationRequest = Schema.Struct({ConfigurationSetName: Schema.String, EventDestination: Schema.optional(EventDestinationDefinition), EventDestinationName: Schema.String});
-export const UpdateConfigurationSetEventDestinationResponse = Schema.Struct({});
+export class SnsDestination extends Schema.Class<SnsDestination>("SnsDestination")({TopicArn: Schema.optional(Schema.String)}) {}
+export class EventDestinationDefinition extends Schema.Class<EventDestinationDefinition>("EventDestinationDefinition")({CloudWatchLogsDestination: Schema.optional(CloudWatchLogsDestination), Enabled: Schema.optional(Schema.Boolean), KinesisFirehoseDestination: Schema.optional(KinesisFirehoseDestination), MatchingEventTypes: Schema.optional(EventTypes), SnsDestination: Schema.optional(SnsDestination)}) {}
+export class UpdateConfigurationSetEventDestinationRequest extends Schema.Class<UpdateConfigurationSetEventDestinationRequest>("UpdateConfigurationSetEventDestinationRequest")({ConfigurationSetName: Schema.String, EventDestination: Schema.optional(EventDestinationDefinition), EventDestinationName: Schema.String}) {}
+export class UpdateConfigurationSetEventDestinationResponse extends Schema.Class<UpdateConfigurationSetEventDestinationResponse>("UpdateConfigurationSetEventDestinationResponse")({}) {}
 export const ConfigurationSets = Schema.Array(Schema.String);
-export const AlreadyExistsException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const BadRequestException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const InternalServiceErrorException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ListConfigurationSetsResponse = Schema.Struct({ConfigurationSets: Schema.optional(ConfigurationSets), NextToken: Schema.optional(Schema.String)});
-export const NotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const CallInstructionsMessageType = Schema.Struct({Text: Schema.optional(Schema.String)});
-export const PlainTextMessageType = Schema.Struct({LanguageCode: Schema.optional(Schema.String), Text: Schema.optional(Schema.String), VoiceId: Schema.optional(Schema.String)});
-export const SSMLMessageType = Schema.Struct({LanguageCode: Schema.optional(Schema.String), Text: Schema.optional(Schema.String), VoiceId: Schema.optional(Schema.String)});
-export const EventDestination = Schema.Struct({CloudWatchLogsDestination: Schema.optional(CloudWatchLogsDestination), Enabled: Schema.optional(Schema.Boolean), KinesisFirehoseDestination: Schema.optional(KinesisFirehoseDestination), MatchingEventTypes: Schema.optional(EventTypes), Name: Schema.optional(Schema.String), SnsDestination: Schema.optional(SnsDestination)});
+export class AlreadyExistsException extends Schema.Class<AlreadyExistsException>("AlreadyExistsException")({Message: Schema.optional(Schema.String)}) {}
+export class BadRequestException extends Schema.Class<BadRequestException>("BadRequestException")({Message: Schema.optional(Schema.String)}) {}
+export class InternalServiceErrorException extends Schema.Class<InternalServiceErrorException>("InternalServiceErrorException")({Message: Schema.optional(Schema.String)}) {}
+export class ListConfigurationSetsResponse extends Schema.Class<ListConfigurationSetsResponse>("ListConfigurationSetsResponse")({ConfigurationSets: Schema.optional(ConfigurationSets), NextToken: Schema.optional(Schema.String)}) {}
+export class NotFoundException extends Schema.Class<NotFoundException>("NotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class CallInstructionsMessageType extends Schema.Class<CallInstructionsMessageType>("CallInstructionsMessageType")({Text: Schema.optional(Schema.String)}) {}
+export class PlainTextMessageType extends Schema.Class<PlainTextMessageType>("PlainTextMessageType")({LanguageCode: Schema.optional(Schema.String), Text: Schema.optional(Schema.String), VoiceId: Schema.optional(Schema.String)}) {}
+export class SSMLMessageType extends Schema.Class<SSMLMessageType>("SSMLMessageType")({LanguageCode: Schema.optional(Schema.String), Text: Schema.optional(Schema.String), VoiceId: Schema.optional(Schema.String)}) {}
+export class EventDestination extends Schema.Class<EventDestination>("EventDestination")({CloudWatchLogsDestination: Schema.optional(CloudWatchLogsDestination), Enabled: Schema.optional(Schema.Boolean), KinesisFirehoseDestination: Schema.optional(KinesisFirehoseDestination), MatchingEventTypes: Schema.optional(EventTypes), Name: Schema.optional(Schema.String), SnsDestination: Schema.optional(SnsDestination)}) {}
 export const EventDestinations = Schema.Array(EventDestination);
-export const VoiceMessageContent = Schema.Struct({CallInstructionsMessage: Schema.optional(CallInstructionsMessageType), PlainTextMessage: Schema.optional(PlainTextMessageType), SSMLMessage: Schema.optional(SSMLMessageType)});
-export const LimitExceededException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const CreateConfigurationSetEventDestinationRequest = Schema.Struct({ConfigurationSetName: Schema.String, EventDestination: Schema.optional(EventDestinationDefinition), EventDestinationName: Schema.optional(Schema.String)});
-export const CreateConfigurationSetEventDestinationResponse = Schema.Struct({});
-export const TooManyRequestsException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const GetConfigurationSetEventDestinationsResponse = Schema.Struct({EventDestinations: Schema.optional(EventDestinations)});
-export const SendVoiceMessageRequest = Schema.Struct({CallerId: Schema.optional(Schema.String), ConfigurationSetName: Schema.optional(Schema.String), Content: Schema.optional(VoiceMessageContent), DestinationPhoneNumber: Schema.optional(Schema.String), OriginationPhoneNumber: Schema.optional(Schema.String)});
-export const SendVoiceMessageResponse = Schema.Struct({MessageId: Schema.optional(Schema.String)});
+export class VoiceMessageContent extends Schema.Class<VoiceMessageContent>("VoiceMessageContent")({CallInstructionsMessage: Schema.optional(CallInstructionsMessageType), PlainTextMessage: Schema.optional(PlainTextMessageType), SSMLMessage: Schema.optional(SSMLMessageType)}) {}
+export class LimitExceededException extends Schema.Class<LimitExceededException>("LimitExceededException")({Message: Schema.optional(Schema.String)}) {}
+export class CreateConfigurationSetEventDestinationRequest extends Schema.Class<CreateConfigurationSetEventDestinationRequest>("CreateConfigurationSetEventDestinationRequest")({ConfigurationSetName: Schema.String, EventDestination: Schema.optional(EventDestinationDefinition), EventDestinationName: Schema.optional(Schema.String)}) {}
+export class CreateConfigurationSetEventDestinationResponse extends Schema.Class<CreateConfigurationSetEventDestinationResponse>("CreateConfigurationSetEventDestinationResponse")({}) {}
+export class TooManyRequestsException extends Schema.Class<TooManyRequestsException>("TooManyRequestsException")({Message: Schema.optional(Schema.String)}) {}
+export class GetConfigurationSetEventDestinationsResponse extends Schema.Class<GetConfigurationSetEventDestinationsResponse>("GetConfigurationSetEventDestinationsResponse")({EventDestinations: Schema.optional(EventDestinations)}) {}
+export class SendVoiceMessageRequest extends Schema.Class<SendVoiceMessageRequest>("SendVoiceMessageRequest")({CallerId: Schema.optional(Schema.String), ConfigurationSetName: Schema.optional(Schema.String), Content: Schema.optional(VoiceMessageContent), DestinationPhoneNumber: Schema.optional(Schema.String), OriginationPhoneNumber: Schema.optional(Schema.String)}) {}
+export class SendVoiceMessageResponse extends Schema.Class<SendVoiceMessageResponse>("SendVoiceMessageResponse")({MessageId: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class BadRequestExceptionError extends Schema.TaggedError<BadRequestExceptionError>()("BadRequestException", BadRequestException) {};
-export class InternalServiceErrorExceptionError extends Schema.TaggedError<InternalServiceErrorExceptionError>()("InternalServiceErrorException", InternalServiceErrorException) {};
-export class AlreadyExistsExceptionError extends Schema.TaggedError<AlreadyExistsExceptionError>()("AlreadyExistsException", AlreadyExistsException) {};
-export class NotFoundExceptionError extends Schema.TaggedError<NotFoundExceptionError>()("NotFoundException", NotFoundException) {};
-export class TooManyRequestsExceptionError extends Schema.TaggedError<TooManyRequestsExceptionError>()("TooManyRequestsException", TooManyRequestsException) {};
-export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException) {};
+export class BadRequestExceptionError extends Schema.TaggedError<BadRequestExceptionError>()("BadRequestException", BadRequestException.fields) {};
+export class InternalServiceErrorExceptionError extends Schema.TaggedError<InternalServiceErrorExceptionError>()("InternalServiceErrorException", InternalServiceErrorException.fields) {};
+export class AlreadyExistsExceptionError extends Schema.TaggedError<AlreadyExistsExceptionError>()("AlreadyExistsException", AlreadyExistsException.fields) {};
+export class NotFoundExceptionError extends Schema.TaggedError<NotFoundExceptionError>()("NotFoundException", NotFoundException.fields) {};
+export class TooManyRequestsExceptionError extends Schema.TaggedError<TooManyRequestsExceptionError>()("TooManyRequestsException", TooManyRequestsException.fields) {};
+export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException.fields) {};
 
 //# Operations
 export const deleteConfigurationSetEventDestination = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-09-05", uri: "/v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations/{EventDestinationName}", method: "DELETE", sdkId: "Pinpoint SMS Voice", sigV4ServiceName: "sms-voice", name: "PinpointSMSVoice.DeleteConfigurationSetEventDestination" }, DeleteConfigurationSetEventDestinationRequest, DeleteConfigurationSetEventDestinationResponse, [BadRequestExceptionError, InternalServiceErrorExceptionError, NotFoundExceptionError, TooManyRequestsExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

@@ -13,279 +13,279 @@ export const SessionBorderControllerTypeList = Schema.Array(Schema.String);
 export const ContactCenterSystemTypeList = Schema.Array(Schema.String);
 export const CountryList = Schema.Array(Schema.String);
 export const TagKeyList = Schema.Array(Schema.String);
-export const AssociatePhoneNumbersWithVoiceConnectorRequest = Schema.Struct({VoiceConnectorId: Schema.String, E164PhoneNumbers: E164PhoneNumberList, ForceAssociate: Schema.optional(Schema.Boolean)});
-export const AssociatePhoneNumbersWithVoiceConnectorGroupRequest = Schema.Struct({VoiceConnectorGroupId: Schema.String, E164PhoneNumbers: E164PhoneNumberList, ForceAssociate: Schema.optional(Schema.Boolean)});
-export const BatchDeletePhoneNumberRequest = Schema.Struct({PhoneNumberIds: NonEmptyStringList});
-export const CreatePhoneNumberOrderRequest = Schema.Struct({ProductType: Schema.String, E164PhoneNumbers: E164PhoneNumberList, Name: Schema.optional(Schema.String)});
-export const Tag = Schema.Struct({Key: Schema.String, Value: Schema.String});
+export class AssociatePhoneNumbersWithVoiceConnectorRequest extends Schema.Class<AssociatePhoneNumbersWithVoiceConnectorRequest>("AssociatePhoneNumbersWithVoiceConnectorRequest")({VoiceConnectorId: Schema.String, E164PhoneNumbers: E164PhoneNumberList, ForceAssociate: Schema.optional(Schema.Boolean)}) {}
+export class AssociatePhoneNumbersWithVoiceConnectorGroupRequest extends Schema.Class<AssociatePhoneNumbersWithVoiceConnectorGroupRequest>("AssociatePhoneNumbersWithVoiceConnectorGroupRequest")({VoiceConnectorGroupId: Schema.String, E164PhoneNumbers: E164PhoneNumberList, ForceAssociate: Schema.optional(Schema.Boolean)}) {}
+export class BatchDeletePhoneNumberRequest extends Schema.Class<BatchDeletePhoneNumberRequest>("BatchDeletePhoneNumberRequest")({PhoneNumberIds: NonEmptyStringList}) {}
+export class CreatePhoneNumberOrderRequest extends Schema.Class<CreatePhoneNumberOrderRequest>("CreatePhoneNumberOrderRequest")({ProductType: Schema.String, E164PhoneNumbers: E164PhoneNumberList, Name: Schema.optional(Schema.String)}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.String, Value: Schema.String}) {}
 export const TagList = Schema.Array(Tag);
-export const CreateVoiceConnectorRequest = Schema.Struct({Name: Schema.String, AwsRegion: Schema.optional(Schema.String), RequireEncryption: Schema.Boolean, Tags: Schema.optional(TagList), IntegrationType: Schema.optional(Schema.String), NetworkType: Schema.optional(Schema.String)});
-export const CreateVoiceProfileRequest = Schema.Struct({SpeakerSearchTaskId: Schema.String});
-export const DeletePhoneNumberRequest = Schema.Struct({PhoneNumberId: Schema.String});
-export const DeleteProxySessionRequest = Schema.Struct({VoiceConnectorId: Schema.String, ProxySessionId: Schema.String});
-export const DeleteSipMediaApplicationRequest = Schema.Struct({SipMediaApplicationId: Schema.String});
-export const DeleteSipRuleRequest = Schema.Struct({SipRuleId: Schema.String});
-export const DeleteVoiceConnectorRequest = Schema.Struct({VoiceConnectorId: Schema.String});
-export const DeleteVoiceConnectorEmergencyCallingConfigurationRequest = Schema.Struct({VoiceConnectorId: Schema.String});
-export const DeleteVoiceConnectorExternalSystemsConfigurationRequest = Schema.Struct({VoiceConnectorId: Schema.String});
-export const DeleteVoiceConnectorGroupRequest = Schema.Struct({VoiceConnectorGroupId: Schema.String});
-export const DeleteVoiceConnectorOriginationRequest = Schema.Struct({VoiceConnectorId: Schema.String});
-export const DeleteVoiceConnectorProxyRequest = Schema.Struct({VoiceConnectorId: Schema.String});
-export const DeleteVoiceConnectorStreamingConfigurationRequest = Schema.Struct({VoiceConnectorId: Schema.String});
-export const DeleteVoiceConnectorTerminationRequest = Schema.Struct({VoiceConnectorId: Schema.String});
-export const DeleteVoiceConnectorTerminationCredentialsRequest = Schema.Struct({VoiceConnectorId: Schema.String, Usernames: SensitiveStringList});
-export const DeleteVoiceProfileRequest = Schema.Struct({VoiceProfileId: Schema.String});
-export const DeleteVoiceProfileDomainRequest = Schema.Struct({VoiceProfileDomainId: Schema.String});
-export const DisassociatePhoneNumbersFromVoiceConnectorRequest = Schema.Struct({VoiceConnectorId: Schema.String, E164PhoneNumbers: E164PhoneNumberList});
-export const DisassociatePhoneNumbersFromVoiceConnectorGroupRequest = Schema.Struct({VoiceConnectorGroupId: Schema.String, E164PhoneNumbers: E164PhoneNumberList});
-export const GetPhoneNumberRequest = Schema.Struct({PhoneNumberId: Schema.String});
-export const GetPhoneNumberOrderRequest = Schema.Struct({PhoneNumberOrderId: Schema.String});
-export const GetPhoneNumberSettingsResponse = Schema.Struct({CallingName: Schema.optional(Schema.String), CallingNameUpdatedTimestamp: Schema.optional(Schema.Date)});
-export const GetProxySessionRequest = Schema.Struct({VoiceConnectorId: Schema.String, ProxySessionId: Schema.String});
-export const GetSipMediaApplicationRequest = Schema.Struct({SipMediaApplicationId: Schema.String});
-export const GetSipMediaApplicationAlexaSkillConfigurationRequest = Schema.Struct({SipMediaApplicationId: Schema.String});
-export const GetSipMediaApplicationLoggingConfigurationRequest = Schema.Struct({SipMediaApplicationId: Schema.String});
-export const GetSipRuleRequest = Schema.Struct({SipRuleId: Schema.String});
-export const GetSpeakerSearchTaskRequest = Schema.Struct({VoiceConnectorId: Schema.String, SpeakerSearchTaskId: Schema.String});
-export const GetVoiceConnectorRequest = Schema.Struct({VoiceConnectorId: Schema.String});
-export const GetVoiceConnectorEmergencyCallingConfigurationRequest = Schema.Struct({VoiceConnectorId: Schema.String});
-export const GetVoiceConnectorExternalSystemsConfigurationRequest = Schema.Struct({VoiceConnectorId: Schema.String});
-export const GetVoiceConnectorGroupRequest = Schema.Struct({VoiceConnectorGroupId: Schema.String});
-export const GetVoiceConnectorLoggingConfigurationRequest = Schema.Struct({VoiceConnectorId: Schema.String});
-export const GetVoiceConnectorOriginationRequest = Schema.Struct({VoiceConnectorId: Schema.String});
-export const GetVoiceConnectorProxyRequest = Schema.Struct({VoiceConnectorId: Schema.String});
-export const GetVoiceConnectorStreamingConfigurationRequest = Schema.Struct({VoiceConnectorId: Schema.String});
-export const GetVoiceConnectorTerminationRequest = Schema.Struct({VoiceConnectorId: Schema.String});
-export const GetVoiceConnectorTerminationHealthRequest = Schema.Struct({VoiceConnectorId: Schema.String});
-export const GetVoiceProfileRequest = Schema.Struct({VoiceProfileId: Schema.String});
-export const GetVoiceProfileDomainRequest = Schema.Struct({VoiceProfileDomainId: Schema.String});
-export const GetVoiceToneAnalysisTaskRequest = Schema.Struct({VoiceConnectorId: Schema.String, VoiceToneAnalysisTaskId: Schema.String, IsCaller: Schema.Boolean});
-export const ListAvailableVoiceConnectorRegionsResponse = Schema.Struct({VoiceConnectorRegions: Schema.optional(VoiceConnectorAwsRegionList)});
-export const ListPhoneNumberOrdersRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListPhoneNumbersRequest = Schema.Struct({Status: Schema.optional(Schema.String), ProductType: Schema.optional(Schema.String), FilterName: Schema.optional(Schema.String), FilterValue: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListProxySessionsRequest = Schema.Struct({VoiceConnectorId: Schema.String, Status: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListSipMediaApplicationsRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListSipRulesRequest = Schema.Struct({SipMediaApplicationId: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListSupportedPhoneNumberCountriesRequest = Schema.Struct({ProductType: Schema.String});
-export const ListTagsForResourceRequest = Schema.Struct({ResourceARN: Schema.String});
-export const ListVoiceConnectorGroupsRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListVoiceConnectorsRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListVoiceConnectorTerminationCredentialsRequest = Schema.Struct({VoiceConnectorId: Schema.String});
-export const ListVoiceProfileDomainsRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListVoiceProfilesRequest = Schema.Struct({VoiceProfileDomainId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const PutVoiceConnectorExternalSystemsConfigurationRequest = Schema.Struct({VoiceConnectorId: Schema.String, SessionBorderControllerTypes: Schema.optional(SessionBorderControllerTypeList), ContactCenterSystemTypes: Schema.optional(ContactCenterSystemTypeList)});
-export const PutVoiceConnectorProxyRequest = Schema.Struct({VoiceConnectorId: Schema.String, DefaultSessionExpiryMinutes: Schema.Number, PhoneNumberPoolCountries: CountryList, FallBackPhoneNumber: Schema.optional(Schema.String), Disabled: Schema.optional(Schema.Boolean)});
-export const RestorePhoneNumberRequest = Schema.Struct({PhoneNumberId: Schema.String});
-export const SearchAvailablePhoneNumbersRequest = Schema.Struct({AreaCode: Schema.optional(Schema.String), City: Schema.optional(Schema.String), Country: Schema.optional(Schema.String), State: Schema.optional(Schema.String), TollFreePrefix: Schema.optional(Schema.String), PhoneNumberType: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const StartSpeakerSearchTaskRequest = Schema.Struct({VoiceConnectorId: Schema.String, TransactionId: Schema.String, VoiceProfileDomainId: Schema.String, ClientRequestToken: Schema.optional(Schema.String), CallLeg: Schema.optional(Schema.String)});
-export const StartVoiceToneAnalysisTaskRequest = Schema.Struct({VoiceConnectorId: Schema.String, TransactionId: Schema.String, LanguageCode: Schema.String, ClientRequestToken: Schema.optional(Schema.String)});
-export const StopSpeakerSearchTaskRequest = Schema.Struct({VoiceConnectorId: Schema.String, SpeakerSearchTaskId: Schema.String});
-export const StopVoiceToneAnalysisTaskRequest = Schema.Struct({VoiceConnectorId: Schema.String, VoiceToneAnalysisTaskId: Schema.String});
-export const TagResourceRequest = Schema.Struct({ResourceARN: Schema.String, Tags: TagList});
-export const UntagResourceRequest = Schema.Struct({ResourceARN: Schema.String, TagKeys: TagKeyList});
-export const VoiceConnectorSettings = Schema.Struct({CdrBucket: Schema.optional(Schema.String)});
-export const UpdateGlobalSettingsRequest = Schema.Struct({VoiceConnector: Schema.optional(VoiceConnectorSettings)});
-export const UpdatePhoneNumberRequest = Schema.Struct({PhoneNumberId: Schema.String, ProductType: Schema.optional(Schema.String), CallingName: Schema.optional(Schema.String), Name: Schema.optional(Schema.String)});
-export const UpdatePhoneNumberSettingsRequest = Schema.Struct({CallingName: Schema.String});
-export const UpdateProxySessionRequest = Schema.Struct({VoiceConnectorId: Schema.String, ProxySessionId: Schema.String, Capabilities: CapabilityList, ExpiryMinutes: Schema.optional(Schema.Number)});
-export const SipMediaApplicationEndpoint = Schema.Struct({LambdaArn: Schema.optional(Schema.String)});
+export class CreateVoiceConnectorRequest extends Schema.Class<CreateVoiceConnectorRequest>("CreateVoiceConnectorRequest")({Name: Schema.String, AwsRegion: Schema.optional(Schema.String), RequireEncryption: Schema.Boolean, Tags: Schema.optional(TagList), IntegrationType: Schema.optional(Schema.String), NetworkType: Schema.optional(Schema.String)}) {}
+export class CreateVoiceProfileRequest extends Schema.Class<CreateVoiceProfileRequest>("CreateVoiceProfileRequest")({SpeakerSearchTaskId: Schema.String}) {}
+export class DeletePhoneNumberRequest extends Schema.Class<DeletePhoneNumberRequest>("DeletePhoneNumberRequest")({PhoneNumberId: Schema.String}) {}
+export class DeleteProxySessionRequest extends Schema.Class<DeleteProxySessionRequest>("DeleteProxySessionRequest")({VoiceConnectorId: Schema.String, ProxySessionId: Schema.String}) {}
+export class DeleteSipMediaApplicationRequest extends Schema.Class<DeleteSipMediaApplicationRequest>("DeleteSipMediaApplicationRequest")({SipMediaApplicationId: Schema.String}) {}
+export class DeleteSipRuleRequest extends Schema.Class<DeleteSipRuleRequest>("DeleteSipRuleRequest")({SipRuleId: Schema.String}) {}
+export class DeleteVoiceConnectorRequest extends Schema.Class<DeleteVoiceConnectorRequest>("DeleteVoiceConnectorRequest")({VoiceConnectorId: Schema.String}) {}
+export class DeleteVoiceConnectorEmergencyCallingConfigurationRequest extends Schema.Class<DeleteVoiceConnectorEmergencyCallingConfigurationRequest>("DeleteVoiceConnectorEmergencyCallingConfigurationRequest")({VoiceConnectorId: Schema.String}) {}
+export class DeleteVoiceConnectorExternalSystemsConfigurationRequest extends Schema.Class<DeleteVoiceConnectorExternalSystemsConfigurationRequest>("DeleteVoiceConnectorExternalSystemsConfigurationRequest")({VoiceConnectorId: Schema.String}) {}
+export class DeleteVoiceConnectorGroupRequest extends Schema.Class<DeleteVoiceConnectorGroupRequest>("DeleteVoiceConnectorGroupRequest")({VoiceConnectorGroupId: Schema.String}) {}
+export class DeleteVoiceConnectorOriginationRequest extends Schema.Class<DeleteVoiceConnectorOriginationRequest>("DeleteVoiceConnectorOriginationRequest")({VoiceConnectorId: Schema.String}) {}
+export class DeleteVoiceConnectorProxyRequest extends Schema.Class<DeleteVoiceConnectorProxyRequest>("DeleteVoiceConnectorProxyRequest")({VoiceConnectorId: Schema.String}) {}
+export class DeleteVoiceConnectorStreamingConfigurationRequest extends Schema.Class<DeleteVoiceConnectorStreamingConfigurationRequest>("DeleteVoiceConnectorStreamingConfigurationRequest")({VoiceConnectorId: Schema.String}) {}
+export class DeleteVoiceConnectorTerminationRequest extends Schema.Class<DeleteVoiceConnectorTerminationRequest>("DeleteVoiceConnectorTerminationRequest")({VoiceConnectorId: Schema.String}) {}
+export class DeleteVoiceConnectorTerminationCredentialsRequest extends Schema.Class<DeleteVoiceConnectorTerminationCredentialsRequest>("DeleteVoiceConnectorTerminationCredentialsRequest")({VoiceConnectorId: Schema.String, Usernames: SensitiveStringList}) {}
+export class DeleteVoiceProfileRequest extends Schema.Class<DeleteVoiceProfileRequest>("DeleteVoiceProfileRequest")({VoiceProfileId: Schema.String}) {}
+export class DeleteVoiceProfileDomainRequest extends Schema.Class<DeleteVoiceProfileDomainRequest>("DeleteVoiceProfileDomainRequest")({VoiceProfileDomainId: Schema.String}) {}
+export class DisassociatePhoneNumbersFromVoiceConnectorRequest extends Schema.Class<DisassociatePhoneNumbersFromVoiceConnectorRequest>("DisassociatePhoneNumbersFromVoiceConnectorRequest")({VoiceConnectorId: Schema.String, E164PhoneNumbers: E164PhoneNumberList}) {}
+export class DisassociatePhoneNumbersFromVoiceConnectorGroupRequest extends Schema.Class<DisassociatePhoneNumbersFromVoiceConnectorGroupRequest>("DisassociatePhoneNumbersFromVoiceConnectorGroupRequest")({VoiceConnectorGroupId: Schema.String, E164PhoneNumbers: E164PhoneNumberList}) {}
+export class GetPhoneNumberRequest extends Schema.Class<GetPhoneNumberRequest>("GetPhoneNumberRequest")({PhoneNumberId: Schema.String}) {}
+export class GetPhoneNumberOrderRequest extends Schema.Class<GetPhoneNumberOrderRequest>("GetPhoneNumberOrderRequest")({PhoneNumberOrderId: Schema.String}) {}
+export class GetPhoneNumberSettingsResponse extends Schema.Class<GetPhoneNumberSettingsResponse>("GetPhoneNumberSettingsResponse")({CallingName: Schema.optional(Schema.String), CallingNameUpdatedTimestamp: Schema.optional(Schema.Date)}) {}
+export class GetProxySessionRequest extends Schema.Class<GetProxySessionRequest>("GetProxySessionRequest")({VoiceConnectorId: Schema.String, ProxySessionId: Schema.String}) {}
+export class GetSipMediaApplicationRequest extends Schema.Class<GetSipMediaApplicationRequest>("GetSipMediaApplicationRequest")({SipMediaApplicationId: Schema.String}) {}
+export class GetSipMediaApplicationAlexaSkillConfigurationRequest extends Schema.Class<GetSipMediaApplicationAlexaSkillConfigurationRequest>("GetSipMediaApplicationAlexaSkillConfigurationRequest")({SipMediaApplicationId: Schema.String}) {}
+export class GetSipMediaApplicationLoggingConfigurationRequest extends Schema.Class<GetSipMediaApplicationLoggingConfigurationRequest>("GetSipMediaApplicationLoggingConfigurationRequest")({SipMediaApplicationId: Schema.String}) {}
+export class GetSipRuleRequest extends Schema.Class<GetSipRuleRequest>("GetSipRuleRequest")({SipRuleId: Schema.String}) {}
+export class GetSpeakerSearchTaskRequest extends Schema.Class<GetSpeakerSearchTaskRequest>("GetSpeakerSearchTaskRequest")({VoiceConnectorId: Schema.String, SpeakerSearchTaskId: Schema.String}) {}
+export class GetVoiceConnectorRequest extends Schema.Class<GetVoiceConnectorRequest>("GetVoiceConnectorRequest")({VoiceConnectorId: Schema.String}) {}
+export class GetVoiceConnectorEmergencyCallingConfigurationRequest extends Schema.Class<GetVoiceConnectorEmergencyCallingConfigurationRequest>("GetVoiceConnectorEmergencyCallingConfigurationRequest")({VoiceConnectorId: Schema.String}) {}
+export class GetVoiceConnectorExternalSystemsConfigurationRequest extends Schema.Class<GetVoiceConnectorExternalSystemsConfigurationRequest>("GetVoiceConnectorExternalSystemsConfigurationRequest")({VoiceConnectorId: Schema.String}) {}
+export class GetVoiceConnectorGroupRequest extends Schema.Class<GetVoiceConnectorGroupRequest>("GetVoiceConnectorGroupRequest")({VoiceConnectorGroupId: Schema.String}) {}
+export class GetVoiceConnectorLoggingConfigurationRequest extends Schema.Class<GetVoiceConnectorLoggingConfigurationRequest>("GetVoiceConnectorLoggingConfigurationRequest")({VoiceConnectorId: Schema.String}) {}
+export class GetVoiceConnectorOriginationRequest extends Schema.Class<GetVoiceConnectorOriginationRequest>("GetVoiceConnectorOriginationRequest")({VoiceConnectorId: Schema.String}) {}
+export class GetVoiceConnectorProxyRequest extends Schema.Class<GetVoiceConnectorProxyRequest>("GetVoiceConnectorProxyRequest")({VoiceConnectorId: Schema.String}) {}
+export class GetVoiceConnectorStreamingConfigurationRequest extends Schema.Class<GetVoiceConnectorStreamingConfigurationRequest>("GetVoiceConnectorStreamingConfigurationRequest")({VoiceConnectorId: Schema.String}) {}
+export class GetVoiceConnectorTerminationRequest extends Schema.Class<GetVoiceConnectorTerminationRequest>("GetVoiceConnectorTerminationRequest")({VoiceConnectorId: Schema.String}) {}
+export class GetVoiceConnectorTerminationHealthRequest extends Schema.Class<GetVoiceConnectorTerminationHealthRequest>("GetVoiceConnectorTerminationHealthRequest")({VoiceConnectorId: Schema.String}) {}
+export class GetVoiceProfileRequest extends Schema.Class<GetVoiceProfileRequest>("GetVoiceProfileRequest")({VoiceProfileId: Schema.String}) {}
+export class GetVoiceProfileDomainRequest extends Schema.Class<GetVoiceProfileDomainRequest>("GetVoiceProfileDomainRequest")({VoiceProfileDomainId: Schema.String}) {}
+export class GetVoiceToneAnalysisTaskRequest extends Schema.Class<GetVoiceToneAnalysisTaskRequest>("GetVoiceToneAnalysisTaskRequest")({VoiceConnectorId: Schema.String, VoiceToneAnalysisTaskId: Schema.String, IsCaller: Schema.Boolean}) {}
+export class ListAvailableVoiceConnectorRegionsResponse extends Schema.Class<ListAvailableVoiceConnectorRegionsResponse>("ListAvailableVoiceConnectorRegionsResponse")({VoiceConnectorRegions: Schema.optional(VoiceConnectorAwsRegionList)}) {}
+export class ListPhoneNumberOrdersRequest extends Schema.Class<ListPhoneNumberOrdersRequest>("ListPhoneNumberOrdersRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListPhoneNumbersRequest extends Schema.Class<ListPhoneNumbersRequest>("ListPhoneNumbersRequest")({Status: Schema.optional(Schema.String), ProductType: Schema.optional(Schema.String), FilterName: Schema.optional(Schema.String), FilterValue: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListProxySessionsRequest extends Schema.Class<ListProxySessionsRequest>("ListProxySessionsRequest")({VoiceConnectorId: Schema.String, Status: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListSipMediaApplicationsRequest extends Schema.Class<ListSipMediaApplicationsRequest>("ListSipMediaApplicationsRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListSipRulesRequest extends Schema.Class<ListSipRulesRequest>("ListSipRulesRequest")({SipMediaApplicationId: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListSupportedPhoneNumberCountriesRequest extends Schema.Class<ListSupportedPhoneNumberCountriesRequest>("ListSupportedPhoneNumberCountriesRequest")({ProductType: Schema.String}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({ResourceARN: Schema.String}) {}
+export class ListVoiceConnectorGroupsRequest extends Schema.Class<ListVoiceConnectorGroupsRequest>("ListVoiceConnectorGroupsRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListVoiceConnectorsRequest extends Schema.Class<ListVoiceConnectorsRequest>("ListVoiceConnectorsRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListVoiceConnectorTerminationCredentialsRequest extends Schema.Class<ListVoiceConnectorTerminationCredentialsRequest>("ListVoiceConnectorTerminationCredentialsRequest")({VoiceConnectorId: Schema.String}) {}
+export class ListVoiceProfileDomainsRequest extends Schema.Class<ListVoiceProfileDomainsRequest>("ListVoiceProfileDomainsRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListVoiceProfilesRequest extends Schema.Class<ListVoiceProfilesRequest>("ListVoiceProfilesRequest")({VoiceProfileDomainId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class PutVoiceConnectorExternalSystemsConfigurationRequest extends Schema.Class<PutVoiceConnectorExternalSystemsConfigurationRequest>("PutVoiceConnectorExternalSystemsConfigurationRequest")({VoiceConnectorId: Schema.String, SessionBorderControllerTypes: Schema.optional(SessionBorderControllerTypeList), ContactCenterSystemTypes: Schema.optional(ContactCenterSystemTypeList)}) {}
+export class PutVoiceConnectorProxyRequest extends Schema.Class<PutVoiceConnectorProxyRequest>("PutVoiceConnectorProxyRequest")({VoiceConnectorId: Schema.String, DefaultSessionExpiryMinutes: Schema.Number, PhoneNumberPoolCountries: CountryList, FallBackPhoneNumber: Schema.optional(Schema.String), Disabled: Schema.optional(Schema.Boolean)}) {}
+export class RestorePhoneNumberRequest extends Schema.Class<RestorePhoneNumberRequest>("RestorePhoneNumberRequest")({PhoneNumberId: Schema.String}) {}
+export class SearchAvailablePhoneNumbersRequest extends Schema.Class<SearchAvailablePhoneNumbersRequest>("SearchAvailablePhoneNumbersRequest")({AreaCode: Schema.optional(Schema.String), City: Schema.optional(Schema.String), Country: Schema.optional(Schema.String), State: Schema.optional(Schema.String), TollFreePrefix: Schema.optional(Schema.String), PhoneNumberType: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class StartSpeakerSearchTaskRequest extends Schema.Class<StartSpeakerSearchTaskRequest>("StartSpeakerSearchTaskRequest")({VoiceConnectorId: Schema.String, TransactionId: Schema.String, VoiceProfileDomainId: Schema.String, ClientRequestToken: Schema.optional(Schema.String), CallLeg: Schema.optional(Schema.String)}) {}
+export class StartVoiceToneAnalysisTaskRequest extends Schema.Class<StartVoiceToneAnalysisTaskRequest>("StartVoiceToneAnalysisTaskRequest")({VoiceConnectorId: Schema.String, TransactionId: Schema.String, LanguageCode: Schema.String, ClientRequestToken: Schema.optional(Schema.String)}) {}
+export class StopSpeakerSearchTaskRequest extends Schema.Class<StopSpeakerSearchTaskRequest>("StopSpeakerSearchTaskRequest")({VoiceConnectorId: Schema.String, SpeakerSearchTaskId: Schema.String}) {}
+export class StopVoiceToneAnalysisTaskRequest extends Schema.Class<StopVoiceToneAnalysisTaskRequest>("StopVoiceToneAnalysisTaskRequest")({VoiceConnectorId: Schema.String, VoiceToneAnalysisTaskId: Schema.String}) {}
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({ResourceARN: Schema.String, Tags: TagList}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({ResourceARN: Schema.String, TagKeys: TagKeyList}) {}
+export class VoiceConnectorSettings extends Schema.Class<VoiceConnectorSettings>("VoiceConnectorSettings")({CdrBucket: Schema.optional(Schema.String)}) {}
+export class UpdateGlobalSettingsRequest extends Schema.Class<UpdateGlobalSettingsRequest>("UpdateGlobalSettingsRequest")({VoiceConnector: Schema.optional(VoiceConnectorSettings)}) {}
+export class UpdatePhoneNumberRequest extends Schema.Class<UpdatePhoneNumberRequest>("UpdatePhoneNumberRequest")({PhoneNumberId: Schema.String, ProductType: Schema.optional(Schema.String), CallingName: Schema.optional(Schema.String), Name: Schema.optional(Schema.String)}) {}
+export class UpdatePhoneNumberSettingsRequest extends Schema.Class<UpdatePhoneNumberSettingsRequest>("UpdatePhoneNumberSettingsRequest")({CallingName: Schema.String}) {}
+export class UpdateProxySessionRequest extends Schema.Class<UpdateProxySessionRequest>("UpdateProxySessionRequest")({VoiceConnectorId: Schema.String, ProxySessionId: Schema.String, Capabilities: CapabilityList, ExpiryMinutes: Schema.optional(Schema.Number)}) {}
+export class SipMediaApplicationEndpoint extends Schema.Class<SipMediaApplicationEndpoint>("SipMediaApplicationEndpoint")({LambdaArn: Schema.optional(Schema.String)}) {}
 export const SipMediaApplicationEndpointList = Schema.Array(SipMediaApplicationEndpoint);
-export const UpdateSipMediaApplicationRequest = Schema.Struct({SipMediaApplicationId: Schema.String, Name: Schema.optional(Schema.String), Endpoints: Schema.optional(SipMediaApplicationEndpointList)});
-export const SipRuleTargetApplication = Schema.Struct({SipMediaApplicationId: Schema.optional(Schema.String), Priority: Schema.optional(Schema.Number), AwsRegion: Schema.optional(Schema.String)});
+export class UpdateSipMediaApplicationRequest extends Schema.Class<UpdateSipMediaApplicationRequest>("UpdateSipMediaApplicationRequest")({SipMediaApplicationId: Schema.String, Name: Schema.optional(Schema.String), Endpoints: Schema.optional(SipMediaApplicationEndpointList)}) {}
+export class SipRuleTargetApplication extends Schema.Class<SipRuleTargetApplication>("SipRuleTargetApplication")({SipMediaApplicationId: Schema.optional(Schema.String), Priority: Schema.optional(Schema.Number), AwsRegion: Schema.optional(Schema.String)}) {}
 export const SipRuleTargetApplicationList = Schema.Array(SipRuleTargetApplication);
-export const UpdateSipRuleRequest = Schema.Struct({SipRuleId: Schema.String, Name: Schema.String, Disabled: Schema.optional(Schema.Boolean), TargetApplications: Schema.optional(SipRuleTargetApplicationList)});
-export const UpdateVoiceConnectorRequest = Schema.Struct({VoiceConnectorId: Schema.String, Name: Schema.String, RequireEncryption: Schema.Boolean});
-export const VoiceConnectorItem = Schema.Struct({VoiceConnectorId: Schema.String, Priority: Schema.Number});
+export class UpdateSipRuleRequest extends Schema.Class<UpdateSipRuleRequest>("UpdateSipRuleRequest")({SipRuleId: Schema.String, Name: Schema.String, Disabled: Schema.optional(Schema.Boolean), TargetApplications: Schema.optional(SipRuleTargetApplicationList)}) {}
+export class UpdateVoiceConnectorRequest extends Schema.Class<UpdateVoiceConnectorRequest>("UpdateVoiceConnectorRequest")({VoiceConnectorId: Schema.String, Name: Schema.String, RequireEncryption: Schema.Boolean}) {}
+export class VoiceConnectorItem extends Schema.Class<VoiceConnectorItem>("VoiceConnectorItem")({VoiceConnectorId: Schema.String, Priority: Schema.Number}) {}
 export const VoiceConnectorItemList = Schema.Array(VoiceConnectorItem);
-export const UpdateVoiceConnectorGroupRequest = Schema.Struct({VoiceConnectorGroupId: Schema.String, Name: Schema.String, VoiceConnectorItems: VoiceConnectorItemList});
-export const UpdateVoiceProfileRequest = Schema.Struct({VoiceProfileId: Schema.String, SpeakerSearchTaskId: Schema.String});
-export const UpdateVoiceProfileDomainRequest = Schema.Struct({VoiceProfileDomainId: Schema.String, Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String)});
-export const ValidateE911AddressRequest = Schema.Struct({AwsAccountId: Schema.String, StreetNumber: Schema.String, StreetInfo: Schema.String, City: Schema.String, State: Schema.String, Country: Schema.String, PostalCode: Schema.String});
+export class UpdateVoiceConnectorGroupRequest extends Schema.Class<UpdateVoiceConnectorGroupRequest>("UpdateVoiceConnectorGroupRequest")({VoiceConnectorGroupId: Schema.String, Name: Schema.String, VoiceConnectorItems: VoiceConnectorItemList}) {}
+export class UpdateVoiceProfileRequest extends Schema.Class<UpdateVoiceProfileRequest>("UpdateVoiceProfileRequest")({VoiceProfileId: Schema.String, SpeakerSearchTaskId: Schema.String}) {}
+export class UpdateVoiceProfileDomainRequest extends Schema.Class<UpdateVoiceProfileDomainRequest>("UpdateVoiceProfileDomainRequest")({VoiceProfileDomainId: Schema.String, Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String)}) {}
+export class ValidateE911AddressRequest extends Schema.Class<ValidateE911AddressRequest>("ValidateE911AddressRequest")({AwsAccountId: Schema.String, StreetNumber: Schema.String, StreetInfo: Schema.String, City: Schema.String, State: Schema.String, Country: Schema.String, PostalCode: Schema.String}) {}
 export const AlexaSkillIdList = Schema.Array(Schema.String);
 export const CallingRegionList = Schema.Array(Schema.String);
 export const StringList = Schema.Array(Schema.String);
-export const UpdatePhoneNumberRequestItem = Schema.Struct({PhoneNumberId: Schema.String, ProductType: Schema.optional(Schema.String), CallingName: Schema.optional(Schema.String), Name: Schema.optional(Schema.String)});
+export class UpdatePhoneNumberRequestItem extends Schema.Class<UpdatePhoneNumberRequestItem>("UpdatePhoneNumberRequestItem")({PhoneNumberId: Schema.String, ProductType: Schema.optional(Schema.String), CallingName: Schema.optional(Schema.String), Name: Schema.optional(Schema.String)}) {}
 export const UpdatePhoneNumberRequestItemList = Schema.Array(UpdatePhoneNumberRequestItem);
-export const GeoMatchParams = Schema.Struct({Country: Schema.String, AreaCode: Schema.String});
+export class GeoMatchParams extends Schema.Class<GeoMatchParams>("GeoMatchParams")({Country: Schema.String, AreaCode: Schema.String}) {}
 export const SipHeadersMap = Schema.Record({key: Schema.String, value: Schema.String});
 export const SMACreateCallArgumentsMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const ServerSideEncryptionConfiguration = Schema.Struct({KmsKeyArn: Schema.String});
-export const OrderedPhoneNumber = Schema.Struct({E164PhoneNumber: Schema.optional(Schema.String), Status: Schema.optional(Schema.String)});
+export class ServerSideEncryptionConfiguration extends Schema.Class<ServerSideEncryptionConfiguration>("ServerSideEncryptionConfiguration")({KmsKeyArn: Schema.String}) {}
+export class OrderedPhoneNumber extends Schema.Class<OrderedPhoneNumber>("OrderedPhoneNumber")({E164PhoneNumber: Schema.optional(Schema.String), Status: Schema.optional(Schema.String)}) {}
 export const OrderedPhoneNumberList = Schema.Array(OrderedPhoneNumber);
-export const PhoneNumberOrder = Schema.Struct({PhoneNumberOrderId: Schema.optional(Schema.String), ProductType: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), OrderType: Schema.optional(Schema.String), OrderedPhoneNumbers: Schema.optional(OrderedPhoneNumberList), CreatedTimestamp: Schema.optional(Schema.Date), UpdatedTimestamp: Schema.optional(Schema.Date), FocDate: Schema.optional(Schema.Date)});
+export class PhoneNumberOrder extends Schema.Class<PhoneNumberOrder>("PhoneNumberOrder")({PhoneNumberOrderId: Schema.optional(Schema.String), ProductType: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), OrderType: Schema.optional(Schema.String), OrderedPhoneNumbers: Schema.optional(OrderedPhoneNumberList), CreatedTimestamp: Schema.optional(Schema.Date), UpdatedTimestamp: Schema.optional(Schema.Date), FocDate: Schema.optional(Schema.Date)}) {}
 export const PhoneNumberOrderList = Schema.Array(PhoneNumberOrder);
-export const PhoneNumberCapabilities = Schema.Struct({InboundCall: Schema.optional(Schema.Boolean), OutboundCall: Schema.optional(Schema.Boolean), InboundSMS: Schema.optional(Schema.Boolean), OutboundSMS: Schema.optional(Schema.Boolean), InboundMMS: Schema.optional(Schema.Boolean), OutboundMMS: Schema.optional(Schema.Boolean)});
-export const PhoneNumberAssociation = Schema.Struct({Value: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), AssociatedTimestamp: Schema.optional(Schema.Date)});
+export class PhoneNumberCapabilities extends Schema.Class<PhoneNumberCapabilities>("PhoneNumberCapabilities")({InboundCall: Schema.optional(Schema.Boolean), OutboundCall: Schema.optional(Schema.Boolean), InboundSMS: Schema.optional(Schema.Boolean), OutboundSMS: Schema.optional(Schema.Boolean), InboundMMS: Schema.optional(Schema.Boolean), OutboundMMS: Schema.optional(Schema.Boolean)}) {}
+export class PhoneNumberAssociation extends Schema.Class<PhoneNumberAssociation>("PhoneNumberAssociation")({Value: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), AssociatedTimestamp: Schema.optional(Schema.Date)}) {}
 export const PhoneNumberAssociationList = Schema.Array(PhoneNumberAssociation);
-export const PhoneNumber = Schema.Struct({PhoneNumberId: Schema.optional(Schema.String), E164PhoneNumber: Schema.optional(Schema.String), Country: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), ProductType: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), Capabilities: Schema.optional(PhoneNumberCapabilities), Associations: Schema.optional(PhoneNumberAssociationList), CallingName: Schema.optional(Schema.String), CallingNameStatus: Schema.optional(Schema.String), CreatedTimestamp: Schema.optional(Schema.Date), UpdatedTimestamp: Schema.optional(Schema.Date), DeletionTimestamp: Schema.optional(Schema.Date), OrderId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String)});
+export class PhoneNumber extends Schema.Class<PhoneNumber>("PhoneNumber")({PhoneNumberId: Schema.optional(Schema.String), E164PhoneNumber: Schema.optional(Schema.String), Country: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), ProductType: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), Capabilities: Schema.optional(PhoneNumberCapabilities), Associations: Schema.optional(PhoneNumberAssociationList), CallingName: Schema.optional(Schema.String), CallingNameStatus: Schema.optional(Schema.String), CreatedTimestamp: Schema.optional(Schema.Date), UpdatedTimestamp: Schema.optional(Schema.Date), DeletionTimestamp: Schema.optional(Schema.Date), OrderId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String)}) {}
 export const PhoneNumberList = Schema.Array(PhoneNumber);
-export const Participant = Schema.Struct({PhoneNumber: Schema.optional(Schema.String), ProxyPhoneNumber: Schema.optional(Schema.String)});
+export class Participant extends Schema.Class<Participant>("Participant")({PhoneNumber: Schema.optional(Schema.String), ProxyPhoneNumber: Schema.optional(Schema.String)}) {}
 export const Participants = Schema.Array(Participant);
-export const ProxySession = Schema.Struct({VoiceConnectorId: Schema.optional(Schema.String), ProxySessionId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), ExpiryMinutes: Schema.optional(Schema.Number), Capabilities: Schema.optional(CapabilityList), CreatedTimestamp: Schema.optional(Schema.Date), UpdatedTimestamp: Schema.optional(Schema.Date), EndedTimestamp: Schema.optional(Schema.Date), Participants: Schema.optional(Participants), NumberSelectionBehavior: Schema.optional(Schema.String), GeoMatchLevel: Schema.optional(Schema.String), GeoMatchParams: Schema.optional(GeoMatchParams)});
+export class ProxySession extends Schema.Class<ProxySession>("ProxySession")({VoiceConnectorId: Schema.optional(Schema.String), ProxySessionId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), ExpiryMinutes: Schema.optional(Schema.Number), Capabilities: Schema.optional(CapabilityList), CreatedTimestamp: Schema.optional(Schema.Date), UpdatedTimestamp: Schema.optional(Schema.Date), EndedTimestamp: Schema.optional(Schema.Date), Participants: Schema.optional(Participants), NumberSelectionBehavior: Schema.optional(Schema.String), GeoMatchLevel: Schema.optional(Schema.String), GeoMatchParams: Schema.optional(GeoMatchParams)}) {}
 export const ProxySessions = Schema.Array(ProxySession);
-export const SipMediaApplication = Schema.Struct({SipMediaApplicationId: Schema.optional(Schema.String), AwsRegion: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Endpoints: Schema.optional(SipMediaApplicationEndpointList), CreatedTimestamp: Schema.optional(Schema.Date), UpdatedTimestamp: Schema.optional(Schema.Date), SipMediaApplicationArn: Schema.optional(Schema.String)});
+export class SipMediaApplication extends Schema.Class<SipMediaApplication>("SipMediaApplication")({SipMediaApplicationId: Schema.optional(Schema.String), AwsRegion: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Endpoints: Schema.optional(SipMediaApplicationEndpointList), CreatedTimestamp: Schema.optional(Schema.Date), UpdatedTimestamp: Schema.optional(Schema.Date), SipMediaApplicationArn: Schema.optional(Schema.String)}) {}
 export const SipMediaApplicationList = Schema.Array(SipMediaApplication);
-export const SipRule = Schema.Struct({SipRuleId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Disabled: Schema.optional(Schema.Boolean), TriggerType: Schema.optional(Schema.String), TriggerValue: Schema.optional(Schema.String), TargetApplications: Schema.optional(SipRuleTargetApplicationList), CreatedTimestamp: Schema.optional(Schema.Date), UpdatedTimestamp: Schema.optional(Schema.Date)});
+export class SipRule extends Schema.Class<SipRule>("SipRule")({SipRuleId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Disabled: Schema.optional(Schema.Boolean), TriggerType: Schema.optional(Schema.String), TriggerValue: Schema.optional(Schema.String), TargetApplications: Schema.optional(SipRuleTargetApplicationList), CreatedTimestamp: Schema.optional(Schema.Date), UpdatedTimestamp: Schema.optional(Schema.Date)}) {}
 export const SipRuleList = Schema.Array(SipRule);
-export const VoiceConnectorGroup = Schema.Struct({VoiceConnectorGroupId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), VoiceConnectorItems: Schema.optional(VoiceConnectorItemList), CreatedTimestamp: Schema.optional(Schema.Date), UpdatedTimestamp: Schema.optional(Schema.Date), VoiceConnectorGroupArn: Schema.optional(Schema.String)});
+export class VoiceConnectorGroup extends Schema.Class<VoiceConnectorGroup>("VoiceConnectorGroup")({VoiceConnectorGroupId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), VoiceConnectorItems: Schema.optional(VoiceConnectorItemList), CreatedTimestamp: Schema.optional(Schema.Date), UpdatedTimestamp: Schema.optional(Schema.Date), VoiceConnectorGroupArn: Schema.optional(Schema.String)}) {}
 export const VoiceConnectorGroupList = Schema.Array(VoiceConnectorGroup);
-export const VoiceConnector = Schema.Struct({VoiceConnectorId: Schema.optional(Schema.String), AwsRegion: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), OutboundHostName: Schema.optional(Schema.String), RequireEncryption: Schema.optional(Schema.Boolean), CreatedTimestamp: Schema.optional(Schema.Date), UpdatedTimestamp: Schema.optional(Schema.Date), VoiceConnectorArn: Schema.optional(Schema.String), IntegrationType: Schema.optional(Schema.String), NetworkType: Schema.optional(Schema.String)});
+export class VoiceConnector extends Schema.Class<VoiceConnector>("VoiceConnector")({VoiceConnectorId: Schema.optional(Schema.String), AwsRegion: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), OutboundHostName: Schema.optional(Schema.String), RequireEncryption: Schema.optional(Schema.Boolean), CreatedTimestamp: Schema.optional(Schema.Date), UpdatedTimestamp: Schema.optional(Schema.Date), VoiceConnectorArn: Schema.optional(Schema.String), IntegrationType: Schema.optional(Schema.String), NetworkType: Schema.optional(Schema.String)}) {}
 export const VoiceConnectorList = Schema.Array(VoiceConnector);
-export const SipMediaApplicationAlexaSkillConfiguration = Schema.Struct({AlexaSkillStatus: Schema.String, AlexaSkillIds: AlexaSkillIdList});
-export const SipMediaApplicationLoggingConfiguration = Schema.Struct({EnableSipMediaApplicationMessageLogs: Schema.optional(Schema.Boolean)});
-export const LoggingConfiguration = Schema.Struct({EnableSIPLogs: Schema.optional(Schema.Boolean), EnableMediaMetricLogs: Schema.optional(Schema.Boolean)});
-export const Termination = Schema.Struct({CpsLimit: Schema.optional(Schema.Number), DefaultPhoneNumber: Schema.optional(Schema.String), CallingRegions: Schema.optional(CallingRegionList), CidrAllowedList: Schema.optional(StringList), Disabled: Schema.optional(Schema.Boolean)});
-export const Credential = Schema.Struct({Username: Schema.optional(Schema.String), Password: Schema.optional(Schema.String)});
+export class SipMediaApplicationAlexaSkillConfiguration extends Schema.Class<SipMediaApplicationAlexaSkillConfiguration>("SipMediaApplicationAlexaSkillConfiguration")({AlexaSkillStatus: Schema.String, AlexaSkillIds: AlexaSkillIdList}) {}
+export class SipMediaApplicationLoggingConfiguration extends Schema.Class<SipMediaApplicationLoggingConfiguration>("SipMediaApplicationLoggingConfiguration")({EnableSipMediaApplicationMessageLogs: Schema.optional(Schema.Boolean)}) {}
+export class LoggingConfiguration extends Schema.Class<LoggingConfiguration>("LoggingConfiguration")({EnableSIPLogs: Schema.optional(Schema.Boolean), EnableMediaMetricLogs: Schema.optional(Schema.Boolean)}) {}
+export class Termination extends Schema.Class<Termination>("Termination")({CpsLimit: Schema.optional(Schema.Number), DefaultPhoneNumber: Schema.optional(Schema.String), CallingRegions: Schema.optional(CallingRegionList), CidrAllowedList: Schema.optional(StringList), Disabled: Schema.optional(Schema.Boolean)}) {}
+export class Credential extends Schema.Class<Credential>("Credential")({Username: Schema.optional(Schema.String), Password: Schema.optional(Schema.String)}) {}
 export const CredentialList = Schema.Array(Credential);
 export const SMAUpdateCallArgumentsMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const PhoneNumberError = Schema.Struct({PhoneNumberId: Schema.optional(Schema.String), ErrorCode: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String)});
+export class PhoneNumberError extends Schema.Class<PhoneNumberError>("PhoneNumberError")({PhoneNumberId: Schema.optional(Schema.String), ErrorCode: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String)}) {}
 export const PhoneNumberErrorList = Schema.Array(PhoneNumberError);
-export const AssociatePhoneNumbersWithVoiceConnectorGroupResponse = Schema.Struct({PhoneNumberErrors: Schema.optional(PhoneNumberErrorList)});
-export const BatchDeletePhoneNumberResponse = Schema.Struct({PhoneNumberErrors: Schema.optional(PhoneNumberErrorList)});
-export const BatchUpdatePhoneNumberRequest = Schema.Struct({UpdatePhoneNumberRequestItems: UpdatePhoneNumberRequestItemList});
-export const CreateProxySessionRequest = Schema.Struct({VoiceConnectorId: Schema.String, ParticipantPhoneNumbers: ParticipantPhoneNumberList, Name: Schema.optional(Schema.String), ExpiryMinutes: Schema.optional(Schema.Number), Capabilities: CapabilityList, NumberSelectionBehavior: Schema.optional(Schema.String), GeoMatchLevel: Schema.optional(Schema.String), GeoMatchParams: Schema.optional(GeoMatchParams)});
-export const CreateSipMediaApplicationRequest = Schema.Struct({AwsRegion: Schema.String, Name: Schema.String, Endpoints: SipMediaApplicationEndpointList, Tags: Schema.optional(TagList)});
-export const CreateSipMediaApplicationCallRequest = Schema.Struct({FromPhoneNumber: Schema.String, ToPhoneNumber: Schema.String, SipMediaApplicationId: Schema.String, SipHeaders: Schema.optional(SipHeadersMap), ArgumentsMap: Schema.optional(SMACreateCallArgumentsMap)});
-export const CreateSipRuleRequest = Schema.Struct({Name: Schema.String, TriggerType: Schema.String, TriggerValue: Schema.String, Disabled: Schema.optional(Schema.Boolean), TargetApplications: Schema.optional(SipRuleTargetApplicationList)});
-export const CreateVoiceConnectorGroupRequest = Schema.Struct({Name: Schema.String, VoiceConnectorItems: Schema.optional(VoiceConnectorItemList)});
-export const CreateVoiceProfileDomainRequest = Schema.Struct({Name: Schema.String, Description: Schema.optional(Schema.String), ServerSideEncryptionConfiguration: ServerSideEncryptionConfiguration, ClientRequestToken: Schema.optional(Schema.String), Tags: Schema.optional(TagList)});
-export const BadRequestException = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
-export const ForbiddenException = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
-export const ConflictException = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
-export const NotFoundException = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
-export const ServiceFailureException = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
-export const ServiceUnavailableException = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
-export const ThrottledClientException = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
-export const UnauthorizedClientException = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
-export const AccessDeniedException = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
-export const DisassociatePhoneNumbersFromVoiceConnectorResponse = Schema.Struct({PhoneNumberErrors: Schema.optional(PhoneNumberErrorList)});
-export const DisassociatePhoneNumbersFromVoiceConnectorGroupResponse = Schema.Struct({PhoneNumberErrors: Schema.optional(PhoneNumberErrorList)});
-export const GetGlobalSettingsResponse = Schema.Struct({VoiceConnector: Schema.optional(VoiceConnectorSettings)});
-export const GetPhoneNumberOrderResponse = Schema.Struct({PhoneNumberOrder: Schema.optional(PhoneNumberOrder)});
-export const GetSipMediaApplicationAlexaSkillConfigurationResponse = Schema.Struct({SipMediaApplicationAlexaSkillConfiguration: Schema.optional(SipMediaApplicationAlexaSkillConfiguration)});
-export const GetSipMediaApplicationLoggingConfigurationResponse = Schema.Struct({SipMediaApplicationLoggingConfiguration: Schema.optional(SipMediaApplicationLoggingConfiguration)});
-export const GetVoiceConnectorResponse = Schema.Struct({VoiceConnector: Schema.optional(VoiceConnector)});
-export const DNISEmergencyCallingConfiguration = Schema.Struct({EmergencyPhoneNumber: Schema.String, TestPhoneNumber: Schema.optional(Schema.String), CallingCountry: Schema.String});
+export class AssociatePhoneNumbersWithVoiceConnectorGroupResponse extends Schema.Class<AssociatePhoneNumbersWithVoiceConnectorGroupResponse>("AssociatePhoneNumbersWithVoiceConnectorGroupResponse")({PhoneNumberErrors: Schema.optional(PhoneNumberErrorList)}) {}
+export class BatchDeletePhoneNumberResponse extends Schema.Class<BatchDeletePhoneNumberResponse>("BatchDeletePhoneNumberResponse")({PhoneNumberErrors: Schema.optional(PhoneNumberErrorList)}) {}
+export class BatchUpdatePhoneNumberRequest extends Schema.Class<BatchUpdatePhoneNumberRequest>("BatchUpdatePhoneNumberRequest")({UpdatePhoneNumberRequestItems: UpdatePhoneNumberRequestItemList}) {}
+export class CreateProxySessionRequest extends Schema.Class<CreateProxySessionRequest>("CreateProxySessionRequest")({VoiceConnectorId: Schema.String, ParticipantPhoneNumbers: ParticipantPhoneNumberList, Name: Schema.optional(Schema.String), ExpiryMinutes: Schema.optional(Schema.Number), Capabilities: CapabilityList, NumberSelectionBehavior: Schema.optional(Schema.String), GeoMatchLevel: Schema.optional(Schema.String), GeoMatchParams: Schema.optional(GeoMatchParams)}) {}
+export class CreateSipMediaApplicationRequest extends Schema.Class<CreateSipMediaApplicationRequest>("CreateSipMediaApplicationRequest")({AwsRegion: Schema.String, Name: Schema.String, Endpoints: SipMediaApplicationEndpointList, Tags: Schema.optional(TagList)}) {}
+export class CreateSipMediaApplicationCallRequest extends Schema.Class<CreateSipMediaApplicationCallRequest>("CreateSipMediaApplicationCallRequest")({FromPhoneNumber: Schema.String, ToPhoneNumber: Schema.String, SipMediaApplicationId: Schema.String, SipHeaders: Schema.optional(SipHeadersMap), ArgumentsMap: Schema.optional(SMACreateCallArgumentsMap)}) {}
+export class CreateSipRuleRequest extends Schema.Class<CreateSipRuleRequest>("CreateSipRuleRequest")({Name: Schema.String, TriggerType: Schema.String, TriggerValue: Schema.String, Disabled: Schema.optional(Schema.Boolean), TargetApplications: Schema.optional(SipRuleTargetApplicationList)}) {}
+export class CreateVoiceConnectorGroupRequest extends Schema.Class<CreateVoiceConnectorGroupRequest>("CreateVoiceConnectorGroupRequest")({Name: Schema.String, VoiceConnectorItems: Schema.optional(VoiceConnectorItemList)}) {}
+export class CreateVoiceProfileDomainRequest extends Schema.Class<CreateVoiceProfileDomainRequest>("CreateVoiceProfileDomainRequest")({Name: Schema.String, Description: Schema.optional(Schema.String), ServerSideEncryptionConfiguration: ServerSideEncryptionConfiguration, ClientRequestToken: Schema.optional(Schema.String), Tags: Schema.optional(TagList)}) {}
+export class BadRequestException extends Schema.Class<BadRequestException>("BadRequestException")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
+export class ForbiddenException extends Schema.Class<ForbiddenException>("ForbiddenException")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
+export class NotFoundException extends Schema.Class<NotFoundException>("NotFoundException")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
+export class ServiceFailureException extends Schema.Class<ServiceFailureException>("ServiceFailureException")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
+export class ServiceUnavailableException extends Schema.Class<ServiceUnavailableException>("ServiceUnavailableException")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
+export class ThrottledClientException extends Schema.Class<ThrottledClientException>("ThrottledClientException")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
+export class UnauthorizedClientException extends Schema.Class<UnauthorizedClientException>("UnauthorizedClientException")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
+export class DisassociatePhoneNumbersFromVoiceConnectorResponse extends Schema.Class<DisassociatePhoneNumbersFromVoiceConnectorResponse>("DisassociatePhoneNumbersFromVoiceConnectorResponse")({PhoneNumberErrors: Schema.optional(PhoneNumberErrorList)}) {}
+export class DisassociatePhoneNumbersFromVoiceConnectorGroupResponse extends Schema.Class<DisassociatePhoneNumbersFromVoiceConnectorGroupResponse>("DisassociatePhoneNumbersFromVoiceConnectorGroupResponse")({PhoneNumberErrors: Schema.optional(PhoneNumberErrorList)}) {}
+export class GetGlobalSettingsResponse extends Schema.Class<GetGlobalSettingsResponse>("GetGlobalSettingsResponse")({VoiceConnector: Schema.optional(VoiceConnectorSettings)}) {}
+export class GetPhoneNumberOrderResponse extends Schema.Class<GetPhoneNumberOrderResponse>("GetPhoneNumberOrderResponse")({PhoneNumberOrder: Schema.optional(PhoneNumberOrder)}) {}
+export class GetSipMediaApplicationAlexaSkillConfigurationResponse extends Schema.Class<GetSipMediaApplicationAlexaSkillConfigurationResponse>("GetSipMediaApplicationAlexaSkillConfigurationResponse")({SipMediaApplicationAlexaSkillConfiguration: Schema.optional(SipMediaApplicationAlexaSkillConfiguration)}) {}
+export class GetSipMediaApplicationLoggingConfigurationResponse extends Schema.Class<GetSipMediaApplicationLoggingConfigurationResponse>("GetSipMediaApplicationLoggingConfigurationResponse")({SipMediaApplicationLoggingConfiguration: Schema.optional(SipMediaApplicationLoggingConfiguration)}) {}
+export class GetVoiceConnectorResponse extends Schema.Class<GetVoiceConnectorResponse>("GetVoiceConnectorResponse")({VoiceConnector: Schema.optional(VoiceConnector)}) {}
+export class DNISEmergencyCallingConfiguration extends Schema.Class<DNISEmergencyCallingConfiguration>("DNISEmergencyCallingConfiguration")({EmergencyPhoneNumber: Schema.String, TestPhoneNumber: Schema.optional(Schema.String), CallingCountry: Schema.String}) {}
 export const DNISEmergencyCallingConfigurationList = Schema.Array(DNISEmergencyCallingConfiguration);
-export const EmergencyCallingConfiguration = Schema.Struct({DNIS: Schema.optional(DNISEmergencyCallingConfigurationList)});
-export const GetVoiceConnectorEmergencyCallingConfigurationResponse = Schema.Struct({EmergencyCallingConfiguration: Schema.optional(EmergencyCallingConfiguration)});
-export const GetVoiceConnectorLoggingConfigurationResponse = Schema.Struct({LoggingConfiguration: Schema.optional(LoggingConfiguration)});
-export const OriginationRoute = Schema.Struct({Host: Schema.optional(Schema.String), Port: Schema.optional(Schema.Number), Protocol: Schema.optional(Schema.String), Priority: Schema.optional(Schema.Number), Weight: Schema.optional(Schema.Number)});
+export class EmergencyCallingConfiguration extends Schema.Class<EmergencyCallingConfiguration>("EmergencyCallingConfiguration")({DNIS: Schema.optional(DNISEmergencyCallingConfigurationList)}) {}
+export class GetVoiceConnectorEmergencyCallingConfigurationResponse extends Schema.Class<GetVoiceConnectorEmergencyCallingConfigurationResponse>("GetVoiceConnectorEmergencyCallingConfigurationResponse")({EmergencyCallingConfiguration: Schema.optional(EmergencyCallingConfiguration)}) {}
+export class GetVoiceConnectorLoggingConfigurationResponse extends Schema.Class<GetVoiceConnectorLoggingConfigurationResponse>("GetVoiceConnectorLoggingConfigurationResponse")({LoggingConfiguration: Schema.optional(LoggingConfiguration)}) {}
+export class OriginationRoute extends Schema.Class<OriginationRoute>("OriginationRoute")({Host: Schema.optional(Schema.String), Port: Schema.optional(Schema.Number), Protocol: Schema.optional(Schema.String), Priority: Schema.optional(Schema.Number), Weight: Schema.optional(Schema.Number)}) {}
 export const OriginationRouteList = Schema.Array(OriginationRoute);
-export const Origination = Schema.Struct({Routes: Schema.optional(OriginationRouteList), Disabled: Schema.optional(Schema.Boolean)});
-export const GetVoiceConnectorOriginationResponse = Schema.Struct({Origination: Schema.optional(Origination)});
-export const StreamingNotificationTarget = Schema.Struct({NotificationTarget: Schema.optional(Schema.String)});
+export class Origination extends Schema.Class<Origination>("Origination")({Routes: Schema.optional(OriginationRouteList), Disabled: Schema.optional(Schema.Boolean)}) {}
+export class GetVoiceConnectorOriginationResponse extends Schema.Class<GetVoiceConnectorOriginationResponse>("GetVoiceConnectorOriginationResponse")({Origination: Schema.optional(Origination)}) {}
+export class StreamingNotificationTarget extends Schema.Class<StreamingNotificationTarget>("StreamingNotificationTarget")({NotificationTarget: Schema.optional(Schema.String)}) {}
 export const StreamingNotificationTargetList = Schema.Array(StreamingNotificationTarget);
-export const MediaInsightsConfiguration = Schema.Struct({Disabled: Schema.optional(Schema.Boolean), ConfigurationArn: Schema.optional(Schema.String)});
-export const StreamingConfiguration = Schema.Struct({DataRetentionInHours: Schema.Number, Disabled: Schema.Boolean, StreamingNotificationTargets: Schema.optional(StreamingNotificationTargetList), MediaInsightsConfiguration: Schema.optional(MediaInsightsConfiguration)});
-export const GetVoiceConnectorStreamingConfigurationResponse = Schema.Struct({StreamingConfiguration: Schema.optional(StreamingConfiguration)});
-export const GetVoiceConnectorTerminationResponse = Schema.Struct({Termination: Schema.optional(Termination)});
-export const VoiceProfile = Schema.Struct({VoiceProfileId: Schema.optional(Schema.String), VoiceProfileArn: Schema.optional(Schema.String), VoiceProfileDomainId: Schema.optional(Schema.String), CreatedTimestamp: Schema.optional(Schema.Date), UpdatedTimestamp: Schema.optional(Schema.Date), ExpirationTimestamp: Schema.optional(Schema.Date)});
-export const GetVoiceProfileResponse = Schema.Struct({VoiceProfile: Schema.optional(VoiceProfile)});
-export const ListPhoneNumberOrdersResponse = Schema.Struct({PhoneNumberOrders: Schema.optional(PhoneNumberOrderList), NextToken: Schema.optional(Schema.String)});
-export const ListPhoneNumbersResponse = Schema.Struct({PhoneNumbers: Schema.optional(PhoneNumberList), NextToken: Schema.optional(Schema.String)});
-export const ListProxySessionsResponse = Schema.Struct({ProxySessions: Schema.optional(ProxySessions), NextToken: Schema.optional(Schema.String)});
-export const ListSipMediaApplicationsResponse = Schema.Struct({SipMediaApplications: Schema.optional(SipMediaApplicationList), NextToken: Schema.optional(Schema.String)});
-export const ListSipRulesResponse = Schema.Struct({SipRules: Schema.optional(SipRuleList), NextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceResponse = Schema.Struct({Tags: Schema.optional(TagList)});
-export const ListVoiceConnectorGroupsResponse = Schema.Struct({VoiceConnectorGroups: Schema.optional(VoiceConnectorGroupList), NextToken: Schema.optional(Schema.String)});
-export const ListVoiceConnectorsResponse = Schema.Struct({VoiceConnectors: Schema.optional(VoiceConnectorList), NextToken: Schema.optional(Schema.String)});
-export const ListVoiceConnectorTerminationCredentialsResponse = Schema.Struct({Usernames: Schema.optional(SensitiveStringList)});
-export const PutSipMediaApplicationAlexaSkillConfigurationRequest = Schema.Struct({SipMediaApplicationId: Schema.String, SipMediaApplicationAlexaSkillConfiguration: Schema.optional(SipMediaApplicationAlexaSkillConfiguration)});
-export const PutSipMediaApplicationLoggingConfigurationRequest = Schema.Struct({SipMediaApplicationId: Schema.String, SipMediaApplicationLoggingConfiguration: Schema.optional(SipMediaApplicationLoggingConfiguration)});
-export const ExternalSystemsConfiguration = Schema.Struct({SessionBorderControllerTypes: Schema.optional(SessionBorderControllerTypeList), ContactCenterSystemTypes: Schema.optional(ContactCenterSystemTypeList)});
-export const PutVoiceConnectorExternalSystemsConfigurationResponse = Schema.Struct({ExternalSystemsConfiguration: Schema.optional(ExternalSystemsConfiguration)});
-export const PutVoiceConnectorLoggingConfigurationRequest = Schema.Struct({VoiceConnectorId: Schema.String, LoggingConfiguration: LoggingConfiguration});
-export const Proxy = Schema.Struct({DefaultSessionExpiryMinutes: Schema.optional(Schema.Number), Disabled: Schema.optional(Schema.Boolean), FallBackPhoneNumber: Schema.optional(Schema.String), PhoneNumberCountries: Schema.optional(StringList)});
-export const PutVoiceConnectorProxyResponse = Schema.Struct({Proxy: Schema.optional(Proxy)});
-export const PutVoiceConnectorTerminationRequest = Schema.Struct({VoiceConnectorId: Schema.String, Termination: Termination});
-export const PutVoiceConnectorTerminationCredentialsRequest = Schema.Struct({VoiceConnectorId: Schema.String, Credentials: Schema.optional(CredentialList)});
-export const RestorePhoneNumberResponse = Schema.Struct({PhoneNumber: Schema.optional(PhoneNumber)});
-export const SearchAvailablePhoneNumbersResponse = Schema.Struct({E164PhoneNumbers: Schema.optional(E164PhoneNumberList), NextToken: Schema.optional(Schema.String)});
-export const CallDetails = Schema.Struct({VoiceConnectorId: Schema.optional(Schema.String), TransactionId: Schema.optional(Schema.String), IsCaller: Schema.optional(Schema.Boolean)});
-export const SpeakerSearchResult = Schema.Struct({ConfidenceScore: Schema.optional(Schema.Number), VoiceProfileId: Schema.optional(Schema.String)});
+export class MediaInsightsConfiguration extends Schema.Class<MediaInsightsConfiguration>("MediaInsightsConfiguration")({Disabled: Schema.optional(Schema.Boolean), ConfigurationArn: Schema.optional(Schema.String)}) {}
+export class StreamingConfiguration extends Schema.Class<StreamingConfiguration>("StreamingConfiguration")({DataRetentionInHours: Schema.Number, Disabled: Schema.Boolean, StreamingNotificationTargets: Schema.optional(StreamingNotificationTargetList), MediaInsightsConfiguration: Schema.optional(MediaInsightsConfiguration)}) {}
+export class GetVoiceConnectorStreamingConfigurationResponse extends Schema.Class<GetVoiceConnectorStreamingConfigurationResponse>("GetVoiceConnectorStreamingConfigurationResponse")({StreamingConfiguration: Schema.optional(StreamingConfiguration)}) {}
+export class GetVoiceConnectorTerminationResponse extends Schema.Class<GetVoiceConnectorTerminationResponse>("GetVoiceConnectorTerminationResponse")({Termination: Schema.optional(Termination)}) {}
+export class VoiceProfile extends Schema.Class<VoiceProfile>("VoiceProfile")({VoiceProfileId: Schema.optional(Schema.String), VoiceProfileArn: Schema.optional(Schema.String), VoiceProfileDomainId: Schema.optional(Schema.String), CreatedTimestamp: Schema.optional(Schema.Date), UpdatedTimestamp: Schema.optional(Schema.Date), ExpirationTimestamp: Schema.optional(Schema.Date)}) {}
+export class GetVoiceProfileResponse extends Schema.Class<GetVoiceProfileResponse>("GetVoiceProfileResponse")({VoiceProfile: Schema.optional(VoiceProfile)}) {}
+export class ListPhoneNumberOrdersResponse extends Schema.Class<ListPhoneNumberOrdersResponse>("ListPhoneNumberOrdersResponse")({PhoneNumberOrders: Schema.optional(PhoneNumberOrderList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListPhoneNumbersResponse extends Schema.Class<ListPhoneNumbersResponse>("ListPhoneNumbersResponse")({PhoneNumbers: Schema.optional(PhoneNumberList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListProxySessionsResponse extends Schema.Class<ListProxySessionsResponse>("ListProxySessionsResponse")({ProxySessions: Schema.optional(ProxySessions), NextToken: Schema.optional(Schema.String)}) {}
+export class ListSipMediaApplicationsResponse extends Schema.Class<ListSipMediaApplicationsResponse>("ListSipMediaApplicationsResponse")({SipMediaApplications: Schema.optional(SipMediaApplicationList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListSipRulesResponse extends Schema.Class<ListSipRulesResponse>("ListSipRulesResponse")({SipRules: Schema.optional(SipRuleList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({Tags: Schema.optional(TagList)}) {}
+export class ListVoiceConnectorGroupsResponse extends Schema.Class<ListVoiceConnectorGroupsResponse>("ListVoiceConnectorGroupsResponse")({VoiceConnectorGroups: Schema.optional(VoiceConnectorGroupList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListVoiceConnectorsResponse extends Schema.Class<ListVoiceConnectorsResponse>("ListVoiceConnectorsResponse")({VoiceConnectors: Schema.optional(VoiceConnectorList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListVoiceConnectorTerminationCredentialsResponse extends Schema.Class<ListVoiceConnectorTerminationCredentialsResponse>("ListVoiceConnectorTerminationCredentialsResponse")({Usernames: Schema.optional(SensitiveStringList)}) {}
+export class PutSipMediaApplicationAlexaSkillConfigurationRequest extends Schema.Class<PutSipMediaApplicationAlexaSkillConfigurationRequest>("PutSipMediaApplicationAlexaSkillConfigurationRequest")({SipMediaApplicationId: Schema.String, SipMediaApplicationAlexaSkillConfiguration: Schema.optional(SipMediaApplicationAlexaSkillConfiguration)}) {}
+export class PutSipMediaApplicationLoggingConfigurationRequest extends Schema.Class<PutSipMediaApplicationLoggingConfigurationRequest>("PutSipMediaApplicationLoggingConfigurationRequest")({SipMediaApplicationId: Schema.String, SipMediaApplicationLoggingConfiguration: Schema.optional(SipMediaApplicationLoggingConfiguration)}) {}
+export class ExternalSystemsConfiguration extends Schema.Class<ExternalSystemsConfiguration>("ExternalSystemsConfiguration")({SessionBorderControllerTypes: Schema.optional(SessionBorderControllerTypeList), ContactCenterSystemTypes: Schema.optional(ContactCenterSystemTypeList)}) {}
+export class PutVoiceConnectorExternalSystemsConfigurationResponse extends Schema.Class<PutVoiceConnectorExternalSystemsConfigurationResponse>("PutVoiceConnectorExternalSystemsConfigurationResponse")({ExternalSystemsConfiguration: Schema.optional(ExternalSystemsConfiguration)}) {}
+export class PutVoiceConnectorLoggingConfigurationRequest extends Schema.Class<PutVoiceConnectorLoggingConfigurationRequest>("PutVoiceConnectorLoggingConfigurationRequest")({VoiceConnectorId: Schema.String, LoggingConfiguration: LoggingConfiguration}) {}
+export class Proxy extends Schema.Class<Proxy>("Proxy")({DefaultSessionExpiryMinutes: Schema.optional(Schema.Number), Disabled: Schema.optional(Schema.Boolean), FallBackPhoneNumber: Schema.optional(Schema.String), PhoneNumberCountries: Schema.optional(StringList)}) {}
+export class PutVoiceConnectorProxyResponse extends Schema.Class<PutVoiceConnectorProxyResponse>("PutVoiceConnectorProxyResponse")({Proxy: Schema.optional(Proxy)}) {}
+export class PutVoiceConnectorTerminationRequest extends Schema.Class<PutVoiceConnectorTerminationRequest>("PutVoiceConnectorTerminationRequest")({VoiceConnectorId: Schema.String, Termination: Termination}) {}
+export class PutVoiceConnectorTerminationCredentialsRequest extends Schema.Class<PutVoiceConnectorTerminationCredentialsRequest>("PutVoiceConnectorTerminationCredentialsRequest")({VoiceConnectorId: Schema.String, Credentials: Schema.optional(CredentialList)}) {}
+export class RestorePhoneNumberResponse extends Schema.Class<RestorePhoneNumberResponse>("RestorePhoneNumberResponse")({PhoneNumber: Schema.optional(PhoneNumber)}) {}
+export class SearchAvailablePhoneNumbersResponse extends Schema.Class<SearchAvailablePhoneNumbersResponse>("SearchAvailablePhoneNumbersResponse")({E164PhoneNumbers: Schema.optional(E164PhoneNumberList), NextToken: Schema.optional(Schema.String)}) {}
+export class CallDetails extends Schema.Class<CallDetails>("CallDetails")({VoiceConnectorId: Schema.optional(Schema.String), TransactionId: Schema.optional(Schema.String), IsCaller: Schema.optional(Schema.Boolean)}) {}
+export class SpeakerSearchResult extends Schema.Class<SpeakerSearchResult>("SpeakerSearchResult")({ConfidenceScore: Schema.optional(Schema.Number), VoiceProfileId: Schema.optional(Schema.String)}) {}
 export const SpeakerSearchResultList = Schema.Array(SpeakerSearchResult);
-export const SpeakerSearchDetails = Schema.Struct({Results: Schema.optional(SpeakerSearchResultList), VoiceprintGenerationStatus: Schema.optional(Schema.String)});
-export const SpeakerSearchTask = Schema.Struct({SpeakerSearchTaskId: Schema.optional(Schema.String), SpeakerSearchTaskStatus: Schema.optional(Schema.String), CallDetails: Schema.optional(CallDetails), SpeakerSearchDetails: Schema.optional(SpeakerSearchDetails), CreatedTimestamp: Schema.optional(Schema.Date), UpdatedTimestamp: Schema.optional(Schema.Date), StartedTimestamp: Schema.optional(Schema.Date), StatusMessage: Schema.optional(Schema.String)});
-export const StartSpeakerSearchTaskResponse = Schema.Struct({SpeakerSearchTask: Schema.optional(SpeakerSearchTask)});
-export const VoiceToneAnalysisTask = Schema.Struct({VoiceToneAnalysisTaskId: Schema.optional(Schema.String), VoiceToneAnalysisTaskStatus: Schema.optional(Schema.String), CallDetails: Schema.optional(CallDetails), CreatedTimestamp: Schema.optional(Schema.Date), UpdatedTimestamp: Schema.optional(Schema.Date), StartedTimestamp: Schema.optional(Schema.Date), StatusMessage: Schema.optional(Schema.String)});
-export const StartVoiceToneAnalysisTaskResponse = Schema.Struct({VoiceToneAnalysisTask: Schema.optional(VoiceToneAnalysisTask)});
-export const UnprocessableEntityException = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
-export const ResourceLimitExceededException = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
-export const UpdatePhoneNumberResponse = Schema.Struct({PhoneNumber: Schema.optional(PhoneNumber)});
-export const UpdateProxySessionResponse = Schema.Struct({ProxySession: Schema.optional(ProxySession)});
-export const UpdateSipMediaApplicationResponse = Schema.Struct({SipMediaApplication: Schema.optional(SipMediaApplication)});
-export const UpdateSipMediaApplicationCallRequest = Schema.Struct({SipMediaApplicationId: Schema.String, TransactionId: Schema.String, Arguments: SMAUpdateCallArgumentsMap});
-export const UpdateSipRuleResponse = Schema.Struct({SipRule: Schema.optional(SipRule)});
-export const UpdateVoiceConnectorResponse = Schema.Struct({VoiceConnector: Schema.optional(VoiceConnector)});
-export const UpdateVoiceConnectorGroupResponse = Schema.Struct({VoiceConnectorGroup: Schema.optional(VoiceConnectorGroup)});
-export const UpdateVoiceProfileResponse = Schema.Struct({VoiceProfile: Schema.optional(VoiceProfile)});
-export const VoiceProfileDomain = Schema.Struct({VoiceProfileDomainId: Schema.optional(Schema.String), VoiceProfileDomainArn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), ServerSideEncryptionConfiguration: Schema.optional(ServerSideEncryptionConfiguration), CreatedTimestamp: Schema.optional(Schema.Date), UpdatedTimestamp: Schema.optional(Schema.Date)});
-export const UpdateVoiceProfileDomainResponse = Schema.Struct({VoiceProfileDomain: Schema.optional(VoiceProfileDomain)});
+export class SpeakerSearchDetails extends Schema.Class<SpeakerSearchDetails>("SpeakerSearchDetails")({Results: Schema.optional(SpeakerSearchResultList), VoiceprintGenerationStatus: Schema.optional(Schema.String)}) {}
+export class SpeakerSearchTask extends Schema.Class<SpeakerSearchTask>("SpeakerSearchTask")({SpeakerSearchTaskId: Schema.optional(Schema.String), SpeakerSearchTaskStatus: Schema.optional(Schema.String), CallDetails: Schema.optional(CallDetails), SpeakerSearchDetails: Schema.optional(SpeakerSearchDetails), CreatedTimestamp: Schema.optional(Schema.Date), UpdatedTimestamp: Schema.optional(Schema.Date), StartedTimestamp: Schema.optional(Schema.Date), StatusMessage: Schema.optional(Schema.String)}) {}
+export class StartSpeakerSearchTaskResponse extends Schema.Class<StartSpeakerSearchTaskResponse>("StartSpeakerSearchTaskResponse")({SpeakerSearchTask: Schema.optional(SpeakerSearchTask)}) {}
+export class VoiceToneAnalysisTask extends Schema.Class<VoiceToneAnalysisTask>("VoiceToneAnalysisTask")({VoiceToneAnalysisTaskId: Schema.optional(Schema.String), VoiceToneAnalysisTaskStatus: Schema.optional(Schema.String), CallDetails: Schema.optional(CallDetails), CreatedTimestamp: Schema.optional(Schema.Date), UpdatedTimestamp: Schema.optional(Schema.Date), StartedTimestamp: Schema.optional(Schema.Date), StatusMessage: Schema.optional(Schema.String)}) {}
+export class StartVoiceToneAnalysisTaskResponse extends Schema.Class<StartVoiceToneAnalysisTaskResponse>("StartVoiceToneAnalysisTaskResponse")({VoiceToneAnalysisTask: Schema.optional(VoiceToneAnalysisTask)}) {}
+export class UnprocessableEntityException extends Schema.Class<UnprocessableEntityException>("UnprocessableEntityException")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
+export class ResourceLimitExceededException extends Schema.Class<ResourceLimitExceededException>("ResourceLimitExceededException")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
+export class UpdatePhoneNumberResponse extends Schema.Class<UpdatePhoneNumberResponse>("UpdatePhoneNumberResponse")({PhoneNumber: Schema.optional(PhoneNumber)}) {}
+export class UpdateProxySessionResponse extends Schema.Class<UpdateProxySessionResponse>("UpdateProxySessionResponse")({ProxySession: Schema.optional(ProxySession)}) {}
+export class UpdateSipMediaApplicationResponse extends Schema.Class<UpdateSipMediaApplicationResponse>("UpdateSipMediaApplicationResponse")({SipMediaApplication: Schema.optional(SipMediaApplication)}) {}
+export class UpdateSipMediaApplicationCallRequest extends Schema.Class<UpdateSipMediaApplicationCallRequest>("UpdateSipMediaApplicationCallRequest")({SipMediaApplicationId: Schema.String, TransactionId: Schema.String, Arguments: SMAUpdateCallArgumentsMap}) {}
+export class UpdateSipRuleResponse extends Schema.Class<UpdateSipRuleResponse>("UpdateSipRuleResponse")({SipRule: Schema.optional(SipRule)}) {}
+export class UpdateVoiceConnectorResponse extends Schema.Class<UpdateVoiceConnectorResponse>("UpdateVoiceConnectorResponse")({VoiceConnector: Schema.optional(VoiceConnector)}) {}
+export class UpdateVoiceConnectorGroupResponse extends Schema.Class<UpdateVoiceConnectorGroupResponse>("UpdateVoiceConnectorGroupResponse")({VoiceConnectorGroup: Schema.optional(VoiceConnectorGroup)}) {}
+export class UpdateVoiceProfileResponse extends Schema.Class<UpdateVoiceProfileResponse>("UpdateVoiceProfileResponse")({VoiceProfile: Schema.optional(VoiceProfile)}) {}
+export class VoiceProfileDomain extends Schema.Class<VoiceProfileDomain>("VoiceProfileDomain")({VoiceProfileDomainId: Schema.optional(Schema.String), VoiceProfileDomainArn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), ServerSideEncryptionConfiguration: Schema.optional(ServerSideEncryptionConfiguration), CreatedTimestamp: Schema.optional(Schema.Date), UpdatedTimestamp: Schema.optional(Schema.Date)}) {}
+export class UpdateVoiceProfileDomainResponse extends Schema.Class<UpdateVoiceProfileDomainResponse>("UpdateVoiceProfileDomainResponse")({VoiceProfileDomain: Schema.optional(VoiceProfileDomain)}) {}
 export const PhoneNumberTypeList = Schema.Array(Schema.String);
-export const TerminationHealth = Schema.Struct({Timestamp: Schema.optional(Schema.Date), Source: Schema.optional(Schema.String)});
-export const PhoneNumberCountry = Schema.Struct({CountryCode: Schema.optional(Schema.String), SupportedPhoneNumberTypes: Schema.optional(PhoneNumberTypeList)});
+export class TerminationHealth extends Schema.Class<TerminationHealth>("TerminationHealth")({Timestamp: Schema.optional(Schema.Date), Source: Schema.optional(Schema.String)}) {}
+export class PhoneNumberCountry extends Schema.Class<PhoneNumberCountry>("PhoneNumberCountry")({CountryCode: Schema.optional(Schema.String), SupportedPhoneNumberTypes: Schema.optional(PhoneNumberTypeList)}) {}
 export const PhoneNumberCountriesList = Schema.Array(PhoneNumberCountry);
-export const VoiceProfileDomainSummary = Schema.Struct({VoiceProfileDomainId: Schema.optional(Schema.String), VoiceProfileDomainArn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), CreatedTimestamp: Schema.optional(Schema.Date), UpdatedTimestamp: Schema.optional(Schema.Date)});
+export class VoiceProfileDomainSummary extends Schema.Class<VoiceProfileDomainSummary>("VoiceProfileDomainSummary")({VoiceProfileDomainId: Schema.optional(Schema.String), VoiceProfileDomainArn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), CreatedTimestamp: Schema.optional(Schema.Date), UpdatedTimestamp: Schema.optional(Schema.Date)}) {}
 export const VoiceProfileDomainSummaryList = Schema.Array(VoiceProfileDomainSummary);
-export const VoiceProfileSummary = Schema.Struct({VoiceProfileId: Schema.optional(Schema.String), VoiceProfileArn: Schema.optional(Schema.String), VoiceProfileDomainId: Schema.optional(Schema.String), CreatedTimestamp: Schema.optional(Schema.Date), UpdatedTimestamp: Schema.optional(Schema.Date), ExpirationTimestamp: Schema.optional(Schema.Date)});
+export class VoiceProfileSummary extends Schema.Class<VoiceProfileSummary>("VoiceProfileSummary")({VoiceProfileId: Schema.optional(Schema.String), VoiceProfileArn: Schema.optional(Schema.String), VoiceProfileDomainId: Schema.optional(Schema.String), CreatedTimestamp: Schema.optional(Schema.Date), UpdatedTimestamp: Schema.optional(Schema.Date), ExpirationTimestamp: Schema.optional(Schema.Date)}) {}
 export const VoiceProfileSummaryList = Schema.Array(VoiceProfileSummary);
-export const Address = Schema.Struct({streetName: Schema.optional(Schema.String), streetSuffix: Schema.optional(Schema.String), postDirectional: Schema.optional(Schema.String), preDirectional: Schema.optional(Schema.String), streetNumber: Schema.optional(Schema.String), city: Schema.optional(Schema.String), state: Schema.optional(Schema.String), postalCode: Schema.optional(Schema.String), postalCodePlus4: Schema.optional(Schema.String), country: Schema.optional(Schema.String)});
-export const CandidateAddress = Schema.Struct({streetInfo: Schema.optional(Schema.String), streetNumber: Schema.optional(Schema.String), city: Schema.optional(Schema.String), state: Schema.optional(Schema.String), postalCode: Schema.optional(Schema.String), postalCodePlus4: Schema.optional(Schema.String), country: Schema.optional(Schema.String)});
+export class Address extends Schema.Class<Address>("Address")({streetName: Schema.optional(Schema.String), streetSuffix: Schema.optional(Schema.String), postDirectional: Schema.optional(Schema.String), preDirectional: Schema.optional(Schema.String), streetNumber: Schema.optional(Schema.String), city: Schema.optional(Schema.String), state: Schema.optional(Schema.String), postalCode: Schema.optional(Schema.String), postalCodePlus4: Schema.optional(Schema.String), country: Schema.optional(Schema.String)}) {}
+export class CandidateAddress extends Schema.Class<CandidateAddress>("CandidateAddress")({streetInfo: Schema.optional(Schema.String), streetNumber: Schema.optional(Schema.String), city: Schema.optional(Schema.String), state: Schema.optional(Schema.String), postalCode: Schema.optional(Schema.String), postalCodePlus4: Schema.optional(Schema.String), country: Schema.optional(Schema.String)}) {}
 export const CandidateAddressList = Schema.Array(CandidateAddress);
-export const AssociatePhoneNumbersWithVoiceConnectorResponse = Schema.Struct({PhoneNumberErrors: Schema.optional(PhoneNumberErrorList)});
-export const BatchUpdatePhoneNumberResponse = Schema.Struct({PhoneNumberErrors: Schema.optional(PhoneNumberErrorList)});
-export const CreateProxySessionResponse = Schema.Struct({ProxySession: Schema.optional(ProxySession)});
-export const CreateSipMediaApplicationResponse = Schema.Struct({SipMediaApplication: Schema.optional(SipMediaApplication)});
-export const CreateSipRuleResponse = Schema.Struct({SipRule: Schema.optional(SipRule)});
-export const CreateVoiceConnectorResponse = Schema.Struct({VoiceConnector: Schema.optional(VoiceConnector)});
-export const CreateVoiceConnectorGroupResponse = Schema.Struct({VoiceConnectorGroup: Schema.optional(VoiceConnectorGroup)});
-export const CreateVoiceProfileResponse = Schema.Struct({VoiceProfile: Schema.optional(VoiceProfile)});
-export const CreateVoiceProfileDomainResponse = Schema.Struct({VoiceProfileDomain: Schema.optional(VoiceProfileDomain)});
-export const GetSipMediaApplicationResponse = Schema.Struct({SipMediaApplication: Schema.optional(SipMediaApplication)});
-export const GetSipRuleResponse = Schema.Struct({SipRule: Schema.optional(SipRule)});
-export const GetVoiceConnectorExternalSystemsConfigurationResponse = Schema.Struct({ExternalSystemsConfiguration: Schema.optional(ExternalSystemsConfiguration)});
-export const GetVoiceConnectorGroupResponse = Schema.Struct({VoiceConnectorGroup: Schema.optional(VoiceConnectorGroup)});
-export const GetVoiceConnectorProxyResponse = Schema.Struct({Proxy: Schema.optional(Proxy)});
-export const GetVoiceConnectorTerminationHealthResponse = Schema.Struct({TerminationHealth: Schema.optional(TerminationHealth)});
-export const GetVoiceProfileDomainResponse = Schema.Struct({VoiceProfileDomain: Schema.optional(VoiceProfileDomain)});
-export const GetVoiceToneAnalysisTaskResponse = Schema.Struct({VoiceToneAnalysisTask: Schema.optional(VoiceToneAnalysisTask)});
-export const ListSupportedPhoneNumberCountriesResponse = Schema.Struct({PhoneNumberCountries: Schema.optional(PhoneNumberCountriesList)});
-export const ListVoiceProfileDomainsResponse = Schema.Struct({VoiceProfileDomains: Schema.optional(VoiceProfileDomainSummaryList), NextToken: Schema.optional(Schema.String)});
-export const ListVoiceProfilesResponse = Schema.Struct({VoiceProfiles: Schema.optional(VoiceProfileSummaryList), NextToken: Schema.optional(Schema.String)});
-export const PutSipMediaApplicationAlexaSkillConfigurationResponse = Schema.Struct({SipMediaApplicationAlexaSkillConfiguration: Schema.optional(SipMediaApplicationAlexaSkillConfiguration)});
-export const PutSipMediaApplicationLoggingConfigurationResponse = Schema.Struct({SipMediaApplicationLoggingConfiguration: Schema.optional(SipMediaApplicationLoggingConfiguration)});
-export const PutVoiceConnectorEmergencyCallingConfigurationRequest = Schema.Struct({VoiceConnectorId: Schema.String, EmergencyCallingConfiguration: EmergencyCallingConfiguration});
-export const PutVoiceConnectorLoggingConfigurationResponse = Schema.Struct({LoggingConfiguration: Schema.optional(LoggingConfiguration)});
-export const PutVoiceConnectorOriginationRequest = Schema.Struct({VoiceConnectorId: Schema.String, Origination: Origination});
-export const PutVoiceConnectorStreamingConfigurationRequest = Schema.Struct({VoiceConnectorId: Schema.String, StreamingConfiguration: StreamingConfiguration});
-export const PutVoiceConnectorTerminationResponse = Schema.Struct({Termination: Schema.optional(Termination)});
-export const GoneException = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
-export const SipMediaApplicationCall = Schema.Struct({TransactionId: Schema.optional(Schema.String)});
-export const UpdateSipMediaApplicationCallResponse = Schema.Struct({SipMediaApplicationCall: Schema.optional(SipMediaApplicationCall)});
-export const ValidateE911AddressResponse = Schema.Struct({ValidationResult: Schema.optional(Schema.Number), AddressExternalId: Schema.optional(Schema.String), Address: Schema.optional(Address), CandidateAddressList: Schema.optional(CandidateAddressList)});
-export const CreatePhoneNumberOrderResponse = Schema.Struct({PhoneNumberOrder: Schema.optional(PhoneNumberOrder)});
-export const CreateSipMediaApplicationCallResponse = Schema.Struct({SipMediaApplicationCall: Schema.optional(SipMediaApplicationCall)});
-export const GetPhoneNumberResponse = Schema.Struct({PhoneNumber: Schema.optional(PhoneNumber)});
-export const GetProxySessionResponse = Schema.Struct({ProxySession: Schema.optional(ProxySession)});
-export const PutVoiceConnectorEmergencyCallingConfigurationResponse = Schema.Struct({EmergencyCallingConfiguration: Schema.optional(EmergencyCallingConfiguration)});
-export const PutVoiceConnectorOriginationResponse = Schema.Struct({Origination: Schema.optional(Origination)});
-export const PutVoiceConnectorStreamingConfigurationResponse = Schema.Struct({StreamingConfiguration: Schema.optional(StreamingConfiguration)});
-export const GetSpeakerSearchTaskResponse = Schema.Struct({SpeakerSearchTask: Schema.optional(SpeakerSearchTask)});
+export class AssociatePhoneNumbersWithVoiceConnectorResponse extends Schema.Class<AssociatePhoneNumbersWithVoiceConnectorResponse>("AssociatePhoneNumbersWithVoiceConnectorResponse")({PhoneNumberErrors: Schema.optional(PhoneNumberErrorList)}) {}
+export class BatchUpdatePhoneNumberResponse extends Schema.Class<BatchUpdatePhoneNumberResponse>("BatchUpdatePhoneNumberResponse")({PhoneNumberErrors: Schema.optional(PhoneNumberErrorList)}) {}
+export class CreateProxySessionResponse extends Schema.Class<CreateProxySessionResponse>("CreateProxySessionResponse")({ProxySession: Schema.optional(ProxySession)}) {}
+export class CreateSipMediaApplicationResponse extends Schema.Class<CreateSipMediaApplicationResponse>("CreateSipMediaApplicationResponse")({SipMediaApplication: Schema.optional(SipMediaApplication)}) {}
+export class CreateSipRuleResponse extends Schema.Class<CreateSipRuleResponse>("CreateSipRuleResponse")({SipRule: Schema.optional(SipRule)}) {}
+export class CreateVoiceConnectorResponse extends Schema.Class<CreateVoiceConnectorResponse>("CreateVoiceConnectorResponse")({VoiceConnector: Schema.optional(VoiceConnector)}) {}
+export class CreateVoiceConnectorGroupResponse extends Schema.Class<CreateVoiceConnectorGroupResponse>("CreateVoiceConnectorGroupResponse")({VoiceConnectorGroup: Schema.optional(VoiceConnectorGroup)}) {}
+export class CreateVoiceProfileResponse extends Schema.Class<CreateVoiceProfileResponse>("CreateVoiceProfileResponse")({VoiceProfile: Schema.optional(VoiceProfile)}) {}
+export class CreateVoiceProfileDomainResponse extends Schema.Class<CreateVoiceProfileDomainResponse>("CreateVoiceProfileDomainResponse")({VoiceProfileDomain: Schema.optional(VoiceProfileDomain)}) {}
+export class GetSipMediaApplicationResponse extends Schema.Class<GetSipMediaApplicationResponse>("GetSipMediaApplicationResponse")({SipMediaApplication: Schema.optional(SipMediaApplication)}) {}
+export class GetSipRuleResponse extends Schema.Class<GetSipRuleResponse>("GetSipRuleResponse")({SipRule: Schema.optional(SipRule)}) {}
+export class GetVoiceConnectorExternalSystemsConfigurationResponse extends Schema.Class<GetVoiceConnectorExternalSystemsConfigurationResponse>("GetVoiceConnectorExternalSystemsConfigurationResponse")({ExternalSystemsConfiguration: Schema.optional(ExternalSystemsConfiguration)}) {}
+export class GetVoiceConnectorGroupResponse extends Schema.Class<GetVoiceConnectorGroupResponse>("GetVoiceConnectorGroupResponse")({VoiceConnectorGroup: Schema.optional(VoiceConnectorGroup)}) {}
+export class GetVoiceConnectorProxyResponse extends Schema.Class<GetVoiceConnectorProxyResponse>("GetVoiceConnectorProxyResponse")({Proxy: Schema.optional(Proxy)}) {}
+export class GetVoiceConnectorTerminationHealthResponse extends Schema.Class<GetVoiceConnectorTerminationHealthResponse>("GetVoiceConnectorTerminationHealthResponse")({TerminationHealth: Schema.optional(TerminationHealth)}) {}
+export class GetVoiceProfileDomainResponse extends Schema.Class<GetVoiceProfileDomainResponse>("GetVoiceProfileDomainResponse")({VoiceProfileDomain: Schema.optional(VoiceProfileDomain)}) {}
+export class GetVoiceToneAnalysisTaskResponse extends Schema.Class<GetVoiceToneAnalysisTaskResponse>("GetVoiceToneAnalysisTaskResponse")({VoiceToneAnalysisTask: Schema.optional(VoiceToneAnalysisTask)}) {}
+export class ListSupportedPhoneNumberCountriesResponse extends Schema.Class<ListSupportedPhoneNumberCountriesResponse>("ListSupportedPhoneNumberCountriesResponse")({PhoneNumberCountries: Schema.optional(PhoneNumberCountriesList)}) {}
+export class ListVoiceProfileDomainsResponse extends Schema.Class<ListVoiceProfileDomainsResponse>("ListVoiceProfileDomainsResponse")({VoiceProfileDomains: Schema.optional(VoiceProfileDomainSummaryList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListVoiceProfilesResponse extends Schema.Class<ListVoiceProfilesResponse>("ListVoiceProfilesResponse")({VoiceProfiles: Schema.optional(VoiceProfileSummaryList), NextToken: Schema.optional(Schema.String)}) {}
+export class PutSipMediaApplicationAlexaSkillConfigurationResponse extends Schema.Class<PutSipMediaApplicationAlexaSkillConfigurationResponse>("PutSipMediaApplicationAlexaSkillConfigurationResponse")({SipMediaApplicationAlexaSkillConfiguration: Schema.optional(SipMediaApplicationAlexaSkillConfiguration)}) {}
+export class PutSipMediaApplicationLoggingConfigurationResponse extends Schema.Class<PutSipMediaApplicationLoggingConfigurationResponse>("PutSipMediaApplicationLoggingConfigurationResponse")({SipMediaApplicationLoggingConfiguration: Schema.optional(SipMediaApplicationLoggingConfiguration)}) {}
+export class PutVoiceConnectorEmergencyCallingConfigurationRequest extends Schema.Class<PutVoiceConnectorEmergencyCallingConfigurationRequest>("PutVoiceConnectorEmergencyCallingConfigurationRequest")({VoiceConnectorId: Schema.String, EmergencyCallingConfiguration: EmergencyCallingConfiguration}) {}
+export class PutVoiceConnectorLoggingConfigurationResponse extends Schema.Class<PutVoiceConnectorLoggingConfigurationResponse>("PutVoiceConnectorLoggingConfigurationResponse")({LoggingConfiguration: Schema.optional(LoggingConfiguration)}) {}
+export class PutVoiceConnectorOriginationRequest extends Schema.Class<PutVoiceConnectorOriginationRequest>("PutVoiceConnectorOriginationRequest")({VoiceConnectorId: Schema.String, Origination: Origination}) {}
+export class PutVoiceConnectorStreamingConfigurationRequest extends Schema.Class<PutVoiceConnectorStreamingConfigurationRequest>("PutVoiceConnectorStreamingConfigurationRequest")({VoiceConnectorId: Schema.String, StreamingConfiguration: StreamingConfiguration}) {}
+export class PutVoiceConnectorTerminationResponse extends Schema.Class<PutVoiceConnectorTerminationResponse>("PutVoiceConnectorTerminationResponse")({Termination: Schema.optional(Termination)}) {}
+export class GoneException extends Schema.Class<GoneException>("GoneException")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
+export class SipMediaApplicationCall extends Schema.Class<SipMediaApplicationCall>("SipMediaApplicationCall")({TransactionId: Schema.optional(Schema.String)}) {}
+export class UpdateSipMediaApplicationCallResponse extends Schema.Class<UpdateSipMediaApplicationCallResponse>("UpdateSipMediaApplicationCallResponse")({SipMediaApplicationCall: Schema.optional(SipMediaApplicationCall)}) {}
+export class ValidateE911AddressResponse extends Schema.Class<ValidateE911AddressResponse>("ValidateE911AddressResponse")({ValidationResult: Schema.optional(Schema.Number), AddressExternalId: Schema.optional(Schema.String), Address: Schema.optional(Address), CandidateAddressList: Schema.optional(CandidateAddressList)}) {}
+export class CreatePhoneNumberOrderResponse extends Schema.Class<CreatePhoneNumberOrderResponse>("CreatePhoneNumberOrderResponse")({PhoneNumberOrder: Schema.optional(PhoneNumberOrder)}) {}
+export class CreateSipMediaApplicationCallResponse extends Schema.Class<CreateSipMediaApplicationCallResponse>("CreateSipMediaApplicationCallResponse")({SipMediaApplicationCall: Schema.optional(SipMediaApplicationCall)}) {}
+export class GetPhoneNumberResponse extends Schema.Class<GetPhoneNumberResponse>("GetPhoneNumberResponse")({PhoneNumber: Schema.optional(PhoneNumber)}) {}
+export class GetProxySessionResponse extends Schema.Class<GetProxySessionResponse>("GetProxySessionResponse")({ProxySession: Schema.optional(ProxySession)}) {}
+export class PutVoiceConnectorEmergencyCallingConfigurationResponse extends Schema.Class<PutVoiceConnectorEmergencyCallingConfigurationResponse>("PutVoiceConnectorEmergencyCallingConfigurationResponse")({EmergencyCallingConfiguration: Schema.optional(EmergencyCallingConfiguration)}) {}
+export class PutVoiceConnectorOriginationResponse extends Schema.Class<PutVoiceConnectorOriginationResponse>("PutVoiceConnectorOriginationResponse")({Origination: Schema.optional(Origination)}) {}
+export class PutVoiceConnectorStreamingConfigurationResponse extends Schema.Class<PutVoiceConnectorStreamingConfigurationResponse>("PutVoiceConnectorStreamingConfigurationResponse")({StreamingConfiguration: Schema.optional(StreamingConfiguration)}) {}
+export class GetSpeakerSearchTaskResponse extends Schema.Class<GetSpeakerSearchTaskResponse>("GetSpeakerSearchTaskResponse")({SpeakerSearchTask: Schema.optional(SpeakerSearchTask)}) {}
 
 //# Errors
-export class BadRequestExceptionError extends Schema.TaggedError<BadRequestExceptionError>()("BadRequestException", BadRequestException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class ForbiddenExceptionError extends Schema.TaggedError<ForbiddenExceptionError>()("ForbiddenException", ForbiddenException) {};
-export class NotFoundExceptionError extends Schema.TaggedError<NotFoundExceptionError>()("NotFoundException", NotFoundException) {};
-export class ServiceFailureExceptionError extends Schema.TaggedError<ServiceFailureExceptionError>()("ServiceFailureException", ServiceFailureException) {};
-export class ServiceUnavailableExceptionError extends Schema.TaggedError<ServiceUnavailableExceptionError>()("ServiceUnavailableException", ServiceUnavailableException) {};
-export class ThrottledClientExceptionError extends Schema.TaggedError<ThrottledClientExceptionError>()("ThrottledClientException", ThrottledClientException) {};
-export class UnauthorizedClientExceptionError extends Schema.TaggedError<UnauthorizedClientExceptionError>()("UnauthorizedClientException", UnauthorizedClientException) {};
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class UnprocessableEntityExceptionError extends Schema.TaggedError<UnprocessableEntityExceptionError>()("UnprocessableEntityException", UnprocessableEntityException) {};
-export class ResourceLimitExceededExceptionError extends Schema.TaggedError<ResourceLimitExceededExceptionError>()("ResourceLimitExceededException", ResourceLimitExceededException) {};
-export class GoneExceptionError extends Schema.TaggedError<GoneExceptionError>()("GoneException", GoneException) {};
+export class BadRequestExceptionError extends Schema.TaggedError<BadRequestExceptionError>()("BadRequestException", BadRequestException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class ForbiddenExceptionError extends Schema.TaggedError<ForbiddenExceptionError>()("ForbiddenException", ForbiddenException.fields) {};
+export class NotFoundExceptionError extends Schema.TaggedError<NotFoundExceptionError>()("NotFoundException", NotFoundException.fields) {};
+export class ServiceFailureExceptionError extends Schema.TaggedError<ServiceFailureExceptionError>()("ServiceFailureException", ServiceFailureException.fields) {};
+export class ServiceUnavailableExceptionError extends Schema.TaggedError<ServiceUnavailableExceptionError>()("ServiceUnavailableException", ServiceUnavailableException.fields) {};
+export class ThrottledClientExceptionError extends Schema.TaggedError<ThrottledClientExceptionError>()("ThrottledClientException", ThrottledClientException.fields) {};
+export class UnauthorizedClientExceptionError extends Schema.TaggedError<UnauthorizedClientExceptionError>()("UnauthorizedClientException", UnauthorizedClientException.fields) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class UnprocessableEntityExceptionError extends Schema.TaggedError<UnprocessableEntityExceptionError>()("UnprocessableEntityException", UnprocessableEntityException.fields) {};
+export class ResourceLimitExceededExceptionError extends Schema.TaggedError<ResourceLimitExceededExceptionError>()("ResourceLimitExceededException", ResourceLimitExceededException.fields) {};
+export class GoneExceptionError extends Schema.TaggedError<GoneExceptionError>()("GoneException", GoneException.fields) {};
 
 //# Operations
 export const deleteVoiceConnectorOrigination = /*#__PURE__*/ makeOperation(() => Operation({ version: "2022-08-03", uri: "/voice-connectors/{VoiceConnectorId}/origination", method: "DELETE", sdkId: "Chime SDK Voice", sigV4ServiceName: "chime", name: "ChimeSDKTelephonyService.DeleteVoiceConnectorOrigination" }, DeleteVoiceConnectorOriginationRequest, Schema.Struct({}), [BadRequestExceptionError, ForbiddenExceptionError, NotFoundExceptionError, ServiceFailureExceptionError, ServiceUnavailableExceptionError, ThrottledClientExceptionError, UnauthorizedClientExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

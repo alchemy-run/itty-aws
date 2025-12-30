@@ -7,18 +7,19 @@ export const EventArnsList = Schema.Array(Schema.String);
 export const OrganizationEventArnsList = Schema.Array(Schema.String);
 export const OrganizationAccountIdsList = Schema.Array(Schema.String);
 export const eventArnList = Schema.Array(Schema.String);
-export const EventAccountFilter = Schema.Struct({eventArn: Schema.String, awsAccountId: Schema.optional(Schema.String)});
+export class EventAccountFilter extends Schema.Class<EventAccountFilter>("EventAccountFilter")({eventArn: Schema.String, awsAccountId: Schema.optional(Schema.String)}) {}
 export const OrganizationEventDetailFiltersList = Schema.Array(EventAccountFilter);
-export const DescribeAffectedAccountsForOrganizationRequest = Schema.Struct({eventArn: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const DescribeEntityAggregatesRequest = Schema.Struct({eventArns: Schema.optional(EventArnsList)});
-export const DescribeEntityAggregatesForOrganizationRequest = Schema.Struct({eventArns: OrganizationEventArnsList, awsAccountIds: Schema.optional(OrganizationAccountIdsList)});
-export const DescribeEventDetailsRequest = Schema.Struct({eventArns: eventArnList, locale: Schema.optional(Schema.String)});
-export const DescribeEventDetailsForOrganizationRequest = Schema.Struct({organizationEventDetailFilters: OrganizationEventDetailFiltersList, locale: Schema.optional(Schema.String)});
+export class DescribeAffectedAccountsForOrganizationRequest extends Schema.Class<DescribeAffectedAccountsForOrganizationRequest>("DescribeAffectedAccountsForOrganizationRequest")({eventArn: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class DescribeEntityAggregatesRequest extends Schema.Class<DescribeEntityAggregatesRequest>("DescribeEntityAggregatesRequest")({eventArns: Schema.optional(EventArnsList)}) {}
+export class DescribeEntityAggregatesForOrganizationRequest extends Schema.Class<DescribeEntityAggregatesForOrganizationRequest>("DescribeEntityAggregatesForOrganizationRequest")({eventArns: OrganizationEventArnsList, awsAccountIds: Schema.optional(OrganizationAccountIdsList)}) {}
+export class DescribeEventDetailsRequest extends Schema.Class<DescribeEventDetailsRequest>("DescribeEventDetailsRequest")({eventArns: eventArnList, locale: Schema.optional(Schema.String)}) {}
+export class DescribeEventDetailsForOrganizationRequest extends Schema.Class<DescribeEventDetailsForOrganizationRequest>("DescribeEventDetailsForOrganizationRequest")({organizationEventDetailFilters: OrganizationEventDetailFiltersList, locale: Schema.optional(Schema.String)}) {}
+export const EventActionabilityList = Schema.Array(Schema.String);
 export const eventTypeList2 = Schema.Array(Schema.String);
 export const serviceList = Schema.Array(Schema.String);
 export const regionList = Schema.Array(Schema.String);
 export const availabilityZones = Schema.Array(Schema.String);
-export const DateTimeRange = Schema.Struct({from: Schema.optional(Schema.Date), to: Schema.optional(Schema.Date)});
+export class DateTimeRange extends Schema.Class<DateTimeRange>("DateTimeRange")({from: Schema.optional(Schema.Date), to: Schema.optional(Schema.Date)}) {}
 export const dateTimeRangeList = Schema.Array(DateTimeRange);
 export const entityArnList = Schema.Array(Schema.String);
 export const entityValueList = Schema.Array(Schema.String);
@@ -26,74 +27,77 @@ export const eventTypeCategoryList2 = Schema.Array(Schema.String);
 export const tagSet = Schema.Record({key: Schema.String, value: Schema.String});
 export const tagFilter = Schema.Array(tagSet);
 export const eventStatusCodeList = Schema.Array(Schema.String);
-export const EventFilter = Schema.Struct({eventArns: Schema.optional(eventArnList), eventTypeCodes: Schema.optional(eventTypeList2), services: Schema.optional(serviceList), regions: Schema.optional(regionList), availabilityZones: Schema.optional(availabilityZones), startTimes: Schema.optional(dateTimeRangeList), endTimes: Schema.optional(dateTimeRangeList), lastUpdatedTimes: Schema.optional(dateTimeRangeList), entityArns: Schema.optional(entityArnList), entityValues: Schema.optional(entityValueList), eventTypeCategories: Schema.optional(eventTypeCategoryList2), tags: Schema.optional(tagFilter), eventStatusCodes: Schema.optional(eventStatusCodeList)});
-export const DescribeEventsRequest = Schema.Struct({filter: Schema.optional(EventFilter), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), locale: Schema.optional(Schema.String)});
-export const DescribeHealthServiceStatusForOrganizationResponse = Schema.Struct({healthServiceAccessStatusForOrganization: Schema.optional(Schema.String)});
-export const ConcurrentModificationException = Schema.Struct({message: Schema.optional(Schema.String)});
+export const EventPersonaList = Schema.Array(Schema.String);
+export class EventFilter extends Schema.Class<EventFilter>("EventFilter")({actionabilities: Schema.optional(EventActionabilityList), eventArns: Schema.optional(eventArnList), eventTypeCodes: Schema.optional(eventTypeList2), services: Schema.optional(serviceList), regions: Schema.optional(regionList), availabilityZones: Schema.optional(availabilityZones), startTimes: Schema.optional(dateTimeRangeList), endTimes: Schema.optional(dateTimeRangeList), lastUpdatedTimes: Schema.optional(dateTimeRangeList), entityArns: Schema.optional(entityArnList), entityValues: Schema.optional(entityValueList), eventTypeCategories: Schema.optional(eventTypeCategoryList2), tags: Schema.optional(tagFilter), eventStatusCodes: Schema.optional(eventStatusCodeList), personas: Schema.optional(EventPersonaList)}) {}
+export class DescribeEventsRequest extends Schema.Class<DescribeEventsRequest>("DescribeEventsRequest")({filter: Schema.optional(EventFilter), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), locale: Schema.optional(Schema.String)}) {}
+export class DescribeHealthServiceStatusForOrganizationResponse extends Schema.Class<DescribeHealthServiceStatusForOrganizationResponse>("DescribeHealthServiceStatusForOrganizationResponse")({healthServiceAccessStatusForOrganization: Schema.optional(Schema.String)}) {}
+export class ConcurrentModificationException extends Schema.Class<ConcurrentModificationException>("ConcurrentModificationException")({message: Schema.optional(Schema.String)}) {}
 export const entityStatusCodeList = Schema.Array(Schema.String);
 export const awsAccountIdsList = Schema.Array(Schema.String);
 export const EventTypeCodeList = Schema.Array(Schema.String);
 export const EventTypeCategoryList = Schema.Array(Schema.String);
+export const EventTypeActionabilityList = Schema.Array(Schema.String);
+export const EventTypePersonaList = Schema.Array(Schema.String);
 export const affectedAccountsList = Schema.Array(Schema.String);
 export const OrganizationEntityFiltersList = Schema.Array(EventAccountFilter);
-export const EntityAccountFilter = Schema.Struct({eventArn: Schema.String, awsAccountId: Schema.optional(Schema.String), statusCodes: Schema.optional(entityStatusCodeList)});
+export class EntityAccountFilter extends Schema.Class<EntityAccountFilter>("EntityAccountFilter")({eventArn: Schema.String, awsAccountId: Schema.optional(Schema.String), statusCodes: Schema.optional(entityStatusCodeList)}) {}
 export const OrganizationEntityAccountFiltersList = Schema.Array(EntityAccountFilter);
-export const OrganizationEventFilter = Schema.Struct({eventTypeCodes: Schema.optional(eventTypeList2), awsAccountIds: Schema.optional(awsAccountIdsList), services: Schema.optional(serviceList), regions: Schema.optional(regionList), startTime: Schema.optional(DateTimeRange), endTime: Schema.optional(DateTimeRange), lastUpdatedTime: Schema.optional(DateTimeRange), entityArns: Schema.optional(entityArnList), entityValues: Schema.optional(entityValueList), eventTypeCategories: Schema.optional(eventTypeCategoryList2), eventStatusCodes: Schema.optional(eventStatusCodeList)});
-export const EventTypeFilter = Schema.Struct({eventTypeCodes: Schema.optional(EventTypeCodeList), services: Schema.optional(serviceList), eventTypeCategories: Schema.optional(EventTypeCategoryList)});
-export const DescribeAffectedAccountsForOrganizationResponse = Schema.Struct({affectedAccounts: Schema.optional(affectedAccountsList), eventScopeCode: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String)});
-export const DescribeAffectedEntitiesForOrganizationRequest = Schema.Struct({organizationEntityFilters: Schema.optional(OrganizationEntityFiltersList), locale: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), organizationEntityAccountFilters: Schema.optional(OrganizationEntityAccountFiltersList)});
-export const DescribeEventAggregatesRequest = Schema.Struct({filter: Schema.optional(EventFilter), aggregateField: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const DescribeEventsForOrganizationRequest = Schema.Struct({filter: Schema.optional(OrganizationEventFilter), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), locale: Schema.optional(Schema.String)});
-export const DescribeEventTypesRequest = Schema.Struct({filter: Schema.optional(EventTypeFilter), locale: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const EntityFilter = Schema.Struct({eventArns: eventArnList, entityArns: Schema.optional(entityArnList), entityValues: Schema.optional(entityValueList), lastUpdatedTimes: Schema.optional(dateTimeRangeList), tags: Schema.optional(tagFilter), statusCodes: Schema.optional(entityStatusCodeList)});
-export const EventDetailsErrorItem = Schema.Struct({eventArn: Schema.optional(Schema.String), errorName: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String)});
+export class OrganizationEventFilter extends Schema.Class<OrganizationEventFilter>("OrganizationEventFilter")({actionabilities: Schema.optional(EventActionabilityList), eventTypeCodes: Schema.optional(eventTypeList2), awsAccountIds: Schema.optional(awsAccountIdsList), services: Schema.optional(serviceList), regions: Schema.optional(regionList), startTime: Schema.optional(DateTimeRange), endTime: Schema.optional(DateTimeRange), lastUpdatedTime: Schema.optional(DateTimeRange), entityArns: Schema.optional(entityArnList), entityValues: Schema.optional(entityValueList), eventTypeCategories: Schema.optional(eventTypeCategoryList2), eventStatusCodes: Schema.optional(eventStatusCodeList), personas: Schema.optional(EventPersonaList)}) {}
+export class EventTypeFilter extends Schema.Class<EventTypeFilter>("EventTypeFilter")({eventTypeCodes: Schema.optional(EventTypeCodeList), services: Schema.optional(serviceList), eventTypeCategories: Schema.optional(EventTypeCategoryList), actionabilities: Schema.optional(EventTypeActionabilityList), personas: Schema.optional(EventTypePersonaList)}) {}
+export class DescribeAffectedAccountsForOrganizationResponse extends Schema.Class<DescribeAffectedAccountsForOrganizationResponse>("DescribeAffectedAccountsForOrganizationResponse")({affectedAccounts: Schema.optional(affectedAccountsList), eventScopeCode: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String)}) {}
+export class DescribeAffectedEntitiesForOrganizationRequest extends Schema.Class<DescribeAffectedEntitiesForOrganizationRequest>("DescribeAffectedEntitiesForOrganizationRequest")({organizationEntityFilters: Schema.optional(OrganizationEntityFiltersList), locale: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), organizationEntityAccountFilters: Schema.optional(OrganizationEntityAccountFiltersList)}) {}
+export class DescribeEventAggregatesRequest extends Schema.Class<DescribeEventAggregatesRequest>("DescribeEventAggregatesRequest")({filter: Schema.optional(EventFilter), aggregateField: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class DescribeEventsForOrganizationRequest extends Schema.Class<DescribeEventsForOrganizationRequest>("DescribeEventsForOrganizationRequest")({filter: Schema.optional(OrganizationEventFilter), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), locale: Schema.optional(Schema.String)}) {}
+export class DescribeEventTypesRequest extends Schema.Class<DescribeEventTypesRequest>("DescribeEventTypesRequest")({filter: Schema.optional(EventTypeFilter), locale: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class EntityFilter extends Schema.Class<EntityFilter>("EntityFilter")({eventArns: eventArnList, entityArns: Schema.optional(entityArnList), entityValues: Schema.optional(entityValueList), lastUpdatedTimes: Schema.optional(dateTimeRangeList), tags: Schema.optional(tagFilter), statusCodes: Schema.optional(entityStatusCodeList)}) {}
+export class EventDetailsErrorItem extends Schema.Class<EventDetailsErrorItem>("EventDetailsErrorItem")({eventArn: Schema.optional(Schema.String), errorName: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String)}) {}
 export const DescribeEventDetailsFailedSet = Schema.Array(EventDetailsErrorItem);
-export const Event = Schema.Struct({arn: Schema.optional(Schema.String), service: Schema.optional(Schema.String), eventTypeCode: Schema.optional(Schema.String), eventTypeCategory: Schema.optional(Schema.String), region: Schema.optional(Schema.String), availabilityZone: Schema.optional(Schema.String), startTime: Schema.optional(Schema.Date), endTime: Schema.optional(Schema.Date), lastUpdatedTime: Schema.optional(Schema.Date), statusCode: Schema.optional(Schema.String), eventScopeCode: Schema.optional(Schema.String)});
-export const EventDescription = Schema.Struct({latestDescription: Schema.optional(Schema.String)});
+export class Event extends Schema.Class<Event>("Event")({arn: Schema.optional(Schema.String), service: Schema.optional(Schema.String), eventTypeCode: Schema.optional(Schema.String), eventTypeCategory: Schema.optional(Schema.String), region: Schema.optional(Schema.String), availabilityZone: Schema.optional(Schema.String), startTime: Schema.optional(Schema.Date), endTime: Schema.optional(Schema.Date), lastUpdatedTime: Schema.optional(Schema.Date), statusCode: Schema.optional(Schema.String), eventScopeCode: Schema.optional(Schema.String), actionability: Schema.optional(Schema.String), personas: Schema.optional(EventPersonaList)}) {}
+export class EventDescription extends Schema.Class<EventDescription>("EventDescription")({latestDescription: Schema.optional(Schema.String)}) {}
 export const eventMetadata = Schema.Record({key: Schema.String, value: Schema.String});
-export const OrganizationEventDetails = Schema.Struct({awsAccountId: Schema.optional(Schema.String), event: Schema.optional(Event), eventDescription: Schema.optional(EventDescription), eventMetadata: Schema.optional(eventMetadata)});
+export class OrganizationEventDetails extends Schema.Class<OrganizationEventDetails>("OrganizationEventDetails")({awsAccountId: Schema.optional(Schema.String), event: Schema.optional(Event), eventDescription: Schema.optional(EventDescription), eventMetadata: Schema.optional(eventMetadata)}) {}
 export const DescribeEventDetailsForOrganizationSuccessfulSet = Schema.Array(OrganizationEventDetails);
-export const OrganizationEventDetailsErrorItem = Schema.Struct({awsAccountId: Schema.optional(Schema.String), eventArn: Schema.optional(Schema.String), errorName: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String)});
+export class OrganizationEventDetailsErrorItem extends Schema.Class<OrganizationEventDetailsErrorItem>("OrganizationEventDetailsErrorItem")({awsAccountId: Schema.optional(Schema.String), eventArn: Schema.optional(Schema.String), errorName: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String)}) {}
 export const DescribeEventDetailsForOrganizationFailedSet = Schema.Array(OrganizationEventDetailsErrorItem);
 export const EventList = Schema.Array(Event);
-export const InvalidPaginationToken = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DescribeAffectedEntitiesRequest = Schema.Struct({filter: EntityFilter, locale: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const DescribeEventDetailsForOrganizationResponse = Schema.Struct({successfulSet: Schema.optional(DescribeEventDetailsForOrganizationSuccessfulSet), failedSet: Schema.optional(DescribeEventDetailsForOrganizationFailedSet)});
-export const DescribeEventsResponse = Schema.Struct({events: Schema.optional(EventList), nextToken: Schema.optional(Schema.String)});
+export class InvalidPaginationToken extends Schema.Class<InvalidPaginationToken>("InvalidPaginationToken")({message: Schema.optional(Schema.String)}) {}
+export class DescribeAffectedEntitiesRequest extends Schema.Class<DescribeAffectedEntitiesRequest>("DescribeAffectedEntitiesRequest")({filter: EntityFilter, locale: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class DescribeEventDetailsForOrganizationResponse extends Schema.Class<DescribeEventDetailsForOrganizationResponse>("DescribeEventDetailsForOrganizationResponse")({successfulSet: Schema.optional(DescribeEventDetailsForOrganizationSuccessfulSet), failedSet: Schema.optional(DescribeEventDetailsForOrganizationFailedSet)}) {}
+export class DescribeEventsResponse extends Schema.Class<DescribeEventsResponse>("DescribeEventsResponse")({events: Schema.optional(EventList), nextToken: Schema.optional(Schema.String)}) {}
 export const entityStatuses = Schema.Record({key: Schema.String, value: Schema.Number});
-export const AccountEntityAggregate = Schema.Struct({accountId: Schema.optional(Schema.String), count: Schema.optional(Schema.Number), statuses: Schema.optional(entityStatuses)});
+export class AccountEntityAggregate extends Schema.Class<AccountEntityAggregate>("AccountEntityAggregate")({accountId: Schema.optional(Schema.String), count: Schema.optional(Schema.Number), statuses: Schema.optional(entityStatuses)}) {}
 export const AccountEntityAggregatesList = Schema.Array(AccountEntityAggregate);
-export const OrganizationAffectedEntitiesErrorItem = Schema.Struct({awsAccountId: Schema.optional(Schema.String), eventArn: Schema.optional(Schema.String), errorName: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String)});
+export class OrganizationAffectedEntitiesErrorItem extends Schema.Class<OrganizationAffectedEntitiesErrorItem>("OrganizationAffectedEntitiesErrorItem")({awsAccountId: Schema.optional(Schema.String), eventArn: Schema.optional(Schema.String), errorName: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String)}) {}
 export const DescribeAffectedEntitiesForOrganizationFailedSet = Schema.Array(OrganizationAffectedEntitiesErrorItem);
-export const EntityAggregate = Schema.Struct({eventArn: Schema.optional(Schema.String), count: Schema.optional(Schema.Number), statuses: Schema.optional(entityStatuses)});
+export class EntityAggregate extends Schema.Class<EntityAggregate>("EntityAggregate")({eventArn: Schema.optional(Schema.String), count: Schema.optional(Schema.Number), statuses: Schema.optional(entityStatuses)}) {}
 export const EntityAggregateList = Schema.Array(EntityAggregate);
-export const OrganizationEntityAggregate = Schema.Struct({eventArn: Schema.optional(Schema.String), count: Schema.optional(Schema.Number), statuses: Schema.optional(entityStatuses), accounts: Schema.optional(AccountEntityAggregatesList)});
+export class OrganizationEntityAggregate extends Schema.Class<OrganizationEntityAggregate>("OrganizationEntityAggregate")({eventArn: Schema.optional(Schema.String), count: Schema.optional(Schema.Number), statuses: Schema.optional(entityStatuses), accounts: Schema.optional(AccountEntityAggregatesList)}) {}
 export const OrganizationEntityAggregatesList = Schema.Array(OrganizationEntityAggregate);
-export const EventAggregate = Schema.Struct({aggregateValue: Schema.optional(Schema.String), count: Schema.optional(Schema.Number)});
+export class EventAggregate extends Schema.Class<EventAggregate>("EventAggregate")({aggregateValue: Schema.optional(Schema.String), count: Schema.optional(Schema.Number)}) {}
 export const EventAggregateList = Schema.Array(EventAggregate);
-export const EventDetails = Schema.Struct({event: Schema.optional(Event), eventDescription: Schema.optional(EventDescription), eventMetadata: Schema.optional(eventMetadata)});
+export class EventDetails extends Schema.Class<EventDetails>("EventDetails")({event: Schema.optional(Event), eventDescription: Schema.optional(EventDescription), eventMetadata: Schema.optional(eventMetadata)}) {}
 export const DescribeEventDetailsSuccessfulSet = Schema.Array(EventDetails);
-export const OrganizationEvent = Schema.Struct({arn: Schema.optional(Schema.String), service: Schema.optional(Schema.String), eventTypeCode: Schema.optional(Schema.String), eventTypeCategory: Schema.optional(Schema.String), eventScopeCode: Schema.optional(Schema.String), region: Schema.optional(Schema.String), startTime: Schema.optional(Schema.Date), endTime: Schema.optional(Schema.Date), lastUpdatedTime: Schema.optional(Schema.Date), statusCode: Schema.optional(Schema.String)});
+export class OrganizationEvent extends Schema.Class<OrganizationEvent>("OrganizationEvent")({arn: Schema.optional(Schema.String), service: Schema.optional(Schema.String), eventTypeCode: Schema.optional(Schema.String), eventTypeCategory: Schema.optional(Schema.String), eventScopeCode: Schema.optional(Schema.String), region: Schema.optional(Schema.String), startTime: Schema.optional(Schema.Date), endTime: Schema.optional(Schema.Date), lastUpdatedTime: Schema.optional(Schema.Date), statusCode: Schema.optional(Schema.String), actionability: Schema.optional(Schema.String), personas: Schema.optional(EventPersonaList)}) {}
 export const OrganizationEventList = Schema.Array(OrganizationEvent);
-export const EventType = Schema.Struct({service: Schema.optional(Schema.String), code: Schema.optional(Schema.String), category: Schema.optional(Schema.String)});
+export class EventType extends Schema.Class<EventType>("EventType")({service: Schema.optional(Schema.String), code: Schema.optional(Schema.String), category: Schema.optional(Schema.String), actionability: Schema.optional(Schema.String), personas: Schema.optional(EventTypePersonaList)}) {}
 export const EventTypeList = Schema.Array(EventType);
 export const entityMetadata = Schema.Record({key: Schema.String, value: Schema.String});
-export const AffectedEntity = Schema.Struct({entityArn: Schema.optional(Schema.String), eventArn: Schema.optional(Schema.String), entityValue: Schema.optional(Schema.String), entityUrl: Schema.optional(Schema.String), awsAccountId: Schema.optional(Schema.String), lastUpdatedTime: Schema.optional(Schema.Date), statusCode: Schema.optional(Schema.String), tags: Schema.optional(tagSet), entityMetadata: Schema.optional(entityMetadata)});
+export class AffectedEntity extends Schema.Class<AffectedEntity>("AffectedEntity")({entityArn: Schema.optional(Schema.String), eventArn: Schema.optional(Schema.String), entityValue: Schema.optional(Schema.String), entityUrl: Schema.optional(Schema.String), awsAccountId: Schema.optional(Schema.String), lastUpdatedTime: Schema.optional(Schema.Date), statusCode: Schema.optional(Schema.String), tags: Schema.optional(tagSet), entityMetadata: Schema.optional(entityMetadata)}) {}
 export const EntityList = Schema.Array(AffectedEntity);
-export const DescribeAffectedEntitiesResponse = Schema.Struct({entities: Schema.optional(EntityList), nextToken: Schema.optional(Schema.String)});
-export const DescribeEntityAggregatesResponse = Schema.Struct({entityAggregates: Schema.optional(EntityAggregateList)});
-export const DescribeEntityAggregatesForOrganizationResponse = Schema.Struct({organizationEntityAggregates: Schema.optional(OrganizationEntityAggregatesList)});
-export const DescribeEventAggregatesResponse = Schema.Struct({eventAggregates: Schema.optional(EventAggregateList), nextToken: Schema.optional(Schema.String)});
-export const DescribeEventDetailsResponse = Schema.Struct({successfulSet: Schema.optional(DescribeEventDetailsSuccessfulSet), failedSet: Schema.optional(DescribeEventDetailsFailedSet)});
-export const UnsupportedLocale = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DescribeEventsForOrganizationResponse = Schema.Struct({events: Schema.optional(OrganizationEventList), nextToken: Schema.optional(Schema.String)});
-export const DescribeEventTypesResponse = Schema.Struct({eventTypes: Schema.optional(EventTypeList), nextToken: Schema.optional(Schema.String)});
-export const DescribeAffectedEntitiesForOrganizationResponse = Schema.Struct({entities: Schema.optional(EntityList), failedSet: Schema.optional(DescribeAffectedEntitiesForOrganizationFailedSet), nextToken: Schema.optional(Schema.String)});
+export class DescribeAffectedEntitiesResponse extends Schema.Class<DescribeAffectedEntitiesResponse>("DescribeAffectedEntitiesResponse")({entities: Schema.optional(EntityList), nextToken: Schema.optional(Schema.String)}) {}
+export class DescribeEntityAggregatesResponse extends Schema.Class<DescribeEntityAggregatesResponse>("DescribeEntityAggregatesResponse")({entityAggregates: Schema.optional(EntityAggregateList)}) {}
+export class DescribeEntityAggregatesForOrganizationResponse extends Schema.Class<DescribeEntityAggregatesForOrganizationResponse>("DescribeEntityAggregatesForOrganizationResponse")({organizationEntityAggregates: Schema.optional(OrganizationEntityAggregatesList)}) {}
+export class DescribeEventAggregatesResponse extends Schema.Class<DescribeEventAggregatesResponse>("DescribeEventAggregatesResponse")({eventAggregates: Schema.optional(EventAggregateList), nextToken: Schema.optional(Schema.String)}) {}
+export class DescribeEventDetailsResponse extends Schema.Class<DescribeEventDetailsResponse>("DescribeEventDetailsResponse")({successfulSet: Schema.optional(DescribeEventDetailsSuccessfulSet), failedSet: Schema.optional(DescribeEventDetailsFailedSet)}) {}
+export class UnsupportedLocale extends Schema.Class<UnsupportedLocale>("UnsupportedLocale")({message: Schema.optional(Schema.String)}) {}
+export class DescribeEventsForOrganizationResponse extends Schema.Class<DescribeEventsForOrganizationResponse>("DescribeEventsForOrganizationResponse")({events: Schema.optional(OrganizationEventList), nextToken: Schema.optional(Schema.String)}) {}
+export class DescribeEventTypesResponse extends Schema.Class<DescribeEventTypesResponse>("DescribeEventTypesResponse")({eventTypes: Schema.optional(EventTypeList), nextToken: Schema.optional(Schema.String)}) {}
+export class DescribeAffectedEntitiesForOrganizationResponse extends Schema.Class<DescribeAffectedEntitiesForOrganizationResponse>("DescribeAffectedEntitiesForOrganizationResponse")({entities: Schema.optional(EntityList), failedSet: Schema.optional(DescribeAffectedEntitiesForOrganizationFailedSet), nextToken: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class ConcurrentModificationExceptionError extends Schema.TaggedError<ConcurrentModificationExceptionError>()("ConcurrentModificationException", ConcurrentModificationException) {};
-export class InvalidPaginationTokenError extends Schema.TaggedError<InvalidPaginationTokenError>()("InvalidPaginationToken", InvalidPaginationToken) {};
-export class UnsupportedLocaleError extends Schema.TaggedError<UnsupportedLocaleError>()("UnsupportedLocale", UnsupportedLocale) {};
+export class ConcurrentModificationExceptionError extends Schema.TaggedError<ConcurrentModificationExceptionError>()("ConcurrentModificationException", ConcurrentModificationException.fields) {};
+export class InvalidPaginationTokenError extends Schema.TaggedError<InvalidPaginationTokenError>()("InvalidPaginationToken", InvalidPaginationToken.fields) {};
+export class UnsupportedLocaleError extends Schema.TaggedError<UnsupportedLocaleError>()("UnsupportedLocale", UnsupportedLocale.fields) {};
 
 //# Operations
 export const enableHealthServiceAccessForOrganization = /*#__PURE__*/ makeOperation(() => Operation({ version: "2016-08-04", uri: "/", method: "POST", sdkId: "Health", sigV4ServiceName: "health", name: "AWSHealth_20160804.EnableHealthServiceAccessForOrganization" }, Schema.Struct({}), Schema.Struct({}), [ConcurrentModificationExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

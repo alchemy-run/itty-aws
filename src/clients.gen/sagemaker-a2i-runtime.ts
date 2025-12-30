@@ -3,36 +3,36 @@ import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperat
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const DeleteHumanLoopRequest = Schema.Struct({HumanLoopName: Schema.String});
-export const DeleteHumanLoopResponse = Schema.Struct({});
-export const DescribeHumanLoopRequest = Schema.Struct({HumanLoopName: Schema.String});
-export const ListHumanLoopsRequest = Schema.Struct({CreationTimeAfter: Schema.optional(Schema.Date), CreationTimeBefore: Schema.optional(Schema.Date), FlowDefinitionArn: Schema.String, SortOrder: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const StopHumanLoopRequest = Schema.Struct({HumanLoopName: Schema.String});
-export const StopHumanLoopResponse = Schema.Struct({});
+export class DeleteHumanLoopRequest extends Schema.Class<DeleteHumanLoopRequest>("DeleteHumanLoopRequest")({HumanLoopName: Schema.String}) {}
+export class DeleteHumanLoopResponse extends Schema.Class<DeleteHumanLoopResponse>("DeleteHumanLoopResponse")({}) {}
+export class DescribeHumanLoopRequest extends Schema.Class<DescribeHumanLoopRequest>("DescribeHumanLoopRequest")({HumanLoopName: Schema.String}) {}
+export class ListHumanLoopsRequest extends Schema.Class<ListHumanLoopsRequest>("ListHumanLoopsRequest")({CreationTimeAfter: Schema.optional(Schema.Date), CreationTimeBefore: Schema.optional(Schema.Date), FlowDefinitionArn: Schema.String, SortOrder: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class StopHumanLoopRequest extends Schema.Class<StopHumanLoopRequest>("StopHumanLoopRequest")({HumanLoopName: Schema.String}) {}
+export class StopHumanLoopResponse extends Schema.Class<StopHumanLoopResponse>("StopHumanLoopResponse")({}) {}
 export const ContentClassifiers = Schema.Array(Schema.String);
-export const HumanLoopInput = Schema.Struct({InputContent: Schema.String});
-export const HumanLoopDataAttributes = Schema.Struct({ContentClassifiers: ContentClassifiers});
-export const InternalServerException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const StartHumanLoopRequest = Schema.Struct({HumanLoopName: Schema.String, FlowDefinitionArn: Schema.String, HumanLoopInput: HumanLoopInput, DataAttributes: Schema.optional(HumanLoopDataAttributes)});
-export const ResourceNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const HumanLoopOutput = Schema.Struct({OutputS3Uri: Schema.String});
-export const HumanLoopSummary = Schema.Struct({HumanLoopName: Schema.optional(Schema.String), HumanLoopStatus: Schema.optional(Schema.String), CreationTime: Schema.optional(Schema.Date), FailureReason: Schema.optional(Schema.String), FlowDefinitionArn: Schema.optional(Schema.String)});
+export class HumanLoopInput extends Schema.Class<HumanLoopInput>("HumanLoopInput")({InputContent: Schema.String}) {}
+export class HumanLoopDataAttributes extends Schema.Class<HumanLoopDataAttributes>("HumanLoopDataAttributes")({ContentClassifiers: ContentClassifiers}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({Message: Schema.optional(Schema.String)}) {}
+export class StartHumanLoopRequest extends Schema.Class<StartHumanLoopRequest>("StartHumanLoopRequest")({HumanLoopName: Schema.String, FlowDefinitionArn: Schema.String, HumanLoopInput: HumanLoopInput, DataAttributes: Schema.optional(HumanLoopDataAttributes)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class HumanLoopOutput extends Schema.Class<HumanLoopOutput>("HumanLoopOutput")({OutputS3Uri: Schema.String}) {}
+export class HumanLoopSummary extends Schema.Class<HumanLoopSummary>("HumanLoopSummary")({HumanLoopName: Schema.optional(Schema.String), HumanLoopStatus: Schema.optional(Schema.String), CreationTime: Schema.optional(Schema.Date), FailureReason: Schema.optional(Schema.String), FlowDefinitionArn: Schema.optional(Schema.String)}) {}
 export const HumanLoopSummaries = Schema.Array(HumanLoopSummary);
-export const ThrottlingException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DescribeHumanLoopResponse = Schema.Struct({CreationTime: Schema.Date, FailureReason: Schema.optional(Schema.String), FailureCode: Schema.optional(Schema.String), HumanLoopStatus: Schema.String, HumanLoopName: Schema.String, HumanLoopArn: Schema.String, FlowDefinitionArn: Schema.String, HumanLoopOutput: Schema.optional(HumanLoopOutput)});
-export const ListHumanLoopsResponse = Schema.Struct({HumanLoopSummaries: HumanLoopSummaries, NextToken: Schema.optional(Schema.String)});
-export const StartHumanLoopResponse = Schema.Struct({HumanLoopArn: Schema.optional(Schema.String)});
-export const ValidationException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ConflictException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ServiceQuotaExceededException = Schema.Struct({Message: Schema.optional(Schema.String)});
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({Message: Schema.optional(Schema.String)}) {}
+export class DescribeHumanLoopResponse extends Schema.Class<DescribeHumanLoopResponse>("DescribeHumanLoopResponse")({CreationTime: Schema.Date, FailureReason: Schema.optional(Schema.String), FailureCode: Schema.optional(Schema.String), HumanLoopStatus: Schema.String, HumanLoopName: Schema.String, HumanLoopArn: Schema.String, FlowDefinitionArn: Schema.String, HumanLoopOutput: Schema.optional(HumanLoopOutput)}) {}
+export class ListHumanLoopsResponse extends Schema.Class<ListHumanLoopsResponse>("ListHumanLoopsResponse")({HumanLoopSummaries: HumanLoopSummaries, NextToken: Schema.optional(Schema.String)}) {}
+export class StartHumanLoopResponse extends Schema.Class<StartHumanLoopResponse>("StartHumanLoopResponse")({HumanLoopArn: Schema.optional(Schema.String)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({Message: Schema.optional(Schema.String)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({Message: Schema.optional(Schema.String)}) {}
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({Message: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
 
 //# Operations
 export const deleteHumanLoop = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-11-07", uri: "/human-loops/{HumanLoopName}", method: "DELETE", sdkId: "SageMaker A2I Runtime", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerA2IRuntime.DeleteHumanLoop" }, DeleteHumanLoopRequest, DeleteHumanLoopResponse, [InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

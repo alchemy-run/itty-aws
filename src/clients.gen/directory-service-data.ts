@@ -4,69 +4,69 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 
 //# Schemas
 export const LdapDisplayNameList = Schema.Array(Schema.String);
-export const AddGroupMemberRequest = Schema.Struct({DirectoryId: Schema.String, GroupName: Schema.String, MemberName: Schema.String, MemberRealm: Schema.optional(Schema.String), ClientToken: Schema.optional(Schema.String)});
-export const AddGroupMemberResult = Schema.Struct({});
+export class AddGroupMemberRequest extends Schema.Class<AddGroupMemberRequest>("AddGroupMemberRequest")({DirectoryId: Schema.String, GroupName: Schema.String, MemberName: Schema.String, MemberRealm: Schema.optional(Schema.String), ClientToken: Schema.optional(Schema.String)}) {}
+export class AddGroupMemberResult extends Schema.Class<AddGroupMemberResult>("AddGroupMemberResult")({}) {}
 export const StringSetAttributeValue = Schema.Array(Schema.String);
 export const AttributeValue = Schema.Union(Schema.String, Schema.Number, Schema.Boolean, StringSetAttributeValue);
 export const Attributes = Schema.Record({key: Schema.String, value: AttributeValue});
-export const CreateUserRequest = Schema.Struct({DirectoryId: Schema.String, SAMAccountName: Schema.String, EmailAddress: Schema.optional(Schema.String), GivenName: Schema.optional(Schema.String), Surname: Schema.optional(Schema.String), OtherAttributes: Schema.optional(Attributes), ClientToken: Schema.optional(Schema.String)});
-export const DeleteGroupRequest = Schema.Struct({DirectoryId: Schema.String, SAMAccountName: Schema.String, ClientToken: Schema.optional(Schema.String)});
-export const DeleteGroupResult = Schema.Struct({});
-export const DeleteUserRequest = Schema.Struct({DirectoryId: Schema.String, SAMAccountName: Schema.String, ClientToken: Schema.optional(Schema.String)});
-export const DeleteUserResult = Schema.Struct({});
-export const DescribeGroupRequest = Schema.Struct({DirectoryId: Schema.String, Realm: Schema.optional(Schema.String), SAMAccountName: Schema.String, OtherAttributes: Schema.optional(LdapDisplayNameList)});
-export const DescribeUserRequest = Schema.Struct({DirectoryId: Schema.String, SAMAccountName: Schema.String, OtherAttributes: Schema.optional(LdapDisplayNameList), Realm: Schema.optional(Schema.String)});
-export const DisableUserRequest = Schema.Struct({DirectoryId: Schema.String, SAMAccountName: Schema.String, ClientToken: Schema.optional(Schema.String)});
-export const DisableUserResult = Schema.Struct({});
-export const ListGroupMembersRequest = Schema.Struct({DirectoryId: Schema.String, Realm: Schema.optional(Schema.String), MemberRealm: Schema.optional(Schema.String), SAMAccountName: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListGroupsRequest = Schema.Struct({DirectoryId: Schema.String, Realm: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListGroupsForMemberRequest = Schema.Struct({DirectoryId: Schema.String, Realm: Schema.optional(Schema.String), MemberRealm: Schema.optional(Schema.String), SAMAccountName: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListUsersRequest = Schema.Struct({DirectoryId: Schema.String, Realm: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const RemoveGroupMemberRequest = Schema.Struct({DirectoryId: Schema.String, GroupName: Schema.String, MemberName: Schema.String, MemberRealm: Schema.optional(Schema.String), ClientToken: Schema.optional(Schema.String)});
-export const RemoveGroupMemberResult = Schema.Struct({});
-export const SearchGroupsRequest = Schema.Struct({DirectoryId: Schema.String, SearchString: Schema.String, SearchAttributes: LdapDisplayNameList, Realm: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const SearchUsersRequest = Schema.Struct({DirectoryId: Schema.String, Realm: Schema.optional(Schema.String), SearchString: Schema.String, SearchAttributes: LdapDisplayNameList, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const UpdateGroupRequest = Schema.Struct({DirectoryId: Schema.String, SAMAccountName: Schema.String, GroupType: Schema.optional(Schema.String), GroupScope: Schema.optional(Schema.String), OtherAttributes: Schema.optional(Attributes), UpdateType: Schema.optional(Schema.String), ClientToken: Schema.optional(Schema.String)});
-export const UpdateGroupResult = Schema.Struct({});
-export const UpdateUserRequest = Schema.Struct({DirectoryId: Schema.String, SAMAccountName: Schema.String, EmailAddress: Schema.optional(Schema.String), GivenName: Schema.optional(Schema.String), Surname: Schema.optional(Schema.String), OtherAttributes: Schema.optional(Attributes), UpdateType: Schema.optional(Schema.String), ClientToken: Schema.optional(Schema.String)});
-export const UpdateUserResult = Schema.Struct({});
-export const AccessDeniedException = Schema.Struct({Message: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String)});
-export const CreateUserResult = Schema.Struct({DirectoryId: Schema.optional(Schema.String), SID: Schema.optional(Schema.String), SAMAccountName: Schema.optional(Schema.String)});
-export const ConflictException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DirectoryUnavailableException = Schema.Struct({Message: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String)});
-export const DescribeGroupResult = Schema.Struct({DirectoryId: Schema.optional(Schema.String), Realm: Schema.optional(Schema.String), SID: Schema.optional(Schema.String), SAMAccountName: Schema.optional(Schema.String), DistinguishedName: Schema.optional(Schema.String), GroupType: Schema.optional(Schema.String), GroupScope: Schema.optional(Schema.String), OtherAttributes: Schema.optional(Attributes)});
-export const DescribeUserResult = Schema.Struct({DirectoryId: Schema.optional(Schema.String), Realm: Schema.optional(Schema.String), SID: Schema.optional(Schema.String), SAMAccountName: Schema.optional(Schema.String), DistinguishedName: Schema.optional(Schema.String), UserPrincipalName: Schema.optional(Schema.String), EmailAddress: Schema.optional(Schema.String), GivenName: Schema.optional(Schema.String), Surname: Schema.optional(Schema.String), Enabled: Schema.optional(Schema.Boolean), OtherAttributes: Schema.optional(Attributes)});
-export const InternalServerException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const GroupSummary = Schema.Struct({SID: Schema.String, SAMAccountName: Schema.String, GroupType: Schema.String, GroupScope: Schema.String});
+export class CreateUserRequest extends Schema.Class<CreateUserRequest>("CreateUserRequest")({DirectoryId: Schema.String, SAMAccountName: Schema.String, EmailAddress: Schema.optional(Schema.String), GivenName: Schema.optional(Schema.String), Surname: Schema.optional(Schema.String), OtherAttributes: Schema.optional(Attributes), ClientToken: Schema.optional(Schema.String)}) {}
+export class DeleteGroupRequest extends Schema.Class<DeleteGroupRequest>("DeleteGroupRequest")({DirectoryId: Schema.String, SAMAccountName: Schema.String, ClientToken: Schema.optional(Schema.String)}) {}
+export class DeleteGroupResult extends Schema.Class<DeleteGroupResult>("DeleteGroupResult")({}) {}
+export class DeleteUserRequest extends Schema.Class<DeleteUserRequest>("DeleteUserRequest")({DirectoryId: Schema.String, SAMAccountName: Schema.String, ClientToken: Schema.optional(Schema.String)}) {}
+export class DeleteUserResult extends Schema.Class<DeleteUserResult>("DeleteUserResult")({}) {}
+export class DescribeGroupRequest extends Schema.Class<DescribeGroupRequest>("DescribeGroupRequest")({DirectoryId: Schema.String, Realm: Schema.optional(Schema.String), SAMAccountName: Schema.String, OtherAttributes: Schema.optional(LdapDisplayNameList)}) {}
+export class DescribeUserRequest extends Schema.Class<DescribeUserRequest>("DescribeUserRequest")({DirectoryId: Schema.String, SAMAccountName: Schema.String, OtherAttributes: Schema.optional(LdapDisplayNameList), Realm: Schema.optional(Schema.String)}) {}
+export class DisableUserRequest extends Schema.Class<DisableUserRequest>("DisableUserRequest")({DirectoryId: Schema.String, SAMAccountName: Schema.String, ClientToken: Schema.optional(Schema.String)}) {}
+export class DisableUserResult extends Schema.Class<DisableUserResult>("DisableUserResult")({}) {}
+export class ListGroupMembersRequest extends Schema.Class<ListGroupMembersRequest>("ListGroupMembersRequest")({DirectoryId: Schema.String, Realm: Schema.optional(Schema.String), MemberRealm: Schema.optional(Schema.String), SAMAccountName: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListGroupsRequest extends Schema.Class<ListGroupsRequest>("ListGroupsRequest")({DirectoryId: Schema.String, Realm: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListGroupsForMemberRequest extends Schema.Class<ListGroupsForMemberRequest>("ListGroupsForMemberRequest")({DirectoryId: Schema.String, Realm: Schema.optional(Schema.String), MemberRealm: Schema.optional(Schema.String), SAMAccountName: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListUsersRequest extends Schema.Class<ListUsersRequest>("ListUsersRequest")({DirectoryId: Schema.String, Realm: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class RemoveGroupMemberRequest extends Schema.Class<RemoveGroupMemberRequest>("RemoveGroupMemberRequest")({DirectoryId: Schema.String, GroupName: Schema.String, MemberName: Schema.String, MemberRealm: Schema.optional(Schema.String), ClientToken: Schema.optional(Schema.String)}) {}
+export class RemoveGroupMemberResult extends Schema.Class<RemoveGroupMemberResult>("RemoveGroupMemberResult")({}) {}
+export class SearchGroupsRequest extends Schema.Class<SearchGroupsRequest>("SearchGroupsRequest")({DirectoryId: Schema.String, SearchString: Schema.String, SearchAttributes: LdapDisplayNameList, Realm: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class SearchUsersRequest extends Schema.Class<SearchUsersRequest>("SearchUsersRequest")({DirectoryId: Schema.String, Realm: Schema.optional(Schema.String), SearchString: Schema.String, SearchAttributes: LdapDisplayNameList, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class UpdateGroupRequest extends Schema.Class<UpdateGroupRequest>("UpdateGroupRequest")({DirectoryId: Schema.String, SAMAccountName: Schema.String, GroupType: Schema.optional(Schema.String), GroupScope: Schema.optional(Schema.String), OtherAttributes: Schema.optional(Attributes), UpdateType: Schema.optional(Schema.String), ClientToken: Schema.optional(Schema.String)}) {}
+export class UpdateGroupResult extends Schema.Class<UpdateGroupResult>("UpdateGroupResult")({}) {}
+export class UpdateUserRequest extends Schema.Class<UpdateUserRequest>("UpdateUserRequest")({DirectoryId: Schema.String, SAMAccountName: Schema.String, EmailAddress: Schema.optional(Schema.String), GivenName: Schema.optional(Schema.String), Surname: Schema.optional(Schema.String), OtherAttributes: Schema.optional(Attributes), UpdateType: Schema.optional(Schema.String), ClientToken: Schema.optional(Schema.String)}) {}
+export class UpdateUserResult extends Schema.Class<UpdateUserResult>("UpdateUserResult")({}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({Message: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String)}) {}
+export class CreateUserResult extends Schema.Class<CreateUserResult>("CreateUserResult")({DirectoryId: Schema.optional(Schema.String), SID: Schema.optional(Schema.String), SAMAccountName: Schema.optional(Schema.String)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({Message: Schema.optional(Schema.String)}) {}
+export class DirectoryUnavailableException extends Schema.Class<DirectoryUnavailableException>("DirectoryUnavailableException")({Message: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String)}) {}
+export class DescribeGroupResult extends Schema.Class<DescribeGroupResult>("DescribeGroupResult")({DirectoryId: Schema.optional(Schema.String), Realm: Schema.optional(Schema.String), SID: Schema.optional(Schema.String), SAMAccountName: Schema.optional(Schema.String), DistinguishedName: Schema.optional(Schema.String), GroupType: Schema.optional(Schema.String), GroupScope: Schema.optional(Schema.String), OtherAttributes: Schema.optional(Attributes)}) {}
+export class DescribeUserResult extends Schema.Class<DescribeUserResult>("DescribeUserResult")({DirectoryId: Schema.optional(Schema.String), Realm: Schema.optional(Schema.String), SID: Schema.optional(Schema.String), SAMAccountName: Schema.optional(Schema.String), DistinguishedName: Schema.optional(Schema.String), UserPrincipalName: Schema.optional(Schema.String), EmailAddress: Schema.optional(Schema.String), GivenName: Schema.optional(Schema.String), Surname: Schema.optional(Schema.String), Enabled: Schema.optional(Schema.Boolean), OtherAttributes: Schema.optional(Attributes)}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({Message: Schema.optional(Schema.String)}) {}
+export class GroupSummary extends Schema.Class<GroupSummary>("GroupSummary")({SID: Schema.String, SAMAccountName: Schema.String, GroupType: Schema.String, GroupScope: Schema.String}) {}
 export const GroupSummaryList = Schema.Array(GroupSummary);
-export const ListGroupsForMemberResult = Schema.Struct({DirectoryId: Schema.optional(Schema.String), Realm: Schema.optional(Schema.String), MemberRealm: Schema.optional(Schema.String), Groups: Schema.optional(GroupSummaryList), NextToken: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ThrottlingException = Schema.Struct({Message: Schema.String, RetryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))});
-export const ValidationException = Schema.Struct({Message: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String)});
-export const Member = Schema.Struct({SID: Schema.String, SAMAccountName: Schema.String, MemberType: Schema.String});
+export class ListGroupsForMemberResult extends Schema.Class<ListGroupsForMemberResult>("ListGroupsForMemberResult")({DirectoryId: Schema.optional(Schema.String), Realm: Schema.optional(Schema.String), MemberRealm: Schema.optional(Schema.String), Groups: Schema.optional(GroupSummaryList), NextToken: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({Message: Schema.String, RetryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({Message: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String)}) {}
+export class Member extends Schema.Class<Member>("Member")({SID: Schema.String, SAMAccountName: Schema.String, MemberType: Schema.String}) {}
 export const MemberList = Schema.Array(Member);
-export const UserSummary = Schema.Struct({SID: Schema.String, SAMAccountName: Schema.String, GivenName: Schema.optional(Schema.String), Surname: Schema.optional(Schema.String), Enabled: Schema.Boolean});
+export class UserSummary extends Schema.Class<UserSummary>("UserSummary")({SID: Schema.String, SAMAccountName: Schema.String, GivenName: Schema.optional(Schema.String), Surname: Schema.optional(Schema.String), Enabled: Schema.Boolean}) {}
 export const UserSummaryList = Schema.Array(UserSummary);
-export const Group = Schema.Struct({SID: Schema.optional(Schema.String), SAMAccountName: Schema.String, DistinguishedName: Schema.optional(Schema.String), GroupType: Schema.optional(Schema.String), GroupScope: Schema.optional(Schema.String), OtherAttributes: Schema.optional(Attributes)});
+export class Group extends Schema.Class<Group>("Group")({SID: Schema.optional(Schema.String), SAMAccountName: Schema.String, DistinguishedName: Schema.optional(Schema.String), GroupType: Schema.optional(Schema.String), GroupScope: Schema.optional(Schema.String), OtherAttributes: Schema.optional(Attributes)}) {}
 export const GroupList = Schema.Array(Group);
-export const User = Schema.Struct({SID: Schema.optional(Schema.String), SAMAccountName: Schema.String, DistinguishedName: Schema.optional(Schema.String), UserPrincipalName: Schema.optional(Schema.String), EmailAddress: Schema.optional(Schema.String), GivenName: Schema.optional(Schema.String), Surname: Schema.optional(Schema.String), Enabled: Schema.optional(Schema.Boolean), OtherAttributes: Schema.optional(Attributes)});
+export class User extends Schema.Class<User>("User")({SID: Schema.optional(Schema.String), SAMAccountName: Schema.String, DistinguishedName: Schema.optional(Schema.String), UserPrincipalName: Schema.optional(Schema.String), EmailAddress: Schema.optional(Schema.String), GivenName: Schema.optional(Schema.String), Surname: Schema.optional(Schema.String), Enabled: Schema.optional(Schema.Boolean), OtherAttributes: Schema.optional(Attributes)}) {}
 export const UserList = Schema.Array(User);
-export const CreateGroupRequest = Schema.Struct({DirectoryId: Schema.String, SAMAccountName: Schema.String, GroupType: Schema.optional(Schema.String), GroupScope: Schema.optional(Schema.String), OtherAttributes: Schema.optional(Attributes), ClientToken: Schema.optional(Schema.String)});
-export const ListGroupMembersResult = Schema.Struct({DirectoryId: Schema.optional(Schema.String), Realm: Schema.optional(Schema.String), MemberRealm: Schema.optional(Schema.String), Members: Schema.optional(MemberList), NextToken: Schema.optional(Schema.String)});
-export const ListGroupsResult = Schema.Struct({DirectoryId: Schema.optional(Schema.String), Realm: Schema.optional(Schema.String), Groups: Schema.optional(GroupSummaryList), NextToken: Schema.optional(Schema.String)});
-export const ListUsersResult = Schema.Struct({DirectoryId: Schema.optional(Schema.String), Realm: Schema.optional(Schema.String), Users: Schema.optional(UserSummaryList), NextToken: Schema.optional(Schema.String)});
-export const SearchGroupsResult = Schema.Struct({DirectoryId: Schema.optional(Schema.String), Realm: Schema.optional(Schema.String), Groups: Schema.optional(GroupList), NextToken: Schema.optional(Schema.String)});
-export const SearchUsersResult = Schema.Struct({DirectoryId: Schema.optional(Schema.String), Realm: Schema.optional(Schema.String), Users: Schema.optional(UserList), NextToken: Schema.optional(Schema.String)});
-export const CreateGroupResult = Schema.Struct({DirectoryId: Schema.optional(Schema.String), SAMAccountName: Schema.optional(Schema.String), SID: Schema.optional(Schema.String)});
+export class CreateGroupRequest extends Schema.Class<CreateGroupRequest>("CreateGroupRequest")({DirectoryId: Schema.String, SAMAccountName: Schema.String, GroupType: Schema.optional(Schema.String), GroupScope: Schema.optional(Schema.String), OtherAttributes: Schema.optional(Attributes), ClientToken: Schema.optional(Schema.String)}) {}
+export class ListGroupMembersResult extends Schema.Class<ListGroupMembersResult>("ListGroupMembersResult")({DirectoryId: Schema.optional(Schema.String), Realm: Schema.optional(Schema.String), MemberRealm: Schema.optional(Schema.String), Members: Schema.optional(MemberList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListGroupsResult extends Schema.Class<ListGroupsResult>("ListGroupsResult")({DirectoryId: Schema.optional(Schema.String), Realm: Schema.optional(Schema.String), Groups: Schema.optional(GroupSummaryList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListUsersResult extends Schema.Class<ListUsersResult>("ListUsersResult")({DirectoryId: Schema.optional(Schema.String), Realm: Schema.optional(Schema.String), Users: Schema.optional(UserSummaryList), NextToken: Schema.optional(Schema.String)}) {}
+export class SearchGroupsResult extends Schema.Class<SearchGroupsResult>("SearchGroupsResult")({DirectoryId: Schema.optional(Schema.String), Realm: Schema.optional(Schema.String), Groups: Schema.optional(GroupList), NextToken: Schema.optional(Schema.String)}) {}
+export class SearchUsersResult extends Schema.Class<SearchUsersResult>("SearchUsersResult")({DirectoryId: Schema.optional(Schema.String), Realm: Schema.optional(Schema.String), Users: Schema.optional(UserList), NextToken: Schema.optional(Schema.String)}) {}
+export class CreateGroupResult extends Schema.Class<CreateGroupResult>("CreateGroupResult")({DirectoryId: Schema.optional(Schema.String), SAMAccountName: Schema.optional(Schema.String), SID: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class DirectoryUnavailableExceptionError extends Schema.TaggedError<DirectoryUnavailableExceptionError>()("DirectoryUnavailableException", DirectoryUnavailableException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class DirectoryUnavailableExceptionError extends Schema.TaggedError<DirectoryUnavailableExceptionError>()("DirectoryUnavailableException", DirectoryUnavailableException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
 
 //# Operations
 export const addGroupMember = /*#__PURE__*/ makeOperation(() => Operation({ version: "2023-05-31", uri: "/GroupMemberships/AddGroupMember", method: "POST", sdkId: "Directory Service Data", sigV4ServiceName: "ds-data", name: "DirectoryServiceData.AddGroupMember" }, AddGroupMemberRequest, AddGroupMemberResult, [AccessDeniedExceptionError, ConflictExceptionError, DirectoryUnavailableExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

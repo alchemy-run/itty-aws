@@ -14,398 +14,398 @@ export const InstanceStatusList = Schema.Array(Schema.String);
 export const InstanceTypeList = Schema.Array(Schema.String);
 export const DeploymentStatusList = Schema.Array(Schema.String);
 export const TagKeyList = Schema.Array(Schema.String);
-export const BatchGetApplicationsInput = Schema.Struct({applicationNames: ApplicationsList});
-export const BatchGetDeploymentGroupsInput = Schema.Struct({applicationName: Schema.String, deploymentGroupNames: DeploymentGroupsList});
-export const BatchGetDeploymentInstancesInput = Schema.Struct({deploymentId: Schema.String, instanceIds: InstancesList});
-export const BatchGetDeploymentsInput = Schema.Struct({deploymentIds: DeploymentsList});
-export const BatchGetDeploymentTargetsInput = Schema.Struct({deploymentId: Schema.String, targetIds: TargetIdList});
-export const BatchGetOnPremisesInstancesInput = Schema.Struct({instanceNames: InstanceNameList});
-export const ContinueDeploymentInput = Schema.Struct({deploymentId: Schema.optional(Schema.String), deploymentWaitType: Schema.optional(Schema.String)});
-export const Tag = Schema.Struct({Key: Schema.optional(Schema.String), Value: Schema.optional(Schema.String)});
+export class BatchGetApplicationsInput extends Schema.Class<BatchGetApplicationsInput>("BatchGetApplicationsInput")({applicationNames: ApplicationsList}) {}
+export class BatchGetDeploymentGroupsInput extends Schema.Class<BatchGetDeploymentGroupsInput>("BatchGetDeploymentGroupsInput")({applicationName: Schema.String, deploymentGroupNames: DeploymentGroupsList}) {}
+export class BatchGetDeploymentInstancesInput extends Schema.Class<BatchGetDeploymentInstancesInput>("BatchGetDeploymentInstancesInput")({deploymentId: Schema.String, instanceIds: InstancesList}) {}
+export class BatchGetDeploymentsInput extends Schema.Class<BatchGetDeploymentsInput>("BatchGetDeploymentsInput")({deploymentIds: DeploymentsList}) {}
+export class BatchGetDeploymentTargetsInput extends Schema.Class<BatchGetDeploymentTargetsInput>("BatchGetDeploymentTargetsInput")({deploymentId: Schema.String, targetIds: TargetIdList}) {}
+export class BatchGetOnPremisesInstancesInput extends Schema.Class<BatchGetOnPremisesInstancesInput>("BatchGetOnPremisesInstancesInput")({instanceNames: InstanceNameList}) {}
+export class ContinueDeploymentInput extends Schema.Class<ContinueDeploymentInput>("ContinueDeploymentInput")({deploymentId: Schema.optional(Schema.String), deploymentWaitType: Schema.optional(Schema.String)}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.optional(Schema.String), Value: Schema.optional(Schema.String)}) {}
 export const TagList = Schema.Array(Tag);
-export const CreateApplicationInput = Schema.Struct({applicationName: Schema.String, computePlatform: Schema.optional(Schema.String), tags: Schema.optional(TagList)});
-export const DeleteApplicationInput = Schema.Struct({applicationName: Schema.String});
-export const DeleteDeploymentConfigInput = Schema.Struct({deploymentConfigName: Schema.String});
-export const DeleteDeploymentGroupInput = Schema.Struct({applicationName: Schema.String, deploymentGroupName: Schema.String});
-export const DeleteGitHubAccountTokenInput = Schema.Struct({tokenName: Schema.optional(Schema.String)});
-export const DeleteResourcesByExternalIdInput = Schema.Struct({externalId: Schema.optional(Schema.String)});
-export const DeleteResourcesByExternalIdOutput = Schema.Struct({});
-export const DeregisterOnPremisesInstanceInput = Schema.Struct({instanceName: Schema.String});
-export const GetApplicationInput = Schema.Struct({applicationName: Schema.String});
-export const S3Location = Schema.Struct({bucket: Schema.optional(Schema.String), key: Schema.optional(Schema.String), bundleType: Schema.optional(Schema.String), version: Schema.optional(Schema.String), eTag: Schema.optional(Schema.String)});
-export const GitHubLocation = Schema.Struct({repository: Schema.optional(Schema.String), commitId: Schema.optional(Schema.String)});
-export const RawString = Schema.Struct({content: Schema.optional(Schema.String), sha256: Schema.optional(Schema.String)});
-export const AppSpecContent = Schema.Struct({content: Schema.optional(Schema.String), sha256: Schema.optional(Schema.String)});
-export const RevisionLocation = Schema.Struct({revisionType: Schema.optional(Schema.String), s3Location: Schema.optional(S3Location), gitHubLocation: Schema.optional(GitHubLocation), string: Schema.optional(RawString), appSpecContent: Schema.optional(AppSpecContent)});
-export const GetApplicationRevisionInput = Schema.Struct({applicationName: Schema.String, revision: RevisionLocation});
-export const GetDeploymentInput = Schema.Struct({deploymentId: Schema.String});
-export const GetDeploymentConfigInput = Schema.Struct({deploymentConfigName: Schema.String});
-export const GetDeploymentGroupInput = Schema.Struct({applicationName: Schema.String, deploymentGroupName: Schema.String});
-export const GetDeploymentInstanceInput = Schema.Struct({deploymentId: Schema.String, instanceId: Schema.String});
-export const GetDeploymentTargetInput = Schema.Struct({deploymentId: Schema.String, targetId: Schema.String});
-export const GetOnPremisesInstanceInput = Schema.Struct({instanceName: Schema.String});
-export const ListApplicationRevisionsInput = Schema.Struct({applicationName: Schema.String, sortBy: Schema.optional(Schema.String), sortOrder: Schema.optional(Schema.String), s3Bucket: Schema.optional(Schema.String), s3KeyPrefix: Schema.optional(Schema.String), deployed: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String)});
-export const ListApplicationsInput = Schema.Struct({nextToken: Schema.optional(Schema.String)});
-export const ListDeploymentConfigsInput = Schema.Struct({nextToken: Schema.optional(Schema.String)});
-export const ListDeploymentGroupsInput = Schema.Struct({applicationName: Schema.String, nextToken: Schema.optional(Schema.String)});
-export const ListDeploymentInstancesInput = Schema.Struct({deploymentId: Schema.String, nextToken: Schema.optional(Schema.String), instanceStatusFilter: Schema.optional(InstanceStatusList), instanceTypeFilter: Schema.optional(InstanceTypeList)});
-export const ListGitHubAccountTokenNamesInput = Schema.Struct({nextToken: Schema.optional(Schema.String)});
-export const TagFilter = Schema.Struct({Key: Schema.optional(Schema.String), Value: Schema.optional(Schema.String), Type: Schema.optional(Schema.String)});
+export class CreateApplicationInput extends Schema.Class<CreateApplicationInput>("CreateApplicationInput")({applicationName: Schema.String, computePlatform: Schema.optional(Schema.String), tags: Schema.optional(TagList)}) {}
+export class DeleteApplicationInput extends Schema.Class<DeleteApplicationInput>("DeleteApplicationInput")({applicationName: Schema.String}) {}
+export class DeleteDeploymentConfigInput extends Schema.Class<DeleteDeploymentConfigInput>("DeleteDeploymentConfigInput")({deploymentConfigName: Schema.String}) {}
+export class DeleteDeploymentGroupInput extends Schema.Class<DeleteDeploymentGroupInput>("DeleteDeploymentGroupInput")({applicationName: Schema.String, deploymentGroupName: Schema.String}) {}
+export class DeleteGitHubAccountTokenInput extends Schema.Class<DeleteGitHubAccountTokenInput>("DeleteGitHubAccountTokenInput")({tokenName: Schema.optional(Schema.String)}) {}
+export class DeleteResourcesByExternalIdInput extends Schema.Class<DeleteResourcesByExternalIdInput>("DeleteResourcesByExternalIdInput")({externalId: Schema.optional(Schema.String)}) {}
+export class DeleteResourcesByExternalIdOutput extends Schema.Class<DeleteResourcesByExternalIdOutput>("DeleteResourcesByExternalIdOutput")({}) {}
+export class DeregisterOnPremisesInstanceInput extends Schema.Class<DeregisterOnPremisesInstanceInput>("DeregisterOnPremisesInstanceInput")({instanceName: Schema.String}) {}
+export class GetApplicationInput extends Schema.Class<GetApplicationInput>("GetApplicationInput")({applicationName: Schema.String}) {}
+export class S3Location extends Schema.Class<S3Location>("S3Location")({bucket: Schema.optional(Schema.String), key: Schema.optional(Schema.String), bundleType: Schema.optional(Schema.String), version: Schema.optional(Schema.String), eTag: Schema.optional(Schema.String)}) {}
+export class GitHubLocation extends Schema.Class<GitHubLocation>("GitHubLocation")({repository: Schema.optional(Schema.String), commitId: Schema.optional(Schema.String)}) {}
+export class RawString extends Schema.Class<RawString>("RawString")({content: Schema.optional(Schema.String), sha256: Schema.optional(Schema.String)}) {}
+export class AppSpecContent extends Schema.Class<AppSpecContent>("AppSpecContent")({content: Schema.optional(Schema.String), sha256: Schema.optional(Schema.String)}) {}
+export class RevisionLocation extends Schema.Class<RevisionLocation>("RevisionLocation")({revisionType: Schema.optional(Schema.String), s3Location: Schema.optional(S3Location), gitHubLocation: Schema.optional(GitHubLocation), string: Schema.optional(RawString), appSpecContent: Schema.optional(AppSpecContent)}) {}
+export class GetApplicationRevisionInput extends Schema.Class<GetApplicationRevisionInput>("GetApplicationRevisionInput")({applicationName: Schema.String, revision: RevisionLocation}) {}
+export class GetDeploymentInput extends Schema.Class<GetDeploymentInput>("GetDeploymentInput")({deploymentId: Schema.String}) {}
+export class GetDeploymentConfigInput extends Schema.Class<GetDeploymentConfigInput>("GetDeploymentConfigInput")({deploymentConfigName: Schema.String}) {}
+export class GetDeploymentGroupInput extends Schema.Class<GetDeploymentGroupInput>("GetDeploymentGroupInput")({applicationName: Schema.String, deploymentGroupName: Schema.String}) {}
+export class GetDeploymentInstanceInput extends Schema.Class<GetDeploymentInstanceInput>("GetDeploymentInstanceInput")({deploymentId: Schema.String, instanceId: Schema.String}) {}
+export class GetDeploymentTargetInput extends Schema.Class<GetDeploymentTargetInput>("GetDeploymentTargetInput")({deploymentId: Schema.String, targetId: Schema.String}) {}
+export class GetOnPremisesInstanceInput extends Schema.Class<GetOnPremisesInstanceInput>("GetOnPremisesInstanceInput")({instanceName: Schema.String}) {}
+export class ListApplicationRevisionsInput extends Schema.Class<ListApplicationRevisionsInput>("ListApplicationRevisionsInput")({applicationName: Schema.String, sortBy: Schema.optional(Schema.String), sortOrder: Schema.optional(Schema.String), s3Bucket: Schema.optional(Schema.String), s3KeyPrefix: Schema.optional(Schema.String), deployed: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String)}) {}
+export class ListApplicationsInput extends Schema.Class<ListApplicationsInput>("ListApplicationsInput")({nextToken: Schema.optional(Schema.String)}) {}
+export class ListDeploymentConfigsInput extends Schema.Class<ListDeploymentConfigsInput>("ListDeploymentConfigsInput")({nextToken: Schema.optional(Schema.String)}) {}
+export class ListDeploymentGroupsInput extends Schema.Class<ListDeploymentGroupsInput>("ListDeploymentGroupsInput")({applicationName: Schema.String, nextToken: Schema.optional(Schema.String)}) {}
+export class ListDeploymentInstancesInput extends Schema.Class<ListDeploymentInstancesInput>("ListDeploymentInstancesInput")({deploymentId: Schema.String, nextToken: Schema.optional(Schema.String), instanceStatusFilter: Schema.optional(InstanceStatusList), instanceTypeFilter: Schema.optional(InstanceTypeList)}) {}
+export class ListGitHubAccountTokenNamesInput extends Schema.Class<ListGitHubAccountTokenNamesInput>("ListGitHubAccountTokenNamesInput")({nextToken: Schema.optional(Schema.String)}) {}
+export class TagFilter extends Schema.Class<TagFilter>("TagFilter")({Key: Schema.optional(Schema.String), Value: Schema.optional(Schema.String), Type: Schema.optional(Schema.String)}) {}
 export const TagFilterList = Schema.Array(TagFilter);
-export const ListOnPremisesInstancesInput = Schema.Struct({registrationStatus: Schema.optional(Schema.String), tagFilters: Schema.optional(TagFilterList), nextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceInput = Schema.Struct({ResourceArn: Schema.String, NextToken: Schema.optional(Schema.String)});
-export const PutLifecycleEventHookExecutionStatusInput = Schema.Struct({deploymentId: Schema.optional(Schema.String), lifecycleEventHookExecutionId: Schema.optional(Schema.String), status: Schema.optional(Schema.String)});
-export const RegisterApplicationRevisionInput = Schema.Struct({applicationName: Schema.String, description: Schema.optional(Schema.String), revision: RevisionLocation});
-export const RegisterOnPremisesInstanceInput = Schema.Struct({instanceName: Schema.String, iamSessionArn: Schema.optional(Schema.String), iamUserArn: Schema.optional(Schema.String)});
-export const RemoveTagsFromOnPremisesInstancesInput = Schema.Struct({tags: TagList, instanceNames: InstanceNameList});
-export const SkipWaitTimeForInstanceTerminationInput = Schema.Struct({deploymentId: Schema.optional(Schema.String)});
-export const StopDeploymentInput = Schema.Struct({deploymentId: Schema.String, autoRollbackEnabled: Schema.optional(Schema.Boolean)});
-export const TagResourceInput = Schema.Struct({ResourceArn: Schema.String, Tags: TagList});
-export const TagResourceOutput = Schema.Struct({});
-export const UntagResourceInput = Schema.Struct({ResourceArn: Schema.String, TagKeys: TagKeyList});
-export const UntagResourceOutput = Schema.Struct({});
-export const UpdateApplicationInput = Schema.Struct({applicationName: Schema.optional(Schema.String), newApplicationName: Schema.optional(Schema.String)});
-export const EC2TagFilter = Schema.Struct({Key: Schema.optional(Schema.String), Value: Schema.optional(Schema.String), Type: Schema.optional(Schema.String)});
+export class ListOnPremisesInstancesInput extends Schema.Class<ListOnPremisesInstancesInput>("ListOnPremisesInstancesInput")({registrationStatus: Schema.optional(Schema.String), tagFilters: Schema.optional(TagFilterList), nextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceInput extends Schema.Class<ListTagsForResourceInput>("ListTagsForResourceInput")({ResourceArn: Schema.String, NextToken: Schema.optional(Schema.String)}) {}
+export class PutLifecycleEventHookExecutionStatusInput extends Schema.Class<PutLifecycleEventHookExecutionStatusInput>("PutLifecycleEventHookExecutionStatusInput")({deploymentId: Schema.optional(Schema.String), lifecycleEventHookExecutionId: Schema.optional(Schema.String), status: Schema.optional(Schema.String)}) {}
+export class RegisterApplicationRevisionInput extends Schema.Class<RegisterApplicationRevisionInput>("RegisterApplicationRevisionInput")({applicationName: Schema.String, description: Schema.optional(Schema.String), revision: RevisionLocation}) {}
+export class RegisterOnPremisesInstanceInput extends Schema.Class<RegisterOnPremisesInstanceInput>("RegisterOnPremisesInstanceInput")({instanceName: Schema.String, iamSessionArn: Schema.optional(Schema.String), iamUserArn: Schema.optional(Schema.String)}) {}
+export class RemoveTagsFromOnPremisesInstancesInput extends Schema.Class<RemoveTagsFromOnPremisesInstancesInput>("RemoveTagsFromOnPremisesInstancesInput")({tags: TagList, instanceNames: InstanceNameList}) {}
+export class SkipWaitTimeForInstanceTerminationInput extends Schema.Class<SkipWaitTimeForInstanceTerminationInput>("SkipWaitTimeForInstanceTerminationInput")({deploymentId: Schema.optional(Schema.String)}) {}
+export class StopDeploymentInput extends Schema.Class<StopDeploymentInput>("StopDeploymentInput")({deploymentId: Schema.String, autoRollbackEnabled: Schema.optional(Schema.Boolean)}) {}
+export class TagResourceInput extends Schema.Class<TagResourceInput>("TagResourceInput")({ResourceArn: Schema.String, Tags: TagList}) {}
+export class TagResourceOutput extends Schema.Class<TagResourceOutput>("TagResourceOutput")({}) {}
+export class UntagResourceInput extends Schema.Class<UntagResourceInput>("UntagResourceInput")({ResourceArn: Schema.String, TagKeys: TagKeyList}) {}
+export class UntagResourceOutput extends Schema.Class<UntagResourceOutput>("UntagResourceOutput")({}) {}
+export class UpdateApplicationInput extends Schema.Class<UpdateApplicationInput>("UpdateApplicationInput")({applicationName: Schema.optional(Schema.String), newApplicationName: Schema.optional(Schema.String)}) {}
+export class EC2TagFilter extends Schema.Class<EC2TagFilter>("EC2TagFilter")({Key: Schema.optional(Schema.String), Value: Schema.optional(Schema.String), Type: Schema.optional(Schema.String)}) {}
 export const EC2TagFilterList = Schema.Array(EC2TagFilter);
 export const TriggerEventTypeList = Schema.Array(Schema.String);
-export const TriggerConfig = Schema.Struct({triggerName: Schema.optional(Schema.String), triggerTargetArn: Schema.optional(Schema.String), triggerEvents: Schema.optional(TriggerEventTypeList)});
+export class TriggerConfig extends Schema.Class<TriggerConfig>("TriggerConfig")({triggerName: Schema.optional(Schema.String), triggerTargetArn: Schema.optional(Schema.String), triggerEvents: Schema.optional(TriggerEventTypeList)}) {}
 export const TriggerConfigList = Schema.Array(TriggerConfig);
-export const Alarm = Schema.Struct({name: Schema.optional(Schema.String)});
+export class Alarm extends Schema.Class<Alarm>("Alarm")({name: Schema.optional(Schema.String)}) {}
 export const AlarmList = Schema.Array(Alarm);
-export const AlarmConfiguration = Schema.Struct({enabled: Schema.optional(Schema.Boolean), ignorePollAlarmFailure: Schema.optional(Schema.Boolean), alarms: Schema.optional(AlarmList)});
+export class AlarmConfiguration extends Schema.Class<AlarmConfiguration>("AlarmConfiguration")({enabled: Schema.optional(Schema.Boolean), ignorePollAlarmFailure: Schema.optional(Schema.Boolean), alarms: Schema.optional(AlarmList)}) {}
 export const AutoRollbackEventsList = Schema.Array(Schema.String);
-export const AutoRollbackConfiguration = Schema.Struct({enabled: Schema.optional(Schema.Boolean), events: Schema.optional(AutoRollbackEventsList)});
-export const DeploymentStyle = Schema.Struct({deploymentType: Schema.optional(Schema.String), deploymentOption: Schema.optional(Schema.String)});
-export const BlueInstanceTerminationOption = Schema.Struct({action: Schema.optional(Schema.String), terminationWaitTimeInMinutes: Schema.optional(Schema.Number)});
-export const DeploymentReadyOption = Schema.Struct({actionOnTimeout: Schema.optional(Schema.String), waitTimeInMinutes: Schema.optional(Schema.Number)});
-export const GreenFleetProvisioningOption = Schema.Struct({action: Schema.optional(Schema.String)});
-export const BlueGreenDeploymentConfiguration = Schema.Struct({terminateBlueInstancesOnDeploymentSuccess: Schema.optional(BlueInstanceTerminationOption), deploymentReadyOption: Schema.optional(DeploymentReadyOption), greenFleetProvisioningOption: Schema.optional(GreenFleetProvisioningOption)});
-export const ELBInfo = Schema.Struct({name: Schema.optional(Schema.String)});
+export class AutoRollbackConfiguration extends Schema.Class<AutoRollbackConfiguration>("AutoRollbackConfiguration")({enabled: Schema.optional(Schema.Boolean), events: Schema.optional(AutoRollbackEventsList)}) {}
+export class DeploymentStyle extends Schema.Class<DeploymentStyle>("DeploymentStyle")({deploymentType: Schema.optional(Schema.String), deploymentOption: Schema.optional(Schema.String)}) {}
+export class BlueInstanceTerminationOption extends Schema.Class<BlueInstanceTerminationOption>("BlueInstanceTerminationOption")({action: Schema.optional(Schema.String), terminationWaitTimeInMinutes: Schema.optional(Schema.Number)}) {}
+export class DeploymentReadyOption extends Schema.Class<DeploymentReadyOption>("DeploymentReadyOption")({actionOnTimeout: Schema.optional(Schema.String), waitTimeInMinutes: Schema.optional(Schema.Number)}) {}
+export class GreenFleetProvisioningOption extends Schema.Class<GreenFleetProvisioningOption>("GreenFleetProvisioningOption")({action: Schema.optional(Schema.String)}) {}
+export class BlueGreenDeploymentConfiguration extends Schema.Class<BlueGreenDeploymentConfiguration>("BlueGreenDeploymentConfiguration")({terminateBlueInstancesOnDeploymentSuccess: Schema.optional(BlueInstanceTerminationOption), deploymentReadyOption: Schema.optional(DeploymentReadyOption), greenFleetProvisioningOption: Schema.optional(GreenFleetProvisioningOption)}) {}
+export class ELBInfo extends Schema.Class<ELBInfo>("ELBInfo")({name: Schema.optional(Schema.String)}) {}
 export const ELBInfoList = Schema.Array(ELBInfo);
-export const TargetGroupInfo = Schema.Struct({name: Schema.optional(Schema.String)});
+export class TargetGroupInfo extends Schema.Class<TargetGroupInfo>("TargetGroupInfo")({name: Schema.optional(Schema.String)}) {}
 export const TargetGroupInfoList = Schema.Array(TargetGroupInfo);
 export const ListenerArnList = Schema.Array(Schema.String);
-export const TrafficRoute = Schema.Struct({listenerArns: Schema.optional(ListenerArnList)});
-export const TargetGroupPairInfo = Schema.Struct({targetGroups: Schema.optional(TargetGroupInfoList), prodTrafficRoute: Schema.optional(TrafficRoute), testTrafficRoute: Schema.optional(TrafficRoute)});
+export class TrafficRoute extends Schema.Class<TrafficRoute>("TrafficRoute")({listenerArns: Schema.optional(ListenerArnList)}) {}
+export class TargetGroupPairInfo extends Schema.Class<TargetGroupPairInfo>("TargetGroupPairInfo")({targetGroups: Schema.optional(TargetGroupInfoList), prodTrafficRoute: Schema.optional(TrafficRoute), testTrafficRoute: Schema.optional(TrafficRoute)}) {}
 export const TargetGroupPairInfoList = Schema.Array(TargetGroupPairInfo);
-export const LoadBalancerInfo = Schema.Struct({elbInfoList: Schema.optional(ELBInfoList), targetGroupInfoList: Schema.optional(TargetGroupInfoList), targetGroupPairInfoList: Schema.optional(TargetGroupPairInfoList)});
+export class LoadBalancerInfo extends Schema.Class<LoadBalancerInfo>("LoadBalancerInfo")({elbInfoList: Schema.optional(ELBInfoList), targetGroupInfoList: Schema.optional(TargetGroupInfoList), targetGroupPairInfoList: Schema.optional(TargetGroupPairInfoList)}) {}
 export const EC2TagSetList = Schema.Array(EC2TagFilterList);
-export const EC2TagSet = Schema.Struct({ec2TagSetList: Schema.optional(EC2TagSetList)});
-export const ECSService = Schema.Struct({serviceName: Schema.optional(Schema.String), clusterName: Schema.optional(Schema.String)});
+export class EC2TagSet extends Schema.Class<EC2TagSet>("EC2TagSet")({ec2TagSetList: Schema.optional(EC2TagSetList)}) {}
+export class ECSService extends Schema.Class<ECSService>("ECSService")({serviceName: Schema.optional(Schema.String), clusterName: Schema.optional(Schema.String)}) {}
 export const ECSServiceList = Schema.Array(ECSService);
 export const OnPremisesTagSetList = Schema.Array(TagFilterList);
-export const OnPremisesTagSet = Schema.Struct({onPremisesTagSetList: Schema.optional(OnPremisesTagSetList)});
-export const UpdateDeploymentGroupInput = Schema.Struct({applicationName: Schema.String, currentDeploymentGroupName: Schema.String, newDeploymentGroupName: Schema.optional(Schema.String), deploymentConfigName: Schema.optional(Schema.String), ec2TagFilters: Schema.optional(EC2TagFilterList), onPremisesInstanceTagFilters: Schema.optional(TagFilterList), autoScalingGroups: Schema.optional(AutoScalingGroupNameList), serviceRoleArn: Schema.optional(Schema.String), triggerConfigurations: Schema.optional(TriggerConfigList), alarmConfiguration: Schema.optional(AlarmConfiguration), autoRollbackConfiguration: Schema.optional(AutoRollbackConfiguration), outdatedInstancesStrategy: Schema.optional(Schema.String), deploymentStyle: Schema.optional(DeploymentStyle), blueGreenDeploymentConfiguration: Schema.optional(BlueGreenDeploymentConfiguration), loadBalancerInfo: Schema.optional(LoadBalancerInfo), ec2TagSet: Schema.optional(EC2TagSet), ecsServices: Schema.optional(ECSServiceList), onPremisesTagSet: Schema.optional(OnPremisesTagSet), terminationHookEnabled: Schema.optional(Schema.Boolean)});
+export class OnPremisesTagSet extends Schema.Class<OnPremisesTagSet>("OnPremisesTagSet")({onPremisesTagSetList: Schema.optional(OnPremisesTagSetList)}) {}
+export class UpdateDeploymentGroupInput extends Schema.Class<UpdateDeploymentGroupInput>("UpdateDeploymentGroupInput")({applicationName: Schema.String, currentDeploymentGroupName: Schema.String, newDeploymentGroupName: Schema.optional(Schema.String), deploymentConfigName: Schema.optional(Schema.String), ec2TagFilters: Schema.optional(EC2TagFilterList), onPremisesInstanceTagFilters: Schema.optional(TagFilterList), autoScalingGroups: Schema.optional(AutoScalingGroupNameList), serviceRoleArn: Schema.optional(Schema.String), triggerConfigurations: Schema.optional(TriggerConfigList), alarmConfiguration: Schema.optional(AlarmConfiguration), autoRollbackConfiguration: Schema.optional(AutoRollbackConfiguration), outdatedInstancesStrategy: Schema.optional(Schema.String), deploymentStyle: Schema.optional(DeploymentStyle), blueGreenDeploymentConfiguration: Schema.optional(BlueGreenDeploymentConfiguration), loadBalancerInfo: Schema.optional(LoadBalancerInfo), ec2TagSet: Schema.optional(EC2TagSet), ecsServices: Schema.optional(ECSServiceList), onPremisesTagSet: Schema.optional(OnPremisesTagSet), terminationHookEnabled: Schema.optional(Schema.Boolean)}) {}
 export const FilterValueList = Schema.Array(Schema.String);
-export const TargetInstances = Schema.Struct({tagFilters: Schema.optional(EC2TagFilterList), autoScalingGroups: Schema.optional(AutoScalingGroupNameList), ec2TagSet: Schema.optional(EC2TagSet)});
-export const MinimumHealthyHosts = Schema.Struct({type: Schema.optional(Schema.String), value: Schema.optional(Schema.Number)});
+export class TargetInstances extends Schema.Class<TargetInstances>("TargetInstances")({tagFilters: Schema.optional(EC2TagFilterList), autoScalingGroups: Schema.optional(AutoScalingGroupNameList), ec2TagSet: Schema.optional(EC2TagSet)}) {}
+export class MinimumHealthyHosts extends Schema.Class<MinimumHealthyHosts>("MinimumHealthyHosts")({type: Schema.optional(Schema.String), value: Schema.optional(Schema.Number)}) {}
 export const DeploymentConfigsList = Schema.Array(Schema.String);
-export const TimeRange = Schema.Struct({start: Schema.optional(Schema.Date), end: Schema.optional(Schema.Date)});
+export class TimeRange extends Schema.Class<TimeRange>("TimeRange")({start: Schema.optional(Schema.Date), end: Schema.optional(Schema.Date)}) {}
 export const TargetFilters = Schema.Record({key: Schema.String, value: FilterValueList});
 export const GitHubAccountTokenNameList = Schema.Array(Schema.String);
-export const AddTagsToOnPremisesInstancesInput = Schema.Struct({tags: TagList, instanceNames: InstanceNameList});
-export const DeploymentAlreadyCompletedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CreateApplicationOutput = Schema.Struct({applicationId: Schema.optional(Schema.String)});
-export const ApplicationNameRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DeploymentConfigInUseException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DeleteGitHubAccountTokenOutput = Schema.Struct({tokenName: Schema.optional(Schema.String)});
-export const InstanceNameRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ApplicationInfo = Schema.Struct({applicationId: Schema.optional(Schema.String), applicationName: Schema.optional(Schema.String), createTime: Schema.optional(Schema.Date), linkedToGitHub: Schema.optional(Schema.Boolean), gitHubAccountName: Schema.optional(Schema.String), computePlatform: Schema.optional(Schema.String)});
-export const GetApplicationOutput = Schema.Struct({application: Schema.optional(ApplicationInfo)});
-export const ErrorInformation = Schema.Struct({code: Schema.optional(Schema.String), message: Schema.optional(Schema.String)});
-export const DeploymentOverview = Schema.Struct({Pending: Schema.optional(Schema.Number), InProgress: Schema.optional(Schema.Number), Succeeded: Schema.optional(Schema.Number), Failed: Schema.optional(Schema.Number), Skipped: Schema.optional(Schema.Number), Ready: Schema.optional(Schema.Number)});
-export const RollbackInfo = Schema.Struct({rollbackDeploymentId: Schema.optional(Schema.String), rollbackTriggeringDeploymentId: Schema.optional(Schema.String), rollbackMessage: Schema.optional(Schema.String)});
+export class AddTagsToOnPremisesInstancesInput extends Schema.Class<AddTagsToOnPremisesInstancesInput>("AddTagsToOnPremisesInstancesInput")({tags: TagList, instanceNames: InstanceNameList}) {}
+export class DeploymentAlreadyCompletedException extends Schema.Class<DeploymentAlreadyCompletedException>("DeploymentAlreadyCompletedException")({message: Schema.optional(Schema.String)}) {}
+export class CreateApplicationOutput extends Schema.Class<CreateApplicationOutput>("CreateApplicationOutput")({applicationId: Schema.optional(Schema.String)}) {}
+export class ApplicationNameRequiredException extends Schema.Class<ApplicationNameRequiredException>("ApplicationNameRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class DeploymentConfigInUseException extends Schema.Class<DeploymentConfigInUseException>("DeploymentConfigInUseException")({message: Schema.optional(Schema.String)}) {}
+export class DeleteGitHubAccountTokenOutput extends Schema.Class<DeleteGitHubAccountTokenOutput>("DeleteGitHubAccountTokenOutput")({tokenName: Schema.optional(Schema.String)}) {}
+export class InstanceNameRequiredException extends Schema.Class<InstanceNameRequiredException>("InstanceNameRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class ApplicationInfo extends Schema.Class<ApplicationInfo>("ApplicationInfo")({applicationId: Schema.optional(Schema.String), applicationName: Schema.optional(Schema.String), createTime: Schema.optional(Schema.Date), linkedToGitHub: Schema.optional(Schema.Boolean), gitHubAccountName: Schema.optional(Schema.String), computePlatform: Schema.optional(Schema.String)}) {}
+export class GetApplicationOutput extends Schema.Class<GetApplicationOutput>("GetApplicationOutput")({application: Schema.optional(ApplicationInfo)}) {}
+export class ErrorInformation extends Schema.Class<ErrorInformation>("ErrorInformation")({code: Schema.optional(Schema.String), message: Schema.optional(Schema.String)}) {}
+export class DeploymentOverview extends Schema.Class<DeploymentOverview>("DeploymentOverview")({Pending: Schema.optional(Schema.Number), InProgress: Schema.optional(Schema.Number), Succeeded: Schema.optional(Schema.Number), Failed: Schema.optional(Schema.Number), Skipped: Schema.optional(Schema.Number), Ready: Schema.optional(Schema.Number)}) {}
+export class RollbackInfo extends Schema.Class<RollbackInfo>("RollbackInfo")({rollbackDeploymentId: Schema.optional(Schema.String), rollbackTriggeringDeploymentId: Schema.optional(Schema.String), rollbackMessage: Schema.optional(Schema.String)}) {}
 export const DeploymentStatusMessageList = Schema.Array(Schema.String);
-export const RelatedDeployments = Schema.Struct({autoUpdateOutdatedInstancesRootDeploymentId: Schema.optional(Schema.String), autoUpdateOutdatedInstancesDeploymentIds: Schema.optional(DeploymentsList)});
-export const DeploymentInfo = Schema.Struct({applicationName: Schema.optional(Schema.String), deploymentGroupName: Schema.optional(Schema.String), deploymentConfigName: Schema.optional(Schema.String), deploymentId: Schema.optional(Schema.String), previousRevision: Schema.optional(RevisionLocation), revision: Schema.optional(RevisionLocation), status: Schema.optional(Schema.String), errorInformation: Schema.optional(ErrorInformation), createTime: Schema.optional(Schema.Date), startTime: Schema.optional(Schema.Date), completeTime: Schema.optional(Schema.Date), deploymentOverview: Schema.optional(DeploymentOverview), description: Schema.optional(Schema.String), creator: Schema.optional(Schema.String), ignoreApplicationStopFailures: Schema.optional(Schema.Boolean), autoRollbackConfiguration: Schema.optional(AutoRollbackConfiguration), updateOutdatedInstancesOnly: Schema.optional(Schema.Boolean), rollbackInfo: Schema.optional(RollbackInfo), deploymentStyle: Schema.optional(DeploymentStyle), targetInstances: Schema.optional(TargetInstances), instanceTerminationWaitTimeStarted: Schema.optional(Schema.Boolean), blueGreenDeploymentConfiguration: Schema.optional(BlueGreenDeploymentConfiguration), loadBalancerInfo: Schema.optional(LoadBalancerInfo), additionalDeploymentStatusInfo: Schema.optional(Schema.String), fileExistsBehavior: Schema.optional(Schema.String), deploymentStatusMessages: Schema.optional(DeploymentStatusMessageList), computePlatform: Schema.optional(Schema.String), externalId: Schema.optional(Schema.String), relatedDeployments: Schema.optional(RelatedDeployments), overrideAlarmConfiguration: Schema.optional(AlarmConfiguration)});
-export const GetDeploymentOutput = Schema.Struct({deploymentInfo: Schema.optional(DeploymentInfo)});
-export const AutoScalingGroup = Schema.Struct({name: Schema.optional(Schema.String), hook: Schema.optional(Schema.String), terminationHook: Schema.optional(Schema.String)});
+export class RelatedDeployments extends Schema.Class<RelatedDeployments>("RelatedDeployments")({autoUpdateOutdatedInstancesRootDeploymentId: Schema.optional(Schema.String), autoUpdateOutdatedInstancesDeploymentIds: Schema.optional(DeploymentsList)}) {}
+export class DeploymentInfo extends Schema.Class<DeploymentInfo>("DeploymentInfo")({applicationName: Schema.optional(Schema.String), deploymentGroupName: Schema.optional(Schema.String), deploymentConfigName: Schema.optional(Schema.String), deploymentId: Schema.optional(Schema.String), previousRevision: Schema.optional(RevisionLocation), revision: Schema.optional(RevisionLocation), status: Schema.optional(Schema.String), errorInformation: Schema.optional(ErrorInformation), createTime: Schema.optional(Schema.Date), startTime: Schema.optional(Schema.Date), completeTime: Schema.optional(Schema.Date), deploymentOverview: Schema.optional(DeploymentOverview), description: Schema.optional(Schema.String), creator: Schema.optional(Schema.String), ignoreApplicationStopFailures: Schema.optional(Schema.Boolean), autoRollbackConfiguration: Schema.optional(AutoRollbackConfiguration), updateOutdatedInstancesOnly: Schema.optional(Schema.Boolean), rollbackInfo: Schema.optional(RollbackInfo), deploymentStyle: Schema.optional(DeploymentStyle), targetInstances: Schema.optional(TargetInstances), instanceTerminationWaitTimeStarted: Schema.optional(Schema.Boolean), blueGreenDeploymentConfiguration: Schema.optional(BlueGreenDeploymentConfiguration), loadBalancerInfo: Schema.optional(LoadBalancerInfo), additionalDeploymentStatusInfo: Schema.optional(Schema.String), fileExistsBehavior: Schema.optional(Schema.String), deploymentStatusMessages: Schema.optional(DeploymentStatusMessageList), computePlatform: Schema.optional(Schema.String), externalId: Schema.optional(Schema.String), relatedDeployments: Schema.optional(RelatedDeployments), overrideAlarmConfiguration: Schema.optional(AlarmConfiguration)}) {}
+export class GetDeploymentOutput extends Schema.Class<GetDeploymentOutput>("GetDeploymentOutput")({deploymentInfo: Schema.optional(DeploymentInfo)}) {}
+export class AutoScalingGroup extends Schema.Class<AutoScalingGroup>("AutoScalingGroup")({name: Schema.optional(Schema.String), hook: Schema.optional(Schema.String), terminationHook: Schema.optional(Schema.String)}) {}
 export const AutoScalingGroupList = Schema.Array(AutoScalingGroup);
-export const LastDeploymentInfo = Schema.Struct({deploymentId: Schema.optional(Schema.String), status: Schema.optional(Schema.String), endTime: Schema.optional(Schema.Date), createTime: Schema.optional(Schema.Date)});
-export const DeploymentGroupInfo = Schema.Struct({applicationName: Schema.optional(Schema.String), deploymentGroupId: Schema.optional(Schema.String), deploymentGroupName: Schema.optional(Schema.String), deploymentConfigName: Schema.optional(Schema.String), ec2TagFilters: Schema.optional(EC2TagFilterList), onPremisesInstanceTagFilters: Schema.optional(TagFilterList), autoScalingGroups: Schema.optional(AutoScalingGroupList), serviceRoleArn: Schema.optional(Schema.String), targetRevision: Schema.optional(RevisionLocation), triggerConfigurations: Schema.optional(TriggerConfigList), alarmConfiguration: Schema.optional(AlarmConfiguration), autoRollbackConfiguration: Schema.optional(AutoRollbackConfiguration), deploymentStyle: Schema.optional(DeploymentStyle), outdatedInstancesStrategy: Schema.optional(Schema.String), blueGreenDeploymentConfiguration: Schema.optional(BlueGreenDeploymentConfiguration), loadBalancerInfo: Schema.optional(LoadBalancerInfo), lastSuccessfulDeployment: Schema.optional(LastDeploymentInfo), lastAttemptedDeployment: Schema.optional(LastDeploymentInfo), ec2TagSet: Schema.optional(EC2TagSet), onPremisesTagSet: Schema.optional(OnPremisesTagSet), computePlatform: Schema.optional(Schema.String), ecsServices: Schema.optional(ECSServiceList), terminationHookEnabled: Schema.optional(Schema.Boolean)});
-export const GetDeploymentGroupOutput = Schema.Struct({deploymentGroupInfo: Schema.optional(DeploymentGroupInfo)});
-export const Diagnostics = Schema.Struct({errorCode: Schema.optional(Schema.String), scriptName: Schema.optional(Schema.String), message: Schema.optional(Schema.String), logTail: Schema.optional(Schema.String)});
-export const LifecycleEvent = Schema.Struct({lifecycleEventName: Schema.optional(Schema.String), diagnostics: Schema.optional(Diagnostics), startTime: Schema.optional(Schema.Date), endTime: Schema.optional(Schema.Date), status: Schema.optional(Schema.String)});
+export class LastDeploymentInfo extends Schema.Class<LastDeploymentInfo>("LastDeploymentInfo")({deploymentId: Schema.optional(Schema.String), status: Schema.optional(Schema.String), endTime: Schema.optional(Schema.Date), createTime: Schema.optional(Schema.Date)}) {}
+export class DeploymentGroupInfo extends Schema.Class<DeploymentGroupInfo>("DeploymentGroupInfo")({applicationName: Schema.optional(Schema.String), deploymentGroupId: Schema.optional(Schema.String), deploymentGroupName: Schema.optional(Schema.String), deploymentConfigName: Schema.optional(Schema.String), ec2TagFilters: Schema.optional(EC2TagFilterList), onPremisesInstanceTagFilters: Schema.optional(TagFilterList), autoScalingGroups: Schema.optional(AutoScalingGroupList), serviceRoleArn: Schema.optional(Schema.String), targetRevision: Schema.optional(RevisionLocation), triggerConfigurations: Schema.optional(TriggerConfigList), alarmConfiguration: Schema.optional(AlarmConfiguration), autoRollbackConfiguration: Schema.optional(AutoRollbackConfiguration), deploymentStyle: Schema.optional(DeploymentStyle), outdatedInstancesStrategy: Schema.optional(Schema.String), blueGreenDeploymentConfiguration: Schema.optional(BlueGreenDeploymentConfiguration), loadBalancerInfo: Schema.optional(LoadBalancerInfo), lastSuccessfulDeployment: Schema.optional(LastDeploymentInfo), lastAttemptedDeployment: Schema.optional(LastDeploymentInfo), ec2TagSet: Schema.optional(EC2TagSet), onPremisesTagSet: Schema.optional(OnPremisesTagSet), computePlatform: Schema.optional(Schema.String), ecsServices: Schema.optional(ECSServiceList), terminationHookEnabled: Schema.optional(Schema.Boolean)}) {}
+export class GetDeploymentGroupOutput extends Schema.Class<GetDeploymentGroupOutput>("GetDeploymentGroupOutput")({deploymentGroupInfo: Schema.optional(DeploymentGroupInfo)}) {}
+export class Diagnostics extends Schema.Class<Diagnostics>("Diagnostics")({errorCode: Schema.optional(Schema.String), scriptName: Schema.optional(Schema.String), message: Schema.optional(Schema.String), logTail: Schema.optional(Schema.String)}) {}
+export class LifecycleEvent extends Schema.Class<LifecycleEvent>("LifecycleEvent")({lifecycleEventName: Schema.optional(Schema.String), diagnostics: Schema.optional(Diagnostics), startTime: Schema.optional(Schema.Date), endTime: Schema.optional(Schema.Date), status: Schema.optional(Schema.String)}) {}
 export const LifecycleEventList = Schema.Array(LifecycleEvent);
-export const InstanceSummary = Schema.Struct({deploymentId: Schema.optional(Schema.String), instanceId: Schema.optional(Schema.String), status: Schema.optional(Schema.String), lastUpdatedAt: Schema.optional(Schema.Date), lifecycleEvents: Schema.optional(LifecycleEventList), instanceType: Schema.optional(Schema.String)});
-export const GetDeploymentInstanceOutput = Schema.Struct({instanceSummary: Schema.optional(InstanceSummary)});
-export const InstanceTarget = Schema.Struct({deploymentId: Schema.optional(Schema.String), targetId: Schema.optional(Schema.String), targetArn: Schema.optional(Schema.String), status: Schema.optional(Schema.String), lastUpdatedAt: Schema.optional(Schema.Date), lifecycleEvents: Schema.optional(LifecycleEventList), instanceLabel: Schema.optional(Schema.String)});
-export const LambdaFunctionInfo = Schema.Struct({functionName: Schema.optional(Schema.String), functionAlias: Schema.optional(Schema.String), currentVersion: Schema.optional(Schema.String), targetVersion: Schema.optional(Schema.String), targetVersionWeight: Schema.optional(Schema.Number)});
-export const LambdaTarget = Schema.Struct({deploymentId: Schema.optional(Schema.String), targetId: Schema.optional(Schema.String), targetArn: Schema.optional(Schema.String), status: Schema.optional(Schema.String), lastUpdatedAt: Schema.optional(Schema.Date), lifecycleEvents: Schema.optional(LifecycleEventList), lambdaFunctionInfo: Schema.optional(LambdaFunctionInfo)});
-export const ECSTaskSet = Schema.Struct({identifer: Schema.optional(Schema.String), desiredCount: Schema.optional(Schema.Number), pendingCount: Schema.optional(Schema.Number), runningCount: Schema.optional(Schema.Number), status: Schema.optional(Schema.String), trafficWeight: Schema.optional(Schema.Number), targetGroup: Schema.optional(TargetGroupInfo), taskSetLabel: Schema.optional(Schema.String)});
+export class InstanceSummary extends Schema.Class<InstanceSummary>("InstanceSummary")({deploymentId: Schema.optional(Schema.String), instanceId: Schema.optional(Schema.String), status: Schema.optional(Schema.String), lastUpdatedAt: Schema.optional(Schema.Date), lifecycleEvents: Schema.optional(LifecycleEventList), instanceType: Schema.optional(Schema.String)}) {}
+export class GetDeploymentInstanceOutput extends Schema.Class<GetDeploymentInstanceOutput>("GetDeploymentInstanceOutput")({instanceSummary: Schema.optional(InstanceSummary)}) {}
+export class InstanceTarget extends Schema.Class<InstanceTarget>("InstanceTarget")({deploymentId: Schema.optional(Schema.String), targetId: Schema.optional(Schema.String), targetArn: Schema.optional(Schema.String), status: Schema.optional(Schema.String), lastUpdatedAt: Schema.optional(Schema.Date), lifecycleEvents: Schema.optional(LifecycleEventList), instanceLabel: Schema.optional(Schema.String)}) {}
+export class LambdaFunctionInfo extends Schema.Class<LambdaFunctionInfo>("LambdaFunctionInfo")({functionName: Schema.optional(Schema.String), functionAlias: Schema.optional(Schema.String), currentVersion: Schema.optional(Schema.String), targetVersion: Schema.optional(Schema.String), targetVersionWeight: Schema.optional(Schema.Number)}) {}
+export class LambdaTarget extends Schema.Class<LambdaTarget>("LambdaTarget")({deploymentId: Schema.optional(Schema.String), targetId: Schema.optional(Schema.String), targetArn: Schema.optional(Schema.String), status: Schema.optional(Schema.String), lastUpdatedAt: Schema.optional(Schema.Date), lifecycleEvents: Schema.optional(LifecycleEventList), lambdaFunctionInfo: Schema.optional(LambdaFunctionInfo)}) {}
+export class ECSTaskSet extends Schema.Class<ECSTaskSet>("ECSTaskSet")({identifer: Schema.optional(Schema.String), desiredCount: Schema.optional(Schema.Number), pendingCount: Schema.optional(Schema.Number), runningCount: Schema.optional(Schema.Number), status: Schema.optional(Schema.String), trafficWeight: Schema.optional(Schema.Number), targetGroup: Schema.optional(TargetGroupInfo), taskSetLabel: Schema.optional(Schema.String)}) {}
 export const ECSTaskSetList = Schema.Array(ECSTaskSet);
-export const ECSTarget = Schema.Struct({deploymentId: Schema.optional(Schema.String), targetId: Schema.optional(Schema.String), targetArn: Schema.optional(Schema.String), lastUpdatedAt: Schema.optional(Schema.Date), lifecycleEvents: Schema.optional(LifecycleEventList), status: Schema.optional(Schema.String), taskSetsInfo: Schema.optional(ECSTaskSetList)});
-export const CloudFormationTarget = Schema.Struct({deploymentId: Schema.optional(Schema.String), targetId: Schema.optional(Schema.String), lastUpdatedAt: Schema.optional(Schema.Date), lifecycleEvents: Schema.optional(LifecycleEventList), status: Schema.optional(Schema.String), resourceType: Schema.optional(Schema.String), targetVersionWeight: Schema.optional(Schema.Number)});
-export const DeploymentTarget = Schema.Struct({deploymentTargetType: Schema.optional(Schema.String), instanceTarget: Schema.optional(InstanceTarget), lambdaTarget: Schema.optional(LambdaTarget), ecsTarget: Schema.optional(ECSTarget), cloudFormationTarget: Schema.optional(CloudFormationTarget)});
-export const GetDeploymentTargetOutput = Schema.Struct({deploymentTarget: Schema.optional(DeploymentTarget)});
-export const InstanceInfo = Schema.Struct({instanceName: Schema.optional(Schema.String), iamSessionArn: Schema.optional(Schema.String), iamUserArn: Schema.optional(Schema.String), instanceArn: Schema.optional(Schema.String), registerTime: Schema.optional(Schema.Date), deregisterTime: Schema.optional(Schema.Date), tags: Schema.optional(TagList)});
-export const GetOnPremisesInstanceOutput = Schema.Struct({instanceInfo: Schema.optional(InstanceInfo)});
+export class ECSTarget extends Schema.Class<ECSTarget>("ECSTarget")({deploymentId: Schema.optional(Schema.String), targetId: Schema.optional(Schema.String), targetArn: Schema.optional(Schema.String), lastUpdatedAt: Schema.optional(Schema.Date), lifecycleEvents: Schema.optional(LifecycleEventList), status: Schema.optional(Schema.String), taskSetsInfo: Schema.optional(ECSTaskSetList)}) {}
+export class CloudFormationTarget extends Schema.Class<CloudFormationTarget>("CloudFormationTarget")({deploymentId: Schema.optional(Schema.String), targetId: Schema.optional(Schema.String), lastUpdatedAt: Schema.optional(Schema.Date), lifecycleEvents: Schema.optional(LifecycleEventList), status: Schema.optional(Schema.String), resourceType: Schema.optional(Schema.String), targetVersionWeight: Schema.optional(Schema.Number)}) {}
+export class DeploymentTarget extends Schema.Class<DeploymentTarget>("DeploymentTarget")({deploymentTargetType: Schema.optional(Schema.String), instanceTarget: Schema.optional(InstanceTarget), lambdaTarget: Schema.optional(LambdaTarget), ecsTarget: Schema.optional(ECSTarget), cloudFormationTarget: Schema.optional(CloudFormationTarget)}) {}
+export class GetDeploymentTargetOutput extends Schema.Class<GetDeploymentTargetOutput>("GetDeploymentTargetOutput")({deploymentTarget: Schema.optional(DeploymentTarget)}) {}
+export class InstanceInfo extends Schema.Class<InstanceInfo>("InstanceInfo")({instanceName: Schema.optional(Schema.String), iamSessionArn: Schema.optional(Schema.String), iamUserArn: Schema.optional(Schema.String), instanceArn: Schema.optional(Schema.String), registerTime: Schema.optional(Schema.Date), deregisterTime: Schema.optional(Schema.Date), tags: Schema.optional(TagList)}) {}
+export class GetOnPremisesInstanceOutput extends Schema.Class<GetOnPremisesInstanceOutput>("GetOnPremisesInstanceOutput")({instanceInfo: Schema.optional(InstanceInfo)}) {}
 export const RevisionLocationList = Schema.Array(RevisionLocation);
-export const ListApplicationRevisionsOutput = Schema.Struct({revisions: Schema.optional(RevisionLocationList), nextToken: Schema.optional(Schema.String)});
-export const ListApplicationsOutput = Schema.Struct({applications: Schema.optional(ApplicationsList), nextToken: Schema.optional(Schema.String)});
-export const ListDeploymentConfigsOutput = Schema.Struct({deploymentConfigsList: Schema.optional(DeploymentConfigsList), nextToken: Schema.optional(Schema.String)});
-export const ListDeploymentGroupsOutput = Schema.Struct({applicationName: Schema.optional(Schema.String), deploymentGroups: Schema.optional(DeploymentGroupsList), nextToken: Schema.optional(Schema.String)});
-export const ListDeploymentInstancesOutput = Schema.Struct({instancesList: Schema.optional(InstancesList), nextToken: Schema.optional(Schema.String)});
-export const ListDeploymentsInput = Schema.Struct({applicationName: Schema.optional(Schema.String), deploymentGroupName: Schema.optional(Schema.String), externalId: Schema.optional(Schema.String), includeOnlyStatuses: Schema.optional(DeploymentStatusList), createTimeRange: Schema.optional(TimeRange), nextToken: Schema.optional(Schema.String)});
-export const ListDeploymentTargetsInput = Schema.Struct({deploymentId: Schema.String, nextToken: Schema.optional(Schema.String), targetFilters: Schema.optional(TargetFilters)});
-export const ListGitHubAccountTokenNamesOutput = Schema.Struct({tokenNameList: Schema.optional(GitHubAccountTokenNameList), nextToken: Schema.optional(Schema.String)});
-export const ListOnPremisesInstancesOutput = Schema.Struct({instanceNames: Schema.optional(InstanceNameList), nextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceOutput = Schema.Struct({Tags: Schema.optional(TagList), NextToken: Schema.optional(Schema.String)});
-export const PutLifecycleEventHookExecutionStatusOutput = Schema.Struct({lifecycleEventHookExecutionId: Schema.optional(Schema.String)});
-export const ApplicationDoesNotExistException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const IamArnRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InstanceLimitExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DeploymentDoesNotExistException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const StopDeploymentOutput = Schema.Struct({status: Schema.optional(Schema.String), statusMessage: Schema.optional(Schema.String)});
-export const ArnNotSupportedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DeploymentConfigDoesNotExistException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ApplicationAlreadyExistsException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UpdateDeploymentGroupOutput = Schema.Struct({hooksNotCleanedUp: Schema.optional(AutoScalingGroupList)});
-export const TimeBasedCanary = Schema.Struct({canaryPercentage: Schema.optional(Schema.Number), canaryInterval: Schema.optional(Schema.Number)});
-export const TimeBasedLinear = Schema.Struct({linearPercentage: Schema.optional(Schema.Number), linearInterval: Schema.optional(Schema.Number)});
-export const MinimumHealthyHostsPerZone = Schema.Struct({type: Schema.optional(Schema.String), value: Schema.optional(Schema.Number)});
+export class ListApplicationRevisionsOutput extends Schema.Class<ListApplicationRevisionsOutput>("ListApplicationRevisionsOutput")({revisions: Schema.optional(RevisionLocationList), nextToken: Schema.optional(Schema.String)}) {}
+export class ListApplicationsOutput extends Schema.Class<ListApplicationsOutput>("ListApplicationsOutput")({applications: Schema.optional(ApplicationsList), nextToken: Schema.optional(Schema.String)}) {}
+export class ListDeploymentConfigsOutput extends Schema.Class<ListDeploymentConfigsOutput>("ListDeploymentConfigsOutput")({deploymentConfigsList: Schema.optional(DeploymentConfigsList), nextToken: Schema.optional(Schema.String)}) {}
+export class ListDeploymentGroupsOutput extends Schema.Class<ListDeploymentGroupsOutput>("ListDeploymentGroupsOutput")({applicationName: Schema.optional(Schema.String), deploymentGroups: Schema.optional(DeploymentGroupsList), nextToken: Schema.optional(Schema.String)}) {}
+export class ListDeploymentInstancesOutput extends Schema.Class<ListDeploymentInstancesOutput>("ListDeploymentInstancesOutput")({instancesList: Schema.optional(InstancesList), nextToken: Schema.optional(Schema.String)}) {}
+export class ListDeploymentsInput extends Schema.Class<ListDeploymentsInput>("ListDeploymentsInput")({applicationName: Schema.optional(Schema.String), deploymentGroupName: Schema.optional(Schema.String), externalId: Schema.optional(Schema.String), includeOnlyStatuses: Schema.optional(DeploymentStatusList), createTimeRange: Schema.optional(TimeRange), nextToken: Schema.optional(Schema.String)}) {}
+export class ListDeploymentTargetsInput extends Schema.Class<ListDeploymentTargetsInput>("ListDeploymentTargetsInput")({deploymentId: Schema.String, nextToken: Schema.optional(Schema.String), targetFilters: Schema.optional(TargetFilters)}) {}
+export class ListGitHubAccountTokenNamesOutput extends Schema.Class<ListGitHubAccountTokenNamesOutput>("ListGitHubAccountTokenNamesOutput")({tokenNameList: Schema.optional(GitHubAccountTokenNameList), nextToken: Schema.optional(Schema.String)}) {}
+export class ListOnPremisesInstancesOutput extends Schema.Class<ListOnPremisesInstancesOutput>("ListOnPremisesInstancesOutput")({instanceNames: Schema.optional(InstanceNameList), nextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceOutput extends Schema.Class<ListTagsForResourceOutput>("ListTagsForResourceOutput")({Tags: Schema.optional(TagList), NextToken: Schema.optional(Schema.String)}) {}
+export class PutLifecycleEventHookExecutionStatusOutput extends Schema.Class<PutLifecycleEventHookExecutionStatusOutput>("PutLifecycleEventHookExecutionStatusOutput")({lifecycleEventHookExecutionId: Schema.optional(Schema.String)}) {}
+export class ApplicationDoesNotExistException extends Schema.Class<ApplicationDoesNotExistException>("ApplicationDoesNotExistException")({message: Schema.optional(Schema.String)}) {}
+export class IamArnRequiredException extends Schema.Class<IamArnRequiredException>("IamArnRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class InstanceLimitExceededException extends Schema.Class<InstanceLimitExceededException>("InstanceLimitExceededException")({message: Schema.optional(Schema.String)}) {}
+export class DeploymentDoesNotExistException extends Schema.Class<DeploymentDoesNotExistException>("DeploymentDoesNotExistException")({message: Schema.optional(Schema.String)}) {}
+export class StopDeploymentOutput extends Schema.Class<StopDeploymentOutput>("StopDeploymentOutput")({status: Schema.optional(Schema.String), statusMessage: Schema.optional(Schema.String)}) {}
+export class ArnNotSupportedException extends Schema.Class<ArnNotSupportedException>("ArnNotSupportedException")({message: Schema.optional(Schema.String)}) {}
+export class DeploymentConfigDoesNotExistException extends Schema.Class<DeploymentConfigDoesNotExistException>("DeploymentConfigDoesNotExistException")({message: Schema.optional(Schema.String)}) {}
+export class ApplicationAlreadyExistsException extends Schema.Class<ApplicationAlreadyExistsException>("ApplicationAlreadyExistsException")({message: Schema.optional(Schema.String)}) {}
+export class UpdateDeploymentGroupOutput extends Schema.Class<UpdateDeploymentGroupOutput>("UpdateDeploymentGroupOutput")({hooksNotCleanedUp: Schema.optional(AutoScalingGroupList)}) {}
+export class TimeBasedCanary extends Schema.Class<TimeBasedCanary>("TimeBasedCanary")({canaryPercentage: Schema.optional(Schema.Number), canaryInterval: Schema.optional(Schema.Number)}) {}
+export class TimeBasedLinear extends Schema.Class<TimeBasedLinear>("TimeBasedLinear")({linearPercentage: Schema.optional(Schema.Number), linearInterval: Schema.optional(Schema.Number)}) {}
+export class MinimumHealthyHostsPerZone extends Schema.Class<MinimumHealthyHostsPerZone>("MinimumHealthyHostsPerZone")({type: Schema.optional(Schema.String), value: Schema.optional(Schema.Number)}) {}
 export const ApplicationsInfoList = Schema.Array(ApplicationInfo);
 export const InstanceInfoList = Schema.Array(InstanceInfo);
-export const TrafficRoutingConfig = Schema.Struct({type: Schema.optional(Schema.String), timeBasedCanary: Schema.optional(TimeBasedCanary), timeBasedLinear: Schema.optional(TimeBasedLinear)});
-export const ZonalConfig = Schema.Struct({firstZoneMonitorDurationInSeconds: Schema.optional(Schema.Number), monitorDurationInSeconds: Schema.optional(Schema.Number), minimumHealthyHostsPerZone: Schema.optional(MinimumHealthyHostsPerZone)});
-export const GenericRevisionInfo = Schema.Struct({description: Schema.optional(Schema.String), deploymentGroups: Schema.optional(DeploymentGroupsList), firstUsedTime: Schema.optional(Schema.Date), lastUsedTime: Schema.optional(Schema.Date), registerTime: Schema.optional(Schema.Date)});
-export const DeploymentConfigInfo = Schema.Struct({deploymentConfigId: Schema.optional(Schema.String), deploymentConfigName: Schema.optional(Schema.String), minimumHealthyHosts: Schema.optional(MinimumHealthyHosts), createTime: Schema.optional(Schema.Date), computePlatform: Schema.optional(Schema.String), trafficRoutingConfig: Schema.optional(TrafficRoutingConfig), zonalConfig: Schema.optional(ZonalConfig)});
-export const InstanceNotRegisteredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const BatchGetApplicationRevisionsInput = Schema.Struct({applicationName: Schema.String, revisions: RevisionLocationList});
-export const BatchGetApplicationsOutput = Schema.Struct({applicationsInfo: Schema.optional(ApplicationsInfoList)});
-export const BatchGetOnPremisesInstancesOutput = Schema.Struct({instanceInfos: Schema.optional(InstanceInfoList)});
-export const DeploymentIdRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ApplicationLimitExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CreateDeploymentInput = Schema.Struct({applicationName: Schema.String, deploymentGroupName: Schema.optional(Schema.String), revision: Schema.optional(RevisionLocation), deploymentConfigName: Schema.optional(Schema.String), description: Schema.optional(Schema.String), ignoreApplicationStopFailures: Schema.optional(Schema.Boolean), targetInstances: Schema.optional(TargetInstances), autoRollbackConfiguration: Schema.optional(AutoRollbackConfiguration), updateOutdatedInstancesOnly: Schema.optional(Schema.Boolean), fileExistsBehavior: Schema.optional(Schema.String), overrideAlarmConfiguration: Schema.optional(AlarmConfiguration)});
-export const CreateDeploymentConfigInput = Schema.Struct({deploymentConfigName: Schema.String, minimumHealthyHosts: Schema.optional(MinimumHealthyHosts), trafficRoutingConfig: Schema.optional(TrafficRoutingConfig), computePlatform: Schema.optional(Schema.String), zonalConfig: Schema.optional(ZonalConfig)});
-export const InvalidApplicationNameException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DeploymentConfigNameRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DeleteDeploymentGroupOutput = Schema.Struct({hooksNotCleanedUp: Schema.optional(AutoScalingGroupList)});
-export const GitHubAccountTokenDoesNotExistException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidInstanceNameException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const GetApplicationRevisionOutput = Schema.Struct({applicationName: Schema.optional(Schema.String), revision: Schema.optional(RevisionLocation), revisionInfo: Schema.optional(GenericRevisionInfo)});
-export const InvalidDeploymentIdException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const GetDeploymentConfigOutput = Schema.Struct({deploymentConfigInfo: Schema.optional(DeploymentConfigInfo)});
-export const DeploymentGroupDoesNotExistException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InstanceDoesNotExistException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DeploymentNotStartedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const BucketNameFilterRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidNextTokenException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidComputePlatformException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ListDeploymentsOutput = Schema.Struct({deployments: Schema.optional(DeploymentsList), nextToken: Schema.optional(Schema.String)});
-export const ListDeploymentTargetsOutput = Schema.Struct({targetIds: Schema.optional(TargetIdList), nextToken: Schema.optional(Schema.String)});
-export const OperationNotSupportedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidRegistrationStatusException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidArnException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidLifecycleEventHookExecutionIdException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DescriptionTooLongException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const IamSessionArnAlreadyRegisteredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidTagException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UnsupportedActionForDeploymentTypeException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidTagsToAddException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ResourceArnRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const AlarmsLimitExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
+export class TrafficRoutingConfig extends Schema.Class<TrafficRoutingConfig>("TrafficRoutingConfig")({type: Schema.optional(Schema.String), timeBasedCanary: Schema.optional(TimeBasedCanary), timeBasedLinear: Schema.optional(TimeBasedLinear)}) {}
+export class ZonalConfig extends Schema.Class<ZonalConfig>("ZonalConfig")({firstZoneMonitorDurationInSeconds: Schema.optional(Schema.Number), monitorDurationInSeconds: Schema.optional(Schema.Number), minimumHealthyHostsPerZone: Schema.optional(MinimumHealthyHostsPerZone)}) {}
+export class GenericRevisionInfo extends Schema.Class<GenericRevisionInfo>("GenericRevisionInfo")({description: Schema.optional(Schema.String), deploymentGroups: Schema.optional(DeploymentGroupsList), firstUsedTime: Schema.optional(Schema.Date), lastUsedTime: Schema.optional(Schema.Date), registerTime: Schema.optional(Schema.Date)}) {}
+export class DeploymentConfigInfo extends Schema.Class<DeploymentConfigInfo>("DeploymentConfigInfo")({deploymentConfigId: Schema.optional(Schema.String), deploymentConfigName: Schema.optional(Schema.String), minimumHealthyHosts: Schema.optional(MinimumHealthyHosts), createTime: Schema.optional(Schema.Date), computePlatform: Schema.optional(Schema.String), trafficRoutingConfig: Schema.optional(TrafficRoutingConfig), zonalConfig: Schema.optional(ZonalConfig)}) {}
+export class InstanceNotRegisteredException extends Schema.Class<InstanceNotRegisteredException>("InstanceNotRegisteredException")({message: Schema.optional(Schema.String)}) {}
+export class BatchGetApplicationRevisionsInput extends Schema.Class<BatchGetApplicationRevisionsInput>("BatchGetApplicationRevisionsInput")({applicationName: Schema.String, revisions: RevisionLocationList}) {}
+export class BatchGetApplicationsOutput extends Schema.Class<BatchGetApplicationsOutput>("BatchGetApplicationsOutput")({applicationsInfo: Schema.optional(ApplicationsInfoList)}) {}
+export class BatchGetOnPremisesInstancesOutput extends Schema.Class<BatchGetOnPremisesInstancesOutput>("BatchGetOnPremisesInstancesOutput")({instanceInfos: Schema.optional(InstanceInfoList)}) {}
+export class DeploymentIdRequiredException extends Schema.Class<DeploymentIdRequiredException>("DeploymentIdRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class ApplicationLimitExceededException extends Schema.Class<ApplicationLimitExceededException>("ApplicationLimitExceededException")({message: Schema.optional(Schema.String)}) {}
+export class CreateDeploymentInput extends Schema.Class<CreateDeploymentInput>("CreateDeploymentInput")({applicationName: Schema.String, deploymentGroupName: Schema.optional(Schema.String), revision: Schema.optional(RevisionLocation), deploymentConfigName: Schema.optional(Schema.String), description: Schema.optional(Schema.String), ignoreApplicationStopFailures: Schema.optional(Schema.Boolean), targetInstances: Schema.optional(TargetInstances), autoRollbackConfiguration: Schema.optional(AutoRollbackConfiguration), updateOutdatedInstancesOnly: Schema.optional(Schema.Boolean), fileExistsBehavior: Schema.optional(Schema.String), overrideAlarmConfiguration: Schema.optional(AlarmConfiguration)}) {}
+export class CreateDeploymentConfigInput extends Schema.Class<CreateDeploymentConfigInput>("CreateDeploymentConfigInput")({deploymentConfigName: Schema.String, minimumHealthyHosts: Schema.optional(MinimumHealthyHosts), trafficRoutingConfig: Schema.optional(TrafficRoutingConfig), computePlatform: Schema.optional(Schema.String), zonalConfig: Schema.optional(ZonalConfig)}) {}
+export class InvalidApplicationNameException extends Schema.Class<InvalidApplicationNameException>("InvalidApplicationNameException")({message: Schema.optional(Schema.String)}) {}
+export class DeploymentConfigNameRequiredException extends Schema.Class<DeploymentConfigNameRequiredException>("DeploymentConfigNameRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class DeleteDeploymentGroupOutput extends Schema.Class<DeleteDeploymentGroupOutput>("DeleteDeploymentGroupOutput")({hooksNotCleanedUp: Schema.optional(AutoScalingGroupList)}) {}
+export class GitHubAccountTokenDoesNotExistException extends Schema.Class<GitHubAccountTokenDoesNotExistException>("GitHubAccountTokenDoesNotExistException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidInstanceNameException extends Schema.Class<InvalidInstanceNameException>("InvalidInstanceNameException")({message: Schema.optional(Schema.String)}) {}
+export class GetApplicationRevisionOutput extends Schema.Class<GetApplicationRevisionOutput>("GetApplicationRevisionOutput")({applicationName: Schema.optional(Schema.String), revision: Schema.optional(RevisionLocation), revisionInfo: Schema.optional(GenericRevisionInfo)}) {}
+export class InvalidDeploymentIdException extends Schema.Class<InvalidDeploymentIdException>("InvalidDeploymentIdException")({message: Schema.optional(Schema.String)}) {}
+export class GetDeploymentConfigOutput extends Schema.Class<GetDeploymentConfigOutput>("GetDeploymentConfigOutput")({deploymentConfigInfo: Schema.optional(DeploymentConfigInfo)}) {}
+export class DeploymentGroupDoesNotExistException extends Schema.Class<DeploymentGroupDoesNotExistException>("DeploymentGroupDoesNotExistException")({message: Schema.optional(Schema.String)}) {}
+export class InstanceDoesNotExistException extends Schema.Class<InstanceDoesNotExistException>("InstanceDoesNotExistException")({message: Schema.optional(Schema.String)}) {}
+export class DeploymentNotStartedException extends Schema.Class<DeploymentNotStartedException>("DeploymentNotStartedException")({message: Schema.optional(Schema.String)}) {}
+export class BucketNameFilterRequiredException extends Schema.Class<BucketNameFilterRequiredException>("BucketNameFilterRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidNextTokenException extends Schema.Class<InvalidNextTokenException>("InvalidNextTokenException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidComputePlatformException extends Schema.Class<InvalidComputePlatformException>("InvalidComputePlatformException")({message: Schema.optional(Schema.String)}) {}
+export class ListDeploymentsOutput extends Schema.Class<ListDeploymentsOutput>("ListDeploymentsOutput")({deployments: Schema.optional(DeploymentsList), nextToken: Schema.optional(Schema.String)}) {}
+export class ListDeploymentTargetsOutput extends Schema.Class<ListDeploymentTargetsOutput>("ListDeploymentTargetsOutput")({targetIds: Schema.optional(TargetIdList), nextToken: Schema.optional(Schema.String)}) {}
+export class OperationNotSupportedException extends Schema.Class<OperationNotSupportedException>("OperationNotSupportedException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidRegistrationStatusException extends Schema.Class<InvalidRegistrationStatusException>("InvalidRegistrationStatusException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidArnException extends Schema.Class<InvalidArnException>("InvalidArnException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidLifecycleEventHookExecutionIdException extends Schema.Class<InvalidLifecycleEventHookExecutionIdException>("InvalidLifecycleEventHookExecutionIdException")({message: Schema.optional(Schema.String)}) {}
+export class DescriptionTooLongException extends Schema.Class<DescriptionTooLongException>("DescriptionTooLongException")({message: Schema.optional(Schema.String)}) {}
+export class IamSessionArnAlreadyRegisteredException extends Schema.Class<IamSessionArnAlreadyRegisteredException>("IamSessionArnAlreadyRegisteredException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidTagException extends Schema.Class<InvalidTagException>("InvalidTagException")({message: Schema.optional(Schema.String)}) {}
+export class UnsupportedActionForDeploymentTypeException extends Schema.Class<UnsupportedActionForDeploymentTypeException>("UnsupportedActionForDeploymentTypeException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidTagsToAddException extends Schema.Class<InvalidTagsToAddException>("InvalidTagsToAddException")({message: Schema.optional(Schema.String)}) {}
+export class ResourceArnRequiredException extends Schema.Class<ResourceArnRequiredException>("ResourceArnRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class AlarmsLimitExceededException extends Schema.Class<AlarmsLimitExceededException>("AlarmsLimitExceededException")({message: Schema.optional(Schema.String)}) {}
 export const DeploymentGroupInfoList = Schema.Array(DeploymentGroupInfo);
 export const DeploymentsInfoList = Schema.Array(DeploymentInfo);
-export const TagLimitExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const BatchLimitExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const BatchGetDeploymentGroupsOutput = Schema.Struct({deploymentGroupsInfo: Schema.optional(DeploymentGroupInfoList), errorMessage: Schema.optional(Schema.String)});
-export const BatchGetDeploymentsOutput = Schema.Struct({deploymentsInfo: Schema.optional(DeploymentsInfoList)});
-export const DeploymentIsNotInReadyStateException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CreateDeploymentOutput = Schema.Struct({deploymentId: Schema.optional(Schema.String)});
-export const CreateDeploymentConfigOutput = Schema.Struct({deploymentConfigId: Schema.optional(Schema.String)});
-export const CreateDeploymentGroupInput = Schema.Struct({applicationName: Schema.String, deploymentGroupName: Schema.String, deploymentConfigName: Schema.optional(Schema.String), ec2TagFilters: Schema.optional(EC2TagFilterList), onPremisesInstanceTagFilters: Schema.optional(TagFilterList), autoScalingGroups: Schema.optional(AutoScalingGroupNameList), serviceRoleArn: Schema.String, triggerConfigurations: Schema.optional(TriggerConfigList), alarmConfiguration: Schema.optional(AlarmConfiguration), autoRollbackConfiguration: Schema.optional(AutoRollbackConfiguration), outdatedInstancesStrategy: Schema.optional(Schema.String), deploymentStyle: Schema.optional(DeploymentStyle), blueGreenDeploymentConfiguration: Schema.optional(BlueGreenDeploymentConfiguration), loadBalancerInfo: Schema.optional(LoadBalancerInfo), ec2TagSet: Schema.optional(EC2TagSet), ecsServices: Schema.optional(ECSServiceList), onPremisesTagSet: Schema.optional(OnPremisesTagSet), tags: Schema.optional(TagList), terminationHookEnabled: Schema.optional(Schema.Boolean)});
-export const InvalidRoleException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidDeploymentConfigNameException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DeploymentGroupNameRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const GitHubAccountTokenNameRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidRevisionException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidDeploymentGroupNameException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InstanceIdRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DeploymentTargetDoesNotExistException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidBucketNameFilterException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidDeploymentInstanceTypeException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidDeploymentStatusException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidInstanceStatusException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ResourceValidationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidTagFilterException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidLifecycleEventHookExecutionStatusException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const RevisionRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const IamUserArnAlreadyRegisteredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const TagRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DeploymentGroupAlreadyExistsException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const RevisionInfo = Schema.Struct({revisionLocation: Schema.optional(RevisionLocation), genericRevisionInfo: Schema.optional(GenericRevisionInfo)});
+export class TagLimitExceededException extends Schema.Class<TagLimitExceededException>("TagLimitExceededException")({message: Schema.optional(Schema.String)}) {}
+export class BatchLimitExceededException extends Schema.Class<BatchLimitExceededException>("BatchLimitExceededException")({message: Schema.optional(Schema.String)}) {}
+export class BatchGetDeploymentGroupsOutput extends Schema.Class<BatchGetDeploymentGroupsOutput>("BatchGetDeploymentGroupsOutput")({deploymentGroupsInfo: Schema.optional(DeploymentGroupInfoList), errorMessage: Schema.optional(Schema.String)}) {}
+export class BatchGetDeploymentsOutput extends Schema.Class<BatchGetDeploymentsOutput>("BatchGetDeploymentsOutput")({deploymentsInfo: Schema.optional(DeploymentsInfoList)}) {}
+export class DeploymentIsNotInReadyStateException extends Schema.Class<DeploymentIsNotInReadyStateException>("DeploymentIsNotInReadyStateException")({message: Schema.optional(Schema.String)}) {}
+export class CreateDeploymentOutput extends Schema.Class<CreateDeploymentOutput>("CreateDeploymentOutput")({deploymentId: Schema.optional(Schema.String)}) {}
+export class CreateDeploymentConfigOutput extends Schema.Class<CreateDeploymentConfigOutput>("CreateDeploymentConfigOutput")({deploymentConfigId: Schema.optional(Schema.String)}) {}
+export class CreateDeploymentGroupInput extends Schema.Class<CreateDeploymentGroupInput>("CreateDeploymentGroupInput")({applicationName: Schema.String, deploymentGroupName: Schema.String, deploymentConfigName: Schema.optional(Schema.String), ec2TagFilters: Schema.optional(EC2TagFilterList), onPremisesInstanceTagFilters: Schema.optional(TagFilterList), autoScalingGroups: Schema.optional(AutoScalingGroupNameList), serviceRoleArn: Schema.String, triggerConfigurations: Schema.optional(TriggerConfigList), alarmConfiguration: Schema.optional(AlarmConfiguration), autoRollbackConfiguration: Schema.optional(AutoRollbackConfiguration), outdatedInstancesStrategy: Schema.optional(Schema.String), deploymentStyle: Schema.optional(DeploymentStyle), blueGreenDeploymentConfiguration: Schema.optional(BlueGreenDeploymentConfiguration), loadBalancerInfo: Schema.optional(LoadBalancerInfo), ec2TagSet: Schema.optional(EC2TagSet), ecsServices: Schema.optional(ECSServiceList), onPremisesTagSet: Schema.optional(OnPremisesTagSet), tags: Schema.optional(TagList), terminationHookEnabled: Schema.optional(Schema.Boolean)}) {}
+export class InvalidRoleException extends Schema.Class<InvalidRoleException>("InvalidRoleException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidDeploymentConfigNameException extends Schema.Class<InvalidDeploymentConfigNameException>("InvalidDeploymentConfigNameException")({message: Schema.optional(Schema.String)}) {}
+export class DeploymentGroupNameRequiredException extends Schema.Class<DeploymentGroupNameRequiredException>("DeploymentGroupNameRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class GitHubAccountTokenNameRequiredException extends Schema.Class<GitHubAccountTokenNameRequiredException>("GitHubAccountTokenNameRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidRevisionException extends Schema.Class<InvalidRevisionException>("InvalidRevisionException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidDeploymentGroupNameException extends Schema.Class<InvalidDeploymentGroupNameException>("InvalidDeploymentGroupNameException")({message: Schema.optional(Schema.String)}) {}
+export class InstanceIdRequiredException extends Schema.Class<InstanceIdRequiredException>("InstanceIdRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class DeploymentTargetDoesNotExistException extends Schema.Class<DeploymentTargetDoesNotExistException>("DeploymentTargetDoesNotExistException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidBucketNameFilterException extends Schema.Class<InvalidBucketNameFilterException>("InvalidBucketNameFilterException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidDeploymentInstanceTypeException extends Schema.Class<InvalidDeploymentInstanceTypeException>("InvalidDeploymentInstanceTypeException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidDeploymentStatusException extends Schema.Class<InvalidDeploymentStatusException>("InvalidDeploymentStatusException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidInstanceStatusException extends Schema.Class<InvalidInstanceStatusException>("InvalidInstanceStatusException")({message: Schema.optional(Schema.String)}) {}
+export class ResourceValidationException extends Schema.Class<ResourceValidationException>("ResourceValidationException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidTagFilterException extends Schema.Class<InvalidTagFilterException>("InvalidTagFilterException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidLifecycleEventHookExecutionStatusException extends Schema.Class<InvalidLifecycleEventHookExecutionStatusException>("InvalidLifecycleEventHookExecutionStatusException")({message: Schema.optional(Schema.String)}) {}
+export class RevisionRequiredException extends Schema.Class<RevisionRequiredException>("RevisionRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class IamUserArnAlreadyRegisteredException extends Schema.Class<IamUserArnAlreadyRegisteredException>("IamUserArnAlreadyRegisteredException")({message: Schema.optional(Schema.String)}) {}
+export class TagRequiredException extends Schema.Class<TagRequiredException>("TagRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class DeploymentGroupAlreadyExistsException extends Schema.Class<DeploymentGroupAlreadyExistsException>("DeploymentGroupAlreadyExistsException")({message: Schema.optional(Schema.String)}) {}
+export class RevisionInfo extends Schema.Class<RevisionInfo>("RevisionInfo")({revisionLocation: Schema.optional(RevisionLocation), genericRevisionInfo: Schema.optional(GenericRevisionInfo)}) {}
 export const RevisionInfoList = Schema.Array(RevisionInfo);
 export const InstanceSummaryList = Schema.Array(InstanceSummary);
 export const DeploymentTargetList = Schema.Array(DeploymentTarget);
-export const BatchGetApplicationRevisionsOutput = Schema.Struct({applicationName: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String), revisions: Schema.optional(RevisionInfoList)});
-export const BatchGetDeploymentInstancesOutput = Schema.Struct({instancesSummary: Schema.optional(InstanceSummaryList), errorMessage: Schema.optional(Schema.String)});
-export const BatchGetDeploymentTargetsOutput = Schema.Struct({deploymentTargets: Schema.optional(DeploymentTargetList)});
-export const InvalidDeploymentWaitTypeException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DeploymentLimitExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DeploymentConfigAlreadyExistsException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CreateDeploymentGroupOutput = Schema.Struct({deploymentGroupId: Schema.optional(Schema.String)});
-export const InvalidOperationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidGitHubAccountTokenNameException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const RevisionDoesNotExistException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DeploymentTargetIdRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidDeployedStateFilterException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidInstanceTypeException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidExternalIdException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidTargetFilterNameException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const LifecycleEventAlreadyCompletedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const IamUserArnRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ECSServiceMappingLimitExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DeploymentTargetListSizeExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidAlarmConfigException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DeploymentConfigLimitExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DeploymentGroupLimitExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidDeploymentTargetIdException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidKeyPrefixFilterException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidInputException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InstanceNameAlreadyRegisteredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidAutoRollbackConfigException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidAutoScalingGroupException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidMinimumHealthyHostValueException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidBlueGreenDeploymentConfigurationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidSortByException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidTimeRangeException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidIamSessionArnException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidDeploymentStyleException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidFileExistsBehaviorException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidTrafficRoutingConfigurationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidEC2TagCombinationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidSortOrderException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidIamUserArnException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidEC2TagException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidGitHubAccountTokenException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidZonalDeploymentConfigurationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidECSServiceException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const MultipleIamArnsProvidedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidLoadBalancerInfoException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidIgnoreApplicationStopFailuresValueException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidOnPremisesTagCombinationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidTargetGroupPairException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidTargetInstancesException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidTriggerConfigException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const LifecycleHookLimitExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidUpdateOutdatedInstancesOnlyValueException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const RoleRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const TagSetListLimitExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ThrottlingException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const TriggerTargetsLimitExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
+export class BatchGetApplicationRevisionsOutput extends Schema.Class<BatchGetApplicationRevisionsOutput>("BatchGetApplicationRevisionsOutput")({applicationName: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String), revisions: Schema.optional(RevisionInfoList)}) {}
+export class BatchGetDeploymentInstancesOutput extends Schema.Class<BatchGetDeploymentInstancesOutput>("BatchGetDeploymentInstancesOutput")({instancesSummary: Schema.optional(InstanceSummaryList), errorMessage: Schema.optional(Schema.String)}) {}
+export class BatchGetDeploymentTargetsOutput extends Schema.Class<BatchGetDeploymentTargetsOutput>("BatchGetDeploymentTargetsOutput")({deploymentTargets: Schema.optional(DeploymentTargetList)}) {}
+export class InvalidDeploymentWaitTypeException extends Schema.Class<InvalidDeploymentWaitTypeException>("InvalidDeploymentWaitTypeException")({message: Schema.optional(Schema.String)}) {}
+export class DeploymentLimitExceededException extends Schema.Class<DeploymentLimitExceededException>("DeploymentLimitExceededException")({message: Schema.optional(Schema.String)}) {}
+export class DeploymentConfigAlreadyExistsException extends Schema.Class<DeploymentConfigAlreadyExistsException>("DeploymentConfigAlreadyExistsException")({message: Schema.optional(Schema.String)}) {}
+export class CreateDeploymentGroupOutput extends Schema.Class<CreateDeploymentGroupOutput>("CreateDeploymentGroupOutput")({deploymentGroupId: Schema.optional(Schema.String)}) {}
+export class InvalidOperationException extends Schema.Class<InvalidOperationException>("InvalidOperationException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidGitHubAccountTokenNameException extends Schema.Class<InvalidGitHubAccountTokenNameException>("InvalidGitHubAccountTokenNameException")({message: Schema.optional(Schema.String)}) {}
+export class RevisionDoesNotExistException extends Schema.Class<RevisionDoesNotExistException>("RevisionDoesNotExistException")({message: Schema.optional(Schema.String)}) {}
+export class DeploymentTargetIdRequiredException extends Schema.Class<DeploymentTargetIdRequiredException>("DeploymentTargetIdRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidDeployedStateFilterException extends Schema.Class<InvalidDeployedStateFilterException>("InvalidDeployedStateFilterException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidInstanceTypeException extends Schema.Class<InvalidInstanceTypeException>("InvalidInstanceTypeException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidExternalIdException extends Schema.Class<InvalidExternalIdException>("InvalidExternalIdException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidTargetFilterNameException extends Schema.Class<InvalidTargetFilterNameException>("InvalidTargetFilterNameException")({message: Schema.optional(Schema.String)}) {}
+export class LifecycleEventAlreadyCompletedException extends Schema.Class<LifecycleEventAlreadyCompletedException>("LifecycleEventAlreadyCompletedException")({message: Schema.optional(Schema.String)}) {}
+export class IamUserArnRequiredException extends Schema.Class<IamUserArnRequiredException>("IamUserArnRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class ECSServiceMappingLimitExceededException extends Schema.Class<ECSServiceMappingLimitExceededException>("ECSServiceMappingLimitExceededException")({message: Schema.optional(Schema.String)}) {}
+export class DeploymentTargetListSizeExceededException extends Schema.Class<DeploymentTargetListSizeExceededException>("DeploymentTargetListSizeExceededException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidAlarmConfigException extends Schema.Class<InvalidAlarmConfigException>("InvalidAlarmConfigException")({message: Schema.optional(Schema.String)}) {}
+export class DeploymentConfigLimitExceededException extends Schema.Class<DeploymentConfigLimitExceededException>("DeploymentConfigLimitExceededException")({message: Schema.optional(Schema.String)}) {}
+export class DeploymentGroupLimitExceededException extends Schema.Class<DeploymentGroupLimitExceededException>("DeploymentGroupLimitExceededException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidDeploymentTargetIdException extends Schema.Class<InvalidDeploymentTargetIdException>("InvalidDeploymentTargetIdException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidKeyPrefixFilterException extends Schema.Class<InvalidKeyPrefixFilterException>("InvalidKeyPrefixFilterException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidInputException extends Schema.Class<InvalidInputException>("InvalidInputException")({message: Schema.optional(Schema.String)}) {}
+export class InstanceNameAlreadyRegisteredException extends Schema.Class<InstanceNameAlreadyRegisteredException>("InstanceNameAlreadyRegisteredException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidAutoRollbackConfigException extends Schema.Class<InvalidAutoRollbackConfigException>("InvalidAutoRollbackConfigException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidAutoScalingGroupException extends Schema.Class<InvalidAutoScalingGroupException>("InvalidAutoScalingGroupException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidMinimumHealthyHostValueException extends Schema.Class<InvalidMinimumHealthyHostValueException>("InvalidMinimumHealthyHostValueException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidBlueGreenDeploymentConfigurationException extends Schema.Class<InvalidBlueGreenDeploymentConfigurationException>("InvalidBlueGreenDeploymentConfigurationException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidSortByException extends Schema.Class<InvalidSortByException>("InvalidSortByException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidTimeRangeException extends Schema.Class<InvalidTimeRangeException>("InvalidTimeRangeException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidIamSessionArnException extends Schema.Class<InvalidIamSessionArnException>("InvalidIamSessionArnException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidDeploymentStyleException extends Schema.Class<InvalidDeploymentStyleException>("InvalidDeploymentStyleException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidFileExistsBehaviorException extends Schema.Class<InvalidFileExistsBehaviorException>("InvalidFileExistsBehaviorException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidTrafficRoutingConfigurationException extends Schema.Class<InvalidTrafficRoutingConfigurationException>("InvalidTrafficRoutingConfigurationException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidEC2TagCombinationException extends Schema.Class<InvalidEC2TagCombinationException>("InvalidEC2TagCombinationException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidSortOrderException extends Schema.Class<InvalidSortOrderException>("InvalidSortOrderException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidIamUserArnException extends Schema.Class<InvalidIamUserArnException>("InvalidIamUserArnException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidEC2TagException extends Schema.Class<InvalidEC2TagException>("InvalidEC2TagException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidGitHubAccountTokenException extends Schema.Class<InvalidGitHubAccountTokenException>("InvalidGitHubAccountTokenException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidZonalDeploymentConfigurationException extends Schema.Class<InvalidZonalDeploymentConfigurationException>("InvalidZonalDeploymentConfigurationException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidECSServiceException extends Schema.Class<InvalidECSServiceException>("InvalidECSServiceException")({message: Schema.optional(Schema.String)}) {}
+export class MultipleIamArnsProvidedException extends Schema.Class<MultipleIamArnsProvidedException>("MultipleIamArnsProvidedException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidLoadBalancerInfoException extends Schema.Class<InvalidLoadBalancerInfoException>("InvalidLoadBalancerInfoException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidIgnoreApplicationStopFailuresValueException extends Schema.Class<InvalidIgnoreApplicationStopFailuresValueException>("InvalidIgnoreApplicationStopFailuresValueException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidOnPremisesTagCombinationException extends Schema.Class<InvalidOnPremisesTagCombinationException>("InvalidOnPremisesTagCombinationException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidTargetGroupPairException extends Schema.Class<InvalidTargetGroupPairException>("InvalidTargetGroupPairException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidTargetInstancesException extends Schema.Class<InvalidTargetInstancesException>("InvalidTargetInstancesException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidTriggerConfigException extends Schema.Class<InvalidTriggerConfigException>("InvalidTriggerConfigException")({message: Schema.optional(Schema.String)}) {}
+export class LifecycleHookLimitExceededException extends Schema.Class<LifecycleHookLimitExceededException>("LifecycleHookLimitExceededException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidUpdateOutdatedInstancesOnlyValueException extends Schema.Class<InvalidUpdateOutdatedInstancesOnlyValueException>("InvalidUpdateOutdatedInstancesOnlyValueException")({message: Schema.optional(Schema.String)}) {}
+export class RoleRequiredException extends Schema.Class<RoleRequiredException>("RoleRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class TagSetListLimitExceededException extends Schema.Class<TagSetListLimitExceededException>("TagSetListLimitExceededException")({message: Schema.optional(Schema.String)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({message: Schema.optional(Schema.String)}) {}
+export class TriggerTargetsLimitExceededException extends Schema.Class<TriggerTargetsLimitExceededException>("TriggerTargetsLimitExceededException")({message: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class DeploymentAlreadyCompletedExceptionError extends Schema.TaggedError<DeploymentAlreadyCompletedExceptionError>()("DeploymentAlreadyCompletedException", DeploymentAlreadyCompletedException) {};
-export class ApplicationDoesNotExistExceptionError extends Schema.TaggedError<ApplicationDoesNotExistExceptionError>()("ApplicationDoesNotExistException", ApplicationDoesNotExistException) {};
-export class ArnNotSupportedExceptionError extends Schema.TaggedError<ArnNotSupportedExceptionError>()("ArnNotSupportedException", ArnNotSupportedException) {};
-export class InstanceLimitExceededExceptionError extends Schema.TaggedError<InstanceLimitExceededExceptionError>()("InstanceLimitExceededException", InstanceLimitExceededException) {};
-export class InstanceNameRequiredExceptionError extends Schema.TaggedError<InstanceNameRequiredExceptionError>()("InstanceNameRequiredException", InstanceNameRequiredException) {};
-export class DeploymentDoesNotExistExceptionError extends Schema.TaggedError<DeploymentDoesNotExistExceptionError>()("DeploymentDoesNotExistException", DeploymentDoesNotExistException) {};
-export class ApplicationAlreadyExistsExceptionError extends Schema.TaggedError<ApplicationAlreadyExistsExceptionError>()("ApplicationAlreadyExistsException", ApplicationAlreadyExistsException) {};
-export class ApplicationNameRequiredExceptionError extends Schema.TaggedError<ApplicationNameRequiredExceptionError>()("ApplicationNameRequiredException", ApplicationNameRequiredException) {};
-export class DeploymentConfigInUseExceptionError extends Schema.TaggedError<DeploymentConfigInUseExceptionError>()("DeploymentConfigInUseException", DeploymentConfigInUseException) {};
-export class InvalidApplicationNameExceptionError extends Schema.TaggedError<InvalidApplicationNameExceptionError>()("InvalidApplicationNameException", InvalidApplicationNameException) {};
-export class DeploymentIdRequiredExceptionError extends Schema.TaggedError<DeploymentIdRequiredExceptionError>()("DeploymentIdRequiredException", DeploymentIdRequiredException) {};
-export class DeploymentConfigDoesNotExistExceptionError extends Schema.TaggedError<DeploymentConfigDoesNotExistExceptionError>()("DeploymentConfigDoesNotExistException", DeploymentConfigDoesNotExistException) {};
-export class InstanceNotRegisteredExceptionError extends Schema.TaggedError<InstanceNotRegisteredExceptionError>()("InstanceNotRegisteredException", InstanceNotRegisteredException) {};
-export class InvalidInstanceNameExceptionError extends Schema.TaggedError<InvalidInstanceNameExceptionError>()("InvalidInstanceNameException", InvalidInstanceNameException) {};
-export class InvalidNextTokenExceptionError extends Schema.TaggedError<InvalidNextTokenExceptionError>()("InvalidNextTokenException", InvalidNextTokenException) {};
-export class DeploymentNotStartedExceptionError extends Schema.TaggedError<DeploymentNotStartedExceptionError>()("DeploymentNotStartedException", DeploymentNotStartedException) {};
-export class InvalidDeploymentIdExceptionError extends Schema.TaggedError<InvalidDeploymentIdExceptionError>()("InvalidDeploymentIdException", InvalidDeploymentIdException) {};
-export class IamArnRequiredExceptionError extends Schema.TaggedError<IamArnRequiredExceptionError>()("IamArnRequiredException", IamArnRequiredException) {};
-export class DeploymentGroupDoesNotExistExceptionError extends Schema.TaggedError<DeploymentGroupDoesNotExistExceptionError>()("DeploymentGroupDoesNotExistException", DeploymentGroupDoesNotExistException) {};
-export class UnsupportedActionForDeploymentTypeExceptionError extends Schema.TaggedError<UnsupportedActionForDeploymentTypeExceptionError>()("UnsupportedActionForDeploymentTypeException", UnsupportedActionForDeploymentTypeException) {};
-export class InvalidArnExceptionError extends Schema.TaggedError<InvalidArnExceptionError>()("InvalidArnException", InvalidArnException) {};
-export class InvalidTagsToAddExceptionError extends Schema.TaggedError<InvalidTagsToAddExceptionError>()("InvalidTagsToAddException", InvalidTagsToAddException) {};
-export class InvalidTagExceptionError extends Schema.TaggedError<InvalidTagExceptionError>()("InvalidTagException", InvalidTagException) {};
-export class BatchLimitExceededExceptionError extends Schema.TaggedError<BatchLimitExceededExceptionError>()("BatchLimitExceededException", BatchLimitExceededException) {};
-export class ApplicationLimitExceededExceptionError extends Schema.TaggedError<ApplicationLimitExceededExceptionError>()("ApplicationLimitExceededException", ApplicationLimitExceededException) {};
-export class InvalidComputePlatformExceptionError extends Schema.TaggedError<InvalidComputePlatformExceptionError>()("InvalidComputePlatformException", InvalidComputePlatformException) {};
-export class DeploymentConfigNameRequiredExceptionError extends Schema.TaggedError<DeploymentConfigNameRequiredExceptionError>()("DeploymentConfigNameRequiredException", DeploymentConfigNameRequiredException) {};
-export class GitHubAccountTokenDoesNotExistExceptionError extends Schema.TaggedError<GitHubAccountTokenDoesNotExistExceptionError>()("GitHubAccountTokenDoesNotExistException", GitHubAccountTokenDoesNotExistException) {};
-export class InvalidDeploymentConfigNameExceptionError extends Schema.TaggedError<InvalidDeploymentConfigNameExceptionError>()("InvalidDeploymentConfigNameException", InvalidDeploymentConfigNameException) {};
-export class DeploymentGroupNameRequiredExceptionError extends Schema.TaggedError<DeploymentGroupNameRequiredExceptionError>()("DeploymentGroupNameRequiredException", DeploymentGroupNameRequiredException) {};
-export class InstanceDoesNotExistExceptionError extends Schema.TaggedError<InstanceDoesNotExistExceptionError>()("InstanceDoesNotExistException", InstanceDoesNotExistException) {};
-export class BucketNameFilterRequiredExceptionError extends Schema.TaggedError<BucketNameFilterRequiredExceptionError>()("BucketNameFilterRequiredException", BucketNameFilterRequiredException) {};
-export class InvalidDeploymentGroupNameExceptionError extends Schema.TaggedError<InvalidDeploymentGroupNameExceptionError>()("InvalidDeploymentGroupNameException", InvalidDeploymentGroupNameException) {};
-export class InvalidDeploymentInstanceTypeExceptionError extends Schema.TaggedError<InvalidDeploymentInstanceTypeExceptionError>()("InvalidDeploymentInstanceTypeException", InvalidDeploymentInstanceTypeException) {};
-export class OperationNotSupportedExceptionError extends Schema.TaggedError<OperationNotSupportedExceptionError>()("OperationNotSupportedException", OperationNotSupportedException) {};
-export class InvalidRegistrationStatusExceptionError extends Schema.TaggedError<InvalidRegistrationStatusExceptionError>()("InvalidRegistrationStatusException", InvalidRegistrationStatusException) {};
-export class ResourceArnRequiredExceptionError extends Schema.TaggedError<ResourceArnRequiredExceptionError>()("ResourceArnRequiredException", ResourceArnRequiredException) {};
-export class InvalidLifecycleEventHookExecutionIdExceptionError extends Schema.TaggedError<InvalidLifecycleEventHookExecutionIdExceptionError>()("InvalidLifecycleEventHookExecutionIdException", InvalidLifecycleEventHookExecutionIdException) {};
-export class DescriptionTooLongExceptionError extends Schema.TaggedError<DescriptionTooLongExceptionError>()("DescriptionTooLongException", DescriptionTooLongException) {};
-export class InvalidRevisionExceptionError extends Schema.TaggedError<InvalidRevisionExceptionError>()("InvalidRevisionException", InvalidRevisionException) {};
-export class IamSessionArnAlreadyRegisteredExceptionError extends Schema.TaggedError<IamSessionArnAlreadyRegisteredExceptionError>()("IamSessionArnAlreadyRegisteredException", IamSessionArnAlreadyRegisteredException) {};
-export class TagLimitExceededExceptionError extends Schema.TaggedError<TagLimitExceededExceptionError>()("TagLimitExceededException", TagLimitExceededException) {};
-export class TagRequiredExceptionError extends Schema.TaggedError<TagRequiredExceptionError>()("TagRequiredException", TagRequiredException) {};
-export class AlarmsLimitExceededExceptionError extends Schema.TaggedError<AlarmsLimitExceededExceptionError>()("AlarmsLimitExceededException", AlarmsLimitExceededException) {};
-export class DeploymentIsNotInReadyStateExceptionError extends Schema.TaggedError<DeploymentIsNotInReadyStateExceptionError>()("DeploymentIsNotInReadyStateException", DeploymentIsNotInReadyStateException) {};
-export class InvalidDeploymentStatusExceptionError extends Schema.TaggedError<InvalidDeploymentStatusExceptionError>()("InvalidDeploymentStatusException", InvalidDeploymentStatusException) {};
-export class InvalidRoleExceptionError extends Schema.TaggedError<InvalidRoleExceptionError>()("InvalidRoleException", InvalidRoleException) {};
-export class GitHubAccountTokenNameRequiredExceptionError extends Schema.TaggedError<GitHubAccountTokenNameRequiredExceptionError>()("GitHubAccountTokenNameRequiredException", GitHubAccountTokenNameRequiredException) {};
-export class InstanceIdRequiredExceptionError extends Schema.TaggedError<InstanceIdRequiredExceptionError>()("InstanceIdRequiredException", InstanceIdRequiredException) {};
-export class DeploymentTargetDoesNotExistExceptionError extends Schema.TaggedError<DeploymentTargetDoesNotExistExceptionError>()("DeploymentTargetDoesNotExistException", DeploymentTargetDoesNotExistException) {};
-export class InvalidBucketNameFilterExceptionError extends Schema.TaggedError<InvalidBucketNameFilterExceptionError>()("InvalidBucketNameFilterException", InvalidBucketNameFilterException) {};
-export class InvalidInstanceStatusExceptionError extends Schema.TaggedError<InvalidInstanceStatusExceptionError>()("InvalidInstanceStatusException", InvalidInstanceStatusException) {};
-export class InvalidInstanceTypeExceptionError extends Schema.TaggedError<InvalidInstanceTypeExceptionError>()("InvalidInstanceTypeException", InvalidInstanceTypeException) {};
-export class ResourceValidationExceptionError extends Schema.TaggedError<ResourceValidationExceptionError>()("ResourceValidationException", ResourceValidationException) {};
-export class InvalidTagFilterExceptionError extends Schema.TaggedError<InvalidTagFilterExceptionError>()("InvalidTagFilterException", InvalidTagFilterException) {};
-export class InvalidLifecycleEventHookExecutionStatusExceptionError extends Schema.TaggedError<InvalidLifecycleEventHookExecutionStatusExceptionError>()("InvalidLifecycleEventHookExecutionStatusException", InvalidLifecycleEventHookExecutionStatusException) {};
-export class RevisionRequiredExceptionError extends Schema.TaggedError<RevisionRequiredExceptionError>()("RevisionRequiredException", RevisionRequiredException) {};
-export class IamUserArnAlreadyRegisteredExceptionError extends Schema.TaggedError<IamUserArnAlreadyRegisteredExceptionError>()("IamUserArnAlreadyRegisteredException", IamUserArnAlreadyRegisteredException) {};
-export class DeploymentGroupAlreadyExistsExceptionError extends Schema.TaggedError<DeploymentGroupAlreadyExistsExceptionError>()("DeploymentGroupAlreadyExistsException", DeploymentGroupAlreadyExistsException) {};
-export class DeploymentTargetIdRequiredExceptionError extends Schema.TaggedError<DeploymentTargetIdRequiredExceptionError>()("DeploymentTargetIdRequiredException", DeploymentTargetIdRequiredException) {};
-export class InvalidDeploymentWaitTypeExceptionError extends Schema.TaggedError<InvalidDeploymentWaitTypeExceptionError>()("InvalidDeploymentWaitTypeException", InvalidDeploymentWaitTypeException) {};
-export class DeploymentLimitExceededExceptionError extends Schema.TaggedError<DeploymentLimitExceededExceptionError>()("DeploymentLimitExceededException", DeploymentLimitExceededException) {};
-export class DeploymentConfigAlreadyExistsExceptionError extends Schema.TaggedError<DeploymentConfigAlreadyExistsExceptionError>()("DeploymentConfigAlreadyExistsException", DeploymentConfigAlreadyExistsException) {};
-export class InvalidOperationExceptionError extends Schema.TaggedError<InvalidOperationExceptionError>()("InvalidOperationException", InvalidOperationException) {};
-export class InvalidGitHubAccountTokenNameExceptionError extends Schema.TaggedError<InvalidGitHubAccountTokenNameExceptionError>()("InvalidGitHubAccountTokenNameException", InvalidGitHubAccountTokenNameException) {};
-export class RevisionDoesNotExistExceptionError extends Schema.TaggedError<RevisionDoesNotExistExceptionError>()("RevisionDoesNotExistException", RevisionDoesNotExistException) {};
-export class InvalidDeployedStateFilterExceptionError extends Schema.TaggedError<InvalidDeployedStateFilterExceptionError>()("InvalidDeployedStateFilterException", InvalidDeployedStateFilterException) {};
-export class InvalidTargetFilterNameExceptionError extends Schema.TaggedError<InvalidTargetFilterNameExceptionError>()("InvalidTargetFilterNameException", InvalidTargetFilterNameException) {};
-export class InvalidExternalIdExceptionError extends Schema.TaggedError<InvalidExternalIdExceptionError>()("InvalidExternalIdException", InvalidExternalIdException) {};
-export class LifecycleEventAlreadyCompletedExceptionError extends Schema.TaggedError<LifecycleEventAlreadyCompletedExceptionError>()("LifecycleEventAlreadyCompletedException", LifecycleEventAlreadyCompletedException) {};
-export class IamUserArnRequiredExceptionError extends Schema.TaggedError<IamUserArnRequiredExceptionError>()("IamUserArnRequiredException", IamUserArnRequiredException) {};
-export class ECSServiceMappingLimitExceededExceptionError extends Schema.TaggedError<ECSServiceMappingLimitExceededExceptionError>()("ECSServiceMappingLimitExceededException", ECSServiceMappingLimitExceededException) {};
-export class InvalidAlarmConfigExceptionError extends Schema.TaggedError<InvalidAlarmConfigExceptionError>()("InvalidAlarmConfigException", InvalidAlarmConfigException) {};
-export class DeploymentTargetListSizeExceededExceptionError extends Schema.TaggedError<DeploymentTargetListSizeExceededExceptionError>()("DeploymentTargetListSizeExceededException", DeploymentTargetListSizeExceededException) {};
-export class InvalidDeploymentTargetIdExceptionError extends Schema.TaggedError<InvalidDeploymentTargetIdExceptionError>()("InvalidDeploymentTargetIdException", InvalidDeploymentTargetIdException) {};
-export class InvalidAutoRollbackConfigExceptionError extends Schema.TaggedError<InvalidAutoRollbackConfigExceptionError>()("InvalidAutoRollbackConfigException", InvalidAutoRollbackConfigException) {};
-export class DeploymentConfigLimitExceededExceptionError extends Schema.TaggedError<DeploymentConfigLimitExceededExceptionError>()("DeploymentConfigLimitExceededException", DeploymentConfigLimitExceededException) {};
-export class DeploymentGroupLimitExceededExceptionError extends Schema.TaggedError<DeploymentGroupLimitExceededExceptionError>()("DeploymentGroupLimitExceededException", DeploymentGroupLimitExceededException) {};
-export class InvalidAutoScalingGroupExceptionError extends Schema.TaggedError<InvalidAutoScalingGroupExceptionError>()("InvalidAutoScalingGroupException", InvalidAutoScalingGroupException) {};
-export class InvalidKeyPrefixFilterExceptionError extends Schema.TaggedError<InvalidKeyPrefixFilterExceptionError>()("InvalidKeyPrefixFilterException", InvalidKeyPrefixFilterException) {};
-export class InvalidInputExceptionError extends Schema.TaggedError<InvalidInputExceptionError>()("InvalidInputException", InvalidInputException) {};
-export class InstanceNameAlreadyRegisteredExceptionError extends Schema.TaggedError<InstanceNameAlreadyRegisteredExceptionError>()("InstanceNameAlreadyRegisteredException", InstanceNameAlreadyRegisteredException) {};
-export class InvalidBlueGreenDeploymentConfigurationExceptionError extends Schema.TaggedError<InvalidBlueGreenDeploymentConfigurationExceptionError>()("InvalidBlueGreenDeploymentConfigurationException", InvalidBlueGreenDeploymentConfigurationException) {};
-export class InvalidMinimumHealthyHostValueExceptionError extends Schema.TaggedError<InvalidMinimumHealthyHostValueExceptionError>()("InvalidMinimumHealthyHostValueException", InvalidMinimumHealthyHostValueException) {};
-export class InvalidDeploymentStyleExceptionError extends Schema.TaggedError<InvalidDeploymentStyleExceptionError>()("InvalidDeploymentStyleException", InvalidDeploymentStyleException) {};
-export class InvalidSortByExceptionError extends Schema.TaggedError<InvalidSortByExceptionError>()("InvalidSortByException", InvalidSortByException) {};
-export class InvalidTimeRangeExceptionError extends Schema.TaggedError<InvalidTimeRangeExceptionError>()("InvalidTimeRangeException", InvalidTimeRangeException) {};
-export class InvalidIamSessionArnExceptionError extends Schema.TaggedError<InvalidIamSessionArnExceptionError>()("InvalidIamSessionArnException", InvalidIamSessionArnException) {};
-export class InvalidEC2TagCombinationExceptionError extends Schema.TaggedError<InvalidEC2TagCombinationExceptionError>()("InvalidEC2TagCombinationException", InvalidEC2TagCombinationException) {};
-export class InvalidFileExistsBehaviorExceptionError extends Schema.TaggedError<InvalidFileExistsBehaviorExceptionError>()("InvalidFileExistsBehaviorException", InvalidFileExistsBehaviorException) {};
-export class InvalidTrafficRoutingConfigurationExceptionError extends Schema.TaggedError<InvalidTrafficRoutingConfigurationExceptionError>()("InvalidTrafficRoutingConfigurationException", InvalidTrafficRoutingConfigurationException) {};
-export class InvalidEC2TagExceptionError extends Schema.TaggedError<InvalidEC2TagExceptionError>()("InvalidEC2TagException", InvalidEC2TagException) {};
-export class InvalidSortOrderExceptionError extends Schema.TaggedError<InvalidSortOrderExceptionError>()("InvalidSortOrderException", InvalidSortOrderException) {};
-export class InvalidIamUserArnExceptionError extends Schema.TaggedError<InvalidIamUserArnExceptionError>()("InvalidIamUserArnException", InvalidIamUserArnException) {};
-export class InvalidECSServiceExceptionError extends Schema.TaggedError<InvalidECSServiceExceptionError>()("InvalidECSServiceException", InvalidECSServiceException) {};
-export class InvalidGitHubAccountTokenExceptionError extends Schema.TaggedError<InvalidGitHubAccountTokenExceptionError>()("InvalidGitHubAccountTokenException", InvalidGitHubAccountTokenException) {};
-export class InvalidZonalDeploymentConfigurationExceptionError extends Schema.TaggedError<InvalidZonalDeploymentConfigurationExceptionError>()("InvalidZonalDeploymentConfigurationException", InvalidZonalDeploymentConfigurationException) {};
-export class InvalidLoadBalancerInfoExceptionError extends Schema.TaggedError<InvalidLoadBalancerInfoExceptionError>()("InvalidLoadBalancerInfoException", InvalidLoadBalancerInfoException) {};
-export class MultipleIamArnsProvidedExceptionError extends Schema.TaggedError<MultipleIamArnsProvidedExceptionError>()("MultipleIamArnsProvidedException", MultipleIamArnsProvidedException) {};
-export class InvalidOnPremisesTagCombinationExceptionError extends Schema.TaggedError<InvalidOnPremisesTagCombinationExceptionError>()("InvalidOnPremisesTagCombinationException", InvalidOnPremisesTagCombinationException) {};
-export class InvalidIgnoreApplicationStopFailuresValueExceptionError extends Schema.TaggedError<InvalidIgnoreApplicationStopFailuresValueExceptionError>()("InvalidIgnoreApplicationStopFailuresValueException", InvalidIgnoreApplicationStopFailuresValueException) {};
-export class InvalidTargetGroupPairExceptionError extends Schema.TaggedError<InvalidTargetGroupPairExceptionError>()("InvalidTargetGroupPairException", InvalidTargetGroupPairException) {};
-export class InvalidTriggerConfigExceptionError extends Schema.TaggedError<InvalidTriggerConfigExceptionError>()("InvalidTriggerConfigException", InvalidTriggerConfigException) {};
-export class InvalidTargetInstancesExceptionError extends Schema.TaggedError<InvalidTargetInstancesExceptionError>()("InvalidTargetInstancesException", InvalidTargetInstancesException) {};
-export class LifecycleHookLimitExceededExceptionError extends Schema.TaggedError<LifecycleHookLimitExceededExceptionError>()("LifecycleHookLimitExceededException", LifecycleHookLimitExceededException) {};
-export class InvalidUpdateOutdatedInstancesOnlyValueExceptionError extends Schema.TaggedError<InvalidUpdateOutdatedInstancesOnlyValueExceptionError>()("InvalidUpdateOutdatedInstancesOnlyValueException", InvalidUpdateOutdatedInstancesOnlyValueException) {};
-export class RoleRequiredExceptionError extends Schema.TaggedError<RoleRequiredExceptionError>()("RoleRequiredException", RoleRequiredException) {};
-export class TagSetListLimitExceededExceptionError extends Schema.TaggedError<TagSetListLimitExceededExceptionError>()("TagSetListLimitExceededException", TagSetListLimitExceededException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class TriggerTargetsLimitExceededExceptionError extends Schema.TaggedError<TriggerTargetsLimitExceededExceptionError>()("TriggerTargetsLimitExceededException", TriggerTargetsLimitExceededException) {};
+export class DeploymentAlreadyCompletedExceptionError extends Schema.TaggedError<DeploymentAlreadyCompletedExceptionError>()("DeploymentAlreadyCompletedException", DeploymentAlreadyCompletedException.fields) {};
+export class ApplicationDoesNotExistExceptionError extends Schema.TaggedError<ApplicationDoesNotExistExceptionError>()("ApplicationDoesNotExistException", ApplicationDoesNotExistException.fields) {};
+export class ArnNotSupportedExceptionError extends Schema.TaggedError<ArnNotSupportedExceptionError>()("ArnNotSupportedException", ArnNotSupportedException.fields) {};
+export class InstanceLimitExceededExceptionError extends Schema.TaggedError<InstanceLimitExceededExceptionError>()("InstanceLimitExceededException", InstanceLimitExceededException.fields) {};
+export class InstanceNameRequiredExceptionError extends Schema.TaggedError<InstanceNameRequiredExceptionError>()("InstanceNameRequiredException", InstanceNameRequiredException.fields) {};
+export class DeploymentDoesNotExistExceptionError extends Schema.TaggedError<DeploymentDoesNotExistExceptionError>()("DeploymentDoesNotExistException", DeploymentDoesNotExistException.fields) {};
+export class ApplicationAlreadyExistsExceptionError extends Schema.TaggedError<ApplicationAlreadyExistsExceptionError>()("ApplicationAlreadyExistsException", ApplicationAlreadyExistsException.fields) {};
+export class ApplicationNameRequiredExceptionError extends Schema.TaggedError<ApplicationNameRequiredExceptionError>()("ApplicationNameRequiredException", ApplicationNameRequiredException.fields) {};
+export class DeploymentConfigInUseExceptionError extends Schema.TaggedError<DeploymentConfigInUseExceptionError>()("DeploymentConfigInUseException", DeploymentConfigInUseException.fields) {};
+export class InvalidApplicationNameExceptionError extends Schema.TaggedError<InvalidApplicationNameExceptionError>()("InvalidApplicationNameException", InvalidApplicationNameException.fields) {};
+export class DeploymentIdRequiredExceptionError extends Schema.TaggedError<DeploymentIdRequiredExceptionError>()("DeploymentIdRequiredException", DeploymentIdRequiredException.fields) {};
+export class DeploymentConfigDoesNotExistExceptionError extends Schema.TaggedError<DeploymentConfigDoesNotExistExceptionError>()("DeploymentConfigDoesNotExistException", DeploymentConfigDoesNotExistException.fields) {};
+export class InstanceNotRegisteredExceptionError extends Schema.TaggedError<InstanceNotRegisteredExceptionError>()("InstanceNotRegisteredException", InstanceNotRegisteredException.fields) {};
+export class InvalidInstanceNameExceptionError extends Schema.TaggedError<InvalidInstanceNameExceptionError>()("InvalidInstanceNameException", InvalidInstanceNameException.fields) {};
+export class InvalidNextTokenExceptionError extends Schema.TaggedError<InvalidNextTokenExceptionError>()("InvalidNextTokenException", InvalidNextTokenException.fields) {};
+export class DeploymentNotStartedExceptionError extends Schema.TaggedError<DeploymentNotStartedExceptionError>()("DeploymentNotStartedException", DeploymentNotStartedException.fields) {};
+export class InvalidDeploymentIdExceptionError extends Schema.TaggedError<InvalidDeploymentIdExceptionError>()("InvalidDeploymentIdException", InvalidDeploymentIdException.fields) {};
+export class IamArnRequiredExceptionError extends Schema.TaggedError<IamArnRequiredExceptionError>()("IamArnRequiredException", IamArnRequiredException.fields) {};
+export class DeploymentGroupDoesNotExistExceptionError extends Schema.TaggedError<DeploymentGroupDoesNotExistExceptionError>()("DeploymentGroupDoesNotExistException", DeploymentGroupDoesNotExistException.fields) {};
+export class UnsupportedActionForDeploymentTypeExceptionError extends Schema.TaggedError<UnsupportedActionForDeploymentTypeExceptionError>()("UnsupportedActionForDeploymentTypeException", UnsupportedActionForDeploymentTypeException.fields) {};
+export class InvalidArnExceptionError extends Schema.TaggedError<InvalidArnExceptionError>()("InvalidArnException", InvalidArnException.fields) {};
+export class InvalidTagsToAddExceptionError extends Schema.TaggedError<InvalidTagsToAddExceptionError>()("InvalidTagsToAddException", InvalidTagsToAddException.fields) {};
+export class InvalidTagExceptionError extends Schema.TaggedError<InvalidTagExceptionError>()("InvalidTagException", InvalidTagException.fields) {};
+export class BatchLimitExceededExceptionError extends Schema.TaggedError<BatchLimitExceededExceptionError>()("BatchLimitExceededException", BatchLimitExceededException.fields) {};
+export class ApplicationLimitExceededExceptionError extends Schema.TaggedError<ApplicationLimitExceededExceptionError>()("ApplicationLimitExceededException", ApplicationLimitExceededException.fields) {};
+export class InvalidComputePlatformExceptionError extends Schema.TaggedError<InvalidComputePlatformExceptionError>()("InvalidComputePlatformException", InvalidComputePlatformException.fields) {};
+export class DeploymentConfigNameRequiredExceptionError extends Schema.TaggedError<DeploymentConfigNameRequiredExceptionError>()("DeploymentConfigNameRequiredException", DeploymentConfigNameRequiredException.fields) {};
+export class GitHubAccountTokenDoesNotExistExceptionError extends Schema.TaggedError<GitHubAccountTokenDoesNotExistExceptionError>()("GitHubAccountTokenDoesNotExistException", GitHubAccountTokenDoesNotExistException.fields) {};
+export class InvalidDeploymentConfigNameExceptionError extends Schema.TaggedError<InvalidDeploymentConfigNameExceptionError>()("InvalidDeploymentConfigNameException", InvalidDeploymentConfigNameException.fields) {};
+export class DeploymentGroupNameRequiredExceptionError extends Schema.TaggedError<DeploymentGroupNameRequiredExceptionError>()("DeploymentGroupNameRequiredException", DeploymentGroupNameRequiredException.fields) {};
+export class InstanceDoesNotExistExceptionError extends Schema.TaggedError<InstanceDoesNotExistExceptionError>()("InstanceDoesNotExistException", InstanceDoesNotExistException.fields) {};
+export class BucketNameFilterRequiredExceptionError extends Schema.TaggedError<BucketNameFilterRequiredExceptionError>()("BucketNameFilterRequiredException", BucketNameFilterRequiredException.fields) {};
+export class InvalidDeploymentGroupNameExceptionError extends Schema.TaggedError<InvalidDeploymentGroupNameExceptionError>()("InvalidDeploymentGroupNameException", InvalidDeploymentGroupNameException.fields) {};
+export class InvalidDeploymentInstanceTypeExceptionError extends Schema.TaggedError<InvalidDeploymentInstanceTypeExceptionError>()("InvalidDeploymentInstanceTypeException", InvalidDeploymentInstanceTypeException.fields) {};
+export class OperationNotSupportedExceptionError extends Schema.TaggedError<OperationNotSupportedExceptionError>()("OperationNotSupportedException", OperationNotSupportedException.fields) {};
+export class InvalidRegistrationStatusExceptionError extends Schema.TaggedError<InvalidRegistrationStatusExceptionError>()("InvalidRegistrationStatusException", InvalidRegistrationStatusException.fields) {};
+export class ResourceArnRequiredExceptionError extends Schema.TaggedError<ResourceArnRequiredExceptionError>()("ResourceArnRequiredException", ResourceArnRequiredException.fields) {};
+export class InvalidLifecycleEventHookExecutionIdExceptionError extends Schema.TaggedError<InvalidLifecycleEventHookExecutionIdExceptionError>()("InvalidLifecycleEventHookExecutionIdException", InvalidLifecycleEventHookExecutionIdException.fields) {};
+export class DescriptionTooLongExceptionError extends Schema.TaggedError<DescriptionTooLongExceptionError>()("DescriptionTooLongException", DescriptionTooLongException.fields) {};
+export class InvalidRevisionExceptionError extends Schema.TaggedError<InvalidRevisionExceptionError>()("InvalidRevisionException", InvalidRevisionException.fields) {};
+export class IamSessionArnAlreadyRegisteredExceptionError extends Schema.TaggedError<IamSessionArnAlreadyRegisteredExceptionError>()("IamSessionArnAlreadyRegisteredException", IamSessionArnAlreadyRegisteredException.fields) {};
+export class TagLimitExceededExceptionError extends Schema.TaggedError<TagLimitExceededExceptionError>()("TagLimitExceededException", TagLimitExceededException.fields) {};
+export class TagRequiredExceptionError extends Schema.TaggedError<TagRequiredExceptionError>()("TagRequiredException", TagRequiredException.fields) {};
+export class AlarmsLimitExceededExceptionError extends Schema.TaggedError<AlarmsLimitExceededExceptionError>()("AlarmsLimitExceededException", AlarmsLimitExceededException.fields) {};
+export class DeploymentIsNotInReadyStateExceptionError extends Schema.TaggedError<DeploymentIsNotInReadyStateExceptionError>()("DeploymentIsNotInReadyStateException", DeploymentIsNotInReadyStateException.fields) {};
+export class InvalidDeploymentStatusExceptionError extends Schema.TaggedError<InvalidDeploymentStatusExceptionError>()("InvalidDeploymentStatusException", InvalidDeploymentStatusException.fields) {};
+export class InvalidRoleExceptionError extends Schema.TaggedError<InvalidRoleExceptionError>()("InvalidRoleException", InvalidRoleException.fields) {};
+export class GitHubAccountTokenNameRequiredExceptionError extends Schema.TaggedError<GitHubAccountTokenNameRequiredExceptionError>()("GitHubAccountTokenNameRequiredException", GitHubAccountTokenNameRequiredException.fields) {};
+export class InstanceIdRequiredExceptionError extends Schema.TaggedError<InstanceIdRequiredExceptionError>()("InstanceIdRequiredException", InstanceIdRequiredException.fields) {};
+export class DeploymentTargetDoesNotExistExceptionError extends Schema.TaggedError<DeploymentTargetDoesNotExistExceptionError>()("DeploymentTargetDoesNotExistException", DeploymentTargetDoesNotExistException.fields) {};
+export class InvalidBucketNameFilterExceptionError extends Schema.TaggedError<InvalidBucketNameFilterExceptionError>()("InvalidBucketNameFilterException", InvalidBucketNameFilterException.fields) {};
+export class InvalidInstanceStatusExceptionError extends Schema.TaggedError<InvalidInstanceStatusExceptionError>()("InvalidInstanceStatusException", InvalidInstanceStatusException.fields) {};
+export class InvalidInstanceTypeExceptionError extends Schema.TaggedError<InvalidInstanceTypeExceptionError>()("InvalidInstanceTypeException", InvalidInstanceTypeException.fields) {};
+export class ResourceValidationExceptionError extends Schema.TaggedError<ResourceValidationExceptionError>()("ResourceValidationException", ResourceValidationException.fields) {};
+export class InvalidTagFilterExceptionError extends Schema.TaggedError<InvalidTagFilterExceptionError>()("InvalidTagFilterException", InvalidTagFilterException.fields) {};
+export class InvalidLifecycleEventHookExecutionStatusExceptionError extends Schema.TaggedError<InvalidLifecycleEventHookExecutionStatusExceptionError>()("InvalidLifecycleEventHookExecutionStatusException", InvalidLifecycleEventHookExecutionStatusException.fields) {};
+export class RevisionRequiredExceptionError extends Schema.TaggedError<RevisionRequiredExceptionError>()("RevisionRequiredException", RevisionRequiredException.fields) {};
+export class IamUserArnAlreadyRegisteredExceptionError extends Schema.TaggedError<IamUserArnAlreadyRegisteredExceptionError>()("IamUserArnAlreadyRegisteredException", IamUserArnAlreadyRegisteredException.fields) {};
+export class DeploymentGroupAlreadyExistsExceptionError extends Schema.TaggedError<DeploymentGroupAlreadyExistsExceptionError>()("DeploymentGroupAlreadyExistsException", DeploymentGroupAlreadyExistsException.fields) {};
+export class DeploymentTargetIdRequiredExceptionError extends Schema.TaggedError<DeploymentTargetIdRequiredExceptionError>()("DeploymentTargetIdRequiredException", DeploymentTargetIdRequiredException.fields) {};
+export class InvalidDeploymentWaitTypeExceptionError extends Schema.TaggedError<InvalidDeploymentWaitTypeExceptionError>()("InvalidDeploymentWaitTypeException", InvalidDeploymentWaitTypeException.fields) {};
+export class DeploymentLimitExceededExceptionError extends Schema.TaggedError<DeploymentLimitExceededExceptionError>()("DeploymentLimitExceededException", DeploymentLimitExceededException.fields) {};
+export class DeploymentConfigAlreadyExistsExceptionError extends Schema.TaggedError<DeploymentConfigAlreadyExistsExceptionError>()("DeploymentConfigAlreadyExistsException", DeploymentConfigAlreadyExistsException.fields) {};
+export class InvalidOperationExceptionError extends Schema.TaggedError<InvalidOperationExceptionError>()("InvalidOperationException", InvalidOperationException.fields) {};
+export class InvalidGitHubAccountTokenNameExceptionError extends Schema.TaggedError<InvalidGitHubAccountTokenNameExceptionError>()("InvalidGitHubAccountTokenNameException", InvalidGitHubAccountTokenNameException.fields) {};
+export class RevisionDoesNotExistExceptionError extends Schema.TaggedError<RevisionDoesNotExistExceptionError>()("RevisionDoesNotExistException", RevisionDoesNotExistException.fields) {};
+export class InvalidDeployedStateFilterExceptionError extends Schema.TaggedError<InvalidDeployedStateFilterExceptionError>()("InvalidDeployedStateFilterException", InvalidDeployedStateFilterException.fields) {};
+export class InvalidTargetFilterNameExceptionError extends Schema.TaggedError<InvalidTargetFilterNameExceptionError>()("InvalidTargetFilterNameException", InvalidTargetFilterNameException.fields) {};
+export class InvalidExternalIdExceptionError extends Schema.TaggedError<InvalidExternalIdExceptionError>()("InvalidExternalIdException", InvalidExternalIdException.fields) {};
+export class LifecycleEventAlreadyCompletedExceptionError extends Schema.TaggedError<LifecycleEventAlreadyCompletedExceptionError>()("LifecycleEventAlreadyCompletedException", LifecycleEventAlreadyCompletedException.fields) {};
+export class IamUserArnRequiredExceptionError extends Schema.TaggedError<IamUserArnRequiredExceptionError>()("IamUserArnRequiredException", IamUserArnRequiredException.fields) {};
+export class ECSServiceMappingLimitExceededExceptionError extends Schema.TaggedError<ECSServiceMappingLimitExceededExceptionError>()("ECSServiceMappingLimitExceededException", ECSServiceMappingLimitExceededException.fields) {};
+export class InvalidAlarmConfigExceptionError extends Schema.TaggedError<InvalidAlarmConfigExceptionError>()("InvalidAlarmConfigException", InvalidAlarmConfigException.fields) {};
+export class DeploymentTargetListSizeExceededExceptionError extends Schema.TaggedError<DeploymentTargetListSizeExceededExceptionError>()("DeploymentTargetListSizeExceededException", DeploymentTargetListSizeExceededException.fields) {};
+export class InvalidDeploymentTargetIdExceptionError extends Schema.TaggedError<InvalidDeploymentTargetIdExceptionError>()("InvalidDeploymentTargetIdException", InvalidDeploymentTargetIdException.fields) {};
+export class InvalidAutoRollbackConfigExceptionError extends Schema.TaggedError<InvalidAutoRollbackConfigExceptionError>()("InvalidAutoRollbackConfigException", InvalidAutoRollbackConfigException.fields) {};
+export class DeploymentConfigLimitExceededExceptionError extends Schema.TaggedError<DeploymentConfigLimitExceededExceptionError>()("DeploymentConfigLimitExceededException", DeploymentConfigLimitExceededException.fields) {};
+export class DeploymentGroupLimitExceededExceptionError extends Schema.TaggedError<DeploymentGroupLimitExceededExceptionError>()("DeploymentGroupLimitExceededException", DeploymentGroupLimitExceededException.fields) {};
+export class InvalidAutoScalingGroupExceptionError extends Schema.TaggedError<InvalidAutoScalingGroupExceptionError>()("InvalidAutoScalingGroupException", InvalidAutoScalingGroupException.fields) {};
+export class InvalidKeyPrefixFilterExceptionError extends Schema.TaggedError<InvalidKeyPrefixFilterExceptionError>()("InvalidKeyPrefixFilterException", InvalidKeyPrefixFilterException.fields) {};
+export class InvalidInputExceptionError extends Schema.TaggedError<InvalidInputExceptionError>()("InvalidInputException", InvalidInputException.fields) {};
+export class InstanceNameAlreadyRegisteredExceptionError extends Schema.TaggedError<InstanceNameAlreadyRegisteredExceptionError>()("InstanceNameAlreadyRegisteredException", InstanceNameAlreadyRegisteredException.fields) {};
+export class InvalidBlueGreenDeploymentConfigurationExceptionError extends Schema.TaggedError<InvalidBlueGreenDeploymentConfigurationExceptionError>()("InvalidBlueGreenDeploymentConfigurationException", InvalidBlueGreenDeploymentConfigurationException.fields) {};
+export class InvalidMinimumHealthyHostValueExceptionError extends Schema.TaggedError<InvalidMinimumHealthyHostValueExceptionError>()("InvalidMinimumHealthyHostValueException", InvalidMinimumHealthyHostValueException.fields) {};
+export class InvalidDeploymentStyleExceptionError extends Schema.TaggedError<InvalidDeploymentStyleExceptionError>()("InvalidDeploymentStyleException", InvalidDeploymentStyleException.fields) {};
+export class InvalidSortByExceptionError extends Schema.TaggedError<InvalidSortByExceptionError>()("InvalidSortByException", InvalidSortByException.fields) {};
+export class InvalidTimeRangeExceptionError extends Schema.TaggedError<InvalidTimeRangeExceptionError>()("InvalidTimeRangeException", InvalidTimeRangeException.fields) {};
+export class InvalidIamSessionArnExceptionError extends Schema.TaggedError<InvalidIamSessionArnExceptionError>()("InvalidIamSessionArnException", InvalidIamSessionArnException.fields) {};
+export class InvalidEC2TagCombinationExceptionError extends Schema.TaggedError<InvalidEC2TagCombinationExceptionError>()("InvalidEC2TagCombinationException", InvalidEC2TagCombinationException.fields) {};
+export class InvalidFileExistsBehaviorExceptionError extends Schema.TaggedError<InvalidFileExistsBehaviorExceptionError>()("InvalidFileExistsBehaviorException", InvalidFileExistsBehaviorException.fields) {};
+export class InvalidTrafficRoutingConfigurationExceptionError extends Schema.TaggedError<InvalidTrafficRoutingConfigurationExceptionError>()("InvalidTrafficRoutingConfigurationException", InvalidTrafficRoutingConfigurationException.fields) {};
+export class InvalidEC2TagExceptionError extends Schema.TaggedError<InvalidEC2TagExceptionError>()("InvalidEC2TagException", InvalidEC2TagException.fields) {};
+export class InvalidSortOrderExceptionError extends Schema.TaggedError<InvalidSortOrderExceptionError>()("InvalidSortOrderException", InvalidSortOrderException.fields) {};
+export class InvalidIamUserArnExceptionError extends Schema.TaggedError<InvalidIamUserArnExceptionError>()("InvalidIamUserArnException", InvalidIamUserArnException.fields) {};
+export class InvalidECSServiceExceptionError extends Schema.TaggedError<InvalidECSServiceExceptionError>()("InvalidECSServiceException", InvalidECSServiceException.fields) {};
+export class InvalidGitHubAccountTokenExceptionError extends Schema.TaggedError<InvalidGitHubAccountTokenExceptionError>()("InvalidGitHubAccountTokenException", InvalidGitHubAccountTokenException.fields) {};
+export class InvalidZonalDeploymentConfigurationExceptionError extends Schema.TaggedError<InvalidZonalDeploymentConfigurationExceptionError>()("InvalidZonalDeploymentConfigurationException", InvalidZonalDeploymentConfigurationException.fields) {};
+export class InvalidLoadBalancerInfoExceptionError extends Schema.TaggedError<InvalidLoadBalancerInfoExceptionError>()("InvalidLoadBalancerInfoException", InvalidLoadBalancerInfoException.fields) {};
+export class MultipleIamArnsProvidedExceptionError extends Schema.TaggedError<MultipleIamArnsProvidedExceptionError>()("MultipleIamArnsProvidedException", MultipleIamArnsProvidedException.fields) {};
+export class InvalidOnPremisesTagCombinationExceptionError extends Schema.TaggedError<InvalidOnPremisesTagCombinationExceptionError>()("InvalidOnPremisesTagCombinationException", InvalidOnPremisesTagCombinationException.fields) {};
+export class InvalidIgnoreApplicationStopFailuresValueExceptionError extends Schema.TaggedError<InvalidIgnoreApplicationStopFailuresValueExceptionError>()("InvalidIgnoreApplicationStopFailuresValueException", InvalidIgnoreApplicationStopFailuresValueException.fields) {};
+export class InvalidTargetGroupPairExceptionError extends Schema.TaggedError<InvalidTargetGroupPairExceptionError>()("InvalidTargetGroupPairException", InvalidTargetGroupPairException.fields) {};
+export class InvalidTriggerConfigExceptionError extends Schema.TaggedError<InvalidTriggerConfigExceptionError>()("InvalidTriggerConfigException", InvalidTriggerConfigException.fields) {};
+export class InvalidTargetInstancesExceptionError extends Schema.TaggedError<InvalidTargetInstancesExceptionError>()("InvalidTargetInstancesException", InvalidTargetInstancesException.fields) {};
+export class LifecycleHookLimitExceededExceptionError extends Schema.TaggedError<LifecycleHookLimitExceededExceptionError>()("LifecycleHookLimitExceededException", LifecycleHookLimitExceededException.fields) {};
+export class InvalidUpdateOutdatedInstancesOnlyValueExceptionError extends Schema.TaggedError<InvalidUpdateOutdatedInstancesOnlyValueExceptionError>()("InvalidUpdateOutdatedInstancesOnlyValueException", InvalidUpdateOutdatedInstancesOnlyValueException.fields) {};
+export class RoleRequiredExceptionError extends Schema.TaggedError<RoleRequiredExceptionError>()("RoleRequiredException", RoleRequiredException.fields) {};
+export class TagSetListLimitExceededExceptionError extends Schema.TaggedError<TagSetListLimitExceededExceptionError>()("TagSetListLimitExceededException", TagSetListLimitExceededException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class TriggerTargetsLimitExceededExceptionError extends Schema.TaggedError<TriggerTargetsLimitExceededExceptionError>()("TriggerTargetsLimitExceededException", TriggerTargetsLimitExceededException.fields) {};
 
 //# Operations
 export const deleteResourcesByExternalId = /*#__PURE__*/ makeOperation(() => Operation({ version: "2014-10-06", uri: "/", method: "POST", sdkId: "CodeDeploy", sigV4ServiceName: "codedeploy", name: "CodeDeploy_20141006.DeleteResourcesByExternalId" }, DeleteResourcesByExternalIdInput, DeleteResourcesByExternalIdOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

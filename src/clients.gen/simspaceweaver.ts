@@ -4,21 +4,21 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 
 //# Schemas
 export const TagKeyList = Schema.Array(Schema.String);
-export const ListTagsForResourceInput = Schema.Struct({ResourceArn: Schema.String});
-export const UntagResourceInput = Schema.Struct({ResourceArn: Schema.String, TagKeys: TagKeyList});
-export const UntagResourceOutput = Schema.Struct({});
+export class ListTagsForResourceInput extends Schema.Class<ListTagsForResourceInput>("ListTagsForResourceInput")({ResourceArn: Schema.String}) {}
+export class UntagResourceInput extends Schema.Class<UntagResourceInput>("UntagResourceInput")({ResourceArn: Schema.String, TagKeys: TagKeyList}) {}
+export class UntagResourceOutput extends Schema.Class<UntagResourceOutput>("UntagResourceOutput")({}) {}
 export const TagMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const ListTagsForResourceOutput = Schema.Struct({Tags: Schema.optional(TagMap)});
-export const TagResourceInput = Schema.Struct({ResourceArn: Schema.String, Tags: TagMap});
-export const TagResourceOutput = Schema.Struct({});
-export const ResourceNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ValidationException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const TooManyTagsException = Schema.Struct({Message: Schema.optional(Schema.String)});
+export class ListTagsForResourceOutput extends Schema.Class<ListTagsForResourceOutput>("ListTagsForResourceOutput")({Tags: Schema.optional(TagMap)}) {}
+export class TagResourceInput extends Schema.Class<TagResourceInput>("TagResourceInput")({ResourceArn: Schema.String, Tags: TagMap}) {}
+export class TagResourceOutput extends Schema.Class<TagResourceOutput>("TagResourceOutput")({}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({Message: Schema.optional(Schema.String)}) {}
+export class TooManyTagsException extends Schema.Class<TooManyTagsException>("TooManyTagsException")({Message: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class TooManyTagsExceptionError extends Schema.TaggedError<TooManyTagsExceptionError>()("TooManyTagsException", TooManyTagsException) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class TooManyTagsExceptionError extends Schema.TaggedError<TooManyTagsExceptionError>()("TooManyTagsException", TooManyTagsException.fields) {};
 
 //# Operations
 export const untagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2022-10-28", uri: "/tags/{ResourceArn}", method: "DELETE", sdkId: "SimSpaceWeaver", sigV4ServiceName: "simspaceweaver", name: "SimSpaceWeaver.UntagResource" }, UntagResourceInput, UntagResourceOutput, [ResourceNotFoundExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

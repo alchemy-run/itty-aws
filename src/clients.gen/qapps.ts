@@ -6,144 +6,144 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 export const DeleteCategoryInputList = Schema.Array(Schema.String);
 export const CategoryIdList = Schema.Array(Schema.String);
 export const TagKeys = Schema.Array(Schema.String);
-export const AssociateLibraryItemReviewInput = Schema.Struct({instanceId: Header("instance-id"), libraryItemId: Schema.String});
-export const AssociateQAppWithUserInput = Schema.Struct({instanceId: Header("instance-id"), appId: Schema.String});
-export const BatchDeleteCategoryInput = Schema.Struct({instanceId: Header("instance-id"), categories: DeleteCategoryInputList});
-export const CreateLibraryItemInput = Schema.Struct({instanceId: Header("instance-id"), appId: Schema.String, appVersion: Schema.Number, categories: CategoryIdList});
-export const CreatePresignedUrlInput = Schema.Struct({instanceId: Header("instance-id"), cardId: Schema.String, appId: Schema.String, fileContentsSha256: Schema.String, fileName: Schema.String, scope: Schema.String, sessionId: Schema.optional(Schema.String)});
-export const DeleteLibraryItemInput = Schema.Struct({instanceId: Header("instance-id"), libraryItemId: Schema.String});
-export const DeleteQAppInput = Schema.Struct({instanceId: Header("instance-id"), appId: Schema.String});
-export const DescribeQAppPermissionsInput = Schema.Struct({instanceId: Header("instance-id"), appId: Schema.String});
-export const DisassociateLibraryItemReviewInput = Schema.Struct({instanceId: Header("instance-id"), libraryItemId: Schema.String});
-export const DisassociateQAppFromUserInput = Schema.Struct({instanceId: Header("instance-id"), appId: Schema.String});
-export const ExportQAppSessionDataInput = Schema.Struct({instanceId: Header("instance-id"), sessionId: Schema.String});
-export const GetLibraryItemInput = Schema.Struct({instanceId: Header("instance-id"), libraryItemId: Schema.String, appId: Schema.optional(Schema.String)});
-export const GetQAppInput = Schema.Struct({instanceId: Header("instance-id"), appId: Schema.String, appVersion: Schema.optional(Schema.Number)});
-export const GetQAppSessionInput = Schema.Struct({instanceId: Header("instance-id"), sessionId: Schema.String});
-export const GetQAppSessionMetadataInput = Schema.Struct({instanceId: Header("instance-id"), sessionId: Schema.String});
-export const ImportDocumentInput = Schema.Struct({instanceId: Header("instance-id"), cardId: Schema.String, appId: Schema.String, fileContentsBase64: Schema.String, fileName: Schema.String, scope: Schema.String, sessionId: Schema.optional(Schema.String)});
-export const ListCategoriesInput = Schema.Struct({instanceId: Header("instance-id")});
-export const ListLibraryItemsInput = Schema.Struct({instanceId: Header("instance-id"), limit: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String), categoryId: Schema.optional(Schema.String)});
-export const ListQAppsInput = Schema.Struct({instanceId: Header("instance-id"), limit: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListQAppSessionDataInput = Schema.Struct({instanceId: Header("instance-id"), sessionId: Schema.String});
-export const ListTagsForResourceRequest = Schema.Struct({resourceARN: Schema.String});
-export const StopQAppSessionInput = Schema.Struct({instanceId: Header("instance-id"), sessionId: Schema.String});
-export const UntagResourceRequest = Schema.Struct({resourceARN: Schema.String, tagKeys: TagKeys});
-export const UntagResourceResponse = Schema.Struct({});
-export const UpdateLibraryItemInput = Schema.Struct({instanceId: Header("instance-id"), libraryItemId: Schema.String, status: Schema.optional(Schema.String), categories: Schema.optional(CategoryIdList)});
-export const UpdateLibraryItemMetadataInput = Schema.Struct({instanceId: Header("instance-id"), libraryItemId: Schema.String, isVerified: Schema.optional(Schema.Boolean)});
-export const TextInputCardInput = Schema.Struct({title: Schema.String, id: Schema.String, type: Schema.String, placeholder: Schema.optional(Schema.String), defaultValue: Schema.optional(Schema.String)});
-export const AttributeFilters = Schema.Array(AttributeFilter);
+export class AssociateLibraryItemReviewInput extends Schema.Class<AssociateLibraryItemReviewInput>("AssociateLibraryItemReviewInput")({instanceId: Header("instance-id"), libraryItemId: Schema.String}) {}
+export class AssociateQAppWithUserInput extends Schema.Class<AssociateQAppWithUserInput>("AssociateQAppWithUserInput")({instanceId: Header("instance-id"), appId: Schema.String}) {}
+export class BatchDeleteCategoryInput extends Schema.Class<BatchDeleteCategoryInput>("BatchDeleteCategoryInput")({instanceId: Header("instance-id"), categories: DeleteCategoryInputList}) {}
+export class CreateLibraryItemInput extends Schema.Class<CreateLibraryItemInput>("CreateLibraryItemInput")({instanceId: Header("instance-id"), appId: Schema.String, appVersion: Schema.Number, categories: CategoryIdList}) {}
+export class CreatePresignedUrlInput extends Schema.Class<CreatePresignedUrlInput>("CreatePresignedUrlInput")({instanceId: Header("instance-id"), cardId: Schema.String, appId: Schema.String, fileContentsSha256: Schema.String, fileName: Schema.String, scope: Schema.String, sessionId: Schema.optional(Schema.String)}) {}
+export class DeleteLibraryItemInput extends Schema.Class<DeleteLibraryItemInput>("DeleteLibraryItemInput")({instanceId: Header("instance-id"), libraryItemId: Schema.String}) {}
+export class DeleteQAppInput extends Schema.Class<DeleteQAppInput>("DeleteQAppInput")({instanceId: Header("instance-id"), appId: Schema.String}) {}
+export class DescribeQAppPermissionsInput extends Schema.Class<DescribeQAppPermissionsInput>("DescribeQAppPermissionsInput")({instanceId: Header("instance-id"), appId: Schema.String}) {}
+export class DisassociateLibraryItemReviewInput extends Schema.Class<DisassociateLibraryItemReviewInput>("DisassociateLibraryItemReviewInput")({instanceId: Header("instance-id"), libraryItemId: Schema.String}) {}
+export class DisassociateQAppFromUserInput extends Schema.Class<DisassociateQAppFromUserInput>("DisassociateQAppFromUserInput")({instanceId: Header("instance-id"), appId: Schema.String}) {}
+export class ExportQAppSessionDataInput extends Schema.Class<ExportQAppSessionDataInput>("ExportQAppSessionDataInput")({instanceId: Header("instance-id"), sessionId: Schema.String}) {}
+export class GetLibraryItemInput extends Schema.Class<GetLibraryItemInput>("GetLibraryItemInput")({instanceId: Header("instance-id"), libraryItemId: Schema.String, appId: Schema.optional(Schema.String)}) {}
+export class GetQAppInput extends Schema.Class<GetQAppInput>("GetQAppInput")({instanceId: Header("instance-id"), appId: Schema.String, appVersion: Schema.optional(Schema.Number)}) {}
+export class GetQAppSessionInput extends Schema.Class<GetQAppSessionInput>("GetQAppSessionInput")({instanceId: Header("instance-id"), sessionId: Schema.String}) {}
+export class GetQAppSessionMetadataInput extends Schema.Class<GetQAppSessionMetadataInput>("GetQAppSessionMetadataInput")({instanceId: Header("instance-id"), sessionId: Schema.String}) {}
+export class ImportDocumentInput extends Schema.Class<ImportDocumentInput>("ImportDocumentInput")({instanceId: Header("instance-id"), cardId: Schema.String, appId: Schema.String, fileContentsBase64: Schema.String, fileName: Schema.String, scope: Schema.String, sessionId: Schema.optional(Schema.String)}) {}
+export class ListCategoriesInput extends Schema.Class<ListCategoriesInput>("ListCategoriesInput")({instanceId: Header("instance-id")}) {}
+export class ListLibraryItemsInput extends Schema.Class<ListLibraryItemsInput>("ListLibraryItemsInput")({instanceId: Header("instance-id"), limit: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String), categoryId: Schema.optional(Schema.String)}) {}
+export class ListQAppsInput extends Schema.Class<ListQAppsInput>("ListQAppsInput")({instanceId: Header("instance-id"), limit: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListQAppSessionDataInput extends Schema.Class<ListQAppSessionDataInput>("ListQAppSessionDataInput")({instanceId: Header("instance-id"), sessionId: Schema.String}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({resourceARN: Schema.String}) {}
+export class StopQAppSessionInput extends Schema.Class<StopQAppSessionInput>("StopQAppSessionInput")({instanceId: Header("instance-id"), sessionId: Schema.String}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({resourceARN: Schema.String, tagKeys: TagKeys}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class UpdateLibraryItemInput extends Schema.Class<UpdateLibraryItemInput>("UpdateLibraryItemInput")({instanceId: Header("instance-id"), libraryItemId: Schema.String, status: Schema.optional(Schema.String), categories: Schema.optional(CategoryIdList)}) {}
+export class UpdateLibraryItemMetadataInput extends Schema.Class<UpdateLibraryItemMetadataInput>("UpdateLibraryItemMetadataInput")({instanceId: Header("instance-id"), libraryItemId: Schema.String, isVerified: Schema.optional(Schema.Boolean)}) {}
+export class TextInputCardInput extends Schema.Class<TextInputCardInput>("TextInputCardInput")({title: Schema.String, id: Schema.String, type: Schema.String, placeholder: Schema.optional(Schema.String), defaultValue: Schema.optional(Schema.String)}) {}
 export const DocumentAttributeStringListValue = Schema.Array(Schema.String);
 export const DocumentAttributeValue = Schema.Union(Schema.String, DocumentAttributeStringListValue, Schema.Number, Schema.Date);
-export const DocumentAttribute = Schema.Struct({name: Schema.String, value: DocumentAttributeValue});
-export const AttributeFilter = Schema.Struct({andAllFilters: Schema.optional(AttributeFilters), orAllFilters: Schema.optional(AttributeFilters), notFilter: Schema.optional(AttributeFilter), equalsTo: Schema.optional(DocumentAttribute), containsAll: Schema.optional(DocumentAttribute), containsAny: Schema.optional(DocumentAttribute), greaterThan: Schema.optional(DocumentAttribute), greaterThanOrEquals: Schema.optional(DocumentAttribute), lessThan: Schema.optional(DocumentAttribute), lessThanOrEquals: Schema.optional(DocumentAttribute)});
-export const QQueryCardInput = Schema.Struct({title: Schema.String, id: Schema.String, type: Schema.String, prompt: Schema.String, outputSource: Schema.optional(Schema.String), attributeFilter: Schema.optional(AttributeFilter)});
-export const QPluginCardInput = Schema.Struct({title: Schema.String, id: Schema.String, type: Schema.String, prompt: Schema.String, pluginId: Schema.String, actionIdentifier: Schema.optional(Schema.String)});
-export const FileUploadCardInput = Schema.Struct({title: Schema.String, id: Schema.String, type: Schema.String, filename: Schema.optional(Schema.String), fileId: Schema.optional(Schema.String), allowOverride: Schema.optional(Schema.Boolean)});
-export const FormInputCardMetadata = Schema.Struct({schema: Schema.JsonValue});
-export const FormInputCardInput = Schema.Struct({title: Schema.String, id: Schema.String, type: Schema.String, metadata: FormInputCardMetadata, computeMode: Schema.optional(Schema.String)});
+export class DocumentAttribute extends Schema.Class<DocumentAttribute>("DocumentAttribute")({name: Schema.String, value: DocumentAttributeValue}) {}
+export class AttributeFilter extends Schema.Class<AttributeFilter>("AttributeFilter")({andAllFilters: Schema.optional(Schema.suspend(() => AttributeFilters)), orAllFilters: Schema.optional(Schema.suspend(() => AttributeFilters)), notFilter: Schema.optional(Schema.suspend((): Schema.Schema<AttributeFilter> => AttributeFilter)), equalsTo: Schema.optional(DocumentAttribute), containsAll: Schema.optional(DocumentAttribute), containsAny: Schema.optional(DocumentAttribute), greaterThan: Schema.optional(DocumentAttribute), greaterThanOrEquals: Schema.optional(DocumentAttribute), lessThan: Schema.optional(DocumentAttribute), lessThanOrEquals: Schema.optional(DocumentAttribute)}) {}
+export class QQueryCardInput extends Schema.Class<QQueryCardInput>("QQueryCardInput")({title: Schema.String, id: Schema.String, type: Schema.String, prompt: Schema.String, outputSource: Schema.optional(Schema.String), attributeFilter: Schema.optional(AttributeFilter)}) {}
+export class QPluginCardInput extends Schema.Class<QPluginCardInput>("QPluginCardInput")({title: Schema.String, id: Schema.String, type: Schema.String, prompt: Schema.String, pluginId: Schema.String, actionIdentifier: Schema.optional(Schema.String)}) {}
+export class FileUploadCardInput extends Schema.Class<FileUploadCardInput>("FileUploadCardInput")({title: Schema.String, id: Schema.String, type: Schema.String, filename: Schema.optional(Schema.String), fileId: Schema.optional(Schema.String), allowOverride: Schema.optional(Schema.Boolean)}) {}
+export class FormInputCardMetadata extends Schema.Class<FormInputCardMetadata>("FormInputCardMetadata")({schema: Schema.JsonValue}) {}
+export class FormInputCardInput extends Schema.Class<FormInputCardInput>("FormInputCardInput")({title: Schema.String, id: Schema.String, type: Schema.String, metadata: FormInputCardMetadata, computeMode: Schema.optional(Schema.String)}) {}
 export const CardInput = Schema.Union(TextInputCardInput, QQueryCardInput, QPluginCardInput, FileUploadCardInput, FormInputCardInput);
 export const CardList = Schema.Array(CardInput);
-export const AppDefinitionInput = Schema.Struct({cards: CardList, initialPrompt: Schema.optional(Schema.String)});
-export const UpdateQAppInput = Schema.Struct({instanceId: Header("instance-id"), appId: Schema.String, title: Schema.optional(Schema.String), description: Schema.optional(Schema.String), appDefinition: Schema.optional(AppDefinitionInput)});
-export const SubmissionMutation = Schema.Struct({submissionId: Schema.String, mutationType: Schema.String});
-export const CardValue = Schema.Struct({cardId: Schema.String, value: Schema.String, submissionMutation: Schema.optional(SubmissionMutation)});
+export class AppDefinitionInput extends Schema.Class<AppDefinitionInput>("AppDefinitionInput")({cards: CardList, initialPrompt: Schema.optional(Schema.String)}) {}
+export class UpdateQAppInput extends Schema.Class<UpdateQAppInput>("UpdateQAppInput")({instanceId: Header("instance-id"), appId: Schema.String, title: Schema.optional(Schema.String), description: Schema.optional(Schema.String), appDefinition: Schema.optional(AppDefinitionInput)}) {}
+export class SubmissionMutation extends Schema.Class<SubmissionMutation>("SubmissionMutation")({submissionId: Schema.String, mutationType: Schema.String}) {}
+export class CardValue extends Schema.Class<CardValue>("CardValue")({cardId: Schema.String, value: Schema.String, submissionMutation: Schema.optional(SubmissionMutation)}) {}
 export const CardValueList = Schema.Array(CardValue);
-export const UpdateQAppSessionInput = Schema.Struct({instanceId: Header("instance-id"), sessionId: Schema.String, values: Schema.optional(CardValueList)});
-export const BatchCreateCategoryInputCategory = Schema.Struct({id: Schema.optional(Schema.String), title: Schema.String, color: Schema.optional(Schema.String)});
+export class UpdateQAppSessionInput extends Schema.Class<UpdateQAppSessionInput>("UpdateQAppSessionInput")({instanceId: Header("instance-id"), sessionId: Schema.String, values: Schema.optional(CardValueList)}) {}
+export class BatchCreateCategoryInputCategory extends Schema.Class<BatchCreateCategoryInputCategory>("BatchCreateCategoryInputCategory")({id: Schema.optional(Schema.String), title: Schema.String, color: Schema.optional(Schema.String)}) {}
 export const BatchCreateCategoryInputCategoryList = Schema.Array(BatchCreateCategoryInputCategory);
-export const CategoryInput = Schema.Struct({id: Schema.String, title: Schema.String, color: Schema.optional(Schema.String)});
+export class CategoryInput extends Schema.Class<CategoryInput>("CategoryInput")({id: Schema.String, title: Schema.String, color: Schema.optional(Schema.String)}) {}
 export const CategoryListInput = Schema.Array(CategoryInput);
 export const TagMap = Schema.Record({key: Schema.String, value: Schema.String});
 export const AppRequiredCapabilities = Schema.Array(Schema.String);
-export const Category = Schema.Struct({id: Schema.String, title: Schema.String, color: Schema.optional(Schema.String), appCount: Schema.optional(Schema.Number)});
+export class Category extends Schema.Class<Category>("Category")({id: Schema.String, title: Schema.String, color: Schema.optional(Schema.String), appCount: Schema.optional(Schema.Number)}) {}
 export const CategoriesList = Schema.Array(Category);
 export const Tags = Schema.Record({key: Schema.String, value: Schema.String});
-export const PermissionInput = Schema.Struct({action: Schema.String, principal: Schema.String});
+export class PermissionInput extends Schema.Class<PermissionInput>("PermissionInput")({action: Schema.String, principal: Schema.String}) {}
 export const PermissionsInputList = Schema.Array(PermissionInput);
-export const SessionSharingConfiguration = Schema.Struct({enabled: Schema.Boolean, acceptResponses: Schema.optional(Schema.Boolean), revealCards: Schema.optional(Schema.Boolean)});
-export const AccessDeniedException = Schema.Struct({message: Schema.String});
-export const InternalServerException = Schema.Struct({message: Schema.String, retryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))});
-export const BatchCreateCategoryInput = Schema.Struct({instanceId: Header("instance-id"), categories: BatchCreateCategoryInputCategoryList});
-export const ConflictException = Schema.Struct({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String});
-export const BatchUpdateCategoryInput = Schema.Struct({instanceId: Header("instance-id"), categories: CategoryListInput});
-export const CreateLibraryItemOutput = Schema.Struct({libraryItemId: Schema.String, status: Schema.String, createdAt: Schema.Date, createdBy: Schema.String, updatedAt: Schema.optional(Schema.Date), updatedBy: Schema.optional(Schema.String), ratingCount: Schema.Number, isVerified: Schema.optional(Schema.Boolean)});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String});
-export const ThrottlingException = Schema.Struct({message: Schema.String, serviceCode: Schema.String, quotaCode: Schema.String, retryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))});
-export const ServiceQuotaExceededException = Schema.Struct({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String, serviceCode: Schema.String, quotaCode: Schema.String});
-export const UnauthorizedException = Schema.Struct({message: Schema.String});
-export const ExportQAppSessionDataOutput = Schema.Struct({csvFileLink: Schema.String, expiresAt: Schema.Date, sessionArn: Schema.String});
-export const GetQAppSessionMetadataOutput = Schema.Struct({sessionId: Schema.String, sessionArn: Schema.String, sessionName: Schema.optional(Schema.String), sharingConfiguration: SessionSharingConfiguration, sessionOwner: Schema.optional(Schema.Boolean)});
-export const ImportDocumentOutput = Schema.Struct({fileId: Schema.optional(Schema.String)});
-export const ListCategoriesOutput = Schema.Struct({categories: Schema.optional(CategoriesList)});
-export const ListTagsForResourceResponse = Schema.Struct({tags: Schema.optional(Tags)});
-export const ValidationException = Schema.Struct({message: Schema.String});
-export const TagResourceRequest = Schema.Struct({resourceARN: Schema.String, tags: Tags});
-export const TagResourceResponse = Schema.Struct({});
+export class SessionSharingConfiguration extends Schema.Class<SessionSharingConfiguration>("SessionSharingConfiguration")({enabled: Schema.Boolean, acceptResponses: Schema.optional(Schema.Boolean), revealCards: Schema.optional(Schema.Boolean)}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({message: Schema.String}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({message: Schema.String, retryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))}) {}
+export class BatchCreateCategoryInput extends Schema.Class<BatchCreateCategoryInput>("BatchCreateCategoryInput")({instanceId: Header("instance-id"), categories: BatchCreateCategoryInputCategoryList}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String}) {}
+export class BatchUpdateCategoryInput extends Schema.Class<BatchUpdateCategoryInput>("BatchUpdateCategoryInput")({instanceId: Header("instance-id"), categories: CategoryListInput}) {}
+export class CreateLibraryItemOutput extends Schema.Class<CreateLibraryItemOutput>("CreateLibraryItemOutput")({libraryItemId: Schema.String, status: Schema.String, createdAt: Schema.Date, createdBy: Schema.String, updatedAt: Schema.optional(Schema.Date), updatedBy: Schema.optional(Schema.String), ratingCount: Schema.Number, isVerified: Schema.optional(Schema.Boolean)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({message: Schema.String, serviceCode: Schema.String, quotaCode: Schema.String, retryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))}) {}
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String, serviceCode: Schema.String, quotaCode: Schema.String}) {}
+export class UnauthorizedException extends Schema.Class<UnauthorizedException>("UnauthorizedException")({message: Schema.String}) {}
+export class ExportQAppSessionDataOutput extends Schema.Class<ExportQAppSessionDataOutput>("ExportQAppSessionDataOutput")({csvFileLink: Schema.String, expiresAt: Schema.Date, sessionArn: Schema.String}) {}
+export class GetQAppSessionMetadataOutput extends Schema.Class<GetQAppSessionMetadataOutput>("GetQAppSessionMetadataOutput")({sessionId: Schema.String, sessionArn: Schema.String, sessionName: Schema.optional(Schema.String), sharingConfiguration: SessionSharingConfiguration, sessionOwner: Schema.optional(Schema.Boolean)}) {}
+export class ImportDocumentOutput extends Schema.Class<ImportDocumentOutput>("ImportDocumentOutput")({fileId: Schema.optional(Schema.String)}) {}
+export class ListCategoriesOutput extends Schema.Class<ListCategoriesOutput>("ListCategoriesOutput")({categories: Schema.optional(CategoriesList)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({tags: Schema.optional(Tags)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({message: Schema.String}) {}
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({resourceARN: Schema.String, tags: Tags}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
 export const CategoryList = Schema.Array(Category);
-export const UpdateLibraryItemOutput = Schema.Struct({libraryItemId: Schema.String, appId: Schema.String, appVersion: Schema.Number, categories: CategoryList, status: Schema.String, createdAt: Schema.Date, createdBy: Schema.String, updatedAt: Schema.optional(Schema.Date), updatedBy: Schema.optional(Schema.String), ratingCount: Schema.Number, isRatedByUser: Schema.optional(Schema.Boolean), userCount: Schema.optional(Schema.Number), isVerified: Schema.optional(Schema.Boolean)});
-export const UpdateQAppOutput = Schema.Struct({appId: Schema.String, appArn: Schema.String, title: Schema.String, description: Schema.optional(Schema.String), initialPrompt: Schema.optional(Schema.String), appVersion: Schema.Number, status: Schema.String, createdAt: Schema.Date, createdBy: Schema.String, updatedAt: Schema.Date, updatedBy: Schema.String, requiredCapabilities: Schema.optional(AppRequiredCapabilities)});
-export const UpdateQAppPermissionsInput = Schema.Struct({instanceId: Header("instance-id"), appId: Schema.String, grantPermissions: Schema.optional(PermissionsInputList), revokePermissions: Schema.optional(PermissionsInputList)});
-export const UpdateQAppSessionOutput = Schema.Struct({sessionId: Schema.String, sessionArn: Schema.String});
-export const UpdateQAppSessionMetadataInput = Schema.Struct({instanceId: Header("instance-id"), sessionId: Schema.String, sessionName: Schema.optional(Schema.String), sharingConfiguration: SessionSharingConfiguration});
-export const ConversationMessage = Schema.Struct({body: Schema.String, type: Schema.String});
+export class UpdateLibraryItemOutput extends Schema.Class<UpdateLibraryItemOutput>("UpdateLibraryItemOutput")({libraryItemId: Schema.String, appId: Schema.String, appVersion: Schema.Number, categories: CategoryList, status: Schema.String, createdAt: Schema.Date, createdBy: Schema.String, updatedAt: Schema.optional(Schema.Date), updatedBy: Schema.optional(Schema.String), ratingCount: Schema.Number, isRatedByUser: Schema.optional(Schema.Boolean), userCount: Schema.optional(Schema.Number), isVerified: Schema.optional(Schema.Boolean)}) {}
+export class UpdateQAppOutput extends Schema.Class<UpdateQAppOutput>("UpdateQAppOutput")({appId: Schema.String, appArn: Schema.String, title: Schema.String, description: Schema.optional(Schema.String), initialPrompt: Schema.optional(Schema.String), appVersion: Schema.Number, status: Schema.String, createdAt: Schema.Date, createdBy: Schema.String, updatedAt: Schema.Date, updatedBy: Schema.String, requiredCapabilities: Schema.optional(AppRequiredCapabilities)}) {}
+export class UpdateQAppPermissionsInput extends Schema.Class<UpdateQAppPermissionsInput>("UpdateQAppPermissionsInput")({instanceId: Header("instance-id"), appId: Schema.String, grantPermissions: Schema.optional(PermissionsInputList), revokePermissions: Schema.optional(PermissionsInputList)}) {}
+export class UpdateQAppSessionOutput extends Schema.Class<UpdateQAppSessionOutput>("UpdateQAppSessionOutput")({sessionId: Schema.String, sessionArn: Schema.String}) {}
+export class UpdateQAppSessionMetadataInput extends Schema.Class<UpdateQAppSessionMetadataInput>("UpdateQAppSessionMetadataInput")({instanceId: Header("instance-id"), sessionId: Schema.String, sessionName: Schema.optional(Schema.String), sharingConfiguration: SessionSharingConfiguration}) {}
+export class ConversationMessage extends Schema.Class<ConversationMessage>("ConversationMessage")({body: Schema.String, type: Schema.String}) {}
 export const MessageList = Schema.Array(ConversationMessage);
 export const PresignedUrlFields = Schema.Record({key: Schema.String, value: Schema.String});
-export const LibraryItemMember = Schema.Struct({libraryItemId: Schema.String, appId: Schema.String, appVersion: Schema.Number, categories: CategoryList, status: Schema.String, createdAt: Schema.Date, createdBy: Schema.String, updatedAt: Schema.optional(Schema.Date), updatedBy: Schema.optional(Schema.String), ratingCount: Schema.Number, isRatedByUser: Schema.optional(Schema.Boolean), userCount: Schema.optional(Schema.Number), isVerified: Schema.optional(Schema.Boolean)});
+export class LibraryItemMember extends Schema.Class<LibraryItemMember>("LibraryItemMember")({libraryItemId: Schema.String, appId: Schema.String, appVersion: Schema.Number, categories: CategoryList, status: Schema.String, createdAt: Schema.Date, createdBy: Schema.String, updatedAt: Schema.optional(Schema.Date), updatedBy: Schema.optional(Schema.String), ratingCount: Schema.Number, isRatedByUser: Schema.optional(Schema.Boolean), userCount: Schema.optional(Schema.Number), isVerified: Schema.optional(Schema.Boolean)}) {}
 export const LibraryItemList = Schema.Array(LibraryItemMember);
-export const UserAppItem = Schema.Struct({appId: Schema.String, appArn: Schema.String, title: Schema.String, description: Schema.optional(Schema.String), createdAt: Schema.Date, canEdit: Schema.optional(Schema.Boolean), status: Schema.optional(Schema.String), isVerified: Schema.optional(Schema.Boolean)});
+export class UserAppItem extends Schema.Class<UserAppItem>("UserAppItem")({appId: Schema.String, appArn: Schema.String, title: Schema.String, description: Schema.optional(Schema.String), createdAt: Schema.Date, canEdit: Schema.optional(Schema.Boolean), status: Schema.optional(Schema.String), isVerified: Schema.optional(Schema.Boolean)}) {}
 export const UserAppsList = Schema.Array(UserAppItem);
 export const PredictQAppInputOptions = Schema.Union(MessageList, Schema.String);
-export const CreatePresignedUrlOutput = Schema.Struct({fileId: Schema.String, presignedUrl: Schema.String, presignedUrlFields: PresignedUrlFields, presignedUrlExpiration: Schema.Date});
-export const GetLibraryItemOutput = Schema.Struct({libraryItemId: Schema.String, appId: Schema.String, appVersion: Schema.Number, categories: CategoryList, status: Schema.String, createdAt: Schema.Date, createdBy: Schema.String, updatedAt: Schema.optional(Schema.Date), updatedBy: Schema.optional(Schema.String), ratingCount: Schema.Number, isRatedByUser: Schema.optional(Schema.Boolean), userCount: Schema.optional(Schema.Number), isVerified: Schema.optional(Schema.Boolean)});
-export const ContentTooLargeException = Schema.Struct({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String});
-export const ListLibraryItemsOutput = Schema.Struct({libraryItems: Schema.optional(LibraryItemList), nextToken: Schema.optional(Schema.String)});
-export const ListQAppsOutput = Schema.Struct({apps: UserAppsList, nextToken: Schema.optional(Schema.String)});
-export const PredictQAppInput = Schema.Struct({instanceId: Header("instance-id"), options: Schema.optional(PredictQAppInputOptions)});
-export const StartQAppSessionInput = Schema.Struct({instanceId: Header("instance-id"), appId: Schema.String, appVersion: Schema.Number, initialValues: Schema.optional(CardValueList), sessionId: Schema.optional(Schema.String), tags: Schema.optional(TagMap)});
-export const PrincipalOutput = Schema.Struct({userId: Schema.optional(Schema.String), userType: Schema.optional(Schema.String), email: Schema.optional(Schema.String)});
-export const PermissionOutput = Schema.Struct({action: Schema.String, principal: PrincipalOutput});
+export class CreatePresignedUrlOutput extends Schema.Class<CreatePresignedUrlOutput>("CreatePresignedUrlOutput")({fileId: Schema.String, presignedUrl: Schema.String, presignedUrlFields: PresignedUrlFields, presignedUrlExpiration: Schema.Date}) {}
+export const AttributeFilters = Schema.Array(Schema.suspend((): Schema.Schema<AttributeFilter> => AttributeFilter));
+export class GetLibraryItemOutput extends Schema.Class<GetLibraryItemOutput>("GetLibraryItemOutput")({libraryItemId: Schema.String, appId: Schema.String, appVersion: Schema.Number, categories: CategoryList, status: Schema.String, createdAt: Schema.Date, createdBy: Schema.String, updatedAt: Schema.optional(Schema.Date), updatedBy: Schema.optional(Schema.String), ratingCount: Schema.Number, isRatedByUser: Schema.optional(Schema.Boolean), userCount: Schema.optional(Schema.Number), isVerified: Schema.optional(Schema.Boolean)}) {}
+export class ContentTooLargeException extends Schema.Class<ContentTooLargeException>("ContentTooLargeException")({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String}) {}
+export class ListLibraryItemsOutput extends Schema.Class<ListLibraryItemsOutput>("ListLibraryItemsOutput")({libraryItems: Schema.optional(LibraryItemList), nextToken: Schema.optional(Schema.String)}) {}
+export class ListQAppsOutput extends Schema.Class<ListQAppsOutput>("ListQAppsOutput")({apps: UserAppsList, nextToken: Schema.optional(Schema.String)}) {}
+export class PredictQAppInput extends Schema.Class<PredictQAppInput>("PredictQAppInput")({instanceId: Header("instance-id"), options: Schema.optional(PredictQAppInputOptions)}) {}
+export class StartQAppSessionInput extends Schema.Class<StartQAppSessionInput>("StartQAppSessionInput")({instanceId: Header("instance-id"), appId: Schema.String, appVersion: Schema.Number, initialValues: Schema.optional(CardValueList), sessionId: Schema.optional(Schema.String), tags: Schema.optional(TagMap)}) {}
+export class PrincipalOutput extends Schema.Class<PrincipalOutput>("PrincipalOutput")({userId: Schema.optional(Schema.String), userType: Schema.optional(Schema.String), email: Schema.optional(Schema.String)}) {}
+export class PermissionOutput extends Schema.Class<PermissionOutput>("PermissionOutput")({action: Schema.String, principal: PrincipalOutput}) {}
 export const PermissionsOutputList = Schema.Array(PermissionOutput);
-export const UpdateQAppPermissionsOutput = Schema.Struct({resourceArn: Schema.optional(Schema.String), appId: Schema.optional(Schema.String), permissions: Schema.optional(PermissionsOutputList)});
-export const UpdateQAppSessionMetadataOutput = Schema.Struct({sessionId: Schema.String, sessionArn: Schema.String, sessionName: Schema.optional(Schema.String), sharingConfiguration: SessionSharingConfiguration});
-export const User = Schema.Struct({userId: Schema.optional(Schema.String)});
+export class UpdateQAppPermissionsOutput extends Schema.Class<UpdateQAppPermissionsOutput>("UpdateQAppPermissionsOutput")({resourceArn: Schema.optional(Schema.String), appId: Schema.optional(Schema.String), permissions: Schema.optional(PermissionsOutputList)}) {}
+export class UpdateQAppSessionMetadataOutput extends Schema.Class<UpdateQAppSessionMetadataOutput>("UpdateQAppSessionMetadataOutput")({sessionId: Schema.String, sessionArn: Schema.String, sessionName: Schema.optional(Schema.String), sharingConfiguration: SessionSharingConfiguration}) {}
+export class User extends Schema.Class<User>("User")({userId: Schema.optional(Schema.String)}) {}
 export const DependencyList = Schema.Array(Schema.String);
 export const MemoryReferenceList = Schema.Array(Schema.String);
-export const QAppSessionData = Schema.Struct({cardId: Schema.String, value: Schema.optional(Schema.JsonValue), user: User, submissionId: Schema.optional(Schema.String), timestamp: Schema.optional(Schema.Date)});
+export class QAppSessionData extends Schema.Class<QAppSessionData>("QAppSessionData")({cardId: Schema.String, value: Schema.optional(Schema.JsonValue), user: User, submissionId: Schema.optional(Schema.String), timestamp: Schema.optional(Schema.Date)}) {}
 export const QAppSessionDataList = Schema.Array(QAppSessionData);
-export const TextInputCard = Schema.Struct({id: Schema.String, title: Schema.String, dependencies: DependencyList, type: Schema.String, placeholder: Schema.optional(Schema.String), defaultValue: Schema.optional(Schema.String)});
-export const QQueryCard = Schema.Struct({id: Schema.String, title: Schema.String, dependencies: DependencyList, type: Schema.String, prompt: Schema.String, outputSource: Schema.String, attributeFilter: Schema.optional(AttributeFilter), memoryReferences: Schema.optional(MemoryReferenceList)});
-export const QPluginCard = Schema.Struct({id: Schema.String, title: Schema.String, dependencies: DependencyList, type: Schema.String, prompt: Schema.String, pluginType: Schema.String, pluginId: Schema.String, actionIdentifier: Schema.optional(Schema.String)});
-export const FileUploadCard = Schema.Struct({id: Schema.String, title: Schema.String, dependencies: DependencyList, type: Schema.String, filename: Schema.optional(Schema.String), fileId: Schema.optional(Schema.String), allowOverride: Schema.optional(Schema.Boolean)});
-export const FormInputCard = Schema.Struct({id: Schema.String, title: Schema.String, dependencies: DependencyList, type: Schema.String, metadata: FormInputCardMetadata, computeMode: Schema.optional(Schema.String)});
-export const Submission = Schema.Struct({value: Schema.optional(Schema.JsonValue), submissionId: Schema.optional(Schema.String), timestamp: Schema.optional(Schema.Date)});
+export class TextInputCard extends Schema.Class<TextInputCard>("TextInputCard")({id: Schema.String, title: Schema.String, dependencies: DependencyList, type: Schema.String, placeholder: Schema.optional(Schema.String), defaultValue: Schema.optional(Schema.String)}) {}
+export class QQueryCard extends Schema.Class<QQueryCard>("QQueryCard")({id: Schema.String, title: Schema.String, dependencies: DependencyList, type: Schema.String, prompt: Schema.String, outputSource: Schema.String, attributeFilter: Schema.optional(AttributeFilter), memoryReferences: Schema.optional(MemoryReferenceList)}) {}
+export class QPluginCard extends Schema.Class<QPluginCard>("QPluginCard")({id: Schema.String, title: Schema.String, dependencies: DependencyList, type: Schema.String, prompt: Schema.String, pluginType: Schema.String, pluginId: Schema.String, actionIdentifier: Schema.optional(Schema.String)}) {}
+export class FileUploadCard extends Schema.Class<FileUploadCard>("FileUploadCard")({id: Schema.String, title: Schema.String, dependencies: DependencyList, type: Schema.String, filename: Schema.optional(Schema.String), fileId: Schema.optional(Schema.String), allowOverride: Schema.optional(Schema.Boolean)}) {}
+export class FormInputCard extends Schema.Class<FormInputCard>("FormInputCard")({id: Schema.String, title: Schema.String, dependencies: DependencyList, type: Schema.String, metadata: FormInputCardMetadata, computeMode: Schema.optional(Schema.String)}) {}
+export class Submission extends Schema.Class<Submission>("Submission")({value: Schema.optional(Schema.JsonValue), submissionId: Schema.optional(Schema.String), timestamp: Schema.optional(Schema.Date)}) {}
 export const SubmissionList = Schema.Array(Submission);
-export const DescribeQAppPermissionsOutput = Schema.Struct({resourceArn: Schema.optional(Schema.String), appId: Schema.optional(Schema.String), permissions: Schema.optional(PermissionsOutputList)});
-export const ListQAppSessionDataOutput = Schema.Struct({sessionId: Schema.String, sessionArn: Schema.String, sessionData: Schema.optional(QAppSessionDataList), nextToken: Schema.optional(Schema.String)});
-export const StartQAppSessionOutput = Schema.Struct({sessionId: Schema.String, sessionArn: Schema.String});
+export class DescribeQAppPermissionsOutput extends Schema.Class<DescribeQAppPermissionsOutput>("DescribeQAppPermissionsOutput")({resourceArn: Schema.optional(Schema.String), appId: Schema.optional(Schema.String), permissions: Schema.optional(PermissionsOutputList)}) {}
+export class ListQAppSessionDataOutput extends Schema.Class<ListQAppSessionDataOutput>("ListQAppSessionDataOutput")({sessionId: Schema.String, sessionArn: Schema.String, sessionData: Schema.optional(QAppSessionDataList), nextToken: Schema.optional(Schema.String)}) {}
+export class StartQAppSessionOutput extends Schema.Class<StartQAppSessionOutput>("StartQAppSessionOutput")({sessionId: Schema.String, sessionArn: Schema.String}) {}
 export const Card = Schema.Union(TextInputCard, QQueryCard, QPluginCard, FileUploadCard, FormInputCard);
 export const CardModelList = Schema.Array(Card);
-export const CardStatus = Schema.Struct({currentState: Schema.String, currentValue: Schema.String, submissions: Schema.optional(SubmissionList)});
-export const AppDefinition = Schema.Struct({appDefinitionVersion: Schema.String, cards: CardModelList, canEdit: Schema.optional(Schema.Boolean)});
+export class CardStatus extends Schema.Class<CardStatus>("CardStatus")({currentState: Schema.String, currentValue: Schema.String, submissions: Schema.optional(SubmissionList)}) {}
+export class AppDefinition extends Schema.Class<AppDefinition>("AppDefinition")({appDefinitionVersion: Schema.String, cards: CardModelList, canEdit: Schema.optional(Schema.Boolean)}) {}
 export const CardStatusMap = Schema.Record({key: Schema.String, value: CardStatus});
-export const PredictAppDefinition = Schema.Struct({title: Schema.String, description: Schema.optional(Schema.String), appDefinition: AppDefinitionInput});
-export const GetQAppOutput = Schema.Struct({appId: Schema.String, appArn: Schema.String, title: Schema.String, description: Schema.optional(Schema.String), initialPrompt: Schema.optional(Schema.String), appVersion: Schema.Number, status: Schema.String, createdAt: Schema.Date, createdBy: Schema.String, updatedAt: Schema.Date, updatedBy: Schema.String, requiredCapabilities: Schema.optional(AppRequiredCapabilities), appDefinition: AppDefinition});
-export const GetQAppSessionOutput = Schema.Struct({sessionId: Schema.String, sessionArn: Schema.String, sessionName: Schema.optional(Schema.String), appVersion: Schema.optional(Schema.Number), latestPublishedAppVersion: Schema.optional(Schema.Number), status: Schema.String, cardStatus: CardStatusMap, userIsHost: Schema.optional(Schema.Boolean)});
-export const PredictQAppOutput = Schema.Struct({app: PredictAppDefinition, problemStatement: Schema.String});
-export const CreateQAppInput = Schema.Struct({instanceId: Header("instance-id"), title: Schema.String, description: Schema.optional(Schema.String), appDefinition: AppDefinitionInput, tags: Schema.optional(TagMap)});
-export const CreateQAppOutput = Schema.Struct({appId: Schema.String, appArn: Schema.String, title: Schema.String, description: Schema.optional(Schema.String), initialPrompt: Schema.optional(Schema.String), appVersion: Schema.Number, status: Schema.String, createdAt: Schema.Date, createdBy: Schema.String, updatedAt: Schema.Date, updatedBy: Schema.String, requiredCapabilities: Schema.optional(AppRequiredCapabilities)});
+export class PredictAppDefinition extends Schema.Class<PredictAppDefinition>("PredictAppDefinition")({title: Schema.String, description: Schema.optional(Schema.String), appDefinition: AppDefinitionInput}) {}
+export class GetQAppOutput extends Schema.Class<GetQAppOutput>("GetQAppOutput")({appId: Schema.String, appArn: Schema.String, title: Schema.String, description: Schema.optional(Schema.String), initialPrompt: Schema.optional(Schema.String), appVersion: Schema.Number, status: Schema.String, createdAt: Schema.Date, createdBy: Schema.String, updatedAt: Schema.Date, updatedBy: Schema.String, requiredCapabilities: Schema.optional(AppRequiredCapabilities), appDefinition: AppDefinition}) {}
+export class GetQAppSessionOutput extends Schema.Class<GetQAppSessionOutput>("GetQAppSessionOutput")({sessionId: Schema.String, sessionArn: Schema.String, sessionName: Schema.optional(Schema.String), appVersion: Schema.optional(Schema.Number), latestPublishedAppVersion: Schema.optional(Schema.Number), status: Schema.String, cardStatus: CardStatusMap, userIsHost: Schema.optional(Schema.Boolean)}) {}
+export class PredictQAppOutput extends Schema.Class<PredictQAppOutput>("PredictQAppOutput")({app: PredictAppDefinition, problemStatement: Schema.String}) {}
+export class CreateQAppInput extends Schema.Class<CreateQAppInput>("CreateQAppInput")({instanceId: Header("instance-id"), title: Schema.String, description: Schema.optional(Schema.String), appDefinition: AppDefinitionInput, tags: Schema.optional(TagMap)}) {}
+export class CreateQAppOutput extends Schema.Class<CreateQAppOutput>("CreateQAppOutput")({appId: Schema.String, appArn: Schema.String, title: Schema.String, description: Schema.optional(Schema.String), initialPrompt: Schema.optional(Schema.String), appVersion: Schema.Number, status: Schema.String, createdAt: Schema.Date, createdBy: Schema.String, updatedAt: Schema.Date, updatedBy: Schema.String, requiredCapabilities: Schema.optional(AppRequiredCapabilities)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
-export class UnauthorizedExceptionError extends Schema.TaggedError<UnauthorizedExceptionError>()("UnauthorizedException", UnauthorizedException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class ContentTooLargeExceptionError extends Schema.TaggedError<ContentTooLargeExceptionError>()("ContentTooLargeException", ContentTooLargeException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
+export class UnauthorizedExceptionError extends Schema.TaggedError<UnauthorizedExceptionError>()("UnauthorizedException", UnauthorizedException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class ContentTooLargeExceptionError extends Schema.TaggedError<ContentTooLargeExceptionError>()("ContentTooLargeException", ContentTooLargeException.fields) {};
 
 //# Operations
 export const untagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2023-11-27", uri: "/tags/{resourceARN}", method: "DELETE", sdkId: "QApps", sigV4ServiceName: "qapps", name: "QAppsService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

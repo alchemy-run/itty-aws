@@ -4,83 +4,83 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 
 //# Schemas
 export const TenantIdList = Schema.Array(Schema.String);
-export const AttendeeCapabilities = Schema.Struct({Audio: Schema.String, Video: Schema.String, Content: Schema.String});
-export const CreateAttendeeRequestItem = Schema.Struct({ExternalUserId: Schema.String, Capabilities: Schema.optional(AttendeeCapabilities)});
+export class AttendeeCapabilities extends Schema.Class<AttendeeCapabilities>("AttendeeCapabilities")({Audio: Schema.String, Video: Schema.String, Content: Schema.String}) {}
+export class CreateAttendeeRequestItem extends Schema.Class<CreateAttendeeRequestItem>("CreateAttendeeRequestItem")({ExternalUserId: Schema.String, Capabilities: Schema.optional(AttendeeCapabilities)}) {}
 export const CreateMeetingWithAttendeesRequestItemList = Schema.Array(CreateAttendeeRequestItem);
 export const TagKeyList = Schema.Array(Schema.String);
-export const CreateAttendeeRequest = Schema.Struct({MeetingId: Schema.String, ExternalUserId: Schema.String, Capabilities: Schema.optional(AttendeeCapabilities)});
-export const AudioFeatures = Schema.Struct({EchoReduction: Schema.optional(Schema.String)});
-export const VideoFeatures = Schema.Struct({MaxResolution: Schema.optional(Schema.String)});
-export const ContentFeatures = Schema.Struct({MaxResolution: Schema.optional(Schema.String)});
-export const AttendeeFeatures = Schema.Struct({MaxCount: Schema.optional(Schema.Number)});
-export const MeetingFeaturesConfiguration = Schema.Struct({Audio: Schema.optional(AudioFeatures), Video: Schema.optional(VideoFeatures), Content: Schema.optional(ContentFeatures), Attendee: Schema.optional(AttendeeFeatures)});
-export const NotificationsConfiguration = Schema.Struct({LambdaFunctionArn: Schema.optional(Schema.String), SnsTopicArn: Schema.optional(Schema.String), SqsQueueArn: Schema.optional(Schema.String)});
-export const Tag = Schema.Struct({Key: Schema.String, Value: Schema.String});
+export class CreateAttendeeRequest extends Schema.Class<CreateAttendeeRequest>("CreateAttendeeRequest")({MeetingId: Schema.String, ExternalUserId: Schema.String, Capabilities: Schema.optional(AttendeeCapabilities)}) {}
+export class AudioFeatures extends Schema.Class<AudioFeatures>("AudioFeatures")({EchoReduction: Schema.optional(Schema.String)}) {}
+export class VideoFeatures extends Schema.Class<VideoFeatures>("VideoFeatures")({MaxResolution: Schema.optional(Schema.String)}) {}
+export class ContentFeatures extends Schema.Class<ContentFeatures>("ContentFeatures")({MaxResolution: Schema.optional(Schema.String)}) {}
+export class AttendeeFeatures extends Schema.Class<AttendeeFeatures>("AttendeeFeatures")({MaxCount: Schema.optional(Schema.Number)}) {}
+export class MeetingFeaturesConfiguration extends Schema.Class<MeetingFeaturesConfiguration>("MeetingFeaturesConfiguration")({Audio: Schema.optional(AudioFeatures), Video: Schema.optional(VideoFeatures), Content: Schema.optional(ContentFeatures), Attendee: Schema.optional(AttendeeFeatures)}) {}
+export class NotificationsConfiguration extends Schema.Class<NotificationsConfiguration>("NotificationsConfiguration")({LambdaFunctionArn: Schema.optional(Schema.String), SnsTopicArn: Schema.optional(Schema.String), SqsQueueArn: Schema.optional(Schema.String)}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.String, Value: Schema.String}) {}
 export const TagList = Schema.Array(Tag);
-export const CreateMeetingWithAttendeesRequest = Schema.Struct({ClientRequestToken: Schema.String, MediaRegion: Schema.String, MeetingHostId: Schema.optional(Schema.String), ExternalMeetingId: Schema.String, MeetingFeatures: Schema.optional(MeetingFeaturesConfiguration), NotificationsConfiguration: Schema.optional(NotificationsConfiguration), Attendees: CreateMeetingWithAttendeesRequestItemList, PrimaryMeetingId: Schema.optional(Schema.String), TenantIds: Schema.optional(TenantIdList), Tags: Schema.optional(TagList), MediaPlacementNetworkType: Schema.optional(Schema.String)});
-export const DeleteAttendeeRequest = Schema.Struct({MeetingId: Schema.String, AttendeeId: Schema.String});
-export const DeleteMeetingRequest = Schema.Struct({MeetingId: Schema.String});
-export const GetAttendeeRequest = Schema.Struct({MeetingId: Schema.String, AttendeeId: Schema.String});
-export const GetMeetingRequest = Schema.Struct({MeetingId: Schema.String});
-export const ListAttendeesRequest = Schema.Struct({MeetingId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListTagsForResourceRequest = Schema.Struct({ResourceARN: Schema.String});
-export const StopMeetingTranscriptionRequest = Schema.Struct({MeetingId: Schema.String});
-export const TagResourceRequest = Schema.Struct({ResourceARN: Schema.String, Tags: TagList});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({ResourceARN: Schema.String, TagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
-export const UpdateAttendeeCapabilitiesRequest = Schema.Struct({MeetingId: Schema.String, AttendeeId: Schema.String, Capabilities: AttendeeCapabilities});
+export class CreateMeetingWithAttendeesRequest extends Schema.Class<CreateMeetingWithAttendeesRequest>("CreateMeetingWithAttendeesRequest")({ClientRequestToken: Schema.String, MediaRegion: Schema.String, MeetingHostId: Schema.optional(Schema.String), ExternalMeetingId: Schema.String, MeetingFeatures: Schema.optional(MeetingFeaturesConfiguration), NotificationsConfiguration: Schema.optional(NotificationsConfiguration), Attendees: CreateMeetingWithAttendeesRequestItemList, PrimaryMeetingId: Schema.optional(Schema.String), TenantIds: Schema.optional(TenantIdList), Tags: Schema.optional(TagList), MediaPlacementNetworkType: Schema.optional(Schema.String)}) {}
+export class DeleteAttendeeRequest extends Schema.Class<DeleteAttendeeRequest>("DeleteAttendeeRequest")({MeetingId: Schema.String, AttendeeId: Schema.String}) {}
+export class DeleteMeetingRequest extends Schema.Class<DeleteMeetingRequest>("DeleteMeetingRequest")({MeetingId: Schema.String}) {}
+export class GetAttendeeRequest extends Schema.Class<GetAttendeeRequest>("GetAttendeeRequest")({MeetingId: Schema.String, AttendeeId: Schema.String}) {}
+export class GetMeetingRequest extends Schema.Class<GetMeetingRequest>("GetMeetingRequest")({MeetingId: Schema.String}) {}
+export class ListAttendeesRequest extends Schema.Class<ListAttendeesRequest>("ListAttendeesRequest")({MeetingId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({ResourceARN: Schema.String}) {}
+export class StopMeetingTranscriptionRequest extends Schema.Class<StopMeetingTranscriptionRequest>("StopMeetingTranscriptionRequest")({MeetingId: Schema.String}) {}
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({ResourceARN: Schema.String, Tags: TagList}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({ResourceARN: Schema.String, TagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class UpdateAttendeeCapabilitiesRequest extends Schema.Class<UpdateAttendeeCapabilitiesRequest>("UpdateAttendeeCapabilitiesRequest")({MeetingId: Schema.String, AttendeeId: Schema.String, Capabilities: AttendeeCapabilities}) {}
 export const CreateAttendeeRequestItemList = Schema.Array(CreateAttendeeRequestItem);
-export const AttendeeIdItem = Schema.Struct({AttendeeId: Schema.String});
+export class AttendeeIdItem extends Schema.Class<AttendeeIdItem>("AttendeeIdItem")({AttendeeId: Schema.String}) {}
 export const AttendeeIdsList = Schema.Array(AttendeeIdItem);
-export const Attendee = Schema.Struct({ExternalUserId: Schema.optional(Schema.String), AttendeeId: Schema.optional(Schema.String), JoinToken: Schema.optional(Schema.String), Capabilities: Schema.optional(AttendeeCapabilities)});
+export class Attendee extends Schema.Class<Attendee>("Attendee")({ExternalUserId: Schema.optional(Schema.String), AttendeeId: Schema.optional(Schema.String), JoinToken: Schema.optional(Schema.String), Capabilities: Schema.optional(AttendeeCapabilities)}) {}
 export const AttendeeList = Schema.Array(Attendee);
-export const BatchCreateAttendeeRequest = Schema.Struct({MeetingId: Schema.String, Attendees: CreateAttendeeRequestItemList});
-export const BatchUpdateAttendeeCapabilitiesExceptRequest = Schema.Struct({MeetingId: Schema.String, ExcludedAttendeeIds: AttendeeIdsList, Capabilities: AttendeeCapabilities});
-export const BadRequestException = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)});
-export const ForbiddenException = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)});
-export const GetAttendeeResponse = Schema.Struct({Attendee: Schema.optional(Attendee)});
-export const MediaPlacement = Schema.Struct({AudioHostUrl: Schema.optional(Schema.String), AudioFallbackUrl: Schema.optional(Schema.String), SignalingUrl: Schema.optional(Schema.String), TurnControlUrl: Schema.optional(Schema.String), ScreenDataUrl: Schema.optional(Schema.String), ScreenViewingUrl: Schema.optional(Schema.String), ScreenSharingUrl: Schema.optional(Schema.String), EventIngestionUrl: Schema.optional(Schema.String)});
-export const Meeting = Schema.Struct({MeetingId: Schema.optional(Schema.String), MeetingHostId: Schema.optional(Schema.String), ExternalMeetingId: Schema.optional(Schema.String), MediaRegion: Schema.optional(Schema.String), MediaPlacement: Schema.optional(MediaPlacement), MeetingFeatures: Schema.optional(MeetingFeaturesConfiguration), PrimaryMeetingId: Schema.optional(Schema.String), TenantIds: Schema.optional(TenantIdList), MeetingArn: Schema.optional(Schema.String)});
-export const GetMeetingResponse = Schema.Struct({Meeting: Schema.optional(Meeting)});
-export const ListAttendeesResponse = Schema.Struct({Attendees: Schema.optional(AttendeeList), NextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceResponse = Schema.Struct({Tags: Schema.optional(TagList)});
-export const NotFoundException = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)});
-export const LimitExceededException = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String), ResourceName: Schema.optional(Schema.String)});
-export const UpdateAttendeeCapabilitiesResponse = Schema.Struct({Attendee: Schema.optional(Attendee)});
-export const EngineTranscribeSettings = Schema.Struct({LanguageCode: Schema.optional(Schema.String), VocabularyFilterMethod: Schema.optional(Schema.String), VocabularyFilterName: Schema.optional(Schema.String), VocabularyName: Schema.optional(Schema.String), Region: Schema.optional(Schema.String), EnablePartialResultsStabilization: Schema.optional(Schema.Boolean), PartialResultsStability: Schema.optional(Schema.String), ContentIdentificationType: Schema.optional(Schema.String), ContentRedactionType: Schema.optional(Schema.String), PiiEntityTypes: Schema.optional(Schema.String), LanguageModelName: Schema.optional(Schema.String), IdentifyLanguage: Schema.optional(Schema.Boolean), LanguageOptions: Schema.optional(Schema.String), PreferredLanguage: Schema.optional(Schema.String), VocabularyNames: Schema.optional(Schema.String), VocabularyFilterNames: Schema.optional(Schema.String)});
-export const EngineTranscribeMedicalSettings = Schema.Struct({LanguageCode: Schema.String, Specialty: Schema.String, Type: Schema.String, VocabularyName: Schema.optional(Schema.String), Region: Schema.optional(Schema.String), ContentIdentificationType: Schema.optional(Schema.String)});
-export const CreateAttendeeError = Schema.Struct({ExternalUserId: Schema.optional(Schema.String), ErrorCode: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String)});
+export class BatchCreateAttendeeRequest extends Schema.Class<BatchCreateAttendeeRequest>("BatchCreateAttendeeRequest")({MeetingId: Schema.String, Attendees: CreateAttendeeRequestItemList}) {}
+export class BatchUpdateAttendeeCapabilitiesExceptRequest extends Schema.Class<BatchUpdateAttendeeCapabilitiesExceptRequest>("BatchUpdateAttendeeCapabilitiesExceptRequest")({MeetingId: Schema.String, ExcludedAttendeeIds: AttendeeIdsList, Capabilities: AttendeeCapabilities}) {}
+export class BadRequestException extends Schema.Class<BadRequestException>("BadRequestException")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)}) {}
+export class ForbiddenException extends Schema.Class<ForbiddenException>("ForbiddenException")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)}) {}
+export class GetAttendeeResponse extends Schema.Class<GetAttendeeResponse>("GetAttendeeResponse")({Attendee: Schema.optional(Attendee)}) {}
+export class MediaPlacement extends Schema.Class<MediaPlacement>("MediaPlacement")({AudioHostUrl: Schema.optional(Schema.String), AudioFallbackUrl: Schema.optional(Schema.String), SignalingUrl: Schema.optional(Schema.String), TurnControlUrl: Schema.optional(Schema.String), ScreenDataUrl: Schema.optional(Schema.String), ScreenViewingUrl: Schema.optional(Schema.String), ScreenSharingUrl: Schema.optional(Schema.String), EventIngestionUrl: Schema.optional(Schema.String)}) {}
+export class Meeting extends Schema.Class<Meeting>("Meeting")({MeetingId: Schema.optional(Schema.String), MeetingHostId: Schema.optional(Schema.String), ExternalMeetingId: Schema.optional(Schema.String), MediaRegion: Schema.optional(Schema.String), MediaPlacement: Schema.optional(MediaPlacement), MeetingFeatures: Schema.optional(MeetingFeaturesConfiguration), PrimaryMeetingId: Schema.optional(Schema.String), TenantIds: Schema.optional(TenantIdList), MeetingArn: Schema.optional(Schema.String)}) {}
+export class GetMeetingResponse extends Schema.Class<GetMeetingResponse>("GetMeetingResponse")({Meeting: Schema.optional(Meeting)}) {}
+export class ListAttendeesResponse extends Schema.Class<ListAttendeesResponse>("ListAttendeesResponse")({Attendees: Schema.optional(AttendeeList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({Tags: Schema.optional(TagList)}) {}
+export class NotFoundException extends Schema.Class<NotFoundException>("NotFoundException")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)}) {}
+export class LimitExceededException extends Schema.Class<LimitExceededException>("LimitExceededException")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String), ResourceName: Schema.optional(Schema.String)}) {}
+export class UpdateAttendeeCapabilitiesResponse extends Schema.Class<UpdateAttendeeCapabilitiesResponse>("UpdateAttendeeCapabilitiesResponse")({Attendee: Schema.optional(Attendee)}) {}
+export class EngineTranscribeSettings extends Schema.Class<EngineTranscribeSettings>("EngineTranscribeSettings")({LanguageCode: Schema.optional(Schema.String), VocabularyFilterMethod: Schema.optional(Schema.String), VocabularyFilterName: Schema.optional(Schema.String), VocabularyName: Schema.optional(Schema.String), Region: Schema.optional(Schema.String), EnablePartialResultsStabilization: Schema.optional(Schema.Boolean), PartialResultsStability: Schema.optional(Schema.String), ContentIdentificationType: Schema.optional(Schema.String), ContentRedactionType: Schema.optional(Schema.String), PiiEntityTypes: Schema.optional(Schema.String), LanguageModelName: Schema.optional(Schema.String), IdentifyLanguage: Schema.optional(Schema.Boolean), LanguageOptions: Schema.optional(Schema.String), PreferredLanguage: Schema.optional(Schema.String), VocabularyNames: Schema.optional(Schema.String), VocabularyFilterNames: Schema.optional(Schema.String)}) {}
+export class EngineTranscribeMedicalSettings extends Schema.Class<EngineTranscribeMedicalSettings>("EngineTranscribeMedicalSettings")({LanguageCode: Schema.String, Specialty: Schema.String, Type: Schema.String, VocabularyName: Schema.optional(Schema.String), Region: Schema.optional(Schema.String), ContentIdentificationType: Schema.optional(Schema.String)}) {}
+export class CreateAttendeeError extends Schema.Class<CreateAttendeeError>("CreateAttendeeError")({ExternalUserId: Schema.optional(Schema.String), ErrorCode: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String)}) {}
 export const BatchCreateAttendeeErrorList = Schema.Array(CreateAttendeeError);
-export const TranscriptionConfiguration = Schema.Struct({EngineTranscribeSettings: Schema.optional(EngineTranscribeSettings), EngineTranscribeMedicalSettings: Schema.optional(EngineTranscribeMedicalSettings)});
-export const BatchCreateAttendeeResponse = Schema.Struct({Attendees: Schema.optional(AttendeeList), Errors: Schema.optional(BatchCreateAttendeeErrorList)});
-export const ConflictException = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)});
-export const CreateAttendeeResponse = Schema.Struct({Attendee: Schema.optional(Attendee)});
-export const CreateMeetingRequest = Schema.Struct({ClientRequestToken: Schema.String, MediaRegion: Schema.String, MeetingHostId: Schema.optional(Schema.String), ExternalMeetingId: Schema.String, NotificationsConfiguration: Schema.optional(NotificationsConfiguration), MeetingFeatures: Schema.optional(MeetingFeaturesConfiguration), PrimaryMeetingId: Schema.optional(Schema.String), TenantIds: Schema.optional(TenantIdList), Tags: Schema.optional(TagList), MediaPlacementNetworkType: Schema.optional(Schema.String)});
-export const ServiceFailureException = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)});
-export const ServiceUnavailableException = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String), RetryAfterSeconds: Schema.optional(Header("Retry-After"))});
-export const ThrottlingException = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)});
-export const UnauthorizedException = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)});
-export const StartMeetingTranscriptionRequest = Schema.Struct({MeetingId: Schema.String, TranscriptionConfiguration: TranscriptionConfiguration});
-export const UnprocessableEntityException = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)});
-export const TooManyTagsException = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String), ResourceName: Schema.optional(Schema.String)});
-export const CreateMeetingResponse = Schema.Struct({Meeting: Schema.optional(Meeting)});
-export const CreateMeetingWithAttendeesResponse = Schema.Struct({Meeting: Schema.optional(Meeting), Attendees: Schema.optional(AttendeeList), Errors: Schema.optional(BatchCreateAttendeeErrorList)});
+export class TranscriptionConfiguration extends Schema.Class<TranscriptionConfiguration>("TranscriptionConfiguration")({EngineTranscribeSettings: Schema.optional(EngineTranscribeSettings), EngineTranscribeMedicalSettings: Schema.optional(EngineTranscribeMedicalSettings)}) {}
+export class BatchCreateAttendeeResponse extends Schema.Class<BatchCreateAttendeeResponse>("BatchCreateAttendeeResponse")({Attendees: Schema.optional(AttendeeList), Errors: Schema.optional(BatchCreateAttendeeErrorList)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)}) {}
+export class CreateAttendeeResponse extends Schema.Class<CreateAttendeeResponse>("CreateAttendeeResponse")({Attendee: Schema.optional(Attendee)}) {}
+export class CreateMeetingRequest extends Schema.Class<CreateMeetingRequest>("CreateMeetingRequest")({ClientRequestToken: Schema.String, MediaRegion: Schema.String, MeetingHostId: Schema.optional(Schema.String), ExternalMeetingId: Schema.String, NotificationsConfiguration: Schema.optional(NotificationsConfiguration), MeetingFeatures: Schema.optional(MeetingFeaturesConfiguration), PrimaryMeetingId: Schema.optional(Schema.String), TenantIds: Schema.optional(TenantIdList), Tags: Schema.optional(TagList), MediaPlacementNetworkType: Schema.optional(Schema.String)}) {}
+export class ServiceFailureException extends Schema.Class<ServiceFailureException>("ServiceFailureException")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)}) {}
+export class ServiceUnavailableException extends Schema.Class<ServiceUnavailableException>("ServiceUnavailableException")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String), RetryAfterSeconds: Schema.optional(Header("Retry-After"))}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)}) {}
+export class UnauthorizedException extends Schema.Class<UnauthorizedException>("UnauthorizedException")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)}) {}
+export class StartMeetingTranscriptionRequest extends Schema.Class<StartMeetingTranscriptionRequest>("StartMeetingTranscriptionRequest")({MeetingId: Schema.String, TranscriptionConfiguration: TranscriptionConfiguration}) {}
+export class UnprocessableEntityException extends Schema.Class<UnprocessableEntityException>("UnprocessableEntityException")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)}) {}
+export class TooManyTagsException extends Schema.Class<TooManyTagsException>("TooManyTagsException")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String), ResourceName: Schema.optional(Schema.String)}) {}
+export class CreateMeetingResponse extends Schema.Class<CreateMeetingResponse>("CreateMeetingResponse")({Meeting: Schema.optional(Meeting)}) {}
+export class CreateMeetingWithAttendeesResponse extends Schema.Class<CreateMeetingWithAttendeesResponse>("CreateMeetingWithAttendeesResponse")({Meeting: Schema.optional(Meeting), Attendees: Schema.optional(AttendeeList), Errors: Schema.optional(BatchCreateAttendeeErrorList)}) {}
 
 //# Errors
-export class BadRequestExceptionError extends Schema.TaggedError<BadRequestExceptionError>()("BadRequestException", BadRequestException) {};
-export class ForbiddenExceptionError extends Schema.TaggedError<ForbiddenExceptionError>()("ForbiddenException", ForbiddenException) {};
-export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException) {};
-export class NotFoundExceptionError extends Schema.TaggedError<NotFoundExceptionError>()("NotFoundException", NotFoundException) {};
-export class ServiceFailureExceptionError extends Schema.TaggedError<ServiceFailureExceptionError>()("ServiceFailureException", ServiceFailureException) {};
-export class ServiceUnavailableExceptionError extends Schema.TaggedError<ServiceUnavailableExceptionError>()("ServiceUnavailableException", ServiceUnavailableException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class UnauthorizedExceptionError extends Schema.TaggedError<UnauthorizedExceptionError>()("UnauthorizedException", UnauthorizedException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class UnprocessableEntityExceptionError extends Schema.TaggedError<UnprocessableEntityExceptionError>()("UnprocessableEntityException", UnprocessableEntityException) {};
-export class TooManyTagsExceptionError extends Schema.TaggedError<TooManyTagsExceptionError>()("TooManyTagsException", TooManyTagsException) {};
+export class BadRequestExceptionError extends Schema.TaggedError<BadRequestExceptionError>()("BadRequestException", BadRequestException.fields) {};
+export class ForbiddenExceptionError extends Schema.TaggedError<ForbiddenExceptionError>()("ForbiddenException", ForbiddenException.fields) {};
+export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException.fields) {};
+export class NotFoundExceptionError extends Schema.TaggedError<NotFoundExceptionError>()("NotFoundException", NotFoundException.fields) {};
+export class ServiceFailureExceptionError extends Schema.TaggedError<ServiceFailureExceptionError>()("ServiceFailureException", ServiceFailureException.fields) {};
+export class ServiceUnavailableExceptionError extends Schema.TaggedError<ServiceUnavailableExceptionError>()("ServiceUnavailableException", ServiceUnavailableException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class UnauthorizedExceptionError extends Schema.TaggedError<UnauthorizedExceptionError>()("UnauthorizedException", UnauthorizedException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class UnprocessableEntityExceptionError extends Schema.TaggedError<UnprocessableEntityExceptionError>()("UnprocessableEntityException", UnprocessableEntityException.fields) {};
+export class TooManyTagsExceptionError extends Schema.TaggedError<TooManyTagsExceptionError>()("TooManyTagsException", TooManyTagsException.fields) {};
 
 //# Operations
 export const listAttendees = /*#__PURE__*/ makeOperation(() => Operation({ version: "2021-07-15", uri: "/meetings/{MeetingId}/attendees", method: "GET", sdkId: "Chime SDK Meetings", sigV4ServiceName: "chime", name: "ChimeMeetingsSDKService.ListAttendees" }, ListAttendeesRequest, ListAttendeesResponse, [BadRequestExceptionError, ForbiddenExceptionError, NotFoundExceptionError, ServiceFailureExceptionError, ServiceUnavailableExceptionError, ThrottlingExceptionError, UnauthorizedExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

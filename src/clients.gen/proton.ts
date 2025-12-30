@@ -3,69 +3,69 @@ import { FormatAwsJSON10Request,FormatJSONResponse,FormatAwsRestJSONError, makeO
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const GetResourcesSummaryInput = Schema.Struct({});
+export class GetResourcesSummaryInput extends Schema.Class<GetResourcesSummaryInput>("GetResourcesSummaryInput")({}) {}
 export const TagKeyList = Schema.Array(Schema.String);
-export const CancelComponentDeploymentInput = Schema.Struct({componentName: Schema.String});
-export const CancelEnvironmentDeploymentInput = Schema.Struct({environmentName: Schema.String});
-export const CancelServiceInstanceDeploymentInput = Schema.Struct({serviceInstanceName: Schema.String, serviceName: Schema.String});
-export const CancelServicePipelineDeploymentInput = Schema.Struct({serviceName: Schema.String});
-export const GetRepositorySyncStatusInput = Schema.Struct({repositoryName: Schema.String, repositoryProvider: Schema.String, branch: Schema.String, syncType: Schema.String});
-export const GetServiceInstanceSyncStatusInput = Schema.Struct({serviceName: Schema.String, serviceInstanceName: Schema.String});
-export const GetTemplateSyncStatusInput = Schema.Struct({templateName: Schema.String, templateType: Schema.String, templateVersion: Schema.String});
-export const ListRepositorySyncDefinitionsInput = Schema.Struct({repositoryName: Schema.String, repositoryProvider: Schema.String, syncType: Schema.String, nextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceInput = Schema.Struct({resourceArn: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const UntagResourceInput = Schema.Struct({resourceArn: Schema.String, tagKeys: TagKeyList});
-export const UntagResourceOutput = Schema.Struct({});
-export const Output = Schema.Struct({key: Schema.optional(Schema.String), valueString: Schema.optional(Schema.String)});
+export class CancelComponentDeploymentInput extends Schema.Class<CancelComponentDeploymentInput>("CancelComponentDeploymentInput")({componentName: Schema.String}) {}
+export class CancelEnvironmentDeploymentInput extends Schema.Class<CancelEnvironmentDeploymentInput>("CancelEnvironmentDeploymentInput")({environmentName: Schema.String}) {}
+export class CancelServiceInstanceDeploymentInput extends Schema.Class<CancelServiceInstanceDeploymentInput>("CancelServiceInstanceDeploymentInput")({serviceInstanceName: Schema.String, serviceName: Schema.String}) {}
+export class CancelServicePipelineDeploymentInput extends Schema.Class<CancelServicePipelineDeploymentInput>("CancelServicePipelineDeploymentInput")({serviceName: Schema.String}) {}
+export class GetRepositorySyncStatusInput extends Schema.Class<GetRepositorySyncStatusInput>("GetRepositorySyncStatusInput")({repositoryName: Schema.String, repositoryProvider: Schema.String, branch: Schema.String, syncType: Schema.String}) {}
+export class GetServiceInstanceSyncStatusInput extends Schema.Class<GetServiceInstanceSyncStatusInput>("GetServiceInstanceSyncStatusInput")({serviceName: Schema.String, serviceInstanceName: Schema.String}) {}
+export class GetTemplateSyncStatusInput extends Schema.Class<GetTemplateSyncStatusInput>("GetTemplateSyncStatusInput")({templateName: Schema.String, templateType: Schema.String, templateVersion: Schema.String}) {}
+export class ListRepositorySyncDefinitionsInput extends Schema.Class<ListRepositorySyncDefinitionsInput>("ListRepositorySyncDefinitionsInput")({repositoryName: Schema.String, repositoryProvider: Schema.String, syncType: Schema.String, nextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceInput extends Schema.Class<ListTagsForResourceInput>("ListTagsForResourceInput")({resourceArn: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class UntagResourceInput extends Schema.Class<UntagResourceInput>("UntagResourceInput")({resourceArn: Schema.String, tagKeys: TagKeyList}) {}
+export class UntagResourceOutput extends Schema.Class<UntagResourceOutput>("UntagResourceOutput")({}) {}
+export class Output extends Schema.Class<Output>("Output")({key: Schema.optional(Schema.String), valueString: Schema.optional(Schema.String)}) {}
 export const OutputsList = Schema.Array(Output);
-export const Tag = Schema.Struct({key: Schema.String, value: Schema.String});
+export class Tag extends Schema.Class<Tag>("Tag")({key: Schema.String, value: Schema.String}) {}
 export const TagList = Schema.Array(Tag);
-export const Revision = Schema.Struct({repositoryName: Schema.String, repositoryProvider: Schema.String, sha: Schema.String, directory: Schema.String, branch: Schema.String});
-export const ResourceSyncEvent = Schema.Struct({type: Schema.String, externalId: Schema.optional(Schema.String), time: Schema.Date, event: Schema.String});
+export class Revision extends Schema.Class<Revision>("Revision")({repositoryName: Schema.String, repositoryProvider: Schema.String, sha: Schema.String, directory: Schema.String, branch: Schema.String}) {}
+export class ResourceSyncEvent extends Schema.Class<ResourceSyncEvent>("ResourceSyncEvent")({type: Schema.String, externalId: Schema.optional(Schema.String), time: Schema.Date, event: Schema.String}) {}
 export const ResourceSyncEvents = Schema.Array(ResourceSyncEvent);
-export const ResourceSyncAttempt = Schema.Struct({initialRevision: Revision, targetRevision: Revision, target: Schema.String, startedAt: Schema.Date, status: Schema.String, events: ResourceSyncEvents});
-export const GetTemplateSyncStatusOutput = Schema.Struct({latestSync: Schema.optional(ResourceSyncAttempt), latestSuccessfulSync: Schema.optional(ResourceSyncAttempt), desiredState: Schema.optional(Revision)});
-export const ListTagsForResourceOutput = Schema.Struct({tags: TagList, nextToken: Schema.optional(Schema.String)});
-export const NotifyResourceDeploymentStatusChangeInput = Schema.Struct({resourceArn: Schema.String, status: Schema.optional(Schema.String), outputs: Schema.optional(OutputsList), deploymentId: Schema.optional(Schema.String), statusMessage: Schema.optional(Schema.String)});
-export const NotifyResourceDeploymentStatusChangeOutput = Schema.Struct({});
-export const TagResourceInput = Schema.Struct({resourceArn: Schema.String, tags: TagList});
-export const TagResourceOutput = Schema.Struct({});
-export const AccessDeniedException = Schema.Struct({message: Schema.String});
-export const ResourceCountsSummary = Schema.Struct({total: Schema.Number, failed: Schema.optional(Schema.Number), upToDate: Schema.optional(Schema.Number), behindMajor: Schema.optional(Schema.Number), behindMinor: Schema.optional(Schema.Number)});
-export const Component = Schema.Struct({name: Schema.String, description: Schema.optional(Schema.String), arn: Schema.String, environmentName: Schema.String, serviceName: Schema.optional(Schema.String), serviceInstanceName: Schema.optional(Schema.String), createdAt: Schema.Date, lastModifiedAt: Schema.Date, lastDeploymentAttemptedAt: Schema.optional(Schema.Date), lastDeploymentSucceededAt: Schema.optional(Schema.Date), deploymentStatus: Schema.String, deploymentStatusMessage: Schema.optional(Schema.String), serviceSpec: Schema.optional(Schema.String), lastClientRequestToken: Schema.optional(Schema.String), lastAttemptedDeploymentId: Schema.optional(Schema.String), lastSucceededDeploymentId: Schema.optional(Schema.String)});
-export const ServiceInstance = Schema.Struct({name: Schema.String, arn: Schema.String, createdAt: Schema.Date, lastDeploymentAttemptedAt: Schema.Date, lastDeploymentSucceededAt: Schema.Date, serviceName: Schema.String, environmentName: Schema.String, templateName: Schema.String, templateMajorVersion: Schema.String, templateMinorVersion: Schema.String, deploymentStatus: Schema.String, deploymentStatusMessage: Schema.optional(Schema.String), spec: Schema.optional(Schema.String), lastClientRequestToken: Schema.optional(Schema.String), lastAttemptedDeploymentId: Schema.optional(Schema.String), lastSucceededDeploymentId: Schema.optional(Schema.String)});
-export const ServicePipeline = Schema.Struct({arn: Schema.String, createdAt: Schema.Date, lastDeploymentAttemptedAt: Schema.Date, lastDeploymentSucceededAt: Schema.Date, templateName: Schema.String, templateMajorVersion: Schema.String, templateMinorVersion: Schema.String, deploymentStatus: Schema.String, deploymentStatusMessage: Schema.optional(Schema.String), spec: Schema.optional(Schema.String), lastAttemptedDeploymentId: Schema.optional(Schema.String), lastSucceededDeploymentId: Schema.optional(Schema.String)});
-export const CountsSummary = Schema.Struct({components: Schema.optional(ResourceCountsSummary), environments: Schema.optional(ResourceCountsSummary), environmentTemplates: Schema.optional(ResourceCountsSummary), serviceInstances: Schema.optional(ResourceCountsSummary), services: Schema.optional(ResourceCountsSummary), serviceTemplates: Schema.optional(ResourceCountsSummary), pipelines: Schema.optional(ResourceCountsSummary)});
-export const RepositorySyncDefinition = Schema.Struct({target: Schema.String, parent: Schema.String, branch: Schema.String, directory: Schema.String});
+export class ResourceSyncAttempt extends Schema.Class<ResourceSyncAttempt>("ResourceSyncAttempt")({initialRevision: Revision, targetRevision: Revision, target: Schema.String, startedAt: Schema.Date, status: Schema.String, events: ResourceSyncEvents}) {}
+export class GetTemplateSyncStatusOutput extends Schema.Class<GetTemplateSyncStatusOutput>("GetTemplateSyncStatusOutput")({latestSync: Schema.optional(ResourceSyncAttempt), latestSuccessfulSync: Schema.optional(ResourceSyncAttempt), desiredState: Schema.optional(Revision)}) {}
+export class ListTagsForResourceOutput extends Schema.Class<ListTagsForResourceOutput>("ListTagsForResourceOutput")({tags: TagList, nextToken: Schema.optional(Schema.String)}) {}
+export class NotifyResourceDeploymentStatusChangeInput extends Schema.Class<NotifyResourceDeploymentStatusChangeInput>("NotifyResourceDeploymentStatusChangeInput")({resourceArn: Schema.String, status: Schema.optional(Schema.String), outputs: Schema.optional(OutputsList), deploymentId: Schema.optional(Schema.String), statusMessage: Schema.optional(Schema.String)}) {}
+export class NotifyResourceDeploymentStatusChangeOutput extends Schema.Class<NotifyResourceDeploymentStatusChangeOutput>("NotifyResourceDeploymentStatusChangeOutput")({}) {}
+export class TagResourceInput extends Schema.Class<TagResourceInput>("TagResourceInput")({resourceArn: Schema.String, tags: TagList}) {}
+export class TagResourceOutput extends Schema.Class<TagResourceOutput>("TagResourceOutput")({}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({message: Schema.String}) {}
+export class ResourceCountsSummary extends Schema.Class<ResourceCountsSummary>("ResourceCountsSummary")({total: Schema.Number, failed: Schema.optional(Schema.Number), upToDate: Schema.optional(Schema.Number), behindMajor: Schema.optional(Schema.Number), behindMinor: Schema.optional(Schema.Number)}) {}
+export class Component extends Schema.Class<Component>("Component")({name: Schema.String, description: Schema.optional(Schema.String), arn: Schema.String, environmentName: Schema.String, serviceName: Schema.optional(Schema.String), serviceInstanceName: Schema.optional(Schema.String), createdAt: Schema.Date, lastModifiedAt: Schema.Date, lastDeploymentAttemptedAt: Schema.optional(Schema.Date), lastDeploymentSucceededAt: Schema.optional(Schema.Date), deploymentStatus: Schema.String, deploymentStatusMessage: Schema.optional(Schema.String), serviceSpec: Schema.optional(Schema.String), lastClientRequestToken: Schema.optional(Schema.String), lastAttemptedDeploymentId: Schema.optional(Schema.String), lastSucceededDeploymentId: Schema.optional(Schema.String)}) {}
+export class ServiceInstance extends Schema.Class<ServiceInstance>("ServiceInstance")({name: Schema.String, arn: Schema.String, createdAt: Schema.Date, lastDeploymentAttemptedAt: Schema.Date, lastDeploymentSucceededAt: Schema.Date, serviceName: Schema.String, environmentName: Schema.String, templateName: Schema.String, templateMajorVersion: Schema.String, templateMinorVersion: Schema.String, deploymentStatus: Schema.String, deploymentStatusMessage: Schema.optional(Schema.String), spec: Schema.optional(Schema.String), lastClientRequestToken: Schema.optional(Schema.String), lastAttemptedDeploymentId: Schema.optional(Schema.String), lastSucceededDeploymentId: Schema.optional(Schema.String)}) {}
+export class ServicePipeline extends Schema.Class<ServicePipeline>("ServicePipeline")({arn: Schema.String, createdAt: Schema.Date, lastDeploymentAttemptedAt: Schema.Date, lastDeploymentSucceededAt: Schema.Date, templateName: Schema.String, templateMajorVersion: Schema.String, templateMinorVersion: Schema.String, deploymentStatus: Schema.String, deploymentStatusMessage: Schema.optional(Schema.String), spec: Schema.optional(Schema.String), lastAttemptedDeploymentId: Schema.optional(Schema.String), lastSucceededDeploymentId: Schema.optional(Schema.String)}) {}
+export class CountsSummary extends Schema.Class<CountsSummary>("CountsSummary")({components: Schema.optional(ResourceCountsSummary), environments: Schema.optional(ResourceCountsSummary), environmentTemplates: Schema.optional(ResourceCountsSummary), serviceInstances: Schema.optional(ResourceCountsSummary), services: Schema.optional(ResourceCountsSummary), serviceTemplates: Schema.optional(ResourceCountsSummary), pipelines: Schema.optional(ResourceCountsSummary)}) {}
+export class RepositorySyncDefinition extends Schema.Class<RepositorySyncDefinition>("RepositorySyncDefinition")({target: Schema.String, parent: Schema.String, branch: Schema.String, directory: Schema.String}) {}
 export const RepositorySyncDefinitionList = Schema.Array(RepositorySyncDefinition);
-export const CancelComponentDeploymentOutput = Schema.Struct({component: Component});
-export const CancelServiceInstanceDeploymentOutput = Schema.Struct({serviceInstance: ServiceInstance});
-export const CancelServicePipelineDeploymentOutput = Schema.Struct({pipeline: ServicePipeline});
-export const GetResourcesSummaryOutput = Schema.Struct({counts: CountsSummary});
-export const InternalServerException = Schema.Struct({message: Schema.String});
-export const ListRepositorySyncDefinitionsOutput = Schema.Struct({nextToken: Schema.optional(Schema.String), syncDefinitions: RepositorySyncDefinitionList});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.String});
-export const ConflictException = Schema.Struct({message: Schema.String});
-export const ThrottlingException = Schema.Struct({message: Schema.String});
-export const ValidationException = Schema.Struct({message: Schema.String});
-export const RepositoryBranch = Schema.Struct({arn: Schema.String, provider: Schema.String, name: Schema.String, branch: Schema.String});
-export const RepositorySyncEvent = Schema.Struct({type: Schema.String, externalId: Schema.optional(Schema.String), time: Schema.Date, event: Schema.String});
+export class CancelComponentDeploymentOutput extends Schema.Class<CancelComponentDeploymentOutput>("CancelComponentDeploymentOutput")({component: Component}) {}
+export class CancelServiceInstanceDeploymentOutput extends Schema.Class<CancelServiceInstanceDeploymentOutput>("CancelServiceInstanceDeploymentOutput")({serviceInstance: ServiceInstance}) {}
+export class CancelServicePipelineDeploymentOutput extends Schema.Class<CancelServicePipelineDeploymentOutput>("CancelServicePipelineDeploymentOutput")({pipeline: ServicePipeline}) {}
+export class GetResourcesSummaryOutput extends Schema.Class<GetResourcesSummaryOutput>("GetResourcesSummaryOutput")({counts: CountsSummary}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({message: Schema.String}) {}
+export class ListRepositorySyncDefinitionsOutput extends Schema.Class<ListRepositorySyncDefinitionsOutput>("ListRepositorySyncDefinitionsOutput")({nextToken: Schema.optional(Schema.String), syncDefinitions: RepositorySyncDefinitionList}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.String}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({message: Schema.String}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({message: Schema.String}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({message: Schema.String}) {}
+export class RepositoryBranch extends Schema.Class<RepositoryBranch>("RepositoryBranch")({arn: Schema.String, provider: Schema.String, name: Schema.String, branch: Schema.String}) {}
+export class RepositorySyncEvent extends Schema.Class<RepositorySyncEvent>("RepositorySyncEvent")({type: Schema.String, externalId: Schema.optional(Schema.String), time: Schema.Date, event: Schema.String}) {}
 export const RepositorySyncEvents = Schema.Array(RepositorySyncEvent);
-export const Environment = Schema.Struct({name: Schema.String, description: Schema.optional(Schema.String), createdAt: Schema.Date, lastDeploymentAttemptedAt: Schema.Date, lastDeploymentSucceededAt: Schema.Date, arn: Schema.String, templateName: Schema.String, templateMajorVersion: Schema.String, templateMinorVersion: Schema.String, deploymentStatus: Schema.String, deploymentStatusMessage: Schema.optional(Schema.String), protonServiceRoleArn: Schema.optional(Schema.String), environmentAccountConnectionId: Schema.optional(Schema.String), environmentAccountId: Schema.optional(Schema.String), spec: Schema.optional(Schema.String), provisioning: Schema.optional(Schema.String), provisioningRepository: Schema.optional(RepositoryBranch), componentRoleArn: Schema.optional(Schema.String), codebuildRoleArn: Schema.optional(Schema.String), lastAttemptedDeploymentId: Schema.optional(Schema.String), lastSucceededDeploymentId: Schema.optional(Schema.String)});
-export const RepositorySyncAttempt = Schema.Struct({startedAt: Schema.Date, status: Schema.String, events: RepositorySyncEvents});
-export const CancelEnvironmentDeploymentOutput = Schema.Struct({environment: Environment});
-export const GetRepositorySyncStatusOutput = Schema.Struct({latestSync: Schema.optional(RepositorySyncAttempt)});
-export const GetServiceInstanceSyncStatusOutput = Schema.Struct({latestSync: Schema.optional(ResourceSyncAttempt), latestSuccessfulSync: Schema.optional(ResourceSyncAttempt), desiredState: Schema.optional(Revision)});
-export const ServiceQuotaExceededException = Schema.Struct({message: Schema.String});
+export class Environment extends Schema.Class<Environment>("Environment")({name: Schema.String, description: Schema.optional(Schema.String), createdAt: Schema.Date, lastDeploymentAttemptedAt: Schema.Date, lastDeploymentSucceededAt: Schema.Date, arn: Schema.String, templateName: Schema.String, templateMajorVersion: Schema.String, templateMinorVersion: Schema.String, deploymentStatus: Schema.String, deploymentStatusMessage: Schema.optional(Schema.String), protonServiceRoleArn: Schema.optional(Schema.String), environmentAccountConnectionId: Schema.optional(Schema.String), environmentAccountId: Schema.optional(Schema.String), spec: Schema.optional(Schema.String), provisioning: Schema.optional(Schema.String), provisioningRepository: Schema.optional(RepositoryBranch), componentRoleArn: Schema.optional(Schema.String), codebuildRoleArn: Schema.optional(Schema.String), lastAttemptedDeploymentId: Schema.optional(Schema.String), lastSucceededDeploymentId: Schema.optional(Schema.String)}) {}
+export class RepositorySyncAttempt extends Schema.Class<RepositorySyncAttempt>("RepositorySyncAttempt")({startedAt: Schema.Date, status: Schema.String, events: RepositorySyncEvents}) {}
+export class CancelEnvironmentDeploymentOutput extends Schema.Class<CancelEnvironmentDeploymentOutput>("CancelEnvironmentDeploymentOutput")({environment: Environment}) {}
+export class GetRepositorySyncStatusOutput extends Schema.Class<GetRepositorySyncStatusOutput>("GetRepositorySyncStatusOutput")({latestSync: Schema.optional(RepositorySyncAttempt)}) {}
+export class GetServiceInstanceSyncStatusOutput extends Schema.Class<GetServiceInstanceSyncStatusOutput>("GetServiceInstanceSyncStatusOutput")({latestSync: Schema.optional(ResourceSyncAttempt), latestSuccessfulSync: Schema.optional(ResourceSyncAttempt), desiredState: Schema.optional(Revision)}) {}
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({message: Schema.String}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
 
 //# Operations
 export const cancelComponentDeployment = /*#__PURE__*/ makeOperation(() => Operation({ version: "2020-07-20", uri: "/", method: "POST", sdkId: "Proton", sigV4ServiceName: "proton", name: "AwsProton20200720.CancelComponentDeployment" }, CancelComponentDeploymentInput, CancelComponentDeploymentOutput, [AccessDeniedExceptionError, ConflictExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);

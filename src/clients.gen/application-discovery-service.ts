@@ -3,8 +3,8 @@ import { FormatAwsJSON11Request,FormatJSONResponse,FormatAwsRestJSONError, makeO
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const GetDiscoverySummaryRequest = Schema.Struct({});
-export const StartContinuousExportRequest = Schema.Struct({});
+export class GetDiscoverySummaryRequest extends Schema.Class<GetDiscoverySummaryRequest>("GetDiscoverySummaryRequest")({}) {}
+export class StartContinuousExportRequest extends Schema.Class<StartContinuousExportRequest>("StartContinuousExportRequest")({}) {}
 export const ConfigurationIdList = Schema.Array(Schema.String);
 export const ToDeleteIdentifierList = Schema.Array(Schema.String);
 export const ApplicationIdsList = Schema.Array(Schema.String);
@@ -12,136 +12,136 @@ export const AgentIds = Schema.Array(Schema.String);
 export const ContinuousExportIds = Schema.Array(Schema.String);
 export const ExportIds = Schema.Array(Schema.String);
 export const ExportDataFormats = Schema.Array(Schema.String);
-export const AssociateConfigurationItemsToApplicationRequest = Schema.Struct({applicationConfigurationId: Schema.String, configurationIds: ConfigurationIdList});
-export const AssociateConfigurationItemsToApplicationResponse = Schema.Struct({});
-export const BatchDeleteImportDataRequest = Schema.Struct({importTaskIds: ToDeleteIdentifierList, deleteHistory: Schema.optional(Schema.Boolean)});
-export const CreateApplicationRequest = Schema.Struct({name: Schema.String, description: Schema.optional(Schema.String), wave: Schema.optional(Schema.String)});
-export const DeleteApplicationsRequest = Schema.Struct({configurationIds: ApplicationIdsList});
-export const DeleteApplicationsResponse = Schema.Struct({});
-export const Tag = Schema.Struct({key: Schema.String, value: Schema.String});
+export class AssociateConfigurationItemsToApplicationRequest extends Schema.Class<AssociateConfigurationItemsToApplicationRequest>("AssociateConfigurationItemsToApplicationRequest")({applicationConfigurationId: Schema.String, configurationIds: ConfigurationIdList}) {}
+export class AssociateConfigurationItemsToApplicationResponse extends Schema.Class<AssociateConfigurationItemsToApplicationResponse>("AssociateConfigurationItemsToApplicationResponse")({}) {}
+export class BatchDeleteImportDataRequest extends Schema.Class<BatchDeleteImportDataRequest>("BatchDeleteImportDataRequest")({importTaskIds: ToDeleteIdentifierList, deleteHistory: Schema.optional(Schema.Boolean)}) {}
+export class CreateApplicationRequest extends Schema.Class<CreateApplicationRequest>("CreateApplicationRequest")({name: Schema.String, description: Schema.optional(Schema.String), wave: Schema.optional(Schema.String)}) {}
+export class DeleteApplicationsRequest extends Schema.Class<DeleteApplicationsRequest>("DeleteApplicationsRequest")({configurationIds: ApplicationIdsList}) {}
+export class DeleteApplicationsResponse extends Schema.Class<DeleteApplicationsResponse>("DeleteApplicationsResponse")({}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({key: Schema.String, value: Schema.String}) {}
 export const TagSet = Schema.Array(Tag);
-export const DeleteTagsRequest = Schema.Struct({configurationIds: ConfigurationIdList, tags: Schema.optional(TagSet)});
-export const DeleteTagsResponse = Schema.Struct({});
-export const DescribeBatchDeleteConfigurationTaskRequest = Schema.Struct({taskId: Schema.String});
-export const DescribeConfigurationsRequest = Schema.Struct({configurationIds: ConfigurationIdList});
-export const DescribeContinuousExportsRequest = Schema.Struct({exportIds: Schema.optional(ContinuousExportIds), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const DescribeExportConfigurationsRequest = Schema.Struct({exportIds: Schema.optional(ExportIds), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const DisassociateConfigurationItemsFromApplicationRequest = Schema.Struct({applicationConfigurationId: Schema.String, configurationIds: ConfigurationIdList});
-export const DisassociateConfigurationItemsFromApplicationResponse = Schema.Struct({});
-export const ExportConfigurationsResponse = Schema.Struct({exportId: Schema.optional(Schema.String)});
-export const ListServerNeighborsRequest = Schema.Struct({configurationId: Schema.String, portInformationNeeded: Schema.optional(Schema.Boolean), neighborConfigurationIds: Schema.optional(ConfigurationIdList), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const StartBatchDeleteConfigurationTaskRequest = Schema.Struct({configurationType: Schema.String, configurationIds: ConfigurationIdList});
-export const StartDataCollectionByAgentIdsRequest = Schema.Struct({agentIds: AgentIds});
-export const StartImportTaskRequest = Schema.Struct({clientRequestToken: Schema.optional(Schema.String), name: Schema.String, importUrl: Schema.String});
-export const StopContinuousExportRequest = Schema.Struct({exportId: Schema.String});
-export const StopDataCollectionByAgentIdsRequest = Schema.Struct({agentIds: AgentIds});
-export const UpdateApplicationRequest = Schema.Struct({configurationId: Schema.String, name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), wave: Schema.optional(Schema.String)});
-export const UpdateApplicationResponse = Schema.Struct({});
+export class DeleteTagsRequest extends Schema.Class<DeleteTagsRequest>("DeleteTagsRequest")({configurationIds: ConfigurationIdList, tags: Schema.optional(TagSet)}) {}
+export class DeleteTagsResponse extends Schema.Class<DeleteTagsResponse>("DeleteTagsResponse")({}) {}
+export class DescribeBatchDeleteConfigurationTaskRequest extends Schema.Class<DescribeBatchDeleteConfigurationTaskRequest>("DescribeBatchDeleteConfigurationTaskRequest")({taskId: Schema.String}) {}
+export class DescribeConfigurationsRequest extends Schema.Class<DescribeConfigurationsRequest>("DescribeConfigurationsRequest")({configurationIds: ConfigurationIdList}) {}
+export class DescribeContinuousExportsRequest extends Schema.Class<DescribeContinuousExportsRequest>("DescribeContinuousExportsRequest")({exportIds: Schema.optional(ContinuousExportIds), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class DescribeExportConfigurationsRequest extends Schema.Class<DescribeExportConfigurationsRequest>("DescribeExportConfigurationsRequest")({exportIds: Schema.optional(ExportIds), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class DisassociateConfigurationItemsFromApplicationRequest extends Schema.Class<DisassociateConfigurationItemsFromApplicationRequest>("DisassociateConfigurationItemsFromApplicationRequest")({applicationConfigurationId: Schema.String, configurationIds: ConfigurationIdList}) {}
+export class DisassociateConfigurationItemsFromApplicationResponse extends Schema.Class<DisassociateConfigurationItemsFromApplicationResponse>("DisassociateConfigurationItemsFromApplicationResponse")({}) {}
+export class ExportConfigurationsResponse extends Schema.Class<ExportConfigurationsResponse>("ExportConfigurationsResponse")({exportId: Schema.optional(Schema.String)}) {}
+export class ListServerNeighborsRequest extends Schema.Class<ListServerNeighborsRequest>("ListServerNeighborsRequest")({configurationId: Schema.String, portInformationNeeded: Schema.optional(Schema.Boolean), neighborConfigurationIds: Schema.optional(ConfigurationIdList), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class StartBatchDeleteConfigurationTaskRequest extends Schema.Class<StartBatchDeleteConfigurationTaskRequest>("StartBatchDeleteConfigurationTaskRequest")({configurationType: Schema.String, configurationIds: ConfigurationIdList}) {}
+export class StartDataCollectionByAgentIdsRequest extends Schema.Class<StartDataCollectionByAgentIdsRequest>("StartDataCollectionByAgentIdsRequest")({agentIds: AgentIds}) {}
+export class StartImportTaskRequest extends Schema.Class<StartImportTaskRequest>("StartImportTaskRequest")({clientRequestToken: Schema.optional(Schema.String), name: Schema.String, importUrl: Schema.String}) {}
+export class StopContinuousExportRequest extends Schema.Class<StopContinuousExportRequest>("StopContinuousExportRequest")({exportId: Schema.String}) {}
+export class StopDataCollectionByAgentIdsRequest extends Schema.Class<StopDataCollectionByAgentIdsRequest>("StopDataCollectionByAgentIdsRequest")({agentIds: AgentIds}) {}
+export class UpdateApplicationRequest extends Schema.Class<UpdateApplicationRequest>("UpdateApplicationRequest")({configurationId: Schema.String, name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), wave: Schema.optional(Schema.String)}) {}
+export class UpdateApplicationResponse extends Schema.Class<UpdateApplicationResponse>("UpdateApplicationResponse")({}) {}
 export const FilterValues = Schema.Array(Schema.String);
 export const ImportTaskFilterValueList = Schema.Array(Schema.String);
-export const DeleteAgent = Schema.Struct({agentId: Schema.String, force: Schema.optional(Schema.Boolean)});
+export class DeleteAgent extends Schema.Class<DeleteAgent>("DeleteAgent")({agentId: Schema.String, force: Schema.optional(Schema.Boolean)}) {}
 export const DeleteAgents = Schema.Array(DeleteAgent);
-export const Filter = Schema.Struct({name: Schema.String, values: FilterValues, condition: Schema.String});
+export class Filter extends Schema.Class<Filter>("Filter")({name: Schema.String, values: FilterValues, condition: Schema.String}) {}
 export const Filters = Schema.Array(Filter);
-export const ExportFilter = Schema.Struct({name: Schema.String, values: FilterValues, condition: Schema.String});
+export class ExportFilter extends Schema.Class<ExportFilter>("ExportFilter")({name: Schema.String, values: FilterValues, condition: Schema.String}) {}
 export const ExportFilters = Schema.Array(ExportFilter);
-export const ImportTaskFilter = Schema.Struct({name: Schema.optional(Schema.String), values: Schema.optional(ImportTaskFilterValueList)});
+export class ImportTaskFilter extends Schema.Class<ImportTaskFilter>("ImportTaskFilter")({name: Schema.optional(Schema.String), values: Schema.optional(ImportTaskFilterValueList)}) {}
 export const DescribeImportTasksFilterList = Schema.Array(ImportTaskFilter);
-export const TagFilter = Schema.Struct({name: Schema.String, values: FilterValues});
+export class TagFilter extends Schema.Class<TagFilter>("TagFilter")({name: Schema.String, values: FilterValues}) {}
 export const TagFilters = Schema.Array(TagFilter);
-export const CustomerAgentInfo = Schema.Struct({activeAgents: Schema.Number, healthyAgents: Schema.Number, blackListedAgents: Schema.Number, shutdownAgents: Schema.Number, unhealthyAgents: Schema.Number, totalAgents: Schema.Number, unknownAgents: Schema.Number});
-export const CustomerConnectorInfo = Schema.Struct({activeConnectors: Schema.Number, healthyConnectors: Schema.Number, blackListedConnectors: Schema.Number, shutdownConnectors: Schema.Number, unhealthyConnectors: Schema.Number, totalConnectors: Schema.Number, unknownConnectors: Schema.Number});
-export const CustomerMeCollectorInfo = Schema.Struct({activeMeCollectors: Schema.Number, healthyMeCollectors: Schema.Number, denyListedMeCollectors: Schema.Number, shutdownMeCollectors: Schema.Number, unhealthyMeCollectors: Schema.Number, totalMeCollectors: Schema.Number, unknownMeCollectors: Schema.Number});
-export const CustomerAgentlessCollectorInfo = Schema.Struct({activeAgentlessCollectors: Schema.Number, healthyAgentlessCollectors: Schema.Number, denyListedAgentlessCollectors: Schema.Number, shutdownAgentlessCollectors: Schema.Number, unhealthyAgentlessCollectors: Schema.Number, totalAgentlessCollectors: Schema.Number, unknownAgentlessCollectors: Schema.Number});
-export const OrderByElement = Schema.Struct({fieldName: Schema.String, sortOrder: Schema.optional(Schema.String)});
+export class CustomerAgentInfo extends Schema.Class<CustomerAgentInfo>("CustomerAgentInfo")({activeAgents: Schema.Number, healthyAgents: Schema.Number, blackListedAgents: Schema.Number, shutdownAgents: Schema.Number, unhealthyAgents: Schema.Number, totalAgents: Schema.Number, unknownAgents: Schema.Number}) {}
+export class CustomerConnectorInfo extends Schema.Class<CustomerConnectorInfo>("CustomerConnectorInfo")({activeConnectors: Schema.Number, healthyConnectors: Schema.Number, blackListedConnectors: Schema.Number, shutdownConnectors: Schema.Number, unhealthyConnectors: Schema.Number, totalConnectors: Schema.Number, unknownConnectors: Schema.Number}) {}
+export class CustomerMeCollectorInfo extends Schema.Class<CustomerMeCollectorInfo>("CustomerMeCollectorInfo")({activeMeCollectors: Schema.Number, healthyMeCollectors: Schema.Number, denyListedMeCollectors: Schema.Number, shutdownMeCollectors: Schema.Number, unhealthyMeCollectors: Schema.Number, totalMeCollectors: Schema.Number, unknownMeCollectors: Schema.Number}) {}
+export class CustomerAgentlessCollectorInfo extends Schema.Class<CustomerAgentlessCollectorInfo>("CustomerAgentlessCollectorInfo")({activeAgentlessCollectors: Schema.Number, healthyAgentlessCollectors: Schema.Number, denyListedAgentlessCollectors: Schema.Number, shutdownAgentlessCollectors: Schema.Number, unhealthyAgentlessCollectors: Schema.Number, totalAgentlessCollectors: Schema.Number, unknownAgentlessCollectors: Schema.Number}) {}
+export class OrderByElement extends Schema.Class<OrderByElement>("OrderByElement")({fieldName: Schema.String, sortOrder: Schema.optional(Schema.String)}) {}
 export const OrderByList = Schema.Array(OrderByElement);
 export const SchemaStorageConfig = Schema.Record({key: Schema.String, value: Schema.String});
 export const ExcludedInstanceTypes = Schema.Array(Schema.String);
-export const AuthorizationErrorException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const BatchDeleteAgentsRequest = Schema.Struct({deleteAgents: DeleteAgents});
-export const CreateApplicationResponse = Schema.Struct({configurationId: Schema.optional(Schema.String)});
-export const CreateTagsRequest = Schema.Struct({configurationIds: ConfigurationIdList, tags: TagSet});
-export const CreateTagsResponse = Schema.Struct({});
-export const HomeRegionNotSetException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidParameterException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DescribeAgentsRequest = Schema.Struct({agentIds: Schema.optional(AgentIds), filters: Schema.optional(Filters), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const DescribeExportTasksRequest = Schema.Struct({exportIds: Schema.optional(ExportIds), filters: Schema.optional(ExportFilters), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const DescribeImportTasksRequest = Schema.Struct({filters: Schema.optional(DescribeImportTasksFilterList), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const DescribeTagsRequest = Schema.Struct({filters: Schema.optional(TagFilters), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const InvalidParameterValueException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const OperationNotPermittedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const GetDiscoverySummaryResponse = Schema.Struct({servers: Schema.optional(Schema.Number), applications: Schema.optional(Schema.Number), serversMappedToApplications: Schema.optional(Schema.Number), serversMappedtoTags: Schema.optional(Schema.Number), agentSummary: Schema.optional(CustomerAgentInfo), connectorSummary: Schema.optional(CustomerConnectorInfo), meCollectorSummary: Schema.optional(CustomerMeCollectorInfo), agentlessCollectorSummary: Schema.optional(CustomerAgentlessCollectorInfo)});
-export const ListConfigurationsRequest = Schema.Struct({configurationType: Schema.String, filters: Schema.optional(Filters), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String), orderBy: Schema.optional(OrderByList)});
-export const StartBatchDeleteConfigurationTaskResponse = Schema.Struct({taskId: Schema.optional(Schema.String)});
-export const StartContinuousExportResponse = Schema.Struct({exportId: Schema.optional(Schema.String), s3Bucket: Schema.optional(Schema.String), startTime: Schema.optional(Schema.Date), dataSource: Schema.optional(Schema.String), schemaStorageConfig: Schema.optional(SchemaStorageConfig)});
-export const StopContinuousExportResponse = Schema.Struct({startTime: Schema.optional(Schema.Date), stopTime: Schema.optional(Schema.Date)});
-export const AgentConfigurationStatus = Schema.Struct({agentId: Schema.optional(Schema.String), operationSucceeded: Schema.optional(Schema.Boolean), description: Schema.optional(Schema.String)});
+export class AuthorizationErrorException extends Schema.Class<AuthorizationErrorException>("AuthorizationErrorException")({message: Schema.optional(Schema.String)}) {}
+export class BatchDeleteAgentsRequest extends Schema.Class<BatchDeleteAgentsRequest>("BatchDeleteAgentsRequest")({deleteAgents: DeleteAgents}) {}
+export class CreateApplicationResponse extends Schema.Class<CreateApplicationResponse>("CreateApplicationResponse")({configurationId: Schema.optional(Schema.String)}) {}
+export class CreateTagsRequest extends Schema.Class<CreateTagsRequest>("CreateTagsRequest")({configurationIds: ConfigurationIdList, tags: TagSet}) {}
+export class CreateTagsResponse extends Schema.Class<CreateTagsResponse>("CreateTagsResponse")({}) {}
+export class HomeRegionNotSetException extends Schema.Class<HomeRegionNotSetException>("HomeRegionNotSetException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidParameterException extends Schema.Class<InvalidParameterException>("InvalidParameterException")({message: Schema.optional(Schema.String)}) {}
+export class DescribeAgentsRequest extends Schema.Class<DescribeAgentsRequest>("DescribeAgentsRequest")({agentIds: Schema.optional(AgentIds), filters: Schema.optional(Filters), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class DescribeExportTasksRequest extends Schema.Class<DescribeExportTasksRequest>("DescribeExportTasksRequest")({exportIds: Schema.optional(ExportIds), filters: Schema.optional(ExportFilters), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class DescribeImportTasksRequest extends Schema.Class<DescribeImportTasksRequest>("DescribeImportTasksRequest")({filters: Schema.optional(DescribeImportTasksFilterList), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class DescribeTagsRequest extends Schema.Class<DescribeTagsRequest>("DescribeTagsRequest")({filters: Schema.optional(TagFilters), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class InvalidParameterValueException extends Schema.Class<InvalidParameterValueException>("InvalidParameterValueException")({message: Schema.optional(Schema.String)}) {}
+export class OperationNotPermittedException extends Schema.Class<OperationNotPermittedException>("OperationNotPermittedException")({message: Schema.optional(Schema.String)}) {}
+export class GetDiscoverySummaryResponse extends Schema.Class<GetDiscoverySummaryResponse>("GetDiscoverySummaryResponse")({servers: Schema.optional(Schema.Number), applications: Schema.optional(Schema.Number), serversMappedToApplications: Schema.optional(Schema.Number), serversMappedtoTags: Schema.optional(Schema.Number), agentSummary: Schema.optional(CustomerAgentInfo), connectorSummary: Schema.optional(CustomerConnectorInfo), meCollectorSummary: Schema.optional(CustomerMeCollectorInfo), agentlessCollectorSummary: Schema.optional(CustomerAgentlessCollectorInfo)}) {}
+export class ListConfigurationsRequest extends Schema.Class<ListConfigurationsRequest>("ListConfigurationsRequest")({configurationType: Schema.String, filters: Schema.optional(Filters), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String), orderBy: Schema.optional(OrderByList)}) {}
+export class StartBatchDeleteConfigurationTaskResponse extends Schema.Class<StartBatchDeleteConfigurationTaskResponse>("StartBatchDeleteConfigurationTaskResponse")({taskId: Schema.optional(Schema.String)}) {}
+export class StartContinuousExportResponse extends Schema.Class<StartContinuousExportResponse>("StartContinuousExportResponse")({exportId: Schema.optional(Schema.String), s3Bucket: Schema.optional(Schema.String), startTime: Schema.optional(Schema.Date), dataSource: Schema.optional(Schema.String), schemaStorageConfig: Schema.optional(SchemaStorageConfig)}) {}
+export class StopContinuousExportResponse extends Schema.Class<StopContinuousExportResponse>("StopContinuousExportResponse")({startTime: Schema.optional(Schema.Date), stopTime: Schema.optional(Schema.Date)}) {}
+export class AgentConfigurationStatus extends Schema.Class<AgentConfigurationStatus>("AgentConfigurationStatus")({agentId: Schema.optional(Schema.String), operationSucceeded: Schema.optional(Schema.Boolean), description: Schema.optional(Schema.String)}) {}
 export const AgentConfigurationStatusList = Schema.Array(AgentConfigurationStatus);
-export const StopDataCollectionByAgentIdsResponse = Schema.Struct({agentsConfigurationStatus: Schema.optional(AgentConfigurationStatusList)});
-export const ServerInternalErrorException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const BatchDeleteImportDataError = Schema.Struct({importTaskId: Schema.optional(Schema.String), errorCode: Schema.optional(Schema.String), errorDescription: Schema.optional(Schema.String)});
+export class StopDataCollectionByAgentIdsResponse extends Schema.Class<StopDataCollectionByAgentIdsResponse>("StopDataCollectionByAgentIdsResponse")({agentsConfigurationStatus: Schema.optional(AgentConfigurationStatusList)}) {}
+export class ServerInternalErrorException extends Schema.Class<ServerInternalErrorException>("ServerInternalErrorException")({message: Schema.optional(Schema.String)}) {}
+export class BatchDeleteImportDataError extends Schema.Class<BatchDeleteImportDataError>("BatchDeleteImportDataError")({importTaskId: Schema.optional(Schema.String), errorCode: Schema.optional(Schema.String), errorDescription: Schema.optional(Schema.String)}) {}
 export const BatchDeleteImportDataErrorList = Schema.Array(BatchDeleteImportDataError);
 export const DescribeConfigurationsAttribute = Schema.Record({key: Schema.String, value: Schema.String});
 export const DescribeConfigurationsAttributes = Schema.Array(DescribeConfigurationsAttribute);
-export const ContinuousExportDescription = Schema.Struct({exportId: Schema.optional(Schema.String), status: Schema.optional(Schema.String), statusDetail: Schema.optional(Schema.String), s3Bucket: Schema.optional(Schema.String), startTime: Schema.optional(Schema.Date), stopTime: Schema.optional(Schema.Date), dataSource: Schema.optional(Schema.String), schemaStorageConfig: Schema.optional(SchemaStorageConfig)});
+export class ContinuousExportDescription extends Schema.Class<ContinuousExportDescription>("ContinuousExportDescription")({exportId: Schema.optional(Schema.String), status: Schema.optional(Schema.String), statusDetail: Schema.optional(Schema.String), s3Bucket: Schema.optional(Schema.String), startTime: Schema.optional(Schema.Date), stopTime: Schema.optional(Schema.Date), dataSource: Schema.optional(Schema.String), schemaStorageConfig: Schema.optional(SchemaStorageConfig)}) {}
 export const ContinuousExportDescriptions = Schema.Array(ContinuousExportDescription);
-export const ExportInfo = Schema.Struct({exportId: Schema.String, exportStatus: Schema.String, statusMessage: Schema.String, configurationsDownloadUrl: Schema.optional(Schema.String), exportRequestTime: Schema.Date, isTruncated: Schema.optional(Schema.Boolean), requestedStartTime: Schema.optional(Schema.Date), requestedEndTime: Schema.optional(Schema.Date)});
+export class ExportInfo extends Schema.Class<ExportInfo>("ExportInfo")({exportId: Schema.String, exportStatus: Schema.String, statusMessage: Schema.String, configurationsDownloadUrl: Schema.optional(Schema.String), exportRequestTime: Schema.Date, isTruncated: Schema.optional(Schema.Boolean), requestedStartTime: Schema.optional(Schema.Date), requestedEndTime: Schema.optional(Schema.Date)}) {}
 export const ExportsInfo = Schema.Array(ExportInfo);
-export const ImportTask = Schema.Struct({importTaskId: Schema.optional(Schema.String), clientRequestToken: Schema.optional(Schema.String), name: Schema.optional(Schema.String), importUrl: Schema.optional(Schema.String), status: Schema.optional(Schema.String), importRequestTime: Schema.optional(Schema.Date), importCompletionTime: Schema.optional(Schema.Date), importDeletedTime: Schema.optional(Schema.Date), fileClassification: Schema.optional(Schema.String), serverImportSuccess: Schema.optional(Schema.Number), serverImportFailure: Schema.optional(Schema.Number), applicationImportSuccess: Schema.optional(Schema.Number), applicationImportFailure: Schema.optional(Schema.Number), errorsAndFailedEntriesZip: Schema.optional(Schema.String)});
+export class ImportTask extends Schema.Class<ImportTask>("ImportTask")({importTaskId: Schema.optional(Schema.String), clientRequestToken: Schema.optional(Schema.String), name: Schema.optional(Schema.String), importUrl: Schema.optional(Schema.String), status: Schema.optional(Schema.String), importRequestTime: Schema.optional(Schema.Date), importCompletionTime: Schema.optional(Schema.Date), importDeletedTime: Schema.optional(Schema.Date), fileClassification: Schema.optional(Schema.String), serverImportSuccess: Schema.optional(Schema.Number), serverImportFailure: Schema.optional(Schema.Number), applicationImportSuccess: Schema.optional(Schema.Number), applicationImportFailure: Schema.optional(Schema.Number), errorsAndFailedEntriesZip: Schema.optional(Schema.String)}) {}
 export const ImportTaskList = Schema.Array(ImportTask);
-export const NeighborConnectionDetail = Schema.Struct({sourceServerId: Schema.String, destinationServerId: Schema.String, destinationPort: Schema.optional(Schema.Number), transportProtocol: Schema.optional(Schema.String), connectionsCount: Schema.Number});
+export class NeighborConnectionDetail extends Schema.Class<NeighborConnectionDetail>("NeighborConnectionDetail")({sourceServerId: Schema.String, destinationServerId: Schema.String, destinationPort: Schema.optional(Schema.Number), transportProtocol: Schema.optional(Schema.String), connectionsCount: Schema.Number}) {}
 export const NeighborDetailsList = Schema.Array(NeighborConnectionDetail);
-export const UsageMetricBasis = Schema.Struct({name: Schema.optional(Schema.String), percentageAdjust: Schema.optional(Schema.Number)});
-export const ReservedInstanceOptions = Schema.Struct({purchasingOption: Schema.String, offeringClass: Schema.String, termLength: Schema.String});
-export const BatchDeleteImportDataResponse = Schema.Struct({errors: Schema.optional(BatchDeleteImportDataErrorList)});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DescribeConfigurationsResponse = Schema.Struct({configurations: Schema.optional(DescribeConfigurationsAttributes)});
-export const DescribeContinuousExportsResponse = Schema.Struct({descriptions: Schema.optional(ContinuousExportDescriptions), nextToken: Schema.optional(Schema.String)});
-export const DescribeExportConfigurationsResponse = Schema.Struct({exportsInfo: Schema.optional(ExportsInfo), nextToken: Schema.optional(Schema.String)});
-export const DescribeExportTasksResponse = Schema.Struct({exportsInfo: Schema.optional(ExportsInfo), nextToken: Schema.optional(Schema.String)});
-export const DescribeImportTasksResponse = Schema.Struct({nextToken: Schema.optional(Schema.String), tasks: Schema.optional(ImportTaskList)});
-export const ListServerNeighborsResponse = Schema.Struct({neighbors: NeighborDetailsList, nextToken: Schema.optional(Schema.String), knownDependencyCount: Schema.optional(Schema.Number)});
-export const LimitExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ConflictErrorException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const StartDataCollectionByAgentIdsResponse = Schema.Struct({agentsConfigurationStatus: Schema.optional(AgentConfigurationStatusList)});
-export const StartImportTaskResponse = Schema.Struct({task: Schema.optional(ImportTask)});
-export const ResourceInUseException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const FailedConfiguration = Schema.Struct({configurationId: Schema.optional(Schema.String), errorStatusCode: Schema.optional(Schema.Number), errorMessage: Schema.optional(Schema.String)});
+export class UsageMetricBasis extends Schema.Class<UsageMetricBasis>("UsageMetricBasis")({name: Schema.optional(Schema.String), percentageAdjust: Schema.optional(Schema.Number)}) {}
+export class ReservedInstanceOptions extends Schema.Class<ReservedInstanceOptions>("ReservedInstanceOptions")({purchasingOption: Schema.String, offeringClass: Schema.String, termLength: Schema.String}) {}
+export class BatchDeleteImportDataResponse extends Schema.Class<BatchDeleteImportDataResponse>("BatchDeleteImportDataResponse")({errors: Schema.optional(BatchDeleteImportDataErrorList)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class DescribeConfigurationsResponse extends Schema.Class<DescribeConfigurationsResponse>("DescribeConfigurationsResponse")({configurations: Schema.optional(DescribeConfigurationsAttributes)}) {}
+export class DescribeContinuousExportsResponse extends Schema.Class<DescribeContinuousExportsResponse>("DescribeContinuousExportsResponse")({descriptions: Schema.optional(ContinuousExportDescriptions), nextToken: Schema.optional(Schema.String)}) {}
+export class DescribeExportConfigurationsResponse extends Schema.Class<DescribeExportConfigurationsResponse>("DescribeExportConfigurationsResponse")({exportsInfo: Schema.optional(ExportsInfo), nextToken: Schema.optional(Schema.String)}) {}
+export class DescribeExportTasksResponse extends Schema.Class<DescribeExportTasksResponse>("DescribeExportTasksResponse")({exportsInfo: Schema.optional(ExportsInfo), nextToken: Schema.optional(Schema.String)}) {}
+export class DescribeImportTasksResponse extends Schema.Class<DescribeImportTasksResponse>("DescribeImportTasksResponse")({nextToken: Schema.optional(Schema.String), tasks: Schema.optional(ImportTaskList)}) {}
+export class ListServerNeighborsResponse extends Schema.Class<ListServerNeighborsResponse>("ListServerNeighborsResponse")({neighbors: NeighborDetailsList, nextToken: Schema.optional(Schema.String), knownDependencyCount: Schema.optional(Schema.Number)}) {}
+export class LimitExceededException extends Schema.Class<LimitExceededException>("LimitExceededException")({message: Schema.optional(Schema.String)}) {}
+export class ConflictErrorException extends Schema.Class<ConflictErrorException>("ConflictErrorException")({message: Schema.optional(Schema.String)}) {}
+export class StartDataCollectionByAgentIdsResponse extends Schema.Class<StartDataCollectionByAgentIdsResponse>("StartDataCollectionByAgentIdsResponse")({agentsConfigurationStatus: Schema.optional(AgentConfigurationStatusList)}) {}
+export class StartImportTaskResponse extends Schema.Class<StartImportTaskResponse>("StartImportTaskResponse")({task: Schema.optional(ImportTask)}) {}
+export class ResourceInUseException extends Schema.Class<ResourceInUseException>("ResourceInUseException")({message: Schema.optional(Schema.String)}) {}
+export class FailedConfiguration extends Schema.Class<FailedConfiguration>("FailedConfiguration")({configurationId: Schema.optional(Schema.String), errorStatusCode: Schema.optional(Schema.Number), errorMessage: Schema.optional(Schema.String)}) {}
 export const FailedConfigurationList = Schema.Array(FailedConfiguration);
-export const DeletionWarning = Schema.Struct({configurationId: Schema.optional(Schema.String), warningCode: Schema.optional(Schema.Number), warningText: Schema.optional(Schema.String)});
+export class DeletionWarning extends Schema.Class<DeletionWarning>("DeletionWarning")({configurationId: Schema.optional(Schema.String), warningCode: Schema.optional(Schema.Number), warningText: Schema.optional(Schema.String)}) {}
 export const DeletionWarningsList = Schema.Array(DeletionWarning);
-export const Ec2RecommendationsExportPreferences = Schema.Struct({enabled: Schema.optional(Schema.Boolean), cpuPerformanceMetricBasis: Schema.optional(UsageMetricBasis), ramPerformanceMetricBasis: Schema.optional(UsageMetricBasis), tenancy: Schema.optional(Schema.String), excludedInstanceTypes: Schema.optional(ExcludedInstanceTypes), preferredRegion: Schema.optional(Schema.String), reservedInstanceOptions: Schema.optional(ReservedInstanceOptions)});
-export const BatchDeleteAgentError = Schema.Struct({agentId: Schema.String, errorMessage: Schema.String, errorCode: Schema.String});
+export class Ec2RecommendationsExportPreferences extends Schema.Class<Ec2RecommendationsExportPreferences>("Ec2RecommendationsExportPreferences")({enabled: Schema.optional(Schema.Boolean), cpuPerformanceMetricBasis: Schema.optional(UsageMetricBasis), ramPerformanceMetricBasis: Schema.optional(UsageMetricBasis), tenancy: Schema.optional(Schema.String), excludedInstanceTypes: Schema.optional(ExcludedInstanceTypes), preferredRegion: Schema.optional(Schema.String), reservedInstanceOptions: Schema.optional(ReservedInstanceOptions)}) {}
+export class BatchDeleteAgentError extends Schema.Class<BatchDeleteAgentError>("BatchDeleteAgentError")({agentId: Schema.String, errorMessage: Schema.String, errorCode: Schema.String}) {}
 export const BatchDeleteAgentErrors = Schema.Array(BatchDeleteAgentError);
-export const BatchDeleteConfigurationTask = Schema.Struct({taskId: Schema.optional(Schema.String), status: Schema.optional(Schema.String), startTime: Schema.optional(Schema.Date), endTime: Schema.optional(Schema.Date), configurationType: Schema.optional(Schema.String), requestedConfigurations: Schema.optional(ConfigurationIdList), deletedConfigurations: Schema.optional(ConfigurationIdList), failedConfigurations: Schema.optional(FailedConfigurationList), deletionWarnings: Schema.optional(DeletionWarningsList)});
-export const ConfigurationTag = Schema.Struct({configurationType: Schema.optional(Schema.String), configurationId: Schema.optional(Schema.String), key: Schema.optional(Schema.String), value: Schema.optional(Schema.String), timeOfCreation: Schema.optional(Schema.Date)});
+export class BatchDeleteConfigurationTask extends Schema.Class<BatchDeleteConfigurationTask>("BatchDeleteConfigurationTask")({taskId: Schema.optional(Schema.String), status: Schema.optional(Schema.String), startTime: Schema.optional(Schema.Date), endTime: Schema.optional(Schema.Date), configurationType: Schema.optional(Schema.String), requestedConfigurations: Schema.optional(ConfigurationIdList), deletedConfigurations: Schema.optional(ConfigurationIdList), failedConfigurations: Schema.optional(FailedConfigurationList), deletionWarnings: Schema.optional(DeletionWarningsList)}) {}
+export class ConfigurationTag extends Schema.Class<ConfigurationTag>("ConfigurationTag")({configurationType: Schema.optional(Schema.String), configurationId: Schema.optional(Schema.String), key: Schema.optional(Schema.String), value: Schema.optional(Schema.String), timeOfCreation: Schema.optional(Schema.Date)}) {}
 export const ConfigurationTagSet = Schema.Array(ConfigurationTag);
 export const Configuration = Schema.Record({key: Schema.String, value: Schema.String});
 export const Configurations = Schema.Array(Configuration);
 export const ExportPreferences = Schema.Union(Ec2RecommendationsExportPreferences);
-export const BatchDeleteAgentsResponse = Schema.Struct({errors: Schema.optional(BatchDeleteAgentErrors)});
-export const DescribeBatchDeleteConfigurationTaskResponse = Schema.Struct({task: Schema.optional(BatchDeleteConfigurationTask)});
-export const DescribeTagsResponse = Schema.Struct({tags: Schema.optional(ConfigurationTagSet), nextToken: Schema.optional(Schema.String)});
-export const ListConfigurationsResponse = Schema.Struct({configurations: Schema.optional(Configurations), nextToken: Schema.optional(Schema.String)});
-export const StartExportTaskRequest = Schema.Struct({exportDataFormat: Schema.optional(ExportDataFormats), filters: Schema.optional(ExportFilters), startTime: Schema.optional(Schema.Date), endTime: Schema.optional(Schema.Date), preferences: Schema.optional(ExportPreferences)});
-export const AgentNetworkInfo = Schema.Struct({ipAddress: Schema.optional(Schema.String), macAddress: Schema.optional(Schema.String)});
+export class BatchDeleteAgentsResponse extends Schema.Class<BatchDeleteAgentsResponse>("BatchDeleteAgentsResponse")({errors: Schema.optional(BatchDeleteAgentErrors)}) {}
+export class DescribeBatchDeleteConfigurationTaskResponse extends Schema.Class<DescribeBatchDeleteConfigurationTaskResponse>("DescribeBatchDeleteConfigurationTaskResponse")({task: Schema.optional(BatchDeleteConfigurationTask)}) {}
+export class DescribeTagsResponse extends Schema.Class<DescribeTagsResponse>("DescribeTagsResponse")({tags: Schema.optional(ConfigurationTagSet), nextToken: Schema.optional(Schema.String)}) {}
+export class ListConfigurationsResponse extends Schema.Class<ListConfigurationsResponse>("ListConfigurationsResponse")({configurations: Schema.optional(Configurations), nextToken: Schema.optional(Schema.String)}) {}
+export class StartExportTaskRequest extends Schema.Class<StartExportTaskRequest>("StartExportTaskRequest")({exportDataFormat: Schema.optional(ExportDataFormats), filters: Schema.optional(ExportFilters), startTime: Schema.optional(Schema.Date), endTime: Schema.optional(Schema.Date), preferences: Schema.optional(ExportPreferences)}) {}
+export class AgentNetworkInfo extends Schema.Class<AgentNetworkInfo>("AgentNetworkInfo")({ipAddress: Schema.optional(Schema.String), macAddress: Schema.optional(Schema.String)}) {}
 export const AgentNetworkInfoList = Schema.Array(AgentNetworkInfo);
-export const AgentInfo = Schema.Struct({agentId: Schema.optional(Schema.String), hostName: Schema.optional(Schema.String), agentNetworkInfoList: Schema.optional(AgentNetworkInfoList), connectorId: Schema.optional(Schema.String), version: Schema.optional(Schema.String), health: Schema.optional(Schema.String), lastHealthPingTime: Schema.optional(Schema.String), collectionStatus: Schema.optional(Schema.String), agentType: Schema.optional(Schema.String), registeredTime: Schema.optional(Schema.String)});
+export class AgentInfo extends Schema.Class<AgentInfo>("AgentInfo")({agentId: Schema.optional(Schema.String), hostName: Schema.optional(Schema.String), agentNetworkInfoList: Schema.optional(AgentNetworkInfoList), connectorId: Schema.optional(Schema.String), version: Schema.optional(Schema.String), health: Schema.optional(Schema.String), lastHealthPingTime: Schema.optional(Schema.String), collectionStatus: Schema.optional(Schema.String), agentType: Schema.optional(Schema.String), registeredTime: Schema.optional(Schema.String)}) {}
 export const AgentsInfo = Schema.Array(AgentInfo);
-export const DescribeAgentsResponse = Schema.Struct({agentsInfo: Schema.optional(AgentsInfo), nextToken: Schema.optional(Schema.String)});
-export const StartExportTaskResponse = Schema.Struct({exportId: Schema.optional(Schema.String)});
+export class DescribeAgentsResponse extends Schema.Class<DescribeAgentsResponse>("DescribeAgentsResponse")({agentsInfo: Schema.optional(AgentsInfo), nextToken: Schema.optional(Schema.String)}) {}
+export class StartExportTaskResponse extends Schema.Class<StartExportTaskResponse>("StartExportTaskResponse")({exportId: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class AuthorizationErrorExceptionError extends Schema.TaggedError<AuthorizationErrorExceptionError>()("AuthorizationErrorException", AuthorizationErrorException) {};
-export class HomeRegionNotSetExceptionError extends Schema.TaggedError<HomeRegionNotSetExceptionError>()("HomeRegionNotSetException", HomeRegionNotSetException) {};
-export class InvalidParameterExceptionError extends Schema.TaggedError<InvalidParameterExceptionError>()("InvalidParameterException", InvalidParameterException) {};
-export class InvalidParameterValueExceptionError extends Schema.TaggedError<InvalidParameterValueExceptionError>()("InvalidParameterValueException", InvalidParameterValueException) {};
-export class ServerInternalErrorExceptionError extends Schema.TaggedError<ServerInternalErrorExceptionError>()("ServerInternalErrorException", ServerInternalErrorException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class OperationNotPermittedExceptionError extends Schema.TaggedError<OperationNotPermittedExceptionError>()("OperationNotPermittedException", OperationNotPermittedException) {};
-export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException) {};
-export class ConflictErrorExceptionError extends Schema.TaggedError<ConflictErrorExceptionError>()("ConflictErrorException", ConflictErrorException) {};
-export class ResourceInUseExceptionError extends Schema.TaggedError<ResourceInUseExceptionError>()("ResourceInUseException", ResourceInUseException) {};
+export class AuthorizationErrorExceptionError extends Schema.TaggedError<AuthorizationErrorExceptionError>()("AuthorizationErrorException", AuthorizationErrorException.fields) {};
+export class HomeRegionNotSetExceptionError extends Schema.TaggedError<HomeRegionNotSetExceptionError>()("HomeRegionNotSetException", HomeRegionNotSetException.fields) {};
+export class InvalidParameterExceptionError extends Schema.TaggedError<InvalidParameterExceptionError>()("InvalidParameterException", InvalidParameterException.fields) {};
+export class InvalidParameterValueExceptionError extends Schema.TaggedError<InvalidParameterValueExceptionError>()("InvalidParameterValueException", InvalidParameterValueException.fields) {};
+export class ServerInternalErrorExceptionError extends Schema.TaggedError<ServerInternalErrorExceptionError>()("ServerInternalErrorException", ServerInternalErrorException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class OperationNotPermittedExceptionError extends Schema.TaggedError<OperationNotPermittedExceptionError>()("OperationNotPermittedException", OperationNotPermittedException.fields) {};
+export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException.fields) {};
+export class ConflictErrorExceptionError extends Schema.TaggedError<ConflictErrorExceptionError>()("ConflictErrorException", ConflictErrorException.fields) {};
+export class ResourceInUseExceptionError extends Schema.TaggedError<ResourceInUseExceptionError>()("ResourceInUseException", ResourceInUseException.fields) {};
 
 //# Operations
 export const associateConfigurationItemsToApplication = /*#__PURE__*/ makeOperation(() => Operation({ version: "2015-11-01", uri: "/", method: "POST", sdkId: "Application Discovery Service", sigV4ServiceName: "discovery", name: "AWSPoseidonService_V2015_11_01.AssociateConfigurationItemsToApplication" }, AssociateConfigurationItemsToApplicationRequest, AssociateConfigurationItemsToApplicationResponse, [AuthorizationErrorExceptionError, HomeRegionNotSetExceptionError, InvalidParameterExceptionError, InvalidParameterValueExceptionError, ServerInternalErrorExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

@@ -5,107 +5,107 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 //# Schemas
 export const FilePaths = Schema.Array(Schema.String);
 export const TagKeys = Schema.Array(Schema.String);
-export const DeleteAccessRequest = Schema.Struct({ServerId: Schema.String, ExternalId: Schema.String});
-export const DeleteHostKeyRequest = Schema.Struct({ServerId: Schema.String, HostKeyId: Schema.String});
-export const DeleteSshPublicKeyRequest = Schema.Struct({ServerId: Schema.String, SshPublicKeyId: Schema.String, UserName: Schema.String});
-export const DescribeAccessRequest = Schema.Struct({ServerId: Schema.String, ExternalId: Schema.String});
-export const DescribeExecutionRequest = Schema.Struct({ExecutionId: Schema.String, WorkflowId: Schema.String});
-export const DescribeHostKeyRequest = Schema.Struct({ServerId: Schema.String, HostKeyId: Schema.String});
-export const DescribeSecurityPolicyRequest = Schema.Struct({SecurityPolicyName: Schema.String});
-export const ImportSshPublicKeyRequest = Schema.Struct({ServerId: Schema.String, SshPublicKeyBody: Schema.String, UserName: Schema.String});
-export const ListAccessesRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), ServerId: Schema.String});
-export const ListExecutionsRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), WorkflowId: Schema.String});
-export const ListFileTransferResultsRequest = Schema.Struct({ConnectorId: Schema.String, TransferId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListHostKeysRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), ServerId: Schema.String});
-export const ListSecurityPoliciesRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceRequest = Schema.Struct({Arn: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const SendWorkflowStepStateRequest = Schema.Struct({WorkflowId: Schema.String, ExecutionId: Schema.String, Token: Schema.String, Status: Schema.String});
-export const SendWorkflowStepStateResponse = Schema.Struct({});
-export const StartDirectoryListingRequest = Schema.Struct({ConnectorId: Schema.String, RemoteDirectoryPath: Schema.String, MaxItems: Schema.optional(Schema.Number), OutputDirectoryPath: Schema.String});
-export const StartFileTransferRequest = Schema.Struct({ConnectorId: Schema.String, SendFilePaths: Schema.optional(FilePaths), RetrieveFilePaths: Schema.optional(FilePaths), LocalDirectoryPath: Schema.optional(Schema.String), RemoteDirectoryPath: Schema.optional(Schema.String)});
-export const StartRemoteDeleteRequest = Schema.Struct({ConnectorId: Schema.String, DeletePath: Schema.String});
-export const StartRemoteMoveRequest = Schema.Struct({ConnectorId: Schema.String, SourcePath: Schema.String, TargetPath: Schema.String});
-export const StartServerRequest = Schema.Struct({ServerId: Schema.String});
-export const StopServerRequest = Schema.Struct({ServerId: Schema.String});
-export const Tag = Schema.Struct({Key: Schema.String, Value: Schema.String});
+export class DeleteAccessRequest extends Schema.Class<DeleteAccessRequest>("DeleteAccessRequest")({ServerId: Schema.String, ExternalId: Schema.String}) {}
+export class DeleteHostKeyRequest extends Schema.Class<DeleteHostKeyRequest>("DeleteHostKeyRequest")({ServerId: Schema.String, HostKeyId: Schema.String}) {}
+export class DeleteSshPublicKeyRequest extends Schema.Class<DeleteSshPublicKeyRequest>("DeleteSshPublicKeyRequest")({ServerId: Schema.String, SshPublicKeyId: Schema.String, UserName: Schema.String}) {}
+export class DescribeAccessRequest extends Schema.Class<DescribeAccessRequest>("DescribeAccessRequest")({ServerId: Schema.String, ExternalId: Schema.String}) {}
+export class DescribeExecutionRequest extends Schema.Class<DescribeExecutionRequest>("DescribeExecutionRequest")({ExecutionId: Schema.String, WorkflowId: Schema.String}) {}
+export class DescribeHostKeyRequest extends Schema.Class<DescribeHostKeyRequest>("DescribeHostKeyRequest")({ServerId: Schema.String, HostKeyId: Schema.String}) {}
+export class DescribeSecurityPolicyRequest extends Schema.Class<DescribeSecurityPolicyRequest>("DescribeSecurityPolicyRequest")({SecurityPolicyName: Schema.String}) {}
+export class ImportSshPublicKeyRequest extends Schema.Class<ImportSshPublicKeyRequest>("ImportSshPublicKeyRequest")({ServerId: Schema.String, SshPublicKeyBody: Schema.String, UserName: Schema.String}) {}
+export class ListAccessesRequest extends Schema.Class<ListAccessesRequest>("ListAccessesRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), ServerId: Schema.String}) {}
+export class ListExecutionsRequest extends Schema.Class<ListExecutionsRequest>("ListExecutionsRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), WorkflowId: Schema.String}) {}
+export class ListFileTransferResultsRequest extends Schema.Class<ListFileTransferResultsRequest>("ListFileTransferResultsRequest")({ConnectorId: Schema.String, TransferId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListHostKeysRequest extends Schema.Class<ListHostKeysRequest>("ListHostKeysRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), ServerId: Schema.String}) {}
+export class ListSecurityPoliciesRequest extends Schema.Class<ListSecurityPoliciesRequest>("ListSecurityPoliciesRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({Arn: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class SendWorkflowStepStateRequest extends Schema.Class<SendWorkflowStepStateRequest>("SendWorkflowStepStateRequest")({WorkflowId: Schema.String, ExecutionId: Schema.String, Token: Schema.String, Status: Schema.String}) {}
+export class SendWorkflowStepStateResponse extends Schema.Class<SendWorkflowStepStateResponse>("SendWorkflowStepStateResponse")({}) {}
+export class StartDirectoryListingRequest extends Schema.Class<StartDirectoryListingRequest>("StartDirectoryListingRequest")({ConnectorId: Schema.String, RemoteDirectoryPath: Schema.String, MaxItems: Schema.optional(Schema.Number), OutputDirectoryPath: Schema.String}) {}
+export class StartFileTransferRequest extends Schema.Class<StartFileTransferRequest>("StartFileTransferRequest")({ConnectorId: Schema.String, SendFilePaths: Schema.optional(FilePaths), RetrieveFilePaths: Schema.optional(FilePaths), LocalDirectoryPath: Schema.optional(Schema.String), RemoteDirectoryPath: Schema.optional(Schema.String)}) {}
+export class StartRemoteDeleteRequest extends Schema.Class<StartRemoteDeleteRequest>("StartRemoteDeleteRequest")({ConnectorId: Schema.String, DeletePath: Schema.String}) {}
+export class StartRemoteMoveRequest extends Schema.Class<StartRemoteMoveRequest>("StartRemoteMoveRequest")({ConnectorId: Schema.String, SourcePath: Schema.String, TargetPath: Schema.String}) {}
+export class StartServerRequest extends Schema.Class<StartServerRequest>("StartServerRequest")({ServerId: Schema.String}) {}
+export class StopServerRequest extends Schema.Class<StopServerRequest>("StopServerRequest")({ServerId: Schema.String}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.String, Value: Schema.String}) {}
 export const Tags = Schema.Array(Tag);
-export const TagResourceRequest = Schema.Struct({Arn: Schema.String, Tags: Tags});
-export const TestConnectionRequest = Schema.Struct({ConnectorId: Schema.String});
-export const TestIdentityProviderRequest = Schema.Struct({ServerId: Schema.String, ServerProtocol: Schema.optional(Schema.String), SourceIp: Schema.optional(Schema.String), UserName: Schema.String, UserPassword: Schema.optional(Schema.String)});
-export const UntagResourceRequest = Schema.Struct({Arn: Schema.String, TagKeys: TagKeys});
-export const HomeDirectoryMapEntry = Schema.Struct({Entry: Schema.String, Target: Schema.String, Type: Schema.optional(Schema.String)});
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({Arn: Schema.String, Tags: Tags}) {}
+export class TestConnectionRequest extends Schema.Class<TestConnectionRequest>("TestConnectionRequest")({ConnectorId: Schema.String}) {}
+export class TestIdentityProviderRequest extends Schema.Class<TestIdentityProviderRequest>("TestIdentityProviderRequest")({ServerId: Schema.String, ServerProtocol: Schema.optional(Schema.String), SourceIp: Schema.optional(Schema.String), UserName: Schema.String, UserPassword: Schema.optional(Schema.String)}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({Arn: Schema.String, TagKeys: TagKeys}) {}
+export class HomeDirectoryMapEntry extends Schema.Class<HomeDirectoryMapEntry>("HomeDirectoryMapEntry")({Entry: Schema.String, Target: Schema.String, Type: Schema.optional(Schema.String)}) {}
 export const HomeDirectoryMappings = Schema.Array(HomeDirectoryMapEntry);
 export const SecondaryGids = Schema.Array(Schema.Number);
-export const PosixProfile = Schema.Struct({Uid: Schema.Number, Gid: Schema.Number, SecondaryGids: Schema.optional(SecondaryGids)});
-export const UpdateAccessRequest = Schema.Struct({HomeDirectory: Schema.optional(Schema.String), HomeDirectoryType: Schema.optional(Schema.String), HomeDirectoryMappings: Schema.optional(HomeDirectoryMappings), Policy: Schema.optional(Schema.String), PosixProfile: Schema.optional(PosixProfile), Role: Schema.optional(Schema.String), ServerId: Schema.String, ExternalId: Schema.String});
-export const UpdateHostKeyRequest = Schema.Struct({ServerId: Schema.String, HostKeyId: Schema.String, Description: Schema.String});
+export class PosixProfile extends Schema.Class<PosixProfile>("PosixProfile")({Uid: Schema.Number, Gid: Schema.Number, SecondaryGids: Schema.optional(SecondaryGids)}) {}
+export class UpdateAccessRequest extends Schema.Class<UpdateAccessRequest>("UpdateAccessRequest")({HomeDirectory: Schema.optional(Schema.String), HomeDirectoryType: Schema.optional(Schema.String), HomeDirectoryMappings: Schema.optional(HomeDirectoryMappings), Policy: Schema.optional(Schema.String), PosixProfile: Schema.optional(PosixProfile), Role: Schema.optional(Schema.String), ServerId: Schema.String, ExternalId: Schema.String}) {}
+export class UpdateHostKeyRequest extends Schema.Class<UpdateHostKeyRequest>("UpdateHostKeyRequest")({ServerId: Schema.String, HostKeyId: Schema.String, Description: Schema.String}) {}
 export const SecurityPolicyNames = Schema.Array(Schema.String);
-export const CreateAccessRequest = Schema.Struct({HomeDirectory: Schema.optional(Schema.String), HomeDirectoryType: Schema.optional(Schema.String), HomeDirectoryMappings: Schema.optional(HomeDirectoryMappings), Policy: Schema.optional(Schema.String), PosixProfile: Schema.optional(PosixProfile), Role: Schema.String, ServerId: Schema.String, ExternalId: Schema.String});
-export const InternalServiceError = Schema.Struct({Message: Schema.String});
-export const InvalidRequestException = Schema.Struct({Message: Schema.String});
-export const ResourceNotFoundException = Schema.Struct({Message: Schema.String, Resource: Schema.String, ResourceType: Schema.String});
-export const ImportHostKeyRequest = Schema.Struct({ServerId: Schema.String, HostKeyBody: Schema.String, Description: Schema.optional(Schema.String), Tags: Schema.optional(Tags)});
-export const ImportSshPublicKeyResponse = Schema.Struct({ServerId: Schema.String, SshPublicKeyId: Schema.String, UserName: Schema.String});
-export const ListSecurityPoliciesResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), SecurityPolicyNames: SecurityPolicyNames});
-export const ListTagsForResourceResponse = Schema.Struct({Arn: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), Tags: Schema.optional(Tags)});
-export const AccessDeniedException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const StartDirectoryListingResponse = Schema.Struct({ListingId: Schema.String, OutputFileName: Schema.String});
-export const StartFileTransferResponse = Schema.Struct({TransferId: Schema.String});
-export const StartRemoteDeleteResponse = Schema.Struct({DeleteId: Schema.String});
-export const StartRemoteMoveResponse = Schema.Struct({MoveId: Schema.String});
-export const ServiceUnavailableException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ThrottlingException = Schema.Struct({RetryAfterSeconds: Schema.optional(Header("Retry-After"))});
-export const TestIdentityProviderResponse = Schema.Struct({Response: Schema.optional(Schema.String), StatusCode: Schema.Number, Message: Schema.optional(Schema.String), Url: Schema.String});
-export const UpdateAccessResponse = Schema.Struct({ServerId: Schema.String, ExternalId: Schema.String});
-export const UpdateHostKeyResponse = Schema.Struct({ServerId: Schema.String, HostKeyId: Schema.String});
+export class CreateAccessRequest extends Schema.Class<CreateAccessRequest>("CreateAccessRequest")({HomeDirectory: Schema.optional(Schema.String), HomeDirectoryType: Schema.optional(Schema.String), HomeDirectoryMappings: Schema.optional(HomeDirectoryMappings), Policy: Schema.optional(Schema.String), PosixProfile: Schema.optional(PosixProfile), Role: Schema.String, ServerId: Schema.String, ExternalId: Schema.String}) {}
+export class InternalServiceError extends Schema.Class<InternalServiceError>("InternalServiceError")({Message: Schema.String}) {}
+export class InvalidRequestException extends Schema.Class<InvalidRequestException>("InvalidRequestException")({Message: Schema.String}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({Message: Schema.String, Resource: Schema.String, ResourceType: Schema.String}) {}
+export class ImportHostKeyRequest extends Schema.Class<ImportHostKeyRequest>("ImportHostKeyRequest")({ServerId: Schema.String, HostKeyBody: Schema.String, Description: Schema.optional(Schema.String), Tags: Schema.optional(Tags)}) {}
+export class ImportSshPublicKeyResponse extends Schema.Class<ImportSshPublicKeyResponse>("ImportSshPublicKeyResponse")({ServerId: Schema.String, SshPublicKeyId: Schema.String, UserName: Schema.String}) {}
+export class ListSecurityPoliciesResponse extends Schema.Class<ListSecurityPoliciesResponse>("ListSecurityPoliciesResponse")({NextToken: Schema.optional(Schema.String), SecurityPolicyNames: SecurityPolicyNames}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({Arn: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), Tags: Schema.optional(Tags)}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({Message: Schema.optional(Schema.String)}) {}
+export class StartDirectoryListingResponse extends Schema.Class<StartDirectoryListingResponse>("StartDirectoryListingResponse")({ListingId: Schema.String, OutputFileName: Schema.String}) {}
+export class StartFileTransferResponse extends Schema.Class<StartFileTransferResponse>("StartFileTransferResponse")({TransferId: Schema.String}) {}
+export class StartRemoteDeleteResponse extends Schema.Class<StartRemoteDeleteResponse>("StartRemoteDeleteResponse")({DeleteId: Schema.String}) {}
+export class StartRemoteMoveResponse extends Schema.Class<StartRemoteMoveResponse>("StartRemoteMoveResponse")({MoveId: Schema.String}) {}
+export class ServiceUnavailableException extends Schema.Class<ServiceUnavailableException>("ServiceUnavailableException")({Message: Schema.optional(Schema.String)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({RetryAfterSeconds: Schema.optional(Header("Retry-After"))}) {}
+export class TestIdentityProviderResponse extends Schema.Class<TestIdentityProviderResponse>("TestIdentityProviderResponse")({Response: Schema.optional(Schema.String), StatusCode: Schema.Number, Message: Schema.optional(Schema.String), Url: Schema.String}) {}
+export class UpdateAccessResponse extends Schema.Class<UpdateAccessResponse>("UpdateAccessResponse")({ServerId: Schema.String, ExternalId: Schema.String}) {}
+export class UpdateHostKeyResponse extends Schema.Class<UpdateHostKeyResponse>("UpdateHostKeyResponse")({ServerId: Schema.String, HostKeyId: Schema.String}) {}
 export const SecurityPolicyOptions = Schema.Array(Schema.String);
 export const SecurityPolicyProtocols = Schema.Array(Schema.String);
-export const DescribedAccess = Schema.Struct({HomeDirectory: Schema.optional(Schema.String), HomeDirectoryMappings: Schema.optional(HomeDirectoryMappings), HomeDirectoryType: Schema.optional(Schema.String), Policy: Schema.optional(Schema.String), PosixProfile: Schema.optional(PosixProfile), Role: Schema.optional(Schema.String), ExternalId: Schema.optional(Schema.String)});
-export const DescribedHostKey = Schema.Struct({Arn: Schema.String, HostKeyId: Schema.optional(Schema.String), HostKeyFingerprint: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), DateImported: Schema.optional(Schema.Date), Tags: Schema.optional(Tags)});
-export const DescribedSecurityPolicy = Schema.Struct({Fips: Schema.optional(Schema.Boolean), SecurityPolicyName: Schema.String, SshCiphers: Schema.optional(SecurityPolicyOptions), SshKexs: Schema.optional(SecurityPolicyOptions), SshMacs: Schema.optional(SecurityPolicyOptions), TlsCiphers: Schema.optional(SecurityPolicyOptions), SshHostKeyAlgorithms: Schema.optional(SecurityPolicyOptions), Type: Schema.optional(Schema.String), Protocols: Schema.optional(SecurityPolicyProtocols)});
-export const ListedAccess = Schema.Struct({HomeDirectory: Schema.optional(Schema.String), HomeDirectoryType: Schema.optional(Schema.String), Role: Schema.optional(Schema.String), ExternalId: Schema.optional(Schema.String)});
+export class DescribedAccess extends Schema.Class<DescribedAccess>("DescribedAccess")({HomeDirectory: Schema.optional(Schema.String), HomeDirectoryMappings: Schema.optional(HomeDirectoryMappings), HomeDirectoryType: Schema.optional(Schema.String), Policy: Schema.optional(Schema.String), PosixProfile: Schema.optional(PosixProfile), Role: Schema.optional(Schema.String), ExternalId: Schema.optional(Schema.String)}) {}
+export class DescribedHostKey extends Schema.Class<DescribedHostKey>("DescribedHostKey")({Arn: Schema.String, HostKeyId: Schema.optional(Schema.String), HostKeyFingerprint: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), DateImported: Schema.optional(Schema.Date), Tags: Schema.optional(Tags)}) {}
+export class DescribedSecurityPolicy extends Schema.Class<DescribedSecurityPolicy>("DescribedSecurityPolicy")({Fips: Schema.optional(Schema.Boolean), SecurityPolicyName: Schema.String, SshCiphers: Schema.optional(SecurityPolicyOptions), SshKexs: Schema.optional(SecurityPolicyOptions), SshMacs: Schema.optional(SecurityPolicyOptions), TlsCiphers: Schema.optional(SecurityPolicyOptions), SshHostKeyAlgorithms: Schema.optional(SecurityPolicyOptions), Type: Schema.optional(Schema.String), Protocols: Schema.optional(SecurityPolicyProtocols)}) {}
+export class ListedAccess extends Schema.Class<ListedAccess>("ListedAccess")({HomeDirectory: Schema.optional(Schema.String), HomeDirectoryType: Schema.optional(Schema.String), Role: Schema.optional(Schema.String), ExternalId: Schema.optional(Schema.String)}) {}
 export const ListedAccesses = Schema.Array(ListedAccess);
-export const S3FileLocation = Schema.Struct({Bucket: Schema.optional(Schema.String), Key: Schema.optional(Schema.String), VersionId: Schema.optional(Schema.String), Etag: Schema.optional(Schema.String)});
-export const EfsFileLocation = Schema.Struct({FileSystemId: Schema.optional(Schema.String), Path: Schema.optional(Schema.String)});
-export const FileLocation = Schema.Struct({S3FileLocation: Schema.optional(S3FileLocation), EfsFileLocation: Schema.optional(EfsFileLocation)});
-export const UserDetails = Schema.Struct({UserName: Schema.String, ServerId: Schema.String, SessionId: Schema.optional(Schema.String)});
-export const ServiceMetadata = Schema.Struct({UserDetails: UserDetails});
-export const ListedExecution = Schema.Struct({ExecutionId: Schema.optional(Schema.String), InitialFileLocation: Schema.optional(FileLocation), ServiceMetadata: Schema.optional(ServiceMetadata), Status: Schema.optional(Schema.String)});
+export class S3FileLocation extends Schema.Class<S3FileLocation>("S3FileLocation")({Bucket: Schema.optional(Schema.String), Key: Schema.optional(Schema.String), VersionId: Schema.optional(Schema.String), Etag: Schema.optional(Schema.String)}) {}
+export class EfsFileLocation extends Schema.Class<EfsFileLocation>("EfsFileLocation")({FileSystemId: Schema.optional(Schema.String), Path: Schema.optional(Schema.String)}) {}
+export class FileLocation extends Schema.Class<FileLocation>("FileLocation")({S3FileLocation: Schema.optional(S3FileLocation), EfsFileLocation: Schema.optional(EfsFileLocation)}) {}
+export class UserDetails extends Schema.Class<UserDetails>("UserDetails")({UserName: Schema.String, ServerId: Schema.String, SessionId: Schema.optional(Schema.String)}) {}
+export class ServiceMetadata extends Schema.Class<ServiceMetadata>("ServiceMetadata")({UserDetails: UserDetails}) {}
+export class ListedExecution extends Schema.Class<ListedExecution>("ListedExecution")({ExecutionId: Schema.optional(Schema.String), InitialFileLocation: Schema.optional(FileLocation), ServiceMetadata: Schema.optional(ServiceMetadata), Status: Schema.optional(Schema.String)}) {}
 export const ListedExecutions = Schema.Array(ListedExecution);
-export const ConnectorFileTransferResult = Schema.Struct({FilePath: Schema.String, StatusCode: Schema.String, FailureCode: Schema.optional(Schema.String), FailureMessage: Schema.optional(Schema.String)});
+export class ConnectorFileTransferResult extends Schema.Class<ConnectorFileTransferResult>("ConnectorFileTransferResult")({FilePath: Schema.String, StatusCode: Schema.String, FailureCode: Schema.optional(Schema.String), FailureMessage: Schema.optional(Schema.String)}) {}
 export const ConnectorFileTransferResults = Schema.Array(ConnectorFileTransferResult);
-export const ListedHostKey = Schema.Struct({Arn: Schema.String, HostKeyId: Schema.optional(Schema.String), Fingerprint: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), DateImported: Schema.optional(Schema.Date)});
+export class ListedHostKey extends Schema.Class<ListedHostKey>("ListedHostKey")({Arn: Schema.String, HostKeyId: Schema.optional(Schema.String), Fingerprint: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), DateImported: Schema.optional(Schema.Date)}) {}
 export const ListedHostKeys = Schema.Array(ListedHostKey);
-export const SftpConnectorConnectionDetails = Schema.Struct({HostKey: Schema.optional(Schema.String)});
-export const CreateAccessResponse = Schema.Struct({ServerId: Schema.String, ExternalId: Schema.String});
-export const DescribeAccessResponse = Schema.Struct({ServerId: Schema.String, Access: DescribedAccess});
-export const DescribeHostKeyResponse = Schema.Struct({HostKey: DescribedHostKey});
-export const DescribeSecurityPolicyResponse = Schema.Struct({SecurityPolicy: DescribedSecurityPolicy});
-export const ImportHostKeyResponse = Schema.Struct({ServerId: Schema.String, HostKeyId: Schema.String});
-export const ResourceExistsException = Schema.Struct({Message: Schema.String, Resource: Schema.String, ResourceType: Schema.String});
-export const ListAccessesResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), ServerId: Schema.String, Accesses: ListedAccesses});
-export const ListExecutionsResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), WorkflowId: Schema.String, Executions: ListedExecutions});
-export const ListFileTransferResultsResponse = Schema.Struct({FileTransferResults: ConnectorFileTransferResults, NextToken: Schema.optional(Schema.String)});
-export const ListHostKeysResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), ServerId: Schema.String, HostKeys: ListedHostKeys});
-export const InvalidNextTokenException = Schema.Struct({Message: Schema.String});
-export const TestConnectionResponse = Schema.Struct({ConnectorId: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), SftpConnectionDetails: Schema.optional(SftpConnectorConnectionDetails)});
-export const LoggingConfiguration = Schema.Struct({LoggingRole: Schema.optional(Schema.String), LogGroupName: Schema.optional(Schema.String)});
-export const ExecutionError = Schema.Struct({Type: Schema.String, Message: Schema.String});
-export const ExecutionStepResult = Schema.Struct({StepType: Schema.optional(Schema.String), Outputs: Schema.optional(Schema.String), Error: Schema.optional(ExecutionError)});
+export class SftpConnectorConnectionDetails extends Schema.Class<SftpConnectorConnectionDetails>("SftpConnectorConnectionDetails")({HostKey: Schema.optional(Schema.String)}) {}
+export class CreateAccessResponse extends Schema.Class<CreateAccessResponse>("CreateAccessResponse")({ServerId: Schema.String, ExternalId: Schema.String}) {}
+export class DescribeAccessResponse extends Schema.Class<DescribeAccessResponse>("DescribeAccessResponse")({ServerId: Schema.String, Access: DescribedAccess}) {}
+export class DescribeHostKeyResponse extends Schema.Class<DescribeHostKeyResponse>("DescribeHostKeyResponse")({HostKey: DescribedHostKey}) {}
+export class DescribeSecurityPolicyResponse extends Schema.Class<DescribeSecurityPolicyResponse>("DescribeSecurityPolicyResponse")({SecurityPolicy: DescribedSecurityPolicy}) {}
+export class ImportHostKeyResponse extends Schema.Class<ImportHostKeyResponse>("ImportHostKeyResponse")({ServerId: Schema.String, HostKeyId: Schema.String}) {}
+export class ResourceExistsException extends Schema.Class<ResourceExistsException>("ResourceExistsException")({Message: Schema.String, Resource: Schema.String, ResourceType: Schema.String}) {}
+export class ListAccessesResponse extends Schema.Class<ListAccessesResponse>("ListAccessesResponse")({NextToken: Schema.optional(Schema.String), ServerId: Schema.String, Accesses: ListedAccesses}) {}
+export class ListExecutionsResponse extends Schema.Class<ListExecutionsResponse>("ListExecutionsResponse")({NextToken: Schema.optional(Schema.String), WorkflowId: Schema.String, Executions: ListedExecutions}) {}
+export class ListFileTransferResultsResponse extends Schema.Class<ListFileTransferResultsResponse>("ListFileTransferResultsResponse")({FileTransferResults: ConnectorFileTransferResults, NextToken: Schema.optional(Schema.String)}) {}
+export class ListHostKeysResponse extends Schema.Class<ListHostKeysResponse>("ListHostKeysResponse")({NextToken: Schema.optional(Schema.String), ServerId: Schema.String, HostKeys: ListedHostKeys}) {}
+export class InvalidNextTokenException extends Schema.Class<InvalidNextTokenException>("InvalidNextTokenException")({Message: Schema.String}) {}
+export class TestConnectionResponse extends Schema.Class<TestConnectionResponse>("TestConnectionResponse")({ConnectorId: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), SftpConnectionDetails: Schema.optional(SftpConnectorConnectionDetails)}) {}
+export class LoggingConfiguration extends Schema.Class<LoggingConfiguration>("LoggingConfiguration")({LoggingRole: Schema.optional(Schema.String), LogGroupName: Schema.optional(Schema.String)}) {}
+export class ExecutionError extends Schema.Class<ExecutionError>("ExecutionError")({Type: Schema.String, Message: Schema.String}) {}
+export class ExecutionStepResult extends Schema.Class<ExecutionStepResult>("ExecutionStepResult")({StepType: Schema.optional(Schema.String), Outputs: Schema.optional(Schema.String), Error: Schema.optional(ExecutionError)}) {}
 export const ExecutionStepResults = Schema.Array(ExecutionStepResult);
-export const ExecutionResults = Schema.Struct({Steps: Schema.optional(ExecutionStepResults), OnExceptionSteps: Schema.optional(ExecutionStepResults)});
-export const DescribedExecution = Schema.Struct({ExecutionId: Schema.optional(Schema.String), InitialFileLocation: Schema.optional(FileLocation), ServiceMetadata: Schema.optional(ServiceMetadata), ExecutionRole: Schema.optional(Schema.String), LoggingConfiguration: Schema.optional(LoggingConfiguration), PosixProfile: Schema.optional(PosixProfile), Status: Schema.optional(Schema.String), Results: Schema.optional(ExecutionResults)});
-export const DescribeExecutionResponse = Schema.Struct({WorkflowId: Schema.String, Execution: DescribedExecution});
+export class ExecutionResults extends Schema.Class<ExecutionResults>("ExecutionResults")({Steps: Schema.optional(ExecutionStepResults), OnExceptionSteps: Schema.optional(ExecutionStepResults)}) {}
+export class DescribedExecution extends Schema.Class<DescribedExecution>("DescribedExecution")({ExecutionId: Schema.optional(Schema.String), InitialFileLocation: Schema.optional(FileLocation), ServiceMetadata: Schema.optional(ServiceMetadata), ExecutionRole: Schema.optional(Schema.String), LoggingConfiguration: Schema.optional(LoggingConfiguration), PosixProfile: Schema.optional(PosixProfile), Status: Schema.optional(Schema.String), Results: Schema.optional(ExecutionResults)}) {}
+export class DescribeExecutionResponse extends Schema.Class<DescribeExecutionResponse>("DescribeExecutionResponse")({WorkflowId: Schema.String, Execution: DescribedExecution}) {}
 
 //# Errors
-export class InternalServiceErrorError extends Schema.TaggedError<InternalServiceErrorError>()("InternalServiceError", InternalServiceError) {};
-export class InvalidRequestExceptionError extends Schema.TaggedError<InvalidRequestExceptionError>()("InvalidRequestException", InvalidRequestException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ServiceUnavailableExceptionError extends Schema.TaggedError<ServiceUnavailableExceptionError>()("ServiceUnavailableException", ServiceUnavailableException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class InvalidNextTokenExceptionError extends Schema.TaggedError<InvalidNextTokenExceptionError>()("InvalidNextTokenException", InvalidNextTokenException) {};
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class ResourceExistsExceptionError extends Schema.TaggedError<ResourceExistsExceptionError>()("ResourceExistsException", ResourceExistsException) {};
+export class InternalServiceErrorError extends Schema.TaggedError<InternalServiceErrorError>()("InternalServiceError", InternalServiceError.fields) {};
+export class InvalidRequestExceptionError extends Schema.TaggedError<InvalidRequestExceptionError>()("InvalidRequestException", InvalidRequestException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ServiceUnavailableExceptionError extends Schema.TaggedError<ServiceUnavailableExceptionError>()("ServiceUnavailableException", ServiceUnavailableException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class InvalidNextTokenExceptionError extends Schema.TaggedError<InvalidNextTokenExceptionError>()("InvalidNextTokenException", InvalidNextTokenException.fields) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class ResourceExistsExceptionError extends Schema.TaggedError<ResourceExistsExceptionError>()("ResourceExistsException", ResourceExistsException.fields) {};
 
 //# Operations
 export const tagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-11-05", uri: "/", method: "POST", sdkId: "Transfer", sigV4ServiceName: "transfer", name: "TransferService.TagResource" }, TagResourceRequest, Schema.Struct({}), [InternalServiceErrorError, InvalidRequestExceptionError, ResourceNotFoundExceptionError, ServiceUnavailableExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

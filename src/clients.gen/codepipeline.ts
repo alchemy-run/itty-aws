@@ -4,338 +4,338 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 
 //# Schemas
 export const TagKeyList = Schema.Array(Schema.String);
-export const AcknowledgeJobInput = Schema.Struct({jobId: Schema.String, nonce: Schema.String});
-export const AcknowledgeThirdPartyJobInput = Schema.Struct({jobId: Schema.String, nonce: Schema.String, clientToken: Schema.String});
-export const DeleteCustomActionTypeInput = Schema.Struct({category: Schema.String, provider: Schema.String, version: Schema.String});
-export const DeletePipelineInput = Schema.Struct({name: Schema.String});
-export const DeleteWebhookInput = Schema.Struct({name: Schema.String});
-export const DeleteWebhookOutput = Schema.Struct({});
-export const DeregisterWebhookWithThirdPartyInput = Schema.Struct({webhookName: Schema.optional(Schema.String)});
-export const DeregisterWebhookWithThirdPartyOutput = Schema.Struct({});
-export const WebhookNotFoundException = Schema.Struct({});
-export const DisableStageTransitionInput = Schema.Struct({pipelineName: Schema.String, stageName: Schema.String, transitionType: Schema.String, reason: Schema.String});
-export const EnableStageTransitionInput = Schema.Struct({pipelineName: Schema.String, stageName: Schema.String, transitionType: Schema.String});
-export const GetActionTypeInput = Schema.Struct({category: Schema.String, owner: Schema.String, provider: Schema.String, version: Schema.String});
-export const GetJobDetailsInput = Schema.Struct({jobId: Schema.String});
-export const GetPipelineInput = Schema.Struct({name: Schema.String, version: Schema.optional(Schema.Number)});
-export const GetPipelineExecutionInput = Schema.Struct({pipelineName: Schema.String, pipelineExecutionId: Schema.String});
-export const GetPipelineStateInput = Schema.Struct({name: Schema.String});
-export const GetThirdPartyJobDetailsInput = Schema.Struct({jobId: Schema.String, clientToken: Schema.String});
-export const ListActionTypesInput = Schema.Struct({actionOwnerFilter: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), regionFilter: Schema.optional(Schema.String)});
-export const ListPipelinesInput = Schema.Struct({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListRuleTypesInput = Schema.Struct({ruleOwnerFilter: Schema.optional(Schema.String), regionFilter: Schema.optional(Schema.String)});
-export const ListTagsForResourceInput = Schema.Struct({resourceArn: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListWebhooksInput = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const OverrideStageConditionInput = Schema.Struct({pipelineName: Schema.String, stageName: Schema.String, pipelineExecutionId: Schema.String, conditionType: Schema.String});
-export const ActionTypeId = Schema.Struct({category: Schema.String, owner: Schema.String, provider: Schema.String, version: Schema.String});
-export const PollForThirdPartyJobsInput = Schema.Struct({actionTypeId: ActionTypeId, maxBatchSize: Schema.optional(Schema.Number)});
-export const FailureDetails = Schema.Struct({type: Schema.String, message: Schema.String, externalExecutionId: Schema.optional(Schema.String)});
-export const PutThirdPartyJobFailureResultInput = Schema.Struct({jobId: Schema.String, clientToken: Schema.String, failureDetails: FailureDetails});
-export const CurrentRevision = Schema.Struct({revision: Schema.String, changeIdentifier: Schema.String, created: Schema.optional(Schema.Date), revisionSummary: Schema.optional(Schema.String)});
-export const ExecutionDetails = Schema.Struct({summary: Schema.optional(Schema.String), externalExecutionId: Schema.optional(Schema.String), percentComplete: Schema.optional(Schema.Number)});
-export const PutThirdPartyJobSuccessResultInput = Schema.Struct({jobId: Schema.String, clientToken: Schema.String, currentRevision: Schema.optional(CurrentRevision), continuationToken: Schema.optional(Schema.String), executionDetails: Schema.optional(ExecutionDetails)});
-export const RegisterWebhookWithThirdPartyInput = Schema.Struct({webhookName: Schema.optional(Schema.String)});
-export const RegisterWebhookWithThirdPartyOutput = Schema.Struct({});
-export const RetryStageExecutionInput = Schema.Struct({pipelineName: Schema.String, stageName: Schema.String, pipelineExecutionId: Schema.String, retryMode: Schema.String});
-export const RollbackStageInput = Schema.Struct({pipelineName: Schema.String, stageName: Schema.String, targetPipelineExecutionId: Schema.String});
-export const StopPipelineExecutionInput = Schema.Struct({pipelineName: Schema.String, pipelineExecutionId: Schema.String, abandon: Schema.optional(Schema.Boolean), reason: Schema.optional(Schema.String)});
-export const Tag = Schema.Struct({key: Schema.String, value: Schema.String});
+export class AcknowledgeJobInput extends Schema.Class<AcknowledgeJobInput>("AcknowledgeJobInput")({jobId: Schema.String, nonce: Schema.String}) {}
+export class AcknowledgeThirdPartyJobInput extends Schema.Class<AcknowledgeThirdPartyJobInput>("AcknowledgeThirdPartyJobInput")({jobId: Schema.String, nonce: Schema.String, clientToken: Schema.String}) {}
+export class DeleteCustomActionTypeInput extends Schema.Class<DeleteCustomActionTypeInput>("DeleteCustomActionTypeInput")({category: Schema.String, provider: Schema.String, version: Schema.String}) {}
+export class DeletePipelineInput extends Schema.Class<DeletePipelineInput>("DeletePipelineInput")({name: Schema.String}) {}
+export class DeleteWebhookInput extends Schema.Class<DeleteWebhookInput>("DeleteWebhookInput")({name: Schema.String}) {}
+export class DeleteWebhookOutput extends Schema.Class<DeleteWebhookOutput>("DeleteWebhookOutput")({}) {}
+export class DeregisterWebhookWithThirdPartyInput extends Schema.Class<DeregisterWebhookWithThirdPartyInput>("DeregisterWebhookWithThirdPartyInput")({webhookName: Schema.optional(Schema.String)}) {}
+export class DeregisterWebhookWithThirdPartyOutput extends Schema.Class<DeregisterWebhookWithThirdPartyOutput>("DeregisterWebhookWithThirdPartyOutput")({}) {}
+export class WebhookNotFoundException extends Schema.Class<WebhookNotFoundException>("WebhookNotFoundException")({}) {}
+export class DisableStageTransitionInput extends Schema.Class<DisableStageTransitionInput>("DisableStageTransitionInput")({pipelineName: Schema.String, stageName: Schema.String, transitionType: Schema.String, reason: Schema.String}) {}
+export class EnableStageTransitionInput extends Schema.Class<EnableStageTransitionInput>("EnableStageTransitionInput")({pipelineName: Schema.String, stageName: Schema.String, transitionType: Schema.String}) {}
+export class GetActionTypeInput extends Schema.Class<GetActionTypeInput>("GetActionTypeInput")({category: Schema.String, owner: Schema.String, provider: Schema.String, version: Schema.String}) {}
+export class GetJobDetailsInput extends Schema.Class<GetJobDetailsInput>("GetJobDetailsInput")({jobId: Schema.String}) {}
+export class GetPipelineInput extends Schema.Class<GetPipelineInput>("GetPipelineInput")({name: Schema.String, version: Schema.optional(Schema.Number)}) {}
+export class GetPipelineExecutionInput extends Schema.Class<GetPipelineExecutionInput>("GetPipelineExecutionInput")({pipelineName: Schema.String, pipelineExecutionId: Schema.String}) {}
+export class GetPipelineStateInput extends Schema.Class<GetPipelineStateInput>("GetPipelineStateInput")({name: Schema.String}) {}
+export class GetThirdPartyJobDetailsInput extends Schema.Class<GetThirdPartyJobDetailsInput>("GetThirdPartyJobDetailsInput")({jobId: Schema.String, clientToken: Schema.String}) {}
+export class ListActionTypesInput extends Schema.Class<ListActionTypesInput>("ListActionTypesInput")({actionOwnerFilter: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), regionFilter: Schema.optional(Schema.String)}) {}
+export class ListPipelinesInput extends Schema.Class<ListPipelinesInput>("ListPipelinesInput")({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListRuleTypesInput extends Schema.Class<ListRuleTypesInput>("ListRuleTypesInput")({ruleOwnerFilter: Schema.optional(Schema.String), regionFilter: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceInput extends Schema.Class<ListTagsForResourceInput>("ListTagsForResourceInput")({resourceArn: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListWebhooksInput extends Schema.Class<ListWebhooksInput>("ListWebhooksInput")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class OverrideStageConditionInput extends Schema.Class<OverrideStageConditionInput>("OverrideStageConditionInput")({pipelineName: Schema.String, stageName: Schema.String, pipelineExecutionId: Schema.String, conditionType: Schema.String}) {}
+export class ActionTypeId extends Schema.Class<ActionTypeId>("ActionTypeId")({category: Schema.String, owner: Schema.String, provider: Schema.String, version: Schema.String}) {}
+export class PollForThirdPartyJobsInput extends Schema.Class<PollForThirdPartyJobsInput>("PollForThirdPartyJobsInput")({actionTypeId: ActionTypeId, maxBatchSize: Schema.optional(Schema.Number)}) {}
+export class FailureDetails extends Schema.Class<FailureDetails>("FailureDetails")({type: Schema.String, message: Schema.String, externalExecutionId: Schema.optional(Schema.String)}) {}
+export class PutThirdPartyJobFailureResultInput extends Schema.Class<PutThirdPartyJobFailureResultInput>("PutThirdPartyJobFailureResultInput")({jobId: Schema.String, clientToken: Schema.String, failureDetails: FailureDetails}) {}
+export class CurrentRevision extends Schema.Class<CurrentRevision>("CurrentRevision")({revision: Schema.String, changeIdentifier: Schema.String, created: Schema.optional(Schema.Date), revisionSummary: Schema.optional(Schema.String)}) {}
+export class ExecutionDetails extends Schema.Class<ExecutionDetails>("ExecutionDetails")({summary: Schema.optional(Schema.String), externalExecutionId: Schema.optional(Schema.String), percentComplete: Schema.optional(Schema.Number)}) {}
+export class PutThirdPartyJobSuccessResultInput extends Schema.Class<PutThirdPartyJobSuccessResultInput>("PutThirdPartyJobSuccessResultInput")({jobId: Schema.String, clientToken: Schema.String, currentRevision: Schema.optional(CurrentRevision), continuationToken: Schema.optional(Schema.String), executionDetails: Schema.optional(ExecutionDetails)}) {}
+export class RegisterWebhookWithThirdPartyInput extends Schema.Class<RegisterWebhookWithThirdPartyInput>("RegisterWebhookWithThirdPartyInput")({webhookName: Schema.optional(Schema.String)}) {}
+export class RegisterWebhookWithThirdPartyOutput extends Schema.Class<RegisterWebhookWithThirdPartyOutput>("RegisterWebhookWithThirdPartyOutput")({}) {}
+export class RetryStageExecutionInput extends Schema.Class<RetryStageExecutionInput>("RetryStageExecutionInput")({pipelineName: Schema.String, stageName: Schema.String, pipelineExecutionId: Schema.String, retryMode: Schema.String}) {}
+export class RollbackStageInput extends Schema.Class<RollbackStageInput>("RollbackStageInput")({pipelineName: Schema.String, stageName: Schema.String, targetPipelineExecutionId: Schema.String}) {}
+export class StopPipelineExecutionInput extends Schema.Class<StopPipelineExecutionInput>("StopPipelineExecutionInput")({pipelineName: Schema.String, pipelineExecutionId: Schema.String, abandon: Schema.optional(Schema.Boolean), reason: Schema.optional(Schema.String)}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({key: Schema.String, value: Schema.String}) {}
 export const TagList = Schema.Array(Tag);
-export const TagResourceInput = Schema.Struct({resourceArn: Schema.String, tags: TagList});
-export const TagResourceOutput = Schema.Struct({});
-export const UntagResourceInput = Schema.Struct({resourceArn: Schema.String, tagKeys: TagKeyList});
-export const UntagResourceOutput = Schema.Struct({});
-export const EncryptionKey = Schema.Struct({id: Schema.String, type: Schema.String});
-export const ArtifactStore = Schema.Struct({type: Schema.String, location: Schema.String, encryptionKey: Schema.optional(EncryptionKey)});
+export class TagResourceInput extends Schema.Class<TagResourceInput>("TagResourceInput")({resourceArn: Schema.String, tags: TagList}) {}
+export class TagResourceOutput extends Schema.Class<TagResourceOutput>("TagResourceOutput")({}) {}
+export class UntagResourceInput extends Schema.Class<UntagResourceInput>("UntagResourceInput")({resourceArn: Schema.String, tagKeys: TagKeyList}) {}
+export class UntagResourceOutput extends Schema.Class<UntagResourceOutput>("UntagResourceOutput")({}) {}
+export class EncryptionKey extends Schema.Class<EncryptionKey>("EncryptionKey")({id: Schema.String, type: Schema.String}) {}
+export class ArtifactStore extends Schema.Class<ArtifactStore>("ArtifactStore")({type: Schema.String, location: Schema.String, encryptionKey: Schema.optional(EncryptionKey)}) {}
 export const ArtifactStoreMap = Schema.Record({key: Schema.String, value: ArtifactStore});
-export const BlockerDeclaration = Schema.Struct({name: Schema.String, type: Schema.String});
+export class BlockerDeclaration extends Schema.Class<BlockerDeclaration>("BlockerDeclaration")({name: Schema.String, type: Schema.String}) {}
 export const StageBlockerDeclarationList = Schema.Array(BlockerDeclaration);
 export const ActionConfigurationMap = Schema.Record({key: Schema.String, value: Schema.String});
 export const CommandList = Schema.Array(Schema.String);
 export const FilePathList = Schema.Array(Schema.String);
-export const OutputArtifact = Schema.Struct({name: Schema.String, files: Schema.optional(FilePathList)});
+export class OutputArtifact extends Schema.Class<OutputArtifact>("OutputArtifact")({name: Schema.String, files: Schema.optional(FilePathList)}) {}
 export const OutputArtifactList = Schema.Array(OutputArtifact);
-export const InputArtifact = Schema.Struct({name: Schema.String});
+export class InputArtifact extends Schema.Class<InputArtifact>("InputArtifact")({name: Schema.String}) {}
 export const InputArtifactList = Schema.Array(InputArtifact);
 export const OutputVariableList = Schema.Array(Schema.String);
-export const EnvironmentVariable = Schema.Struct({name: Schema.String, value: Schema.String, type: Schema.optional(Schema.String)});
+export class EnvironmentVariable extends Schema.Class<EnvironmentVariable>("EnvironmentVariable")({name: Schema.String, value: Schema.String, type: Schema.optional(Schema.String)}) {}
 export const EnvironmentVariableList = Schema.Array(EnvironmentVariable);
-export const ActionDeclaration = Schema.Struct({name: Schema.String, actionTypeId: ActionTypeId, runOrder: Schema.optional(Schema.Number), configuration: Schema.optional(ActionConfigurationMap), commands: Schema.optional(CommandList), outputArtifacts: Schema.optional(OutputArtifactList), inputArtifacts: Schema.optional(InputArtifactList), outputVariables: Schema.optional(OutputVariableList), roleArn: Schema.optional(Schema.String), region: Schema.optional(Schema.String), namespace: Schema.optional(Schema.String), timeoutInMinutes: Schema.optional(Schema.Number), environmentVariables: Schema.optional(EnvironmentVariableList)});
+export class ActionDeclaration extends Schema.Class<ActionDeclaration>("ActionDeclaration")({name: Schema.String, actionTypeId: ActionTypeId, runOrder: Schema.optional(Schema.Number), configuration: Schema.optional(ActionConfigurationMap), commands: Schema.optional(CommandList), outputArtifacts: Schema.optional(OutputArtifactList), inputArtifacts: Schema.optional(InputArtifactList), outputVariables: Schema.optional(OutputVariableList), roleArn: Schema.optional(Schema.String), region: Schema.optional(Schema.String), namespace: Schema.optional(Schema.String), timeoutInMinutes: Schema.optional(Schema.Number), environmentVariables: Schema.optional(EnvironmentVariableList)}) {}
 export const StageActionDeclarationList = Schema.Array(ActionDeclaration);
-export const RetryConfiguration = Schema.Struct({retryMode: Schema.optional(Schema.String)});
-export const RuleTypeId = Schema.Struct({category: Schema.String, owner: Schema.optional(Schema.String), provider: Schema.String, version: Schema.optional(Schema.String)});
+export class RetryConfiguration extends Schema.Class<RetryConfiguration>("RetryConfiguration")({retryMode: Schema.optional(Schema.String)}) {}
+export class RuleTypeId extends Schema.Class<RuleTypeId>("RuleTypeId")({category: Schema.String, owner: Schema.optional(Schema.String), provider: Schema.String, version: Schema.optional(Schema.String)}) {}
 export const RuleConfigurationMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const RuleDeclaration = Schema.Struct({name: Schema.String, ruleTypeId: RuleTypeId, configuration: Schema.optional(RuleConfigurationMap), commands: Schema.optional(CommandList), inputArtifacts: Schema.optional(InputArtifactList), roleArn: Schema.optional(Schema.String), region: Schema.optional(Schema.String), timeoutInMinutes: Schema.optional(Schema.Number)});
+export class RuleDeclaration extends Schema.Class<RuleDeclaration>("RuleDeclaration")({name: Schema.String, ruleTypeId: RuleTypeId, configuration: Schema.optional(RuleConfigurationMap), commands: Schema.optional(CommandList), inputArtifacts: Schema.optional(InputArtifactList), roleArn: Schema.optional(Schema.String), region: Schema.optional(Schema.String), timeoutInMinutes: Schema.optional(Schema.Number)}) {}
 export const RuleDeclarationList = Schema.Array(RuleDeclaration);
-export const Condition = Schema.Struct({result: Schema.optional(Schema.String), rules: Schema.optional(RuleDeclarationList)});
+export class Condition extends Schema.Class<Condition>("Condition")({result: Schema.optional(Schema.String), rules: Schema.optional(RuleDeclarationList)}) {}
 export const ConditionList = Schema.Array(Condition);
-export const FailureConditions = Schema.Struct({result: Schema.optional(Schema.String), retryConfiguration: Schema.optional(RetryConfiguration), conditions: Schema.optional(ConditionList)});
-export const SuccessConditions = Schema.Struct({conditions: ConditionList});
-export const BeforeEntryConditions = Schema.Struct({conditions: ConditionList});
-export const StageDeclaration = Schema.Struct({name: Schema.String, blockers: Schema.optional(StageBlockerDeclarationList), actions: StageActionDeclarationList, onFailure: Schema.optional(FailureConditions), onSuccess: Schema.optional(SuccessConditions), beforeEntry: Schema.optional(BeforeEntryConditions)});
+export class FailureConditions extends Schema.Class<FailureConditions>("FailureConditions")({result: Schema.optional(Schema.String), retryConfiguration: Schema.optional(RetryConfiguration), conditions: Schema.optional(ConditionList)}) {}
+export class SuccessConditions extends Schema.Class<SuccessConditions>("SuccessConditions")({conditions: ConditionList}) {}
+export class BeforeEntryConditions extends Schema.Class<BeforeEntryConditions>("BeforeEntryConditions")({conditions: ConditionList}) {}
+export class StageDeclaration extends Schema.Class<StageDeclaration>("StageDeclaration")({name: Schema.String, blockers: Schema.optional(StageBlockerDeclarationList), actions: StageActionDeclarationList, onFailure: Schema.optional(FailureConditions), onSuccess: Schema.optional(SuccessConditions), beforeEntry: Schema.optional(BeforeEntryConditions)}) {}
 export const PipelineStageDeclarationList = Schema.Array(StageDeclaration);
-export const PipelineVariableDeclaration = Schema.Struct({name: Schema.String, defaultValue: Schema.optional(Schema.String), description: Schema.optional(Schema.String)});
+export class PipelineVariableDeclaration extends Schema.Class<PipelineVariableDeclaration>("PipelineVariableDeclaration")({name: Schema.String, defaultValue: Schema.optional(Schema.String), description: Schema.optional(Schema.String)}) {}
 export const PipelineVariableDeclarationList = Schema.Array(PipelineVariableDeclaration);
 export const GitTagPatternList = Schema.Array(Schema.String);
-export const GitTagFilterCriteria = Schema.Struct({includes: Schema.optional(GitTagPatternList), excludes: Schema.optional(GitTagPatternList)});
+export class GitTagFilterCriteria extends Schema.Class<GitTagFilterCriteria>("GitTagFilterCriteria")({includes: Schema.optional(GitTagPatternList), excludes: Schema.optional(GitTagPatternList)}) {}
 export const GitBranchPatternList = Schema.Array(Schema.String);
-export const GitBranchFilterCriteria = Schema.Struct({includes: Schema.optional(GitBranchPatternList), excludes: Schema.optional(GitBranchPatternList)});
+export class GitBranchFilterCriteria extends Schema.Class<GitBranchFilterCriteria>("GitBranchFilterCriteria")({includes: Schema.optional(GitBranchPatternList), excludes: Schema.optional(GitBranchPatternList)}) {}
 export const GitFilePathPatternList = Schema.Array(Schema.String);
-export const GitFilePathFilterCriteria = Schema.Struct({includes: Schema.optional(GitFilePathPatternList), excludes: Schema.optional(GitFilePathPatternList)});
-export const GitPushFilter = Schema.Struct({tags: Schema.optional(GitTagFilterCriteria), branches: Schema.optional(GitBranchFilterCriteria), filePaths: Schema.optional(GitFilePathFilterCriteria)});
+export class GitFilePathFilterCriteria extends Schema.Class<GitFilePathFilterCriteria>("GitFilePathFilterCriteria")({includes: Schema.optional(GitFilePathPatternList), excludes: Schema.optional(GitFilePathPatternList)}) {}
+export class GitPushFilter extends Schema.Class<GitPushFilter>("GitPushFilter")({tags: Schema.optional(GitTagFilterCriteria), branches: Schema.optional(GitBranchFilterCriteria), filePaths: Schema.optional(GitFilePathFilterCriteria)}) {}
 export const GitPushFilterList = Schema.Array(GitPushFilter);
 export const GitPullRequestEventTypeList = Schema.Array(Schema.String);
-export const GitPullRequestFilter = Schema.Struct({events: Schema.optional(GitPullRequestEventTypeList), branches: Schema.optional(GitBranchFilterCriteria), filePaths: Schema.optional(GitFilePathFilterCriteria)});
+export class GitPullRequestFilter extends Schema.Class<GitPullRequestFilter>("GitPullRequestFilter")({events: Schema.optional(GitPullRequestEventTypeList), branches: Schema.optional(GitBranchFilterCriteria), filePaths: Schema.optional(GitFilePathFilterCriteria)}) {}
 export const GitPullRequestFilterList = Schema.Array(GitPullRequestFilter);
-export const GitConfiguration = Schema.Struct({sourceActionName: Schema.String, push: Schema.optional(GitPushFilterList), pullRequest: Schema.optional(GitPullRequestFilterList)});
-export const PipelineTriggerDeclaration = Schema.Struct({providerType: Schema.String, gitConfiguration: GitConfiguration});
+export class GitConfiguration extends Schema.Class<GitConfiguration>("GitConfiguration")({sourceActionName: Schema.String, push: Schema.optional(GitPushFilterList), pullRequest: Schema.optional(GitPullRequestFilterList)}) {}
+export class PipelineTriggerDeclaration extends Schema.Class<PipelineTriggerDeclaration>("PipelineTriggerDeclaration")({providerType: Schema.String, gitConfiguration: GitConfiguration}) {}
 export const PipelineTriggerDeclarationList = Schema.Array(PipelineTriggerDeclaration);
-export const PipelineDeclaration = Schema.Struct({name: Schema.String, roleArn: Schema.String, artifactStore: Schema.optional(ArtifactStore), artifactStores: Schema.optional(ArtifactStoreMap), stages: PipelineStageDeclarationList, version: Schema.optional(Schema.Number), executionMode: Schema.optional(Schema.String), pipelineType: Schema.optional(Schema.String), variables: Schema.optional(PipelineVariableDeclarationList), triggers: Schema.optional(PipelineTriggerDeclarationList)});
-export const UpdatePipelineInput = Schema.Struct({pipeline: PipelineDeclaration});
+export class PipelineDeclaration extends Schema.Class<PipelineDeclaration>("PipelineDeclaration")({name: Schema.String, roleArn: Schema.String, artifactStore: Schema.optional(ArtifactStore), artifactStores: Schema.optional(ArtifactStoreMap), stages: PipelineStageDeclarationList, version: Schema.optional(Schema.Number), executionMode: Schema.optional(Schema.String), pipelineType: Schema.optional(Schema.String), variables: Schema.optional(PipelineVariableDeclarationList), triggers: Schema.optional(PipelineTriggerDeclarationList)}) {}
+export class UpdatePipelineInput extends Schema.Class<UpdatePipelineInput>("UpdatePipelineInput")({pipeline: PipelineDeclaration}) {}
 export const TargetFilterValueList = Schema.Array(Schema.String);
-export const ActionTypeSettings = Schema.Struct({thirdPartyConfigurationUrl: Schema.optional(Schema.String), entityUrlTemplate: Schema.optional(Schema.String), executionUrlTemplate: Schema.optional(Schema.String), revisionUrlTemplate: Schema.optional(Schema.String)});
-export const ActionConfigurationProperty = Schema.Struct({name: Schema.String, required: Schema.Boolean, key: Schema.Boolean, secret: Schema.Boolean, queryable: Schema.optional(Schema.Boolean), description: Schema.optional(Schema.String), type: Schema.optional(Schema.String)});
+export class ActionTypeSettings extends Schema.Class<ActionTypeSettings>("ActionTypeSettings")({thirdPartyConfigurationUrl: Schema.optional(Schema.String), entityUrlTemplate: Schema.optional(Schema.String), executionUrlTemplate: Schema.optional(Schema.String), revisionUrlTemplate: Schema.optional(Schema.String)}) {}
+export class ActionConfigurationProperty extends Schema.Class<ActionConfigurationProperty>("ActionConfigurationProperty")({name: Schema.String, required: Schema.Boolean, key: Schema.Boolean, secret: Schema.Boolean, queryable: Schema.optional(Schema.Boolean), description: Schema.optional(Schema.String), type: Schema.optional(Schema.String)}) {}
 export const ActionConfigurationPropertyList = Schema.Array(ActionConfigurationProperty);
-export const ArtifactDetails = Schema.Struct({minimumCount: Schema.Number, maximumCount: Schema.Number});
-export const TargetFilter = Schema.Struct({name: Schema.optional(Schema.String), values: Schema.optional(TargetFilterValueList)});
+export class ArtifactDetails extends Schema.Class<ArtifactDetails>("ArtifactDetails")({minimumCount: Schema.Number, maximumCount: Schema.Number}) {}
+export class TargetFilter extends Schema.Class<TargetFilter>("TargetFilter")({name: Schema.optional(Schema.String), values: Schema.optional(TargetFilterValueList)}) {}
 export const TargetFilterList = Schema.Array(TargetFilter);
-export const LatestInPipelineExecutionFilter = Schema.Struct({pipelineExecutionId: Schema.String, startTimeRange: Schema.String});
-export const RuleExecutionFilter = Schema.Struct({pipelineExecutionId: Schema.optional(Schema.String), latestInPipelineExecution: Schema.optional(LatestInPipelineExecutionFilter)});
+export class LatestInPipelineExecutionFilter extends Schema.Class<LatestInPipelineExecutionFilter>("LatestInPipelineExecutionFilter")({pipelineExecutionId: Schema.String, startTimeRange: Schema.String}) {}
+export class RuleExecutionFilter extends Schema.Class<RuleExecutionFilter>("RuleExecutionFilter")({pipelineExecutionId: Schema.optional(Schema.String), latestInPipelineExecution: Schema.optional(LatestInPipelineExecutionFilter)}) {}
 export const QueryParamMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const ActionRevision = Schema.Struct({revisionId: Schema.String, revisionChangeId: Schema.String, created: Schema.Date});
-export const ApprovalResult = Schema.Struct({summary: Schema.String, status: Schema.String});
+export class ActionRevision extends Schema.Class<ActionRevision>("ActionRevision")({revisionId: Schema.String, revisionChangeId: Schema.String, created: Schema.Date}) {}
+export class ApprovalResult extends Schema.Class<ApprovalResult>("ApprovalResult")({summary: Schema.String, status: Schema.String}) {}
 export const OutputVariablesMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const PipelineVariable = Schema.Struct({name: Schema.String, value: Schema.String});
+export class PipelineVariable extends Schema.Class<PipelineVariable>("PipelineVariable")({name: Schema.String, value: Schema.String}) {}
 export const PipelineVariableList = Schema.Array(PipelineVariable);
-export const SourceRevisionOverride = Schema.Struct({actionName: Schema.String, revisionType: Schema.String, revisionValue: Schema.String});
+export class SourceRevisionOverride extends Schema.Class<SourceRevisionOverride>("SourceRevisionOverride")({actionName: Schema.String, revisionType: Schema.String, revisionValue: Schema.String}) {}
 export const SourceRevisionOverrideList = Schema.Array(SourceRevisionOverride);
 export const AllowedAccounts = Schema.Array(Schema.String);
-export const AcknowledgeJobOutput = Schema.Struct({status: Schema.optional(Schema.String)});
-export const AcknowledgeThirdPartyJobOutput = Schema.Struct({status: Schema.optional(Schema.String)});
-export const CreateCustomActionTypeInput = Schema.Struct({category: Schema.String, provider: Schema.String, version: Schema.String, settings: Schema.optional(ActionTypeSettings), configurationProperties: Schema.optional(ActionConfigurationPropertyList), inputArtifactDetails: ArtifactDetails, outputArtifactDetails: ArtifactDetails, tags: Schema.optional(TagList)});
-export const ConcurrentModificationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ValidationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const PipelineNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const StageNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const LambdaExecutorConfiguration = Schema.Struct({lambdaFunctionArn: Schema.String});
+export class AcknowledgeJobOutput extends Schema.Class<AcknowledgeJobOutput>("AcknowledgeJobOutput")({status: Schema.optional(Schema.String)}) {}
+export class AcknowledgeThirdPartyJobOutput extends Schema.Class<AcknowledgeThirdPartyJobOutput>("AcknowledgeThirdPartyJobOutput")({status: Schema.optional(Schema.String)}) {}
+export class CreateCustomActionTypeInput extends Schema.Class<CreateCustomActionTypeInput>("CreateCustomActionTypeInput")({category: Schema.String, provider: Schema.String, version: Schema.String, settings: Schema.optional(ActionTypeSettings), configurationProperties: Schema.optional(ActionConfigurationPropertyList), inputArtifactDetails: ArtifactDetails, outputArtifactDetails: ArtifactDetails, tags: Schema.optional(TagList)}) {}
+export class ConcurrentModificationException extends Schema.Class<ConcurrentModificationException>("ConcurrentModificationException")({message: Schema.optional(Schema.String)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({message: Schema.optional(Schema.String)}) {}
+export class PipelineNotFoundException extends Schema.Class<PipelineNotFoundException>("PipelineNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class StageNotFoundException extends Schema.Class<StageNotFoundException>("StageNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class LambdaExecutorConfiguration extends Schema.Class<LambdaExecutorConfiguration>("LambdaExecutorConfiguration")({lambdaFunctionArn: Schema.String}) {}
 export const PollingAccountList = Schema.Array(Schema.String);
 export const PollingServicePrincipalList = Schema.Array(Schema.String);
-export const JobWorkerExecutorConfiguration = Schema.Struct({pollingAccounts: Schema.optional(PollingAccountList), pollingServicePrincipals: Schema.optional(PollingServicePrincipalList)});
-export const ExecutorConfiguration = Schema.Struct({lambdaExecutorConfiguration: Schema.optional(LambdaExecutorConfiguration), jobWorkerExecutorConfiguration: Schema.optional(JobWorkerExecutorConfiguration)});
-export const ActionTypeExecutor = Schema.Struct({configuration: ExecutorConfiguration, type: Schema.String, policyStatementsTemplate: Schema.optional(Schema.String), jobTimeout: Schema.optional(Schema.Number)});
-export const ActionTypeIdentifier = Schema.Struct({category: Schema.String, owner: Schema.String, provider: Schema.String, version: Schema.String});
-export const ActionTypeArtifactDetails = Schema.Struct({minimumCount: Schema.Number, maximumCount: Schema.Number});
-export const ActionTypePermissions = Schema.Struct({allowedAccounts: AllowedAccounts});
-export const ActionTypeProperty = Schema.Struct({name: Schema.String, optional: Schema.Boolean, key: Schema.Boolean, noEcho: Schema.Boolean, queryable: Schema.optional(Schema.Boolean), description: Schema.optional(Schema.String)});
+export class JobWorkerExecutorConfiguration extends Schema.Class<JobWorkerExecutorConfiguration>("JobWorkerExecutorConfiguration")({pollingAccounts: Schema.optional(PollingAccountList), pollingServicePrincipals: Schema.optional(PollingServicePrincipalList)}) {}
+export class ExecutorConfiguration extends Schema.Class<ExecutorConfiguration>("ExecutorConfiguration")({lambdaExecutorConfiguration: Schema.optional(LambdaExecutorConfiguration), jobWorkerExecutorConfiguration: Schema.optional(JobWorkerExecutorConfiguration)}) {}
+export class ActionTypeExecutor extends Schema.Class<ActionTypeExecutor>("ActionTypeExecutor")({configuration: ExecutorConfiguration, type: Schema.String, policyStatementsTemplate: Schema.optional(Schema.String), jobTimeout: Schema.optional(Schema.Number)}) {}
+export class ActionTypeIdentifier extends Schema.Class<ActionTypeIdentifier>("ActionTypeIdentifier")({category: Schema.String, owner: Schema.String, provider: Schema.String, version: Schema.String}) {}
+export class ActionTypeArtifactDetails extends Schema.Class<ActionTypeArtifactDetails>("ActionTypeArtifactDetails")({minimumCount: Schema.Number, maximumCount: Schema.Number}) {}
+export class ActionTypePermissions extends Schema.Class<ActionTypePermissions>("ActionTypePermissions")({allowedAccounts: AllowedAccounts}) {}
+export class ActionTypeProperty extends Schema.Class<ActionTypeProperty>("ActionTypeProperty")({name: Schema.String, optional: Schema.Boolean, key: Schema.Boolean, noEcho: Schema.Boolean, queryable: Schema.optional(Schema.Boolean), description: Schema.optional(Schema.String)}) {}
 export const ActionTypeProperties = Schema.Array(ActionTypeProperty);
-export const ActionTypeUrls = Schema.Struct({configurationUrl: Schema.optional(Schema.String), entityUrlTemplate: Schema.optional(Schema.String), executionUrlTemplate: Schema.optional(Schema.String), revisionUrlTemplate: Schema.optional(Schema.String)});
-export const ActionTypeDeclaration = Schema.Struct({description: Schema.optional(Schema.String), executor: ActionTypeExecutor, id: ActionTypeIdentifier, inputArtifactDetails: ActionTypeArtifactDetails, outputArtifactDetails: ActionTypeArtifactDetails, permissions: Schema.optional(ActionTypePermissions), properties: Schema.optional(ActionTypeProperties), urls: Schema.optional(ActionTypeUrls)});
-export const GetActionTypeOutput = Schema.Struct({actionType: Schema.optional(ActionTypeDeclaration)});
-export const ListDeployActionExecutionTargetsInput = Schema.Struct({pipelineName: Schema.optional(Schema.String), actionExecutionId: Schema.String, filters: Schema.optional(TargetFilterList), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListRuleExecutionsInput = Schema.Struct({pipelineName: Schema.String, filter: Schema.optional(RuleExecutionFilter), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceOutput = Schema.Struct({tags: Schema.optional(TagList), nextToken: Schema.optional(Schema.String)});
-export const ConcurrentPipelineExecutionsLimitExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const PollForJobsInput = Schema.Struct({actionTypeId: ActionTypeId, maxBatchSize: Schema.optional(Schema.Number), queryParam: Schema.optional(QueryParamMap)});
-export const PutActionRevisionInput = Schema.Struct({pipelineName: Schema.String, stageName: Schema.String, actionName: Schema.String, actionRevision: ActionRevision});
-export const PutApprovalResultInput = Schema.Struct({pipelineName: Schema.String, stageName: Schema.String, actionName: Schema.String, result: ApprovalResult, token: Schema.String});
-export const PutJobFailureResultInput = Schema.Struct({jobId: Schema.String, failureDetails: FailureDetails});
-export const PutJobSuccessResultInput = Schema.Struct({jobId: Schema.String, currentRevision: Schema.optional(CurrentRevision), continuationToken: Schema.optional(Schema.String), executionDetails: Schema.optional(ExecutionDetails), outputVariables: Schema.optional(OutputVariablesMap)});
-export const InvalidClientTokenException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidJobStateException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const RetryStageExecutionOutput = Schema.Struct({pipelineExecutionId: Schema.optional(Schema.String)});
-export const RollbackStageOutput = Schema.Struct({pipelineExecutionId: Schema.String});
-export const StartPipelineExecutionInput = Schema.Struct({name: Schema.String, variables: Schema.optional(PipelineVariableList), clientRequestToken: Schema.optional(Schema.String), sourceRevisions: Schema.optional(SourceRevisionOverrideList)});
-export const StopPipelineExecutionOutput = Schema.Struct({pipelineExecutionId: Schema.optional(Schema.String)});
-export const InvalidArnException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidTagsException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UpdatePipelineOutput = Schema.Struct({pipeline: Schema.optional(PipelineDeclaration)});
-export const StageExecution = Schema.Struct({pipelineExecutionId: Schema.String, status: Schema.String, type: Schema.optional(Schema.String)});
+export class ActionTypeUrls extends Schema.Class<ActionTypeUrls>("ActionTypeUrls")({configurationUrl: Schema.optional(Schema.String), entityUrlTemplate: Schema.optional(Schema.String), executionUrlTemplate: Schema.optional(Schema.String), revisionUrlTemplate: Schema.optional(Schema.String)}) {}
+export class ActionTypeDeclaration extends Schema.Class<ActionTypeDeclaration>("ActionTypeDeclaration")({description: Schema.optional(Schema.String), executor: ActionTypeExecutor, id: ActionTypeIdentifier, inputArtifactDetails: ActionTypeArtifactDetails, outputArtifactDetails: ActionTypeArtifactDetails, permissions: Schema.optional(ActionTypePermissions), properties: Schema.optional(ActionTypeProperties), urls: Schema.optional(ActionTypeUrls)}) {}
+export class GetActionTypeOutput extends Schema.Class<GetActionTypeOutput>("GetActionTypeOutput")({actionType: Schema.optional(ActionTypeDeclaration)}) {}
+export class ListDeployActionExecutionTargetsInput extends Schema.Class<ListDeployActionExecutionTargetsInput>("ListDeployActionExecutionTargetsInput")({pipelineName: Schema.optional(Schema.String), actionExecutionId: Schema.String, filters: Schema.optional(TargetFilterList), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListRuleExecutionsInput extends Schema.Class<ListRuleExecutionsInput>("ListRuleExecutionsInput")({pipelineName: Schema.String, filter: Schema.optional(RuleExecutionFilter), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceOutput extends Schema.Class<ListTagsForResourceOutput>("ListTagsForResourceOutput")({tags: Schema.optional(TagList), nextToken: Schema.optional(Schema.String)}) {}
+export class ConcurrentPipelineExecutionsLimitExceededException extends Schema.Class<ConcurrentPipelineExecutionsLimitExceededException>("ConcurrentPipelineExecutionsLimitExceededException")({message: Schema.optional(Schema.String)}) {}
+export class PollForJobsInput extends Schema.Class<PollForJobsInput>("PollForJobsInput")({actionTypeId: ActionTypeId, maxBatchSize: Schema.optional(Schema.Number), queryParam: Schema.optional(QueryParamMap)}) {}
+export class PutActionRevisionInput extends Schema.Class<PutActionRevisionInput>("PutActionRevisionInput")({pipelineName: Schema.String, stageName: Schema.String, actionName: Schema.String, actionRevision: ActionRevision}) {}
+export class PutApprovalResultInput extends Schema.Class<PutApprovalResultInput>("PutApprovalResultInput")({pipelineName: Schema.String, stageName: Schema.String, actionName: Schema.String, result: ApprovalResult, token: Schema.String}) {}
+export class PutJobFailureResultInput extends Schema.Class<PutJobFailureResultInput>("PutJobFailureResultInput")({jobId: Schema.String, failureDetails: FailureDetails}) {}
+export class PutJobSuccessResultInput extends Schema.Class<PutJobSuccessResultInput>("PutJobSuccessResultInput")({jobId: Schema.String, currentRevision: Schema.optional(CurrentRevision), continuationToken: Schema.optional(Schema.String), executionDetails: Schema.optional(ExecutionDetails), outputVariables: Schema.optional(OutputVariablesMap)}) {}
+export class InvalidClientTokenException extends Schema.Class<InvalidClientTokenException>("InvalidClientTokenException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidJobStateException extends Schema.Class<InvalidJobStateException>("InvalidJobStateException")({message: Schema.optional(Schema.String)}) {}
+export class RetryStageExecutionOutput extends Schema.Class<RetryStageExecutionOutput>("RetryStageExecutionOutput")({pipelineExecutionId: Schema.optional(Schema.String)}) {}
+export class RollbackStageOutput extends Schema.Class<RollbackStageOutput>("RollbackStageOutput")({pipelineExecutionId: Schema.String}) {}
+export class StartPipelineExecutionInput extends Schema.Class<StartPipelineExecutionInput>("StartPipelineExecutionInput")({name: Schema.String, variables: Schema.optional(PipelineVariableList), clientRequestToken: Schema.optional(Schema.String), sourceRevisions: Schema.optional(SourceRevisionOverrideList)}) {}
+export class StopPipelineExecutionOutput extends Schema.Class<StopPipelineExecutionOutput>("StopPipelineExecutionOutput")({pipelineExecutionId: Schema.optional(Schema.String)}) {}
+export class InvalidArnException extends Schema.Class<InvalidArnException>("InvalidArnException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidTagsException extends Schema.Class<InvalidTagsException>("InvalidTagsException")({message: Schema.optional(Schema.String)}) {}
+export class UpdatePipelineOutput extends Schema.Class<UpdatePipelineOutput>("UpdatePipelineOutput")({pipeline: Schema.optional(PipelineDeclaration)}) {}
+export class StageExecution extends Schema.Class<StageExecution>("StageExecution")({pipelineExecutionId: Schema.String, status: Schema.String, type: Schema.optional(Schema.String)}) {}
 export const StageExecutionList = Schema.Array(StageExecution);
-export const SucceededInStageFilter = Schema.Struct({stageName: Schema.optional(Schema.String)});
-export const WebhookFilterRule = Schema.Struct({jsonPath: Schema.String, matchEquals: Schema.optional(Schema.String)});
+export class SucceededInStageFilter extends Schema.Class<SucceededInStageFilter>("SucceededInStageFilter")({stageName: Schema.optional(Schema.String)}) {}
+export class WebhookFilterRule extends Schema.Class<WebhookFilterRule>("WebhookFilterRule")({jsonPath: Schema.String, matchEquals: Schema.optional(Schema.String)}) {}
 export const WebhookFilters = Schema.Array(WebhookFilterRule);
-export const WebhookAuthConfiguration = Schema.Struct({AllowedIPRange: Schema.optional(Schema.String), SecretToken: Schema.optional(Schema.String)});
-export const PipelineMetadata = Schema.Struct({pipelineArn: Schema.optional(Schema.String), created: Schema.optional(Schema.Date), updated: Schema.optional(Schema.Date), pollingDisabledAt: Schema.optional(Schema.Date)});
-export const ActionExecutionFilter = Schema.Struct({pipelineExecutionId: Schema.optional(Schema.String), latestInPipelineExecution: Schema.optional(LatestInPipelineExecutionFilter)});
-export const ActionType = Schema.Struct({id: ActionTypeId, settings: Schema.optional(ActionTypeSettings), actionConfigurationProperties: Schema.optional(ActionConfigurationPropertyList), inputArtifactDetails: ArtifactDetails, outputArtifactDetails: ArtifactDetails});
+export class WebhookAuthConfiguration extends Schema.Class<WebhookAuthConfiguration>("WebhookAuthConfiguration")({AllowedIPRange: Schema.optional(Schema.String), SecretToken: Schema.optional(Schema.String)}) {}
+export class PipelineMetadata extends Schema.Class<PipelineMetadata>("PipelineMetadata")({pipelineArn: Schema.optional(Schema.String), created: Schema.optional(Schema.Date), updated: Schema.optional(Schema.Date), pollingDisabledAt: Schema.optional(Schema.Date)}) {}
+export class ActionExecutionFilter extends Schema.Class<ActionExecutionFilter>("ActionExecutionFilter")({pipelineExecutionId: Schema.optional(Schema.String), latestInPipelineExecution: Schema.optional(LatestInPipelineExecutionFilter)}) {}
+export class ActionType extends Schema.Class<ActionType>("ActionType")({id: ActionTypeId, settings: Schema.optional(ActionTypeSettings), actionConfigurationProperties: Schema.optional(ActionConfigurationPropertyList), inputArtifactDetails: ArtifactDetails, outputArtifactDetails: ArtifactDetails}) {}
 export const ActionTypeList = Schema.Array(ActionType);
-export const PipelineExecutionFilter = Schema.Struct({succeededInStage: Schema.optional(SucceededInStageFilter)});
-export const PipelineSummary = Schema.Struct({name: Schema.optional(Schema.String), version: Schema.optional(Schema.Number), pipelineType: Schema.optional(Schema.String), executionMode: Schema.optional(Schema.String), created: Schema.optional(Schema.Date), updated: Schema.optional(Schema.Date)});
+export class PipelineExecutionFilter extends Schema.Class<PipelineExecutionFilter>("PipelineExecutionFilter")({succeededInStage: Schema.optional(SucceededInStageFilter)}) {}
+export class PipelineSummary extends Schema.Class<PipelineSummary>("PipelineSummary")({name: Schema.optional(Schema.String), version: Schema.optional(Schema.Number), pipelineType: Schema.optional(Schema.String), executionMode: Schema.optional(Schema.String), created: Schema.optional(Schema.Date), updated: Schema.optional(Schema.Date)}) {}
 export const PipelineList = Schema.Array(PipelineSummary);
-export const WebhookDefinition = Schema.Struct({name: Schema.String, targetPipeline: Schema.String, targetAction: Schema.String, filters: WebhookFilters, authentication: Schema.String, authenticationConfiguration: WebhookAuthConfiguration});
-export const ListWebhookItem = Schema.Struct({definition: WebhookDefinition, url: Schema.String, errorMessage: Schema.optional(Schema.String), errorCode: Schema.optional(Schema.String), lastTriggered: Schema.optional(Schema.Date), arn: Schema.optional(Schema.String), tags: Schema.optional(TagList)});
+export class WebhookDefinition extends Schema.Class<WebhookDefinition>("WebhookDefinition")({name: Schema.String, targetPipeline: Schema.String, targetAction: Schema.String, filters: WebhookFilters, authentication: Schema.String, authenticationConfiguration: WebhookAuthConfiguration}) {}
+export class ListWebhookItem extends Schema.Class<ListWebhookItem>("ListWebhookItem")({definition: WebhookDefinition, url: Schema.String, errorMessage: Schema.optional(Schema.String), errorCode: Schema.optional(Schema.String), lastTriggered: Schema.optional(Schema.Date), arn: Schema.optional(Schema.String), tags: Schema.optional(TagList)}) {}
 export const WebhookList = Schema.Array(ListWebhookItem);
-export const ThirdPartyJob = Schema.Struct({clientId: Schema.optional(Schema.String), jobId: Schema.optional(Schema.String)});
+export class ThirdPartyJob extends Schema.Class<ThirdPartyJob>("ThirdPartyJob")({clientId: Schema.optional(Schema.String), jobId: Schema.optional(Schema.String)}) {}
 export const ThirdPartyJobList = Schema.Array(ThirdPartyJob);
-export const InvalidNonceException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const JobNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CreateCustomActionTypeOutput = Schema.Struct({actionType: ActionType, tags: Schema.optional(TagList)});
-export const ActionTypeNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const GetPipelineOutput = Schema.Struct({pipeline: Schema.optional(PipelineDeclaration), metadata: Schema.optional(PipelineMetadata)});
-export const ListActionExecutionsInput = Schema.Struct({pipelineName: Schema.String, filter: Schema.optional(ActionExecutionFilter), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListActionTypesOutput = Schema.Struct({actionTypes: ActionTypeList, nextToken: Schema.optional(Schema.String)});
-export const ListPipelineExecutionsInput = Schema.Struct({pipelineName: Schema.String, maxResults: Schema.optional(Schema.Number), filter: Schema.optional(PipelineExecutionFilter), nextToken: Schema.optional(Schema.String)});
-export const ListPipelinesOutput = Schema.Struct({pipelines: Schema.optional(PipelineList), nextToken: Schema.optional(Schema.String)});
-export const InvalidNextTokenException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ListWebhooksOutput = Schema.Struct({webhooks: Schema.optional(WebhookList), NextToken: Schema.optional(Schema.String)});
-export const ConditionNotOverridableException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const PollForThirdPartyJobsOutput = Schema.Struct({jobs: Schema.optional(ThirdPartyJobList)});
-export const PutActionRevisionOutput = Schema.Struct({newRevision: Schema.optional(Schema.Boolean), pipelineExecutionId: Schema.optional(Schema.String)});
-export const PutApprovalResultOutput = Schema.Struct({approvedAt: Schema.optional(Schema.Date)});
-export const OutputVariablesSizeExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const PutWebhookInput = Schema.Struct({webhook: WebhookDefinition, tags: Schema.optional(TagList)});
-export const ConflictException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const PipelineExecutionNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const StartPipelineExecutionOutput = Schema.Struct({pipelineExecutionId: Schema.optional(Schema.String)});
-export const DuplicatedStopRequestException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidActionDeclarationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ArtifactRevision = Schema.Struct({name: Schema.optional(Schema.String), revisionId: Schema.optional(Schema.String), revisionChangeIdentifier: Schema.optional(Schema.String), revisionSummary: Schema.optional(Schema.String), created: Schema.optional(Schema.Date), revisionUrl: Schema.optional(Schema.String)});
+export class InvalidNonceException extends Schema.Class<InvalidNonceException>("InvalidNonceException")({message: Schema.optional(Schema.String)}) {}
+export class JobNotFoundException extends Schema.Class<JobNotFoundException>("JobNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class CreateCustomActionTypeOutput extends Schema.Class<CreateCustomActionTypeOutput>("CreateCustomActionTypeOutput")({actionType: ActionType, tags: Schema.optional(TagList)}) {}
+export class ActionTypeNotFoundException extends Schema.Class<ActionTypeNotFoundException>("ActionTypeNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class GetPipelineOutput extends Schema.Class<GetPipelineOutput>("GetPipelineOutput")({pipeline: Schema.optional(PipelineDeclaration), metadata: Schema.optional(PipelineMetadata)}) {}
+export class ListActionExecutionsInput extends Schema.Class<ListActionExecutionsInput>("ListActionExecutionsInput")({pipelineName: Schema.String, filter: Schema.optional(ActionExecutionFilter), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListActionTypesOutput extends Schema.Class<ListActionTypesOutput>("ListActionTypesOutput")({actionTypes: ActionTypeList, nextToken: Schema.optional(Schema.String)}) {}
+export class ListPipelineExecutionsInput extends Schema.Class<ListPipelineExecutionsInput>("ListPipelineExecutionsInput")({pipelineName: Schema.String, maxResults: Schema.optional(Schema.Number), filter: Schema.optional(PipelineExecutionFilter), nextToken: Schema.optional(Schema.String)}) {}
+export class ListPipelinesOutput extends Schema.Class<ListPipelinesOutput>("ListPipelinesOutput")({pipelines: Schema.optional(PipelineList), nextToken: Schema.optional(Schema.String)}) {}
+export class InvalidNextTokenException extends Schema.Class<InvalidNextTokenException>("InvalidNextTokenException")({message: Schema.optional(Schema.String)}) {}
+export class ListWebhooksOutput extends Schema.Class<ListWebhooksOutput>("ListWebhooksOutput")({webhooks: Schema.optional(WebhookList), NextToken: Schema.optional(Schema.String)}) {}
+export class ConditionNotOverridableException extends Schema.Class<ConditionNotOverridableException>("ConditionNotOverridableException")({message: Schema.optional(Schema.String)}) {}
+export class PollForThirdPartyJobsOutput extends Schema.Class<PollForThirdPartyJobsOutput>("PollForThirdPartyJobsOutput")({jobs: Schema.optional(ThirdPartyJobList)}) {}
+export class PutActionRevisionOutput extends Schema.Class<PutActionRevisionOutput>("PutActionRevisionOutput")({newRevision: Schema.optional(Schema.Boolean), pipelineExecutionId: Schema.optional(Schema.String)}) {}
+export class PutApprovalResultOutput extends Schema.Class<PutApprovalResultOutput>("PutApprovalResultOutput")({approvedAt: Schema.optional(Schema.Date)}) {}
+export class OutputVariablesSizeExceededException extends Schema.Class<OutputVariablesSizeExceededException>("OutputVariablesSizeExceededException")({message: Schema.optional(Schema.String)}) {}
+export class PutWebhookInput extends Schema.Class<PutWebhookInput>("PutWebhookInput")({webhook: WebhookDefinition, tags: Schema.optional(TagList)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({message: Schema.optional(Schema.String)}) {}
+export class PipelineExecutionNotFoundException extends Schema.Class<PipelineExecutionNotFoundException>("PipelineExecutionNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class StartPipelineExecutionOutput extends Schema.Class<StartPipelineExecutionOutput>("StartPipelineExecutionOutput")({pipelineExecutionId: Schema.optional(Schema.String)}) {}
+export class DuplicatedStopRequestException extends Schema.Class<DuplicatedStopRequestException>("DuplicatedStopRequestException")({message: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidActionDeclarationException extends Schema.Class<InvalidActionDeclarationException>("InvalidActionDeclarationException")({message: Schema.optional(Schema.String)}) {}
+export class ArtifactRevision extends Schema.Class<ArtifactRevision>("ArtifactRevision")({name: Schema.optional(Schema.String), revisionId: Schema.optional(Schema.String), revisionChangeIdentifier: Schema.optional(Schema.String), revisionSummary: Schema.optional(Schema.String), created: Schema.optional(Schema.Date), revisionUrl: Schema.optional(Schema.String)}) {}
 export const ArtifactRevisionList = Schema.Array(ArtifactRevision);
-export const ResolvedPipelineVariable = Schema.Struct({name: Schema.optional(Schema.String), resolvedValue: Schema.optional(Schema.String)});
+export class ResolvedPipelineVariable extends Schema.Class<ResolvedPipelineVariable>("ResolvedPipelineVariable")({name: Schema.optional(Schema.String), resolvedValue: Schema.optional(Schema.String)}) {}
 export const ResolvedPipelineVariableList = Schema.Array(ResolvedPipelineVariable);
-export const ExecutionTrigger = Schema.Struct({triggerType: Schema.optional(Schema.String), triggerDetail: Schema.optional(Schema.String)});
-export const PipelineRollbackMetadata = Schema.Struct({rollbackTargetPipelineExecutionId: Schema.optional(Schema.String)});
-export const TransitionState = Schema.Struct({enabled: Schema.optional(Schema.Boolean), lastChangedBy: Schema.optional(Schema.String), lastChangedAt: Schema.optional(Schema.Date), disabledReason: Schema.optional(Schema.String)});
-export const RetryStageMetadata = Schema.Struct({autoStageRetryAttempt: Schema.optional(Schema.Number), manualStageRetryAttempt: Schema.optional(Schema.Number), latestRetryTrigger: Schema.optional(Schema.String)});
-export const ActionConfiguration = Schema.Struct({configuration: Schema.optional(ActionConfigurationMap)});
-export const StageContext = Schema.Struct({name: Schema.optional(Schema.String)});
-export const ActionContext = Schema.Struct({name: Schema.optional(Schema.String), actionExecutionId: Schema.optional(Schema.String)});
-export const PipelineContext = Schema.Struct({pipelineName: Schema.optional(Schema.String), stage: Schema.optional(StageContext), action: Schema.optional(ActionContext), pipelineArn: Schema.optional(Schema.String), pipelineExecutionId: Schema.optional(Schema.String)});
-export const S3ArtifactLocation = Schema.Struct({bucketName: Schema.String, objectKey: Schema.String});
-export const ArtifactLocation = Schema.Struct({type: Schema.optional(Schema.String), s3Location: Schema.optional(S3ArtifactLocation)});
-export const Artifact = Schema.Struct({name: Schema.optional(Schema.String), revision: Schema.optional(Schema.String), location: Schema.optional(ArtifactLocation)});
+export class ExecutionTrigger extends Schema.Class<ExecutionTrigger>("ExecutionTrigger")({triggerType: Schema.optional(Schema.String), triggerDetail: Schema.optional(Schema.String)}) {}
+export class PipelineRollbackMetadata extends Schema.Class<PipelineRollbackMetadata>("PipelineRollbackMetadata")({rollbackTargetPipelineExecutionId: Schema.optional(Schema.String)}) {}
+export class TransitionState extends Schema.Class<TransitionState>("TransitionState")({enabled: Schema.optional(Schema.Boolean), lastChangedBy: Schema.optional(Schema.String), lastChangedAt: Schema.optional(Schema.Date), disabledReason: Schema.optional(Schema.String)}) {}
+export class RetryStageMetadata extends Schema.Class<RetryStageMetadata>("RetryStageMetadata")({autoStageRetryAttempt: Schema.optional(Schema.Number), manualStageRetryAttempt: Schema.optional(Schema.Number), latestRetryTrigger: Schema.optional(Schema.String)}) {}
+export class ActionConfiguration extends Schema.Class<ActionConfiguration>("ActionConfiguration")({configuration: Schema.optional(ActionConfigurationMap)}) {}
+export class StageContext extends Schema.Class<StageContext>("StageContext")({name: Schema.optional(Schema.String)}) {}
+export class ActionContext extends Schema.Class<ActionContext>("ActionContext")({name: Schema.optional(Schema.String), actionExecutionId: Schema.optional(Schema.String)}) {}
+export class PipelineContext extends Schema.Class<PipelineContext>("PipelineContext")({pipelineName: Schema.optional(Schema.String), stage: Schema.optional(StageContext), action: Schema.optional(ActionContext), pipelineArn: Schema.optional(Schema.String), pipelineExecutionId: Schema.optional(Schema.String)}) {}
+export class S3ArtifactLocation extends Schema.Class<S3ArtifactLocation>("S3ArtifactLocation")({bucketName: Schema.String, objectKey: Schema.String}) {}
+export class ArtifactLocation extends Schema.Class<ArtifactLocation>("ArtifactLocation")({type: Schema.optional(Schema.String), s3Location: Schema.optional(S3ArtifactLocation)}) {}
+export class Artifact extends Schema.Class<Artifact>("Artifact")({name: Schema.optional(Schema.String), revision: Schema.optional(Schema.String), location: Schema.optional(ArtifactLocation)}) {}
 export const ArtifactList = Schema.Array(Artifact);
-export const AWSSessionCredentials = Schema.Struct({accessKeyId: Schema.String, secretAccessKey: Schema.String, sessionToken: Schema.String});
-export const ThirdPartyJobData = Schema.Struct({actionTypeId: Schema.optional(ActionTypeId), actionConfiguration: Schema.optional(ActionConfiguration), pipelineContext: Schema.optional(PipelineContext), inputArtifacts: Schema.optional(ArtifactList), outputArtifacts: Schema.optional(ArtifactList), artifactCredentials: Schema.optional(AWSSessionCredentials), continuationToken: Schema.optional(Schema.String), encryptionKey: Schema.optional(EncryptionKey)});
-export const RuleTypeSettings = Schema.Struct({thirdPartyConfigurationUrl: Schema.optional(Schema.String), entityUrlTemplate: Schema.optional(Schema.String), executionUrlTemplate: Schema.optional(Schema.String), revisionUrlTemplate: Schema.optional(Schema.String)});
-export const RuleConfigurationProperty = Schema.Struct({name: Schema.String, required: Schema.Boolean, key: Schema.Boolean, secret: Schema.Boolean, queryable: Schema.optional(Schema.Boolean), description: Schema.optional(Schema.String), type: Schema.optional(Schema.String)});
+export class AWSSessionCredentials extends Schema.Class<AWSSessionCredentials>("AWSSessionCredentials")({accessKeyId: Schema.String, secretAccessKey: Schema.String, sessionToken: Schema.String}) {}
+export class ThirdPartyJobData extends Schema.Class<ThirdPartyJobData>("ThirdPartyJobData")({actionTypeId: Schema.optional(ActionTypeId), actionConfiguration: Schema.optional(ActionConfiguration), pipelineContext: Schema.optional(PipelineContext), inputArtifacts: Schema.optional(ArtifactList), outputArtifacts: Schema.optional(ArtifactList), artifactCredentials: Schema.optional(AWSSessionCredentials), continuationToken: Schema.optional(Schema.String), encryptionKey: Schema.optional(EncryptionKey)}) {}
+export class RuleTypeSettings extends Schema.Class<RuleTypeSettings>("RuleTypeSettings")({thirdPartyConfigurationUrl: Schema.optional(Schema.String), entityUrlTemplate: Schema.optional(Schema.String), executionUrlTemplate: Schema.optional(Schema.String), revisionUrlTemplate: Schema.optional(Schema.String)}) {}
+export class RuleConfigurationProperty extends Schema.Class<RuleConfigurationProperty>("RuleConfigurationProperty")({name: Schema.String, required: Schema.Boolean, key: Schema.Boolean, secret: Schema.Boolean, queryable: Schema.optional(Schema.Boolean), description: Schema.optional(Schema.String), type: Schema.optional(Schema.String)}) {}
 export const RuleConfigurationPropertyList = Schema.Array(RuleConfigurationProperty);
-export const PipelineExecution = Schema.Struct({pipelineName: Schema.optional(Schema.String), pipelineVersion: Schema.optional(Schema.Number), pipelineExecutionId: Schema.optional(Schema.String), status: Schema.optional(Schema.String), statusSummary: Schema.optional(Schema.String), artifactRevisions: Schema.optional(ArtifactRevisionList), variables: Schema.optional(ResolvedPipelineVariableList), trigger: Schema.optional(ExecutionTrigger), executionMode: Schema.optional(Schema.String), executionType: Schema.optional(Schema.String), rollbackMetadata: Schema.optional(PipelineRollbackMetadata)});
-export const ThirdPartyJobDetails = Schema.Struct({id: Schema.optional(Schema.String), data: Schema.optional(ThirdPartyJobData), nonce: Schema.optional(Schema.String)});
-export const RuleType = Schema.Struct({id: RuleTypeId, settings: Schema.optional(RuleTypeSettings), ruleConfigurationProperties: Schema.optional(RuleConfigurationPropertyList), inputArtifactDetails: ArtifactDetails});
+export class PipelineExecution extends Schema.Class<PipelineExecution>("PipelineExecution")({pipelineName: Schema.optional(Schema.String), pipelineVersion: Schema.optional(Schema.Number), pipelineExecutionId: Schema.optional(Schema.String), status: Schema.optional(Schema.String), statusSummary: Schema.optional(Schema.String), artifactRevisions: Schema.optional(ArtifactRevisionList), variables: Schema.optional(ResolvedPipelineVariableList), trigger: Schema.optional(ExecutionTrigger), executionMode: Schema.optional(Schema.String), executionType: Schema.optional(Schema.String), rollbackMetadata: Schema.optional(PipelineRollbackMetadata)}) {}
+export class ThirdPartyJobDetails extends Schema.Class<ThirdPartyJobDetails>("ThirdPartyJobDetails")({id: Schema.optional(Schema.String), data: Schema.optional(ThirdPartyJobData), nonce: Schema.optional(Schema.String)}) {}
+export class RuleType extends Schema.Class<RuleType>("RuleType")({id: RuleTypeId, settings: Schema.optional(RuleTypeSettings), ruleConfigurationProperties: Schema.optional(RuleConfigurationPropertyList), inputArtifactDetails: ArtifactDetails}) {}
 export const RuleTypeList = Schema.Array(RuleType);
-export const JobData = Schema.Struct({actionTypeId: Schema.optional(ActionTypeId), actionConfiguration: Schema.optional(ActionConfiguration), pipelineContext: Schema.optional(PipelineContext), inputArtifacts: Schema.optional(ArtifactList), outputArtifacts: Schema.optional(ArtifactList), artifactCredentials: Schema.optional(AWSSessionCredentials), continuationToken: Schema.optional(Schema.String), encryptionKey: Schema.optional(EncryptionKey)});
-export const Job = Schema.Struct({id: Schema.optional(Schema.String), data: Schema.optional(JobData), nonce: Schema.optional(Schema.String), accountId: Schema.optional(Schema.String)});
+export class JobData extends Schema.Class<JobData>("JobData")({actionTypeId: Schema.optional(ActionTypeId), actionConfiguration: Schema.optional(ActionConfiguration), pipelineContext: Schema.optional(PipelineContext), inputArtifacts: Schema.optional(ArtifactList), outputArtifacts: Schema.optional(ArtifactList), artifactCredentials: Schema.optional(AWSSessionCredentials), continuationToken: Schema.optional(Schema.String), encryptionKey: Schema.optional(EncryptionKey)}) {}
+export class Job extends Schema.Class<Job>("Job")({id: Schema.optional(Schema.String), data: Schema.optional(JobData), nonce: Schema.optional(Schema.String), accountId: Schema.optional(Schema.String)}) {}
 export const JobList = Schema.Array(Job);
-export const StageConditionsExecution = Schema.Struct({status: Schema.optional(Schema.String), summary: Schema.optional(Schema.String)});
-export const LimitExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const PipelineVersionNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const GetPipelineExecutionOutput = Schema.Struct({pipelineExecution: Schema.optional(PipelineExecution)});
-export const GetThirdPartyJobDetailsOutput = Schema.Struct({jobDetails: Schema.optional(ThirdPartyJobDetails)});
-export const ListRuleTypesOutput = Schema.Struct({ruleTypes: RuleTypeList});
-export const NotLatestPipelineExecutionException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const PollForJobsOutput = Schema.Struct({jobs: Schema.optional(JobList)});
-export const ActionNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ApprovalAlreadyCompletedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const PutWebhookOutput = Schema.Struct({webhook: Schema.optional(ListWebhookItem)});
-export const StageNotRetryableException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const PipelineExecutionOutdatedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const PipelineExecutionNotStoppableException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const TooManyTagsException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidBlockerDeclarationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ErrorDetails = Schema.Struct({code: Schema.optional(Schema.String), message: Schema.optional(Schema.String)});
-export const ConditionExecution = Schema.Struct({status: Schema.optional(Schema.String), summary: Schema.optional(Schema.String), lastStatusChange: Schema.optional(Schema.Date)});
-export const ActionExecution = Schema.Struct({actionExecutionId: Schema.optional(Schema.String), status: Schema.optional(Schema.String), summary: Schema.optional(Schema.String), lastStatusChange: Schema.optional(Schema.Date), token: Schema.optional(Schema.String), lastUpdatedBy: Schema.optional(Schema.String), externalExecutionId: Schema.optional(Schema.String), externalExecutionUrl: Schema.optional(Schema.String), percentComplete: Schema.optional(Schema.Number), errorDetails: Schema.optional(ErrorDetails), logStreamARN: Schema.optional(Schema.String)});
-export const DeployTargetEventContext = Schema.Struct({ssmCommandId: Schema.optional(Schema.String), message: Schema.optional(Schema.String)});
+export class StageConditionsExecution extends Schema.Class<StageConditionsExecution>("StageConditionsExecution")({status: Schema.optional(Schema.String), summary: Schema.optional(Schema.String)}) {}
+export class LimitExceededException extends Schema.Class<LimitExceededException>("LimitExceededException")({message: Schema.optional(Schema.String)}) {}
+export class PipelineVersionNotFoundException extends Schema.Class<PipelineVersionNotFoundException>("PipelineVersionNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class GetPipelineExecutionOutput extends Schema.Class<GetPipelineExecutionOutput>("GetPipelineExecutionOutput")({pipelineExecution: Schema.optional(PipelineExecution)}) {}
+export class GetThirdPartyJobDetailsOutput extends Schema.Class<GetThirdPartyJobDetailsOutput>("GetThirdPartyJobDetailsOutput")({jobDetails: Schema.optional(ThirdPartyJobDetails)}) {}
+export class ListRuleTypesOutput extends Schema.Class<ListRuleTypesOutput>("ListRuleTypesOutput")({ruleTypes: RuleTypeList}) {}
+export class NotLatestPipelineExecutionException extends Schema.Class<NotLatestPipelineExecutionException>("NotLatestPipelineExecutionException")({message: Schema.optional(Schema.String)}) {}
+export class PollForJobsOutput extends Schema.Class<PollForJobsOutput>("PollForJobsOutput")({jobs: Schema.optional(JobList)}) {}
+export class ActionNotFoundException extends Schema.Class<ActionNotFoundException>("ActionNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class ApprovalAlreadyCompletedException extends Schema.Class<ApprovalAlreadyCompletedException>("ApprovalAlreadyCompletedException")({message: Schema.optional(Schema.String)}) {}
+export class PutWebhookOutput extends Schema.Class<PutWebhookOutput>("PutWebhookOutput")({webhook: Schema.optional(ListWebhookItem)}) {}
+export class StageNotRetryableException extends Schema.Class<StageNotRetryableException>("StageNotRetryableException")({message: Schema.optional(Schema.String)}) {}
+export class PipelineExecutionOutdatedException extends Schema.Class<PipelineExecutionOutdatedException>("PipelineExecutionOutdatedException")({message: Schema.optional(Schema.String)}) {}
+export class PipelineExecutionNotStoppableException extends Schema.Class<PipelineExecutionNotStoppableException>("PipelineExecutionNotStoppableException")({message: Schema.optional(Schema.String)}) {}
+export class TooManyTagsException extends Schema.Class<TooManyTagsException>("TooManyTagsException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidBlockerDeclarationException extends Schema.Class<InvalidBlockerDeclarationException>("InvalidBlockerDeclarationException")({message: Schema.optional(Schema.String)}) {}
+export class ErrorDetails extends Schema.Class<ErrorDetails>("ErrorDetails")({code: Schema.optional(Schema.String), message: Schema.optional(Schema.String)}) {}
+export class ConditionExecution extends Schema.Class<ConditionExecution>("ConditionExecution")({status: Schema.optional(Schema.String), summary: Schema.optional(Schema.String), lastStatusChange: Schema.optional(Schema.Date)}) {}
+export class ActionExecution extends Schema.Class<ActionExecution>("ActionExecution")({actionExecutionId: Schema.optional(Schema.String), status: Schema.optional(Schema.String), summary: Schema.optional(Schema.String), lastStatusChange: Schema.optional(Schema.Date), token: Schema.optional(Schema.String), lastUpdatedBy: Schema.optional(Schema.String), externalExecutionId: Schema.optional(Schema.String), externalExecutionUrl: Schema.optional(Schema.String), percentComplete: Schema.optional(Schema.Number), errorDetails: Schema.optional(ErrorDetails), logStreamARN: Schema.optional(Schema.String)}) {}
+export class DeployTargetEventContext extends Schema.Class<DeployTargetEventContext>("DeployTargetEventContext")({ssmCommandId: Schema.optional(Schema.String), message: Schema.optional(Schema.String)}) {}
 export const ResolvedRuleConfigurationMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const RuleExecutionResult = Schema.Struct({externalExecutionId: Schema.optional(Schema.String), externalExecutionSummary: Schema.optional(Schema.String), externalExecutionUrl: Schema.optional(Schema.String), errorDetails: Schema.optional(ErrorDetails)});
-export const RuleRevision = Schema.Struct({revisionId: Schema.String, revisionChangeId: Schema.String, created: Schema.Date});
-export const RuleExecution = Schema.Struct({ruleExecutionId: Schema.optional(Schema.String), status: Schema.optional(Schema.String), summary: Schema.optional(Schema.String), lastStatusChange: Schema.optional(Schema.Date), token: Schema.optional(Schema.String), lastUpdatedBy: Schema.optional(Schema.String), externalExecutionId: Schema.optional(Schema.String), externalExecutionUrl: Schema.optional(Schema.String), errorDetails: Schema.optional(ErrorDetails)});
-export const InvalidJobException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidApprovalTokenException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidWebhookAuthenticationParametersException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UnableToRollbackStageException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UpdateActionTypeInput = Schema.Struct({actionType: ActionTypeDeclaration});
-export const InvalidStageDeclarationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ActionState = Schema.Struct({actionName: Schema.optional(Schema.String), currentRevision: Schema.optional(ActionRevision), latestExecution: Schema.optional(ActionExecution), entityUrl: Schema.optional(Schema.String), revisionUrl: Schema.optional(Schema.String)});
+export class RuleExecutionResult extends Schema.Class<RuleExecutionResult>("RuleExecutionResult")({externalExecutionId: Schema.optional(Schema.String), externalExecutionSummary: Schema.optional(Schema.String), externalExecutionUrl: Schema.optional(Schema.String), errorDetails: Schema.optional(ErrorDetails)}) {}
+export class RuleRevision extends Schema.Class<RuleRevision>("RuleRevision")({revisionId: Schema.String, revisionChangeId: Schema.String, created: Schema.Date}) {}
+export class RuleExecution extends Schema.Class<RuleExecution>("RuleExecution")({ruleExecutionId: Schema.optional(Schema.String), status: Schema.optional(Schema.String), summary: Schema.optional(Schema.String), lastStatusChange: Schema.optional(Schema.Date), token: Schema.optional(Schema.String), lastUpdatedBy: Schema.optional(Schema.String), externalExecutionId: Schema.optional(Schema.String), externalExecutionUrl: Schema.optional(Schema.String), errorDetails: Schema.optional(ErrorDetails)}) {}
+export class InvalidJobException extends Schema.Class<InvalidJobException>("InvalidJobException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidApprovalTokenException extends Schema.Class<InvalidApprovalTokenException>("InvalidApprovalTokenException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidWebhookAuthenticationParametersException extends Schema.Class<InvalidWebhookAuthenticationParametersException>("InvalidWebhookAuthenticationParametersException")({message: Schema.optional(Schema.String)}) {}
+export class UnableToRollbackStageException extends Schema.Class<UnableToRollbackStageException>("UnableToRollbackStageException")({message: Schema.optional(Schema.String)}) {}
+export class UpdateActionTypeInput extends Schema.Class<UpdateActionTypeInput>("UpdateActionTypeInput")({actionType: ActionTypeDeclaration}) {}
+export class InvalidStageDeclarationException extends Schema.Class<InvalidStageDeclarationException>("InvalidStageDeclarationException")({message: Schema.optional(Schema.String)}) {}
+export class ActionState extends Schema.Class<ActionState>("ActionState")({actionName: Schema.optional(Schema.String), currentRevision: Schema.optional(ActionRevision), latestExecution: Schema.optional(ActionExecution), entityUrl: Schema.optional(Schema.String), revisionUrl: Schema.optional(Schema.String)}) {}
 export const ActionStateList = Schema.Array(ActionState);
-export const DeployTargetEvent = Schema.Struct({name: Schema.optional(Schema.String), status: Schema.optional(Schema.String), startTime: Schema.optional(Schema.Date), endTime: Schema.optional(Schema.Date), context: Schema.optional(DeployTargetEventContext)});
+export class DeployTargetEvent extends Schema.Class<DeployTargetEvent>("DeployTargetEvent")({name: Schema.optional(Schema.String), status: Schema.optional(Schema.String), startTime: Schema.optional(Schema.Date), endTime: Schema.optional(Schema.Date), context: Schema.optional(DeployTargetEventContext)}) {}
 export const DeployTargetEventList = Schema.Array(DeployTargetEvent);
-export const SourceRevision = Schema.Struct({actionName: Schema.String, revisionId: Schema.optional(Schema.String), revisionSummary: Schema.optional(Schema.String), revisionUrl: Schema.optional(Schema.String)});
+export class SourceRevision extends Schema.Class<SourceRevision>("SourceRevision")({actionName: Schema.String, revisionId: Schema.optional(Schema.String), revisionSummary: Schema.optional(Schema.String), revisionUrl: Schema.optional(Schema.String)}) {}
 export const SourceRevisionList = Schema.Array(SourceRevision);
-export const StopExecutionTrigger = Schema.Struct({reason: Schema.optional(Schema.String)});
-export const RuleExecutionOutput = Schema.Struct({executionResult: Schema.optional(RuleExecutionResult)});
-export const RuleState = Schema.Struct({ruleName: Schema.optional(Schema.String), currentRevision: Schema.optional(RuleRevision), latestExecution: Schema.optional(RuleExecution), entityUrl: Schema.optional(Schema.String), revisionUrl: Schema.optional(Schema.String)});
+export class StopExecutionTrigger extends Schema.Class<StopExecutionTrigger>("StopExecutionTrigger")({reason: Schema.optional(Schema.String)}) {}
+export class RuleExecutionOutput extends Schema.Class<RuleExecutionOutput>("RuleExecutionOutput")({executionResult: Schema.optional(RuleExecutionResult)}) {}
+export class RuleState extends Schema.Class<RuleState>("RuleState")({ruleName: Schema.optional(Schema.String), currentRevision: Schema.optional(RuleRevision), latestExecution: Schema.optional(RuleExecution), entityUrl: Schema.optional(Schema.String), revisionUrl: Schema.optional(Schema.String)}) {}
 export const RuleStateList = Schema.Array(RuleState);
-export const S3Location = Schema.Struct({bucket: Schema.optional(Schema.String), key: Schema.optional(Schema.String)});
-export const DeployActionExecutionTarget = Schema.Struct({targetId: Schema.optional(Schema.String), targetType: Schema.optional(Schema.String), status: Schema.optional(Schema.String), startTime: Schema.optional(Schema.Date), endTime: Schema.optional(Schema.Date), events: Schema.optional(DeployTargetEventList)});
+export class S3Location extends Schema.Class<S3Location>("S3Location")({bucket: Schema.optional(Schema.String), key: Schema.optional(Schema.String)}) {}
+export class DeployActionExecutionTarget extends Schema.Class<DeployActionExecutionTarget>("DeployActionExecutionTarget")({targetId: Schema.optional(Schema.String), targetType: Schema.optional(Schema.String), status: Schema.optional(Schema.String), startTime: Schema.optional(Schema.Date), endTime: Schema.optional(Schema.Date), events: Schema.optional(DeployTargetEventList)}) {}
 export const DeployActionExecutionTargetList = Schema.Array(DeployActionExecutionTarget);
-export const PipelineExecutionSummary = Schema.Struct({pipelineExecutionId: Schema.optional(Schema.String), status: Schema.optional(Schema.String), statusSummary: Schema.optional(Schema.String), startTime: Schema.optional(Schema.Date), lastUpdateTime: Schema.optional(Schema.Date), sourceRevisions: Schema.optional(SourceRevisionList), trigger: Schema.optional(ExecutionTrigger), stopTrigger: Schema.optional(StopExecutionTrigger), executionMode: Schema.optional(Schema.String), executionType: Schema.optional(Schema.String), rollbackMetadata: Schema.optional(PipelineRollbackMetadata)});
+export class PipelineExecutionSummary extends Schema.Class<PipelineExecutionSummary>("PipelineExecutionSummary")({pipelineExecutionId: Schema.optional(Schema.String), status: Schema.optional(Schema.String), statusSummary: Schema.optional(Schema.String), startTime: Schema.optional(Schema.Date), lastUpdateTime: Schema.optional(Schema.Date), sourceRevisions: Schema.optional(SourceRevisionList), trigger: Schema.optional(ExecutionTrigger), stopTrigger: Schema.optional(StopExecutionTrigger), executionMode: Schema.optional(Schema.String), executionType: Schema.optional(Schema.String), rollbackMetadata: Schema.optional(PipelineRollbackMetadata)}) {}
 export const PipelineExecutionSummaryList = Schema.Array(PipelineExecutionSummary);
-export const ConditionState = Schema.Struct({latestExecution: Schema.optional(ConditionExecution), ruleStates: Schema.optional(RuleStateList)});
+export class ConditionState extends Schema.Class<ConditionState>("ConditionState")({latestExecution: Schema.optional(ConditionExecution), ruleStates: Schema.optional(RuleStateList)}) {}
 export const ConditionStateList = Schema.Array(ConditionState);
 export const ResolvedActionConfigurationMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const ActionExecutionResult = Schema.Struct({externalExecutionId: Schema.optional(Schema.String), externalExecutionSummary: Schema.optional(Schema.String), externalExecutionUrl: Schema.optional(Schema.String), errorDetails: Schema.optional(ErrorDetails), logStreamARN: Schema.optional(Schema.String)});
-export const ArtifactDetail = Schema.Struct({name: Schema.optional(Schema.String), s3location: Schema.optional(S3Location)});
+export class ActionExecutionResult extends Schema.Class<ActionExecutionResult>("ActionExecutionResult")({externalExecutionId: Schema.optional(Schema.String), externalExecutionSummary: Schema.optional(Schema.String), externalExecutionUrl: Schema.optional(Schema.String), errorDetails: Schema.optional(ErrorDetails), logStreamARN: Schema.optional(Schema.String)}) {}
+export class ArtifactDetail extends Schema.Class<ArtifactDetail>("ArtifactDetail")({name: Schema.optional(Schema.String), s3location: Schema.optional(S3Location)}) {}
 export const ArtifactDetailList = Schema.Array(ArtifactDetail);
-export const ListDeployActionExecutionTargetsOutput = Schema.Struct({targets: Schema.optional(DeployActionExecutionTargetList), nextToken: Schema.optional(Schema.String)});
-export const ListPipelineExecutionsOutput = Schema.Struct({pipelineExecutionSummaries: Schema.optional(PipelineExecutionSummaryList), nextToken: Schema.optional(Schema.String)});
-export const InvalidWebhookFilterPatternException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const RequestFailedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidStructureException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const StageConditionState = Schema.Struct({latestExecution: Schema.optional(StageConditionsExecution), conditionStates: Schema.optional(ConditionStateList)});
-export const ActionExecutionInput = Schema.Struct({actionTypeId: Schema.optional(ActionTypeId), configuration: Schema.optional(ActionConfigurationMap), resolvedConfiguration: Schema.optional(ResolvedActionConfigurationMap), roleArn: Schema.optional(Schema.String), region: Schema.optional(Schema.String), inputArtifacts: Schema.optional(ArtifactDetailList), namespace: Schema.optional(Schema.String)});
-export const ActionExecutionOutput = Schema.Struct({outputArtifacts: Schema.optional(ArtifactDetailList), executionResult: Schema.optional(ActionExecutionResult), outputVariables: Schema.optional(OutputVariablesMap)});
-export const RuleExecutionInput = Schema.Struct({ruleTypeId: Schema.optional(RuleTypeId), configuration: Schema.optional(RuleConfigurationMap), resolvedConfiguration: Schema.optional(ResolvedRuleConfigurationMap), roleArn: Schema.optional(Schema.String), region: Schema.optional(Schema.String), inputArtifacts: Schema.optional(ArtifactDetailList)});
-export const JobDetails = Schema.Struct({id: Schema.optional(Schema.String), data: Schema.optional(JobData), accountId: Schema.optional(Schema.String)});
-export const StageState = Schema.Struct({stageName: Schema.optional(Schema.String), inboundExecution: Schema.optional(StageExecution), inboundExecutions: Schema.optional(StageExecutionList), inboundTransitionState: Schema.optional(TransitionState), actionStates: Schema.optional(ActionStateList), latestExecution: Schema.optional(StageExecution), beforeEntryConditionState: Schema.optional(StageConditionState), onSuccessConditionState: Schema.optional(StageConditionState), onFailureConditionState: Schema.optional(StageConditionState), retryStageMetadata: Schema.optional(RetryStageMetadata)});
+export class ListDeployActionExecutionTargetsOutput extends Schema.Class<ListDeployActionExecutionTargetsOutput>("ListDeployActionExecutionTargetsOutput")({targets: Schema.optional(DeployActionExecutionTargetList), nextToken: Schema.optional(Schema.String)}) {}
+export class ListPipelineExecutionsOutput extends Schema.Class<ListPipelineExecutionsOutput>("ListPipelineExecutionsOutput")({pipelineExecutionSummaries: Schema.optional(PipelineExecutionSummaryList), nextToken: Schema.optional(Schema.String)}) {}
+export class InvalidWebhookFilterPatternException extends Schema.Class<InvalidWebhookFilterPatternException>("InvalidWebhookFilterPatternException")({message: Schema.optional(Schema.String)}) {}
+export class RequestFailedException extends Schema.Class<RequestFailedException>("RequestFailedException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidStructureException extends Schema.Class<InvalidStructureException>("InvalidStructureException")({message: Schema.optional(Schema.String)}) {}
+export class StageConditionState extends Schema.Class<StageConditionState>("StageConditionState")({latestExecution: Schema.optional(StageConditionsExecution), conditionStates: Schema.optional(ConditionStateList)}) {}
+export class ActionExecutionInput extends Schema.Class<ActionExecutionInput>("ActionExecutionInput")({actionTypeId: Schema.optional(ActionTypeId), configuration: Schema.optional(ActionConfigurationMap), resolvedConfiguration: Schema.optional(ResolvedActionConfigurationMap), roleArn: Schema.optional(Schema.String), region: Schema.optional(Schema.String), inputArtifacts: Schema.optional(ArtifactDetailList), namespace: Schema.optional(Schema.String)}) {}
+export class ActionExecutionOutput extends Schema.Class<ActionExecutionOutput>("ActionExecutionOutput")({outputArtifacts: Schema.optional(ArtifactDetailList), executionResult: Schema.optional(ActionExecutionResult), outputVariables: Schema.optional(OutputVariablesMap)}) {}
+export class RuleExecutionInput extends Schema.Class<RuleExecutionInput>("RuleExecutionInput")({ruleTypeId: Schema.optional(RuleTypeId), configuration: Schema.optional(RuleConfigurationMap), resolvedConfiguration: Schema.optional(ResolvedRuleConfigurationMap), roleArn: Schema.optional(Schema.String), region: Schema.optional(Schema.String), inputArtifacts: Schema.optional(ArtifactDetailList)}) {}
+export class JobDetails extends Schema.Class<JobDetails>("JobDetails")({id: Schema.optional(Schema.String), data: Schema.optional(JobData), accountId: Schema.optional(Schema.String)}) {}
+export class StageState extends Schema.Class<StageState>("StageState")({stageName: Schema.optional(Schema.String), inboundExecution: Schema.optional(StageExecution), inboundExecutions: Schema.optional(StageExecutionList), inboundTransitionState: Schema.optional(TransitionState), actionStates: Schema.optional(ActionStateList), latestExecution: Schema.optional(StageExecution), beforeEntryConditionState: Schema.optional(StageConditionState), onSuccessConditionState: Schema.optional(StageConditionState), onFailureConditionState: Schema.optional(StageConditionState), retryStageMetadata: Schema.optional(RetryStageMetadata)}) {}
 export const StageStateList = Schema.Array(StageState);
-export const ActionExecutionDetail = Schema.Struct({pipelineExecutionId: Schema.optional(Schema.String), actionExecutionId: Schema.optional(Schema.String), pipelineVersion: Schema.optional(Schema.Number), stageName: Schema.optional(Schema.String), actionName: Schema.optional(Schema.String), startTime: Schema.optional(Schema.Date), lastUpdateTime: Schema.optional(Schema.Date), updatedBy: Schema.optional(Schema.String), status: Schema.optional(Schema.String), input: Schema.optional(ActionExecutionInput), output: Schema.optional(ActionExecutionOutput)});
+export class ActionExecutionDetail extends Schema.Class<ActionExecutionDetail>("ActionExecutionDetail")({pipelineExecutionId: Schema.optional(Schema.String), actionExecutionId: Schema.optional(Schema.String), pipelineVersion: Schema.optional(Schema.Number), stageName: Schema.optional(Schema.String), actionName: Schema.optional(Schema.String), startTime: Schema.optional(Schema.Date), lastUpdateTime: Schema.optional(Schema.Date), updatedBy: Schema.optional(Schema.String), status: Schema.optional(Schema.String), input: Schema.optional(ActionExecutionInput), output: Schema.optional(ActionExecutionOutput)}) {}
 export const ActionExecutionDetailList = Schema.Array(ActionExecutionDetail);
-export const RuleExecutionDetail = Schema.Struct({pipelineExecutionId: Schema.optional(Schema.String), ruleExecutionId: Schema.optional(Schema.String), pipelineVersion: Schema.optional(Schema.Number), stageName: Schema.optional(Schema.String), ruleName: Schema.optional(Schema.String), startTime: Schema.optional(Schema.Date), lastUpdateTime: Schema.optional(Schema.Date), updatedBy: Schema.optional(Schema.String), status: Schema.optional(Schema.String), input: Schema.optional(RuleExecutionInput), output: Schema.optional(RuleExecutionOutput)});
+export class RuleExecutionDetail extends Schema.Class<RuleExecutionDetail>("RuleExecutionDetail")({pipelineExecutionId: Schema.optional(Schema.String), ruleExecutionId: Schema.optional(Schema.String), pipelineVersion: Schema.optional(Schema.Number), stageName: Schema.optional(Schema.String), ruleName: Schema.optional(Schema.String), startTime: Schema.optional(Schema.Date), lastUpdateTime: Schema.optional(Schema.Date), updatedBy: Schema.optional(Schema.String), status: Schema.optional(Schema.String), input: Schema.optional(RuleExecutionInput), output: Schema.optional(RuleExecutionOutput)}) {}
 export const RuleExecutionDetailList = Schema.Array(RuleExecutionDetail);
-export const CreatePipelineInput = Schema.Struct({pipeline: PipelineDeclaration, tags: Schema.optional(TagList)});
-export const GetJobDetailsOutput = Schema.Struct({jobDetails: Schema.optional(JobDetails)});
-export const GetPipelineStateOutput = Schema.Struct({pipelineName: Schema.optional(Schema.String), pipelineVersion: Schema.optional(Schema.Number), stageStates: Schema.optional(StageStateList), created: Schema.optional(Schema.Date), updated: Schema.optional(Schema.Date)});
-export const ListActionExecutionsOutput = Schema.Struct({actionExecutionDetails: Schema.optional(ActionExecutionDetailList), nextToken: Schema.optional(Schema.String)});
-export const ActionExecutionNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ListRuleExecutionsOutput = Schema.Struct({ruleExecutionDetails: Schema.optional(RuleExecutionDetailList), nextToken: Schema.optional(Schema.String)});
-export const CreatePipelineOutput = Schema.Struct({pipeline: Schema.optional(PipelineDeclaration), tags: Schema.optional(TagList)});
-export const PipelineNameInUseException = Schema.Struct({message: Schema.optional(Schema.String)});
+export class CreatePipelineInput extends Schema.Class<CreatePipelineInput>("CreatePipelineInput")({pipeline: PipelineDeclaration, tags: Schema.optional(TagList)}) {}
+export class GetJobDetailsOutput extends Schema.Class<GetJobDetailsOutput>("GetJobDetailsOutput")({jobDetails: Schema.optional(JobDetails)}) {}
+export class GetPipelineStateOutput extends Schema.Class<GetPipelineStateOutput>("GetPipelineStateOutput")({pipelineName: Schema.optional(Schema.String), pipelineVersion: Schema.optional(Schema.Number), stageStates: Schema.optional(StageStateList), created: Schema.optional(Schema.Date), updated: Schema.optional(Schema.Date)}) {}
+export class ListActionExecutionsOutput extends Schema.Class<ListActionExecutionsOutput>("ListActionExecutionsOutput")({actionExecutionDetails: Schema.optional(ActionExecutionDetailList), nextToken: Schema.optional(Schema.String)}) {}
+export class ActionExecutionNotFoundException extends Schema.Class<ActionExecutionNotFoundException>("ActionExecutionNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class ListRuleExecutionsOutput extends Schema.Class<ListRuleExecutionsOutput>("ListRuleExecutionsOutput")({ruleExecutionDetails: Schema.optional(RuleExecutionDetailList), nextToken: Schema.optional(Schema.String)}) {}
+export class CreatePipelineOutput extends Schema.Class<CreatePipelineOutput>("CreatePipelineOutput")({pipeline: Schema.optional(PipelineDeclaration), tags: Schema.optional(TagList)}) {}
+export class PipelineNameInUseException extends Schema.Class<PipelineNameInUseException>("PipelineNameInUseException")({message: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class ConcurrentModificationExceptionError extends Schema.TaggedError<ConcurrentModificationExceptionError>()("ConcurrentModificationException", ConcurrentModificationException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class WebhookNotFoundExceptionError extends Schema.TaggedError<WebhookNotFoundExceptionError>()("WebhookNotFoundException", WebhookNotFoundException) {};
-export class PipelineNotFoundExceptionError extends Schema.TaggedError<PipelineNotFoundExceptionError>()("PipelineNotFoundException", PipelineNotFoundException) {};
-export class InvalidClientTokenExceptionError extends Schema.TaggedError<InvalidClientTokenExceptionError>()("InvalidClientTokenException", InvalidClientTokenException) {};
-export class InvalidArnExceptionError extends Schema.TaggedError<InvalidArnExceptionError>()("InvalidArnException", InvalidArnException) {};
-export class InvalidNonceExceptionError extends Schema.TaggedError<InvalidNonceExceptionError>()("InvalidNonceException", InvalidNonceException) {};
-export class StageNotFoundExceptionError extends Schema.TaggedError<StageNotFoundExceptionError>()("StageNotFoundException", StageNotFoundException) {};
-export class ConcurrentPipelineExecutionsLimitExceededExceptionError extends Schema.TaggedError<ConcurrentPipelineExecutionsLimitExceededExceptionError>()("ConcurrentPipelineExecutionsLimitExceededException", ConcurrentPipelineExecutionsLimitExceededException) {};
-export class InvalidJobStateExceptionError extends Schema.TaggedError<InvalidJobStateExceptionError>()("InvalidJobStateException", InvalidJobStateException) {};
-export class JobNotFoundExceptionError extends Schema.TaggedError<JobNotFoundExceptionError>()("JobNotFoundException", JobNotFoundException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class InvalidTagsExceptionError extends Schema.TaggedError<InvalidTagsExceptionError>()("InvalidTagsException", InvalidTagsException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ActionTypeNotFoundExceptionError extends Schema.TaggedError<ActionTypeNotFoundExceptionError>()("ActionTypeNotFoundException", ActionTypeNotFoundException) {};
-export class InvalidNextTokenExceptionError extends Schema.TaggedError<InvalidNextTokenExceptionError>()("InvalidNextTokenException", InvalidNextTokenException) {};
-export class ConditionNotOverridableExceptionError extends Schema.TaggedError<ConditionNotOverridableExceptionError>()("ConditionNotOverridableException", ConditionNotOverridableException) {};
-export class ActionNotFoundExceptionError extends Schema.TaggedError<ActionNotFoundExceptionError>()("ActionNotFoundException", ActionNotFoundException) {};
-export class OutputVariablesSizeExceededExceptionError extends Schema.TaggedError<OutputVariablesSizeExceededExceptionError>()("OutputVariablesSizeExceededException", OutputVariablesSizeExceededException) {};
-export class NotLatestPipelineExecutionExceptionError extends Schema.TaggedError<NotLatestPipelineExecutionExceptionError>()("NotLatestPipelineExecutionException", NotLatestPipelineExecutionException) {};
-export class PipelineExecutionNotFoundExceptionError extends Schema.TaggedError<PipelineExecutionNotFoundExceptionError>()("PipelineExecutionNotFoundException", PipelineExecutionNotFoundException) {};
-export class DuplicatedStopRequestExceptionError extends Schema.TaggedError<DuplicatedStopRequestExceptionError>()("DuplicatedStopRequestException", DuplicatedStopRequestException) {};
-export class InvalidActionDeclarationExceptionError extends Schema.TaggedError<InvalidActionDeclarationExceptionError>()("InvalidActionDeclarationException", InvalidActionDeclarationException) {};
-export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException) {};
-export class TooManyTagsExceptionError extends Schema.TaggedError<TooManyTagsExceptionError>()("TooManyTagsException", TooManyTagsException) {};
-export class PipelineVersionNotFoundExceptionError extends Schema.TaggedError<PipelineVersionNotFoundExceptionError>()("PipelineVersionNotFoundException", PipelineVersionNotFoundException) {};
-export class ApprovalAlreadyCompletedExceptionError extends Schema.TaggedError<ApprovalAlreadyCompletedExceptionError>()("ApprovalAlreadyCompletedException", ApprovalAlreadyCompletedException) {};
-export class StageNotRetryableExceptionError extends Schema.TaggedError<StageNotRetryableExceptionError>()("StageNotRetryableException", StageNotRetryableException) {};
-export class PipelineExecutionOutdatedExceptionError extends Schema.TaggedError<PipelineExecutionOutdatedExceptionError>()("PipelineExecutionOutdatedException", PipelineExecutionOutdatedException) {};
-export class PipelineExecutionNotStoppableExceptionError extends Schema.TaggedError<PipelineExecutionNotStoppableExceptionError>()("PipelineExecutionNotStoppableException", PipelineExecutionNotStoppableException) {};
-export class InvalidBlockerDeclarationExceptionError extends Schema.TaggedError<InvalidBlockerDeclarationExceptionError>()("InvalidBlockerDeclarationException", InvalidBlockerDeclarationException) {};
-export class InvalidJobExceptionError extends Schema.TaggedError<InvalidJobExceptionError>()("InvalidJobException", InvalidJobException) {};
-export class InvalidApprovalTokenExceptionError extends Schema.TaggedError<InvalidApprovalTokenExceptionError>()("InvalidApprovalTokenException", InvalidApprovalTokenException) {};
-export class InvalidWebhookAuthenticationParametersExceptionError extends Schema.TaggedError<InvalidWebhookAuthenticationParametersExceptionError>()("InvalidWebhookAuthenticationParametersException", InvalidWebhookAuthenticationParametersException) {};
-export class UnableToRollbackStageExceptionError extends Schema.TaggedError<UnableToRollbackStageExceptionError>()("UnableToRollbackStageException", UnableToRollbackStageException) {};
-export class InvalidStageDeclarationExceptionError extends Schema.TaggedError<InvalidStageDeclarationExceptionError>()("InvalidStageDeclarationException", InvalidStageDeclarationException) {};
-export class InvalidWebhookFilterPatternExceptionError extends Schema.TaggedError<InvalidWebhookFilterPatternExceptionError>()("InvalidWebhookFilterPatternException", InvalidWebhookFilterPatternException) {};
-export class RequestFailedExceptionError extends Schema.TaggedError<RequestFailedExceptionError>()("RequestFailedException", RequestFailedException) {};
-export class InvalidStructureExceptionError extends Schema.TaggedError<InvalidStructureExceptionError>()("InvalidStructureException", InvalidStructureException) {};
-export class ActionExecutionNotFoundExceptionError extends Schema.TaggedError<ActionExecutionNotFoundExceptionError>()("ActionExecutionNotFoundException", ActionExecutionNotFoundException) {};
-export class PipelineNameInUseExceptionError extends Schema.TaggedError<PipelineNameInUseExceptionError>()("PipelineNameInUseException", PipelineNameInUseException) {};
+export class ConcurrentModificationExceptionError extends Schema.TaggedError<ConcurrentModificationExceptionError>()("ConcurrentModificationException", ConcurrentModificationException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class WebhookNotFoundExceptionError extends Schema.TaggedError<WebhookNotFoundExceptionError>()("WebhookNotFoundException", WebhookNotFoundException.fields) {};
+export class PipelineNotFoundExceptionError extends Schema.TaggedError<PipelineNotFoundExceptionError>()("PipelineNotFoundException", PipelineNotFoundException.fields) {};
+export class InvalidClientTokenExceptionError extends Schema.TaggedError<InvalidClientTokenExceptionError>()("InvalidClientTokenException", InvalidClientTokenException.fields) {};
+export class InvalidArnExceptionError extends Schema.TaggedError<InvalidArnExceptionError>()("InvalidArnException", InvalidArnException.fields) {};
+export class InvalidNonceExceptionError extends Schema.TaggedError<InvalidNonceExceptionError>()("InvalidNonceException", InvalidNonceException.fields) {};
+export class StageNotFoundExceptionError extends Schema.TaggedError<StageNotFoundExceptionError>()("StageNotFoundException", StageNotFoundException.fields) {};
+export class ConcurrentPipelineExecutionsLimitExceededExceptionError extends Schema.TaggedError<ConcurrentPipelineExecutionsLimitExceededExceptionError>()("ConcurrentPipelineExecutionsLimitExceededException", ConcurrentPipelineExecutionsLimitExceededException.fields) {};
+export class InvalidJobStateExceptionError extends Schema.TaggedError<InvalidJobStateExceptionError>()("InvalidJobStateException", InvalidJobStateException.fields) {};
+export class JobNotFoundExceptionError extends Schema.TaggedError<JobNotFoundExceptionError>()("JobNotFoundException", JobNotFoundException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class InvalidTagsExceptionError extends Schema.TaggedError<InvalidTagsExceptionError>()("InvalidTagsException", InvalidTagsException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ActionTypeNotFoundExceptionError extends Schema.TaggedError<ActionTypeNotFoundExceptionError>()("ActionTypeNotFoundException", ActionTypeNotFoundException.fields) {};
+export class InvalidNextTokenExceptionError extends Schema.TaggedError<InvalidNextTokenExceptionError>()("InvalidNextTokenException", InvalidNextTokenException.fields) {};
+export class ConditionNotOverridableExceptionError extends Schema.TaggedError<ConditionNotOverridableExceptionError>()("ConditionNotOverridableException", ConditionNotOverridableException.fields) {};
+export class ActionNotFoundExceptionError extends Schema.TaggedError<ActionNotFoundExceptionError>()("ActionNotFoundException", ActionNotFoundException.fields) {};
+export class OutputVariablesSizeExceededExceptionError extends Schema.TaggedError<OutputVariablesSizeExceededExceptionError>()("OutputVariablesSizeExceededException", OutputVariablesSizeExceededException.fields) {};
+export class NotLatestPipelineExecutionExceptionError extends Schema.TaggedError<NotLatestPipelineExecutionExceptionError>()("NotLatestPipelineExecutionException", NotLatestPipelineExecutionException.fields) {};
+export class PipelineExecutionNotFoundExceptionError extends Schema.TaggedError<PipelineExecutionNotFoundExceptionError>()("PipelineExecutionNotFoundException", PipelineExecutionNotFoundException.fields) {};
+export class DuplicatedStopRequestExceptionError extends Schema.TaggedError<DuplicatedStopRequestExceptionError>()("DuplicatedStopRequestException", DuplicatedStopRequestException.fields) {};
+export class InvalidActionDeclarationExceptionError extends Schema.TaggedError<InvalidActionDeclarationExceptionError>()("InvalidActionDeclarationException", InvalidActionDeclarationException.fields) {};
+export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException.fields) {};
+export class TooManyTagsExceptionError extends Schema.TaggedError<TooManyTagsExceptionError>()("TooManyTagsException", TooManyTagsException.fields) {};
+export class PipelineVersionNotFoundExceptionError extends Schema.TaggedError<PipelineVersionNotFoundExceptionError>()("PipelineVersionNotFoundException", PipelineVersionNotFoundException.fields) {};
+export class ApprovalAlreadyCompletedExceptionError extends Schema.TaggedError<ApprovalAlreadyCompletedExceptionError>()("ApprovalAlreadyCompletedException", ApprovalAlreadyCompletedException.fields) {};
+export class StageNotRetryableExceptionError extends Schema.TaggedError<StageNotRetryableExceptionError>()("StageNotRetryableException", StageNotRetryableException.fields) {};
+export class PipelineExecutionOutdatedExceptionError extends Schema.TaggedError<PipelineExecutionOutdatedExceptionError>()("PipelineExecutionOutdatedException", PipelineExecutionOutdatedException.fields) {};
+export class PipelineExecutionNotStoppableExceptionError extends Schema.TaggedError<PipelineExecutionNotStoppableExceptionError>()("PipelineExecutionNotStoppableException", PipelineExecutionNotStoppableException.fields) {};
+export class InvalidBlockerDeclarationExceptionError extends Schema.TaggedError<InvalidBlockerDeclarationExceptionError>()("InvalidBlockerDeclarationException", InvalidBlockerDeclarationException.fields) {};
+export class InvalidJobExceptionError extends Schema.TaggedError<InvalidJobExceptionError>()("InvalidJobException", InvalidJobException.fields) {};
+export class InvalidApprovalTokenExceptionError extends Schema.TaggedError<InvalidApprovalTokenExceptionError>()("InvalidApprovalTokenException", InvalidApprovalTokenException.fields) {};
+export class InvalidWebhookAuthenticationParametersExceptionError extends Schema.TaggedError<InvalidWebhookAuthenticationParametersExceptionError>()("InvalidWebhookAuthenticationParametersException", InvalidWebhookAuthenticationParametersException.fields) {};
+export class UnableToRollbackStageExceptionError extends Schema.TaggedError<UnableToRollbackStageExceptionError>()("UnableToRollbackStageException", UnableToRollbackStageException.fields) {};
+export class InvalidStageDeclarationExceptionError extends Schema.TaggedError<InvalidStageDeclarationExceptionError>()("InvalidStageDeclarationException", InvalidStageDeclarationException.fields) {};
+export class InvalidWebhookFilterPatternExceptionError extends Schema.TaggedError<InvalidWebhookFilterPatternExceptionError>()("InvalidWebhookFilterPatternException", InvalidWebhookFilterPatternException.fields) {};
+export class RequestFailedExceptionError extends Schema.TaggedError<RequestFailedExceptionError>()("RequestFailedException", RequestFailedException.fields) {};
+export class InvalidStructureExceptionError extends Schema.TaggedError<InvalidStructureExceptionError>()("InvalidStructureException", InvalidStructureException.fields) {};
+export class ActionExecutionNotFoundExceptionError extends Schema.TaggedError<ActionExecutionNotFoundExceptionError>()("ActionExecutionNotFoundException", ActionExecutionNotFoundException.fields) {};
+export class PipelineNameInUseExceptionError extends Schema.TaggedError<PipelineNameInUseExceptionError>()("PipelineNameInUseException", PipelineNameInUseException.fields) {};
 
 //# Operations
 export const deleteWebhook = /*#__PURE__*/ makeOperation(() => Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.DeleteWebhook" }, DeleteWebhookInput, DeleteWebhookOutput, [ConcurrentModificationExceptionError, ValidationExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

@@ -3,81 +3,81 @@ import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperat
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const BulkPublishRequest = Schema.Struct({IdentityPoolId: Schema.String});
-export const DeleteDatasetRequest = Schema.Struct({IdentityPoolId: Schema.String, IdentityId: Schema.String, DatasetName: Schema.String});
-export const DescribeDatasetRequest = Schema.Struct({IdentityPoolId: Schema.String, IdentityId: Schema.String, DatasetName: Schema.String});
-export const DescribeIdentityPoolUsageRequest = Schema.Struct({IdentityPoolId: Schema.String});
-export const DescribeIdentityUsageRequest = Schema.Struct({IdentityPoolId: Schema.String, IdentityId: Schema.String});
-export const GetBulkPublishDetailsRequest = Schema.Struct({IdentityPoolId: Schema.String});
-export const GetCognitoEventsRequest = Schema.Struct({IdentityPoolId: Schema.String});
-export const GetIdentityPoolConfigurationRequest = Schema.Struct({IdentityPoolId: Schema.String});
-export const ListDatasetsRequest = Schema.Struct({IdentityPoolId: Schema.String, IdentityId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListIdentityPoolUsageRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListRecordsRequest = Schema.Struct({IdentityPoolId: Schema.String, IdentityId: Schema.String, DatasetName: Schema.String, LastSyncCount: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), SyncSessionToken: Schema.optional(Schema.String)});
-export const RegisterDeviceRequest = Schema.Struct({IdentityPoolId: Schema.String, IdentityId: Schema.String, Platform: Schema.String, Token: Schema.String});
-export const SubscribeToDatasetRequest = Schema.Struct({IdentityPoolId: Schema.String, IdentityId: Schema.String, DatasetName: Schema.String, DeviceId: Schema.String});
-export const SubscribeToDatasetResponse = Schema.Struct({});
-export const UnsubscribeFromDatasetRequest = Schema.Struct({IdentityPoolId: Schema.String, IdentityId: Schema.String, DatasetName: Schema.String, DeviceId: Schema.String});
-export const UnsubscribeFromDatasetResponse = Schema.Struct({});
+export class BulkPublishRequest extends Schema.Class<BulkPublishRequest>("BulkPublishRequest")({IdentityPoolId: Schema.String}) {}
+export class DeleteDatasetRequest extends Schema.Class<DeleteDatasetRequest>("DeleteDatasetRequest")({IdentityPoolId: Schema.String, IdentityId: Schema.String, DatasetName: Schema.String}) {}
+export class DescribeDatasetRequest extends Schema.Class<DescribeDatasetRequest>("DescribeDatasetRequest")({IdentityPoolId: Schema.String, IdentityId: Schema.String, DatasetName: Schema.String}) {}
+export class DescribeIdentityPoolUsageRequest extends Schema.Class<DescribeIdentityPoolUsageRequest>("DescribeIdentityPoolUsageRequest")({IdentityPoolId: Schema.String}) {}
+export class DescribeIdentityUsageRequest extends Schema.Class<DescribeIdentityUsageRequest>("DescribeIdentityUsageRequest")({IdentityPoolId: Schema.String, IdentityId: Schema.String}) {}
+export class GetBulkPublishDetailsRequest extends Schema.Class<GetBulkPublishDetailsRequest>("GetBulkPublishDetailsRequest")({IdentityPoolId: Schema.String}) {}
+export class GetCognitoEventsRequest extends Schema.Class<GetCognitoEventsRequest>("GetCognitoEventsRequest")({IdentityPoolId: Schema.String}) {}
+export class GetIdentityPoolConfigurationRequest extends Schema.Class<GetIdentityPoolConfigurationRequest>("GetIdentityPoolConfigurationRequest")({IdentityPoolId: Schema.String}) {}
+export class ListDatasetsRequest extends Schema.Class<ListDatasetsRequest>("ListDatasetsRequest")({IdentityPoolId: Schema.String, IdentityId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListIdentityPoolUsageRequest extends Schema.Class<ListIdentityPoolUsageRequest>("ListIdentityPoolUsageRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListRecordsRequest extends Schema.Class<ListRecordsRequest>("ListRecordsRequest")({IdentityPoolId: Schema.String, IdentityId: Schema.String, DatasetName: Schema.String, LastSyncCount: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), SyncSessionToken: Schema.optional(Schema.String)}) {}
+export class RegisterDeviceRequest extends Schema.Class<RegisterDeviceRequest>("RegisterDeviceRequest")({IdentityPoolId: Schema.String, IdentityId: Schema.String, Platform: Schema.String, Token: Schema.String}) {}
+export class SubscribeToDatasetRequest extends Schema.Class<SubscribeToDatasetRequest>("SubscribeToDatasetRequest")({IdentityPoolId: Schema.String, IdentityId: Schema.String, DatasetName: Schema.String, DeviceId: Schema.String}) {}
+export class SubscribeToDatasetResponse extends Schema.Class<SubscribeToDatasetResponse>("SubscribeToDatasetResponse")({}) {}
+export class UnsubscribeFromDatasetRequest extends Schema.Class<UnsubscribeFromDatasetRequest>("UnsubscribeFromDatasetRequest")({IdentityPoolId: Schema.String, IdentityId: Schema.String, DatasetName: Schema.String, DeviceId: Schema.String}) {}
+export class UnsubscribeFromDatasetResponse extends Schema.Class<UnsubscribeFromDatasetResponse>("UnsubscribeFromDatasetResponse")({}) {}
 export const ApplicationArnList = Schema.Array(Schema.String);
-export const Dataset = Schema.Struct({IdentityId: Schema.optional(Schema.String), DatasetName: Schema.optional(Schema.String), CreationDate: Schema.optional(Schema.Date), LastModifiedDate: Schema.optional(Schema.Date), LastModifiedBy: Schema.optional(Schema.String), DataStorage: Schema.optional(Schema.Number), NumRecords: Schema.optional(Schema.Number)});
+export class Dataset extends Schema.Class<Dataset>("Dataset")({IdentityId: Schema.optional(Schema.String), DatasetName: Schema.optional(Schema.String), CreationDate: Schema.optional(Schema.Date), LastModifiedDate: Schema.optional(Schema.Date), LastModifiedBy: Schema.optional(Schema.String), DataStorage: Schema.optional(Schema.Number), NumRecords: Schema.optional(Schema.Number)}) {}
 export const DatasetList = Schema.Array(Dataset);
-export const IdentityPoolUsage = Schema.Struct({IdentityPoolId: Schema.optional(Schema.String), SyncSessionsCount: Schema.optional(Schema.Number), DataStorage: Schema.optional(Schema.Number), LastModifiedDate: Schema.optional(Schema.Date)});
+export class IdentityPoolUsage extends Schema.Class<IdentityPoolUsage>("IdentityPoolUsage")({IdentityPoolId: Schema.optional(Schema.String), SyncSessionsCount: Schema.optional(Schema.Number), DataStorage: Schema.optional(Schema.Number), LastModifiedDate: Schema.optional(Schema.Date)}) {}
 export const IdentityPoolUsageList = Schema.Array(IdentityPoolUsage);
 export const MergedDatasetNameList = Schema.Array(Schema.String);
 export const Events = Schema.Record({key: Schema.String, value: Schema.String});
-export const PushSync = Schema.Struct({ApplicationArns: Schema.optional(ApplicationArnList), RoleArn: Schema.optional(Schema.String)});
-export const CognitoStreams = Schema.Struct({StreamName: Schema.optional(Schema.String), RoleArn: Schema.optional(Schema.String), StreamingStatus: Schema.optional(Schema.String)});
-export const RecordPatch = Schema.Struct({Op: Schema.String, Key: Schema.String, Value: Schema.optional(Schema.String), SyncCount: Schema.Number, DeviceLastModifiedDate: Schema.optional(Schema.Date)});
+export class PushSync extends Schema.Class<PushSync>("PushSync")({ApplicationArns: Schema.optional(ApplicationArnList), RoleArn: Schema.optional(Schema.String)}) {}
+export class CognitoStreams extends Schema.Class<CognitoStreams>("CognitoStreams")({StreamName: Schema.optional(Schema.String), RoleArn: Schema.optional(Schema.String), StreamingStatus: Schema.optional(Schema.String)}) {}
+export class RecordPatch extends Schema.Class<RecordPatch>("RecordPatch")({Op: Schema.String, Key: Schema.String, Value: Schema.optional(Schema.String), SyncCount: Schema.Number, DeviceLastModifiedDate: Schema.optional(Schema.Date)}) {}
 export const RecordPatchList = Schema.Array(RecordPatch);
-export const BulkPublishResponse = Schema.Struct({IdentityPoolId: Schema.optional(Schema.String)});
-export const DescribeDatasetResponse = Schema.Struct({Dataset: Schema.optional(Dataset)});
-export const GetBulkPublishDetailsResponse = Schema.Struct({IdentityPoolId: Schema.optional(Schema.String), BulkPublishStartTime: Schema.optional(Schema.Date), BulkPublishCompleteTime: Schema.optional(Schema.Date), BulkPublishStatus: Schema.optional(Schema.String), FailureMessage: Schema.optional(Schema.String)});
-export const GetCognitoEventsResponse = Schema.Struct({Events: Schema.optional(Events)});
-export const GetIdentityPoolConfigurationResponse = Schema.Struct({IdentityPoolId: Schema.optional(Schema.String), PushSync: Schema.optional(PushSync), CognitoStreams: Schema.optional(CognitoStreams)});
-export const ListDatasetsResponse = Schema.Struct({Datasets: Schema.optional(DatasetList), Count: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListIdentityPoolUsageResponse = Schema.Struct({IdentityPoolUsages: Schema.optional(IdentityPoolUsageList), MaxResults: Schema.optional(Schema.Number), Count: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const RegisterDeviceResponse = Schema.Struct({DeviceId: Schema.optional(Schema.String)});
-export const SetCognitoEventsRequest = Schema.Struct({IdentityPoolId: Schema.String, Events: Events});
-export const SetIdentityPoolConfigurationRequest = Schema.Struct({IdentityPoolId: Schema.String, PushSync: Schema.optional(PushSync), CognitoStreams: Schema.optional(CognitoStreams)});
-export const InternalErrorException = Schema.Struct({message: Schema.String});
-export const InvalidConfigurationException = Schema.Struct({message: Schema.String});
-export const UpdateRecordsRequest = Schema.Struct({IdentityPoolId: Schema.String, IdentityId: Schema.String, DatasetName: Schema.String, DeviceId: Schema.optional(Schema.String), RecordPatches: Schema.optional(RecordPatchList), SyncSessionToken: Schema.String, ClientContext: Schema.optional(Header("x-amz-Client-Context"))});
-export const IdentityUsage = Schema.Struct({IdentityId: Schema.optional(Schema.String), IdentityPoolId: Schema.optional(Schema.String), LastModifiedDate: Schema.optional(Schema.Date), DatasetCount: Schema.optional(Schema.Number), DataStorage: Schema.optional(Schema.Number)});
-export const Record = Schema.Struct({Key: Schema.optional(Schema.String), Value: Schema.optional(Schema.String), SyncCount: Schema.optional(Schema.Number), LastModifiedDate: Schema.optional(Schema.Date), LastModifiedBy: Schema.optional(Schema.String), DeviceLastModifiedDate: Schema.optional(Schema.Date)});
+export class BulkPublishResponse extends Schema.Class<BulkPublishResponse>("BulkPublishResponse")({IdentityPoolId: Schema.optional(Schema.String)}) {}
+export class DescribeDatasetResponse extends Schema.Class<DescribeDatasetResponse>("DescribeDatasetResponse")({Dataset: Schema.optional(Dataset)}) {}
+export class GetBulkPublishDetailsResponse extends Schema.Class<GetBulkPublishDetailsResponse>("GetBulkPublishDetailsResponse")({IdentityPoolId: Schema.optional(Schema.String), BulkPublishStartTime: Schema.optional(Schema.Date), BulkPublishCompleteTime: Schema.optional(Schema.Date), BulkPublishStatus: Schema.optional(Schema.String), FailureMessage: Schema.optional(Schema.String)}) {}
+export class GetCognitoEventsResponse extends Schema.Class<GetCognitoEventsResponse>("GetCognitoEventsResponse")({Events: Schema.optional(Events)}) {}
+export class GetIdentityPoolConfigurationResponse extends Schema.Class<GetIdentityPoolConfigurationResponse>("GetIdentityPoolConfigurationResponse")({IdentityPoolId: Schema.optional(Schema.String), PushSync: Schema.optional(PushSync), CognitoStreams: Schema.optional(CognitoStreams)}) {}
+export class ListDatasetsResponse extends Schema.Class<ListDatasetsResponse>("ListDatasetsResponse")({Datasets: Schema.optional(DatasetList), Count: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListIdentityPoolUsageResponse extends Schema.Class<ListIdentityPoolUsageResponse>("ListIdentityPoolUsageResponse")({IdentityPoolUsages: Schema.optional(IdentityPoolUsageList), MaxResults: Schema.optional(Schema.Number), Count: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class RegisterDeviceResponse extends Schema.Class<RegisterDeviceResponse>("RegisterDeviceResponse")({DeviceId: Schema.optional(Schema.String)}) {}
+export class SetCognitoEventsRequest extends Schema.Class<SetCognitoEventsRequest>("SetCognitoEventsRequest")({IdentityPoolId: Schema.String, Events: Events}) {}
+export class SetIdentityPoolConfigurationRequest extends Schema.Class<SetIdentityPoolConfigurationRequest>("SetIdentityPoolConfigurationRequest")({IdentityPoolId: Schema.String, PushSync: Schema.optional(PushSync), CognitoStreams: Schema.optional(CognitoStreams)}) {}
+export class InternalErrorException extends Schema.Class<InternalErrorException>("InternalErrorException")({message: Schema.String}) {}
+export class InvalidConfigurationException extends Schema.Class<InvalidConfigurationException>("InvalidConfigurationException")({message: Schema.String}) {}
+export class UpdateRecordsRequest extends Schema.Class<UpdateRecordsRequest>("UpdateRecordsRequest")({IdentityPoolId: Schema.String, IdentityId: Schema.String, DatasetName: Schema.String, DeviceId: Schema.optional(Schema.String), RecordPatches: Schema.optional(RecordPatchList), SyncSessionToken: Schema.String, ClientContext: Schema.optional(Header("x-amz-Client-Context"))}) {}
+export class IdentityUsage extends Schema.Class<IdentityUsage>("IdentityUsage")({IdentityId: Schema.optional(Schema.String), IdentityPoolId: Schema.optional(Schema.String), LastModifiedDate: Schema.optional(Schema.Date), DatasetCount: Schema.optional(Schema.Number), DataStorage: Schema.optional(Schema.Number)}) {}
+export class Record extends Schema.Class<Record>("Record")({Key: Schema.optional(Schema.String), Value: Schema.optional(Schema.String), SyncCount: Schema.optional(Schema.Number), LastModifiedDate: Schema.optional(Schema.Date), LastModifiedBy: Schema.optional(Schema.String), DeviceLastModifiedDate: Schema.optional(Schema.Date)}) {}
 export const RecordList = Schema.Array(Record);
-export const AlreadyStreamedException = Schema.Struct({message: Schema.String});
-export const DeleteDatasetResponse = Schema.Struct({Dataset: Schema.optional(Dataset)});
-export const InvalidParameterException = Schema.Struct({message: Schema.String});
-export const DescribeIdentityPoolUsageResponse = Schema.Struct({IdentityPoolUsage: Schema.optional(IdentityPoolUsage)});
-export const DescribeIdentityUsageResponse = Schema.Struct({IdentityUsage: Schema.optional(IdentityUsage)});
-export const NotAuthorizedException = Schema.Struct({message: Schema.String});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.String});
-export const TooManyRequestsException = Schema.Struct({message: Schema.String});
-export const ListRecordsResponse = Schema.Struct({Records: Schema.optional(RecordList), NextToken: Schema.optional(Schema.String), Count: Schema.optional(Schema.Number), DatasetSyncCount: Schema.optional(Schema.Number), LastModifiedBy: Schema.optional(Schema.String), MergedDatasetNames: Schema.optional(MergedDatasetNameList), DatasetExists: Schema.optional(Schema.Boolean), DatasetDeletedAfterRequestedSyncCount: Schema.optional(Schema.Boolean), SyncSessionToken: Schema.optional(Schema.String)});
-export const SetIdentityPoolConfigurationResponse = Schema.Struct({IdentityPoolId: Schema.optional(Schema.String), PushSync: Schema.optional(PushSync), CognitoStreams: Schema.optional(CognitoStreams)});
-export const UpdateRecordsResponse = Schema.Struct({Records: Schema.optional(RecordList)});
-export const DuplicateRequestException = Schema.Struct({message: Schema.String});
-export const ResourceConflictException = Schema.Struct({message: Schema.String});
-export const ConcurrentModificationException = Schema.Struct({message: Schema.String});
-export const InvalidLambdaFunctionOutputException = Schema.Struct({message: Schema.String});
-export const LambdaThrottledException = Schema.Struct({message: Schema.String});
-export const LimitExceededException = Schema.Struct({message: Schema.String});
+export class AlreadyStreamedException extends Schema.Class<AlreadyStreamedException>("AlreadyStreamedException")({message: Schema.String}) {}
+export class DeleteDatasetResponse extends Schema.Class<DeleteDatasetResponse>("DeleteDatasetResponse")({Dataset: Schema.optional(Dataset)}) {}
+export class InvalidParameterException extends Schema.Class<InvalidParameterException>("InvalidParameterException")({message: Schema.String}) {}
+export class DescribeIdentityPoolUsageResponse extends Schema.Class<DescribeIdentityPoolUsageResponse>("DescribeIdentityPoolUsageResponse")({IdentityPoolUsage: Schema.optional(IdentityPoolUsage)}) {}
+export class DescribeIdentityUsageResponse extends Schema.Class<DescribeIdentityUsageResponse>("DescribeIdentityUsageResponse")({IdentityUsage: Schema.optional(IdentityUsage)}) {}
+export class NotAuthorizedException extends Schema.Class<NotAuthorizedException>("NotAuthorizedException")({message: Schema.String}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.String}) {}
+export class TooManyRequestsException extends Schema.Class<TooManyRequestsException>("TooManyRequestsException")({message: Schema.String}) {}
+export class ListRecordsResponse extends Schema.Class<ListRecordsResponse>("ListRecordsResponse")({Records: Schema.optional(RecordList), NextToken: Schema.optional(Schema.String), Count: Schema.optional(Schema.Number), DatasetSyncCount: Schema.optional(Schema.Number), LastModifiedBy: Schema.optional(Schema.String), MergedDatasetNames: Schema.optional(MergedDatasetNameList), DatasetExists: Schema.optional(Schema.Boolean), DatasetDeletedAfterRequestedSyncCount: Schema.optional(Schema.Boolean), SyncSessionToken: Schema.optional(Schema.String)}) {}
+export class SetIdentityPoolConfigurationResponse extends Schema.Class<SetIdentityPoolConfigurationResponse>("SetIdentityPoolConfigurationResponse")({IdentityPoolId: Schema.optional(Schema.String), PushSync: Schema.optional(PushSync), CognitoStreams: Schema.optional(CognitoStreams)}) {}
+export class UpdateRecordsResponse extends Schema.Class<UpdateRecordsResponse>("UpdateRecordsResponse")({Records: Schema.optional(RecordList)}) {}
+export class DuplicateRequestException extends Schema.Class<DuplicateRequestException>("DuplicateRequestException")({message: Schema.String}) {}
+export class ResourceConflictException extends Schema.Class<ResourceConflictException>("ResourceConflictException")({message: Schema.String}) {}
+export class ConcurrentModificationException extends Schema.Class<ConcurrentModificationException>("ConcurrentModificationException")({message: Schema.String}) {}
+export class InvalidLambdaFunctionOutputException extends Schema.Class<InvalidLambdaFunctionOutputException>("InvalidLambdaFunctionOutputException")({message: Schema.String}) {}
+export class LambdaThrottledException extends Schema.Class<LambdaThrottledException>("LambdaThrottledException")({message: Schema.String}) {}
+export class LimitExceededException extends Schema.Class<LimitExceededException>("LimitExceededException")({message: Schema.String}) {}
 
 //# Errors
-export class InternalErrorExceptionError extends Schema.TaggedError<InternalErrorExceptionError>()("InternalErrorException", InternalErrorException) {};
-export class InvalidParameterExceptionError extends Schema.TaggedError<InvalidParameterExceptionError>()("InvalidParameterException", InvalidParameterException) {};
-export class NotAuthorizedExceptionError extends Schema.TaggedError<NotAuthorizedExceptionError>()("NotAuthorizedException", NotAuthorizedException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class TooManyRequestsExceptionError extends Schema.TaggedError<TooManyRequestsExceptionError>()("TooManyRequestsException", TooManyRequestsException) {};
-export class InvalidConfigurationExceptionError extends Schema.TaggedError<InvalidConfigurationExceptionError>()("InvalidConfigurationException", InvalidConfigurationException) {};
-export class AlreadyStreamedExceptionError extends Schema.TaggedError<AlreadyStreamedExceptionError>()("AlreadyStreamedException", AlreadyStreamedException) {};
-export class DuplicateRequestExceptionError extends Schema.TaggedError<DuplicateRequestExceptionError>()("DuplicateRequestException", DuplicateRequestException) {};
-export class ResourceConflictExceptionError extends Schema.TaggedError<ResourceConflictExceptionError>()("ResourceConflictException", ResourceConflictException) {};
-export class ConcurrentModificationExceptionError extends Schema.TaggedError<ConcurrentModificationExceptionError>()("ConcurrentModificationException", ConcurrentModificationException) {};
-export class InvalidLambdaFunctionOutputExceptionError extends Schema.TaggedError<InvalidLambdaFunctionOutputExceptionError>()("InvalidLambdaFunctionOutputException", InvalidLambdaFunctionOutputException) {};
-export class LambdaThrottledExceptionError extends Schema.TaggedError<LambdaThrottledExceptionError>()("LambdaThrottledException", LambdaThrottledException) {};
-export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException) {};
+export class InternalErrorExceptionError extends Schema.TaggedError<InternalErrorExceptionError>()("InternalErrorException", InternalErrorException.fields) {};
+export class InvalidParameterExceptionError extends Schema.TaggedError<InvalidParameterExceptionError>()("InvalidParameterException", InvalidParameterException.fields) {};
+export class NotAuthorizedExceptionError extends Schema.TaggedError<NotAuthorizedExceptionError>()("NotAuthorizedException", NotAuthorizedException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class TooManyRequestsExceptionError extends Schema.TaggedError<TooManyRequestsExceptionError>()("TooManyRequestsException", TooManyRequestsException.fields) {};
+export class InvalidConfigurationExceptionError extends Schema.TaggedError<InvalidConfigurationExceptionError>()("InvalidConfigurationException", InvalidConfigurationException.fields) {};
+export class AlreadyStreamedExceptionError extends Schema.TaggedError<AlreadyStreamedExceptionError>()("AlreadyStreamedException", AlreadyStreamedException.fields) {};
+export class DuplicateRequestExceptionError extends Schema.TaggedError<DuplicateRequestExceptionError>()("DuplicateRequestException", DuplicateRequestException.fields) {};
+export class ResourceConflictExceptionError extends Schema.TaggedError<ResourceConflictExceptionError>()("ResourceConflictException", ResourceConflictException.fields) {};
+export class ConcurrentModificationExceptionError extends Schema.TaggedError<ConcurrentModificationExceptionError>()("ConcurrentModificationException", ConcurrentModificationException.fields) {};
+export class InvalidLambdaFunctionOutputExceptionError extends Schema.TaggedError<InvalidLambdaFunctionOutputExceptionError>()("InvalidLambdaFunctionOutputException", InvalidLambdaFunctionOutputException.fields) {};
+export class LambdaThrottledExceptionError extends Schema.TaggedError<LambdaThrottledExceptionError>()("LambdaThrottledException", LambdaThrottledException.fields) {};
+export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException.fields) {};
 
 //# Operations
 export const listDatasets = /*#__PURE__*/ makeOperation(() => Operation({ version: "2014-06-30", uri: "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets", method: "GET", sdkId: "Cognito Sync", sigV4ServiceName: "cognito-sync", name: "AWSCognitoSyncService.ListDatasets" }, ListDatasetsRequest, ListDatasetsResponse, [InternalErrorExceptionError, InvalidParameterExceptionError, NotAuthorizedExceptionError, TooManyRequestsExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

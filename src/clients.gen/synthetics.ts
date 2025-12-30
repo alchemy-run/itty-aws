@@ -7,123 +7,123 @@ export const ResourceList = Schema.Array(Schema.String);
 export const DescribeCanariesNameFilter = Schema.Array(Schema.String);
 export const DescribeCanariesLastRunNameFilter = Schema.Array(Schema.String);
 export const BaseScreenshotIgnoreCoordinates = Schema.Array(Schema.String);
-export const BaseScreenshot = Schema.Struct({ScreenshotName: Schema.String, IgnoreCoordinates: Schema.optional(BaseScreenshotIgnoreCoordinates)});
+export class BaseScreenshot extends Schema.Class<BaseScreenshot>("BaseScreenshot")({ScreenshotName: Schema.String, IgnoreCoordinates: Schema.optional(BaseScreenshotIgnoreCoordinates)}) {}
 export const BaseScreenshots = Schema.Array(BaseScreenshot);
-export const VisualReferenceInput = Schema.Struct({BaseScreenshots: Schema.optional(BaseScreenshots), BaseCanaryRunId: Schema.String, BrowserType: Schema.optional(Schema.String)});
+export class VisualReferenceInput extends Schema.Class<VisualReferenceInput>("VisualReferenceInput")({BaseScreenshots: Schema.optional(BaseScreenshots), BaseCanaryRunId: Schema.String, BrowserType: Schema.optional(Schema.String)}) {}
 export const VisualReferences = Schema.Array(VisualReferenceInput);
 export const TagKeyList = Schema.Array(Schema.String);
-export const AssociateResourceRequest = Schema.Struct({GroupIdentifier: Schema.String, ResourceArn: Schema.String});
-export const AssociateResourceResponse = Schema.Struct({});
+export class AssociateResourceRequest extends Schema.Class<AssociateResourceRequest>("AssociateResourceRequest")({GroupIdentifier: Schema.String, ResourceArn: Schema.String}) {}
+export class AssociateResourceResponse extends Schema.Class<AssociateResourceResponse>("AssociateResourceResponse")({}) {}
 export const TagMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const CreateGroupRequest = Schema.Struct({Name: Schema.String, Tags: Schema.optional(TagMap)});
-export const DeleteCanaryRequest = Schema.Struct({Name: Schema.String, DeleteLambda: Schema.optional(Schema.Boolean)});
-export const DeleteCanaryResponse = Schema.Struct({});
-export const DeleteGroupRequest = Schema.Struct({GroupIdentifier: Schema.String});
-export const DeleteGroupResponse = Schema.Struct({});
-export const DescribeCanariesRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), Names: Schema.optional(DescribeCanariesNameFilter)});
-export const DescribeCanariesLastRunRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), Names: Schema.optional(DescribeCanariesLastRunNameFilter), BrowserType: Schema.optional(Schema.String)});
-export const DescribeRuntimeVersionsRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const DisassociateResourceRequest = Schema.Struct({GroupIdentifier: Schema.String, ResourceArn: Schema.String});
-export const DisassociateResourceResponse = Schema.Struct({});
-export const GetCanaryRequest = Schema.Struct({Name: Schema.String, DryRunId: Schema.optional(Schema.String)});
-export const GetCanaryRunsRequest = Schema.Struct({Name: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), DryRunId: Schema.optional(Schema.String), RunType: Schema.optional(Schema.String)});
-export const GetGroupRequest = Schema.Struct({GroupIdentifier: Schema.String});
-export const ListAssociatedGroupsRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), ResourceArn: Schema.String});
-export const ListGroupResourcesRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), GroupIdentifier: Schema.String});
-export const ListGroupsRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListTagsForResourceRequest = Schema.Struct({ResourceArn: Schema.String});
-export const StartCanaryRequest = Schema.Struct({Name: Schema.String});
-export const StartCanaryResponse = Schema.Struct({});
-export const StopCanaryRequest = Schema.Struct({Name: Schema.String});
-export const StopCanaryResponse = Schema.Struct({});
-export const TagResourceRequest = Schema.Struct({ResourceArn: Schema.String, Tags: TagMap});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({ResourceArn: Schema.String, TagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
+export class CreateGroupRequest extends Schema.Class<CreateGroupRequest>("CreateGroupRequest")({Name: Schema.String, Tags: Schema.optional(TagMap)}) {}
+export class DeleteCanaryRequest extends Schema.Class<DeleteCanaryRequest>("DeleteCanaryRequest")({Name: Schema.String, DeleteLambda: Schema.optional(Schema.Boolean)}) {}
+export class DeleteCanaryResponse extends Schema.Class<DeleteCanaryResponse>("DeleteCanaryResponse")({}) {}
+export class DeleteGroupRequest extends Schema.Class<DeleteGroupRequest>("DeleteGroupRequest")({GroupIdentifier: Schema.String}) {}
+export class DeleteGroupResponse extends Schema.Class<DeleteGroupResponse>("DeleteGroupResponse")({}) {}
+export class DescribeCanariesRequest extends Schema.Class<DescribeCanariesRequest>("DescribeCanariesRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), Names: Schema.optional(DescribeCanariesNameFilter)}) {}
+export class DescribeCanariesLastRunRequest extends Schema.Class<DescribeCanariesLastRunRequest>("DescribeCanariesLastRunRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), Names: Schema.optional(DescribeCanariesLastRunNameFilter), BrowserType: Schema.optional(Schema.String)}) {}
+export class DescribeRuntimeVersionsRequest extends Schema.Class<DescribeRuntimeVersionsRequest>("DescribeRuntimeVersionsRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class DisassociateResourceRequest extends Schema.Class<DisassociateResourceRequest>("DisassociateResourceRequest")({GroupIdentifier: Schema.String, ResourceArn: Schema.String}) {}
+export class DisassociateResourceResponse extends Schema.Class<DisassociateResourceResponse>("DisassociateResourceResponse")({}) {}
+export class GetCanaryRequest extends Schema.Class<GetCanaryRequest>("GetCanaryRequest")({Name: Schema.String, DryRunId: Schema.optional(Schema.String)}) {}
+export class GetCanaryRunsRequest extends Schema.Class<GetCanaryRunsRequest>("GetCanaryRunsRequest")({Name: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), DryRunId: Schema.optional(Schema.String), RunType: Schema.optional(Schema.String)}) {}
+export class GetGroupRequest extends Schema.Class<GetGroupRequest>("GetGroupRequest")({GroupIdentifier: Schema.String}) {}
+export class ListAssociatedGroupsRequest extends Schema.Class<ListAssociatedGroupsRequest>("ListAssociatedGroupsRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), ResourceArn: Schema.String}) {}
+export class ListGroupResourcesRequest extends Schema.Class<ListGroupResourcesRequest>("ListGroupResourcesRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), GroupIdentifier: Schema.String}) {}
+export class ListGroupsRequest extends Schema.Class<ListGroupsRequest>("ListGroupsRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({ResourceArn: Schema.String}) {}
+export class StartCanaryRequest extends Schema.Class<StartCanaryRequest>("StartCanaryRequest")({Name: Schema.String}) {}
+export class StartCanaryResponse extends Schema.Class<StartCanaryResponse>("StartCanaryResponse")({}) {}
+export class StopCanaryRequest extends Schema.Class<StopCanaryRequest>("StopCanaryRequest")({Name: Schema.String}) {}
+export class StopCanaryResponse extends Schema.Class<StopCanaryResponse>("StopCanaryResponse")({}) {}
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({ResourceArn: Schema.String, Tags: TagMap}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({ResourceArn: Schema.String, TagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
 export const BlueprintTypes = Schema.Array(Schema.String);
-export const Dependency = Schema.Struct({Type: Schema.optional(Schema.String), Reference: Schema.String});
+export class Dependency extends Schema.Class<Dependency>("Dependency")({Type: Schema.optional(Schema.String), Reference: Schema.String}) {}
 export const Dependencies = Schema.Array(Dependency);
-export const CanaryCodeInput = Schema.Struct({S3Bucket: Schema.optional(Schema.String), S3Key: Schema.optional(Schema.String), S3Version: Schema.optional(Schema.String), ZipFile: Schema.optional(StreamBody()), Handler: Schema.optional(Schema.String), BlueprintTypes: Schema.optional(BlueprintTypes), Dependencies: Schema.optional(Dependencies)});
-export const RetryConfigInput = Schema.Struct({MaxRetries: Schema.Number});
-export const CanaryScheduleInput = Schema.Struct({Expression: Schema.String, DurationInSeconds: Schema.optional(Schema.Number), RetryConfig: Schema.optional(RetryConfigInput)});
+export class CanaryCodeInput extends Schema.Class<CanaryCodeInput>("CanaryCodeInput")({S3Bucket: Schema.optional(Schema.String), S3Key: Schema.optional(Schema.String), S3Version: Schema.optional(Schema.String), ZipFile: Schema.optional(StreamBody()), Handler: Schema.optional(Schema.String), BlueprintTypes: Schema.optional(BlueprintTypes), Dependencies: Schema.optional(Dependencies)}) {}
+export class RetryConfigInput extends Schema.Class<RetryConfigInput>("RetryConfigInput")({MaxRetries: Schema.Number}) {}
+export class CanaryScheduleInput extends Schema.Class<CanaryScheduleInput>("CanaryScheduleInput")({Expression: Schema.String, DurationInSeconds: Schema.optional(Schema.Number), RetryConfig: Schema.optional(RetryConfigInput)}) {}
 export const EnvironmentVariablesMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const CanaryRunConfigInput = Schema.Struct({TimeoutInSeconds: Schema.optional(Schema.Number), MemoryInMB: Schema.optional(Schema.Number), ActiveTracing: Schema.optional(Schema.Boolean), EnvironmentVariables: Schema.optional(EnvironmentVariablesMap), EphemeralStorage: Schema.optional(Schema.Number)});
+export class CanaryRunConfigInput extends Schema.Class<CanaryRunConfigInput>("CanaryRunConfigInput")({TimeoutInSeconds: Schema.optional(Schema.Number), MemoryInMB: Schema.optional(Schema.Number), ActiveTracing: Schema.optional(Schema.Boolean), EnvironmentVariables: Schema.optional(EnvironmentVariablesMap), EphemeralStorage: Schema.optional(Schema.Number)}) {}
 export const SubnetIds = Schema.Array(Schema.String);
 export const SecurityGroupIds = Schema.Array(Schema.String);
-export const VpcConfigInput = Schema.Struct({SubnetIds: Schema.optional(SubnetIds), SecurityGroupIds: Schema.optional(SecurityGroupIds), Ipv6AllowedForDualStack: Schema.optional(Schema.Boolean)});
-export const S3EncryptionConfig = Schema.Struct({EncryptionMode: Schema.optional(Schema.String), KmsKeyArn: Schema.optional(Schema.String)});
-export const ArtifactConfigInput = Schema.Struct({S3Encryption: Schema.optional(S3EncryptionConfig)});
-export const BrowserConfig = Schema.Struct({BrowserType: Schema.optional(Schema.String)});
+export class VpcConfigInput extends Schema.Class<VpcConfigInput>("VpcConfigInput")({SubnetIds: Schema.optional(SubnetIds), SecurityGroupIds: Schema.optional(SecurityGroupIds), Ipv6AllowedForDualStack: Schema.optional(Schema.Boolean)}) {}
+export class S3EncryptionConfig extends Schema.Class<S3EncryptionConfig>("S3EncryptionConfig")({EncryptionMode: Schema.optional(Schema.String), KmsKeyArn: Schema.optional(Schema.String)}) {}
+export class ArtifactConfigInput extends Schema.Class<ArtifactConfigInput>("ArtifactConfigInput")({S3Encryption: Schema.optional(S3EncryptionConfig)}) {}
+export class BrowserConfig extends Schema.Class<BrowserConfig>("BrowserConfig")({BrowserType: Schema.optional(Schema.String)}) {}
 export const BrowserConfigs = Schema.Array(BrowserConfig);
-export const UpdateCanaryRequest = Schema.Struct({Name: Schema.String, Code: Schema.optional(CanaryCodeInput), ExecutionRoleArn: Schema.optional(Schema.String), RuntimeVersion: Schema.optional(Schema.String), Schedule: Schema.optional(CanaryScheduleInput), RunConfig: Schema.optional(CanaryRunConfigInput), SuccessRetentionPeriodInDays: Schema.optional(Schema.Number), FailureRetentionPeriodInDays: Schema.optional(Schema.Number), VpcConfig: Schema.optional(VpcConfigInput), VisualReference: Schema.optional(VisualReferenceInput), ArtifactS3Location: Schema.optional(Schema.String), ArtifactConfig: Schema.optional(ArtifactConfigInput), ProvisionedResourceCleanup: Schema.optional(Schema.String), DryRunId: Schema.optional(Schema.String), VisualReferences: Schema.optional(VisualReferences), BrowserConfigs: Schema.optional(BrowserConfigs)});
-export const UpdateCanaryResponse = Schema.Struct({});
+export class UpdateCanaryRequest extends Schema.Class<UpdateCanaryRequest>("UpdateCanaryRequest")({Name: Schema.String, Code: Schema.optional(CanaryCodeInput), ExecutionRoleArn: Schema.optional(Schema.String), RuntimeVersion: Schema.optional(Schema.String), Schedule: Schema.optional(CanaryScheduleInput), RunConfig: Schema.optional(CanaryRunConfigInput), SuccessRetentionPeriodInDays: Schema.optional(Schema.Number), FailureRetentionPeriodInDays: Schema.optional(Schema.Number), VpcConfig: Schema.optional(VpcConfigInput), VisualReference: Schema.optional(VisualReferenceInput), ArtifactS3Location: Schema.optional(Schema.String), ArtifactConfig: Schema.optional(ArtifactConfigInput), ProvisionedResourceCleanup: Schema.optional(Schema.String), DryRunId: Schema.optional(Schema.String), VisualReferences: Schema.optional(VisualReferences), BrowserConfigs: Schema.optional(BrowserConfigs)}) {}
+export class UpdateCanaryResponse extends Schema.Class<UpdateCanaryResponse>("UpdateCanaryResponse")({}) {}
 export const StringList = Schema.Array(Schema.String);
-export const ConflictException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const InternalServerException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ValidationException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const CanaryCodeOutput = Schema.Struct({SourceLocationArn: Schema.optional(Schema.String), Handler: Schema.optional(Schema.String), BlueprintTypes: Schema.optional(BlueprintTypes), Dependencies: Schema.optional(Dependencies)});
-export const RetryConfigOutput = Schema.Struct({MaxRetries: Schema.optional(Schema.Number)});
-export const CanaryScheduleOutput = Schema.Struct({Expression: Schema.optional(Schema.String), DurationInSeconds: Schema.optional(Schema.Number), RetryConfig: Schema.optional(RetryConfigOutput)});
-export const CanaryRunConfigOutput = Schema.Struct({TimeoutInSeconds: Schema.optional(Schema.Number), MemoryInMB: Schema.optional(Schema.Number), ActiveTracing: Schema.optional(Schema.Boolean), EphemeralStorage: Schema.optional(Schema.Number)});
-export const CanaryStatus = Schema.Struct({State: Schema.optional(Schema.String), StateReason: Schema.optional(Schema.String), StateReasonCode: Schema.optional(Schema.String)});
-export const CanaryTimeline = Schema.Struct({Created: Schema.optional(Schema.Date), LastModified: Schema.optional(Schema.Date), LastStarted: Schema.optional(Schema.Date), LastStopped: Schema.optional(Schema.Date)});
-export const VpcConfigOutput = Schema.Struct({VpcId: Schema.optional(Schema.String), SubnetIds: Schema.optional(SubnetIds), SecurityGroupIds: Schema.optional(SecurityGroupIds), Ipv6AllowedForDualStack: Schema.optional(Schema.Boolean)});
-export const VisualReferenceOutput = Schema.Struct({BaseScreenshots: Schema.optional(BaseScreenshots), BaseCanaryRunId: Schema.optional(Schema.String), BrowserType: Schema.optional(Schema.String)});
-export const EngineConfig = Schema.Struct({EngineArn: Schema.optional(Schema.String), BrowserType: Schema.optional(Schema.String)});
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({Message: Schema.optional(Schema.String)}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({Message: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({Message: Schema.optional(Schema.String)}) {}
+export class CanaryCodeOutput extends Schema.Class<CanaryCodeOutput>("CanaryCodeOutput")({SourceLocationArn: Schema.optional(Schema.String), Handler: Schema.optional(Schema.String), BlueprintTypes: Schema.optional(BlueprintTypes), Dependencies: Schema.optional(Dependencies)}) {}
+export class RetryConfigOutput extends Schema.Class<RetryConfigOutput>("RetryConfigOutput")({MaxRetries: Schema.optional(Schema.Number)}) {}
+export class CanaryScheduleOutput extends Schema.Class<CanaryScheduleOutput>("CanaryScheduleOutput")({Expression: Schema.optional(Schema.String), DurationInSeconds: Schema.optional(Schema.Number), RetryConfig: Schema.optional(RetryConfigOutput)}) {}
+export class CanaryRunConfigOutput extends Schema.Class<CanaryRunConfigOutput>("CanaryRunConfigOutput")({TimeoutInSeconds: Schema.optional(Schema.Number), MemoryInMB: Schema.optional(Schema.Number), ActiveTracing: Schema.optional(Schema.Boolean), EphemeralStorage: Schema.optional(Schema.Number)}) {}
+export class CanaryStatus extends Schema.Class<CanaryStatus>("CanaryStatus")({State: Schema.optional(Schema.String), StateReason: Schema.optional(Schema.String), StateReasonCode: Schema.optional(Schema.String)}) {}
+export class CanaryTimeline extends Schema.Class<CanaryTimeline>("CanaryTimeline")({Created: Schema.optional(Schema.Date), LastModified: Schema.optional(Schema.Date), LastStarted: Schema.optional(Schema.Date), LastStopped: Schema.optional(Schema.Date)}) {}
+export class VpcConfigOutput extends Schema.Class<VpcConfigOutput>("VpcConfigOutput")({VpcId: Schema.optional(Schema.String), SubnetIds: Schema.optional(SubnetIds), SecurityGroupIds: Schema.optional(SecurityGroupIds), Ipv6AllowedForDualStack: Schema.optional(Schema.Boolean)}) {}
+export class VisualReferenceOutput extends Schema.Class<VisualReferenceOutput>("VisualReferenceOutput")({BaseScreenshots: Schema.optional(BaseScreenshots), BaseCanaryRunId: Schema.optional(Schema.String), BrowserType: Schema.optional(Schema.String)}) {}
+export class EngineConfig extends Schema.Class<EngineConfig>("EngineConfig")({EngineArn: Schema.optional(Schema.String), BrowserType: Schema.optional(Schema.String)}) {}
 export const EngineConfigs = Schema.Array(EngineConfig);
 export const VisualReferencesOutput = Schema.Array(VisualReferenceOutput);
-export const ArtifactConfigOutput = Schema.Struct({S3Encryption: Schema.optional(S3EncryptionConfig)});
-export const DryRunConfigOutput = Schema.Struct({DryRunId: Schema.optional(Schema.String), LastDryRunExecutionStatus: Schema.optional(Schema.String)});
-export const Canary = Schema.Struct({Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Code: Schema.optional(CanaryCodeOutput), ExecutionRoleArn: Schema.optional(Schema.String), Schedule: Schema.optional(CanaryScheduleOutput), RunConfig: Schema.optional(CanaryRunConfigOutput), SuccessRetentionPeriodInDays: Schema.optional(Schema.Number), FailureRetentionPeriodInDays: Schema.optional(Schema.Number), Status: Schema.optional(CanaryStatus), Timeline: Schema.optional(CanaryTimeline), ArtifactS3Location: Schema.optional(Schema.String), EngineArn: Schema.optional(Schema.String), RuntimeVersion: Schema.optional(Schema.String), VpcConfig: Schema.optional(VpcConfigOutput), VisualReference: Schema.optional(VisualReferenceOutput), ProvisionedResourceCleanup: Schema.optional(Schema.String), BrowserConfigs: Schema.optional(BrowserConfigs), EngineConfigs: Schema.optional(EngineConfigs), VisualReferences: Schema.optional(VisualReferencesOutput), Tags: Schema.optional(TagMap), ArtifactConfig: Schema.optional(ArtifactConfigOutput), DryRunConfig: Schema.optional(DryRunConfigOutput)});
-export const GetCanaryResponse = Schema.Struct({Canary: Schema.optional(Canary)});
-export const Group = Schema.Struct({Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String), Tags: Schema.optional(TagMap), CreatedTime: Schema.optional(Schema.Date), LastModifiedTime: Schema.optional(Schema.Date)});
-export const GetGroupResponse = Schema.Struct({Group: Schema.optional(Group)});
-export const ListGroupResourcesResponse = Schema.Struct({Resources: Schema.optional(StringList), NextToken: Schema.optional(Schema.String)});
-export const GroupSummary = Schema.Struct({Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String)});
+export class ArtifactConfigOutput extends Schema.Class<ArtifactConfigOutput>("ArtifactConfigOutput")({S3Encryption: Schema.optional(S3EncryptionConfig)}) {}
+export class DryRunConfigOutput extends Schema.Class<DryRunConfigOutput>("DryRunConfigOutput")({DryRunId: Schema.optional(Schema.String), LastDryRunExecutionStatus: Schema.optional(Schema.String)}) {}
+export class Canary extends Schema.Class<Canary>("Canary")({Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Code: Schema.optional(CanaryCodeOutput), ExecutionRoleArn: Schema.optional(Schema.String), Schedule: Schema.optional(CanaryScheduleOutput), RunConfig: Schema.optional(CanaryRunConfigOutput), SuccessRetentionPeriodInDays: Schema.optional(Schema.Number), FailureRetentionPeriodInDays: Schema.optional(Schema.Number), Status: Schema.optional(CanaryStatus), Timeline: Schema.optional(CanaryTimeline), ArtifactS3Location: Schema.optional(Schema.String), EngineArn: Schema.optional(Schema.String), RuntimeVersion: Schema.optional(Schema.String), VpcConfig: Schema.optional(VpcConfigOutput), VisualReference: Schema.optional(VisualReferenceOutput), ProvisionedResourceCleanup: Schema.optional(Schema.String), BrowserConfigs: Schema.optional(BrowserConfigs), EngineConfigs: Schema.optional(EngineConfigs), VisualReferences: Schema.optional(VisualReferencesOutput), Tags: Schema.optional(TagMap), ArtifactConfig: Schema.optional(ArtifactConfigOutput), DryRunConfig: Schema.optional(DryRunConfigOutput)}) {}
+export class GetCanaryResponse extends Schema.Class<GetCanaryResponse>("GetCanaryResponse")({Canary: Schema.optional(Canary)}) {}
+export class Group extends Schema.Class<Group>("Group")({Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String), Tags: Schema.optional(TagMap), CreatedTime: Schema.optional(Schema.Date), LastModifiedTime: Schema.optional(Schema.Date)}) {}
+export class GetGroupResponse extends Schema.Class<GetGroupResponse>("GetGroupResponse")({Group: Schema.optional(Group)}) {}
+export class ListGroupResourcesResponse extends Schema.Class<ListGroupResourcesResponse>("ListGroupResourcesResponse")({Resources: Schema.optional(StringList), NextToken: Schema.optional(Schema.String)}) {}
+export class GroupSummary extends Schema.Class<GroupSummary>("GroupSummary")({Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String)}) {}
 export const GroupSummaryList = Schema.Array(GroupSummary);
-export const ListGroupsResponse = Schema.Struct({Groups: Schema.optional(GroupSummaryList), NextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceResponse = Schema.Struct({Tags: Schema.optional(TagMap)});
-export const BadRequestException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const InternalFailureException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const AccessDeniedException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const CanaryRunStatus = Schema.Struct({State: Schema.optional(Schema.String), StateReason: Schema.optional(Schema.String), StateReasonCode: Schema.optional(Schema.String), TestResult: Schema.optional(Schema.String)});
-export const CanaryRunTimeline = Schema.Struct({Started: Schema.optional(Schema.Date), Completed: Schema.optional(Schema.Date), MetricTimestampForRunAndRetries: Schema.optional(Schema.Date)});
-export const CanaryDryRunConfigOutput = Schema.Struct({DryRunId: Schema.optional(Schema.String)});
-export const CanaryRun = Schema.Struct({Id: Schema.optional(Schema.String), ScheduledRunId: Schema.optional(Schema.String), RetryAttempt: Schema.optional(Schema.Number), Name: Schema.optional(Schema.String), Status: Schema.optional(CanaryRunStatus), Timeline: Schema.optional(CanaryRunTimeline), ArtifactS3Location: Schema.optional(Schema.String), DryRunConfig: Schema.optional(CanaryDryRunConfigOutput), BrowserType: Schema.optional(Schema.String)});
-export const CanaryLastRun = Schema.Struct({CanaryName: Schema.optional(Schema.String), LastRun: Schema.optional(CanaryRun)});
+export class ListGroupsResponse extends Schema.Class<ListGroupsResponse>("ListGroupsResponse")({Groups: Schema.optional(GroupSummaryList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({Tags: Schema.optional(TagMap)}) {}
+export class BadRequestException extends Schema.Class<BadRequestException>("BadRequestException")({Message: Schema.optional(Schema.String)}) {}
+export class InternalFailureException extends Schema.Class<InternalFailureException>("InternalFailureException")({Message: Schema.optional(Schema.String)}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({Message: Schema.optional(Schema.String)}) {}
+export class CanaryRunStatus extends Schema.Class<CanaryRunStatus>("CanaryRunStatus")({State: Schema.optional(Schema.String), StateReason: Schema.optional(Schema.String), StateReasonCode: Schema.optional(Schema.String), TestResult: Schema.optional(Schema.String)}) {}
+export class CanaryRunTimeline extends Schema.Class<CanaryRunTimeline>("CanaryRunTimeline")({Started: Schema.optional(Schema.Date), Completed: Schema.optional(Schema.Date), MetricTimestampForRunAndRetries: Schema.optional(Schema.Date)}) {}
+export class CanaryDryRunConfigOutput extends Schema.Class<CanaryDryRunConfigOutput>("CanaryDryRunConfigOutput")({DryRunId: Schema.optional(Schema.String)}) {}
+export class CanaryRun extends Schema.Class<CanaryRun>("CanaryRun")({Id: Schema.optional(Schema.String), ScheduledRunId: Schema.optional(Schema.String), RetryAttempt: Schema.optional(Schema.Number), Name: Schema.optional(Schema.String), Status: Schema.optional(CanaryRunStatus), Timeline: Schema.optional(CanaryRunTimeline), ArtifactS3Location: Schema.optional(Schema.String), DryRunConfig: Schema.optional(CanaryDryRunConfigOutput), BrowserType: Schema.optional(Schema.String)}) {}
+export class CanaryLastRun extends Schema.Class<CanaryLastRun>("CanaryLastRun")({CanaryName: Schema.optional(Schema.String), LastRun: Schema.optional(CanaryRun)}) {}
 export const CanariesLastRun = Schema.Array(CanaryLastRun);
-export const RuntimeVersion = Schema.Struct({VersionName: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), ReleaseDate: Schema.optional(Schema.Date), DeprecationDate: Schema.optional(Schema.Date)});
+export class RuntimeVersion extends Schema.Class<RuntimeVersion>("RuntimeVersion")({VersionName: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), ReleaseDate: Schema.optional(Schema.Date), DeprecationDate: Schema.optional(Schema.Date)}) {}
 export const RuntimeVersionList = Schema.Array(RuntimeVersion);
-export const ServiceQuotaExceededException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const CreateCanaryRequest = Schema.Struct({Name: Schema.String, Code: CanaryCodeInput, ArtifactS3Location: Schema.String, ExecutionRoleArn: Schema.String, Schedule: CanaryScheduleInput, RunConfig: Schema.optional(CanaryRunConfigInput), SuccessRetentionPeriodInDays: Schema.optional(Schema.Number), FailureRetentionPeriodInDays: Schema.optional(Schema.Number), RuntimeVersion: Schema.String, VpcConfig: Schema.optional(VpcConfigInput), ResourcesToReplicateTags: Schema.optional(ResourceList), ProvisionedResourceCleanup: Schema.optional(Schema.String), BrowserConfigs: Schema.optional(BrowserConfigs), Tags: Schema.optional(TagMap), ArtifactConfig: Schema.optional(ArtifactConfigInput)});
-export const CreateGroupResponse = Schema.Struct({Group: Schema.optional(Group)});
-export const DescribeCanariesLastRunResponse = Schema.Struct({CanariesLastRun: Schema.optional(CanariesLastRun), NextToken: Schema.optional(Schema.String)});
-export const DescribeRuntimeVersionsResponse = Schema.Struct({RuntimeVersions: Schema.optional(RuntimeVersionList), NextToken: Schema.optional(Schema.String)});
-export const ListAssociatedGroupsResponse = Schema.Struct({Groups: Schema.optional(GroupSummaryList), NextToken: Schema.optional(Schema.String)});
-export const NotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const StartCanaryDryRunRequest = Schema.Struct({Name: Schema.String, Code: Schema.optional(CanaryCodeInput), RuntimeVersion: Schema.optional(Schema.String), RunConfig: Schema.optional(CanaryRunConfigInput), VpcConfig: Schema.optional(VpcConfigInput), ExecutionRoleArn: Schema.optional(Schema.String), SuccessRetentionPeriodInDays: Schema.optional(Schema.Number), FailureRetentionPeriodInDays: Schema.optional(Schema.Number), VisualReference: Schema.optional(VisualReferenceInput), ArtifactS3Location: Schema.optional(Schema.String), ArtifactConfig: Schema.optional(ArtifactConfigInput), ProvisionedResourceCleanup: Schema.optional(Schema.String), BrowserConfigs: Schema.optional(BrowserConfigs), VisualReferences: Schema.optional(VisualReferences)});
-export const TooManyRequestsException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const RequestEntityTooLargeException = Schema.Struct({Message: Schema.optional(Schema.String)});
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({Message: Schema.optional(Schema.String)}) {}
+export class CreateCanaryRequest extends Schema.Class<CreateCanaryRequest>("CreateCanaryRequest")({Name: Schema.String, Code: CanaryCodeInput, ArtifactS3Location: Schema.String, ExecutionRoleArn: Schema.String, Schedule: CanaryScheduleInput, RunConfig: Schema.optional(CanaryRunConfigInput), SuccessRetentionPeriodInDays: Schema.optional(Schema.Number), FailureRetentionPeriodInDays: Schema.optional(Schema.Number), RuntimeVersion: Schema.String, VpcConfig: Schema.optional(VpcConfigInput), ResourcesToReplicateTags: Schema.optional(ResourceList), ProvisionedResourceCleanup: Schema.optional(Schema.String), BrowserConfigs: Schema.optional(BrowserConfigs), Tags: Schema.optional(TagMap), ArtifactConfig: Schema.optional(ArtifactConfigInput)}) {}
+export class CreateGroupResponse extends Schema.Class<CreateGroupResponse>("CreateGroupResponse")({Group: Schema.optional(Group)}) {}
+export class DescribeCanariesLastRunResponse extends Schema.Class<DescribeCanariesLastRunResponse>("DescribeCanariesLastRunResponse")({CanariesLastRun: Schema.optional(CanariesLastRun), NextToken: Schema.optional(Schema.String)}) {}
+export class DescribeRuntimeVersionsResponse extends Schema.Class<DescribeRuntimeVersionsResponse>("DescribeRuntimeVersionsResponse")({RuntimeVersions: Schema.optional(RuntimeVersionList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListAssociatedGroupsResponse extends Schema.Class<ListAssociatedGroupsResponse>("ListAssociatedGroupsResponse")({Groups: Schema.optional(GroupSummaryList), NextToken: Schema.optional(Schema.String)}) {}
+export class NotFoundException extends Schema.Class<NotFoundException>("NotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class StartCanaryDryRunRequest extends Schema.Class<StartCanaryDryRunRequest>("StartCanaryDryRunRequest")({Name: Schema.String, Code: Schema.optional(CanaryCodeInput), RuntimeVersion: Schema.optional(Schema.String), RunConfig: Schema.optional(CanaryRunConfigInput), VpcConfig: Schema.optional(VpcConfigInput), ExecutionRoleArn: Schema.optional(Schema.String), SuccessRetentionPeriodInDays: Schema.optional(Schema.Number), FailureRetentionPeriodInDays: Schema.optional(Schema.Number), VisualReference: Schema.optional(VisualReferenceInput), ArtifactS3Location: Schema.optional(Schema.String), ArtifactConfig: Schema.optional(ArtifactConfigInput), ProvisionedResourceCleanup: Schema.optional(Schema.String), BrowserConfigs: Schema.optional(BrowserConfigs), VisualReferences: Schema.optional(VisualReferences)}) {}
+export class TooManyRequestsException extends Schema.Class<TooManyRequestsException>("TooManyRequestsException")({Message: Schema.optional(Schema.String)}) {}
+export class RequestEntityTooLargeException extends Schema.Class<RequestEntityTooLargeException>("RequestEntityTooLargeException")({Message: Schema.optional(Schema.String)}) {}
 export const CanaryRuns = Schema.Array(CanaryRun);
-export const CreateCanaryResponse = Schema.Struct({Canary: Schema.optional(Canary)});
-export const GetCanaryRunsResponse = Schema.Struct({CanaryRuns: Schema.optional(CanaryRuns), NextToken: Schema.optional(Schema.String)});
-export const StartCanaryDryRunResponse = Schema.Struct({DryRunConfig: Schema.optional(DryRunConfigOutput)});
+export class CreateCanaryResponse extends Schema.Class<CreateCanaryResponse>("CreateCanaryResponse")({Canary: Schema.optional(Canary)}) {}
+export class GetCanaryRunsResponse extends Schema.Class<GetCanaryRunsResponse>("GetCanaryRunsResponse")({CanaryRuns: Schema.optional(CanaryRuns), NextToken: Schema.optional(Schema.String)}) {}
+export class StartCanaryDryRunResponse extends Schema.Class<StartCanaryDryRunResponse>("StartCanaryDryRunResponse")({DryRunConfig: Schema.optional(DryRunConfigOutput)}) {}
 export const Canaries = Schema.Array(Canary);
-export const DescribeCanariesResponse = Schema.Struct({Canaries: Schema.optional(Canaries), NextToken: Schema.optional(Schema.String)});
+export class DescribeCanariesResponse extends Schema.Class<DescribeCanariesResponse>("DescribeCanariesResponse")({Canaries: Schema.optional(Canaries), NextToken: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class BadRequestExceptionError extends Schema.TaggedError<BadRequestExceptionError>()("BadRequestException", BadRequestException) {};
-export class InternalFailureExceptionError extends Schema.TaggedError<InternalFailureExceptionError>()("InternalFailureException", InternalFailureException) {};
-export class NotFoundExceptionError extends Schema.TaggedError<NotFoundExceptionError>()("NotFoundException", NotFoundException) {};
-export class TooManyRequestsExceptionError extends Schema.TaggedError<TooManyRequestsExceptionError>()("TooManyRequestsException", TooManyRequestsException) {};
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
-export class RequestEntityTooLargeExceptionError extends Schema.TaggedError<RequestEntityTooLargeExceptionError>()("RequestEntityTooLargeException", RequestEntityTooLargeException) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class BadRequestExceptionError extends Schema.TaggedError<BadRequestExceptionError>()("BadRequestException", BadRequestException.fields) {};
+export class InternalFailureExceptionError extends Schema.TaggedError<InternalFailureExceptionError>()("InternalFailureException", InternalFailureException.fields) {};
+export class NotFoundExceptionError extends Schema.TaggedError<NotFoundExceptionError>()("NotFoundException", NotFoundException.fields) {};
+export class TooManyRequestsExceptionError extends Schema.TaggedError<TooManyRequestsExceptionError>()("TooManyRequestsException", TooManyRequestsException.fields) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
+export class RequestEntityTooLargeExceptionError extends Schema.TaggedError<RequestEntityTooLargeExceptionError>()("RequestEntityTooLargeException", RequestEntityTooLargeException.fields) {};
 
 //# Operations
 export const startCanary = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-10-11", uri: "/canary/{Name}/start", method: "POST", sdkId: "synthetics", sigV4ServiceName: "synthetics", name: "Synthetics.StartCanary" }, StartCanaryRequest, StartCanaryResponse, [ConflictExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

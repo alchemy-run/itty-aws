@@ -3,276 +3,276 @@ import { FormatAwsQueryRequest,FormatAwsQueryResponse,FormatAWSXMLError, makeOpe
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const DescribeActiveReceiptRuleSetRequest = Schema.Struct({});
-export const ListReceiptFiltersRequest = Schema.Struct({});
+export class DescribeActiveReceiptRuleSetRequest extends Schema.Class<DescribeActiveReceiptRuleSetRequest>("DescribeActiveReceiptRuleSetRequest")({}) {}
+export class ListReceiptFiltersRequest extends Schema.Class<ListReceiptFiltersRequest>("ListReceiptFiltersRequest")({}) {}
 export const RecipientsList = Schema.Array(Schema.String);
-export const S3Action = Schema.Struct({TopicArn: Schema.optional(Schema.String), BucketName: Schema.String, ObjectKeyPrefix: Schema.optional(Schema.String), KmsKeyArn: Schema.optional(Schema.String), IamRoleArn: Schema.optional(Schema.String)});
-export const BounceAction = Schema.Struct({TopicArn: Schema.optional(Schema.String), SmtpReplyCode: Schema.String, StatusCode: Schema.optional(Schema.String), Message: Schema.String, Sender: Schema.String});
-export const WorkmailAction = Schema.Struct({TopicArn: Schema.optional(Schema.String), OrganizationArn: Schema.String});
-export const LambdaAction = Schema.Struct({TopicArn: Schema.optional(Schema.String), FunctionArn: Schema.String, InvocationType: Schema.optional(Schema.String)});
-export const StopAction = Schema.Struct({Scope: Schema.String, TopicArn: Schema.optional(Schema.String)});
-export const AddHeaderAction = Schema.Struct({HeaderName: Schema.String, HeaderValue: Schema.String});
-export const SNSAction = Schema.Struct({TopicArn: Schema.String, Encoding: Schema.optional(Schema.String)});
-export const ConnectAction = Schema.Struct({InstanceARN: Schema.String, IAMRoleARN: Schema.String});
-export const ReceiptAction = Schema.Struct({S3Action: Schema.optional(S3Action), BounceAction: Schema.optional(BounceAction), WorkmailAction: Schema.optional(WorkmailAction), LambdaAction: Schema.optional(LambdaAction), StopAction: Schema.optional(StopAction), AddHeaderAction: Schema.optional(AddHeaderAction), SNSAction: Schema.optional(SNSAction), ConnectAction: Schema.optional(ConnectAction)});
+export class S3Action extends Schema.Class<S3Action>("S3Action")({TopicArn: Schema.optional(Schema.String), BucketName: Schema.String, ObjectKeyPrefix: Schema.optional(Schema.String), KmsKeyArn: Schema.optional(Schema.String), IamRoleArn: Schema.optional(Schema.String)}) {}
+export class BounceAction extends Schema.Class<BounceAction>("BounceAction")({TopicArn: Schema.optional(Schema.String), SmtpReplyCode: Schema.String, StatusCode: Schema.optional(Schema.String), Message: Schema.String, Sender: Schema.String}) {}
+export class WorkmailAction extends Schema.Class<WorkmailAction>("WorkmailAction")({TopicArn: Schema.optional(Schema.String), OrganizationArn: Schema.String}) {}
+export class LambdaAction extends Schema.Class<LambdaAction>("LambdaAction")({TopicArn: Schema.optional(Schema.String), FunctionArn: Schema.String, InvocationType: Schema.optional(Schema.String)}) {}
+export class StopAction extends Schema.Class<StopAction>("StopAction")({Scope: Schema.String, TopicArn: Schema.optional(Schema.String)}) {}
+export class AddHeaderAction extends Schema.Class<AddHeaderAction>("AddHeaderAction")({HeaderName: Schema.String, HeaderValue: Schema.String}) {}
+export class SNSAction extends Schema.Class<SNSAction>("SNSAction")({TopicArn: Schema.String, Encoding: Schema.optional(Schema.String)}) {}
+export class ConnectAction extends Schema.Class<ConnectAction>("ConnectAction")({InstanceARN: Schema.String, IAMRoleARN: Schema.String}) {}
+export class ReceiptAction extends Schema.Class<ReceiptAction>("ReceiptAction")({S3Action: Schema.optional(S3Action), BounceAction: Schema.optional(BounceAction), WorkmailAction: Schema.optional(WorkmailAction), LambdaAction: Schema.optional(LambdaAction), StopAction: Schema.optional(StopAction), AddHeaderAction: Schema.optional(AddHeaderAction), SNSAction: Schema.optional(SNSAction), ConnectAction: Schema.optional(ConnectAction)}) {}
 export const ReceiptActionsList = Schema.Array(ReceiptAction);
-export const ReceiptRule = Schema.Struct({Name: Schema.String, Enabled: Schema.optional(Schema.Boolean), TlsPolicy: Schema.optional(Schema.String), Recipients: Schema.optional(RecipientsList), Actions: Schema.optional(ReceiptActionsList), ScanEnabled: Schema.optional(Schema.Boolean)});
+export class ReceiptRule extends Schema.Class<ReceiptRule>("ReceiptRule")({Name: Schema.String, Enabled: Schema.optional(Schema.Boolean), TlsPolicy: Schema.optional(Schema.String), Recipients: Schema.optional(RecipientsList), Actions: Schema.optional(ReceiptActionsList), ScanEnabled: Schema.optional(Schema.Boolean)}) {}
 export const ReceiptRulesList = Schema.Array(ReceiptRule);
 export const ConfigurationSetAttributeList = Schema.Array(Schema.String);
 export const IdentityList = Schema.Array(Schema.String);
 export const PolicyNameList = Schema.Array(Schema.String);
-export const ReceiptIpFilter = Schema.Struct({Policy: Schema.String, Cidr: Schema.String});
-export const ReceiptFilter = Schema.Struct({Name: Schema.String, IpFilter: ReceiptIpFilter});
+export class ReceiptIpFilter extends Schema.Class<ReceiptIpFilter>("ReceiptIpFilter")({Policy: Schema.String, Cidr: Schema.String}) {}
+export class ReceiptFilter extends Schema.Class<ReceiptFilter>("ReceiptFilter")({Name: Schema.String, IpFilter: ReceiptIpFilter}) {}
 export const ReceiptFilterList = Schema.Array(ReceiptFilter);
 export const AddressList = Schema.Array(Schema.String);
 export const ReceiptRuleNamesList = Schema.Array(Schema.String);
-export const CloneReceiptRuleSetRequest = Schema.Struct({RuleSetName: Schema.String, OriginalRuleSetName: Schema.String});
-export const CloneReceiptRuleSetResponse = Schema.Struct({});
-export const CreateCustomVerificationEmailTemplateRequest = Schema.Struct({TemplateName: Schema.String, FromEmailAddress: Schema.String, TemplateSubject: Schema.String, TemplateContent: Schema.String, SuccessRedirectionURL: Schema.String, FailureRedirectionURL: Schema.String});
-export const CreateReceiptRuleSetRequest = Schema.Struct({RuleSetName: Schema.String});
-export const CreateReceiptRuleSetResponse = Schema.Struct({});
-export const DeleteConfigurationSetRequest = Schema.Struct({ConfigurationSetName: Schema.String});
-export const DeleteConfigurationSetResponse = Schema.Struct({});
-export const DeleteConfigurationSetEventDestinationRequest = Schema.Struct({ConfigurationSetName: Schema.String, EventDestinationName: Schema.String});
-export const DeleteConfigurationSetEventDestinationResponse = Schema.Struct({});
-export const DeleteConfigurationSetTrackingOptionsRequest = Schema.Struct({ConfigurationSetName: Schema.String});
-export const DeleteConfigurationSetTrackingOptionsResponse = Schema.Struct({});
-export const DeleteCustomVerificationEmailTemplateRequest = Schema.Struct({TemplateName: Schema.String});
-export const DeleteIdentityRequest = Schema.Struct({Identity: Schema.String});
-export const DeleteIdentityResponse = Schema.Struct({});
-export const DeleteIdentityPolicyRequest = Schema.Struct({Identity: Schema.String, PolicyName: Schema.String});
-export const DeleteIdentityPolicyResponse = Schema.Struct({});
-export const DeleteReceiptFilterRequest = Schema.Struct({FilterName: Schema.String});
-export const DeleteReceiptFilterResponse = Schema.Struct({});
-export const DeleteReceiptRuleRequest = Schema.Struct({RuleSetName: Schema.String, RuleName: Schema.String});
-export const DeleteReceiptRuleResponse = Schema.Struct({});
-export const DeleteReceiptRuleSetRequest = Schema.Struct({RuleSetName: Schema.String});
-export const DeleteReceiptRuleSetResponse = Schema.Struct({});
-export const DeleteTemplateRequest = Schema.Struct({TemplateName: Schema.String});
-export const DeleteTemplateResponse = Schema.Struct({});
-export const DeleteVerifiedEmailAddressRequest = Schema.Struct({EmailAddress: Schema.String});
-export const DescribeConfigurationSetRequest = Schema.Struct({ConfigurationSetName: Schema.String, ConfigurationSetAttributeNames: Schema.optional(ConfigurationSetAttributeList)});
-export const DescribeReceiptRuleRequest = Schema.Struct({RuleSetName: Schema.String, RuleName: Schema.String});
-export const DescribeReceiptRuleSetRequest = Schema.Struct({RuleSetName: Schema.String});
-export const GetAccountSendingEnabledResponse = Schema.Struct({Enabled: Schema.optional(Schema.Boolean)});
-export const GetCustomVerificationEmailTemplateRequest = Schema.Struct({TemplateName: Schema.String});
-export const GetIdentityDkimAttributesRequest = Schema.Struct({Identities: IdentityList});
-export const GetIdentityMailFromDomainAttributesRequest = Schema.Struct({Identities: IdentityList});
-export const GetIdentityNotificationAttributesRequest = Schema.Struct({Identities: IdentityList});
-export const GetIdentityPoliciesRequest = Schema.Struct({Identity: Schema.String, PolicyNames: PolicyNameList});
-export const GetIdentityVerificationAttributesRequest = Schema.Struct({Identities: IdentityList});
-export const GetSendQuotaResponse = Schema.Struct({Max24HourSend: Schema.optional(Schema.Number), MaxSendRate: Schema.optional(Schema.Number), SentLast24Hours: Schema.optional(Schema.Number)});
-export const GetTemplateRequest = Schema.Struct({TemplateName: Schema.String});
-export const ListConfigurationSetsRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxItems: Schema.optional(Schema.Number)});
-export const ListCustomVerificationEmailTemplatesRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListIdentitiesRequest = Schema.Struct({IdentityType: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxItems: Schema.optional(Schema.Number)});
-export const ListIdentityPoliciesRequest = Schema.Struct({Identity: Schema.String});
-export const ListReceiptFiltersResponse = Schema.Struct({Filters: Schema.optional(ReceiptFilterList)});
-export const ListReceiptRuleSetsRequest = Schema.Struct({NextToken: Schema.optional(Schema.String)});
-export const ListTemplatesRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxItems: Schema.optional(Schema.Number)});
-export const ListVerifiedEmailAddressesResponse = Schema.Struct({VerifiedEmailAddresses: Schema.optional(AddressList)});
-export const PutIdentityPolicyRequest = Schema.Struct({Identity: Schema.String, PolicyName: Schema.String, Policy: Schema.String});
-export const PutIdentityPolicyResponse = Schema.Struct({});
-export const ReorderReceiptRuleSetRequest = Schema.Struct({RuleSetName: Schema.String, RuleNames: ReceiptRuleNamesList});
-export const ReorderReceiptRuleSetResponse = Schema.Struct({});
-export const SendCustomVerificationEmailRequest = Schema.Struct({EmailAddress: Schema.String, TemplateName: Schema.String, ConfigurationSetName: Schema.optional(Schema.String)});
-export const Destination = Schema.Struct({ToAddresses: Schema.optional(AddressList), CcAddresses: Schema.optional(AddressList), BccAddresses: Schema.optional(AddressList)});
-export const MessageTag = Schema.Struct({Name: Schema.String, Value: Schema.String});
+export class CloneReceiptRuleSetRequest extends Schema.Class<CloneReceiptRuleSetRequest>("CloneReceiptRuleSetRequest")({RuleSetName: Schema.String, OriginalRuleSetName: Schema.String}) {}
+export class CloneReceiptRuleSetResponse extends Schema.Class<CloneReceiptRuleSetResponse>("CloneReceiptRuleSetResponse")({}) {}
+export class CreateCustomVerificationEmailTemplateRequest extends Schema.Class<CreateCustomVerificationEmailTemplateRequest>("CreateCustomVerificationEmailTemplateRequest")({TemplateName: Schema.String, FromEmailAddress: Schema.String, TemplateSubject: Schema.String, TemplateContent: Schema.String, SuccessRedirectionURL: Schema.String, FailureRedirectionURL: Schema.String}) {}
+export class CreateReceiptRuleSetRequest extends Schema.Class<CreateReceiptRuleSetRequest>("CreateReceiptRuleSetRequest")({RuleSetName: Schema.String}) {}
+export class CreateReceiptRuleSetResponse extends Schema.Class<CreateReceiptRuleSetResponse>("CreateReceiptRuleSetResponse")({}) {}
+export class DeleteConfigurationSetRequest extends Schema.Class<DeleteConfigurationSetRequest>("DeleteConfigurationSetRequest")({ConfigurationSetName: Schema.String}) {}
+export class DeleteConfigurationSetResponse extends Schema.Class<DeleteConfigurationSetResponse>("DeleteConfigurationSetResponse")({}) {}
+export class DeleteConfigurationSetEventDestinationRequest extends Schema.Class<DeleteConfigurationSetEventDestinationRequest>("DeleteConfigurationSetEventDestinationRequest")({ConfigurationSetName: Schema.String, EventDestinationName: Schema.String}) {}
+export class DeleteConfigurationSetEventDestinationResponse extends Schema.Class<DeleteConfigurationSetEventDestinationResponse>("DeleteConfigurationSetEventDestinationResponse")({}) {}
+export class DeleteConfigurationSetTrackingOptionsRequest extends Schema.Class<DeleteConfigurationSetTrackingOptionsRequest>("DeleteConfigurationSetTrackingOptionsRequest")({ConfigurationSetName: Schema.String}) {}
+export class DeleteConfigurationSetTrackingOptionsResponse extends Schema.Class<DeleteConfigurationSetTrackingOptionsResponse>("DeleteConfigurationSetTrackingOptionsResponse")({}) {}
+export class DeleteCustomVerificationEmailTemplateRequest extends Schema.Class<DeleteCustomVerificationEmailTemplateRequest>("DeleteCustomVerificationEmailTemplateRequest")({TemplateName: Schema.String}) {}
+export class DeleteIdentityRequest extends Schema.Class<DeleteIdentityRequest>("DeleteIdentityRequest")({Identity: Schema.String}) {}
+export class DeleteIdentityResponse extends Schema.Class<DeleteIdentityResponse>("DeleteIdentityResponse")({}) {}
+export class DeleteIdentityPolicyRequest extends Schema.Class<DeleteIdentityPolicyRequest>("DeleteIdentityPolicyRequest")({Identity: Schema.String, PolicyName: Schema.String}) {}
+export class DeleteIdentityPolicyResponse extends Schema.Class<DeleteIdentityPolicyResponse>("DeleteIdentityPolicyResponse")({}) {}
+export class DeleteReceiptFilterRequest extends Schema.Class<DeleteReceiptFilterRequest>("DeleteReceiptFilterRequest")({FilterName: Schema.String}) {}
+export class DeleteReceiptFilterResponse extends Schema.Class<DeleteReceiptFilterResponse>("DeleteReceiptFilterResponse")({}) {}
+export class DeleteReceiptRuleRequest extends Schema.Class<DeleteReceiptRuleRequest>("DeleteReceiptRuleRequest")({RuleSetName: Schema.String, RuleName: Schema.String}) {}
+export class DeleteReceiptRuleResponse extends Schema.Class<DeleteReceiptRuleResponse>("DeleteReceiptRuleResponse")({}) {}
+export class DeleteReceiptRuleSetRequest extends Schema.Class<DeleteReceiptRuleSetRequest>("DeleteReceiptRuleSetRequest")({RuleSetName: Schema.String}) {}
+export class DeleteReceiptRuleSetResponse extends Schema.Class<DeleteReceiptRuleSetResponse>("DeleteReceiptRuleSetResponse")({}) {}
+export class DeleteTemplateRequest extends Schema.Class<DeleteTemplateRequest>("DeleteTemplateRequest")({TemplateName: Schema.String}) {}
+export class DeleteTemplateResponse extends Schema.Class<DeleteTemplateResponse>("DeleteTemplateResponse")({}) {}
+export class DeleteVerifiedEmailAddressRequest extends Schema.Class<DeleteVerifiedEmailAddressRequest>("DeleteVerifiedEmailAddressRequest")({EmailAddress: Schema.String}) {}
+export class DescribeConfigurationSetRequest extends Schema.Class<DescribeConfigurationSetRequest>("DescribeConfigurationSetRequest")({ConfigurationSetName: Schema.String, ConfigurationSetAttributeNames: Schema.optional(ConfigurationSetAttributeList)}) {}
+export class DescribeReceiptRuleRequest extends Schema.Class<DescribeReceiptRuleRequest>("DescribeReceiptRuleRequest")({RuleSetName: Schema.String, RuleName: Schema.String}) {}
+export class DescribeReceiptRuleSetRequest extends Schema.Class<DescribeReceiptRuleSetRequest>("DescribeReceiptRuleSetRequest")({RuleSetName: Schema.String}) {}
+export class GetAccountSendingEnabledResponse extends Schema.Class<GetAccountSendingEnabledResponse>("GetAccountSendingEnabledResponse")({Enabled: Schema.optional(Schema.Boolean)}) {}
+export class GetCustomVerificationEmailTemplateRequest extends Schema.Class<GetCustomVerificationEmailTemplateRequest>("GetCustomVerificationEmailTemplateRequest")({TemplateName: Schema.String}) {}
+export class GetIdentityDkimAttributesRequest extends Schema.Class<GetIdentityDkimAttributesRequest>("GetIdentityDkimAttributesRequest")({Identities: IdentityList}) {}
+export class GetIdentityMailFromDomainAttributesRequest extends Schema.Class<GetIdentityMailFromDomainAttributesRequest>("GetIdentityMailFromDomainAttributesRequest")({Identities: IdentityList}) {}
+export class GetIdentityNotificationAttributesRequest extends Schema.Class<GetIdentityNotificationAttributesRequest>("GetIdentityNotificationAttributesRequest")({Identities: IdentityList}) {}
+export class GetIdentityPoliciesRequest extends Schema.Class<GetIdentityPoliciesRequest>("GetIdentityPoliciesRequest")({Identity: Schema.String, PolicyNames: PolicyNameList}) {}
+export class GetIdentityVerificationAttributesRequest extends Schema.Class<GetIdentityVerificationAttributesRequest>("GetIdentityVerificationAttributesRequest")({Identities: IdentityList}) {}
+export class GetSendQuotaResponse extends Schema.Class<GetSendQuotaResponse>("GetSendQuotaResponse")({Max24HourSend: Schema.optional(Schema.Number), MaxSendRate: Schema.optional(Schema.Number), SentLast24Hours: Schema.optional(Schema.Number)}) {}
+export class GetTemplateRequest extends Schema.Class<GetTemplateRequest>("GetTemplateRequest")({TemplateName: Schema.String}) {}
+export class ListConfigurationSetsRequest extends Schema.Class<ListConfigurationSetsRequest>("ListConfigurationSetsRequest")({NextToken: Schema.optional(Schema.String), MaxItems: Schema.optional(Schema.Number)}) {}
+export class ListCustomVerificationEmailTemplatesRequest extends Schema.Class<ListCustomVerificationEmailTemplatesRequest>("ListCustomVerificationEmailTemplatesRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListIdentitiesRequest extends Schema.Class<ListIdentitiesRequest>("ListIdentitiesRequest")({IdentityType: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxItems: Schema.optional(Schema.Number)}) {}
+export class ListIdentityPoliciesRequest extends Schema.Class<ListIdentityPoliciesRequest>("ListIdentityPoliciesRequest")({Identity: Schema.String}) {}
+export class ListReceiptFiltersResponse extends Schema.Class<ListReceiptFiltersResponse>("ListReceiptFiltersResponse")({Filters: Schema.optional(ReceiptFilterList)}) {}
+export class ListReceiptRuleSetsRequest extends Schema.Class<ListReceiptRuleSetsRequest>("ListReceiptRuleSetsRequest")({NextToken: Schema.optional(Schema.String)}) {}
+export class ListTemplatesRequest extends Schema.Class<ListTemplatesRequest>("ListTemplatesRequest")({NextToken: Schema.optional(Schema.String), MaxItems: Schema.optional(Schema.Number)}) {}
+export class ListVerifiedEmailAddressesResponse extends Schema.Class<ListVerifiedEmailAddressesResponse>("ListVerifiedEmailAddressesResponse")({VerifiedEmailAddresses: Schema.optional(AddressList)}) {}
+export class PutIdentityPolicyRequest extends Schema.Class<PutIdentityPolicyRequest>("PutIdentityPolicyRequest")({Identity: Schema.String, PolicyName: Schema.String, Policy: Schema.String}) {}
+export class PutIdentityPolicyResponse extends Schema.Class<PutIdentityPolicyResponse>("PutIdentityPolicyResponse")({}) {}
+export class ReorderReceiptRuleSetRequest extends Schema.Class<ReorderReceiptRuleSetRequest>("ReorderReceiptRuleSetRequest")({RuleSetName: Schema.String, RuleNames: ReceiptRuleNamesList}) {}
+export class ReorderReceiptRuleSetResponse extends Schema.Class<ReorderReceiptRuleSetResponse>("ReorderReceiptRuleSetResponse")({}) {}
+export class SendCustomVerificationEmailRequest extends Schema.Class<SendCustomVerificationEmailRequest>("SendCustomVerificationEmailRequest")({EmailAddress: Schema.String, TemplateName: Schema.String, ConfigurationSetName: Schema.optional(Schema.String)}) {}
+export class Destination extends Schema.Class<Destination>("Destination")({ToAddresses: Schema.optional(AddressList), CcAddresses: Schema.optional(AddressList), BccAddresses: Schema.optional(AddressList)}) {}
+export class MessageTag extends Schema.Class<MessageTag>("MessageTag")({Name: Schema.String, Value: Schema.String}) {}
 export const MessageTagList = Schema.Array(MessageTag);
-export const SendTemplatedEmailRequest = Schema.Struct({Source: Schema.String, Destination: Destination, ReplyToAddresses: Schema.optional(AddressList), ReturnPath: Schema.optional(Schema.String), SourceArn: Schema.optional(Schema.String), ReturnPathArn: Schema.optional(Schema.String), Tags: Schema.optional(MessageTagList), ConfigurationSetName: Schema.optional(Schema.String), Template: Schema.String, TemplateArn: Schema.optional(Schema.String), TemplateData: Schema.String});
-export const SetActiveReceiptRuleSetRequest = Schema.Struct({RuleSetName: Schema.optional(Schema.String)});
-export const SetActiveReceiptRuleSetResponse = Schema.Struct({});
-export const SetIdentityDkimEnabledRequest = Schema.Struct({Identity: Schema.String, DkimEnabled: Schema.Boolean});
-export const SetIdentityDkimEnabledResponse = Schema.Struct({});
-export const SetIdentityFeedbackForwardingEnabledRequest = Schema.Struct({Identity: Schema.String, ForwardingEnabled: Schema.Boolean});
-export const SetIdentityFeedbackForwardingEnabledResponse = Schema.Struct({});
-export const SetIdentityHeadersInNotificationsEnabledRequest = Schema.Struct({Identity: Schema.String, NotificationType: Schema.String, Enabled: Schema.Boolean});
-export const SetIdentityHeadersInNotificationsEnabledResponse = Schema.Struct({});
-export const SetIdentityMailFromDomainRequest = Schema.Struct({Identity: Schema.String, MailFromDomain: Schema.optional(Schema.String), BehaviorOnMXFailure: Schema.optional(Schema.String)});
-export const SetIdentityMailFromDomainResponse = Schema.Struct({});
-export const SetIdentityNotificationTopicRequest = Schema.Struct({Identity: Schema.String, NotificationType: Schema.String, SnsTopic: Schema.optional(Schema.String)});
-export const SetIdentityNotificationTopicResponse = Schema.Struct({});
-export const SetReceiptRulePositionRequest = Schema.Struct({RuleSetName: Schema.String, RuleName: Schema.String, After: Schema.optional(Schema.String)});
-export const SetReceiptRulePositionResponse = Schema.Struct({});
-export const TestRenderTemplateRequest = Schema.Struct({TemplateName: Schema.String, TemplateData: Schema.String});
-export const UpdateAccountSendingEnabledRequest = Schema.Struct({Enabled: Schema.optional(Schema.Boolean)});
+export class SendTemplatedEmailRequest extends Schema.Class<SendTemplatedEmailRequest>("SendTemplatedEmailRequest")({Source: Schema.String, Destination: Destination, ReplyToAddresses: Schema.optional(AddressList), ReturnPath: Schema.optional(Schema.String), SourceArn: Schema.optional(Schema.String), ReturnPathArn: Schema.optional(Schema.String), Tags: Schema.optional(MessageTagList), ConfigurationSetName: Schema.optional(Schema.String), Template: Schema.String, TemplateArn: Schema.optional(Schema.String), TemplateData: Schema.String}) {}
+export class SetActiveReceiptRuleSetRequest extends Schema.Class<SetActiveReceiptRuleSetRequest>("SetActiveReceiptRuleSetRequest")({RuleSetName: Schema.optional(Schema.String)}) {}
+export class SetActiveReceiptRuleSetResponse extends Schema.Class<SetActiveReceiptRuleSetResponse>("SetActiveReceiptRuleSetResponse")({}) {}
+export class SetIdentityDkimEnabledRequest extends Schema.Class<SetIdentityDkimEnabledRequest>("SetIdentityDkimEnabledRequest")({Identity: Schema.String, DkimEnabled: Schema.Boolean}) {}
+export class SetIdentityDkimEnabledResponse extends Schema.Class<SetIdentityDkimEnabledResponse>("SetIdentityDkimEnabledResponse")({}) {}
+export class SetIdentityFeedbackForwardingEnabledRequest extends Schema.Class<SetIdentityFeedbackForwardingEnabledRequest>("SetIdentityFeedbackForwardingEnabledRequest")({Identity: Schema.String, ForwardingEnabled: Schema.Boolean}) {}
+export class SetIdentityFeedbackForwardingEnabledResponse extends Schema.Class<SetIdentityFeedbackForwardingEnabledResponse>("SetIdentityFeedbackForwardingEnabledResponse")({}) {}
+export class SetIdentityHeadersInNotificationsEnabledRequest extends Schema.Class<SetIdentityHeadersInNotificationsEnabledRequest>("SetIdentityHeadersInNotificationsEnabledRequest")({Identity: Schema.String, NotificationType: Schema.String, Enabled: Schema.Boolean}) {}
+export class SetIdentityHeadersInNotificationsEnabledResponse extends Schema.Class<SetIdentityHeadersInNotificationsEnabledResponse>("SetIdentityHeadersInNotificationsEnabledResponse")({}) {}
+export class SetIdentityMailFromDomainRequest extends Schema.Class<SetIdentityMailFromDomainRequest>("SetIdentityMailFromDomainRequest")({Identity: Schema.String, MailFromDomain: Schema.optional(Schema.String), BehaviorOnMXFailure: Schema.optional(Schema.String)}) {}
+export class SetIdentityMailFromDomainResponse extends Schema.Class<SetIdentityMailFromDomainResponse>("SetIdentityMailFromDomainResponse")({}) {}
+export class SetIdentityNotificationTopicRequest extends Schema.Class<SetIdentityNotificationTopicRequest>("SetIdentityNotificationTopicRequest")({Identity: Schema.String, NotificationType: Schema.String, SnsTopic: Schema.optional(Schema.String)}) {}
+export class SetIdentityNotificationTopicResponse extends Schema.Class<SetIdentityNotificationTopicResponse>("SetIdentityNotificationTopicResponse")({}) {}
+export class SetReceiptRulePositionRequest extends Schema.Class<SetReceiptRulePositionRequest>("SetReceiptRulePositionRequest")({RuleSetName: Schema.String, RuleName: Schema.String, After: Schema.optional(Schema.String)}) {}
+export class SetReceiptRulePositionResponse extends Schema.Class<SetReceiptRulePositionResponse>("SetReceiptRulePositionResponse")({}) {}
+export class TestRenderTemplateRequest extends Schema.Class<TestRenderTemplateRequest>("TestRenderTemplateRequest")({TemplateName: Schema.String, TemplateData: Schema.String}) {}
+export class UpdateAccountSendingEnabledRequest extends Schema.Class<UpdateAccountSendingEnabledRequest>("UpdateAccountSendingEnabledRequest")({Enabled: Schema.optional(Schema.Boolean)}) {}
 export const EventTypes = Schema.Array(Schema.String);
-export const KinesisFirehoseDestination = Schema.Struct({IAMRoleARN: Schema.String, DeliveryStreamARN: Schema.String});
-export const CloudWatchDimensionConfiguration = Schema.Struct({DimensionName: Schema.String, DimensionValueSource: Schema.String, DefaultDimensionValue: Schema.String});
+export class KinesisFirehoseDestination extends Schema.Class<KinesisFirehoseDestination>("KinesisFirehoseDestination")({IAMRoleARN: Schema.String, DeliveryStreamARN: Schema.String}) {}
+export class CloudWatchDimensionConfiguration extends Schema.Class<CloudWatchDimensionConfiguration>("CloudWatchDimensionConfiguration")({DimensionName: Schema.String, DimensionValueSource: Schema.String, DefaultDimensionValue: Schema.String}) {}
 export const CloudWatchDimensionConfigurations = Schema.Array(CloudWatchDimensionConfiguration);
-export const CloudWatchDestination = Schema.Struct({DimensionConfigurations: CloudWatchDimensionConfigurations});
-export const SNSDestination = Schema.Struct({TopicARN: Schema.String});
-export const EventDestination = Schema.Struct({Name: Schema.String, Enabled: Schema.optional(Schema.Boolean), MatchingEventTypes: EventTypes, KinesisFirehoseDestination: Schema.optional(KinesisFirehoseDestination), CloudWatchDestination: Schema.optional(CloudWatchDestination), SNSDestination: Schema.optional(SNSDestination)});
-export const UpdateConfigurationSetEventDestinationRequest = Schema.Struct({ConfigurationSetName: Schema.String, EventDestination: EventDestination});
-export const UpdateConfigurationSetEventDestinationResponse = Schema.Struct({});
-export const UpdateConfigurationSetReputationMetricsEnabledRequest = Schema.Struct({ConfigurationSetName: Schema.String, Enabled: Schema.Boolean});
-export const UpdateConfigurationSetSendingEnabledRequest = Schema.Struct({ConfigurationSetName: Schema.String, Enabled: Schema.Boolean});
-export const TrackingOptions = Schema.Struct({CustomRedirectDomain: Schema.optional(Schema.String)});
-export const UpdateConfigurationSetTrackingOptionsRequest = Schema.Struct({ConfigurationSetName: Schema.String, TrackingOptions: TrackingOptions});
-export const UpdateConfigurationSetTrackingOptionsResponse = Schema.Struct({});
-export const UpdateCustomVerificationEmailTemplateRequest = Schema.Struct({TemplateName: Schema.String, FromEmailAddress: Schema.optional(Schema.String), TemplateSubject: Schema.optional(Schema.String), TemplateContent: Schema.optional(Schema.String), SuccessRedirectionURL: Schema.optional(Schema.String), FailureRedirectionURL: Schema.optional(Schema.String)});
-export const UpdateReceiptRuleRequest = Schema.Struct({RuleSetName: Schema.String, Rule: ReceiptRule});
-export const UpdateReceiptRuleResponse = Schema.Struct({});
-export const Template = Schema.Struct({TemplateName: Schema.String, SubjectPart: Schema.optional(Schema.String), TextPart: Schema.optional(Schema.String), HtmlPart: Schema.optional(Schema.String)});
-export const UpdateTemplateRequest = Schema.Struct({Template: Template});
-export const UpdateTemplateResponse = Schema.Struct({});
-export const VerifyDomainDkimRequest = Schema.Struct({Domain: Schema.String});
-export const VerifyDomainIdentityRequest = Schema.Struct({Domain: Schema.String});
-export const VerifyEmailAddressRequest = Schema.Struct({EmailAddress: Schema.String});
-export const VerifyEmailIdentityRequest = Schema.Struct({EmailAddress: Schema.String});
-export const VerifyEmailIdentityResponse = Schema.Struct({});
-export const ConfigurationSet = Schema.Struct({Name: Schema.String});
-export const ReceiptRuleSetMetadata = Schema.Struct({Name: Schema.optional(Schema.String), CreatedTimestamp: Schema.optional(Schema.Date)});
+export class CloudWatchDestination extends Schema.Class<CloudWatchDestination>("CloudWatchDestination")({DimensionConfigurations: CloudWatchDimensionConfigurations}) {}
+export class SNSDestination extends Schema.Class<SNSDestination>("SNSDestination")({TopicARN: Schema.String}) {}
+export class EventDestination extends Schema.Class<EventDestination>("EventDestination")({Name: Schema.String, Enabled: Schema.optional(Schema.Boolean), MatchingEventTypes: EventTypes, KinesisFirehoseDestination: Schema.optional(KinesisFirehoseDestination), CloudWatchDestination: Schema.optional(CloudWatchDestination), SNSDestination: Schema.optional(SNSDestination)}) {}
+export class UpdateConfigurationSetEventDestinationRequest extends Schema.Class<UpdateConfigurationSetEventDestinationRequest>("UpdateConfigurationSetEventDestinationRequest")({ConfigurationSetName: Schema.String, EventDestination: EventDestination}) {}
+export class UpdateConfigurationSetEventDestinationResponse extends Schema.Class<UpdateConfigurationSetEventDestinationResponse>("UpdateConfigurationSetEventDestinationResponse")({}) {}
+export class UpdateConfigurationSetReputationMetricsEnabledRequest extends Schema.Class<UpdateConfigurationSetReputationMetricsEnabledRequest>("UpdateConfigurationSetReputationMetricsEnabledRequest")({ConfigurationSetName: Schema.String, Enabled: Schema.Boolean}) {}
+export class UpdateConfigurationSetSendingEnabledRequest extends Schema.Class<UpdateConfigurationSetSendingEnabledRequest>("UpdateConfigurationSetSendingEnabledRequest")({ConfigurationSetName: Schema.String, Enabled: Schema.Boolean}) {}
+export class TrackingOptions extends Schema.Class<TrackingOptions>("TrackingOptions")({CustomRedirectDomain: Schema.optional(Schema.String)}) {}
+export class UpdateConfigurationSetTrackingOptionsRequest extends Schema.Class<UpdateConfigurationSetTrackingOptionsRequest>("UpdateConfigurationSetTrackingOptionsRequest")({ConfigurationSetName: Schema.String, TrackingOptions: TrackingOptions}) {}
+export class UpdateConfigurationSetTrackingOptionsResponse extends Schema.Class<UpdateConfigurationSetTrackingOptionsResponse>("UpdateConfigurationSetTrackingOptionsResponse")({}) {}
+export class UpdateCustomVerificationEmailTemplateRequest extends Schema.Class<UpdateCustomVerificationEmailTemplateRequest>("UpdateCustomVerificationEmailTemplateRequest")({TemplateName: Schema.String, FromEmailAddress: Schema.optional(Schema.String), TemplateSubject: Schema.optional(Schema.String), TemplateContent: Schema.optional(Schema.String), SuccessRedirectionURL: Schema.optional(Schema.String), FailureRedirectionURL: Schema.optional(Schema.String)}) {}
+export class UpdateReceiptRuleRequest extends Schema.Class<UpdateReceiptRuleRequest>("UpdateReceiptRuleRequest")({RuleSetName: Schema.String, Rule: ReceiptRule}) {}
+export class UpdateReceiptRuleResponse extends Schema.Class<UpdateReceiptRuleResponse>("UpdateReceiptRuleResponse")({}) {}
+export class Template extends Schema.Class<Template>("Template")({TemplateName: Schema.String, SubjectPart: Schema.optional(Schema.String), TextPart: Schema.optional(Schema.String), HtmlPart: Schema.optional(Schema.String)}) {}
+export class UpdateTemplateRequest extends Schema.Class<UpdateTemplateRequest>("UpdateTemplateRequest")({Template: Template}) {}
+export class UpdateTemplateResponse extends Schema.Class<UpdateTemplateResponse>("UpdateTemplateResponse")({}) {}
+export class VerifyDomainDkimRequest extends Schema.Class<VerifyDomainDkimRequest>("VerifyDomainDkimRequest")({Domain: Schema.String}) {}
+export class VerifyDomainIdentityRequest extends Schema.Class<VerifyDomainIdentityRequest>("VerifyDomainIdentityRequest")({Domain: Schema.String}) {}
+export class VerifyEmailAddressRequest extends Schema.Class<VerifyEmailAddressRequest>("VerifyEmailAddressRequest")({EmailAddress: Schema.String}) {}
+export class VerifyEmailIdentityRequest extends Schema.Class<VerifyEmailIdentityRequest>("VerifyEmailIdentityRequest")({EmailAddress: Schema.String}) {}
+export class VerifyEmailIdentityResponse extends Schema.Class<VerifyEmailIdentityResponse>("VerifyEmailIdentityResponse")({}) {}
+export class ConfigurationSet extends Schema.Class<ConfigurationSet>("ConfigurationSet")({Name: Schema.String}) {}
+export class ReceiptRuleSetMetadata extends Schema.Class<ReceiptRuleSetMetadata>("ReceiptRuleSetMetadata")({Name: Schema.optional(Schema.String), CreatedTimestamp: Schema.optional(Schema.Date)}) {}
 export const EventDestinations = Schema.Array(EventDestination);
-export const SendDataPoint = Schema.Struct({Timestamp: Schema.optional(Schema.Date), DeliveryAttempts: Schema.optional(Schema.Number), Bounces: Schema.optional(Schema.Number), Complaints: Schema.optional(Schema.Number), Rejects: Schema.optional(Schema.Number)});
+export class SendDataPoint extends Schema.Class<SendDataPoint>("SendDataPoint")({Timestamp: Schema.optional(Schema.Date), DeliveryAttempts: Schema.optional(Schema.Number), Bounces: Schema.optional(Schema.Number), Complaints: Schema.optional(Schema.Number), Rejects: Schema.optional(Schema.Number)}) {}
 export const SendDataPointList = Schema.Array(SendDataPoint);
 export const ConfigurationSets = Schema.Array(ConfigurationSet);
 export const ReceiptRuleSetsLists = Schema.Array(ReceiptRuleSetMetadata);
-export const DeliveryOptions = Schema.Struct({TlsPolicy: Schema.optional(Schema.String)});
-export const BulkEmailDestination = Schema.Struct({Destination: Destination, ReplacementTags: Schema.optional(MessageTagList), ReplacementTemplateData: Schema.optional(Schema.String)});
+export class DeliveryOptions extends Schema.Class<DeliveryOptions>("DeliveryOptions")({TlsPolicy: Schema.optional(Schema.String)}) {}
+export class BulkEmailDestination extends Schema.Class<BulkEmailDestination>("BulkEmailDestination")({Destination: Destination, ReplacementTags: Schema.optional(MessageTagList), ReplacementTemplateData: Schema.optional(Schema.String)}) {}
 export const BulkEmailDestinationList = Schema.Array(BulkEmailDestination);
-export const RawMessage = Schema.Struct({Data: StreamBody()});
+export class RawMessage extends Schema.Class<RawMessage>("RawMessage")({Data: StreamBody()}) {}
 export const VerificationTokenList = Schema.Array(Schema.String);
-export const AlreadyExistsException = Schema.Struct({Name: Schema.optional(Schema.String), message: Schema.optional(Schema.String)});
-export const CreateConfigurationSetRequest = Schema.Struct({ConfigurationSet: ConfigurationSet});
-export const CreateConfigurationSetResponse = Schema.Struct({});
-export const CreateConfigurationSetTrackingOptionsRequest = Schema.Struct({ConfigurationSetName: Schema.String, TrackingOptions: TrackingOptions});
-export const CreateConfigurationSetTrackingOptionsResponse = Schema.Struct({});
-export const CustomVerificationEmailInvalidContentException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const LimitExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CreateTemplateRequest = Schema.Struct({Template: Template});
-export const CreateTemplateResponse = Schema.Struct({});
-export const ConfigurationSetDoesNotExistException = Schema.Struct({ConfigurationSetName: Schema.optional(Schema.String), message: Schema.optional(Schema.String)});
-export const EventDestinationDoesNotExistException = Schema.Struct({ConfigurationSetName: Schema.optional(Schema.String), EventDestinationName: Schema.optional(Schema.String), message: Schema.optional(Schema.String)});
-export const TrackingOptionsDoesNotExistException = Schema.Struct({ConfigurationSetName: Schema.optional(Schema.String), message: Schema.optional(Schema.String)});
-export const RuleSetDoesNotExistException = Schema.Struct({Name: Schema.optional(Schema.String), message: Schema.optional(Schema.String)});
-export const CannotDeleteException = Schema.Struct({Name: Schema.optional(Schema.String), message: Schema.optional(Schema.String)});
-export const DescribeActiveReceiptRuleSetResponse = Schema.Struct({Metadata: Schema.optional(ReceiptRuleSetMetadata), Rules: Schema.optional(ReceiptRulesList)});
-export const DescribeReceiptRuleResponse = Schema.Struct({Rule: Schema.optional(ReceiptRule)});
-export const DescribeReceiptRuleSetResponse = Schema.Struct({Metadata: Schema.optional(ReceiptRuleSetMetadata), Rules: Schema.optional(ReceiptRulesList)});
-export const GetCustomVerificationEmailTemplateResponse = Schema.Struct({TemplateName: Schema.optional(Schema.String), FromEmailAddress: Schema.optional(Schema.String), TemplateSubject: Schema.optional(Schema.String), TemplateContent: Schema.optional(Schema.String), SuccessRedirectionURL: Schema.optional(Schema.String), FailureRedirectionURL: Schema.optional(Schema.String)});
-export const GetSendStatisticsResponse = Schema.Struct({SendDataPoints: Schema.optional(SendDataPointList)});
-export const GetTemplateResponse = Schema.Struct({Template: Schema.optional(Template)});
-export const ListConfigurationSetsResponse = Schema.Struct({ConfigurationSets: Schema.optional(ConfigurationSets), NextToken: Schema.optional(Schema.String)});
-export const ListIdentitiesResponse = Schema.Struct({Identities: IdentityList, NextToken: Schema.optional(Schema.String)});
-export const ListIdentityPoliciesResponse = Schema.Struct({PolicyNames: PolicyNameList});
-export const ListReceiptRuleSetsResponse = Schema.Struct({RuleSets: Schema.optional(ReceiptRuleSetsLists), NextToken: Schema.optional(Schema.String)});
-export const PutConfigurationSetDeliveryOptionsRequest = Schema.Struct({ConfigurationSetName: Schema.String, DeliveryOptions: Schema.optional(DeliveryOptions)});
-export const PutConfigurationSetDeliveryOptionsResponse = Schema.Struct({});
-export const InvalidPolicyException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const RuleDoesNotExistException = Schema.Struct({Name: Schema.optional(Schema.String), message: Schema.optional(Schema.String)});
-export const SendBulkTemplatedEmailRequest = Schema.Struct({Source: Schema.String, SourceArn: Schema.optional(Schema.String), ReplyToAddresses: Schema.optional(AddressList), ReturnPath: Schema.optional(Schema.String), ReturnPathArn: Schema.optional(Schema.String), ConfigurationSetName: Schema.optional(Schema.String), DefaultTags: Schema.optional(MessageTagList), Template: Schema.String, TemplateArn: Schema.optional(Schema.String), DefaultTemplateData: Schema.String, Destinations: BulkEmailDestinationList});
-export const SendCustomVerificationEmailResponse = Schema.Struct({MessageId: Schema.optional(Schema.String)});
-export const SendRawEmailRequest = Schema.Struct({Source: Schema.optional(Schema.String), Destinations: Schema.optional(AddressList), RawMessage: RawMessage, FromArn: Schema.optional(Schema.String), SourceArn: Schema.optional(Schema.String), ReturnPathArn: Schema.optional(Schema.String), Tags: Schema.optional(MessageTagList), ConfigurationSetName: Schema.optional(Schema.String)});
-export const SendTemplatedEmailResponse = Schema.Struct({MessageId: Schema.String});
-export const TestRenderTemplateResponse = Schema.Struct({RenderedTemplate: Schema.optional(Schema.String)});
-export const InvalidCloudWatchDestinationException = Schema.Struct({ConfigurationSetName: Schema.optional(Schema.String), EventDestinationName: Schema.optional(Schema.String), message: Schema.optional(Schema.String)});
-export const InvalidTrackingOptionsException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CustomVerificationEmailTemplateDoesNotExistException = Schema.Struct({CustomVerificationEmailTemplateName: Schema.optional(Schema.String), message: Schema.optional(Schema.String)});
-export const InvalidLambdaFunctionException = Schema.Struct({FunctionArn: Schema.optional(Schema.String), message: Schema.optional(Schema.String)});
-export const InvalidTemplateException = Schema.Struct({TemplateName: Schema.optional(Schema.String), message: Schema.optional(Schema.String)});
-export const VerifyDomainDkimResponse = Schema.Struct({DkimTokens: VerificationTokenList});
-export const VerifyDomainIdentityResponse = Schema.Struct({VerificationToken: Schema.String});
-export const ExtensionField = Schema.Struct({Name: Schema.String, Value: Schema.String});
+export class AlreadyExistsException extends Schema.Class<AlreadyExistsException>("AlreadyExistsException")({Name: Schema.optional(Schema.String), message: Schema.optional(Schema.String)}) {}
+export class CreateConfigurationSetRequest extends Schema.Class<CreateConfigurationSetRequest>("CreateConfigurationSetRequest")({ConfigurationSet: ConfigurationSet}) {}
+export class CreateConfigurationSetResponse extends Schema.Class<CreateConfigurationSetResponse>("CreateConfigurationSetResponse")({}) {}
+export class CreateConfigurationSetTrackingOptionsRequest extends Schema.Class<CreateConfigurationSetTrackingOptionsRequest>("CreateConfigurationSetTrackingOptionsRequest")({ConfigurationSetName: Schema.String, TrackingOptions: TrackingOptions}) {}
+export class CreateConfigurationSetTrackingOptionsResponse extends Schema.Class<CreateConfigurationSetTrackingOptionsResponse>("CreateConfigurationSetTrackingOptionsResponse")({}) {}
+export class CustomVerificationEmailInvalidContentException extends Schema.Class<CustomVerificationEmailInvalidContentException>("CustomVerificationEmailInvalidContentException")({message: Schema.optional(Schema.String)}) {}
+export class LimitExceededException extends Schema.Class<LimitExceededException>("LimitExceededException")({message: Schema.optional(Schema.String)}) {}
+export class CreateTemplateRequest extends Schema.Class<CreateTemplateRequest>("CreateTemplateRequest")({Template: Template}) {}
+export class CreateTemplateResponse extends Schema.Class<CreateTemplateResponse>("CreateTemplateResponse")({}) {}
+export class ConfigurationSetDoesNotExistException extends Schema.Class<ConfigurationSetDoesNotExistException>("ConfigurationSetDoesNotExistException")({ConfigurationSetName: Schema.optional(Schema.String), message: Schema.optional(Schema.String)}) {}
+export class EventDestinationDoesNotExistException extends Schema.Class<EventDestinationDoesNotExistException>("EventDestinationDoesNotExistException")({ConfigurationSetName: Schema.optional(Schema.String), EventDestinationName: Schema.optional(Schema.String), message: Schema.optional(Schema.String)}) {}
+export class TrackingOptionsDoesNotExistException extends Schema.Class<TrackingOptionsDoesNotExistException>("TrackingOptionsDoesNotExistException")({ConfigurationSetName: Schema.optional(Schema.String), message: Schema.optional(Schema.String)}) {}
+export class RuleSetDoesNotExistException extends Schema.Class<RuleSetDoesNotExistException>("RuleSetDoesNotExistException")({Name: Schema.optional(Schema.String), message: Schema.optional(Schema.String)}) {}
+export class CannotDeleteException extends Schema.Class<CannotDeleteException>("CannotDeleteException")({Name: Schema.optional(Schema.String), message: Schema.optional(Schema.String)}) {}
+export class DescribeActiveReceiptRuleSetResponse extends Schema.Class<DescribeActiveReceiptRuleSetResponse>("DescribeActiveReceiptRuleSetResponse")({Metadata: Schema.optional(ReceiptRuleSetMetadata), Rules: Schema.optional(ReceiptRulesList)}) {}
+export class DescribeReceiptRuleResponse extends Schema.Class<DescribeReceiptRuleResponse>("DescribeReceiptRuleResponse")({Rule: Schema.optional(ReceiptRule)}) {}
+export class DescribeReceiptRuleSetResponse extends Schema.Class<DescribeReceiptRuleSetResponse>("DescribeReceiptRuleSetResponse")({Metadata: Schema.optional(ReceiptRuleSetMetadata), Rules: Schema.optional(ReceiptRulesList)}) {}
+export class GetCustomVerificationEmailTemplateResponse extends Schema.Class<GetCustomVerificationEmailTemplateResponse>("GetCustomVerificationEmailTemplateResponse")({TemplateName: Schema.optional(Schema.String), FromEmailAddress: Schema.optional(Schema.String), TemplateSubject: Schema.optional(Schema.String), TemplateContent: Schema.optional(Schema.String), SuccessRedirectionURL: Schema.optional(Schema.String), FailureRedirectionURL: Schema.optional(Schema.String)}) {}
+export class GetSendStatisticsResponse extends Schema.Class<GetSendStatisticsResponse>("GetSendStatisticsResponse")({SendDataPoints: Schema.optional(SendDataPointList)}) {}
+export class GetTemplateResponse extends Schema.Class<GetTemplateResponse>("GetTemplateResponse")({Template: Schema.optional(Template)}) {}
+export class ListConfigurationSetsResponse extends Schema.Class<ListConfigurationSetsResponse>("ListConfigurationSetsResponse")({ConfigurationSets: Schema.optional(ConfigurationSets), NextToken: Schema.optional(Schema.String)}) {}
+export class ListIdentitiesResponse extends Schema.Class<ListIdentitiesResponse>("ListIdentitiesResponse")({Identities: IdentityList, NextToken: Schema.optional(Schema.String)}) {}
+export class ListIdentityPoliciesResponse extends Schema.Class<ListIdentityPoliciesResponse>("ListIdentityPoliciesResponse")({PolicyNames: PolicyNameList}) {}
+export class ListReceiptRuleSetsResponse extends Schema.Class<ListReceiptRuleSetsResponse>("ListReceiptRuleSetsResponse")({RuleSets: Schema.optional(ReceiptRuleSetsLists), NextToken: Schema.optional(Schema.String)}) {}
+export class PutConfigurationSetDeliveryOptionsRequest extends Schema.Class<PutConfigurationSetDeliveryOptionsRequest>("PutConfigurationSetDeliveryOptionsRequest")({ConfigurationSetName: Schema.String, DeliveryOptions: Schema.optional(DeliveryOptions)}) {}
+export class PutConfigurationSetDeliveryOptionsResponse extends Schema.Class<PutConfigurationSetDeliveryOptionsResponse>("PutConfigurationSetDeliveryOptionsResponse")({}) {}
+export class InvalidPolicyException extends Schema.Class<InvalidPolicyException>("InvalidPolicyException")({message: Schema.optional(Schema.String)}) {}
+export class RuleDoesNotExistException extends Schema.Class<RuleDoesNotExistException>("RuleDoesNotExistException")({Name: Schema.optional(Schema.String), message: Schema.optional(Schema.String)}) {}
+export class SendBulkTemplatedEmailRequest extends Schema.Class<SendBulkTemplatedEmailRequest>("SendBulkTemplatedEmailRequest")({Source: Schema.String, SourceArn: Schema.optional(Schema.String), ReplyToAddresses: Schema.optional(AddressList), ReturnPath: Schema.optional(Schema.String), ReturnPathArn: Schema.optional(Schema.String), ConfigurationSetName: Schema.optional(Schema.String), DefaultTags: Schema.optional(MessageTagList), Template: Schema.String, TemplateArn: Schema.optional(Schema.String), DefaultTemplateData: Schema.String, Destinations: BulkEmailDestinationList}) {}
+export class SendCustomVerificationEmailResponse extends Schema.Class<SendCustomVerificationEmailResponse>("SendCustomVerificationEmailResponse")({MessageId: Schema.optional(Schema.String)}) {}
+export class SendRawEmailRequest extends Schema.Class<SendRawEmailRequest>("SendRawEmailRequest")({Source: Schema.optional(Schema.String), Destinations: Schema.optional(AddressList), RawMessage: RawMessage, FromArn: Schema.optional(Schema.String), SourceArn: Schema.optional(Schema.String), ReturnPathArn: Schema.optional(Schema.String), Tags: Schema.optional(MessageTagList), ConfigurationSetName: Schema.optional(Schema.String)}) {}
+export class SendTemplatedEmailResponse extends Schema.Class<SendTemplatedEmailResponse>("SendTemplatedEmailResponse")({MessageId: Schema.String}) {}
+export class TestRenderTemplateResponse extends Schema.Class<TestRenderTemplateResponse>("TestRenderTemplateResponse")({RenderedTemplate: Schema.optional(Schema.String)}) {}
+export class InvalidCloudWatchDestinationException extends Schema.Class<InvalidCloudWatchDestinationException>("InvalidCloudWatchDestinationException")({ConfigurationSetName: Schema.optional(Schema.String), EventDestinationName: Schema.optional(Schema.String), message: Schema.optional(Schema.String)}) {}
+export class InvalidTrackingOptionsException extends Schema.Class<InvalidTrackingOptionsException>("InvalidTrackingOptionsException")({message: Schema.optional(Schema.String)}) {}
+export class CustomVerificationEmailTemplateDoesNotExistException extends Schema.Class<CustomVerificationEmailTemplateDoesNotExistException>("CustomVerificationEmailTemplateDoesNotExistException")({CustomVerificationEmailTemplateName: Schema.optional(Schema.String), message: Schema.optional(Schema.String)}) {}
+export class InvalidLambdaFunctionException extends Schema.Class<InvalidLambdaFunctionException>("InvalidLambdaFunctionException")({FunctionArn: Schema.optional(Schema.String), message: Schema.optional(Schema.String)}) {}
+export class InvalidTemplateException extends Schema.Class<InvalidTemplateException>("InvalidTemplateException")({TemplateName: Schema.optional(Schema.String), message: Schema.optional(Schema.String)}) {}
+export class VerifyDomainDkimResponse extends Schema.Class<VerifyDomainDkimResponse>("VerifyDomainDkimResponse")({DkimTokens: VerificationTokenList}) {}
+export class VerifyDomainIdentityResponse extends Schema.Class<VerifyDomainIdentityResponse>("VerifyDomainIdentityResponse")({VerificationToken: Schema.String}) {}
+export class ExtensionField extends Schema.Class<ExtensionField>("ExtensionField")({Name: Schema.String, Value: Schema.String}) {}
 export const ExtensionFieldList = Schema.Array(ExtensionField);
-export const RecipientDsnFields = Schema.Struct({FinalRecipient: Schema.optional(Schema.String), Action: Schema.String, RemoteMta: Schema.optional(Schema.String), Status: Schema.String, DiagnosticCode: Schema.optional(Schema.String), LastAttemptDate: Schema.optional(Schema.Date), ExtensionFields: Schema.optional(ExtensionFieldList)});
-export const Content = Schema.Struct({Data: Schema.String, Charset: Schema.optional(Schema.String)});
-export const Body = Schema.Struct({Text: Schema.optional(Content), Html: Schema.optional(Content)});
-export const ReputationOptions = Schema.Struct({SendingEnabled: Schema.optional(Schema.Boolean), ReputationMetricsEnabled: Schema.optional(Schema.Boolean), LastFreshStart: Schema.optional(Schema.Date)});
+export class RecipientDsnFields extends Schema.Class<RecipientDsnFields>("RecipientDsnFields")({FinalRecipient: Schema.optional(Schema.String), Action: Schema.String, RemoteMta: Schema.optional(Schema.String), Status: Schema.String, DiagnosticCode: Schema.optional(Schema.String), LastAttemptDate: Schema.optional(Schema.Date), ExtensionFields: Schema.optional(ExtensionFieldList)}) {}
+export class Content extends Schema.Class<Content>("Content")({Data: Schema.String, Charset: Schema.optional(Schema.String)}) {}
+export class _Body extends Schema.Class<_Body>("_Body")({Text: Schema.optional(Content), Html: Schema.optional(Content)}) {}
+export class ReputationOptions extends Schema.Class<ReputationOptions>("ReputationOptions")({SendingEnabled: Schema.optional(Schema.Boolean), ReputationMetricsEnabled: Schema.optional(Schema.Boolean), LastFreshStart: Schema.optional(Schema.Date)}) {}
 export const PolicyMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const CustomVerificationEmailTemplate = Schema.Struct({TemplateName: Schema.optional(Schema.String), FromEmailAddress: Schema.optional(Schema.String), TemplateSubject: Schema.optional(Schema.String), SuccessRedirectionURL: Schema.optional(Schema.String), FailureRedirectionURL: Schema.optional(Schema.String)});
+export class CustomVerificationEmailTemplate extends Schema.Class<CustomVerificationEmailTemplate>("CustomVerificationEmailTemplate")({TemplateName: Schema.optional(Schema.String), FromEmailAddress: Schema.optional(Schema.String), TemplateSubject: Schema.optional(Schema.String), SuccessRedirectionURL: Schema.optional(Schema.String), FailureRedirectionURL: Schema.optional(Schema.String)}) {}
 export const CustomVerificationEmailTemplates = Schema.Array(CustomVerificationEmailTemplate);
-export const TemplateMetadata = Schema.Struct({Name: Schema.optional(Schema.String), CreatedTimestamp: Schema.optional(Schema.Date)});
+export class TemplateMetadata extends Schema.Class<TemplateMetadata>("TemplateMetadata")({Name: Schema.optional(Schema.String), CreatedTimestamp: Schema.optional(Schema.Date)}) {}
 export const TemplateMetadataList = Schema.Array(TemplateMetadata);
-export const MessageDsn = Schema.Struct({ReportingMta: Schema.String, ArrivalDate: Schema.optional(Schema.Date), ExtensionFields: Schema.optional(ExtensionFieldList)});
-export const BouncedRecipientInfo = Schema.Struct({Recipient: Schema.String, RecipientArn: Schema.optional(Schema.String), BounceType: Schema.optional(Schema.String), RecipientDsnFields: Schema.optional(RecipientDsnFields)});
+export class MessageDsn extends Schema.Class<MessageDsn>("MessageDsn")({ReportingMta: Schema.String, ArrivalDate: Schema.optional(Schema.Date), ExtensionFields: Schema.optional(ExtensionFieldList)}) {}
+export class BouncedRecipientInfo extends Schema.Class<BouncedRecipientInfo>("BouncedRecipientInfo")({Recipient: Schema.String, RecipientArn: Schema.optional(Schema.String), BounceType: Schema.optional(Schema.String), RecipientDsnFields: Schema.optional(RecipientDsnFields)}) {}
 export const BouncedRecipientInfoList = Schema.Array(BouncedRecipientInfo);
-export const Message = Schema.Struct({Subject: Content, Body: Body});
-export const ConfigurationSetAlreadyExistsException = Schema.Struct({ConfigurationSetName: Schema.optional(Schema.String), message: Schema.optional(Schema.String)});
-export const TrackingOptionsAlreadyExistsException = Schema.Struct({ConfigurationSetName: Schema.optional(Schema.String), message: Schema.optional(Schema.String)});
-export const CustomVerificationEmailTemplateAlreadyExistsException = Schema.Struct({CustomVerificationEmailTemplateName: Schema.optional(Schema.String), message: Schema.optional(Schema.String)});
-export const CreateReceiptFilterRequest = Schema.Struct({Filter: ReceiptFilter});
-export const CreateReceiptFilterResponse = Schema.Struct({});
-export const DescribeConfigurationSetResponse = Schema.Struct({ConfigurationSet: Schema.optional(ConfigurationSet), EventDestinations: Schema.optional(EventDestinations), TrackingOptions: Schema.optional(TrackingOptions), DeliveryOptions: Schema.optional(DeliveryOptions), ReputationOptions: Schema.optional(ReputationOptions)});
-export const GetIdentityPoliciesResponse = Schema.Struct({Policies: PolicyMap});
-export const TemplateDoesNotExistException = Schema.Struct({TemplateName: Schema.optional(Schema.String), message: Schema.optional(Schema.String)});
-export const ListCustomVerificationEmailTemplatesResponse = Schema.Struct({CustomVerificationEmailTemplates: Schema.optional(CustomVerificationEmailTemplates), NextToken: Schema.optional(Schema.String)});
-export const ListTemplatesResponse = Schema.Struct({TemplatesMetadata: Schema.optional(TemplateMetadataList), NextToken: Schema.optional(Schema.String)});
-export const InvalidDeliveryOptionsException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const SendBounceRequest = Schema.Struct({OriginalMessageId: Schema.String, BounceSender: Schema.String, Explanation: Schema.optional(Schema.String), MessageDsn: Schema.optional(MessageDsn), BouncedRecipientInfoList: BouncedRecipientInfoList, BounceSenderArn: Schema.optional(Schema.String)});
-export const FromEmailAddressNotVerifiedException = Schema.Struct({FromEmailAddress: Schema.optional(Schema.String), message: Schema.optional(Schema.String)});
-export const SendEmailRequest = Schema.Struct({Source: Schema.String, Destination: Destination, Message: Message, ReplyToAddresses: Schema.optional(AddressList), ReturnPath: Schema.optional(Schema.String), SourceArn: Schema.optional(Schema.String), ReturnPathArn: Schema.optional(Schema.String), Tags: Schema.optional(MessageTagList), ConfigurationSetName: Schema.optional(Schema.String)});
-export const SendRawEmailResponse = Schema.Struct({MessageId: Schema.String});
-export const AccountSendingPausedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidRenderingParameterException = Schema.Struct({TemplateName: Schema.optional(Schema.String), message: Schema.optional(Schema.String)});
-export const InvalidFirehoseDestinationException = Schema.Struct({ConfigurationSetName: Schema.optional(Schema.String), EventDestinationName: Schema.optional(Schema.String), message: Schema.optional(Schema.String)});
-export const InvalidS3ConfigurationException = Schema.Struct({Bucket: Schema.optional(Schema.String), message: Schema.optional(Schema.String)});
-export const IdentityDkimAttributes = Schema.Struct({DkimEnabled: Schema.Boolean, DkimVerificationStatus: Schema.String, DkimTokens: Schema.optional(VerificationTokenList)});
-export const IdentityMailFromDomainAttributes = Schema.Struct({MailFromDomain: Schema.String, MailFromDomainStatus: Schema.String, BehaviorOnMXFailure: Schema.String});
-export const IdentityNotificationAttributes = Schema.Struct({BounceTopic: Schema.String, ComplaintTopic: Schema.String, DeliveryTopic: Schema.String, ForwardingEnabled: Schema.Boolean, HeadersInBounceNotificationsEnabled: Schema.optional(Schema.Boolean), HeadersInComplaintNotificationsEnabled: Schema.optional(Schema.Boolean), HeadersInDeliveryNotificationsEnabled: Schema.optional(Schema.Boolean)});
-export const IdentityVerificationAttributes = Schema.Struct({VerificationStatus: Schema.String, VerificationToken: Schema.optional(Schema.String)});
+export class Message extends Schema.Class<Message>("Message")({Subject: Content, Body: _Body}) {}
+export class ConfigurationSetAlreadyExistsException extends Schema.Class<ConfigurationSetAlreadyExistsException>("ConfigurationSetAlreadyExistsException")({ConfigurationSetName: Schema.optional(Schema.String), message: Schema.optional(Schema.String)}) {}
+export class TrackingOptionsAlreadyExistsException extends Schema.Class<TrackingOptionsAlreadyExistsException>("TrackingOptionsAlreadyExistsException")({ConfigurationSetName: Schema.optional(Schema.String), message: Schema.optional(Schema.String)}) {}
+export class CustomVerificationEmailTemplateAlreadyExistsException extends Schema.Class<CustomVerificationEmailTemplateAlreadyExistsException>("CustomVerificationEmailTemplateAlreadyExistsException")({CustomVerificationEmailTemplateName: Schema.optional(Schema.String), message: Schema.optional(Schema.String)}) {}
+export class CreateReceiptFilterRequest extends Schema.Class<CreateReceiptFilterRequest>("CreateReceiptFilterRequest")({Filter: ReceiptFilter}) {}
+export class CreateReceiptFilterResponse extends Schema.Class<CreateReceiptFilterResponse>("CreateReceiptFilterResponse")({}) {}
+export class DescribeConfigurationSetResponse extends Schema.Class<DescribeConfigurationSetResponse>("DescribeConfigurationSetResponse")({ConfigurationSet: Schema.optional(ConfigurationSet), EventDestinations: Schema.optional(EventDestinations), TrackingOptions: Schema.optional(TrackingOptions), DeliveryOptions: Schema.optional(DeliveryOptions), ReputationOptions: Schema.optional(ReputationOptions)}) {}
+export class GetIdentityPoliciesResponse extends Schema.Class<GetIdentityPoliciesResponse>("GetIdentityPoliciesResponse")({Policies: PolicyMap}) {}
+export class TemplateDoesNotExistException extends Schema.Class<TemplateDoesNotExistException>("TemplateDoesNotExistException")({TemplateName: Schema.optional(Schema.String), message: Schema.optional(Schema.String)}) {}
+export class ListCustomVerificationEmailTemplatesResponse extends Schema.Class<ListCustomVerificationEmailTemplatesResponse>("ListCustomVerificationEmailTemplatesResponse")({CustomVerificationEmailTemplates: Schema.optional(CustomVerificationEmailTemplates), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTemplatesResponse extends Schema.Class<ListTemplatesResponse>("ListTemplatesResponse")({TemplatesMetadata: Schema.optional(TemplateMetadataList), NextToken: Schema.optional(Schema.String)}) {}
+export class InvalidDeliveryOptionsException extends Schema.Class<InvalidDeliveryOptionsException>("InvalidDeliveryOptionsException")({message: Schema.optional(Schema.String)}) {}
+export class SendBounceRequest extends Schema.Class<SendBounceRequest>("SendBounceRequest")({OriginalMessageId: Schema.String, BounceSender: Schema.String, Explanation: Schema.optional(Schema.String), MessageDsn: Schema.optional(MessageDsn), BouncedRecipientInfoList: BouncedRecipientInfoList, BounceSenderArn: Schema.optional(Schema.String)}) {}
+export class FromEmailAddressNotVerifiedException extends Schema.Class<FromEmailAddressNotVerifiedException>("FromEmailAddressNotVerifiedException")({FromEmailAddress: Schema.optional(Schema.String), message: Schema.optional(Schema.String)}) {}
+export class SendEmailRequest extends Schema.Class<SendEmailRequest>("SendEmailRequest")({Source: Schema.String, Destination: Destination, Message: Message, ReplyToAddresses: Schema.optional(AddressList), ReturnPath: Schema.optional(Schema.String), SourceArn: Schema.optional(Schema.String), ReturnPathArn: Schema.optional(Schema.String), Tags: Schema.optional(MessageTagList), ConfigurationSetName: Schema.optional(Schema.String)}) {}
+export class SendRawEmailResponse extends Schema.Class<SendRawEmailResponse>("SendRawEmailResponse")({MessageId: Schema.String}) {}
+export class AccountSendingPausedException extends Schema.Class<AccountSendingPausedException>("AccountSendingPausedException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidRenderingParameterException extends Schema.Class<InvalidRenderingParameterException>("InvalidRenderingParameterException")({TemplateName: Schema.optional(Schema.String), message: Schema.optional(Schema.String)}) {}
+export class InvalidFirehoseDestinationException extends Schema.Class<InvalidFirehoseDestinationException>("InvalidFirehoseDestinationException")({ConfigurationSetName: Schema.optional(Schema.String), EventDestinationName: Schema.optional(Schema.String), message: Schema.optional(Schema.String)}) {}
+export class InvalidS3ConfigurationException extends Schema.Class<InvalidS3ConfigurationException>("InvalidS3ConfigurationException")({Bucket: Schema.optional(Schema.String), message: Schema.optional(Schema.String)}) {}
+export class IdentityDkimAttributes extends Schema.Class<IdentityDkimAttributes>("IdentityDkimAttributes")({DkimEnabled: Schema.Boolean, DkimVerificationStatus: Schema.String, DkimTokens: Schema.optional(VerificationTokenList)}) {}
+export class IdentityMailFromDomainAttributes extends Schema.Class<IdentityMailFromDomainAttributes>("IdentityMailFromDomainAttributes")({MailFromDomain: Schema.String, MailFromDomainStatus: Schema.String, BehaviorOnMXFailure: Schema.String}) {}
+export class IdentityNotificationAttributes extends Schema.Class<IdentityNotificationAttributes>("IdentityNotificationAttributes")({BounceTopic: Schema.String, ComplaintTopic: Schema.String, DeliveryTopic: Schema.String, ForwardingEnabled: Schema.Boolean, HeadersInBounceNotificationsEnabled: Schema.optional(Schema.Boolean), HeadersInComplaintNotificationsEnabled: Schema.optional(Schema.Boolean), HeadersInDeliveryNotificationsEnabled: Schema.optional(Schema.Boolean)}) {}
+export class IdentityVerificationAttributes extends Schema.Class<IdentityVerificationAttributes>("IdentityVerificationAttributes")({VerificationStatus: Schema.String, VerificationToken: Schema.optional(Schema.String)}) {}
 export const DkimAttributes = Schema.Record({key: Schema.String, value: IdentityDkimAttributes});
 export const MailFromDomainAttributes = Schema.Record({key: Schema.String, value: IdentityMailFromDomainAttributes});
 export const NotificationAttributes = Schema.Record({key: Schema.String, value: IdentityNotificationAttributes});
 export const VerificationAttributes = Schema.Record({key: Schema.String, value: IdentityVerificationAttributes});
-export const BulkEmailDestinationStatus = Schema.Struct({Status: Schema.optional(Schema.String), Error: Schema.optional(Schema.String), MessageId: Schema.optional(Schema.String)});
+export class BulkEmailDestinationStatus extends Schema.Class<BulkEmailDestinationStatus>("BulkEmailDestinationStatus")({Status: Schema.optional(Schema.String), Error: Schema.optional(Schema.String), MessageId: Schema.optional(Schema.String)}) {}
 export const BulkEmailDestinationStatusList = Schema.Array(BulkEmailDestinationStatus);
-export const InvalidConfigurationSetException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CreateConfigurationSetEventDestinationRequest = Schema.Struct({ConfigurationSetName: Schema.String, EventDestination: EventDestination});
-export const CreateConfigurationSetEventDestinationResponse = Schema.Struct({});
-export const CreateReceiptRuleRequest = Schema.Struct({RuleSetName: Schema.String, After: Schema.optional(Schema.String), Rule: ReceiptRule});
-export const CreateReceiptRuleResponse = Schema.Struct({});
-export const GetIdentityDkimAttributesResponse = Schema.Struct({DkimAttributes: DkimAttributes});
-export const GetIdentityMailFromDomainAttributesResponse = Schema.Struct({MailFromDomainAttributes: MailFromDomainAttributes});
-export const GetIdentityNotificationAttributesResponse = Schema.Struct({NotificationAttributes: NotificationAttributes});
-export const GetIdentityVerificationAttributesResponse = Schema.Struct({VerificationAttributes: VerificationAttributes});
-export const SendBounceResponse = Schema.Struct({MessageId: Schema.optional(Schema.String)});
-export const SendBulkTemplatedEmailResponse = Schema.Struct({Status: BulkEmailDestinationStatusList});
-export const MessageRejected = Schema.Struct({message: Schema.optional(Schema.String)});
-export const SendEmailResponse = Schema.Struct({MessageId: Schema.String});
-export const ConfigurationSetSendingPausedException = Schema.Struct({ConfigurationSetName: Schema.optional(Schema.String), message: Schema.optional(Schema.String)});
-export const MailFromDomainNotVerifiedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const MissingRenderingAttributeException = Schema.Struct({TemplateName: Schema.optional(Schema.String), message: Schema.optional(Schema.String)});
-export const InvalidSNSDestinationException = Schema.Struct({ConfigurationSetName: Schema.optional(Schema.String), EventDestinationName: Schema.optional(Schema.String), message: Schema.optional(Schema.String)});
-export const InvalidSnsTopicException = Schema.Struct({Topic: Schema.optional(Schema.String), message: Schema.optional(Schema.String)});
-export const EventDestinationAlreadyExistsException = Schema.Struct({ConfigurationSetName: Schema.optional(Schema.String), EventDestinationName: Schema.optional(Schema.String), message: Schema.optional(Schema.String)});
-export const ProductionAccessNotGrantedException = Schema.Struct({message: Schema.optional(Schema.String)});
+export class InvalidConfigurationSetException extends Schema.Class<InvalidConfigurationSetException>("InvalidConfigurationSetException")({message: Schema.optional(Schema.String)}) {}
+export class CreateConfigurationSetEventDestinationRequest extends Schema.Class<CreateConfigurationSetEventDestinationRequest>("CreateConfigurationSetEventDestinationRequest")({ConfigurationSetName: Schema.String, EventDestination: EventDestination}) {}
+export class CreateConfigurationSetEventDestinationResponse extends Schema.Class<CreateConfigurationSetEventDestinationResponse>("CreateConfigurationSetEventDestinationResponse")({}) {}
+export class CreateReceiptRuleRequest extends Schema.Class<CreateReceiptRuleRequest>("CreateReceiptRuleRequest")({RuleSetName: Schema.String, After: Schema.optional(Schema.String), Rule: ReceiptRule}) {}
+export class CreateReceiptRuleResponse extends Schema.Class<CreateReceiptRuleResponse>("CreateReceiptRuleResponse")({}) {}
+export class GetIdentityDkimAttributesResponse extends Schema.Class<GetIdentityDkimAttributesResponse>("GetIdentityDkimAttributesResponse")({DkimAttributes: DkimAttributes}) {}
+export class GetIdentityMailFromDomainAttributesResponse extends Schema.Class<GetIdentityMailFromDomainAttributesResponse>("GetIdentityMailFromDomainAttributesResponse")({MailFromDomainAttributes: MailFromDomainAttributes}) {}
+export class GetIdentityNotificationAttributesResponse extends Schema.Class<GetIdentityNotificationAttributesResponse>("GetIdentityNotificationAttributesResponse")({NotificationAttributes: NotificationAttributes}) {}
+export class GetIdentityVerificationAttributesResponse extends Schema.Class<GetIdentityVerificationAttributesResponse>("GetIdentityVerificationAttributesResponse")({VerificationAttributes: VerificationAttributes}) {}
+export class SendBounceResponse extends Schema.Class<SendBounceResponse>("SendBounceResponse")({MessageId: Schema.optional(Schema.String)}) {}
+export class SendBulkTemplatedEmailResponse extends Schema.Class<SendBulkTemplatedEmailResponse>("SendBulkTemplatedEmailResponse")({Status: BulkEmailDestinationStatusList}) {}
+export class MessageRejected extends Schema.Class<MessageRejected>("MessageRejected")({message: Schema.optional(Schema.String)}) {}
+export class SendEmailResponse extends Schema.Class<SendEmailResponse>("SendEmailResponse")({MessageId: Schema.String}) {}
+export class ConfigurationSetSendingPausedException extends Schema.Class<ConfigurationSetSendingPausedException>("ConfigurationSetSendingPausedException")({ConfigurationSetName: Schema.optional(Schema.String), message: Schema.optional(Schema.String)}) {}
+export class MailFromDomainNotVerifiedException extends Schema.Class<MailFromDomainNotVerifiedException>("MailFromDomainNotVerifiedException")({message: Schema.optional(Schema.String)}) {}
+export class MissingRenderingAttributeException extends Schema.Class<MissingRenderingAttributeException>("MissingRenderingAttributeException")({TemplateName: Schema.optional(Schema.String), message: Schema.optional(Schema.String)}) {}
+export class InvalidSNSDestinationException extends Schema.Class<InvalidSNSDestinationException>("InvalidSNSDestinationException")({ConfigurationSetName: Schema.optional(Schema.String), EventDestinationName: Schema.optional(Schema.String), message: Schema.optional(Schema.String)}) {}
+export class InvalidSnsTopicException extends Schema.Class<InvalidSnsTopicException>("InvalidSnsTopicException")({Topic: Schema.optional(Schema.String), message: Schema.optional(Schema.String)}) {}
+export class EventDestinationAlreadyExistsException extends Schema.Class<EventDestinationAlreadyExistsException>("EventDestinationAlreadyExistsException")({ConfigurationSetName: Schema.optional(Schema.String), EventDestinationName: Schema.optional(Schema.String), message: Schema.optional(Schema.String)}) {}
+export class ProductionAccessNotGrantedException extends Schema.Class<ProductionAccessNotGrantedException>("ProductionAccessNotGrantedException")({message: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class AlreadyExistsExceptionError extends Schema.TaggedError<AlreadyExistsExceptionError>()("AlreadyExistsException", AlreadyExistsException) {};
-export class ConfigurationSetDoesNotExistExceptionError extends Schema.TaggedError<ConfigurationSetDoesNotExistExceptionError>()("ConfigurationSetDoesNotExistException", ConfigurationSetDoesNotExistException) {};
-export class RuleSetDoesNotExistExceptionError extends Schema.TaggedError<RuleSetDoesNotExistExceptionError>()("RuleSetDoesNotExistException", RuleSetDoesNotExistException) {};
-export class RuleDoesNotExistExceptionError extends Schema.TaggedError<RuleDoesNotExistExceptionError>()("RuleDoesNotExistException", RuleDoesNotExistException) {};
-export class EventDestinationDoesNotExistExceptionError extends Schema.TaggedError<EventDestinationDoesNotExistExceptionError>()("EventDestinationDoesNotExistException", EventDestinationDoesNotExistException) {};
-export class CustomVerificationEmailInvalidContentExceptionError extends Schema.TaggedError<CustomVerificationEmailInvalidContentExceptionError>()("CustomVerificationEmailInvalidContentException", CustomVerificationEmailInvalidContentException) {};
-export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException) {};
-export class InvalidTrackingOptionsExceptionError extends Schema.TaggedError<InvalidTrackingOptionsExceptionError>()("InvalidTrackingOptionsException", InvalidTrackingOptionsException) {};
-export class InvalidTemplateExceptionError extends Schema.TaggedError<InvalidTemplateExceptionError>()("InvalidTemplateException", InvalidTemplateException) {};
-export class TrackingOptionsDoesNotExistExceptionError extends Schema.TaggedError<TrackingOptionsDoesNotExistExceptionError>()("TrackingOptionsDoesNotExistException", TrackingOptionsDoesNotExistException) {};
-export class CannotDeleteExceptionError extends Schema.TaggedError<CannotDeleteExceptionError>()("CannotDeleteException", CannotDeleteException) {};
-export class CustomVerificationEmailTemplateDoesNotExistExceptionError extends Schema.TaggedError<CustomVerificationEmailTemplateDoesNotExistExceptionError>()("CustomVerificationEmailTemplateDoesNotExistException", CustomVerificationEmailTemplateDoesNotExistException) {};
-export class InvalidPolicyExceptionError extends Schema.TaggedError<InvalidPolicyExceptionError>()("InvalidPolicyException", InvalidPolicyException) {};
-export class InvalidCloudWatchDestinationExceptionError extends Schema.TaggedError<InvalidCloudWatchDestinationExceptionError>()("InvalidCloudWatchDestinationException", InvalidCloudWatchDestinationException) {};
-export class FromEmailAddressNotVerifiedExceptionError extends Schema.TaggedError<FromEmailAddressNotVerifiedExceptionError>()("FromEmailAddressNotVerifiedException", FromEmailAddressNotVerifiedException) {};
-export class InvalidLambdaFunctionExceptionError extends Schema.TaggedError<InvalidLambdaFunctionExceptionError>()("InvalidLambdaFunctionException", InvalidLambdaFunctionException) {};
-export class TemplateDoesNotExistExceptionError extends Schema.TaggedError<TemplateDoesNotExistExceptionError>()("TemplateDoesNotExistException", TemplateDoesNotExistException) {};
-export class ConfigurationSetAlreadyExistsExceptionError extends Schema.TaggedError<ConfigurationSetAlreadyExistsExceptionError>()("ConfigurationSetAlreadyExistsException", ConfigurationSetAlreadyExistsException) {};
-export class TrackingOptionsAlreadyExistsExceptionError extends Schema.TaggedError<TrackingOptionsAlreadyExistsExceptionError>()("TrackingOptionsAlreadyExistsException", TrackingOptionsAlreadyExistsException) {};
-export class CustomVerificationEmailTemplateAlreadyExistsExceptionError extends Schema.TaggedError<CustomVerificationEmailTemplateAlreadyExistsExceptionError>()("CustomVerificationEmailTemplateAlreadyExistsException", CustomVerificationEmailTemplateAlreadyExistsException) {};
-export class InvalidDeliveryOptionsExceptionError extends Schema.TaggedError<InvalidDeliveryOptionsExceptionError>()("InvalidDeliveryOptionsException", InvalidDeliveryOptionsException) {};
-export class AccountSendingPausedExceptionError extends Schema.TaggedError<AccountSendingPausedExceptionError>()("AccountSendingPausedException", AccountSendingPausedException) {};
-export class ConfigurationSetSendingPausedExceptionError extends Schema.TaggedError<ConfigurationSetSendingPausedExceptionError>()("ConfigurationSetSendingPausedException", ConfigurationSetSendingPausedException) {};
-export class InvalidRenderingParameterExceptionError extends Schema.TaggedError<InvalidRenderingParameterExceptionError>()("InvalidRenderingParameterException", InvalidRenderingParameterException) {};
-export class InvalidFirehoseDestinationExceptionError extends Schema.TaggedError<InvalidFirehoseDestinationExceptionError>()("InvalidFirehoseDestinationException", InvalidFirehoseDestinationException) {};
-export class InvalidS3ConfigurationExceptionError extends Schema.TaggedError<InvalidS3ConfigurationExceptionError>()("InvalidS3ConfigurationException", InvalidS3ConfigurationException) {};
-export class InvalidConfigurationSetExceptionError extends Schema.TaggedError<InvalidConfigurationSetExceptionError>()("InvalidConfigurationSetException", InvalidConfigurationSetException) {};
-export class InvalidSnsTopicExceptionError extends Schema.TaggedError<InvalidSnsTopicExceptionError>()("InvalidSnsTopicException", InvalidSnsTopicException) {};
-export class MessageRejectedError extends Schema.TaggedError<MessageRejectedError>()("MessageRejected", MessageRejected) {};
-export class MailFromDomainNotVerifiedExceptionError extends Schema.TaggedError<MailFromDomainNotVerifiedExceptionError>()("MailFromDomainNotVerifiedException", MailFromDomainNotVerifiedException) {};
-export class MissingRenderingAttributeExceptionError extends Schema.TaggedError<MissingRenderingAttributeExceptionError>()("MissingRenderingAttributeException", MissingRenderingAttributeException) {};
-export class InvalidSNSDestinationExceptionError extends Schema.TaggedError<InvalidSNSDestinationExceptionError>()("InvalidSNSDestinationException", InvalidSNSDestinationException) {};
-export class EventDestinationAlreadyExistsExceptionError extends Schema.TaggedError<EventDestinationAlreadyExistsExceptionError>()("EventDestinationAlreadyExistsException", EventDestinationAlreadyExistsException) {};
-export class ProductionAccessNotGrantedExceptionError extends Schema.TaggedError<ProductionAccessNotGrantedExceptionError>()("ProductionAccessNotGrantedException", ProductionAccessNotGrantedException) {};
+export class AlreadyExistsExceptionError extends Schema.TaggedError<AlreadyExistsExceptionError>()("AlreadyExistsException", AlreadyExistsException.fields) {};
+export class ConfigurationSetDoesNotExistExceptionError extends Schema.TaggedError<ConfigurationSetDoesNotExistExceptionError>()("ConfigurationSetDoesNotExistException", ConfigurationSetDoesNotExistException.fields) {};
+export class RuleSetDoesNotExistExceptionError extends Schema.TaggedError<RuleSetDoesNotExistExceptionError>()("RuleSetDoesNotExistException", RuleSetDoesNotExistException.fields) {};
+export class RuleDoesNotExistExceptionError extends Schema.TaggedError<RuleDoesNotExistExceptionError>()("RuleDoesNotExistException", RuleDoesNotExistException.fields) {};
+export class EventDestinationDoesNotExistExceptionError extends Schema.TaggedError<EventDestinationDoesNotExistExceptionError>()("EventDestinationDoesNotExistException", EventDestinationDoesNotExistException.fields) {};
+export class CustomVerificationEmailInvalidContentExceptionError extends Schema.TaggedError<CustomVerificationEmailInvalidContentExceptionError>()("CustomVerificationEmailInvalidContentException", CustomVerificationEmailInvalidContentException.fields) {};
+export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException.fields) {};
+export class InvalidTrackingOptionsExceptionError extends Schema.TaggedError<InvalidTrackingOptionsExceptionError>()("InvalidTrackingOptionsException", InvalidTrackingOptionsException.fields) {};
+export class InvalidTemplateExceptionError extends Schema.TaggedError<InvalidTemplateExceptionError>()("InvalidTemplateException", InvalidTemplateException.fields) {};
+export class TrackingOptionsDoesNotExistExceptionError extends Schema.TaggedError<TrackingOptionsDoesNotExistExceptionError>()("TrackingOptionsDoesNotExistException", TrackingOptionsDoesNotExistException.fields) {};
+export class CannotDeleteExceptionError extends Schema.TaggedError<CannotDeleteExceptionError>()("CannotDeleteException", CannotDeleteException.fields) {};
+export class CustomVerificationEmailTemplateDoesNotExistExceptionError extends Schema.TaggedError<CustomVerificationEmailTemplateDoesNotExistExceptionError>()("CustomVerificationEmailTemplateDoesNotExistException", CustomVerificationEmailTemplateDoesNotExistException.fields) {};
+export class InvalidPolicyExceptionError extends Schema.TaggedError<InvalidPolicyExceptionError>()("InvalidPolicyException", InvalidPolicyException.fields) {};
+export class InvalidCloudWatchDestinationExceptionError extends Schema.TaggedError<InvalidCloudWatchDestinationExceptionError>()("InvalidCloudWatchDestinationException", InvalidCloudWatchDestinationException.fields) {};
+export class FromEmailAddressNotVerifiedExceptionError extends Schema.TaggedError<FromEmailAddressNotVerifiedExceptionError>()("FromEmailAddressNotVerifiedException", FromEmailAddressNotVerifiedException.fields) {};
+export class InvalidLambdaFunctionExceptionError extends Schema.TaggedError<InvalidLambdaFunctionExceptionError>()("InvalidLambdaFunctionException", InvalidLambdaFunctionException.fields) {};
+export class TemplateDoesNotExistExceptionError extends Schema.TaggedError<TemplateDoesNotExistExceptionError>()("TemplateDoesNotExistException", TemplateDoesNotExistException.fields) {};
+export class ConfigurationSetAlreadyExistsExceptionError extends Schema.TaggedError<ConfigurationSetAlreadyExistsExceptionError>()("ConfigurationSetAlreadyExistsException", ConfigurationSetAlreadyExistsException.fields) {};
+export class TrackingOptionsAlreadyExistsExceptionError extends Schema.TaggedError<TrackingOptionsAlreadyExistsExceptionError>()("TrackingOptionsAlreadyExistsException", TrackingOptionsAlreadyExistsException.fields) {};
+export class CustomVerificationEmailTemplateAlreadyExistsExceptionError extends Schema.TaggedError<CustomVerificationEmailTemplateAlreadyExistsExceptionError>()("CustomVerificationEmailTemplateAlreadyExistsException", CustomVerificationEmailTemplateAlreadyExistsException.fields) {};
+export class InvalidDeliveryOptionsExceptionError extends Schema.TaggedError<InvalidDeliveryOptionsExceptionError>()("InvalidDeliveryOptionsException", InvalidDeliveryOptionsException.fields) {};
+export class AccountSendingPausedExceptionError extends Schema.TaggedError<AccountSendingPausedExceptionError>()("AccountSendingPausedException", AccountSendingPausedException.fields) {};
+export class ConfigurationSetSendingPausedExceptionError extends Schema.TaggedError<ConfigurationSetSendingPausedExceptionError>()("ConfigurationSetSendingPausedException", ConfigurationSetSendingPausedException.fields) {};
+export class InvalidRenderingParameterExceptionError extends Schema.TaggedError<InvalidRenderingParameterExceptionError>()("InvalidRenderingParameterException", InvalidRenderingParameterException.fields) {};
+export class InvalidFirehoseDestinationExceptionError extends Schema.TaggedError<InvalidFirehoseDestinationExceptionError>()("InvalidFirehoseDestinationException", InvalidFirehoseDestinationException.fields) {};
+export class InvalidS3ConfigurationExceptionError extends Schema.TaggedError<InvalidS3ConfigurationExceptionError>()("InvalidS3ConfigurationException", InvalidS3ConfigurationException.fields) {};
+export class InvalidConfigurationSetExceptionError extends Schema.TaggedError<InvalidConfigurationSetExceptionError>()("InvalidConfigurationSetException", InvalidConfigurationSetException.fields) {};
+export class InvalidSnsTopicExceptionError extends Schema.TaggedError<InvalidSnsTopicExceptionError>()("InvalidSnsTopicException", InvalidSnsTopicException.fields) {};
+export class MessageRejectedError extends Schema.TaggedError<MessageRejectedError>()("MessageRejected", MessageRejected.fields) {};
+export class MailFromDomainNotVerifiedExceptionError extends Schema.TaggedError<MailFromDomainNotVerifiedExceptionError>()("MailFromDomainNotVerifiedException", MailFromDomainNotVerifiedException.fields) {};
+export class MissingRenderingAttributeExceptionError extends Schema.TaggedError<MissingRenderingAttributeExceptionError>()("MissingRenderingAttributeException", MissingRenderingAttributeException.fields) {};
+export class InvalidSNSDestinationExceptionError extends Schema.TaggedError<InvalidSNSDestinationExceptionError>()("InvalidSNSDestinationException", InvalidSNSDestinationException.fields) {};
+export class EventDestinationAlreadyExistsExceptionError extends Schema.TaggedError<EventDestinationAlreadyExistsExceptionError>()("EventDestinationAlreadyExistsException", EventDestinationAlreadyExistsException.fields) {};
+export class ProductionAccessNotGrantedExceptionError extends Schema.TaggedError<ProductionAccessNotGrantedExceptionError>()("ProductionAccessNotGrantedException", ProductionAccessNotGrantedException.fields) {};
 
 //# Operations
 export const deleteCustomVerificationEmailTemplate = /*#__PURE__*/ makeOperation(() => Operation({ version: "2010-12-01", uri: "/", method: "POST", sdkId: "SES", sigV4ServiceName: "ses", name: "SimpleEmailService.DeleteCustomVerificationEmailTemplate" }, DeleteCustomVerificationEmailTemplateRequest, Schema.Struct({}), []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAWSXMLError);

@@ -3,160 +3,160 @@ import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperat
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const DescribeLoggingOptionsRequest = Schema.Struct({});
+export class DescribeLoggingOptionsRequest extends Schema.Class<DescribeLoggingOptionsRequest>("DescribeLoggingOptionsRequest")({}) {}
 export const TagKeys = Schema.Array(Schema.String);
-export const DeleteAlarmModelRequest = Schema.Struct({alarmModelName: Schema.String});
-export const DeleteAlarmModelResponse = Schema.Struct({});
-export const DeleteDetectorModelRequest = Schema.Struct({detectorModelName: Schema.String});
-export const DeleteDetectorModelResponse = Schema.Struct({});
-export const DeleteInputRequest = Schema.Struct({inputName: Schema.String});
-export const DeleteInputResponse = Schema.Struct({});
-export const DescribeAlarmModelRequest = Schema.Struct({alarmModelName: Schema.String, alarmModelVersion: Schema.optional(Schema.String)});
-export const DescribeDetectorModelRequest = Schema.Struct({detectorModelName: Schema.String, detectorModelVersion: Schema.optional(Schema.String)});
-export const DescribeDetectorModelAnalysisRequest = Schema.Struct({analysisId: Schema.String});
-export const DescribeInputRequest = Schema.Struct({inputName: Schema.String});
-export const GetDetectorModelAnalysisResultsRequest = Schema.Struct({analysisId: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListAlarmModelsRequest = Schema.Struct({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListAlarmModelVersionsRequest = Schema.Struct({alarmModelName: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListDetectorModelsRequest = Schema.Struct({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListDetectorModelVersionsRequest = Schema.Struct({detectorModelName: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListInputsRequest = Schema.Struct({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListTagsForResourceRequest = Schema.Struct({resourceArn: Schema.String});
-export const DetectorDebugOption = Schema.Struct({detectorModelName: Schema.String, keyValue: Schema.optional(Schema.String)});
+export class DeleteAlarmModelRequest extends Schema.Class<DeleteAlarmModelRequest>("DeleteAlarmModelRequest")({alarmModelName: Schema.String}) {}
+export class DeleteAlarmModelResponse extends Schema.Class<DeleteAlarmModelResponse>("DeleteAlarmModelResponse")({}) {}
+export class DeleteDetectorModelRequest extends Schema.Class<DeleteDetectorModelRequest>("DeleteDetectorModelRequest")({detectorModelName: Schema.String}) {}
+export class DeleteDetectorModelResponse extends Schema.Class<DeleteDetectorModelResponse>("DeleteDetectorModelResponse")({}) {}
+export class DeleteInputRequest extends Schema.Class<DeleteInputRequest>("DeleteInputRequest")({inputName: Schema.String}) {}
+export class DeleteInputResponse extends Schema.Class<DeleteInputResponse>("DeleteInputResponse")({}) {}
+export class DescribeAlarmModelRequest extends Schema.Class<DescribeAlarmModelRequest>("DescribeAlarmModelRequest")({alarmModelName: Schema.String, alarmModelVersion: Schema.optional(Schema.String)}) {}
+export class DescribeDetectorModelRequest extends Schema.Class<DescribeDetectorModelRequest>("DescribeDetectorModelRequest")({detectorModelName: Schema.String, detectorModelVersion: Schema.optional(Schema.String)}) {}
+export class DescribeDetectorModelAnalysisRequest extends Schema.Class<DescribeDetectorModelAnalysisRequest>("DescribeDetectorModelAnalysisRequest")({analysisId: Schema.String}) {}
+export class DescribeInputRequest extends Schema.Class<DescribeInputRequest>("DescribeInputRequest")({inputName: Schema.String}) {}
+export class GetDetectorModelAnalysisResultsRequest extends Schema.Class<GetDetectorModelAnalysisResultsRequest>("GetDetectorModelAnalysisResultsRequest")({analysisId: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListAlarmModelsRequest extends Schema.Class<ListAlarmModelsRequest>("ListAlarmModelsRequest")({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListAlarmModelVersionsRequest extends Schema.Class<ListAlarmModelVersionsRequest>("ListAlarmModelVersionsRequest")({alarmModelName: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListDetectorModelsRequest extends Schema.Class<ListDetectorModelsRequest>("ListDetectorModelsRequest")({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListDetectorModelVersionsRequest extends Schema.Class<ListDetectorModelVersionsRequest>("ListDetectorModelVersionsRequest")({detectorModelName: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListInputsRequest extends Schema.Class<ListInputsRequest>("ListInputsRequest")({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({resourceArn: Schema.String}) {}
+export class DetectorDebugOption extends Schema.Class<DetectorDebugOption>("DetectorDebugOption")({detectorModelName: Schema.String, keyValue: Schema.optional(Schema.String)}) {}
 export const DetectorDebugOptions = Schema.Array(DetectorDebugOption);
-export const LoggingOptions = Schema.Struct({roleArn: Schema.String, level: Schema.String, enabled: Schema.Boolean, detectorDebugOptions: Schema.optional(DetectorDebugOptions)});
-export const PutLoggingOptionsRequest = Schema.Struct({loggingOptions: LoggingOptions});
-export const SetVariableAction = Schema.Struct({variableName: Schema.String, value: Schema.String});
-export const Payload = Schema.Struct({contentExpression: Schema.String, type: Schema.String});
-export const SNSTopicPublishAction = Schema.Struct({targetArn: Schema.String, payload: Schema.optional(Payload)});
-export const IotTopicPublishAction = Schema.Struct({mqttTopic: Schema.String, payload: Schema.optional(Payload)});
-export const SetTimerAction = Schema.Struct({timerName: Schema.String, seconds: Schema.optional(Schema.Number), durationExpression: Schema.optional(Schema.String)});
-export const ClearTimerAction = Schema.Struct({timerName: Schema.String});
-export const ResetTimerAction = Schema.Struct({timerName: Schema.String});
-export const LambdaAction = Schema.Struct({functionArn: Schema.String, payload: Schema.optional(Payload)});
-export const IotEventsAction = Schema.Struct({inputName: Schema.String, payload: Schema.optional(Payload)});
-export const SqsAction = Schema.Struct({queueUrl: Schema.String, useBase64: Schema.optional(Schema.Boolean), payload: Schema.optional(Payload)});
-export const FirehoseAction = Schema.Struct({deliveryStreamName: Schema.String, separator: Schema.optional(Schema.String), payload: Schema.optional(Payload)});
-export const DynamoDBAction = Schema.Struct({hashKeyType: Schema.optional(Schema.String), hashKeyField: Schema.String, hashKeyValue: Schema.String, rangeKeyType: Schema.optional(Schema.String), rangeKeyField: Schema.optional(Schema.String), rangeKeyValue: Schema.optional(Schema.String), operation: Schema.optional(Schema.String), payloadField: Schema.optional(Schema.String), tableName: Schema.String, payload: Schema.optional(Payload)});
-export const DynamoDBv2Action = Schema.Struct({tableName: Schema.String, payload: Schema.optional(Payload)});
-export const AssetPropertyVariant = Schema.Struct({stringValue: Schema.optional(Schema.String), integerValue: Schema.optional(Schema.String), doubleValue: Schema.optional(Schema.String), booleanValue: Schema.optional(Schema.String)});
-export const AssetPropertyTimestamp = Schema.Struct({timeInSeconds: Schema.String, offsetInNanos: Schema.optional(Schema.String)});
-export const AssetPropertyValue = Schema.Struct({value: Schema.optional(AssetPropertyVariant), timestamp: Schema.optional(AssetPropertyTimestamp), quality: Schema.optional(Schema.String)});
-export const IotSiteWiseAction = Schema.Struct({entryId: Schema.optional(Schema.String), assetId: Schema.optional(Schema.String), propertyId: Schema.optional(Schema.String), propertyAlias: Schema.optional(Schema.String), propertyValue: Schema.optional(AssetPropertyValue)});
-export const Action = Schema.Struct({setVariable: Schema.optional(SetVariableAction), sns: Schema.optional(SNSTopicPublishAction), iotTopicPublish: Schema.optional(IotTopicPublishAction), setTimer: Schema.optional(SetTimerAction), clearTimer: Schema.optional(ClearTimerAction), resetTimer: Schema.optional(ResetTimerAction), lambda: Schema.optional(LambdaAction), iotEvents: Schema.optional(IotEventsAction), sqs: Schema.optional(SqsAction), firehose: Schema.optional(FirehoseAction), dynamoDB: Schema.optional(DynamoDBAction), dynamoDBv2: Schema.optional(DynamoDBv2Action), iotSiteWise: Schema.optional(IotSiteWiseAction)});
+export class LoggingOptions extends Schema.Class<LoggingOptions>("LoggingOptions")({roleArn: Schema.String, level: Schema.String, enabled: Schema.Boolean, detectorDebugOptions: Schema.optional(DetectorDebugOptions)}) {}
+export class PutLoggingOptionsRequest extends Schema.Class<PutLoggingOptionsRequest>("PutLoggingOptionsRequest")({loggingOptions: LoggingOptions}) {}
+export class SetVariableAction extends Schema.Class<SetVariableAction>("SetVariableAction")({variableName: Schema.String, value: Schema.String}) {}
+export class Payload extends Schema.Class<Payload>("Payload")({contentExpression: Schema.String, type: Schema.String}) {}
+export class SNSTopicPublishAction extends Schema.Class<SNSTopicPublishAction>("SNSTopicPublishAction")({targetArn: Schema.String, payload: Schema.optional(Payload)}) {}
+export class IotTopicPublishAction extends Schema.Class<IotTopicPublishAction>("IotTopicPublishAction")({mqttTopic: Schema.String, payload: Schema.optional(Payload)}) {}
+export class SetTimerAction extends Schema.Class<SetTimerAction>("SetTimerAction")({timerName: Schema.String, seconds: Schema.optional(Schema.Number), durationExpression: Schema.optional(Schema.String)}) {}
+export class ClearTimerAction extends Schema.Class<ClearTimerAction>("ClearTimerAction")({timerName: Schema.String}) {}
+export class ResetTimerAction extends Schema.Class<ResetTimerAction>("ResetTimerAction")({timerName: Schema.String}) {}
+export class LambdaAction extends Schema.Class<LambdaAction>("LambdaAction")({functionArn: Schema.String, payload: Schema.optional(Payload)}) {}
+export class IotEventsAction extends Schema.Class<IotEventsAction>("IotEventsAction")({inputName: Schema.String, payload: Schema.optional(Payload)}) {}
+export class SqsAction extends Schema.Class<SqsAction>("SqsAction")({queueUrl: Schema.String, useBase64: Schema.optional(Schema.Boolean), payload: Schema.optional(Payload)}) {}
+export class FirehoseAction extends Schema.Class<FirehoseAction>("FirehoseAction")({deliveryStreamName: Schema.String, separator: Schema.optional(Schema.String), payload: Schema.optional(Payload)}) {}
+export class DynamoDBAction extends Schema.Class<DynamoDBAction>("DynamoDBAction")({hashKeyType: Schema.optional(Schema.String), hashKeyField: Schema.String, hashKeyValue: Schema.String, rangeKeyType: Schema.optional(Schema.String), rangeKeyField: Schema.optional(Schema.String), rangeKeyValue: Schema.optional(Schema.String), operation: Schema.optional(Schema.String), payloadField: Schema.optional(Schema.String), tableName: Schema.String, payload: Schema.optional(Payload)}) {}
+export class DynamoDBv2Action extends Schema.Class<DynamoDBv2Action>("DynamoDBv2Action")({tableName: Schema.String, payload: Schema.optional(Payload)}) {}
+export class AssetPropertyVariant extends Schema.Class<AssetPropertyVariant>("AssetPropertyVariant")({stringValue: Schema.optional(Schema.String), integerValue: Schema.optional(Schema.String), doubleValue: Schema.optional(Schema.String), booleanValue: Schema.optional(Schema.String)}) {}
+export class AssetPropertyTimestamp extends Schema.Class<AssetPropertyTimestamp>("AssetPropertyTimestamp")({timeInSeconds: Schema.String, offsetInNanos: Schema.optional(Schema.String)}) {}
+export class AssetPropertyValue extends Schema.Class<AssetPropertyValue>("AssetPropertyValue")({value: Schema.optional(AssetPropertyVariant), timestamp: Schema.optional(AssetPropertyTimestamp), quality: Schema.optional(Schema.String)}) {}
+export class IotSiteWiseAction extends Schema.Class<IotSiteWiseAction>("IotSiteWiseAction")({entryId: Schema.optional(Schema.String), assetId: Schema.optional(Schema.String), propertyId: Schema.optional(Schema.String), propertyAlias: Schema.optional(Schema.String), propertyValue: Schema.optional(AssetPropertyValue)}) {}
+export class Action extends Schema.Class<Action>("Action")({setVariable: Schema.optional(SetVariableAction), sns: Schema.optional(SNSTopicPublishAction), iotTopicPublish: Schema.optional(IotTopicPublishAction), setTimer: Schema.optional(SetTimerAction), clearTimer: Schema.optional(ClearTimerAction), resetTimer: Schema.optional(ResetTimerAction), lambda: Schema.optional(LambdaAction), iotEvents: Schema.optional(IotEventsAction), sqs: Schema.optional(SqsAction), firehose: Schema.optional(FirehoseAction), dynamoDB: Schema.optional(DynamoDBAction), dynamoDBv2: Schema.optional(DynamoDBv2Action), iotSiteWise: Schema.optional(IotSiteWiseAction)}) {}
 export const Actions = Schema.Array(Action);
-export const Event = Schema.Struct({eventName: Schema.String, condition: Schema.optional(Schema.String), actions: Schema.optional(Actions)});
+export class Event extends Schema.Class<Event>("Event")({eventName: Schema.String, condition: Schema.optional(Schema.String), actions: Schema.optional(Actions)}) {}
 export const Events = Schema.Array(Event);
-export const TransitionEvent = Schema.Struct({eventName: Schema.String, condition: Schema.String, actions: Schema.optional(Actions), nextState: Schema.String});
+export class TransitionEvent extends Schema.Class<TransitionEvent>("TransitionEvent")({eventName: Schema.String, condition: Schema.String, actions: Schema.optional(Actions), nextState: Schema.String}) {}
 export const TransitionEvents = Schema.Array(TransitionEvent);
-export const OnInputLifecycle = Schema.Struct({events: Schema.optional(Events), transitionEvents: Schema.optional(TransitionEvents)});
-export const OnEnterLifecycle = Schema.Struct({events: Schema.optional(Events)});
-export const OnExitLifecycle = Schema.Struct({events: Schema.optional(Events)});
-export const State = Schema.Struct({stateName: Schema.String, onInput: Schema.optional(OnInputLifecycle), onEnter: Schema.optional(OnEnterLifecycle), onExit: Schema.optional(OnExitLifecycle)});
+export class OnInputLifecycle extends Schema.Class<OnInputLifecycle>("OnInputLifecycle")({events: Schema.optional(Events), transitionEvents: Schema.optional(TransitionEvents)}) {}
+export class OnEnterLifecycle extends Schema.Class<OnEnterLifecycle>("OnEnterLifecycle")({events: Schema.optional(Events)}) {}
+export class OnExitLifecycle extends Schema.Class<OnExitLifecycle>("OnExitLifecycle")({events: Schema.optional(Events)}) {}
+export class State extends Schema.Class<State>("State")({stateName: Schema.String, onInput: Schema.optional(OnInputLifecycle), onEnter: Schema.optional(OnEnterLifecycle), onExit: Schema.optional(OnExitLifecycle)}) {}
 export const States = Schema.Array(State);
-export const DetectorModelDefinition = Schema.Struct({states: States, initialStateName: Schema.String});
-export const StartDetectorModelAnalysisRequest = Schema.Struct({detectorModelDefinition: DetectorModelDefinition});
-export const Tag = Schema.Struct({key: Schema.String, value: Schema.String});
+export class DetectorModelDefinition extends Schema.Class<DetectorModelDefinition>("DetectorModelDefinition")({states: States, initialStateName: Schema.String}) {}
+export class StartDetectorModelAnalysisRequest extends Schema.Class<StartDetectorModelAnalysisRequest>("StartDetectorModelAnalysisRequest")({detectorModelDefinition: DetectorModelDefinition}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({key: Schema.String, value: Schema.String}) {}
 export const Tags = Schema.Array(Tag);
-export const TagResourceRequest = Schema.Struct({resourceArn: Schema.String, tags: Tags});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({resourceArn: Schema.String, tagKeys: TagKeys});
-export const UntagResourceResponse = Schema.Struct({});
-export const SimpleRule = Schema.Struct({inputProperty: Schema.String, comparisonOperator: Schema.String, threshold: Schema.String});
-export const AlarmRule = Schema.Struct({simpleRule: Schema.optional(SimpleRule)});
-export const NotificationTargetActions = Schema.Struct({lambdaAction: Schema.optional(LambdaAction)});
-export const SSOIdentity = Schema.Struct({identityStoreId: Schema.String, userId: Schema.optional(Schema.String)});
-export const RecipientDetail = Schema.Struct({ssoIdentity: Schema.optional(SSOIdentity)});
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({resourceArn: Schema.String, tags: Tags}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({resourceArn: Schema.String, tagKeys: TagKeys}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class SimpleRule extends Schema.Class<SimpleRule>("SimpleRule")({inputProperty: Schema.String, comparisonOperator: Schema.String, threshold: Schema.String}) {}
+export class AlarmRule extends Schema.Class<AlarmRule>("AlarmRule")({simpleRule: Schema.optional(SimpleRule)}) {}
+export class NotificationTargetActions extends Schema.Class<NotificationTargetActions>("NotificationTargetActions")({lambdaAction: Schema.optional(LambdaAction)}) {}
+export class SSOIdentity extends Schema.Class<SSOIdentity>("SSOIdentity")({identityStoreId: Schema.String, userId: Schema.optional(Schema.String)}) {}
+export class RecipientDetail extends Schema.Class<RecipientDetail>("RecipientDetail")({ssoIdentity: Schema.optional(SSOIdentity)}) {}
 export const RecipientDetails = Schema.Array(RecipientDetail);
-export const SMSConfiguration = Schema.Struct({senderId: Schema.optional(Schema.String), additionalMessage: Schema.optional(Schema.String), recipients: RecipientDetails});
+export class SMSConfiguration extends Schema.Class<SMSConfiguration>("SMSConfiguration")({senderId: Schema.optional(Schema.String), additionalMessage: Schema.optional(Schema.String), recipients: RecipientDetails}) {}
 export const SMSConfigurations = Schema.Array(SMSConfiguration);
-export const EmailContent = Schema.Struct({subject: Schema.optional(Schema.String), additionalMessage: Schema.optional(Schema.String)});
-export const EmailRecipients = Schema.Struct({to: Schema.optional(RecipientDetails)});
-export const EmailConfiguration = Schema.Struct({from: Schema.String, content: Schema.optional(EmailContent), recipients: EmailRecipients});
+export class EmailContent extends Schema.Class<EmailContent>("EmailContent")({subject: Schema.optional(Schema.String), additionalMessage: Schema.optional(Schema.String)}) {}
+export class EmailRecipients extends Schema.Class<EmailRecipients>("EmailRecipients")({to: Schema.optional(RecipientDetails)}) {}
+export class EmailConfiguration extends Schema.Class<EmailConfiguration>("EmailConfiguration")({from: Schema.String, content: Schema.optional(EmailContent), recipients: EmailRecipients}) {}
 export const EmailConfigurations = Schema.Array(EmailConfiguration);
-export const NotificationAction = Schema.Struct({action: NotificationTargetActions, smsConfigurations: Schema.optional(SMSConfigurations), emailConfigurations: Schema.optional(EmailConfigurations)});
+export class NotificationAction extends Schema.Class<NotificationAction>("NotificationAction")({action: NotificationTargetActions, smsConfigurations: Schema.optional(SMSConfigurations), emailConfigurations: Schema.optional(EmailConfigurations)}) {}
 export const NotificationActions = Schema.Array(NotificationAction);
-export const AlarmNotification = Schema.Struct({notificationActions: Schema.optional(NotificationActions)});
-export const AlarmAction = Schema.Struct({sns: Schema.optional(SNSTopicPublishAction), iotTopicPublish: Schema.optional(IotTopicPublishAction), lambda: Schema.optional(LambdaAction), iotEvents: Schema.optional(IotEventsAction), sqs: Schema.optional(SqsAction), firehose: Schema.optional(FirehoseAction), dynamoDB: Schema.optional(DynamoDBAction), dynamoDBv2: Schema.optional(DynamoDBv2Action), iotSiteWise: Schema.optional(IotSiteWiseAction)});
+export class AlarmNotification extends Schema.Class<AlarmNotification>("AlarmNotification")({notificationActions: Schema.optional(NotificationActions)}) {}
+export class AlarmAction extends Schema.Class<AlarmAction>("AlarmAction")({sns: Schema.optional(SNSTopicPublishAction), iotTopicPublish: Schema.optional(IotTopicPublishAction), lambda: Schema.optional(LambdaAction), iotEvents: Schema.optional(IotEventsAction), sqs: Schema.optional(SqsAction), firehose: Schema.optional(FirehoseAction), dynamoDB: Schema.optional(DynamoDBAction), dynamoDBv2: Schema.optional(DynamoDBv2Action), iotSiteWise: Schema.optional(IotSiteWiseAction)}) {}
 export const AlarmActions = Schema.Array(AlarmAction);
-export const AlarmEventActions = Schema.Struct({alarmActions: Schema.optional(AlarmActions)});
-export const InitializationConfiguration = Schema.Struct({disabledOnInitialization: Schema.Boolean});
-export const AcknowledgeFlow = Schema.Struct({enabled: Schema.Boolean});
-export const AlarmCapabilities = Schema.Struct({initializationConfiguration: Schema.optional(InitializationConfiguration), acknowledgeFlow: Schema.optional(AcknowledgeFlow)});
-export const UpdateAlarmModelRequest = Schema.Struct({alarmModelName: Schema.String, alarmModelDescription: Schema.optional(Schema.String), roleArn: Schema.String, severity: Schema.optional(Schema.Number), alarmRule: AlarmRule, alarmNotification: Schema.optional(AlarmNotification), alarmEventActions: Schema.optional(AlarmEventActions), alarmCapabilities: Schema.optional(AlarmCapabilities)});
-export const UpdateDetectorModelRequest = Schema.Struct({detectorModelName: Schema.String, detectorModelDefinition: DetectorModelDefinition, detectorModelDescription: Schema.optional(Schema.String), roleArn: Schema.String, evaluationMethod: Schema.optional(Schema.String)});
-export const Attribute = Schema.Struct({jsonPath: Schema.String});
+export class AlarmEventActions extends Schema.Class<AlarmEventActions>("AlarmEventActions")({alarmActions: Schema.optional(AlarmActions)}) {}
+export class InitializationConfiguration extends Schema.Class<InitializationConfiguration>("InitializationConfiguration")({disabledOnInitialization: Schema.Boolean}) {}
+export class AcknowledgeFlow extends Schema.Class<AcknowledgeFlow>("AcknowledgeFlow")({enabled: Schema.Boolean}) {}
+export class AlarmCapabilities extends Schema.Class<AlarmCapabilities>("AlarmCapabilities")({initializationConfiguration: Schema.optional(InitializationConfiguration), acknowledgeFlow: Schema.optional(AcknowledgeFlow)}) {}
+export class UpdateAlarmModelRequest extends Schema.Class<UpdateAlarmModelRequest>("UpdateAlarmModelRequest")({alarmModelName: Schema.String, alarmModelDescription: Schema.optional(Schema.String), roleArn: Schema.String, severity: Schema.optional(Schema.Number), alarmRule: AlarmRule, alarmNotification: Schema.optional(AlarmNotification), alarmEventActions: Schema.optional(AlarmEventActions), alarmCapabilities: Schema.optional(AlarmCapabilities)}) {}
+export class UpdateDetectorModelRequest extends Schema.Class<UpdateDetectorModelRequest>("UpdateDetectorModelRequest")({detectorModelName: Schema.String, detectorModelDefinition: DetectorModelDefinition, detectorModelDescription: Schema.optional(Schema.String), roleArn: Schema.String, evaluationMethod: Schema.optional(Schema.String)}) {}
+export class Attribute extends Schema.Class<Attribute>("Attribute")({jsonPath: Schema.String}) {}
 export const Attributes = Schema.Array(Attribute);
-export const InputDefinition = Schema.Struct({attributes: Attributes});
-export const UpdateInputRequest = Schema.Struct({inputName: Schema.String, inputDescription: Schema.optional(Schema.String), inputDefinition: InputDefinition});
-export const InternalFailureException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidRequestException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ResourceInUseException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DescribeAlarmModelResponse = Schema.Struct({creationTime: Schema.optional(Schema.Date), alarmModelArn: Schema.optional(Schema.String), alarmModelVersion: Schema.optional(Schema.String), lastUpdateTime: Schema.optional(Schema.Date), status: Schema.optional(Schema.String), statusMessage: Schema.optional(Schema.String), alarmModelName: Schema.optional(Schema.String), alarmModelDescription: Schema.optional(Schema.String), roleArn: Schema.optional(Schema.String), key: Schema.optional(Schema.String), severity: Schema.optional(Schema.Number), alarmRule: Schema.optional(AlarmRule), alarmNotification: Schema.optional(AlarmNotification), alarmEventActions: Schema.optional(AlarmEventActions), alarmCapabilities: Schema.optional(AlarmCapabilities)});
-export const DescribeDetectorModelAnalysisResponse = Schema.Struct({status: Schema.optional(Schema.String)});
-export const ListTagsForResourceResponse = Schema.Struct({tags: Schema.optional(Tags)});
-export const ServiceUnavailableException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const StartDetectorModelAnalysisResponse = Schema.Struct({analysisId: Schema.optional(Schema.String)});
-export const LimitExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UpdateAlarmModelResponse = Schema.Struct({creationTime: Schema.optional(Schema.Date), alarmModelArn: Schema.optional(Schema.String), alarmModelVersion: Schema.optional(Schema.String), lastUpdateTime: Schema.optional(Schema.Date), status: Schema.optional(Schema.String)});
-export const IotEventsInputIdentifier = Schema.Struct({inputName: Schema.String});
-export const DetectorModelConfiguration = Schema.Struct({detectorModelName: Schema.optional(Schema.String), detectorModelVersion: Schema.optional(Schema.String), detectorModelDescription: Schema.optional(Schema.String), detectorModelArn: Schema.optional(Schema.String), roleArn: Schema.optional(Schema.String), creationTime: Schema.optional(Schema.Date), lastUpdateTime: Schema.optional(Schema.Date), status: Schema.optional(Schema.String), key: Schema.optional(Schema.String), evaluationMethod: Schema.optional(Schema.String)});
-export const DetectorModel = Schema.Struct({detectorModelDefinition: Schema.optional(DetectorModelDefinition), detectorModelConfiguration: Schema.optional(DetectorModelConfiguration)});
-export const InputConfiguration = Schema.Struct({inputName: Schema.String, inputDescription: Schema.optional(Schema.String), inputArn: Schema.String, creationTime: Schema.Date, lastUpdateTime: Schema.Date, status: Schema.String});
-export const Input = Schema.Struct({inputConfiguration: Schema.optional(InputConfiguration), inputDefinition: Schema.optional(InputDefinition)});
-export const AlarmModelSummary = Schema.Struct({creationTime: Schema.optional(Schema.Date), alarmModelDescription: Schema.optional(Schema.String), alarmModelName: Schema.optional(Schema.String)});
+export class InputDefinition extends Schema.Class<InputDefinition>("InputDefinition")({attributes: Attributes}) {}
+export class UpdateInputRequest extends Schema.Class<UpdateInputRequest>("UpdateInputRequest")({inputName: Schema.String, inputDescription: Schema.optional(Schema.String), inputDefinition: InputDefinition}) {}
+export class InternalFailureException extends Schema.Class<InternalFailureException>("InternalFailureException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidRequestException extends Schema.Class<InvalidRequestException>("InvalidRequestException")({message: Schema.optional(Schema.String)}) {}
+export class ResourceInUseException extends Schema.Class<ResourceInUseException>("ResourceInUseException")({message: Schema.optional(Schema.String)}) {}
+export class DescribeAlarmModelResponse extends Schema.Class<DescribeAlarmModelResponse>("DescribeAlarmModelResponse")({creationTime: Schema.optional(Schema.Date), alarmModelArn: Schema.optional(Schema.String), alarmModelVersion: Schema.optional(Schema.String), lastUpdateTime: Schema.optional(Schema.Date), status: Schema.optional(Schema.String), statusMessage: Schema.optional(Schema.String), alarmModelName: Schema.optional(Schema.String), alarmModelDescription: Schema.optional(Schema.String), roleArn: Schema.optional(Schema.String), key: Schema.optional(Schema.String), severity: Schema.optional(Schema.Number), alarmRule: Schema.optional(AlarmRule), alarmNotification: Schema.optional(AlarmNotification), alarmEventActions: Schema.optional(AlarmEventActions), alarmCapabilities: Schema.optional(AlarmCapabilities)}) {}
+export class DescribeDetectorModelAnalysisResponse extends Schema.Class<DescribeDetectorModelAnalysisResponse>("DescribeDetectorModelAnalysisResponse")({status: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({tags: Schema.optional(Tags)}) {}
+export class ServiceUnavailableException extends Schema.Class<ServiceUnavailableException>("ServiceUnavailableException")({message: Schema.optional(Schema.String)}) {}
+export class StartDetectorModelAnalysisResponse extends Schema.Class<StartDetectorModelAnalysisResponse>("StartDetectorModelAnalysisResponse")({analysisId: Schema.optional(Schema.String)}) {}
+export class LimitExceededException extends Schema.Class<LimitExceededException>("LimitExceededException")({message: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class UpdateAlarmModelResponse extends Schema.Class<UpdateAlarmModelResponse>("UpdateAlarmModelResponse")({creationTime: Schema.optional(Schema.Date), alarmModelArn: Schema.optional(Schema.String), alarmModelVersion: Schema.optional(Schema.String), lastUpdateTime: Schema.optional(Schema.Date), status: Schema.optional(Schema.String)}) {}
+export class IotEventsInputIdentifier extends Schema.Class<IotEventsInputIdentifier>("IotEventsInputIdentifier")({inputName: Schema.String}) {}
+export class DetectorModelConfiguration extends Schema.Class<DetectorModelConfiguration>("DetectorModelConfiguration")({detectorModelName: Schema.optional(Schema.String), detectorModelVersion: Schema.optional(Schema.String), detectorModelDescription: Schema.optional(Schema.String), detectorModelArn: Schema.optional(Schema.String), roleArn: Schema.optional(Schema.String), creationTime: Schema.optional(Schema.Date), lastUpdateTime: Schema.optional(Schema.Date), status: Schema.optional(Schema.String), key: Schema.optional(Schema.String), evaluationMethod: Schema.optional(Schema.String)}) {}
+export class DetectorModel extends Schema.Class<DetectorModel>("DetectorModel")({detectorModelDefinition: Schema.optional(DetectorModelDefinition), detectorModelConfiguration: Schema.optional(DetectorModelConfiguration)}) {}
+export class InputConfiguration extends Schema.Class<InputConfiguration>("InputConfiguration")({inputName: Schema.String, inputDescription: Schema.optional(Schema.String), inputArn: Schema.String, creationTime: Schema.Date, lastUpdateTime: Schema.Date, status: Schema.String}) {}
+export class Input extends Schema.Class<Input>("Input")({inputConfiguration: Schema.optional(InputConfiguration), inputDefinition: Schema.optional(InputDefinition)}) {}
+export class AlarmModelSummary extends Schema.Class<AlarmModelSummary>("AlarmModelSummary")({creationTime: Schema.optional(Schema.Date), alarmModelDescription: Schema.optional(Schema.String), alarmModelName: Schema.optional(Schema.String)}) {}
 export const AlarmModelSummaries = Schema.Array(AlarmModelSummary);
-export const AlarmModelVersionSummary = Schema.Struct({alarmModelName: Schema.optional(Schema.String), alarmModelArn: Schema.optional(Schema.String), alarmModelVersion: Schema.optional(Schema.String), roleArn: Schema.optional(Schema.String), creationTime: Schema.optional(Schema.Date), lastUpdateTime: Schema.optional(Schema.Date), status: Schema.optional(Schema.String), statusMessage: Schema.optional(Schema.String)});
+export class AlarmModelVersionSummary extends Schema.Class<AlarmModelVersionSummary>("AlarmModelVersionSummary")({alarmModelName: Schema.optional(Schema.String), alarmModelArn: Schema.optional(Schema.String), alarmModelVersion: Schema.optional(Schema.String), roleArn: Schema.optional(Schema.String), creationTime: Schema.optional(Schema.Date), lastUpdateTime: Schema.optional(Schema.Date), status: Schema.optional(Schema.String), statusMessage: Schema.optional(Schema.String)}) {}
 export const AlarmModelVersionSummaries = Schema.Array(AlarmModelVersionSummary);
-export const DetectorModelSummary = Schema.Struct({detectorModelName: Schema.optional(Schema.String), detectorModelDescription: Schema.optional(Schema.String), creationTime: Schema.optional(Schema.Date)});
+export class DetectorModelSummary extends Schema.Class<DetectorModelSummary>("DetectorModelSummary")({detectorModelName: Schema.optional(Schema.String), detectorModelDescription: Schema.optional(Schema.String), creationTime: Schema.optional(Schema.Date)}) {}
 export const DetectorModelSummaries = Schema.Array(DetectorModelSummary);
-export const DetectorModelVersionSummary = Schema.Struct({detectorModelName: Schema.optional(Schema.String), detectorModelVersion: Schema.optional(Schema.String), detectorModelArn: Schema.optional(Schema.String), roleArn: Schema.optional(Schema.String), creationTime: Schema.optional(Schema.Date), lastUpdateTime: Schema.optional(Schema.Date), status: Schema.optional(Schema.String), evaluationMethod: Schema.optional(Schema.String)});
+export class DetectorModelVersionSummary extends Schema.Class<DetectorModelVersionSummary>("DetectorModelVersionSummary")({detectorModelName: Schema.optional(Schema.String), detectorModelVersion: Schema.optional(Schema.String), detectorModelArn: Schema.optional(Schema.String), roleArn: Schema.optional(Schema.String), creationTime: Schema.optional(Schema.Date), lastUpdateTime: Schema.optional(Schema.Date), status: Schema.optional(Schema.String), evaluationMethod: Schema.optional(Schema.String)}) {}
 export const DetectorModelVersionSummaries = Schema.Array(DetectorModelVersionSummary);
-export const InputSummary = Schema.Struct({inputName: Schema.optional(Schema.String), inputDescription: Schema.optional(Schema.String), inputArn: Schema.optional(Schema.String), creationTime: Schema.optional(Schema.Date), lastUpdateTime: Schema.optional(Schema.Date), status: Schema.optional(Schema.String)});
+export class InputSummary extends Schema.Class<InputSummary>("InputSummary")({inputName: Schema.optional(Schema.String), inputDescription: Schema.optional(Schema.String), inputArn: Schema.optional(Schema.String), creationTime: Schema.optional(Schema.Date), lastUpdateTime: Schema.optional(Schema.Date), status: Schema.optional(Schema.String)}) {}
 export const InputSummaries = Schema.Array(InputSummary);
-export const IotSiteWiseAssetModelPropertyIdentifier = Schema.Struct({assetModelId: Schema.String, propertyId: Schema.String});
-export const CreateInputRequest = Schema.Struct({inputName: Schema.String, inputDescription: Schema.optional(Schema.String), inputDefinition: InputDefinition, tags: Schema.optional(Tags)});
-export const ThrottlingException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DescribeDetectorModelResponse = Schema.Struct({detectorModel: Schema.optional(DetectorModel)});
-export const DescribeInputResponse = Schema.Struct({input: Schema.optional(Input)});
-export const DescribeLoggingOptionsResponse = Schema.Struct({loggingOptions: Schema.optional(LoggingOptions)});
-export const ListAlarmModelsResponse = Schema.Struct({alarmModelSummaries: Schema.optional(AlarmModelSummaries), nextToken: Schema.optional(Schema.String)});
-export const ListAlarmModelVersionsResponse = Schema.Struct({alarmModelVersionSummaries: Schema.optional(AlarmModelVersionSummaries), nextToken: Schema.optional(Schema.String)});
-export const ListDetectorModelsResponse = Schema.Struct({detectorModelSummaries: Schema.optional(DetectorModelSummaries), nextToken: Schema.optional(Schema.String)});
-export const ListDetectorModelVersionsResponse = Schema.Struct({detectorModelVersionSummaries: Schema.optional(DetectorModelVersionSummaries), nextToken: Schema.optional(Schema.String)});
-export const ListInputsResponse = Schema.Struct({inputSummaries: Schema.optional(InputSummaries), nextToken: Schema.optional(Schema.String)});
-export const UnsupportedOperationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UpdateDetectorModelResponse = Schema.Struct({detectorModelConfiguration: Schema.optional(DetectorModelConfiguration)});
-export const UpdateInputResponse = Schema.Struct({inputConfiguration: Schema.optional(InputConfiguration)});
-export const AnalysisResultLocation = Schema.Struct({path: Schema.optional(Schema.String)});
+export class IotSiteWiseAssetModelPropertyIdentifier extends Schema.Class<IotSiteWiseAssetModelPropertyIdentifier>("IotSiteWiseAssetModelPropertyIdentifier")({assetModelId: Schema.String, propertyId: Schema.String}) {}
+export class CreateInputRequest extends Schema.Class<CreateInputRequest>("CreateInputRequest")({inputName: Schema.String, inputDescription: Schema.optional(Schema.String), inputDefinition: InputDefinition, tags: Schema.optional(Tags)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({message: Schema.optional(Schema.String)}) {}
+export class DescribeDetectorModelResponse extends Schema.Class<DescribeDetectorModelResponse>("DescribeDetectorModelResponse")({detectorModel: Schema.optional(DetectorModel)}) {}
+export class DescribeInputResponse extends Schema.Class<DescribeInputResponse>("DescribeInputResponse")({input: Schema.optional(Input)}) {}
+export class DescribeLoggingOptionsResponse extends Schema.Class<DescribeLoggingOptionsResponse>("DescribeLoggingOptionsResponse")({loggingOptions: Schema.optional(LoggingOptions)}) {}
+export class ListAlarmModelsResponse extends Schema.Class<ListAlarmModelsResponse>("ListAlarmModelsResponse")({alarmModelSummaries: Schema.optional(AlarmModelSummaries), nextToken: Schema.optional(Schema.String)}) {}
+export class ListAlarmModelVersionsResponse extends Schema.Class<ListAlarmModelVersionsResponse>("ListAlarmModelVersionsResponse")({alarmModelVersionSummaries: Schema.optional(AlarmModelVersionSummaries), nextToken: Schema.optional(Schema.String)}) {}
+export class ListDetectorModelsResponse extends Schema.Class<ListDetectorModelsResponse>("ListDetectorModelsResponse")({detectorModelSummaries: Schema.optional(DetectorModelSummaries), nextToken: Schema.optional(Schema.String)}) {}
+export class ListDetectorModelVersionsResponse extends Schema.Class<ListDetectorModelVersionsResponse>("ListDetectorModelVersionsResponse")({detectorModelVersionSummaries: Schema.optional(DetectorModelVersionSummaries), nextToken: Schema.optional(Schema.String)}) {}
+export class ListInputsResponse extends Schema.Class<ListInputsResponse>("ListInputsResponse")({inputSummaries: Schema.optional(InputSummaries), nextToken: Schema.optional(Schema.String)}) {}
+export class UnsupportedOperationException extends Schema.Class<UnsupportedOperationException>("UnsupportedOperationException")({message: Schema.optional(Schema.String)}) {}
+export class UpdateDetectorModelResponse extends Schema.Class<UpdateDetectorModelResponse>("UpdateDetectorModelResponse")({detectorModelConfiguration: Schema.optional(DetectorModelConfiguration)}) {}
+export class UpdateInputResponse extends Schema.Class<UpdateInputResponse>("UpdateInputResponse")({inputConfiguration: Schema.optional(InputConfiguration)}) {}
+export class AnalysisResultLocation extends Schema.Class<AnalysisResultLocation>("AnalysisResultLocation")({path: Schema.optional(Schema.String)}) {}
 export const AnalysisResultLocations = Schema.Array(AnalysisResultLocation);
-export const IotSiteWiseInputIdentifier = Schema.Struct({iotSiteWiseAssetModelPropertyIdentifier: Schema.optional(IotSiteWiseAssetModelPropertyIdentifier)});
-export const AnalysisResult = Schema.Struct({type: Schema.optional(Schema.String), level: Schema.optional(Schema.String), message: Schema.optional(Schema.String), locations: Schema.optional(AnalysisResultLocations)});
+export class IotSiteWiseInputIdentifier extends Schema.Class<IotSiteWiseInputIdentifier>("IotSiteWiseInputIdentifier")({iotSiteWiseAssetModelPropertyIdentifier: Schema.optional(IotSiteWiseAssetModelPropertyIdentifier)}) {}
+export class AnalysisResult extends Schema.Class<AnalysisResult>("AnalysisResult")({type: Schema.optional(Schema.String), level: Schema.optional(Schema.String), message: Schema.optional(Schema.String), locations: Schema.optional(AnalysisResultLocations)}) {}
 export const AnalysisResults = Schema.Array(AnalysisResult);
-export const InputIdentifier = Schema.Struct({iotEventsInputIdentifier: Schema.optional(IotEventsInputIdentifier), iotSiteWiseInputIdentifier: Schema.optional(IotSiteWiseInputIdentifier)});
-export const CreateInputResponse = Schema.Struct({inputConfiguration: Schema.optional(InputConfiguration)});
-export const GetDetectorModelAnalysisResultsResponse = Schema.Struct({analysisResults: Schema.optional(AnalysisResults), nextToken: Schema.optional(Schema.String)});
-export const ListInputRoutingsRequest = Schema.Struct({inputIdentifier: InputIdentifier, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ResourceAlreadyExistsException = Schema.Struct({message: Schema.optional(Schema.String), resourceId: Schema.optional(Schema.String), resourceArn: Schema.optional(Schema.String)});
-export const RoutedResource = Schema.Struct({name: Schema.optional(Schema.String), arn: Schema.optional(Schema.String)});
+export class InputIdentifier extends Schema.Class<InputIdentifier>("InputIdentifier")({iotEventsInputIdentifier: Schema.optional(IotEventsInputIdentifier), iotSiteWiseInputIdentifier: Schema.optional(IotSiteWiseInputIdentifier)}) {}
+export class CreateInputResponse extends Schema.Class<CreateInputResponse>("CreateInputResponse")({inputConfiguration: Schema.optional(InputConfiguration)}) {}
+export class GetDetectorModelAnalysisResultsResponse extends Schema.Class<GetDetectorModelAnalysisResultsResponse>("GetDetectorModelAnalysisResultsResponse")({analysisResults: Schema.optional(AnalysisResults), nextToken: Schema.optional(Schema.String)}) {}
+export class ListInputRoutingsRequest extends Schema.Class<ListInputRoutingsRequest>("ListInputRoutingsRequest")({inputIdentifier: InputIdentifier, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ResourceAlreadyExistsException extends Schema.Class<ResourceAlreadyExistsException>("ResourceAlreadyExistsException")({message: Schema.optional(Schema.String), resourceId: Schema.optional(Schema.String), resourceArn: Schema.optional(Schema.String)}) {}
+export class RoutedResource extends Schema.Class<RoutedResource>("RoutedResource")({name: Schema.optional(Schema.String), arn: Schema.optional(Schema.String)}) {}
 export const RoutedResources = Schema.Array(RoutedResource);
-export const CreateAlarmModelRequest = Schema.Struct({alarmModelName: Schema.String, alarmModelDescription: Schema.optional(Schema.String), roleArn: Schema.String, tags: Schema.optional(Tags), key: Schema.optional(Schema.String), severity: Schema.optional(Schema.Number), alarmRule: AlarmRule, alarmNotification: Schema.optional(AlarmNotification), alarmEventActions: Schema.optional(AlarmEventActions), alarmCapabilities: Schema.optional(AlarmCapabilities)});
-export const ListInputRoutingsResponse = Schema.Struct({routedResources: Schema.optional(RoutedResources), nextToken: Schema.optional(Schema.String)});
-export const CreateAlarmModelResponse = Schema.Struct({creationTime: Schema.optional(Schema.Date), alarmModelArn: Schema.optional(Schema.String), alarmModelVersion: Schema.optional(Schema.String), lastUpdateTime: Schema.optional(Schema.Date), status: Schema.optional(Schema.String)});
-export const CreateDetectorModelRequest = Schema.Struct({detectorModelName: Schema.String, detectorModelDefinition: DetectorModelDefinition, detectorModelDescription: Schema.optional(Schema.String), key: Schema.optional(Schema.String), roleArn: Schema.String, tags: Schema.optional(Tags), evaluationMethod: Schema.optional(Schema.String)});
-export const CreateDetectorModelResponse = Schema.Struct({detectorModelConfiguration: Schema.optional(DetectorModelConfiguration)});
+export class CreateAlarmModelRequest extends Schema.Class<CreateAlarmModelRequest>("CreateAlarmModelRequest")({alarmModelName: Schema.String, alarmModelDescription: Schema.optional(Schema.String), roleArn: Schema.String, tags: Schema.optional(Tags), key: Schema.optional(Schema.String), severity: Schema.optional(Schema.Number), alarmRule: AlarmRule, alarmNotification: Schema.optional(AlarmNotification), alarmEventActions: Schema.optional(AlarmEventActions), alarmCapabilities: Schema.optional(AlarmCapabilities)}) {}
+export class ListInputRoutingsResponse extends Schema.Class<ListInputRoutingsResponse>("ListInputRoutingsResponse")({routedResources: Schema.optional(RoutedResources), nextToken: Schema.optional(Schema.String)}) {}
+export class CreateAlarmModelResponse extends Schema.Class<CreateAlarmModelResponse>("CreateAlarmModelResponse")({creationTime: Schema.optional(Schema.Date), alarmModelArn: Schema.optional(Schema.String), alarmModelVersion: Schema.optional(Schema.String), lastUpdateTime: Schema.optional(Schema.Date), status: Schema.optional(Schema.String)}) {}
+export class CreateDetectorModelRequest extends Schema.Class<CreateDetectorModelRequest>("CreateDetectorModelRequest")({detectorModelName: Schema.String, detectorModelDefinition: DetectorModelDefinition, detectorModelDescription: Schema.optional(Schema.String), key: Schema.optional(Schema.String), roleArn: Schema.String, tags: Schema.optional(Tags), evaluationMethod: Schema.optional(Schema.String)}) {}
+export class CreateDetectorModelResponse extends Schema.Class<CreateDetectorModelResponse>("CreateDetectorModelResponse")({detectorModelConfiguration: Schema.optional(DetectorModelConfiguration)}) {}
 
 //# Errors
-export class InternalFailureExceptionError extends Schema.TaggedError<InternalFailureExceptionError>()("InternalFailureException", InternalFailureException) {};
-export class InvalidRequestExceptionError extends Schema.TaggedError<InvalidRequestExceptionError>()("InvalidRequestException", InvalidRequestException) {};
-export class ResourceInUseExceptionError extends Schema.TaggedError<ResourceInUseExceptionError>()("ResourceInUseException", ResourceInUseException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ServiceUnavailableExceptionError extends Schema.TaggedError<ServiceUnavailableExceptionError>()("ServiceUnavailableException", ServiceUnavailableException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException) {};
-export class UnsupportedOperationExceptionError extends Schema.TaggedError<UnsupportedOperationExceptionError>()("UnsupportedOperationException", UnsupportedOperationException) {};
-export class ResourceAlreadyExistsExceptionError extends Schema.TaggedError<ResourceAlreadyExistsExceptionError>()("ResourceAlreadyExistsException", ResourceAlreadyExistsException) {};
+export class InternalFailureExceptionError extends Schema.TaggedError<InternalFailureExceptionError>()("InternalFailureException", InternalFailureException.fields) {};
+export class InvalidRequestExceptionError extends Schema.TaggedError<InvalidRequestExceptionError>()("InvalidRequestException", InvalidRequestException.fields) {};
+export class ResourceInUseExceptionError extends Schema.TaggedError<ResourceInUseExceptionError>()("ResourceInUseException", ResourceInUseException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ServiceUnavailableExceptionError extends Schema.TaggedError<ServiceUnavailableExceptionError>()("ServiceUnavailableException", ServiceUnavailableException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException.fields) {};
+export class UnsupportedOperationExceptionError extends Schema.TaggedError<UnsupportedOperationExceptionError>()("UnsupportedOperationException", UnsupportedOperationException.fields) {};
+export class ResourceAlreadyExistsExceptionError extends Schema.TaggedError<ResourceAlreadyExistsExceptionError>()("ResourceAlreadyExistsException", ResourceAlreadyExistsException.fields) {};
 
 //# Operations
 export const deleteDetectorModel = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-07-27", uri: "/detector-models/{detectorModelName}", method: "DELETE", sdkId: "IoT Events", sigV4ServiceName: "iotevents", name: "IotColumboService.DeleteDetectorModel" }, DeleteDetectorModelRequest, DeleteDetectorModelResponse, [InternalFailureExceptionError, InvalidRequestExceptionError, ResourceInUseExceptionError, ResourceNotFoundExceptionError, ServiceUnavailableExceptionError, ThrottlingExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

@@ -3,53 +3,53 @@ import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperat
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const GetServiceSettingsRequest = Schema.Struct({});
+export class GetServiceSettingsRequest extends Schema.Class<GetServiceSettingsRequest>("GetServiceSettingsRequest")({}) {}
 export const StringList = Schema.Array(Schema.String);
 export const SubscriptionProviderSourceList = Schema.Array(Schema.String);
 export const TagKeyList = Schema.Array(Schema.String);
-export const DeregisterSubscriptionProviderRequest = Schema.Struct({SubscriptionProviderArn: Schema.String});
-export const DeregisterSubscriptionProviderResponse = Schema.Struct({});
-export const GetRegisteredSubscriptionProviderRequest = Schema.Struct({SubscriptionProviderArn: Schema.String});
-export const Filter = Schema.Struct({Name: Schema.optional(Schema.String), Values: Schema.optional(StringList), Operator: Schema.optional(Schema.String)});
+export class DeregisterSubscriptionProviderRequest extends Schema.Class<DeregisterSubscriptionProviderRequest>("DeregisterSubscriptionProviderRequest")({SubscriptionProviderArn: Schema.String}) {}
+export class DeregisterSubscriptionProviderResponse extends Schema.Class<DeregisterSubscriptionProviderResponse>("DeregisterSubscriptionProviderResponse")({}) {}
+export class GetRegisteredSubscriptionProviderRequest extends Schema.Class<GetRegisteredSubscriptionProviderRequest>("GetRegisteredSubscriptionProviderRequest")({SubscriptionProviderArn: Schema.String}) {}
+export class Filter extends Schema.Class<Filter>("Filter")({Name: Schema.optional(Schema.String), Values: Schema.optional(StringList), Operator: Schema.optional(Schema.String)}) {}
 export const FilterList = Schema.Array(Filter);
-export const ListLinuxSubscriptionsRequest = Schema.Struct({Filters: Schema.optional(FilterList), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListRegisteredSubscriptionProvidersRequest = Schema.Struct({SubscriptionProviderSources: Schema.optional(SubscriptionProviderSourceList), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceRequest = Schema.Struct({resourceArn: Schema.String});
+export class ListLinuxSubscriptionsRequest extends Schema.Class<ListLinuxSubscriptionsRequest>("ListLinuxSubscriptionsRequest")({Filters: Schema.optional(FilterList), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListRegisteredSubscriptionProvidersRequest extends Schema.Class<ListRegisteredSubscriptionProvidersRequest>("ListRegisteredSubscriptionProvidersRequest")({SubscriptionProviderSources: Schema.optional(SubscriptionProviderSourceList), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({resourceArn: Schema.String}) {}
 export const Tags = Schema.Record({key: Schema.String, value: Schema.String});
-export const TagResourceRequest = Schema.Struct({resourceArn: Schema.String, tags: Tags});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({resourceArn: Schema.String, tagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
-export const LinuxSubscriptionsDiscoverySettings = Schema.Struct({SourceRegions: StringList, OrganizationIntegration: Schema.String});
-export const UpdateServiceSettingsRequest = Schema.Struct({LinuxSubscriptionsDiscovery: Schema.String, LinuxSubscriptionsDiscoverySettings: LinuxSubscriptionsDiscoverySettings, AllowUpdate: Schema.optional(Schema.Boolean)});
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({resourceArn: Schema.String, tags: Tags}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({resourceArn: Schema.String, tagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class LinuxSubscriptionsDiscoverySettings extends Schema.Class<LinuxSubscriptionsDiscoverySettings>("LinuxSubscriptionsDiscoverySettings")({SourceRegions: StringList, OrganizationIntegration: Schema.String}) {}
+export class UpdateServiceSettingsRequest extends Schema.Class<UpdateServiceSettingsRequest>("UpdateServiceSettingsRequest")({LinuxSubscriptionsDiscovery: Schema.String, LinuxSubscriptionsDiscoverySettings: LinuxSubscriptionsDiscoverySettings, AllowUpdate: Schema.optional(Schema.Boolean)}) {}
 export const StringMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const InternalServerException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const GetRegisteredSubscriptionProviderResponse = Schema.Struct({SubscriptionProviderArn: Schema.optional(Schema.String), SubscriptionProviderSource: Schema.optional(Schema.String), SecretArn: Schema.optional(Schema.String), SubscriptionProviderStatus: Schema.optional(Schema.String), SubscriptionProviderStatusMessage: Schema.optional(Schema.String), LastSuccessfulDataRetrievalTime: Schema.optional(Schema.String)});
-export const GetServiceSettingsResponse = Schema.Struct({LinuxSubscriptionsDiscovery: Schema.optional(Schema.String), LinuxSubscriptionsDiscoverySettings: Schema.optional(LinuxSubscriptionsDiscoverySettings), Status: Schema.optional(Schema.String), StatusMessage: Schema.optional(StringMap), HomeRegions: Schema.optional(StringList)});
-export const ListLinuxSubscriptionInstancesRequest = Schema.Struct({Filters: Schema.optional(FilterList), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceResponse = Schema.Struct({tags: Schema.optional(Tags)});
-export const RegisterSubscriptionProviderRequest = Schema.Struct({SubscriptionProviderSource: Schema.String, SecretArn: Schema.String, Tags: Schema.optional(Tags)});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UpdateServiceSettingsResponse = Schema.Struct({LinuxSubscriptionsDiscovery: Schema.optional(Schema.String), LinuxSubscriptionsDiscoverySettings: Schema.optional(LinuxSubscriptionsDiscoverySettings), Status: Schema.optional(Schema.String), StatusMessage: Schema.optional(StringMap), HomeRegions: Schema.optional(StringList)});
-export const Subscription = Schema.Struct({Name: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), InstanceCount: Schema.optional(Schema.Number)});
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({message: Schema.optional(Schema.String)}) {}
+export class GetRegisteredSubscriptionProviderResponse extends Schema.Class<GetRegisteredSubscriptionProviderResponse>("GetRegisteredSubscriptionProviderResponse")({SubscriptionProviderArn: Schema.optional(Schema.String), SubscriptionProviderSource: Schema.optional(Schema.String), SecretArn: Schema.optional(Schema.String), SubscriptionProviderStatus: Schema.optional(Schema.String), SubscriptionProviderStatusMessage: Schema.optional(Schema.String), LastSuccessfulDataRetrievalTime: Schema.optional(Schema.String)}) {}
+export class GetServiceSettingsResponse extends Schema.Class<GetServiceSettingsResponse>("GetServiceSettingsResponse")({LinuxSubscriptionsDiscovery: Schema.optional(Schema.String), LinuxSubscriptionsDiscoverySettings: Schema.optional(LinuxSubscriptionsDiscoverySettings), Status: Schema.optional(Schema.String), StatusMessage: Schema.optional(StringMap), HomeRegions: Schema.optional(StringList)}) {}
+export class ListLinuxSubscriptionInstancesRequest extends Schema.Class<ListLinuxSubscriptionInstancesRequest>("ListLinuxSubscriptionInstancesRequest")({Filters: Schema.optional(FilterList), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({tags: Schema.optional(Tags)}) {}
+export class RegisterSubscriptionProviderRequest extends Schema.Class<RegisterSubscriptionProviderRequest>("RegisterSubscriptionProviderRequest")({SubscriptionProviderSource: Schema.String, SecretArn: Schema.String, Tags: Schema.optional(Tags)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class UpdateServiceSettingsResponse extends Schema.Class<UpdateServiceSettingsResponse>("UpdateServiceSettingsResponse")({LinuxSubscriptionsDiscovery: Schema.optional(Schema.String), LinuxSubscriptionsDiscoverySettings: Schema.optional(LinuxSubscriptionsDiscoverySettings), Status: Schema.optional(Schema.String), StatusMessage: Schema.optional(StringMap), HomeRegions: Schema.optional(StringList)}) {}
+export class Subscription extends Schema.Class<Subscription>("Subscription")({Name: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), InstanceCount: Schema.optional(Schema.Number)}) {}
 export const SubscriptionList = Schema.Array(Subscription);
-export const RegisteredSubscriptionProvider = Schema.Struct({SubscriptionProviderArn: Schema.optional(Schema.String), SubscriptionProviderSource: Schema.optional(Schema.String), SecretArn: Schema.optional(Schema.String), SubscriptionProviderStatus: Schema.optional(Schema.String), SubscriptionProviderStatusMessage: Schema.optional(Schema.String), LastSuccessfulDataRetrievalTime: Schema.optional(Schema.String)});
+export class RegisteredSubscriptionProvider extends Schema.Class<RegisteredSubscriptionProvider>("RegisteredSubscriptionProvider")({SubscriptionProviderArn: Schema.optional(Schema.String), SubscriptionProviderSource: Schema.optional(Schema.String), SecretArn: Schema.optional(Schema.String), SubscriptionProviderStatus: Schema.optional(Schema.String), SubscriptionProviderStatusMessage: Schema.optional(Schema.String), LastSuccessfulDataRetrievalTime: Schema.optional(Schema.String)}) {}
 export const RegisteredSubscriptionProviderList = Schema.Array(RegisteredSubscriptionProvider);
-export const ThrottlingException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ValidationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ListLinuxSubscriptionsResponse = Schema.Struct({Subscriptions: Schema.optional(SubscriptionList), NextToken: Schema.optional(Schema.String)});
-export const ListRegisteredSubscriptionProvidersResponse = Schema.Struct({RegisteredSubscriptionProviders: Schema.optional(RegisteredSubscriptionProviderList), NextToken: Schema.optional(Schema.String)});
-export const RegisterSubscriptionProviderResponse = Schema.Struct({SubscriptionProviderSource: Schema.optional(Schema.String), SubscriptionProviderArn: Schema.optional(Schema.String), SubscriptionProviderStatus: Schema.optional(Schema.String)});
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({message: Schema.optional(Schema.String)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({message: Schema.optional(Schema.String)}) {}
+export class ListLinuxSubscriptionsResponse extends Schema.Class<ListLinuxSubscriptionsResponse>("ListLinuxSubscriptionsResponse")({Subscriptions: Schema.optional(SubscriptionList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListRegisteredSubscriptionProvidersResponse extends Schema.Class<ListRegisteredSubscriptionProvidersResponse>("ListRegisteredSubscriptionProvidersResponse")({RegisteredSubscriptionProviders: Schema.optional(RegisteredSubscriptionProviderList), NextToken: Schema.optional(Schema.String)}) {}
+export class RegisterSubscriptionProviderResponse extends Schema.Class<RegisterSubscriptionProviderResponse>("RegisterSubscriptionProviderResponse")({SubscriptionProviderSource: Schema.optional(Schema.String), SubscriptionProviderArn: Schema.optional(Schema.String), SubscriptionProviderStatus: Schema.optional(Schema.String)}) {}
 export const ProductCodeList = Schema.Array(Schema.String);
-export const Instance = Schema.Struct({AmiId: Schema.optional(Schema.String), InstanceID: Schema.optional(Schema.String), InstanceType: Schema.optional(Schema.String), AccountID: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), Region: Schema.optional(Schema.String), UsageOperation: Schema.optional(Schema.String), ProductCode: Schema.optional(ProductCodeList), LastUpdatedTime: Schema.optional(Schema.String), SubscriptionName: Schema.optional(Schema.String), OsVersion: Schema.optional(Schema.String), SubscriptionProviderCreateTime: Schema.optional(Schema.String), SubscriptionProviderUpdateTime: Schema.optional(Schema.String), DualSubscription: Schema.optional(Schema.String), RegisteredWithSubscriptionProvider: Schema.optional(Schema.String)});
+export class Instance extends Schema.Class<Instance>("Instance")({AmiId: Schema.optional(Schema.String), InstanceID: Schema.optional(Schema.String), InstanceType: Schema.optional(Schema.String), AccountID: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), Region: Schema.optional(Schema.String), UsageOperation: Schema.optional(Schema.String), ProductCode: Schema.optional(ProductCodeList), LastUpdatedTime: Schema.optional(Schema.String), SubscriptionName: Schema.optional(Schema.String), OsVersion: Schema.optional(Schema.String), SubscriptionProviderCreateTime: Schema.optional(Schema.String), SubscriptionProviderUpdateTime: Schema.optional(Schema.String), DualSubscription: Schema.optional(Schema.String), RegisteredWithSubscriptionProvider: Schema.optional(Schema.String)}) {}
 export const InstanceList = Schema.Array(Instance);
-export const ListLinuxSubscriptionInstancesResponse = Schema.Struct({Instances: Schema.optional(InstanceList), NextToken: Schema.optional(Schema.String)});
+export class ListLinuxSubscriptionInstancesResponse extends Schema.Class<ListLinuxSubscriptionInstancesResponse>("ListLinuxSubscriptionInstancesResponse")({Instances: Schema.optional(InstanceList), NextToken: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
 
 //# Operations
 export const untagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-05-10", uri: "/tags/{resourceArn}", method: "DELETE", sdkId: "License Manager Linux Subscriptions", sigV4ServiceName: "license-manager-linux-subscriptions", name: "LicenseManagerLinuxSubscriptions.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InternalServerExceptionError, ResourceNotFoundExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

@@ -5,204 +5,204 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 //# Schemas
 export const TagKeys = Schema.Array(Schema.String);
 export const FindingIdList = Schema.Array(Schema.String);
-export const ApplyArchiveRuleRequest = Schema.Struct({analyzerArn: Schema.String, ruleName: Schema.String, clientToken: Schema.optional(Schema.String)});
-export const CancelPolicyGenerationRequest = Schema.Struct({jobId: Schema.String});
-export const CancelPolicyGenerationResponse = Schema.Struct({});
-export const CheckNoNewAccessRequest = Schema.Struct({newPolicyDocument: Schema.String, existingPolicyDocument: Schema.String, policyType: Schema.String});
-export const CheckNoPublicAccessRequest = Schema.Struct({policyDocument: Schema.String, resourceType: Schema.String});
-export const GenerateFindingRecommendationRequest = Schema.Struct({analyzerArn: Schema.String, id: Schema.String});
-export const GetAccessPreviewRequest = Schema.Struct({accessPreviewId: Schema.String, analyzerArn: Schema.String});
-export const GetAnalyzedResourceRequest = Schema.Struct({analyzerArn: Schema.String, resourceArn: Schema.String});
-export const GetFindingRequest = Schema.Struct({analyzerArn: Schema.String, id: Schema.String});
-export const GetFindingRecommendationRequest = Schema.Struct({analyzerArn: Schema.String, id: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const GetFindingsStatisticsRequest = Schema.Struct({analyzerArn: Schema.String});
-export const GetFindingV2Request = Schema.Struct({analyzerArn: Schema.String, id: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const GetGeneratedPolicyRequest = Schema.Struct({jobId: Schema.String, includeResourcePlaceholders: Schema.optional(Schema.Boolean), includeServiceLevelTemplate: Schema.optional(Schema.Boolean)});
-export const ListAccessPreviewsRequest = Schema.Struct({analyzerArn: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListAnalyzedResourcesRequest = Schema.Struct({analyzerArn: Schema.String, resourceType: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
+export class ApplyArchiveRuleRequest extends Schema.Class<ApplyArchiveRuleRequest>("ApplyArchiveRuleRequest")({analyzerArn: Schema.String, ruleName: Schema.String, clientToken: Schema.optional(Schema.String)}) {}
+export class CancelPolicyGenerationRequest extends Schema.Class<CancelPolicyGenerationRequest>("CancelPolicyGenerationRequest")({jobId: Schema.String}) {}
+export class CancelPolicyGenerationResponse extends Schema.Class<CancelPolicyGenerationResponse>("CancelPolicyGenerationResponse")({}) {}
+export class CheckNoNewAccessRequest extends Schema.Class<CheckNoNewAccessRequest>("CheckNoNewAccessRequest")({newPolicyDocument: Schema.String, existingPolicyDocument: Schema.String, policyType: Schema.String}) {}
+export class CheckNoPublicAccessRequest extends Schema.Class<CheckNoPublicAccessRequest>("CheckNoPublicAccessRequest")({policyDocument: Schema.String, resourceType: Schema.String}) {}
+export class GenerateFindingRecommendationRequest extends Schema.Class<GenerateFindingRecommendationRequest>("GenerateFindingRecommendationRequest")({analyzerArn: Schema.String, id: Schema.String}) {}
+export class GetAccessPreviewRequest extends Schema.Class<GetAccessPreviewRequest>("GetAccessPreviewRequest")({accessPreviewId: Schema.String, analyzerArn: Schema.String}) {}
+export class GetAnalyzedResourceRequest extends Schema.Class<GetAnalyzedResourceRequest>("GetAnalyzedResourceRequest")({analyzerArn: Schema.String, resourceArn: Schema.String}) {}
+export class GetFindingRequest extends Schema.Class<GetFindingRequest>("GetFindingRequest")({analyzerArn: Schema.String, id: Schema.String}) {}
+export class GetFindingRecommendationRequest extends Schema.Class<GetFindingRecommendationRequest>("GetFindingRecommendationRequest")({analyzerArn: Schema.String, id: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class GetFindingsStatisticsRequest extends Schema.Class<GetFindingsStatisticsRequest>("GetFindingsStatisticsRequest")({analyzerArn: Schema.String}) {}
+export class GetFindingV2Request extends Schema.Class<GetFindingV2Request>("GetFindingV2Request")({analyzerArn: Schema.String, id: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class GetGeneratedPolicyRequest extends Schema.Class<GetGeneratedPolicyRequest>("GetGeneratedPolicyRequest")({jobId: Schema.String, includeResourcePlaceholders: Schema.optional(Schema.Boolean), includeServiceLevelTemplate: Schema.optional(Schema.Boolean)}) {}
+export class ListAccessPreviewsRequest extends Schema.Class<ListAccessPreviewsRequest>("ListAccessPreviewsRequest")({analyzerArn: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListAnalyzedResourcesRequest extends Schema.Class<ListAnalyzedResourcesRequest>("ListAnalyzedResourcesRequest")({analyzerArn: Schema.String, resourceType: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
 export const ValueList = Schema.Array(Schema.String);
-export const Criterion = Schema.Struct({eq: Schema.optional(ValueList), neq: Schema.optional(ValueList), contains: Schema.optional(ValueList), exists: Schema.optional(Schema.Boolean)});
+export class Criterion extends Schema.Class<Criterion>("Criterion")({eq: Schema.optional(ValueList), neq: Schema.optional(ValueList), contains: Schema.optional(ValueList), exists: Schema.optional(Schema.Boolean)}) {}
 export const FilterCriteriaMap = Schema.Record({key: Schema.String, value: Criterion});
-export const SortCriteria = Schema.Struct({attributeName: Schema.optional(Schema.String), orderBy: Schema.optional(Schema.String)});
-export const ListFindingsV2Request = Schema.Struct({analyzerArn: Schema.String, filter: Schema.optional(FilterCriteriaMap), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String), sort: Schema.optional(SortCriteria)});
-export const ListPolicyGenerationsRequest = Schema.Struct({principalArn: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceRequest = Schema.Struct({resourceArn: Schema.String});
-export const StartResourceScanRequest = Schema.Struct({analyzerArn: Schema.String, resourceArn: Schema.String, resourceOwnerAccount: Schema.optional(Schema.String)});
-export const UntagResourceRequest = Schema.Struct({resourceArn: Schema.String, tagKeys: TagKeys});
-export const UntagResourceResponse = Schema.Struct({});
-export const UpdateFindingsRequest = Schema.Struct({analyzerArn: Schema.String, status: Schema.String, ids: Schema.optional(FindingIdList), resourceArn: Schema.optional(Schema.String), clientToken: Schema.optional(Schema.String)});
-export const ValidatePolicyRequest = Schema.Struct({locale: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String), policyDocument: Schema.String, policyType: Schema.String, validatePolicyResourceType: Schema.optional(Schema.String)});
+export class SortCriteria extends Schema.Class<SortCriteria>("SortCriteria")({attributeName: Schema.optional(Schema.String), orderBy: Schema.optional(Schema.String)}) {}
+export class ListFindingsV2Request extends Schema.Class<ListFindingsV2Request>("ListFindingsV2Request")({analyzerArn: Schema.String, filter: Schema.optional(FilterCriteriaMap), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String), sort: Schema.optional(SortCriteria)}) {}
+export class ListPolicyGenerationsRequest extends Schema.Class<ListPolicyGenerationsRequest>("ListPolicyGenerationsRequest")({principalArn: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({resourceArn: Schema.String}) {}
+export class StartResourceScanRequest extends Schema.Class<StartResourceScanRequest>("StartResourceScanRequest")({analyzerArn: Schema.String, resourceArn: Schema.String, resourceOwnerAccount: Schema.optional(Schema.String)}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({resourceArn: Schema.String, tagKeys: TagKeys}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class UpdateFindingsRequest extends Schema.Class<UpdateFindingsRequest>("UpdateFindingsRequest")({analyzerArn: Schema.String, status: Schema.String, ids: Schema.optional(FindingIdList), resourceArn: Schema.optional(Schema.String), clientToken: Schema.optional(Schema.String)}) {}
+export class ValidatePolicyRequest extends Schema.Class<ValidatePolicyRequest>("ValidatePolicyRequest")({locale: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String), policyDocument: Schema.String, policyType: Schema.String, validatePolicyResourceType: Schema.optional(Schema.String)}) {}
 export const ActionsList = Schema.Array(Schema.String);
 export const ResourcesList = Schema.Array(Schema.String);
-export const Access = Schema.Struct({actions: Schema.optional(ActionsList), resources: Schema.optional(ResourcesList)});
+export class Access extends Schema.Class<Access>("Access")({actions: Schema.optional(ActionsList), resources: Schema.optional(ResourcesList)}) {}
 export const AccessList = Schema.Array(Access);
-export const PolicyGenerationDetails = Schema.Struct({principalArn: Schema.String});
+export class PolicyGenerationDetails extends Schema.Class<PolicyGenerationDetails>("PolicyGenerationDetails")({principalArn: Schema.String}) {}
 export const TagsMap = Schema.Record({key: Schema.String, value: Schema.String});
 export const RegionList = Schema.Array(Schema.String);
-export const AccessDeniedException = Schema.Struct({message: Schema.String});
-export const InternalServerException = Schema.Struct({message: Schema.String, retryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))});
-export const CheckAccessNotGrantedRequest = Schema.Struct({policyDocument: Schema.String, access: AccessList, policyType: Schema.String});
-export const ReasonSummary = Schema.Struct({description: Schema.optional(Schema.String), statementIndex: Schema.optional(Schema.Number), statementId: Schema.optional(Schema.String)});
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({message: Schema.String}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({message: Schema.String, retryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))}) {}
+export class CheckAccessNotGrantedRequest extends Schema.Class<CheckAccessNotGrantedRequest>("CheckAccessNotGrantedRequest")({policyDocument: Schema.String, access: AccessList, policyType: Schema.String}) {}
+export class ReasonSummary extends Schema.Class<ReasonSummary>("ReasonSummary")({description: Schema.optional(Schema.String), statementIndex: Schema.optional(Schema.Number), statementId: Schema.optional(Schema.String)}) {}
 export const ReasonSummaryList = Schema.Array(ReasonSummary);
-export const CheckNoPublicAccessResponse = Schema.Struct({result: Schema.optional(Schema.String), message: Schema.optional(Schema.String), reasons: Schema.optional(ReasonSummaryList)});
-export const ThrottlingException = Schema.Struct({message: Schema.String, retryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))});
-export const ListFindingsRequest = Schema.Struct({analyzerArn: Schema.String, filter: Schema.optional(FilterCriteriaMap), sort: Schema.optional(SortCriteria), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListTagsForResourceResponse = Schema.Struct({tags: Schema.optional(TagsMap)});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String});
-export const TagResourceRequest = Schema.Struct({resourceArn: Schema.String, tags: TagsMap});
-export const TagResourceResponse = Schema.Struct({});
+export class CheckNoPublicAccessResponse extends Schema.Class<CheckNoPublicAccessResponse>("CheckNoPublicAccessResponse")({result: Schema.optional(Schema.String), message: Schema.optional(Schema.String), reasons: Schema.optional(ReasonSummaryList)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({message: Schema.String, retryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))}) {}
+export class ListFindingsRequest extends Schema.Class<ListFindingsRequest>("ListFindingsRequest")({analyzerArn: Schema.String, filter: Schema.optional(FilterCriteriaMap), sort: Schema.optional(SortCriteria), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({tags: Schema.optional(TagsMap)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String}) {}
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({resourceArn: Schema.String, tags: TagsMap}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
 export const ActionList = Schema.Array(Schema.String);
 export const SharedViaList = Schema.Array(Schema.String);
-export const Trail = Schema.Struct({cloudTrailArn: Schema.String, regions: Schema.optional(RegionList), allRegions: Schema.optional(Schema.Boolean)});
+export class Trail extends Schema.Class<Trail>("Trail")({cloudTrailArn: Schema.String, regions: Schema.optional(RegionList), allRegions: Schema.optional(Schema.Boolean)}) {}
 export const TrailList = Schema.Array(Trail);
 export const EbsUserIdList = Schema.Array(Schema.String);
 export const EbsGroupList = Schema.Array(Schema.String);
-export const AnalyzedResource = Schema.Struct({resourceArn: Schema.String, resourceType: Schema.String, createdAt: Schema.Date, analyzedAt: Schema.Date, updatedAt: Schema.Date, isPublic: Schema.Boolean, actions: Schema.optional(ActionList), sharedVia: Schema.optional(SharedViaList), status: Schema.optional(Schema.String), resourceOwnerAccount: Schema.String, error: Schema.optional(Schema.String)});
-export const RecommendationError = Schema.Struct({code: Schema.String, message: Schema.String});
-export const AccessPreviewStatusReason = Schema.Struct({code: Schema.String});
-export const AccessPreviewSummary = Schema.Struct({id: Schema.String, analyzerArn: Schema.String, createdAt: Schema.Date, status: Schema.String, statusReason: Schema.optional(AccessPreviewStatusReason)});
+export class AnalyzedResource extends Schema.Class<AnalyzedResource>("AnalyzedResource")({resourceArn: Schema.String, resourceType: Schema.String, createdAt: Schema.Date, analyzedAt: Schema.Date, updatedAt: Schema.Date, isPublic: Schema.Boolean, actions: Schema.optional(ActionList), sharedVia: Schema.optional(SharedViaList), status: Schema.optional(Schema.String), resourceOwnerAccount: Schema.String, error: Schema.optional(Schema.String)}) {}
+export class RecommendationError extends Schema.Class<RecommendationError>("RecommendationError")({code: Schema.String, message: Schema.String}) {}
+export class AccessPreviewStatusReason extends Schema.Class<AccessPreviewStatusReason>("AccessPreviewStatusReason")({code: Schema.String}) {}
+export class AccessPreviewSummary extends Schema.Class<AccessPreviewSummary>("AccessPreviewSummary")({id: Schema.String, analyzerArn: Schema.String, createdAt: Schema.Date, status: Schema.String, statusReason: Schema.optional(AccessPreviewStatusReason)}) {}
 export const AccessPreviewsList = Schema.Array(AccessPreviewSummary);
-export const AnalyzedResourceSummary = Schema.Struct({resourceArn: Schema.String, resourceOwnerAccount: Schema.String, resourceType: Schema.String});
+export class AnalyzedResourceSummary extends Schema.Class<AnalyzedResourceSummary>("AnalyzedResourceSummary")({resourceArn: Schema.String, resourceOwnerAccount: Schema.String, resourceType: Schema.String}) {}
 export const AnalyzedResourcesList = Schema.Array(AnalyzedResourceSummary);
-export const FindingSummaryV2 = Schema.Struct({analyzedAt: Schema.Date, createdAt: Schema.Date, error: Schema.optional(Schema.String), id: Schema.String, resource: Schema.optional(Schema.String), resourceType: Schema.String, resourceOwnerAccount: Schema.String, status: Schema.String, updatedAt: Schema.Date, findingType: Schema.optional(Schema.String)});
+export class FindingSummaryV2 extends Schema.Class<FindingSummaryV2>("FindingSummaryV2")({analyzedAt: Schema.Date, createdAt: Schema.Date, error: Schema.optional(Schema.String), id: Schema.String, resource: Schema.optional(Schema.String), resourceType: Schema.String, resourceOwnerAccount: Schema.String, status: Schema.String, updatedAt: Schema.Date, findingType: Schema.optional(Schema.String)}) {}
 export const FindingsListV2 = Schema.Array(FindingSummaryV2);
-export const PolicyGeneration = Schema.Struct({jobId: Schema.String, principalArn: Schema.String, status: Schema.String, startedOn: Schema.Date, completedOn: Schema.optional(Schema.Date)});
+export class PolicyGeneration extends Schema.Class<PolicyGeneration>("PolicyGeneration")({jobId: Schema.String, principalArn: Schema.String, status: Schema.String, startedOn: Schema.Date, completedOn: Schema.optional(Schema.Date)}) {}
 export const PolicyGenerationList = Schema.Array(PolicyGeneration);
-export const CloudTrailDetails = Schema.Struct({trails: TrailList, accessRole: Schema.String, startTime: Schema.Date, endTime: Schema.optional(Schema.Date)});
-export const ValidationExceptionField = Schema.Struct({name: Schema.String, message: Schema.String});
+export class CloudTrailDetails extends Schema.Class<CloudTrailDetails>("CloudTrailDetails")({trails: TrailList, accessRole: Schema.String, startTime: Schema.Date, endTime: Schema.optional(Schema.Date)}) {}
+export class ValidationExceptionField extends Schema.Class<ValidationExceptionField>("ValidationExceptionField")({name: Schema.String, message: Schema.String}) {}
 export const ValidationExceptionFieldList = Schema.Array(ValidationExceptionField);
-export const EbsSnapshotConfiguration = Schema.Struct({userIds: Schema.optional(EbsUserIdList), groups: Schema.optional(EbsGroupList), kmsKeyId: Schema.optional(Schema.String)});
-export const EcrRepositoryConfiguration = Schema.Struct({repositoryPolicy: Schema.optional(Schema.String)});
-export const IamRoleConfiguration = Schema.Struct({trustPolicy: Schema.optional(Schema.String)});
-export const EfsFileSystemConfiguration = Schema.Struct({fileSystemPolicy: Schema.optional(Schema.String)});
-export const SecretsManagerSecretConfiguration = Schema.Struct({kmsKeyId: Schema.optional(Schema.String), secretPolicy: Schema.optional(Schema.String)});
-export const SnsTopicConfiguration = Schema.Struct({topicPolicy: Schema.optional(Schema.String)});
-export const SqsQueueConfiguration = Schema.Struct({queuePolicy: Schema.optional(Schema.String)});
-export const DynamodbStreamConfiguration = Schema.Struct({streamPolicy: Schema.optional(Schema.String)});
-export const DynamodbTableConfiguration = Schema.Struct({tablePolicy: Schema.optional(Schema.String)});
-export const CheckAccessNotGrantedResponse = Schema.Struct({result: Schema.optional(Schema.String), message: Schema.optional(Schema.String), reasons: Schema.optional(ReasonSummaryList)});
-export const CheckNoNewAccessResponse = Schema.Struct({result: Schema.optional(Schema.String), message: Schema.optional(Schema.String), reasons: Schema.optional(ReasonSummaryList)});
-export const InvalidParameterException = Schema.Struct({message: Schema.String});
+export class EbsSnapshotConfiguration extends Schema.Class<EbsSnapshotConfiguration>("EbsSnapshotConfiguration")({userIds: Schema.optional(EbsUserIdList), groups: Schema.optional(EbsGroupList), kmsKeyId: Schema.optional(Schema.String)}) {}
+export class EcrRepositoryConfiguration extends Schema.Class<EcrRepositoryConfiguration>("EcrRepositoryConfiguration")({repositoryPolicy: Schema.optional(Schema.String)}) {}
+export class IamRoleConfiguration extends Schema.Class<IamRoleConfiguration>("IamRoleConfiguration")({trustPolicy: Schema.optional(Schema.String)}) {}
+export class EfsFileSystemConfiguration extends Schema.Class<EfsFileSystemConfiguration>("EfsFileSystemConfiguration")({fileSystemPolicy: Schema.optional(Schema.String)}) {}
+export class SecretsManagerSecretConfiguration extends Schema.Class<SecretsManagerSecretConfiguration>("SecretsManagerSecretConfiguration")({kmsKeyId: Schema.optional(Schema.String), secretPolicy: Schema.optional(Schema.String)}) {}
+export class SnsTopicConfiguration extends Schema.Class<SnsTopicConfiguration>("SnsTopicConfiguration")({topicPolicy: Schema.optional(Schema.String)}) {}
+export class SqsQueueConfiguration extends Schema.Class<SqsQueueConfiguration>("SqsQueueConfiguration")({queuePolicy: Schema.optional(Schema.String)}) {}
+export class DynamodbStreamConfiguration extends Schema.Class<DynamodbStreamConfiguration>("DynamodbStreamConfiguration")({streamPolicy: Schema.optional(Schema.String)}) {}
+export class DynamodbTableConfiguration extends Schema.Class<DynamodbTableConfiguration>("DynamodbTableConfiguration")({tablePolicy: Schema.optional(Schema.String)}) {}
+export class CheckAccessNotGrantedResponse extends Schema.Class<CheckAccessNotGrantedResponse>("CheckAccessNotGrantedResponse")({result: Schema.optional(Schema.String), message: Schema.optional(Schema.String), reasons: Schema.optional(ReasonSummaryList)}) {}
+export class CheckNoNewAccessResponse extends Schema.Class<CheckNoNewAccessResponse>("CheckNoNewAccessResponse")({result: Schema.optional(Schema.String), message: Schema.optional(Schema.String), reasons: Schema.optional(ReasonSummaryList)}) {}
+export class InvalidParameterException extends Schema.Class<InvalidParameterException>("InvalidParameterException")({message: Schema.String}) {}
 export const KmsGrantOperationsList = Schema.Array(Schema.String);
-export const GetAnalyzedResourceResponse = Schema.Struct({resource: Schema.optional(AnalyzedResource)});
-export const ListAccessPreviewFindingsRequest = Schema.Struct({accessPreviewId: Schema.String, analyzerArn: Schema.String, filter: Schema.optional(FilterCriteriaMap), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListAccessPreviewsResponse = Schema.Struct({accessPreviews: AccessPreviewsList, nextToken: Schema.optional(Schema.String)});
-export const ListAnalyzedResourcesResponse = Schema.Struct({analyzedResources: AnalyzedResourcesList, nextToken: Schema.optional(Schema.String)});
-export const ListFindingsV2Response = Schema.Struct({findings: FindingsListV2, nextToken: Schema.optional(Schema.String)});
-export const ListPolicyGenerationsResponse = Schema.Struct({policyGenerations: PolicyGenerationList, nextToken: Schema.optional(Schema.String)});
-export const StartPolicyGenerationRequest = Schema.Struct({policyGenerationDetails: PolicyGenerationDetails, cloudTrailDetails: Schema.optional(CloudTrailDetails), clientToken: Schema.optional(Schema.String)});
-export const ValidationException = Schema.Struct({message: Schema.String, reason: Schema.String, fieldList: Schema.optional(ValidationExceptionFieldList)});
+export class GetAnalyzedResourceResponse extends Schema.Class<GetAnalyzedResourceResponse>("GetAnalyzedResourceResponse")({resource: Schema.optional(AnalyzedResource)}) {}
+export class ListAccessPreviewFindingsRequest extends Schema.Class<ListAccessPreviewFindingsRequest>("ListAccessPreviewFindingsRequest")({accessPreviewId: Schema.String, analyzerArn: Schema.String, filter: Schema.optional(FilterCriteriaMap), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListAccessPreviewsResponse extends Schema.Class<ListAccessPreviewsResponse>("ListAccessPreviewsResponse")({accessPreviews: AccessPreviewsList, nextToken: Schema.optional(Schema.String)}) {}
+export class ListAnalyzedResourcesResponse extends Schema.Class<ListAnalyzedResourcesResponse>("ListAnalyzedResourcesResponse")({analyzedResources: AnalyzedResourcesList, nextToken: Schema.optional(Schema.String)}) {}
+export class ListFindingsV2Response extends Schema.Class<ListFindingsV2Response>("ListFindingsV2Response")({findings: FindingsListV2, nextToken: Schema.optional(Schema.String)}) {}
+export class ListPolicyGenerationsResponse extends Schema.Class<ListPolicyGenerationsResponse>("ListPolicyGenerationsResponse")({policyGenerations: PolicyGenerationList, nextToken: Schema.optional(Schema.String)}) {}
+export class StartPolicyGenerationRequest extends Schema.Class<StartPolicyGenerationRequest>("StartPolicyGenerationRequest")({policyGenerationDetails: PolicyGenerationDetails, cloudTrailDetails: Schema.optional(CloudTrailDetails), clientToken: Schema.optional(Schema.String)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({message: Schema.String, reason: Schema.String, fieldList: Schema.optional(ValidationExceptionFieldList)}) {}
 export const PrincipalMap = Schema.Record({key: Schema.String, value: Schema.String});
 export const ConditionKeyMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const UnusedPermissionsRecommendedStep = Schema.Struct({policyUpdatedAt: Schema.optional(Schema.Date), recommendedAction: Schema.String, recommendedPolicy: Schema.optional(Schema.String), existingPolicyId: Schema.optional(Schema.String)});
-export const FindingSourceDetail = Schema.Struct({accessPointArn: Schema.optional(Schema.String), accessPointAccount: Schema.optional(Schema.String)});
-export const FindingSource = Schema.Struct({type: Schema.String, detail: Schema.optional(FindingSourceDetail)});
+export class UnusedPermissionsRecommendedStep extends Schema.Class<UnusedPermissionsRecommendedStep>("UnusedPermissionsRecommendedStep")({policyUpdatedAt: Schema.optional(Schema.Date), recommendedAction: Schema.String, recommendedPolicy: Schema.optional(Schema.String), existingPolicyId: Schema.optional(Schema.String)}) {}
+export class FindingSourceDetail extends Schema.Class<FindingSourceDetail>("FindingSourceDetail")({accessPointArn: Schema.optional(Schema.String), accessPointAccount: Schema.optional(Schema.String)}) {}
+export class FindingSource extends Schema.Class<FindingSource>("FindingSource")({type: Schema.String, detail: Schema.optional(FindingSourceDetail)}) {}
 export const FindingSourceList = Schema.Array(FindingSource);
-export const InternalAccessDetails = Schema.Struct({action: Schema.optional(ActionList), condition: Schema.optional(ConditionKeyMap), principal: Schema.optional(PrincipalMap), principalOwnerAccount: Schema.optional(Schema.String), accessType: Schema.optional(Schema.String), principalType: Schema.optional(Schema.String), sources: Schema.optional(FindingSourceList), resourceControlPolicyRestriction: Schema.optional(Schema.String), serviceControlPolicyRestriction: Schema.optional(Schema.String)});
-export const ExternalAccessDetails = Schema.Struct({action: Schema.optional(ActionList), condition: ConditionKeyMap, isPublic: Schema.optional(Schema.Boolean), principal: Schema.optional(PrincipalMap), sources: Schema.optional(FindingSourceList), resourceControlPolicyRestriction: Schema.optional(Schema.String)});
-export const UnusedIamUserAccessKeyDetails = Schema.Struct({accessKeyId: Schema.String, lastAccessed: Schema.optional(Schema.Date)});
-export const UnusedIamRoleDetails = Schema.Struct({lastAccessed: Schema.optional(Schema.Date)});
-export const UnusedIamUserPasswordDetails = Schema.Struct({lastAccessed: Schema.optional(Schema.Date)});
-export const JobError = Schema.Struct({code: Schema.String, message: Schema.String});
-export const GeneratedPolicy = Schema.Struct({policy: Schema.String});
+export class InternalAccessDetails extends Schema.Class<InternalAccessDetails>("InternalAccessDetails")({action: Schema.optional(ActionList), condition: Schema.optional(ConditionKeyMap), principal: Schema.optional(PrincipalMap), principalOwnerAccount: Schema.optional(Schema.String), accessType: Schema.optional(Schema.String), principalType: Schema.optional(Schema.String), sources: Schema.optional(FindingSourceList), resourceControlPolicyRestriction: Schema.optional(Schema.String), serviceControlPolicyRestriction: Schema.optional(Schema.String)}) {}
+export class ExternalAccessDetails extends Schema.Class<ExternalAccessDetails>("ExternalAccessDetails")({action: Schema.optional(ActionList), condition: ConditionKeyMap, isPublic: Schema.optional(Schema.Boolean), principal: Schema.optional(PrincipalMap), sources: Schema.optional(FindingSourceList), resourceControlPolicyRestriction: Schema.optional(Schema.String)}) {}
+export class UnusedIamUserAccessKeyDetails extends Schema.Class<UnusedIamUserAccessKeyDetails>("UnusedIamUserAccessKeyDetails")({accessKeyId: Schema.String, lastAccessed: Schema.optional(Schema.Date)}) {}
+export class UnusedIamRoleDetails extends Schema.Class<UnusedIamRoleDetails>("UnusedIamRoleDetails")({lastAccessed: Schema.optional(Schema.Date)}) {}
+export class UnusedIamUserPasswordDetails extends Schema.Class<UnusedIamUserPasswordDetails>("UnusedIamUserPasswordDetails")({lastAccessed: Schema.optional(Schema.Date)}) {}
+export class JobError extends Schema.Class<JobError>("JobError")({code: Schema.String, message: Schema.String}) {}
+export class GeneratedPolicy extends Schema.Class<GeneratedPolicy>("GeneratedPolicy")({policy: Schema.String}) {}
 export const GeneratedPolicyList = Schema.Array(GeneratedPolicy);
 export const KmsKeyPoliciesMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const S3PublicAccessBlockConfiguration = Schema.Struct({ignorePublicAcls: Schema.Boolean, restrictPublicBuckets: Schema.Boolean});
+export class S3PublicAccessBlockConfiguration extends Schema.Class<S3PublicAccessBlockConfiguration>("S3PublicAccessBlockConfiguration")({ignorePublicAcls: Schema.Boolean, restrictPublicBuckets: Schema.Boolean}) {}
 export const RdsDbClusterSnapshotAccountIdsList = Schema.Array(Schema.String);
 export const RdsDbSnapshotAccountIdsList = Schema.Array(Schema.String);
 export const KmsConstraintsMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const KmsGrantConstraints = Schema.Struct({encryptionContextEquals: Schema.optional(KmsConstraintsMap), encryptionContextSubset: Schema.optional(KmsConstraintsMap)});
-export const KmsGrantConfiguration = Schema.Struct({operations: KmsGrantOperationsList, granteePrincipal: Schema.String, retiringPrincipal: Schema.optional(Schema.String), constraints: Schema.optional(KmsGrantConstraints), issuingAccount: Schema.String});
+export class KmsGrantConstraints extends Schema.Class<KmsGrantConstraints>("KmsGrantConstraints")({encryptionContextEquals: Schema.optional(KmsConstraintsMap), encryptionContextSubset: Schema.optional(KmsConstraintsMap)}) {}
+export class KmsGrantConfiguration extends Schema.Class<KmsGrantConfiguration>("KmsGrantConfiguration")({operations: KmsGrantOperationsList, granteePrincipal: Schema.String, retiringPrincipal: Schema.optional(Schema.String), constraints: Schema.optional(KmsGrantConstraints), issuingAccount: Schema.String}) {}
 export const KmsGrantConfigurationsList = Schema.Array(KmsGrantConfiguration);
-export const KmsKeyConfiguration = Schema.Struct({keyPolicies: Schema.optional(KmsKeyPoliciesMap), grants: Schema.optional(KmsGrantConfigurationsList)});
+export class KmsKeyConfiguration extends Schema.Class<KmsKeyConfiguration>("KmsKeyConfiguration")({keyPolicies: Schema.optional(KmsKeyPoliciesMap), grants: Schema.optional(KmsGrantConfigurationsList)}) {}
 export const RdsDbClusterSnapshotAttributeValue = Schema.Union(RdsDbClusterSnapshotAccountIdsList);
 export const RdsDbClusterSnapshotAttributesMap = Schema.Record({key: Schema.String, value: RdsDbClusterSnapshotAttributeValue});
-export const RdsDbClusterSnapshotConfiguration = Schema.Struct({attributes: Schema.optional(RdsDbClusterSnapshotAttributesMap), kmsKeyId: Schema.optional(Schema.String)});
+export class RdsDbClusterSnapshotConfiguration extends Schema.Class<RdsDbClusterSnapshotConfiguration>("RdsDbClusterSnapshotConfiguration")({attributes: Schema.optional(RdsDbClusterSnapshotAttributesMap), kmsKeyId: Schema.optional(Schema.String)}) {}
 export const RdsDbSnapshotAttributeValue = Schema.Union(RdsDbSnapshotAccountIdsList);
 export const RdsDbSnapshotAttributesMap = Schema.Record({key: Schema.String, value: RdsDbSnapshotAttributeValue});
-export const RdsDbSnapshotConfiguration = Schema.Struct({attributes: Schema.optional(RdsDbSnapshotAttributesMap), kmsKeyId: Schema.optional(Schema.String)});
+export class RdsDbSnapshotConfiguration extends Schema.Class<RdsDbSnapshotConfiguration>("RdsDbSnapshotConfiguration")({attributes: Schema.optional(RdsDbSnapshotAttributesMap), kmsKeyId: Schema.optional(Schema.String)}) {}
 export const AclGrantee = Schema.Union(Schema.String, Schema.String);
-export const S3BucketAclGrantConfiguration = Schema.Struct({permission: Schema.String, grantee: AclGrantee});
+export class S3BucketAclGrantConfiguration extends Schema.Class<S3BucketAclGrantConfiguration>("S3BucketAclGrantConfiguration")({permission: Schema.String, grantee: AclGrantee}) {}
 export const S3BucketAclGrantConfigurationsList = Schema.Array(S3BucketAclGrantConfiguration);
-export const VpcConfiguration = Schema.Struct({vpcId: Schema.String});
-export const InternetConfiguration = Schema.Struct({});
+export class VpcConfiguration extends Schema.Class<VpcConfiguration>("VpcConfiguration")({vpcId: Schema.String}) {}
+export class InternetConfiguration extends Schema.Class<InternetConfiguration>("InternetConfiguration")({}) {}
 export const NetworkOriginConfiguration = Schema.Union(VpcConfiguration, InternetConfiguration);
-export const S3AccessPointConfiguration = Schema.Struct({accessPointPolicy: Schema.optional(Schema.String), publicAccessBlock: Schema.optional(S3PublicAccessBlockConfiguration), networkOrigin: Schema.optional(NetworkOriginConfiguration)});
+export class S3AccessPointConfiguration extends Schema.Class<S3AccessPointConfiguration>("S3AccessPointConfiguration")({accessPointPolicy: Schema.optional(Schema.String), publicAccessBlock: Schema.optional(S3PublicAccessBlockConfiguration), networkOrigin: Schema.optional(NetworkOriginConfiguration)}) {}
 export const S3AccessPointConfigurationsMap = Schema.Record({key: Schema.String, value: S3AccessPointConfiguration});
-export const S3BucketConfiguration = Schema.Struct({bucketPolicy: Schema.optional(Schema.String), bucketAclGrants: Schema.optional(S3BucketAclGrantConfigurationsList), bucketPublicAccessBlock: Schema.optional(S3PublicAccessBlockConfiguration), accessPoints: Schema.optional(S3AccessPointConfigurationsMap)});
-export const S3ExpressDirectoryAccessPointConfiguration = Schema.Struct({accessPointPolicy: Schema.optional(Schema.String), networkOrigin: Schema.optional(NetworkOriginConfiguration)});
+export class S3BucketConfiguration extends Schema.Class<S3BucketConfiguration>("S3BucketConfiguration")({bucketPolicy: Schema.optional(Schema.String), bucketAclGrants: Schema.optional(S3BucketAclGrantConfigurationsList), bucketPublicAccessBlock: Schema.optional(S3PublicAccessBlockConfiguration), accessPoints: Schema.optional(S3AccessPointConfigurationsMap)}) {}
+export class S3ExpressDirectoryAccessPointConfiguration extends Schema.Class<S3ExpressDirectoryAccessPointConfiguration>("S3ExpressDirectoryAccessPointConfiguration")({accessPointPolicy: Schema.optional(Schema.String), networkOrigin: Schema.optional(NetworkOriginConfiguration)}) {}
 export const S3ExpressDirectoryAccessPointConfigurationsMap = Schema.Record({key: Schema.String, value: S3ExpressDirectoryAccessPointConfiguration});
-export const S3ExpressDirectoryBucketConfiguration = Schema.Struct({bucketPolicy: Schema.optional(Schema.String), accessPoints: Schema.optional(S3ExpressDirectoryAccessPointConfigurationsMap)});
+export class S3ExpressDirectoryBucketConfiguration extends Schema.Class<S3ExpressDirectoryBucketConfiguration>("S3ExpressDirectoryBucketConfiguration")({bucketPolicy: Schema.optional(Schema.String), accessPoints: Schema.optional(S3ExpressDirectoryAccessPointConfigurationsMap)}) {}
 export const Configuration = Schema.Union(EbsSnapshotConfiguration, EcrRepositoryConfiguration, IamRoleConfiguration, EfsFileSystemConfiguration, KmsKeyConfiguration, RdsDbClusterSnapshotConfiguration, RdsDbSnapshotConfiguration, SecretsManagerSecretConfiguration, S3BucketConfiguration, SnsTopicConfiguration, SqsQueueConfiguration, S3ExpressDirectoryBucketConfiguration, DynamodbStreamConfiguration, DynamodbTableConfiguration);
 export const ConfigurationsMap = Schema.Record({key: Schema.String, value: Configuration});
-export const AccessPreview = Schema.Struct({id: Schema.String, analyzerArn: Schema.String, configurations: ConfigurationsMap, createdAt: Schema.Date, status: Schema.String, statusReason: Schema.optional(AccessPreviewStatusReason)});
+export class AccessPreview extends Schema.Class<AccessPreview>("AccessPreview")({id: Schema.String, analyzerArn: Schema.String, configurations: ConfigurationsMap, createdAt: Schema.Date, status: Schema.String, statusReason: Schema.optional(AccessPreviewStatusReason)}) {}
 export const RecommendedStep = Schema.Union(UnusedPermissionsRecommendedStep);
 export const RecommendedStepList = Schema.Array(RecommendedStep);
-export const JobDetails = Schema.Struct({jobId: Schema.String, status: Schema.String, startedOn: Schema.Date, completedOn: Schema.optional(Schema.Date), jobError: Schema.optional(JobError)});
-export const FindingSummary = Schema.Struct({id: Schema.String, principal: Schema.optional(PrincipalMap), action: Schema.optional(ActionList), resource: Schema.optional(Schema.String), isPublic: Schema.optional(Schema.Boolean), resourceType: Schema.String, condition: ConditionKeyMap, createdAt: Schema.Date, analyzedAt: Schema.Date, updatedAt: Schema.Date, status: Schema.String, resourceOwnerAccount: Schema.String, error: Schema.optional(Schema.String), sources: Schema.optional(FindingSourceList), resourceControlPolicyRestriction: Schema.optional(Schema.String)});
+export class JobDetails extends Schema.Class<JobDetails>("JobDetails")({jobId: Schema.String, status: Schema.String, startedOn: Schema.Date, completedOn: Schema.optional(Schema.Date), jobError: Schema.optional(JobError)}) {}
+export class FindingSummary extends Schema.Class<FindingSummary>("FindingSummary")({id: Schema.String, principal: Schema.optional(PrincipalMap), action: Schema.optional(ActionList), resource: Schema.optional(Schema.String), isPublic: Schema.optional(Schema.Boolean), resourceType: Schema.String, condition: ConditionKeyMap, createdAt: Schema.Date, analyzedAt: Schema.Date, updatedAt: Schema.Date, status: Schema.String, resourceOwnerAccount: Schema.String, error: Schema.optional(Schema.String), sources: Schema.optional(FindingSourceList), resourceControlPolicyRestriction: Schema.optional(Schema.String)}) {}
 export const FindingsList = Schema.Array(FindingSummary);
-export const UnusedAccessTypeStatistics = Schema.Struct({unusedAccessType: Schema.optional(Schema.String), total: Schema.optional(Schema.Number)});
+export class UnusedAccessTypeStatistics extends Schema.Class<UnusedAccessTypeStatistics>("UnusedAccessTypeStatistics")({unusedAccessType: Schema.optional(Schema.String), total: Schema.optional(Schema.Number)}) {}
 export const UnusedAccessTypeStatisticsList = Schema.Array(UnusedAccessTypeStatistics);
-export const UnusedAction = Schema.Struct({action: Schema.String, lastAccessed: Schema.optional(Schema.Date)});
+export class UnusedAction extends Schema.Class<UnusedAction>("UnusedAction")({action: Schema.String, lastAccessed: Schema.optional(Schema.Date)}) {}
 export const UnusedActionList = Schema.Array(UnusedAction);
-export const UnprocessableEntityException = Schema.Struct({message: Schema.String});
-export const GetAccessPreviewResponse = Schema.Struct({accessPreview: AccessPreview});
-export const GetFindingRecommendationResponse = Schema.Struct({startedAt: Schema.Date, completedAt: Schema.optional(Schema.Date), nextToken: Schema.optional(Schema.String), error: Schema.optional(RecommendationError), resourceArn: Schema.String, recommendedSteps: Schema.optional(RecommendedStepList), recommendationType: Schema.String, status: Schema.String});
-export const ListFindingsResponse = Schema.Struct({findings: FindingsList, nextToken: Schema.optional(Schema.String)});
-export const StartPolicyGenerationResponse = Schema.Struct({jobId: Schema.String});
-export const UnusedPermissionDetails = Schema.Struct({actions: Schema.optional(UnusedActionList), serviceNamespace: Schema.String, lastAccessed: Schema.optional(Schema.Date)});
-export const ResourceTypeDetails = Schema.Struct({totalActivePublic: Schema.optional(Schema.Number), totalActiveCrossAccount: Schema.optional(Schema.Number)});
-export const InternalAccessResourceTypeDetails = Schema.Struct({totalActiveFindings: Schema.optional(Schema.Number), totalResolvedFindings: Schema.optional(Schema.Number), totalArchivedFindings: Schema.optional(Schema.Number)});
+export class UnprocessableEntityException extends Schema.Class<UnprocessableEntityException>("UnprocessableEntityException")({message: Schema.String}) {}
+export class GetAccessPreviewResponse extends Schema.Class<GetAccessPreviewResponse>("GetAccessPreviewResponse")({accessPreview: AccessPreview}) {}
+export class GetFindingRecommendationResponse extends Schema.Class<GetFindingRecommendationResponse>("GetFindingRecommendationResponse")({startedAt: Schema.Date, completedAt: Schema.optional(Schema.Date), nextToken: Schema.optional(Schema.String), error: Schema.optional(RecommendationError), resourceArn: Schema.String, recommendedSteps: Schema.optional(RecommendedStepList), recommendationType: Schema.String, status: Schema.String}) {}
+export class ListFindingsResponse extends Schema.Class<ListFindingsResponse>("ListFindingsResponse")({findings: FindingsList, nextToken: Schema.optional(Schema.String)}) {}
+export class StartPolicyGenerationResponse extends Schema.Class<StartPolicyGenerationResponse>("StartPolicyGenerationResponse")({jobId: Schema.String}) {}
+export class UnusedPermissionDetails extends Schema.Class<UnusedPermissionDetails>("UnusedPermissionDetails")({actions: Schema.optional(UnusedActionList), serviceNamespace: Schema.String, lastAccessed: Schema.optional(Schema.Date)}) {}
+export class ResourceTypeDetails extends Schema.Class<ResourceTypeDetails>("ResourceTypeDetails")({totalActivePublic: Schema.optional(Schema.Number), totalActiveCrossAccount: Schema.optional(Schema.Number), totalActiveErrors: Schema.optional(Schema.Number)}) {}
+export class InternalAccessResourceTypeDetails extends Schema.Class<InternalAccessResourceTypeDetails>("InternalAccessResourceTypeDetails")({totalActiveFindings: Schema.optional(Schema.Number), totalResolvedFindings: Schema.optional(Schema.Number), totalArchivedFindings: Schema.optional(Schema.Number)}) {}
 export const FindingAggregationAccountDetailsMap = Schema.Record({key: Schema.String, value: Schema.Number});
-export const TrailProperties = Schema.Struct({cloudTrailArn: Schema.String, regions: Schema.optional(RegionList), allRegions: Schema.optional(Schema.Boolean)});
+export class TrailProperties extends Schema.Class<TrailProperties>("TrailProperties")({cloudTrailArn: Schema.String, regions: Schema.optional(RegionList), allRegions: Schema.optional(Schema.Boolean)}) {}
 export const TrailPropertiesList = Schema.Array(TrailProperties);
-export const Substring = Schema.Struct({start: Schema.Number, length: Schema.Number});
-export const Position = Schema.Struct({line: Schema.Number, column: Schema.Number, offset: Schema.Number});
-export const Finding = Schema.Struct({id: Schema.String, principal: Schema.optional(PrincipalMap), action: Schema.optional(ActionList), resource: Schema.optional(Schema.String), isPublic: Schema.optional(Schema.Boolean), resourceType: Schema.String, condition: ConditionKeyMap, createdAt: Schema.Date, analyzedAt: Schema.Date, updatedAt: Schema.Date, status: Schema.String, resourceOwnerAccount: Schema.String, error: Schema.optional(Schema.String), sources: Schema.optional(FindingSourceList), resourceControlPolicyRestriction: Schema.optional(Schema.String)});
+export class Substring extends Schema.Class<Substring>("Substring")({start: Schema.Number, length: Schema.Number}) {}
+export class Position extends Schema.Class<Position>("Position")({line: Schema.Number, column: Schema.Number, offset: Schema.Number}) {}
+export class Finding extends Schema.Class<Finding>("Finding")({id: Schema.String, principal: Schema.optional(PrincipalMap), action: Schema.optional(ActionList), resource: Schema.optional(Schema.String), isPublic: Schema.optional(Schema.Boolean), resourceType: Schema.String, condition: ConditionKeyMap, createdAt: Schema.Date, analyzedAt: Schema.Date, updatedAt: Schema.Date, status: Schema.String, resourceOwnerAccount: Schema.String, error: Schema.optional(Schema.String), sources: Schema.optional(FindingSourceList), resourceControlPolicyRestriction: Schema.optional(Schema.String)}) {}
 export const FindingDetails = Schema.Union(InternalAccessDetails, ExternalAccessDetails, UnusedPermissionDetails, UnusedIamUserAccessKeyDetails, UnusedIamRoleDetails, UnusedIamUserPasswordDetails);
 export const FindingDetailsList = Schema.Array(FindingDetails);
-export const AccessPreviewFinding = Schema.Struct({id: Schema.String, existingFindingId: Schema.optional(Schema.String), existingFindingStatus: Schema.optional(Schema.String), principal: Schema.optional(PrincipalMap), action: Schema.optional(ActionList), condition: Schema.optional(ConditionKeyMap), resource: Schema.optional(Schema.String), isPublic: Schema.optional(Schema.Boolean), resourceType: Schema.String, createdAt: Schema.Date, changeType: Schema.String, status: Schema.String, resourceOwnerAccount: Schema.String, error: Schema.optional(Schema.String), sources: Schema.optional(FindingSourceList), resourceControlPolicyRestriction: Schema.optional(Schema.String)});
+export class AccessPreviewFinding extends Schema.Class<AccessPreviewFinding>("AccessPreviewFinding")({id: Schema.String, existingFindingId: Schema.optional(Schema.String), existingFindingStatus: Schema.optional(Schema.String), principal: Schema.optional(PrincipalMap), action: Schema.optional(ActionList), condition: Schema.optional(ConditionKeyMap), resource: Schema.optional(Schema.String), isPublic: Schema.optional(Schema.Boolean), resourceType: Schema.String, createdAt: Schema.Date, changeType: Schema.String, status: Schema.String, resourceOwnerAccount: Schema.String, error: Schema.optional(Schema.String), sources: Schema.optional(FindingSourceList), resourceControlPolicyRestriction: Schema.optional(Schema.String)}) {}
 export const AccessPreviewFindingsList = Schema.Array(AccessPreviewFinding);
 export const ResourceTypeStatisticsMap = Schema.Record({key: Schema.String, value: ResourceTypeDetails});
 export const InternalAccessResourceTypeStatisticsMap = Schema.Record({key: Schema.String, value: InternalAccessResourceTypeDetails});
-export const FindingAggregationAccountDetails = Schema.Struct({account: Schema.optional(Schema.String), numberOfActiveFindings: Schema.optional(Schema.Number), details: Schema.optional(FindingAggregationAccountDetailsMap)});
+export class FindingAggregationAccountDetails extends Schema.Class<FindingAggregationAccountDetails>("FindingAggregationAccountDetails")({account: Schema.optional(Schema.String), numberOfActiveFindings: Schema.optional(Schema.Number), details: Schema.optional(FindingAggregationAccountDetailsMap)}) {}
 export const AccountAggregations = Schema.Array(FindingAggregationAccountDetails);
-export const CloudTrailProperties = Schema.Struct({trailProperties: TrailPropertiesList, startTime: Schema.Date, endTime: Schema.Date});
+export class CloudTrailProperties extends Schema.Class<CloudTrailProperties>("CloudTrailProperties")({trailProperties: TrailPropertiesList, startTime: Schema.Date, endTime: Schema.Date}) {}
 export const PathElement = Schema.Union(Schema.Number, Schema.String, Substring, Schema.String);
 export const PathElementList = Schema.Array(PathElement);
-export const Span = Schema.Struct({start: Position, end: Position});
-export const GetFindingResponse = Schema.Struct({finding: Schema.optional(Finding)});
-export const GetFindingV2Response = Schema.Struct({analyzedAt: Schema.Date, createdAt: Schema.Date, error: Schema.optional(Schema.String), id: Schema.String, nextToken: Schema.optional(Schema.String), resource: Schema.optional(Schema.String), resourceType: Schema.String, resourceOwnerAccount: Schema.String, status: Schema.String, updatedAt: Schema.Date, findingDetails: FindingDetailsList, findingType: Schema.optional(Schema.String)});
-export const ListAccessPreviewFindingsResponse = Schema.Struct({findings: AccessPreviewFindingsList, nextToken: Schema.optional(Schema.String)});
-export const ConflictException = Schema.Struct({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String});
-export const ExternalAccessFindingsStatistics = Schema.Struct({resourceTypeStatistics: Schema.optional(ResourceTypeStatisticsMap), totalActiveFindings: Schema.optional(Schema.Number), totalArchivedFindings: Schema.optional(Schema.Number), totalResolvedFindings: Schema.optional(Schema.Number)});
-export const InternalAccessFindingsStatistics = Schema.Struct({resourceTypeStatistics: Schema.optional(InternalAccessResourceTypeStatisticsMap), totalActiveFindings: Schema.optional(Schema.Number), totalArchivedFindings: Schema.optional(Schema.Number), totalResolvedFindings: Schema.optional(Schema.Number)});
-export const UnusedAccessFindingsStatistics = Schema.Struct({unusedAccessTypeStatistics: Schema.optional(UnusedAccessTypeStatisticsList), topAccounts: Schema.optional(AccountAggregations), totalActiveFindings: Schema.optional(Schema.Number), totalArchivedFindings: Schema.optional(Schema.Number), totalResolvedFindings: Schema.optional(Schema.Number)});
-export const GeneratedPolicyProperties = Schema.Struct({isComplete: Schema.optional(Schema.Boolean), principalArn: Schema.String, cloudTrailProperties: Schema.optional(CloudTrailProperties)});
-export const Location = Schema.Struct({path: PathElementList, span: Span});
+export class Span extends Schema.Class<Span>("Span")({start: Position, end: Position}) {}
+export class GetFindingResponse extends Schema.Class<GetFindingResponse>("GetFindingResponse")({finding: Schema.optional(Finding)}) {}
+export class GetFindingV2Response extends Schema.Class<GetFindingV2Response>("GetFindingV2Response")({analyzedAt: Schema.Date, createdAt: Schema.Date, error: Schema.optional(Schema.String), id: Schema.String, nextToken: Schema.optional(Schema.String), resource: Schema.optional(Schema.String), resourceType: Schema.String, resourceOwnerAccount: Schema.String, status: Schema.String, updatedAt: Schema.Date, findingDetails: FindingDetailsList, findingType: Schema.optional(Schema.String)}) {}
+export class ListAccessPreviewFindingsResponse extends Schema.Class<ListAccessPreviewFindingsResponse>("ListAccessPreviewFindingsResponse")({findings: AccessPreviewFindingsList, nextToken: Schema.optional(Schema.String)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String}) {}
+export class ExternalAccessFindingsStatistics extends Schema.Class<ExternalAccessFindingsStatistics>("ExternalAccessFindingsStatistics")({resourceTypeStatistics: Schema.optional(ResourceTypeStatisticsMap), totalActiveFindings: Schema.optional(Schema.Number), totalArchivedFindings: Schema.optional(Schema.Number), totalResolvedFindings: Schema.optional(Schema.Number)}) {}
+export class InternalAccessFindingsStatistics extends Schema.Class<InternalAccessFindingsStatistics>("InternalAccessFindingsStatistics")({resourceTypeStatistics: Schema.optional(InternalAccessResourceTypeStatisticsMap), totalActiveFindings: Schema.optional(Schema.Number), totalArchivedFindings: Schema.optional(Schema.Number), totalResolvedFindings: Schema.optional(Schema.Number)}) {}
+export class UnusedAccessFindingsStatistics extends Schema.Class<UnusedAccessFindingsStatistics>("UnusedAccessFindingsStatistics")({unusedAccessTypeStatistics: Schema.optional(UnusedAccessTypeStatisticsList), topAccounts: Schema.optional(AccountAggregations), totalActiveFindings: Schema.optional(Schema.Number), totalArchivedFindings: Schema.optional(Schema.Number), totalResolvedFindings: Schema.optional(Schema.Number)}) {}
+export class GeneratedPolicyProperties extends Schema.Class<GeneratedPolicyProperties>("GeneratedPolicyProperties")({isComplete: Schema.optional(Schema.Boolean), principalArn: Schema.String, cloudTrailProperties: Schema.optional(CloudTrailProperties)}) {}
+export class Location extends Schema.Class<Location>("Location")({path: PathElementList, span: Span}) {}
 export const LocationList = Schema.Array(Location);
 export const FindingsStatistics = Schema.Union(ExternalAccessFindingsStatistics, InternalAccessFindingsStatistics, UnusedAccessFindingsStatistics);
 export const FindingsStatisticsList = Schema.Array(FindingsStatistics);
-export const GeneratedPolicyResult = Schema.Struct({properties: GeneratedPolicyProperties, generatedPolicies: Schema.optional(GeneratedPolicyList)});
-export const ValidatePolicyFinding = Schema.Struct({findingDetails: Schema.String, findingType: Schema.String, issueCode: Schema.String, learnMoreLink: Schema.String, locations: LocationList});
+export class GeneratedPolicyResult extends Schema.Class<GeneratedPolicyResult>("GeneratedPolicyResult")({properties: GeneratedPolicyProperties, generatedPolicies: Schema.optional(GeneratedPolicyList)}) {}
+export class ValidatePolicyFinding extends Schema.Class<ValidatePolicyFinding>("ValidatePolicyFinding")({findingDetails: Schema.String, findingType: Schema.String, issueCode: Schema.String, learnMoreLink: Schema.String, locations: LocationList}) {}
 export const ValidatePolicyFindingList = Schema.Array(ValidatePolicyFinding);
-export const GetFindingsStatisticsResponse = Schema.Struct({findingsStatistics: Schema.optional(FindingsStatisticsList), lastUpdatedAt: Schema.optional(Schema.Date)});
-export const GetGeneratedPolicyResponse = Schema.Struct({jobDetails: JobDetails, generatedPolicyResult: GeneratedPolicyResult});
-export const ServiceQuotaExceededException = Schema.Struct({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String});
-export const ValidatePolicyResponse = Schema.Struct({findings: ValidatePolicyFindingList, nextToken: Schema.optional(Schema.String)});
-export const CreateAccessPreviewRequest = Schema.Struct({analyzerArn: Schema.String, configurations: ConfigurationsMap, clientToken: Schema.optional(Schema.String)});
-export const CreateAccessPreviewResponse = Schema.Struct({id: Schema.String});
+export class GetFindingsStatisticsResponse extends Schema.Class<GetFindingsStatisticsResponse>("GetFindingsStatisticsResponse")({findingsStatistics: Schema.optional(FindingsStatisticsList), lastUpdatedAt: Schema.optional(Schema.Date)}) {}
+export class GetGeneratedPolicyResponse extends Schema.Class<GetGeneratedPolicyResponse>("GetGeneratedPolicyResponse")({jobDetails: JobDetails, generatedPolicyResult: GeneratedPolicyResult}) {}
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String}) {}
+export class ValidatePolicyResponse extends Schema.Class<ValidatePolicyResponse>("ValidatePolicyResponse")({findings: ValidatePolicyFindingList, nextToken: Schema.optional(Schema.String)}) {}
+export class CreateAccessPreviewRequest extends Schema.Class<CreateAccessPreviewRequest>("CreateAccessPreviewRequest")({analyzerArn: Schema.String, configurations: ConfigurationsMap, clientToken: Schema.optional(Schema.String)}) {}
+export class CreateAccessPreviewResponse extends Schema.Class<CreateAccessPreviewResponse>("CreateAccessPreviewResponse")({id: Schema.String}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class InvalidParameterExceptionError extends Schema.TaggedError<InvalidParameterExceptionError>()("InvalidParameterException", InvalidParameterException) {};
-export class UnprocessableEntityExceptionError extends Schema.TaggedError<UnprocessableEntityExceptionError>()("UnprocessableEntityException", UnprocessableEntityException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class InvalidParameterExceptionError extends Schema.TaggedError<InvalidParameterExceptionError>()("InvalidParameterException", InvalidParameterException.fields) {};
+export class UnprocessableEntityExceptionError extends Schema.TaggedError<UnprocessableEntityExceptionError>()("UnprocessableEntityException", UnprocessableEntityException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
 
 //# Operations
 export const updateFindings = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-11-01", uri: "/finding", method: "PUT", sdkId: "AccessAnalyzer", sigV4ServiceName: "access-analyzer", name: "AccessAnalyzer.UpdateFindings" }, UpdateFindingsRequest, Schema.Struct({}), [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

@@ -3,285 +3,288 @@ import { FormatAwsJSON11Request,FormatJSONResponse,FormatAwsRestJSONError, makeO
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const GetAccountSettingsRequest = Schema.Struct({});
+export class GetAccountSettingsRequest extends Schema.Class<GetAccountSettingsRequest>("GetAccountSettingsRequest")({}) {}
 export const PackageIds = Schema.Array(Schema.String);
 export const TagKeyList = Schema.Array(Schema.String);
 export const InstanceLabels = Schema.Array(Schema.String);
-export const CreateInstanceProfileRequest = Schema.Struct({name: Schema.String, description: Schema.optional(Schema.String), packageCleanup: Schema.optional(Schema.Boolean), excludeAppPackagesFromCleanup: Schema.optional(PackageIds), rebootAfterUse: Schema.optional(Schema.Boolean)});
-export const CreateNetworkProfileRequest = Schema.Struct({projectArn: Schema.String, name: Schema.String, description: Schema.optional(Schema.String), type: Schema.optional(Schema.String), uplinkBandwidthBits: Schema.optional(Schema.Number), downlinkBandwidthBits: Schema.optional(Schema.Number), uplinkDelayMs: Schema.optional(Schema.Number), downlinkDelayMs: Schema.optional(Schema.Number), uplinkJitterMs: Schema.optional(Schema.Number), downlinkJitterMs: Schema.optional(Schema.Number), uplinkLossPercent: Schema.optional(Schema.Number), downlinkLossPercent: Schema.optional(Schema.Number)});
-export const CreateTestGridUrlRequest = Schema.Struct({projectArn: Schema.String, expiresInSeconds: Schema.Number});
-export const CreateUploadRequest = Schema.Struct({projectArn: Schema.String, name: Schema.String, type: Schema.String, contentType: Schema.optional(Schema.String)});
-export const CreateVPCEConfigurationRequest = Schema.Struct({vpceConfigurationName: Schema.String, vpceServiceName: Schema.String, serviceDnsName: Schema.String, vpceConfigurationDescription: Schema.optional(Schema.String)});
-export const DeleteDevicePoolRequest = Schema.Struct({arn: Schema.String});
-export const DeleteDevicePoolResult = Schema.Struct({});
-export const DeleteInstanceProfileRequest = Schema.Struct({arn: Schema.String});
-export const DeleteInstanceProfileResult = Schema.Struct({});
-export const DeleteNetworkProfileRequest = Schema.Struct({arn: Schema.String});
-export const DeleteNetworkProfileResult = Schema.Struct({});
-export const DeleteProjectRequest = Schema.Struct({arn: Schema.String});
-export const DeleteProjectResult = Schema.Struct({});
-export const DeleteRemoteAccessSessionRequest = Schema.Struct({arn: Schema.String});
-export const DeleteRemoteAccessSessionResult = Schema.Struct({});
-export const DeleteRunRequest = Schema.Struct({arn: Schema.String});
-export const DeleteRunResult = Schema.Struct({});
-export const DeleteTestGridProjectRequest = Schema.Struct({projectArn: Schema.String});
-export const DeleteTestGridProjectResult = Schema.Struct({});
-export const DeleteUploadRequest = Schema.Struct({arn: Schema.String});
-export const DeleteUploadResult = Schema.Struct({});
-export const DeleteVPCEConfigurationRequest = Schema.Struct({arn: Schema.String});
-export const DeleteVPCEConfigurationResult = Schema.Struct({});
-export const GetDeviceRequest = Schema.Struct({arn: Schema.String});
-export const GetDeviceInstanceRequest = Schema.Struct({arn: Schema.String});
-export const GetDevicePoolRequest = Schema.Struct({arn: Schema.String});
-export const GetInstanceProfileRequest = Schema.Struct({arn: Schema.String});
-export const GetJobRequest = Schema.Struct({arn: Schema.String});
-export const GetNetworkProfileRequest = Schema.Struct({arn: Schema.String});
-export const GetOfferingStatusRequest = Schema.Struct({nextToken: Schema.optional(Schema.String)});
-export const GetProjectRequest = Schema.Struct({arn: Schema.String});
-export const GetRemoteAccessSessionRequest = Schema.Struct({arn: Schema.String});
-export const GetRunRequest = Schema.Struct({arn: Schema.String});
-export const GetSuiteRequest = Schema.Struct({arn: Schema.String});
-export const GetTestRequest = Schema.Struct({arn: Schema.String});
-export const GetTestGridProjectRequest = Schema.Struct({projectArn: Schema.String});
-export const GetTestGridSessionRequest = Schema.Struct({projectArn: Schema.optional(Schema.String), sessionId: Schema.optional(Schema.String), sessionArn: Schema.optional(Schema.String)});
-export const GetUploadRequest = Schema.Struct({arn: Schema.String});
-export const GetVPCEConfigurationRequest = Schema.Struct({arn: Schema.String});
-export const InstallToRemoteAccessSessionRequest = Schema.Struct({remoteAccessSessionArn: Schema.String, appArn: Schema.String});
-export const ListArtifactsRequest = Schema.Struct({arn: Schema.String, type: Schema.String, nextToken: Schema.optional(Schema.String)});
-export const ListDeviceInstancesRequest = Schema.Struct({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListDevicePoolsRequest = Schema.Struct({arn: Schema.String, type: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String)});
-export const ListInstanceProfilesRequest = Schema.Struct({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListJobsRequest = Schema.Struct({arn: Schema.String, nextToken: Schema.optional(Schema.String)});
-export const ListNetworkProfilesRequest = Schema.Struct({arn: Schema.String, type: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String)});
-export const ListOfferingPromotionsRequest = Schema.Struct({nextToken: Schema.optional(Schema.String)});
-export const ListOfferingsRequest = Schema.Struct({nextToken: Schema.optional(Schema.String)});
-export const ListOfferingTransactionsRequest = Schema.Struct({nextToken: Schema.optional(Schema.String)});
-export const ListProjectsRequest = Schema.Struct({arn: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String)});
-export const ListRemoteAccessSessionsRequest = Schema.Struct({arn: Schema.String, nextToken: Schema.optional(Schema.String)});
-export const ListRunsRequest = Schema.Struct({arn: Schema.String, nextToken: Schema.optional(Schema.String)});
-export const ListSamplesRequest = Schema.Struct({arn: Schema.String, nextToken: Schema.optional(Schema.String)});
-export const ListSuitesRequest = Schema.Struct({arn: Schema.String, nextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceRequest = Schema.Struct({ResourceARN: Schema.String});
-export const ListTestGridProjectsRequest = Schema.Struct({maxResult: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListTestGridSessionActionsRequest = Schema.Struct({sessionArn: Schema.String, maxResult: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListTestGridSessionArtifactsRequest = Schema.Struct({sessionArn: Schema.String, type: Schema.optional(Schema.String), maxResult: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListTestGridSessionsRequest = Schema.Struct({projectArn: Schema.String, status: Schema.optional(Schema.String), creationTimeAfter: Schema.optional(Schema.Date), creationTimeBefore: Schema.optional(Schema.Date), endTimeAfter: Schema.optional(Schema.Date), endTimeBefore: Schema.optional(Schema.Date), maxResult: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListTestsRequest = Schema.Struct({arn: Schema.String, nextToken: Schema.optional(Schema.String)});
-export const ListUniqueProblemsRequest = Schema.Struct({arn: Schema.String, nextToken: Schema.optional(Schema.String)});
-export const ListUploadsRequest = Schema.Struct({arn: Schema.String, type: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String)});
-export const ListVPCEConfigurationsRequest = Schema.Struct({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const PurchaseOfferingRequest = Schema.Struct({offeringId: Schema.String, quantity: Schema.Number, offeringPromotionId: Schema.optional(Schema.String)});
-export const RenewOfferingRequest = Schema.Struct({offeringId: Schema.String, quantity: Schema.Number});
-export const StopJobRequest = Schema.Struct({arn: Schema.String});
-export const StopRemoteAccessSessionRequest = Schema.Struct({arn: Schema.String});
-export const StopRunRequest = Schema.Struct({arn: Schema.String});
-export const UntagResourceRequest = Schema.Struct({ResourceARN: Schema.String, TagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
-export const UpdateDeviceInstanceRequest = Schema.Struct({arn: Schema.String, profileArn: Schema.optional(Schema.String), labels: Schema.optional(InstanceLabels)});
-export const Rule = Schema.Struct({attribute: Schema.optional(Schema.String), operator: Schema.optional(Schema.String), value: Schema.optional(Schema.String)});
+export class CreateInstanceProfileRequest extends Schema.Class<CreateInstanceProfileRequest>("CreateInstanceProfileRequest")({name: Schema.String, description: Schema.optional(Schema.String), packageCleanup: Schema.optional(Schema.Boolean), excludeAppPackagesFromCleanup: Schema.optional(PackageIds), rebootAfterUse: Schema.optional(Schema.Boolean)}) {}
+export class CreateNetworkProfileRequest extends Schema.Class<CreateNetworkProfileRequest>("CreateNetworkProfileRequest")({projectArn: Schema.String, name: Schema.String, description: Schema.optional(Schema.String), type: Schema.optional(Schema.String), uplinkBandwidthBits: Schema.optional(Schema.Number), downlinkBandwidthBits: Schema.optional(Schema.Number), uplinkDelayMs: Schema.optional(Schema.Number), downlinkDelayMs: Schema.optional(Schema.Number), uplinkJitterMs: Schema.optional(Schema.Number), downlinkJitterMs: Schema.optional(Schema.Number), uplinkLossPercent: Schema.optional(Schema.Number), downlinkLossPercent: Schema.optional(Schema.Number)}) {}
+export class CreateTestGridUrlRequest extends Schema.Class<CreateTestGridUrlRequest>("CreateTestGridUrlRequest")({projectArn: Schema.String, expiresInSeconds: Schema.Number}) {}
+export class CreateUploadRequest extends Schema.Class<CreateUploadRequest>("CreateUploadRequest")({projectArn: Schema.String, name: Schema.String, type: Schema.String, contentType: Schema.optional(Schema.String)}) {}
+export class CreateVPCEConfigurationRequest extends Schema.Class<CreateVPCEConfigurationRequest>("CreateVPCEConfigurationRequest")({vpceConfigurationName: Schema.String, vpceServiceName: Schema.String, serviceDnsName: Schema.String, vpceConfigurationDescription: Schema.optional(Schema.String)}) {}
+export class DeleteDevicePoolRequest extends Schema.Class<DeleteDevicePoolRequest>("DeleteDevicePoolRequest")({arn: Schema.String}) {}
+export class DeleteDevicePoolResult extends Schema.Class<DeleteDevicePoolResult>("DeleteDevicePoolResult")({}) {}
+export class DeleteInstanceProfileRequest extends Schema.Class<DeleteInstanceProfileRequest>("DeleteInstanceProfileRequest")({arn: Schema.String}) {}
+export class DeleteInstanceProfileResult extends Schema.Class<DeleteInstanceProfileResult>("DeleteInstanceProfileResult")({}) {}
+export class DeleteNetworkProfileRequest extends Schema.Class<DeleteNetworkProfileRequest>("DeleteNetworkProfileRequest")({arn: Schema.String}) {}
+export class DeleteNetworkProfileResult extends Schema.Class<DeleteNetworkProfileResult>("DeleteNetworkProfileResult")({}) {}
+export class DeleteProjectRequest extends Schema.Class<DeleteProjectRequest>("DeleteProjectRequest")({arn: Schema.String}) {}
+export class DeleteProjectResult extends Schema.Class<DeleteProjectResult>("DeleteProjectResult")({}) {}
+export class DeleteRemoteAccessSessionRequest extends Schema.Class<DeleteRemoteAccessSessionRequest>("DeleteRemoteAccessSessionRequest")({arn: Schema.String}) {}
+export class DeleteRemoteAccessSessionResult extends Schema.Class<DeleteRemoteAccessSessionResult>("DeleteRemoteAccessSessionResult")({}) {}
+export class DeleteRunRequest extends Schema.Class<DeleteRunRequest>("DeleteRunRequest")({arn: Schema.String}) {}
+export class DeleteRunResult extends Schema.Class<DeleteRunResult>("DeleteRunResult")({}) {}
+export class DeleteTestGridProjectRequest extends Schema.Class<DeleteTestGridProjectRequest>("DeleteTestGridProjectRequest")({projectArn: Schema.String}) {}
+export class DeleteTestGridProjectResult extends Schema.Class<DeleteTestGridProjectResult>("DeleteTestGridProjectResult")({}) {}
+export class DeleteUploadRequest extends Schema.Class<DeleteUploadRequest>("DeleteUploadRequest")({arn: Schema.String}) {}
+export class DeleteUploadResult extends Schema.Class<DeleteUploadResult>("DeleteUploadResult")({}) {}
+export class DeleteVPCEConfigurationRequest extends Schema.Class<DeleteVPCEConfigurationRequest>("DeleteVPCEConfigurationRequest")({arn: Schema.String}) {}
+export class DeleteVPCEConfigurationResult extends Schema.Class<DeleteVPCEConfigurationResult>("DeleteVPCEConfigurationResult")({}) {}
+export class GetDeviceRequest extends Schema.Class<GetDeviceRequest>("GetDeviceRequest")({arn: Schema.String}) {}
+export class GetDeviceInstanceRequest extends Schema.Class<GetDeviceInstanceRequest>("GetDeviceInstanceRequest")({arn: Schema.String}) {}
+export class GetDevicePoolRequest extends Schema.Class<GetDevicePoolRequest>("GetDevicePoolRequest")({arn: Schema.String}) {}
+export class GetInstanceProfileRequest extends Schema.Class<GetInstanceProfileRequest>("GetInstanceProfileRequest")({arn: Schema.String}) {}
+export class GetJobRequest extends Schema.Class<GetJobRequest>("GetJobRequest")({arn: Schema.String}) {}
+export class GetNetworkProfileRequest extends Schema.Class<GetNetworkProfileRequest>("GetNetworkProfileRequest")({arn: Schema.String}) {}
+export class GetOfferingStatusRequest extends Schema.Class<GetOfferingStatusRequest>("GetOfferingStatusRequest")({nextToken: Schema.optional(Schema.String)}) {}
+export class GetProjectRequest extends Schema.Class<GetProjectRequest>("GetProjectRequest")({arn: Schema.String}) {}
+export class GetRemoteAccessSessionRequest extends Schema.Class<GetRemoteAccessSessionRequest>("GetRemoteAccessSessionRequest")({arn: Schema.String}) {}
+export class GetRunRequest extends Schema.Class<GetRunRequest>("GetRunRequest")({arn: Schema.String}) {}
+export class GetSuiteRequest extends Schema.Class<GetSuiteRequest>("GetSuiteRequest")({arn: Schema.String}) {}
+export class GetTestRequest extends Schema.Class<GetTestRequest>("GetTestRequest")({arn: Schema.String}) {}
+export class GetTestGridProjectRequest extends Schema.Class<GetTestGridProjectRequest>("GetTestGridProjectRequest")({projectArn: Schema.String}) {}
+export class GetTestGridSessionRequest extends Schema.Class<GetTestGridSessionRequest>("GetTestGridSessionRequest")({projectArn: Schema.optional(Schema.String), sessionId: Schema.optional(Schema.String), sessionArn: Schema.optional(Schema.String)}) {}
+export class GetUploadRequest extends Schema.Class<GetUploadRequest>("GetUploadRequest")({arn: Schema.String}) {}
+export class GetVPCEConfigurationRequest extends Schema.Class<GetVPCEConfigurationRequest>("GetVPCEConfigurationRequest")({arn: Schema.String}) {}
+export class InstallToRemoteAccessSessionRequest extends Schema.Class<InstallToRemoteAccessSessionRequest>("InstallToRemoteAccessSessionRequest")({remoteAccessSessionArn: Schema.String, appArn: Schema.String}) {}
+export class ListArtifactsRequest extends Schema.Class<ListArtifactsRequest>("ListArtifactsRequest")({arn: Schema.String, type: Schema.String, nextToken: Schema.optional(Schema.String)}) {}
+export class ListDeviceInstancesRequest extends Schema.Class<ListDeviceInstancesRequest>("ListDeviceInstancesRequest")({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListDevicePoolsRequest extends Schema.Class<ListDevicePoolsRequest>("ListDevicePoolsRequest")({arn: Schema.String, type: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String)}) {}
+export class ListInstanceProfilesRequest extends Schema.Class<ListInstanceProfilesRequest>("ListInstanceProfilesRequest")({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListJobsRequest extends Schema.Class<ListJobsRequest>("ListJobsRequest")({arn: Schema.String, nextToken: Schema.optional(Schema.String)}) {}
+export class ListNetworkProfilesRequest extends Schema.Class<ListNetworkProfilesRequest>("ListNetworkProfilesRequest")({arn: Schema.String, type: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String)}) {}
+export class ListOfferingPromotionsRequest extends Schema.Class<ListOfferingPromotionsRequest>("ListOfferingPromotionsRequest")({nextToken: Schema.optional(Schema.String)}) {}
+export class ListOfferingsRequest extends Schema.Class<ListOfferingsRequest>("ListOfferingsRequest")({nextToken: Schema.optional(Schema.String)}) {}
+export class ListOfferingTransactionsRequest extends Schema.Class<ListOfferingTransactionsRequest>("ListOfferingTransactionsRequest")({nextToken: Schema.optional(Schema.String)}) {}
+export class ListProjectsRequest extends Schema.Class<ListProjectsRequest>("ListProjectsRequest")({arn: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String)}) {}
+export class ListRemoteAccessSessionsRequest extends Schema.Class<ListRemoteAccessSessionsRequest>("ListRemoteAccessSessionsRequest")({arn: Schema.String, nextToken: Schema.optional(Schema.String)}) {}
+export class ListRunsRequest extends Schema.Class<ListRunsRequest>("ListRunsRequest")({arn: Schema.String, nextToken: Schema.optional(Schema.String)}) {}
+export class ListSamplesRequest extends Schema.Class<ListSamplesRequest>("ListSamplesRequest")({arn: Schema.String, nextToken: Schema.optional(Schema.String)}) {}
+export class ListSuitesRequest extends Schema.Class<ListSuitesRequest>("ListSuitesRequest")({arn: Schema.String, nextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({ResourceARN: Schema.String}) {}
+export class ListTestGridProjectsRequest extends Schema.Class<ListTestGridProjectsRequest>("ListTestGridProjectsRequest")({maxResult: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListTestGridSessionActionsRequest extends Schema.Class<ListTestGridSessionActionsRequest>("ListTestGridSessionActionsRequest")({sessionArn: Schema.String, maxResult: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListTestGridSessionArtifactsRequest extends Schema.Class<ListTestGridSessionArtifactsRequest>("ListTestGridSessionArtifactsRequest")({sessionArn: Schema.String, type: Schema.optional(Schema.String), maxResult: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListTestGridSessionsRequest extends Schema.Class<ListTestGridSessionsRequest>("ListTestGridSessionsRequest")({projectArn: Schema.String, status: Schema.optional(Schema.String), creationTimeAfter: Schema.optional(Schema.Date), creationTimeBefore: Schema.optional(Schema.Date), endTimeAfter: Schema.optional(Schema.Date), endTimeBefore: Schema.optional(Schema.Date), maxResult: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListTestsRequest extends Schema.Class<ListTestsRequest>("ListTestsRequest")({arn: Schema.String, nextToken: Schema.optional(Schema.String)}) {}
+export class ListUniqueProblemsRequest extends Schema.Class<ListUniqueProblemsRequest>("ListUniqueProblemsRequest")({arn: Schema.String, nextToken: Schema.optional(Schema.String)}) {}
+export class ListUploadsRequest extends Schema.Class<ListUploadsRequest>("ListUploadsRequest")({arn: Schema.String, type: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String)}) {}
+export class ListVPCEConfigurationsRequest extends Schema.Class<ListVPCEConfigurationsRequest>("ListVPCEConfigurationsRequest")({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class PurchaseOfferingRequest extends Schema.Class<PurchaseOfferingRequest>("PurchaseOfferingRequest")({offeringId: Schema.String, quantity: Schema.Number, offeringPromotionId: Schema.optional(Schema.String)}) {}
+export class RenewOfferingRequest extends Schema.Class<RenewOfferingRequest>("RenewOfferingRequest")({offeringId: Schema.String, quantity: Schema.Number}) {}
+export class StopJobRequest extends Schema.Class<StopJobRequest>("StopJobRequest")({arn: Schema.String}) {}
+export class StopRemoteAccessSessionRequest extends Schema.Class<StopRemoteAccessSessionRequest>("StopRemoteAccessSessionRequest")({arn: Schema.String}) {}
+export class StopRunRequest extends Schema.Class<StopRunRequest>("StopRunRequest")({arn: Schema.String}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({ResourceARN: Schema.String, TagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class UpdateDeviceInstanceRequest extends Schema.Class<UpdateDeviceInstanceRequest>("UpdateDeviceInstanceRequest")({arn: Schema.String, profileArn: Schema.optional(Schema.String), labels: Schema.optional(InstanceLabels)}) {}
+export class Rule extends Schema.Class<Rule>("Rule")({attribute: Schema.optional(Schema.String), operator: Schema.optional(Schema.String), value: Schema.optional(Schema.String)}) {}
 export const Rules = Schema.Array(Rule);
-export const UpdateDevicePoolRequest = Schema.Struct({arn: Schema.String, name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), rules: Schema.optional(Rules), maxDevices: Schema.optional(Schema.Number), clearMaxDevices: Schema.optional(Schema.Boolean)});
-export const UpdateInstanceProfileRequest = Schema.Struct({arn: Schema.String, name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), packageCleanup: Schema.optional(Schema.Boolean), excludeAppPackagesFromCleanup: Schema.optional(PackageIds), rebootAfterUse: Schema.optional(Schema.Boolean)});
-export const UpdateNetworkProfileRequest = Schema.Struct({arn: Schema.String, name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), type: Schema.optional(Schema.String), uplinkBandwidthBits: Schema.optional(Schema.Number), downlinkBandwidthBits: Schema.optional(Schema.Number), uplinkDelayMs: Schema.optional(Schema.Number), downlinkDelayMs: Schema.optional(Schema.Number), uplinkJitterMs: Schema.optional(Schema.Number), downlinkJitterMs: Schema.optional(Schema.Number), uplinkLossPercent: Schema.optional(Schema.Number), downlinkLossPercent: Schema.optional(Schema.Number)});
+export class UpdateDevicePoolRequest extends Schema.Class<UpdateDevicePoolRequest>("UpdateDevicePoolRequest")({arn: Schema.String, name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), rules: Schema.optional(Rules), maxDevices: Schema.optional(Schema.Number), clearMaxDevices: Schema.optional(Schema.Boolean)}) {}
+export class UpdateInstanceProfileRequest extends Schema.Class<UpdateInstanceProfileRequest>("UpdateInstanceProfileRequest")({arn: Schema.String, name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), packageCleanup: Schema.optional(Schema.Boolean), excludeAppPackagesFromCleanup: Schema.optional(PackageIds), rebootAfterUse: Schema.optional(Schema.Boolean)}) {}
+export class UpdateNetworkProfileRequest extends Schema.Class<UpdateNetworkProfileRequest>("UpdateNetworkProfileRequest")({arn: Schema.String, name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), type: Schema.optional(Schema.String), uplinkBandwidthBits: Schema.optional(Schema.Number), downlinkBandwidthBits: Schema.optional(Schema.Number), uplinkDelayMs: Schema.optional(Schema.Number), downlinkDelayMs: Schema.optional(Schema.Number), uplinkJitterMs: Schema.optional(Schema.Number), downlinkJitterMs: Schema.optional(Schema.Number), uplinkLossPercent: Schema.optional(Schema.Number), downlinkLossPercent: Schema.optional(Schema.Number)}) {}
 export const VpcSecurityGroupIds = Schema.Array(Schema.String);
 export const VpcSubnetIds = Schema.Array(Schema.String);
-export const VpcConfig = Schema.Struct({securityGroupIds: VpcSecurityGroupIds, subnetIds: VpcSubnetIds, vpcId: Schema.String});
-export const UpdateProjectRequest = Schema.Struct({arn: Schema.String, name: Schema.optional(Schema.String), defaultJobTimeoutMinutes: Schema.optional(Schema.Number), vpcConfig: Schema.optional(VpcConfig)});
+export class VpcConfig extends Schema.Class<VpcConfig>("VpcConfig")({securityGroupIds: VpcSecurityGroupIds, subnetIds: VpcSubnetIds, vpcId: Schema.String}) {}
+export class EnvironmentVariable extends Schema.Class<EnvironmentVariable>("EnvironmentVariable")({name: Schema.String, value: Schema.String}) {}
+export const EnvironmentVariables = Schema.Array(EnvironmentVariable);
+export class UpdateProjectRequest extends Schema.Class<UpdateProjectRequest>("UpdateProjectRequest")({arn: Schema.String, name: Schema.optional(Schema.String), defaultJobTimeoutMinutes: Schema.optional(Schema.Number), vpcConfig: Schema.optional(VpcConfig), environmentVariables: Schema.optional(EnvironmentVariables), executionRoleArn: Schema.optional(Schema.String)}) {}
 export const SecurityGroupIds = Schema.Array(Schema.String);
 export const SubnetIds = Schema.Array(Schema.String);
-export const TestGridVpcConfig = Schema.Struct({securityGroupIds: SecurityGroupIds, subnetIds: SubnetIds, vpcId: Schema.String});
-export const UpdateTestGridProjectRequest = Schema.Struct({projectArn: Schema.String, name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), vpcConfig: Schema.optional(TestGridVpcConfig)});
-export const UpdateUploadRequest = Schema.Struct({arn: Schema.String, name: Schema.optional(Schema.String), contentType: Schema.optional(Schema.String), editContent: Schema.optional(Schema.Boolean)});
-export const UpdateVPCEConfigurationRequest = Schema.Struct({arn: Schema.String, vpceConfigurationName: Schema.optional(Schema.String), vpceServiceName: Schema.optional(Schema.String), serviceDnsName: Schema.optional(Schema.String), vpceConfigurationDescription: Schema.optional(Schema.String)});
+export class TestGridVpcConfig extends Schema.Class<TestGridVpcConfig>("TestGridVpcConfig")({securityGroupIds: SecurityGroupIds, subnetIds: SubnetIds, vpcId: Schema.String}) {}
+export class UpdateTestGridProjectRequest extends Schema.Class<UpdateTestGridProjectRequest>("UpdateTestGridProjectRequest")({projectArn: Schema.String, name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), vpcConfig: Schema.optional(TestGridVpcConfig)}) {}
+export class UpdateUploadRequest extends Schema.Class<UpdateUploadRequest>("UpdateUploadRequest")({arn: Schema.String, name: Schema.optional(Schema.String), contentType: Schema.optional(Schema.String), editContent: Schema.optional(Schema.Boolean)}) {}
+export class UpdateVPCEConfigurationRequest extends Schema.Class<UpdateVPCEConfigurationRequest>("UpdateVPCEConfigurationRequest")({arn: Schema.String, vpceConfigurationName: Schema.optional(Schema.String), vpceServiceName: Schema.optional(Schema.String), serviceDnsName: Schema.optional(Schema.String), vpceConfigurationDescription: Schema.optional(Schema.String)}) {}
 export const AuxiliaryAppArnList = Schema.Array(Schema.String);
 export const AmazonResourceNames = Schema.Array(Schema.String);
 export const DeviceFilterValues = Schema.Array(Schema.String);
-export const InstanceProfile = Schema.Struct({arn: Schema.optional(Schema.String), packageCleanup: Schema.optional(Schema.Boolean), excludeAppPackagesFromCleanup: Schema.optional(PackageIds), rebootAfterUse: Schema.optional(Schema.Boolean), name: Schema.optional(Schema.String), description: Schema.optional(Schema.String)});
-export const DeviceInstance = Schema.Struct({arn: Schema.optional(Schema.String), deviceArn: Schema.optional(Schema.String), labels: Schema.optional(InstanceLabels), status: Schema.optional(Schema.String), udid: Schema.optional(Schema.String), instanceProfile: Schema.optional(InstanceProfile)});
+export class InstanceProfile extends Schema.Class<InstanceProfile>("InstanceProfile")({arn: Schema.optional(Schema.String), packageCleanup: Schema.optional(Schema.Boolean), excludeAppPackagesFromCleanup: Schema.optional(PackageIds), rebootAfterUse: Schema.optional(Schema.Boolean), name: Schema.optional(Schema.String), description: Schema.optional(Schema.String)}) {}
+export class DeviceInstance extends Schema.Class<DeviceInstance>("DeviceInstance")({arn: Schema.optional(Schema.String), deviceArn: Schema.optional(Schema.String), labels: Schema.optional(InstanceLabels), status: Schema.optional(Schema.String), udid: Schema.optional(Schema.String), instanceProfile: Schema.optional(InstanceProfile)}) {}
 export const DeviceInstances = Schema.Array(DeviceInstance);
-export const DevicePool = Schema.Struct({arn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), type: Schema.optional(Schema.String), rules: Schema.optional(Rules), maxDevices: Schema.optional(Schema.Number)});
+export class DevicePool extends Schema.Class<DevicePool>("DevicePool")({arn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), type: Schema.optional(Schema.String), rules: Schema.optional(Rules), maxDevices: Schema.optional(Schema.Number)}) {}
 export const DevicePools = Schema.Array(DevicePool);
-export const DeviceFilter = Schema.Struct({attribute: Schema.String, operator: Schema.String, values: DeviceFilterValues});
+export class DeviceFilter extends Schema.Class<DeviceFilter>("DeviceFilter")({attribute: Schema.String, operator: Schema.String, values: DeviceFilterValues}) {}
 export const DeviceFilters = Schema.Array(DeviceFilter);
 export const InstanceProfiles = Schema.Array(InstanceProfile);
-export const Counters = Schema.Struct({total: Schema.optional(Schema.Number), passed: Schema.optional(Schema.Number), failed: Schema.optional(Schema.Number), warned: Schema.optional(Schema.Number), errored: Schema.optional(Schema.Number), stopped: Schema.optional(Schema.Number), skipped: Schema.optional(Schema.Number)});
-export const CPU = Schema.Struct({frequency: Schema.optional(Schema.String), architecture: Schema.optional(Schema.String), clock: Schema.optional(Schema.Number)});
-export const Resolution = Schema.Struct({width: Schema.optional(Schema.Number), height: Schema.optional(Schema.Number)});
-export const Device = Schema.Struct({arn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), manufacturer: Schema.optional(Schema.String), model: Schema.optional(Schema.String), modelId: Schema.optional(Schema.String), formFactor: Schema.optional(Schema.String), platform: Schema.optional(Schema.String), os: Schema.optional(Schema.String), cpu: Schema.optional(CPU), resolution: Schema.optional(Resolution), heapSize: Schema.optional(Schema.Number), memory: Schema.optional(Schema.Number), image: Schema.optional(Schema.String), carrier: Schema.optional(Schema.String), radio: Schema.optional(Schema.String), remoteAccessEnabled: Schema.optional(Schema.Boolean), remoteDebugEnabled: Schema.optional(Schema.Boolean), fleetType: Schema.optional(Schema.String), fleetName: Schema.optional(Schema.String), instances: Schema.optional(DeviceInstances), availability: Schema.optional(Schema.String)});
-export const DeviceMinutes = Schema.Struct({total: Schema.optional(Schema.Number), metered: Schema.optional(Schema.Number), unmetered: Schema.optional(Schema.Number)});
-export const Job = Schema.Struct({arn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), type: Schema.optional(Schema.String), created: Schema.optional(Schema.Date), status: Schema.optional(Schema.String), result: Schema.optional(Schema.String), started: Schema.optional(Schema.Date), stopped: Schema.optional(Schema.Date), counters: Schema.optional(Counters), message: Schema.optional(Schema.String), device: Schema.optional(Device), instanceArn: Schema.optional(Schema.String), deviceMinutes: Schema.optional(DeviceMinutes), videoEndpoint: Schema.optional(Schema.String), videoCapture: Schema.optional(Schema.Boolean)});
+export class Counters extends Schema.Class<Counters>("Counters")({total: Schema.optional(Schema.Number), passed: Schema.optional(Schema.Number), failed: Schema.optional(Schema.Number), warned: Schema.optional(Schema.Number), errored: Schema.optional(Schema.Number), stopped: Schema.optional(Schema.Number), skipped: Schema.optional(Schema.Number)}) {}
+export class CPU extends Schema.Class<CPU>("CPU")({frequency: Schema.optional(Schema.String), architecture: Schema.optional(Schema.String), clock: Schema.optional(Schema.Number)}) {}
+export class Resolution extends Schema.Class<Resolution>("Resolution")({width: Schema.optional(Schema.Number), height: Schema.optional(Schema.Number)}) {}
+export class Device extends Schema.Class<Device>("Device")({arn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), manufacturer: Schema.optional(Schema.String), model: Schema.optional(Schema.String), modelId: Schema.optional(Schema.String), formFactor: Schema.optional(Schema.String), platform: Schema.optional(Schema.String), os: Schema.optional(Schema.String), cpu: Schema.optional(CPU), resolution: Schema.optional(Resolution), heapSize: Schema.optional(Schema.Number), memory: Schema.optional(Schema.Number), image: Schema.optional(Schema.String), carrier: Schema.optional(Schema.String), radio: Schema.optional(Schema.String), remoteAccessEnabled: Schema.optional(Schema.Boolean), remoteDebugEnabled: Schema.optional(Schema.Boolean), fleetType: Schema.optional(Schema.String), fleetName: Schema.optional(Schema.String), instances: Schema.optional(DeviceInstances), availability: Schema.optional(Schema.String)}) {}
+export class DeviceMinutes extends Schema.Class<DeviceMinutes>("DeviceMinutes")({total: Schema.optional(Schema.Number), metered: Schema.optional(Schema.Number), unmetered: Schema.optional(Schema.Number)}) {}
+export class Job extends Schema.Class<Job>("Job")({arn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), type: Schema.optional(Schema.String), created: Schema.optional(Schema.Date), status: Schema.optional(Schema.String), result: Schema.optional(Schema.String), started: Schema.optional(Schema.Date), stopped: Schema.optional(Schema.Date), counters: Schema.optional(Counters), message: Schema.optional(Schema.String), device: Schema.optional(Device), instanceArn: Schema.optional(Schema.String), deviceMinutes: Schema.optional(DeviceMinutes), videoEndpoint: Schema.optional(Schema.String), videoCapture: Schema.optional(Schema.Boolean)}) {}
 export const Jobs = Schema.Array(Job);
-export const NetworkProfile = Schema.Struct({arn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), type: Schema.optional(Schema.String), uplinkBandwidthBits: Schema.optional(Schema.Number), downlinkBandwidthBits: Schema.optional(Schema.Number), uplinkDelayMs: Schema.optional(Schema.Number), downlinkDelayMs: Schema.optional(Schema.Number), uplinkJitterMs: Schema.optional(Schema.Number), downlinkJitterMs: Schema.optional(Schema.Number), uplinkLossPercent: Schema.optional(Schema.Number), downlinkLossPercent: Schema.optional(Schema.Number)});
+export class NetworkProfile extends Schema.Class<NetworkProfile>("NetworkProfile")({arn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), type: Schema.optional(Schema.String), uplinkBandwidthBits: Schema.optional(Schema.Number), downlinkBandwidthBits: Schema.optional(Schema.Number), uplinkDelayMs: Schema.optional(Schema.Number), downlinkDelayMs: Schema.optional(Schema.Number), uplinkJitterMs: Schema.optional(Schema.Number), downlinkJitterMs: Schema.optional(Schema.Number), uplinkLossPercent: Schema.optional(Schema.Number), downlinkLossPercent: Schema.optional(Schema.Number)}) {}
 export const NetworkProfiles = Schema.Array(NetworkProfile);
-export const Project = Schema.Struct({arn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), defaultJobTimeoutMinutes: Schema.optional(Schema.Number), created: Schema.optional(Schema.Date), vpcConfig: Schema.optional(VpcConfig)});
+export class Project extends Schema.Class<Project>("Project")({arn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), defaultJobTimeoutMinutes: Schema.optional(Schema.Number), created: Schema.optional(Schema.Date), vpcConfig: Schema.optional(VpcConfig), environmentVariables: Schema.optional(EnvironmentVariables), executionRoleArn: Schema.optional(Schema.String)}) {}
 export const Projects = Schema.Array(Project);
-export const DeviceProxy = Schema.Struct({host: Schema.String, port: Schema.Number});
-export const RemoteAccessSession = Schema.Struct({arn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), created: Schema.optional(Schema.Date), status: Schema.optional(Schema.String), result: Schema.optional(Schema.String), message: Schema.optional(Schema.String), started: Schema.optional(Schema.Date), stopped: Schema.optional(Schema.Date), device: Schema.optional(Device), instanceArn: Schema.optional(Schema.String), remoteDebugEnabled: Schema.optional(Schema.Boolean), remoteRecordEnabled: Schema.optional(Schema.Boolean), remoteRecordAppArn: Schema.optional(Schema.String), hostAddress: Schema.optional(Schema.String), clientId: Schema.optional(Schema.String), billingMethod: Schema.optional(Schema.String), deviceMinutes: Schema.optional(DeviceMinutes), endpoint: Schema.optional(Schema.String), deviceUdid: Schema.optional(Schema.String), interactionMode: Schema.optional(Schema.String), skipAppResign: Schema.optional(Schema.Boolean), vpcConfig: Schema.optional(VpcConfig), deviceProxy: Schema.optional(DeviceProxy), appUpload: Schema.optional(Schema.String)});
+export class DeviceProxy extends Schema.Class<DeviceProxy>("DeviceProxy")({host: Schema.String, port: Schema.Number}) {}
+export class RemoteAccessEndpoints extends Schema.Class<RemoteAccessEndpoints>("RemoteAccessEndpoints")({remoteDriverEndpoint: Schema.optional(Schema.String), interactiveEndpoint: Schema.optional(Schema.String)}) {}
+export class RemoteAccessSession extends Schema.Class<RemoteAccessSession>("RemoteAccessSession")({arn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), created: Schema.optional(Schema.Date), status: Schema.optional(Schema.String), result: Schema.optional(Schema.String), message: Schema.optional(Schema.String), started: Schema.optional(Schema.Date), stopped: Schema.optional(Schema.Date), device: Schema.optional(Device), instanceArn: Schema.optional(Schema.String), billingMethod: Schema.optional(Schema.String), deviceMinutes: Schema.optional(DeviceMinutes), endpoint: Schema.optional(Schema.String), deviceUdid: Schema.optional(Schema.String), interactionMode: Schema.optional(Schema.String), skipAppResign: Schema.optional(Schema.Boolean), vpcConfig: Schema.optional(VpcConfig), deviceProxy: Schema.optional(DeviceProxy), appUpload: Schema.optional(Schema.String), endpoints: Schema.optional(RemoteAccessEndpoints)}) {}
 export const RemoteAccessSessions = Schema.Array(RemoteAccessSession);
-export const Radios = Schema.Struct({wifi: Schema.optional(Schema.Boolean), bluetooth: Schema.optional(Schema.Boolean), nfc: Schema.optional(Schema.Boolean), gps: Schema.optional(Schema.Boolean)});
-export const Location = Schema.Struct({latitude: Schema.Number, longitude: Schema.Number});
+export class Radios extends Schema.Class<Radios>("Radios")({wifi: Schema.optional(Schema.Boolean), bluetooth: Schema.optional(Schema.Boolean), nfc: Schema.optional(Schema.Boolean), gps: Schema.optional(Schema.Boolean)}) {}
+export class Location extends Schema.Class<Location>("Location")({latitude: Schema.Number, longitude: Schema.Number}) {}
 export const IosPaths = Schema.Array(Schema.String);
 export const AndroidPaths = Schema.Array(Schema.String);
 export const DeviceHostPaths = Schema.Array(Schema.String);
-export const CustomerArtifactPaths = Schema.Struct({iosPaths: Schema.optional(IosPaths), androidPaths: Schema.optional(AndroidPaths), deviceHostPaths: Schema.optional(DeviceHostPaths)});
-export const DeviceSelectionResult = Schema.Struct({filters: Schema.optional(DeviceFilters), matchedDevicesCount: Schema.optional(Schema.Number), maxDevices: Schema.optional(Schema.Number)});
-export const Run = Schema.Struct({arn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), type: Schema.optional(Schema.String), platform: Schema.optional(Schema.String), created: Schema.optional(Schema.Date), status: Schema.optional(Schema.String), result: Schema.optional(Schema.String), started: Schema.optional(Schema.Date), stopped: Schema.optional(Schema.Date), counters: Schema.optional(Counters), message: Schema.optional(Schema.String), totalJobs: Schema.optional(Schema.Number), completedJobs: Schema.optional(Schema.Number), billingMethod: Schema.optional(Schema.String), deviceMinutes: Schema.optional(DeviceMinutes), networkProfile: Schema.optional(NetworkProfile), deviceProxy: Schema.optional(DeviceProxy), parsingResultUrl: Schema.optional(Schema.String), resultCode: Schema.optional(Schema.String), seed: Schema.optional(Schema.Number), appUpload: Schema.optional(Schema.String), eventCount: Schema.optional(Schema.Number), jobTimeoutMinutes: Schema.optional(Schema.Number), devicePoolArn: Schema.optional(Schema.String), locale: Schema.optional(Schema.String), radios: Schema.optional(Radios), location: Schema.optional(Location), customerArtifactPaths: Schema.optional(CustomerArtifactPaths), webUrl: Schema.optional(Schema.String), skipAppResign: Schema.optional(Schema.Boolean), testSpecArn: Schema.optional(Schema.String), deviceSelectionResult: Schema.optional(DeviceSelectionResult), vpcConfig: Schema.optional(VpcConfig)});
+export class CustomerArtifactPaths extends Schema.Class<CustomerArtifactPaths>("CustomerArtifactPaths")({iosPaths: Schema.optional(IosPaths), androidPaths: Schema.optional(AndroidPaths), deviceHostPaths: Schema.optional(DeviceHostPaths)}) {}
+export class DeviceSelectionResult extends Schema.Class<DeviceSelectionResult>("DeviceSelectionResult")({filters: Schema.optional(DeviceFilters), matchedDevicesCount: Schema.optional(Schema.Number), maxDevices: Schema.optional(Schema.Number)}) {}
+export class Run extends Schema.Class<Run>("Run")({arn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), type: Schema.optional(Schema.String), platform: Schema.optional(Schema.String), created: Schema.optional(Schema.Date), status: Schema.optional(Schema.String), result: Schema.optional(Schema.String), started: Schema.optional(Schema.Date), stopped: Schema.optional(Schema.Date), counters: Schema.optional(Counters), message: Schema.optional(Schema.String), totalJobs: Schema.optional(Schema.Number), completedJobs: Schema.optional(Schema.Number), billingMethod: Schema.optional(Schema.String), deviceMinutes: Schema.optional(DeviceMinutes), networkProfile: Schema.optional(NetworkProfile), deviceProxy: Schema.optional(DeviceProxy), parsingResultUrl: Schema.optional(Schema.String), resultCode: Schema.optional(Schema.String), seed: Schema.optional(Schema.Number), appUpload: Schema.optional(Schema.String), eventCount: Schema.optional(Schema.Number), jobTimeoutMinutes: Schema.optional(Schema.Number), devicePoolArn: Schema.optional(Schema.String), locale: Schema.optional(Schema.String), radios: Schema.optional(Radios), location: Schema.optional(Location), customerArtifactPaths: Schema.optional(CustomerArtifactPaths), webUrl: Schema.optional(Schema.String), skipAppResign: Schema.optional(Schema.Boolean), testSpecArn: Schema.optional(Schema.String), deviceSelectionResult: Schema.optional(DeviceSelectionResult), vpcConfig: Schema.optional(VpcConfig), executionRoleArn: Schema.optional(Schema.String), environmentVariables: Schema.optional(EnvironmentVariables)}) {}
 export const Runs = Schema.Array(Run);
-export const Suite = Schema.Struct({arn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), type: Schema.optional(Schema.String), created: Schema.optional(Schema.Date), status: Schema.optional(Schema.String), result: Schema.optional(Schema.String), started: Schema.optional(Schema.Date), stopped: Schema.optional(Schema.Date), counters: Schema.optional(Counters), message: Schema.optional(Schema.String), deviceMinutes: Schema.optional(DeviceMinutes)});
+export class Suite extends Schema.Class<Suite>("Suite")({arn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), type: Schema.optional(Schema.String), created: Schema.optional(Schema.Date), status: Schema.optional(Schema.String), result: Schema.optional(Schema.String), started: Schema.optional(Schema.Date), stopped: Schema.optional(Schema.Date), counters: Schema.optional(Counters), message: Schema.optional(Schema.String), deviceMinutes: Schema.optional(DeviceMinutes)}) {}
 export const Suites = Schema.Array(Suite);
-export const TestGridProject = Schema.Struct({arn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), vpcConfig: Schema.optional(TestGridVpcConfig), created: Schema.optional(Schema.Date)});
+export class TestGridProject extends Schema.Class<TestGridProject>("TestGridProject")({arn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), vpcConfig: Schema.optional(TestGridVpcConfig), created: Schema.optional(Schema.Date)}) {}
 export const TestGridProjects = Schema.Array(TestGridProject);
-export const TestGridSession = Schema.Struct({arn: Schema.optional(Schema.String), status: Schema.optional(Schema.String), created: Schema.optional(Schema.Date), ended: Schema.optional(Schema.Date), billingMinutes: Schema.optional(Schema.Number), seleniumProperties: Schema.optional(Schema.String)});
+export class TestGridSession extends Schema.Class<TestGridSession>("TestGridSession")({arn: Schema.optional(Schema.String), status: Schema.optional(Schema.String), created: Schema.optional(Schema.Date), ended: Schema.optional(Schema.Date), billingMinutes: Schema.optional(Schema.Number), seleniumProperties: Schema.optional(Schema.String)}) {}
 export const TestGridSessions = Schema.Array(TestGridSession);
-export const Test = Schema.Struct({arn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), type: Schema.optional(Schema.String), created: Schema.optional(Schema.Date), status: Schema.optional(Schema.String), result: Schema.optional(Schema.String), started: Schema.optional(Schema.Date), stopped: Schema.optional(Schema.Date), counters: Schema.optional(Counters), message: Schema.optional(Schema.String), deviceMinutes: Schema.optional(DeviceMinutes)});
+export class Test extends Schema.Class<Test>("Test")({arn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), type: Schema.optional(Schema.String), created: Schema.optional(Schema.Date), status: Schema.optional(Schema.String), result: Schema.optional(Schema.String), started: Schema.optional(Schema.Date), stopped: Schema.optional(Schema.Date), counters: Schema.optional(Counters), message: Schema.optional(Schema.String), deviceMinutes: Schema.optional(DeviceMinutes)}) {}
 export const Tests = Schema.Array(Test);
-export const Upload = Schema.Struct({arn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), created: Schema.optional(Schema.Date), type: Schema.optional(Schema.String), status: Schema.optional(Schema.String), url: Schema.optional(Schema.String), metadata: Schema.optional(Schema.String), contentType: Schema.optional(Schema.String), message: Schema.optional(Schema.String), category: Schema.optional(Schema.String)});
+export class Upload extends Schema.Class<Upload>("Upload")({arn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), created: Schema.optional(Schema.Date), type: Schema.optional(Schema.String), status: Schema.optional(Schema.String), url: Schema.optional(Schema.String), metadata: Schema.optional(Schema.String), contentType: Schema.optional(Schema.String), message: Schema.optional(Schema.String), category: Schema.optional(Schema.String)}) {}
 export const Uploads = Schema.Array(Upload);
-export const VPCEConfiguration = Schema.Struct({arn: Schema.optional(Schema.String), vpceConfigurationName: Schema.optional(Schema.String), vpceServiceName: Schema.optional(Schema.String), serviceDnsName: Schema.optional(Schema.String), vpceConfigurationDescription: Schema.optional(Schema.String)});
+export class VPCEConfiguration extends Schema.Class<VPCEConfiguration>("VPCEConfiguration")({arn: Schema.optional(Schema.String), vpceConfigurationName: Schema.optional(Schema.String), vpceServiceName: Schema.optional(Schema.String), serviceDnsName: Schema.optional(Schema.String), vpceConfigurationDescription: Schema.optional(Schema.String)}) {}
 export const VPCEConfigurations = Schema.Array(VPCEConfiguration);
-export const DeviceSelectionConfiguration = Schema.Struct({filters: DeviceFilters, maxDevices: Schema.Number});
-export const ExecutionConfiguration = Schema.Struct({jobTimeoutMinutes: Schema.optional(Schema.Number), accountsCleanup: Schema.optional(Schema.Boolean), appPackagesCleanup: Schema.optional(Schema.Boolean), videoCapture: Schema.optional(Schema.Boolean), skipAppResign: Schema.optional(Schema.Boolean)});
-export const Tag = Schema.Struct({Key: Schema.String, Value: Schema.String});
+export class DeviceSelectionConfiguration extends Schema.Class<DeviceSelectionConfiguration>("DeviceSelectionConfiguration")({filters: DeviceFilters, maxDevices: Schema.Number}) {}
+export class ExecutionConfiguration extends Schema.Class<ExecutionConfiguration>("ExecutionConfiguration")({jobTimeoutMinutes: Schema.optional(Schema.Number), accountsCleanup: Schema.optional(Schema.Boolean), appPackagesCleanup: Schema.optional(Schema.Boolean), videoCapture: Schema.optional(Schema.Boolean), skipAppResign: Schema.optional(Schema.Boolean)}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.String, Value: Schema.String}) {}
 export const TagList = Schema.Array(Tag);
-export const CreateDevicePoolRequest = Schema.Struct({projectArn: Schema.String, name: Schema.String, description: Schema.optional(Schema.String), rules: Rules, maxDevices: Schema.optional(Schema.Number)});
-export const CreateProjectRequest = Schema.Struct({name: Schema.String, defaultJobTimeoutMinutes: Schema.optional(Schema.Number), vpcConfig: Schema.optional(VpcConfig)});
-export const CreateTestGridProjectRequest = Schema.Struct({name: Schema.String, description: Schema.optional(Schema.String), vpcConfig: Schema.optional(TestGridVpcConfig)});
-export const CreateTestGridUrlResult = Schema.Struct({url: Schema.optional(Schema.String), expires: Schema.optional(Schema.Date)});
-export const ArgumentException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const LimitExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const NotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ServiceAccountException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CannotDeleteException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidOperationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const GetInstanceProfileResult = Schema.Struct({instanceProfile: Schema.optional(InstanceProfile)});
-export const GetNetworkProfileResult = Schema.Struct({networkProfile: Schema.optional(NetworkProfile)});
-export const GetUploadResult = Schema.Struct({upload: Schema.optional(Upload)});
-export const GetVPCEConfigurationResult = Schema.Struct({vpceConfiguration: Schema.optional(VPCEConfiguration)});
-export const InstallToRemoteAccessSessionResult = Schema.Struct({appUpload: Schema.optional(Upload)});
-export const ListDeviceInstancesResult = Schema.Struct({deviceInstances: Schema.optional(DeviceInstances), nextToken: Schema.optional(Schema.String)});
-export const ListDevicePoolsResult = Schema.Struct({devicePools: Schema.optional(DevicePools), nextToken: Schema.optional(Schema.String)});
-export const ListDevicesRequest = Schema.Struct({arn: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), filters: Schema.optional(DeviceFilters)});
-export const ListInstanceProfilesResult = Schema.Struct({instanceProfiles: Schema.optional(InstanceProfiles), nextToken: Schema.optional(Schema.String)});
-export const ListJobsResult = Schema.Struct({jobs: Schema.optional(Jobs), nextToken: Schema.optional(Schema.String)});
-export const ListNetworkProfilesResult = Schema.Struct({networkProfiles: Schema.optional(NetworkProfiles), nextToken: Schema.optional(Schema.String)});
-export const ListProjectsResult = Schema.Struct({projects: Schema.optional(Projects), nextToken: Schema.optional(Schema.String)});
-export const ListRemoteAccessSessionsResult = Schema.Struct({remoteAccessSessions: Schema.optional(RemoteAccessSessions), nextToken: Schema.optional(Schema.String)});
-export const ListRunsResult = Schema.Struct({runs: Schema.optional(Runs), nextToken: Schema.optional(Schema.String)});
-export const ListSuitesResult = Schema.Struct({suites: Schema.optional(Suites), nextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceResponse = Schema.Struct({Tags: Schema.optional(TagList)});
-export const ListTestGridProjectsResult = Schema.Struct({testGridProjects: Schema.optional(TestGridProjects), nextToken: Schema.optional(Schema.String)});
-export const ListTestGridSessionsResult = Schema.Struct({testGridSessions: Schema.optional(TestGridSessions), nextToken: Schema.optional(Schema.String)});
-export const ListTestsResult = Schema.Struct({tests: Schema.optional(Tests), nextToken: Schema.optional(Schema.String)});
-export const ListUploadsResult = Schema.Struct({uploads: Schema.optional(Uploads), nextToken: Schema.optional(Schema.String)});
-export const ListVPCEConfigurationsResult = Schema.Struct({vpceConfigurations: Schema.optional(VPCEConfigurations), nextToken: Schema.optional(Schema.String)});
-export const MonetaryAmount = Schema.Struct({amount: Schema.optional(Schema.Number), currencyCode: Schema.optional(Schema.String)});
-export const RecurringCharge = Schema.Struct({cost: Schema.optional(MonetaryAmount), frequency: Schema.optional(Schema.String)});
+export class CreateDevicePoolRequest extends Schema.Class<CreateDevicePoolRequest>("CreateDevicePoolRequest")({projectArn: Schema.String, name: Schema.String, description: Schema.optional(Schema.String), rules: Rules, maxDevices: Schema.optional(Schema.Number)}) {}
+export class CreateProjectRequest extends Schema.Class<CreateProjectRequest>("CreateProjectRequest")({name: Schema.String, defaultJobTimeoutMinutes: Schema.optional(Schema.Number), vpcConfig: Schema.optional(VpcConfig), environmentVariables: Schema.optional(EnvironmentVariables), executionRoleArn: Schema.optional(Schema.String)}) {}
+export class CreateTestGridProjectRequest extends Schema.Class<CreateTestGridProjectRequest>("CreateTestGridProjectRequest")({name: Schema.String, description: Schema.optional(Schema.String), vpcConfig: Schema.optional(TestGridVpcConfig)}) {}
+export class CreateTestGridUrlResult extends Schema.Class<CreateTestGridUrlResult>("CreateTestGridUrlResult")({url: Schema.optional(Schema.String), expires: Schema.optional(Schema.Date)}) {}
+export class ArgumentException extends Schema.Class<ArgumentException>("ArgumentException")({message: Schema.optional(Schema.String)}) {}
+export class LimitExceededException extends Schema.Class<LimitExceededException>("LimitExceededException")({message: Schema.optional(Schema.String)}) {}
+export class NotFoundException extends Schema.Class<NotFoundException>("NotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class ServiceAccountException extends Schema.Class<ServiceAccountException>("ServiceAccountException")({message: Schema.optional(Schema.String)}) {}
+export class CannotDeleteException extends Schema.Class<CannotDeleteException>("CannotDeleteException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidOperationException extends Schema.Class<InvalidOperationException>("InvalidOperationException")({message: Schema.optional(Schema.String)}) {}
+export class GetInstanceProfileResult extends Schema.Class<GetInstanceProfileResult>("GetInstanceProfileResult")({instanceProfile: Schema.optional(InstanceProfile)}) {}
+export class GetNetworkProfileResult extends Schema.Class<GetNetworkProfileResult>("GetNetworkProfileResult")({networkProfile: Schema.optional(NetworkProfile)}) {}
+export class GetUploadResult extends Schema.Class<GetUploadResult>("GetUploadResult")({upload: Schema.optional(Upload)}) {}
+export class GetVPCEConfigurationResult extends Schema.Class<GetVPCEConfigurationResult>("GetVPCEConfigurationResult")({vpceConfiguration: Schema.optional(VPCEConfiguration)}) {}
+export class InstallToRemoteAccessSessionResult extends Schema.Class<InstallToRemoteAccessSessionResult>("InstallToRemoteAccessSessionResult")({appUpload: Schema.optional(Upload)}) {}
+export class ListDeviceInstancesResult extends Schema.Class<ListDeviceInstancesResult>("ListDeviceInstancesResult")({deviceInstances: Schema.optional(DeviceInstances), nextToken: Schema.optional(Schema.String)}) {}
+export class ListDevicePoolsResult extends Schema.Class<ListDevicePoolsResult>("ListDevicePoolsResult")({devicePools: Schema.optional(DevicePools), nextToken: Schema.optional(Schema.String)}) {}
+export class ListDevicesRequest extends Schema.Class<ListDevicesRequest>("ListDevicesRequest")({arn: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), filters: Schema.optional(DeviceFilters)}) {}
+export class ListInstanceProfilesResult extends Schema.Class<ListInstanceProfilesResult>("ListInstanceProfilesResult")({instanceProfiles: Schema.optional(InstanceProfiles), nextToken: Schema.optional(Schema.String)}) {}
+export class ListJobsResult extends Schema.Class<ListJobsResult>("ListJobsResult")({jobs: Schema.optional(Jobs), nextToken: Schema.optional(Schema.String)}) {}
+export class ListNetworkProfilesResult extends Schema.Class<ListNetworkProfilesResult>("ListNetworkProfilesResult")({networkProfiles: Schema.optional(NetworkProfiles), nextToken: Schema.optional(Schema.String)}) {}
+export class ListProjectsResult extends Schema.Class<ListProjectsResult>("ListProjectsResult")({projects: Schema.optional(Projects), nextToken: Schema.optional(Schema.String)}) {}
+export class ListRemoteAccessSessionsResult extends Schema.Class<ListRemoteAccessSessionsResult>("ListRemoteAccessSessionsResult")({remoteAccessSessions: Schema.optional(RemoteAccessSessions), nextToken: Schema.optional(Schema.String)}) {}
+export class ListRunsResult extends Schema.Class<ListRunsResult>("ListRunsResult")({runs: Schema.optional(Runs), nextToken: Schema.optional(Schema.String)}) {}
+export class ListSuitesResult extends Schema.Class<ListSuitesResult>("ListSuitesResult")({suites: Schema.optional(Suites), nextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({Tags: Schema.optional(TagList)}) {}
+export class ListTestGridProjectsResult extends Schema.Class<ListTestGridProjectsResult>("ListTestGridProjectsResult")({testGridProjects: Schema.optional(TestGridProjects), nextToken: Schema.optional(Schema.String)}) {}
+export class ListTestGridSessionsResult extends Schema.Class<ListTestGridSessionsResult>("ListTestGridSessionsResult")({testGridSessions: Schema.optional(TestGridSessions), nextToken: Schema.optional(Schema.String)}) {}
+export class ListTestsResult extends Schema.Class<ListTestsResult>("ListTestsResult")({tests: Schema.optional(Tests), nextToken: Schema.optional(Schema.String)}) {}
+export class ListUploadsResult extends Schema.Class<ListUploadsResult>("ListUploadsResult")({uploads: Schema.optional(Uploads), nextToken: Schema.optional(Schema.String)}) {}
+export class ListVPCEConfigurationsResult extends Schema.Class<ListVPCEConfigurationsResult>("ListVPCEConfigurationsResult")({vpceConfigurations: Schema.optional(VPCEConfigurations), nextToken: Schema.optional(Schema.String)}) {}
+export class MonetaryAmount extends Schema.Class<MonetaryAmount>("MonetaryAmount")({amount: Schema.optional(Schema.Number), currencyCode: Schema.optional(Schema.String)}) {}
+export class RecurringCharge extends Schema.Class<RecurringCharge>("RecurringCharge")({cost: Schema.optional(MonetaryAmount), frequency: Schema.optional(Schema.String)}) {}
 export const RecurringCharges = Schema.Array(RecurringCharge);
-export const Offering = Schema.Struct({id: Schema.optional(Schema.String), description: Schema.optional(Schema.String), type: Schema.optional(Schema.String), platform: Schema.optional(Schema.String), recurringCharges: Schema.optional(RecurringCharges)});
-export const OfferingStatus = Schema.Struct({type: Schema.optional(Schema.String), offering: Schema.optional(Offering), quantity: Schema.optional(Schema.Number), effectiveOn: Schema.optional(Schema.Date)});
-export const OfferingTransaction = Schema.Struct({offeringStatus: Schema.optional(OfferingStatus), transactionId: Schema.optional(Schema.String), offeringPromotionId: Schema.optional(Schema.String), createdOn: Schema.optional(Schema.Date), cost: Schema.optional(MonetaryAmount)});
-export const PurchaseOfferingResult = Schema.Struct({offeringTransaction: Schema.optional(OfferingTransaction)});
-export const RenewOfferingResult = Schema.Struct({offeringTransaction: Schema.optional(OfferingTransaction)});
+export class Offering extends Schema.Class<Offering>("Offering")({id: Schema.optional(Schema.String), description: Schema.optional(Schema.String), type: Schema.optional(Schema.String), platform: Schema.optional(Schema.String), recurringCharges: Schema.optional(RecurringCharges)}) {}
+export class OfferingStatus extends Schema.Class<OfferingStatus>("OfferingStatus")({type: Schema.optional(Schema.String), offering: Schema.optional(Offering), quantity: Schema.optional(Schema.Number), effectiveOn: Schema.optional(Schema.Date)}) {}
+export class OfferingTransaction extends Schema.Class<OfferingTransaction>("OfferingTransaction")({offeringStatus: Schema.optional(OfferingStatus), transactionId: Schema.optional(Schema.String), offeringPromotionId: Schema.optional(Schema.String), createdOn: Schema.optional(Schema.Date), cost: Schema.optional(MonetaryAmount)}) {}
+export class PurchaseOfferingResult extends Schema.Class<PurchaseOfferingResult>("PurchaseOfferingResult")({offeringTransaction: Schema.optional(OfferingTransaction)}) {}
+export class RenewOfferingResult extends Schema.Class<RenewOfferingResult>("RenewOfferingResult")({offeringTransaction: Schema.optional(OfferingTransaction)}) {}
 export const TestParameters = Schema.Record({key: Schema.String, value: Schema.String});
-export const ScheduleRunTest = Schema.Struct({type: Schema.String, testPackageArn: Schema.optional(Schema.String), testSpecArn: Schema.optional(Schema.String), filter: Schema.optional(Schema.String), parameters: Schema.optional(TestParameters)});
-export const ScheduleRunConfiguration = Schema.Struct({extraDataPackageArn: Schema.optional(Schema.String), networkProfileArn: Schema.optional(Schema.String), locale: Schema.optional(Schema.String), location: Schema.optional(Location), vpceConfigurationArns: Schema.optional(AmazonResourceNames), deviceProxy: Schema.optional(DeviceProxy), customerArtifactPaths: Schema.optional(CustomerArtifactPaths), radios: Schema.optional(Radios), auxiliaryApps: Schema.optional(AmazonResourceNames), billingMethod: Schema.optional(Schema.String)});
-export const ScheduleRunRequest = Schema.Struct({projectArn: Schema.String, appArn: Schema.optional(Schema.String), devicePoolArn: Schema.optional(Schema.String), deviceSelectionConfiguration: Schema.optional(DeviceSelectionConfiguration), name: Schema.optional(Schema.String), test: ScheduleRunTest, configuration: Schema.optional(ScheduleRunConfiguration), executionConfiguration: Schema.optional(ExecutionConfiguration)});
-export const StopJobResult = Schema.Struct({job: Schema.optional(Job)});
-export const StopRemoteAccessSessionResult = Schema.Struct({remoteAccessSession: Schema.optional(RemoteAccessSession)});
-export const StopRunResult = Schema.Struct({run: Schema.optional(Run)});
-export const TagResourceRequest = Schema.Struct({ResourceARN: Schema.String, Tags: TagList});
-export const TagResourceResponse = Schema.Struct({});
-export const TagOperationException = Schema.Struct({message: Schema.optional(Schema.String), resourceName: Schema.optional(Schema.String)});
-export const UpdateDeviceInstanceResult = Schema.Struct({deviceInstance: Schema.optional(DeviceInstance)});
-export const UpdateDevicePoolResult = Schema.Struct({devicePool: Schema.optional(DevicePool)});
-export const UpdateInstanceProfileResult = Schema.Struct({instanceProfile: Schema.optional(InstanceProfile)});
-export const UpdateNetworkProfileResult = Schema.Struct({networkProfile: Schema.optional(NetworkProfile)});
-export const UpdateProjectResult = Schema.Struct({project: Schema.optional(Project)});
-export const UpdateTestGridProjectResult = Schema.Struct({testGridProject: Schema.optional(TestGridProject)});
-export const UpdateUploadResult = Schema.Struct({upload: Schema.optional(Upload)});
-export const UpdateVPCEConfigurationResult = Schema.Struct({vpceConfiguration: Schema.optional(VPCEConfiguration)});
+export class ScheduleRunTest extends Schema.Class<ScheduleRunTest>("ScheduleRunTest")({type: Schema.String, testPackageArn: Schema.optional(Schema.String), testSpecArn: Schema.optional(Schema.String), filter: Schema.optional(Schema.String), parameters: Schema.optional(TestParameters)}) {}
+export class ScheduleRunConfiguration extends Schema.Class<ScheduleRunConfiguration>("ScheduleRunConfiguration")({extraDataPackageArn: Schema.optional(Schema.String), networkProfileArn: Schema.optional(Schema.String), locale: Schema.optional(Schema.String), location: Schema.optional(Location), vpceConfigurationArns: Schema.optional(AmazonResourceNames), deviceProxy: Schema.optional(DeviceProxy), customerArtifactPaths: Schema.optional(CustomerArtifactPaths), radios: Schema.optional(Radios), auxiliaryApps: Schema.optional(AmazonResourceNames), billingMethod: Schema.optional(Schema.String), environmentVariables: Schema.optional(EnvironmentVariables), executionRoleArn: Schema.optional(Schema.String)}) {}
+export class ScheduleRunRequest extends Schema.Class<ScheduleRunRequest>("ScheduleRunRequest")({projectArn: Schema.String, appArn: Schema.optional(Schema.String), devicePoolArn: Schema.optional(Schema.String), deviceSelectionConfiguration: Schema.optional(DeviceSelectionConfiguration), name: Schema.optional(Schema.String), test: ScheduleRunTest, configuration: Schema.optional(ScheduleRunConfiguration), executionConfiguration: Schema.optional(ExecutionConfiguration)}) {}
+export class StopJobResult extends Schema.Class<StopJobResult>("StopJobResult")({job: Schema.optional(Job)}) {}
+export class StopRemoteAccessSessionResult extends Schema.Class<StopRemoteAccessSessionResult>("StopRemoteAccessSessionResult")({remoteAccessSession: Schema.optional(RemoteAccessSession)}) {}
+export class StopRunResult extends Schema.Class<StopRunResult>("StopRunResult")({run: Schema.optional(Run)}) {}
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({ResourceARN: Schema.String, Tags: TagList}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class TagOperationException extends Schema.Class<TagOperationException>("TagOperationException")({message: Schema.optional(Schema.String), resourceName: Schema.optional(Schema.String)}) {}
+export class UpdateDeviceInstanceResult extends Schema.Class<UpdateDeviceInstanceResult>("UpdateDeviceInstanceResult")({deviceInstance: Schema.optional(DeviceInstance)}) {}
+export class UpdateDevicePoolResult extends Schema.Class<UpdateDevicePoolResult>("UpdateDevicePoolResult")({devicePool: Schema.optional(DevicePool)}) {}
+export class UpdateInstanceProfileResult extends Schema.Class<UpdateInstanceProfileResult>("UpdateInstanceProfileResult")({instanceProfile: Schema.optional(InstanceProfile)}) {}
+export class UpdateNetworkProfileResult extends Schema.Class<UpdateNetworkProfileResult>("UpdateNetworkProfileResult")({networkProfile: Schema.optional(NetworkProfile)}) {}
+export class UpdateProjectResult extends Schema.Class<UpdateProjectResult>("UpdateProjectResult")({project: Schema.optional(Project)}) {}
+export class UpdateTestGridProjectResult extends Schema.Class<UpdateTestGridProjectResult>("UpdateTestGridProjectResult")({testGridProject: Schema.optional(TestGridProject)}) {}
+export class UpdateUploadResult extends Schema.Class<UpdateUploadResult>("UpdateUploadResult")({upload: Schema.optional(Upload)}) {}
+export class UpdateVPCEConfigurationResult extends Schema.Class<UpdateVPCEConfigurationResult>("UpdateVPCEConfigurationResult")({vpceConfiguration: Schema.optional(VPCEConfiguration)}) {}
 export const PurchasedDevicesMap = Schema.Record({key: Schema.String, value: Schema.Number});
-export const TrialMinutes = Schema.Struct({total: Schema.optional(Schema.Number), remaining: Schema.optional(Schema.Number)});
+export class TrialMinutes extends Schema.Class<TrialMinutes>("TrialMinutes")({total: Schema.optional(Schema.Number), remaining: Schema.optional(Schema.Number)}) {}
 export const MaxSlotMap = Schema.Record({key: Schema.String, value: Schema.Number});
-export const CreateRemoteAccessSessionConfiguration = Schema.Struct({auxiliaryApps: Schema.optional(AuxiliaryAppArnList), billingMethod: Schema.optional(Schema.String), vpceConfigurationArns: Schema.optional(AmazonResourceNames), deviceProxy: Schema.optional(DeviceProxy)});
-export const AccountSettings = Schema.Struct({awsAccountNumber: Schema.optional(Schema.String), unmeteredDevices: Schema.optional(PurchasedDevicesMap), unmeteredRemoteAccessDevices: Schema.optional(PurchasedDevicesMap), maxJobTimeoutMinutes: Schema.optional(Schema.Number), trialMinutes: Schema.optional(TrialMinutes), maxSlots: Schema.optional(MaxSlotMap), defaultJobTimeoutMinutes: Schema.optional(Schema.Number), skipAppResign: Schema.optional(Schema.Boolean)});
-export const Artifact = Schema.Struct({arn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), type: Schema.optional(Schema.String), extension: Schema.optional(Schema.String), url: Schema.optional(Schema.String)});
+export class CreateRemoteAccessSessionConfiguration extends Schema.Class<CreateRemoteAccessSessionConfiguration>("CreateRemoteAccessSessionConfiguration")({auxiliaryApps: Schema.optional(AuxiliaryAppArnList), billingMethod: Schema.optional(Schema.String), vpceConfigurationArns: Schema.optional(AmazonResourceNames), deviceProxy: Schema.optional(DeviceProxy)}) {}
+export class AccountSettings extends Schema.Class<AccountSettings>("AccountSettings")({awsAccountNumber: Schema.optional(Schema.String), unmeteredDevices: Schema.optional(PurchasedDevicesMap), unmeteredRemoteAccessDevices: Schema.optional(PurchasedDevicesMap), maxJobTimeoutMinutes: Schema.optional(Schema.Number), trialMinutes: Schema.optional(TrialMinutes), maxSlots: Schema.optional(MaxSlotMap), defaultJobTimeoutMinutes: Schema.optional(Schema.Number), skipAppResign: Schema.optional(Schema.Boolean)}) {}
+export class Artifact extends Schema.Class<Artifact>("Artifact")({arn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), type: Schema.optional(Schema.String), extension: Schema.optional(Schema.String), url: Schema.optional(Schema.String)}) {}
 export const Artifacts = Schema.Array(Artifact);
 export const Devices = Schema.Array(Device);
-export const OfferingPromotion = Schema.Struct({id: Schema.optional(Schema.String), description: Schema.optional(Schema.String)});
+export class OfferingPromotion extends Schema.Class<OfferingPromotion>("OfferingPromotion")({id: Schema.optional(Schema.String), description: Schema.optional(Schema.String)}) {}
 export const OfferingPromotions = Schema.Array(OfferingPromotion);
-export const Sample = Schema.Struct({arn: Schema.optional(Schema.String), type: Schema.optional(Schema.String), url: Schema.optional(Schema.String)});
+export class Sample extends Schema.Class<Sample>("Sample")({arn: Schema.optional(Schema.String), type: Schema.optional(Schema.String), url: Schema.optional(Schema.String)}) {}
 export const Samples = Schema.Array(Sample);
-export const TestGridSessionAction = Schema.Struct({action: Schema.optional(Schema.String), started: Schema.optional(Schema.Date), duration: Schema.optional(Schema.Number), statusCode: Schema.optional(Schema.String), requestMethod: Schema.optional(Schema.String)});
+export class TestGridSessionAction extends Schema.Class<TestGridSessionAction>("TestGridSessionAction")({action: Schema.optional(Schema.String), started: Schema.optional(Schema.Date), duration: Schema.optional(Schema.Number), statusCode: Schema.optional(Schema.String), requestMethod: Schema.optional(Schema.String)}) {}
 export const TestGridSessionActions = Schema.Array(TestGridSessionAction);
-export const TestGridSessionArtifact = Schema.Struct({filename: Schema.optional(Schema.String), type: Schema.optional(Schema.String), url: Schema.optional(Schema.String)});
+export class TestGridSessionArtifact extends Schema.Class<TestGridSessionArtifact>("TestGridSessionArtifact")({filename: Schema.optional(Schema.String), type: Schema.optional(Schema.String), url: Schema.optional(Schema.String)}) {}
 export const TestGridSessionArtifacts = Schema.Array(TestGridSessionArtifact);
-export const CreateDevicePoolResult = Schema.Struct({devicePool: Schema.optional(DevicePool)});
-export const CreateInstanceProfileResult = Schema.Struct({instanceProfile: Schema.optional(InstanceProfile)});
-export const CreateNetworkProfileResult = Schema.Struct({networkProfile: Schema.optional(NetworkProfile)});
-export const CreateProjectResult = Schema.Struct({project: Schema.optional(Project)});
-export const CreateRemoteAccessSessionRequest = Schema.Struct({projectArn: Schema.String, deviceArn: Schema.String, appArn: Schema.optional(Schema.String), instanceArn: Schema.optional(Schema.String), sshPublicKey: Schema.optional(Schema.String), remoteDebugEnabled: Schema.optional(Schema.Boolean), remoteRecordEnabled: Schema.optional(Schema.Boolean), remoteRecordAppArn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), clientId: Schema.optional(Schema.String), configuration: Schema.optional(CreateRemoteAccessSessionConfiguration), interactionMode: Schema.optional(Schema.String), skipAppResign: Schema.optional(Schema.Boolean)});
-export const CreateTestGridProjectResult = Schema.Struct({testGridProject: Schema.optional(TestGridProject)});
-export const InternalServiceException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CreateUploadResult = Schema.Struct({upload: Schema.optional(Upload)});
-export const CreateVPCEConfigurationResult = Schema.Struct({vpceConfiguration: Schema.optional(VPCEConfiguration)});
-export const GetAccountSettingsResult = Schema.Struct({accountSettings: Schema.optional(AccountSettings)});
-export const GetDeviceInstanceResult = Schema.Struct({deviceInstance: Schema.optional(DeviceInstance)});
-export const GetDevicePoolResult = Schema.Struct({devicePool: Schema.optional(DevicePool)});
-export const GetDevicePoolCompatibilityRequest = Schema.Struct({devicePoolArn: Schema.String, appArn: Schema.optional(Schema.String), testType: Schema.optional(Schema.String), test: Schema.optional(ScheduleRunTest), configuration: Schema.optional(ScheduleRunConfiguration), projectArn: Schema.optional(Schema.String)});
-export const GetProjectResult = Schema.Struct({project: Schema.optional(Project)});
-export const GetRemoteAccessSessionResult = Schema.Struct({remoteAccessSession: Schema.optional(RemoteAccessSession)});
-export const GetSuiteResult = Schema.Struct({suite: Schema.optional(Suite)});
-export const GetTestResult = Schema.Struct({test: Schema.optional(Test)});
-export const GetTestGridProjectResult = Schema.Struct({testGridProject: Schema.optional(TestGridProject)});
-export const GetTestGridSessionResult = Schema.Struct({testGridSession: Schema.optional(TestGridSession)});
-export const ListArtifactsResult = Schema.Struct({artifacts: Schema.optional(Artifacts), nextToken: Schema.optional(Schema.String)});
-export const ListDevicesResult = Schema.Struct({devices: Schema.optional(Devices), nextToken: Schema.optional(Schema.String)});
-export const ListOfferingPromotionsResult = Schema.Struct({offeringPromotions: Schema.optional(OfferingPromotions), nextToken: Schema.optional(Schema.String)});
-export const ListSamplesResult = Schema.Struct({samples: Schema.optional(Samples), nextToken: Schema.optional(Schema.String)});
-export const ListTestGridSessionActionsResult = Schema.Struct({actions: Schema.optional(TestGridSessionActions), nextToken: Schema.optional(Schema.String)});
-export const ListTestGridSessionArtifactsResult = Schema.Struct({artifacts: Schema.optional(TestGridSessionArtifacts), nextToken: Schema.optional(Schema.String)});
-export const NotEligibleException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ScheduleRunResult = Schema.Struct({run: Schema.optional(Run)});
-export const TagPolicyException = Schema.Struct({message: Schema.optional(Schema.String), resourceName: Schema.optional(Schema.String)});
+export class CreateDevicePoolResult extends Schema.Class<CreateDevicePoolResult>("CreateDevicePoolResult")({devicePool: Schema.optional(DevicePool)}) {}
+export class CreateInstanceProfileResult extends Schema.Class<CreateInstanceProfileResult>("CreateInstanceProfileResult")({instanceProfile: Schema.optional(InstanceProfile)}) {}
+export class CreateNetworkProfileResult extends Schema.Class<CreateNetworkProfileResult>("CreateNetworkProfileResult")({networkProfile: Schema.optional(NetworkProfile)}) {}
+export class CreateProjectResult extends Schema.Class<CreateProjectResult>("CreateProjectResult")({project: Schema.optional(Project)}) {}
+export class CreateRemoteAccessSessionRequest extends Schema.Class<CreateRemoteAccessSessionRequest>("CreateRemoteAccessSessionRequest")({projectArn: Schema.String, deviceArn: Schema.String, appArn: Schema.optional(Schema.String), instanceArn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), configuration: Schema.optional(CreateRemoteAccessSessionConfiguration), interactionMode: Schema.optional(Schema.String), skipAppResign: Schema.optional(Schema.Boolean)}) {}
+export class CreateTestGridProjectResult extends Schema.Class<CreateTestGridProjectResult>("CreateTestGridProjectResult")({testGridProject: Schema.optional(TestGridProject)}) {}
+export class InternalServiceException extends Schema.Class<InternalServiceException>("InternalServiceException")({message: Schema.optional(Schema.String)}) {}
+export class CreateUploadResult extends Schema.Class<CreateUploadResult>("CreateUploadResult")({upload: Schema.optional(Upload)}) {}
+export class CreateVPCEConfigurationResult extends Schema.Class<CreateVPCEConfigurationResult>("CreateVPCEConfigurationResult")({vpceConfiguration: Schema.optional(VPCEConfiguration)}) {}
+export class GetAccountSettingsResult extends Schema.Class<GetAccountSettingsResult>("GetAccountSettingsResult")({accountSettings: Schema.optional(AccountSettings)}) {}
+export class GetDeviceInstanceResult extends Schema.Class<GetDeviceInstanceResult>("GetDeviceInstanceResult")({deviceInstance: Schema.optional(DeviceInstance)}) {}
+export class GetDevicePoolResult extends Schema.Class<GetDevicePoolResult>("GetDevicePoolResult")({devicePool: Schema.optional(DevicePool)}) {}
+export class GetDevicePoolCompatibilityRequest extends Schema.Class<GetDevicePoolCompatibilityRequest>("GetDevicePoolCompatibilityRequest")({devicePoolArn: Schema.String, appArn: Schema.optional(Schema.String), testType: Schema.optional(Schema.String), test: Schema.optional(ScheduleRunTest), configuration: Schema.optional(ScheduleRunConfiguration), projectArn: Schema.optional(Schema.String)}) {}
+export class GetProjectResult extends Schema.Class<GetProjectResult>("GetProjectResult")({project: Schema.optional(Project)}) {}
+export class GetSuiteResult extends Schema.Class<GetSuiteResult>("GetSuiteResult")({suite: Schema.optional(Suite)}) {}
+export class GetTestResult extends Schema.Class<GetTestResult>("GetTestResult")({test: Schema.optional(Test)}) {}
+export class GetTestGridProjectResult extends Schema.Class<GetTestGridProjectResult>("GetTestGridProjectResult")({testGridProject: Schema.optional(TestGridProject)}) {}
+export class GetTestGridSessionResult extends Schema.Class<GetTestGridSessionResult>("GetTestGridSessionResult")({testGridSession: Schema.optional(TestGridSession)}) {}
+export class ListArtifactsResult extends Schema.Class<ListArtifactsResult>("ListArtifactsResult")({artifacts: Schema.optional(Artifacts), nextToken: Schema.optional(Schema.String)}) {}
+export class ListDevicesResult extends Schema.Class<ListDevicesResult>("ListDevicesResult")({devices: Schema.optional(Devices), nextToken: Schema.optional(Schema.String)}) {}
+export class ListOfferingPromotionsResult extends Schema.Class<ListOfferingPromotionsResult>("ListOfferingPromotionsResult")({offeringPromotions: Schema.optional(OfferingPromotions), nextToken: Schema.optional(Schema.String)}) {}
+export class ListSamplesResult extends Schema.Class<ListSamplesResult>("ListSamplesResult")({samples: Schema.optional(Samples), nextToken: Schema.optional(Schema.String)}) {}
+export class ListTestGridSessionActionsResult extends Schema.Class<ListTestGridSessionActionsResult>("ListTestGridSessionActionsResult")({actions: Schema.optional(TestGridSessionActions), nextToken: Schema.optional(Schema.String)}) {}
+export class ListTestGridSessionArtifactsResult extends Schema.Class<ListTestGridSessionArtifactsResult>("ListTestGridSessionArtifactsResult")({artifacts: Schema.optional(TestGridSessionArtifacts), nextToken: Schema.optional(Schema.String)}) {}
+export class NotEligibleException extends Schema.Class<NotEligibleException>("NotEligibleException")({message: Schema.optional(Schema.String)}) {}
+export class ScheduleRunResult extends Schema.Class<ScheduleRunResult>("ScheduleRunResult")({run: Schema.optional(Run)}) {}
+export class TagPolicyException extends Schema.Class<TagPolicyException>("TagPolicyException")({message: Schema.optional(Schema.String), resourceName: Schema.optional(Schema.String)}) {}
 export const OfferingStatusMap = Schema.Record({key: Schema.String, value: OfferingStatus});
 export const Offerings = Schema.Array(Offering);
 export const OfferingTransactions = Schema.Array(OfferingTransaction);
-export const CreateRemoteAccessSessionResult = Schema.Struct({remoteAccessSession: Schema.optional(RemoteAccessSession)});
-export const GetDeviceResult = Schema.Struct({device: Schema.optional(Device)});
-export const GetJobResult = Schema.Struct({job: Schema.optional(Job)});
-export const GetOfferingStatusResult = Schema.Struct({current: Schema.optional(OfferingStatusMap), nextPeriod: Schema.optional(OfferingStatusMap), nextToken: Schema.optional(Schema.String)});
-export const GetRunResult = Schema.Struct({run: Schema.optional(Run)});
-export const ListOfferingsResult = Schema.Struct({offerings: Schema.optional(Offerings), nextToken: Schema.optional(Schema.String)});
-export const ListOfferingTransactionsResult = Schema.Struct({offeringTransactions: Schema.optional(OfferingTransactions), nextToken: Schema.optional(Schema.String)});
-export const IdempotencyException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const TooManyTagsException = Schema.Struct({message: Schema.optional(Schema.String), resourceName: Schema.optional(Schema.String)});
-export const ProblemDetail = Schema.Struct({arn: Schema.optional(Schema.String), name: Schema.optional(Schema.String)});
-export const Problem = Schema.Struct({run: Schema.optional(ProblemDetail), job: Schema.optional(ProblemDetail), suite: Schema.optional(ProblemDetail), test: Schema.optional(ProblemDetail), device: Schema.optional(Device), result: Schema.optional(Schema.String), message: Schema.optional(Schema.String)});
+export class CreateRemoteAccessSessionResult extends Schema.Class<CreateRemoteAccessSessionResult>("CreateRemoteAccessSessionResult")({remoteAccessSession: Schema.optional(RemoteAccessSession)}) {}
+export class GetDeviceResult extends Schema.Class<GetDeviceResult>("GetDeviceResult")({device: Schema.optional(Device)}) {}
+export class GetJobResult extends Schema.Class<GetJobResult>("GetJobResult")({job: Schema.optional(Job)}) {}
+export class GetOfferingStatusResult extends Schema.Class<GetOfferingStatusResult>("GetOfferingStatusResult")({current: Schema.optional(OfferingStatusMap), nextPeriod: Schema.optional(OfferingStatusMap), nextToken: Schema.optional(Schema.String)}) {}
+export class GetRemoteAccessSessionResult extends Schema.Class<GetRemoteAccessSessionResult>("GetRemoteAccessSessionResult")({remoteAccessSession: Schema.optional(RemoteAccessSession)}) {}
+export class GetRunResult extends Schema.Class<GetRunResult>("GetRunResult")({run: Schema.optional(Run)}) {}
+export class ListOfferingsResult extends Schema.Class<ListOfferingsResult>("ListOfferingsResult")({offerings: Schema.optional(Offerings), nextToken: Schema.optional(Schema.String)}) {}
+export class ListOfferingTransactionsResult extends Schema.Class<ListOfferingTransactionsResult>("ListOfferingTransactionsResult")({offeringTransactions: Schema.optional(OfferingTransactions), nextToken: Schema.optional(Schema.String)}) {}
+export class IdempotencyException extends Schema.Class<IdempotencyException>("IdempotencyException")({message: Schema.optional(Schema.String)}) {}
+export class TooManyTagsException extends Schema.Class<TooManyTagsException>("TooManyTagsException")({message: Schema.optional(Schema.String), resourceName: Schema.optional(Schema.String)}) {}
+export class ProblemDetail extends Schema.Class<ProblemDetail>("ProblemDetail")({arn: Schema.optional(Schema.String), name: Schema.optional(Schema.String)}) {}
+export class Problem extends Schema.Class<Problem>("Problem")({run: Schema.optional(ProblemDetail), job: Schema.optional(ProblemDetail), suite: Schema.optional(ProblemDetail), test: Schema.optional(ProblemDetail), device: Schema.optional(Device), result: Schema.optional(Schema.String), message: Schema.optional(Schema.String)}) {}
 export const Problems = Schema.Array(Problem);
-export const IncompatibilityMessage = Schema.Struct({message: Schema.optional(Schema.String), type: Schema.optional(Schema.String)});
+export class IncompatibilityMessage extends Schema.Class<IncompatibilityMessage>("IncompatibilityMessage")({message: Schema.optional(Schema.String), type: Schema.optional(Schema.String)}) {}
 export const IncompatibilityMessages = Schema.Array(IncompatibilityMessage);
-export const UniqueProblem = Schema.Struct({message: Schema.optional(Schema.String), problems: Schema.optional(Problems)});
+export class UniqueProblem extends Schema.Class<UniqueProblem>("UniqueProblem")({message: Schema.optional(Schema.String), problems: Schema.optional(Problems)}) {}
 export const UniqueProblems = Schema.Array(UniqueProblem);
-export const DevicePoolCompatibilityResult = Schema.Struct({device: Schema.optional(Device), compatible: Schema.optional(Schema.Boolean), incompatibilityMessages: Schema.optional(IncompatibilityMessages)});
+export class DevicePoolCompatibilityResult extends Schema.Class<DevicePoolCompatibilityResult>("DevicePoolCompatibilityResult")({device: Schema.optional(Device), compatible: Schema.optional(Schema.Boolean), incompatibilityMessages: Schema.optional(IncompatibilityMessages)}) {}
 export const DevicePoolCompatibilityResults = Schema.Array(DevicePoolCompatibilityResult);
 export const UniqueProblemsByExecutionResultMap = Schema.Record({key: Schema.String, value: UniqueProblems});
-export const GetDevicePoolCompatibilityResult = Schema.Struct({compatibleDevices: Schema.optional(DevicePoolCompatibilityResults), incompatibleDevices: Schema.optional(DevicePoolCompatibilityResults)});
-export const ListUniqueProblemsResult = Schema.Struct({uniqueProblems: Schema.optional(UniqueProblemsByExecutionResultMap), nextToken: Schema.optional(Schema.String)});
+export class GetDevicePoolCompatibilityResult extends Schema.Class<GetDevicePoolCompatibilityResult>("GetDevicePoolCompatibilityResult")({compatibleDevices: Schema.optional(DevicePoolCompatibilityResults), incompatibleDevices: Schema.optional(DevicePoolCompatibilityResults)}) {}
+export class ListUniqueProblemsResult extends Schema.Class<ListUniqueProblemsResult>("ListUniqueProblemsResult")({uniqueProblems: Schema.optional(UniqueProblemsByExecutionResultMap), nextToken: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class ArgumentExceptionError extends Schema.TaggedError<ArgumentExceptionError>()("ArgumentException", ArgumentException) {};
-export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException) {};
-export class NotFoundExceptionError extends Schema.TaggedError<NotFoundExceptionError>()("NotFoundException", NotFoundException) {};
-export class ServiceAccountExceptionError extends Schema.TaggedError<ServiceAccountExceptionError>()("ServiceAccountException", ServiceAccountException) {};
-export class CannotDeleteExceptionError extends Schema.TaggedError<CannotDeleteExceptionError>()("CannotDeleteException", CannotDeleteException) {};
-export class InternalServiceExceptionError extends Schema.TaggedError<InternalServiceExceptionError>()("InternalServiceException", InternalServiceException) {};
-export class InvalidOperationExceptionError extends Schema.TaggedError<InvalidOperationExceptionError>()("InvalidOperationException", InvalidOperationException) {};
-export class TagOperationExceptionError extends Schema.TaggedError<TagOperationExceptionError>()("TagOperationException", TagOperationException) {};
-export class NotEligibleExceptionError extends Schema.TaggedError<NotEligibleExceptionError>()("NotEligibleException", NotEligibleException) {};
-export class TagPolicyExceptionError extends Schema.TaggedError<TagPolicyExceptionError>()("TagPolicyException", TagPolicyException) {};
-export class IdempotencyExceptionError extends Schema.TaggedError<IdempotencyExceptionError>()("IdempotencyException", IdempotencyException) {};
-export class TooManyTagsExceptionError extends Schema.TaggedError<TooManyTagsExceptionError>()("TooManyTagsException", TooManyTagsException) {};
+export class ArgumentExceptionError extends Schema.TaggedError<ArgumentExceptionError>()("ArgumentException", ArgumentException.fields) {};
+export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException.fields) {};
+export class NotFoundExceptionError extends Schema.TaggedError<NotFoundExceptionError>()("NotFoundException", NotFoundException.fields) {};
+export class ServiceAccountExceptionError extends Schema.TaggedError<ServiceAccountExceptionError>()("ServiceAccountException", ServiceAccountException.fields) {};
+export class CannotDeleteExceptionError extends Schema.TaggedError<CannotDeleteExceptionError>()("CannotDeleteException", CannotDeleteException.fields) {};
+export class InternalServiceExceptionError extends Schema.TaggedError<InternalServiceExceptionError>()("InternalServiceException", InternalServiceException.fields) {};
+export class InvalidOperationExceptionError extends Schema.TaggedError<InvalidOperationExceptionError>()("InvalidOperationException", InvalidOperationException.fields) {};
+export class TagOperationExceptionError extends Schema.TaggedError<TagOperationExceptionError>()("TagOperationException", TagOperationException.fields) {};
+export class NotEligibleExceptionError extends Schema.TaggedError<NotEligibleExceptionError>()("NotEligibleException", NotEligibleException.fields) {};
+export class TagPolicyExceptionError extends Schema.TaggedError<TagPolicyExceptionError>()("TagPolicyException", TagPolicyException.fields) {};
+export class IdempotencyExceptionError extends Schema.TaggedError<IdempotencyExceptionError>()("IdempotencyException", IdempotencyException.fields) {};
+export class TooManyTagsExceptionError extends Schema.TaggedError<TooManyTagsExceptionError>()("TooManyTagsException", TooManyTagsException.fields) {};
 
 //# Operations
 export const deleteRemoteAccessSession = /*#__PURE__*/ makeOperation(() => Operation({ version: "2015-06-23", uri: "/", method: "POST", sdkId: "Device Farm", sigV4ServiceName: "devicefarm", name: "DeviceFarm_20150623.DeleteRemoteAccessSession" }, DeleteRemoteAccessSessionRequest, DeleteRemoteAccessSessionResult, [ArgumentExceptionError, LimitExceededExceptionError, NotFoundExceptionError, ServiceAccountExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -338,7 +341,6 @@ export const getAccountSettings = /*#__PURE__*/ makeOperation(() => Operation({ 
 export const getDeviceInstance = /*#__PURE__*/ makeOperation(() => Operation({ version: "2015-06-23", uri: "/", method: "POST", sdkId: "Device Farm", sigV4ServiceName: "devicefarm", name: "DeviceFarm_20150623.GetDeviceInstance" }, GetDeviceInstanceRequest, GetDeviceInstanceResult, [ArgumentExceptionError, LimitExceededExceptionError, NotFoundExceptionError, ServiceAccountExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const getDevicePool = /*#__PURE__*/ makeOperation(() => Operation({ version: "2015-06-23", uri: "/", method: "POST", sdkId: "Device Farm", sigV4ServiceName: "devicefarm", name: "DeviceFarm_20150623.GetDevicePool" }, GetDevicePoolRequest, GetDevicePoolResult, [ArgumentExceptionError, LimitExceededExceptionError, NotFoundExceptionError, ServiceAccountExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const getProject = /*#__PURE__*/ makeOperation(() => Operation({ version: "2015-06-23", uri: "/", method: "POST", sdkId: "Device Farm", sigV4ServiceName: "devicefarm", name: "DeviceFarm_20150623.GetProject" }, GetProjectRequest, GetProjectResult, [ArgumentExceptionError, LimitExceededExceptionError, NotFoundExceptionError, ServiceAccountExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getRemoteAccessSession = /*#__PURE__*/ makeOperation(() => Operation({ version: "2015-06-23", uri: "/", method: "POST", sdkId: "Device Farm", sigV4ServiceName: "devicefarm", name: "DeviceFarm_20150623.GetRemoteAccessSession" }, GetRemoteAccessSessionRequest, GetRemoteAccessSessionResult, [ArgumentExceptionError, LimitExceededExceptionError, NotFoundExceptionError, ServiceAccountExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const getSuite = /*#__PURE__*/ makeOperation(() => Operation({ version: "2015-06-23", uri: "/", method: "POST", sdkId: "Device Farm", sigV4ServiceName: "devicefarm", name: "DeviceFarm_20150623.GetSuite" }, GetSuiteRequest, GetSuiteResult, [ArgumentExceptionError, LimitExceededExceptionError, NotFoundExceptionError, ServiceAccountExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const getTest = /*#__PURE__*/ makeOperation(() => Operation({ version: "2015-06-23", uri: "/", method: "POST", sdkId: "Device Farm", sigV4ServiceName: "devicefarm", name: "DeviceFarm_20150623.GetTest" }, GetTestRequest, GetTestResult, [ArgumentExceptionError, LimitExceededExceptionError, NotFoundExceptionError, ServiceAccountExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const getTestGridProject = /*#__PURE__*/ makeOperation(() => Operation({ version: "2015-06-23", uri: "/", method: "POST", sdkId: "Device Farm", sigV4ServiceName: "devicefarm", name: "DeviceFarm_20150623.GetTestGridProject" }, GetTestGridProjectRequest, GetTestGridProjectResult, [ArgumentExceptionError, InternalServiceExceptionError, NotFoundExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -354,6 +356,7 @@ export const createRemoteAccessSession = /*#__PURE__*/ makeOperation(() => Opera
 export const getDevice = /*#__PURE__*/ makeOperation(() => Operation({ version: "2015-06-23", uri: "/", method: "POST", sdkId: "Device Farm", sigV4ServiceName: "devicefarm", name: "DeviceFarm_20150623.GetDevice" }, GetDeviceRequest, GetDeviceResult, [ArgumentExceptionError, LimitExceededExceptionError, NotFoundExceptionError, ServiceAccountExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const getJob = /*#__PURE__*/ makeOperation(() => Operation({ version: "2015-06-23", uri: "/", method: "POST", sdkId: "Device Farm", sigV4ServiceName: "devicefarm", name: "DeviceFarm_20150623.GetJob" }, GetJobRequest, GetJobResult, [ArgumentExceptionError, LimitExceededExceptionError, NotFoundExceptionError, ServiceAccountExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const getOfferingStatus = /*#__PURE__*/ makeOperation(() => Operation({ version: "2015-06-23", uri: "/", method: "POST", sdkId: "Device Farm", sigV4ServiceName: "devicefarm", name: "DeviceFarm_20150623.GetOfferingStatus" }, GetOfferingStatusRequest, GetOfferingStatusResult, [ArgumentExceptionError, LimitExceededExceptionError, NotEligibleExceptionError, NotFoundExceptionError, ServiceAccountExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const getRemoteAccessSession = /*#__PURE__*/ makeOperation(() => Operation({ version: "2015-06-23", uri: "/", method: "POST", sdkId: "Device Farm", sigV4ServiceName: "devicefarm", name: "DeviceFarm_20150623.GetRemoteAccessSession" }, GetRemoteAccessSessionRequest, GetRemoteAccessSessionResult, [ArgumentExceptionError, LimitExceededExceptionError, NotFoundExceptionError, ServiceAccountExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const getRun = /*#__PURE__*/ makeOperation(() => Operation({ version: "2015-06-23", uri: "/", method: "POST", sdkId: "Device Farm", sigV4ServiceName: "devicefarm", name: "DeviceFarm_20150623.GetRun" }, GetRunRequest, GetRunResult, [ArgumentExceptionError, LimitExceededExceptionError, NotFoundExceptionError, ServiceAccountExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const listOfferings = /*#__PURE__*/ makeOperation(() => Operation({ version: "2015-06-23", uri: "/", method: "POST", sdkId: "Device Farm", sigV4ServiceName: "devicefarm", name: "DeviceFarm_20150623.ListOfferings" }, ListOfferingsRequest, ListOfferingsResult, [ArgumentExceptionError, LimitExceededExceptionError, NotEligibleExceptionError, NotFoundExceptionError, ServiceAccountExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const listOfferingTransactions = /*#__PURE__*/ makeOperation(() => Operation({ version: "2015-06-23", uri: "/", method: "POST", sdkId: "Device Farm", sigV4ServiceName: "devicefarm", name: "DeviceFarm_20150623.ListOfferingTransactions" }, ListOfferingTransactionsRequest, ListOfferingTransactionsResult, [ArgumentExceptionError, LimitExceededExceptionError, NotEligibleExceptionError, NotFoundExceptionError, ServiceAccountExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

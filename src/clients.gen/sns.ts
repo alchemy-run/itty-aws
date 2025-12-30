@@ -3,180 +3,180 @@ import { FormatAwsQueryRequest,FormatAwsQueryResponse,FormatAWSXMLError, makeOpe
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const GetSMSSandboxAccountStatusInput = Schema.Struct({});
+export class GetSMSSandboxAccountStatusInput extends Schema.Class<GetSMSSandboxAccountStatusInput>("GetSMSSandboxAccountStatusInput")({}) {}
 export const DelegatesList = Schema.Array(Schema.String);
 export const ActionsList = Schema.Array(Schema.String);
 export const ListString = Schema.Array(Schema.String);
 export const TagKeyList = Schema.Array(Schema.String);
-export const AddPermissionInput = Schema.Struct({TopicArn: Schema.String, Label: Schema.String, AWSAccountId: DelegatesList, ActionName: ActionsList});
-export const CheckIfPhoneNumberIsOptedOutInput = Schema.Struct({phoneNumber: Schema.String});
-export const ConfirmSubscriptionInput = Schema.Struct({TopicArn: Schema.String, Token: Schema.String, AuthenticateOnUnsubscribe: Schema.optional(Schema.String)});
+export class AddPermissionInput extends Schema.Class<AddPermissionInput>("AddPermissionInput")({TopicArn: Schema.String, Label: Schema.String, AWSAccountId: DelegatesList, ActionName: ActionsList}) {}
+export class CheckIfPhoneNumberIsOptedOutInput extends Schema.Class<CheckIfPhoneNumberIsOptedOutInput>("CheckIfPhoneNumberIsOptedOutInput")({phoneNumber: Schema.String}) {}
+export class ConfirmSubscriptionInput extends Schema.Class<ConfirmSubscriptionInput>("ConfirmSubscriptionInput")({TopicArn: Schema.String, Token: Schema.String, AuthenticateOnUnsubscribe: Schema.optional(Schema.String)}) {}
 export const MapStringToString = Schema.Record({key: Schema.String, value: Schema.String});
-export const CreatePlatformEndpointInput = Schema.Struct({PlatformApplicationArn: Schema.String, Token: Schema.String, CustomUserData: Schema.optional(Schema.String), Attributes: Schema.optional(MapStringToString)});
-export const CreateSMSSandboxPhoneNumberInput = Schema.Struct({PhoneNumber: Schema.String, LanguageCode: Schema.optional(Schema.String)});
-export const CreateSMSSandboxPhoneNumberResult = Schema.Struct({});
-export const DeleteEndpointInput = Schema.Struct({EndpointArn: Schema.String});
-export const DeletePlatformApplicationInput = Schema.Struct({PlatformApplicationArn: Schema.String});
-export const DeleteSMSSandboxPhoneNumberInput = Schema.Struct({PhoneNumber: Schema.String});
-export const DeleteSMSSandboxPhoneNumberResult = Schema.Struct({});
-export const DeleteTopicInput = Schema.Struct({TopicArn: Schema.String});
-export const GetDataProtectionPolicyInput = Schema.Struct({ResourceArn: Schema.String});
-export const GetEndpointAttributesInput = Schema.Struct({EndpointArn: Schema.String});
-export const GetPlatformApplicationAttributesInput = Schema.Struct({PlatformApplicationArn: Schema.String});
-export const GetSMSAttributesInput = Schema.Struct({attributes: Schema.optional(ListString)});
-export const GetSMSSandboxAccountStatusResult = Schema.Struct({IsInSandbox: Schema.Boolean});
-export const GetSubscriptionAttributesInput = Schema.Struct({SubscriptionArn: Schema.String});
-export const GetTopicAttributesInput = Schema.Struct({TopicArn: Schema.String});
-export const ListEndpointsByPlatformApplicationInput = Schema.Struct({PlatformApplicationArn: Schema.String, NextToken: Schema.optional(Schema.String)});
-export const ListOriginationNumbersRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListPhoneNumbersOptedOutInput = Schema.Struct({nextToken: Schema.optional(Schema.String)});
-export const ListPlatformApplicationsInput = Schema.Struct({NextToken: Schema.optional(Schema.String)});
-export const ListSMSSandboxPhoneNumbersInput = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListSubscriptionsInput = Schema.Struct({NextToken: Schema.optional(Schema.String)});
-export const ListSubscriptionsByTopicInput = Schema.Struct({TopicArn: Schema.String, NextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceRequest = Schema.Struct({ResourceArn: Schema.String});
-export const ListTopicsInput = Schema.Struct({NextToken: Schema.optional(Schema.String)});
-export const OptInPhoneNumberInput = Schema.Struct({phoneNumber: Schema.String});
-export const OptInPhoneNumberResponse = Schema.Struct({});
-export const PutDataProtectionPolicyInput = Schema.Struct({ResourceArn: Schema.String, DataProtectionPolicy: Schema.String});
-export const RemovePermissionInput = Schema.Struct({TopicArn: Schema.String, Label: Schema.String});
-export const SetEndpointAttributesInput = Schema.Struct({EndpointArn: Schema.String, Attributes: MapStringToString});
-export const SetPlatformApplicationAttributesInput = Schema.Struct({PlatformApplicationArn: Schema.String, Attributes: MapStringToString});
-export const SetSMSAttributesInput = Schema.Struct({attributes: MapStringToString});
-export const SetSMSAttributesResponse = Schema.Struct({});
-export const SetSubscriptionAttributesInput = Schema.Struct({SubscriptionArn: Schema.String, AttributeName: Schema.String, AttributeValue: Schema.optional(Schema.String)});
-export const SetTopicAttributesInput = Schema.Struct({TopicArn: Schema.String, AttributeName: Schema.String, AttributeValue: Schema.optional(Schema.String)});
-export const Tag = Schema.Struct({Key: Schema.String, Value: Schema.String});
+export class CreatePlatformEndpointInput extends Schema.Class<CreatePlatformEndpointInput>("CreatePlatformEndpointInput")({PlatformApplicationArn: Schema.String, Token: Schema.String, CustomUserData: Schema.optional(Schema.String), Attributes: Schema.optional(MapStringToString)}) {}
+export class CreateSMSSandboxPhoneNumberInput extends Schema.Class<CreateSMSSandboxPhoneNumberInput>("CreateSMSSandboxPhoneNumberInput")({PhoneNumber: Schema.String, LanguageCode: Schema.optional(Schema.String)}) {}
+export class CreateSMSSandboxPhoneNumberResult extends Schema.Class<CreateSMSSandboxPhoneNumberResult>("CreateSMSSandboxPhoneNumberResult")({}) {}
+export class DeleteEndpointInput extends Schema.Class<DeleteEndpointInput>("DeleteEndpointInput")({EndpointArn: Schema.String}) {}
+export class DeletePlatformApplicationInput extends Schema.Class<DeletePlatformApplicationInput>("DeletePlatformApplicationInput")({PlatformApplicationArn: Schema.String}) {}
+export class DeleteSMSSandboxPhoneNumberInput extends Schema.Class<DeleteSMSSandboxPhoneNumberInput>("DeleteSMSSandboxPhoneNumberInput")({PhoneNumber: Schema.String}) {}
+export class DeleteSMSSandboxPhoneNumberResult extends Schema.Class<DeleteSMSSandboxPhoneNumberResult>("DeleteSMSSandboxPhoneNumberResult")({}) {}
+export class DeleteTopicInput extends Schema.Class<DeleteTopicInput>("DeleteTopicInput")({TopicArn: Schema.String}) {}
+export class GetDataProtectionPolicyInput extends Schema.Class<GetDataProtectionPolicyInput>("GetDataProtectionPolicyInput")({ResourceArn: Schema.String}) {}
+export class GetEndpointAttributesInput extends Schema.Class<GetEndpointAttributesInput>("GetEndpointAttributesInput")({EndpointArn: Schema.String}) {}
+export class GetPlatformApplicationAttributesInput extends Schema.Class<GetPlatformApplicationAttributesInput>("GetPlatformApplicationAttributesInput")({PlatformApplicationArn: Schema.String}) {}
+export class GetSMSAttributesInput extends Schema.Class<GetSMSAttributesInput>("GetSMSAttributesInput")({attributes: Schema.optional(ListString)}) {}
+export class GetSMSSandboxAccountStatusResult extends Schema.Class<GetSMSSandboxAccountStatusResult>("GetSMSSandboxAccountStatusResult")({IsInSandbox: Schema.Boolean}) {}
+export class GetSubscriptionAttributesInput extends Schema.Class<GetSubscriptionAttributesInput>("GetSubscriptionAttributesInput")({SubscriptionArn: Schema.String}) {}
+export class GetTopicAttributesInput extends Schema.Class<GetTopicAttributesInput>("GetTopicAttributesInput")({TopicArn: Schema.String}) {}
+export class ListEndpointsByPlatformApplicationInput extends Schema.Class<ListEndpointsByPlatformApplicationInput>("ListEndpointsByPlatformApplicationInput")({PlatformApplicationArn: Schema.String, NextToken: Schema.optional(Schema.String)}) {}
+export class ListOriginationNumbersRequest extends Schema.Class<ListOriginationNumbersRequest>("ListOriginationNumbersRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListPhoneNumbersOptedOutInput extends Schema.Class<ListPhoneNumbersOptedOutInput>("ListPhoneNumbersOptedOutInput")({nextToken: Schema.optional(Schema.String)}) {}
+export class ListPlatformApplicationsInput extends Schema.Class<ListPlatformApplicationsInput>("ListPlatformApplicationsInput")({NextToken: Schema.optional(Schema.String)}) {}
+export class ListSMSSandboxPhoneNumbersInput extends Schema.Class<ListSMSSandboxPhoneNumbersInput>("ListSMSSandboxPhoneNumbersInput")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListSubscriptionsInput extends Schema.Class<ListSubscriptionsInput>("ListSubscriptionsInput")({NextToken: Schema.optional(Schema.String)}) {}
+export class ListSubscriptionsByTopicInput extends Schema.Class<ListSubscriptionsByTopicInput>("ListSubscriptionsByTopicInput")({TopicArn: Schema.String, NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({ResourceArn: Schema.String}) {}
+export class ListTopicsInput extends Schema.Class<ListTopicsInput>("ListTopicsInput")({NextToken: Schema.optional(Schema.String)}) {}
+export class OptInPhoneNumberInput extends Schema.Class<OptInPhoneNumberInput>("OptInPhoneNumberInput")({phoneNumber: Schema.String}) {}
+export class OptInPhoneNumberResponse extends Schema.Class<OptInPhoneNumberResponse>("OptInPhoneNumberResponse")({}) {}
+export class PutDataProtectionPolicyInput extends Schema.Class<PutDataProtectionPolicyInput>("PutDataProtectionPolicyInput")({ResourceArn: Schema.String, DataProtectionPolicy: Schema.String}) {}
+export class RemovePermissionInput extends Schema.Class<RemovePermissionInput>("RemovePermissionInput")({TopicArn: Schema.String, Label: Schema.String}) {}
+export class SetEndpointAttributesInput extends Schema.Class<SetEndpointAttributesInput>("SetEndpointAttributesInput")({EndpointArn: Schema.String, Attributes: MapStringToString}) {}
+export class SetPlatformApplicationAttributesInput extends Schema.Class<SetPlatformApplicationAttributesInput>("SetPlatformApplicationAttributesInput")({PlatformApplicationArn: Schema.String, Attributes: MapStringToString}) {}
+export class SetSMSAttributesInput extends Schema.Class<SetSMSAttributesInput>("SetSMSAttributesInput")({attributes: MapStringToString}) {}
+export class SetSMSAttributesResponse extends Schema.Class<SetSMSAttributesResponse>("SetSMSAttributesResponse")({}) {}
+export class SetSubscriptionAttributesInput extends Schema.Class<SetSubscriptionAttributesInput>("SetSubscriptionAttributesInput")({SubscriptionArn: Schema.String, AttributeName: Schema.String, AttributeValue: Schema.optional(Schema.String)}) {}
+export class SetTopicAttributesInput extends Schema.Class<SetTopicAttributesInput>("SetTopicAttributesInput")({TopicArn: Schema.String, AttributeName: Schema.String, AttributeValue: Schema.optional(Schema.String)}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.String, Value: Schema.String}) {}
 export const TagList = Schema.Array(Tag);
-export const TagResourceRequest = Schema.Struct({ResourceArn: Schema.String, Tags: TagList});
-export const TagResourceResponse = Schema.Struct({});
-export const UnsubscribeInput = Schema.Struct({SubscriptionArn: Schema.String});
-export const UntagResourceRequest = Schema.Struct({ResourceArn: Schema.String, TagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
-export const VerifySMSSandboxPhoneNumberInput = Schema.Struct({PhoneNumber: Schema.String, OneTimePassword: Schema.String});
-export const VerifySMSSandboxPhoneNumberResult = Schema.Struct({});
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({ResourceArn: Schema.String, Tags: TagList}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UnsubscribeInput extends Schema.Class<UnsubscribeInput>("UnsubscribeInput")({SubscriptionArn: Schema.String}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({ResourceArn: Schema.String, TagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class VerifySMSSandboxPhoneNumberInput extends Schema.Class<VerifySMSSandboxPhoneNumberInput>("VerifySMSSandboxPhoneNumberInput")({PhoneNumber: Schema.String, OneTimePassword: Schema.String}) {}
+export class VerifySMSSandboxPhoneNumberResult extends Schema.Class<VerifySMSSandboxPhoneNumberResult>("VerifySMSSandboxPhoneNumberResult")({}) {}
 export const TopicAttributesMap = Schema.Record({key: Schema.String, value: Schema.String});
 export const PhoneNumberList = Schema.Array(Schema.String);
-export const MessageAttributeValue = Schema.Struct({DataType: Schema.String, StringValue: Schema.optional(Schema.String), BinaryValue: Schema.optional(StreamBody())});
+export class MessageAttributeValue extends Schema.Class<MessageAttributeValue>("MessageAttributeValue")({DataType: Schema.String, StringValue: Schema.optional(Schema.String), BinaryValue: Schema.optional(StreamBody())}) {}
 export const MessageAttributeMap = Schema.Record({key: Schema.String, value: MessageAttributeValue});
-export const PublishBatchRequestEntry = Schema.Struct({Id: Schema.String, Message: Schema.String, Subject: Schema.optional(Schema.String), MessageStructure: Schema.optional(Schema.String), MessageAttributes: Schema.optional(MessageAttributeMap), MessageDeduplicationId: Schema.optional(Schema.String), MessageGroupId: Schema.optional(Schema.String)});
+export class PublishBatchRequestEntry extends Schema.Class<PublishBatchRequestEntry>("PublishBatchRequestEntry")({Id: Schema.String, Message: Schema.String, Subject: Schema.optional(Schema.String), MessageStructure: Schema.optional(Schema.String), MessageAttributes: Schema.optional(MessageAttributeMap), MessageDeduplicationId: Schema.optional(Schema.String), MessageGroupId: Schema.optional(Schema.String)}) {}
 export const PublishBatchRequestEntryList = Schema.Array(PublishBatchRequestEntry);
 export const SubscriptionAttributesMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const AuthorizationErrorException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CheckIfPhoneNumberIsOptedOutResponse = Schema.Struct({isOptedOut: Schema.optional(Schema.Boolean)});
-export const ConfirmSubscriptionResponse = Schema.Struct({SubscriptionArn: Schema.optional(Schema.String)});
-export const CreatePlatformApplicationInput = Schema.Struct({Name: Schema.String, Platform: Schema.String, Attributes: MapStringToString});
-export const CreateEndpointResponse = Schema.Struct({EndpointArn: Schema.optional(Schema.String)});
-export const InternalErrorException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CreateTopicInput = Schema.Struct({Name: Schema.String, Attributes: Schema.optional(TopicAttributesMap), Tags: Schema.optional(TagList), DataProtectionPolicy: Schema.optional(Schema.String)});
-export const InvalidParameterException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ConcurrentAccessException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const GetDataProtectionPolicyResponse = Schema.Struct({DataProtectionPolicy: Schema.optional(Schema.String)});
-export const GetEndpointAttributesResponse = Schema.Struct({Attributes: Schema.optional(MapStringToString)});
-export const GetPlatformApplicationAttributesResponse = Schema.Struct({Attributes: Schema.optional(MapStringToString)});
-export const GetSMSAttributesResponse = Schema.Struct({attributes: Schema.optional(MapStringToString)});
-export const ThrottledException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const GetSubscriptionAttributesResponse = Schema.Struct({Attributes: Schema.optional(SubscriptionAttributesMap)});
-export const GetTopicAttributesResponse = Schema.Struct({Attributes: Schema.optional(TopicAttributesMap)});
-export const ListPhoneNumbersOptedOutResponse = Schema.Struct({phoneNumbers: Schema.optional(PhoneNumberList), nextToken: Schema.optional(Schema.String)});
-export const Subscription = Schema.Struct({SubscriptionArn: Schema.optional(Schema.String), Owner: Schema.optional(Schema.String), Protocol: Schema.optional(Schema.String), Endpoint: Schema.optional(Schema.String), TopicArn: Schema.optional(Schema.String)});
+export class AuthorizationErrorException extends Schema.Class<AuthorizationErrorException>("AuthorizationErrorException")({message: Schema.optional(Schema.String)}) {}
+export class CheckIfPhoneNumberIsOptedOutResponse extends Schema.Class<CheckIfPhoneNumberIsOptedOutResponse>("CheckIfPhoneNumberIsOptedOutResponse")({isOptedOut: Schema.optional(Schema.Boolean)}) {}
+export class ConfirmSubscriptionResponse extends Schema.Class<ConfirmSubscriptionResponse>("ConfirmSubscriptionResponse")({SubscriptionArn: Schema.optional(Schema.String)}) {}
+export class CreatePlatformApplicationInput extends Schema.Class<CreatePlatformApplicationInput>("CreatePlatformApplicationInput")({Name: Schema.String, Platform: Schema.String, Attributes: MapStringToString}) {}
+export class CreateEndpointResponse extends Schema.Class<CreateEndpointResponse>("CreateEndpointResponse")({EndpointArn: Schema.optional(Schema.String)}) {}
+export class InternalErrorException extends Schema.Class<InternalErrorException>("InternalErrorException")({message: Schema.optional(Schema.String)}) {}
+export class CreateTopicInput extends Schema.Class<CreateTopicInput>("CreateTopicInput")({Name: Schema.String, Attributes: Schema.optional(TopicAttributesMap), Tags: Schema.optional(TagList), DataProtectionPolicy: Schema.optional(Schema.String)}) {}
+export class InvalidParameterException extends Schema.Class<InvalidParameterException>("InvalidParameterException")({message: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class ConcurrentAccessException extends Schema.Class<ConcurrentAccessException>("ConcurrentAccessException")({message: Schema.optional(Schema.String)}) {}
+export class GetDataProtectionPolicyResponse extends Schema.Class<GetDataProtectionPolicyResponse>("GetDataProtectionPolicyResponse")({DataProtectionPolicy: Schema.optional(Schema.String)}) {}
+export class GetEndpointAttributesResponse extends Schema.Class<GetEndpointAttributesResponse>("GetEndpointAttributesResponse")({Attributes: Schema.optional(MapStringToString)}) {}
+export class GetPlatformApplicationAttributesResponse extends Schema.Class<GetPlatformApplicationAttributesResponse>("GetPlatformApplicationAttributesResponse")({Attributes: Schema.optional(MapStringToString)}) {}
+export class GetSMSAttributesResponse extends Schema.Class<GetSMSAttributesResponse>("GetSMSAttributesResponse")({attributes: Schema.optional(MapStringToString)}) {}
+export class ThrottledException extends Schema.Class<ThrottledException>("ThrottledException")({message: Schema.optional(Schema.String)}) {}
+export class GetSubscriptionAttributesResponse extends Schema.Class<GetSubscriptionAttributesResponse>("GetSubscriptionAttributesResponse")({Attributes: Schema.optional(SubscriptionAttributesMap)}) {}
+export class GetTopicAttributesResponse extends Schema.Class<GetTopicAttributesResponse>("GetTopicAttributesResponse")({Attributes: Schema.optional(TopicAttributesMap)}) {}
+export class ListPhoneNumbersOptedOutResponse extends Schema.Class<ListPhoneNumbersOptedOutResponse>("ListPhoneNumbersOptedOutResponse")({phoneNumbers: Schema.optional(PhoneNumberList), nextToken: Schema.optional(Schema.String)}) {}
+export class Subscription extends Schema.Class<Subscription>("Subscription")({SubscriptionArn: Schema.optional(Schema.String), Owner: Schema.optional(Schema.String), Protocol: Schema.optional(Schema.String), Endpoint: Schema.optional(Schema.String), TopicArn: Schema.optional(Schema.String)}) {}
 export const SubscriptionsList = Schema.Array(Subscription);
-export const ListSubscriptionsByTopicResponse = Schema.Struct({Subscriptions: Schema.optional(SubscriptionsList), NextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceResponse = Schema.Struct({Tags: Schema.optional(TagList)});
-export const PublishBatchInput = Schema.Struct({TopicArn: Schema.String, PublishBatchRequestEntries: PublishBatchRequestEntryList});
-export const InvalidSecurityException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const NotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const FilterPolicyLimitExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const SubscribeInput = Schema.Struct({TopicArn: Schema.String, Protocol: Schema.String, Endpoint: Schema.optional(Schema.String), Attributes: Schema.optional(SubscriptionAttributesMap), ReturnSubscriptionArn: Schema.optional(Schema.Boolean)});
-export const StaleTagException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const TagLimitExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const VerificationException = Schema.Struct({Message: Schema.String, Status: Schema.String});
+export class ListSubscriptionsByTopicResponse extends Schema.Class<ListSubscriptionsByTopicResponse>("ListSubscriptionsByTopicResponse")({Subscriptions: Schema.optional(SubscriptionsList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({Tags: Schema.optional(TagList)}) {}
+export class PublishBatchInput extends Schema.Class<PublishBatchInput>("PublishBatchInput")({TopicArn: Schema.String, PublishBatchRequestEntries: PublishBatchRequestEntryList}) {}
+export class InvalidSecurityException extends Schema.Class<InvalidSecurityException>("InvalidSecurityException")({message: Schema.optional(Schema.String)}) {}
+export class NotFoundException extends Schema.Class<NotFoundException>("NotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class FilterPolicyLimitExceededException extends Schema.Class<FilterPolicyLimitExceededException>("FilterPolicyLimitExceededException")({message: Schema.optional(Schema.String)}) {}
+export class SubscribeInput extends Schema.Class<SubscribeInput>("SubscribeInput")({TopicArn: Schema.String, Protocol: Schema.String, Endpoint: Schema.optional(Schema.String), Attributes: Schema.optional(SubscriptionAttributesMap), ReturnSubscriptionArn: Schema.optional(Schema.Boolean)}) {}
+export class StaleTagException extends Schema.Class<StaleTagException>("StaleTagException")({message: Schema.optional(Schema.String)}) {}
+export class TagLimitExceededException extends Schema.Class<TagLimitExceededException>("TagLimitExceededException")({message: Schema.optional(Schema.String)}) {}
+export class VerificationException extends Schema.Class<VerificationException>("VerificationException")({Message: Schema.String, Status: Schema.String}) {}
 export const NumberCapabilityList = Schema.Array(Schema.String);
-export const Endpoint = Schema.Struct({EndpointArn: Schema.optional(Schema.String), Attributes: Schema.optional(MapStringToString)});
+export class Endpoint extends Schema.Class<Endpoint>("Endpoint")({EndpointArn: Schema.optional(Schema.String), Attributes: Schema.optional(MapStringToString)}) {}
 export const ListOfEndpoints = Schema.Array(Endpoint);
-export const PhoneNumberInformation = Schema.Struct({CreatedAt: Schema.optional(Schema.Date), PhoneNumber: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), Iso2CountryCode: Schema.optional(Schema.String), RouteType: Schema.optional(Schema.String), NumberCapabilities: Schema.optional(NumberCapabilityList)});
+export class PhoneNumberInformation extends Schema.Class<PhoneNumberInformation>("PhoneNumberInformation")({CreatedAt: Schema.optional(Schema.Date), PhoneNumber: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), Iso2CountryCode: Schema.optional(Schema.String), RouteType: Schema.optional(Schema.String), NumberCapabilities: Schema.optional(NumberCapabilityList)}) {}
 export const PhoneNumberInformationList = Schema.Array(PhoneNumberInformation);
-export const PlatformApplication = Schema.Struct({PlatformApplicationArn: Schema.optional(Schema.String), Attributes: Schema.optional(MapStringToString)});
+export class PlatformApplication extends Schema.Class<PlatformApplication>("PlatformApplication")({PlatformApplicationArn: Schema.optional(Schema.String), Attributes: Schema.optional(MapStringToString)}) {}
 export const ListOfPlatformApplications = Schema.Array(PlatformApplication);
-export const SMSSandboxPhoneNumber = Schema.Struct({PhoneNumber: Schema.optional(Schema.String), Status: Schema.optional(Schema.String)});
+export class SMSSandboxPhoneNumber extends Schema.Class<SMSSandboxPhoneNumber>("SMSSandboxPhoneNumber")({PhoneNumber: Schema.optional(Schema.String), Status: Schema.optional(Schema.String)}) {}
 export const SMSSandboxPhoneNumberList = Schema.Array(SMSSandboxPhoneNumber);
-export const Topic = Schema.Struct({TopicArn: Schema.optional(Schema.String)});
+export class Topic extends Schema.Class<Topic>("Topic")({TopicArn: Schema.optional(Schema.String)}) {}
 export const TopicsList = Schema.Array(Topic);
-export const ReplayLimitExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CreatePlatformApplicationResponse = Schema.Struct({PlatformApplicationArn: Schema.optional(Schema.String)});
-export const OptedOutException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CreateTopicResponse = Schema.Struct({TopicArn: Schema.optional(Schema.String)});
-export const UserErrorException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidStateException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ListEndpointsByPlatformApplicationResponse = Schema.Struct({Endpoints: Schema.optional(ListOfEndpoints), NextToken: Schema.optional(Schema.String)});
-export const ListOriginationNumbersResult = Schema.Struct({NextToken: Schema.optional(Schema.String), PhoneNumbers: Schema.optional(PhoneNumberInformationList)});
-export const ListPlatformApplicationsResponse = Schema.Struct({PlatformApplications: Schema.optional(ListOfPlatformApplications), NextToken: Schema.optional(Schema.String)});
-export const ListSMSSandboxPhoneNumbersResult = Schema.Struct({PhoneNumbers: SMSSandboxPhoneNumberList, NextToken: Schema.optional(Schema.String)});
-export const ListSubscriptionsResponse = Schema.Struct({Subscriptions: Schema.optional(SubscriptionsList), NextToken: Schema.optional(Schema.String)});
-export const TagPolicyException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ListTopicsResponse = Schema.Struct({Topics: Schema.optional(TopicsList), NextToken: Schema.optional(Schema.String)});
-export const PublishInput = Schema.Struct({TopicArn: Schema.optional(Schema.String), TargetArn: Schema.optional(Schema.String), PhoneNumber: Schema.optional(Schema.String), Message: Schema.String, Subject: Schema.optional(Schema.String), MessageStructure: Schema.optional(Schema.String), MessageAttributes: Schema.optional(MessageAttributeMap), MessageDeduplicationId: Schema.optional(Schema.String), MessageGroupId: Schema.optional(Schema.String)});
-export const SubscribeResponse = Schema.Struct({SubscriptionArn: Schema.optional(Schema.String)});
-export const PublishBatchResultEntry = Schema.Struct({Id: Schema.optional(Schema.String), MessageId: Schema.optional(Schema.String), SequenceNumber: Schema.optional(Schema.String)});
+export class ReplayLimitExceededException extends Schema.Class<ReplayLimitExceededException>("ReplayLimitExceededException")({message: Schema.optional(Schema.String)}) {}
+export class CreatePlatformApplicationResponse extends Schema.Class<CreatePlatformApplicationResponse>("CreatePlatformApplicationResponse")({PlatformApplicationArn: Schema.optional(Schema.String)}) {}
+export class OptedOutException extends Schema.Class<OptedOutException>("OptedOutException")({message: Schema.optional(Schema.String)}) {}
+export class CreateTopicResponse extends Schema.Class<CreateTopicResponse>("CreateTopicResponse")({TopicArn: Schema.optional(Schema.String)}) {}
+export class UserErrorException extends Schema.Class<UserErrorException>("UserErrorException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidStateException extends Schema.Class<InvalidStateException>("InvalidStateException")({message: Schema.optional(Schema.String)}) {}
+export class ListEndpointsByPlatformApplicationResponse extends Schema.Class<ListEndpointsByPlatformApplicationResponse>("ListEndpointsByPlatformApplicationResponse")({Endpoints: Schema.optional(ListOfEndpoints), NextToken: Schema.optional(Schema.String)}) {}
+export class ListOriginationNumbersResult extends Schema.Class<ListOriginationNumbersResult>("ListOriginationNumbersResult")({NextToken: Schema.optional(Schema.String), PhoneNumbers: Schema.optional(PhoneNumberInformationList)}) {}
+export class ListPlatformApplicationsResponse extends Schema.Class<ListPlatformApplicationsResponse>("ListPlatformApplicationsResponse")({PlatformApplications: Schema.optional(ListOfPlatformApplications), NextToken: Schema.optional(Schema.String)}) {}
+export class ListSMSSandboxPhoneNumbersResult extends Schema.Class<ListSMSSandboxPhoneNumbersResult>("ListSMSSandboxPhoneNumbersResult")({PhoneNumbers: SMSSandboxPhoneNumberList, NextToken: Schema.optional(Schema.String)}) {}
+export class ListSubscriptionsResponse extends Schema.Class<ListSubscriptionsResponse>("ListSubscriptionsResponse")({Subscriptions: Schema.optional(SubscriptionsList), NextToken: Schema.optional(Schema.String)}) {}
+export class TagPolicyException extends Schema.Class<TagPolicyException>("TagPolicyException")({message: Schema.optional(Schema.String)}) {}
+export class ListTopicsResponse extends Schema.Class<ListTopicsResponse>("ListTopicsResponse")({Topics: Schema.optional(TopicsList), NextToken: Schema.optional(Schema.String)}) {}
+export class PublishInput extends Schema.Class<PublishInput>("PublishInput")({TopicArn: Schema.optional(Schema.String), TargetArn: Schema.optional(Schema.String), PhoneNumber: Schema.optional(Schema.String), Message: Schema.String, Subject: Schema.optional(Schema.String), MessageStructure: Schema.optional(Schema.String), MessageAttributes: Schema.optional(MessageAttributeMap), MessageDeduplicationId: Schema.optional(Schema.String), MessageGroupId: Schema.optional(Schema.String)}) {}
+export class SubscribeResponse extends Schema.Class<SubscribeResponse>("SubscribeResponse")({SubscriptionArn: Schema.optional(Schema.String)}) {}
+export class PublishBatchResultEntry extends Schema.Class<PublishBatchResultEntry>("PublishBatchResultEntry")({Id: Schema.optional(Schema.String), MessageId: Schema.optional(Schema.String), SequenceNumber: Schema.optional(Schema.String)}) {}
 export const PublishBatchResultEntryList = Schema.Array(PublishBatchResultEntry);
-export const BatchResultErrorEntry = Schema.Struct({Id: Schema.String, Code: Schema.String, Message: Schema.optional(Schema.String), SenderFault: Schema.Boolean});
+export class BatchResultErrorEntry extends Schema.Class<BatchResultErrorEntry>("BatchResultErrorEntry")({Id: Schema.String, Code: Schema.String, Message: Schema.optional(Schema.String), SenderFault: Schema.Boolean}) {}
 export const BatchResultErrorEntryList = Schema.Array(BatchResultErrorEntry);
-export const SubscriptionLimitExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const TopicLimitExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ValidationException = Schema.Struct({Message: Schema.String});
-export const PublishResponse = Schema.Struct({MessageId: Schema.optional(Schema.String), SequenceNumber: Schema.optional(Schema.String)});
-export const PublishBatchResponse = Schema.Struct({Successful: Schema.optional(PublishBatchResultEntryList), Failed: Schema.optional(BatchResultErrorEntryList)});
-export const EndpointDisabledException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const BatchEntryIdsNotDistinctException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidParameterValueException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const BatchRequestTooLongException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const KMSAccessDeniedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const EmptyBatchRequestException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const KMSDisabledException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidBatchEntryIdException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const KMSInvalidStateException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const KMSNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const KMSOptInRequired = Schema.Struct({message: Schema.optional(Schema.String)});
-export const KMSThrottlingException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const PlatformApplicationDisabledException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const TooManyEntriesInBatchRequestException = Schema.Struct({message: Schema.optional(Schema.String)});
+export class SubscriptionLimitExceededException extends Schema.Class<SubscriptionLimitExceededException>("SubscriptionLimitExceededException")({message: Schema.optional(Schema.String)}) {}
+export class TopicLimitExceededException extends Schema.Class<TopicLimitExceededException>("TopicLimitExceededException")({message: Schema.optional(Schema.String)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({Message: Schema.String}) {}
+export class PublishResponse extends Schema.Class<PublishResponse>("PublishResponse")({MessageId: Schema.optional(Schema.String), SequenceNumber: Schema.optional(Schema.String)}) {}
+export class PublishBatchResponse extends Schema.Class<PublishBatchResponse>("PublishBatchResponse")({Successful: Schema.optional(PublishBatchResultEntryList), Failed: Schema.optional(BatchResultErrorEntryList)}) {}
+export class EndpointDisabledException extends Schema.Class<EndpointDisabledException>("EndpointDisabledException")({message: Schema.optional(Schema.String)}) {}
+export class BatchEntryIdsNotDistinctException extends Schema.Class<BatchEntryIdsNotDistinctException>("BatchEntryIdsNotDistinctException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidParameterValueException extends Schema.Class<InvalidParameterValueException>("InvalidParameterValueException")({message: Schema.optional(Schema.String)}) {}
+export class BatchRequestTooLongException extends Schema.Class<BatchRequestTooLongException>("BatchRequestTooLongException")({message: Schema.optional(Schema.String)}) {}
+export class KMSAccessDeniedException extends Schema.Class<KMSAccessDeniedException>("KMSAccessDeniedException")({message: Schema.optional(Schema.String)}) {}
+export class EmptyBatchRequestException extends Schema.Class<EmptyBatchRequestException>("EmptyBatchRequestException")({message: Schema.optional(Schema.String)}) {}
+export class KMSDisabledException extends Schema.Class<KMSDisabledException>("KMSDisabledException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidBatchEntryIdException extends Schema.Class<InvalidBatchEntryIdException>("InvalidBatchEntryIdException")({message: Schema.optional(Schema.String)}) {}
+export class KMSInvalidStateException extends Schema.Class<KMSInvalidStateException>("KMSInvalidStateException")({message: Schema.optional(Schema.String)}) {}
+export class KMSNotFoundException extends Schema.Class<KMSNotFoundException>("KMSNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class KMSOptInRequired extends Schema.Class<KMSOptInRequired>("KMSOptInRequired")({message: Schema.optional(Schema.String)}) {}
+export class KMSThrottlingException extends Schema.Class<KMSThrottlingException>("KMSThrottlingException")({message: Schema.optional(Schema.String)}) {}
+export class PlatformApplicationDisabledException extends Schema.Class<PlatformApplicationDisabledException>("PlatformApplicationDisabledException")({message: Schema.optional(Schema.String)}) {}
+export class TooManyEntriesInBatchRequestException extends Schema.Class<TooManyEntriesInBatchRequestException>("TooManyEntriesInBatchRequestException")({message: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class AuthorizationErrorExceptionError extends Schema.TaggedError<AuthorizationErrorExceptionError>()("AuthorizationErrorException", AuthorizationErrorException) {};
-export class InternalErrorExceptionError extends Schema.TaggedError<InternalErrorExceptionError>()("InternalErrorException", InternalErrorException) {};
-export class InvalidParameterExceptionError extends Schema.TaggedError<InvalidParameterExceptionError>()("InvalidParameterException", InvalidParameterException) {};
-export class ThrottledExceptionError extends Schema.TaggedError<ThrottledExceptionError>()("ThrottledException", ThrottledException) {};
-export class NotFoundExceptionError extends Schema.TaggedError<NotFoundExceptionError>()("NotFoundException", NotFoundException) {};
-export class InvalidSecurityExceptionError extends Schema.TaggedError<InvalidSecurityExceptionError>()("InvalidSecurityException", InvalidSecurityException) {};
-export class ConcurrentAccessExceptionError extends Schema.TaggedError<ConcurrentAccessExceptionError>()("ConcurrentAccessException", ConcurrentAccessException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class StaleTagExceptionError extends Schema.TaggedError<StaleTagExceptionError>()("StaleTagException", StaleTagException) {};
-export class FilterPolicyLimitExceededExceptionError extends Schema.TaggedError<FilterPolicyLimitExceededExceptionError>()("FilterPolicyLimitExceededException", FilterPolicyLimitExceededException) {};
-export class ReplayLimitExceededExceptionError extends Schema.TaggedError<ReplayLimitExceededExceptionError>()("ReplayLimitExceededException", ReplayLimitExceededException) {};
-export class TagLimitExceededExceptionError extends Schema.TaggedError<TagLimitExceededExceptionError>()("TagLimitExceededException", TagLimitExceededException) {};
-export class TagPolicyExceptionError extends Schema.TaggedError<TagPolicyExceptionError>()("TagPolicyException", TagPolicyException) {};
-export class VerificationExceptionError extends Schema.TaggedError<VerificationExceptionError>()("VerificationException", VerificationException) {};
-export class OptedOutExceptionError extends Schema.TaggedError<OptedOutExceptionError>()("OptedOutException", OptedOutException) {};
-export class UserErrorExceptionError extends Schema.TaggedError<UserErrorExceptionError>()("UserErrorException", UserErrorException) {};
-export class InvalidStateExceptionError extends Schema.TaggedError<InvalidStateExceptionError>()("InvalidStateException", InvalidStateException) {};
-export class SubscriptionLimitExceededExceptionError extends Schema.TaggedError<SubscriptionLimitExceededExceptionError>()("SubscriptionLimitExceededException", SubscriptionLimitExceededException) {};
-export class TopicLimitExceededExceptionError extends Schema.TaggedError<TopicLimitExceededExceptionError>()("TopicLimitExceededException", TopicLimitExceededException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class EndpointDisabledExceptionError extends Schema.TaggedError<EndpointDisabledExceptionError>()("EndpointDisabledException", EndpointDisabledException) {};
-export class BatchEntryIdsNotDistinctExceptionError extends Schema.TaggedError<BatchEntryIdsNotDistinctExceptionError>()("BatchEntryIdsNotDistinctException", BatchEntryIdsNotDistinctException) {};
-export class InvalidParameterValueExceptionError extends Schema.TaggedError<InvalidParameterValueExceptionError>()("InvalidParameterValueException", InvalidParameterValueException) {};
-export class BatchRequestTooLongExceptionError extends Schema.TaggedError<BatchRequestTooLongExceptionError>()("BatchRequestTooLongException", BatchRequestTooLongException) {};
-export class KMSAccessDeniedExceptionError extends Schema.TaggedError<KMSAccessDeniedExceptionError>()("KMSAccessDeniedException", KMSAccessDeniedException) {};
-export class EmptyBatchRequestExceptionError extends Schema.TaggedError<EmptyBatchRequestExceptionError>()("EmptyBatchRequestException", EmptyBatchRequestException) {};
-export class KMSDisabledExceptionError extends Schema.TaggedError<KMSDisabledExceptionError>()("KMSDisabledException", KMSDisabledException) {};
-export class InvalidBatchEntryIdExceptionError extends Schema.TaggedError<InvalidBatchEntryIdExceptionError>()("InvalidBatchEntryIdException", InvalidBatchEntryIdException) {};
-export class KMSInvalidStateExceptionError extends Schema.TaggedError<KMSInvalidStateExceptionError>()("KMSInvalidStateException", KMSInvalidStateException) {};
-export class KMSNotFoundExceptionError extends Schema.TaggedError<KMSNotFoundExceptionError>()("KMSNotFoundException", KMSNotFoundException) {};
-export class KMSOptInRequiredError extends Schema.TaggedError<KMSOptInRequiredError>()("KMSOptInRequired", KMSOptInRequired) {};
-export class KMSThrottlingExceptionError extends Schema.TaggedError<KMSThrottlingExceptionError>()("KMSThrottlingException", KMSThrottlingException) {};
-export class PlatformApplicationDisabledExceptionError extends Schema.TaggedError<PlatformApplicationDisabledExceptionError>()("PlatformApplicationDisabledException", PlatformApplicationDisabledException) {};
-export class TooManyEntriesInBatchRequestExceptionError extends Schema.TaggedError<TooManyEntriesInBatchRequestExceptionError>()("TooManyEntriesInBatchRequestException", TooManyEntriesInBatchRequestException) {};
+export class AuthorizationErrorExceptionError extends Schema.TaggedError<AuthorizationErrorExceptionError>()("AuthorizationErrorException", AuthorizationErrorException.fields) {};
+export class InternalErrorExceptionError extends Schema.TaggedError<InternalErrorExceptionError>()("InternalErrorException", InternalErrorException.fields) {};
+export class InvalidParameterExceptionError extends Schema.TaggedError<InvalidParameterExceptionError>()("InvalidParameterException", InvalidParameterException.fields) {};
+export class ThrottledExceptionError extends Schema.TaggedError<ThrottledExceptionError>()("ThrottledException", ThrottledException.fields) {};
+export class NotFoundExceptionError extends Schema.TaggedError<NotFoundExceptionError>()("NotFoundException", NotFoundException.fields) {};
+export class InvalidSecurityExceptionError extends Schema.TaggedError<InvalidSecurityExceptionError>()("InvalidSecurityException", InvalidSecurityException.fields) {};
+export class ConcurrentAccessExceptionError extends Schema.TaggedError<ConcurrentAccessExceptionError>()("ConcurrentAccessException", ConcurrentAccessException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class StaleTagExceptionError extends Schema.TaggedError<StaleTagExceptionError>()("StaleTagException", StaleTagException.fields) {};
+export class FilterPolicyLimitExceededExceptionError extends Schema.TaggedError<FilterPolicyLimitExceededExceptionError>()("FilterPolicyLimitExceededException", FilterPolicyLimitExceededException.fields) {};
+export class ReplayLimitExceededExceptionError extends Schema.TaggedError<ReplayLimitExceededExceptionError>()("ReplayLimitExceededException", ReplayLimitExceededException.fields) {};
+export class TagLimitExceededExceptionError extends Schema.TaggedError<TagLimitExceededExceptionError>()("TagLimitExceededException", TagLimitExceededException.fields) {};
+export class TagPolicyExceptionError extends Schema.TaggedError<TagPolicyExceptionError>()("TagPolicyException", TagPolicyException.fields) {};
+export class VerificationExceptionError extends Schema.TaggedError<VerificationExceptionError>()("VerificationException", VerificationException.fields) {};
+export class OptedOutExceptionError extends Schema.TaggedError<OptedOutExceptionError>()("OptedOutException", OptedOutException.fields) {};
+export class UserErrorExceptionError extends Schema.TaggedError<UserErrorExceptionError>()("UserErrorException", UserErrorException.fields) {};
+export class InvalidStateExceptionError extends Schema.TaggedError<InvalidStateExceptionError>()("InvalidStateException", InvalidStateException.fields) {};
+export class SubscriptionLimitExceededExceptionError extends Schema.TaggedError<SubscriptionLimitExceededExceptionError>()("SubscriptionLimitExceededException", SubscriptionLimitExceededException.fields) {};
+export class TopicLimitExceededExceptionError extends Schema.TaggedError<TopicLimitExceededExceptionError>()("TopicLimitExceededException", TopicLimitExceededException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class EndpointDisabledExceptionError extends Schema.TaggedError<EndpointDisabledExceptionError>()("EndpointDisabledException", EndpointDisabledException.fields) {};
+export class BatchEntryIdsNotDistinctExceptionError extends Schema.TaggedError<BatchEntryIdsNotDistinctExceptionError>()("BatchEntryIdsNotDistinctException", BatchEntryIdsNotDistinctException.fields) {};
+export class InvalidParameterValueExceptionError extends Schema.TaggedError<InvalidParameterValueExceptionError>()("InvalidParameterValueException", InvalidParameterValueException.fields) {};
+export class BatchRequestTooLongExceptionError extends Schema.TaggedError<BatchRequestTooLongExceptionError>()("BatchRequestTooLongException", BatchRequestTooLongException.fields) {};
+export class KMSAccessDeniedExceptionError extends Schema.TaggedError<KMSAccessDeniedExceptionError>()("KMSAccessDeniedException", KMSAccessDeniedException.fields) {};
+export class EmptyBatchRequestExceptionError extends Schema.TaggedError<EmptyBatchRequestExceptionError>()("EmptyBatchRequestException", EmptyBatchRequestException.fields) {};
+export class KMSDisabledExceptionError extends Schema.TaggedError<KMSDisabledExceptionError>()("KMSDisabledException", KMSDisabledException.fields) {};
+export class InvalidBatchEntryIdExceptionError extends Schema.TaggedError<InvalidBatchEntryIdExceptionError>()("InvalidBatchEntryIdException", InvalidBatchEntryIdException.fields) {};
+export class KMSInvalidStateExceptionError extends Schema.TaggedError<KMSInvalidStateExceptionError>()("KMSInvalidStateException", KMSInvalidStateException.fields) {};
+export class KMSNotFoundExceptionError extends Schema.TaggedError<KMSNotFoundExceptionError>()("KMSNotFoundException", KMSNotFoundException.fields) {};
+export class KMSOptInRequiredError extends Schema.TaggedError<KMSOptInRequiredError>()("KMSOptInRequired", KMSOptInRequired.fields) {};
+export class KMSThrottlingExceptionError extends Schema.TaggedError<KMSThrottlingExceptionError>()("KMSThrottlingException", KMSThrottlingException.fields) {};
+export class PlatformApplicationDisabledExceptionError extends Schema.TaggedError<PlatformApplicationDisabledExceptionError>()("PlatformApplicationDisabledException", PlatformApplicationDisabledException.fields) {};
+export class TooManyEntriesInBatchRequestExceptionError extends Schema.TaggedError<TooManyEntriesInBatchRequestExceptionError>()("TooManyEntriesInBatchRequestException", TooManyEntriesInBatchRequestException.fields) {};
 
 //# Operations
 export const deletePlatformApplication = /*#__PURE__*/ makeOperation(() => Operation({ version: "2010-03-31", uri: "/", method: "POST", sdkId: "SNS", sigV4ServiceName: "sns", name: "AmazonSimpleNotificationService.DeletePlatformApplication" }, DeletePlatformApplicationInput, Schema.Struct({}), [AuthorizationErrorExceptionError, InternalErrorExceptionError, InvalidParameterExceptionError]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAWSXMLError);

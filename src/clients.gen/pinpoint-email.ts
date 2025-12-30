@@ -3,172 +3,172 @@ import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperat
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const GetAccountRequest = Schema.Struct({});
-export const GetDeliverabilityDashboardOptionsRequest = Schema.Struct({});
+export class GetAccountRequest extends Schema.Class<GetAccountRequest>("GetAccountRequest")({}) {}
+export class GetDeliverabilityDashboardOptionsRequest extends Schema.Class<GetDeliverabilityDashboardOptionsRequest>("GetDeliverabilityDashboardOptionsRequest")({}) {}
 export const BlacklistItemNames = Schema.Array(Schema.String);
 export const EmailAddressList = Schema.Array(Schema.String);
 export const TagKeyList = Schema.Array(Schema.String);
-export const Tag = Schema.Struct({Key: Schema.String, Value: Schema.String});
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.String, Value: Schema.String}) {}
 export const TagList = Schema.Array(Tag);
-export const CreateDedicatedIpPoolRequest = Schema.Struct({PoolName: Schema.String, Tags: Schema.optional(TagList)});
-export const CreateDedicatedIpPoolResponse = Schema.Struct({});
-export const CreateEmailIdentityRequest = Schema.Struct({EmailIdentity: Schema.String, Tags: Schema.optional(TagList)});
-export const DeleteConfigurationSetRequest = Schema.Struct({ConfigurationSetName: Schema.String});
-export const DeleteConfigurationSetResponse = Schema.Struct({});
-export const DeleteConfigurationSetEventDestinationRequest = Schema.Struct({ConfigurationSetName: Schema.String, EventDestinationName: Schema.String});
-export const DeleteConfigurationSetEventDestinationResponse = Schema.Struct({});
-export const DeleteDedicatedIpPoolRequest = Schema.Struct({PoolName: Schema.String});
-export const DeleteDedicatedIpPoolResponse = Schema.Struct({});
-export const DeleteEmailIdentityRequest = Schema.Struct({EmailIdentity: Schema.String});
-export const DeleteEmailIdentityResponse = Schema.Struct({});
-export const GetBlacklistReportsRequest = Schema.Struct({BlacklistItemNames: BlacklistItemNames});
-export const GetConfigurationSetRequest = Schema.Struct({ConfigurationSetName: Schema.String});
-export const GetConfigurationSetEventDestinationsRequest = Schema.Struct({ConfigurationSetName: Schema.String});
-export const GetDedicatedIpRequest = Schema.Struct({Ip: Schema.String});
-export const GetDedicatedIpsRequest = Schema.Struct({PoolName: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), PageSize: Schema.optional(Schema.Number)});
-export const GetDeliverabilityTestReportRequest = Schema.Struct({ReportId: Schema.String});
-export const GetDomainDeliverabilityCampaignRequest = Schema.Struct({CampaignId: Schema.String});
-export const GetDomainStatisticsReportRequest = Schema.Struct({Domain: Schema.String, StartDate: Schema.Date, EndDate: Schema.Date});
-export const GetEmailIdentityRequest = Schema.Struct({EmailIdentity: Schema.String});
-export const ListConfigurationSetsRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), PageSize: Schema.optional(Schema.Number)});
-export const ListDedicatedIpPoolsRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), PageSize: Schema.optional(Schema.Number)});
-export const ListDeliverabilityTestReportsRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), PageSize: Schema.optional(Schema.Number)});
-export const ListDomainDeliverabilityCampaignsRequest = Schema.Struct({StartDate: Schema.Date, EndDate: Schema.Date, SubscribedDomain: Schema.String, NextToken: Schema.optional(Schema.String), PageSize: Schema.optional(Schema.Number)});
-export const ListEmailIdentitiesRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), PageSize: Schema.optional(Schema.Number)});
-export const ListTagsForResourceRequest = Schema.Struct({ResourceArn: Schema.String});
-export const PutAccountDedicatedIpWarmupAttributesRequest = Schema.Struct({AutoWarmupEnabled: Schema.optional(Schema.Boolean)});
-export const PutAccountDedicatedIpWarmupAttributesResponse = Schema.Struct({});
-export const PutAccountSendingAttributesRequest = Schema.Struct({SendingEnabled: Schema.optional(Schema.Boolean)});
-export const PutAccountSendingAttributesResponse = Schema.Struct({});
-export const PutConfigurationSetDeliveryOptionsRequest = Schema.Struct({ConfigurationSetName: Schema.String, TlsPolicy: Schema.optional(Schema.String), SendingPoolName: Schema.optional(Schema.String)});
-export const PutConfigurationSetDeliveryOptionsResponse = Schema.Struct({});
-export const PutConfigurationSetReputationOptionsRequest = Schema.Struct({ConfigurationSetName: Schema.String, ReputationMetricsEnabled: Schema.optional(Schema.Boolean)});
-export const PutConfigurationSetReputationOptionsResponse = Schema.Struct({});
-export const PutConfigurationSetSendingOptionsRequest = Schema.Struct({ConfigurationSetName: Schema.String, SendingEnabled: Schema.optional(Schema.Boolean)});
-export const PutConfigurationSetSendingOptionsResponse = Schema.Struct({});
-export const PutConfigurationSetTrackingOptionsRequest = Schema.Struct({ConfigurationSetName: Schema.String, CustomRedirectDomain: Schema.optional(Schema.String)});
-export const PutConfigurationSetTrackingOptionsResponse = Schema.Struct({});
-export const PutDedicatedIpInPoolRequest = Schema.Struct({Ip: Schema.String, DestinationPoolName: Schema.String});
-export const PutDedicatedIpInPoolResponse = Schema.Struct({});
-export const PutDedicatedIpWarmupAttributesRequest = Schema.Struct({Ip: Schema.String, WarmupPercentage: Schema.Number});
-export const PutDedicatedIpWarmupAttributesResponse = Schema.Struct({});
+export class CreateDedicatedIpPoolRequest extends Schema.Class<CreateDedicatedIpPoolRequest>("CreateDedicatedIpPoolRequest")({PoolName: Schema.String, Tags: Schema.optional(TagList)}) {}
+export class CreateDedicatedIpPoolResponse extends Schema.Class<CreateDedicatedIpPoolResponse>("CreateDedicatedIpPoolResponse")({}) {}
+export class CreateEmailIdentityRequest extends Schema.Class<CreateEmailIdentityRequest>("CreateEmailIdentityRequest")({EmailIdentity: Schema.String, Tags: Schema.optional(TagList)}) {}
+export class DeleteConfigurationSetRequest extends Schema.Class<DeleteConfigurationSetRequest>("DeleteConfigurationSetRequest")({ConfigurationSetName: Schema.String}) {}
+export class DeleteConfigurationSetResponse extends Schema.Class<DeleteConfigurationSetResponse>("DeleteConfigurationSetResponse")({}) {}
+export class DeleteConfigurationSetEventDestinationRequest extends Schema.Class<DeleteConfigurationSetEventDestinationRequest>("DeleteConfigurationSetEventDestinationRequest")({ConfigurationSetName: Schema.String, EventDestinationName: Schema.String}) {}
+export class DeleteConfigurationSetEventDestinationResponse extends Schema.Class<DeleteConfigurationSetEventDestinationResponse>("DeleteConfigurationSetEventDestinationResponse")({}) {}
+export class DeleteDedicatedIpPoolRequest extends Schema.Class<DeleteDedicatedIpPoolRequest>("DeleteDedicatedIpPoolRequest")({PoolName: Schema.String}) {}
+export class DeleteDedicatedIpPoolResponse extends Schema.Class<DeleteDedicatedIpPoolResponse>("DeleteDedicatedIpPoolResponse")({}) {}
+export class DeleteEmailIdentityRequest extends Schema.Class<DeleteEmailIdentityRequest>("DeleteEmailIdentityRequest")({EmailIdentity: Schema.String}) {}
+export class DeleteEmailIdentityResponse extends Schema.Class<DeleteEmailIdentityResponse>("DeleteEmailIdentityResponse")({}) {}
+export class GetBlacklistReportsRequest extends Schema.Class<GetBlacklistReportsRequest>("GetBlacklistReportsRequest")({BlacklistItemNames: BlacklistItemNames}) {}
+export class GetConfigurationSetRequest extends Schema.Class<GetConfigurationSetRequest>("GetConfigurationSetRequest")({ConfigurationSetName: Schema.String}) {}
+export class GetConfigurationSetEventDestinationsRequest extends Schema.Class<GetConfigurationSetEventDestinationsRequest>("GetConfigurationSetEventDestinationsRequest")({ConfigurationSetName: Schema.String}) {}
+export class GetDedicatedIpRequest extends Schema.Class<GetDedicatedIpRequest>("GetDedicatedIpRequest")({Ip: Schema.String}) {}
+export class GetDedicatedIpsRequest extends Schema.Class<GetDedicatedIpsRequest>("GetDedicatedIpsRequest")({PoolName: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), PageSize: Schema.optional(Schema.Number)}) {}
+export class GetDeliverabilityTestReportRequest extends Schema.Class<GetDeliverabilityTestReportRequest>("GetDeliverabilityTestReportRequest")({ReportId: Schema.String}) {}
+export class GetDomainDeliverabilityCampaignRequest extends Schema.Class<GetDomainDeliverabilityCampaignRequest>("GetDomainDeliverabilityCampaignRequest")({CampaignId: Schema.String}) {}
+export class GetDomainStatisticsReportRequest extends Schema.Class<GetDomainStatisticsReportRequest>("GetDomainStatisticsReportRequest")({Domain: Schema.String, StartDate: Schema.Date, EndDate: Schema.Date}) {}
+export class GetEmailIdentityRequest extends Schema.Class<GetEmailIdentityRequest>("GetEmailIdentityRequest")({EmailIdentity: Schema.String}) {}
+export class ListConfigurationSetsRequest extends Schema.Class<ListConfigurationSetsRequest>("ListConfigurationSetsRequest")({NextToken: Schema.optional(Schema.String), PageSize: Schema.optional(Schema.Number)}) {}
+export class ListDedicatedIpPoolsRequest extends Schema.Class<ListDedicatedIpPoolsRequest>("ListDedicatedIpPoolsRequest")({NextToken: Schema.optional(Schema.String), PageSize: Schema.optional(Schema.Number)}) {}
+export class ListDeliverabilityTestReportsRequest extends Schema.Class<ListDeliverabilityTestReportsRequest>("ListDeliverabilityTestReportsRequest")({NextToken: Schema.optional(Schema.String), PageSize: Schema.optional(Schema.Number)}) {}
+export class ListDomainDeliverabilityCampaignsRequest extends Schema.Class<ListDomainDeliverabilityCampaignsRequest>("ListDomainDeliverabilityCampaignsRequest")({StartDate: Schema.Date, EndDate: Schema.Date, SubscribedDomain: Schema.String, NextToken: Schema.optional(Schema.String), PageSize: Schema.optional(Schema.Number)}) {}
+export class ListEmailIdentitiesRequest extends Schema.Class<ListEmailIdentitiesRequest>("ListEmailIdentitiesRequest")({NextToken: Schema.optional(Schema.String), PageSize: Schema.optional(Schema.Number)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({ResourceArn: Schema.String}) {}
+export class PutAccountDedicatedIpWarmupAttributesRequest extends Schema.Class<PutAccountDedicatedIpWarmupAttributesRequest>("PutAccountDedicatedIpWarmupAttributesRequest")({AutoWarmupEnabled: Schema.optional(Schema.Boolean)}) {}
+export class PutAccountDedicatedIpWarmupAttributesResponse extends Schema.Class<PutAccountDedicatedIpWarmupAttributesResponse>("PutAccountDedicatedIpWarmupAttributesResponse")({}) {}
+export class PutAccountSendingAttributesRequest extends Schema.Class<PutAccountSendingAttributesRequest>("PutAccountSendingAttributesRequest")({SendingEnabled: Schema.optional(Schema.Boolean)}) {}
+export class PutAccountSendingAttributesResponse extends Schema.Class<PutAccountSendingAttributesResponse>("PutAccountSendingAttributesResponse")({}) {}
+export class PutConfigurationSetDeliveryOptionsRequest extends Schema.Class<PutConfigurationSetDeliveryOptionsRequest>("PutConfigurationSetDeliveryOptionsRequest")({ConfigurationSetName: Schema.String, TlsPolicy: Schema.optional(Schema.String), SendingPoolName: Schema.optional(Schema.String)}) {}
+export class PutConfigurationSetDeliveryOptionsResponse extends Schema.Class<PutConfigurationSetDeliveryOptionsResponse>("PutConfigurationSetDeliveryOptionsResponse")({}) {}
+export class PutConfigurationSetReputationOptionsRequest extends Schema.Class<PutConfigurationSetReputationOptionsRequest>("PutConfigurationSetReputationOptionsRequest")({ConfigurationSetName: Schema.String, ReputationMetricsEnabled: Schema.optional(Schema.Boolean)}) {}
+export class PutConfigurationSetReputationOptionsResponse extends Schema.Class<PutConfigurationSetReputationOptionsResponse>("PutConfigurationSetReputationOptionsResponse")({}) {}
+export class PutConfigurationSetSendingOptionsRequest extends Schema.Class<PutConfigurationSetSendingOptionsRequest>("PutConfigurationSetSendingOptionsRequest")({ConfigurationSetName: Schema.String, SendingEnabled: Schema.optional(Schema.Boolean)}) {}
+export class PutConfigurationSetSendingOptionsResponse extends Schema.Class<PutConfigurationSetSendingOptionsResponse>("PutConfigurationSetSendingOptionsResponse")({}) {}
+export class PutConfigurationSetTrackingOptionsRequest extends Schema.Class<PutConfigurationSetTrackingOptionsRequest>("PutConfigurationSetTrackingOptionsRequest")({ConfigurationSetName: Schema.String, CustomRedirectDomain: Schema.optional(Schema.String)}) {}
+export class PutConfigurationSetTrackingOptionsResponse extends Schema.Class<PutConfigurationSetTrackingOptionsResponse>("PutConfigurationSetTrackingOptionsResponse")({}) {}
+export class PutDedicatedIpInPoolRequest extends Schema.Class<PutDedicatedIpInPoolRequest>("PutDedicatedIpInPoolRequest")({Ip: Schema.String, DestinationPoolName: Schema.String}) {}
+export class PutDedicatedIpInPoolResponse extends Schema.Class<PutDedicatedIpInPoolResponse>("PutDedicatedIpInPoolResponse")({}) {}
+export class PutDedicatedIpWarmupAttributesRequest extends Schema.Class<PutDedicatedIpWarmupAttributesRequest>("PutDedicatedIpWarmupAttributesRequest")({Ip: Schema.String, WarmupPercentage: Schema.Number}) {}
+export class PutDedicatedIpWarmupAttributesResponse extends Schema.Class<PutDedicatedIpWarmupAttributesResponse>("PutDedicatedIpWarmupAttributesResponse")({}) {}
 export const IspNameList = Schema.Array(Schema.String);
-export const InboxPlacementTrackingOption = Schema.Struct({Global: Schema.optional(Schema.Boolean), TrackedIsps: Schema.optional(IspNameList)});
-export const DomainDeliverabilityTrackingOption = Schema.Struct({Domain: Schema.optional(Schema.String), SubscriptionStartDate: Schema.optional(Schema.Date), InboxPlacementTrackingOption: Schema.optional(InboxPlacementTrackingOption)});
+export class InboxPlacementTrackingOption extends Schema.Class<InboxPlacementTrackingOption>("InboxPlacementTrackingOption")({Global: Schema.optional(Schema.Boolean), TrackedIsps: Schema.optional(IspNameList)}) {}
+export class DomainDeliverabilityTrackingOption extends Schema.Class<DomainDeliverabilityTrackingOption>("DomainDeliverabilityTrackingOption")({Domain: Schema.optional(Schema.String), SubscriptionStartDate: Schema.optional(Schema.Date), InboxPlacementTrackingOption: Schema.optional(InboxPlacementTrackingOption)}) {}
 export const DomainDeliverabilityTrackingOptions = Schema.Array(DomainDeliverabilityTrackingOption);
-export const PutDeliverabilityDashboardOptionRequest = Schema.Struct({DashboardEnabled: Schema.Boolean, SubscribedDomains: Schema.optional(DomainDeliverabilityTrackingOptions)});
-export const PutDeliverabilityDashboardOptionResponse = Schema.Struct({});
-export const PutEmailIdentityDkimAttributesRequest = Schema.Struct({EmailIdentity: Schema.String, SigningEnabled: Schema.optional(Schema.Boolean)});
-export const PutEmailIdentityDkimAttributesResponse = Schema.Struct({});
-export const PutEmailIdentityFeedbackAttributesRequest = Schema.Struct({EmailIdentity: Schema.String, EmailForwardingEnabled: Schema.optional(Schema.Boolean)});
-export const PutEmailIdentityFeedbackAttributesResponse = Schema.Struct({});
-export const PutEmailIdentityMailFromAttributesRequest = Schema.Struct({EmailIdentity: Schema.String, MailFromDomain: Schema.optional(Schema.String), BehaviorOnMxFailure: Schema.optional(Schema.String)});
-export const PutEmailIdentityMailFromAttributesResponse = Schema.Struct({});
-export const TagResourceRequest = Schema.Struct({ResourceArn: Schema.String, Tags: TagList});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({ResourceArn: Schema.String, TagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
+export class PutDeliverabilityDashboardOptionRequest extends Schema.Class<PutDeliverabilityDashboardOptionRequest>("PutDeliverabilityDashboardOptionRequest")({DashboardEnabled: Schema.Boolean, SubscribedDomains: Schema.optional(DomainDeliverabilityTrackingOptions)}) {}
+export class PutDeliverabilityDashboardOptionResponse extends Schema.Class<PutDeliverabilityDashboardOptionResponse>("PutDeliverabilityDashboardOptionResponse")({}) {}
+export class PutEmailIdentityDkimAttributesRequest extends Schema.Class<PutEmailIdentityDkimAttributesRequest>("PutEmailIdentityDkimAttributesRequest")({EmailIdentity: Schema.String, SigningEnabled: Schema.optional(Schema.Boolean)}) {}
+export class PutEmailIdentityDkimAttributesResponse extends Schema.Class<PutEmailIdentityDkimAttributesResponse>("PutEmailIdentityDkimAttributesResponse")({}) {}
+export class PutEmailIdentityFeedbackAttributesRequest extends Schema.Class<PutEmailIdentityFeedbackAttributesRequest>("PutEmailIdentityFeedbackAttributesRequest")({EmailIdentity: Schema.String, EmailForwardingEnabled: Schema.optional(Schema.Boolean)}) {}
+export class PutEmailIdentityFeedbackAttributesResponse extends Schema.Class<PutEmailIdentityFeedbackAttributesResponse>("PutEmailIdentityFeedbackAttributesResponse")({}) {}
+export class PutEmailIdentityMailFromAttributesRequest extends Schema.Class<PutEmailIdentityMailFromAttributesRequest>("PutEmailIdentityMailFromAttributesRequest")({EmailIdentity: Schema.String, MailFromDomain: Schema.optional(Schema.String), BehaviorOnMxFailure: Schema.optional(Schema.String)}) {}
+export class PutEmailIdentityMailFromAttributesResponse extends Schema.Class<PutEmailIdentityMailFromAttributesResponse>("PutEmailIdentityMailFromAttributesResponse")({}) {}
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({ResourceArn: Schema.String, Tags: TagList}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({ResourceArn: Schema.String, TagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
 export const EventTypes = Schema.Array(Schema.String);
-export const KinesisFirehoseDestination = Schema.Struct({IamRoleArn: Schema.String, DeliveryStreamArn: Schema.String});
-export const CloudWatchDimensionConfiguration = Schema.Struct({DimensionName: Schema.String, DimensionValueSource: Schema.String, DefaultDimensionValue: Schema.String});
+export class KinesisFirehoseDestination extends Schema.Class<KinesisFirehoseDestination>("KinesisFirehoseDestination")({IamRoleArn: Schema.String, DeliveryStreamArn: Schema.String}) {}
+export class CloudWatchDimensionConfiguration extends Schema.Class<CloudWatchDimensionConfiguration>("CloudWatchDimensionConfiguration")({DimensionName: Schema.String, DimensionValueSource: Schema.String, DefaultDimensionValue: Schema.String}) {}
 export const CloudWatchDimensionConfigurations = Schema.Array(CloudWatchDimensionConfiguration);
-export const CloudWatchDestination = Schema.Struct({DimensionConfigurations: CloudWatchDimensionConfigurations});
-export const SnsDestination = Schema.Struct({TopicArn: Schema.String});
-export const PinpointDestination = Schema.Struct({ApplicationArn: Schema.optional(Schema.String)});
-export const EventDestinationDefinition = Schema.Struct({Enabled: Schema.optional(Schema.Boolean), MatchingEventTypes: Schema.optional(EventTypes), KinesisFirehoseDestination: Schema.optional(KinesisFirehoseDestination), CloudWatchDestination: Schema.optional(CloudWatchDestination), SnsDestination: Schema.optional(SnsDestination), PinpointDestination: Schema.optional(PinpointDestination)});
-export const UpdateConfigurationSetEventDestinationRequest = Schema.Struct({ConfigurationSetName: Schema.String, EventDestinationName: Schema.String, EventDestination: EventDestinationDefinition});
-export const UpdateConfigurationSetEventDestinationResponse = Schema.Struct({});
-export const TrackingOptions = Schema.Struct({CustomRedirectDomain: Schema.String});
-export const DeliveryOptions = Schema.Struct({TlsPolicy: Schema.optional(Schema.String), SendingPoolName: Schema.optional(Schema.String)});
-export const ReputationOptions = Schema.Struct({ReputationMetricsEnabled: Schema.optional(Schema.Boolean), LastFreshStart: Schema.optional(Schema.Date)});
-export const SendingOptions = Schema.Struct({SendingEnabled: Schema.optional(Schema.Boolean)});
-export const SendQuota = Schema.Struct({Max24HourSend: Schema.optional(Schema.Number), MaxSendRate: Schema.optional(Schema.Number), SentLast24Hours: Schema.optional(Schema.Number)});
-export const DedicatedIp = Schema.Struct({Ip: Schema.String, WarmupStatus: Schema.String, WarmupPercentage: Schema.Number, PoolName: Schema.optional(Schema.String)});
+export class CloudWatchDestination extends Schema.Class<CloudWatchDestination>("CloudWatchDestination")({DimensionConfigurations: CloudWatchDimensionConfigurations}) {}
+export class SnsDestination extends Schema.Class<SnsDestination>("SnsDestination")({TopicArn: Schema.String}) {}
+export class PinpointDestination extends Schema.Class<PinpointDestination>("PinpointDestination")({ApplicationArn: Schema.optional(Schema.String)}) {}
+export class EventDestinationDefinition extends Schema.Class<EventDestinationDefinition>("EventDestinationDefinition")({Enabled: Schema.optional(Schema.Boolean), MatchingEventTypes: Schema.optional(EventTypes), KinesisFirehoseDestination: Schema.optional(KinesisFirehoseDestination), CloudWatchDestination: Schema.optional(CloudWatchDestination), SnsDestination: Schema.optional(SnsDestination), PinpointDestination: Schema.optional(PinpointDestination)}) {}
+export class UpdateConfigurationSetEventDestinationRequest extends Schema.Class<UpdateConfigurationSetEventDestinationRequest>("UpdateConfigurationSetEventDestinationRequest")({ConfigurationSetName: Schema.String, EventDestinationName: Schema.String, EventDestination: EventDestinationDefinition}) {}
+export class UpdateConfigurationSetEventDestinationResponse extends Schema.Class<UpdateConfigurationSetEventDestinationResponse>("UpdateConfigurationSetEventDestinationResponse")({}) {}
+export class TrackingOptions extends Schema.Class<TrackingOptions>("TrackingOptions")({CustomRedirectDomain: Schema.String}) {}
+export class DeliveryOptions extends Schema.Class<DeliveryOptions>("DeliveryOptions")({TlsPolicy: Schema.optional(Schema.String), SendingPoolName: Schema.optional(Schema.String)}) {}
+export class ReputationOptions extends Schema.Class<ReputationOptions>("ReputationOptions")({ReputationMetricsEnabled: Schema.optional(Schema.Boolean), LastFreshStart: Schema.optional(Schema.Date)}) {}
+export class SendingOptions extends Schema.Class<SendingOptions>("SendingOptions")({SendingEnabled: Schema.optional(Schema.Boolean)}) {}
+export class SendQuota extends Schema.Class<SendQuota>("SendQuota")({Max24HourSend: Schema.optional(Schema.Number), MaxSendRate: Schema.optional(Schema.Number), SentLast24Hours: Schema.optional(Schema.Number)}) {}
+export class DedicatedIp extends Schema.Class<DedicatedIp>("DedicatedIp")({Ip: Schema.String, WarmupStatus: Schema.String, WarmupPercentage: Schema.Number, PoolName: Schema.optional(Schema.String)}) {}
 export const DedicatedIpList = Schema.Array(DedicatedIp);
 export const ConfigurationSetNameList = Schema.Array(Schema.String);
 export const ListOfDedicatedIpPools = Schema.Array(Schema.String);
-export const DeliverabilityTestReport = Schema.Struct({ReportId: Schema.optional(Schema.String), ReportName: Schema.optional(Schema.String), Subject: Schema.optional(Schema.String), FromEmailAddress: Schema.optional(Schema.String), CreateDate: Schema.optional(Schema.Date), DeliverabilityTestStatus: Schema.optional(Schema.String)});
+export class DeliverabilityTestReport extends Schema.Class<DeliverabilityTestReport>("DeliverabilityTestReport")({ReportId: Schema.optional(Schema.String), ReportName: Schema.optional(Schema.String), Subject: Schema.optional(Schema.String), FromEmailAddress: Schema.optional(Schema.String), CreateDate: Schema.optional(Schema.Date), DeliverabilityTestStatus: Schema.optional(Schema.String)}) {}
 export const DeliverabilityTestReports = Schema.Array(DeliverabilityTestReport);
 export const IpList = Schema.Array(Schema.String);
 export const Esps = Schema.Array(Schema.String);
-export const DomainDeliverabilityCampaign = Schema.Struct({CampaignId: Schema.optional(Schema.String), ImageUrl: Schema.optional(Schema.String), Subject: Schema.optional(Schema.String), FromAddress: Schema.optional(Schema.String), SendingIps: Schema.optional(IpList), FirstSeenDateTime: Schema.optional(Schema.Date), LastSeenDateTime: Schema.optional(Schema.Date), InboxCount: Schema.optional(Schema.Number), SpamCount: Schema.optional(Schema.Number), ReadRate: Schema.optional(Schema.Number), DeleteRate: Schema.optional(Schema.Number), ReadDeleteRate: Schema.optional(Schema.Number), ProjectedVolume: Schema.optional(Schema.Number), Esps: Schema.optional(Esps)});
+export class DomainDeliverabilityCampaign extends Schema.Class<DomainDeliverabilityCampaign>("DomainDeliverabilityCampaign")({CampaignId: Schema.optional(Schema.String), ImageUrl: Schema.optional(Schema.String), Subject: Schema.optional(Schema.String), FromAddress: Schema.optional(Schema.String), SendingIps: Schema.optional(IpList), FirstSeenDateTime: Schema.optional(Schema.Date), LastSeenDateTime: Schema.optional(Schema.Date), InboxCount: Schema.optional(Schema.Number), SpamCount: Schema.optional(Schema.Number), ReadRate: Schema.optional(Schema.Number), DeleteRate: Schema.optional(Schema.Number), ReadDeleteRate: Schema.optional(Schema.Number), ProjectedVolume: Schema.optional(Schema.Number), Esps: Schema.optional(Esps)}) {}
 export const DomainDeliverabilityCampaignList = Schema.Array(DomainDeliverabilityCampaign);
-export const Destination = Schema.Struct({ToAddresses: Schema.optional(EmailAddressList), CcAddresses: Schema.optional(EmailAddressList), BccAddresses: Schema.optional(EmailAddressList)});
-export const MessageTag = Schema.Struct({Name: Schema.String, Value: Schema.String});
+export class Destination extends Schema.Class<Destination>("Destination")({ToAddresses: Schema.optional(EmailAddressList), CcAddresses: Schema.optional(EmailAddressList), BccAddresses: Schema.optional(EmailAddressList)}) {}
+export class MessageTag extends Schema.Class<MessageTag>("MessageTag")({Name: Schema.String, Value: Schema.String}) {}
 export const MessageTagList = Schema.Array(MessageTag);
-export const CreateConfigurationSetRequest = Schema.Struct({ConfigurationSetName: Schema.String, TrackingOptions: Schema.optional(TrackingOptions), DeliveryOptions: Schema.optional(DeliveryOptions), ReputationOptions: Schema.optional(ReputationOptions), SendingOptions: Schema.optional(SendingOptions), Tags: Schema.optional(TagList)});
-export const CreateConfigurationSetResponse = Schema.Struct({});
-export const AlreadyExistsException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const BadRequestException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const NotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ConcurrentModificationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const TooManyRequestsException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const GetAccountResponse = Schema.Struct({SendQuota: Schema.optional(SendQuota), SendingEnabled: Schema.optional(Schema.Boolean), DedicatedIpAutoWarmupEnabled: Schema.optional(Schema.Boolean), EnforcementStatus: Schema.optional(Schema.String), ProductionAccessEnabled: Schema.optional(Schema.Boolean)});
-export const GetConfigurationSetResponse = Schema.Struct({ConfigurationSetName: Schema.optional(Schema.String), TrackingOptions: Schema.optional(TrackingOptions), DeliveryOptions: Schema.optional(DeliveryOptions), ReputationOptions: Schema.optional(ReputationOptions), SendingOptions: Schema.optional(SendingOptions), Tags: Schema.optional(TagList)});
-export const GetDedicatedIpsResponse = Schema.Struct({DedicatedIps: Schema.optional(DedicatedIpList), NextToken: Schema.optional(Schema.String)});
-export const ListConfigurationSetsResponse = Schema.Struct({ConfigurationSets: Schema.optional(ConfigurationSetNameList), NextToken: Schema.optional(Schema.String)});
-export const ListDedicatedIpPoolsResponse = Schema.Struct({DedicatedIpPools: Schema.optional(ListOfDedicatedIpPools), NextToken: Schema.optional(Schema.String)});
-export const ListDeliverabilityTestReportsResponse = Schema.Struct({DeliverabilityTestReports: DeliverabilityTestReports, NextToken: Schema.optional(Schema.String)});
-export const ListDomainDeliverabilityCampaignsResponse = Schema.Struct({DomainDeliverabilityCampaigns: DomainDeliverabilityCampaignList, NextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceResponse = Schema.Struct({Tags: TagList});
-export const LimitExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const Content = Schema.Struct({Data: Schema.String, Charset: Schema.optional(Schema.String)});
-export const Body = Schema.Struct({Text: Schema.optional(Content), Html: Schema.optional(Content)});
-export const Message = Schema.Struct({Subject: Content, Body: Body});
-export const RawMessage = Schema.Struct({Data: StreamBody()});
-export const Template = Schema.Struct({TemplateArn: Schema.optional(Schema.String), TemplateData: Schema.optional(Schema.String)});
-export const EmailContent = Schema.Struct({Simple: Schema.optional(Message), Raw: Schema.optional(RawMessage), Template: Schema.optional(Template)});
-export const SendEmailRequest = Schema.Struct({FromEmailAddress: Schema.optional(Schema.String), Destination: Destination, ReplyToAddresses: Schema.optional(EmailAddressList), FeedbackForwardingEmailAddress: Schema.optional(Schema.String), Content: EmailContent, EmailTags: Schema.optional(MessageTagList), ConfigurationSetName: Schema.optional(Schema.String)});
+export class CreateConfigurationSetRequest extends Schema.Class<CreateConfigurationSetRequest>("CreateConfigurationSetRequest")({ConfigurationSetName: Schema.String, TrackingOptions: Schema.optional(TrackingOptions), DeliveryOptions: Schema.optional(DeliveryOptions), ReputationOptions: Schema.optional(ReputationOptions), SendingOptions: Schema.optional(SendingOptions), Tags: Schema.optional(TagList)}) {}
+export class CreateConfigurationSetResponse extends Schema.Class<CreateConfigurationSetResponse>("CreateConfigurationSetResponse")({}) {}
+export class AlreadyExistsException extends Schema.Class<AlreadyExistsException>("AlreadyExistsException")({message: Schema.optional(Schema.String)}) {}
+export class BadRequestException extends Schema.Class<BadRequestException>("BadRequestException")({message: Schema.optional(Schema.String)}) {}
+export class NotFoundException extends Schema.Class<NotFoundException>("NotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class ConcurrentModificationException extends Schema.Class<ConcurrentModificationException>("ConcurrentModificationException")({message: Schema.optional(Schema.String)}) {}
+export class TooManyRequestsException extends Schema.Class<TooManyRequestsException>("TooManyRequestsException")({message: Schema.optional(Schema.String)}) {}
+export class GetAccountResponse extends Schema.Class<GetAccountResponse>("GetAccountResponse")({SendQuota: Schema.optional(SendQuota), SendingEnabled: Schema.optional(Schema.Boolean), DedicatedIpAutoWarmupEnabled: Schema.optional(Schema.Boolean), EnforcementStatus: Schema.optional(Schema.String), ProductionAccessEnabled: Schema.optional(Schema.Boolean)}) {}
+export class GetConfigurationSetResponse extends Schema.Class<GetConfigurationSetResponse>("GetConfigurationSetResponse")({ConfigurationSetName: Schema.optional(Schema.String), TrackingOptions: Schema.optional(TrackingOptions), DeliveryOptions: Schema.optional(DeliveryOptions), ReputationOptions: Schema.optional(ReputationOptions), SendingOptions: Schema.optional(SendingOptions), Tags: Schema.optional(TagList)}) {}
+export class GetDedicatedIpsResponse extends Schema.Class<GetDedicatedIpsResponse>("GetDedicatedIpsResponse")({DedicatedIps: Schema.optional(DedicatedIpList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListConfigurationSetsResponse extends Schema.Class<ListConfigurationSetsResponse>("ListConfigurationSetsResponse")({ConfigurationSets: Schema.optional(ConfigurationSetNameList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListDedicatedIpPoolsResponse extends Schema.Class<ListDedicatedIpPoolsResponse>("ListDedicatedIpPoolsResponse")({DedicatedIpPools: Schema.optional(ListOfDedicatedIpPools), NextToken: Schema.optional(Schema.String)}) {}
+export class ListDeliverabilityTestReportsResponse extends Schema.Class<ListDeliverabilityTestReportsResponse>("ListDeliverabilityTestReportsResponse")({DeliverabilityTestReports: DeliverabilityTestReports, NextToken: Schema.optional(Schema.String)}) {}
+export class ListDomainDeliverabilityCampaignsResponse extends Schema.Class<ListDomainDeliverabilityCampaignsResponse>("ListDomainDeliverabilityCampaignsResponse")({DomainDeliverabilityCampaigns: DomainDeliverabilityCampaignList, NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({Tags: TagList}) {}
+export class LimitExceededException extends Schema.Class<LimitExceededException>("LimitExceededException")({message: Schema.optional(Schema.String)}) {}
+export class Content extends Schema.Class<Content>("Content")({Data: Schema.String, Charset: Schema.optional(Schema.String)}) {}
+export class _Body extends Schema.Class<_Body>("_Body")({Text: Schema.optional(Content), Html: Schema.optional(Content)}) {}
+export class Message extends Schema.Class<Message>("Message")({Subject: Content, Body: _Body}) {}
+export class RawMessage extends Schema.Class<RawMessage>("RawMessage")({Data: StreamBody()}) {}
+export class Template extends Schema.Class<Template>("Template")({TemplateArn: Schema.optional(Schema.String), TemplateData: Schema.optional(Schema.String)}) {}
+export class EmailContent extends Schema.Class<EmailContent>("EmailContent")({Simple: Schema.optional(Message), Raw: Schema.optional(RawMessage), Template: Schema.optional(Template)}) {}
+export class SendEmailRequest extends Schema.Class<SendEmailRequest>("SendEmailRequest")({FromEmailAddress: Schema.optional(Schema.String), Destination: Destination, ReplyToAddresses: Schema.optional(EmailAddressList), FeedbackForwardingEmailAddress: Schema.optional(Schema.String), Content: EmailContent, EmailTags: Schema.optional(MessageTagList), ConfigurationSetName: Schema.optional(Schema.String)}) {}
 export const DnsTokenList = Schema.Array(Schema.String);
-export const DkimAttributes = Schema.Struct({SigningEnabled: Schema.optional(Schema.Boolean), Status: Schema.optional(Schema.String), Tokens: Schema.optional(DnsTokenList)});
-export const EventDestination = Schema.Struct({Name: Schema.String, Enabled: Schema.optional(Schema.Boolean), MatchingEventTypes: EventTypes, KinesisFirehoseDestination: Schema.optional(KinesisFirehoseDestination), CloudWatchDestination: Schema.optional(CloudWatchDestination), SnsDestination: Schema.optional(SnsDestination), PinpointDestination: Schema.optional(PinpointDestination)});
+export class DkimAttributes extends Schema.Class<DkimAttributes>("DkimAttributes")({SigningEnabled: Schema.optional(Schema.Boolean), Status: Schema.optional(Schema.String), Tokens: Schema.optional(DnsTokenList)}) {}
+export class EventDestination extends Schema.Class<EventDestination>("EventDestination")({Name: Schema.String, Enabled: Schema.optional(Schema.Boolean), MatchingEventTypes: EventTypes, KinesisFirehoseDestination: Schema.optional(KinesisFirehoseDestination), CloudWatchDestination: Schema.optional(CloudWatchDestination), SnsDestination: Schema.optional(SnsDestination), PinpointDestination: Schema.optional(PinpointDestination)}) {}
 export const EventDestinations = Schema.Array(EventDestination);
-export const PlacementStatistics = Schema.Struct({InboxPercentage: Schema.optional(Schema.Number), SpamPercentage: Schema.optional(Schema.Number), MissingPercentage: Schema.optional(Schema.Number), SpfPercentage: Schema.optional(Schema.Number), DkimPercentage: Schema.optional(Schema.Number)});
-export const IspPlacement = Schema.Struct({IspName: Schema.optional(Schema.String), PlacementStatistics: Schema.optional(PlacementStatistics)});
+export class PlacementStatistics extends Schema.Class<PlacementStatistics>("PlacementStatistics")({InboxPercentage: Schema.optional(Schema.Number), SpamPercentage: Schema.optional(Schema.Number), MissingPercentage: Schema.optional(Schema.Number), SpfPercentage: Schema.optional(Schema.Number), DkimPercentage: Schema.optional(Schema.Number)}) {}
+export class IspPlacement extends Schema.Class<IspPlacement>("IspPlacement")({IspName: Schema.optional(Schema.String), PlacementStatistics: Schema.optional(PlacementStatistics)}) {}
 export const IspPlacements = Schema.Array(IspPlacement);
-export const VolumeStatistics = Schema.Struct({InboxRawCount: Schema.optional(Schema.Number), SpamRawCount: Schema.optional(Schema.Number), ProjectedInbox: Schema.optional(Schema.Number), ProjectedSpam: Schema.optional(Schema.Number)});
-export const DomainIspPlacement = Schema.Struct({IspName: Schema.optional(Schema.String), InboxRawCount: Schema.optional(Schema.Number), SpamRawCount: Schema.optional(Schema.Number), InboxPercentage: Schema.optional(Schema.Number), SpamPercentage: Schema.optional(Schema.Number)});
+export class VolumeStatistics extends Schema.Class<VolumeStatistics>("VolumeStatistics")({InboxRawCount: Schema.optional(Schema.Number), SpamRawCount: Schema.optional(Schema.Number), ProjectedInbox: Schema.optional(Schema.Number), ProjectedSpam: Schema.optional(Schema.Number)}) {}
+export class DomainIspPlacement extends Schema.Class<DomainIspPlacement>("DomainIspPlacement")({IspName: Schema.optional(Schema.String), InboxRawCount: Schema.optional(Schema.Number), SpamRawCount: Schema.optional(Schema.Number), InboxPercentage: Schema.optional(Schema.Number), SpamPercentage: Schema.optional(Schema.Number)}) {}
 export const DomainIspPlacements = Schema.Array(DomainIspPlacement);
-export const DailyVolume = Schema.Struct({StartDate: Schema.optional(Schema.Date), VolumeStatistics: Schema.optional(VolumeStatistics), DomainIspPlacements: Schema.optional(DomainIspPlacements)});
+export class DailyVolume extends Schema.Class<DailyVolume>("DailyVolume")({StartDate: Schema.optional(Schema.Date), VolumeStatistics: Schema.optional(VolumeStatistics), DomainIspPlacements: Schema.optional(DomainIspPlacements)}) {}
 export const DailyVolumes = Schema.Array(DailyVolume);
-export const MailFromAttributes = Schema.Struct({MailFromDomain: Schema.String, MailFromDomainStatus: Schema.String, BehaviorOnMxFailure: Schema.String});
-export const IdentityInfo = Schema.Struct({IdentityType: Schema.optional(Schema.String), IdentityName: Schema.optional(Schema.String), SendingEnabled: Schema.optional(Schema.Boolean)});
+export class MailFromAttributes extends Schema.Class<MailFromAttributes>("MailFromAttributes")({MailFromDomain: Schema.String, MailFromDomainStatus: Schema.String, BehaviorOnMxFailure: Schema.String}) {}
+export class IdentityInfo extends Schema.Class<IdentityInfo>("IdentityInfo")({IdentityType: Schema.optional(Schema.String), IdentityName: Schema.optional(Schema.String), SendingEnabled: Schema.optional(Schema.Boolean)}) {}
 export const IdentityInfoList = Schema.Array(IdentityInfo);
-export const CreateEmailIdentityResponse = Schema.Struct({IdentityType: Schema.optional(Schema.String), VerifiedForSendingStatus: Schema.optional(Schema.Boolean), DkimAttributes: Schema.optional(DkimAttributes)});
-export const GetConfigurationSetEventDestinationsResponse = Schema.Struct({EventDestinations: Schema.optional(EventDestinations)});
-export const GetDedicatedIpResponse = Schema.Struct({DedicatedIp: Schema.optional(DedicatedIp)});
-export const GetDeliverabilityDashboardOptionsResponse = Schema.Struct({DashboardEnabled: Schema.Boolean, SubscriptionExpiryDate: Schema.optional(Schema.Date), AccountStatus: Schema.optional(Schema.String), ActiveSubscribedDomains: Schema.optional(DomainDeliverabilityTrackingOptions), PendingExpirationSubscribedDomains: Schema.optional(DomainDeliverabilityTrackingOptions)});
-export const GetDeliverabilityTestReportResponse = Schema.Struct({DeliverabilityTestReport: DeliverabilityTestReport, OverallPlacement: PlacementStatistics, IspPlacements: IspPlacements, Message: Schema.optional(Schema.String), Tags: Schema.optional(TagList)});
-export const GetDomainDeliverabilityCampaignResponse = Schema.Struct({DomainDeliverabilityCampaign: DomainDeliverabilityCampaign});
-export const GetEmailIdentityResponse = Schema.Struct({IdentityType: Schema.optional(Schema.String), FeedbackForwardingStatus: Schema.optional(Schema.Boolean), VerifiedForSendingStatus: Schema.optional(Schema.Boolean), DkimAttributes: Schema.optional(DkimAttributes), MailFromAttributes: Schema.optional(MailFromAttributes), Tags: Schema.optional(TagList)});
-export const ListEmailIdentitiesResponse = Schema.Struct({EmailIdentities: Schema.optional(IdentityInfoList), NextToken: Schema.optional(Schema.String)});
-export const SendEmailResponse = Schema.Struct({MessageId: Schema.optional(Schema.String)});
-export const BlacklistEntry = Schema.Struct({RblName: Schema.optional(Schema.String), ListingTime: Schema.optional(Schema.Date), Description: Schema.optional(Schema.String)});
+export class CreateEmailIdentityResponse extends Schema.Class<CreateEmailIdentityResponse>("CreateEmailIdentityResponse")({IdentityType: Schema.optional(Schema.String), VerifiedForSendingStatus: Schema.optional(Schema.Boolean), DkimAttributes: Schema.optional(DkimAttributes)}) {}
+export class GetConfigurationSetEventDestinationsResponse extends Schema.Class<GetConfigurationSetEventDestinationsResponse>("GetConfigurationSetEventDestinationsResponse")({EventDestinations: Schema.optional(EventDestinations)}) {}
+export class GetDedicatedIpResponse extends Schema.Class<GetDedicatedIpResponse>("GetDedicatedIpResponse")({DedicatedIp: Schema.optional(DedicatedIp)}) {}
+export class GetDeliverabilityDashboardOptionsResponse extends Schema.Class<GetDeliverabilityDashboardOptionsResponse>("GetDeliverabilityDashboardOptionsResponse")({DashboardEnabled: Schema.Boolean, SubscriptionExpiryDate: Schema.optional(Schema.Date), AccountStatus: Schema.optional(Schema.String), ActiveSubscribedDomains: Schema.optional(DomainDeliverabilityTrackingOptions), PendingExpirationSubscribedDomains: Schema.optional(DomainDeliverabilityTrackingOptions)}) {}
+export class GetDeliverabilityTestReportResponse extends Schema.Class<GetDeliverabilityTestReportResponse>("GetDeliverabilityTestReportResponse")({DeliverabilityTestReport: DeliverabilityTestReport, OverallPlacement: PlacementStatistics, IspPlacements: IspPlacements, Message: Schema.optional(Schema.String), Tags: Schema.optional(TagList)}) {}
+export class GetDomainDeliverabilityCampaignResponse extends Schema.Class<GetDomainDeliverabilityCampaignResponse>("GetDomainDeliverabilityCampaignResponse")({DomainDeliverabilityCampaign: DomainDeliverabilityCampaign}) {}
+export class GetEmailIdentityResponse extends Schema.Class<GetEmailIdentityResponse>("GetEmailIdentityResponse")({IdentityType: Schema.optional(Schema.String), FeedbackForwardingStatus: Schema.optional(Schema.Boolean), VerifiedForSendingStatus: Schema.optional(Schema.Boolean), DkimAttributes: Schema.optional(DkimAttributes), MailFromAttributes: Schema.optional(MailFromAttributes), Tags: Schema.optional(TagList)}) {}
+export class ListEmailIdentitiesResponse extends Schema.Class<ListEmailIdentitiesResponse>("ListEmailIdentitiesResponse")({EmailIdentities: Schema.optional(IdentityInfoList), NextToken: Schema.optional(Schema.String)}) {}
+export class SendEmailResponse extends Schema.Class<SendEmailResponse>("SendEmailResponse")({MessageId: Schema.optional(Schema.String)}) {}
+export class BlacklistEntry extends Schema.Class<BlacklistEntry>("BlacklistEntry")({RblName: Schema.optional(Schema.String), ListingTime: Schema.optional(Schema.Date), Description: Schema.optional(Schema.String)}) {}
 export const BlacklistEntries = Schema.Array(BlacklistEntry);
 export const BlacklistReport = Schema.Record({key: Schema.String, value: BlacklistEntries});
-export const OverallVolume = Schema.Struct({VolumeStatistics: Schema.optional(VolumeStatistics), ReadRatePercent: Schema.optional(Schema.Number), DomainIspPlacements: Schema.optional(DomainIspPlacements)});
-export const CreateConfigurationSetEventDestinationRequest = Schema.Struct({ConfigurationSetName: Schema.String, EventDestinationName: Schema.String, EventDestination: EventDestinationDefinition});
-export const CreateConfigurationSetEventDestinationResponse = Schema.Struct({});
-export const CreateDeliverabilityTestReportRequest = Schema.Struct({ReportName: Schema.optional(Schema.String), FromEmailAddress: Schema.String, Content: EmailContent, Tags: Schema.optional(TagList)});
-export const GetBlacklistReportsResponse = Schema.Struct({BlacklistReport: BlacklistReport});
-export const GetDomainStatisticsReportResponse = Schema.Struct({OverallVolume: OverallVolume, DailyVolumes: DailyVolumes});
-export const AccountSuspendedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CreateDeliverabilityTestReportResponse = Schema.Struct({ReportId: Schema.String, DeliverabilityTestStatus: Schema.String});
-export const MailFromDomainNotVerifiedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const MessageRejected = Schema.Struct({message: Schema.optional(Schema.String)});
-export const SendingPausedException = Schema.Struct({message: Schema.optional(Schema.String)});
+export class OverallVolume extends Schema.Class<OverallVolume>("OverallVolume")({VolumeStatistics: Schema.optional(VolumeStatistics), ReadRatePercent: Schema.optional(Schema.Number), DomainIspPlacements: Schema.optional(DomainIspPlacements)}) {}
+export class CreateConfigurationSetEventDestinationRequest extends Schema.Class<CreateConfigurationSetEventDestinationRequest>("CreateConfigurationSetEventDestinationRequest")({ConfigurationSetName: Schema.String, EventDestinationName: Schema.String, EventDestination: EventDestinationDefinition}) {}
+export class CreateConfigurationSetEventDestinationResponse extends Schema.Class<CreateConfigurationSetEventDestinationResponse>("CreateConfigurationSetEventDestinationResponse")({}) {}
+export class CreateDeliverabilityTestReportRequest extends Schema.Class<CreateDeliverabilityTestReportRequest>("CreateDeliverabilityTestReportRequest")({ReportName: Schema.optional(Schema.String), FromEmailAddress: Schema.String, Content: EmailContent, Tags: Schema.optional(TagList)}) {}
+export class GetBlacklistReportsResponse extends Schema.Class<GetBlacklistReportsResponse>("GetBlacklistReportsResponse")({BlacklistReport: BlacklistReport}) {}
+export class GetDomainStatisticsReportResponse extends Schema.Class<GetDomainStatisticsReportResponse>("GetDomainStatisticsReportResponse")({OverallVolume: OverallVolume, DailyVolumes: DailyVolumes}) {}
+export class AccountSuspendedException extends Schema.Class<AccountSuspendedException>("AccountSuspendedException")({message: Schema.optional(Schema.String)}) {}
+export class CreateDeliverabilityTestReportResponse extends Schema.Class<CreateDeliverabilityTestReportResponse>("CreateDeliverabilityTestReportResponse")({ReportId: Schema.String, DeliverabilityTestStatus: Schema.String}) {}
+export class MailFromDomainNotVerifiedException extends Schema.Class<MailFromDomainNotVerifiedException>("MailFromDomainNotVerifiedException")({message: Schema.optional(Schema.String)}) {}
+export class MessageRejected extends Schema.Class<MessageRejected>("MessageRejected")({message: Schema.optional(Schema.String)}) {}
+export class SendingPausedException extends Schema.Class<SendingPausedException>("SendingPausedException")({message: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class BadRequestExceptionError extends Schema.TaggedError<BadRequestExceptionError>()("BadRequestException", BadRequestException) {};
-export class ConcurrentModificationExceptionError extends Schema.TaggedError<ConcurrentModificationExceptionError>()("ConcurrentModificationException", ConcurrentModificationException) {};
-export class NotFoundExceptionError extends Schema.TaggedError<NotFoundExceptionError>()("NotFoundException", NotFoundException) {};
-export class TooManyRequestsExceptionError extends Schema.TaggedError<TooManyRequestsExceptionError>()("TooManyRequestsException", TooManyRequestsException) {};
-export class AlreadyExistsExceptionError extends Schema.TaggedError<AlreadyExistsExceptionError>()("AlreadyExistsException", AlreadyExistsException) {};
-export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException) {};
-export class AccountSuspendedExceptionError extends Schema.TaggedError<AccountSuspendedExceptionError>()("AccountSuspendedException", AccountSuspendedException) {};
-export class MailFromDomainNotVerifiedExceptionError extends Schema.TaggedError<MailFromDomainNotVerifiedExceptionError>()("MailFromDomainNotVerifiedException", MailFromDomainNotVerifiedException) {};
-export class MessageRejectedError extends Schema.TaggedError<MessageRejectedError>()("MessageRejected", MessageRejected) {};
-export class SendingPausedExceptionError extends Schema.TaggedError<SendingPausedExceptionError>()("SendingPausedException", SendingPausedException) {};
+export class BadRequestExceptionError extends Schema.TaggedError<BadRequestExceptionError>()("BadRequestException", BadRequestException.fields) {};
+export class ConcurrentModificationExceptionError extends Schema.TaggedError<ConcurrentModificationExceptionError>()("ConcurrentModificationException", ConcurrentModificationException.fields) {};
+export class NotFoundExceptionError extends Schema.TaggedError<NotFoundExceptionError>()("NotFoundException", NotFoundException.fields) {};
+export class TooManyRequestsExceptionError extends Schema.TaggedError<TooManyRequestsExceptionError>()("TooManyRequestsException", TooManyRequestsException.fields) {};
+export class AlreadyExistsExceptionError extends Schema.TaggedError<AlreadyExistsExceptionError>()("AlreadyExistsException", AlreadyExistsException.fields) {};
+export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException.fields) {};
+export class AccountSuspendedExceptionError extends Schema.TaggedError<AccountSuspendedExceptionError>()("AccountSuspendedException", AccountSuspendedException.fields) {};
+export class MailFromDomainNotVerifiedExceptionError extends Schema.TaggedError<MailFromDomainNotVerifiedExceptionError>()("MailFromDomainNotVerifiedException", MailFromDomainNotVerifiedException.fields) {};
+export class MessageRejectedError extends Schema.TaggedError<MessageRejectedError>()("MessageRejected", MessageRejected.fields) {};
+export class SendingPausedExceptionError extends Schema.TaggedError<SendingPausedExceptionError>()("SendingPausedException", SendingPausedException.fields) {};
 
 //# Operations
 export const putAccountDedicatedIpWarmupAttributes = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-07-26", uri: "/v1/email/account/dedicated-ips/warmup", method: "PUT", sdkId: "Pinpoint Email", sigV4ServiceName: "ses", name: "AmazonPinpointEmailService.PutAccountDedicatedIpWarmupAttributes" }, PutAccountDedicatedIpWarmupAttributesRequest, PutAccountDedicatedIpWarmupAttributesResponse, [BadRequestExceptionError, TooManyRequestsExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

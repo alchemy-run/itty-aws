@@ -4,64 +4,64 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 
 //# Schemas
 export const TagKeyList = Schema.Array(Schema.String);
-export const DeleteFHIRDatastoreRequest = Schema.Struct({DatastoreId: Schema.String});
-export const DescribeFHIRDatastoreRequest = Schema.Struct({DatastoreId: Schema.String});
-export const DescribeFHIRExportJobRequest = Schema.Struct({DatastoreId: Schema.String, JobId: Schema.String});
-export const DescribeFHIRImportJobRequest = Schema.Struct({DatastoreId: Schema.String, JobId: Schema.String});
-export const ListFHIRExportJobsRequest = Schema.Struct({DatastoreId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), JobName: Schema.optional(Schema.String), JobStatus: Schema.optional(Schema.String), SubmittedBefore: Schema.optional(Schema.Date), SubmittedAfter: Schema.optional(Schema.Date)});
-export const ListFHIRImportJobsRequest = Schema.Struct({DatastoreId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), JobName: Schema.optional(Schema.String), JobStatus: Schema.optional(Schema.String), SubmittedBefore: Schema.optional(Schema.Date), SubmittedAfter: Schema.optional(Schema.Date)});
-export const ListTagsForResourceRequest = Schema.Struct({ResourceARN: Schema.String});
-export const Tag = Schema.Struct({Key: Schema.String, Value: Schema.String});
+export class DeleteFHIRDatastoreRequest extends Schema.Class<DeleteFHIRDatastoreRequest>("DeleteFHIRDatastoreRequest")({DatastoreId: Schema.String}) {}
+export class DescribeFHIRDatastoreRequest extends Schema.Class<DescribeFHIRDatastoreRequest>("DescribeFHIRDatastoreRequest")({DatastoreId: Schema.String}) {}
+export class DescribeFHIRExportJobRequest extends Schema.Class<DescribeFHIRExportJobRequest>("DescribeFHIRExportJobRequest")({DatastoreId: Schema.String, JobId: Schema.String}) {}
+export class DescribeFHIRImportJobRequest extends Schema.Class<DescribeFHIRImportJobRequest>("DescribeFHIRImportJobRequest")({DatastoreId: Schema.String, JobId: Schema.String}) {}
+export class ListFHIRExportJobsRequest extends Schema.Class<ListFHIRExportJobsRequest>("ListFHIRExportJobsRequest")({DatastoreId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), JobName: Schema.optional(Schema.String), JobStatus: Schema.optional(Schema.String), SubmittedBefore: Schema.optional(Schema.Date), SubmittedAfter: Schema.optional(Schema.Date)}) {}
+export class ListFHIRImportJobsRequest extends Schema.Class<ListFHIRImportJobsRequest>("ListFHIRImportJobsRequest")({DatastoreId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), JobName: Schema.optional(Schema.String), JobStatus: Schema.optional(Schema.String), SubmittedBefore: Schema.optional(Schema.Date), SubmittedAfter: Schema.optional(Schema.Date)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({ResourceARN: Schema.String}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.String, Value: Schema.String}) {}
 export const TagList = Schema.Array(Tag);
-export const TagResourceRequest = Schema.Struct({ResourceARN: Schema.String, Tags: TagList});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({ResourceARN: Schema.String, TagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
-export const PreloadDataConfig = Schema.Struct({PreloadDataType: Schema.String});
-export const IdentityProviderConfiguration = Schema.Struct({AuthorizationStrategy: Schema.String, FineGrainedAuthorizationEnabled: Schema.optional(Schema.Boolean), Metadata: Schema.optional(Schema.String), IdpLambdaArn: Schema.optional(Schema.String)});
-export const DatastoreFilter = Schema.Struct({DatastoreName: Schema.optional(Schema.String), DatastoreStatus: Schema.optional(Schema.String), CreatedBefore: Schema.optional(Schema.Date), CreatedAfter: Schema.optional(Schema.Date)});
-export const S3Configuration = Schema.Struct({S3Uri: Schema.String, KmsKeyId: Schema.String});
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({ResourceARN: Schema.String, Tags: TagList}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({ResourceARN: Schema.String, TagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class PreloadDataConfig extends Schema.Class<PreloadDataConfig>("PreloadDataConfig")({PreloadDataType: Schema.String}) {}
+export class IdentityProviderConfiguration extends Schema.Class<IdentityProviderConfiguration>("IdentityProviderConfiguration")({AuthorizationStrategy: Schema.String, FineGrainedAuthorizationEnabled: Schema.optional(Schema.Boolean), Metadata: Schema.optional(Schema.String), IdpLambdaArn: Schema.optional(Schema.String)}) {}
+export class DatastoreFilter extends Schema.Class<DatastoreFilter>("DatastoreFilter")({DatastoreName: Schema.optional(Schema.String), DatastoreStatus: Schema.optional(Schema.String), CreatedBefore: Schema.optional(Schema.Date), CreatedAfter: Schema.optional(Schema.Date)}) {}
+export class S3Configuration extends Schema.Class<S3Configuration>("S3Configuration")({S3Uri: Schema.String, KmsKeyId: Schema.String}) {}
 export const OutputDataConfig = Schema.Union(S3Configuration);
-export const ExportJobProperties = Schema.Struct({JobId: Schema.String, JobName: Schema.optional(Schema.String), JobStatus: Schema.String, SubmitTime: Schema.Date, EndTime: Schema.optional(Schema.Date), DatastoreId: Schema.String, OutputDataConfig: OutputDataConfig, DataAccessRoleArn: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
+export class ExportJobProperties extends Schema.Class<ExportJobProperties>("ExportJobProperties")({JobId: Schema.String, JobName: Schema.optional(Schema.String), JobStatus: Schema.String, SubmitTime: Schema.Date, EndTime: Schema.optional(Schema.Date), DatastoreId: Schema.String, OutputDataConfig: OutputDataConfig, DataAccessRoleArn: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
 export const ExportJobPropertiesList = Schema.Array(ExportJobProperties);
 export const InputDataConfig = Schema.Union(Schema.String);
-export const JobProgressReport = Schema.Struct({TotalNumberOfScannedFiles: Schema.optional(Schema.Number), TotalSizeOfScannedFilesInMB: Schema.optional(Schema.Number), TotalNumberOfImportedFiles: Schema.optional(Schema.Number), TotalNumberOfResourcesScanned: Schema.optional(Schema.Number), TotalNumberOfResourcesImported: Schema.optional(Schema.Number), TotalNumberOfResourcesWithCustomerError: Schema.optional(Schema.Number), TotalNumberOfFilesReadWithCustomerError: Schema.optional(Schema.Number), Throughput: Schema.optional(Schema.Number)});
-export const ImportJobProperties = Schema.Struct({JobId: Schema.String, JobName: Schema.optional(Schema.String), JobStatus: Schema.String, SubmitTime: Schema.Date, EndTime: Schema.optional(Schema.Date), DatastoreId: Schema.String, InputDataConfig: InputDataConfig, JobOutputDataConfig: Schema.optional(OutputDataConfig), JobProgressReport: Schema.optional(JobProgressReport), DataAccessRoleArn: Schema.optional(Schema.String), Message: Schema.optional(Schema.String), ValidationLevel: Schema.optional(Schema.String)});
+export class JobProgressReport extends Schema.Class<JobProgressReport>("JobProgressReport")({TotalNumberOfScannedFiles: Schema.optional(Schema.Number), TotalSizeOfScannedFilesInMB: Schema.optional(Schema.Number), TotalNumberOfImportedFiles: Schema.optional(Schema.Number), TotalNumberOfResourcesScanned: Schema.optional(Schema.Number), TotalNumberOfResourcesImported: Schema.optional(Schema.Number), TotalNumberOfResourcesWithCustomerError: Schema.optional(Schema.Number), TotalNumberOfFilesReadWithCustomerError: Schema.optional(Schema.Number), Throughput: Schema.optional(Schema.Number)}) {}
+export class ImportJobProperties extends Schema.Class<ImportJobProperties>("ImportJobProperties")({JobId: Schema.String, JobName: Schema.optional(Schema.String), JobStatus: Schema.String, SubmitTime: Schema.Date, EndTime: Schema.optional(Schema.Date), DatastoreId: Schema.String, InputDataConfig: InputDataConfig, JobOutputDataConfig: Schema.optional(OutputDataConfig), JobProgressReport: Schema.optional(JobProgressReport), DataAccessRoleArn: Schema.optional(Schema.String), Message: Schema.optional(Schema.String), ValidationLevel: Schema.optional(Schema.String)}) {}
 export const ImportJobPropertiesList = Schema.Array(ImportJobProperties);
-export const DeleteFHIRDatastoreResponse = Schema.Struct({DatastoreId: Schema.String, DatastoreArn: Schema.String, DatastoreStatus: Schema.String, DatastoreEndpoint: Schema.String});
-export const ListFHIRDatastoresRequest = Schema.Struct({Filter: Schema.optional(DatastoreFilter), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListFHIRExportJobsResponse = Schema.Struct({ExportJobPropertiesList: ExportJobPropertiesList, NextToken: Schema.optional(Schema.String)});
-export const ListFHIRImportJobsResponse = Schema.Struct({ImportJobPropertiesList: ImportJobPropertiesList, NextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceResponse = Schema.Struct({Tags: Schema.optional(TagList)});
-export const StartFHIRImportJobRequest = Schema.Struct({JobName: Schema.optional(Schema.String), InputDataConfig: InputDataConfig, JobOutputDataConfig: OutputDataConfig, DatastoreId: Schema.String, DataAccessRoleArn: Schema.String, ClientToken: Schema.optional(Schema.String), ValidationLevel: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ValidationException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const KmsEncryptionConfig = Schema.Struct({CmkType: Schema.String, KmsKeyId: Schema.optional(Schema.String)});
-export const SseConfiguration = Schema.Struct({KmsEncryptionConfig: KmsEncryptionConfig});
-export const ErrorCause = Schema.Struct({ErrorMessage: Schema.optional(Schema.String), ErrorCategory: Schema.optional(Schema.String)});
-export const DatastoreProperties = Schema.Struct({DatastoreId: Schema.String, DatastoreArn: Schema.String, DatastoreName: Schema.optional(Schema.String), DatastoreStatus: Schema.String, CreatedAt: Schema.optional(Schema.Date), DatastoreTypeVersion: Schema.String, DatastoreEndpoint: Schema.String, SseConfiguration: Schema.optional(SseConfiguration), PreloadDataConfig: Schema.optional(PreloadDataConfig), IdentityProviderConfiguration: Schema.optional(IdentityProviderConfiguration), ErrorCause: Schema.optional(ErrorCause)});
+export class DeleteFHIRDatastoreResponse extends Schema.Class<DeleteFHIRDatastoreResponse>("DeleteFHIRDatastoreResponse")({DatastoreId: Schema.String, DatastoreArn: Schema.String, DatastoreStatus: Schema.String, DatastoreEndpoint: Schema.String}) {}
+export class ListFHIRDatastoresRequest extends Schema.Class<ListFHIRDatastoresRequest>("ListFHIRDatastoresRequest")({Filter: Schema.optional(DatastoreFilter), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListFHIRExportJobsResponse extends Schema.Class<ListFHIRExportJobsResponse>("ListFHIRExportJobsResponse")({ExportJobPropertiesList: ExportJobPropertiesList, NextToken: Schema.optional(Schema.String)}) {}
+export class ListFHIRImportJobsResponse extends Schema.Class<ListFHIRImportJobsResponse>("ListFHIRImportJobsResponse")({ImportJobPropertiesList: ImportJobPropertiesList, NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({Tags: Schema.optional(TagList)}) {}
+export class StartFHIRImportJobRequest extends Schema.Class<StartFHIRImportJobRequest>("StartFHIRImportJobRequest")({JobName: Schema.optional(Schema.String), InputDataConfig: InputDataConfig, JobOutputDataConfig: OutputDataConfig, DatastoreId: Schema.String, DataAccessRoleArn: Schema.String, ClientToken: Schema.optional(Schema.String), ValidationLevel: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({Message: Schema.optional(Schema.String)}) {}
+export class KmsEncryptionConfig extends Schema.Class<KmsEncryptionConfig>("KmsEncryptionConfig")({CmkType: Schema.String, KmsKeyId: Schema.optional(Schema.String)}) {}
+export class SseConfiguration extends Schema.Class<SseConfiguration>("SseConfiguration")({KmsEncryptionConfig: KmsEncryptionConfig}) {}
+export class ErrorCause extends Schema.Class<ErrorCause>("ErrorCause")({ErrorMessage: Schema.optional(Schema.String), ErrorCategory: Schema.optional(Schema.String)}) {}
+export class DatastoreProperties extends Schema.Class<DatastoreProperties>("DatastoreProperties")({DatastoreId: Schema.String, DatastoreArn: Schema.String, DatastoreName: Schema.optional(Schema.String), DatastoreStatus: Schema.String, CreatedAt: Schema.optional(Schema.Date), DatastoreTypeVersion: Schema.String, DatastoreEndpoint: Schema.String, SseConfiguration: Schema.optional(SseConfiguration), PreloadDataConfig: Schema.optional(PreloadDataConfig), IdentityProviderConfiguration: Schema.optional(IdentityProviderConfiguration), ErrorCause: Schema.optional(ErrorCause)}) {}
 export const DatastorePropertiesList = Schema.Array(DatastoreProperties);
-export const CreateFHIRDatastoreRequest = Schema.Struct({DatastoreName: Schema.optional(Schema.String), DatastoreTypeVersion: Schema.String, SseConfiguration: Schema.optional(SseConfiguration), PreloadDataConfig: Schema.optional(PreloadDataConfig), ClientToken: Schema.optional(Schema.String), Tags: Schema.optional(TagList), IdentityProviderConfiguration: Schema.optional(IdentityProviderConfiguration)});
-export const AccessDeniedException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DescribeFHIRExportJobResponse = Schema.Struct({ExportJobProperties: ExportJobProperties});
-export const ListFHIRDatastoresResponse = Schema.Struct({DatastorePropertiesList: DatastorePropertiesList, NextToken: Schema.optional(Schema.String)});
-export const InternalServerException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ThrottlingException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const StartFHIRExportJobRequest = Schema.Struct({JobName: Schema.optional(Schema.String), OutputDataConfig: OutputDataConfig, DatastoreId: Schema.String, DataAccessRoleArn: Schema.String, ClientToken: Schema.optional(Schema.String)});
-export const StartFHIRImportJobResponse = Schema.Struct({JobId: Schema.String, JobStatus: Schema.String, DatastoreId: Schema.optional(Schema.String)});
-export const CreateFHIRDatastoreResponse = Schema.Struct({DatastoreId: Schema.String, DatastoreArn: Schema.String, DatastoreStatus: Schema.String, DatastoreEndpoint: Schema.String});
-export const ConflictException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DescribeFHIRDatastoreResponse = Schema.Struct({DatastoreProperties: DatastoreProperties});
-export const DescribeFHIRImportJobResponse = Schema.Struct({ImportJobProperties: ImportJobProperties});
-export const StartFHIRExportJobResponse = Schema.Struct({JobId: Schema.String, JobStatus: Schema.String, DatastoreId: Schema.optional(Schema.String)});
+export class CreateFHIRDatastoreRequest extends Schema.Class<CreateFHIRDatastoreRequest>("CreateFHIRDatastoreRequest")({DatastoreName: Schema.optional(Schema.String), DatastoreTypeVersion: Schema.String, SseConfiguration: Schema.optional(SseConfiguration), PreloadDataConfig: Schema.optional(PreloadDataConfig), ClientToken: Schema.optional(Schema.String), Tags: Schema.optional(TagList), IdentityProviderConfiguration: Schema.optional(IdentityProviderConfiguration)}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({Message: Schema.optional(Schema.String)}) {}
+export class DescribeFHIRExportJobResponse extends Schema.Class<DescribeFHIRExportJobResponse>("DescribeFHIRExportJobResponse")({ExportJobProperties: ExportJobProperties}) {}
+export class ListFHIRDatastoresResponse extends Schema.Class<ListFHIRDatastoresResponse>("ListFHIRDatastoresResponse")({DatastorePropertiesList: DatastorePropertiesList, NextToken: Schema.optional(Schema.String)}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({Message: Schema.optional(Schema.String)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({Message: Schema.optional(Schema.String)}) {}
+export class StartFHIRExportJobRequest extends Schema.Class<StartFHIRExportJobRequest>("StartFHIRExportJobRequest")({JobName: Schema.optional(Schema.String), OutputDataConfig: OutputDataConfig, DatastoreId: Schema.String, DataAccessRoleArn: Schema.String, ClientToken: Schema.optional(Schema.String)}) {}
+export class StartFHIRImportJobResponse extends Schema.Class<StartFHIRImportJobResponse>("StartFHIRImportJobResponse")({JobId: Schema.String, JobStatus: Schema.String, DatastoreId: Schema.optional(Schema.String)}) {}
+export class CreateFHIRDatastoreResponse extends Schema.Class<CreateFHIRDatastoreResponse>("CreateFHIRDatastoreResponse")({DatastoreId: Schema.String, DatastoreArn: Schema.String, DatastoreStatus: Schema.String, DatastoreEndpoint: Schema.String}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({Message: Schema.optional(Schema.String)}) {}
+export class DescribeFHIRDatastoreResponse extends Schema.Class<DescribeFHIRDatastoreResponse>("DescribeFHIRDatastoreResponse")({DatastoreProperties: DatastoreProperties}) {}
+export class DescribeFHIRImportJobResponse extends Schema.Class<DescribeFHIRImportJobResponse>("DescribeFHIRImportJobResponse")({ImportJobProperties: ImportJobProperties}) {}
+export class StartFHIRExportJobResponse extends Schema.Class<StartFHIRExportJobResponse>("StartFHIRExportJobResponse")({JobId: Schema.String, JobStatus: Schema.String, DatastoreId: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
 
 //# Operations
 export const listTagsForResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-07-01", uri: "/", method: "POST", sdkId: "HealthLake", sigV4ServiceName: "healthlake", name: "HealthLake.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [ResourceNotFoundExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);

@@ -3,107 +3,107 @@ import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperat
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const ListPipelineBlueprintsRequest = Schema.Struct({});
+export class ListPipelineBlueprintsRequest extends Schema.Class<ListPipelineBlueprintsRequest>("ListPipelineBlueprintsRequest")({}) {}
 export const PipelineEndpointIdsList = Schema.Array(Schema.String);
 export const StringList = Schema.Array(Schema.String);
-export const DeletePipelineRequest = Schema.Struct({PipelineName: Schema.String});
-export const DeletePipelineResponse = Schema.Struct({});
-export const DeletePipelineEndpointRequest = Schema.Struct({EndpointId: Schema.String});
-export const DeletePipelineEndpointResponse = Schema.Struct({});
-export const DeleteResourcePolicyRequest = Schema.Struct({ResourceArn: Schema.String});
-export const DeleteResourcePolicyResponse = Schema.Struct({});
-export const GetPipelineRequest = Schema.Struct({PipelineName: Schema.String});
-export const GetPipelineBlueprintRequest = Schema.Struct({BlueprintName: Schema.String, Format: Schema.optional(Schema.String)});
-export const GetPipelineChangeProgressRequest = Schema.Struct({PipelineName: Schema.String});
-export const GetResourcePolicyRequest = Schema.Struct({ResourceArn: Schema.String});
-export const ListPipelineEndpointConnectionsRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListPipelineEndpointsRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListPipelinesRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceRequest = Schema.Struct({Arn: Schema.String});
-export const PutResourcePolicyRequest = Schema.Struct({ResourceArn: Schema.String, Policy: Schema.String});
-export const RevokePipelineEndpointConnectionsRequest = Schema.Struct({PipelineArn: Schema.String, EndpointIds: PipelineEndpointIdsList});
-export const StartPipelineRequest = Schema.Struct({PipelineName: Schema.String});
-export const StopPipelineRequest = Schema.Struct({PipelineName: Schema.String});
-export const Tag = Schema.Struct({Key: Schema.String, Value: Schema.String});
+export class DeletePipelineRequest extends Schema.Class<DeletePipelineRequest>("DeletePipelineRequest")({PipelineName: Schema.String}) {}
+export class DeletePipelineResponse extends Schema.Class<DeletePipelineResponse>("DeletePipelineResponse")({}) {}
+export class DeletePipelineEndpointRequest extends Schema.Class<DeletePipelineEndpointRequest>("DeletePipelineEndpointRequest")({EndpointId: Schema.String}) {}
+export class DeletePipelineEndpointResponse extends Schema.Class<DeletePipelineEndpointResponse>("DeletePipelineEndpointResponse")({}) {}
+export class DeleteResourcePolicyRequest extends Schema.Class<DeleteResourcePolicyRequest>("DeleteResourcePolicyRequest")({ResourceArn: Schema.String}) {}
+export class DeleteResourcePolicyResponse extends Schema.Class<DeleteResourcePolicyResponse>("DeleteResourcePolicyResponse")({}) {}
+export class GetPipelineRequest extends Schema.Class<GetPipelineRequest>("GetPipelineRequest")({PipelineName: Schema.String}) {}
+export class GetPipelineBlueprintRequest extends Schema.Class<GetPipelineBlueprintRequest>("GetPipelineBlueprintRequest")({BlueprintName: Schema.String, Format: Schema.optional(Schema.String)}) {}
+export class GetPipelineChangeProgressRequest extends Schema.Class<GetPipelineChangeProgressRequest>("GetPipelineChangeProgressRequest")({PipelineName: Schema.String}) {}
+export class GetResourcePolicyRequest extends Schema.Class<GetResourcePolicyRequest>("GetResourcePolicyRequest")({ResourceArn: Schema.String}) {}
+export class ListPipelineEndpointConnectionsRequest extends Schema.Class<ListPipelineEndpointConnectionsRequest>("ListPipelineEndpointConnectionsRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListPipelineEndpointsRequest extends Schema.Class<ListPipelineEndpointsRequest>("ListPipelineEndpointsRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListPipelinesRequest extends Schema.Class<ListPipelinesRequest>("ListPipelinesRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({Arn: Schema.String}) {}
+export class PutResourcePolicyRequest extends Schema.Class<PutResourcePolicyRequest>("PutResourcePolicyRequest")({ResourceArn: Schema.String, Policy: Schema.String}) {}
+export class RevokePipelineEndpointConnectionsRequest extends Schema.Class<RevokePipelineEndpointConnectionsRequest>("RevokePipelineEndpointConnectionsRequest")({PipelineArn: Schema.String, EndpointIds: PipelineEndpointIdsList}) {}
+export class StartPipelineRequest extends Schema.Class<StartPipelineRequest>("StartPipelineRequest")({PipelineName: Schema.String}) {}
+export class StopPipelineRequest extends Schema.Class<StopPipelineRequest>("StopPipelineRequest")({PipelineName: Schema.String}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.String, Value: Schema.String}) {}
 export const TagList = Schema.Array(Tag);
-export const TagResourceRequest = Schema.Struct({Arn: Schema.String, Tags: TagList});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({Arn: Schema.String, TagKeys: StringList});
-export const UntagResourceResponse = Schema.Struct({});
-export const CloudWatchLogDestination = Schema.Struct({LogGroup: Schema.String});
-export const LogPublishingOptions = Schema.Struct({IsLoggingEnabled: Schema.optional(Schema.Boolean), CloudWatchLogDestination: Schema.optional(CloudWatchLogDestination)});
-export const BufferOptions = Schema.Struct({PersistentBufferEnabled: Schema.Boolean});
-export const EncryptionAtRestOptions = Schema.Struct({KmsKeyArn: Schema.String});
-export const UpdatePipelineRequest = Schema.Struct({PipelineName: Schema.String, MinUnits: Schema.optional(Schema.Number), MaxUnits: Schema.optional(Schema.Number), PipelineConfigurationBody: Schema.optional(Schema.String), LogPublishingOptions: Schema.optional(LogPublishingOptions), BufferOptions: Schema.optional(BufferOptions), EncryptionAtRestOptions: Schema.optional(EncryptionAtRestOptions), PipelineRoleArn: Schema.optional(Schema.String)});
-export const ValidatePipelineRequest = Schema.Struct({PipelineConfigurationBody: Schema.String});
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({Arn: Schema.String, Tags: TagList}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({Arn: Schema.String, TagKeys: StringList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class CloudWatchLogDestination extends Schema.Class<CloudWatchLogDestination>("CloudWatchLogDestination")({LogGroup: Schema.String}) {}
+export class LogPublishingOptions extends Schema.Class<LogPublishingOptions>("LogPublishingOptions")({IsLoggingEnabled: Schema.optional(Schema.Boolean), CloudWatchLogDestination: Schema.optional(CloudWatchLogDestination)}) {}
+export class BufferOptions extends Schema.Class<BufferOptions>("BufferOptions")({PersistentBufferEnabled: Schema.Boolean}) {}
+export class EncryptionAtRestOptions extends Schema.Class<EncryptionAtRestOptions>("EncryptionAtRestOptions")({KmsKeyArn: Schema.String}) {}
+export class UpdatePipelineRequest extends Schema.Class<UpdatePipelineRequest>("UpdatePipelineRequest")({PipelineName: Schema.String, MinUnits: Schema.optional(Schema.Number), MaxUnits: Schema.optional(Schema.Number), PipelineConfigurationBody: Schema.optional(Schema.String), LogPublishingOptions: Schema.optional(LogPublishingOptions), BufferOptions: Schema.optional(BufferOptions), EncryptionAtRestOptions: Schema.optional(EncryptionAtRestOptions), PipelineRoleArn: Schema.optional(Schema.String)}) {}
+export class ValidatePipelineRequest extends Schema.Class<ValidatePipelineRequest>("ValidatePipelineRequest")({PipelineConfigurationBody: Schema.String}) {}
 export const SubnetIds = Schema.Array(Schema.String);
 export const SecurityGroupIds = Schema.Array(Schema.String);
-export const PipelineEndpointVpcOptions = Schema.Struct({SubnetIds: Schema.optional(SubnetIds), SecurityGroupIds: Schema.optional(SecurityGroupIds)});
-export const PipelineBlueprintSummary = Schema.Struct({BlueprintName: Schema.optional(Schema.String), DisplayName: Schema.optional(Schema.String), DisplayDescription: Schema.optional(Schema.String), Service: Schema.optional(Schema.String), UseCase: Schema.optional(Schema.String)});
+export class PipelineEndpointVpcOptions extends Schema.Class<PipelineEndpointVpcOptions>("PipelineEndpointVpcOptions")({SubnetIds: Schema.optional(SubnetIds), SecurityGroupIds: Schema.optional(SecurityGroupIds)}) {}
+export class PipelineBlueprintSummary extends Schema.Class<PipelineBlueprintSummary>("PipelineBlueprintSummary")({BlueprintName: Schema.optional(Schema.String), DisplayName: Schema.optional(Schema.String), DisplayDescription: Schema.optional(Schema.String), Service: Schema.optional(Schema.String), UseCase: Schema.optional(Schema.String)}) {}
 export const PipelineBlueprintsSummaryList = Schema.Array(PipelineBlueprintSummary);
-export const CreatePipelineEndpointRequest = Schema.Struct({PipelineArn: Schema.String, VpcOptions: PipelineEndpointVpcOptions});
-export const AccessDeniedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DisabledOperationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InternalException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const GetResourcePolicyResponse = Schema.Struct({ResourceArn: Schema.optional(Schema.String), Policy: Schema.optional(Schema.String)});
-export const ListPipelineBlueprintsResponse = Schema.Struct({Blueprints: Schema.optional(PipelineBlueprintsSummaryList)});
-export const ListTagsForResourceResponse = Schema.Struct({Tags: Schema.optional(TagList)});
-export const PutResourcePolicyResponse = Schema.Struct({ResourceArn: Schema.optional(Schema.String), Policy: Schema.optional(Schema.String)});
-export const RevokePipelineEndpointConnectionsResponse = Schema.Struct({PipelineArn: Schema.optional(Schema.String)});
-export const PipelineStatusReason = Schema.Struct({Description: Schema.optional(Schema.String)});
+export class CreatePipelineEndpointRequest extends Schema.Class<CreatePipelineEndpointRequest>("CreatePipelineEndpointRequest")({PipelineArn: Schema.String, VpcOptions: PipelineEndpointVpcOptions}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({message: Schema.optional(Schema.String)}) {}
+export class DisabledOperationException extends Schema.Class<DisabledOperationException>("DisabledOperationException")({message: Schema.optional(Schema.String)}) {}
+export class InternalException extends Schema.Class<InternalException>("InternalException")({message: Schema.optional(Schema.String)}) {}
+export class GetResourcePolicyResponse extends Schema.Class<GetResourcePolicyResponse>("GetResourcePolicyResponse")({ResourceArn: Schema.optional(Schema.String), Policy: Schema.optional(Schema.String)}) {}
+export class ListPipelineBlueprintsResponse extends Schema.Class<ListPipelineBlueprintsResponse>("ListPipelineBlueprintsResponse")({Blueprints: Schema.optional(PipelineBlueprintsSummaryList)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({Tags: Schema.optional(TagList)}) {}
+export class PutResourcePolicyResponse extends Schema.Class<PutResourcePolicyResponse>("PutResourcePolicyResponse")({ResourceArn: Schema.optional(Schema.String), Policy: Schema.optional(Schema.String)}) {}
+export class RevokePipelineEndpointConnectionsResponse extends Schema.Class<RevokePipelineEndpointConnectionsResponse>("RevokePipelineEndpointConnectionsResponse")({PipelineArn: Schema.optional(Schema.String)}) {}
+export class PipelineStatusReason extends Schema.Class<PipelineStatusReason>("PipelineStatusReason")({Description: Schema.optional(Schema.String)}) {}
 export const IngestEndpointUrlsList = Schema.Array(Schema.String);
-export const VpcAttachmentOptions = Schema.Struct({AttachToVpc: Schema.Boolean, CidrBlock: Schema.optional(Schema.String)});
-export const VpcOptions = Schema.Struct({SubnetIds: SubnetIds, SecurityGroupIds: Schema.optional(SecurityGroupIds), VpcAttachmentOptions: Schema.optional(VpcAttachmentOptions), VpcEndpointManagement: Schema.optional(Schema.String)});
-export const VpcEndpoint = Schema.Struct({VpcEndpointId: Schema.optional(Schema.String), VpcId: Schema.optional(Schema.String), VpcOptions: Schema.optional(VpcOptions)});
+export class VpcAttachmentOptions extends Schema.Class<VpcAttachmentOptions>("VpcAttachmentOptions")({AttachToVpc: Schema.Boolean, CidrBlock: Schema.optional(Schema.String)}) {}
+export class VpcOptions extends Schema.Class<VpcOptions>("VpcOptions")({SubnetIds: SubnetIds, SecurityGroupIds: Schema.optional(SecurityGroupIds), VpcAttachmentOptions: Schema.optional(VpcAttachmentOptions), VpcEndpointManagement: Schema.optional(Schema.String)}) {}
+export class VpcEndpoint extends Schema.Class<VpcEndpoint>("VpcEndpoint")({VpcEndpointId: Schema.optional(Schema.String), VpcId: Schema.optional(Schema.String), VpcOptions: Schema.optional(VpcOptions)}) {}
 export const VpcEndpointsList = Schema.Array(VpcEndpoint);
-export const ServiceVpcEndpoint = Schema.Struct({ServiceName: Schema.optional(Schema.String), VpcEndpointId: Schema.optional(Schema.String)});
+export class ServiceVpcEndpoint extends Schema.Class<ServiceVpcEndpoint>("ServiceVpcEndpoint")({ServiceName: Schema.optional(Schema.String), VpcEndpointId: Schema.optional(Schema.String)}) {}
 export const ServiceVpcEndpointsList = Schema.Array(ServiceVpcEndpoint);
-export const PipelineDestination = Schema.Struct({ServiceName: Schema.optional(Schema.String), Endpoint: Schema.optional(Schema.String)});
+export class PipelineDestination extends Schema.Class<PipelineDestination>("PipelineDestination")({ServiceName: Schema.optional(Schema.String), Endpoint: Schema.optional(Schema.String)}) {}
 export const PipelineDestinationList = Schema.Array(PipelineDestination);
-export const Pipeline = Schema.Struct({PipelineName: Schema.optional(Schema.String), PipelineArn: Schema.optional(Schema.String), MinUnits: Schema.optional(Schema.Number), MaxUnits: Schema.optional(Schema.Number), Status: Schema.optional(Schema.String), StatusReason: Schema.optional(PipelineStatusReason), PipelineConfigurationBody: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date), LastUpdatedAt: Schema.optional(Schema.Date), IngestEndpointUrls: Schema.optional(IngestEndpointUrlsList), LogPublishingOptions: Schema.optional(LogPublishingOptions), VpcEndpoints: Schema.optional(VpcEndpointsList), BufferOptions: Schema.optional(BufferOptions), EncryptionAtRestOptions: Schema.optional(EncryptionAtRestOptions), VpcEndpointService: Schema.optional(Schema.String), ServiceVpcEndpoints: Schema.optional(ServiceVpcEndpointsList), Destinations: Schema.optional(PipelineDestinationList), Tags: Schema.optional(TagList), PipelineRoleArn: Schema.optional(Schema.String)});
-export const StartPipelineResponse = Schema.Struct({Pipeline: Schema.optional(Pipeline)});
-export const StopPipelineResponse = Schema.Struct({Pipeline: Schema.optional(Pipeline)});
-export const LimitExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UpdatePipelineResponse = Schema.Struct({Pipeline: Schema.optional(Pipeline)});
-export const PipelineBlueprint = Schema.Struct({BlueprintName: Schema.optional(Schema.String), PipelineConfigurationBody: Schema.optional(Schema.String), DisplayName: Schema.optional(Schema.String), DisplayDescription: Schema.optional(Schema.String), Service: Schema.optional(Schema.String), UseCase: Schema.optional(Schema.String)});
-export const PipelineEndpointConnection = Schema.Struct({PipelineArn: Schema.optional(Schema.String), EndpointId: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), VpcEndpointOwner: Schema.optional(Schema.String)});
+export class Pipeline extends Schema.Class<Pipeline>("Pipeline")({PipelineName: Schema.optional(Schema.String), PipelineArn: Schema.optional(Schema.String), MinUnits: Schema.optional(Schema.Number), MaxUnits: Schema.optional(Schema.Number), Status: Schema.optional(Schema.String), StatusReason: Schema.optional(PipelineStatusReason), PipelineConfigurationBody: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date), LastUpdatedAt: Schema.optional(Schema.Date), IngestEndpointUrls: Schema.optional(IngestEndpointUrlsList), LogPublishingOptions: Schema.optional(LogPublishingOptions), VpcEndpoints: Schema.optional(VpcEndpointsList), BufferOptions: Schema.optional(BufferOptions), EncryptionAtRestOptions: Schema.optional(EncryptionAtRestOptions), VpcEndpointService: Schema.optional(Schema.String), ServiceVpcEndpoints: Schema.optional(ServiceVpcEndpointsList), Destinations: Schema.optional(PipelineDestinationList), Tags: Schema.optional(TagList), PipelineRoleArn: Schema.optional(Schema.String)}) {}
+export class StartPipelineResponse extends Schema.Class<StartPipelineResponse>("StartPipelineResponse")({Pipeline: Schema.optional(Pipeline)}) {}
+export class StopPipelineResponse extends Schema.Class<StopPipelineResponse>("StopPipelineResponse")({Pipeline: Schema.optional(Pipeline)}) {}
+export class LimitExceededException extends Schema.Class<LimitExceededException>("LimitExceededException")({message: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class UpdatePipelineResponse extends Schema.Class<UpdatePipelineResponse>("UpdatePipelineResponse")({Pipeline: Schema.optional(Pipeline)}) {}
+export class PipelineBlueprint extends Schema.Class<PipelineBlueprint>("PipelineBlueprint")({BlueprintName: Schema.optional(Schema.String), PipelineConfigurationBody: Schema.optional(Schema.String), DisplayName: Schema.optional(Schema.String), DisplayDescription: Schema.optional(Schema.String), Service: Schema.optional(Schema.String), UseCase: Schema.optional(Schema.String)}) {}
+export class PipelineEndpointConnection extends Schema.Class<PipelineEndpointConnection>("PipelineEndpointConnection")({PipelineArn: Schema.optional(Schema.String), EndpointId: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), VpcEndpointOwner: Schema.optional(Schema.String)}) {}
 export const PipelineEndpointConnectionsSummaryList = Schema.Array(PipelineEndpointConnection);
-export const PipelineEndpoint = Schema.Struct({PipelineArn: Schema.optional(Schema.String), EndpointId: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), VpcId: Schema.optional(Schema.String), VpcOptions: Schema.optional(PipelineEndpointVpcOptions), IngestEndpointUrl: Schema.optional(Schema.String)});
+export class PipelineEndpoint extends Schema.Class<PipelineEndpoint>("PipelineEndpoint")({PipelineArn: Schema.optional(Schema.String), EndpointId: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), VpcId: Schema.optional(Schema.String), VpcOptions: Schema.optional(PipelineEndpointVpcOptions), IngestEndpointUrl: Schema.optional(Schema.String)}) {}
 export const PipelineEndpointsSummaryList = Schema.Array(PipelineEndpoint);
-export const PipelineSummary = Schema.Struct({Status: Schema.optional(Schema.String), StatusReason: Schema.optional(PipelineStatusReason), PipelineName: Schema.optional(Schema.String), PipelineArn: Schema.optional(Schema.String), MinUnits: Schema.optional(Schema.Number), MaxUnits: Schema.optional(Schema.Number), CreatedAt: Schema.optional(Schema.Date), LastUpdatedAt: Schema.optional(Schema.Date), Destinations: Schema.optional(PipelineDestinationList), Tags: Schema.optional(TagList)});
+export class PipelineSummary extends Schema.Class<PipelineSummary>("PipelineSummary")({Status: Schema.optional(Schema.String), StatusReason: Schema.optional(PipelineStatusReason), PipelineName: Schema.optional(Schema.String), PipelineArn: Schema.optional(Schema.String), MinUnits: Schema.optional(Schema.Number), MaxUnits: Schema.optional(Schema.Number), CreatedAt: Schema.optional(Schema.Date), LastUpdatedAt: Schema.optional(Schema.Date), Destinations: Schema.optional(PipelineDestinationList), Tags: Schema.optional(TagList)}) {}
 export const PipelineSummaryList = Schema.Array(PipelineSummary);
-export const ValidationMessage = Schema.Struct({Message: Schema.optional(Schema.String)});
+export class ValidationMessage extends Schema.Class<ValidationMessage>("ValidationMessage")({Message: Schema.optional(Schema.String)}) {}
 export const ValidationMessageList = Schema.Array(ValidationMessage);
-export const CreatePipelineRequest = Schema.Struct({PipelineName: Schema.String, MinUnits: Schema.Number, MaxUnits: Schema.Number, PipelineConfigurationBody: Schema.String, LogPublishingOptions: Schema.optional(LogPublishingOptions), VpcOptions: Schema.optional(VpcOptions), BufferOptions: Schema.optional(BufferOptions), EncryptionAtRestOptions: Schema.optional(EncryptionAtRestOptions), Tags: Schema.optional(TagList), PipelineRoleArn: Schema.optional(Schema.String)});
-export const CreatePipelineEndpointResponse = Schema.Struct({PipelineArn: Schema.optional(Schema.String), EndpointId: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), VpcId: Schema.optional(Schema.String)});
-export const ConflictException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ValidationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const GetPipelineBlueprintResponse = Schema.Struct({Blueprint: Schema.optional(PipelineBlueprint), Format: Schema.optional(Schema.String)});
-export const InvalidPaginationTokenException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ListPipelineEndpointConnectionsResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), PipelineEndpointConnections: Schema.optional(PipelineEndpointConnectionsSummaryList)});
-export const ListPipelineEndpointsResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), PipelineEndpoints: Schema.optional(PipelineEndpointsSummaryList)});
-export const ListPipelinesResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), Pipelines: Schema.optional(PipelineSummaryList)});
-export const ValidatePipelineResponse = Schema.Struct({isValid: Schema.optional(Schema.Boolean), Errors: Schema.optional(ValidationMessageList)});
-export const ChangeProgressStage = Schema.Struct({Name: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), LastUpdatedAt: Schema.optional(Schema.Date)});
+export class CreatePipelineRequest extends Schema.Class<CreatePipelineRequest>("CreatePipelineRequest")({PipelineName: Schema.String, MinUnits: Schema.Number, MaxUnits: Schema.Number, PipelineConfigurationBody: Schema.String, LogPublishingOptions: Schema.optional(LogPublishingOptions), VpcOptions: Schema.optional(VpcOptions), BufferOptions: Schema.optional(BufferOptions), EncryptionAtRestOptions: Schema.optional(EncryptionAtRestOptions), Tags: Schema.optional(TagList), PipelineRoleArn: Schema.optional(Schema.String)}) {}
+export class CreatePipelineEndpointResponse extends Schema.Class<CreatePipelineEndpointResponse>("CreatePipelineEndpointResponse")({PipelineArn: Schema.optional(Schema.String), EndpointId: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), VpcId: Schema.optional(Schema.String)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({message: Schema.optional(Schema.String)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({message: Schema.optional(Schema.String)}) {}
+export class GetPipelineBlueprintResponse extends Schema.Class<GetPipelineBlueprintResponse>("GetPipelineBlueprintResponse")({Blueprint: Schema.optional(PipelineBlueprint), Format: Schema.optional(Schema.String)}) {}
+export class InvalidPaginationTokenException extends Schema.Class<InvalidPaginationTokenException>("InvalidPaginationTokenException")({message: Schema.optional(Schema.String)}) {}
+export class ListPipelineEndpointConnectionsResponse extends Schema.Class<ListPipelineEndpointConnectionsResponse>("ListPipelineEndpointConnectionsResponse")({NextToken: Schema.optional(Schema.String), PipelineEndpointConnections: Schema.optional(PipelineEndpointConnectionsSummaryList)}) {}
+export class ListPipelineEndpointsResponse extends Schema.Class<ListPipelineEndpointsResponse>("ListPipelineEndpointsResponse")({NextToken: Schema.optional(Schema.String), PipelineEndpoints: Schema.optional(PipelineEndpointsSummaryList)}) {}
+export class ListPipelinesResponse extends Schema.Class<ListPipelinesResponse>("ListPipelinesResponse")({NextToken: Schema.optional(Schema.String), Pipelines: Schema.optional(PipelineSummaryList)}) {}
+export class ValidatePipelineResponse extends Schema.Class<ValidatePipelineResponse>("ValidatePipelineResponse")({isValid: Schema.optional(Schema.Boolean), Errors: Schema.optional(ValidationMessageList)}) {}
+export class ChangeProgressStage extends Schema.Class<ChangeProgressStage>("ChangeProgressStage")({Name: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), LastUpdatedAt: Schema.optional(Schema.Date)}) {}
 export const ChangeProgressStageList = Schema.Array(ChangeProgressStage);
-export const ChangeProgressStatus = Schema.Struct({StartTime: Schema.optional(Schema.Date), Status: Schema.optional(Schema.String), TotalNumberOfStages: Schema.optional(Schema.Number), ChangeProgressStages: Schema.optional(ChangeProgressStageList)});
+export class ChangeProgressStatus extends Schema.Class<ChangeProgressStatus>("ChangeProgressStatus")({StartTime: Schema.optional(Schema.Date), Status: Schema.optional(Schema.String), TotalNumberOfStages: Schema.optional(Schema.Number), ChangeProgressStages: Schema.optional(ChangeProgressStageList)}) {}
 export const ChangeProgressStatusList = Schema.Array(ChangeProgressStatus);
-export const CreatePipelineResponse = Schema.Struct({Pipeline: Schema.optional(Pipeline)});
-export const GetPipelineResponse = Schema.Struct({Pipeline: Schema.optional(Pipeline)});
-export const GetPipelineChangeProgressResponse = Schema.Struct({ChangeProgressStatuses: Schema.optional(ChangeProgressStatusList)});
-export const ResourceAlreadyExistsException = Schema.Struct({message: Schema.optional(Schema.String)});
+export class CreatePipelineResponse extends Schema.Class<CreatePipelineResponse>("CreatePipelineResponse")({Pipeline: Schema.optional(Pipeline)}) {}
+export class GetPipelineResponse extends Schema.Class<GetPipelineResponse>("GetPipelineResponse")({Pipeline: Schema.optional(Pipeline)}) {}
+export class GetPipelineChangeProgressResponse extends Schema.Class<GetPipelineChangeProgressResponse>("GetPipelineChangeProgressResponse")({ChangeProgressStatuses: Schema.optional(ChangeProgressStatusList)}) {}
+export class ResourceAlreadyExistsException extends Schema.Class<ResourceAlreadyExistsException>("ResourceAlreadyExistsException")({message: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class DisabledOperationExceptionError extends Schema.TaggedError<DisabledOperationExceptionError>()("DisabledOperationException", DisabledOperationException) {};
-export class InternalExceptionError extends Schema.TaggedError<InternalExceptionError>()("InternalException", InternalException) {};
-export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class InvalidPaginationTokenExceptionError extends Schema.TaggedError<InvalidPaginationTokenExceptionError>()("InvalidPaginationTokenException", InvalidPaginationTokenException) {};
-export class ResourceAlreadyExistsExceptionError extends Schema.TaggedError<ResourceAlreadyExistsExceptionError>()("ResourceAlreadyExistsException", ResourceAlreadyExistsException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class DisabledOperationExceptionError extends Schema.TaggedError<DisabledOperationExceptionError>()("DisabledOperationException", DisabledOperationException.fields) {};
+export class InternalExceptionError extends Schema.TaggedError<InternalExceptionError>()("InternalException", InternalException.fields) {};
+export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class InvalidPaginationTokenExceptionError extends Schema.TaggedError<InvalidPaginationTokenExceptionError>()("InvalidPaginationTokenException", InvalidPaginationTokenException.fields) {};
+export class ResourceAlreadyExistsExceptionError extends Schema.TaggedError<ResourceAlreadyExistsExceptionError>()("ResourceAlreadyExistsException", ResourceAlreadyExistsException.fields) {};
 
 //# Operations
 export const deleteResourcePolicy = /*#__PURE__*/ makeOperation(() => Operation({ version: "2022-01-01", uri: "/2022-01-01/osis/resourcePolicy/{ResourceArn}", method: "DELETE", sdkId: "OSIS", sigV4ServiceName: "osis", name: "AmazonOpenSearchIngestionService.DeleteResourcePolicy" }, DeleteResourcePolicyRequest, DeleteResourcePolicyResponse, [AccessDeniedExceptionError, DisabledOperationExceptionError, InternalExceptionError, LimitExceededExceptionError, ResourceNotFoundExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

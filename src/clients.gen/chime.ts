@@ -7,195 +7,195 @@ export const NonEmptyStringList = Schema.Array(Schema.String);
 export const UserIdList = Schema.Array(Schema.String);
 export const E164PhoneNumberList = Schema.Array(Schema.String);
 export const UserEmailList = Schema.Array(Schema.String);
-export const AssociatePhoneNumberWithUserRequest = Schema.Struct({AccountId: Schema.String, UserId: Schema.String, E164PhoneNumber: Schema.String});
-export const AssociatePhoneNumberWithUserResponse = Schema.Struct({});
-export const BatchDeletePhoneNumberRequest = Schema.Struct({PhoneNumberIds: NonEmptyStringList});
-export const BatchSuspendUserRequest = Schema.Struct({AccountId: Schema.String, UserIdList: UserIdList});
-export const BatchUnsuspendUserRequest = Schema.Struct({AccountId: Schema.String, UserIdList: UserIdList});
-export const CreateAccountRequest = Schema.Struct({Name: Schema.String});
-export const CreateBotRequest = Schema.Struct({AccountId: Schema.String, DisplayName: Schema.String, Domain: Schema.optional(Schema.String)});
-export const CreateMeetingDialOutRequest = Schema.Struct({MeetingId: Schema.String, FromPhoneNumber: Schema.String, ToPhoneNumber: Schema.String, JoinToken: Schema.String});
-export const CreatePhoneNumberOrderRequest = Schema.Struct({ProductType: Schema.String, E164PhoneNumbers: E164PhoneNumberList});
-export const CreateRoomRequest = Schema.Struct({AccountId: Schema.String, Name: Schema.String, ClientRequestToken: Schema.optional(Schema.String)});
-export const CreateRoomMembershipRequest = Schema.Struct({AccountId: Schema.String, RoomId: Schema.String, MemberId: Schema.String, Role: Schema.optional(Schema.String)});
-export const CreateUserRequest = Schema.Struct({AccountId: Schema.String, Username: Schema.optional(Schema.String), Email: Schema.optional(Schema.String), UserType: Schema.optional(Schema.String)});
-export const DeleteAccountRequest = Schema.Struct({AccountId: Schema.String});
-export const DeleteAccountResponse = Schema.Struct({});
-export const DeleteEventsConfigurationRequest = Schema.Struct({AccountId: Schema.String, BotId: Schema.String});
-export const DeletePhoneNumberRequest = Schema.Struct({PhoneNumberId: Schema.String});
-export const DeleteRoomRequest = Schema.Struct({AccountId: Schema.String, RoomId: Schema.String});
-export const DeleteRoomMembershipRequest = Schema.Struct({AccountId: Schema.String, RoomId: Schema.String, MemberId: Schema.String});
-export const DisassociatePhoneNumberFromUserRequest = Schema.Struct({AccountId: Schema.String, UserId: Schema.String});
-export const DisassociatePhoneNumberFromUserResponse = Schema.Struct({});
-export const DisassociateSigninDelegateGroupsFromAccountRequest = Schema.Struct({AccountId: Schema.String, GroupNames: NonEmptyStringList});
-export const DisassociateSigninDelegateGroupsFromAccountResponse = Schema.Struct({});
-export const GetAccountRequest = Schema.Struct({AccountId: Schema.String});
-export const GetAccountSettingsRequest = Schema.Struct({AccountId: Schema.String});
-export const GetBotRequest = Schema.Struct({AccountId: Schema.String, BotId: Schema.String});
-export const GetEventsConfigurationRequest = Schema.Struct({AccountId: Schema.String, BotId: Schema.String});
-export const GetPhoneNumberRequest = Schema.Struct({PhoneNumberId: Schema.String});
-export const GetPhoneNumberOrderRequest = Schema.Struct({PhoneNumberOrderId: Schema.String});
-export const GetPhoneNumberSettingsResponse = Schema.Struct({CallingName: Schema.optional(Schema.String), CallingNameUpdatedTimestamp: Schema.optional(Schema.Date)});
-export const GetRetentionSettingsRequest = Schema.Struct({AccountId: Schema.String});
-export const GetRoomRequest = Schema.Struct({AccountId: Schema.String, RoomId: Schema.String});
-export const GetUserRequest = Schema.Struct({AccountId: Schema.String, UserId: Schema.String});
-export const GetUserSettingsRequest = Schema.Struct({AccountId: Schema.String, UserId: Schema.String});
-export const InviteUsersRequest = Schema.Struct({AccountId: Schema.String, UserEmailList: UserEmailList, UserType: Schema.optional(Schema.String)});
-export const ListAccountsRequest = Schema.Struct({Name: Schema.optional(Schema.String), UserEmail: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListBotsRequest = Schema.Struct({AccountId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListPhoneNumberOrdersRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListPhoneNumbersRequest = Schema.Struct({Status: Schema.optional(Schema.String), ProductType: Schema.optional(Schema.String), FilterName: Schema.optional(Schema.String), FilterValue: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListRoomMembershipsRequest = Schema.Struct({AccountId: Schema.String, RoomId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListRoomsRequest = Schema.Struct({AccountId: Schema.String, MemberId: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListSupportedPhoneNumberCountriesRequest = Schema.Struct({ProductType: Schema.String});
-export const ListUsersRequest = Schema.Struct({AccountId: Schema.String, UserEmail: Schema.optional(Schema.String), UserType: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const LogoutUserRequest = Schema.Struct({AccountId: Schema.String, UserId: Schema.String});
-export const LogoutUserResponse = Schema.Struct({});
-export const PutEventsConfigurationRequest = Schema.Struct({AccountId: Schema.String, BotId: Schema.String, OutboundEventsHTTPSEndpoint: Schema.optional(Schema.String), LambdaFunctionArn: Schema.optional(Schema.String)});
-export const RedactConversationMessageRequest = Schema.Struct({AccountId: Schema.String, ConversationId: Schema.String, MessageId: Schema.String});
-export const RedactConversationMessageResponse = Schema.Struct({});
-export const RedactRoomMessageRequest = Schema.Struct({AccountId: Schema.String, RoomId: Schema.String, MessageId: Schema.String});
-export const RedactRoomMessageResponse = Schema.Struct({});
-export const RegenerateSecurityTokenRequest = Schema.Struct({AccountId: Schema.String, BotId: Schema.String});
-export const ResetPersonalPINRequest = Schema.Struct({AccountId: Schema.String, UserId: Schema.String});
-export const RestorePhoneNumberRequest = Schema.Struct({PhoneNumberId: Schema.String});
-export const SearchAvailablePhoneNumbersRequest = Schema.Struct({AreaCode: Schema.optional(Schema.String), City: Schema.optional(Schema.String), Country: Schema.optional(Schema.String), State: Schema.optional(Schema.String), TollFreePrefix: Schema.optional(Schema.String), PhoneNumberType: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const UpdateAccountRequest = Schema.Struct({AccountId: Schema.String, Name: Schema.optional(Schema.String), DefaultLicense: Schema.optional(Schema.String)});
-export const UpdateBotRequest = Schema.Struct({AccountId: Schema.String, BotId: Schema.String, Disabled: Schema.optional(Schema.Boolean)});
-export const BusinessCallingSettings = Schema.Struct({CdrBucket: Schema.optional(Schema.String)});
-export const VoiceConnectorSettings = Schema.Struct({CdrBucket: Schema.optional(Schema.String)});
-export const UpdateGlobalSettingsRequest = Schema.Struct({BusinessCalling: Schema.optional(BusinessCallingSettings), VoiceConnector: Schema.optional(VoiceConnectorSettings)});
-export const UpdatePhoneNumberRequest = Schema.Struct({PhoneNumberId: Schema.String, ProductType: Schema.optional(Schema.String), CallingName: Schema.optional(Schema.String)});
-export const UpdatePhoneNumberSettingsRequest = Schema.Struct({CallingName: Schema.String});
-export const UpdateRoomRequest = Schema.Struct({AccountId: Schema.String, RoomId: Schema.String, Name: Schema.optional(Schema.String)});
-export const UpdateRoomMembershipRequest = Schema.Struct({AccountId: Schema.String, RoomId: Schema.String, MemberId: Schema.String, Role: Schema.optional(Schema.String)});
-export const SigninDelegateGroup = Schema.Struct({GroupName: Schema.optional(Schema.String)});
+export class AssociatePhoneNumberWithUserRequest extends Schema.Class<AssociatePhoneNumberWithUserRequest>("AssociatePhoneNumberWithUserRequest")({AccountId: Schema.String, UserId: Schema.String, E164PhoneNumber: Schema.String}) {}
+export class AssociatePhoneNumberWithUserResponse extends Schema.Class<AssociatePhoneNumberWithUserResponse>("AssociatePhoneNumberWithUserResponse")({}) {}
+export class BatchDeletePhoneNumberRequest extends Schema.Class<BatchDeletePhoneNumberRequest>("BatchDeletePhoneNumberRequest")({PhoneNumberIds: NonEmptyStringList}) {}
+export class BatchSuspendUserRequest extends Schema.Class<BatchSuspendUserRequest>("BatchSuspendUserRequest")({AccountId: Schema.String, UserIdList: UserIdList}) {}
+export class BatchUnsuspendUserRequest extends Schema.Class<BatchUnsuspendUserRequest>("BatchUnsuspendUserRequest")({AccountId: Schema.String, UserIdList: UserIdList}) {}
+export class CreateAccountRequest extends Schema.Class<CreateAccountRequest>("CreateAccountRequest")({Name: Schema.String}) {}
+export class CreateBotRequest extends Schema.Class<CreateBotRequest>("CreateBotRequest")({AccountId: Schema.String, DisplayName: Schema.String, Domain: Schema.optional(Schema.String)}) {}
+export class CreateMeetingDialOutRequest extends Schema.Class<CreateMeetingDialOutRequest>("CreateMeetingDialOutRequest")({MeetingId: Schema.String, FromPhoneNumber: Schema.String, ToPhoneNumber: Schema.String, JoinToken: Schema.String}) {}
+export class CreatePhoneNumberOrderRequest extends Schema.Class<CreatePhoneNumberOrderRequest>("CreatePhoneNumberOrderRequest")({ProductType: Schema.String, E164PhoneNumbers: E164PhoneNumberList}) {}
+export class CreateRoomRequest extends Schema.Class<CreateRoomRequest>("CreateRoomRequest")({AccountId: Schema.String, Name: Schema.String, ClientRequestToken: Schema.optional(Schema.String)}) {}
+export class CreateRoomMembershipRequest extends Schema.Class<CreateRoomMembershipRequest>("CreateRoomMembershipRequest")({AccountId: Schema.String, RoomId: Schema.String, MemberId: Schema.String, Role: Schema.optional(Schema.String)}) {}
+export class CreateUserRequest extends Schema.Class<CreateUserRequest>("CreateUserRequest")({AccountId: Schema.String, Username: Schema.optional(Schema.String), Email: Schema.optional(Schema.String), UserType: Schema.optional(Schema.String)}) {}
+export class DeleteAccountRequest extends Schema.Class<DeleteAccountRequest>("DeleteAccountRequest")({AccountId: Schema.String}) {}
+export class DeleteAccountResponse extends Schema.Class<DeleteAccountResponse>("DeleteAccountResponse")({}) {}
+export class DeleteEventsConfigurationRequest extends Schema.Class<DeleteEventsConfigurationRequest>("DeleteEventsConfigurationRequest")({AccountId: Schema.String, BotId: Schema.String}) {}
+export class DeletePhoneNumberRequest extends Schema.Class<DeletePhoneNumberRequest>("DeletePhoneNumberRequest")({PhoneNumberId: Schema.String}) {}
+export class DeleteRoomRequest extends Schema.Class<DeleteRoomRequest>("DeleteRoomRequest")({AccountId: Schema.String, RoomId: Schema.String}) {}
+export class DeleteRoomMembershipRequest extends Schema.Class<DeleteRoomMembershipRequest>("DeleteRoomMembershipRequest")({AccountId: Schema.String, RoomId: Schema.String, MemberId: Schema.String}) {}
+export class DisassociatePhoneNumberFromUserRequest extends Schema.Class<DisassociatePhoneNumberFromUserRequest>("DisassociatePhoneNumberFromUserRequest")({AccountId: Schema.String, UserId: Schema.String}) {}
+export class DisassociatePhoneNumberFromUserResponse extends Schema.Class<DisassociatePhoneNumberFromUserResponse>("DisassociatePhoneNumberFromUserResponse")({}) {}
+export class DisassociateSigninDelegateGroupsFromAccountRequest extends Schema.Class<DisassociateSigninDelegateGroupsFromAccountRequest>("DisassociateSigninDelegateGroupsFromAccountRequest")({AccountId: Schema.String, GroupNames: NonEmptyStringList}) {}
+export class DisassociateSigninDelegateGroupsFromAccountResponse extends Schema.Class<DisassociateSigninDelegateGroupsFromAccountResponse>("DisassociateSigninDelegateGroupsFromAccountResponse")({}) {}
+export class GetAccountRequest extends Schema.Class<GetAccountRequest>("GetAccountRequest")({AccountId: Schema.String}) {}
+export class GetAccountSettingsRequest extends Schema.Class<GetAccountSettingsRequest>("GetAccountSettingsRequest")({AccountId: Schema.String}) {}
+export class GetBotRequest extends Schema.Class<GetBotRequest>("GetBotRequest")({AccountId: Schema.String, BotId: Schema.String}) {}
+export class GetEventsConfigurationRequest extends Schema.Class<GetEventsConfigurationRequest>("GetEventsConfigurationRequest")({AccountId: Schema.String, BotId: Schema.String}) {}
+export class GetPhoneNumberRequest extends Schema.Class<GetPhoneNumberRequest>("GetPhoneNumberRequest")({PhoneNumberId: Schema.String}) {}
+export class GetPhoneNumberOrderRequest extends Schema.Class<GetPhoneNumberOrderRequest>("GetPhoneNumberOrderRequest")({PhoneNumberOrderId: Schema.String}) {}
+export class GetPhoneNumberSettingsResponse extends Schema.Class<GetPhoneNumberSettingsResponse>("GetPhoneNumberSettingsResponse")({CallingName: Schema.optional(Schema.String), CallingNameUpdatedTimestamp: Schema.optional(Schema.Date)}) {}
+export class GetRetentionSettingsRequest extends Schema.Class<GetRetentionSettingsRequest>("GetRetentionSettingsRequest")({AccountId: Schema.String}) {}
+export class GetRoomRequest extends Schema.Class<GetRoomRequest>("GetRoomRequest")({AccountId: Schema.String, RoomId: Schema.String}) {}
+export class GetUserRequest extends Schema.Class<GetUserRequest>("GetUserRequest")({AccountId: Schema.String, UserId: Schema.String}) {}
+export class GetUserSettingsRequest extends Schema.Class<GetUserSettingsRequest>("GetUserSettingsRequest")({AccountId: Schema.String, UserId: Schema.String}) {}
+export class InviteUsersRequest extends Schema.Class<InviteUsersRequest>("InviteUsersRequest")({AccountId: Schema.String, UserEmailList: UserEmailList, UserType: Schema.optional(Schema.String)}) {}
+export class ListAccountsRequest extends Schema.Class<ListAccountsRequest>("ListAccountsRequest")({Name: Schema.optional(Schema.String), UserEmail: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListBotsRequest extends Schema.Class<ListBotsRequest>("ListBotsRequest")({AccountId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListPhoneNumberOrdersRequest extends Schema.Class<ListPhoneNumberOrdersRequest>("ListPhoneNumberOrdersRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListPhoneNumbersRequest extends Schema.Class<ListPhoneNumbersRequest>("ListPhoneNumbersRequest")({Status: Schema.optional(Schema.String), ProductType: Schema.optional(Schema.String), FilterName: Schema.optional(Schema.String), FilterValue: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListRoomMembershipsRequest extends Schema.Class<ListRoomMembershipsRequest>("ListRoomMembershipsRequest")({AccountId: Schema.String, RoomId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListRoomsRequest extends Schema.Class<ListRoomsRequest>("ListRoomsRequest")({AccountId: Schema.String, MemberId: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListSupportedPhoneNumberCountriesRequest extends Schema.Class<ListSupportedPhoneNumberCountriesRequest>("ListSupportedPhoneNumberCountriesRequest")({ProductType: Schema.String}) {}
+export class ListUsersRequest extends Schema.Class<ListUsersRequest>("ListUsersRequest")({AccountId: Schema.String, UserEmail: Schema.optional(Schema.String), UserType: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class LogoutUserRequest extends Schema.Class<LogoutUserRequest>("LogoutUserRequest")({AccountId: Schema.String, UserId: Schema.String}) {}
+export class LogoutUserResponse extends Schema.Class<LogoutUserResponse>("LogoutUserResponse")({}) {}
+export class PutEventsConfigurationRequest extends Schema.Class<PutEventsConfigurationRequest>("PutEventsConfigurationRequest")({AccountId: Schema.String, BotId: Schema.String, OutboundEventsHTTPSEndpoint: Schema.optional(Schema.String), LambdaFunctionArn: Schema.optional(Schema.String)}) {}
+export class RedactConversationMessageRequest extends Schema.Class<RedactConversationMessageRequest>("RedactConversationMessageRequest")({AccountId: Schema.String, ConversationId: Schema.String, MessageId: Schema.String}) {}
+export class RedactConversationMessageResponse extends Schema.Class<RedactConversationMessageResponse>("RedactConversationMessageResponse")({}) {}
+export class RedactRoomMessageRequest extends Schema.Class<RedactRoomMessageRequest>("RedactRoomMessageRequest")({AccountId: Schema.String, RoomId: Schema.String, MessageId: Schema.String}) {}
+export class RedactRoomMessageResponse extends Schema.Class<RedactRoomMessageResponse>("RedactRoomMessageResponse")({}) {}
+export class RegenerateSecurityTokenRequest extends Schema.Class<RegenerateSecurityTokenRequest>("RegenerateSecurityTokenRequest")({AccountId: Schema.String, BotId: Schema.String}) {}
+export class ResetPersonalPINRequest extends Schema.Class<ResetPersonalPINRequest>("ResetPersonalPINRequest")({AccountId: Schema.String, UserId: Schema.String}) {}
+export class RestorePhoneNumberRequest extends Schema.Class<RestorePhoneNumberRequest>("RestorePhoneNumberRequest")({PhoneNumberId: Schema.String}) {}
+export class SearchAvailablePhoneNumbersRequest extends Schema.Class<SearchAvailablePhoneNumbersRequest>("SearchAvailablePhoneNumbersRequest")({AreaCode: Schema.optional(Schema.String), City: Schema.optional(Schema.String), Country: Schema.optional(Schema.String), State: Schema.optional(Schema.String), TollFreePrefix: Schema.optional(Schema.String), PhoneNumberType: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class UpdateAccountRequest extends Schema.Class<UpdateAccountRequest>("UpdateAccountRequest")({AccountId: Schema.String, Name: Schema.optional(Schema.String), DefaultLicense: Schema.optional(Schema.String)}) {}
+export class UpdateBotRequest extends Schema.Class<UpdateBotRequest>("UpdateBotRequest")({AccountId: Schema.String, BotId: Schema.String, Disabled: Schema.optional(Schema.Boolean)}) {}
+export class BusinessCallingSettings extends Schema.Class<BusinessCallingSettings>("BusinessCallingSettings")({CdrBucket: Schema.optional(Schema.String)}) {}
+export class VoiceConnectorSettings extends Schema.Class<VoiceConnectorSettings>("VoiceConnectorSettings")({CdrBucket: Schema.optional(Schema.String)}) {}
+export class UpdateGlobalSettingsRequest extends Schema.Class<UpdateGlobalSettingsRequest>("UpdateGlobalSettingsRequest")({BusinessCalling: Schema.optional(BusinessCallingSettings), VoiceConnector: Schema.optional(VoiceConnectorSettings)}) {}
+export class UpdatePhoneNumberRequest extends Schema.Class<UpdatePhoneNumberRequest>("UpdatePhoneNumberRequest")({PhoneNumberId: Schema.String, ProductType: Schema.optional(Schema.String), CallingName: Schema.optional(Schema.String)}) {}
+export class UpdatePhoneNumberSettingsRequest extends Schema.Class<UpdatePhoneNumberSettingsRequest>("UpdatePhoneNumberSettingsRequest")({CallingName: Schema.String}) {}
+export class UpdateRoomRequest extends Schema.Class<UpdateRoomRequest>("UpdateRoomRequest")({AccountId: Schema.String, RoomId: Schema.String, Name: Schema.optional(Schema.String)}) {}
+export class UpdateRoomMembershipRequest extends Schema.Class<UpdateRoomMembershipRequest>("UpdateRoomMembershipRequest")({AccountId: Schema.String, RoomId: Schema.String, MemberId: Schema.String, Role: Schema.optional(Schema.String)}) {}
+export class SigninDelegateGroup extends Schema.Class<SigninDelegateGroup>("SigninDelegateGroup")({GroupName: Schema.optional(Schema.String)}) {}
 export const SigninDelegateGroupList = Schema.Array(SigninDelegateGroup);
-export const MembershipItem = Schema.Struct({MemberId: Schema.optional(Schema.String), Role: Schema.optional(Schema.String)});
+export class MembershipItem extends Schema.Class<MembershipItem>("MembershipItem")({MemberId: Schema.optional(Schema.String), Role: Schema.optional(Schema.String)}) {}
 export const MembershipItemList = Schema.Array(MembershipItem);
-export const UpdatePhoneNumberRequestItem = Schema.Struct({PhoneNumberId: Schema.String, ProductType: Schema.optional(Schema.String), CallingName: Schema.optional(Schema.String)});
+export class UpdatePhoneNumberRequestItem extends Schema.Class<UpdatePhoneNumberRequestItem>("UpdatePhoneNumberRequestItem")({PhoneNumberId: Schema.String, ProductType: Schema.optional(Schema.String), CallingName: Schema.optional(Schema.String)}) {}
 export const UpdatePhoneNumberRequestItemList = Schema.Array(UpdatePhoneNumberRequestItem);
-export const AlexaForBusinessMetadata = Schema.Struct({IsAlexaForBusinessEnabled: Schema.optional(Schema.Boolean), AlexaForBusinessRoomArn: Schema.optional(Schema.String)});
-export const UpdateUserRequestItem = Schema.Struct({UserId: Schema.String, LicenseType: Schema.optional(Schema.String), UserType: Schema.optional(Schema.String), AlexaForBusinessMetadata: Schema.optional(AlexaForBusinessMetadata)});
+export class AlexaForBusinessMetadata extends Schema.Class<AlexaForBusinessMetadata>("AlexaForBusinessMetadata")({IsAlexaForBusinessEnabled: Schema.optional(Schema.Boolean), AlexaForBusinessRoomArn: Schema.optional(Schema.String)}) {}
+export class UpdateUserRequestItem extends Schema.Class<UpdateUserRequestItem>("UpdateUserRequestItem")({UserId: Schema.String, LicenseType: Schema.optional(Schema.String), UserType: Schema.optional(Schema.String), AlexaForBusinessMetadata: Schema.optional(AlexaForBusinessMetadata)}) {}
 export const UpdateUserRequestItemList = Schema.Array(UpdateUserRequestItem);
 export const LicenseList = Schema.Array(Schema.String);
-export const Account = Schema.Struct({AwsAccountId: Schema.String, AccountId: Schema.String, Name: Schema.String, AccountType: Schema.optional(Schema.String), CreatedTimestamp: Schema.optional(Schema.Date), DefaultLicense: Schema.optional(Schema.String), SupportedLicenses: Schema.optional(LicenseList), AccountStatus: Schema.optional(Schema.String), SigninDelegateGroups: Schema.optional(SigninDelegateGroupList)});
+export class Account extends Schema.Class<Account>("Account")({AwsAccountId: Schema.String, AccountId: Schema.String, Name: Schema.String, AccountType: Schema.optional(Schema.String), CreatedTimestamp: Schema.optional(Schema.Date), DefaultLicense: Schema.optional(Schema.String), SupportedLicenses: Schema.optional(LicenseList), AccountStatus: Schema.optional(Schema.String), SigninDelegateGroups: Schema.optional(SigninDelegateGroupList)}) {}
 export const AccountList = Schema.Array(Account);
-export const Bot = Schema.Struct({BotId: Schema.optional(Schema.String), UserId: Schema.optional(Schema.String), DisplayName: Schema.optional(Schema.String), BotType: Schema.optional(Schema.String), Disabled: Schema.optional(Schema.Boolean), CreatedTimestamp: Schema.optional(Schema.Date), UpdatedTimestamp: Schema.optional(Schema.Date), BotEmail: Schema.optional(Schema.String), SecurityToken: Schema.optional(Schema.String)});
+export class Bot extends Schema.Class<Bot>("Bot")({BotId: Schema.optional(Schema.String), UserId: Schema.optional(Schema.String), DisplayName: Schema.optional(Schema.String), BotType: Schema.optional(Schema.String), Disabled: Schema.optional(Schema.Boolean), CreatedTimestamp: Schema.optional(Schema.Date), UpdatedTimestamp: Schema.optional(Schema.Date), BotEmail: Schema.optional(Schema.String), SecurityToken: Schema.optional(Schema.String)}) {}
 export const BotList = Schema.Array(Bot);
-export const OrderedPhoneNumber = Schema.Struct({E164PhoneNumber: Schema.optional(Schema.String), Status: Schema.optional(Schema.String)});
+export class OrderedPhoneNumber extends Schema.Class<OrderedPhoneNumber>("OrderedPhoneNumber")({E164PhoneNumber: Schema.optional(Schema.String), Status: Schema.optional(Schema.String)}) {}
 export const OrderedPhoneNumberList = Schema.Array(OrderedPhoneNumber);
-export const PhoneNumberOrder = Schema.Struct({PhoneNumberOrderId: Schema.optional(Schema.String), ProductType: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), OrderedPhoneNumbers: Schema.optional(OrderedPhoneNumberList), CreatedTimestamp: Schema.optional(Schema.Date), UpdatedTimestamp: Schema.optional(Schema.Date)});
+export class PhoneNumberOrder extends Schema.Class<PhoneNumberOrder>("PhoneNumberOrder")({PhoneNumberOrderId: Schema.optional(Schema.String), ProductType: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), OrderedPhoneNumbers: Schema.optional(OrderedPhoneNumberList), CreatedTimestamp: Schema.optional(Schema.Date), UpdatedTimestamp: Schema.optional(Schema.Date)}) {}
 export const PhoneNumberOrderList = Schema.Array(PhoneNumberOrder);
-export const PhoneNumberCapabilities = Schema.Struct({InboundCall: Schema.optional(Schema.Boolean), OutboundCall: Schema.optional(Schema.Boolean), InboundSMS: Schema.optional(Schema.Boolean), OutboundSMS: Schema.optional(Schema.Boolean), InboundMMS: Schema.optional(Schema.Boolean), OutboundMMS: Schema.optional(Schema.Boolean)});
-export const PhoneNumberAssociation = Schema.Struct({Value: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), AssociatedTimestamp: Schema.optional(Schema.Date)});
+export class PhoneNumberCapabilities extends Schema.Class<PhoneNumberCapabilities>("PhoneNumberCapabilities")({InboundCall: Schema.optional(Schema.Boolean), OutboundCall: Schema.optional(Schema.Boolean), InboundSMS: Schema.optional(Schema.Boolean), OutboundSMS: Schema.optional(Schema.Boolean), InboundMMS: Schema.optional(Schema.Boolean), OutboundMMS: Schema.optional(Schema.Boolean)}) {}
+export class PhoneNumberAssociation extends Schema.Class<PhoneNumberAssociation>("PhoneNumberAssociation")({Value: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), AssociatedTimestamp: Schema.optional(Schema.Date)}) {}
 export const PhoneNumberAssociationList = Schema.Array(PhoneNumberAssociation);
-export const PhoneNumber = Schema.Struct({PhoneNumberId: Schema.optional(Schema.String), E164PhoneNumber: Schema.optional(Schema.String), Country: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), ProductType: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), Capabilities: Schema.optional(PhoneNumberCapabilities), Associations: Schema.optional(PhoneNumberAssociationList), CallingName: Schema.optional(Schema.String), CallingNameStatus: Schema.optional(Schema.String), CreatedTimestamp: Schema.optional(Schema.Date), UpdatedTimestamp: Schema.optional(Schema.Date), DeletionTimestamp: Schema.optional(Schema.Date)});
+export class PhoneNumber extends Schema.Class<PhoneNumber>("PhoneNumber")({PhoneNumberId: Schema.optional(Schema.String), E164PhoneNumber: Schema.optional(Schema.String), Country: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), ProductType: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), Capabilities: Schema.optional(PhoneNumberCapabilities), Associations: Schema.optional(PhoneNumberAssociationList), CallingName: Schema.optional(Schema.String), CallingNameStatus: Schema.optional(Schema.String), CreatedTimestamp: Schema.optional(Schema.Date), UpdatedTimestamp: Schema.optional(Schema.Date), DeletionTimestamp: Schema.optional(Schema.Date)}) {}
 export const PhoneNumberList = Schema.Array(PhoneNumber);
-export const Member = Schema.Struct({MemberId: Schema.optional(Schema.String), MemberType: Schema.optional(Schema.String), Email: Schema.optional(Schema.String), FullName: Schema.optional(Schema.String), AccountId: Schema.optional(Schema.String)});
-export const RoomMembership = Schema.Struct({RoomId: Schema.optional(Schema.String), Member: Schema.optional(Member), Role: Schema.optional(Schema.String), InvitedBy: Schema.optional(Schema.String), UpdatedTimestamp: Schema.optional(Schema.Date)});
+export class Member extends Schema.Class<Member>("Member")({MemberId: Schema.optional(Schema.String), MemberType: Schema.optional(Schema.String), Email: Schema.optional(Schema.String), FullName: Schema.optional(Schema.String), AccountId: Schema.optional(Schema.String)}) {}
+export class RoomMembership extends Schema.Class<RoomMembership>("RoomMembership")({RoomId: Schema.optional(Schema.String), Member: Schema.optional(Member), Role: Schema.optional(Schema.String), InvitedBy: Schema.optional(Schema.String), UpdatedTimestamp: Schema.optional(Schema.Date)}) {}
 export const RoomMembershipList = Schema.Array(RoomMembership);
-export const Room = Schema.Struct({RoomId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), AccountId: Schema.optional(Schema.String), CreatedBy: Schema.optional(Schema.String), CreatedTimestamp: Schema.optional(Schema.Date), UpdatedTimestamp: Schema.optional(Schema.Date)});
+export class Room extends Schema.Class<Room>("Room")({RoomId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), AccountId: Schema.optional(Schema.String), CreatedBy: Schema.optional(Schema.String), CreatedTimestamp: Schema.optional(Schema.Date), UpdatedTimestamp: Schema.optional(Schema.Date)}) {}
 export const RoomList = Schema.Array(Room);
-export const User = Schema.Struct({UserId: Schema.String, AccountId: Schema.optional(Schema.String), PrimaryEmail: Schema.optional(Schema.String), PrimaryProvisionedNumber: Schema.optional(Schema.String), DisplayName: Schema.optional(Schema.String), LicenseType: Schema.optional(Schema.String), UserType: Schema.optional(Schema.String), UserRegistrationStatus: Schema.optional(Schema.String), UserInvitationStatus: Schema.optional(Schema.String), RegisteredOn: Schema.optional(Schema.Date), InvitedOn: Schema.optional(Schema.Date), AlexaForBusinessMetadata: Schema.optional(AlexaForBusinessMetadata), PersonalPIN: Schema.optional(Schema.String)});
+export class User extends Schema.Class<User>("User")({UserId: Schema.String, AccountId: Schema.optional(Schema.String), PrimaryEmail: Schema.optional(Schema.String), PrimaryProvisionedNumber: Schema.optional(Schema.String), DisplayName: Schema.optional(Schema.String), LicenseType: Schema.optional(Schema.String), UserType: Schema.optional(Schema.String), UserRegistrationStatus: Schema.optional(Schema.String), UserInvitationStatus: Schema.optional(Schema.String), RegisteredOn: Schema.optional(Schema.Date), InvitedOn: Schema.optional(Schema.Date), AlexaForBusinessMetadata: Schema.optional(AlexaForBusinessMetadata), PersonalPIN: Schema.optional(Schema.String)}) {}
 export const UserList = Schema.Array(User);
-export const AccountSettings = Schema.Struct({DisableRemoteControl: Schema.optional(Schema.Boolean), EnableDialOut: Schema.optional(Schema.Boolean)});
-export const AccessDeniedException = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
-export const AssociateSigninDelegateGroupsWithAccountRequest = Schema.Struct({AccountId: Schema.String, SigninDelegateGroups: SigninDelegateGroupList});
-export const AssociateSigninDelegateGroupsWithAccountResponse = Schema.Struct({});
-export const BatchCreateRoomMembershipRequest = Schema.Struct({AccountId: Schema.String, RoomId: Schema.String, MembershipItemList: MembershipItemList});
-export const UserError = Schema.Struct({UserId: Schema.optional(Schema.String), ErrorCode: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String)});
+export class AccountSettings extends Schema.Class<AccountSettings>("AccountSettings")({DisableRemoteControl: Schema.optional(Schema.Boolean), EnableDialOut: Schema.optional(Schema.Boolean)}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
+export class AssociateSigninDelegateGroupsWithAccountRequest extends Schema.Class<AssociateSigninDelegateGroupsWithAccountRequest>("AssociateSigninDelegateGroupsWithAccountRequest")({AccountId: Schema.String, SigninDelegateGroups: SigninDelegateGroupList}) {}
+export class AssociateSigninDelegateGroupsWithAccountResponse extends Schema.Class<AssociateSigninDelegateGroupsWithAccountResponse>("AssociateSigninDelegateGroupsWithAccountResponse")({}) {}
+export class BatchCreateRoomMembershipRequest extends Schema.Class<BatchCreateRoomMembershipRequest>("BatchCreateRoomMembershipRequest")({AccountId: Schema.String, RoomId: Schema.String, MembershipItemList: MembershipItemList}) {}
+export class UserError extends Schema.Class<UserError>("UserError")({UserId: Schema.optional(Schema.String), ErrorCode: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String)}) {}
 export const UserErrorList = Schema.Array(UserError);
-export const BatchUnsuspendUserResponse = Schema.Struct({UserErrors: Schema.optional(UserErrorList)});
-export const BatchUpdatePhoneNumberRequest = Schema.Struct({UpdatePhoneNumberRequestItems: UpdatePhoneNumberRequestItemList});
-export const BatchUpdateUserRequest = Schema.Struct({AccountId: Schema.String, UpdateUserRequestItems: UpdateUserRequestItemList});
-export const CreateMeetingDialOutResponse = Schema.Struct({TransactionId: Schema.optional(Schema.String)});
-export const BadRequestException = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
-export const ForbiddenException = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
-export const NotFoundException = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
-export const ServiceFailureException = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
-export const ServiceUnavailableException = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
-export const ThrottledClientException = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
-export const UnauthorizedClientException = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
-export const GetAccountResponse = Schema.Struct({Account: Schema.optional(Account)});
-export const GetAccountSettingsResponse = Schema.Struct({AccountSettings: Schema.optional(AccountSettings)});
-export const GetBotResponse = Schema.Struct({Bot: Schema.optional(Bot)});
-export const GetGlobalSettingsResponse = Schema.Struct({BusinessCalling: Schema.optional(BusinessCallingSettings), VoiceConnector: Schema.optional(VoiceConnectorSettings)});
-export const GetPhoneNumberOrderResponse = Schema.Struct({PhoneNumberOrder: Schema.optional(PhoneNumberOrder)});
-export const RoomRetentionSettings = Schema.Struct({RetentionDays: Schema.optional(Schema.Number)});
-export const ConversationRetentionSettings = Schema.Struct({RetentionDays: Schema.optional(Schema.Number)});
-export const RetentionSettings = Schema.Struct({RoomRetentionSettings: Schema.optional(RoomRetentionSettings), ConversationRetentionSettings: Schema.optional(ConversationRetentionSettings)});
-export const GetRetentionSettingsResponse = Schema.Struct({RetentionSettings: Schema.optional(RetentionSettings), InitiateDeletionTimestamp: Schema.optional(Schema.Date)});
-export const GetRoomResponse = Schema.Struct({Room: Schema.optional(Room)});
-export const GetUserResponse = Schema.Struct({User: Schema.optional(User)});
-export const TelephonySettings = Schema.Struct({InboundCalling: Schema.Boolean, OutboundCalling: Schema.Boolean, SMS: Schema.Boolean});
-export const UserSettings = Schema.Struct({Telephony: TelephonySettings});
-export const GetUserSettingsResponse = Schema.Struct({UserSettings: Schema.optional(UserSettings)});
-export const ListAccountsResponse = Schema.Struct({Accounts: Schema.optional(AccountList), NextToken: Schema.optional(Schema.String)});
-export const ListBotsResponse = Schema.Struct({Bots: Schema.optional(BotList), NextToken: Schema.optional(Schema.String)});
-export const ListPhoneNumberOrdersResponse = Schema.Struct({PhoneNumberOrders: Schema.optional(PhoneNumberOrderList), NextToken: Schema.optional(Schema.String)});
-export const ListPhoneNumbersResponse = Schema.Struct({PhoneNumbers: Schema.optional(PhoneNumberList), NextToken: Schema.optional(Schema.String)});
-export const ListRoomMembershipsResponse = Schema.Struct({RoomMemberships: Schema.optional(RoomMembershipList), NextToken: Schema.optional(Schema.String)});
-export const ListRoomsResponse = Schema.Struct({Rooms: Schema.optional(RoomList), NextToken: Schema.optional(Schema.String)});
-export const ListUsersResponse = Schema.Struct({Users: Schema.optional(UserList), NextToken: Schema.optional(Schema.String)});
-export const EventsConfiguration = Schema.Struct({BotId: Schema.optional(Schema.String), OutboundEventsHTTPSEndpoint: Schema.optional(Schema.String), LambdaFunctionArn: Schema.optional(Schema.String)});
-export const PutEventsConfigurationResponse = Schema.Struct({EventsConfiguration: Schema.optional(EventsConfiguration)});
-export const RegenerateSecurityTokenResponse = Schema.Struct({Bot: Schema.optional(Bot)});
-export const ResetPersonalPINResponse = Schema.Struct({User: Schema.optional(User)});
-export const RestorePhoneNumberResponse = Schema.Struct({PhoneNumber: Schema.optional(PhoneNumber)});
-export const SearchAvailablePhoneNumbersResponse = Schema.Struct({E164PhoneNumbers: Schema.optional(E164PhoneNumberList), NextToken: Schema.optional(Schema.String)});
-export const UpdateAccountResponse = Schema.Struct({Account: Schema.optional(Account)});
-export const UpdateAccountSettingsRequest = Schema.Struct({AccountId: Schema.String, AccountSettings: AccountSettings});
-export const UpdateAccountSettingsResponse = Schema.Struct({});
-export const UpdateBotResponse = Schema.Struct({Bot: Schema.optional(Bot)});
-export const UpdatePhoneNumberResponse = Schema.Struct({PhoneNumber: Schema.optional(PhoneNumber)});
-export const UpdateRoomResponse = Schema.Struct({Room: Schema.optional(Room)});
-export const UpdateRoomMembershipResponse = Schema.Struct({RoomMembership: Schema.optional(RoomMembership)});
-export const UpdateUserRequest = Schema.Struct({AccountId: Schema.String, UserId: Schema.String, LicenseType: Schema.optional(Schema.String), UserType: Schema.optional(Schema.String), AlexaForBusinessMetadata: Schema.optional(AlexaForBusinessMetadata)});
+export class BatchUnsuspendUserResponse extends Schema.Class<BatchUnsuspendUserResponse>("BatchUnsuspendUserResponse")({UserErrors: Schema.optional(UserErrorList)}) {}
+export class BatchUpdatePhoneNumberRequest extends Schema.Class<BatchUpdatePhoneNumberRequest>("BatchUpdatePhoneNumberRequest")({UpdatePhoneNumberRequestItems: UpdatePhoneNumberRequestItemList}) {}
+export class BatchUpdateUserRequest extends Schema.Class<BatchUpdateUserRequest>("BatchUpdateUserRequest")({AccountId: Schema.String, UpdateUserRequestItems: UpdateUserRequestItemList}) {}
+export class CreateMeetingDialOutResponse extends Schema.Class<CreateMeetingDialOutResponse>("CreateMeetingDialOutResponse")({TransactionId: Schema.optional(Schema.String)}) {}
+export class BadRequestException extends Schema.Class<BadRequestException>("BadRequestException")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
+export class ForbiddenException extends Schema.Class<ForbiddenException>("ForbiddenException")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
+export class NotFoundException extends Schema.Class<NotFoundException>("NotFoundException")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
+export class ServiceFailureException extends Schema.Class<ServiceFailureException>("ServiceFailureException")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
+export class ServiceUnavailableException extends Schema.Class<ServiceUnavailableException>("ServiceUnavailableException")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
+export class ThrottledClientException extends Schema.Class<ThrottledClientException>("ThrottledClientException")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
+export class UnauthorizedClientException extends Schema.Class<UnauthorizedClientException>("UnauthorizedClientException")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
+export class GetAccountResponse extends Schema.Class<GetAccountResponse>("GetAccountResponse")({Account: Schema.optional(Account)}) {}
+export class GetAccountSettingsResponse extends Schema.Class<GetAccountSettingsResponse>("GetAccountSettingsResponse")({AccountSettings: Schema.optional(AccountSettings)}) {}
+export class GetBotResponse extends Schema.Class<GetBotResponse>("GetBotResponse")({Bot: Schema.optional(Bot)}) {}
+export class GetGlobalSettingsResponse extends Schema.Class<GetGlobalSettingsResponse>("GetGlobalSettingsResponse")({BusinessCalling: Schema.optional(BusinessCallingSettings), VoiceConnector: Schema.optional(VoiceConnectorSettings)}) {}
+export class GetPhoneNumberOrderResponse extends Schema.Class<GetPhoneNumberOrderResponse>("GetPhoneNumberOrderResponse")({PhoneNumberOrder: Schema.optional(PhoneNumberOrder)}) {}
+export class RoomRetentionSettings extends Schema.Class<RoomRetentionSettings>("RoomRetentionSettings")({RetentionDays: Schema.optional(Schema.Number)}) {}
+export class ConversationRetentionSettings extends Schema.Class<ConversationRetentionSettings>("ConversationRetentionSettings")({RetentionDays: Schema.optional(Schema.Number)}) {}
+export class RetentionSettings extends Schema.Class<RetentionSettings>("RetentionSettings")({RoomRetentionSettings: Schema.optional(RoomRetentionSettings), ConversationRetentionSettings: Schema.optional(ConversationRetentionSettings)}) {}
+export class GetRetentionSettingsResponse extends Schema.Class<GetRetentionSettingsResponse>("GetRetentionSettingsResponse")({RetentionSettings: Schema.optional(RetentionSettings), InitiateDeletionTimestamp: Schema.optional(Schema.Date)}) {}
+export class GetRoomResponse extends Schema.Class<GetRoomResponse>("GetRoomResponse")({Room: Schema.optional(Room)}) {}
+export class GetUserResponse extends Schema.Class<GetUserResponse>("GetUserResponse")({User: Schema.optional(User)}) {}
+export class TelephonySettings extends Schema.Class<TelephonySettings>("TelephonySettings")({InboundCalling: Schema.Boolean, OutboundCalling: Schema.Boolean, SMS: Schema.Boolean}) {}
+export class UserSettings extends Schema.Class<UserSettings>("UserSettings")({Telephony: TelephonySettings}) {}
+export class GetUserSettingsResponse extends Schema.Class<GetUserSettingsResponse>("GetUserSettingsResponse")({UserSettings: Schema.optional(UserSettings)}) {}
+export class ListAccountsResponse extends Schema.Class<ListAccountsResponse>("ListAccountsResponse")({Accounts: Schema.optional(AccountList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListBotsResponse extends Schema.Class<ListBotsResponse>("ListBotsResponse")({Bots: Schema.optional(BotList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListPhoneNumberOrdersResponse extends Schema.Class<ListPhoneNumberOrdersResponse>("ListPhoneNumberOrdersResponse")({PhoneNumberOrders: Schema.optional(PhoneNumberOrderList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListPhoneNumbersResponse extends Schema.Class<ListPhoneNumbersResponse>("ListPhoneNumbersResponse")({PhoneNumbers: Schema.optional(PhoneNumberList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListRoomMembershipsResponse extends Schema.Class<ListRoomMembershipsResponse>("ListRoomMembershipsResponse")({RoomMemberships: Schema.optional(RoomMembershipList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListRoomsResponse extends Schema.Class<ListRoomsResponse>("ListRoomsResponse")({Rooms: Schema.optional(RoomList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListUsersResponse extends Schema.Class<ListUsersResponse>("ListUsersResponse")({Users: Schema.optional(UserList), NextToken: Schema.optional(Schema.String)}) {}
+export class EventsConfiguration extends Schema.Class<EventsConfiguration>("EventsConfiguration")({BotId: Schema.optional(Schema.String), OutboundEventsHTTPSEndpoint: Schema.optional(Schema.String), LambdaFunctionArn: Schema.optional(Schema.String)}) {}
+export class PutEventsConfigurationResponse extends Schema.Class<PutEventsConfigurationResponse>("PutEventsConfigurationResponse")({EventsConfiguration: Schema.optional(EventsConfiguration)}) {}
+export class RegenerateSecurityTokenResponse extends Schema.Class<RegenerateSecurityTokenResponse>("RegenerateSecurityTokenResponse")({Bot: Schema.optional(Bot)}) {}
+export class ResetPersonalPINResponse extends Schema.Class<ResetPersonalPINResponse>("ResetPersonalPINResponse")({User: Schema.optional(User)}) {}
+export class RestorePhoneNumberResponse extends Schema.Class<RestorePhoneNumberResponse>("RestorePhoneNumberResponse")({PhoneNumber: Schema.optional(PhoneNumber)}) {}
+export class SearchAvailablePhoneNumbersResponse extends Schema.Class<SearchAvailablePhoneNumbersResponse>("SearchAvailablePhoneNumbersResponse")({E164PhoneNumbers: Schema.optional(E164PhoneNumberList), NextToken: Schema.optional(Schema.String)}) {}
+export class UpdateAccountResponse extends Schema.Class<UpdateAccountResponse>("UpdateAccountResponse")({Account: Schema.optional(Account)}) {}
+export class UpdateAccountSettingsRequest extends Schema.Class<UpdateAccountSettingsRequest>("UpdateAccountSettingsRequest")({AccountId: Schema.String, AccountSettings: AccountSettings}) {}
+export class UpdateAccountSettingsResponse extends Schema.Class<UpdateAccountSettingsResponse>("UpdateAccountSettingsResponse")({}) {}
+export class UpdateBotResponse extends Schema.Class<UpdateBotResponse>("UpdateBotResponse")({Bot: Schema.optional(Bot)}) {}
+export class UpdatePhoneNumberResponse extends Schema.Class<UpdatePhoneNumberResponse>("UpdatePhoneNumberResponse")({PhoneNumber: Schema.optional(PhoneNumber)}) {}
+export class UpdateRoomResponse extends Schema.Class<UpdateRoomResponse>("UpdateRoomResponse")({Room: Schema.optional(Room)}) {}
+export class UpdateRoomMembershipResponse extends Schema.Class<UpdateRoomMembershipResponse>("UpdateRoomMembershipResponse")({RoomMembership: Schema.optional(RoomMembership)}) {}
+export class UpdateUserRequest extends Schema.Class<UpdateUserRequest>("UpdateUserRequest")({AccountId: Schema.String, UserId: Schema.String, LicenseType: Schema.optional(Schema.String), UserType: Schema.optional(Schema.String), AlexaForBusinessMetadata: Schema.optional(AlexaForBusinessMetadata)}) {}
 export const PhoneNumberTypeList = Schema.Array(Schema.String);
-export const PhoneNumberError = Schema.Struct({PhoneNumberId: Schema.optional(Schema.String), ErrorCode: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String)});
+export class PhoneNumberError extends Schema.Class<PhoneNumberError>("PhoneNumberError")({PhoneNumberId: Schema.optional(Schema.String), ErrorCode: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String)}) {}
 export const PhoneNumberErrorList = Schema.Array(PhoneNumberError);
-export const Invite = Schema.Struct({InviteId: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), EmailAddress: Schema.optional(Schema.String), EmailStatus: Schema.optional(Schema.String)});
+export class Invite extends Schema.Class<Invite>("Invite")({InviteId: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), EmailAddress: Schema.optional(Schema.String), EmailStatus: Schema.optional(Schema.String)}) {}
 export const InviteList = Schema.Array(Invite);
-export const PhoneNumberCountry = Schema.Struct({CountryCode: Schema.optional(Schema.String), SupportedPhoneNumberTypes: Schema.optional(PhoneNumberTypeList)});
+export class PhoneNumberCountry extends Schema.Class<PhoneNumberCountry>("PhoneNumberCountry")({CountryCode: Schema.optional(Schema.String), SupportedPhoneNumberTypes: Schema.optional(PhoneNumberTypeList)}) {}
 export const PhoneNumberCountriesList = Schema.Array(PhoneNumberCountry);
-export const BatchDeletePhoneNumberResponse = Schema.Struct({PhoneNumberErrors: Schema.optional(PhoneNumberErrorList)});
-export const BatchSuspendUserResponse = Schema.Struct({UserErrors: Schema.optional(UserErrorList)});
-export const BatchUpdatePhoneNumberResponse = Schema.Struct({PhoneNumberErrors: Schema.optional(PhoneNumberErrorList)});
-export const BatchUpdateUserResponse = Schema.Struct({UserErrors: Schema.optional(UserErrorList)});
-export const CreateAccountResponse = Schema.Struct({Account: Schema.optional(Account)});
-export const CreateBotResponse = Schema.Struct({Bot: Schema.optional(Bot)});
-export const ResourceLimitExceededException = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
-export const CreateRoomResponse = Schema.Struct({Room: Schema.optional(Room)});
-export const CreateUserResponse = Schema.Struct({User: Schema.optional(User)});
-export const UnprocessableEntityException = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
-export const GetEventsConfigurationResponse = Schema.Struct({EventsConfiguration: Schema.optional(EventsConfiguration)});
-export const InviteUsersResponse = Schema.Struct({Invites: Schema.optional(InviteList)});
-export const ListSupportedPhoneNumberCountriesResponse = Schema.Struct({PhoneNumberCountries: Schema.optional(PhoneNumberCountriesList)});
-export const PutRetentionSettingsRequest = Schema.Struct({AccountId: Schema.String, RetentionSettings: RetentionSettings});
-export const ConflictException = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
-export const UpdateUserResponse = Schema.Struct({User: Schema.optional(User)});
-export const UpdateUserSettingsRequest = Schema.Struct({AccountId: Schema.String, UserId: Schema.String, UserSettings: UserSettings});
-export const MemberError = Schema.Struct({MemberId: Schema.optional(Schema.String), ErrorCode: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String)});
+export class BatchDeletePhoneNumberResponse extends Schema.Class<BatchDeletePhoneNumberResponse>("BatchDeletePhoneNumberResponse")({PhoneNumberErrors: Schema.optional(PhoneNumberErrorList)}) {}
+export class BatchSuspendUserResponse extends Schema.Class<BatchSuspendUserResponse>("BatchSuspendUserResponse")({UserErrors: Schema.optional(UserErrorList)}) {}
+export class BatchUpdatePhoneNumberResponse extends Schema.Class<BatchUpdatePhoneNumberResponse>("BatchUpdatePhoneNumberResponse")({PhoneNumberErrors: Schema.optional(PhoneNumberErrorList)}) {}
+export class BatchUpdateUserResponse extends Schema.Class<BatchUpdateUserResponse>("BatchUpdateUserResponse")({UserErrors: Schema.optional(UserErrorList)}) {}
+export class CreateAccountResponse extends Schema.Class<CreateAccountResponse>("CreateAccountResponse")({Account: Schema.optional(Account)}) {}
+export class CreateBotResponse extends Schema.Class<CreateBotResponse>("CreateBotResponse")({Bot: Schema.optional(Bot)}) {}
+export class ResourceLimitExceededException extends Schema.Class<ResourceLimitExceededException>("ResourceLimitExceededException")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
+export class CreateRoomResponse extends Schema.Class<CreateRoomResponse>("CreateRoomResponse")({Room: Schema.optional(Room)}) {}
+export class CreateUserResponse extends Schema.Class<CreateUserResponse>("CreateUserResponse")({User: Schema.optional(User)}) {}
+export class UnprocessableEntityException extends Schema.Class<UnprocessableEntityException>("UnprocessableEntityException")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
+export class GetEventsConfigurationResponse extends Schema.Class<GetEventsConfigurationResponse>("GetEventsConfigurationResponse")({EventsConfiguration: Schema.optional(EventsConfiguration)}) {}
+export class InviteUsersResponse extends Schema.Class<InviteUsersResponse>("InviteUsersResponse")({Invites: Schema.optional(InviteList)}) {}
+export class ListSupportedPhoneNumberCountriesResponse extends Schema.Class<ListSupportedPhoneNumberCountriesResponse>("ListSupportedPhoneNumberCountriesResponse")({PhoneNumberCountries: Schema.optional(PhoneNumberCountriesList)}) {}
+export class PutRetentionSettingsRequest extends Schema.Class<PutRetentionSettingsRequest>("PutRetentionSettingsRequest")({AccountId: Schema.String, RetentionSettings: RetentionSettings}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
+export class UpdateUserResponse extends Schema.Class<UpdateUserResponse>("UpdateUserResponse")({User: Schema.optional(User)}) {}
+export class UpdateUserSettingsRequest extends Schema.Class<UpdateUserSettingsRequest>("UpdateUserSettingsRequest")({AccountId: Schema.String, UserId: Schema.String, UserSettings: UserSettings}) {}
+export class MemberError extends Schema.Class<MemberError>("MemberError")({MemberId: Schema.optional(Schema.String), ErrorCode: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String)}) {}
 export const MemberErrorList = Schema.Array(MemberError);
-export const BatchCreateRoomMembershipResponse = Schema.Struct({Errors: Schema.optional(MemberErrorList)});
-export const CreatePhoneNumberOrderResponse = Schema.Struct({PhoneNumberOrder: Schema.optional(PhoneNumberOrder)});
-export const CreateRoomMembershipResponse = Schema.Struct({RoomMembership: Schema.optional(RoomMembership)});
-export const GetPhoneNumberResponse = Schema.Struct({PhoneNumber: Schema.optional(PhoneNumber)});
-export const PutRetentionSettingsResponse = Schema.Struct({RetentionSettings: Schema.optional(RetentionSettings), InitiateDeletionTimestamp: Schema.optional(Schema.Date)});
+export class BatchCreateRoomMembershipResponse extends Schema.Class<BatchCreateRoomMembershipResponse>("BatchCreateRoomMembershipResponse")({Errors: Schema.optional(MemberErrorList)}) {}
+export class CreatePhoneNumberOrderResponse extends Schema.Class<CreatePhoneNumberOrderResponse>("CreatePhoneNumberOrderResponse")({PhoneNumberOrder: Schema.optional(PhoneNumberOrder)}) {}
+export class CreateRoomMembershipResponse extends Schema.Class<CreateRoomMembershipResponse>("CreateRoomMembershipResponse")({RoomMembership: Schema.optional(RoomMembership)}) {}
+export class GetPhoneNumberResponse extends Schema.Class<GetPhoneNumberResponse>("GetPhoneNumberResponse")({PhoneNumber: Schema.optional(PhoneNumber)}) {}
+export class PutRetentionSettingsResponse extends Schema.Class<PutRetentionSettingsResponse>("PutRetentionSettingsResponse")({RetentionSettings: Schema.optional(RetentionSettings), InitiateDeletionTimestamp: Schema.optional(Schema.Date)}) {}
 
 //# Errors
-export class BadRequestExceptionError extends Schema.TaggedError<BadRequestExceptionError>()("BadRequestException", BadRequestException) {};
-export class ForbiddenExceptionError extends Schema.TaggedError<ForbiddenExceptionError>()("ForbiddenException", ForbiddenException) {};
-export class NotFoundExceptionError extends Schema.TaggedError<NotFoundExceptionError>()("NotFoundException", NotFoundException) {};
-export class ServiceFailureExceptionError extends Schema.TaggedError<ServiceFailureExceptionError>()("ServiceFailureException", ServiceFailureException) {};
-export class ServiceUnavailableExceptionError extends Schema.TaggedError<ServiceUnavailableExceptionError>()("ServiceUnavailableException", ServiceUnavailableException) {};
-export class ThrottledClientExceptionError extends Schema.TaggedError<ThrottledClientExceptionError>()("ThrottledClientException", ThrottledClientException) {};
-export class UnauthorizedClientExceptionError extends Schema.TaggedError<UnauthorizedClientExceptionError>()("UnauthorizedClientException", UnauthorizedClientException) {};
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class ResourceLimitExceededExceptionError extends Schema.TaggedError<ResourceLimitExceededExceptionError>()("ResourceLimitExceededException", ResourceLimitExceededException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class UnprocessableEntityExceptionError extends Schema.TaggedError<UnprocessableEntityExceptionError>()("UnprocessableEntityException", UnprocessableEntityException) {};
+export class BadRequestExceptionError extends Schema.TaggedError<BadRequestExceptionError>()("BadRequestException", BadRequestException.fields) {};
+export class ForbiddenExceptionError extends Schema.TaggedError<ForbiddenExceptionError>()("ForbiddenException", ForbiddenException.fields) {};
+export class NotFoundExceptionError extends Schema.TaggedError<NotFoundExceptionError>()("NotFoundException", NotFoundException.fields) {};
+export class ServiceFailureExceptionError extends Schema.TaggedError<ServiceFailureExceptionError>()("ServiceFailureException", ServiceFailureException.fields) {};
+export class ServiceUnavailableExceptionError extends Schema.TaggedError<ServiceUnavailableExceptionError>()("ServiceUnavailableException", ServiceUnavailableException.fields) {};
+export class ThrottledClientExceptionError extends Schema.TaggedError<ThrottledClientExceptionError>()("ThrottledClientException", ThrottledClientException.fields) {};
+export class UnauthorizedClientExceptionError extends Schema.TaggedError<UnauthorizedClientExceptionError>()("UnauthorizedClientException", UnauthorizedClientException.fields) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class ResourceLimitExceededExceptionError extends Schema.TaggedError<ResourceLimitExceededExceptionError>()("ResourceLimitExceededException", ResourceLimitExceededException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class UnprocessableEntityExceptionError extends Schema.TaggedError<UnprocessableEntityExceptionError>()("UnprocessableEntityException", UnprocessableEntityException.fields) {};
 
 //# Operations
 export const getPhoneNumberSettings = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-05-01", uri: "/settings/phone-number", method: "GET", sdkId: "Chime", sigV4ServiceName: "chime", name: "UCBuzzConsoleService.GetPhoneNumberSettings" }, Schema.Struct({}), GetPhoneNumberSettingsResponse, [BadRequestExceptionError, ForbiddenExceptionError, ServiceFailureExceptionError, ServiceUnavailableExceptionError, ThrottledClientExceptionError, UnauthorizedClientExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

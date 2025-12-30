@@ -3,115 +3,115 @@ import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperat
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const GetTaxExemptionTypesRequest = Schema.Struct({});
-export const GetTaxInheritanceRequest = Schema.Struct({});
+export class GetTaxExemptionTypesRequest extends Schema.Class<GetTaxExemptionTypesRequest>("GetTaxExemptionTypesRequest")({}) {}
+export class GetTaxInheritanceRequest extends Schema.Class<GetTaxInheritanceRequest>("GetTaxInheritanceRequest")({}) {}
 export const AccountIds = Schema.Array(Schema.String);
-export const BatchDeleteTaxRegistrationRequest = Schema.Struct({accountIds: AccountIds});
-export const BatchGetTaxExemptionsRequest = Schema.Struct({accountIds: AccountIds});
-export const DeleteSupplementalTaxRegistrationRequest = Schema.Struct({authorityId: Schema.String});
-export const DeleteSupplementalTaxRegistrationResponse = Schema.Struct({});
-export const DeleteTaxRegistrationRequest = Schema.Struct({accountId: Schema.optional(Schema.String)});
-export const DeleteTaxRegistrationResponse = Schema.Struct({});
-export const GetTaxInheritanceResponse = Schema.Struct({heritageStatus: Schema.optional(Schema.String)});
-export const GetTaxRegistrationRequest = Schema.Struct({accountId: Schema.optional(Schema.String)});
-export const ListSupplementalTaxRegistrationsRequest = Schema.Struct({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListTaxExemptionsRequest = Schema.Struct({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListTaxRegistrationsRequest = Schema.Struct({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const PutTaxInheritanceRequest = Schema.Struct({heritageStatus: Schema.optional(Schema.String)});
-export const PutTaxInheritanceResponse = Schema.Struct({});
-export const Address = Schema.Struct({addressLine1: Schema.String, addressLine2: Schema.optional(Schema.String), addressLine3: Schema.optional(Schema.String), districtOrCounty: Schema.optional(Schema.String), city: Schema.String, stateOrRegion: Schema.optional(Schema.String), postalCode: Schema.String, countryCode: Schema.String});
+export class BatchDeleteTaxRegistrationRequest extends Schema.Class<BatchDeleteTaxRegistrationRequest>("BatchDeleteTaxRegistrationRequest")({accountIds: AccountIds}) {}
+export class BatchGetTaxExemptionsRequest extends Schema.Class<BatchGetTaxExemptionsRequest>("BatchGetTaxExemptionsRequest")({accountIds: AccountIds}) {}
+export class DeleteSupplementalTaxRegistrationRequest extends Schema.Class<DeleteSupplementalTaxRegistrationRequest>("DeleteSupplementalTaxRegistrationRequest")({authorityId: Schema.String}) {}
+export class DeleteSupplementalTaxRegistrationResponse extends Schema.Class<DeleteSupplementalTaxRegistrationResponse>("DeleteSupplementalTaxRegistrationResponse")({}) {}
+export class DeleteTaxRegistrationRequest extends Schema.Class<DeleteTaxRegistrationRequest>("DeleteTaxRegistrationRequest")({accountId: Schema.optional(Schema.String)}) {}
+export class DeleteTaxRegistrationResponse extends Schema.Class<DeleteTaxRegistrationResponse>("DeleteTaxRegistrationResponse")({}) {}
+export class GetTaxInheritanceResponse extends Schema.Class<GetTaxInheritanceResponse>("GetTaxInheritanceResponse")({heritageStatus: Schema.optional(Schema.String)}) {}
+export class GetTaxRegistrationRequest extends Schema.Class<GetTaxRegistrationRequest>("GetTaxRegistrationRequest")({accountId: Schema.optional(Schema.String)}) {}
+export class ListSupplementalTaxRegistrationsRequest extends Schema.Class<ListSupplementalTaxRegistrationsRequest>("ListSupplementalTaxRegistrationsRequest")({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListTaxExemptionsRequest extends Schema.Class<ListTaxExemptionsRequest>("ListTaxExemptionsRequest")({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListTaxRegistrationsRequest extends Schema.Class<ListTaxRegistrationsRequest>("ListTaxRegistrationsRequest")({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class PutTaxInheritanceRequest extends Schema.Class<PutTaxInheritanceRequest>("PutTaxInheritanceRequest")({heritageStatus: Schema.optional(Schema.String)}) {}
+export class PutTaxInheritanceResponse extends Schema.Class<PutTaxInheritanceResponse>("PutTaxInheritanceResponse")({}) {}
+export class Address extends Schema.Class<Address>("Address")({addressLine1: Schema.String, addressLine2: Schema.optional(Schema.String), addressLine3: Schema.optional(Schema.String), districtOrCounty: Schema.optional(Schema.String), city: Schema.String, stateOrRegion: Schema.optional(Schema.String), postalCode: Schema.String, countryCode: Schema.String}) {}
 export const MalaysiaServiceTaxCodesList = Schema.Array(Schema.String);
-export const MalaysiaAdditionalInfo = Schema.Struct({serviceTaxCodes: Schema.optional(MalaysiaServiceTaxCodesList), taxInformationNumber: Schema.optional(Schema.String), businessRegistrationNumber: Schema.optional(Schema.String)});
-export const IsraelAdditionalInfo = Schema.Struct({dealerType: Schema.String, customerType: Schema.String});
-export const EstoniaAdditionalInfo = Schema.Struct({registryCommercialCode: Schema.String});
-export const CanadaAdditionalInfo = Schema.Struct({provincialSalesTaxId: Schema.optional(Schema.String), canadaQuebecSalesTaxNumber: Schema.optional(Schema.String), canadaRetailSalesTaxNumber: Schema.optional(Schema.String), isResellerAccount: Schema.optional(Schema.Boolean)});
-export const SpainAdditionalInfo = Schema.Struct({registrationType: Schema.String});
-export const KenyaAdditionalInfo = Schema.Struct({personType: Schema.String});
-export const SouthKoreaAdditionalInfo = Schema.Struct({businessRepresentativeName: Schema.String, lineOfBusiness: Schema.String, itemOfBusiness: Schema.String});
-export const TurkeyAdditionalInfo = Schema.Struct({taxOffice: Schema.optional(Schema.String), kepEmailId: Schema.optional(Schema.String), secondaryTaxId: Schema.optional(Schema.String), industries: Schema.optional(Schema.String)});
-export const GeorgiaAdditionalInfo = Schema.Struct({personType: Schema.String});
-export const ItalyAdditionalInfo = Schema.Struct({sdiAccountId: Schema.optional(Schema.String), cigNumber: Schema.optional(Schema.String), cupNumber: Schema.optional(Schema.String), taxCode: Schema.optional(Schema.String)});
-export const RomaniaAdditionalInfo = Schema.Struct({taxRegistrationNumberType: Schema.String});
-export const UkraineAdditionalInfo = Schema.Struct({ukraineTrnType: Schema.String});
-export const PolandAdditionalInfo = Schema.Struct({individualRegistrationNumber: Schema.optional(Schema.String), isGroupVatEnabled: Schema.optional(Schema.Boolean)});
-export const SaudiArabiaAdditionalInfo = Schema.Struct({taxRegistrationNumberType: Schema.optional(Schema.String)});
-export const IndonesiaAdditionalInfo = Schema.Struct({taxRegistrationNumberType: Schema.optional(Schema.String), ppnExceptionDesignationCode: Schema.optional(Schema.String), decisionNumber: Schema.optional(Schema.String)});
-export const VietnamAdditionalInfo = Schema.Struct({enterpriseIdentificationNumber: Schema.optional(Schema.String), electronicTransactionCodeNumber: Schema.optional(Schema.String), paymentVoucherNumber: Schema.optional(Schema.String), paymentVoucherNumberDate: Schema.optional(Schema.String)});
-export const EgyptAdditionalInfo = Schema.Struct({uniqueIdentificationNumber: Schema.optional(Schema.String), uniqueIdentificationNumberExpirationDate: Schema.optional(Schema.String)});
-export const GreeceAdditionalInfo = Schema.Struct({contractingAuthorityCode: Schema.optional(Schema.String)});
-export const UzbekistanAdditionalInfo = Schema.Struct({taxRegistrationNumberType: Schema.optional(Schema.String), vatRegistrationNumber: Schema.optional(Schema.String)});
-export const AdditionalInfoRequest = Schema.Struct({malaysiaAdditionalInfo: Schema.optional(MalaysiaAdditionalInfo), israelAdditionalInfo: Schema.optional(IsraelAdditionalInfo), estoniaAdditionalInfo: Schema.optional(EstoniaAdditionalInfo), canadaAdditionalInfo: Schema.optional(CanadaAdditionalInfo), spainAdditionalInfo: Schema.optional(SpainAdditionalInfo), kenyaAdditionalInfo: Schema.optional(KenyaAdditionalInfo), southKoreaAdditionalInfo: Schema.optional(SouthKoreaAdditionalInfo), turkeyAdditionalInfo: Schema.optional(TurkeyAdditionalInfo), georgiaAdditionalInfo: Schema.optional(GeorgiaAdditionalInfo), italyAdditionalInfo: Schema.optional(ItalyAdditionalInfo), romaniaAdditionalInfo: Schema.optional(RomaniaAdditionalInfo), ukraineAdditionalInfo: Schema.optional(UkraineAdditionalInfo), polandAdditionalInfo: Schema.optional(PolandAdditionalInfo), saudiArabiaAdditionalInfo: Schema.optional(SaudiArabiaAdditionalInfo), indonesiaAdditionalInfo: Schema.optional(IndonesiaAdditionalInfo), vietnamAdditionalInfo: Schema.optional(VietnamAdditionalInfo), egyptAdditionalInfo: Schema.optional(EgyptAdditionalInfo), greeceAdditionalInfo: Schema.optional(GreeceAdditionalInfo), uzbekistanAdditionalInfo: Schema.optional(UzbekistanAdditionalInfo)});
-export const SourceS3Location = Schema.Struct({bucket: Schema.String, key: Schema.String});
-export const TaxRegistrationDocFile = Schema.Struct({fileName: Schema.String, fileContent: StreamBody()});
-export const TaxRegistrationDocument = Schema.Struct({s3Location: Schema.optional(SourceS3Location), file: Schema.optional(TaxRegistrationDocFile)});
+export class MalaysiaAdditionalInfo extends Schema.Class<MalaysiaAdditionalInfo>("MalaysiaAdditionalInfo")({serviceTaxCodes: Schema.optional(MalaysiaServiceTaxCodesList), taxInformationNumber: Schema.optional(Schema.String), businessRegistrationNumber: Schema.optional(Schema.String)}) {}
+export class IsraelAdditionalInfo extends Schema.Class<IsraelAdditionalInfo>("IsraelAdditionalInfo")({dealerType: Schema.String, customerType: Schema.String}) {}
+export class EstoniaAdditionalInfo extends Schema.Class<EstoniaAdditionalInfo>("EstoniaAdditionalInfo")({registryCommercialCode: Schema.String}) {}
+export class CanadaAdditionalInfo extends Schema.Class<CanadaAdditionalInfo>("CanadaAdditionalInfo")({provincialSalesTaxId: Schema.optional(Schema.String), canadaQuebecSalesTaxNumber: Schema.optional(Schema.String), canadaRetailSalesTaxNumber: Schema.optional(Schema.String), isResellerAccount: Schema.optional(Schema.Boolean)}) {}
+export class SpainAdditionalInfo extends Schema.Class<SpainAdditionalInfo>("SpainAdditionalInfo")({registrationType: Schema.String}) {}
+export class KenyaAdditionalInfo extends Schema.Class<KenyaAdditionalInfo>("KenyaAdditionalInfo")({personType: Schema.String}) {}
+export class SouthKoreaAdditionalInfo extends Schema.Class<SouthKoreaAdditionalInfo>("SouthKoreaAdditionalInfo")({businessRepresentativeName: Schema.String, lineOfBusiness: Schema.String, itemOfBusiness: Schema.String}) {}
+export class TurkeyAdditionalInfo extends Schema.Class<TurkeyAdditionalInfo>("TurkeyAdditionalInfo")({taxOffice: Schema.optional(Schema.String), kepEmailId: Schema.optional(Schema.String), secondaryTaxId: Schema.optional(Schema.String), industries: Schema.optional(Schema.String)}) {}
+export class GeorgiaAdditionalInfo extends Schema.Class<GeorgiaAdditionalInfo>("GeorgiaAdditionalInfo")({personType: Schema.String}) {}
+export class ItalyAdditionalInfo extends Schema.Class<ItalyAdditionalInfo>("ItalyAdditionalInfo")({sdiAccountId: Schema.optional(Schema.String), cigNumber: Schema.optional(Schema.String), cupNumber: Schema.optional(Schema.String), taxCode: Schema.optional(Schema.String)}) {}
+export class RomaniaAdditionalInfo extends Schema.Class<RomaniaAdditionalInfo>("RomaniaAdditionalInfo")({taxRegistrationNumberType: Schema.String}) {}
+export class UkraineAdditionalInfo extends Schema.Class<UkraineAdditionalInfo>("UkraineAdditionalInfo")({ukraineTrnType: Schema.String}) {}
+export class PolandAdditionalInfo extends Schema.Class<PolandAdditionalInfo>("PolandAdditionalInfo")({individualRegistrationNumber: Schema.optional(Schema.String), isGroupVatEnabled: Schema.optional(Schema.Boolean)}) {}
+export class SaudiArabiaAdditionalInfo extends Schema.Class<SaudiArabiaAdditionalInfo>("SaudiArabiaAdditionalInfo")({taxRegistrationNumberType: Schema.optional(Schema.String)}) {}
+export class IndonesiaAdditionalInfo extends Schema.Class<IndonesiaAdditionalInfo>("IndonesiaAdditionalInfo")({taxRegistrationNumberType: Schema.optional(Schema.String), ppnExceptionDesignationCode: Schema.optional(Schema.String), decisionNumber: Schema.optional(Schema.String)}) {}
+export class VietnamAdditionalInfo extends Schema.Class<VietnamAdditionalInfo>("VietnamAdditionalInfo")({enterpriseIdentificationNumber: Schema.optional(Schema.String), electronicTransactionCodeNumber: Schema.optional(Schema.String), paymentVoucherNumber: Schema.optional(Schema.String), paymentVoucherNumberDate: Schema.optional(Schema.String)}) {}
+export class EgyptAdditionalInfo extends Schema.Class<EgyptAdditionalInfo>("EgyptAdditionalInfo")({uniqueIdentificationNumber: Schema.optional(Schema.String), uniqueIdentificationNumberExpirationDate: Schema.optional(Schema.String)}) {}
+export class GreeceAdditionalInfo extends Schema.Class<GreeceAdditionalInfo>("GreeceAdditionalInfo")({contractingAuthorityCode: Schema.optional(Schema.String)}) {}
+export class UzbekistanAdditionalInfo extends Schema.Class<UzbekistanAdditionalInfo>("UzbekistanAdditionalInfo")({taxRegistrationNumberType: Schema.optional(Schema.String), vatRegistrationNumber: Schema.optional(Schema.String)}) {}
+export class AdditionalInfoRequest extends Schema.Class<AdditionalInfoRequest>("AdditionalInfoRequest")({malaysiaAdditionalInfo: Schema.optional(MalaysiaAdditionalInfo), israelAdditionalInfo: Schema.optional(IsraelAdditionalInfo), estoniaAdditionalInfo: Schema.optional(EstoniaAdditionalInfo), canadaAdditionalInfo: Schema.optional(CanadaAdditionalInfo), spainAdditionalInfo: Schema.optional(SpainAdditionalInfo), kenyaAdditionalInfo: Schema.optional(KenyaAdditionalInfo), southKoreaAdditionalInfo: Schema.optional(SouthKoreaAdditionalInfo), turkeyAdditionalInfo: Schema.optional(TurkeyAdditionalInfo), georgiaAdditionalInfo: Schema.optional(GeorgiaAdditionalInfo), italyAdditionalInfo: Schema.optional(ItalyAdditionalInfo), romaniaAdditionalInfo: Schema.optional(RomaniaAdditionalInfo), ukraineAdditionalInfo: Schema.optional(UkraineAdditionalInfo), polandAdditionalInfo: Schema.optional(PolandAdditionalInfo), saudiArabiaAdditionalInfo: Schema.optional(SaudiArabiaAdditionalInfo), indonesiaAdditionalInfo: Schema.optional(IndonesiaAdditionalInfo), vietnamAdditionalInfo: Schema.optional(VietnamAdditionalInfo), egyptAdditionalInfo: Schema.optional(EgyptAdditionalInfo), greeceAdditionalInfo: Schema.optional(GreeceAdditionalInfo), uzbekistanAdditionalInfo: Schema.optional(UzbekistanAdditionalInfo)}) {}
+export class SourceS3Location extends Schema.Class<SourceS3Location>("SourceS3Location")({bucket: Schema.String, key: Schema.String}) {}
+export class TaxRegistrationDocFile extends Schema.Class<TaxRegistrationDocFile>("TaxRegistrationDocFile")({fileName: Schema.String, fileContent: StreamBody()}) {}
+export class TaxRegistrationDocument extends Schema.Class<TaxRegistrationDocument>("TaxRegistrationDocument")({s3Location: Schema.optional(SourceS3Location), file: Schema.optional(TaxRegistrationDocFile)}) {}
 export const TaxRegistrationDocuments = Schema.Array(TaxRegistrationDocument);
-export const VerificationDetails = Schema.Struct({dateOfBirth: Schema.optional(Schema.String), taxRegistrationDocuments: Schema.optional(TaxRegistrationDocuments)});
-export const TaxRegistrationEntry = Schema.Struct({registrationId: Schema.String, registrationType: Schema.String, legalName: Schema.optional(Schema.String), legalAddress: Schema.optional(Address), sector: Schema.optional(Schema.String), additionalTaxInformation: Schema.optional(AdditionalInfoRequest), verificationDetails: Schema.optional(VerificationDetails), certifiedEmailId: Schema.optional(Schema.String)});
-export const PutTaxRegistrationRequest = Schema.Struct({accountId: Schema.optional(Schema.String), taxRegistrationEntry: TaxRegistrationEntry});
-export const Authority = Schema.Struct({country: Schema.String, state: Schema.optional(Schema.String)});
+export class VerificationDetails extends Schema.Class<VerificationDetails>("VerificationDetails")({dateOfBirth: Schema.optional(Schema.String), taxRegistrationDocuments: Schema.optional(TaxRegistrationDocuments)}) {}
+export class TaxRegistrationEntry extends Schema.Class<TaxRegistrationEntry>("TaxRegistrationEntry")({registrationId: Schema.String, registrationType: Schema.String, legalName: Schema.optional(Schema.String), legalAddress: Schema.optional(Address), sector: Schema.optional(Schema.String), additionalTaxInformation: Schema.optional(AdditionalInfoRequest), verificationDetails: Schema.optional(VerificationDetails), certifiedEmailId: Schema.optional(Schema.String)}) {}
+export class PutTaxRegistrationRequest extends Schema.Class<PutTaxRegistrationRequest>("PutTaxRegistrationRequest")({accountId: Schema.optional(Schema.String), taxRegistrationEntry: TaxRegistrationEntry}) {}
+export class Authority extends Schema.Class<Authority>("Authority")({country: Schema.String, state: Schema.optional(Schema.String)}) {}
 export const Authorities = Schema.Array(Authority);
-export const TaxExemptionType = Schema.Struct({displayName: Schema.optional(Schema.String), description: Schema.optional(Schema.String), applicableJurisdictions: Schema.optional(Authorities)});
+export class TaxExemptionType extends Schema.Class<TaxExemptionType>("TaxExemptionType")({displayName: Schema.optional(Schema.String), description: Schema.optional(Schema.String), applicableJurisdictions: Schema.optional(Authorities)}) {}
 export const TaxExemptionTypes = Schema.Array(TaxExemptionType);
-export const DestinationS3Location = Schema.Struct({bucket: Schema.String, prefix: Schema.optional(Schema.String)});
-export const TaxDocumentMetadata = Schema.Struct({taxDocumentAccessToken: Schema.String, taxDocumentName: Schema.String});
-export const SupplementalTaxRegistrationEntry = Schema.Struct({registrationId: Schema.String, registrationType: Schema.String, legalName: Schema.String, address: Address});
-export const ExemptionCertificate = Schema.Struct({documentName: Schema.String, documentFile: StreamBody()});
-export const ConflictException = Schema.Struct({message: Schema.String, errorCode: Schema.String});
-export const InternalServerException = Schema.Struct({message: Schema.String, errorCode: Schema.String});
-export const GetTaxExemptionTypesResponse = Schema.Struct({taxExemptionTypes: Schema.optional(TaxExemptionTypes)});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.String, errorCode: Schema.String});
-export const GetTaxRegistrationDocumentRequest = Schema.Struct({destinationS3Location: Schema.optional(DestinationS3Location), taxDocumentMetadata: TaxDocumentMetadata});
-export const TaxExemption = Schema.Struct({authority: Authority, taxExemptionType: TaxExemptionType, effectiveDate: Schema.optional(Schema.Date), expirationDate: Schema.optional(Schema.Date), systemEffectiveDate: Schema.optional(Schema.Date), status: Schema.optional(Schema.String)});
+export class DestinationS3Location extends Schema.Class<DestinationS3Location>("DestinationS3Location")({bucket: Schema.String, prefix: Schema.optional(Schema.String)}) {}
+export class TaxDocumentMetadata extends Schema.Class<TaxDocumentMetadata>("TaxDocumentMetadata")({taxDocumentAccessToken: Schema.String, taxDocumentName: Schema.String}) {}
+export class SupplementalTaxRegistrationEntry extends Schema.Class<SupplementalTaxRegistrationEntry>("SupplementalTaxRegistrationEntry")({registrationId: Schema.String, registrationType: Schema.String, legalName: Schema.String, address: Address}) {}
+export class ExemptionCertificate extends Schema.Class<ExemptionCertificate>("ExemptionCertificate")({documentName: Schema.String, documentFile: StreamBody()}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({message: Schema.String, errorCode: Schema.String}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({message: Schema.String, errorCode: Schema.String}) {}
+export class GetTaxExemptionTypesResponse extends Schema.Class<GetTaxExemptionTypesResponse>("GetTaxExemptionTypesResponse")({taxExemptionTypes: Schema.optional(TaxExemptionTypes)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.String, errorCode: Schema.String}) {}
+export class GetTaxRegistrationDocumentRequest extends Schema.Class<GetTaxRegistrationDocumentRequest>("GetTaxRegistrationDocumentRequest")({destinationS3Location: Schema.optional(DestinationS3Location), taxDocumentMetadata: TaxDocumentMetadata}) {}
+export class TaxExemption extends Schema.Class<TaxExemption>("TaxExemption")({authority: Authority, taxExemptionType: TaxExemptionType, effectiveDate: Schema.optional(Schema.Date), expirationDate: Schema.optional(Schema.Date), systemEffectiveDate: Schema.optional(Schema.Date), status: Schema.optional(Schema.String)}) {}
 export const TaxExemptions = Schema.Array(TaxExemption);
-export const TaxExemptionDetails = Schema.Struct({taxExemptions: Schema.optional(TaxExemptions), heritageObtainedDetails: Schema.optional(Schema.Boolean), heritageObtainedParentEntity: Schema.optional(Schema.String), heritageObtainedReason: Schema.optional(Schema.String)});
+export class TaxExemptionDetails extends Schema.Class<TaxExemptionDetails>("TaxExemptionDetails")({taxExemptions: Schema.optional(TaxExemptions), heritageObtainedDetails: Schema.optional(Schema.Boolean), heritageObtainedParentEntity: Schema.optional(Schema.String), heritageObtainedReason: Schema.optional(Schema.String)}) {}
 export const TaxExemptionDetailsMap = Schema.Record({key: Schema.String, value: TaxExemptionDetails});
-export const ListTaxExemptionsResponse = Schema.Struct({nextToken: Schema.optional(Schema.String), taxExemptionDetailsMap: Schema.optional(TaxExemptionDetailsMap)});
-export const PutSupplementalTaxRegistrationRequest = Schema.Struct({taxRegistrationEntry: SupplementalTaxRegistrationEntry});
-export const PutTaxExemptionRequest = Schema.Struct({accountIds: AccountIds, authority: Authority, exemptionType: Schema.String, exemptionCertificate: ExemptionCertificate});
-export const PutTaxRegistrationResponse = Schema.Struct({status: Schema.optional(Schema.String)});
+export class ListTaxExemptionsResponse extends Schema.Class<ListTaxExemptionsResponse>("ListTaxExemptionsResponse")({nextToken: Schema.optional(Schema.String), taxExemptionDetailsMap: Schema.optional(TaxExemptionDetailsMap)}) {}
+export class PutSupplementalTaxRegistrationRequest extends Schema.Class<PutSupplementalTaxRegistrationRequest>("PutSupplementalTaxRegistrationRequest")({taxRegistrationEntry: SupplementalTaxRegistrationEntry}) {}
+export class PutTaxExemptionRequest extends Schema.Class<PutTaxExemptionRequest>("PutTaxExemptionRequest")({accountIds: AccountIds, authority: Authority, exemptionType: Schema.String, exemptionCertificate: ExemptionCertificate}) {}
+export class PutTaxRegistrationResponse extends Schema.Class<PutTaxRegistrationResponse>("PutTaxRegistrationResponse")({status: Schema.optional(Schema.String)}) {}
 export const TaxDocumentMetadatas = Schema.Array(TaxDocumentMetadata);
-export const BatchDeleteTaxRegistrationError = Schema.Struct({accountId: Schema.String, message: Schema.String, code: Schema.optional(Schema.String)});
+export class BatchDeleteTaxRegistrationError extends Schema.Class<BatchDeleteTaxRegistrationError>("BatchDeleteTaxRegistrationError")({accountId: Schema.String, message: Schema.String, code: Schema.optional(Schema.String)}) {}
 export const BatchDeleteTaxRegistrationErrors = Schema.Array(BatchDeleteTaxRegistrationError);
-export const SupplementalTaxRegistration = Schema.Struct({registrationId: Schema.String, registrationType: Schema.String, legalName: Schema.String, address: Address, authorityId: Schema.String, status: Schema.String});
+export class SupplementalTaxRegistration extends Schema.Class<SupplementalTaxRegistration>("SupplementalTaxRegistration")({registrationId: Schema.String, registrationType: Schema.String, legalName: Schema.String, address: Address, authorityId: Schema.String, status: Schema.String}) {}
 export const SupplementalTaxRegistrationList = Schema.Array(SupplementalTaxRegistration);
-export const ValidationExceptionField = Schema.Struct({name: Schema.String});
+export class ValidationExceptionField extends Schema.Class<ValidationExceptionField>("ValidationExceptionField")({name: Schema.String}) {}
 export const ValidationExceptionFieldList = Schema.Array(ValidationExceptionField);
-export const BatchDeleteTaxRegistrationResponse = Schema.Struct({errors: BatchDeleteTaxRegistrationErrors});
-export const GetTaxRegistrationDocumentResponse = Schema.Struct({destinationFilePath: Schema.optional(Schema.String), presignedS3Url: Schema.optional(Schema.String)});
-export const ListSupplementalTaxRegistrationsResponse = Schema.Struct({taxRegistrations: SupplementalTaxRegistrationList, nextToken: Schema.optional(Schema.String)});
-export const PutSupplementalTaxRegistrationResponse = Schema.Struct({authorityId: Schema.String, status: Schema.String});
-export const PutTaxExemptionResponse = Schema.Struct({caseId: Schema.optional(Schema.String)});
-export const ValidationException = Schema.Struct({message: Schema.String, errorCode: Schema.String, fieldList: Schema.optional(ValidationExceptionFieldList)});
-export const TaxInheritanceDetails = Schema.Struct({parentEntityId: Schema.optional(Schema.String), inheritanceObtainedReason: Schema.optional(Schema.String)});
-export const BrazilAdditionalInfo = Schema.Struct({ccmCode: Schema.optional(Schema.String), legalNatureCode: Schema.optional(Schema.String)});
-export const IndiaAdditionalInfo = Schema.Struct({pan: Schema.optional(Schema.String)});
-export const Jurisdiction = Schema.Struct({stateOrRegion: Schema.optional(Schema.String), countryCode: Schema.String});
+export class BatchDeleteTaxRegistrationResponse extends Schema.Class<BatchDeleteTaxRegistrationResponse>("BatchDeleteTaxRegistrationResponse")({errors: BatchDeleteTaxRegistrationErrors}) {}
+export class GetTaxRegistrationDocumentResponse extends Schema.Class<GetTaxRegistrationDocumentResponse>("GetTaxRegistrationDocumentResponse")({destinationFilePath: Schema.optional(Schema.String), presignedS3Url: Schema.optional(Schema.String)}) {}
+export class ListSupplementalTaxRegistrationsResponse extends Schema.Class<ListSupplementalTaxRegistrationsResponse>("ListSupplementalTaxRegistrationsResponse")({taxRegistrations: SupplementalTaxRegistrationList, nextToken: Schema.optional(Schema.String)}) {}
+export class PutSupplementalTaxRegistrationResponse extends Schema.Class<PutSupplementalTaxRegistrationResponse>("PutSupplementalTaxRegistrationResponse")({authorityId: Schema.String, status: Schema.String}) {}
+export class PutTaxExemptionResponse extends Schema.Class<PutTaxExemptionResponse>("PutTaxExemptionResponse")({caseId: Schema.optional(Schema.String)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({message: Schema.String, errorCode: Schema.String, fieldList: Schema.optional(ValidationExceptionFieldList)}) {}
+export class TaxInheritanceDetails extends Schema.Class<TaxInheritanceDetails>("TaxInheritanceDetails")({parentEntityId: Schema.optional(Schema.String), inheritanceObtainedReason: Schema.optional(Schema.String)}) {}
+export class BrazilAdditionalInfo extends Schema.Class<BrazilAdditionalInfo>("BrazilAdditionalInfo")({ccmCode: Schema.optional(Schema.String), legalNatureCode: Schema.optional(Schema.String)}) {}
+export class IndiaAdditionalInfo extends Schema.Class<IndiaAdditionalInfo>("IndiaAdditionalInfo")({pan: Schema.optional(Schema.String)}) {}
+export class Jurisdiction extends Schema.Class<Jurisdiction>("Jurisdiction")({stateOrRegion: Schema.optional(Schema.String), countryCode: Schema.String}) {}
 export const AddressRoleMap = Schema.Record({key: Schema.String, value: Jurisdiction});
-export const AccessDeniedException = Schema.Struct({message: Schema.String});
-export const AdditionalInfoResponse = Schema.Struct({malaysiaAdditionalInfo: Schema.optional(MalaysiaAdditionalInfo), israelAdditionalInfo: Schema.optional(IsraelAdditionalInfo), estoniaAdditionalInfo: Schema.optional(EstoniaAdditionalInfo), canadaAdditionalInfo: Schema.optional(CanadaAdditionalInfo), brazilAdditionalInfo: Schema.optional(BrazilAdditionalInfo), spainAdditionalInfo: Schema.optional(SpainAdditionalInfo), kenyaAdditionalInfo: Schema.optional(KenyaAdditionalInfo), southKoreaAdditionalInfo: Schema.optional(SouthKoreaAdditionalInfo), turkeyAdditionalInfo: Schema.optional(TurkeyAdditionalInfo), georgiaAdditionalInfo: Schema.optional(GeorgiaAdditionalInfo), italyAdditionalInfo: Schema.optional(ItalyAdditionalInfo), romaniaAdditionalInfo: Schema.optional(RomaniaAdditionalInfo), ukraineAdditionalInfo: Schema.optional(UkraineAdditionalInfo), polandAdditionalInfo: Schema.optional(PolandAdditionalInfo), saudiArabiaAdditionalInfo: Schema.optional(SaudiArabiaAdditionalInfo), indiaAdditionalInfo: Schema.optional(IndiaAdditionalInfo), indonesiaAdditionalInfo: Schema.optional(IndonesiaAdditionalInfo), vietnamAdditionalInfo: Schema.optional(VietnamAdditionalInfo), egyptAdditionalInfo: Schema.optional(EgyptAdditionalInfo), greeceAdditionalInfo: Schema.optional(GreeceAdditionalInfo), uzbekistanAdditionalInfo: Schema.optional(UzbekistanAdditionalInfo)});
-export const TaxRegistrationWithJurisdiction = Schema.Struct({registrationId: Schema.String, registrationType: Schema.String, legalName: Schema.String, status: Schema.String, sector: Schema.optional(Schema.String), taxDocumentMetadatas: Schema.optional(TaxDocumentMetadatas), certifiedEmailId: Schema.optional(Schema.String), additionalTaxInformation: Schema.optional(AdditionalInfoResponse), jurisdiction: Jurisdiction});
-export const AccountMetaData = Schema.Struct({accountName: Schema.optional(Schema.String), seller: Schema.optional(Schema.String), address: Schema.optional(Address), addressType: Schema.optional(Schema.String), addressRoleMap: Schema.optional(AddressRoleMap)});
-export const TaxRegistration = Schema.Struct({registrationId: Schema.String, registrationType: Schema.String, legalName: Schema.String, status: Schema.String, sector: Schema.optional(Schema.String), taxDocumentMetadatas: Schema.optional(TaxDocumentMetadatas), certifiedEmailId: Schema.optional(Schema.String), additionalTaxInformation: Schema.optional(AdditionalInfoResponse), legalAddress: Address});
-export const AccountDetails = Schema.Struct({accountId: Schema.optional(Schema.String), taxRegistration: Schema.optional(TaxRegistrationWithJurisdiction), taxInheritanceDetails: Schema.optional(TaxInheritanceDetails), accountMetaData: Schema.optional(AccountMetaData)});
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({message: Schema.String}) {}
+export class AdditionalInfoResponse extends Schema.Class<AdditionalInfoResponse>("AdditionalInfoResponse")({malaysiaAdditionalInfo: Schema.optional(MalaysiaAdditionalInfo), israelAdditionalInfo: Schema.optional(IsraelAdditionalInfo), estoniaAdditionalInfo: Schema.optional(EstoniaAdditionalInfo), canadaAdditionalInfo: Schema.optional(CanadaAdditionalInfo), brazilAdditionalInfo: Schema.optional(BrazilAdditionalInfo), spainAdditionalInfo: Schema.optional(SpainAdditionalInfo), kenyaAdditionalInfo: Schema.optional(KenyaAdditionalInfo), southKoreaAdditionalInfo: Schema.optional(SouthKoreaAdditionalInfo), turkeyAdditionalInfo: Schema.optional(TurkeyAdditionalInfo), georgiaAdditionalInfo: Schema.optional(GeorgiaAdditionalInfo), italyAdditionalInfo: Schema.optional(ItalyAdditionalInfo), romaniaAdditionalInfo: Schema.optional(RomaniaAdditionalInfo), ukraineAdditionalInfo: Schema.optional(UkraineAdditionalInfo), polandAdditionalInfo: Schema.optional(PolandAdditionalInfo), saudiArabiaAdditionalInfo: Schema.optional(SaudiArabiaAdditionalInfo), indiaAdditionalInfo: Schema.optional(IndiaAdditionalInfo), indonesiaAdditionalInfo: Schema.optional(IndonesiaAdditionalInfo), vietnamAdditionalInfo: Schema.optional(VietnamAdditionalInfo), egyptAdditionalInfo: Schema.optional(EgyptAdditionalInfo), greeceAdditionalInfo: Schema.optional(GreeceAdditionalInfo), uzbekistanAdditionalInfo: Schema.optional(UzbekistanAdditionalInfo)}) {}
+export class TaxRegistrationWithJurisdiction extends Schema.Class<TaxRegistrationWithJurisdiction>("TaxRegistrationWithJurisdiction")({registrationId: Schema.String, registrationType: Schema.String, legalName: Schema.String, status: Schema.String, sector: Schema.optional(Schema.String), taxDocumentMetadatas: Schema.optional(TaxDocumentMetadatas), certifiedEmailId: Schema.optional(Schema.String), additionalTaxInformation: Schema.optional(AdditionalInfoResponse), jurisdiction: Jurisdiction}) {}
+export class AccountMetaData extends Schema.Class<AccountMetaData>("AccountMetaData")({accountName: Schema.optional(Schema.String), seller: Schema.optional(Schema.String), address: Schema.optional(Address), addressType: Schema.optional(Schema.String), addressRoleMap: Schema.optional(AddressRoleMap)}) {}
+export class TaxRegistration extends Schema.Class<TaxRegistration>("TaxRegistration")({registrationId: Schema.String, registrationType: Schema.String, legalName: Schema.String, status: Schema.String, sector: Schema.optional(Schema.String), taxDocumentMetadatas: Schema.optional(TaxDocumentMetadatas), certifiedEmailId: Schema.optional(Schema.String), additionalTaxInformation: Schema.optional(AdditionalInfoResponse), legalAddress: Address}) {}
+export class AccountDetails extends Schema.Class<AccountDetails>("AccountDetails")({accountId: Schema.optional(Schema.String), taxRegistration: Schema.optional(TaxRegistrationWithJurisdiction), taxInheritanceDetails: Schema.optional(TaxInheritanceDetails), accountMetaData: Schema.optional(AccountMetaData)}) {}
 export const AccountDetailsList = Schema.Array(AccountDetails);
-export const BatchGetTaxExemptionsResponse = Schema.Struct({taxExemptionDetailsMap: Schema.optional(TaxExemptionDetailsMap), failedAccounts: Schema.optional(AccountIds)});
-export const BatchPutTaxRegistrationRequest = Schema.Struct({accountIds: AccountIds, taxRegistrationEntry: TaxRegistrationEntry});
-export const GetTaxRegistrationResponse = Schema.Struct({taxRegistration: Schema.optional(TaxRegistration)});
-export const ListTaxRegistrationsResponse = Schema.Struct({accountDetails: AccountDetailsList, nextToken: Schema.optional(Schema.String)});
-export const AttachmentUploadException = Schema.Struct({message: Schema.String});
-export const CaseCreationLimitExceededException = Schema.Struct({message: Schema.String});
-export const BatchPutTaxRegistrationError = Schema.Struct({accountId: Schema.String, message: Schema.String, code: Schema.optional(Schema.String)});
+export class BatchGetTaxExemptionsResponse extends Schema.Class<BatchGetTaxExemptionsResponse>("BatchGetTaxExemptionsResponse")({taxExemptionDetailsMap: Schema.optional(TaxExemptionDetailsMap), failedAccounts: Schema.optional(AccountIds)}) {}
+export class BatchPutTaxRegistrationRequest extends Schema.Class<BatchPutTaxRegistrationRequest>("BatchPutTaxRegistrationRequest")({accountIds: AccountIds, taxRegistrationEntry: TaxRegistrationEntry}) {}
+export class GetTaxRegistrationResponse extends Schema.Class<GetTaxRegistrationResponse>("GetTaxRegistrationResponse")({taxRegistration: Schema.optional(TaxRegistration)}) {}
+export class ListTaxRegistrationsResponse extends Schema.Class<ListTaxRegistrationsResponse>("ListTaxRegistrationsResponse")({accountDetails: AccountDetailsList, nextToken: Schema.optional(Schema.String)}) {}
+export class AttachmentUploadException extends Schema.Class<AttachmentUploadException>("AttachmentUploadException")({message: Schema.String}) {}
+export class CaseCreationLimitExceededException extends Schema.Class<CaseCreationLimitExceededException>("CaseCreationLimitExceededException")({message: Schema.String}) {}
+export class BatchPutTaxRegistrationError extends Schema.Class<BatchPutTaxRegistrationError>("BatchPutTaxRegistrationError")({accountId: Schema.String, message: Schema.String, code: Schema.optional(Schema.String)}) {}
 export const BatchPutTaxRegistrationErrors = Schema.Array(BatchPutTaxRegistrationError);
-export const BatchPutTaxRegistrationResponse = Schema.Struct({status: Schema.optional(Schema.String), errors: BatchPutTaxRegistrationErrors});
+export class BatchPutTaxRegistrationResponse extends Schema.Class<BatchPutTaxRegistrationResponse>("BatchPutTaxRegistrationResponse")({status: Schema.optional(Schema.String), errors: BatchPutTaxRegistrationErrors}) {}
 
 //# Errors
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class AttachmentUploadExceptionError extends Schema.TaggedError<AttachmentUploadExceptionError>()("AttachmentUploadException", AttachmentUploadException) {};
-export class CaseCreationLimitExceededExceptionError extends Schema.TaggedError<CaseCreationLimitExceededExceptionError>()("CaseCreationLimitExceededException", CaseCreationLimitExceededException) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class AttachmentUploadExceptionError extends Schema.TaggedError<AttachmentUploadExceptionError>()("AttachmentUploadException", AttachmentUploadException.fields) {};
+export class CaseCreationLimitExceededExceptionError extends Schema.TaggedError<CaseCreationLimitExceededExceptionError>()("CaseCreationLimitExceededException", CaseCreationLimitExceededException.fields) {};
 
 //# Operations
 export const deleteSupplementalTaxRegistration = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-05-10", uri: "/DeleteSupplementalTaxRegistration", method: "POST", sdkId: "TaxSettings", sigV4ServiceName: "tax", name: "TaxSettings.DeleteSupplementalTaxRegistration" }, DeleteSupplementalTaxRegistrationRequest, DeleteSupplementalTaxRegistrationResponse, [ConflictExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

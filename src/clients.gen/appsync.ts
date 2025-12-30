@@ -4,264 +4,264 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 
 //# Schemas
 export const TagKeyList = Schema.Array(Schema.String);
-export const AssociateApiRequest = Schema.Struct({domainName: Schema.String, apiId: Schema.String});
-export const SourceApiAssociationConfig = Schema.Struct({mergeType: Schema.optional(Schema.String)});
-export const AssociateSourceGraphqlApiRequest = Schema.Struct({mergedApiIdentifier: Schema.String, sourceApiIdentifier: Schema.String, description: Schema.optional(Schema.String), sourceApiAssociationConfig: Schema.optional(SourceApiAssociationConfig)});
-export const CreateApiCacheRequest = Schema.Struct({apiId: Schema.String, ttl: Schema.Number, transitEncryptionEnabled: Schema.optional(Schema.Boolean), atRestEncryptionEnabled: Schema.optional(Schema.Boolean), apiCachingBehavior: Schema.String, type: Schema.String, healthMetricsConfig: Schema.optional(Schema.String)});
-export const CreateApiKeyRequest = Schema.Struct({apiId: Schema.String, description: Schema.optional(Schema.String), expires: Schema.optional(Schema.Number)});
+export class AssociateApiRequest extends Schema.Class<AssociateApiRequest>("AssociateApiRequest")({domainName: Schema.String, apiId: Schema.String}) {}
+export class SourceApiAssociationConfig extends Schema.Class<SourceApiAssociationConfig>("SourceApiAssociationConfig")({mergeType: Schema.optional(Schema.String)}) {}
+export class AssociateSourceGraphqlApiRequest extends Schema.Class<AssociateSourceGraphqlApiRequest>("AssociateSourceGraphqlApiRequest")({mergedApiIdentifier: Schema.String, sourceApiIdentifier: Schema.String, description: Schema.optional(Schema.String), sourceApiAssociationConfig: Schema.optional(SourceApiAssociationConfig)}) {}
+export class CreateApiCacheRequest extends Schema.Class<CreateApiCacheRequest>("CreateApiCacheRequest")({apiId: Schema.String, ttl: Schema.Number, transitEncryptionEnabled: Schema.optional(Schema.Boolean), atRestEncryptionEnabled: Schema.optional(Schema.Boolean), apiCachingBehavior: Schema.String, type: Schema.String, healthMetricsConfig: Schema.optional(Schema.String)}) {}
+export class CreateApiKeyRequest extends Schema.Class<CreateApiKeyRequest>("CreateApiKeyRequest")({apiId: Schema.String, description: Schema.optional(Schema.String), expires: Schema.optional(Schema.Number)}) {}
 export const TagMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const CreateDomainNameRequest = Schema.Struct({domainName: Schema.String, certificateArn: Schema.String, description: Schema.optional(Schema.String), tags: Schema.optional(TagMap)});
-export const CreateTypeRequest = Schema.Struct({apiId: Schema.String, definition: Schema.String, format: Schema.String});
-export const DeleteApiRequest = Schema.Struct({apiId: Schema.String});
-export const DeleteApiResponse = Schema.Struct({});
-export const DeleteApiCacheRequest = Schema.Struct({apiId: Schema.String});
-export const DeleteApiCacheResponse = Schema.Struct({});
-export const DeleteApiKeyRequest = Schema.Struct({apiId: Schema.String, id: Schema.String});
-export const DeleteApiKeyResponse = Schema.Struct({});
-export const DeleteChannelNamespaceRequest = Schema.Struct({apiId: Schema.String, name: Schema.String});
-export const DeleteChannelNamespaceResponse = Schema.Struct({});
-export const DeleteDataSourceRequest = Schema.Struct({apiId: Schema.String, name: Schema.String});
-export const DeleteDataSourceResponse = Schema.Struct({});
-export const DeleteDomainNameRequest = Schema.Struct({domainName: Schema.String});
-export const DeleteDomainNameResponse = Schema.Struct({});
-export const DeleteFunctionRequest = Schema.Struct({apiId: Schema.String, functionId: Schema.String});
-export const DeleteFunctionResponse = Schema.Struct({});
-export const DeleteGraphqlApiRequest = Schema.Struct({apiId: Schema.String});
-export const DeleteGraphqlApiResponse = Schema.Struct({});
-export const DeleteResolverRequest = Schema.Struct({apiId: Schema.String, typeName: Schema.String, fieldName: Schema.String});
-export const DeleteResolverResponse = Schema.Struct({});
-export const DeleteTypeRequest = Schema.Struct({apiId: Schema.String, typeName: Schema.String});
-export const DeleteTypeResponse = Schema.Struct({});
-export const DisassociateApiRequest = Schema.Struct({domainName: Schema.String});
-export const DisassociateApiResponse = Schema.Struct({});
-export const DisassociateMergedGraphqlApiRequest = Schema.Struct({sourceApiIdentifier: Schema.String, associationId: Schema.String});
-export const DisassociateSourceGraphqlApiRequest = Schema.Struct({mergedApiIdentifier: Schema.String, associationId: Schema.String});
-export const AppSyncRuntime = Schema.Struct({name: Schema.String, runtimeVersion: Schema.String});
-export const EvaluateCodeRequest = Schema.Struct({runtime: AppSyncRuntime, code: Schema.String, context: Schema.String, function: Schema.optional(Schema.String)});
-export const EvaluateMappingTemplateRequest = Schema.Struct({template: Schema.String, context: Schema.String});
-export const FlushApiCacheRequest = Schema.Struct({apiId: Schema.String});
-export const FlushApiCacheResponse = Schema.Struct({});
-export const GetApiRequest = Schema.Struct({apiId: Schema.String});
-export const GetApiAssociationRequest = Schema.Struct({domainName: Schema.String});
-export const GetApiCacheRequest = Schema.Struct({apiId: Schema.String});
-export const GetChannelNamespaceRequest = Schema.Struct({apiId: Schema.String, name: Schema.String});
-export const GetDataSourceRequest = Schema.Struct({apiId: Schema.String, name: Schema.String});
-export const GetDataSourceIntrospectionRequest = Schema.Struct({introspectionId: Schema.String, includeModelsSDL: Schema.optional(Schema.Boolean), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const GetDomainNameRequest = Schema.Struct({domainName: Schema.String});
-export const GetFunctionRequest = Schema.Struct({apiId: Schema.String, functionId: Schema.String});
-export const GetGraphqlApiRequest = Schema.Struct({apiId: Schema.String});
-export const GetGraphqlApiEnvironmentVariablesRequest = Schema.Struct({apiId: Schema.String});
-export const GetIntrospectionSchemaRequest = Schema.Struct({apiId: Schema.String, format: Schema.String, includeDirectives: Schema.optional(Schema.Boolean)});
-export const GetResolverRequest = Schema.Struct({apiId: Schema.String, typeName: Schema.String, fieldName: Schema.String});
-export const GetSchemaCreationStatusRequest = Schema.Struct({apiId: Schema.String});
-export const GetSourceApiAssociationRequest = Schema.Struct({mergedApiIdentifier: Schema.String, associationId: Schema.String});
-export const GetTypeRequest = Schema.Struct({apiId: Schema.String, typeName: Schema.String, format: Schema.String});
-export const ListApiKeysRequest = Schema.Struct({apiId: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListApisRequest = Schema.Struct({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListChannelNamespacesRequest = Schema.Struct({apiId: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListDataSourcesRequest = Schema.Struct({apiId: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListDomainNamesRequest = Schema.Struct({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListFunctionsRequest = Schema.Struct({apiId: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListGraphqlApisRequest = Schema.Struct({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), apiType: Schema.optional(Schema.String), owner: Schema.optional(Schema.String)});
-export const ListResolversRequest = Schema.Struct({apiId: Schema.String, typeName: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListResolversByFunctionRequest = Schema.Struct({apiId: Schema.String, functionId: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListSourceApiAssociationsRequest = Schema.Struct({apiId: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListTagsForResourceRequest = Schema.Struct({resourceArn: Schema.String});
-export const ListTypesRequest = Schema.Struct({apiId: Schema.String, format: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListTypesByAssociationRequest = Schema.Struct({mergedApiIdentifier: Schema.String, associationId: Schema.String, format: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const StartSchemaCreationRequest = Schema.Struct({apiId: Schema.String, definition: StreamBody()});
-export const StartSchemaMergeRequest = Schema.Struct({associationId: Schema.String, mergedApiIdentifier: Schema.String});
-export const TagResourceRequest = Schema.Struct({resourceArn: Schema.String, tags: TagMap});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({resourceArn: Schema.String, tagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
-export const CognitoConfig = Schema.Struct({userPoolId: Schema.String, awsRegion: Schema.String, appIdClientRegex: Schema.optional(Schema.String)});
-export const OpenIDConnectConfig = Schema.Struct({issuer: Schema.String, clientId: Schema.optional(Schema.String), iatTTL: Schema.optional(Schema.Number), authTTL: Schema.optional(Schema.Number)});
-export const LambdaAuthorizerConfig = Schema.Struct({authorizerResultTtlInSeconds: Schema.optional(Schema.Number), authorizerUri: Schema.String, identityValidationExpression: Schema.optional(Schema.String)});
-export const AuthProvider = Schema.Struct({authType: Schema.String, cognitoConfig: Schema.optional(CognitoConfig), openIDConnectConfig: Schema.optional(OpenIDConnectConfig), lambdaAuthorizerConfig: Schema.optional(LambdaAuthorizerConfig)});
+export class CreateDomainNameRequest extends Schema.Class<CreateDomainNameRequest>("CreateDomainNameRequest")({domainName: Schema.String, certificateArn: Schema.String, description: Schema.optional(Schema.String), tags: Schema.optional(TagMap)}) {}
+export class CreateTypeRequest extends Schema.Class<CreateTypeRequest>("CreateTypeRequest")({apiId: Schema.String, definition: Schema.String, format: Schema.String}) {}
+export class DeleteApiRequest extends Schema.Class<DeleteApiRequest>("DeleteApiRequest")({apiId: Schema.String}) {}
+export class DeleteApiResponse extends Schema.Class<DeleteApiResponse>("DeleteApiResponse")({}) {}
+export class DeleteApiCacheRequest extends Schema.Class<DeleteApiCacheRequest>("DeleteApiCacheRequest")({apiId: Schema.String}) {}
+export class DeleteApiCacheResponse extends Schema.Class<DeleteApiCacheResponse>("DeleteApiCacheResponse")({}) {}
+export class DeleteApiKeyRequest extends Schema.Class<DeleteApiKeyRequest>("DeleteApiKeyRequest")({apiId: Schema.String, id: Schema.String}) {}
+export class DeleteApiKeyResponse extends Schema.Class<DeleteApiKeyResponse>("DeleteApiKeyResponse")({}) {}
+export class DeleteChannelNamespaceRequest extends Schema.Class<DeleteChannelNamespaceRequest>("DeleteChannelNamespaceRequest")({apiId: Schema.String, name: Schema.String}) {}
+export class DeleteChannelNamespaceResponse extends Schema.Class<DeleteChannelNamespaceResponse>("DeleteChannelNamespaceResponse")({}) {}
+export class DeleteDataSourceRequest extends Schema.Class<DeleteDataSourceRequest>("DeleteDataSourceRequest")({apiId: Schema.String, name: Schema.String}) {}
+export class DeleteDataSourceResponse extends Schema.Class<DeleteDataSourceResponse>("DeleteDataSourceResponse")({}) {}
+export class DeleteDomainNameRequest extends Schema.Class<DeleteDomainNameRequest>("DeleteDomainNameRequest")({domainName: Schema.String}) {}
+export class DeleteDomainNameResponse extends Schema.Class<DeleteDomainNameResponse>("DeleteDomainNameResponse")({}) {}
+export class DeleteFunctionRequest extends Schema.Class<DeleteFunctionRequest>("DeleteFunctionRequest")({apiId: Schema.String, functionId: Schema.String}) {}
+export class DeleteFunctionResponse extends Schema.Class<DeleteFunctionResponse>("DeleteFunctionResponse")({}) {}
+export class DeleteGraphqlApiRequest extends Schema.Class<DeleteGraphqlApiRequest>("DeleteGraphqlApiRequest")({apiId: Schema.String}) {}
+export class DeleteGraphqlApiResponse extends Schema.Class<DeleteGraphqlApiResponse>("DeleteGraphqlApiResponse")({}) {}
+export class DeleteResolverRequest extends Schema.Class<DeleteResolverRequest>("DeleteResolverRequest")({apiId: Schema.String, typeName: Schema.String, fieldName: Schema.String}) {}
+export class DeleteResolverResponse extends Schema.Class<DeleteResolverResponse>("DeleteResolverResponse")({}) {}
+export class DeleteTypeRequest extends Schema.Class<DeleteTypeRequest>("DeleteTypeRequest")({apiId: Schema.String, typeName: Schema.String}) {}
+export class DeleteTypeResponse extends Schema.Class<DeleteTypeResponse>("DeleteTypeResponse")({}) {}
+export class DisassociateApiRequest extends Schema.Class<DisassociateApiRequest>("DisassociateApiRequest")({domainName: Schema.String}) {}
+export class DisassociateApiResponse extends Schema.Class<DisassociateApiResponse>("DisassociateApiResponse")({}) {}
+export class DisassociateMergedGraphqlApiRequest extends Schema.Class<DisassociateMergedGraphqlApiRequest>("DisassociateMergedGraphqlApiRequest")({sourceApiIdentifier: Schema.String, associationId: Schema.String}) {}
+export class DisassociateSourceGraphqlApiRequest extends Schema.Class<DisassociateSourceGraphqlApiRequest>("DisassociateSourceGraphqlApiRequest")({mergedApiIdentifier: Schema.String, associationId: Schema.String}) {}
+export class AppSyncRuntime extends Schema.Class<AppSyncRuntime>("AppSyncRuntime")({name: Schema.String, runtimeVersion: Schema.String}) {}
+export class EvaluateCodeRequest extends Schema.Class<EvaluateCodeRequest>("EvaluateCodeRequest")({runtime: AppSyncRuntime, code: Schema.String, context: Schema.String, function: Schema.optional(Schema.String)}) {}
+export class EvaluateMappingTemplateRequest extends Schema.Class<EvaluateMappingTemplateRequest>("EvaluateMappingTemplateRequest")({template: Schema.String, context: Schema.String}) {}
+export class FlushApiCacheRequest extends Schema.Class<FlushApiCacheRequest>("FlushApiCacheRequest")({apiId: Schema.String}) {}
+export class FlushApiCacheResponse extends Schema.Class<FlushApiCacheResponse>("FlushApiCacheResponse")({}) {}
+export class GetApiRequest extends Schema.Class<GetApiRequest>("GetApiRequest")({apiId: Schema.String}) {}
+export class GetApiAssociationRequest extends Schema.Class<GetApiAssociationRequest>("GetApiAssociationRequest")({domainName: Schema.String}) {}
+export class GetApiCacheRequest extends Schema.Class<GetApiCacheRequest>("GetApiCacheRequest")({apiId: Schema.String}) {}
+export class GetChannelNamespaceRequest extends Schema.Class<GetChannelNamespaceRequest>("GetChannelNamespaceRequest")({apiId: Schema.String, name: Schema.String}) {}
+export class GetDataSourceRequest extends Schema.Class<GetDataSourceRequest>("GetDataSourceRequest")({apiId: Schema.String, name: Schema.String}) {}
+export class GetDataSourceIntrospectionRequest extends Schema.Class<GetDataSourceIntrospectionRequest>("GetDataSourceIntrospectionRequest")({introspectionId: Schema.String, includeModelsSDL: Schema.optional(Schema.Boolean), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class GetDomainNameRequest extends Schema.Class<GetDomainNameRequest>("GetDomainNameRequest")({domainName: Schema.String}) {}
+export class GetFunctionRequest extends Schema.Class<GetFunctionRequest>("GetFunctionRequest")({apiId: Schema.String, functionId: Schema.String}) {}
+export class GetGraphqlApiRequest extends Schema.Class<GetGraphqlApiRequest>("GetGraphqlApiRequest")({apiId: Schema.String}) {}
+export class GetGraphqlApiEnvironmentVariablesRequest extends Schema.Class<GetGraphqlApiEnvironmentVariablesRequest>("GetGraphqlApiEnvironmentVariablesRequest")({apiId: Schema.String}) {}
+export class GetIntrospectionSchemaRequest extends Schema.Class<GetIntrospectionSchemaRequest>("GetIntrospectionSchemaRequest")({apiId: Schema.String, format: Schema.String, includeDirectives: Schema.optional(Schema.Boolean)}) {}
+export class GetResolverRequest extends Schema.Class<GetResolverRequest>("GetResolverRequest")({apiId: Schema.String, typeName: Schema.String, fieldName: Schema.String}) {}
+export class GetSchemaCreationStatusRequest extends Schema.Class<GetSchemaCreationStatusRequest>("GetSchemaCreationStatusRequest")({apiId: Schema.String}) {}
+export class GetSourceApiAssociationRequest extends Schema.Class<GetSourceApiAssociationRequest>("GetSourceApiAssociationRequest")({mergedApiIdentifier: Schema.String, associationId: Schema.String}) {}
+export class GetTypeRequest extends Schema.Class<GetTypeRequest>("GetTypeRequest")({apiId: Schema.String, typeName: Schema.String, format: Schema.String}) {}
+export class ListApiKeysRequest extends Schema.Class<ListApiKeysRequest>("ListApiKeysRequest")({apiId: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListApisRequest extends Schema.Class<ListApisRequest>("ListApisRequest")({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListChannelNamespacesRequest extends Schema.Class<ListChannelNamespacesRequest>("ListChannelNamespacesRequest")({apiId: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListDataSourcesRequest extends Schema.Class<ListDataSourcesRequest>("ListDataSourcesRequest")({apiId: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListDomainNamesRequest extends Schema.Class<ListDomainNamesRequest>("ListDomainNamesRequest")({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListFunctionsRequest extends Schema.Class<ListFunctionsRequest>("ListFunctionsRequest")({apiId: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListGraphqlApisRequest extends Schema.Class<ListGraphqlApisRequest>("ListGraphqlApisRequest")({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), apiType: Schema.optional(Schema.String), owner: Schema.optional(Schema.String)}) {}
+export class ListResolversRequest extends Schema.Class<ListResolversRequest>("ListResolversRequest")({apiId: Schema.String, typeName: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListResolversByFunctionRequest extends Schema.Class<ListResolversByFunctionRequest>("ListResolversByFunctionRequest")({apiId: Schema.String, functionId: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListSourceApiAssociationsRequest extends Schema.Class<ListSourceApiAssociationsRequest>("ListSourceApiAssociationsRequest")({apiId: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({resourceArn: Schema.String}) {}
+export class ListTypesRequest extends Schema.Class<ListTypesRequest>("ListTypesRequest")({apiId: Schema.String, format: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListTypesByAssociationRequest extends Schema.Class<ListTypesByAssociationRequest>("ListTypesByAssociationRequest")({mergedApiIdentifier: Schema.String, associationId: Schema.String, format: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class StartSchemaCreationRequest extends Schema.Class<StartSchemaCreationRequest>("StartSchemaCreationRequest")({apiId: Schema.String, definition: StreamBody()}) {}
+export class StartSchemaMergeRequest extends Schema.Class<StartSchemaMergeRequest>("StartSchemaMergeRequest")({associationId: Schema.String, mergedApiIdentifier: Schema.String}) {}
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({resourceArn: Schema.String, tags: TagMap}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({resourceArn: Schema.String, tagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class CognitoConfig extends Schema.Class<CognitoConfig>("CognitoConfig")({userPoolId: Schema.String, awsRegion: Schema.String, appIdClientRegex: Schema.optional(Schema.String)}) {}
+export class OpenIDConnectConfig extends Schema.Class<OpenIDConnectConfig>("OpenIDConnectConfig")({issuer: Schema.String, clientId: Schema.optional(Schema.String), iatTTL: Schema.optional(Schema.Number), authTTL: Schema.optional(Schema.Number)}) {}
+export class LambdaAuthorizerConfig extends Schema.Class<LambdaAuthorizerConfig>("LambdaAuthorizerConfig")({authorizerResultTtlInSeconds: Schema.optional(Schema.Number), authorizerUri: Schema.String, identityValidationExpression: Schema.optional(Schema.String)}) {}
+export class AuthProvider extends Schema.Class<AuthProvider>("AuthProvider")({authType: Schema.String, cognitoConfig: Schema.optional(CognitoConfig), openIDConnectConfig: Schema.optional(OpenIDConnectConfig), lambdaAuthorizerConfig: Schema.optional(LambdaAuthorizerConfig)}) {}
 export const AuthProviders = Schema.Array(AuthProvider);
-export const AuthMode = Schema.Struct({authType: Schema.String});
+export class AuthMode extends Schema.Class<AuthMode>("AuthMode")({authType: Schema.String}) {}
 export const AuthModes = Schema.Array(AuthMode);
-export const EventLogConfig = Schema.Struct({logLevel: Schema.String, cloudWatchLogsRoleArn: Schema.String});
-export const EventConfig = Schema.Struct({authProviders: AuthProviders, connectionAuthModes: AuthModes, defaultPublishAuthModes: AuthModes, defaultSubscribeAuthModes: AuthModes, logConfig: Schema.optional(EventLogConfig)});
-export const UpdateApiRequest = Schema.Struct({apiId: Schema.String, name: Schema.String, ownerContact: Schema.optional(Schema.String), eventConfig: Schema.optional(EventConfig)});
-export const UpdateApiCacheRequest = Schema.Struct({apiId: Schema.String, ttl: Schema.Number, apiCachingBehavior: Schema.String, type: Schema.String, healthMetricsConfig: Schema.optional(Schema.String)});
-export const UpdateApiKeyRequest = Schema.Struct({apiId: Schema.String, id: Schema.String, description: Schema.optional(Schema.String), expires: Schema.optional(Schema.Number)});
-export const LambdaConfig = Schema.Struct({invokeType: Schema.optional(Schema.String)});
-export const Integration = Schema.Struct({dataSourceName: Schema.String, lambdaConfig: Schema.optional(LambdaConfig)});
-export const HandlerConfig = Schema.Struct({behavior: Schema.String, integration: Integration});
-export const HandlerConfigs = Schema.Struct({onPublish: Schema.optional(HandlerConfig), onSubscribe: Schema.optional(HandlerConfig)});
-export const UpdateChannelNamespaceRequest = Schema.Struct({apiId: Schema.String, name: Schema.String, subscribeAuthModes: Schema.optional(AuthModes), publishAuthModes: Schema.optional(AuthModes), codeHandlers: Schema.optional(Schema.String), handlerConfigs: Schema.optional(HandlerConfigs)});
-export const DeltaSyncConfig = Schema.Struct({baseTableTTL: Schema.optional(Schema.Number), deltaSyncTableName: Schema.optional(Schema.String), deltaSyncTableTTL: Schema.optional(Schema.Number)});
-export const DynamodbDataSourceConfig = Schema.Struct({tableName: Schema.String, awsRegion: Schema.String, useCallerCredentials: Schema.optional(Schema.Boolean), deltaSyncConfig: Schema.optional(DeltaSyncConfig), versioned: Schema.optional(Schema.Boolean)});
-export const LambdaDataSourceConfig = Schema.Struct({lambdaFunctionArn: Schema.String});
-export const ElasticsearchDataSourceConfig = Schema.Struct({endpoint: Schema.String, awsRegion: Schema.String});
-export const OpenSearchServiceDataSourceConfig = Schema.Struct({endpoint: Schema.String, awsRegion: Schema.String});
-export const AwsIamConfig = Schema.Struct({signingRegion: Schema.optional(Schema.String), signingServiceName: Schema.optional(Schema.String)});
-export const AuthorizationConfig = Schema.Struct({authorizationType: Schema.String, awsIamConfig: Schema.optional(AwsIamConfig)});
-export const HttpDataSourceConfig = Schema.Struct({endpoint: Schema.optional(Schema.String), authorizationConfig: Schema.optional(AuthorizationConfig)});
-export const RdsHttpEndpointConfig = Schema.Struct({awsRegion: Schema.optional(Schema.String), dbClusterIdentifier: Schema.optional(Schema.String), databaseName: Schema.optional(Schema.String), schema: Schema.optional(Schema.String), awsSecretStoreArn: Schema.optional(Schema.String)});
-export const RelationalDatabaseDataSourceConfig = Schema.Struct({relationalDatabaseSourceType: Schema.optional(Schema.String), rdsHttpEndpointConfig: Schema.optional(RdsHttpEndpointConfig)});
-export const EventBridgeDataSourceConfig = Schema.Struct({eventBusArn: Schema.String});
-export const UpdateDataSourceRequest = Schema.Struct({apiId: Schema.String, name: Schema.String, description: Schema.optional(Schema.String), type: Schema.String, serviceRoleArn: Schema.optional(Schema.String), dynamodbConfig: Schema.optional(DynamodbDataSourceConfig), lambdaConfig: Schema.optional(LambdaDataSourceConfig), elasticsearchConfig: Schema.optional(ElasticsearchDataSourceConfig), openSearchServiceConfig: Schema.optional(OpenSearchServiceDataSourceConfig), httpConfig: Schema.optional(HttpDataSourceConfig), relationalDatabaseConfig: Schema.optional(RelationalDatabaseDataSourceConfig), eventBridgeConfig: Schema.optional(EventBridgeDataSourceConfig), metricsConfig: Schema.optional(Schema.String)});
-export const UpdateDomainNameRequest = Schema.Struct({domainName: Schema.String, description: Schema.optional(Schema.String)});
-export const LambdaConflictHandlerConfig = Schema.Struct({lambdaConflictHandlerArn: Schema.optional(Schema.String)});
-export const SyncConfig = Schema.Struct({conflictHandler: Schema.optional(Schema.String), conflictDetection: Schema.optional(Schema.String), lambdaConflictHandlerConfig: Schema.optional(LambdaConflictHandlerConfig)});
-export const UpdateFunctionRequest = Schema.Struct({apiId: Schema.String, name: Schema.String, description: Schema.optional(Schema.String), functionId: Schema.String, dataSourceName: Schema.String, requestMappingTemplate: Schema.optional(Schema.String), responseMappingTemplate: Schema.optional(Schema.String), functionVersion: Schema.optional(Schema.String), syncConfig: Schema.optional(SyncConfig), maxBatchSize: Schema.optional(Schema.Number), runtime: Schema.optional(AppSyncRuntime), code: Schema.optional(Schema.String)});
-export const LogConfig = Schema.Struct({fieldLogLevel: Schema.String, cloudWatchLogsRoleArn: Schema.String, excludeVerboseContent: Schema.optional(Schema.Boolean)});
-export const UserPoolConfig = Schema.Struct({userPoolId: Schema.String, awsRegion: Schema.String, defaultAction: Schema.String, appIdClientRegex: Schema.optional(Schema.String)});
-export const CognitoUserPoolConfig = Schema.Struct({userPoolId: Schema.String, awsRegion: Schema.String, appIdClientRegex: Schema.optional(Schema.String)});
-export const AdditionalAuthenticationProvider = Schema.Struct({authenticationType: Schema.optional(Schema.String), openIDConnectConfig: Schema.optional(OpenIDConnectConfig), userPoolConfig: Schema.optional(CognitoUserPoolConfig), lambdaAuthorizerConfig: Schema.optional(LambdaAuthorizerConfig)});
+export class EventLogConfig extends Schema.Class<EventLogConfig>("EventLogConfig")({logLevel: Schema.String, cloudWatchLogsRoleArn: Schema.String}) {}
+export class EventConfig extends Schema.Class<EventConfig>("EventConfig")({authProviders: AuthProviders, connectionAuthModes: AuthModes, defaultPublishAuthModes: AuthModes, defaultSubscribeAuthModes: AuthModes, logConfig: Schema.optional(EventLogConfig)}) {}
+export class UpdateApiRequest extends Schema.Class<UpdateApiRequest>("UpdateApiRequest")({apiId: Schema.String, name: Schema.String, ownerContact: Schema.optional(Schema.String), eventConfig: EventConfig}) {}
+export class UpdateApiCacheRequest extends Schema.Class<UpdateApiCacheRequest>("UpdateApiCacheRequest")({apiId: Schema.String, ttl: Schema.Number, apiCachingBehavior: Schema.String, type: Schema.String, healthMetricsConfig: Schema.optional(Schema.String)}) {}
+export class UpdateApiKeyRequest extends Schema.Class<UpdateApiKeyRequest>("UpdateApiKeyRequest")({apiId: Schema.String, id: Schema.String, description: Schema.optional(Schema.String), expires: Schema.optional(Schema.Number)}) {}
+export class LambdaConfig extends Schema.Class<LambdaConfig>("LambdaConfig")({invokeType: Schema.optional(Schema.String)}) {}
+export class Integration extends Schema.Class<Integration>("Integration")({dataSourceName: Schema.String, lambdaConfig: Schema.optional(LambdaConfig)}) {}
+export class HandlerConfig extends Schema.Class<HandlerConfig>("HandlerConfig")({behavior: Schema.String, integration: Integration}) {}
+export class HandlerConfigs extends Schema.Class<HandlerConfigs>("HandlerConfigs")({onPublish: Schema.optional(HandlerConfig), onSubscribe: Schema.optional(HandlerConfig)}) {}
+export class UpdateChannelNamespaceRequest extends Schema.Class<UpdateChannelNamespaceRequest>("UpdateChannelNamespaceRequest")({apiId: Schema.String, name: Schema.String, subscribeAuthModes: Schema.optional(AuthModes), publishAuthModes: Schema.optional(AuthModes), codeHandlers: Schema.optional(Schema.String), handlerConfigs: Schema.optional(HandlerConfigs)}) {}
+export class DeltaSyncConfig extends Schema.Class<DeltaSyncConfig>("DeltaSyncConfig")({baseTableTTL: Schema.optional(Schema.Number), deltaSyncTableName: Schema.optional(Schema.String), deltaSyncTableTTL: Schema.optional(Schema.Number)}) {}
+export class DynamodbDataSourceConfig extends Schema.Class<DynamodbDataSourceConfig>("DynamodbDataSourceConfig")({tableName: Schema.String, awsRegion: Schema.String, useCallerCredentials: Schema.optional(Schema.Boolean), deltaSyncConfig: Schema.optional(DeltaSyncConfig), versioned: Schema.optional(Schema.Boolean)}) {}
+export class LambdaDataSourceConfig extends Schema.Class<LambdaDataSourceConfig>("LambdaDataSourceConfig")({lambdaFunctionArn: Schema.String}) {}
+export class ElasticsearchDataSourceConfig extends Schema.Class<ElasticsearchDataSourceConfig>("ElasticsearchDataSourceConfig")({endpoint: Schema.String, awsRegion: Schema.String}) {}
+export class OpenSearchServiceDataSourceConfig extends Schema.Class<OpenSearchServiceDataSourceConfig>("OpenSearchServiceDataSourceConfig")({endpoint: Schema.String, awsRegion: Schema.String}) {}
+export class AwsIamConfig extends Schema.Class<AwsIamConfig>("AwsIamConfig")({signingRegion: Schema.optional(Schema.String), signingServiceName: Schema.optional(Schema.String)}) {}
+export class AuthorizationConfig extends Schema.Class<AuthorizationConfig>("AuthorizationConfig")({authorizationType: Schema.String, awsIamConfig: Schema.optional(AwsIamConfig)}) {}
+export class HttpDataSourceConfig extends Schema.Class<HttpDataSourceConfig>("HttpDataSourceConfig")({endpoint: Schema.optional(Schema.String), authorizationConfig: Schema.optional(AuthorizationConfig)}) {}
+export class RdsHttpEndpointConfig extends Schema.Class<RdsHttpEndpointConfig>("RdsHttpEndpointConfig")({awsRegion: Schema.optional(Schema.String), dbClusterIdentifier: Schema.optional(Schema.String), databaseName: Schema.optional(Schema.String), schema: Schema.optional(Schema.String), awsSecretStoreArn: Schema.optional(Schema.String)}) {}
+export class RelationalDatabaseDataSourceConfig extends Schema.Class<RelationalDatabaseDataSourceConfig>("RelationalDatabaseDataSourceConfig")({relationalDatabaseSourceType: Schema.optional(Schema.String), rdsHttpEndpointConfig: Schema.optional(RdsHttpEndpointConfig)}) {}
+export class EventBridgeDataSourceConfig extends Schema.Class<EventBridgeDataSourceConfig>("EventBridgeDataSourceConfig")({eventBusArn: Schema.String}) {}
+export class UpdateDataSourceRequest extends Schema.Class<UpdateDataSourceRequest>("UpdateDataSourceRequest")({apiId: Schema.String, name: Schema.String, description: Schema.optional(Schema.String), type: Schema.String, serviceRoleArn: Schema.optional(Schema.String), dynamodbConfig: Schema.optional(DynamodbDataSourceConfig), lambdaConfig: Schema.optional(LambdaDataSourceConfig), elasticsearchConfig: Schema.optional(ElasticsearchDataSourceConfig), openSearchServiceConfig: Schema.optional(OpenSearchServiceDataSourceConfig), httpConfig: Schema.optional(HttpDataSourceConfig), relationalDatabaseConfig: Schema.optional(RelationalDatabaseDataSourceConfig), eventBridgeConfig: Schema.optional(EventBridgeDataSourceConfig), metricsConfig: Schema.optional(Schema.String)}) {}
+export class UpdateDomainNameRequest extends Schema.Class<UpdateDomainNameRequest>("UpdateDomainNameRequest")({domainName: Schema.String, description: Schema.optional(Schema.String)}) {}
+export class LambdaConflictHandlerConfig extends Schema.Class<LambdaConflictHandlerConfig>("LambdaConflictHandlerConfig")({lambdaConflictHandlerArn: Schema.optional(Schema.String)}) {}
+export class SyncConfig extends Schema.Class<SyncConfig>("SyncConfig")({conflictHandler: Schema.optional(Schema.String), conflictDetection: Schema.optional(Schema.String), lambdaConflictHandlerConfig: Schema.optional(LambdaConflictHandlerConfig)}) {}
+export class UpdateFunctionRequest extends Schema.Class<UpdateFunctionRequest>("UpdateFunctionRequest")({apiId: Schema.String, name: Schema.String, description: Schema.optional(Schema.String), functionId: Schema.String, dataSourceName: Schema.String, requestMappingTemplate: Schema.optional(Schema.String), responseMappingTemplate: Schema.optional(Schema.String), functionVersion: Schema.optional(Schema.String), syncConfig: Schema.optional(SyncConfig), maxBatchSize: Schema.optional(Schema.Number), runtime: Schema.optional(AppSyncRuntime), code: Schema.optional(Schema.String)}) {}
+export class LogConfig extends Schema.Class<LogConfig>("LogConfig")({fieldLogLevel: Schema.String, cloudWatchLogsRoleArn: Schema.String, excludeVerboseContent: Schema.optional(Schema.Boolean)}) {}
+export class UserPoolConfig extends Schema.Class<UserPoolConfig>("UserPoolConfig")({userPoolId: Schema.String, awsRegion: Schema.String, defaultAction: Schema.String, appIdClientRegex: Schema.optional(Schema.String)}) {}
+export class CognitoUserPoolConfig extends Schema.Class<CognitoUserPoolConfig>("CognitoUserPoolConfig")({userPoolId: Schema.String, awsRegion: Schema.String, appIdClientRegex: Schema.optional(Schema.String)}) {}
+export class AdditionalAuthenticationProvider extends Schema.Class<AdditionalAuthenticationProvider>("AdditionalAuthenticationProvider")({authenticationType: Schema.optional(Schema.String), openIDConnectConfig: Schema.optional(OpenIDConnectConfig), userPoolConfig: Schema.optional(CognitoUserPoolConfig), lambdaAuthorizerConfig: Schema.optional(LambdaAuthorizerConfig)}) {}
 export const AdditionalAuthenticationProviders = Schema.Array(AdditionalAuthenticationProvider);
-export const EnhancedMetricsConfig = Schema.Struct({resolverLevelMetricsBehavior: Schema.String, dataSourceLevelMetricsBehavior: Schema.String, operationLevelMetricsConfig: Schema.String});
-export const UpdateGraphqlApiRequest = Schema.Struct({apiId: Schema.String, name: Schema.String, logConfig: Schema.optional(LogConfig), authenticationType: Schema.String, userPoolConfig: Schema.optional(UserPoolConfig), openIDConnectConfig: Schema.optional(OpenIDConnectConfig), additionalAuthenticationProviders: Schema.optional(AdditionalAuthenticationProviders), xrayEnabled: Schema.optional(Schema.Boolean), lambdaAuthorizerConfig: Schema.optional(LambdaAuthorizerConfig), mergedApiExecutionRoleArn: Schema.optional(Schema.String), ownerContact: Schema.optional(Schema.String), introspectionConfig: Schema.optional(Schema.String), queryDepthLimit: Schema.optional(Schema.Number), resolverCountLimit: Schema.optional(Schema.Number), enhancedMetricsConfig: Schema.optional(EnhancedMetricsConfig)});
+export class EnhancedMetricsConfig extends Schema.Class<EnhancedMetricsConfig>("EnhancedMetricsConfig")({resolverLevelMetricsBehavior: Schema.String, dataSourceLevelMetricsBehavior: Schema.String, operationLevelMetricsConfig: Schema.String}) {}
+export class UpdateGraphqlApiRequest extends Schema.Class<UpdateGraphqlApiRequest>("UpdateGraphqlApiRequest")({apiId: Schema.String, name: Schema.String, logConfig: Schema.optional(LogConfig), authenticationType: Schema.String, userPoolConfig: Schema.optional(UserPoolConfig), openIDConnectConfig: Schema.optional(OpenIDConnectConfig), additionalAuthenticationProviders: Schema.optional(AdditionalAuthenticationProviders), xrayEnabled: Schema.optional(Schema.Boolean), lambdaAuthorizerConfig: Schema.optional(LambdaAuthorizerConfig), mergedApiExecutionRoleArn: Schema.optional(Schema.String), ownerContact: Schema.optional(Schema.String), introspectionConfig: Schema.optional(Schema.String), queryDepthLimit: Schema.optional(Schema.Number), resolverCountLimit: Schema.optional(Schema.Number), enhancedMetricsConfig: Schema.optional(EnhancedMetricsConfig)}) {}
 export const FunctionsIds = Schema.Array(Schema.String);
-export const PipelineConfig = Schema.Struct({functions: Schema.optional(FunctionsIds)});
+export class PipelineConfig extends Schema.Class<PipelineConfig>("PipelineConfig")({functions: Schema.optional(FunctionsIds)}) {}
 export const CachingKeys = Schema.Array(Schema.String);
-export const CachingConfig = Schema.Struct({ttl: Schema.Number, cachingKeys: Schema.optional(CachingKeys)});
-export const UpdateResolverRequest = Schema.Struct({apiId: Schema.String, typeName: Schema.String, fieldName: Schema.String, dataSourceName: Schema.optional(Schema.String), requestMappingTemplate: Schema.optional(Schema.String), responseMappingTemplate: Schema.optional(Schema.String), kind: Schema.optional(Schema.String), pipelineConfig: Schema.optional(PipelineConfig), syncConfig: Schema.optional(SyncConfig), cachingConfig: Schema.optional(CachingConfig), maxBatchSize: Schema.optional(Schema.Number), runtime: Schema.optional(AppSyncRuntime), code: Schema.optional(Schema.String), metricsConfig: Schema.optional(Schema.String)});
-export const UpdateSourceApiAssociationRequest = Schema.Struct({associationId: Schema.String, mergedApiIdentifier: Schema.String, description: Schema.optional(Schema.String), sourceApiAssociationConfig: Schema.optional(SourceApiAssociationConfig)});
-export const UpdateTypeRequest = Schema.Struct({apiId: Schema.String, typeName: Schema.String, definition: Schema.optional(Schema.String), format: Schema.String});
+export class CachingConfig extends Schema.Class<CachingConfig>("CachingConfig")({ttl: Schema.Number, cachingKeys: Schema.optional(CachingKeys)}) {}
+export class UpdateResolverRequest extends Schema.Class<UpdateResolverRequest>("UpdateResolverRequest")({apiId: Schema.String, typeName: Schema.String, fieldName: Schema.String, dataSourceName: Schema.optional(Schema.String), requestMappingTemplate: Schema.optional(Schema.String), responseMappingTemplate: Schema.optional(Schema.String), kind: Schema.optional(Schema.String), pipelineConfig: Schema.optional(PipelineConfig), syncConfig: Schema.optional(SyncConfig), cachingConfig: Schema.optional(CachingConfig), maxBatchSize: Schema.optional(Schema.Number), runtime: Schema.optional(AppSyncRuntime), code: Schema.optional(Schema.String), metricsConfig: Schema.optional(Schema.String)}) {}
+export class UpdateSourceApiAssociationRequest extends Schema.Class<UpdateSourceApiAssociationRequest>("UpdateSourceApiAssociationRequest")({associationId: Schema.String, mergedApiIdentifier: Schema.String, description: Schema.optional(Schema.String), sourceApiAssociationConfig: Schema.optional(SourceApiAssociationConfig)}) {}
+export class UpdateTypeRequest extends Schema.Class<UpdateTypeRequest>("UpdateTypeRequest")({apiId: Schema.String, typeName: Schema.String, definition: Schema.optional(Schema.String), format: Schema.String}) {}
 export const Logs = Schema.Array(Schema.String);
-export const ApiKey = Schema.Struct({id: Schema.optional(Schema.String), description: Schema.optional(Schema.String), expires: Schema.optional(Schema.Number), deletes: Schema.optional(Schema.Number)});
+export class ApiKey extends Schema.Class<ApiKey>("ApiKey")({id: Schema.optional(Schema.String), description: Schema.optional(Schema.String), expires: Schema.optional(Schema.Number), deletes: Schema.optional(Schema.Number)}) {}
 export const ApiKeys = Schema.Array(ApiKey);
 export const MapOfStringToString = Schema.Record({key: Schema.String, value: Schema.String});
-export const Api = Schema.Struct({apiId: Schema.optional(Schema.String), name: Schema.optional(Schema.String), ownerContact: Schema.optional(Schema.String), tags: Schema.optional(TagMap), dns: Schema.optional(MapOfStringToString), apiArn: Schema.optional(Schema.String), created: Schema.optional(Schema.Date), xrayEnabled: Schema.optional(Schema.Boolean), wafWebAclArn: Schema.optional(Schema.String), eventConfig: Schema.optional(EventConfig)});
+export class Api extends Schema.Class<Api>("Api")({apiId: Schema.optional(Schema.String), name: Schema.optional(Schema.String), ownerContact: Schema.optional(Schema.String), tags: Schema.optional(TagMap), dns: Schema.optional(MapOfStringToString), apiArn: Schema.optional(Schema.String), created: Schema.optional(Schema.Date), xrayEnabled: Schema.optional(Schema.Boolean), wafWebAclArn: Schema.optional(Schema.String), eventConfig: Schema.optional(EventConfig)}) {}
 export const Apis = Schema.Array(Api);
-export const ChannelNamespace = Schema.Struct({apiId: Schema.optional(Schema.String), name: Schema.optional(Schema.String), subscribeAuthModes: Schema.optional(AuthModes), publishAuthModes: Schema.optional(AuthModes), codeHandlers: Schema.optional(Schema.String), tags: Schema.optional(TagMap), channelNamespaceArn: Schema.optional(Schema.String), created: Schema.optional(Schema.Date), lastModified: Schema.optional(Schema.Date), handlerConfigs: Schema.optional(HandlerConfigs)});
+export class ChannelNamespace extends Schema.Class<ChannelNamespace>("ChannelNamespace")({apiId: Schema.optional(Schema.String), name: Schema.optional(Schema.String), subscribeAuthModes: Schema.optional(AuthModes), publishAuthModes: Schema.optional(AuthModes), codeHandlers: Schema.optional(Schema.String), tags: Schema.optional(TagMap), channelNamespaceArn: Schema.optional(Schema.String), created: Schema.optional(Schema.Date), lastModified: Schema.optional(Schema.Date), handlerConfigs: Schema.optional(HandlerConfigs)}) {}
 export const ChannelNamespaces = Schema.Array(ChannelNamespace);
-export const DataSource = Schema.Struct({dataSourceArn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), type: Schema.optional(Schema.String), serviceRoleArn: Schema.optional(Schema.String), dynamodbConfig: Schema.optional(DynamodbDataSourceConfig), lambdaConfig: Schema.optional(LambdaDataSourceConfig), elasticsearchConfig: Schema.optional(ElasticsearchDataSourceConfig), openSearchServiceConfig: Schema.optional(OpenSearchServiceDataSourceConfig), httpConfig: Schema.optional(HttpDataSourceConfig), relationalDatabaseConfig: Schema.optional(RelationalDatabaseDataSourceConfig), eventBridgeConfig: Schema.optional(EventBridgeDataSourceConfig), metricsConfig: Schema.optional(Schema.String)});
+export class DataSource extends Schema.Class<DataSource>("DataSource")({dataSourceArn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), type: Schema.optional(Schema.String), serviceRoleArn: Schema.optional(Schema.String), dynamodbConfig: Schema.optional(DynamodbDataSourceConfig), lambdaConfig: Schema.optional(LambdaDataSourceConfig), elasticsearchConfig: Schema.optional(ElasticsearchDataSourceConfig), openSearchServiceConfig: Schema.optional(OpenSearchServiceDataSourceConfig), httpConfig: Schema.optional(HttpDataSourceConfig), relationalDatabaseConfig: Schema.optional(RelationalDatabaseDataSourceConfig), eventBridgeConfig: Schema.optional(EventBridgeDataSourceConfig), metricsConfig: Schema.optional(Schema.String)}) {}
 export const DataSources = Schema.Array(DataSource);
-export const DomainNameConfig = Schema.Struct({domainName: Schema.optional(Schema.String), description: Schema.optional(Schema.String), certificateArn: Schema.optional(Schema.String), appsyncDomainName: Schema.optional(Schema.String), hostedZoneId: Schema.optional(Schema.String), tags: Schema.optional(TagMap), domainNameArn: Schema.optional(Schema.String)});
+export class DomainNameConfig extends Schema.Class<DomainNameConfig>("DomainNameConfig")({domainName: Schema.optional(Schema.String), description: Schema.optional(Schema.String), certificateArn: Schema.optional(Schema.String), appsyncDomainName: Schema.optional(Schema.String), hostedZoneId: Schema.optional(Schema.String), tags: Schema.optional(TagMap), domainNameArn: Schema.optional(Schema.String)}) {}
 export const DomainNameConfigs = Schema.Array(DomainNameConfig);
-export const FunctionConfiguration = Schema.Struct({functionId: Schema.optional(Schema.String), functionArn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), dataSourceName: Schema.optional(Schema.String), requestMappingTemplate: Schema.optional(Schema.String), responseMappingTemplate: Schema.optional(Schema.String), functionVersion: Schema.optional(Schema.String), syncConfig: Schema.optional(SyncConfig), maxBatchSize: Schema.optional(Schema.Number), runtime: Schema.optional(AppSyncRuntime), code: Schema.optional(Schema.String)});
+export class FunctionConfiguration extends Schema.Class<FunctionConfiguration>("FunctionConfiguration")({functionId: Schema.optional(Schema.String), functionArn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), dataSourceName: Schema.optional(Schema.String), requestMappingTemplate: Schema.optional(Schema.String), responseMappingTemplate: Schema.optional(Schema.String), functionVersion: Schema.optional(Schema.String), syncConfig: Schema.optional(SyncConfig), maxBatchSize: Schema.optional(Schema.Number), runtime: Schema.optional(AppSyncRuntime), code: Schema.optional(Schema.String)}) {}
 export const Functions = Schema.Array(FunctionConfiguration);
-export const GraphqlApi = Schema.Struct({name: Schema.optional(Schema.String), apiId: Schema.optional(Schema.String), authenticationType: Schema.optional(Schema.String), logConfig: Schema.optional(LogConfig), userPoolConfig: Schema.optional(UserPoolConfig), openIDConnectConfig: Schema.optional(OpenIDConnectConfig), arn: Schema.optional(Schema.String), uris: Schema.optional(MapOfStringToString), tags: Schema.optional(TagMap), additionalAuthenticationProviders: Schema.optional(AdditionalAuthenticationProviders), xrayEnabled: Schema.optional(Schema.Boolean), wafWebAclArn: Schema.optional(Schema.String), lambdaAuthorizerConfig: Schema.optional(LambdaAuthorizerConfig), dns: Schema.optional(MapOfStringToString), visibility: Schema.optional(Schema.String), apiType: Schema.optional(Schema.String), mergedApiExecutionRoleArn: Schema.optional(Schema.String), owner: Schema.optional(Schema.String), ownerContact: Schema.optional(Schema.String), introspectionConfig: Schema.optional(Schema.String), queryDepthLimit: Schema.optional(Schema.Number), resolverCountLimit: Schema.optional(Schema.Number), enhancedMetricsConfig: Schema.optional(EnhancedMetricsConfig)});
+export class GraphqlApi extends Schema.Class<GraphqlApi>("GraphqlApi")({name: Schema.optional(Schema.String), apiId: Schema.optional(Schema.String), authenticationType: Schema.optional(Schema.String), logConfig: Schema.optional(LogConfig), userPoolConfig: Schema.optional(UserPoolConfig), openIDConnectConfig: Schema.optional(OpenIDConnectConfig), arn: Schema.optional(Schema.String), uris: Schema.optional(MapOfStringToString), tags: Schema.optional(TagMap), additionalAuthenticationProviders: Schema.optional(AdditionalAuthenticationProviders), xrayEnabled: Schema.optional(Schema.Boolean), wafWebAclArn: Schema.optional(Schema.String), lambdaAuthorizerConfig: Schema.optional(LambdaAuthorizerConfig), dns: Schema.optional(MapOfStringToString), visibility: Schema.optional(Schema.String), apiType: Schema.optional(Schema.String), mergedApiExecutionRoleArn: Schema.optional(Schema.String), owner: Schema.optional(Schema.String), ownerContact: Schema.optional(Schema.String), introspectionConfig: Schema.optional(Schema.String), queryDepthLimit: Schema.optional(Schema.Number), resolverCountLimit: Schema.optional(Schema.Number), enhancedMetricsConfig: Schema.optional(EnhancedMetricsConfig)}) {}
 export const GraphqlApis = Schema.Array(GraphqlApi);
-export const Resolver = Schema.Struct({typeName: Schema.optional(Schema.String), fieldName: Schema.optional(Schema.String), dataSourceName: Schema.optional(Schema.String), resolverArn: Schema.optional(Schema.String), requestMappingTemplate: Schema.optional(Schema.String), responseMappingTemplate: Schema.optional(Schema.String), kind: Schema.optional(Schema.String), pipelineConfig: Schema.optional(PipelineConfig), syncConfig: Schema.optional(SyncConfig), cachingConfig: Schema.optional(CachingConfig), maxBatchSize: Schema.optional(Schema.Number), runtime: Schema.optional(AppSyncRuntime), code: Schema.optional(Schema.String), metricsConfig: Schema.optional(Schema.String)});
+export class Resolver extends Schema.Class<Resolver>("Resolver")({typeName: Schema.optional(Schema.String), fieldName: Schema.optional(Schema.String), dataSourceName: Schema.optional(Schema.String), resolverArn: Schema.optional(Schema.String), requestMappingTemplate: Schema.optional(Schema.String), responseMappingTemplate: Schema.optional(Schema.String), kind: Schema.optional(Schema.String), pipelineConfig: Schema.optional(PipelineConfig), syncConfig: Schema.optional(SyncConfig), cachingConfig: Schema.optional(CachingConfig), maxBatchSize: Schema.optional(Schema.Number), runtime: Schema.optional(AppSyncRuntime), code: Schema.optional(Schema.String), metricsConfig: Schema.optional(Schema.String)}) {}
 export const Resolvers = Schema.Array(Resolver);
-export const Type = Schema.Struct({name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), definition: Schema.optional(Schema.String), format: Schema.optional(Schema.String)});
+export class Type extends Schema.Class<Type>("Type")({name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), definition: Schema.optional(Schema.String), format: Schema.optional(Schema.String)}) {}
 export const TypeList = Schema.Array(Type);
 export const EnvironmentVariableMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const RdsDataApiConfig = Schema.Struct({resourceArn: Schema.String, secretArn: Schema.String, databaseName: Schema.String});
-export const AssociateMergedGraphqlApiRequest = Schema.Struct({sourceApiIdentifier: Schema.String, mergedApiIdentifier: Schema.String, description: Schema.optional(Schema.String), sourceApiAssociationConfig: Schema.optional(SourceApiAssociationConfig)});
-export const CreateResolverRequest = Schema.Struct({apiId: Schema.String, typeName: Schema.String, fieldName: Schema.String, dataSourceName: Schema.optional(Schema.String), requestMappingTemplate: Schema.optional(Schema.String), responseMappingTemplate: Schema.optional(Schema.String), kind: Schema.optional(Schema.String), pipelineConfig: Schema.optional(PipelineConfig), syncConfig: Schema.optional(SyncConfig), cachingConfig: Schema.optional(CachingConfig), maxBatchSize: Schema.optional(Schema.Number), runtime: Schema.optional(AppSyncRuntime), code: Schema.optional(Schema.String), metricsConfig: Schema.optional(Schema.String)});
-export const AccessDeniedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InternalFailureException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ConcurrentModificationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const NotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UnauthorizedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DisassociateMergedGraphqlApiResponse = Schema.Struct({sourceApiAssociationStatus: Schema.optional(Schema.String)});
-export const DisassociateSourceGraphqlApiResponse = Schema.Struct({sourceApiAssociationStatus: Schema.optional(Schema.String)});
-export const ApiAssociation = Schema.Struct({domainName: Schema.optional(Schema.String), apiId: Schema.optional(Schema.String), associationStatus: Schema.optional(Schema.String), deploymentDetail: Schema.optional(Schema.String)});
-export const GetApiAssociationResponse = Schema.Struct({apiAssociation: Schema.optional(ApiAssociation)});
-export const ApiCache = Schema.Struct({ttl: Schema.optional(Schema.Number), apiCachingBehavior: Schema.optional(Schema.String), transitEncryptionEnabled: Schema.optional(Schema.Boolean), atRestEncryptionEnabled: Schema.optional(Schema.Boolean), type: Schema.optional(Schema.String), status: Schema.optional(Schema.String), healthMetricsConfig: Schema.optional(Schema.String)});
-export const GetApiCacheResponse = Schema.Struct({apiCache: Schema.optional(ApiCache)});
-export const GetDomainNameResponse = Schema.Struct({domainNameConfig: Schema.optional(DomainNameConfig)});
-export const GetGraphqlApiEnvironmentVariablesResponse = Schema.Struct({environmentVariables: Schema.optional(EnvironmentVariableMap)});
-export const GetIntrospectionSchemaResponse = Schema.Struct({schema: Schema.optional(Body("undefined", StreamBody()))});
-export const GetSchemaCreationStatusResponse = Schema.Struct({status: Schema.optional(Schema.String), details: Schema.optional(Schema.String)});
-export const SourceApiAssociation = Schema.Struct({associationId: Schema.optional(Schema.String), associationArn: Schema.optional(Schema.String), sourceApiId: Schema.optional(Schema.String), sourceApiArn: Schema.optional(Schema.String), mergedApiArn: Schema.optional(Schema.String), mergedApiId: Schema.optional(Schema.String), description: Schema.optional(Schema.String), sourceApiAssociationConfig: Schema.optional(SourceApiAssociationConfig), sourceApiAssociationStatus: Schema.optional(Schema.String), sourceApiAssociationStatusDetail: Schema.optional(Schema.String), lastSuccessfulMergeDate: Schema.optional(Schema.Date)});
-export const GetSourceApiAssociationResponse = Schema.Struct({sourceApiAssociation: Schema.optional(SourceApiAssociation)});
-export const GetTypeResponse = Schema.Struct({type: Schema.optional(Type)});
-export const ListApiKeysResponse = Schema.Struct({apiKeys: Schema.optional(ApiKeys), nextToken: Schema.optional(Schema.String)});
-export const ListApisResponse = Schema.Struct({apis: Schema.optional(Apis), nextToken: Schema.optional(Schema.String)});
-export const ListChannelNamespacesResponse = Schema.Struct({channelNamespaces: Schema.optional(ChannelNamespaces), nextToken: Schema.optional(Schema.String)});
-export const ListDataSourcesResponse = Schema.Struct({dataSources: Schema.optional(DataSources), nextToken: Schema.optional(Schema.String)});
-export const ListDomainNamesResponse = Schema.Struct({domainNameConfigs: Schema.optional(DomainNameConfigs), nextToken: Schema.optional(Schema.String)});
-export const ListFunctionsResponse = Schema.Struct({functions: Schema.optional(Functions), nextToken: Schema.optional(Schema.String)});
-export const ListGraphqlApisResponse = Schema.Struct({graphqlApis: Schema.optional(GraphqlApis), nextToken: Schema.optional(Schema.String)});
-export const ListResolversResponse = Schema.Struct({resolvers: Schema.optional(Resolvers), nextToken: Schema.optional(Schema.String)});
-export const ListResolversByFunctionResponse = Schema.Struct({resolvers: Schema.optional(Resolvers), nextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceResponse = Schema.Struct({tags: Schema.optional(TagMap)});
-export const ListTypesResponse = Schema.Struct({types: Schema.optional(TypeList), nextToken: Schema.optional(Schema.String)});
-export const ListTypesByAssociationResponse = Schema.Struct({types: Schema.optional(TypeList), nextToken: Schema.optional(Schema.String)});
-export const PutGraphqlApiEnvironmentVariablesRequest = Schema.Struct({apiId: Schema.String, environmentVariables: EnvironmentVariableMap});
-export const StartDataSourceIntrospectionRequest = Schema.Struct({rdsDataApiConfig: Schema.optional(RdsDataApiConfig)});
-export const StartSchemaCreationResponse = Schema.Struct({status: Schema.optional(Schema.String)});
-export const StartSchemaMergeResponse = Schema.Struct({sourceApiAssociationStatus: Schema.optional(Schema.String)});
-export const LimitExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UpdateApiResponse = Schema.Struct({api: Schema.optional(Api)});
-export const UpdateApiCacheResponse = Schema.Struct({apiCache: Schema.optional(ApiCache)});
-export const UpdateApiKeyResponse = Schema.Struct({apiKey: Schema.optional(ApiKey)});
-export const UpdateChannelNamespaceResponse = Schema.Struct({channelNamespace: Schema.optional(ChannelNamespace)});
-export const UpdateDataSourceResponse = Schema.Struct({dataSource: Schema.optional(DataSource)});
-export const UpdateDomainNameResponse = Schema.Struct({domainNameConfig: Schema.optional(DomainNameConfig)});
-export const UpdateFunctionResponse = Schema.Struct({functionConfiguration: Schema.optional(FunctionConfiguration)});
-export const UpdateGraphqlApiResponse = Schema.Struct({graphqlApi: Schema.optional(GraphqlApi)});
-export const UpdateResolverResponse = Schema.Struct({resolver: Schema.optional(Resolver)});
-export const UpdateSourceApiAssociationResponse = Schema.Struct({sourceApiAssociation: Schema.optional(SourceApiAssociation)});
-export const UpdateTypeResponse = Schema.Struct({type: Schema.optional(Type)});
-export const CodeErrorLocation = Schema.Struct({line: Schema.optional(Schema.Number), column: Schema.optional(Schema.Number), span: Schema.optional(Schema.Number)});
-export const CodeError = Schema.Struct({errorType: Schema.optional(Schema.String), value: Schema.optional(Schema.String), location: Schema.optional(CodeErrorLocation)});
+export class RdsDataApiConfig extends Schema.Class<RdsDataApiConfig>("RdsDataApiConfig")({resourceArn: Schema.String, secretArn: Schema.String, databaseName: Schema.String}) {}
+export class AssociateMergedGraphqlApiRequest extends Schema.Class<AssociateMergedGraphqlApiRequest>("AssociateMergedGraphqlApiRequest")({sourceApiIdentifier: Schema.String, mergedApiIdentifier: Schema.String, description: Schema.optional(Schema.String), sourceApiAssociationConfig: Schema.optional(SourceApiAssociationConfig)}) {}
+export class CreateResolverRequest extends Schema.Class<CreateResolverRequest>("CreateResolverRequest")({apiId: Schema.String, typeName: Schema.String, fieldName: Schema.String, dataSourceName: Schema.optional(Schema.String), requestMappingTemplate: Schema.optional(Schema.String), responseMappingTemplate: Schema.optional(Schema.String), kind: Schema.optional(Schema.String), pipelineConfig: Schema.optional(PipelineConfig), syncConfig: Schema.optional(SyncConfig), cachingConfig: Schema.optional(CachingConfig), maxBatchSize: Schema.optional(Schema.Number), runtime: Schema.optional(AppSyncRuntime), code: Schema.optional(Schema.String), metricsConfig: Schema.optional(Schema.String)}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({message: Schema.optional(Schema.String)}) {}
+export class InternalFailureException extends Schema.Class<InternalFailureException>("InternalFailureException")({message: Schema.optional(Schema.String)}) {}
+export class ConcurrentModificationException extends Schema.Class<ConcurrentModificationException>("ConcurrentModificationException")({message: Schema.optional(Schema.String)}) {}
+export class NotFoundException extends Schema.Class<NotFoundException>("NotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class UnauthorizedException extends Schema.Class<UnauthorizedException>("UnauthorizedException")({message: Schema.optional(Schema.String)}) {}
+export class DisassociateMergedGraphqlApiResponse extends Schema.Class<DisassociateMergedGraphqlApiResponse>("DisassociateMergedGraphqlApiResponse")({sourceApiAssociationStatus: Schema.optional(Schema.String)}) {}
+export class DisassociateSourceGraphqlApiResponse extends Schema.Class<DisassociateSourceGraphqlApiResponse>("DisassociateSourceGraphqlApiResponse")({sourceApiAssociationStatus: Schema.optional(Schema.String)}) {}
+export class ApiAssociation extends Schema.Class<ApiAssociation>("ApiAssociation")({domainName: Schema.optional(Schema.String), apiId: Schema.optional(Schema.String), associationStatus: Schema.optional(Schema.String), deploymentDetail: Schema.optional(Schema.String)}) {}
+export class GetApiAssociationResponse extends Schema.Class<GetApiAssociationResponse>("GetApiAssociationResponse")({apiAssociation: Schema.optional(ApiAssociation)}) {}
+export class ApiCache extends Schema.Class<ApiCache>("ApiCache")({ttl: Schema.optional(Schema.Number), apiCachingBehavior: Schema.optional(Schema.String), transitEncryptionEnabled: Schema.optional(Schema.Boolean), atRestEncryptionEnabled: Schema.optional(Schema.Boolean), type: Schema.optional(Schema.String), status: Schema.optional(Schema.String), healthMetricsConfig: Schema.optional(Schema.String)}) {}
+export class GetApiCacheResponse extends Schema.Class<GetApiCacheResponse>("GetApiCacheResponse")({apiCache: Schema.optional(ApiCache)}) {}
+export class GetDomainNameResponse extends Schema.Class<GetDomainNameResponse>("GetDomainNameResponse")({domainNameConfig: Schema.optional(DomainNameConfig)}) {}
+export class GetGraphqlApiEnvironmentVariablesResponse extends Schema.Class<GetGraphqlApiEnvironmentVariablesResponse>("GetGraphqlApiEnvironmentVariablesResponse")({environmentVariables: Schema.optional(EnvironmentVariableMap)}) {}
+export class GetIntrospectionSchemaResponse extends Schema.Class<GetIntrospectionSchemaResponse>("GetIntrospectionSchemaResponse")({schema: Schema.optional(Body("undefined", StreamBody()))}) {}
+export class GetSchemaCreationStatusResponse extends Schema.Class<GetSchemaCreationStatusResponse>("GetSchemaCreationStatusResponse")({status: Schema.optional(Schema.String), details: Schema.optional(Schema.String)}) {}
+export class SourceApiAssociation extends Schema.Class<SourceApiAssociation>("SourceApiAssociation")({associationId: Schema.optional(Schema.String), associationArn: Schema.optional(Schema.String), sourceApiId: Schema.optional(Schema.String), sourceApiArn: Schema.optional(Schema.String), mergedApiArn: Schema.optional(Schema.String), mergedApiId: Schema.optional(Schema.String), description: Schema.optional(Schema.String), sourceApiAssociationConfig: Schema.optional(SourceApiAssociationConfig), sourceApiAssociationStatus: Schema.optional(Schema.String), sourceApiAssociationStatusDetail: Schema.optional(Schema.String), lastSuccessfulMergeDate: Schema.optional(Schema.Date)}) {}
+export class GetSourceApiAssociationResponse extends Schema.Class<GetSourceApiAssociationResponse>("GetSourceApiAssociationResponse")({sourceApiAssociation: Schema.optional(SourceApiAssociation)}) {}
+export class GetTypeResponse extends Schema.Class<GetTypeResponse>("GetTypeResponse")({type: Schema.optional(Type)}) {}
+export class ListApiKeysResponse extends Schema.Class<ListApiKeysResponse>("ListApiKeysResponse")({apiKeys: Schema.optional(ApiKeys), nextToken: Schema.optional(Schema.String)}) {}
+export class ListApisResponse extends Schema.Class<ListApisResponse>("ListApisResponse")({apis: Schema.optional(Apis), nextToken: Schema.optional(Schema.String)}) {}
+export class ListChannelNamespacesResponse extends Schema.Class<ListChannelNamespacesResponse>("ListChannelNamespacesResponse")({channelNamespaces: Schema.optional(ChannelNamespaces), nextToken: Schema.optional(Schema.String)}) {}
+export class ListDataSourcesResponse extends Schema.Class<ListDataSourcesResponse>("ListDataSourcesResponse")({dataSources: Schema.optional(DataSources), nextToken: Schema.optional(Schema.String)}) {}
+export class ListDomainNamesResponse extends Schema.Class<ListDomainNamesResponse>("ListDomainNamesResponse")({domainNameConfigs: Schema.optional(DomainNameConfigs), nextToken: Schema.optional(Schema.String)}) {}
+export class ListFunctionsResponse extends Schema.Class<ListFunctionsResponse>("ListFunctionsResponse")({functions: Schema.optional(Functions), nextToken: Schema.optional(Schema.String)}) {}
+export class ListGraphqlApisResponse extends Schema.Class<ListGraphqlApisResponse>("ListGraphqlApisResponse")({graphqlApis: Schema.optional(GraphqlApis), nextToken: Schema.optional(Schema.String)}) {}
+export class ListResolversResponse extends Schema.Class<ListResolversResponse>("ListResolversResponse")({resolvers: Schema.optional(Resolvers), nextToken: Schema.optional(Schema.String)}) {}
+export class ListResolversByFunctionResponse extends Schema.Class<ListResolversByFunctionResponse>("ListResolversByFunctionResponse")({resolvers: Schema.optional(Resolvers), nextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({tags: Schema.optional(TagMap)}) {}
+export class ListTypesResponse extends Schema.Class<ListTypesResponse>("ListTypesResponse")({types: Schema.optional(TypeList), nextToken: Schema.optional(Schema.String)}) {}
+export class ListTypesByAssociationResponse extends Schema.Class<ListTypesByAssociationResponse>("ListTypesByAssociationResponse")({types: Schema.optional(TypeList), nextToken: Schema.optional(Schema.String)}) {}
+export class PutGraphqlApiEnvironmentVariablesRequest extends Schema.Class<PutGraphqlApiEnvironmentVariablesRequest>("PutGraphqlApiEnvironmentVariablesRequest")({apiId: Schema.String, environmentVariables: EnvironmentVariableMap}) {}
+export class StartDataSourceIntrospectionRequest extends Schema.Class<StartDataSourceIntrospectionRequest>("StartDataSourceIntrospectionRequest")({rdsDataApiConfig: Schema.optional(RdsDataApiConfig)}) {}
+export class StartSchemaCreationResponse extends Schema.Class<StartSchemaCreationResponse>("StartSchemaCreationResponse")({status: Schema.optional(Schema.String)}) {}
+export class StartSchemaMergeResponse extends Schema.Class<StartSchemaMergeResponse>("StartSchemaMergeResponse")({sourceApiAssociationStatus: Schema.optional(Schema.String)}) {}
+export class LimitExceededException extends Schema.Class<LimitExceededException>("LimitExceededException")({message: Schema.optional(Schema.String)}) {}
+export class UpdateApiResponse extends Schema.Class<UpdateApiResponse>("UpdateApiResponse")({api: Schema.optional(Api)}) {}
+export class UpdateApiCacheResponse extends Schema.Class<UpdateApiCacheResponse>("UpdateApiCacheResponse")({apiCache: Schema.optional(ApiCache)}) {}
+export class UpdateApiKeyResponse extends Schema.Class<UpdateApiKeyResponse>("UpdateApiKeyResponse")({apiKey: Schema.optional(ApiKey)}) {}
+export class UpdateChannelNamespaceResponse extends Schema.Class<UpdateChannelNamespaceResponse>("UpdateChannelNamespaceResponse")({channelNamespace: Schema.optional(ChannelNamespace)}) {}
+export class UpdateDataSourceResponse extends Schema.Class<UpdateDataSourceResponse>("UpdateDataSourceResponse")({dataSource: Schema.optional(DataSource)}) {}
+export class UpdateDomainNameResponse extends Schema.Class<UpdateDomainNameResponse>("UpdateDomainNameResponse")({domainNameConfig: Schema.optional(DomainNameConfig)}) {}
+export class UpdateFunctionResponse extends Schema.Class<UpdateFunctionResponse>("UpdateFunctionResponse")({functionConfiguration: Schema.optional(FunctionConfiguration)}) {}
+export class UpdateGraphqlApiResponse extends Schema.Class<UpdateGraphqlApiResponse>("UpdateGraphqlApiResponse")({graphqlApi: Schema.optional(GraphqlApi)}) {}
+export class UpdateResolverResponse extends Schema.Class<UpdateResolverResponse>("UpdateResolverResponse")({resolver: Schema.optional(Resolver)}) {}
+export class UpdateSourceApiAssociationResponse extends Schema.Class<UpdateSourceApiAssociationResponse>("UpdateSourceApiAssociationResponse")({sourceApiAssociation: Schema.optional(SourceApiAssociation)}) {}
+export class UpdateTypeResponse extends Schema.Class<UpdateTypeResponse>("UpdateTypeResponse")({type: Schema.optional(Type)}) {}
+export class CodeErrorLocation extends Schema.Class<CodeErrorLocation>("CodeErrorLocation")({line: Schema.optional(Schema.Number), column: Schema.optional(Schema.Number), span: Schema.optional(Schema.Number)}) {}
+export class CodeError extends Schema.Class<CodeError>("CodeError")({errorType: Schema.optional(Schema.String), value: Schema.optional(Schema.String), location: Schema.optional(CodeErrorLocation)}) {}
 export const CodeErrors = Schema.Array(CodeError);
-export const EvaluateCodeErrorDetail = Schema.Struct({message: Schema.optional(Schema.String), codeErrors: Schema.optional(CodeErrors)});
-export const ErrorDetail = Schema.Struct({message: Schema.optional(Schema.String)});
-export const SourceApiAssociationSummary = Schema.Struct({associationId: Schema.optional(Schema.String), associationArn: Schema.optional(Schema.String), sourceApiId: Schema.optional(Schema.String), sourceApiArn: Schema.optional(Schema.String), mergedApiId: Schema.optional(Schema.String), mergedApiArn: Schema.optional(Schema.String), description: Schema.optional(Schema.String)});
+export class EvaluateCodeErrorDetail extends Schema.Class<EvaluateCodeErrorDetail>("EvaluateCodeErrorDetail")({message: Schema.optional(Schema.String), codeErrors: Schema.optional(CodeErrors)}) {}
+export class ErrorDetail extends Schema.Class<ErrorDetail>("ErrorDetail")({message: Schema.optional(Schema.String)}) {}
+export class SourceApiAssociationSummary extends Schema.Class<SourceApiAssociationSummary>("SourceApiAssociationSummary")({associationId: Schema.optional(Schema.String), associationArn: Schema.optional(Schema.String), sourceApiId: Schema.optional(Schema.String), sourceApiArn: Schema.optional(Schema.String), mergedApiId: Schema.optional(Schema.String), mergedApiArn: Schema.optional(Schema.String), description: Schema.optional(Schema.String)}) {}
 export const SourceApiAssociationSummaryList = Schema.Array(SourceApiAssociationSummary);
 export const DataSourceIntrospectionModelIndexFields = Schema.Array(Schema.String);
-export const DataSourceIntrospectionModelIndex = Schema.Struct({name: Schema.optional(Schema.String), fields: Schema.optional(DataSourceIntrospectionModelIndexFields)});
+export class DataSourceIntrospectionModelIndex extends Schema.Class<DataSourceIntrospectionModelIndex>("DataSourceIntrospectionModelIndex")({name: Schema.optional(Schema.String), fields: Schema.optional(DataSourceIntrospectionModelIndexFields)}) {}
 export const DataSourceIntrospectionModelIndexes = Schema.Array(DataSourceIntrospectionModelIndex);
-export const AssociateApiResponse = Schema.Struct({apiAssociation: Schema.optional(ApiAssociation)});
-export const AssociateMergedGraphqlApiResponse = Schema.Struct({sourceApiAssociation: Schema.optional(SourceApiAssociation)});
-export const AssociateSourceGraphqlApiResponse = Schema.Struct({sourceApiAssociation: Schema.optional(SourceApiAssociation)});
-export const CreateApiCacheResponse = Schema.Struct({apiCache: Schema.optional(ApiCache)});
-export const CreateApiKeyResponse = Schema.Struct({apiKey: Schema.optional(ApiKey)});
-export const CreateDomainNameResponse = Schema.Struct({domainNameConfig: Schema.optional(DomainNameConfig)});
-export const CreateFunctionRequest = Schema.Struct({apiId: Schema.String, name: Schema.String, description: Schema.optional(Schema.String), dataSourceName: Schema.String, requestMappingTemplate: Schema.optional(Schema.String), responseMappingTemplate: Schema.optional(Schema.String), functionVersion: Schema.optional(Schema.String), syncConfig: Schema.optional(SyncConfig), maxBatchSize: Schema.optional(Schema.Number), runtime: Schema.optional(AppSyncRuntime), code: Schema.optional(Schema.String)});
-export const CreateGraphqlApiRequest = Schema.Struct({name: Schema.String, logConfig: Schema.optional(LogConfig), authenticationType: Schema.String, userPoolConfig: Schema.optional(UserPoolConfig), openIDConnectConfig: Schema.optional(OpenIDConnectConfig), tags: Schema.optional(TagMap), additionalAuthenticationProviders: Schema.optional(AdditionalAuthenticationProviders), xrayEnabled: Schema.optional(Schema.Boolean), lambdaAuthorizerConfig: Schema.optional(LambdaAuthorizerConfig), apiType: Schema.optional(Schema.String), mergedApiExecutionRoleArn: Schema.optional(Schema.String), visibility: Schema.optional(Schema.String), ownerContact: Schema.optional(Schema.String), introspectionConfig: Schema.optional(Schema.String), queryDepthLimit: Schema.optional(Schema.Number), resolverCountLimit: Schema.optional(Schema.Number), enhancedMetricsConfig: Schema.optional(EnhancedMetricsConfig)});
-export const CreateResolverResponse = Schema.Struct({resolver: Schema.optional(Resolver)});
-export const CreateTypeResponse = Schema.Struct({type: Schema.optional(Type)});
-export const EvaluateCodeResponse = Schema.Struct({evaluationResult: Schema.optional(Schema.String), error: Schema.optional(EvaluateCodeErrorDetail), logs: Schema.optional(Logs), stash: Schema.optional(Schema.String), outErrors: Schema.optional(Schema.String)});
-export const EvaluateMappingTemplateResponse = Schema.Struct({evaluationResult: Schema.optional(Schema.String), error: Schema.optional(ErrorDetail), logs: Schema.optional(Logs), stash: Schema.optional(Schema.String), outErrors: Schema.optional(Schema.String)});
-export const GetChannelNamespaceResponse = Schema.Struct({channelNamespace: Schema.optional(ChannelNamespace)});
-export const GetDataSourceResponse = Schema.Struct({dataSource: Schema.optional(DataSource)});
-export const GetFunctionResponse = Schema.Struct({functionConfiguration: Schema.optional(FunctionConfiguration)});
-export const GetGraphqlApiResponse = Schema.Struct({graphqlApi: Schema.optional(GraphqlApi)});
-export const GraphQLSchemaException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const GetResolverResponse = Schema.Struct({resolver: Schema.optional(Resolver)});
-export const ListSourceApiAssociationsResponse = Schema.Struct({sourceApiAssociationSummaries: Schema.optional(SourceApiAssociationSummaryList), nextToken: Schema.optional(Schema.String)});
-export const PutGraphqlApiEnvironmentVariablesResponse = Schema.Struct({environmentVariables: Schema.optional(EnvironmentVariableMap)});
-export const StartDataSourceIntrospectionResponse = Schema.Struct({introspectionId: Schema.optional(Schema.String), introspectionStatus: Schema.optional(Schema.String), introspectionStatusDetail: Schema.optional(Schema.String)});
-export const ApiKeyValidityOutOfBoundsException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CreateApiRequest = Schema.Struct({name: Schema.String, ownerContact: Schema.optional(Schema.String), tags: Schema.optional(TagMap), eventConfig: Schema.optional(EventConfig)});
-export const ApiKeyLimitExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CreateDataSourceRequest = Schema.Struct({apiId: Schema.String, name: Schema.String, description: Schema.optional(Schema.String), type: Schema.String, serviceRoleArn: Schema.optional(Schema.String), dynamodbConfig: Schema.optional(DynamodbDataSourceConfig), lambdaConfig: Schema.optional(LambdaDataSourceConfig), elasticsearchConfig: Schema.optional(ElasticsearchDataSourceConfig), openSearchServiceConfig: Schema.optional(OpenSearchServiceDataSourceConfig), httpConfig: Schema.optional(HttpDataSourceConfig), relationalDatabaseConfig: Schema.optional(RelationalDatabaseDataSourceConfig), eventBridgeConfig: Schema.optional(EventBridgeDataSourceConfig), metricsConfig: Schema.optional(Schema.String)});
-export const CreateFunctionResponse = Schema.Struct({functionConfiguration: Schema.optional(FunctionConfiguration)});
-export const CreateGraphqlApiResponse = Schema.Struct({graphqlApi: Schema.optional(GraphqlApi)});
-export const GetApiResponse = Schema.Struct({api: Schema.optional(Api)});
+export class AssociateApiResponse extends Schema.Class<AssociateApiResponse>("AssociateApiResponse")({apiAssociation: Schema.optional(ApiAssociation)}) {}
+export class AssociateMergedGraphqlApiResponse extends Schema.Class<AssociateMergedGraphqlApiResponse>("AssociateMergedGraphqlApiResponse")({sourceApiAssociation: Schema.optional(SourceApiAssociation)}) {}
+export class AssociateSourceGraphqlApiResponse extends Schema.Class<AssociateSourceGraphqlApiResponse>("AssociateSourceGraphqlApiResponse")({sourceApiAssociation: Schema.optional(SourceApiAssociation)}) {}
+export class CreateApiCacheResponse extends Schema.Class<CreateApiCacheResponse>("CreateApiCacheResponse")({apiCache: Schema.optional(ApiCache)}) {}
+export class CreateApiKeyResponse extends Schema.Class<CreateApiKeyResponse>("CreateApiKeyResponse")({apiKey: Schema.optional(ApiKey)}) {}
+export class CreateDomainNameResponse extends Schema.Class<CreateDomainNameResponse>("CreateDomainNameResponse")({domainNameConfig: Schema.optional(DomainNameConfig)}) {}
+export class CreateFunctionRequest extends Schema.Class<CreateFunctionRequest>("CreateFunctionRequest")({apiId: Schema.String, name: Schema.String, description: Schema.optional(Schema.String), dataSourceName: Schema.String, requestMappingTemplate: Schema.optional(Schema.String), responseMappingTemplate: Schema.optional(Schema.String), functionVersion: Schema.optional(Schema.String), syncConfig: Schema.optional(SyncConfig), maxBatchSize: Schema.optional(Schema.Number), runtime: Schema.optional(AppSyncRuntime), code: Schema.optional(Schema.String)}) {}
+export class CreateGraphqlApiRequest extends Schema.Class<CreateGraphqlApiRequest>("CreateGraphqlApiRequest")({name: Schema.String, logConfig: Schema.optional(LogConfig), authenticationType: Schema.String, userPoolConfig: Schema.optional(UserPoolConfig), openIDConnectConfig: Schema.optional(OpenIDConnectConfig), tags: Schema.optional(TagMap), additionalAuthenticationProviders: Schema.optional(AdditionalAuthenticationProviders), xrayEnabled: Schema.optional(Schema.Boolean), lambdaAuthorizerConfig: Schema.optional(LambdaAuthorizerConfig), apiType: Schema.optional(Schema.String), mergedApiExecutionRoleArn: Schema.optional(Schema.String), visibility: Schema.optional(Schema.String), ownerContact: Schema.optional(Schema.String), introspectionConfig: Schema.optional(Schema.String), queryDepthLimit: Schema.optional(Schema.Number), resolverCountLimit: Schema.optional(Schema.Number), enhancedMetricsConfig: Schema.optional(EnhancedMetricsConfig)}) {}
+export class CreateResolverResponse extends Schema.Class<CreateResolverResponse>("CreateResolverResponse")({resolver: Schema.optional(Resolver)}) {}
+export class CreateTypeResponse extends Schema.Class<CreateTypeResponse>("CreateTypeResponse")({type: Schema.optional(Type)}) {}
+export class EvaluateCodeResponse extends Schema.Class<EvaluateCodeResponse>("EvaluateCodeResponse")({evaluationResult: Schema.optional(Schema.String), error: Schema.optional(EvaluateCodeErrorDetail), logs: Schema.optional(Logs), stash: Schema.optional(Schema.String), outErrors: Schema.optional(Schema.String)}) {}
+export class EvaluateMappingTemplateResponse extends Schema.Class<EvaluateMappingTemplateResponse>("EvaluateMappingTemplateResponse")({evaluationResult: Schema.optional(Schema.String), error: Schema.optional(ErrorDetail), logs: Schema.optional(Logs), stash: Schema.optional(Schema.String), outErrors: Schema.optional(Schema.String)}) {}
+export class GetChannelNamespaceResponse extends Schema.Class<GetChannelNamespaceResponse>("GetChannelNamespaceResponse")({channelNamespace: Schema.optional(ChannelNamespace)}) {}
+export class GetDataSourceResponse extends Schema.Class<GetDataSourceResponse>("GetDataSourceResponse")({dataSource: Schema.optional(DataSource)}) {}
+export class GetFunctionResponse extends Schema.Class<GetFunctionResponse>("GetFunctionResponse")({functionConfiguration: Schema.optional(FunctionConfiguration)}) {}
+export class GetGraphqlApiResponse extends Schema.Class<GetGraphqlApiResponse>("GetGraphqlApiResponse")({graphqlApi: Schema.optional(GraphqlApi)}) {}
+export class GraphQLSchemaException extends Schema.Class<GraphQLSchemaException>("GraphQLSchemaException")({message: Schema.optional(Schema.String)}) {}
+export class GetResolverResponse extends Schema.Class<GetResolverResponse>("GetResolverResponse")({resolver: Schema.optional(Resolver)}) {}
+export class ListSourceApiAssociationsResponse extends Schema.Class<ListSourceApiAssociationsResponse>("ListSourceApiAssociationsResponse")({sourceApiAssociationSummaries: Schema.optional(SourceApiAssociationSummaryList), nextToken: Schema.optional(Schema.String)}) {}
+export class PutGraphqlApiEnvironmentVariablesResponse extends Schema.Class<PutGraphqlApiEnvironmentVariablesResponse>("PutGraphqlApiEnvironmentVariablesResponse")({environmentVariables: Schema.optional(EnvironmentVariableMap)}) {}
+export class StartDataSourceIntrospectionResponse extends Schema.Class<StartDataSourceIntrospectionResponse>("StartDataSourceIntrospectionResponse")({introspectionId: Schema.optional(Schema.String), introspectionStatus: Schema.optional(Schema.String), introspectionStatusDetail: Schema.optional(Schema.String)}) {}
+export class ApiKeyValidityOutOfBoundsException extends Schema.Class<ApiKeyValidityOutOfBoundsException>("ApiKeyValidityOutOfBoundsException")({message: Schema.optional(Schema.String)}) {}
+export class CreateApiRequest extends Schema.Class<CreateApiRequest>("CreateApiRequest")({name: Schema.String, ownerContact: Schema.optional(Schema.String), tags: Schema.optional(TagMap), eventConfig: EventConfig}) {}
+export class ApiKeyLimitExceededException extends Schema.Class<ApiKeyLimitExceededException>("ApiKeyLimitExceededException")({message: Schema.optional(Schema.String)}) {}
+export class CreateDataSourceRequest extends Schema.Class<CreateDataSourceRequest>("CreateDataSourceRequest")({apiId: Schema.String, name: Schema.String, description: Schema.optional(Schema.String), type: Schema.String, serviceRoleArn: Schema.optional(Schema.String), dynamodbConfig: Schema.optional(DynamodbDataSourceConfig), lambdaConfig: Schema.optional(LambdaDataSourceConfig), elasticsearchConfig: Schema.optional(ElasticsearchDataSourceConfig), openSearchServiceConfig: Schema.optional(OpenSearchServiceDataSourceConfig), httpConfig: Schema.optional(HttpDataSourceConfig), relationalDatabaseConfig: Schema.optional(RelationalDatabaseDataSourceConfig), eventBridgeConfig: Schema.optional(EventBridgeDataSourceConfig), metricsConfig: Schema.optional(Schema.String)}) {}
+export class CreateFunctionResponse extends Schema.Class<CreateFunctionResponse>("CreateFunctionResponse")({functionConfiguration: Schema.optional(FunctionConfiguration)}) {}
+export class CreateGraphqlApiResponse extends Schema.Class<CreateGraphqlApiResponse>("CreateGraphqlApiResponse")({graphqlApi: Schema.optional(GraphqlApi)}) {}
+export class GetApiResponse extends Schema.Class<GetApiResponse>("GetApiResponse")({api: Schema.optional(Api)}) {}
 export const DataSourceIntrospectionModelFieldTypeValues = Schema.Array(Schema.String);
-export const DataSourceIntrospectionModelFieldType = Schema.Struct({kind: Schema.optional(Schema.String), name: Schema.optional(Schema.String), type: Schema.optional(DataSourceIntrospectionModelFieldType), values: Schema.optional(DataSourceIntrospectionModelFieldTypeValues)});
-export const BadRequestDetail = Schema.Struct({codeErrors: Schema.optional(CodeErrors)});
-export const DataSourceIntrospectionModelField = Schema.Struct({name: Schema.optional(Schema.String), type: Schema.optional(DataSourceIntrospectionModelFieldType), length: Schema.optional(Schema.Number)});
+export class DataSourceIntrospectionModelFieldType extends Schema.Class<DataSourceIntrospectionModelFieldType>("DataSourceIntrospectionModelFieldType")({kind: Schema.optional(Schema.String), name: Schema.optional(Schema.String), type: Schema.optional(Schema.suspend((): Schema.Schema<DataSourceIntrospectionModelFieldType> => DataSourceIntrospectionModelFieldType)), values: Schema.optional(DataSourceIntrospectionModelFieldTypeValues)}) {}
+export class BadRequestDetail extends Schema.Class<BadRequestDetail>("BadRequestDetail")({codeErrors: Schema.optional(CodeErrors)}) {}
+export class DataSourceIntrospectionModelField extends Schema.Class<DataSourceIntrospectionModelField>("DataSourceIntrospectionModelField")({name: Schema.optional(Schema.String), type: Schema.optional(DataSourceIntrospectionModelFieldType), length: Schema.optional(Schema.Number)}) {}
 export const DataSourceIntrospectionModelFields = Schema.Array(DataSourceIntrospectionModelField);
-export const CreateApiResponse = Schema.Struct({api: Schema.optional(Api)});
-export const CreateChannelNamespaceRequest = Schema.Struct({apiId: Schema.String, name: Schema.String, subscribeAuthModes: Schema.optional(AuthModes), publishAuthModes: Schema.optional(AuthModes), codeHandlers: Schema.optional(Schema.String), tags: Schema.optional(TagMap), handlerConfigs: Schema.optional(HandlerConfigs)});
-export const CreateDataSourceResponse = Schema.Struct({dataSource: Schema.optional(DataSource)});
-export const ApiLimitExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const BadRequestException = Schema.Struct({message: Schema.optional(Schema.String), reason: Schema.optional(Schema.String), detail: Schema.optional(BadRequestDetail)});
-export const DataSourceIntrospectionModel = Schema.Struct({name: Schema.optional(Schema.String), fields: Schema.optional(DataSourceIntrospectionModelFields), primaryKey: Schema.optional(DataSourceIntrospectionModelIndex), indexes: Schema.optional(DataSourceIntrospectionModelIndexes), sdl: Schema.optional(Schema.String)});
+export class CreateApiResponse extends Schema.Class<CreateApiResponse>("CreateApiResponse")({api: Schema.optional(Api)}) {}
+export class CreateChannelNamespaceRequest extends Schema.Class<CreateChannelNamespaceRequest>("CreateChannelNamespaceRequest")({apiId: Schema.String, name: Schema.String, subscribeAuthModes: Schema.optional(AuthModes), publishAuthModes: Schema.optional(AuthModes), codeHandlers: Schema.optional(Schema.String), tags: Schema.optional(TagMap), handlerConfigs: Schema.optional(HandlerConfigs)}) {}
+export class CreateDataSourceResponse extends Schema.Class<CreateDataSourceResponse>("CreateDataSourceResponse")({dataSource: Schema.optional(DataSource)}) {}
+export class ApiLimitExceededException extends Schema.Class<ApiLimitExceededException>("ApiLimitExceededException")({message: Schema.optional(Schema.String)}) {}
+export class BadRequestException extends Schema.Class<BadRequestException>("BadRequestException")({message: Schema.optional(Schema.String), reason: Schema.optional(Schema.String), detail: Schema.optional(BadRequestDetail)}) {}
+export class DataSourceIntrospectionModel extends Schema.Class<DataSourceIntrospectionModel>("DataSourceIntrospectionModel")({name: Schema.optional(Schema.String), fields: Schema.optional(DataSourceIntrospectionModelFields), primaryKey: Schema.optional(DataSourceIntrospectionModelIndex), indexes: Schema.optional(DataSourceIntrospectionModelIndexes), sdl: Schema.optional(Schema.String)}) {}
 export const DataSourceIntrospectionModels = Schema.Array(DataSourceIntrospectionModel);
-export const DataSourceIntrospectionResult = Schema.Struct({models: Schema.optional(DataSourceIntrospectionModels), nextToken: Schema.optional(Schema.String)});
-export const ServiceQuotaExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CreateChannelNamespaceResponse = Schema.Struct({channelNamespace: Schema.optional(ChannelNamespace)});
-export const GetDataSourceIntrospectionResponse = Schema.Struct({introspectionId: Schema.optional(Schema.String), introspectionStatus: Schema.optional(Schema.String), introspectionStatusDetail: Schema.optional(Schema.String), introspectionResult: Schema.optional(DataSourceIntrospectionResult)});
-export const ConflictException = Schema.Struct({message: Schema.optional(Schema.String)});
+export class DataSourceIntrospectionResult extends Schema.Class<DataSourceIntrospectionResult>("DataSourceIntrospectionResult")({models: Schema.optional(DataSourceIntrospectionModels), nextToken: Schema.optional(Schema.String)}) {}
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({message: Schema.optional(Schema.String)}) {}
+export class CreateChannelNamespaceResponse extends Schema.Class<CreateChannelNamespaceResponse>("CreateChannelNamespaceResponse")({channelNamespace: Schema.optional(ChannelNamespace)}) {}
+export class GetDataSourceIntrospectionResponse extends Schema.Class<GetDataSourceIntrospectionResponse>("GetDataSourceIntrospectionResponse")({introspectionId: Schema.optional(Schema.String), introspectionStatus: Schema.optional(Schema.String), introspectionStatusDetail: Schema.optional(Schema.String), introspectionResult: Schema.optional(DataSourceIntrospectionResult)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({message: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class BadRequestExceptionError extends Schema.TaggedError<BadRequestExceptionError>()("BadRequestException", BadRequestException) {};
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class ConcurrentModificationExceptionError extends Schema.TaggedError<ConcurrentModificationExceptionError>()("ConcurrentModificationException", ConcurrentModificationException) {};
-export class InternalFailureExceptionError extends Schema.TaggedError<InternalFailureExceptionError>()("InternalFailureException", InternalFailureException) {};
-export class NotFoundExceptionError extends Schema.TaggedError<NotFoundExceptionError>()("NotFoundException", NotFoundException) {};
-export class UnauthorizedExceptionError extends Schema.TaggedError<UnauthorizedExceptionError>()("UnauthorizedException", UnauthorizedException) {};
-export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException) {};
-export class GraphQLSchemaExceptionError extends Schema.TaggedError<GraphQLSchemaExceptionError>()("GraphQLSchemaException", GraphQLSchemaException) {};
-export class ApiKeyValidityOutOfBoundsExceptionError extends Schema.TaggedError<ApiKeyValidityOutOfBoundsExceptionError>()("ApiKeyValidityOutOfBoundsException", ApiKeyValidityOutOfBoundsException) {};
-export class ApiKeyLimitExceededExceptionError extends Schema.TaggedError<ApiKeyLimitExceededExceptionError>()("ApiKeyLimitExceededException", ApiKeyLimitExceededException) {};
-export class ApiLimitExceededExceptionError extends Schema.TaggedError<ApiLimitExceededExceptionError>()("ApiLimitExceededException", ApiLimitExceededException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
+export class BadRequestExceptionError extends Schema.TaggedError<BadRequestExceptionError>()("BadRequestException", BadRequestException.fields) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class ConcurrentModificationExceptionError extends Schema.TaggedError<ConcurrentModificationExceptionError>()("ConcurrentModificationException", ConcurrentModificationException.fields) {};
+export class InternalFailureExceptionError extends Schema.TaggedError<InternalFailureExceptionError>()("InternalFailureException", InternalFailureException.fields) {};
+export class NotFoundExceptionError extends Schema.TaggedError<NotFoundExceptionError>()("NotFoundException", NotFoundException.fields) {};
+export class UnauthorizedExceptionError extends Schema.TaggedError<UnauthorizedExceptionError>()("UnauthorizedException", UnauthorizedException.fields) {};
+export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException.fields) {};
+export class GraphQLSchemaExceptionError extends Schema.TaggedError<GraphQLSchemaExceptionError>()("GraphQLSchemaException", GraphQLSchemaException.fields) {};
+export class ApiKeyValidityOutOfBoundsExceptionError extends Schema.TaggedError<ApiKeyValidityOutOfBoundsExceptionError>()("ApiKeyValidityOutOfBoundsException", ApiKeyValidityOutOfBoundsException.fields) {};
+export class ApiKeyLimitExceededExceptionError extends Schema.TaggedError<ApiKeyLimitExceededExceptionError>()("ApiKeyLimitExceededException", ApiKeyLimitExceededException.fields) {};
+export class ApiLimitExceededExceptionError extends Schema.TaggedError<ApiLimitExceededExceptionError>()("ApiLimitExceededException", ApiLimitExceededException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
 
 //# Operations
 export const deleteDomainName = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-07-25", uri: "/v1/domainnames/{domainName}", method: "DELETE", sdkId: "AppSync", sigV4ServiceName: "appsync", name: "AWSDeepdishControlPlaneService.DeleteDomainName" }, DeleteDomainNameRequest, DeleteDomainNameResponse, [AccessDeniedExceptionError, BadRequestExceptionError, ConcurrentModificationExceptionError, InternalFailureExceptionError, NotFoundExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

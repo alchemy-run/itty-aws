@@ -4,38 +4,58 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 
 //# Schemas
 export const TagKeyList = Schema.Array(Schema.String);
-export const GetSellingSystemSettingsRequest = Schema.Struct({Catalog: Schema.String});
-export const ListTagsForResourceRequest = Schema.Struct({ResourceArn: Schema.String});
-export const PutSellingSystemSettingsRequest = Schema.Struct({Catalog: Schema.String, ResourceSnapshotJobRoleIdentifier: Schema.optional(Schema.String)});
-export const UntagResourceRequest = Schema.Struct({ResourceArn: Schema.String, TagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
-export const Tag = Schema.Struct({Key: Schema.String, Value: Schema.String});
+export class GetSellingSystemSettingsRequest extends Schema.Class<GetSellingSystemSettingsRequest>("GetSellingSystemSettingsRequest")({Catalog: Schema.String}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({ResourceArn: Schema.String}) {}
+export class PutSellingSystemSettingsRequest extends Schema.Class<PutSellingSystemSettingsRequest>("PutSellingSystemSettingsRequest")({Catalog: Schema.String, ResourceSnapshotJobRoleIdentifier: Schema.optional(Schema.String)}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({ResourceArn: Schema.String, TagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.String, Value: Schema.String}) {}
 export const TagList = Schema.Array(Tag);
-export const GetSellingSystemSettingsResponse = Schema.Struct({Catalog: Schema.String, ResourceSnapshotJobRoleArn: Schema.optional(Schema.String)});
-export const ListTagsForResourceResponse = Schema.Struct({Tags: TagList});
-export const PutSellingSystemSettingsResponse = Schema.Struct({Catalog: Schema.String, ResourceSnapshotJobRoleArn: Schema.optional(Schema.String)});
-export const TagResourceRequest = Schema.Struct({ResourceArn: Schema.String, Tags: TagList});
-export const TagResourceResponse = Schema.Struct({});
-export const AccessDeniedException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const InternalServerException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ThrottlingException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ConflictException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ValidationExceptionError = Schema.Struct({FieldName: Schema.optional(Schema.String), Message: Schema.String, Code: Schema.String});
+export class GetSellingSystemSettingsResponse extends Schema.Class<GetSellingSystemSettingsResponse>("GetSellingSystemSettingsResponse")({Catalog: Schema.String, ResourceSnapshotJobRoleArn: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({Tags: TagList}) {}
+export class PutSellingSystemSettingsResponse extends Schema.Class<PutSellingSystemSettingsResponse>("PutSellingSystemSettingsResponse")({Catalog: Schema.String, ResourceSnapshotJobRoleArn: Schema.optional(Schema.String)}) {}
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({ResourceArn: Schema.String, Tags: TagList}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({Message: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String)}) {}
+export class AddressSummary extends Schema.Class<AddressSummary>("AddressSummary")({City: Schema.optional(Schema.String), PostalCode: Schema.optional(Schema.String), StateOrRegion: Schema.optional(Schema.String), CountryCode: Schema.optional(Schema.String)}) {}
+export class LeadCustomer extends Schema.Class<LeadCustomer>("LeadCustomer")({Industry: Schema.optional(Schema.String), CompanyName: Schema.String, WebsiteUrl: Schema.optional(Schema.String), Address: AddressSummary, AwsMaturity: Schema.optional(Schema.String), MarketSegment: Schema.optional(Schema.String)}) {}
+export class LeadContact extends Schema.Class<LeadContact>("LeadContact")({BusinessTitle: Schema.String, Email: Schema.String, FirstName: Schema.String, LastName: Schema.String, Phone: Schema.optional(Schema.String)}) {}
+export class LeadInteraction extends Schema.Class<LeadInteraction>("LeadInteraction")({SourceType: Schema.String, SourceId: Schema.String, SourceName: Schema.String, Usecase: Schema.optional(Schema.String), InteractionDate: Schema.optional(Schema.Date), CustomerAction: Schema.String, BusinessProblem: Schema.optional(Schema.String), Contact: LeadContact}) {}
+export class UpdateLeadContext extends Schema.Class<UpdateLeadContext>("UpdateLeadContext")({QualificationStatus: Schema.optional(Schema.String), Customer: LeadCustomer, Interaction: Schema.optional(LeadInteraction)}) {}
+export class EngagementCustomer extends Schema.Class<EngagementCustomer>("EngagementCustomer")({Industry: Schema.String, CompanyName: Schema.String, WebsiteUrl: Schema.String, CountryCode: Schema.String}) {}
+export class EngagementCustomerProjectDetails extends Schema.Class<EngagementCustomerProjectDetails>("EngagementCustomerProjectDetails")({Title: Schema.String, BusinessProblem: Schema.String, TargetCompletionDate: Schema.String}) {}
+export class CustomerProjectsContext extends Schema.Class<CustomerProjectsContext>("CustomerProjectsContext")({Customer: Schema.optional(EngagementCustomer), Project: Schema.optional(EngagementCustomerProjectDetails)}) {}
+export const UpdateEngagementContextPayload = Schema.Union(UpdateLeadContext, CustomerProjectsContext);
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({Message: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({Message: Schema.optional(Schema.String)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({Message: Schema.optional(Schema.String)}) {}
+export class UpdateEngagementContextRequest extends Schema.Class<UpdateEngagementContextRequest>("UpdateEngagementContextRequest")({Catalog: Schema.String, EngagementIdentifier: Schema.String, ContextIdentifier: Schema.String, EngagementLastModifiedAt: Schema.Date, Type: Schema.String, Payload: UpdateEngagementContextPayload}) {}
+export class ValidationExceptionError extends Schema.Class<ValidationExceptionError>("ValidationExceptionError")({FieldName: Schema.optional(Schema.String), Message: Schema.String, Code: Schema.String}) {}
 export const ValidationExceptionErrorList = Schema.Array(ValidationExceptionError);
-export const ValidationException = Schema.Struct({Message: Schema.String, Reason: Schema.String, ErrorList: Schema.optional(ValidationExceptionErrorList)});
+export const LeadInteractionList = Schema.Array(LeadInteraction);
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({Message: Schema.String, Reason: Schema.String, ErrorList: Schema.optional(ValidationExceptionErrorList)}) {}
+export class UpdateEngagementContextResponse extends Schema.Class<UpdateEngagementContextResponse>("UpdateEngagementContextResponse")({EngagementId: Schema.String, EngagementArn: Schema.String, EngagementLastModifiedAt: Schema.Date, ContextId: Schema.String}) {}
+export class LeadContext extends Schema.Class<LeadContext>("LeadContext")({QualificationStatus: Schema.optional(Schema.String), Customer: LeadCustomer, Interactions: LeadInteractionList}) {}
+export const EngagementContextPayload = Schema.Union(CustomerProjectsContext, LeadContext);
+export class CreateEngagementContextRequest extends Schema.Class<CreateEngagementContextRequest>("CreateEngagementContextRequest")({Catalog: Schema.String, EngagementIdentifier: Schema.String, ClientToken: Schema.String, Type: Schema.String, Payload: EngagementContextPayload}) {}
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({Message: Schema.optional(Schema.String)}) {}
+export class CreateEngagementContextResponse extends Schema.Class<CreateEngagementContextResponse>("CreateEngagementContextResponse")({EngagementId: Schema.optional(Schema.String), EngagementArn: Schema.optional(Schema.String), EngagementLastModifiedAt: Schema.optional(Schema.Date), ContextId: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
 
 //# Operations
-export const getSellingSystemSettings = /*#__PURE__*/ makeOperation(() => Operation({ version: "2022-07-26", uri: "/GetSellingSystemSettings", method: "POST", sdkId: "PartnerCentral Selling", sigV4ServiceName: "partnercentral-selling", name: "AWSPartnerCentralSelling.GetSellingSystemSettings" }, GetSellingSystemSettingsRequest, GetSellingSystemSettingsResponse, [AccessDeniedExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const getSellingSystemSettings = /*#__PURE__*/ makeOperation(() => Operation({ version: "2022-07-26", uri: "/GetSellingSystemSettings", method: "POST", sdkId: "PartnerCentral Selling", sigV4ServiceName: "partnercentral-selling", name: "AWSPartnerCentralSelling.GetSellingSystemSettings" }, GetSellingSystemSettingsRequest, GetSellingSystemSettingsResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const listTagsForResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2022-07-26", uri: "/ListTagsForResource", method: "POST", sdkId: "PartnerCentral Selling", sigV4ServiceName: "partnercentral-selling", name: "AWSPartnerCentralSelling.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const putSellingSystemSettings = /*#__PURE__*/ makeOperation(() => Operation({ version: "2022-07-26", uri: "/PutSellingSystemSettings", method: "POST", sdkId: "PartnerCentral Selling", sigV4ServiceName: "partnercentral-selling", name: "AWSPartnerCentralSelling.PutSellingSystemSettings" }, PutSellingSystemSettingsRequest, PutSellingSystemSettingsResponse, [AccessDeniedExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const putSellingSystemSettings = /*#__PURE__*/ makeOperation(() => Operation({ version: "2022-07-26", uri: "/PutSellingSystemSettings", method: "POST", sdkId: "PartnerCentral Selling", sigV4ServiceName: "partnercentral-selling", name: "AWSPartnerCentralSelling.PutSellingSystemSettings" }, PutSellingSystemSettingsRequest, PutSellingSystemSettingsResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const tagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2022-07-26", uri: "/TagResource", method: "POST", sdkId: "PartnerCentral Selling", sigV4ServiceName: "partnercentral-selling", name: "AWSPartnerCentralSelling.TagResource" }, TagResourceRequest, TagResourceResponse, [AccessDeniedExceptionError, ConflictExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const untagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2022-07-26", uri: "/UntagResource", method: "POST", sdkId: "PartnerCentral Selling", sigV4ServiceName: "partnercentral-selling", name: "AWSPartnerCentralSelling.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [AccessDeniedExceptionError, ConflictExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const updateEngagementContext = /*#__PURE__*/ makeOperation(() => Operation({ version: "2022-07-26", uri: "/UpdateEngagementContext", method: "POST", sdkId: "PartnerCentral Selling", sigV4ServiceName: "partnercentral-selling", name: "AWSPartnerCentralSelling.UpdateEngagementContext" }, UpdateEngagementContextRequest, UpdateEngagementContextResponse, [AccessDeniedExceptionError, ConflictExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ServiceQuotaExceededExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const createEngagementContext = /*#__PURE__*/ makeOperation(() => Operation({ version: "2022-07-26", uri: "/CreateEngagementContext", method: "POST", sdkId: "PartnerCentral Selling", sigV4ServiceName: "partnercentral-selling", name: "AWSPartnerCentralSelling.CreateEngagementContext" }, CreateEngagementContextRequest, CreateEngagementContextResponse, [AccessDeniedExceptionError, ConflictExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ServiceQuotaExceededExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);

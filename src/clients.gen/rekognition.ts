@@ -15,426 +15,426 @@ export const LabelDetectionFeatureList = Schema.Array(Schema.String);
 export const SegmentTypes = Schema.Array(Schema.String);
 export const TagKeyList = Schema.Array(Schema.String);
 export const StreamProcessorParametersToDelete = Schema.Array(Schema.String);
-export const AssociateFacesRequest = Schema.Struct({CollectionId: Schema.String, UserId: Schema.String, FaceIds: UserFaceIdList, UserMatchThreshold: Schema.optional(Schema.Number), ClientRequestToken: Schema.optional(Schema.String)});
+export class AssociateFacesRequest extends Schema.Class<AssociateFacesRequest>("AssociateFacesRequest")({CollectionId: Schema.String, UserId: Schema.String, FaceIds: UserFaceIdList, UserMatchThreshold: Schema.optional(Schema.Number), ClientRequestToken: Schema.optional(Schema.String)}) {}
 export const TagMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const CreateCollectionRequest = Schema.Struct({CollectionId: Schema.String, Tags: Schema.optional(TagMap)});
-export const CreateProjectRequest = Schema.Struct({ProjectName: Schema.String, Feature: Schema.optional(Schema.String), AutoUpdate: Schema.optional(Schema.String), Tags: Schema.optional(TagMap)});
-export const CreateUserRequest = Schema.Struct({CollectionId: Schema.String, UserId: Schema.String, ClientRequestToken: Schema.optional(Schema.String)});
-export const CreateUserResponse = Schema.Struct({});
-export const DeleteCollectionRequest = Schema.Struct({CollectionId: Schema.String});
-export const DeleteDatasetRequest = Schema.Struct({DatasetArn: Schema.String});
-export const DeleteDatasetResponse = Schema.Struct({});
-export const DeleteFacesRequest = Schema.Struct({CollectionId: Schema.String, FaceIds: FaceIdList});
-export const DeleteProjectRequest = Schema.Struct({ProjectArn: Schema.String});
-export const DeleteProjectPolicyRequest = Schema.Struct({ProjectArn: Schema.String, PolicyName: Schema.String, PolicyRevisionId: Schema.optional(Schema.String)});
-export const DeleteProjectPolicyResponse = Schema.Struct({});
-export const DeleteProjectVersionRequest = Schema.Struct({ProjectVersionArn: Schema.String});
-export const DeleteStreamProcessorRequest = Schema.Struct({Name: Schema.String});
-export const DeleteStreamProcessorResponse = Schema.Struct({});
-export const DeleteUserRequest = Schema.Struct({CollectionId: Schema.String, UserId: Schema.String, ClientRequestToken: Schema.optional(Schema.String)});
-export const DeleteUserResponse = Schema.Struct({});
-export const DescribeCollectionRequest = Schema.Struct({CollectionId: Schema.String});
-export const DescribeDatasetRequest = Schema.Struct({DatasetArn: Schema.String});
-export const DescribeProjectsRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), ProjectNames: Schema.optional(ProjectNames), Features: Schema.optional(CustomizationFeatures)});
-export const DescribeProjectVersionsRequest = Schema.Struct({ProjectArn: Schema.String, VersionNames: Schema.optional(VersionNames), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const DescribeStreamProcessorRequest = Schema.Struct({Name: Schema.String});
-export const S3Object = Schema.Struct({Bucket: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Version: Schema.optional(Schema.String)});
-export const Image = Schema.Struct({Bytes: Schema.optional(StreamBody()), S3Object: Schema.optional(S3Object)});
-export const DetectCustomLabelsRequest = Schema.Struct({ProjectVersionArn: Schema.String, Image: Image, MaxResults: Schema.optional(Schema.Number), MinConfidence: Schema.optional(Schema.Number)});
-export const DetectFacesRequest = Schema.Struct({Image: Image, Attributes: Schema.optional(Attributes)});
-export const DisassociateFacesRequest = Schema.Struct({CollectionId: Schema.String, UserId: Schema.String, ClientRequestToken: Schema.optional(Schema.String), FaceIds: UserFaceIdList});
-export const GetCelebrityInfoRequest = Schema.Struct({Id: Schema.String});
-export const GetCelebrityRecognitionRequest = Schema.Struct({JobId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), SortBy: Schema.optional(Schema.String)});
-export const GetContentModerationRequest = Schema.Struct({JobId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), SortBy: Schema.optional(Schema.String), AggregateBy: Schema.optional(Schema.String)});
-export const GetFaceDetectionRequest = Schema.Struct({JobId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const GetFaceLivenessSessionResultsRequest = Schema.Struct({SessionId: Schema.String});
-export const GetFaceSearchRequest = Schema.Struct({JobId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), SortBy: Schema.optional(Schema.String)});
-export const GetLabelDetectionRequest = Schema.Struct({JobId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), SortBy: Schema.optional(Schema.String), AggregateBy: Schema.optional(Schema.String)});
-export const GetMediaAnalysisJobRequest = Schema.Struct({JobId: Schema.String});
-export const GetPersonTrackingRequest = Schema.Struct({JobId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), SortBy: Schema.optional(Schema.String)});
-export const GetSegmentDetectionRequest = Schema.Struct({JobId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const GetTextDetectionRequest = Schema.Struct({JobId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const IndexFacesRequest = Schema.Struct({CollectionId: Schema.String, Image: Image, ExternalImageId: Schema.optional(Schema.String), DetectionAttributes: Schema.optional(Attributes), MaxFaces: Schema.optional(Schema.Number), QualityFilter: Schema.optional(Schema.String)});
-export const ListCollectionsRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListDatasetEntriesRequest = Schema.Struct({DatasetArn: Schema.String, ContainsLabels: Schema.optional(DatasetLabels), Labeled: Schema.optional(Schema.Boolean), SourceRefContains: Schema.optional(Schema.String), HasErrors: Schema.optional(Schema.Boolean), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListDatasetLabelsRequest = Schema.Struct({DatasetArn: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListFacesRequest = Schema.Struct({CollectionId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), UserId: Schema.optional(Schema.String), FaceIds: Schema.optional(FaceIdList)});
-export const ListMediaAnalysisJobsRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListProjectPoliciesRequest = Schema.Struct({ProjectArn: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListStreamProcessorsRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListTagsForResourceRequest = Schema.Struct({ResourceArn: Schema.String});
-export const ListUsersRequest = Schema.Struct({CollectionId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const PutProjectPolicyRequest = Schema.Struct({ProjectArn: Schema.String, PolicyName: Schema.String, PolicyRevisionId: Schema.optional(Schema.String), PolicyDocument: Schema.String});
-export const RecognizeCelebritiesRequest = Schema.Struct({Image: Image});
-export const SearchFacesRequest = Schema.Struct({CollectionId: Schema.String, FaceId: Schema.String, MaxFaces: Schema.optional(Schema.Number), FaceMatchThreshold: Schema.optional(Schema.Number)});
-export const SearchFacesByImageRequest = Schema.Struct({CollectionId: Schema.String, Image: Image, MaxFaces: Schema.optional(Schema.Number), FaceMatchThreshold: Schema.optional(Schema.Number), QualityFilter: Schema.optional(Schema.String)});
-export const SearchUsersRequest = Schema.Struct({CollectionId: Schema.String, UserId: Schema.optional(Schema.String), FaceId: Schema.optional(Schema.String), UserMatchThreshold: Schema.optional(Schema.Number), MaxUsers: Schema.optional(Schema.Number)});
-export const SearchUsersByImageRequest = Schema.Struct({CollectionId: Schema.String, Image: Image, UserMatchThreshold: Schema.optional(Schema.Number), MaxUsers: Schema.optional(Schema.Number), QualityFilter: Schema.optional(Schema.String)});
-export const Video = Schema.Struct({S3Object: Schema.optional(S3Object)});
-export const NotificationChannel = Schema.Struct({SNSTopicArn: Schema.String, RoleArn: Schema.String});
-export const StartContentModerationRequest = Schema.Struct({Video: Video, MinConfidence: Schema.optional(Schema.Number), ClientRequestToken: Schema.optional(Schema.String), NotificationChannel: Schema.optional(NotificationChannel), JobTag: Schema.optional(Schema.String)});
-export const StartFaceDetectionRequest = Schema.Struct({Video: Video, ClientRequestToken: Schema.optional(Schema.String), NotificationChannel: Schema.optional(NotificationChannel), FaceAttributes: Schema.optional(Schema.String), JobTag: Schema.optional(Schema.String)});
-export const StartFaceSearchRequest = Schema.Struct({Video: Video, ClientRequestToken: Schema.optional(Schema.String), FaceMatchThreshold: Schema.optional(Schema.Number), CollectionId: Schema.String, NotificationChannel: Schema.optional(NotificationChannel), JobTag: Schema.optional(Schema.String)});
-export const StartPersonTrackingRequest = Schema.Struct({Video: Video, ClientRequestToken: Schema.optional(Schema.String), NotificationChannel: Schema.optional(NotificationChannel), JobTag: Schema.optional(Schema.String)});
-export const StartProjectVersionRequest = Schema.Struct({ProjectVersionArn: Schema.String, MinInferenceUnits: Schema.Number, MaxInferenceUnits: Schema.optional(Schema.Number)});
-export const StopProjectVersionRequest = Schema.Struct({ProjectVersionArn: Schema.String});
-export const StopStreamProcessorRequest = Schema.Struct({Name: Schema.String});
-export const StopStreamProcessorResponse = Schema.Struct({});
-export const TagResourceRequest = Schema.Struct({ResourceArn: Schema.String, Tags: TagMap});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({ResourceArn: Schema.String, TagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
+export class CreateCollectionRequest extends Schema.Class<CreateCollectionRequest>("CreateCollectionRequest")({CollectionId: Schema.String, Tags: Schema.optional(TagMap)}) {}
+export class CreateProjectRequest extends Schema.Class<CreateProjectRequest>("CreateProjectRequest")({ProjectName: Schema.String, Feature: Schema.optional(Schema.String), AutoUpdate: Schema.optional(Schema.String), Tags: Schema.optional(TagMap)}) {}
+export class CreateUserRequest extends Schema.Class<CreateUserRequest>("CreateUserRequest")({CollectionId: Schema.String, UserId: Schema.String, ClientRequestToken: Schema.optional(Schema.String)}) {}
+export class CreateUserResponse extends Schema.Class<CreateUserResponse>("CreateUserResponse")({}) {}
+export class DeleteCollectionRequest extends Schema.Class<DeleteCollectionRequest>("DeleteCollectionRequest")({CollectionId: Schema.String}) {}
+export class DeleteDatasetRequest extends Schema.Class<DeleteDatasetRequest>("DeleteDatasetRequest")({DatasetArn: Schema.String}) {}
+export class DeleteDatasetResponse extends Schema.Class<DeleteDatasetResponse>("DeleteDatasetResponse")({}) {}
+export class DeleteFacesRequest extends Schema.Class<DeleteFacesRequest>("DeleteFacesRequest")({CollectionId: Schema.String, FaceIds: FaceIdList}) {}
+export class DeleteProjectRequest extends Schema.Class<DeleteProjectRequest>("DeleteProjectRequest")({ProjectArn: Schema.String}) {}
+export class DeleteProjectPolicyRequest extends Schema.Class<DeleteProjectPolicyRequest>("DeleteProjectPolicyRequest")({ProjectArn: Schema.String, PolicyName: Schema.String, PolicyRevisionId: Schema.optional(Schema.String)}) {}
+export class DeleteProjectPolicyResponse extends Schema.Class<DeleteProjectPolicyResponse>("DeleteProjectPolicyResponse")({}) {}
+export class DeleteProjectVersionRequest extends Schema.Class<DeleteProjectVersionRequest>("DeleteProjectVersionRequest")({ProjectVersionArn: Schema.String}) {}
+export class DeleteStreamProcessorRequest extends Schema.Class<DeleteStreamProcessorRequest>("DeleteStreamProcessorRequest")({Name: Schema.String}) {}
+export class DeleteStreamProcessorResponse extends Schema.Class<DeleteStreamProcessorResponse>("DeleteStreamProcessorResponse")({}) {}
+export class DeleteUserRequest extends Schema.Class<DeleteUserRequest>("DeleteUserRequest")({CollectionId: Schema.String, UserId: Schema.String, ClientRequestToken: Schema.optional(Schema.String)}) {}
+export class DeleteUserResponse extends Schema.Class<DeleteUserResponse>("DeleteUserResponse")({}) {}
+export class DescribeCollectionRequest extends Schema.Class<DescribeCollectionRequest>("DescribeCollectionRequest")({CollectionId: Schema.String}) {}
+export class DescribeDatasetRequest extends Schema.Class<DescribeDatasetRequest>("DescribeDatasetRequest")({DatasetArn: Schema.String}) {}
+export class DescribeProjectsRequest extends Schema.Class<DescribeProjectsRequest>("DescribeProjectsRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), ProjectNames: Schema.optional(ProjectNames), Features: Schema.optional(CustomizationFeatures)}) {}
+export class DescribeProjectVersionsRequest extends Schema.Class<DescribeProjectVersionsRequest>("DescribeProjectVersionsRequest")({ProjectArn: Schema.String, VersionNames: Schema.optional(VersionNames), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class DescribeStreamProcessorRequest extends Schema.Class<DescribeStreamProcessorRequest>("DescribeStreamProcessorRequest")({Name: Schema.String}) {}
+export class S3Object extends Schema.Class<S3Object>("S3Object")({Bucket: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Version: Schema.optional(Schema.String)}) {}
+export class Image extends Schema.Class<Image>("Image")({Bytes: Schema.optional(StreamBody()), S3Object: Schema.optional(S3Object)}) {}
+export class DetectCustomLabelsRequest extends Schema.Class<DetectCustomLabelsRequest>("DetectCustomLabelsRequest")({ProjectVersionArn: Schema.String, Image: Image, MaxResults: Schema.optional(Schema.Number), MinConfidence: Schema.optional(Schema.Number)}) {}
+export class DetectFacesRequest extends Schema.Class<DetectFacesRequest>("DetectFacesRequest")({Image: Image, Attributes: Schema.optional(Attributes)}) {}
+export class DisassociateFacesRequest extends Schema.Class<DisassociateFacesRequest>("DisassociateFacesRequest")({CollectionId: Schema.String, UserId: Schema.String, ClientRequestToken: Schema.optional(Schema.String), FaceIds: UserFaceIdList}) {}
+export class GetCelebrityInfoRequest extends Schema.Class<GetCelebrityInfoRequest>("GetCelebrityInfoRequest")({Id: Schema.String}) {}
+export class GetCelebrityRecognitionRequest extends Schema.Class<GetCelebrityRecognitionRequest>("GetCelebrityRecognitionRequest")({JobId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), SortBy: Schema.optional(Schema.String)}) {}
+export class GetContentModerationRequest extends Schema.Class<GetContentModerationRequest>("GetContentModerationRequest")({JobId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), SortBy: Schema.optional(Schema.String), AggregateBy: Schema.optional(Schema.String)}) {}
+export class GetFaceDetectionRequest extends Schema.Class<GetFaceDetectionRequest>("GetFaceDetectionRequest")({JobId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class GetFaceLivenessSessionResultsRequest extends Schema.Class<GetFaceLivenessSessionResultsRequest>("GetFaceLivenessSessionResultsRequest")({SessionId: Schema.String}) {}
+export class GetFaceSearchRequest extends Schema.Class<GetFaceSearchRequest>("GetFaceSearchRequest")({JobId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), SortBy: Schema.optional(Schema.String)}) {}
+export class GetLabelDetectionRequest extends Schema.Class<GetLabelDetectionRequest>("GetLabelDetectionRequest")({JobId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), SortBy: Schema.optional(Schema.String), AggregateBy: Schema.optional(Schema.String)}) {}
+export class GetMediaAnalysisJobRequest extends Schema.Class<GetMediaAnalysisJobRequest>("GetMediaAnalysisJobRequest")({JobId: Schema.String}) {}
+export class GetPersonTrackingRequest extends Schema.Class<GetPersonTrackingRequest>("GetPersonTrackingRequest")({JobId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), SortBy: Schema.optional(Schema.String)}) {}
+export class GetSegmentDetectionRequest extends Schema.Class<GetSegmentDetectionRequest>("GetSegmentDetectionRequest")({JobId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class GetTextDetectionRequest extends Schema.Class<GetTextDetectionRequest>("GetTextDetectionRequest")({JobId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class IndexFacesRequest extends Schema.Class<IndexFacesRequest>("IndexFacesRequest")({CollectionId: Schema.String, Image: Image, ExternalImageId: Schema.optional(Schema.String), DetectionAttributes: Schema.optional(Attributes), MaxFaces: Schema.optional(Schema.Number), QualityFilter: Schema.optional(Schema.String)}) {}
+export class ListCollectionsRequest extends Schema.Class<ListCollectionsRequest>("ListCollectionsRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListDatasetEntriesRequest extends Schema.Class<ListDatasetEntriesRequest>("ListDatasetEntriesRequest")({DatasetArn: Schema.String, ContainsLabels: Schema.optional(DatasetLabels), Labeled: Schema.optional(Schema.Boolean), SourceRefContains: Schema.optional(Schema.String), HasErrors: Schema.optional(Schema.Boolean), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListDatasetLabelsRequest extends Schema.Class<ListDatasetLabelsRequest>("ListDatasetLabelsRequest")({DatasetArn: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListFacesRequest extends Schema.Class<ListFacesRequest>("ListFacesRequest")({CollectionId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), UserId: Schema.optional(Schema.String), FaceIds: Schema.optional(FaceIdList)}) {}
+export class ListMediaAnalysisJobsRequest extends Schema.Class<ListMediaAnalysisJobsRequest>("ListMediaAnalysisJobsRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListProjectPoliciesRequest extends Schema.Class<ListProjectPoliciesRequest>("ListProjectPoliciesRequest")({ProjectArn: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListStreamProcessorsRequest extends Schema.Class<ListStreamProcessorsRequest>("ListStreamProcessorsRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({ResourceArn: Schema.String}) {}
+export class ListUsersRequest extends Schema.Class<ListUsersRequest>("ListUsersRequest")({CollectionId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class PutProjectPolicyRequest extends Schema.Class<PutProjectPolicyRequest>("PutProjectPolicyRequest")({ProjectArn: Schema.String, PolicyName: Schema.String, PolicyRevisionId: Schema.optional(Schema.String), PolicyDocument: Schema.String}) {}
+export class RecognizeCelebritiesRequest extends Schema.Class<RecognizeCelebritiesRequest>("RecognizeCelebritiesRequest")({Image: Image}) {}
+export class SearchFacesRequest extends Schema.Class<SearchFacesRequest>("SearchFacesRequest")({CollectionId: Schema.String, FaceId: Schema.String, MaxFaces: Schema.optional(Schema.Number), FaceMatchThreshold: Schema.optional(Schema.Number)}) {}
+export class SearchFacesByImageRequest extends Schema.Class<SearchFacesByImageRequest>("SearchFacesByImageRequest")({CollectionId: Schema.String, Image: Image, MaxFaces: Schema.optional(Schema.Number), FaceMatchThreshold: Schema.optional(Schema.Number), QualityFilter: Schema.optional(Schema.String)}) {}
+export class SearchUsersRequest extends Schema.Class<SearchUsersRequest>("SearchUsersRequest")({CollectionId: Schema.String, UserId: Schema.optional(Schema.String), FaceId: Schema.optional(Schema.String), UserMatchThreshold: Schema.optional(Schema.Number), MaxUsers: Schema.optional(Schema.Number)}) {}
+export class SearchUsersByImageRequest extends Schema.Class<SearchUsersByImageRequest>("SearchUsersByImageRequest")({CollectionId: Schema.String, Image: Image, UserMatchThreshold: Schema.optional(Schema.Number), MaxUsers: Schema.optional(Schema.Number), QualityFilter: Schema.optional(Schema.String)}) {}
+export class Video extends Schema.Class<Video>("Video")({S3Object: Schema.optional(S3Object)}) {}
+export class NotificationChannel extends Schema.Class<NotificationChannel>("NotificationChannel")({SNSTopicArn: Schema.String, RoleArn: Schema.String}) {}
+export class StartContentModerationRequest extends Schema.Class<StartContentModerationRequest>("StartContentModerationRequest")({Video: Video, MinConfidence: Schema.optional(Schema.Number), ClientRequestToken: Schema.optional(Schema.String), NotificationChannel: Schema.optional(NotificationChannel), JobTag: Schema.optional(Schema.String)}) {}
+export class StartFaceDetectionRequest extends Schema.Class<StartFaceDetectionRequest>("StartFaceDetectionRequest")({Video: Video, ClientRequestToken: Schema.optional(Schema.String), NotificationChannel: Schema.optional(NotificationChannel), FaceAttributes: Schema.optional(Schema.String), JobTag: Schema.optional(Schema.String)}) {}
+export class StartFaceSearchRequest extends Schema.Class<StartFaceSearchRequest>("StartFaceSearchRequest")({Video: Video, ClientRequestToken: Schema.optional(Schema.String), FaceMatchThreshold: Schema.optional(Schema.Number), CollectionId: Schema.String, NotificationChannel: Schema.optional(NotificationChannel), JobTag: Schema.optional(Schema.String)}) {}
+export class StartPersonTrackingRequest extends Schema.Class<StartPersonTrackingRequest>("StartPersonTrackingRequest")({Video: Video, ClientRequestToken: Schema.optional(Schema.String), NotificationChannel: Schema.optional(NotificationChannel), JobTag: Schema.optional(Schema.String)}) {}
+export class StartProjectVersionRequest extends Schema.Class<StartProjectVersionRequest>("StartProjectVersionRequest")({ProjectVersionArn: Schema.String, MinInferenceUnits: Schema.Number, MaxInferenceUnits: Schema.optional(Schema.Number)}) {}
+export class StopProjectVersionRequest extends Schema.Class<StopProjectVersionRequest>("StopProjectVersionRequest")({ProjectVersionArn: Schema.String}) {}
+export class StopStreamProcessorRequest extends Schema.Class<StopStreamProcessorRequest>("StopStreamProcessorRequest")({Name: Schema.String}) {}
+export class StopStreamProcessorResponse extends Schema.Class<StopStreamProcessorResponse>("StopStreamProcessorResponse")({}) {}
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({ResourceArn: Schema.String, Tags: TagMap}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({ResourceArn: Schema.String, TagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
 export const ProtectiveEquipmentTypes = Schema.Array(Schema.String);
-export const OutputConfig = Schema.Struct({S3Bucket: Schema.optional(Schema.String), S3KeyPrefix: Schema.optional(Schema.String)});
-export const GroundTruthManifest = Schema.Struct({S3Object: Schema.optional(S3Object)});
-export const Asset = Schema.Struct({GroundTruthManifest: Schema.optional(GroundTruthManifest)});
+export class OutputConfig extends Schema.Class<OutputConfig>("OutputConfig")({S3Bucket: Schema.optional(Schema.String), S3KeyPrefix: Schema.optional(Schema.String)}) {}
+export class GroundTruthManifest extends Schema.Class<GroundTruthManifest>("GroundTruthManifest")({S3Object: Schema.optional(S3Object)}) {}
+export class Asset extends Schema.Class<Asset>("Asset")({GroundTruthManifest: Schema.optional(GroundTruthManifest)}) {}
 export const Assets = Schema.Array(Asset);
-export const TestingData = Schema.Struct({Assets: Schema.optional(Assets), AutoCreate: Schema.optional(Schema.Boolean)});
-export const StreamProcessorNotificationChannel = Schema.Struct({SNSTopicArn: Schema.String});
-export const StreamProcessorDataSharingPreference = Schema.Struct({OptIn: Schema.Boolean});
-export const ProtectiveEquipmentSummarizationAttributes = Schema.Struct({MinConfidence: Schema.Number, RequiredEquipmentTypes: ProtectiveEquipmentTypes});
-export const DistributeDataset = Schema.Struct({Arn: Schema.String});
+export class TestingData extends Schema.Class<TestingData>("TestingData")({Assets: Schema.optional(Assets), AutoCreate: Schema.optional(Schema.Boolean)}) {}
+export class StreamProcessorNotificationChannel extends Schema.Class<StreamProcessorNotificationChannel>("StreamProcessorNotificationChannel")({SNSTopicArn: Schema.String}) {}
+export class StreamProcessorDataSharingPreference extends Schema.Class<StreamProcessorDataSharingPreference>("StreamProcessorDataSharingPreference")({OptIn: Schema.Boolean}) {}
+export class ProtectiveEquipmentSummarizationAttributes extends Schema.Class<ProtectiveEquipmentSummarizationAttributes>("ProtectiveEquipmentSummarizationAttributes")({MinConfidence: Schema.Number, RequiredEquipmentTypes: ProtectiveEquipmentTypes}) {}
+export class DistributeDataset extends Schema.Class<DistributeDataset>("DistributeDataset")({Arn: Schema.String}) {}
 export const DistributeDatasetMetadataList = Schema.Array(DistributeDataset);
 export const Urls = Schema.Array(Schema.String);
-export const BoundingBox = Schema.Struct({Width: Schema.optional(Schema.Number), Height: Schema.optional(Schema.Number), Left: Schema.optional(Schema.Number), Top: Schema.optional(Schema.Number)});
-export const AuditImage = Schema.Struct({Bytes: Schema.optional(StreamBody()), S3Object: Schema.optional(S3Object), BoundingBox: Schema.optional(BoundingBox)});
+export class BoundingBox extends Schema.Class<BoundingBox>("BoundingBox")({Width: Schema.optional(Schema.Number), Height: Schema.optional(Schema.Number), Left: Schema.optional(Schema.Number), Top: Schema.optional(Schema.Number)}) {}
+export class AuditImage extends Schema.Class<AuditImage>("AuditImage")({Bytes: Schema.optional(StreamBody()), S3Object: Schema.optional(S3Object), BoundingBox: Schema.optional(BoundingBox)}) {}
 export const AuditImages = Schema.Array(AuditImage);
-export const VideoMetadata = Schema.Struct({Codec: Schema.optional(Schema.String), DurationMillis: Schema.optional(Schema.Number), Format: Schema.optional(Schema.String), FrameRate: Schema.optional(Schema.Number), FrameHeight: Schema.optional(Schema.Number), FrameWidth: Schema.optional(Schema.Number), ColorRange: Schema.optional(Schema.String)});
+export class VideoMetadata extends Schema.Class<VideoMetadata>("VideoMetadata")({Codec: Schema.optional(Schema.String), DurationMillis: Schema.optional(Schema.Number), Format: Schema.optional(Schema.String), FrameRate: Schema.optional(Schema.Number), FrameHeight: Schema.optional(Schema.Number), FrameWidth: Schema.optional(Schema.Number), ColorRange: Schema.optional(Schema.String)}) {}
 export const VideoMetadataList = Schema.Array(VideoMetadata);
 export const CollectionIdList = Schema.Array(Schema.String);
 export const FaceModelVersionList = Schema.Array(Schema.String);
 export const DatasetEntries = Schema.Array(Schema.String);
 export const GeneralLabelsFilterList = Schema.Array(Schema.String);
-export const GeneralLabelsSettings = Schema.Struct({LabelInclusionFilters: Schema.optional(GeneralLabelsFilterList), LabelExclusionFilters: Schema.optional(GeneralLabelsFilterList), LabelCategoryInclusionFilters: Schema.optional(GeneralLabelsFilterList), LabelCategoryExclusionFilters: Schema.optional(GeneralLabelsFilterList)});
-export const LabelDetectionSettings = Schema.Struct({GeneralLabels: Schema.optional(GeneralLabelsSettings)});
-export const MediaAnalysisInput = Schema.Struct({S3Object: S3Object});
-export const MediaAnalysisOutputConfig = Schema.Struct({S3Bucket: Schema.String, S3KeyPrefix: Schema.optional(Schema.String)});
-export const StreamProcessingStopSelector = Schema.Struct({MaxDurationInSeconds: Schema.optional(Schema.Number)});
-export const DetectionFilter = Schema.Struct({MinConfidence: Schema.optional(Schema.Number), MinBoundingBoxHeight: Schema.optional(Schema.Number), MinBoundingBoxWidth: Schema.optional(Schema.Number)});
-export const Point = Schema.Struct({X: Schema.optional(Schema.Number), Y: Schema.optional(Schema.Number)});
+export class GeneralLabelsSettings extends Schema.Class<GeneralLabelsSettings>("GeneralLabelsSettings")({LabelInclusionFilters: Schema.optional(GeneralLabelsFilterList), LabelExclusionFilters: Schema.optional(GeneralLabelsFilterList), LabelCategoryInclusionFilters: Schema.optional(GeneralLabelsFilterList), LabelCategoryExclusionFilters: Schema.optional(GeneralLabelsFilterList)}) {}
+export class LabelDetectionSettings extends Schema.Class<LabelDetectionSettings>("LabelDetectionSettings")({GeneralLabels: Schema.optional(GeneralLabelsSettings)}) {}
+export class MediaAnalysisInput extends Schema.Class<MediaAnalysisInput>("MediaAnalysisInput")({S3Object: S3Object}) {}
+export class MediaAnalysisOutputConfig extends Schema.Class<MediaAnalysisOutputConfig>("MediaAnalysisOutputConfig")({S3Bucket: Schema.String, S3KeyPrefix: Schema.optional(Schema.String)}) {}
+export class StreamProcessingStopSelector extends Schema.Class<StreamProcessingStopSelector>("StreamProcessingStopSelector")({MaxDurationInSeconds: Schema.optional(Schema.Number)}) {}
+export class DetectionFilter extends Schema.Class<DetectionFilter>("DetectionFilter")({MinConfidence: Schema.optional(Schema.Number), MinBoundingBoxHeight: Schema.optional(Schema.Number), MinBoundingBoxWidth: Schema.optional(Schema.Number)}) {}
+export class Point extends Schema.Class<Point>("Point")({X: Schema.optional(Schema.Number), Y: Schema.optional(Schema.Number)}) {}
 export const Polygon = Schema.Array(Point);
-export const RegionOfInterest = Schema.Struct({BoundingBox: Schema.optional(BoundingBox), Polygon: Schema.optional(Polygon)});
+export class RegionOfInterest extends Schema.Class<RegionOfInterest>("RegionOfInterest")({BoundingBox: Schema.optional(BoundingBox), Polygon: Schema.optional(Polygon)}) {}
 export const RegionsOfInterest = Schema.Array(RegionOfInterest);
-export const StartTextDetectionFilters = Schema.Struct({WordFilter: Schema.optional(DetectionFilter), RegionsOfInterest: Schema.optional(RegionsOfInterest)});
-export const DatasetChanges = Schema.Struct({GroundTruth: StreamBody()});
+export class StartTextDetectionFilters extends Schema.Class<StartTextDetectionFilters>("StartTextDetectionFilters")({WordFilter: Schema.optional(DetectionFilter), RegionsOfInterest: Schema.optional(RegionsOfInterest)}) {}
+export class DatasetChanges extends Schema.Class<DatasetChanges>("DatasetChanges")({GroundTruth: StreamBody()}) {}
 export const ConnectedHomeLabels = Schema.Array(Schema.String);
 export const ContentClassifiers = Schema.Array(Schema.String);
-export const CopyProjectVersionRequest = Schema.Struct({SourceProjectArn: Schema.String, SourceProjectVersionArn: Schema.String, DestinationProjectArn: Schema.String, VersionName: Schema.String, OutputConfig: OutputConfig, Tags: Schema.optional(TagMap), KmsKeyId: Schema.optional(Schema.String)});
-export const CreateCollectionResponse = Schema.Struct({StatusCode: Schema.optional(Schema.Number), CollectionArn: Schema.optional(Schema.String), FaceModelVersion: Schema.optional(Schema.String)});
-export const CreateProjectResponse = Schema.Struct({ProjectArn: Schema.optional(Schema.String)});
-export const AccessDeniedException = Schema.Struct({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), Logref: Schema.optional(Schema.String)});
-export const DeleteCollectionResponse = Schema.Struct({StatusCode: Schema.optional(Schema.Number)});
-export const InternalServerError = Schema.Struct({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), Logref: Schema.optional(Schema.String)});
-export const DeleteProjectResponse = Schema.Struct({Status: Schema.optional(Schema.String)});
-export const InvalidParameterException = Schema.Struct({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), Logref: Schema.optional(Schema.String)});
-export const DeleteProjectVersionResponse = Schema.Struct({Status: Schema.optional(Schema.String)});
-export const ProvisionedThroughputExceededException = Schema.Struct({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), Logref: Schema.optional(Schema.String)});
-export const ConflictException = Schema.Struct({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), Logref: Schema.optional(Schema.String)});
-export const DescribeCollectionResponse = Schema.Struct({FaceCount: Schema.optional(Schema.Number), FaceModelVersion: Schema.optional(Schema.String), CollectionARN: Schema.optional(Schema.String), CreationTimestamp: Schema.optional(Schema.Date), UserCount: Schema.optional(Schema.Number)});
-export const KinesisVideoStream = Schema.Struct({Arn: Schema.optional(Schema.String)});
-export const StreamProcessorInput = Schema.Struct({KinesisVideoStream: Schema.optional(KinesisVideoStream)});
-export const KinesisDataStream = Schema.Struct({Arn: Schema.optional(Schema.String)});
-export const S3Destination = Schema.Struct({Bucket: Schema.optional(Schema.String), KeyPrefix: Schema.optional(Schema.String)});
-export const StreamProcessorOutput = Schema.Struct({KinesisDataStream: Schema.optional(KinesisDataStream), S3Destination: Schema.optional(S3Destination)});
-export const FaceSearchSettings = Schema.Struct({CollectionId: Schema.optional(Schema.String), FaceMatchThreshold: Schema.optional(Schema.Number)});
-export const ConnectedHomeSettings = Schema.Struct({Labels: ConnectedHomeLabels, MinConfidence: Schema.optional(Schema.Number)});
-export const StreamProcessorSettings = Schema.Struct({FaceSearch: Schema.optional(FaceSearchSettings), ConnectedHome: Schema.optional(ConnectedHomeSettings)});
-export const DescribeStreamProcessorResponse = Schema.Struct({Name: Schema.optional(Schema.String), StreamProcessorArn: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), CreationTimestamp: Schema.optional(Schema.Date), LastUpdateTimestamp: Schema.optional(Schema.Date), Input: Schema.optional(StreamProcessorInput), Output: Schema.optional(StreamProcessorOutput), RoleArn: Schema.optional(Schema.String), Settings: Schema.optional(StreamProcessorSettings), NotificationChannel: Schema.optional(StreamProcessorNotificationChannel), KmsKeyId: Schema.optional(Schema.String), RegionsOfInterest: Schema.optional(RegionsOfInterest), DataSharingPreference: Schema.optional(StreamProcessorDataSharingPreference)});
-export const DetectProtectiveEquipmentRequest = Schema.Struct({Image: Image, SummarizationAttributes: Schema.optional(ProtectiveEquipmentSummarizationAttributes)});
-export const DistributeDatasetEntriesRequest = Schema.Struct({Datasets: DistributeDatasetMetadataList});
-export const DistributeDatasetEntriesResponse = Schema.Struct({});
-export const ListCollectionsResponse = Schema.Struct({CollectionIds: Schema.optional(CollectionIdList), NextToken: Schema.optional(Schema.String), FaceModelVersions: Schema.optional(FaceModelVersionList)});
-export const ListDatasetEntriesResponse = Schema.Struct({DatasetEntries: Schema.optional(DatasetEntries), NextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceResponse = Schema.Struct({Tags: Schema.optional(TagMap)});
-export const PutProjectPolicyResponse = Schema.Struct({PolicyRevisionId: Schema.optional(Schema.String)});
-export const Face = Schema.Struct({FaceId: Schema.optional(Schema.String), BoundingBox: Schema.optional(BoundingBox), ImageId: Schema.optional(Schema.String), ExternalImageId: Schema.optional(Schema.String), Confidence: Schema.optional(Schema.Number), IndexFacesModelVersion: Schema.optional(Schema.String), UserId: Schema.optional(Schema.String)});
-export const FaceMatch = Schema.Struct({Similarity: Schema.optional(Schema.Number), Face: Schema.optional(Face)});
+export class CopyProjectVersionRequest extends Schema.Class<CopyProjectVersionRequest>("CopyProjectVersionRequest")({SourceProjectArn: Schema.String, SourceProjectVersionArn: Schema.String, DestinationProjectArn: Schema.String, VersionName: Schema.String, OutputConfig: OutputConfig, Tags: Schema.optional(TagMap), KmsKeyId: Schema.optional(Schema.String)}) {}
+export class CreateCollectionResponse extends Schema.Class<CreateCollectionResponse>("CreateCollectionResponse")({StatusCode: Schema.optional(Schema.Number), CollectionArn: Schema.optional(Schema.String), FaceModelVersion: Schema.optional(Schema.String)}) {}
+export class CreateProjectResponse extends Schema.Class<CreateProjectResponse>("CreateProjectResponse")({ProjectArn: Schema.optional(Schema.String)}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), Logref: Schema.optional(Schema.String)}) {}
+export class DeleteCollectionResponse extends Schema.Class<DeleteCollectionResponse>("DeleteCollectionResponse")({StatusCode: Schema.optional(Schema.Number)}) {}
+export class InternalServerError extends Schema.Class<InternalServerError>("InternalServerError")({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), Logref: Schema.optional(Schema.String)}) {}
+export class DeleteProjectResponse extends Schema.Class<DeleteProjectResponse>("DeleteProjectResponse")({Status: Schema.optional(Schema.String)}) {}
+export class InvalidParameterException extends Schema.Class<InvalidParameterException>("InvalidParameterException")({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), Logref: Schema.optional(Schema.String)}) {}
+export class DeleteProjectVersionResponse extends Schema.Class<DeleteProjectVersionResponse>("DeleteProjectVersionResponse")({Status: Schema.optional(Schema.String)}) {}
+export class ProvisionedThroughputExceededException extends Schema.Class<ProvisionedThroughputExceededException>("ProvisionedThroughputExceededException")({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), Logref: Schema.optional(Schema.String)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), Logref: Schema.optional(Schema.String)}) {}
+export class DescribeCollectionResponse extends Schema.Class<DescribeCollectionResponse>("DescribeCollectionResponse")({FaceCount: Schema.optional(Schema.Number), FaceModelVersion: Schema.optional(Schema.String), CollectionARN: Schema.optional(Schema.String), CreationTimestamp: Schema.optional(Schema.Date), UserCount: Schema.optional(Schema.Number)}) {}
+export class KinesisVideoStream extends Schema.Class<KinesisVideoStream>("KinesisVideoStream")({Arn: Schema.optional(Schema.String)}) {}
+export class StreamProcessorInput extends Schema.Class<StreamProcessorInput>("StreamProcessorInput")({KinesisVideoStream: Schema.optional(KinesisVideoStream)}) {}
+export class KinesisDataStream extends Schema.Class<KinesisDataStream>("KinesisDataStream")({Arn: Schema.optional(Schema.String)}) {}
+export class S3Destination extends Schema.Class<S3Destination>("S3Destination")({Bucket: Schema.optional(Schema.String), KeyPrefix: Schema.optional(Schema.String)}) {}
+export class StreamProcessorOutput extends Schema.Class<StreamProcessorOutput>("StreamProcessorOutput")({KinesisDataStream: Schema.optional(KinesisDataStream), S3Destination: Schema.optional(S3Destination)}) {}
+export class FaceSearchSettings extends Schema.Class<FaceSearchSettings>("FaceSearchSettings")({CollectionId: Schema.optional(Schema.String), FaceMatchThreshold: Schema.optional(Schema.Number)}) {}
+export class ConnectedHomeSettings extends Schema.Class<ConnectedHomeSettings>("ConnectedHomeSettings")({Labels: ConnectedHomeLabels, MinConfidence: Schema.optional(Schema.Number)}) {}
+export class StreamProcessorSettings extends Schema.Class<StreamProcessorSettings>("StreamProcessorSettings")({FaceSearch: Schema.optional(FaceSearchSettings), ConnectedHome: Schema.optional(ConnectedHomeSettings)}) {}
+export class DescribeStreamProcessorResponse extends Schema.Class<DescribeStreamProcessorResponse>("DescribeStreamProcessorResponse")({Name: Schema.optional(Schema.String), StreamProcessorArn: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), CreationTimestamp: Schema.optional(Schema.Date), LastUpdateTimestamp: Schema.optional(Schema.Date), Input: Schema.optional(StreamProcessorInput), Output: Schema.optional(StreamProcessorOutput), RoleArn: Schema.optional(Schema.String), Settings: Schema.optional(StreamProcessorSettings), NotificationChannel: Schema.optional(StreamProcessorNotificationChannel), KmsKeyId: Schema.optional(Schema.String), RegionsOfInterest: Schema.optional(RegionsOfInterest), DataSharingPreference: Schema.optional(StreamProcessorDataSharingPreference)}) {}
+export class DetectProtectiveEquipmentRequest extends Schema.Class<DetectProtectiveEquipmentRequest>("DetectProtectiveEquipmentRequest")({Image: Image, SummarizationAttributes: Schema.optional(ProtectiveEquipmentSummarizationAttributes)}) {}
+export class DistributeDatasetEntriesRequest extends Schema.Class<DistributeDatasetEntriesRequest>("DistributeDatasetEntriesRequest")({Datasets: DistributeDatasetMetadataList}) {}
+export class DistributeDatasetEntriesResponse extends Schema.Class<DistributeDatasetEntriesResponse>("DistributeDatasetEntriesResponse")({}) {}
+export class ListCollectionsResponse extends Schema.Class<ListCollectionsResponse>("ListCollectionsResponse")({CollectionIds: Schema.optional(CollectionIdList), NextToken: Schema.optional(Schema.String), FaceModelVersions: Schema.optional(FaceModelVersionList)}) {}
+export class ListDatasetEntriesResponse extends Schema.Class<ListDatasetEntriesResponse>("ListDatasetEntriesResponse")({DatasetEntries: Schema.optional(DatasetEntries), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({Tags: Schema.optional(TagMap)}) {}
+export class PutProjectPolicyResponse extends Schema.Class<PutProjectPolicyResponse>("PutProjectPolicyResponse")({PolicyRevisionId: Schema.optional(Schema.String)}) {}
+export class Face extends Schema.Class<Face>("Face")({FaceId: Schema.optional(Schema.String), BoundingBox: Schema.optional(BoundingBox), ImageId: Schema.optional(Schema.String), ExternalImageId: Schema.optional(Schema.String), Confidence: Schema.optional(Schema.Number), IndexFacesModelVersion: Schema.optional(Schema.String), UserId: Schema.optional(Schema.String)}) {}
+export class FaceMatch extends Schema.Class<FaceMatch>("FaceMatch")({Similarity: Schema.optional(Schema.Number), Face: Schema.optional(Face)}) {}
 export const FaceMatchList = Schema.Array(FaceMatch);
-export const SearchFacesByImageResponse = Schema.Struct({SearchedFaceBoundingBox: Schema.optional(BoundingBox), SearchedFaceConfidence: Schema.optional(Schema.Number), FaceMatches: Schema.optional(FaceMatchList), FaceModelVersion: Schema.optional(Schema.String)});
-export const StartCelebrityRecognitionRequest = Schema.Struct({Video: Video, ClientRequestToken: Schema.optional(Schema.String), NotificationChannel: Schema.optional(NotificationChannel), JobTag: Schema.optional(Schema.String)});
-export const StartContentModerationResponse = Schema.Struct({JobId: Schema.optional(Schema.String)});
-export const StartFaceDetectionResponse = Schema.Struct({JobId: Schema.optional(Schema.String)});
-export const StartFaceSearchResponse = Schema.Struct({JobId: Schema.optional(Schema.String)});
-export const StartLabelDetectionRequest = Schema.Struct({Video: Video, ClientRequestToken: Schema.optional(Schema.String), MinConfidence: Schema.optional(Schema.Number), NotificationChannel: Schema.optional(NotificationChannel), JobTag: Schema.optional(Schema.String), Features: Schema.optional(LabelDetectionFeatureList), Settings: Schema.optional(LabelDetectionSettings)});
-export const StartPersonTrackingResponse = Schema.Struct({JobId: Schema.optional(Schema.String)});
-export const StartProjectVersionResponse = Schema.Struct({Status: Schema.optional(Schema.String)});
-export const StartTextDetectionRequest = Schema.Struct({Video: Video, ClientRequestToken: Schema.optional(Schema.String), NotificationChannel: Schema.optional(NotificationChannel), JobTag: Schema.optional(Schema.String), Filters: Schema.optional(StartTextDetectionFilters)});
-export const StopProjectVersionResponse = Schema.Struct({Status: Schema.optional(Schema.String)});
-export const ResourceInUseException = Schema.Struct({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), Logref: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), Logref: Schema.optional(Schema.String)});
-export const ThrottlingException = Schema.Struct({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), Logref: Schema.optional(Schema.String)});
-export const UpdateDatasetEntriesRequest = Schema.Struct({DatasetArn: Schema.String, Changes: DatasetChanges});
-export const UpdateDatasetEntriesResponse = Schema.Struct({});
+export class SearchFacesByImageResponse extends Schema.Class<SearchFacesByImageResponse>("SearchFacesByImageResponse")({SearchedFaceBoundingBox: Schema.optional(BoundingBox), SearchedFaceConfidence: Schema.optional(Schema.Number), FaceMatches: Schema.optional(FaceMatchList), FaceModelVersion: Schema.optional(Schema.String)}) {}
+export class StartCelebrityRecognitionRequest extends Schema.Class<StartCelebrityRecognitionRequest>("StartCelebrityRecognitionRequest")({Video: Video, ClientRequestToken: Schema.optional(Schema.String), NotificationChannel: Schema.optional(NotificationChannel), JobTag: Schema.optional(Schema.String)}) {}
+export class StartContentModerationResponse extends Schema.Class<StartContentModerationResponse>("StartContentModerationResponse")({JobId: Schema.optional(Schema.String)}) {}
+export class StartFaceDetectionResponse extends Schema.Class<StartFaceDetectionResponse>("StartFaceDetectionResponse")({JobId: Schema.optional(Schema.String)}) {}
+export class StartFaceSearchResponse extends Schema.Class<StartFaceSearchResponse>("StartFaceSearchResponse")({JobId: Schema.optional(Schema.String)}) {}
+export class StartLabelDetectionRequest extends Schema.Class<StartLabelDetectionRequest>("StartLabelDetectionRequest")({Video: Video, ClientRequestToken: Schema.optional(Schema.String), MinConfidence: Schema.optional(Schema.Number), NotificationChannel: Schema.optional(NotificationChannel), JobTag: Schema.optional(Schema.String), Features: Schema.optional(LabelDetectionFeatureList), Settings: Schema.optional(LabelDetectionSettings)}) {}
+export class StartPersonTrackingResponse extends Schema.Class<StartPersonTrackingResponse>("StartPersonTrackingResponse")({JobId: Schema.optional(Schema.String)}) {}
+export class StartProjectVersionResponse extends Schema.Class<StartProjectVersionResponse>("StartProjectVersionResponse")({Status: Schema.optional(Schema.String)}) {}
+export class StartTextDetectionRequest extends Schema.Class<StartTextDetectionRequest>("StartTextDetectionRequest")({Video: Video, ClientRequestToken: Schema.optional(Schema.String), NotificationChannel: Schema.optional(NotificationChannel), JobTag: Schema.optional(Schema.String), Filters: Schema.optional(StartTextDetectionFilters)}) {}
+export class StopProjectVersionResponse extends Schema.Class<StopProjectVersionResponse>("StopProjectVersionResponse")({Status: Schema.optional(Schema.String)}) {}
+export class ResourceInUseException extends Schema.Class<ResourceInUseException>("ResourceInUseException")({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), Logref: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), Logref: Schema.optional(Schema.String)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), Logref: Schema.optional(Schema.String)}) {}
+export class UpdateDatasetEntriesRequest extends Schema.Class<UpdateDatasetEntriesRequest>("UpdateDatasetEntriesRequest")({DatasetArn: Schema.String, Changes: DatasetChanges}) {}
+export class UpdateDatasetEntriesResponse extends Schema.Class<UpdateDatasetEntriesResponse>("UpdateDatasetEntriesResponse")({}) {}
 export const UnsuccessfulFaceAssociationReasons = Schema.Array(Schema.String);
-export const LivenessOutputConfig = Schema.Struct({S3Bucket: Schema.String, S3KeyPrefix: Schema.optional(Schema.String)});
-export const CustomizationFeatureContentModerationConfig = Schema.Struct({ConfidenceThreshold: Schema.optional(Schema.Number)});
+export class LivenessOutputConfig extends Schema.Class<LivenessOutputConfig>("LivenessOutputConfig")({S3Bucket: Schema.String, S3KeyPrefix: Schema.optional(Schema.String)}) {}
+export class CustomizationFeatureContentModerationConfig extends Schema.Class<CustomizationFeatureContentModerationConfig>("CustomizationFeatureContentModerationConfig")({ConfidenceThreshold: Schema.optional(Schema.Number)}) {}
 export const UnsuccessfulFaceDeletionReasons = Schema.Array(Schema.String);
-export const DetectLabelsImagePropertiesSettings = Schema.Struct({MaxDominantColors: Schema.optional(Schema.Number)});
-export const HumanLoopDataAttributes = Schema.Struct({ContentClassifiers: Schema.optional(ContentClassifiers)});
+export class DetectLabelsImagePropertiesSettings extends Schema.Class<DetectLabelsImagePropertiesSettings>("DetectLabelsImagePropertiesSettings")({MaxDominantColors: Schema.optional(Schema.Number)}) {}
+export class HumanLoopDataAttributes extends Schema.Class<HumanLoopDataAttributes>("HumanLoopDataAttributes")({ContentClassifiers: Schema.optional(ContentClassifiers)}) {}
 export const UnsuccessfulFaceDisassociationReasons = Schema.Array(Schema.String);
 export const Reasons = Schema.Array(Schema.String);
 export const UnsearchedFaceReasons = Schema.Array(Schema.String);
-export const MediaAnalysisDetectModerationLabelsConfig = Schema.Struct({MinConfidence: Schema.optional(Schema.Number), ProjectVersion: Schema.optional(Schema.String)});
-export const StartShotDetectionFilter = Schema.Struct({MinSegmentConfidence: Schema.optional(Schema.Number)});
-export const KinesisVideoStreamStartSelector = Schema.Struct({ProducerTimestamp: Schema.optional(Schema.Number), FragmentNumber: Schema.optional(Schema.String)});
-export const ConnectedHomeSettingsForUpdate = Schema.Struct({Labels: Schema.optional(ConnectedHomeLabels), MinConfidence: Schema.optional(Schema.Number)});
-export const AssociatedFace = Schema.Struct({FaceId: Schema.optional(Schema.String)});
+export class MediaAnalysisDetectModerationLabelsConfig extends Schema.Class<MediaAnalysisDetectModerationLabelsConfig>("MediaAnalysisDetectModerationLabelsConfig")({MinConfidence: Schema.optional(Schema.Number), ProjectVersion: Schema.optional(Schema.String)}) {}
+export class StartShotDetectionFilter extends Schema.Class<StartShotDetectionFilter>("StartShotDetectionFilter")({MinSegmentConfidence: Schema.optional(Schema.Number)}) {}
+export class KinesisVideoStreamStartSelector extends Schema.Class<KinesisVideoStreamStartSelector>("KinesisVideoStreamStartSelector")({ProducerTimestamp: Schema.optional(Schema.Number), FragmentNumber: Schema.optional(Schema.String)}) {}
+export class ConnectedHomeSettingsForUpdate extends Schema.Class<ConnectedHomeSettingsForUpdate>("ConnectedHomeSettingsForUpdate")({Labels: Schema.optional(ConnectedHomeLabels), MinConfidence: Schema.optional(Schema.Number)}) {}
+export class AssociatedFace extends Schema.Class<AssociatedFace>("AssociatedFace")({FaceId: Schema.optional(Schema.String)}) {}
 export const AssociatedFacesList = Schema.Array(AssociatedFace);
-export const UnsuccessfulFaceAssociation = Schema.Struct({FaceId: Schema.optional(Schema.String), UserId: Schema.optional(Schema.String), Confidence: Schema.optional(Schema.Number), Reasons: Schema.optional(UnsuccessfulFaceAssociationReasons)});
+export class UnsuccessfulFaceAssociation extends Schema.Class<UnsuccessfulFaceAssociation>("UnsuccessfulFaceAssociation")({FaceId: Schema.optional(Schema.String), UserId: Schema.optional(Schema.String), Confidence: Schema.optional(Schema.Number), Reasons: Schema.optional(UnsuccessfulFaceAssociationReasons)}) {}
 export const UnsuccessfulFaceAssociationList = Schema.Array(UnsuccessfulFaceAssociation);
-export const DatasetSource = Schema.Struct({GroundTruthManifest: Schema.optional(GroundTruthManifest), DatasetArn: Schema.optional(Schema.String)});
-export const TrainingData = Schema.Struct({Assets: Schema.optional(Assets)});
-export const CustomizationFeatureConfig = Schema.Struct({ContentModeration: Schema.optional(CustomizationFeatureContentModerationConfig)});
-export const UnsuccessfulFaceDeletion = Schema.Struct({FaceId: Schema.optional(Schema.String), UserId: Schema.optional(Schema.String), Reasons: Schema.optional(UnsuccessfulFaceDeletionReasons)});
+export class DatasetSource extends Schema.Class<DatasetSource>("DatasetSource")({GroundTruthManifest: Schema.optional(GroundTruthManifest), DatasetArn: Schema.optional(Schema.String)}) {}
+export class TrainingData extends Schema.Class<TrainingData>("TrainingData")({Assets: Schema.optional(Assets)}) {}
+export class CustomizationFeatureConfig extends Schema.Class<CustomizationFeatureConfig>("CustomizationFeatureConfig")({ContentModeration: Schema.optional(CustomizationFeatureContentModerationConfig)}) {}
+export class UnsuccessfulFaceDeletion extends Schema.Class<UnsuccessfulFaceDeletion>("UnsuccessfulFaceDeletion")({FaceId: Schema.optional(Schema.String), UserId: Schema.optional(Schema.String), Reasons: Schema.optional(UnsuccessfulFaceDeletionReasons)}) {}
 export const UnsuccessfulFaceDeletionsList = Schema.Array(UnsuccessfulFaceDeletion);
-export const DetectLabelsSettings = Schema.Struct({GeneralLabels: Schema.optional(GeneralLabelsSettings), ImageProperties: Schema.optional(DetectLabelsImagePropertiesSettings)});
-export const HumanLoopConfig = Schema.Struct({HumanLoopName: Schema.String, FlowDefinitionArn: Schema.String, DataAttributes: Schema.optional(HumanLoopDataAttributes)});
-export const DetectTextFilters = Schema.Struct({WordFilter: Schema.optional(DetectionFilter), RegionsOfInterest: Schema.optional(RegionsOfInterest)});
-export const DisassociatedFace = Schema.Struct({FaceId: Schema.optional(Schema.String)});
+export class DetectLabelsSettings extends Schema.Class<DetectLabelsSettings>("DetectLabelsSettings")({GeneralLabels: Schema.optional(GeneralLabelsSettings), ImageProperties: Schema.optional(DetectLabelsImagePropertiesSettings)}) {}
+export class HumanLoopConfig extends Schema.Class<HumanLoopConfig>("HumanLoopConfig")({HumanLoopName: Schema.String, FlowDefinitionArn: Schema.String, DataAttributes: Schema.optional(HumanLoopDataAttributes)}) {}
+export class DetectTextFilters extends Schema.Class<DetectTextFilters>("DetectTextFilters")({WordFilter: Schema.optional(DetectionFilter), RegionsOfInterest: Schema.optional(RegionsOfInterest)}) {}
+export class DisassociatedFace extends Schema.Class<DisassociatedFace>("DisassociatedFace")({FaceId: Schema.optional(Schema.String)}) {}
 export const DisassociatedFacesList = Schema.Array(DisassociatedFace);
-export const UnsuccessfulFaceDisassociation = Schema.Struct({FaceId: Schema.optional(Schema.String), UserId: Schema.optional(Schema.String), Reasons: Schema.optional(UnsuccessfulFaceDisassociationReasons)});
+export class UnsuccessfulFaceDisassociation extends Schema.Class<UnsuccessfulFaceDisassociation>("UnsuccessfulFaceDisassociation")({FaceId: Schema.optional(Schema.String), UserId: Schema.optional(Schema.String), Reasons: Schema.optional(UnsuccessfulFaceDisassociationReasons)}) {}
 export const UnsuccessfulFaceDisassociationList = Schema.Array(UnsuccessfulFaceDisassociation);
-export const KnownGender = Schema.Struct({Type: Schema.optional(Schema.String)});
-export const GetContentModerationRequestMetadata = Schema.Struct({SortBy: Schema.optional(Schema.String), AggregateBy: Schema.optional(Schema.String)});
-export const AgeRange = Schema.Struct({Low: Schema.optional(Schema.Number), High: Schema.optional(Schema.Number)});
-export const Smile = Schema.Struct({Value: Schema.optional(Schema.Boolean), Confidence: Schema.optional(Schema.Number)});
-export const Eyeglasses = Schema.Struct({Value: Schema.optional(Schema.Boolean), Confidence: Schema.optional(Schema.Number)});
-export const Sunglasses = Schema.Struct({Value: Schema.optional(Schema.Boolean), Confidence: Schema.optional(Schema.Number)});
-export const Gender = Schema.Struct({Value: Schema.optional(Schema.String), Confidence: Schema.optional(Schema.Number)});
-export const Beard = Schema.Struct({Value: Schema.optional(Schema.Boolean), Confidence: Schema.optional(Schema.Number)});
-export const Mustache = Schema.Struct({Value: Schema.optional(Schema.Boolean), Confidence: Schema.optional(Schema.Number)});
-export const EyeOpen = Schema.Struct({Value: Schema.optional(Schema.Boolean), Confidence: Schema.optional(Schema.Number)});
-export const MouthOpen = Schema.Struct({Value: Schema.optional(Schema.Boolean), Confidence: Schema.optional(Schema.Number)});
-export const Emotion = Schema.Struct({Type: Schema.optional(Schema.String), Confidence: Schema.optional(Schema.Number)});
+export class KnownGender extends Schema.Class<KnownGender>("KnownGender")({Type: Schema.optional(Schema.String)}) {}
+export class GetContentModerationRequestMetadata extends Schema.Class<GetContentModerationRequestMetadata>("GetContentModerationRequestMetadata")({SortBy: Schema.optional(Schema.String), AggregateBy: Schema.optional(Schema.String)}) {}
+export class AgeRange extends Schema.Class<AgeRange>("AgeRange")({Low: Schema.optional(Schema.Number), High: Schema.optional(Schema.Number)}) {}
+export class Smile extends Schema.Class<Smile>("Smile")({Value: Schema.optional(Schema.Boolean), Confidence: Schema.optional(Schema.Number)}) {}
+export class Eyeglasses extends Schema.Class<Eyeglasses>("Eyeglasses")({Value: Schema.optional(Schema.Boolean), Confidence: Schema.optional(Schema.Number)}) {}
+export class Sunglasses extends Schema.Class<Sunglasses>("Sunglasses")({Value: Schema.optional(Schema.Boolean), Confidence: Schema.optional(Schema.Number)}) {}
+export class Gender extends Schema.Class<Gender>("Gender")({Value: Schema.optional(Schema.String), Confidence: Schema.optional(Schema.Number)}) {}
+export class Beard extends Schema.Class<Beard>("Beard")({Value: Schema.optional(Schema.Boolean), Confidence: Schema.optional(Schema.Number)}) {}
+export class Mustache extends Schema.Class<Mustache>("Mustache")({Value: Schema.optional(Schema.Boolean), Confidence: Schema.optional(Schema.Number)}) {}
+export class EyeOpen extends Schema.Class<EyeOpen>("EyeOpen")({Value: Schema.optional(Schema.Boolean), Confidence: Schema.optional(Schema.Number)}) {}
+export class MouthOpen extends Schema.Class<MouthOpen>("MouthOpen")({Value: Schema.optional(Schema.Boolean), Confidence: Schema.optional(Schema.Number)}) {}
+export class Emotion extends Schema.Class<Emotion>("Emotion")({Type: Schema.optional(Schema.String), Confidence: Schema.optional(Schema.Number)}) {}
 export const Emotions = Schema.Array(Emotion);
-export const Landmark = Schema.Struct({Type: Schema.optional(Schema.String), X: Schema.optional(Schema.Number), Y: Schema.optional(Schema.Number)});
+export class Landmark extends Schema.Class<Landmark>("Landmark")({Type: Schema.optional(Schema.String), X: Schema.optional(Schema.Number), Y: Schema.optional(Schema.Number)}) {}
 export const Landmarks = Schema.Array(Landmark);
-export const Pose = Schema.Struct({Roll: Schema.optional(Schema.Number), Yaw: Schema.optional(Schema.Number), Pitch: Schema.optional(Schema.Number)});
-export const ImageQuality = Schema.Struct({Brightness: Schema.optional(Schema.Number), Sharpness: Schema.optional(Schema.Number)});
-export const FaceOccluded = Schema.Struct({Value: Schema.optional(Schema.Boolean), Confidence: Schema.optional(Schema.Number)});
-export const EyeDirection = Schema.Struct({Yaw: Schema.optional(Schema.Number), Pitch: Schema.optional(Schema.Number), Confidence: Schema.optional(Schema.Number)});
-export const FaceDetail = Schema.Struct({BoundingBox: Schema.optional(BoundingBox), AgeRange: Schema.optional(AgeRange), Smile: Schema.optional(Smile), Eyeglasses: Schema.optional(Eyeglasses), Sunglasses: Schema.optional(Sunglasses), Gender: Schema.optional(Gender), Beard: Schema.optional(Beard), Mustache: Schema.optional(Mustache), EyesOpen: Schema.optional(EyeOpen), MouthOpen: Schema.optional(MouthOpen), Emotions: Schema.optional(Emotions), Landmarks: Schema.optional(Landmarks), Pose: Schema.optional(Pose), Quality: Schema.optional(ImageQuality), Confidence: Schema.optional(Schema.Number), FaceOccluded: Schema.optional(FaceOccluded), EyeDirection: Schema.optional(EyeDirection)});
-export const FaceDetection = Schema.Struct({Timestamp: Schema.optional(Schema.Number), Face: Schema.optional(FaceDetail)});
+export class Pose extends Schema.Class<Pose>("Pose")({Roll: Schema.optional(Schema.Number), Yaw: Schema.optional(Schema.Number), Pitch: Schema.optional(Schema.Number)}) {}
+export class ImageQuality extends Schema.Class<ImageQuality>("ImageQuality")({Brightness: Schema.optional(Schema.Number), Sharpness: Schema.optional(Schema.Number)}) {}
+export class FaceOccluded extends Schema.Class<FaceOccluded>("FaceOccluded")({Value: Schema.optional(Schema.Boolean), Confidence: Schema.optional(Schema.Number)}) {}
+export class EyeDirection extends Schema.Class<EyeDirection>("EyeDirection")({Yaw: Schema.optional(Schema.Number), Pitch: Schema.optional(Schema.Number), Confidence: Schema.optional(Schema.Number)}) {}
+export class FaceDetail extends Schema.Class<FaceDetail>("FaceDetail")({BoundingBox: Schema.optional(BoundingBox), AgeRange: Schema.optional(AgeRange), Smile: Schema.optional(Smile), Eyeglasses: Schema.optional(Eyeglasses), Sunglasses: Schema.optional(Sunglasses), Gender: Schema.optional(Gender), Beard: Schema.optional(Beard), Mustache: Schema.optional(Mustache), EyesOpen: Schema.optional(EyeOpen), MouthOpen: Schema.optional(MouthOpen), Emotions: Schema.optional(Emotions), Landmarks: Schema.optional(Landmarks), Pose: Schema.optional(Pose), Quality: Schema.optional(ImageQuality), Confidence: Schema.optional(Schema.Number), FaceOccluded: Schema.optional(FaceOccluded), EyeDirection: Schema.optional(EyeDirection)}) {}
+export class FaceDetection extends Schema.Class<FaceDetection>("FaceDetection")({Timestamp: Schema.optional(Schema.Number), Face: Schema.optional(FaceDetail)}) {}
 export const FaceDetections = Schema.Array(FaceDetection);
-export const Challenge = Schema.Struct({Type: Schema.String, Version: Schema.String});
-export const GetLabelDetectionRequestMetadata = Schema.Struct({SortBy: Schema.optional(Schema.String), AggregateBy: Schema.optional(Schema.String)});
-export const MediaAnalysisJobFailureDetails = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
-export const MediaAnalysisManifestSummary = Schema.Struct({S3Object: Schema.optional(S3Object)});
-export const PersonDetail = Schema.Struct({Index: Schema.optional(Schema.Number), BoundingBox: Schema.optional(BoundingBox), Face: Schema.optional(FaceDetail)});
-export const PersonDetection = Schema.Struct({Timestamp: Schema.optional(Schema.Number), Person: Schema.optional(PersonDetail)});
+export class Challenge extends Schema.Class<Challenge>("Challenge")({Type: Schema.String, Version: Schema.String}) {}
+export class GetLabelDetectionRequestMetadata extends Schema.Class<GetLabelDetectionRequestMetadata>("GetLabelDetectionRequestMetadata")({SortBy: Schema.optional(Schema.String), AggregateBy: Schema.optional(Schema.String)}) {}
+export class MediaAnalysisJobFailureDetails extends Schema.Class<MediaAnalysisJobFailureDetails>("MediaAnalysisJobFailureDetails")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
+export class MediaAnalysisManifestSummary extends Schema.Class<MediaAnalysisManifestSummary>("MediaAnalysisManifestSummary")({S3Object: Schema.optional(S3Object)}) {}
+export class PersonDetail extends Schema.Class<PersonDetail>("PersonDetail")({Index: Schema.optional(Schema.Number), BoundingBox: Schema.optional(BoundingBox), Face: Schema.optional(FaceDetail)}) {}
+export class PersonDetection extends Schema.Class<PersonDetection>("PersonDetection")({Timestamp: Schema.optional(Schema.Number), Person: Schema.optional(PersonDetail)}) {}
 export const PersonDetections = Schema.Array(PersonDetection);
-export const AudioMetadata = Schema.Struct({Codec: Schema.optional(Schema.String), DurationMillis: Schema.optional(Schema.Number), SampleRate: Schema.optional(Schema.Number), NumberOfChannels: Schema.optional(Schema.Number)});
+export class AudioMetadata extends Schema.Class<AudioMetadata>("AudioMetadata")({Codec: Schema.optional(Schema.String), DurationMillis: Schema.optional(Schema.Number), SampleRate: Schema.optional(Schema.Number), NumberOfChannels: Schema.optional(Schema.Number)}) {}
 export const AudioMetadataList = Schema.Array(AudioMetadata);
-export const SegmentTypeInfo = Schema.Struct({Type: Schema.optional(Schema.String), ModelVersion: Schema.optional(Schema.String)});
+export class SegmentTypeInfo extends Schema.Class<SegmentTypeInfo>("SegmentTypeInfo")({Type: Schema.optional(Schema.String), ModelVersion: Schema.optional(Schema.String)}) {}
 export const SegmentTypesInfo = Schema.Array(SegmentTypeInfo);
-export const FaceRecord = Schema.Struct({Face: Schema.optional(Face), FaceDetail: Schema.optional(FaceDetail)});
+export class FaceRecord extends Schema.Class<FaceRecord>("FaceRecord")({Face: Schema.optional(Face), FaceDetail: Schema.optional(FaceDetail)}) {}
 export const FaceRecordList = Schema.Array(FaceRecord);
-export const UnindexedFace = Schema.Struct({Reasons: Schema.optional(Reasons), FaceDetail: Schema.optional(FaceDetail)});
+export class UnindexedFace extends Schema.Class<UnindexedFace>("UnindexedFace")({Reasons: Schema.optional(Reasons), FaceDetail: Schema.optional(FaceDetail)}) {}
 export const UnindexedFaces = Schema.Array(UnindexedFace);
 export const FaceList = Schema.Array(Face);
-export const MediaAnalysisOperationsConfig = Schema.Struct({DetectModerationLabels: Schema.optional(MediaAnalysisDetectModerationLabelsConfig)});
-export const MediaAnalysisModelVersions = Schema.Struct({Moderation: Schema.optional(Schema.String)});
-export const MediaAnalysisResults = Schema.Struct({S3Object: Schema.optional(S3Object), ModelVersions: Schema.optional(MediaAnalysisModelVersions)});
-export const MediaAnalysisJobDescription = Schema.Struct({JobId: Schema.String, JobName: Schema.optional(Schema.String), OperationsConfig: MediaAnalysisOperationsConfig, Status: Schema.String, FailureDetails: Schema.optional(MediaAnalysisJobFailureDetails), CreationTimestamp: Schema.Date, CompletionTimestamp: Schema.optional(Schema.Date), Input: MediaAnalysisInput, OutputConfig: MediaAnalysisOutputConfig, KmsKeyId: Schema.optional(Schema.String), Results: Schema.optional(MediaAnalysisResults), ManifestSummary: Schema.optional(MediaAnalysisManifestSummary)});
+export class MediaAnalysisOperationsConfig extends Schema.Class<MediaAnalysisOperationsConfig>("MediaAnalysisOperationsConfig")({DetectModerationLabels: Schema.optional(MediaAnalysisDetectModerationLabelsConfig)}) {}
+export class MediaAnalysisModelVersions extends Schema.Class<MediaAnalysisModelVersions>("MediaAnalysisModelVersions")({Moderation: Schema.optional(Schema.String)}) {}
+export class MediaAnalysisResults extends Schema.Class<MediaAnalysisResults>("MediaAnalysisResults")({S3Object: Schema.optional(S3Object), ModelVersions: Schema.optional(MediaAnalysisModelVersions)}) {}
+export class MediaAnalysisJobDescription extends Schema.Class<MediaAnalysisJobDescription>("MediaAnalysisJobDescription")({JobId: Schema.String, JobName: Schema.optional(Schema.String), OperationsConfig: MediaAnalysisOperationsConfig, Status: Schema.String, FailureDetails: Schema.optional(MediaAnalysisJobFailureDetails), CreationTimestamp: Schema.Date, CompletionTimestamp: Schema.optional(Schema.Date), Input: MediaAnalysisInput, OutputConfig: MediaAnalysisOutputConfig, KmsKeyId: Schema.optional(Schema.String), Results: Schema.optional(MediaAnalysisResults), ManifestSummary: Schema.optional(MediaAnalysisManifestSummary)}) {}
 export const MediaAnalysisJobDescriptions = Schema.Array(MediaAnalysisJobDescription);
-export const ProjectPolicy = Schema.Struct({ProjectArn: Schema.optional(Schema.String), PolicyName: Schema.optional(Schema.String), PolicyRevisionId: Schema.optional(Schema.String), PolicyDocument: Schema.optional(Schema.String), CreationTimestamp: Schema.optional(Schema.Date), LastUpdatedTimestamp: Schema.optional(Schema.Date)});
+export class ProjectPolicy extends Schema.Class<ProjectPolicy>("ProjectPolicy")({ProjectArn: Schema.optional(Schema.String), PolicyName: Schema.optional(Schema.String), PolicyRevisionId: Schema.optional(Schema.String), PolicyDocument: Schema.optional(Schema.String), CreationTimestamp: Schema.optional(Schema.Date), LastUpdatedTimestamp: Schema.optional(Schema.Date)}) {}
 export const ProjectPolicies = Schema.Array(ProjectPolicy);
-export const StreamProcessor = Schema.Struct({Name: Schema.optional(Schema.String), Status: Schema.optional(Schema.String)});
+export class StreamProcessor extends Schema.Class<StreamProcessor>("StreamProcessor")({Name: Schema.optional(Schema.String), Status: Schema.optional(Schema.String)}) {}
 export const StreamProcessorList = Schema.Array(StreamProcessor);
-export const User = Schema.Struct({UserId: Schema.optional(Schema.String), UserStatus: Schema.optional(Schema.String)});
+export class User extends Schema.Class<User>("User")({UserId: Schema.optional(Schema.String), UserStatus: Schema.optional(Schema.String)}) {}
 export const UserList = Schema.Array(User);
-export const ComparedFace = Schema.Struct({BoundingBox: Schema.optional(BoundingBox), Confidence: Schema.optional(Schema.Number), Landmarks: Schema.optional(Landmarks), Pose: Schema.optional(Pose), Quality: Schema.optional(ImageQuality), Emotions: Schema.optional(Emotions), Smile: Schema.optional(Smile)});
-export const Celebrity = Schema.Struct({Urls: Schema.optional(Urls), Name: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Face: Schema.optional(ComparedFace), MatchConfidence: Schema.optional(Schema.Number), KnownGender: Schema.optional(KnownGender)});
+export class ComparedFace extends Schema.Class<ComparedFace>("ComparedFace")({BoundingBox: Schema.optional(BoundingBox), Confidence: Schema.optional(Schema.Number), Landmarks: Schema.optional(Landmarks), Pose: Schema.optional(Pose), Quality: Schema.optional(ImageQuality), Emotions: Schema.optional(Emotions), Smile: Schema.optional(Smile)}) {}
+export class Celebrity extends Schema.Class<Celebrity>("Celebrity")({Urls: Schema.optional(Urls), Name: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Face: Schema.optional(ComparedFace), MatchConfidence: Schema.optional(Schema.Number), KnownGender: Schema.optional(KnownGender)}) {}
 export const CelebrityList = Schema.Array(Celebrity);
 export const ComparedFaceList = Schema.Array(ComparedFace);
-export const SearchedFace = Schema.Struct({FaceId: Schema.optional(Schema.String)});
-export const SearchedUser = Schema.Struct({UserId: Schema.optional(Schema.String)});
-export const SearchedFaceDetails = Schema.Struct({FaceDetail: Schema.optional(FaceDetail)});
-export const UnsearchedFace = Schema.Struct({FaceDetails: Schema.optional(FaceDetail), Reasons: Schema.optional(UnsearchedFaceReasons)});
+export class SearchedFace extends Schema.Class<SearchedFace>("SearchedFace")({FaceId: Schema.optional(Schema.String)}) {}
+export class SearchedUser extends Schema.Class<SearchedUser>("SearchedUser")({UserId: Schema.optional(Schema.String)}) {}
+export class SearchedFaceDetails extends Schema.Class<SearchedFaceDetails>("SearchedFaceDetails")({FaceDetail: Schema.optional(FaceDetail)}) {}
+export class UnsearchedFace extends Schema.Class<UnsearchedFace>("UnsearchedFace")({FaceDetails: Schema.optional(FaceDetail), Reasons: Schema.optional(UnsearchedFaceReasons)}) {}
 export const UnsearchedFacesList = Schema.Array(UnsearchedFace);
-export const StreamProcessingStartSelector = Schema.Struct({KVSStreamStartSelector: Schema.optional(KinesisVideoStreamStartSelector)});
-export const StreamProcessorSettingsForUpdate = Schema.Struct({ConnectedHomeForUpdate: Schema.optional(ConnectedHomeSettingsForUpdate)});
-export const Versions = Schema.Struct({Minimum: Schema.optional(Schema.String), Maximum: Schema.optional(Schema.String)});
-export const BlackFrame = Schema.Struct({MaxPixelThreshold: Schema.optional(Schema.Number), MinCoveragePercentage: Schema.optional(Schema.Number)});
-export const AssociateFacesResponse = Schema.Struct({AssociatedFaces: Schema.optional(AssociatedFacesList), UnsuccessfulFaceAssociations: Schema.optional(UnsuccessfulFaceAssociationList), UserStatus: Schema.optional(Schema.String)});
-export const CompareFacesRequest = Schema.Struct({SourceImage: Image, TargetImage: Image, SimilarityThreshold: Schema.optional(Schema.Number), QualityFilter: Schema.optional(Schema.String)});
-export const CopyProjectVersionResponse = Schema.Struct({ProjectVersionArn: Schema.optional(Schema.String)});
-export const ResourceAlreadyExistsException = Schema.Struct({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), Logref: Schema.optional(Schema.String)});
-export const CreateDatasetRequest = Schema.Struct({DatasetSource: Schema.optional(DatasetSource), DatasetType: Schema.String, ProjectArn: Schema.String, Tags: Schema.optional(TagMap)});
-export const LimitExceededException = Schema.Struct({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), Logref: Schema.optional(Schema.String)});
-export const CreateProjectVersionRequest = Schema.Struct({ProjectArn: Schema.String, VersionName: Schema.String, OutputConfig: OutputConfig, TrainingData: Schema.optional(TrainingData), TestingData: Schema.optional(TestingData), Tags: Schema.optional(TagMap), KmsKeyId: Schema.optional(Schema.String), VersionDescription: Schema.optional(Schema.String), FeatureConfig: Schema.optional(CustomizationFeatureConfig)});
-export const CreateStreamProcessorRequest = Schema.Struct({Input: StreamProcessorInput, Output: StreamProcessorOutput, Name: Schema.String, Settings: StreamProcessorSettings, RoleArn: Schema.String, Tags: Schema.optional(TagMap), NotificationChannel: Schema.optional(StreamProcessorNotificationChannel), KmsKeyId: Schema.optional(Schema.String), RegionsOfInterest: Schema.optional(RegionsOfInterest), DataSharingPreference: Schema.optional(StreamProcessorDataSharingPreference)});
-export const IdempotentParameterMismatchException = Schema.Struct({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), Logref: Schema.optional(Schema.String)});
-export const DeleteFacesResponse = Schema.Struct({DeletedFaces: Schema.optional(FaceIdList), UnsuccessfulFaceDeletions: Schema.optional(UnsuccessfulFaceDeletionsList)});
-export const InvalidPolicyRevisionIdException = Schema.Struct({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), Logref: Schema.optional(Schema.String)});
-export const DetectLabelsRequest = Schema.Struct({Image: Image, MaxLabels: Schema.optional(Schema.Number), MinConfidence: Schema.optional(Schema.Number), Features: Schema.optional(DetectLabelsFeatureList), Settings: Schema.optional(DetectLabelsSettings)});
-export const DetectModerationLabelsRequest = Schema.Struct({Image: Image, MinConfidence: Schema.optional(Schema.Number), HumanLoopConfig: Schema.optional(HumanLoopConfig), ProjectVersion: Schema.optional(Schema.String)});
-export const DetectTextRequest = Schema.Struct({Image: Image, Filters: Schema.optional(DetectTextFilters)});
-export const DisassociateFacesResponse = Schema.Struct({DisassociatedFaces: Schema.optional(DisassociatedFacesList), UnsuccessfulFaceDisassociations: Schema.optional(UnsuccessfulFaceDisassociationList), UserStatus: Schema.optional(Schema.String)});
-export const ResourceNotReadyException = Schema.Struct({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), Logref: Schema.optional(Schema.String)});
-export const GetCelebrityInfoResponse = Schema.Struct({Urls: Schema.optional(Urls), Name: Schema.optional(Schema.String), KnownGender: Schema.optional(KnownGender)});
-export const GetFaceDetectionResponse = Schema.Struct({JobStatus: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), VideoMetadata: Schema.optional(VideoMetadata), NextToken: Schema.optional(Schema.String), Faces: Schema.optional(FaceDetections), JobId: Schema.optional(Schema.String), Video: Schema.optional(Video), JobTag: Schema.optional(Schema.String)});
-export const GetFaceLivenessSessionResultsResponse = Schema.Struct({SessionId: Schema.String, Status: Schema.String, Confidence: Schema.optional(Schema.Number), ReferenceImage: Schema.optional(AuditImage), AuditImages: Schema.optional(AuditImages), Challenge: Schema.optional(Challenge)});
-export const GetPersonTrackingResponse = Schema.Struct({JobStatus: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), VideoMetadata: Schema.optional(VideoMetadata), NextToken: Schema.optional(Schema.String), Persons: Schema.optional(PersonDetections), JobId: Schema.optional(Schema.String), Video: Schema.optional(Video), JobTag: Schema.optional(Schema.String)});
-export const IndexFacesResponse = Schema.Struct({FaceRecords: Schema.optional(FaceRecordList), OrientationCorrection: Schema.optional(Schema.String), FaceModelVersion: Schema.optional(Schema.String), UnindexedFaces: Schema.optional(UnindexedFaces)});
-export const InvalidPaginationTokenException = Schema.Struct({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), Logref: Schema.optional(Schema.String)});
-export const ListFacesResponse = Schema.Struct({Faces: Schema.optional(FaceList), NextToken: Schema.optional(Schema.String), FaceModelVersion: Schema.optional(Schema.String)});
-export const ListMediaAnalysisJobsResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), MediaAnalysisJobs: MediaAnalysisJobDescriptions});
-export const ListProjectPoliciesResponse = Schema.Struct({ProjectPolicies: Schema.optional(ProjectPolicies), NextToken: Schema.optional(Schema.String)});
-export const ListStreamProcessorsResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), StreamProcessors: Schema.optional(StreamProcessorList)});
-export const ListUsersResponse = Schema.Struct({Users: Schema.optional(UserList), NextToken: Schema.optional(Schema.String)});
-export const MalformedPolicyDocumentException = Schema.Struct({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), Logref: Schema.optional(Schema.String)});
-export const RecognizeCelebritiesResponse = Schema.Struct({CelebrityFaces: Schema.optional(CelebrityList), UnrecognizedFaces: Schema.optional(ComparedFaceList), OrientationCorrection: Schema.optional(Schema.String)});
-export const SearchFacesResponse = Schema.Struct({SearchedFaceId: Schema.optional(Schema.String), FaceMatches: Schema.optional(FaceMatchList), FaceModelVersion: Schema.optional(Schema.String)});
-export const ImageTooLargeException = Schema.Struct({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), Logref: Schema.optional(Schema.String)});
-export const MatchedUser = Schema.Struct({UserId: Schema.optional(Schema.String), UserStatus: Schema.optional(Schema.String)});
-export const UserMatch = Schema.Struct({Similarity: Schema.optional(Schema.Number), User: Schema.optional(MatchedUser)});
+export class StreamProcessingStartSelector extends Schema.Class<StreamProcessingStartSelector>("StreamProcessingStartSelector")({KVSStreamStartSelector: Schema.optional(KinesisVideoStreamStartSelector)}) {}
+export class StreamProcessorSettingsForUpdate extends Schema.Class<StreamProcessorSettingsForUpdate>("StreamProcessorSettingsForUpdate")({ConnectedHomeForUpdate: Schema.optional(ConnectedHomeSettingsForUpdate)}) {}
+export class Versions extends Schema.Class<Versions>("Versions")({Minimum: Schema.optional(Schema.String), Maximum: Schema.optional(Schema.String)}) {}
+export class BlackFrame extends Schema.Class<BlackFrame>("BlackFrame")({MaxPixelThreshold: Schema.optional(Schema.Number), MinCoveragePercentage: Schema.optional(Schema.Number)}) {}
+export class AssociateFacesResponse extends Schema.Class<AssociateFacesResponse>("AssociateFacesResponse")({AssociatedFaces: Schema.optional(AssociatedFacesList), UnsuccessfulFaceAssociations: Schema.optional(UnsuccessfulFaceAssociationList), UserStatus: Schema.optional(Schema.String)}) {}
+export class CompareFacesRequest extends Schema.Class<CompareFacesRequest>("CompareFacesRequest")({SourceImage: Image, TargetImage: Image, SimilarityThreshold: Schema.optional(Schema.Number), QualityFilter: Schema.optional(Schema.String)}) {}
+export class CopyProjectVersionResponse extends Schema.Class<CopyProjectVersionResponse>("CopyProjectVersionResponse")({ProjectVersionArn: Schema.optional(Schema.String)}) {}
+export class ResourceAlreadyExistsException extends Schema.Class<ResourceAlreadyExistsException>("ResourceAlreadyExistsException")({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), Logref: Schema.optional(Schema.String)}) {}
+export class CreateDatasetRequest extends Schema.Class<CreateDatasetRequest>("CreateDatasetRequest")({DatasetSource: Schema.optional(DatasetSource), DatasetType: Schema.String, ProjectArn: Schema.String, Tags: Schema.optional(TagMap)}) {}
+export class LimitExceededException extends Schema.Class<LimitExceededException>("LimitExceededException")({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), Logref: Schema.optional(Schema.String)}) {}
+export class CreateProjectVersionRequest extends Schema.Class<CreateProjectVersionRequest>("CreateProjectVersionRequest")({ProjectArn: Schema.String, VersionName: Schema.String, OutputConfig: OutputConfig, TrainingData: Schema.optional(TrainingData), TestingData: Schema.optional(TestingData), Tags: Schema.optional(TagMap), KmsKeyId: Schema.optional(Schema.String), VersionDescription: Schema.optional(Schema.String), FeatureConfig: Schema.optional(CustomizationFeatureConfig)}) {}
+export class CreateStreamProcessorRequest extends Schema.Class<CreateStreamProcessorRequest>("CreateStreamProcessorRequest")({Input: StreamProcessorInput, Output: StreamProcessorOutput, Name: Schema.String, Settings: StreamProcessorSettings, RoleArn: Schema.String, Tags: Schema.optional(TagMap), NotificationChannel: Schema.optional(StreamProcessorNotificationChannel), KmsKeyId: Schema.optional(Schema.String), RegionsOfInterest: Schema.optional(RegionsOfInterest), DataSharingPreference: Schema.optional(StreamProcessorDataSharingPreference)}) {}
+export class IdempotentParameterMismatchException extends Schema.Class<IdempotentParameterMismatchException>("IdempotentParameterMismatchException")({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), Logref: Schema.optional(Schema.String)}) {}
+export class DeleteFacesResponse extends Schema.Class<DeleteFacesResponse>("DeleteFacesResponse")({DeletedFaces: Schema.optional(FaceIdList), UnsuccessfulFaceDeletions: Schema.optional(UnsuccessfulFaceDeletionsList)}) {}
+export class InvalidPolicyRevisionIdException extends Schema.Class<InvalidPolicyRevisionIdException>("InvalidPolicyRevisionIdException")({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), Logref: Schema.optional(Schema.String)}) {}
+export class DetectLabelsRequest extends Schema.Class<DetectLabelsRequest>("DetectLabelsRequest")({Image: Image, MaxLabels: Schema.optional(Schema.Number), MinConfidence: Schema.optional(Schema.Number), Features: Schema.optional(DetectLabelsFeatureList), Settings: Schema.optional(DetectLabelsSettings)}) {}
+export class DetectModerationLabelsRequest extends Schema.Class<DetectModerationLabelsRequest>("DetectModerationLabelsRequest")({Image: Image, MinConfidence: Schema.optional(Schema.Number), HumanLoopConfig: Schema.optional(HumanLoopConfig), ProjectVersion: Schema.optional(Schema.String)}) {}
+export class DetectTextRequest extends Schema.Class<DetectTextRequest>("DetectTextRequest")({Image: Image, Filters: Schema.optional(DetectTextFilters)}) {}
+export class DisassociateFacesResponse extends Schema.Class<DisassociateFacesResponse>("DisassociateFacesResponse")({DisassociatedFaces: Schema.optional(DisassociatedFacesList), UnsuccessfulFaceDisassociations: Schema.optional(UnsuccessfulFaceDisassociationList), UserStatus: Schema.optional(Schema.String)}) {}
+export class ResourceNotReadyException extends Schema.Class<ResourceNotReadyException>("ResourceNotReadyException")({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), Logref: Schema.optional(Schema.String)}) {}
+export class GetCelebrityInfoResponse extends Schema.Class<GetCelebrityInfoResponse>("GetCelebrityInfoResponse")({Urls: Schema.optional(Urls), Name: Schema.optional(Schema.String), KnownGender: Schema.optional(KnownGender)}) {}
+export class GetFaceDetectionResponse extends Schema.Class<GetFaceDetectionResponse>("GetFaceDetectionResponse")({JobStatus: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), VideoMetadata: Schema.optional(VideoMetadata), NextToken: Schema.optional(Schema.String), Faces: Schema.optional(FaceDetections), JobId: Schema.optional(Schema.String), Video: Schema.optional(Video), JobTag: Schema.optional(Schema.String)}) {}
+export class GetFaceLivenessSessionResultsResponse extends Schema.Class<GetFaceLivenessSessionResultsResponse>("GetFaceLivenessSessionResultsResponse")({SessionId: Schema.String, Status: Schema.String, Confidence: Schema.optional(Schema.Number), ReferenceImage: Schema.optional(AuditImage), AuditImages: Schema.optional(AuditImages), Challenge: Schema.optional(Challenge)}) {}
+export class GetPersonTrackingResponse extends Schema.Class<GetPersonTrackingResponse>("GetPersonTrackingResponse")({JobStatus: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), VideoMetadata: Schema.optional(VideoMetadata), NextToken: Schema.optional(Schema.String), Persons: Schema.optional(PersonDetections), JobId: Schema.optional(Schema.String), Video: Schema.optional(Video), JobTag: Schema.optional(Schema.String)}) {}
+export class IndexFacesResponse extends Schema.Class<IndexFacesResponse>("IndexFacesResponse")({FaceRecords: Schema.optional(FaceRecordList), OrientationCorrection: Schema.optional(Schema.String), FaceModelVersion: Schema.optional(Schema.String), UnindexedFaces: Schema.optional(UnindexedFaces)}) {}
+export class InvalidPaginationTokenException extends Schema.Class<InvalidPaginationTokenException>("InvalidPaginationTokenException")({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), Logref: Schema.optional(Schema.String)}) {}
+export class ListFacesResponse extends Schema.Class<ListFacesResponse>("ListFacesResponse")({Faces: Schema.optional(FaceList), NextToken: Schema.optional(Schema.String), FaceModelVersion: Schema.optional(Schema.String)}) {}
+export class ListMediaAnalysisJobsResponse extends Schema.Class<ListMediaAnalysisJobsResponse>("ListMediaAnalysisJobsResponse")({NextToken: Schema.optional(Schema.String), MediaAnalysisJobs: MediaAnalysisJobDescriptions}) {}
+export class ListProjectPoliciesResponse extends Schema.Class<ListProjectPoliciesResponse>("ListProjectPoliciesResponse")({ProjectPolicies: Schema.optional(ProjectPolicies), NextToken: Schema.optional(Schema.String)}) {}
+export class ListStreamProcessorsResponse extends Schema.Class<ListStreamProcessorsResponse>("ListStreamProcessorsResponse")({NextToken: Schema.optional(Schema.String), StreamProcessors: Schema.optional(StreamProcessorList)}) {}
+export class ListUsersResponse extends Schema.Class<ListUsersResponse>("ListUsersResponse")({Users: Schema.optional(UserList), NextToken: Schema.optional(Schema.String)}) {}
+export class MalformedPolicyDocumentException extends Schema.Class<MalformedPolicyDocumentException>("MalformedPolicyDocumentException")({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), Logref: Schema.optional(Schema.String)}) {}
+export class RecognizeCelebritiesResponse extends Schema.Class<RecognizeCelebritiesResponse>("RecognizeCelebritiesResponse")({CelebrityFaces: Schema.optional(CelebrityList), UnrecognizedFaces: Schema.optional(ComparedFaceList), OrientationCorrection: Schema.optional(Schema.String)}) {}
+export class SearchFacesResponse extends Schema.Class<SearchFacesResponse>("SearchFacesResponse")({SearchedFaceId: Schema.optional(Schema.String), FaceMatches: Schema.optional(FaceMatchList), FaceModelVersion: Schema.optional(Schema.String)}) {}
+export class ImageTooLargeException extends Schema.Class<ImageTooLargeException>("ImageTooLargeException")({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), Logref: Schema.optional(Schema.String)}) {}
+export class MatchedUser extends Schema.Class<MatchedUser>("MatchedUser")({UserId: Schema.optional(Schema.String), UserStatus: Schema.optional(Schema.String)}) {}
+export class UserMatch extends Schema.Class<UserMatch>("UserMatch")({Similarity: Schema.optional(Schema.Number), User: Schema.optional(MatchedUser)}) {}
 export const UserMatchList = Schema.Array(UserMatch);
-export const SearchUsersByImageResponse = Schema.Struct({UserMatches: Schema.optional(UserMatchList), FaceModelVersion: Schema.optional(Schema.String), SearchedFace: Schema.optional(SearchedFaceDetails), UnsearchedFaces: Schema.optional(UnsearchedFacesList)});
-export const StartCelebrityRecognitionResponse = Schema.Struct({JobId: Schema.optional(Schema.String)});
-export const InvalidS3ObjectException = Schema.Struct({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), Logref: Schema.optional(Schema.String)});
-export const VideoTooLargeException = Schema.Struct({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), Logref: Schema.optional(Schema.String)});
-export const StartLabelDetectionResponse = Schema.Struct({JobId: Schema.optional(Schema.String)});
-export const StartMediaAnalysisJobRequest = Schema.Struct({ClientRequestToken: Schema.optional(Schema.String), JobName: Schema.optional(Schema.String), OperationsConfig: MediaAnalysisOperationsConfig, Input: MediaAnalysisInput, OutputConfig: MediaAnalysisOutputConfig, KmsKeyId: Schema.optional(Schema.String)});
-export const StartStreamProcessorRequest = Schema.Struct({Name: Schema.String, StartSelector: Schema.optional(StreamProcessingStartSelector), StopSelector: Schema.optional(StreamProcessingStopSelector)});
-export const StartTextDetectionResponse = Schema.Struct({JobId: Schema.optional(Schema.String)});
-export const ServiceQuotaExceededException = Schema.Struct({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), Logref: Schema.optional(Schema.String)});
-export const UpdateStreamProcessorRequest = Schema.Struct({Name: Schema.String, SettingsForUpdate: Schema.optional(StreamProcessorSettingsForUpdate), RegionsOfInterestForUpdate: Schema.optional(RegionsOfInterest), DataSharingPreferenceForUpdate: Schema.optional(StreamProcessorDataSharingPreference), ParametersToDelete: Schema.optional(StreamProcessorParametersToDelete)});
-export const UpdateStreamProcessorResponse = Schema.Struct({});
-export const ChallengePreference = Schema.Struct({Type: Schema.String, Versions: Schema.optional(Versions)});
+export class SearchUsersByImageResponse extends Schema.Class<SearchUsersByImageResponse>("SearchUsersByImageResponse")({UserMatches: Schema.optional(UserMatchList), FaceModelVersion: Schema.optional(Schema.String), SearchedFace: Schema.optional(SearchedFaceDetails), UnsearchedFaces: Schema.optional(UnsearchedFacesList)}) {}
+export class StartCelebrityRecognitionResponse extends Schema.Class<StartCelebrityRecognitionResponse>("StartCelebrityRecognitionResponse")({JobId: Schema.optional(Schema.String)}) {}
+export class InvalidS3ObjectException extends Schema.Class<InvalidS3ObjectException>("InvalidS3ObjectException")({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), Logref: Schema.optional(Schema.String)}) {}
+export class VideoTooLargeException extends Schema.Class<VideoTooLargeException>("VideoTooLargeException")({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), Logref: Schema.optional(Schema.String)}) {}
+export class StartLabelDetectionResponse extends Schema.Class<StartLabelDetectionResponse>("StartLabelDetectionResponse")({JobId: Schema.optional(Schema.String)}) {}
+export class StartMediaAnalysisJobRequest extends Schema.Class<StartMediaAnalysisJobRequest>("StartMediaAnalysisJobRequest")({ClientRequestToken: Schema.optional(Schema.String), JobName: Schema.optional(Schema.String), OperationsConfig: MediaAnalysisOperationsConfig, Input: MediaAnalysisInput, OutputConfig: MediaAnalysisOutputConfig, KmsKeyId: Schema.optional(Schema.String)}) {}
+export class StartStreamProcessorRequest extends Schema.Class<StartStreamProcessorRequest>("StartStreamProcessorRequest")({Name: Schema.String, StartSelector: Schema.optional(StreamProcessingStartSelector), StopSelector: Schema.optional(StreamProcessingStopSelector)}) {}
+export class StartTextDetectionResponse extends Schema.Class<StartTextDetectionResponse>("StartTextDetectionResponse")({JobId: Schema.optional(Schema.String)}) {}
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), Logref: Schema.optional(Schema.String)}) {}
+export class UpdateStreamProcessorRequest extends Schema.Class<UpdateStreamProcessorRequest>("UpdateStreamProcessorRequest")({Name: Schema.String, SettingsForUpdate: Schema.optional(StreamProcessorSettingsForUpdate), RegionsOfInterestForUpdate: Schema.optional(RegionsOfInterest), DataSharingPreferenceForUpdate: Schema.optional(StreamProcessorDataSharingPreference), ParametersToDelete: Schema.optional(StreamProcessorParametersToDelete)}) {}
+export class UpdateStreamProcessorResponse extends Schema.Class<UpdateStreamProcessorResponse>("UpdateStreamProcessorResponse")({}) {}
+export class ChallengePreference extends Schema.Class<ChallengePreference>("ChallengePreference")({Type: Schema.String, Versions: Schema.optional(Versions)}) {}
 export const ChallengePreferences = Schema.Array(ChallengePreference);
-export const DatasetStats = Schema.Struct({LabeledEntries: Schema.optional(Schema.Number), TotalEntries: Schema.optional(Schema.Number), TotalLabels: Schema.optional(Schema.Number), ErrorEntries: Schema.optional(Schema.Number)});
-export const DatasetMetadata = Schema.Struct({CreationTimestamp: Schema.optional(Schema.Date), DatasetType: Schema.optional(Schema.String), DatasetArn: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), StatusMessageCode: Schema.optional(Schema.String)});
+export class DatasetStats extends Schema.Class<DatasetStats>("DatasetStats")({LabeledEntries: Schema.optional(Schema.Number), TotalEntries: Schema.optional(Schema.Number), TotalLabels: Schema.optional(Schema.Number), ErrorEntries: Schema.optional(Schema.Number)}) {}
+export class DatasetMetadata extends Schema.Class<DatasetMetadata>("DatasetMetadata")({CreationTimestamp: Schema.optional(Schema.Date), DatasetType: Schema.optional(Schema.String), DatasetArn: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), StatusMessageCode: Schema.optional(Schema.String)}) {}
 export const DatasetMetadataList = Schema.Array(DatasetMetadata);
-export const ValidationData = Schema.Struct({Assets: Schema.optional(Assets)});
-export const TestingDataResult = Schema.Struct({Input: Schema.optional(TestingData), Output: Schema.optional(TestingData), Validation: Schema.optional(ValidationData)});
-export const Geometry = Schema.Struct({BoundingBox: Schema.optional(BoundingBox), Polygon: Schema.optional(Polygon)});
+export class ValidationData extends Schema.Class<ValidationData>("ValidationData")({Assets: Schema.optional(Assets)}) {}
+export class TestingDataResult extends Schema.Class<TestingDataResult>("TestingDataResult")({Input: Schema.optional(TestingData), Output: Schema.optional(TestingData), Validation: Schema.optional(ValidationData)}) {}
+export class Geometry extends Schema.Class<Geometry>("Geometry")({BoundingBox: Schema.optional(BoundingBox), Polygon: Schema.optional(Polygon)}) {}
 export const ProtectiveEquipmentPersonIds = Schema.Array(Schema.Number);
-export const CelebrityDetail = Schema.Struct({Urls: Schema.optional(Urls), Name: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Confidence: Schema.optional(Schema.Number), BoundingBox: Schema.optional(BoundingBox), Face: Schema.optional(FaceDetail), KnownGender: Schema.optional(KnownGender)});
-export const ModerationLabel = Schema.Struct({Confidence: Schema.optional(Schema.Number), Name: Schema.optional(Schema.String), ParentName: Schema.optional(Schema.String), TaxonomyLevel: Schema.optional(Schema.Number)});
-export const ContentType = Schema.Struct({Confidence: Schema.optional(Schema.Number), Name: Schema.optional(Schema.String)});
+export class CelebrityDetail extends Schema.Class<CelebrityDetail>("CelebrityDetail")({Urls: Schema.optional(Urls), Name: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Confidence: Schema.optional(Schema.Number), BoundingBox: Schema.optional(BoundingBox), Face: Schema.optional(FaceDetail), KnownGender: Schema.optional(KnownGender)}) {}
+export class ModerationLabel extends Schema.Class<ModerationLabel>("ModerationLabel")({Confidence: Schema.optional(Schema.Number), Name: Schema.optional(Schema.String), ParentName: Schema.optional(Schema.String), TaxonomyLevel: Schema.optional(Schema.Number)}) {}
+export class ContentType extends Schema.Class<ContentType>("ContentType")({Confidence: Schema.optional(Schema.Number), Name: Schema.optional(Schema.String)}) {}
 export const ContentTypes = Schema.Array(ContentType);
-export const TechnicalCueSegment = Schema.Struct({Type: Schema.optional(Schema.String), Confidence: Schema.optional(Schema.Number)});
-export const ShotSegment = Schema.Struct({Index: Schema.optional(Schema.Number), Confidence: Schema.optional(Schema.Number)});
-export const TextDetection = Schema.Struct({DetectedText: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), Id: Schema.optional(Schema.Number), ParentId: Schema.optional(Schema.Number), Confidence: Schema.optional(Schema.Number), Geometry: Schema.optional(Geometry)});
-export const DatasetLabelStats = Schema.Struct({EntryCount: Schema.optional(Schema.Number), BoundingBoxCount: Schema.optional(Schema.Number)});
-export const StartTechnicalCueDetectionFilter = Schema.Struct({MinSegmentConfidence: Schema.optional(Schema.Number), BlackFrame: Schema.optional(BlackFrame)});
+export class TechnicalCueSegment extends Schema.Class<TechnicalCueSegment>("TechnicalCueSegment")({Type: Schema.optional(Schema.String), Confidence: Schema.optional(Schema.Number)}) {}
+export class ShotSegment extends Schema.Class<ShotSegment>("ShotSegment")({Index: Schema.optional(Schema.Number), Confidence: Schema.optional(Schema.Number)}) {}
+export class TextDetection extends Schema.Class<TextDetection>("TextDetection")({DetectedText: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), Id: Schema.optional(Schema.Number), ParentId: Schema.optional(Schema.Number), Confidence: Schema.optional(Schema.Number), Geometry: Schema.optional(Geometry)}) {}
+export class DatasetLabelStats extends Schema.Class<DatasetLabelStats>("DatasetLabelStats")({EntryCount: Schema.optional(Schema.Number), BoundingBoxCount: Schema.optional(Schema.Number)}) {}
+export class StartTechnicalCueDetectionFilter extends Schema.Class<StartTechnicalCueDetectionFilter>("StartTechnicalCueDetectionFilter")({MinSegmentConfidence: Schema.optional(Schema.Number), BlackFrame: Schema.optional(BlackFrame)}) {}
 export const CompareFacesUnmatchList = Schema.Array(ComparedFace);
-export const CreateFaceLivenessSessionRequestSettings = Schema.Struct({OutputConfig: Schema.optional(LivenessOutputConfig), AuditImagesLimit: Schema.optional(Schema.Number), ChallengePreferences: Schema.optional(ChallengePreferences)});
-export const DatasetDescription = Schema.Struct({CreationTimestamp: Schema.optional(Schema.Date), LastUpdatedTimestamp: Schema.optional(Schema.Date), Status: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), StatusMessageCode: Schema.optional(Schema.String), DatasetStats: Schema.optional(DatasetStats)});
-export const ProjectDescription = Schema.Struct({ProjectArn: Schema.optional(Schema.String), CreationTimestamp: Schema.optional(Schema.Date), Status: Schema.optional(Schema.String), Datasets: Schema.optional(DatasetMetadataList), Feature: Schema.optional(Schema.String), AutoUpdate: Schema.optional(Schema.String)});
+export class CreateFaceLivenessSessionRequestSettings extends Schema.Class<CreateFaceLivenessSessionRequestSettings>("CreateFaceLivenessSessionRequestSettings")({OutputConfig: Schema.optional(LivenessOutputConfig), AuditImagesLimit: Schema.optional(Schema.Number), ChallengePreferences: Schema.optional(ChallengePreferences)}) {}
+export class DatasetDescription extends Schema.Class<DatasetDescription>("DatasetDescription")({CreationTimestamp: Schema.optional(Schema.Date), LastUpdatedTimestamp: Schema.optional(Schema.Date), Status: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), StatusMessageCode: Schema.optional(Schema.String), DatasetStats: Schema.optional(DatasetStats)}) {}
+export class ProjectDescription extends Schema.Class<ProjectDescription>("ProjectDescription")({ProjectArn: Schema.optional(Schema.String), CreationTimestamp: Schema.optional(Schema.Date), Status: Schema.optional(Schema.String), Datasets: Schema.optional(DatasetMetadataList), Feature: Schema.optional(Schema.String), AutoUpdate: Schema.optional(Schema.String)}) {}
 export const ProjectDescriptions = Schema.Array(ProjectDescription);
-export const CustomLabel = Schema.Struct({Name: Schema.optional(Schema.String), Confidence: Schema.optional(Schema.Number), Geometry: Schema.optional(Geometry)});
+export class CustomLabel extends Schema.Class<CustomLabel>("CustomLabel")({Name: Schema.optional(Schema.String), Confidence: Schema.optional(Schema.Number), Geometry: Schema.optional(Geometry)}) {}
 export const CustomLabels = Schema.Array(CustomLabel);
 export const FaceDetailList = Schema.Array(FaceDetail);
-export const DominantColor = Schema.Struct({Red: Schema.optional(Schema.Number), Blue: Schema.optional(Schema.Number), Green: Schema.optional(Schema.Number), HexCode: Schema.optional(Schema.String), CSSColor: Schema.optional(Schema.String), SimplifiedColor: Schema.optional(Schema.String), PixelPercent: Schema.optional(Schema.Number)});
+export class DominantColor extends Schema.Class<DominantColor>("DominantColor")({Red: Schema.optional(Schema.Number), Blue: Schema.optional(Schema.Number), Green: Schema.optional(Schema.Number), HexCode: Schema.optional(Schema.String), CSSColor: Schema.optional(Schema.String), SimplifiedColor: Schema.optional(Schema.String), PixelPercent: Schema.optional(Schema.Number)}) {}
 export const DominantColors = Schema.Array(DominantColor);
-export const Instance = Schema.Struct({BoundingBox: Schema.optional(BoundingBox), Confidence: Schema.optional(Schema.Number), DominantColors: Schema.optional(DominantColors)});
+export class Instance extends Schema.Class<Instance>("Instance")({BoundingBox: Schema.optional(BoundingBox), Confidence: Schema.optional(Schema.Number), DominantColors: Schema.optional(DominantColors)}) {}
 export const Instances = Schema.Array(Instance);
-export const Parent = Schema.Struct({Name: Schema.optional(Schema.String)});
+export class Parent extends Schema.Class<Parent>("Parent")({Name: Schema.optional(Schema.String)}) {}
 export const Parents = Schema.Array(Parent);
-export const LabelAlias = Schema.Struct({Name: Schema.optional(Schema.String)});
+export class LabelAlias extends Schema.Class<LabelAlias>("LabelAlias")({Name: Schema.optional(Schema.String)}) {}
 export const LabelAliases = Schema.Array(LabelAlias);
-export const LabelCategory = Schema.Struct({Name: Schema.optional(Schema.String)});
+export class LabelCategory extends Schema.Class<LabelCategory>("LabelCategory")({Name: Schema.optional(Schema.String)}) {}
 export const LabelCategories = Schema.Array(LabelCategory);
-export const Label = Schema.Struct({Name: Schema.optional(Schema.String), Confidence: Schema.optional(Schema.Number), Instances: Schema.optional(Instances), Parents: Schema.optional(Parents), Aliases: Schema.optional(LabelAliases), Categories: Schema.optional(LabelCategories)});
+export class Label extends Schema.Class<Label>("Label")({Name: Schema.optional(Schema.String), Confidence: Schema.optional(Schema.Number), Instances: Schema.optional(Instances), Parents: Schema.optional(Parents), Aliases: Schema.optional(LabelAliases), Categories: Schema.optional(LabelCategories)}) {}
 export const Labels = Schema.Array(Label);
 export const ModerationLabels = Schema.Array(ModerationLabel);
-export const ProtectiveEquipmentSummary = Schema.Struct({PersonsWithRequiredEquipment: Schema.optional(ProtectiveEquipmentPersonIds), PersonsWithoutRequiredEquipment: Schema.optional(ProtectiveEquipmentPersonIds), PersonsIndeterminate: Schema.optional(ProtectiveEquipmentPersonIds)});
+export class ProtectiveEquipmentSummary extends Schema.Class<ProtectiveEquipmentSummary>("ProtectiveEquipmentSummary")({PersonsWithRequiredEquipment: Schema.optional(ProtectiveEquipmentPersonIds), PersonsWithoutRequiredEquipment: Schema.optional(ProtectiveEquipmentPersonIds), PersonsIndeterminate: Schema.optional(ProtectiveEquipmentPersonIds)}) {}
 export const TextDetectionList = Schema.Array(TextDetection);
-export const CelebrityRecognition = Schema.Struct({Timestamp: Schema.optional(Schema.Number), Celebrity: Schema.optional(CelebrityDetail)});
+export class CelebrityRecognition extends Schema.Class<CelebrityRecognition>("CelebrityRecognition")({Timestamp: Schema.optional(Schema.Number), Celebrity: Schema.optional(CelebrityDetail)}) {}
 export const CelebrityRecognitions = Schema.Array(CelebrityRecognition);
-export const ContentModerationDetection = Schema.Struct({Timestamp: Schema.optional(Schema.Number), ModerationLabel: Schema.optional(ModerationLabel), StartTimestampMillis: Schema.optional(Schema.Number), EndTimestampMillis: Schema.optional(Schema.Number), DurationMillis: Schema.optional(Schema.Number), ContentTypes: Schema.optional(ContentTypes)});
+export class ContentModerationDetection extends Schema.Class<ContentModerationDetection>("ContentModerationDetection")({Timestamp: Schema.optional(Schema.Number), ModerationLabel: Schema.optional(ModerationLabel), StartTimestampMillis: Schema.optional(Schema.Number), EndTimestampMillis: Schema.optional(Schema.Number), DurationMillis: Schema.optional(Schema.Number), ContentTypes: Schema.optional(ContentTypes)}) {}
 export const ContentModerationDetections = Schema.Array(ContentModerationDetection);
-export const PersonMatch = Schema.Struct({Timestamp: Schema.optional(Schema.Number), Person: Schema.optional(PersonDetail), FaceMatches: Schema.optional(FaceMatchList)});
+export class PersonMatch extends Schema.Class<PersonMatch>("PersonMatch")({Timestamp: Schema.optional(Schema.Number), Person: Schema.optional(PersonDetail), FaceMatches: Schema.optional(FaceMatchList)}) {}
 export const PersonMatches = Schema.Array(PersonMatch);
-export const SegmentDetection = Schema.Struct({Type: Schema.optional(Schema.String), StartTimestampMillis: Schema.optional(Schema.Number), EndTimestampMillis: Schema.optional(Schema.Number), DurationMillis: Schema.optional(Schema.Number), StartTimecodeSMPTE: Schema.optional(Schema.String), EndTimecodeSMPTE: Schema.optional(Schema.String), DurationSMPTE: Schema.optional(Schema.String), TechnicalCueSegment: Schema.optional(TechnicalCueSegment), ShotSegment: Schema.optional(ShotSegment), StartFrameNumber: Schema.optional(Schema.Number), EndFrameNumber: Schema.optional(Schema.Number), DurationFrames: Schema.optional(Schema.Number)});
+export class SegmentDetection extends Schema.Class<SegmentDetection>("SegmentDetection")({Type: Schema.optional(Schema.String), StartTimestampMillis: Schema.optional(Schema.Number), EndTimestampMillis: Schema.optional(Schema.Number), DurationMillis: Schema.optional(Schema.Number), StartTimecodeSMPTE: Schema.optional(Schema.String), EndTimecodeSMPTE: Schema.optional(Schema.String), DurationSMPTE: Schema.optional(Schema.String), TechnicalCueSegment: Schema.optional(TechnicalCueSegment), ShotSegment: Schema.optional(ShotSegment), StartFrameNumber: Schema.optional(Schema.Number), EndFrameNumber: Schema.optional(Schema.Number), DurationFrames: Schema.optional(Schema.Number)}) {}
 export const SegmentDetections = Schema.Array(SegmentDetection);
-export const TextDetectionResult = Schema.Struct({Timestamp: Schema.optional(Schema.Number), TextDetection: Schema.optional(TextDetection)});
+export class TextDetectionResult extends Schema.Class<TextDetectionResult>("TextDetectionResult")({Timestamp: Schema.optional(Schema.Number), TextDetection: Schema.optional(TextDetection)}) {}
 export const TextDetectionResults = Schema.Array(TextDetectionResult);
-export const DatasetLabelDescription = Schema.Struct({LabelName: Schema.optional(Schema.String), LabelStats: Schema.optional(DatasetLabelStats)});
+export class DatasetLabelDescription extends Schema.Class<DatasetLabelDescription>("DatasetLabelDescription")({LabelName: Schema.optional(Schema.String), LabelStats: Schema.optional(DatasetLabelStats)}) {}
 export const DatasetLabelDescriptions = Schema.Array(DatasetLabelDescription);
-export const StartSegmentDetectionFilters = Schema.Struct({TechnicalCueFilter: Schema.optional(StartTechnicalCueDetectionFilter), ShotFilter: Schema.optional(StartShotDetectionFilter)});
-export const Summary = Schema.Struct({S3Object: Schema.optional(S3Object)});
-export const CreateDatasetResponse = Schema.Struct({DatasetArn: Schema.optional(Schema.String)});
-export const CreateFaceLivenessSessionRequest = Schema.Struct({KmsKeyId: Schema.optional(Schema.String), Settings: Schema.optional(CreateFaceLivenessSessionRequestSettings), ClientRequestToken: Schema.optional(Schema.String)});
-export const CreateProjectVersionResponse = Schema.Struct({ProjectVersionArn: Schema.optional(Schema.String)});
-export const CreateStreamProcessorResponse = Schema.Struct({StreamProcessorArn: Schema.optional(Schema.String)});
-export const DescribeDatasetResponse = Schema.Struct({DatasetDescription: Schema.optional(DatasetDescription)});
-export const DescribeProjectsResponse = Schema.Struct({ProjectDescriptions: Schema.optional(ProjectDescriptions), NextToken: Schema.optional(Schema.String)});
-export const DetectCustomLabelsResponse = Schema.Struct({CustomLabels: Schema.optional(CustomLabels)});
-export const DetectFacesResponse = Schema.Struct({FaceDetails: Schema.optional(FaceDetailList), OrientationCorrection: Schema.optional(Schema.String)});
-export const DetectTextResponse = Schema.Struct({TextDetections: Schema.optional(TextDetectionList), TextModelVersion: Schema.optional(Schema.String)});
-export const GetCelebrityRecognitionResponse = Schema.Struct({JobStatus: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), VideoMetadata: Schema.optional(VideoMetadata), NextToken: Schema.optional(Schema.String), Celebrities: Schema.optional(CelebrityRecognitions), JobId: Schema.optional(Schema.String), Video: Schema.optional(Video), JobTag: Schema.optional(Schema.String)});
-export const GetContentModerationResponse = Schema.Struct({JobStatus: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), VideoMetadata: Schema.optional(VideoMetadata), ModerationLabels: Schema.optional(ContentModerationDetections), NextToken: Schema.optional(Schema.String), ModerationModelVersion: Schema.optional(Schema.String), JobId: Schema.optional(Schema.String), Video: Schema.optional(Video), JobTag: Schema.optional(Schema.String), GetRequestMetadata: Schema.optional(GetContentModerationRequestMetadata)});
-export const SessionNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), Logref: Schema.optional(Schema.String)});
-export const GetFaceSearchResponse = Schema.Struct({JobStatus: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), VideoMetadata: Schema.optional(VideoMetadata), Persons: Schema.optional(PersonMatches), JobId: Schema.optional(Schema.String), Video: Schema.optional(Video), JobTag: Schema.optional(Schema.String)});
-export const GetMediaAnalysisJobResponse = Schema.Struct({JobId: Schema.String, JobName: Schema.optional(Schema.String), OperationsConfig: MediaAnalysisOperationsConfig, Status: Schema.String, FailureDetails: Schema.optional(MediaAnalysisJobFailureDetails), CreationTimestamp: Schema.Date, CompletionTimestamp: Schema.optional(Schema.Date), Input: MediaAnalysisInput, OutputConfig: MediaAnalysisOutputConfig, KmsKeyId: Schema.optional(Schema.String), Results: Schema.optional(MediaAnalysisResults), ManifestSummary: Schema.optional(MediaAnalysisManifestSummary)});
-export const GetSegmentDetectionResponse = Schema.Struct({JobStatus: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), VideoMetadata: Schema.optional(VideoMetadataList), AudioMetadata: Schema.optional(AudioMetadataList), NextToken: Schema.optional(Schema.String), Segments: Schema.optional(SegmentDetections), SelectedSegmentTypes: Schema.optional(SegmentTypesInfo), JobId: Schema.optional(Schema.String), Video: Schema.optional(Video), JobTag: Schema.optional(Schema.String)});
-export const GetTextDetectionResponse = Schema.Struct({JobStatus: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), VideoMetadata: Schema.optional(VideoMetadata), TextDetections: Schema.optional(TextDetectionResults), NextToken: Schema.optional(Schema.String), TextModelVersion: Schema.optional(Schema.String), JobId: Schema.optional(Schema.String), Video: Schema.optional(Video), JobTag: Schema.optional(Schema.String)});
-export const InvalidImageFormatException = Schema.Struct({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), Logref: Schema.optional(Schema.String)});
-export const ListDatasetLabelsResponse = Schema.Struct({DatasetLabelDescriptions: Schema.optional(DatasetLabelDescriptions), NextToken: Schema.optional(Schema.String)});
-export const SearchUsersResponse = Schema.Struct({UserMatches: Schema.optional(UserMatchList), FaceModelVersion: Schema.optional(Schema.String), SearchedFace: Schema.optional(SearchedFace), SearchedUser: Schema.optional(SearchedUser)});
-export const StartMediaAnalysisJobResponse = Schema.Struct({JobId: Schema.String});
-export const StartSegmentDetectionRequest = Schema.Struct({Video: Video, ClientRequestToken: Schema.optional(Schema.String), NotificationChannel: Schema.optional(NotificationChannel), JobTag: Schema.optional(Schema.String), Filters: Schema.optional(StartSegmentDetectionFilters), SegmentTypes: SegmentTypes});
-export const StartStreamProcessorResponse = Schema.Struct({SessionId: Schema.optional(Schema.String)});
-export const TrainingDataResult = Schema.Struct({Input: Schema.optional(TrainingData), Output: Schema.optional(TrainingData), Validation: Schema.optional(ValidationData)});
-export const EvaluationResult = Schema.Struct({F1Score: Schema.optional(Schema.Number), Summary: Schema.optional(Summary)});
+export class StartSegmentDetectionFilters extends Schema.Class<StartSegmentDetectionFilters>("StartSegmentDetectionFilters")({TechnicalCueFilter: Schema.optional(StartTechnicalCueDetectionFilter), ShotFilter: Schema.optional(StartShotDetectionFilter)}) {}
+export class Summary extends Schema.Class<Summary>("Summary")({S3Object: Schema.optional(S3Object)}) {}
+export class CreateDatasetResponse extends Schema.Class<CreateDatasetResponse>("CreateDatasetResponse")({DatasetArn: Schema.optional(Schema.String)}) {}
+export class CreateFaceLivenessSessionRequest extends Schema.Class<CreateFaceLivenessSessionRequest>("CreateFaceLivenessSessionRequest")({KmsKeyId: Schema.optional(Schema.String), Settings: Schema.optional(CreateFaceLivenessSessionRequestSettings), ClientRequestToken: Schema.optional(Schema.String)}) {}
+export class CreateProjectVersionResponse extends Schema.Class<CreateProjectVersionResponse>("CreateProjectVersionResponse")({ProjectVersionArn: Schema.optional(Schema.String)}) {}
+export class CreateStreamProcessorResponse extends Schema.Class<CreateStreamProcessorResponse>("CreateStreamProcessorResponse")({StreamProcessorArn: Schema.optional(Schema.String)}) {}
+export class DescribeDatasetResponse extends Schema.Class<DescribeDatasetResponse>("DescribeDatasetResponse")({DatasetDescription: Schema.optional(DatasetDescription)}) {}
+export class DescribeProjectsResponse extends Schema.Class<DescribeProjectsResponse>("DescribeProjectsResponse")({ProjectDescriptions: Schema.optional(ProjectDescriptions), NextToken: Schema.optional(Schema.String)}) {}
+export class DetectCustomLabelsResponse extends Schema.Class<DetectCustomLabelsResponse>("DetectCustomLabelsResponse")({CustomLabels: Schema.optional(CustomLabels)}) {}
+export class DetectFacesResponse extends Schema.Class<DetectFacesResponse>("DetectFacesResponse")({FaceDetails: Schema.optional(FaceDetailList), OrientationCorrection: Schema.optional(Schema.String)}) {}
+export class DetectTextResponse extends Schema.Class<DetectTextResponse>("DetectTextResponse")({TextDetections: Schema.optional(TextDetectionList), TextModelVersion: Schema.optional(Schema.String)}) {}
+export class GetCelebrityRecognitionResponse extends Schema.Class<GetCelebrityRecognitionResponse>("GetCelebrityRecognitionResponse")({JobStatus: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), VideoMetadata: Schema.optional(VideoMetadata), NextToken: Schema.optional(Schema.String), Celebrities: Schema.optional(CelebrityRecognitions), JobId: Schema.optional(Schema.String), Video: Schema.optional(Video), JobTag: Schema.optional(Schema.String)}) {}
+export class GetContentModerationResponse extends Schema.Class<GetContentModerationResponse>("GetContentModerationResponse")({JobStatus: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), VideoMetadata: Schema.optional(VideoMetadata), ModerationLabels: Schema.optional(ContentModerationDetections), NextToken: Schema.optional(Schema.String), ModerationModelVersion: Schema.optional(Schema.String), JobId: Schema.optional(Schema.String), Video: Schema.optional(Video), JobTag: Schema.optional(Schema.String), GetRequestMetadata: Schema.optional(GetContentModerationRequestMetadata)}) {}
+export class SessionNotFoundException extends Schema.Class<SessionNotFoundException>("SessionNotFoundException")({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), Logref: Schema.optional(Schema.String)}) {}
+export class GetFaceSearchResponse extends Schema.Class<GetFaceSearchResponse>("GetFaceSearchResponse")({JobStatus: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), VideoMetadata: Schema.optional(VideoMetadata), Persons: Schema.optional(PersonMatches), JobId: Schema.optional(Schema.String), Video: Schema.optional(Video), JobTag: Schema.optional(Schema.String)}) {}
+export class GetMediaAnalysisJobResponse extends Schema.Class<GetMediaAnalysisJobResponse>("GetMediaAnalysisJobResponse")({JobId: Schema.String, JobName: Schema.optional(Schema.String), OperationsConfig: MediaAnalysisOperationsConfig, Status: Schema.String, FailureDetails: Schema.optional(MediaAnalysisJobFailureDetails), CreationTimestamp: Schema.Date, CompletionTimestamp: Schema.optional(Schema.Date), Input: MediaAnalysisInput, OutputConfig: MediaAnalysisOutputConfig, KmsKeyId: Schema.optional(Schema.String), Results: Schema.optional(MediaAnalysisResults), ManifestSummary: Schema.optional(MediaAnalysisManifestSummary)}) {}
+export class GetSegmentDetectionResponse extends Schema.Class<GetSegmentDetectionResponse>("GetSegmentDetectionResponse")({JobStatus: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), VideoMetadata: Schema.optional(VideoMetadataList), AudioMetadata: Schema.optional(AudioMetadataList), NextToken: Schema.optional(Schema.String), Segments: Schema.optional(SegmentDetections), SelectedSegmentTypes: Schema.optional(SegmentTypesInfo), JobId: Schema.optional(Schema.String), Video: Schema.optional(Video), JobTag: Schema.optional(Schema.String)}) {}
+export class GetTextDetectionResponse extends Schema.Class<GetTextDetectionResponse>("GetTextDetectionResponse")({JobStatus: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), VideoMetadata: Schema.optional(VideoMetadata), TextDetections: Schema.optional(TextDetectionResults), NextToken: Schema.optional(Schema.String), TextModelVersion: Schema.optional(Schema.String), JobId: Schema.optional(Schema.String), Video: Schema.optional(Video), JobTag: Schema.optional(Schema.String)}) {}
+export class InvalidImageFormatException extends Schema.Class<InvalidImageFormatException>("InvalidImageFormatException")({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), Logref: Schema.optional(Schema.String)}) {}
+export class ListDatasetLabelsResponse extends Schema.Class<ListDatasetLabelsResponse>("ListDatasetLabelsResponse")({DatasetLabelDescriptions: Schema.optional(DatasetLabelDescriptions), NextToken: Schema.optional(Schema.String)}) {}
+export class SearchUsersResponse extends Schema.Class<SearchUsersResponse>("SearchUsersResponse")({UserMatches: Schema.optional(UserMatchList), FaceModelVersion: Schema.optional(Schema.String), SearchedFace: Schema.optional(SearchedFace), SearchedUser: Schema.optional(SearchedUser)}) {}
+export class StartMediaAnalysisJobResponse extends Schema.Class<StartMediaAnalysisJobResponse>("StartMediaAnalysisJobResponse")({JobId: Schema.String}) {}
+export class StartSegmentDetectionRequest extends Schema.Class<StartSegmentDetectionRequest>("StartSegmentDetectionRequest")({Video: Video, ClientRequestToken: Schema.optional(Schema.String), NotificationChannel: Schema.optional(NotificationChannel), JobTag: Schema.optional(Schema.String), Filters: Schema.optional(StartSegmentDetectionFilters), SegmentTypes: SegmentTypes}) {}
+export class StartStreamProcessorResponse extends Schema.Class<StartStreamProcessorResponse>("StartStreamProcessorResponse")({SessionId: Schema.optional(Schema.String)}) {}
+export class TrainingDataResult extends Schema.Class<TrainingDataResult>("TrainingDataResult")({Input: Schema.optional(TrainingData), Output: Schema.optional(TrainingData), Validation: Schema.optional(ValidationData)}) {}
+export class EvaluationResult extends Schema.Class<EvaluationResult>("EvaluationResult")({F1Score: Schema.optional(Schema.Number), Summary: Schema.optional(Summary)}) {}
 export const HumanLoopActivationReasons = Schema.Array(Schema.String);
-export const ComparedSourceImageFace = Schema.Struct({BoundingBox: Schema.optional(BoundingBox), Confidence: Schema.optional(Schema.Number)});
-export const CompareFacesMatch = Schema.Struct({Similarity: Schema.optional(Schema.Number), Face: Schema.optional(ComparedFace)});
+export class ComparedSourceImageFace extends Schema.Class<ComparedSourceImageFace>("ComparedSourceImageFace")({BoundingBox: Schema.optional(BoundingBox), Confidence: Schema.optional(Schema.Number)}) {}
+export class CompareFacesMatch extends Schema.Class<CompareFacesMatch>("CompareFacesMatch")({Similarity: Schema.optional(Schema.Number), Face: Schema.optional(ComparedFace)}) {}
 export const CompareFacesMatchList = Schema.Array(CompareFacesMatch);
-export const ProjectVersionDescription = Schema.Struct({ProjectVersionArn: Schema.optional(Schema.String), CreationTimestamp: Schema.optional(Schema.Date), MinInferenceUnits: Schema.optional(Schema.Number), Status: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), BillableTrainingTimeInSeconds: Schema.optional(Schema.Number), TrainingEndTimestamp: Schema.optional(Schema.Date), OutputConfig: Schema.optional(OutputConfig), TrainingDataResult: Schema.optional(TrainingDataResult), TestingDataResult: Schema.optional(TestingDataResult), EvaluationResult: Schema.optional(EvaluationResult), ManifestSummary: Schema.optional(GroundTruthManifest), KmsKeyId: Schema.optional(Schema.String), MaxInferenceUnits: Schema.optional(Schema.Number), SourceProjectVersionArn: Schema.optional(Schema.String), VersionDescription: Schema.optional(Schema.String), Feature: Schema.optional(Schema.String), BaseModelVersion: Schema.optional(Schema.String), FeatureConfig: Schema.optional(CustomizationFeatureConfig)});
+export class ProjectVersionDescription extends Schema.Class<ProjectVersionDescription>("ProjectVersionDescription")({ProjectVersionArn: Schema.optional(Schema.String), CreationTimestamp: Schema.optional(Schema.Date), MinInferenceUnits: Schema.optional(Schema.Number), Status: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), BillableTrainingTimeInSeconds: Schema.optional(Schema.Number), TrainingEndTimestamp: Schema.optional(Schema.Date), OutputConfig: Schema.optional(OutputConfig), TrainingDataResult: Schema.optional(TrainingDataResult), TestingDataResult: Schema.optional(TestingDataResult), EvaluationResult: Schema.optional(EvaluationResult), ManifestSummary: Schema.optional(GroundTruthManifest), KmsKeyId: Schema.optional(Schema.String), MaxInferenceUnits: Schema.optional(Schema.Number), SourceProjectVersionArn: Schema.optional(Schema.String), VersionDescription: Schema.optional(Schema.String), Feature: Schema.optional(Schema.String), BaseModelVersion: Schema.optional(Schema.String), FeatureConfig: Schema.optional(CustomizationFeatureConfig)}) {}
 export const ProjectVersionDescriptions = Schema.Array(ProjectVersionDescription);
-export const HumanLoopActivationOutput = Schema.Struct({HumanLoopArn: Schema.optional(Schema.String), HumanLoopActivationReasons: Schema.optional(HumanLoopActivationReasons), HumanLoopActivationConditionsEvaluationResults: Schema.optional(Schema.String)});
-export const CompareFacesResponse = Schema.Struct({SourceImageFace: Schema.optional(ComparedSourceImageFace), FaceMatches: Schema.optional(CompareFacesMatchList), UnmatchedFaces: Schema.optional(CompareFacesUnmatchList), SourceImageOrientationCorrection: Schema.optional(Schema.String), TargetImageOrientationCorrection: Schema.optional(Schema.String)});
-export const CreateFaceLivenessSessionResponse = Schema.Struct({SessionId: Schema.String});
-export const DescribeProjectVersionsResponse = Schema.Struct({ProjectVersionDescriptions: Schema.optional(ProjectVersionDescriptions), NextToken: Schema.optional(Schema.String)});
-export const DetectModerationLabelsResponse = Schema.Struct({ModerationLabels: Schema.optional(ModerationLabels), ModerationModelVersion: Schema.optional(Schema.String), HumanLoopActivationOutput: Schema.optional(HumanLoopActivationOutput), ProjectVersion: Schema.optional(Schema.String), ContentTypes: Schema.optional(ContentTypes)});
-export const InvalidManifestException = Schema.Struct({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), Logref: Schema.optional(Schema.String)});
-export const StartSegmentDetectionResponse = Schema.Struct({JobId: Schema.optional(Schema.String)});
-export const DetectLabelsImageQuality = Schema.Struct({Brightness: Schema.optional(Schema.Number), Sharpness: Schema.optional(Schema.Number), Contrast: Schema.optional(Schema.Number)});
-export const DetectLabelsImageForeground = Schema.Struct({Quality: Schema.optional(DetectLabelsImageQuality), DominantColors: Schema.optional(DominantColors)});
-export const DetectLabelsImageBackground = Schema.Struct({Quality: Schema.optional(DetectLabelsImageQuality), DominantColors: Schema.optional(DominantColors)});
-export const CoversBodyPart = Schema.Struct({Confidence: Schema.optional(Schema.Number), Value: Schema.optional(Schema.Boolean)});
-export const DetectLabelsImageProperties = Schema.Struct({Quality: Schema.optional(DetectLabelsImageQuality), DominantColors: Schema.optional(DominantColors), Foreground: Schema.optional(DetectLabelsImageForeground), Background: Schema.optional(DetectLabelsImageBackground)});
-export const LabelDetection = Schema.Struct({Timestamp: Schema.optional(Schema.Number), Label: Schema.optional(Label), StartTimestampMillis: Schema.optional(Schema.Number), EndTimestampMillis: Schema.optional(Schema.Number), DurationMillis: Schema.optional(Schema.Number)});
+export class HumanLoopActivationOutput extends Schema.Class<HumanLoopActivationOutput>("HumanLoopActivationOutput")({HumanLoopArn: Schema.optional(Schema.String), HumanLoopActivationReasons: Schema.optional(HumanLoopActivationReasons), HumanLoopActivationConditionsEvaluationResults: Schema.optional(Schema.String)}) {}
+export class CompareFacesResponse extends Schema.Class<CompareFacesResponse>("CompareFacesResponse")({SourceImageFace: Schema.optional(ComparedSourceImageFace), FaceMatches: Schema.optional(CompareFacesMatchList), UnmatchedFaces: Schema.optional(CompareFacesUnmatchList), SourceImageOrientationCorrection: Schema.optional(Schema.String), TargetImageOrientationCorrection: Schema.optional(Schema.String)}) {}
+export class CreateFaceLivenessSessionResponse extends Schema.Class<CreateFaceLivenessSessionResponse>("CreateFaceLivenessSessionResponse")({SessionId: Schema.String}) {}
+export class DescribeProjectVersionsResponse extends Schema.Class<DescribeProjectVersionsResponse>("DescribeProjectVersionsResponse")({ProjectVersionDescriptions: Schema.optional(ProjectVersionDescriptions), NextToken: Schema.optional(Schema.String)}) {}
+export class DetectModerationLabelsResponse extends Schema.Class<DetectModerationLabelsResponse>("DetectModerationLabelsResponse")({ModerationLabels: Schema.optional(ModerationLabels), ModerationModelVersion: Schema.optional(Schema.String), HumanLoopActivationOutput: Schema.optional(HumanLoopActivationOutput), ProjectVersion: Schema.optional(Schema.String), ContentTypes: Schema.optional(ContentTypes)}) {}
+export class InvalidManifestException extends Schema.Class<InvalidManifestException>("InvalidManifestException")({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), Logref: Schema.optional(Schema.String)}) {}
+export class StartSegmentDetectionResponse extends Schema.Class<StartSegmentDetectionResponse>("StartSegmentDetectionResponse")({JobId: Schema.optional(Schema.String)}) {}
+export class DetectLabelsImageQuality extends Schema.Class<DetectLabelsImageQuality>("DetectLabelsImageQuality")({Brightness: Schema.optional(Schema.Number), Sharpness: Schema.optional(Schema.Number), Contrast: Schema.optional(Schema.Number)}) {}
+export class DetectLabelsImageForeground extends Schema.Class<DetectLabelsImageForeground>("DetectLabelsImageForeground")({Quality: Schema.optional(DetectLabelsImageQuality), DominantColors: Schema.optional(DominantColors)}) {}
+export class DetectLabelsImageBackground extends Schema.Class<DetectLabelsImageBackground>("DetectLabelsImageBackground")({Quality: Schema.optional(DetectLabelsImageQuality), DominantColors: Schema.optional(DominantColors)}) {}
+export class CoversBodyPart extends Schema.Class<CoversBodyPart>("CoversBodyPart")({Confidence: Schema.optional(Schema.Number), Value: Schema.optional(Schema.Boolean)}) {}
+export class DetectLabelsImageProperties extends Schema.Class<DetectLabelsImageProperties>("DetectLabelsImageProperties")({Quality: Schema.optional(DetectLabelsImageQuality), DominantColors: Schema.optional(DominantColors), Foreground: Schema.optional(DetectLabelsImageForeground), Background: Schema.optional(DetectLabelsImageBackground)}) {}
+export class LabelDetection extends Schema.Class<LabelDetection>("LabelDetection")({Timestamp: Schema.optional(Schema.Number), Label: Schema.optional(Label), StartTimestampMillis: Schema.optional(Schema.Number), EndTimestampMillis: Schema.optional(Schema.Number), DurationMillis: Schema.optional(Schema.Number)}) {}
 export const LabelDetections = Schema.Array(LabelDetection);
-export const EquipmentDetection = Schema.Struct({BoundingBox: Schema.optional(BoundingBox), Confidence: Schema.optional(Schema.Number), Type: Schema.optional(Schema.String), CoversBodyPart: Schema.optional(CoversBodyPart)});
+export class EquipmentDetection extends Schema.Class<EquipmentDetection>("EquipmentDetection")({BoundingBox: Schema.optional(BoundingBox), Confidence: Schema.optional(Schema.Number), Type: Schema.optional(Schema.String), CoversBodyPart: Schema.optional(CoversBodyPart)}) {}
 export const EquipmentDetections = Schema.Array(EquipmentDetection);
-export const DetectLabelsResponse = Schema.Struct({Labels: Schema.optional(Labels), OrientationCorrection: Schema.optional(Schema.String), LabelModelVersion: Schema.optional(Schema.String), ImageProperties: Schema.optional(DetectLabelsImageProperties)});
-export const HumanLoopQuotaExceededException = Schema.Struct({ResourceType: Schema.optional(Schema.String), QuotaCode: Schema.optional(Schema.String), ServiceCode: Schema.optional(Schema.String), Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), Logref: Schema.optional(Schema.String)});
-export const GetLabelDetectionResponse = Schema.Struct({JobStatus: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), VideoMetadata: Schema.optional(VideoMetadata), NextToken: Schema.optional(Schema.String), Labels: Schema.optional(LabelDetections), LabelModelVersion: Schema.optional(Schema.String), JobId: Schema.optional(Schema.String), Video: Schema.optional(Video), JobTag: Schema.optional(Schema.String), GetRequestMetadata: Schema.optional(GetLabelDetectionRequestMetadata)});
-export const ProtectiveEquipmentBodyPart = Schema.Struct({Name: Schema.optional(Schema.String), Confidence: Schema.optional(Schema.Number), EquipmentDetections: Schema.optional(EquipmentDetections)});
+export class DetectLabelsResponse extends Schema.Class<DetectLabelsResponse>("DetectLabelsResponse")({Labels: Schema.optional(Labels), OrientationCorrection: Schema.optional(Schema.String), LabelModelVersion: Schema.optional(Schema.String), ImageProperties: Schema.optional(DetectLabelsImageProperties)}) {}
+export class HumanLoopQuotaExceededException extends Schema.Class<HumanLoopQuotaExceededException>("HumanLoopQuotaExceededException")({ResourceType: Schema.optional(Schema.String), QuotaCode: Schema.optional(Schema.String), ServiceCode: Schema.optional(Schema.String), Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), Logref: Schema.optional(Schema.String)}) {}
+export class GetLabelDetectionResponse extends Schema.Class<GetLabelDetectionResponse>("GetLabelDetectionResponse")({JobStatus: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), VideoMetadata: Schema.optional(VideoMetadata), NextToken: Schema.optional(Schema.String), Labels: Schema.optional(LabelDetections), LabelModelVersion: Schema.optional(Schema.String), JobId: Schema.optional(Schema.String), Video: Schema.optional(Video), JobTag: Schema.optional(Schema.String), GetRequestMetadata: Schema.optional(GetLabelDetectionRequestMetadata)}) {}
+export class ProtectiveEquipmentBodyPart extends Schema.Class<ProtectiveEquipmentBodyPart>("ProtectiveEquipmentBodyPart")({Name: Schema.optional(Schema.String), Confidence: Schema.optional(Schema.Number), EquipmentDetections: Schema.optional(EquipmentDetections)}) {}
 export const BodyParts = Schema.Array(ProtectiveEquipmentBodyPart);
-export const ProtectiveEquipmentPerson = Schema.Struct({BodyParts: Schema.optional(BodyParts), BoundingBox: Schema.optional(BoundingBox), Confidence: Schema.optional(Schema.Number), Id: Schema.optional(Schema.Number)});
+export class ProtectiveEquipmentPerson extends Schema.Class<ProtectiveEquipmentPerson>("ProtectiveEquipmentPerson")({BodyParts: Schema.optional(BodyParts), BoundingBox: Schema.optional(BoundingBox), Confidence: Schema.optional(Schema.Number), Id: Schema.optional(Schema.Number)}) {}
 export const ProtectiveEquipmentPersons = Schema.Array(ProtectiveEquipmentPerson);
-export const DetectProtectiveEquipmentResponse = Schema.Struct({ProtectiveEquipmentModelVersion: Schema.optional(Schema.String), Persons: Schema.optional(ProtectiveEquipmentPersons), Summary: Schema.optional(ProtectiveEquipmentSummary)});
+export class DetectProtectiveEquipmentResponse extends Schema.Class<DetectProtectiveEquipmentResponse>("DetectProtectiveEquipmentResponse")({ProtectiveEquipmentModelVersion: Schema.optional(Schema.String), Persons: Schema.optional(ProtectiveEquipmentPersons), Summary: Schema.optional(ProtectiveEquipmentSummary)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class InternalServerErrorError extends Schema.TaggedError<InternalServerErrorError>()("InternalServerError", InternalServerError) {};
-export class InvalidParameterExceptionError extends Schema.TaggedError<InvalidParameterExceptionError>()("InvalidParameterException", InvalidParameterException) {};
-export class ProvisionedThroughputExceededExceptionError extends Schema.TaggedError<ProvisionedThroughputExceededExceptionError>()("ProvisionedThroughputExceededException", ProvisionedThroughputExceededException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException) {};
-export class ResourceInUseExceptionError extends Schema.TaggedError<ResourceInUseExceptionError>()("ResourceInUseException", ResourceInUseException) {};
-export class IdempotentParameterMismatchExceptionError extends Schema.TaggedError<IdempotentParameterMismatchExceptionError>()("IdempotentParameterMismatchException", IdempotentParameterMismatchException) {};
-export class InvalidPaginationTokenExceptionError extends Schema.TaggedError<InvalidPaginationTokenExceptionError>()("InvalidPaginationTokenException", InvalidPaginationTokenException) {};
-export class ResourceNotReadyExceptionError extends Schema.TaggedError<ResourceNotReadyExceptionError>()("ResourceNotReadyException", ResourceNotReadyException) {};
-export class InvalidPolicyRevisionIdExceptionError extends Schema.TaggedError<InvalidPolicyRevisionIdExceptionError>()("InvalidPolicyRevisionIdException", InvalidPolicyRevisionIdException) {};
-export class InvalidS3ObjectExceptionError extends Schema.TaggedError<InvalidS3ObjectExceptionError>()("InvalidS3ObjectException", InvalidS3ObjectException) {};
-export class VideoTooLargeExceptionError extends Schema.TaggedError<VideoTooLargeExceptionError>()("VideoTooLargeException", VideoTooLargeException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
-export class ResourceAlreadyExistsExceptionError extends Schema.TaggedError<ResourceAlreadyExistsExceptionError>()("ResourceAlreadyExistsException", ResourceAlreadyExistsException) {};
-export class ImageTooLargeExceptionError extends Schema.TaggedError<ImageTooLargeExceptionError>()("ImageTooLargeException", ImageTooLargeException) {};
-export class MalformedPolicyDocumentExceptionError extends Schema.TaggedError<MalformedPolicyDocumentExceptionError>()("MalformedPolicyDocumentException", MalformedPolicyDocumentException) {};
-export class InvalidImageFormatExceptionError extends Schema.TaggedError<InvalidImageFormatExceptionError>()("InvalidImageFormatException", InvalidImageFormatException) {};
-export class SessionNotFoundExceptionError extends Schema.TaggedError<SessionNotFoundExceptionError>()("SessionNotFoundException", SessionNotFoundException) {};
-export class InvalidManifestExceptionError extends Schema.TaggedError<InvalidManifestExceptionError>()("InvalidManifestException", InvalidManifestException) {};
-export class HumanLoopQuotaExceededExceptionError extends Schema.TaggedError<HumanLoopQuotaExceededExceptionError>()("HumanLoopQuotaExceededException", HumanLoopQuotaExceededException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class InternalServerErrorError extends Schema.TaggedError<InternalServerErrorError>()("InternalServerError", InternalServerError.fields) {};
+export class InvalidParameterExceptionError extends Schema.TaggedError<InvalidParameterExceptionError>()("InvalidParameterException", InvalidParameterException.fields) {};
+export class ProvisionedThroughputExceededExceptionError extends Schema.TaggedError<ProvisionedThroughputExceededExceptionError>()("ProvisionedThroughputExceededException", ProvisionedThroughputExceededException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException.fields) {};
+export class ResourceInUseExceptionError extends Schema.TaggedError<ResourceInUseExceptionError>()("ResourceInUseException", ResourceInUseException.fields) {};
+export class IdempotentParameterMismatchExceptionError extends Schema.TaggedError<IdempotentParameterMismatchExceptionError>()("IdempotentParameterMismatchException", IdempotentParameterMismatchException.fields) {};
+export class InvalidPaginationTokenExceptionError extends Schema.TaggedError<InvalidPaginationTokenExceptionError>()("InvalidPaginationTokenException", InvalidPaginationTokenException.fields) {};
+export class ResourceNotReadyExceptionError extends Schema.TaggedError<ResourceNotReadyExceptionError>()("ResourceNotReadyException", ResourceNotReadyException.fields) {};
+export class InvalidPolicyRevisionIdExceptionError extends Schema.TaggedError<InvalidPolicyRevisionIdExceptionError>()("InvalidPolicyRevisionIdException", InvalidPolicyRevisionIdException.fields) {};
+export class InvalidS3ObjectExceptionError extends Schema.TaggedError<InvalidS3ObjectExceptionError>()("InvalidS3ObjectException", InvalidS3ObjectException.fields) {};
+export class VideoTooLargeExceptionError extends Schema.TaggedError<VideoTooLargeExceptionError>()("VideoTooLargeException", VideoTooLargeException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
+export class ResourceAlreadyExistsExceptionError extends Schema.TaggedError<ResourceAlreadyExistsExceptionError>()("ResourceAlreadyExistsException", ResourceAlreadyExistsException.fields) {};
+export class ImageTooLargeExceptionError extends Schema.TaggedError<ImageTooLargeExceptionError>()("ImageTooLargeException", ImageTooLargeException.fields) {};
+export class MalformedPolicyDocumentExceptionError extends Schema.TaggedError<MalformedPolicyDocumentExceptionError>()("MalformedPolicyDocumentException", MalformedPolicyDocumentException.fields) {};
+export class InvalidImageFormatExceptionError extends Schema.TaggedError<InvalidImageFormatExceptionError>()("InvalidImageFormatException", InvalidImageFormatException.fields) {};
+export class SessionNotFoundExceptionError extends Schema.TaggedError<SessionNotFoundExceptionError>()("SessionNotFoundException", SessionNotFoundException.fields) {};
+export class InvalidManifestExceptionError extends Schema.TaggedError<InvalidManifestExceptionError>()("InvalidManifestException", InvalidManifestException.fields) {};
+export class HumanLoopQuotaExceededExceptionError extends Schema.TaggedError<HumanLoopQuotaExceededExceptionError>()("HumanLoopQuotaExceededException", HumanLoopQuotaExceededException.fields) {};
 
 //# Operations
 export const deleteCollection = /*#__PURE__*/ makeOperation(() => Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.DeleteCollection" }, DeleteCollectionRequest, DeleteCollectionResponse, [AccessDeniedExceptionError, InternalServerErrorError, InvalidParameterExceptionError, ProvisionedThroughputExceededExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

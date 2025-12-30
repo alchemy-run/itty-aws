@@ -5,375 +5,378 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 //# Schemas
 export const JobStatusList = Schema.Array(Schema.String);
 export const TagKeyList = Schema.Array(Schema.String);
-export const AssociateAccessGrantsIdentityCenterRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), IdentityCenterArn: Schema.String});
-export const Tag = Schema.Struct({Key: Schema.String, Value: Schema.String});
+export class AssociateAccessGrantsIdentityCenterRequest extends Schema.Class<AssociateAccessGrantsIdentityCenterRequest>("AssociateAccessGrantsIdentityCenterRequest")({AccountId: Header("x-amz-account-id"), IdentityCenterArn: Schema.String}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.String, Value: Schema.String}) {}
 export const TagList = Schema.Array(Tag);
-export const CreateAccessGrantsInstanceRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), IdentityCenterArn: Schema.optional(Schema.String), Tags: Schema.optional(TagList)});
-export const CreateAccessGrantsLocationRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), LocationScope: Schema.String, IAMRoleArn: Schema.String, Tags: Schema.optional(TagList)});
-export const DeleteAccessGrantRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), AccessGrantId: Schema.String});
-export const DeleteAccessGrantsInstanceRequest = Schema.Struct({AccountId: Header("x-amz-account-id")});
-export const DeleteAccessGrantsInstanceResourcePolicyRequest = Schema.Struct({AccountId: Header("x-amz-account-id")});
-export const DeleteAccessGrantsLocationRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), AccessGrantsLocationId: Schema.String});
-export const DeleteAccessPointRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), Name: Path("AccessPointName", Schema.String)});
-export const DeleteAccessPointForObjectLambdaRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), Name: Schema.String});
-export const DeleteAccessPointPolicyRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), Name: Path("AccessPointName", Schema.String)});
-export const DeleteAccessPointPolicyForObjectLambdaRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), Name: Schema.String});
-export const DeleteAccessPointScopeRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), Name: Path("AccessPointName", Schema.String)});
-export const DeleteBucketRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), Bucket: Path("Bucket", Schema.String)});
-export const DeleteBucketLifecycleConfigurationRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), Bucket: Path("Bucket", Schema.String)});
-export const DeleteBucketPolicyRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), Bucket: Path("Bucket", Schema.String)});
-export const DeleteBucketReplicationRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), Bucket: Path("Bucket", Schema.String)});
-export const DeleteBucketTaggingRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), Bucket: Path("Bucket", Schema.String)});
-export const DeleteJobTaggingRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), JobId: Schema.String});
-export const DeleteJobTaggingResult = Schema.Struct({});
-export const DeletePublicAccessBlockRequest = Schema.Struct({AccountId: Header("x-amz-account-id")});
-export const DeleteStorageLensConfigurationRequest = Schema.Struct({ConfigId: Schema.String, AccountId: Header("x-amz-account-id")});
-export const DeleteStorageLensConfigurationTaggingRequest = Schema.Struct({ConfigId: Schema.String, AccountId: Header("x-amz-account-id")});
-export const DeleteStorageLensConfigurationTaggingResult = Schema.Struct({});
-export const DeleteStorageLensGroupRequest = Schema.Struct({Name: Schema.String, AccountId: Header("x-amz-account-id")});
-export const DescribeJobRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), JobId: Schema.String});
-export const DescribeMultiRegionAccessPointOperationRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), RequestTokenARN: Schema.String});
-export const DissociateAccessGrantsIdentityCenterRequest = Schema.Struct({AccountId: Header("x-amz-account-id")});
-export const GetAccessGrantRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), AccessGrantId: Schema.String});
-export const GetAccessGrantsInstanceRequest = Schema.Struct({AccountId: Header("x-amz-account-id")});
-export const GetAccessGrantsInstanceForPrefixRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), S3Prefix: Schema.String});
-export const GetAccessGrantsInstanceResourcePolicyRequest = Schema.Struct({AccountId: Header("x-amz-account-id")});
-export const GetAccessGrantsLocationRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), AccessGrantsLocationId: Schema.String});
-export const GetAccessPointRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), Name: Path("AccessPointName", Schema.String)});
-export const GetAccessPointConfigurationForObjectLambdaRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), Name: Schema.String});
-export const GetAccessPointForObjectLambdaRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), Name: Schema.String});
-export const GetAccessPointPolicyRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), Name: Path("AccessPointName", Schema.String)});
-export const GetAccessPointPolicyForObjectLambdaRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), Name: Schema.String});
-export const GetAccessPointPolicyStatusRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), Name: Path("AccessPointName", Schema.String)});
-export const GetAccessPointPolicyStatusForObjectLambdaRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), Name: Schema.String});
-export const GetAccessPointScopeRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), Name: Path("AccessPointName", Schema.String)});
-export const GetBucketRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), Bucket: Path("Bucket", Schema.String)});
-export const GetBucketLifecycleConfigurationRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), Bucket: Path("Bucket", Schema.String)});
-export const GetBucketPolicyRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), Bucket: Path("Bucket", Schema.String)});
-export const GetBucketReplicationRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), Bucket: Path("Bucket", Schema.String)});
-export const GetBucketTaggingRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), Bucket: Path("Bucket", Schema.String)});
-export const GetBucketVersioningRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), Bucket: Path("Bucket", Schema.String)});
-export const GetDataAccessRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), Target: Schema.String, Permission: Schema.String, DurationSeconds: Schema.optional(Schema.Number), Privilege: Schema.optional(Schema.String), TargetType: Schema.optional(Schema.String)});
-export const GetJobTaggingRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), JobId: Schema.String});
-export const GetMultiRegionAccessPointRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), Name: Schema.String});
-export const GetMultiRegionAccessPointPolicyRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), Name: Schema.String});
-export const GetMultiRegionAccessPointPolicyStatusRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), Name: Schema.String});
-export const GetMultiRegionAccessPointRoutesRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), Mrap: Schema.String});
-export const GetPublicAccessBlockRequest = Schema.Struct({AccountId: Header("x-amz-account-id")});
-export const GetStorageLensConfigurationRequest = Schema.Struct({ConfigId: Schema.String, AccountId: Header("x-amz-account-id")});
-export const GetStorageLensConfigurationTaggingRequest = Schema.Struct({ConfigId: Schema.String, AccountId: Header("x-amz-account-id")});
-export const GetStorageLensGroupRequest = Schema.Struct({Name: Schema.String, AccountId: Header("x-amz-account-id")});
-export const ListAccessGrantsRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), GranteeType: Schema.optional(Schema.String), GranteeIdentifier: Schema.optional(Schema.String), Permission: Schema.optional(Schema.String), GrantScope: Schema.optional(Schema.String), ApplicationArn: Schema.optional(Schema.String)});
-export const ListAccessGrantsInstancesRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListAccessGrantsLocationsRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), LocationScope: Schema.optional(Schema.String)});
-export const ListAccessPointsRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), Bucket: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), DataSourceId: Schema.optional(Schema.String), DataSourceType: Schema.optional(Schema.String)});
-export const ListAccessPointsForDirectoryBucketsRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), DirectoryBucket: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListAccessPointsForObjectLambdaRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListCallerAccessGrantsRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), GrantScope: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), AllowedByApplication: Schema.optional(Schema.Boolean)});
-export const ListJobsRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), JobStatuses: Schema.optional(JobStatusList), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListMultiRegionAccessPointsRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListRegionalBucketsRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), OutpostId: Schema.optional(Header("x-amz-outpost-id"))});
-export const ListStorageLensConfigurationsRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), NextToken: Schema.optional(Schema.String)});
-export const ListStorageLensGroupsRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), NextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), ResourceArn: Path("ResourceArn", Schema.String)});
-export const PutAccessGrantsInstanceResourcePolicyRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), Policy: Schema.String, Organization: Schema.optional(Schema.String)});
+export class CreateAccessGrantsInstanceRequest extends Schema.Class<CreateAccessGrantsInstanceRequest>("CreateAccessGrantsInstanceRequest")({AccountId: Header("x-amz-account-id"), IdentityCenterArn: Schema.optional(Schema.String), Tags: Schema.optional(TagList)}) {}
+export class CreateAccessGrantsLocationRequest extends Schema.Class<CreateAccessGrantsLocationRequest>("CreateAccessGrantsLocationRequest")({AccountId: Header("x-amz-account-id"), LocationScope: Schema.String, IAMRoleArn: Schema.String, Tags: Schema.optional(TagList)}) {}
+export class DeleteAccessGrantRequest extends Schema.Class<DeleteAccessGrantRequest>("DeleteAccessGrantRequest")({AccountId: Header("x-amz-account-id"), AccessGrantId: Schema.String}) {}
+export class DeleteAccessGrantsInstanceRequest extends Schema.Class<DeleteAccessGrantsInstanceRequest>("DeleteAccessGrantsInstanceRequest")({AccountId: Header("x-amz-account-id")}) {}
+export class DeleteAccessGrantsInstanceResourcePolicyRequest extends Schema.Class<DeleteAccessGrantsInstanceResourcePolicyRequest>("DeleteAccessGrantsInstanceResourcePolicyRequest")({AccountId: Header("x-amz-account-id")}) {}
+export class DeleteAccessGrantsLocationRequest extends Schema.Class<DeleteAccessGrantsLocationRequest>("DeleteAccessGrantsLocationRequest")({AccountId: Header("x-amz-account-id"), AccessGrantsLocationId: Schema.String}) {}
+export class DeleteAccessPointRequest extends Schema.Class<DeleteAccessPointRequest>("DeleteAccessPointRequest")({AccountId: Header("x-amz-account-id"), Name: Path("AccessPointName", Schema.String)}) {}
+export class DeleteAccessPointForObjectLambdaRequest extends Schema.Class<DeleteAccessPointForObjectLambdaRequest>("DeleteAccessPointForObjectLambdaRequest")({AccountId: Header("x-amz-account-id"), Name: Schema.String}) {}
+export class DeleteAccessPointPolicyRequest extends Schema.Class<DeleteAccessPointPolicyRequest>("DeleteAccessPointPolicyRequest")({AccountId: Header("x-amz-account-id"), Name: Path("AccessPointName", Schema.String)}) {}
+export class DeleteAccessPointPolicyForObjectLambdaRequest extends Schema.Class<DeleteAccessPointPolicyForObjectLambdaRequest>("DeleteAccessPointPolicyForObjectLambdaRequest")({AccountId: Header("x-amz-account-id"), Name: Schema.String}) {}
+export class DeleteAccessPointScopeRequest extends Schema.Class<DeleteAccessPointScopeRequest>("DeleteAccessPointScopeRequest")({AccountId: Header("x-amz-account-id"), Name: Path("AccessPointName", Schema.String)}) {}
+export class DeleteBucketRequest extends Schema.Class<DeleteBucketRequest>("DeleteBucketRequest")({AccountId: Header("x-amz-account-id"), Bucket: Path("Bucket", Schema.String)}) {}
+export class DeleteBucketLifecycleConfigurationRequest extends Schema.Class<DeleteBucketLifecycleConfigurationRequest>("DeleteBucketLifecycleConfigurationRequest")({AccountId: Header("x-amz-account-id"), Bucket: Path("Bucket", Schema.String)}) {}
+export class DeleteBucketPolicyRequest extends Schema.Class<DeleteBucketPolicyRequest>("DeleteBucketPolicyRequest")({AccountId: Header("x-amz-account-id"), Bucket: Path("Bucket", Schema.String)}) {}
+export class DeleteBucketReplicationRequest extends Schema.Class<DeleteBucketReplicationRequest>("DeleteBucketReplicationRequest")({AccountId: Header("x-amz-account-id"), Bucket: Path("Bucket", Schema.String)}) {}
+export class DeleteBucketTaggingRequest extends Schema.Class<DeleteBucketTaggingRequest>("DeleteBucketTaggingRequest")({AccountId: Header("x-amz-account-id"), Bucket: Path("Bucket", Schema.String)}) {}
+export class DeleteJobTaggingRequest extends Schema.Class<DeleteJobTaggingRequest>("DeleteJobTaggingRequest")({AccountId: Header("x-amz-account-id"), JobId: Schema.String}) {}
+export class DeleteJobTaggingResult extends Schema.Class<DeleteJobTaggingResult>("DeleteJobTaggingResult")({}) {}
+export class DeletePublicAccessBlockRequest extends Schema.Class<DeletePublicAccessBlockRequest>("DeletePublicAccessBlockRequest")({AccountId: Header("x-amz-account-id")}) {}
+export class DeleteStorageLensConfigurationRequest extends Schema.Class<DeleteStorageLensConfigurationRequest>("DeleteStorageLensConfigurationRequest")({ConfigId: Schema.String, AccountId: Header("x-amz-account-id")}) {}
+export class DeleteStorageLensConfigurationTaggingRequest extends Schema.Class<DeleteStorageLensConfigurationTaggingRequest>("DeleteStorageLensConfigurationTaggingRequest")({ConfigId: Schema.String, AccountId: Header("x-amz-account-id")}) {}
+export class DeleteStorageLensConfigurationTaggingResult extends Schema.Class<DeleteStorageLensConfigurationTaggingResult>("DeleteStorageLensConfigurationTaggingResult")({}) {}
+export class DeleteStorageLensGroupRequest extends Schema.Class<DeleteStorageLensGroupRequest>("DeleteStorageLensGroupRequest")({Name: Schema.String, AccountId: Header("x-amz-account-id")}) {}
+export class DescribeJobRequest extends Schema.Class<DescribeJobRequest>("DescribeJobRequest")({AccountId: Header("x-amz-account-id"), JobId: Schema.String}) {}
+export class DescribeMultiRegionAccessPointOperationRequest extends Schema.Class<DescribeMultiRegionAccessPointOperationRequest>("DescribeMultiRegionAccessPointOperationRequest")({AccountId: Header("x-amz-account-id"), RequestTokenARN: Schema.String}) {}
+export class DissociateAccessGrantsIdentityCenterRequest extends Schema.Class<DissociateAccessGrantsIdentityCenterRequest>("DissociateAccessGrantsIdentityCenterRequest")({AccountId: Header("x-amz-account-id")}) {}
+export class GetAccessGrantRequest extends Schema.Class<GetAccessGrantRequest>("GetAccessGrantRequest")({AccountId: Header("x-amz-account-id"), AccessGrantId: Schema.String}) {}
+export class GetAccessGrantsInstanceRequest extends Schema.Class<GetAccessGrantsInstanceRequest>("GetAccessGrantsInstanceRequest")({AccountId: Header("x-amz-account-id")}) {}
+export class GetAccessGrantsInstanceForPrefixRequest extends Schema.Class<GetAccessGrantsInstanceForPrefixRequest>("GetAccessGrantsInstanceForPrefixRequest")({AccountId: Header("x-amz-account-id"), S3Prefix: Schema.String}) {}
+export class GetAccessGrantsInstanceResourcePolicyRequest extends Schema.Class<GetAccessGrantsInstanceResourcePolicyRequest>("GetAccessGrantsInstanceResourcePolicyRequest")({AccountId: Header("x-amz-account-id")}) {}
+export class GetAccessGrantsLocationRequest extends Schema.Class<GetAccessGrantsLocationRequest>("GetAccessGrantsLocationRequest")({AccountId: Header("x-amz-account-id"), AccessGrantsLocationId: Schema.String}) {}
+export class GetAccessPointRequest extends Schema.Class<GetAccessPointRequest>("GetAccessPointRequest")({AccountId: Header("x-amz-account-id"), Name: Path("AccessPointName", Schema.String)}) {}
+export class GetAccessPointConfigurationForObjectLambdaRequest extends Schema.Class<GetAccessPointConfigurationForObjectLambdaRequest>("GetAccessPointConfigurationForObjectLambdaRequest")({AccountId: Header("x-amz-account-id"), Name: Schema.String}) {}
+export class GetAccessPointForObjectLambdaRequest extends Schema.Class<GetAccessPointForObjectLambdaRequest>("GetAccessPointForObjectLambdaRequest")({AccountId: Header("x-amz-account-id"), Name: Schema.String}) {}
+export class GetAccessPointPolicyRequest extends Schema.Class<GetAccessPointPolicyRequest>("GetAccessPointPolicyRequest")({AccountId: Header("x-amz-account-id"), Name: Path("AccessPointName", Schema.String)}) {}
+export class GetAccessPointPolicyForObjectLambdaRequest extends Schema.Class<GetAccessPointPolicyForObjectLambdaRequest>("GetAccessPointPolicyForObjectLambdaRequest")({AccountId: Header("x-amz-account-id"), Name: Schema.String}) {}
+export class GetAccessPointPolicyStatusRequest extends Schema.Class<GetAccessPointPolicyStatusRequest>("GetAccessPointPolicyStatusRequest")({AccountId: Header("x-amz-account-id"), Name: Path("AccessPointName", Schema.String)}) {}
+export class GetAccessPointPolicyStatusForObjectLambdaRequest extends Schema.Class<GetAccessPointPolicyStatusForObjectLambdaRequest>("GetAccessPointPolicyStatusForObjectLambdaRequest")({AccountId: Header("x-amz-account-id"), Name: Schema.String}) {}
+export class GetAccessPointScopeRequest extends Schema.Class<GetAccessPointScopeRequest>("GetAccessPointScopeRequest")({AccountId: Header("x-amz-account-id"), Name: Path("AccessPointName", Schema.String)}) {}
+export class GetBucketRequest extends Schema.Class<GetBucketRequest>("GetBucketRequest")({AccountId: Header("x-amz-account-id"), Bucket: Path("Bucket", Schema.String)}) {}
+export class GetBucketLifecycleConfigurationRequest extends Schema.Class<GetBucketLifecycleConfigurationRequest>("GetBucketLifecycleConfigurationRequest")({AccountId: Header("x-amz-account-id"), Bucket: Path("Bucket", Schema.String)}) {}
+export class GetBucketPolicyRequest extends Schema.Class<GetBucketPolicyRequest>("GetBucketPolicyRequest")({AccountId: Header("x-amz-account-id"), Bucket: Path("Bucket", Schema.String)}) {}
+export class GetBucketReplicationRequest extends Schema.Class<GetBucketReplicationRequest>("GetBucketReplicationRequest")({AccountId: Header("x-amz-account-id"), Bucket: Path("Bucket", Schema.String)}) {}
+export class GetBucketTaggingRequest extends Schema.Class<GetBucketTaggingRequest>("GetBucketTaggingRequest")({AccountId: Header("x-amz-account-id"), Bucket: Path("Bucket", Schema.String)}) {}
+export class GetBucketVersioningRequest extends Schema.Class<GetBucketVersioningRequest>("GetBucketVersioningRequest")({AccountId: Header("x-amz-account-id"), Bucket: Path("Bucket", Schema.String)}) {}
+export class GetDataAccessRequest extends Schema.Class<GetDataAccessRequest>("GetDataAccessRequest")({AccountId: Header("x-amz-account-id"), Target: Schema.String, Permission: Schema.String, DurationSeconds: Schema.optional(Schema.Number), Privilege: Schema.optional(Schema.String), TargetType: Schema.optional(Schema.String)}) {}
+export class GetJobTaggingRequest extends Schema.Class<GetJobTaggingRequest>("GetJobTaggingRequest")({AccountId: Header("x-amz-account-id"), JobId: Schema.String}) {}
+export class GetMultiRegionAccessPointRequest extends Schema.Class<GetMultiRegionAccessPointRequest>("GetMultiRegionAccessPointRequest")({AccountId: Header("x-amz-account-id"), Name: Schema.String}) {}
+export class GetMultiRegionAccessPointPolicyRequest extends Schema.Class<GetMultiRegionAccessPointPolicyRequest>("GetMultiRegionAccessPointPolicyRequest")({AccountId: Header("x-amz-account-id"), Name: Schema.String}) {}
+export class GetMultiRegionAccessPointPolicyStatusRequest extends Schema.Class<GetMultiRegionAccessPointPolicyStatusRequest>("GetMultiRegionAccessPointPolicyStatusRequest")({AccountId: Header("x-amz-account-id"), Name: Schema.String}) {}
+export class GetMultiRegionAccessPointRoutesRequest extends Schema.Class<GetMultiRegionAccessPointRoutesRequest>("GetMultiRegionAccessPointRoutesRequest")({AccountId: Header("x-amz-account-id"), Mrap: Schema.String}) {}
+export class GetPublicAccessBlockRequest extends Schema.Class<GetPublicAccessBlockRequest>("GetPublicAccessBlockRequest")({AccountId: Header("x-amz-account-id")}) {}
+export class GetStorageLensConfigurationRequest extends Schema.Class<GetStorageLensConfigurationRequest>("GetStorageLensConfigurationRequest")({ConfigId: Schema.String, AccountId: Header("x-amz-account-id")}) {}
+export class GetStorageLensConfigurationTaggingRequest extends Schema.Class<GetStorageLensConfigurationTaggingRequest>("GetStorageLensConfigurationTaggingRequest")({ConfigId: Schema.String, AccountId: Header("x-amz-account-id")}) {}
+export class GetStorageLensGroupRequest extends Schema.Class<GetStorageLensGroupRequest>("GetStorageLensGroupRequest")({Name: Schema.String, AccountId: Header("x-amz-account-id")}) {}
+export class ListAccessGrantsRequest extends Schema.Class<ListAccessGrantsRequest>("ListAccessGrantsRequest")({AccountId: Header("x-amz-account-id"), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), GranteeType: Schema.optional(Schema.String), GranteeIdentifier: Schema.optional(Schema.String), Permission: Schema.optional(Schema.String), GrantScope: Schema.optional(Schema.String), ApplicationArn: Schema.optional(Schema.String)}) {}
+export class ListAccessGrantsInstancesRequest extends Schema.Class<ListAccessGrantsInstancesRequest>("ListAccessGrantsInstancesRequest")({AccountId: Header("x-amz-account-id"), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListAccessGrantsLocationsRequest extends Schema.Class<ListAccessGrantsLocationsRequest>("ListAccessGrantsLocationsRequest")({AccountId: Header("x-amz-account-id"), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), LocationScope: Schema.optional(Schema.String)}) {}
+export class ListAccessPointsRequest extends Schema.Class<ListAccessPointsRequest>("ListAccessPointsRequest")({AccountId: Header("x-amz-account-id"), Bucket: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), DataSourceId: Schema.optional(Schema.String), DataSourceType: Schema.optional(Schema.String)}) {}
+export class ListAccessPointsForDirectoryBucketsRequest extends Schema.Class<ListAccessPointsForDirectoryBucketsRequest>("ListAccessPointsForDirectoryBucketsRequest")({AccountId: Header("x-amz-account-id"), DirectoryBucket: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListAccessPointsForObjectLambdaRequest extends Schema.Class<ListAccessPointsForObjectLambdaRequest>("ListAccessPointsForObjectLambdaRequest")({AccountId: Header("x-amz-account-id"), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListCallerAccessGrantsRequest extends Schema.Class<ListCallerAccessGrantsRequest>("ListCallerAccessGrantsRequest")({AccountId: Header("x-amz-account-id"), GrantScope: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), AllowedByApplication: Schema.optional(Schema.Boolean)}) {}
+export class ListJobsRequest extends Schema.Class<ListJobsRequest>("ListJobsRequest")({AccountId: Header("x-amz-account-id"), JobStatuses: Schema.optional(JobStatusList), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListMultiRegionAccessPointsRequest extends Schema.Class<ListMultiRegionAccessPointsRequest>("ListMultiRegionAccessPointsRequest")({AccountId: Header("x-amz-account-id"), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListRegionalBucketsRequest extends Schema.Class<ListRegionalBucketsRequest>("ListRegionalBucketsRequest")({AccountId: Header("x-amz-account-id"), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), OutpostId: Schema.optional(Header("x-amz-outpost-id"))}) {}
+export class ListStorageLensConfigurationsRequest extends Schema.Class<ListStorageLensConfigurationsRequest>("ListStorageLensConfigurationsRequest")({AccountId: Header("x-amz-account-id"), NextToken: Schema.optional(Schema.String)}) {}
+export class ListStorageLensGroupsRequest extends Schema.Class<ListStorageLensGroupsRequest>("ListStorageLensGroupsRequest")({AccountId: Header("x-amz-account-id"), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({AccountId: Header("x-amz-account-id"), ResourceArn: Path("ResourceArn", Schema.String)}) {}
+export class PutAccessGrantsInstanceResourcePolicyRequest extends Schema.Class<PutAccessGrantsInstanceResourcePolicyRequest>("PutAccessGrantsInstanceResourcePolicyRequest")({AccountId: Header("x-amz-account-id"), Policy: Schema.String, Organization: Schema.optional(Schema.String)}) {}
 export const ObjectLambdaAllowedFeaturesList = Schema.Array(Schema.String);
 export const ObjectLambdaTransformationConfigurationActionsList = Schema.Array(Schema.String);
-export const AwsLambdaTransformation = Schema.Struct({FunctionArn: Schema.String, FunctionPayload: Schema.optional(Schema.String)});
+export class AwsLambdaTransformation extends Schema.Class<AwsLambdaTransformation>("AwsLambdaTransformation")({FunctionArn: Schema.String, FunctionPayload: Schema.optional(Schema.String)}) {}
 export const ObjectLambdaContentTransformation = Schema.Union(AwsLambdaTransformation);
-export const ObjectLambdaTransformationConfiguration = Schema.Struct({Actions: ObjectLambdaTransformationConfigurationActionsList, ContentTransformation: ObjectLambdaContentTransformation});
+export class ObjectLambdaTransformationConfiguration extends Schema.Class<ObjectLambdaTransformationConfiguration>("ObjectLambdaTransformationConfiguration")({Actions: ObjectLambdaTransformationConfigurationActionsList, ContentTransformation: ObjectLambdaContentTransformation}) {}
 export const ObjectLambdaTransformationConfigurationsList = Schema.Array(ObjectLambdaTransformationConfiguration);
-export const ObjectLambdaConfiguration = Schema.Struct({SupportingAccessPoint: Schema.String, CloudWatchMetricsEnabled: Schema.optional(Schema.Boolean), AllowedFeatures: Schema.optional(ObjectLambdaAllowedFeaturesList), TransformationConfigurations: ObjectLambdaTransformationConfigurationsList});
-export const PutAccessPointConfigurationForObjectLambdaRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), Name: Schema.String, Configuration: ObjectLambdaConfiguration});
-export const PutAccessPointPolicyRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), Name: Path("AccessPointName", Schema.String), Policy: Schema.String});
-export const PutAccessPointPolicyForObjectLambdaRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), Name: Schema.String, Policy: Schema.String});
+export class ObjectLambdaConfiguration extends Schema.Class<ObjectLambdaConfiguration>("ObjectLambdaConfiguration")({SupportingAccessPoint: Schema.String, CloudWatchMetricsEnabled: Schema.optional(Schema.Boolean), AllowedFeatures: Schema.optional(ObjectLambdaAllowedFeaturesList), TransformationConfigurations: ObjectLambdaTransformationConfigurationsList}) {}
+export class PutAccessPointConfigurationForObjectLambdaRequest extends Schema.Class<PutAccessPointConfigurationForObjectLambdaRequest>("PutAccessPointConfigurationForObjectLambdaRequest")({AccountId: Header("x-amz-account-id"), Name: Schema.String, Configuration: ObjectLambdaConfiguration}) {}
+export class PutAccessPointPolicyRequest extends Schema.Class<PutAccessPointPolicyRequest>("PutAccessPointPolicyRequest")({AccountId: Header("x-amz-account-id"), Name: Path("AccessPointName", Schema.String), Policy: Schema.String}) {}
+export class PutAccessPointPolicyForObjectLambdaRequest extends Schema.Class<PutAccessPointPolicyForObjectLambdaRequest>("PutAccessPointPolicyForObjectLambdaRequest")({AccountId: Header("x-amz-account-id"), Name: Schema.String, Policy: Schema.String}) {}
 export const PrefixesList = Schema.Array(Schema.String);
 export const ScopePermissionList = Schema.Array(Schema.String);
-export const Scope = Schema.Struct({Prefixes: Schema.optional(PrefixesList), Permissions: Schema.optional(ScopePermissionList)});
-export const PutAccessPointScopeRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), Name: Path("AccessPointName", Schema.String), Scope: Scope});
-export const PutBucketPolicyRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), Bucket: Path("Bucket", Schema.String), ConfirmRemoveSelfBucketAccess: Schema.optional(Header("x-amz-confirm-remove-self-bucket-access", Schema.Boolean)), Policy: Schema.String});
-export const S3Tag = Schema.Struct({Key: Schema.String, Value: Schema.String});
+export class Scope extends Schema.Class<Scope>("Scope")({Prefixes: Schema.optional(PrefixesList), Permissions: Schema.optional(ScopePermissionList)}) {}
+export class PutAccessPointScopeRequest extends Schema.Class<PutAccessPointScopeRequest>("PutAccessPointScopeRequest")({AccountId: Header("x-amz-account-id"), Name: Path("AccessPointName", Schema.String), Scope: Scope}) {}
+export class PutBucketPolicyRequest extends Schema.Class<PutBucketPolicyRequest>("PutBucketPolicyRequest")({AccountId: Header("x-amz-account-id"), Bucket: Path("Bucket", Schema.String), ConfirmRemoveSelfBucketAccess: Schema.optional(Header("x-amz-confirm-remove-self-bucket-access", Schema.Boolean)), Policy: Schema.String}) {}
+export class S3Tag extends Schema.Class<S3Tag>("S3Tag")({Key: Schema.String, Value: Schema.String}) {}
 export const S3TagSet = Schema.Array(S3Tag);
-export const PutJobTaggingRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), JobId: Schema.String, Tags: S3TagSet});
-export const PutJobTaggingResult = Schema.Struct({});
-export const PublicAccessBlockConfiguration = Schema.Struct({BlockPublicAcls: Schema.optional(Schema.Boolean), IgnorePublicAcls: Schema.optional(Schema.Boolean), BlockPublicPolicy: Schema.optional(Schema.Boolean), RestrictPublicBuckets: Schema.optional(Schema.Boolean)});
-export const PutPublicAccessBlockRequest = Schema.Struct({PublicAccessBlockConfiguration: Body("PublicAccessBlockConfiguration", PublicAccessBlockConfiguration), AccountId: Header("x-amz-account-id")});
-export const StorageLensTag = Schema.Struct({Key: Schema.String, Value: Schema.String});
+export class PutJobTaggingRequest extends Schema.Class<PutJobTaggingRequest>("PutJobTaggingRequest")({AccountId: Header("x-amz-account-id"), JobId: Schema.String, Tags: S3TagSet}) {}
+export class PutJobTaggingResult extends Schema.Class<PutJobTaggingResult>("PutJobTaggingResult")({}) {}
+export class PublicAccessBlockConfiguration extends Schema.Class<PublicAccessBlockConfiguration>("PublicAccessBlockConfiguration")({BlockPublicAcls: Schema.optional(Schema.Boolean), IgnorePublicAcls: Schema.optional(Schema.Boolean), BlockPublicPolicy: Schema.optional(Schema.Boolean), RestrictPublicBuckets: Schema.optional(Schema.Boolean)}) {}
+export class PutPublicAccessBlockRequest extends Schema.Class<PutPublicAccessBlockRequest>("PutPublicAccessBlockRequest")({PublicAccessBlockConfiguration: Body("PublicAccessBlockConfiguration", PublicAccessBlockConfiguration), AccountId: Header("x-amz-account-id")}) {}
+export class StorageLensTag extends Schema.Class<StorageLensTag>("StorageLensTag")({Key: Schema.String, Value: Schema.String}) {}
 export const StorageLensTags = Schema.Array(StorageLensTag);
-export const PutStorageLensConfigurationTaggingRequest = Schema.Struct({ConfigId: Schema.String, AccountId: Header("x-amz-account-id"), Tags: StorageLensTags});
-export const PutStorageLensConfigurationTaggingResult = Schema.Struct({});
-export const TagResourceRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), ResourceArn: Path("ResourceArn", Schema.String), Tags: TagList});
-export const TagResourceResult = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), ResourceArn: Path("ResourceArn", Schema.String), TagKeys: TagKeyList});
-export const UntagResourceResult = Schema.Struct({});
-export const UpdateAccessGrantsLocationRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), AccessGrantsLocationId: Schema.String, IAMRoleArn: Schema.String});
-export const UpdateJobPriorityRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), JobId: Schema.String, Priority: Schema.Number});
-export const UpdateJobStatusRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), JobId: Schema.String, RequestedJobStatus: Schema.String, StatusUpdateReason: Schema.optional(Schema.String)});
+export class PutStorageLensConfigurationTaggingRequest extends Schema.Class<PutStorageLensConfigurationTaggingRequest>("PutStorageLensConfigurationTaggingRequest")({ConfigId: Schema.String, AccountId: Header("x-amz-account-id"), Tags: StorageLensTags}) {}
+export class PutStorageLensConfigurationTaggingResult extends Schema.Class<PutStorageLensConfigurationTaggingResult>("PutStorageLensConfigurationTaggingResult")({}) {}
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({AccountId: Header("x-amz-account-id"), ResourceArn: Path("ResourceArn", Schema.String), Tags: TagList}) {}
+export class TagResourceResult extends Schema.Class<TagResourceResult>("TagResourceResult")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({AccountId: Header("x-amz-account-id"), ResourceArn: Path("ResourceArn", Schema.String), TagKeys: TagKeyList}) {}
+export class UntagResourceResult extends Schema.Class<UntagResourceResult>("UntagResourceResult")({}) {}
+export class UpdateAccessGrantsLocationRequest extends Schema.Class<UpdateAccessGrantsLocationRequest>("UpdateAccessGrantsLocationRequest")({AccountId: Header("x-amz-account-id"), AccessGrantsLocationId: Schema.String, IAMRoleArn: Schema.String}) {}
+export class UpdateJobPriorityRequest extends Schema.Class<UpdateJobPriorityRequest>("UpdateJobPriorityRequest")({AccountId: Header("x-amz-account-id"), JobId: Schema.String, Priority: Schema.Number}) {}
+export class UpdateJobStatusRequest extends Schema.Class<UpdateJobStatusRequest>("UpdateJobStatusRequest")({AccountId: Header("x-amz-account-id"), JobId: Schema.String, RequestedJobStatus: Schema.String, StatusUpdateReason: Schema.optional(Schema.String)}) {}
 export const MatchAnyPrefix = Schema.Array(Schema.String);
 export const MatchAnySuffix = Schema.Array(Schema.String);
 export const MatchAnyTag = Schema.Array(S3Tag);
-export const MatchObjectAge = Schema.Struct({DaysGreaterThan: Schema.optional(Schema.Number), DaysLessThan: Schema.optional(Schema.Number)});
-export const MatchObjectSize = Schema.Struct({BytesGreaterThan: Schema.optional(Schema.Number), BytesLessThan: Schema.optional(Schema.Number)});
-export const StorageLensGroupAndOperator = Schema.Struct({MatchAnyPrefix: Schema.optional(MatchAnyPrefix), MatchAnySuffix: Schema.optional(MatchAnySuffix), MatchAnyTag: Schema.optional(MatchAnyTag), MatchObjectAge: Schema.optional(MatchObjectAge), MatchObjectSize: Schema.optional(MatchObjectSize)});
-export const StorageLensGroupOrOperator = Schema.Struct({MatchAnyPrefix: Schema.optional(MatchAnyPrefix), MatchAnySuffix: Schema.optional(MatchAnySuffix), MatchAnyTag: Schema.optional(MatchAnyTag), MatchObjectAge: Schema.optional(MatchObjectAge), MatchObjectSize: Schema.optional(MatchObjectSize)});
-export const StorageLensGroupFilter = Schema.Struct({MatchAnyPrefix: Schema.optional(MatchAnyPrefix), MatchAnySuffix: Schema.optional(MatchAnySuffix), MatchAnyTag: Schema.optional(MatchAnyTag), MatchObjectAge: Schema.optional(MatchObjectAge), MatchObjectSize: Schema.optional(MatchObjectSize), And: Schema.optional(StorageLensGroupAndOperator), Or: Schema.optional(StorageLensGroupOrOperator)});
-export const StorageLensGroup = Schema.Struct({Name: Schema.String, Filter: StorageLensGroupFilter, StorageLensGroupArn: Schema.optional(Schema.String)});
-export const UpdateStorageLensGroupRequest = Schema.Struct({Name: Schema.String, AccountId: Header("x-amz-account-id"), StorageLensGroup: StorageLensGroup});
-export const S3DeleteObjectTaggingOperation = Schema.Struct({});
-export const S3ReplicateObjectOperation = Schema.Struct({});
-export const AccessGrantsLocationConfiguration = Schema.Struct({S3SubPrefix: Schema.optional(Schema.String)});
-export const Grantee = Schema.Struct({GranteeType: Schema.optional(Schema.String), GranteeIdentifier: Schema.optional(Schema.String)});
-export const VpcConfiguration = Schema.Struct({VpcId: Schema.String});
-export const CreateBucketConfiguration = Schema.Struct({LocationConstraint: Schema.optional(Schema.String)});
-export const JobReport = Schema.Struct({Bucket: Schema.optional(Schema.String), Format: Schema.optional(Schema.String), Enabled: Schema.Boolean, Prefix: Schema.optional(Schema.String), ReportScope: Schema.optional(Schema.String), ExpectedBucketOwner: Schema.optional(Schema.String)});
-export const DeleteMultiRegionAccessPointInput = Schema.Struct({Name: Schema.String});
-export const RegionReport = Schema.Struct({Bucket: Schema.optional(Schema.String), Region: Schema.optional(Schema.String), BucketAccountId: Schema.optional(Schema.String)});
+export class MatchObjectAge extends Schema.Class<MatchObjectAge>("MatchObjectAge")({DaysGreaterThan: Schema.optional(Schema.Number), DaysLessThan: Schema.optional(Schema.Number)}) {}
+export class MatchObjectSize extends Schema.Class<MatchObjectSize>("MatchObjectSize")({BytesGreaterThan: Schema.optional(Schema.Number), BytesLessThan: Schema.optional(Schema.Number)}) {}
+export class StorageLensGroupAndOperator extends Schema.Class<StorageLensGroupAndOperator>("StorageLensGroupAndOperator")({MatchAnyPrefix: Schema.optional(MatchAnyPrefix), MatchAnySuffix: Schema.optional(MatchAnySuffix), MatchAnyTag: Schema.optional(MatchAnyTag), MatchObjectAge: Schema.optional(MatchObjectAge), MatchObjectSize: Schema.optional(MatchObjectSize)}) {}
+export class StorageLensGroupOrOperator extends Schema.Class<StorageLensGroupOrOperator>("StorageLensGroupOrOperator")({MatchAnyPrefix: Schema.optional(MatchAnyPrefix), MatchAnySuffix: Schema.optional(MatchAnySuffix), MatchAnyTag: Schema.optional(MatchAnyTag), MatchObjectAge: Schema.optional(MatchObjectAge), MatchObjectSize: Schema.optional(MatchObjectSize)}) {}
+export class StorageLensGroupFilter extends Schema.Class<StorageLensGroupFilter>("StorageLensGroupFilter")({MatchAnyPrefix: Schema.optional(MatchAnyPrefix), MatchAnySuffix: Schema.optional(MatchAnySuffix), MatchAnyTag: Schema.optional(MatchAnyTag), MatchObjectAge: Schema.optional(MatchObjectAge), MatchObjectSize: Schema.optional(MatchObjectSize), And: Schema.optional(StorageLensGroupAndOperator), Or: Schema.optional(StorageLensGroupOrOperator)}) {}
+export class StorageLensGroup extends Schema.Class<StorageLensGroup>("StorageLensGroup")({Name: Schema.String, Filter: StorageLensGroupFilter, StorageLensGroupArn: Schema.optional(Schema.String)}) {}
+export class UpdateStorageLensGroupRequest extends Schema.Class<UpdateStorageLensGroupRequest>("UpdateStorageLensGroupRequest")({Name: Schema.String, AccountId: Header("x-amz-account-id"), StorageLensGroup: StorageLensGroup}) {}
+export class S3DeleteObjectTaggingOperation extends Schema.Class<S3DeleteObjectTaggingOperation>("S3DeleteObjectTaggingOperation")({}) {}
+export class S3ReplicateObjectOperation extends Schema.Class<S3ReplicateObjectOperation>("S3ReplicateObjectOperation")({}) {}
+export class AccessGrantsLocationConfiguration extends Schema.Class<AccessGrantsLocationConfiguration>("AccessGrantsLocationConfiguration")({S3SubPrefix: Schema.optional(Schema.String)}) {}
+export class Grantee extends Schema.Class<Grantee>("Grantee")({GranteeType: Schema.optional(Schema.String), GranteeIdentifier: Schema.optional(Schema.String)}) {}
+export class VpcConfiguration extends Schema.Class<VpcConfiguration>("VpcConfiguration")({VpcId: Schema.String}) {}
+export class CreateBucketConfiguration extends Schema.Class<CreateBucketConfiguration>("CreateBucketConfiguration")({LocationConstraint: Schema.optional(Schema.String)}) {}
+export class JobReport extends Schema.Class<JobReport>("JobReport")({Bucket: Schema.optional(Schema.String), Format: Schema.optional(Schema.String), Enabled: Schema.Boolean, Prefix: Schema.optional(Schema.String), ReportScope: Schema.optional(Schema.String), ExpectedBucketOwner: Schema.optional(Schema.String)}) {}
+export class DeleteMultiRegionAccessPointInput extends Schema.Class<DeleteMultiRegionAccessPointInput>("DeleteMultiRegionAccessPointInput")({Name: Schema.String}) {}
+export class RegionReport extends Schema.Class<RegionReport>("RegionReport")({Bucket: Schema.optional(Schema.String), Region: Schema.optional(Schema.String), BucketAccountId: Schema.optional(Schema.String)}) {}
 export const RegionReportList = Schema.Array(RegionReport);
-export const MultiRegionAccessPointReport = Schema.Struct({Name: Schema.optional(Schema.String), Alias: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date), PublicAccessBlock: Schema.optional(PublicAccessBlockConfiguration), Status: Schema.optional(Schema.String), Regions: Schema.optional(RegionReportList)});
+export class MultiRegionAccessPointReport extends Schema.Class<MultiRegionAccessPointReport>("MultiRegionAccessPointReport")({Name: Schema.optional(Schema.String), Alias: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date), PublicAccessBlock: Schema.optional(PublicAccessBlockConfiguration), Status: Schema.optional(Schema.String), Regions: Schema.optional(RegionReportList)}) {}
 export const MultiRegionAccessPointReportList = Schema.Array(MultiRegionAccessPointReport);
-export const Tagging = Schema.Struct({TagSet: S3TagSet});
-export const VersioningConfiguration = Schema.Struct({MFADelete: Schema.optional(Schema.String), Status: Schema.optional(Schema.String)});
-export const PutMultiRegionAccessPointPolicyInput = Schema.Struct({Name: Schema.String, Policy: Schema.String});
-export const MultiRegionAccessPointRoute = Schema.Struct({Bucket: Schema.optional(Schema.String), Region: Schema.optional(Schema.String), TrafficDialPercentage: Schema.Number});
+export class Tagging extends Schema.Class<Tagging>("Tagging")({TagSet: S3TagSet}) {}
+export class VersioningConfiguration extends Schema.Class<VersioningConfiguration>("VersioningConfiguration")({MFADelete: Schema.optional(Schema.String), Status: Schema.optional(Schema.String)}) {}
+export class PutMultiRegionAccessPointPolicyInput extends Schema.Class<PutMultiRegionAccessPointPolicyInput>("PutMultiRegionAccessPointPolicyInput")({Name: Schema.String, Policy: Schema.String}) {}
+export class MultiRegionAccessPointRoute extends Schema.Class<MultiRegionAccessPointRoute>("MultiRegionAccessPointRoute")({Bucket: Schema.optional(Schema.String), Region: Schema.optional(Schema.String), TrafficDialPercentage: Schema.Number}) {}
 export const RouteList = Schema.Array(MultiRegionAccessPointRoute);
 export const JobManifestFieldList = Schema.Array(Schema.String);
 export const Buckets = Schema.Array(Schema.String);
 export const Regions = Schema.Array(Schema.String);
-export const CreateAccessGrantRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), AccessGrantsLocationId: Schema.String, AccessGrantsLocationConfiguration: Schema.optional(AccessGrantsLocationConfiguration), Grantee: Grantee, Permission: Schema.String, ApplicationArn: Schema.optional(Schema.String), S3PrefixType: Schema.optional(Schema.String), Tags: Schema.optional(TagList)});
-export const CreateAccessGrantsInstanceResult = Schema.Struct({CreatedAt: Schema.optional(Schema.Date), AccessGrantsInstanceId: Schema.optional(Schema.String), AccessGrantsInstanceArn: Schema.optional(Schema.String), IdentityCenterArn: Schema.optional(Schema.String), IdentityCenterInstanceArn: Schema.optional(Schema.String), IdentityCenterApplicationArn: Schema.optional(Schema.String)});
-export const CreateAccessGrantsLocationResult = Schema.Struct({CreatedAt: Schema.optional(Schema.Date), AccessGrantsLocationId: Schema.optional(Schema.String), AccessGrantsLocationArn: Schema.optional(Schema.String), LocationScope: Schema.optional(Schema.String), IAMRoleArn: Schema.optional(Schema.String)});
-export const CreateAccessPointRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), Name: Path("AccessPointName", Schema.String), Bucket: Schema.String, VpcConfiguration: Schema.optional(VpcConfiguration), PublicAccessBlockConfiguration: Schema.optional(PublicAccessBlockConfiguration), BucketAccountId: Schema.optional(Schema.String), Scope: Schema.optional(Scope), Tags: Schema.optional(TagList)});
-export const CreateBucketRequest = Schema.Struct({ACL: Schema.optional(Header("x-amz-acl")), Bucket: Path("Bucket", Schema.String), CreateBucketConfiguration: Schema.optional(Body("CreateBucketConfiguration", CreateBucketConfiguration)), GrantFullControl: Schema.optional(Header("x-amz-grant-full-control")), GrantRead: Schema.optional(Header("x-amz-grant-read")), GrantReadACP: Schema.optional(Header("x-amz-grant-read-acp")), GrantWrite: Schema.optional(Header("x-amz-grant-write")), GrantWriteACP: Schema.optional(Header("x-amz-grant-write-acp")), ObjectLockEnabledForBucket: Schema.optional(Header("x-amz-bucket-object-lock-enabled", Schema.Boolean)), OutpostId: Schema.optional(Header("x-amz-outpost-id"))});
-export const InternalServiceException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DeleteMultiRegionAccessPointRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), ClientToken: Schema.String, Details: DeleteMultiRegionAccessPointInput});
-export const GetAccessGrantResult = Schema.Struct({CreatedAt: Schema.optional(Schema.Date), AccessGrantId: Schema.optional(Schema.String), AccessGrantArn: Schema.optional(Schema.String), Grantee: Schema.optional(Grantee), Permission: Schema.optional(Schema.String), AccessGrantsLocationId: Schema.optional(Schema.String), AccessGrantsLocationConfiguration: Schema.optional(AccessGrantsLocationConfiguration), GrantScope: Schema.optional(Schema.String), ApplicationArn: Schema.optional(Schema.String)});
-export const GetAccessGrantsInstanceResult = Schema.Struct({AccessGrantsInstanceArn: Schema.optional(Schema.String), AccessGrantsInstanceId: Schema.optional(Schema.String), IdentityCenterArn: Schema.optional(Schema.String), IdentityCenterInstanceArn: Schema.optional(Schema.String), IdentityCenterApplicationArn: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date)});
-export const GetAccessGrantsInstanceForPrefixResult = Schema.Struct({AccessGrantsInstanceArn: Schema.optional(Schema.String), AccessGrantsInstanceId: Schema.optional(Schema.String)});
-export const GetAccessGrantsInstanceResourcePolicyResult = Schema.Struct({Policy: Schema.optional(Schema.String), Organization: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date)});
-export const GetAccessGrantsLocationResult = Schema.Struct({CreatedAt: Schema.optional(Schema.Date), AccessGrantsLocationId: Schema.optional(Schema.String), AccessGrantsLocationArn: Schema.optional(Schema.String), LocationScope: Schema.optional(Schema.String), IAMRoleArn: Schema.optional(Schema.String)});
-export const GetAccessPointConfigurationForObjectLambdaResult = Schema.Struct({Configuration: Schema.optional(ObjectLambdaConfiguration)});
-export const GetAccessPointPolicyResult = Schema.Struct({Policy: Schema.optional(Schema.String)});
-export const GetAccessPointPolicyForObjectLambdaResult = Schema.Struct({Policy: Schema.optional(Schema.String)});
-export const PolicyStatus = Schema.Struct({IsPublic: Schema.optional(Schema.Boolean)});
-export const GetAccessPointPolicyStatusForObjectLambdaResult = Schema.Struct({PolicyStatus: Schema.optional(PolicyStatus)});
-export const GetAccessPointScopeResult = Schema.Struct({Scope: Schema.optional(Scope)});
-export const GetBucketResult = Schema.Struct({Bucket: Schema.optional(Schema.String), PublicAccessBlockEnabled: Schema.optional(Schema.Boolean), CreationDate: Schema.optional(Schema.Date)});
-export const LifecycleExpiration = Schema.Struct({Date: Schema.optional(Schema.Date), Days: Schema.optional(Schema.Number), ExpiredObjectDeleteMarker: Schema.optional(Schema.Boolean)});
-export const LifecycleRuleAndOperator = Schema.Struct({Prefix: Schema.optional(Schema.String), Tags: Schema.optional(S3TagSet), ObjectSizeGreaterThan: Schema.optional(Schema.Number), ObjectSizeLessThan: Schema.optional(Schema.Number)});
-export const LifecycleRuleFilter = Schema.Struct({Prefix: Schema.optional(Schema.String), Tag: Schema.optional(S3Tag), And: Schema.optional(LifecycleRuleAndOperator), ObjectSizeGreaterThan: Schema.optional(Schema.Number), ObjectSizeLessThan: Schema.optional(Schema.Number)});
-export const Transition = Schema.Struct({Date: Schema.optional(Schema.Date), Days: Schema.optional(Schema.Number), StorageClass: Schema.optional(Schema.String)});
+export class CreateAccessGrantRequest extends Schema.Class<CreateAccessGrantRequest>("CreateAccessGrantRequest")({AccountId: Header("x-amz-account-id"), AccessGrantsLocationId: Schema.String, AccessGrantsLocationConfiguration: Schema.optional(AccessGrantsLocationConfiguration), Grantee: Grantee, Permission: Schema.String, ApplicationArn: Schema.optional(Schema.String), S3PrefixType: Schema.optional(Schema.String), Tags: Schema.optional(TagList)}) {}
+export class CreateAccessGrantsInstanceResult extends Schema.Class<CreateAccessGrantsInstanceResult>("CreateAccessGrantsInstanceResult")({CreatedAt: Schema.optional(Schema.Date), AccessGrantsInstanceId: Schema.optional(Schema.String), AccessGrantsInstanceArn: Schema.optional(Schema.String), IdentityCenterArn: Schema.optional(Schema.String), IdentityCenterInstanceArn: Schema.optional(Schema.String), IdentityCenterApplicationArn: Schema.optional(Schema.String)}) {}
+export class CreateAccessGrantsLocationResult extends Schema.Class<CreateAccessGrantsLocationResult>("CreateAccessGrantsLocationResult")({CreatedAt: Schema.optional(Schema.Date), AccessGrantsLocationId: Schema.optional(Schema.String), AccessGrantsLocationArn: Schema.optional(Schema.String), LocationScope: Schema.optional(Schema.String), IAMRoleArn: Schema.optional(Schema.String)}) {}
+export class CreateAccessPointRequest extends Schema.Class<CreateAccessPointRequest>("CreateAccessPointRequest")({AccountId: Header("x-amz-account-id"), Name: Path("AccessPointName", Schema.String), Bucket: Schema.String, VpcConfiguration: Schema.optional(VpcConfiguration), PublicAccessBlockConfiguration: Schema.optional(PublicAccessBlockConfiguration), BucketAccountId: Schema.optional(Schema.String), Scope: Schema.optional(Scope), Tags: Schema.optional(TagList)}) {}
+export class CreateBucketRequest extends Schema.Class<CreateBucketRequest>("CreateBucketRequest")({ACL: Schema.optional(Header("x-amz-acl")), Bucket: Path("Bucket", Schema.String), CreateBucketConfiguration: Schema.optional(Body("CreateBucketConfiguration", CreateBucketConfiguration)), GrantFullControl: Schema.optional(Header("x-amz-grant-full-control")), GrantRead: Schema.optional(Header("x-amz-grant-read")), GrantReadACP: Schema.optional(Header("x-amz-grant-read-acp")), GrantWrite: Schema.optional(Header("x-amz-grant-write")), GrantWriteACP: Schema.optional(Header("x-amz-grant-write-acp")), ObjectLockEnabledForBucket: Schema.optional(Header("x-amz-bucket-object-lock-enabled", Schema.Boolean)), OutpostId: Schema.optional(Header("x-amz-outpost-id"))}) {}
+export class InternalServiceException extends Schema.Class<InternalServiceException>("InternalServiceException")({Message: Schema.optional(Schema.String)}) {}
+export class DeleteMultiRegionAccessPointRequest extends Schema.Class<DeleteMultiRegionAccessPointRequest>("DeleteMultiRegionAccessPointRequest")({AccountId: Header("x-amz-account-id"), ClientToken: Schema.String, Details: DeleteMultiRegionAccessPointInput}) {}
+export class GetAccessGrantResult extends Schema.Class<GetAccessGrantResult>("GetAccessGrantResult")({CreatedAt: Schema.optional(Schema.Date), AccessGrantId: Schema.optional(Schema.String), AccessGrantArn: Schema.optional(Schema.String), Grantee: Schema.optional(Grantee), Permission: Schema.optional(Schema.String), AccessGrantsLocationId: Schema.optional(Schema.String), AccessGrantsLocationConfiguration: Schema.optional(AccessGrantsLocationConfiguration), GrantScope: Schema.optional(Schema.String), ApplicationArn: Schema.optional(Schema.String)}) {}
+export class GetAccessGrantsInstanceResult extends Schema.Class<GetAccessGrantsInstanceResult>("GetAccessGrantsInstanceResult")({AccessGrantsInstanceArn: Schema.optional(Schema.String), AccessGrantsInstanceId: Schema.optional(Schema.String), IdentityCenterArn: Schema.optional(Schema.String), IdentityCenterInstanceArn: Schema.optional(Schema.String), IdentityCenterApplicationArn: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date)}) {}
+export class GetAccessGrantsInstanceForPrefixResult extends Schema.Class<GetAccessGrantsInstanceForPrefixResult>("GetAccessGrantsInstanceForPrefixResult")({AccessGrantsInstanceArn: Schema.optional(Schema.String), AccessGrantsInstanceId: Schema.optional(Schema.String)}) {}
+export class GetAccessGrantsInstanceResourcePolicyResult extends Schema.Class<GetAccessGrantsInstanceResourcePolicyResult>("GetAccessGrantsInstanceResourcePolicyResult")({Policy: Schema.optional(Schema.String), Organization: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date)}) {}
+export class GetAccessGrantsLocationResult extends Schema.Class<GetAccessGrantsLocationResult>("GetAccessGrantsLocationResult")({CreatedAt: Schema.optional(Schema.Date), AccessGrantsLocationId: Schema.optional(Schema.String), AccessGrantsLocationArn: Schema.optional(Schema.String), LocationScope: Schema.optional(Schema.String), IAMRoleArn: Schema.optional(Schema.String)}) {}
+export class GetAccessPointConfigurationForObjectLambdaResult extends Schema.Class<GetAccessPointConfigurationForObjectLambdaResult>("GetAccessPointConfigurationForObjectLambdaResult")({Configuration: Schema.optional(ObjectLambdaConfiguration)}) {}
+export class GetAccessPointPolicyResult extends Schema.Class<GetAccessPointPolicyResult>("GetAccessPointPolicyResult")({Policy: Schema.optional(Schema.String)}) {}
+export class GetAccessPointPolicyForObjectLambdaResult extends Schema.Class<GetAccessPointPolicyForObjectLambdaResult>("GetAccessPointPolicyForObjectLambdaResult")({Policy: Schema.optional(Schema.String)}) {}
+export class PolicyStatus extends Schema.Class<PolicyStatus>("PolicyStatus")({IsPublic: Schema.optional(Schema.Boolean)}) {}
+export class GetAccessPointPolicyStatusForObjectLambdaResult extends Schema.Class<GetAccessPointPolicyStatusForObjectLambdaResult>("GetAccessPointPolicyStatusForObjectLambdaResult")({PolicyStatus: Schema.optional(PolicyStatus)}) {}
+export class GetAccessPointScopeResult extends Schema.Class<GetAccessPointScopeResult>("GetAccessPointScopeResult")({Scope: Schema.optional(Scope)}) {}
+export class GetBucketResult extends Schema.Class<GetBucketResult>("GetBucketResult")({Bucket: Schema.optional(Schema.String), PublicAccessBlockEnabled: Schema.optional(Schema.Boolean), CreationDate: Schema.optional(Schema.Date)}) {}
+export class LifecycleExpiration extends Schema.Class<LifecycleExpiration>("LifecycleExpiration")({Date: Schema.optional(Schema.Date), Days: Schema.optional(Schema.Number), ExpiredObjectDeleteMarker: Schema.optional(Schema.Boolean)}) {}
+export class LifecycleRuleAndOperator extends Schema.Class<LifecycleRuleAndOperator>("LifecycleRuleAndOperator")({Prefix: Schema.optional(Schema.String), Tags: Schema.optional(S3TagSet), ObjectSizeGreaterThan: Schema.optional(Schema.Number), ObjectSizeLessThan: Schema.optional(Schema.Number)}) {}
+export class LifecycleRuleFilter extends Schema.Class<LifecycleRuleFilter>("LifecycleRuleFilter")({Prefix: Schema.optional(Schema.String), Tag: Schema.optional(S3Tag), And: Schema.optional(LifecycleRuleAndOperator), ObjectSizeGreaterThan: Schema.optional(Schema.Number), ObjectSizeLessThan: Schema.optional(Schema.Number)}) {}
+export class Transition extends Schema.Class<Transition>("Transition")({Date: Schema.optional(Schema.Date), Days: Schema.optional(Schema.Number), StorageClass: Schema.optional(Schema.String)}) {}
 export const TransitionList = Schema.Array(Transition);
-export const NoncurrentVersionTransition = Schema.Struct({NoncurrentDays: Schema.optional(Schema.Number), StorageClass: Schema.optional(Schema.String)});
+export class NoncurrentVersionTransition extends Schema.Class<NoncurrentVersionTransition>("NoncurrentVersionTransition")({NoncurrentDays: Schema.optional(Schema.Number), StorageClass: Schema.optional(Schema.String)}) {}
 export const NoncurrentVersionTransitionList = Schema.Array(NoncurrentVersionTransition);
-export const NoncurrentVersionExpiration = Schema.Struct({NoncurrentDays: Schema.optional(Schema.Number), NewerNoncurrentVersions: Schema.optional(Schema.Number)});
-export const AbortIncompleteMultipartUpload = Schema.Struct({DaysAfterInitiation: Schema.optional(Schema.Number)});
-export const LifecycleRule = Schema.Struct({Expiration: Schema.optional(LifecycleExpiration), ID: Schema.optional(Schema.String), Filter: Schema.optional(LifecycleRuleFilter), Status: Schema.String, Transitions: Schema.optional(TransitionList), NoncurrentVersionTransitions: Schema.optional(NoncurrentVersionTransitionList), NoncurrentVersionExpiration: Schema.optional(NoncurrentVersionExpiration), AbortIncompleteMultipartUpload: Schema.optional(AbortIncompleteMultipartUpload)});
+export class NoncurrentVersionExpiration extends Schema.Class<NoncurrentVersionExpiration>("NoncurrentVersionExpiration")({NoncurrentDays: Schema.optional(Schema.Number), NewerNoncurrentVersions: Schema.optional(Schema.Number)}) {}
+export class AbortIncompleteMultipartUpload extends Schema.Class<AbortIncompleteMultipartUpload>("AbortIncompleteMultipartUpload")({DaysAfterInitiation: Schema.optional(Schema.Number)}) {}
+export class LifecycleRule extends Schema.Class<LifecycleRule>("LifecycleRule")({Expiration: Schema.optional(LifecycleExpiration), ID: Schema.optional(Schema.String), Filter: Schema.optional(LifecycleRuleFilter), Status: Schema.String, Transitions: Schema.optional(TransitionList), NoncurrentVersionTransitions: Schema.optional(NoncurrentVersionTransitionList), NoncurrentVersionExpiration: Schema.optional(NoncurrentVersionExpiration), AbortIncompleteMultipartUpload: Schema.optional(AbortIncompleteMultipartUpload)}) {}
 export const LifecycleRules = Schema.Array(LifecycleRule);
-export const GetBucketLifecycleConfigurationResult = Schema.Struct({Rules: Schema.optional(LifecycleRules)});
-export const GetBucketPolicyResult = Schema.Struct({Policy: Schema.optional(Schema.String)});
-export const ReplicationRuleAndOperator = Schema.Struct({Prefix: Schema.optional(Schema.String), Tags: Schema.optional(S3TagSet)});
-export const ReplicationRuleFilter = Schema.Struct({Prefix: Schema.optional(Schema.String), Tag: Schema.optional(S3Tag), And: Schema.optional(ReplicationRuleAndOperator)});
-export const SseKmsEncryptedObjects = Schema.Struct({Status: Schema.String});
-export const ReplicaModifications = Schema.Struct({Status: Schema.String});
-export const SourceSelectionCriteria = Schema.Struct({SseKmsEncryptedObjects: Schema.optional(SseKmsEncryptedObjects), ReplicaModifications: Schema.optional(ReplicaModifications)});
-export const ExistingObjectReplication = Schema.Struct({Status: Schema.String});
-export const ReplicationTimeValue = Schema.Struct({Minutes: Schema.optional(Schema.Number)});
-export const ReplicationTime = Schema.Struct({Status: Schema.String, Time: ReplicationTimeValue});
-export const AccessControlTranslation = Schema.Struct({Owner: Schema.String});
-export const EncryptionConfiguration = Schema.Struct({ReplicaKmsKeyID: Schema.optional(Schema.String)});
-export const Metrics = Schema.Struct({Status: Schema.String, EventThreshold: Schema.optional(ReplicationTimeValue)});
-export const Destination = Schema.Struct({Account: Schema.optional(Schema.String), Bucket: Schema.String, ReplicationTime: Schema.optional(ReplicationTime), AccessControlTranslation: Schema.optional(AccessControlTranslation), EncryptionConfiguration: Schema.optional(EncryptionConfiguration), Metrics: Schema.optional(Metrics), StorageClass: Schema.optional(Schema.String)});
-export const DeleteMarkerReplication = Schema.Struct({Status: Schema.String});
-export const ReplicationRule = Schema.Struct({ID: Schema.optional(Schema.String), Priority: Schema.optional(Schema.Number), Prefix: Schema.optional(Schema.String), Filter: Schema.optional(ReplicationRuleFilter), Status: Schema.String, SourceSelectionCriteria: Schema.optional(SourceSelectionCriteria), ExistingObjectReplication: Schema.optional(ExistingObjectReplication), Destination: Destination, DeleteMarkerReplication: Schema.optional(DeleteMarkerReplication), Bucket: Schema.String});
+export class GetBucketLifecycleConfigurationResult extends Schema.Class<GetBucketLifecycleConfigurationResult>("GetBucketLifecycleConfigurationResult")({Rules: Schema.optional(LifecycleRules)}) {}
+export class GetBucketPolicyResult extends Schema.Class<GetBucketPolicyResult>("GetBucketPolicyResult")({Policy: Schema.optional(Schema.String)}) {}
+export class ReplicationRuleAndOperator extends Schema.Class<ReplicationRuleAndOperator>("ReplicationRuleAndOperator")({Prefix: Schema.optional(Schema.String), Tags: Schema.optional(S3TagSet)}) {}
+export class ReplicationRuleFilter extends Schema.Class<ReplicationRuleFilter>("ReplicationRuleFilter")({Prefix: Schema.optional(Schema.String), Tag: Schema.optional(S3Tag), And: Schema.optional(ReplicationRuleAndOperator)}) {}
+export class SseKmsEncryptedObjects extends Schema.Class<SseKmsEncryptedObjects>("SseKmsEncryptedObjects")({Status: Schema.String}) {}
+export class ReplicaModifications extends Schema.Class<ReplicaModifications>("ReplicaModifications")({Status: Schema.String}) {}
+export class SourceSelectionCriteria extends Schema.Class<SourceSelectionCriteria>("SourceSelectionCriteria")({SseKmsEncryptedObjects: Schema.optional(SseKmsEncryptedObjects), ReplicaModifications: Schema.optional(ReplicaModifications)}) {}
+export class ExistingObjectReplication extends Schema.Class<ExistingObjectReplication>("ExistingObjectReplication")({Status: Schema.String}) {}
+export class ReplicationTimeValue extends Schema.Class<ReplicationTimeValue>("ReplicationTimeValue")({Minutes: Schema.optional(Schema.Number)}) {}
+export class ReplicationTime extends Schema.Class<ReplicationTime>("ReplicationTime")({Status: Schema.String, Time: ReplicationTimeValue}) {}
+export class AccessControlTranslation extends Schema.Class<AccessControlTranslation>("AccessControlTranslation")({Owner: Schema.String}) {}
+export class EncryptionConfiguration extends Schema.Class<EncryptionConfiguration>("EncryptionConfiguration")({ReplicaKmsKeyID: Schema.optional(Schema.String)}) {}
+export class Metrics extends Schema.Class<Metrics>("Metrics")({Status: Schema.String, EventThreshold: Schema.optional(ReplicationTimeValue)}) {}
+export class Destination extends Schema.Class<Destination>("Destination")({Account: Schema.optional(Schema.String), Bucket: Schema.String, ReplicationTime: Schema.optional(ReplicationTime), AccessControlTranslation: Schema.optional(AccessControlTranslation), EncryptionConfiguration: Schema.optional(EncryptionConfiguration), Metrics: Schema.optional(Metrics), StorageClass: Schema.optional(Schema.String)}) {}
+export class DeleteMarkerReplication extends Schema.Class<DeleteMarkerReplication>("DeleteMarkerReplication")({Status: Schema.String}) {}
+export class ReplicationRule extends Schema.Class<ReplicationRule>("ReplicationRule")({ID: Schema.optional(Schema.String), Priority: Schema.optional(Schema.Number), Prefix: Schema.optional(Schema.String), Filter: Schema.optional(ReplicationRuleFilter), Status: Schema.String, SourceSelectionCriteria: Schema.optional(SourceSelectionCriteria), ExistingObjectReplication: Schema.optional(ExistingObjectReplication), Destination: Destination, DeleteMarkerReplication: Schema.optional(DeleteMarkerReplication), Bucket: Schema.String}) {}
 export const ReplicationRules = Schema.Array(ReplicationRule);
-export const ReplicationConfiguration = Schema.Struct({Role: Schema.String, Rules: ReplicationRules});
-export const GetBucketReplicationResult = Schema.Struct({ReplicationConfiguration: Schema.optional(ReplicationConfiguration)});
-export const GetBucketTaggingResult = Schema.Struct({TagSet: S3TagSet});
-export const GetBucketVersioningResult = Schema.Struct({Status: Schema.optional(Schema.String), MFADelete: Schema.optional(Schema.String)});
-export const GetJobTaggingResult = Schema.Struct({Tags: Schema.optional(S3TagSet)});
-export const GetMultiRegionAccessPointPolicyStatusResult = Schema.Struct({Established: Schema.optional(PolicyStatus)});
-export const GetMultiRegionAccessPointRoutesResult = Schema.Struct({Mrap: Schema.optional(Schema.String), Routes: Schema.optional(RouteList)});
-export const GetPublicAccessBlockOutput = Schema.Struct({PublicAccessBlockConfiguration: Schema.optional(Body("undefined", PublicAccessBlockConfiguration))});
-export const ActivityMetrics = Schema.Struct({IsEnabled: Schema.optional(Schema.Boolean)});
-export const SelectionCriteria = Schema.Struct({Delimiter: Schema.optional(Schema.String), MaxDepth: Schema.optional(Schema.Number), MinStorageBytesPercentage: Schema.optional(Schema.Number)});
-export const PrefixLevelStorageMetrics = Schema.Struct({IsEnabled: Schema.optional(Schema.Boolean), SelectionCriteria: Schema.optional(SelectionCriteria)});
-export const PrefixLevel = Schema.Struct({StorageMetrics: PrefixLevelStorageMetrics});
-export const AdvancedCostOptimizationMetrics = Schema.Struct({IsEnabled: Schema.optional(Schema.Boolean)});
-export const AdvancedDataProtectionMetrics = Schema.Struct({IsEnabled: Schema.optional(Schema.Boolean)});
-export const DetailedStatusCodesMetrics = Schema.Struct({IsEnabled: Schema.optional(Schema.Boolean)});
-export const BucketLevel = Schema.Struct({ActivityMetrics: Schema.optional(ActivityMetrics), PrefixLevel: Schema.optional(PrefixLevel), AdvancedCostOptimizationMetrics: Schema.optional(AdvancedCostOptimizationMetrics), AdvancedDataProtectionMetrics: Schema.optional(AdvancedDataProtectionMetrics), DetailedStatusCodesMetrics: Schema.optional(DetailedStatusCodesMetrics)});
+export class ReplicationConfiguration extends Schema.Class<ReplicationConfiguration>("ReplicationConfiguration")({Role: Schema.String, Rules: ReplicationRules}) {}
+export class GetBucketReplicationResult extends Schema.Class<GetBucketReplicationResult>("GetBucketReplicationResult")({ReplicationConfiguration: Schema.optional(ReplicationConfiguration)}) {}
+export class GetBucketTaggingResult extends Schema.Class<GetBucketTaggingResult>("GetBucketTaggingResult")({TagSet: S3TagSet}) {}
+export class GetBucketVersioningResult extends Schema.Class<GetBucketVersioningResult>("GetBucketVersioningResult")({Status: Schema.optional(Schema.String), MFADelete: Schema.optional(Schema.String)}) {}
+export class GetJobTaggingResult extends Schema.Class<GetJobTaggingResult>("GetJobTaggingResult")({Tags: Schema.optional(S3TagSet)}) {}
+export class GetMultiRegionAccessPointPolicyStatusResult extends Schema.Class<GetMultiRegionAccessPointPolicyStatusResult>("GetMultiRegionAccessPointPolicyStatusResult")({Established: Schema.optional(PolicyStatus)}) {}
+export class GetMultiRegionAccessPointRoutesResult extends Schema.Class<GetMultiRegionAccessPointRoutesResult>("GetMultiRegionAccessPointRoutesResult")({Mrap: Schema.optional(Schema.String), Routes: Schema.optional(RouteList)}) {}
+export class GetPublicAccessBlockOutput extends Schema.Class<GetPublicAccessBlockOutput>("GetPublicAccessBlockOutput")({PublicAccessBlockConfiguration: Schema.optional(Body("undefined", PublicAccessBlockConfiguration))}) {}
+export class ActivityMetrics extends Schema.Class<ActivityMetrics>("ActivityMetrics")({IsEnabled: Schema.optional(Schema.Boolean)}) {}
+export class SelectionCriteria extends Schema.Class<SelectionCriteria>("SelectionCriteria")({Delimiter: Schema.optional(Schema.String), MaxDepth: Schema.optional(Schema.Number), MinStorageBytesPercentage: Schema.optional(Schema.Number)}) {}
+export class PrefixLevelStorageMetrics extends Schema.Class<PrefixLevelStorageMetrics>("PrefixLevelStorageMetrics")({IsEnabled: Schema.optional(Schema.Boolean), SelectionCriteria: Schema.optional(SelectionCriteria)}) {}
+export class PrefixLevel extends Schema.Class<PrefixLevel>("PrefixLevel")({StorageMetrics: PrefixLevelStorageMetrics}) {}
+export class AdvancedCostOptimizationMetrics extends Schema.Class<AdvancedCostOptimizationMetrics>("AdvancedCostOptimizationMetrics")({IsEnabled: Schema.optional(Schema.Boolean)}) {}
+export class AdvancedDataProtectionMetrics extends Schema.Class<AdvancedDataProtectionMetrics>("AdvancedDataProtectionMetrics")({IsEnabled: Schema.optional(Schema.Boolean)}) {}
+export class DetailedStatusCodesMetrics extends Schema.Class<DetailedStatusCodesMetrics>("DetailedStatusCodesMetrics")({IsEnabled: Schema.optional(Schema.Boolean)}) {}
+export class AdvancedPerformanceMetrics extends Schema.Class<AdvancedPerformanceMetrics>("AdvancedPerformanceMetrics")({IsEnabled: Schema.optional(Schema.Boolean)}) {}
+export class BucketLevel extends Schema.Class<BucketLevel>("BucketLevel")({ActivityMetrics: Schema.optional(ActivityMetrics), PrefixLevel: Schema.optional(PrefixLevel), AdvancedCostOptimizationMetrics: Schema.optional(AdvancedCostOptimizationMetrics), AdvancedDataProtectionMetrics: Schema.optional(AdvancedDataProtectionMetrics), DetailedStatusCodesMetrics: Schema.optional(DetailedStatusCodesMetrics), AdvancedPerformanceMetrics: Schema.optional(AdvancedPerformanceMetrics)}) {}
 export const StorageLensGroupLevelInclude = Schema.Array(Schema.String);
 export const StorageLensGroupLevelExclude = Schema.Array(Schema.String);
-export const StorageLensGroupLevelSelectionCriteria = Schema.Struct({Include: Schema.optional(StorageLensGroupLevelInclude), Exclude: Schema.optional(StorageLensGroupLevelExclude)});
-export const StorageLensGroupLevel = Schema.Struct({SelectionCriteria: Schema.optional(StorageLensGroupLevelSelectionCriteria)});
-export const AccountLevel = Schema.Struct({ActivityMetrics: Schema.optional(ActivityMetrics), BucketLevel: BucketLevel, AdvancedCostOptimizationMetrics: Schema.optional(AdvancedCostOptimizationMetrics), AdvancedDataProtectionMetrics: Schema.optional(AdvancedDataProtectionMetrics), DetailedStatusCodesMetrics: Schema.optional(DetailedStatusCodesMetrics), StorageLensGroupLevel: Schema.optional(StorageLensGroupLevel)});
-export const Include = Schema.Struct({Buckets: Schema.optional(Buckets), Regions: Schema.optional(Regions)});
-export const Exclude = Schema.Struct({Buckets: Schema.optional(Buckets), Regions: Schema.optional(Regions)});
-export const SSES3 = Schema.Struct({});
-export const SSEKMS = Schema.Struct({KeyId: Schema.String});
-export const StorageLensDataExportEncryption = Schema.Struct({SSES3: Schema.optional(SSES3), SSEKMS: Schema.optional(SSEKMS)});
-export const S3BucketDestination = Schema.Struct({Format: Schema.String, OutputSchemaVersion: Schema.String, AccountId: Schema.String, Arn: Schema.String, Prefix: Schema.optional(Schema.String), Encryption: Schema.optional(StorageLensDataExportEncryption)});
-export const CloudWatchMetrics = Schema.Struct({IsEnabled: Schema.Boolean});
-export const StorageLensDataExport = Schema.Struct({S3BucketDestination: Schema.optional(S3BucketDestination), CloudWatchMetrics: Schema.optional(CloudWatchMetrics)});
-export const StorageLensAwsOrg = Schema.Struct({Arn: Schema.String});
-export const StorageLensConfiguration = Schema.Struct({Id: Schema.String, AccountLevel: AccountLevel, Include: Schema.optional(Include), Exclude: Schema.optional(Exclude), DataExport: Schema.optional(StorageLensDataExport), IsEnabled: Schema.Boolean, AwsOrg: Schema.optional(StorageLensAwsOrg), StorageLensArn: Schema.optional(Schema.String)});
-export const GetStorageLensConfigurationResult = Schema.Struct({StorageLensConfiguration: Schema.optional(Body("undefined", StorageLensConfiguration))});
-export const GetStorageLensConfigurationTaggingResult = Schema.Struct({Tags: Schema.optional(StorageLensTags)});
-export const GetStorageLensGroupResult = Schema.Struct({StorageLensGroup: Schema.optional(Body("undefined", StorageLensGroup))});
-export const AccessPoint = Schema.Struct({Name: Schema.String, NetworkOrigin: Schema.String, VpcConfiguration: Schema.optional(VpcConfiguration), Bucket: Schema.String, AccessPointArn: Schema.optional(Schema.String), Alias: Schema.optional(Schema.String), BucketAccountId: Schema.optional(Schema.String), DataSourceId: Schema.optional(Schema.String), DataSourceType: Schema.optional(Schema.String)});
+export class StorageLensGroupLevelSelectionCriteria extends Schema.Class<StorageLensGroupLevelSelectionCriteria>("StorageLensGroupLevelSelectionCriteria")({Include: Schema.optional(StorageLensGroupLevelInclude), Exclude: Schema.optional(StorageLensGroupLevelExclude)}) {}
+export class StorageLensGroupLevel extends Schema.Class<StorageLensGroupLevel>("StorageLensGroupLevel")({SelectionCriteria: Schema.optional(StorageLensGroupLevelSelectionCriteria)}) {}
+export class AccountLevel extends Schema.Class<AccountLevel>("AccountLevel")({ActivityMetrics: Schema.optional(ActivityMetrics), BucketLevel: BucketLevel, AdvancedCostOptimizationMetrics: Schema.optional(AdvancedCostOptimizationMetrics), AdvancedDataProtectionMetrics: Schema.optional(AdvancedDataProtectionMetrics), DetailedStatusCodesMetrics: Schema.optional(DetailedStatusCodesMetrics), AdvancedPerformanceMetrics: Schema.optional(AdvancedPerformanceMetrics), StorageLensGroupLevel: Schema.optional(StorageLensGroupLevel)}) {}
+export class Include extends Schema.Class<Include>("Include")({Buckets: Schema.optional(Buckets), Regions: Schema.optional(Regions)}) {}
+export class Exclude extends Schema.Class<Exclude>("Exclude")({Buckets: Schema.optional(Buckets), Regions: Schema.optional(Regions)}) {}
+export class SSES3 extends Schema.Class<SSES3>("SSES3")({}) {}
+export class SSEKMS extends Schema.Class<SSEKMS>("SSEKMS")({KeyId: Schema.String}) {}
+export class StorageLensDataExportEncryption extends Schema.Class<StorageLensDataExportEncryption>("StorageLensDataExportEncryption")({SSES3: Schema.optional(SSES3), SSEKMS: Schema.optional(SSEKMS)}) {}
+export class S3BucketDestination extends Schema.Class<S3BucketDestination>("S3BucketDestination")({Format: Schema.String, OutputSchemaVersion: Schema.String, AccountId: Schema.String, Arn: Schema.String, Prefix: Schema.optional(Schema.String), Encryption: Schema.optional(StorageLensDataExportEncryption)}) {}
+export class CloudWatchMetrics extends Schema.Class<CloudWatchMetrics>("CloudWatchMetrics")({IsEnabled: Schema.Boolean}) {}
+export class StorageLensTableDestination extends Schema.Class<StorageLensTableDestination>("StorageLensTableDestination")({IsEnabled: Schema.Boolean, Encryption: Schema.optional(StorageLensDataExportEncryption)}) {}
+export class StorageLensDataExport extends Schema.Class<StorageLensDataExport>("StorageLensDataExport")({S3BucketDestination: Schema.optional(S3BucketDestination), CloudWatchMetrics: Schema.optional(CloudWatchMetrics), StorageLensTableDestination: Schema.optional(StorageLensTableDestination)}) {}
+export class StorageLensExpandedPrefixesDataExport extends Schema.Class<StorageLensExpandedPrefixesDataExport>("StorageLensExpandedPrefixesDataExport")({S3BucketDestination: Schema.optional(S3BucketDestination), StorageLensTableDestination: Schema.optional(StorageLensTableDestination)}) {}
+export class StorageLensAwsOrg extends Schema.Class<StorageLensAwsOrg>("StorageLensAwsOrg")({Arn: Schema.String}) {}
+export class StorageLensConfiguration extends Schema.Class<StorageLensConfiguration>("StorageLensConfiguration")({Id: Schema.String, AccountLevel: AccountLevel, Include: Schema.optional(Include), Exclude: Schema.optional(Exclude), DataExport: Schema.optional(StorageLensDataExport), ExpandedPrefixesDataExport: Schema.optional(StorageLensExpandedPrefixesDataExport), IsEnabled: Schema.Boolean, AwsOrg: Schema.optional(StorageLensAwsOrg), StorageLensArn: Schema.optional(Schema.String), PrefixDelimiter: Schema.optional(Schema.String)}) {}
+export class GetStorageLensConfigurationResult extends Schema.Class<GetStorageLensConfigurationResult>("GetStorageLensConfigurationResult")({StorageLensConfiguration: Schema.optional(Body("undefined", StorageLensConfiguration))}) {}
+export class GetStorageLensConfigurationTaggingResult extends Schema.Class<GetStorageLensConfigurationTaggingResult>("GetStorageLensConfigurationTaggingResult")({Tags: Schema.optional(StorageLensTags)}) {}
+export class GetStorageLensGroupResult extends Schema.Class<GetStorageLensGroupResult>("GetStorageLensGroupResult")({StorageLensGroup: Schema.optional(Body("undefined", StorageLensGroup))}) {}
+export class AccessPoint extends Schema.Class<AccessPoint>("AccessPoint")({Name: Schema.String, NetworkOrigin: Schema.String, VpcConfiguration: Schema.optional(VpcConfiguration), Bucket: Schema.String, AccessPointArn: Schema.optional(Schema.String), Alias: Schema.optional(Schema.String), BucketAccountId: Schema.optional(Schema.String), DataSourceId: Schema.optional(Schema.String), DataSourceType: Schema.optional(Schema.String)}) {}
 export const AccessPointList = Schema.Array(AccessPoint);
-export const ListAccessPointsForDirectoryBucketsResult = Schema.Struct({AccessPointList: Schema.optional(AccessPointList), NextToken: Schema.optional(Schema.String)});
-export const ListMultiRegionAccessPointsResult = Schema.Struct({AccessPoints: Schema.optional(MultiRegionAccessPointReportList), NextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceResult = Schema.Struct({Tags: Schema.optional(TagList)});
-export const PutAccessGrantsInstanceResourcePolicyResult = Schema.Struct({Policy: Schema.optional(Schema.String), Organization: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date)});
-export const PutBucketTaggingRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), Bucket: Path("Bucket", Schema.String), Tagging: Body("Tagging", Tagging)});
-export const PutBucketVersioningRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), Bucket: Path("Bucket", Schema.String), MFA: Schema.optional(Header("x-amz-mfa")), VersioningConfiguration: Body("VersioningConfiguration", VersioningConfiguration)});
-export const NotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const PutMultiRegionAccessPointPolicyRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), ClientToken: Schema.String, Details: PutMultiRegionAccessPointPolicyInput});
-export const SubmitMultiRegionAccessPointRoutesRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), Mrap: Schema.String, RouteUpdates: RouteList});
-export const SubmitMultiRegionAccessPointRoutesResult = Schema.Struct({});
-export const UpdateAccessGrantsLocationResult = Schema.Struct({CreatedAt: Schema.optional(Schema.Date), AccessGrantsLocationId: Schema.optional(Schema.String), AccessGrantsLocationArn: Schema.optional(Schema.String), LocationScope: Schema.optional(Schema.String), IAMRoleArn: Schema.optional(Schema.String)});
-export const UpdateJobPriorityResult = Schema.Struct({JobId: Schema.String, Priority: Schema.Number});
-export const UpdateJobStatusResult = Schema.Struct({JobId: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), StatusUpdateReason: Schema.optional(Schema.String)});
-export const S3SetObjectTaggingOperation = Schema.Struct({TagSet: Schema.optional(S3TagSet)});
-export const S3InitiateRestoreObjectOperation = Schema.Struct({ExpirationInDays: Schema.optional(Schema.Number), GlacierJobTier: Schema.optional(Schema.String)});
-export const S3ComputeObjectChecksumOperation = Schema.Struct({ChecksumAlgorithm: Schema.optional(Schema.String), ChecksumType: Schema.optional(Schema.String)});
-export const JobManifestSpec = Schema.Struct({Format: Schema.String, Fields: Schema.optional(JobManifestFieldList)});
-export const JobManifestLocation = Schema.Struct({ObjectArn: Schema.String, ObjectVersionId: Schema.optional(Schema.String), ETag: Schema.String});
-export const Region = Schema.Struct({Bucket: Schema.String, BucketAccountId: Schema.optional(Schema.String)});
+export class ListAccessPointsForDirectoryBucketsResult extends Schema.Class<ListAccessPointsForDirectoryBucketsResult>("ListAccessPointsForDirectoryBucketsResult")({AccessPointList: Schema.optional(AccessPointList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListMultiRegionAccessPointsResult extends Schema.Class<ListMultiRegionAccessPointsResult>("ListMultiRegionAccessPointsResult")({AccessPoints: Schema.optional(MultiRegionAccessPointReportList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceResult extends Schema.Class<ListTagsForResourceResult>("ListTagsForResourceResult")({Tags: Schema.optional(TagList)}) {}
+export class PutAccessGrantsInstanceResourcePolicyResult extends Schema.Class<PutAccessGrantsInstanceResourcePolicyResult>("PutAccessGrantsInstanceResourcePolicyResult")({Policy: Schema.optional(Schema.String), Organization: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date)}) {}
+export class PutBucketTaggingRequest extends Schema.Class<PutBucketTaggingRequest>("PutBucketTaggingRequest")({AccountId: Header("x-amz-account-id"), Bucket: Path("Bucket", Schema.String), Tagging: Body("Tagging", Tagging)}) {}
+export class PutBucketVersioningRequest extends Schema.Class<PutBucketVersioningRequest>("PutBucketVersioningRequest")({AccountId: Header("x-amz-account-id"), Bucket: Path("Bucket", Schema.String), MFA: Schema.optional(Header("x-amz-mfa")), VersioningConfiguration: Body("VersioningConfiguration", VersioningConfiguration)}) {}
+export class NotFoundException extends Schema.Class<NotFoundException>("NotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class PutMultiRegionAccessPointPolicyRequest extends Schema.Class<PutMultiRegionAccessPointPolicyRequest>("PutMultiRegionAccessPointPolicyRequest")({AccountId: Header("x-amz-account-id"), ClientToken: Schema.String, Details: PutMultiRegionAccessPointPolicyInput}) {}
+export class SubmitMultiRegionAccessPointRoutesRequest extends Schema.Class<SubmitMultiRegionAccessPointRoutesRequest>("SubmitMultiRegionAccessPointRoutesRequest")({AccountId: Header("x-amz-account-id"), Mrap: Schema.String, RouteUpdates: RouteList}) {}
+export class SubmitMultiRegionAccessPointRoutesResult extends Schema.Class<SubmitMultiRegionAccessPointRoutesResult>("SubmitMultiRegionAccessPointRoutesResult")({}) {}
+export class UpdateAccessGrantsLocationResult extends Schema.Class<UpdateAccessGrantsLocationResult>("UpdateAccessGrantsLocationResult")({CreatedAt: Schema.optional(Schema.Date), AccessGrantsLocationId: Schema.optional(Schema.String), AccessGrantsLocationArn: Schema.optional(Schema.String), LocationScope: Schema.optional(Schema.String), IAMRoleArn: Schema.optional(Schema.String)}) {}
+export class UpdateJobPriorityResult extends Schema.Class<UpdateJobPriorityResult>("UpdateJobPriorityResult")({JobId: Schema.String, Priority: Schema.Number}) {}
+export class UpdateJobStatusResult extends Schema.Class<UpdateJobStatusResult>("UpdateJobStatusResult")({JobId: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), StatusUpdateReason: Schema.optional(Schema.String)}) {}
+export class S3SetObjectTaggingOperation extends Schema.Class<S3SetObjectTaggingOperation>("S3SetObjectTaggingOperation")({TagSet: Schema.optional(S3TagSet)}) {}
+export class S3InitiateRestoreObjectOperation extends Schema.Class<S3InitiateRestoreObjectOperation>("S3InitiateRestoreObjectOperation")({ExpirationInDays: Schema.optional(Schema.Number), GlacierJobTier: Schema.optional(Schema.String)}) {}
+export class S3ComputeObjectChecksumOperation extends Schema.Class<S3ComputeObjectChecksumOperation>("S3ComputeObjectChecksumOperation")({ChecksumAlgorithm: Schema.optional(Schema.String), ChecksumType: Schema.optional(Schema.String)}) {}
+export class JobManifestSpec extends Schema.Class<JobManifestSpec>("JobManifestSpec")({Format: Schema.String, Fields: Schema.optional(JobManifestFieldList)}) {}
+export class JobManifestLocation extends Schema.Class<JobManifestLocation>("JobManifestLocation")({ObjectArn: Schema.String, ObjectVersionId: Schema.optional(Schema.String), ETag: Schema.String}) {}
+export class Region extends Schema.Class<Region>("Region")({Bucket: Schema.String, BucketAccountId: Schema.optional(Schema.String)}) {}
 export const RegionCreationList = Schema.Array(Region);
 export const ReplicationStatusFilterList = Schema.Array(Schema.String);
 export const StorageClassList = Schema.Array(Schema.String);
-export const JobManifest = Schema.Struct({Spec: JobManifestSpec, Location: JobManifestLocation});
-export const CreateMultiRegionAccessPointInput = Schema.Struct({Name: Schema.String, PublicAccessBlock: Schema.optional(PublicAccessBlockConfiguration), Regions: RegionCreationList});
+export class JobManifest extends Schema.Class<JobManifest>("JobManifest")({Spec: JobManifestSpec, Location: JobManifestLocation}) {}
+export class CreateMultiRegionAccessPointInput extends Schema.Class<CreateMultiRegionAccessPointInput>("CreateMultiRegionAccessPointInput")({Name: Schema.String, PublicAccessBlock: Schema.optional(PublicAccessBlockConfiguration), Regions: RegionCreationList}) {}
 export const Endpoints = Schema.Record({key: Schema.String, value: Schema.String});
-export const ObjectLambdaAccessPointAlias = Schema.Struct({Value: Schema.optional(Schema.String), Status: Schema.optional(Schema.String)});
-export const Credentials = Schema.Struct({AccessKeyId: Schema.optional(Schema.String), SecretAccessKey: Schema.optional(Schema.String), SessionToken: Schema.optional(Schema.String), Expiration: Schema.optional(Schema.Date)});
-export const ListAccessGrantEntry = Schema.Struct({CreatedAt: Schema.optional(Schema.Date), AccessGrantId: Schema.optional(Schema.String), AccessGrantArn: Schema.optional(Schema.String), Grantee: Schema.optional(Grantee), Permission: Schema.optional(Schema.String), AccessGrantsLocationId: Schema.optional(Schema.String), AccessGrantsLocationConfiguration: Schema.optional(AccessGrantsLocationConfiguration), GrantScope: Schema.optional(Schema.String), ApplicationArn: Schema.optional(Schema.String)});
+export class ObjectLambdaAccessPointAlias extends Schema.Class<ObjectLambdaAccessPointAlias>("ObjectLambdaAccessPointAlias")({Value: Schema.optional(Schema.String), Status: Schema.optional(Schema.String)}) {}
+export class Credentials extends Schema.Class<Credentials>("Credentials")({AccessKeyId: Schema.optional(Schema.String), SecretAccessKey: Schema.optional(Schema.String), SessionToken: Schema.optional(Schema.String), Expiration: Schema.optional(Schema.Date)}) {}
+export class ListAccessGrantEntry extends Schema.Class<ListAccessGrantEntry>("ListAccessGrantEntry")({CreatedAt: Schema.optional(Schema.Date), AccessGrantId: Schema.optional(Schema.String), AccessGrantArn: Schema.optional(Schema.String), Grantee: Schema.optional(Grantee), Permission: Schema.optional(Schema.String), AccessGrantsLocationId: Schema.optional(Schema.String), AccessGrantsLocationConfiguration: Schema.optional(AccessGrantsLocationConfiguration), GrantScope: Schema.optional(Schema.String), ApplicationArn: Schema.optional(Schema.String)}) {}
 export const AccessGrantsList = Schema.Array(ListAccessGrantEntry);
-export const ListAccessGrantsInstanceEntry = Schema.Struct({AccessGrantsInstanceId: Schema.optional(Schema.String), AccessGrantsInstanceArn: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date), IdentityCenterArn: Schema.optional(Schema.String), IdentityCenterInstanceArn: Schema.optional(Schema.String), IdentityCenterApplicationArn: Schema.optional(Schema.String)});
+export class ListAccessGrantsInstanceEntry extends Schema.Class<ListAccessGrantsInstanceEntry>("ListAccessGrantsInstanceEntry")({AccessGrantsInstanceId: Schema.optional(Schema.String), AccessGrantsInstanceArn: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date), IdentityCenterArn: Schema.optional(Schema.String), IdentityCenterInstanceArn: Schema.optional(Schema.String), IdentityCenterApplicationArn: Schema.optional(Schema.String)}) {}
 export const AccessGrantsInstancesList = Schema.Array(ListAccessGrantsInstanceEntry);
-export const ListAccessGrantsLocationsEntry = Schema.Struct({CreatedAt: Schema.optional(Schema.Date), AccessGrantsLocationId: Schema.optional(Schema.String), AccessGrantsLocationArn: Schema.optional(Schema.String), LocationScope: Schema.optional(Schema.String), IAMRoleArn: Schema.optional(Schema.String)});
+export class ListAccessGrantsLocationsEntry extends Schema.Class<ListAccessGrantsLocationsEntry>("ListAccessGrantsLocationsEntry")({CreatedAt: Schema.optional(Schema.Date), AccessGrantsLocationId: Schema.optional(Schema.String), AccessGrantsLocationArn: Schema.optional(Schema.String), LocationScope: Schema.optional(Schema.String), IAMRoleArn: Schema.optional(Schema.String)}) {}
 export const AccessGrantsLocationsList = Schema.Array(ListAccessGrantsLocationsEntry);
-export const ObjectLambdaAccessPoint = Schema.Struct({Name: Schema.String, ObjectLambdaAccessPointArn: Schema.optional(Schema.String), Alias: Schema.optional(ObjectLambdaAccessPointAlias)});
+export class ObjectLambdaAccessPoint extends Schema.Class<ObjectLambdaAccessPoint>("ObjectLambdaAccessPoint")({Name: Schema.String, ObjectLambdaAccessPointArn: Schema.optional(Schema.String), Alias: Schema.optional(ObjectLambdaAccessPointAlias)}) {}
 export const ObjectLambdaAccessPointList = Schema.Array(ObjectLambdaAccessPoint);
-export const ListCallerAccessGrantsEntry = Schema.Struct({Permission: Schema.optional(Schema.String), GrantScope: Schema.optional(Schema.String), ApplicationArn: Schema.optional(Schema.String)});
+export class ListCallerAccessGrantsEntry extends Schema.Class<ListCallerAccessGrantsEntry>("ListCallerAccessGrantsEntry")({Permission: Schema.optional(Schema.String), GrantScope: Schema.optional(Schema.String), ApplicationArn: Schema.optional(Schema.String)}) {}
 export const CallerAccessGrantsList = Schema.Array(ListCallerAccessGrantsEntry);
-export const JobTimers = Schema.Struct({ElapsedTimeInActiveSeconds: Schema.optional(Schema.Number)});
-export const JobProgressSummary = Schema.Struct({TotalNumberOfTasks: Schema.optional(Schema.Number), NumberOfTasksSucceeded: Schema.optional(Schema.Number), NumberOfTasksFailed: Schema.optional(Schema.Number), Timers: Schema.optional(JobTimers)});
-export const JobListDescriptor = Schema.Struct({JobId: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Operation: Schema.optional(Schema.String), Priority: Schema.optional(Schema.Number), Status: Schema.optional(Schema.String), CreationTime: Schema.optional(Schema.Date), TerminationDate: Schema.optional(Schema.Date), ProgressSummary: Schema.optional(JobProgressSummary)});
+export class JobTimers extends Schema.Class<JobTimers>("JobTimers")({ElapsedTimeInActiveSeconds: Schema.optional(Schema.Number)}) {}
+export class JobProgressSummary extends Schema.Class<JobProgressSummary>("JobProgressSummary")({TotalNumberOfTasks: Schema.optional(Schema.Number), NumberOfTasksSucceeded: Schema.optional(Schema.Number), NumberOfTasksFailed: Schema.optional(Schema.Number), Timers: Schema.optional(JobTimers)}) {}
+export class JobListDescriptor extends Schema.Class<JobListDescriptor>("JobListDescriptor")({JobId: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Operation: Schema.optional(Schema.String), Priority: Schema.optional(Schema.Number), Status: Schema.optional(Schema.String), CreationTime: Schema.optional(Schema.Date), TerminationDate: Schema.optional(Schema.Date), ProgressSummary: Schema.optional(JobProgressSummary)}) {}
 export const JobListDescriptorList = Schema.Array(JobListDescriptor);
-export const RegionalBucket = Schema.Struct({Bucket: Schema.String, BucketArn: Schema.optional(Schema.String), PublicAccessBlockEnabled: Schema.Boolean, CreationDate: Schema.Date, OutpostId: Schema.optional(Schema.String)});
+export class RegionalBucket extends Schema.Class<RegionalBucket>("RegionalBucket")({Bucket: Schema.String, BucketArn: Schema.optional(Schema.String), PublicAccessBlockEnabled: Schema.Boolean, CreationDate: Schema.Date, OutpostId: Schema.optional(Schema.String)}) {}
 export const RegionalBucketList = Schema.Array(RegionalBucket);
-export const ListStorageLensConfigurationEntry = Schema.Struct({Id: Schema.String, StorageLensArn: Schema.String, HomeRegion: Schema.String, IsEnabled: Schema.optional(Schema.Boolean)});
+export class ListStorageLensConfigurationEntry extends Schema.Class<ListStorageLensConfigurationEntry>("ListStorageLensConfigurationEntry")({Id: Schema.String, StorageLensArn: Schema.String, HomeRegion: Schema.String, IsEnabled: Schema.optional(Schema.Boolean)}) {}
 export const StorageLensConfigurationList = Schema.Array(ListStorageLensConfigurationEntry);
-export const ListStorageLensGroupEntry = Schema.Struct({Name: Schema.String, StorageLensGroupArn: Schema.String, HomeRegion: Schema.String});
+export class ListStorageLensGroupEntry extends Schema.Class<ListStorageLensGroupEntry>("ListStorageLensGroupEntry")({Name: Schema.String, StorageLensGroupArn: Schema.String, HomeRegion: Schema.String}) {}
 export const StorageLensGroupList = Schema.Array(ListStorageLensGroupEntry);
 export const UserArguments = Schema.Record({key: Schema.String, value: Schema.String});
-export const S3ObjectLockLegalHold = Schema.Struct({Status: Schema.String});
-export const S3Retention = Schema.Struct({RetainUntilDate: Schema.optional(Schema.Date), Mode: Schema.optional(Schema.String)});
-export const CreateAccessGrantResult = Schema.Struct({CreatedAt: Schema.optional(Schema.Date), AccessGrantId: Schema.optional(Schema.String), AccessGrantArn: Schema.optional(Schema.String), Grantee: Schema.optional(Grantee), AccessGrantsLocationId: Schema.optional(Schema.String), AccessGrantsLocationConfiguration: Schema.optional(AccessGrantsLocationConfiguration), Permission: Schema.optional(Schema.String), ApplicationArn: Schema.optional(Schema.String), GrantScope: Schema.optional(Schema.String)});
-export const CreateAccessPointResult = Schema.Struct({AccessPointArn: Schema.optional(Schema.String), Alias: Schema.optional(Schema.String)});
-export const CreateBucketResult = Schema.Struct({Location: Schema.optional(Header("Location")), BucketArn: Schema.optional(Schema.String)});
-export const BucketAlreadyExists = Schema.Struct({});
-export const BucketAlreadyOwnedByYou = Schema.Struct({});
-export const SSES3Encryption = Schema.Struct({});
+export class S3ObjectLockLegalHold extends Schema.Class<S3ObjectLockLegalHold>("S3ObjectLockLegalHold")({Status: Schema.String}) {}
+export class S3Retention extends Schema.Class<S3Retention>("S3Retention")({RetainUntilDate: Schema.optional(Schema.Date), Mode: Schema.optional(Schema.String)}) {}
+export class CreateAccessGrantResult extends Schema.Class<CreateAccessGrantResult>("CreateAccessGrantResult")({CreatedAt: Schema.optional(Schema.Date), AccessGrantId: Schema.optional(Schema.String), AccessGrantArn: Schema.optional(Schema.String), Grantee: Schema.optional(Grantee), AccessGrantsLocationId: Schema.optional(Schema.String), AccessGrantsLocationConfiguration: Schema.optional(AccessGrantsLocationConfiguration), Permission: Schema.optional(Schema.String), ApplicationArn: Schema.optional(Schema.String), GrantScope: Schema.optional(Schema.String)}) {}
+export class CreateAccessPointResult extends Schema.Class<CreateAccessPointResult>("CreateAccessPointResult")({AccessPointArn: Schema.optional(Schema.String), Alias: Schema.optional(Schema.String)}) {}
+export class CreateBucketResult extends Schema.Class<CreateBucketResult>("CreateBucketResult")({Location: Schema.optional(Header("Location")), BucketArn: Schema.optional(Schema.String)}) {}
+export class BucketAlreadyExists extends Schema.Class<BucketAlreadyExists>("BucketAlreadyExists")({}) {}
+export class BucketAlreadyOwnedByYou extends Schema.Class<BucketAlreadyOwnedByYou>("BucketAlreadyOwnedByYou")({}) {}
+export class SSES3Encryption extends Schema.Class<SSES3Encryption>("SSES3Encryption")({}) {}
 export const NonEmptyMaxLength1024StringList = Schema.Array(Schema.String);
-export const SSES3Filter = Schema.Struct({});
-export const SSECFilter = Schema.Struct({});
-export const NotSSEFilter = Schema.Struct({});
-export const CreateMultiRegionAccessPointRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), ClientToken: Schema.String, Details: CreateMultiRegionAccessPointInput});
-export const TooManyRequestsException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DeleteMultiRegionAccessPointResult = Schema.Struct({RequestTokenARN: Schema.optional(Schema.String)});
-export const GetAccessPointResult = Schema.Struct({Name: Schema.optional(Schema.String), Bucket: Schema.optional(Schema.String), NetworkOrigin: Schema.optional(Schema.String), VpcConfiguration: Schema.optional(VpcConfiguration), PublicAccessBlockConfiguration: Schema.optional(PublicAccessBlockConfiguration), CreationDate: Schema.optional(Schema.Date), Alias: Schema.optional(Schema.String), AccessPointArn: Schema.optional(Schema.String), Endpoints: Schema.optional(Endpoints), BucketAccountId: Schema.optional(Schema.String), DataSourceId: Schema.optional(Schema.String), DataSourceType: Schema.optional(Schema.String)});
-export const GetAccessPointForObjectLambdaResult = Schema.Struct({Name: Schema.optional(Schema.String), PublicAccessBlockConfiguration: Schema.optional(PublicAccessBlockConfiguration), CreationDate: Schema.optional(Schema.Date), Alias: Schema.optional(ObjectLambdaAccessPointAlias)});
-export const GetAccessPointPolicyStatusResult = Schema.Struct({PolicyStatus: Schema.optional(PolicyStatus)});
-export const GetDataAccessResult = Schema.Struct({Credentials: Schema.optional(Credentials), MatchedGrantTarget: Schema.optional(Schema.String), Grantee: Schema.optional(Grantee)});
-export const NoSuchPublicAccessBlockConfiguration = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ListAccessGrantsResult = Schema.Struct({NextToken: Schema.optional(Schema.String), AccessGrantsList: Schema.optional(AccessGrantsList)});
-export const ListAccessGrantsInstancesResult = Schema.Struct({NextToken: Schema.optional(Schema.String), AccessGrantsInstancesList: Schema.optional(AccessGrantsInstancesList)});
-export const ListAccessGrantsLocationsResult = Schema.Struct({NextToken: Schema.optional(Schema.String), AccessGrantsLocationsList: Schema.optional(AccessGrantsLocationsList)});
-export const ListAccessPointsResult = Schema.Struct({AccessPointList: Schema.optional(AccessPointList), NextToken: Schema.optional(Schema.String)});
-export const ListAccessPointsForObjectLambdaResult = Schema.Struct({ObjectLambdaAccessPointList: Schema.optional(ObjectLambdaAccessPointList), NextToken: Schema.optional(Schema.String)});
-export const ListCallerAccessGrantsResult = Schema.Struct({NextToken: Schema.optional(Schema.String), CallerAccessGrantsList: Schema.optional(CallerAccessGrantsList)});
-export const ListJobsResult = Schema.Struct({NextToken: Schema.optional(Schema.String), Jobs: Schema.optional(JobListDescriptorList)});
-export const ListRegionalBucketsResult = Schema.Struct({RegionalBucketList: Schema.optional(RegionalBucketList), NextToken: Schema.optional(Schema.String)});
-export const ListStorageLensConfigurationsResult = Schema.Struct({NextToken: Schema.optional(Schema.String), StorageLensConfigurationList: Schema.optional(StorageLensConfigurationList)});
-export const ListStorageLensGroupsResult = Schema.Struct({NextToken: Schema.optional(Schema.String), StorageLensGroupList: Schema.optional(StorageLensGroupList)});
-export const TooManyTagsException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const PutMultiRegionAccessPointPolicyResult = Schema.Struct({RequestTokenARN: Schema.optional(Schema.String)});
-export const BadRequestException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const JobStatusException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const LambdaInvokeOperation = Schema.Struct({FunctionArn: Schema.optional(Schema.String), InvocationSchemaVersion: Schema.optional(Schema.String), UserArguments: Schema.optional(UserArguments)});
-export const S3SetObjectLegalHoldOperation = Schema.Struct({LegalHold: S3ObjectLockLegalHold});
-export const S3SetObjectRetentionOperation = Schema.Struct({BypassGovernanceRetention: Schema.optional(Schema.Boolean), Retention: S3Retention});
-export const JobFailure = Schema.Struct({FailureCode: Schema.optional(Schema.String), FailureReason: Schema.optional(Schema.String)});
+export class SSES3Filter extends Schema.Class<SSES3Filter>("SSES3Filter")({}) {}
+export class SSECFilter extends Schema.Class<SSECFilter>("SSECFilter")({}) {}
+export class NotSSEFilter extends Schema.Class<NotSSEFilter>("NotSSEFilter")({}) {}
+export class CreateMultiRegionAccessPointRequest extends Schema.Class<CreateMultiRegionAccessPointRequest>("CreateMultiRegionAccessPointRequest")({AccountId: Header("x-amz-account-id"), ClientToken: Schema.String, Details: CreateMultiRegionAccessPointInput}) {}
+export class TooManyRequestsException extends Schema.Class<TooManyRequestsException>("TooManyRequestsException")({Message: Schema.optional(Schema.String)}) {}
+export class DeleteMultiRegionAccessPointResult extends Schema.Class<DeleteMultiRegionAccessPointResult>("DeleteMultiRegionAccessPointResult")({RequestTokenARN: Schema.optional(Schema.String)}) {}
+export class GetAccessPointResult extends Schema.Class<GetAccessPointResult>("GetAccessPointResult")({Name: Schema.optional(Schema.String), Bucket: Schema.optional(Schema.String), NetworkOrigin: Schema.optional(Schema.String), VpcConfiguration: Schema.optional(VpcConfiguration), PublicAccessBlockConfiguration: Schema.optional(PublicAccessBlockConfiguration), CreationDate: Schema.optional(Schema.Date), Alias: Schema.optional(Schema.String), AccessPointArn: Schema.optional(Schema.String), Endpoints: Schema.optional(Endpoints), BucketAccountId: Schema.optional(Schema.String), DataSourceId: Schema.optional(Schema.String), DataSourceType: Schema.optional(Schema.String)}) {}
+export class GetAccessPointForObjectLambdaResult extends Schema.Class<GetAccessPointForObjectLambdaResult>("GetAccessPointForObjectLambdaResult")({Name: Schema.optional(Schema.String), PublicAccessBlockConfiguration: Schema.optional(PublicAccessBlockConfiguration), CreationDate: Schema.optional(Schema.Date), Alias: Schema.optional(ObjectLambdaAccessPointAlias)}) {}
+export class GetAccessPointPolicyStatusResult extends Schema.Class<GetAccessPointPolicyStatusResult>("GetAccessPointPolicyStatusResult")({PolicyStatus: Schema.optional(PolicyStatus)}) {}
+export class GetDataAccessResult extends Schema.Class<GetDataAccessResult>("GetDataAccessResult")({Credentials: Schema.optional(Credentials), MatchedGrantTarget: Schema.optional(Schema.String), Grantee: Schema.optional(Grantee)}) {}
+export class NoSuchPublicAccessBlockConfiguration extends Schema.Class<NoSuchPublicAccessBlockConfiguration>("NoSuchPublicAccessBlockConfiguration")({Message: Schema.optional(Schema.String)}) {}
+export class ListAccessGrantsResult extends Schema.Class<ListAccessGrantsResult>("ListAccessGrantsResult")({NextToken: Schema.optional(Schema.String), AccessGrantsList: Schema.optional(AccessGrantsList)}) {}
+export class ListAccessGrantsInstancesResult extends Schema.Class<ListAccessGrantsInstancesResult>("ListAccessGrantsInstancesResult")({NextToken: Schema.optional(Schema.String), AccessGrantsInstancesList: Schema.optional(AccessGrantsInstancesList)}) {}
+export class ListAccessGrantsLocationsResult extends Schema.Class<ListAccessGrantsLocationsResult>("ListAccessGrantsLocationsResult")({NextToken: Schema.optional(Schema.String), AccessGrantsLocationsList: Schema.optional(AccessGrantsLocationsList)}) {}
+export class ListAccessPointsResult extends Schema.Class<ListAccessPointsResult>("ListAccessPointsResult")({AccessPointList: Schema.optional(AccessPointList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListAccessPointsForObjectLambdaResult extends Schema.Class<ListAccessPointsForObjectLambdaResult>("ListAccessPointsForObjectLambdaResult")({ObjectLambdaAccessPointList: Schema.optional(ObjectLambdaAccessPointList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListCallerAccessGrantsResult extends Schema.Class<ListCallerAccessGrantsResult>("ListCallerAccessGrantsResult")({NextToken: Schema.optional(Schema.String), CallerAccessGrantsList: Schema.optional(CallerAccessGrantsList)}) {}
+export class ListJobsResult extends Schema.Class<ListJobsResult>("ListJobsResult")({NextToken: Schema.optional(Schema.String), Jobs: Schema.optional(JobListDescriptorList)}) {}
+export class ListRegionalBucketsResult extends Schema.Class<ListRegionalBucketsResult>("ListRegionalBucketsResult")({RegionalBucketList: Schema.optional(RegionalBucketList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListStorageLensConfigurationsResult extends Schema.Class<ListStorageLensConfigurationsResult>("ListStorageLensConfigurationsResult")({NextToken: Schema.optional(Schema.String), StorageLensConfigurationList: Schema.optional(StorageLensConfigurationList)}) {}
+export class ListStorageLensGroupsResult extends Schema.Class<ListStorageLensGroupsResult>("ListStorageLensGroupsResult")({NextToken: Schema.optional(Schema.String), StorageLensGroupList: Schema.optional(StorageLensGroupList)}) {}
+export class TooManyTagsException extends Schema.Class<TooManyTagsException>("TooManyTagsException")({Message: Schema.optional(Schema.String)}) {}
+export class PutMultiRegionAccessPointPolicyResult extends Schema.Class<PutMultiRegionAccessPointPolicyResult>("PutMultiRegionAccessPointPolicyResult")({RequestTokenARN: Schema.optional(Schema.String)}) {}
+export class BadRequestException extends Schema.Class<BadRequestException>("BadRequestException")({Message: Schema.optional(Schema.String)}) {}
+export class JobStatusException extends Schema.Class<JobStatusException>("JobStatusException")({Message: Schema.optional(Schema.String)}) {}
+export class LambdaInvokeOperation extends Schema.Class<LambdaInvokeOperation>("LambdaInvokeOperation")({FunctionArn: Schema.optional(Schema.String), InvocationSchemaVersion: Schema.optional(Schema.String), UserArguments: Schema.optional(UserArguments)}) {}
+export class S3SetObjectLegalHoldOperation extends Schema.Class<S3SetObjectLegalHoldOperation>("S3SetObjectLegalHoldOperation")({LegalHold: S3ObjectLockLegalHold}) {}
+export class S3SetObjectRetentionOperation extends Schema.Class<S3SetObjectRetentionOperation>("S3SetObjectRetentionOperation")({BypassGovernanceRetention: Schema.optional(Schema.Boolean), Retention: S3Retention}) {}
+export class JobFailure extends Schema.Class<JobFailure>("JobFailure")({FailureCode: Schema.optional(Schema.String), FailureReason: Schema.optional(Schema.String)}) {}
 export const JobFailureList = Schema.Array(JobFailure);
-export const S3GeneratedManifestDescriptor = Schema.Struct({Format: Schema.optional(Schema.String), Location: Schema.optional(JobManifestLocation)});
-export const AsyncRequestParameters = Schema.Struct({CreateMultiRegionAccessPointRequest: Schema.optional(CreateMultiRegionAccessPointInput), DeleteMultiRegionAccessPointRequest: Schema.optional(DeleteMultiRegionAccessPointInput), PutMultiRegionAccessPointPolicyRequest: Schema.optional(PutMultiRegionAccessPointPolicyInput)});
-export const EstablishedMultiRegionAccessPointPolicy = Schema.Struct({Policy: Schema.optional(Schema.String)});
-export const ProposedMultiRegionAccessPointPolicy = Schema.Struct({Policy: Schema.optional(Schema.String)});
-export const S3Grantee = Schema.Struct({TypeIdentifier: Schema.optional(Schema.String), Identifier: Schema.optional(Schema.String), DisplayName: Schema.optional(Schema.String)});
+export class S3GeneratedManifestDescriptor extends Schema.Class<S3GeneratedManifestDescriptor>("S3GeneratedManifestDescriptor")({Format: Schema.optional(Schema.String), Location: Schema.optional(JobManifestLocation)}) {}
+export class AsyncRequestParameters extends Schema.Class<AsyncRequestParameters>("AsyncRequestParameters")({CreateMultiRegionAccessPointRequest: Schema.optional(CreateMultiRegionAccessPointInput), DeleteMultiRegionAccessPointRequest: Schema.optional(DeleteMultiRegionAccessPointInput), PutMultiRegionAccessPointPolicyRequest: Schema.optional(PutMultiRegionAccessPointPolicyInput)}) {}
+export class EstablishedMultiRegionAccessPointPolicy extends Schema.Class<EstablishedMultiRegionAccessPointPolicy>("EstablishedMultiRegionAccessPointPolicy")({Policy: Schema.optional(Schema.String)}) {}
+export class ProposedMultiRegionAccessPointPolicy extends Schema.Class<ProposedMultiRegionAccessPointPolicy>("ProposedMultiRegionAccessPointPolicy")({Policy: Schema.optional(Schema.String)}) {}
+export class S3Grantee extends Schema.Class<S3Grantee>("S3Grantee")({TypeIdentifier: Schema.optional(Schema.String), Identifier: Schema.optional(Schema.String), DisplayName: Schema.optional(Schema.String)}) {}
 export const S3UserMetadata = Schema.Record({key: Schema.String, value: Schema.String});
-export const KeyNameConstraint = Schema.Struct({MatchAnyPrefix: Schema.optional(NonEmptyMaxLength1024StringList), MatchAnySuffix: Schema.optional(NonEmptyMaxLength1024StringList), MatchAnySubstring: Schema.optional(NonEmptyMaxLength1024StringList)});
-export const MultiRegionAccessPointPolicyDocument = Schema.Struct({Established: Schema.optional(EstablishedMultiRegionAccessPointPolicy), Proposed: Schema.optional(ProposedMultiRegionAccessPointPolicy)});
-export const S3Grant = Schema.Struct({Grantee: Schema.optional(S3Grantee), Permission: Schema.optional(Schema.String)});
+export class KeyNameConstraint extends Schema.Class<KeyNameConstraint>("KeyNameConstraint")({MatchAnyPrefix: Schema.optional(NonEmptyMaxLength1024StringList), MatchAnySuffix: Schema.optional(NonEmptyMaxLength1024StringList), MatchAnySubstring: Schema.optional(NonEmptyMaxLength1024StringList)}) {}
+export class MultiRegionAccessPointPolicyDocument extends Schema.Class<MultiRegionAccessPointPolicyDocument>("MultiRegionAccessPointPolicyDocument")({Established: Schema.optional(EstablishedMultiRegionAccessPointPolicy), Proposed: Schema.optional(ProposedMultiRegionAccessPointPolicy)}) {}
+export class S3Grant extends Schema.Class<S3Grant>("S3Grant")({Grantee: Schema.optional(S3Grantee), Permission: Schema.optional(Schema.String)}) {}
 export const S3GrantList = Schema.Array(S3Grant);
-export const S3ObjectMetadata = Schema.Struct({CacheControl: Schema.optional(Schema.String), ContentDisposition: Schema.optional(Schema.String), ContentEncoding: Schema.optional(Schema.String), ContentLanguage: Schema.optional(Schema.String), UserMetadata: Schema.optional(S3UserMetadata), ContentLength: Schema.optional(Schema.Number), ContentMD5: Schema.optional(Schema.String), ContentType: Schema.optional(Schema.String), HttpExpiresDate: Schema.optional(Schema.Date), RequesterCharged: Schema.optional(Schema.Boolean), SSEAlgorithm: Schema.optional(Schema.String)});
-export const AsyncErrorDetails = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String), Resource: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)});
-export const S3ObjectOwner = Schema.Struct({ID: Schema.optional(Schema.String), DisplayName: Schema.optional(Schema.String)});
-export const SSEKMSEncryption = Schema.Struct({KeyId: Schema.String});
-export const SSEKMSFilter = Schema.Struct({KmsKeyArn: Schema.optional(Schema.String), BucketKeyEnabled: Schema.optional(Schema.Boolean)});
-export const DSSEKMSFilter = Schema.Struct({KmsKeyArn: Schema.optional(Schema.String)});
-export const CreateMultiRegionAccessPointResult = Schema.Struct({RequestTokenARN: Schema.optional(Schema.String)});
-export const CreateStorageLensGroupRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), StorageLensGroup: StorageLensGroup, Tags: Schema.optional(TagList)});
-export const GetMultiRegionAccessPointResult = Schema.Struct({AccessPoint: Schema.optional(MultiRegionAccessPointReport)});
-export const GetMultiRegionAccessPointPolicyResult = Schema.Struct({Policy: Schema.optional(MultiRegionAccessPointPolicyDocument)});
-export const InvalidNextTokenException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const S3CopyObjectOperation = Schema.Struct({TargetResource: Schema.optional(Schema.String), CannedAccessControlList: Schema.optional(Schema.String), AccessControlGrants: Schema.optional(S3GrantList), MetadataDirective: Schema.optional(Schema.String), ModifiedSinceConstraint: Schema.optional(Schema.Date), NewObjectMetadata: Schema.optional(S3ObjectMetadata), NewObjectTagging: Schema.optional(S3TagSet), RedirectLocation: Schema.optional(Schema.String), RequesterPays: Schema.optional(Schema.Boolean), StorageClass: Schema.optional(Schema.String), UnModifiedSinceConstraint: Schema.optional(Schema.Date), SSEAwsKmsKeyId: Schema.optional(Schema.String), TargetKeyPrefix: Schema.optional(Schema.String), ObjectLockLegalHoldStatus: Schema.optional(Schema.String), ObjectLockMode: Schema.optional(Schema.String), ObjectLockRetainUntilDate: Schema.optional(Schema.Date), BucketKeyEnabled: Schema.optional(Schema.Boolean), ChecksumAlgorithm: Schema.optional(Schema.String)});
-export const S3AccessControlList = Schema.Struct({Owner: S3ObjectOwner, Grants: Schema.optional(S3GrantList)});
-export const GeneratedManifestEncryption = Schema.Struct({SSES3: Schema.optional(SSES3Encryption), SSEKMS: Schema.optional(SSEKMSEncryption)});
+export class S3ObjectMetadata extends Schema.Class<S3ObjectMetadata>("S3ObjectMetadata")({CacheControl: Schema.optional(Schema.String), ContentDisposition: Schema.optional(Schema.String), ContentEncoding: Schema.optional(Schema.String), ContentLanguage: Schema.optional(Schema.String), UserMetadata: Schema.optional(S3UserMetadata), ContentLength: Schema.optional(Schema.Number), ContentMD5: Schema.optional(Schema.String), ContentType: Schema.optional(Schema.String), HttpExpiresDate: Schema.optional(Schema.Date), RequesterCharged: Schema.optional(Schema.Boolean), SSEAlgorithm: Schema.optional(Schema.String)}) {}
+export class AsyncErrorDetails extends Schema.Class<AsyncErrorDetails>("AsyncErrorDetails")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String), Resource: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)}) {}
+export class S3ObjectOwner extends Schema.Class<S3ObjectOwner>("S3ObjectOwner")({ID: Schema.optional(Schema.String), DisplayName: Schema.optional(Schema.String)}) {}
+export class SSEKMSEncryption extends Schema.Class<SSEKMSEncryption>("SSEKMSEncryption")({KeyId: Schema.String}) {}
+export class SSEKMSFilter extends Schema.Class<SSEKMSFilter>("SSEKMSFilter")({KmsKeyArn: Schema.optional(Schema.String), BucketKeyEnabled: Schema.optional(Schema.Boolean)}) {}
+export class DSSEKMSFilter extends Schema.Class<DSSEKMSFilter>("DSSEKMSFilter")({KmsKeyArn: Schema.optional(Schema.String)}) {}
+export class CreateMultiRegionAccessPointResult extends Schema.Class<CreateMultiRegionAccessPointResult>("CreateMultiRegionAccessPointResult")({RequestTokenARN: Schema.optional(Schema.String)}) {}
+export class CreateStorageLensGroupRequest extends Schema.Class<CreateStorageLensGroupRequest>("CreateStorageLensGroupRequest")({AccountId: Header("x-amz-account-id"), StorageLensGroup: StorageLensGroup, Tags: Schema.optional(TagList)}) {}
+export class GetMultiRegionAccessPointResult extends Schema.Class<GetMultiRegionAccessPointResult>("GetMultiRegionAccessPointResult")({AccessPoint: Schema.optional(MultiRegionAccessPointReport)}) {}
+export class GetMultiRegionAccessPointPolicyResult extends Schema.Class<GetMultiRegionAccessPointPolicyResult>("GetMultiRegionAccessPointPolicyResult")({Policy: Schema.optional(MultiRegionAccessPointPolicyDocument)}) {}
+export class InvalidNextTokenException extends Schema.Class<InvalidNextTokenException>("InvalidNextTokenException")({Message: Schema.optional(Schema.String)}) {}
+export class S3CopyObjectOperation extends Schema.Class<S3CopyObjectOperation>("S3CopyObjectOperation")({TargetResource: Schema.optional(Schema.String), CannedAccessControlList: Schema.optional(Schema.String), AccessControlGrants: Schema.optional(S3GrantList), MetadataDirective: Schema.optional(Schema.String), ModifiedSinceConstraint: Schema.optional(Schema.Date), NewObjectMetadata: Schema.optional(S3ObjectMetadata), NewObjectTagging: Schema.optional(S3TagSet), RedirectLocation: Schema.optional(Schema.String), RequesterPays: Schema.optional(Schema.Boolean), StorageClass: Schema.optional(Schema.String), UnModifiedSinceConstraint: Schema.optional(Schema.Date), SSEAwsKmsKeyId: Schema.optional(Schema.String), TargetKeyPrefix: Schema.optional(Schema.String), ObjectLockLegalHoldStatus: Schema.optional(Schema.String), ObjectLockMode: Schema.optional(Schema.String), ObjectLockRetainUntilDate: Schema.optional(Schema.Date), BucketKeyEnabled: Schema.optional(Schema.Boolean), ChecksumAlgorithm: Schema.optional(Schema.String)}) {}
+export class S3AccessControlList extends Schema.Class<S3AccessControlList>("S3AccessControlList")({Owner: S3ObjectOwner, Grants: Schema.optional(S3GrantList)}) {}
+export class GeneratedManifestEncryption extends Schema.Class<GeneratedManifestEncryption>("GeneratedManifestEncryption")({SSES3: Schema.optional(SSES3Encryption), SSEKMS: Schema.optional(SSEKMSEncryption)}) {}
 export const ObjectEncryptionFilter = Schema.Union(SSES3Filter, SSEKMSFilter, DSSEKMSFilter, SSECFilter, NotSSEFilter);
 export const ObjectEncryptionFilterList = Schema.Array(ObjectEncryptionFilter);
-export const MultiRegionAccessPointRegionalResponse = Schema.Struct({Name: Schema.optional(Schema.String), RequestStatus: Schema.optional(Schema.String)});
+export class MultiRegionAccessPointRegionalResponse extends Schema.Class<MultiRegionAccessPointRegionalResponse>("MultiRegionAccessPointRegionalResponse")({Name: Schema.optional(Schema.String), RequestStatus: Schema.optional(Schema.String)}) {}
 export const MultiRegionAccessPointRegionalResponseList = Schema.Array(MultiRegionAccessPointRegionalResponse);
-export const S3AccessControlPolicy = Schema.Struct({AccessControlList: Schema.optional(S3AccessControlList), CannedAccessControlList: Schema.optional(Schema.String)});
-export const S3SetObjectAclOperation = Schema.Struct({AccessControlPolicy: Schema.optional(S3AccessControlPolicy)});
-export const JobOperation = Schema.Struct({LambdaInvoke: Schema.optional(LambdaInvokeOperation), S3PutObjectCopy: Schema.optional(S3CopyObjectOperation), S3PutObjectAcl: Schema.optional(S3SetObjectAclOperation), S3PutObjectTagging: Schema.optional(S3SetObjectTaggingOperation), S3DeleteObjectTagging: Schema.optional(S3DeleteObjectTaggingOperation), S3InitiateRestoreObject: Schema.optional(S3InitiateRestoreObjectOperation), S3PutObjectLegalHold: Schema.optional(S3SetObjectLegalHoldOperation), S3PutObjectRetention: Schema.optional(S3SetObjectRetentionOperation), S3ReplicateObject: Schema.optional(S3ReplicateObjectOperation), S3ComputeObjectChecksum: Schema.optional(S3ComputeObjectChecksumOperation)});
-export const S3ManifestOutputLocation = Schema.Struct({ExpectedManifestBucketOwner: Schema.optional(Schema.String), Bucket: Schema.String, ManifestPrefix: Schema.optional(Schema.String), ManifestEncryption: Schema.optional(GeneratedManifestEncryption), ManifestFormat: Schema.String});
-export const JobManifestGeneratorFilter = Schema.Struct({EligibleForReplication: Schema.optional(Schema.Boolean), CreatedAfter: Schema.optional(Schema.Date), CreatedBefore: Schema.optional(Schema.Date), ObjectReplicationStatuses: Schema.optional(ReplicationStatusFilterList), KeyNameConstraint: Schema.optional(KeyNameConstraint), ObjectSizeGreaterThanBytes: Schema.optional(Schema.Number), ObjectSizeLessThanBytes: Schema.optional(Schema.Number), MatchAnyStorageClass: Schema.optional(StorageClassList), MatchAnyObjectEncryption: Schema.optional(ObjectEncryptionFilterList)});
-export const S3JobManifestGenerator = Schema.Struct({ExpectedBucketOwner: Schema.optional(Schema.String), SourceBucket: Schema.String, ManifestOutputLocation: Schema.optional(S3ManifestOutputLocation), Filter: Schema.optional(JobManifestGeneratorFilter), EnableManifestOutput: Schema.Boolean});
+export class S3AccessControlPolicy extends Schema.Class<S3AccessControlPolicy>("S3AccessControlPolicy")({AccessControlList: Schema.optional(S3AccessControlList), CannedAccessControlList: Schema.optional(Schema.String)}) {}
+export class S3SetObjectAclOperation extends Schema.Class<S3SetObjectAclOperation>("S3SetObjectAclOperation")({AccessControlPolicy: Schema.optional(S3AccessControlPolicy)}) {}
+export class JobOperation extends Schema.Class<JobOperation>("JobOperation")({LambdaInvoke: Schema.optional(LambdaInvokeOperation), S3PutObjectCopy: Schema.optional(S3CopyObjectOperation), S3PutObjectAcl: Schema.optional(S3SetObjectAclOperation), S3PutObjectTagging: Schema.optional(S3SetObjectTaggingOperation), S3DeleteObjectTagging: Schema.optional(S3DeleteObjectTaggingOperation), S3InitiateRestoreObject: Schema.optional(S3InitiateRestoreObjectOperation), S3PutObjectLegalHold: Schema.optional(S3SetObjectLegalHoldOperation), S3PutObjectRetention: Schema.optional(S3SetObjectRetentionOperation), S3ReplicateObject: Schema.optional(S3ReplicateObjectOperation), S3ComputeObjectChecksum: Schema.optional(S3ComputeObjectChecksumOperation)}) {}
+export class S3ManifestOutputLocation extends Schema.Class<S3ManifestOutputLocation>("S3ManifestOutputLocation")({ExpectedManifestBucketOwner: Schema.optional(Schema.String), Bucket: Schema.String, ManifestPrefix: Schema.optional(Schema.String), ManifestEncryption: Schema.optional(GeneratedManifestEncryption), ManifestFormat: Schema.String}) {}
+export class JobManifestGeneratorFilter extends Schema.Class<JobManifestGeneratorFilter>("JobManifestGeneratorFilter")({EligibleForReplication: Schema.optional(Schema.Boolean), CreatedAfter: Schema.optional(Schema.Date), CreatedBefore: Schema.optional(Schema.Date), ObjectReplicationStatuses: Schema.optional(ReplicationStatusFilterList), KeyNameConstraint: Schema.optional(KeyNameConstraint), ObjectSizeGreaterThanBytes: Schema.optional(Schema.Number), ObjectSizeLessThanBytes: Schema.optional(Schema.Number), MatchAnyStorageClass: Schema.optional(StorageClassList), MatchAnyObjectEncryption: Schema.optional(ObjectEncryptionFilterList)}) {}
+export class S3JobManifestGenerator extends Schema.Class<S3JobManifestGenerator>("S3JobManifestGenerator")({ExpectedBucketOwner: Schema.optional(Schema.String), SourceBucket: Schema.String, ManifestOutputLocation: Schema.optional(S3ManifestOutputLocation), Filter: Schema.optional(JobManifestGeneratorFilter), EnableManifestOutput: Schema.Boolean}) {}
 export const JobManifestGenerator = Schema.Union(S3JobManifestGenerator);
-export const JobDescriptor = Schema.Struct({JobId: Schema.optional(Schema.String), ConfirmationRequired: Schema.optional(Schema.Boolean), Description: Schema.optional(Schema.String), JobArn: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), Manifest: Schema.optional(JobManifest), Operation: Schema.optional(JobOperation), Priority: Schema.optional(Schema.Number), ProgressSummary: Schema.optional(JobProgressSummary), StatusUpdateReason: Schema.optional(Schema.String), FailureReasons: Schema.optional(JobFailureList), Report: Schema.optional(JobReport), CreationTime: Schema.optional(Schema.Date), TerminationDate: Schema.optional(Schema.Date), RoleArn: Schema.optional(Schema.String), SuspendedDate: Schema.optional(Schema.Date), SuspendedCause: Schema.optional(Schema.String), ManifestGenerator: Schema.optional(JobManifestGenerator), GeneratedManifestDescriptor: Schema.optional(S3GeneratedManifestDescriptor)});
-export const LifecycleConfiguration = Schema.Struct({Rules: Schema.optional(LifecycleRules)});
-export const MultiRegionAccessPointsAsyncResponse = Schema.Struct({Regions: Schema.optional(MultiRegionAccessPointRegionalResponseList)});
-export const CreateAccessPointForObjectLambdaRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), Name: Schema.String, Configuration: ObjectLambdaConfiguration});
-export const DescribeJobResult = Schema.Struct({Job: Schema.optional(JobDescriptor)});
-export const InvalidRequestException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const PutBucketLifecycleConfigurationRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), Bucket: Path("Bucket", Schema.String), LifecycleConfiguration: Schema.optional(Body("LifecycleConfiguration", LifecycleConfiguration))});
-export const AsyncResponseDetails = Schema.Struct({MultiRegionAccessPointDetails: Schema.optional(MultiRegionAccessPointsAsyncResponse), ErrorDetails: Schema.optional(AsyncErrorDetails)});
-export const AsyncOperation = Schema.Struct({CreationTime: Schema.optional(Schema.Date), Operation: Schema.optional(Schema.String), RequestTokenARN: Schema.optional(Schema.String), RequestParameters: Schema.optional(AsyncRequestParameters), RequestStatus: Schema.optional(Schema.String), ResponseDetails: Schema.optional(AsyncResponseDetails)});
-export const CreateAccessPointForObjectLambdaResult = Schema.Struct({ObjectLambdaAccessPointArn: Schema.optional(Schema.String), Alias: Schema.optional(ObjectLambdaAccessPointAlias)});
-export const CreateJobRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), ConfirmationRequired: Schema.optional(Schema.Boolean), Operation: JobOperation, Report: JobReport, ClientRequestToken: Schema.String, Manifest: Schema.optional(JobManifest), Description: Schema.optional(Schema.String), Priority: Schema.Number, RoleArn: Schema.String, Tags: Schema.optional(S3TagSet), ManifestGenerator: Schema.optional(JobManifestGenerator)});
-export const DescribeMultiRegionAccessPointOperationResult = Schema.Struct({AsyncOperation: Schema.optional(AsyncOperation)});
-export const PutBucketReplicationRequest = Schema.Struct({AccountId: Header("x-amz-account-id"), Bucket: Path("Bucket", Schema.String), ReplicationConfiguration: Body("ReplicationConfiguration", ReplicationConfiguration)});
-export const CreateJobResult = Schema.Struct({JobId: Schema.optional(Schema.String)});
-export const PutStorageLensConfigurationRequest = Schema.Struct({ConfigId: Schema.String, AccountId: Header("x-amz-account-id"), StorageLensConfiguration: StorageLensConfiguration, Tags: Schema.optional(StorageLensTags)});
-export const IdempotencyException = Schema.Struct({Message: Schema.optional(Schema.String)});
+export class JobDescriptor extends Schema.Class<JobDescriptor>("JobDescriptor")({JobId: Schema.optional(Schema.String), ConfirmationRequired: Schema.optional(Schema.Boolean), Description: Schema.optional(Schema.String), JobArn: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), Manifest: Schema.optional(JobManifest), Operation: Schema.optional(JobOperation), Priority: Schema.optional(Schema.Number), ProgressSummary: Schema.optional(JobProgressSummary), StatusUpdateReason: Schema.optional(Schema.String), FailureReasons: Schema.optional(JobFailureList), Report: Schema.optional(JobReport), CreationTime: Schema.optional(Schema.Date), TerminationDate: Schema.optional(Schema.Date), RoleArn: Schema.optional(Schema.String), SuspendedDate: Schema.optional(Schema.Date), SuspendedCause: Schema.optional(Schema.String), ManifestGenerator: Schema.optional(JobManifestGenerator), GeneratedManifestDescriptor: Schema.optional(S3GeneratedManifestDescriptor)}) {}
+export class LifecycleConfiguration extends Schema.Class<LifecycleConfiguration>("LifecycleConfiguration")({Rules: Schema.optional(LifecycleRules)}) {}
+export class MultiRegionAccessPointsAsyncResponse extends Schema.Class<MultiRegionAccessPointsAsyncResponse>("MultiRegionAccessPointsAsyncResponse")({Regions: Schema.optional(MultiRegionAccessPointRegionalResponseList)}) {}
+export class CreateAccessPointForObjectLambdaRequest extends Schema.Class<CreateAccessPointForObjectLambdaRequest>("CreateAccessPointForObjectLambdaRequest")({AccountId: Header("x-amz-account-id"), Name: Schema.String, Configuration: ObjectLambdaConfiguration}) {}
+export class DescribeJobResult extends Schema.Class<DescribeJobResult>("DescribeJobResult")({Job: Schema.optional(JobDescriptor)}) {}
+export class InvalidRequestException extends Schema.Class<InvalidRequestException>("InvalidRequestException")({Message: Schema.optional(Schema.String)}) {}
+export class PutBucketLifecycleConfigurationRequest extends Schema.Class<PutBucketLifecycleConfigurationRequest>("PutBucketLifecycleConfigurationRequest")({AccountId: Header("x-amz-account-id"), Bucket: Path("Bucket", Schema.String), LifecycleConfiguration: Schema.optional(Body("LifecycleConfiguration", LifecycleConfiguration))}) {}
+export class AsyncResponseDetails extends Schema.Class<AsyncResponseDetails>("AsyncResponseDetails")({MultiRegionAccessPointDetails: Schema.optional(MultiRegionAccessPointsAsyncResponse), ErrorDetails: Schema.optional(AsyncErrorDetails)}) {}
+export class AsyncOperation extends Schema.Class<AsyncOperation>("AsyncOperation")({CreationTime: Schema.optional(Schema.Date), Operation: Schema.optional(Schema.String), RequestTokenARN: Schema.optional(Schema.String), RequestParameters: Schema.optional(AsyncRequestParameters), RequestStatus: Schema.optional(Schema.String), ResponseDetails: Schema.optional(AsyncResponseDetails)}) {}
+export class CreateAccessPointForObjectLambdaResult extends Schema.Class<CreateAccessPointForObjectLambdaResult>("CreateAccessPointForObjectLambdaResult")({ObjectLambdaAccessPointArn: Schema.optional(Schema.String), Alias: Schema.optional(ObjectLambdaAccessPointAlias)}) {}
+export class CreateJobRequest extends Schema.Class<CreateJobRequest>("CreateJobRequest")({AccountId: Header("x-amz-account-id"), ConfirmationRequired: Schema.optional(Schema.Boolean), Operation: JobOperation, Report: JobReport, ClientRequestToken: Schema.String, Manifest: Schema.optional(JobManifest), Description: Schema.optional(Schema.String), Priority: Schema.Number, RoleArn: Schema.String, Tags: Schema.optional(S3TagSet), ManifestGenerator: Schema.optional(JobManifestGenerator)}) {}
+export class DescribeMultiRegionAccessPointOperationResult extends Schema.Class<DescribeMultiRegionAccessPointOperationResult>("DescribeMultiRegionAccessPointOperationResult")({AsyncOperation: Schema.optional(AsyncOperation)}) {}
+export class PutBucketReplicationRequest extends Schema.Class<PutBucketReplicationRequest>("PutBucketReplicationRequest")({AccountId: Header("x-amz-account-id"), Bucket: Path("Bucket", Schema.String), ReplicationConfiguration: Body("ReplicationConfiguration", ReplicationConfiguration)}) {}
+export class CreateJobResult extends Schema.Class<CreateJobResult>("CreateJobResult")({JobId: Schema.optional(Schema.String)}) {}
+export class PutStorageLensConfigurationRequest extends Schema.Class<PutStorageLensConfigurationRequest>("PutStorageLensConfigurationRequest")({ConfigId: Schema.String, AccountId: Header("x-amz-account-id"), StorageLensConfiguration: StorageLensConfiguration, Tags: Schema.optional(StorageLensTags)}) {}
+export class IdempotencyException extends Schema.Class<IdempotencyException>("IdempotencyException")({Message: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class InternalServiceExceptionError extends Schema.TaggedError<InternalServiceExceptionError>()("InternalServiceException", InternalServiceException) {};
-export class NotFoundExceptionError extends Schema.TaggedError<NotFoundExceptionError>()("NotFoundException", NotFoundException) {};
-export class TooManyRequestsExceptionError extends Schema.TaggedError<TooManyRequestsExceptionError>()("TooManyRequestsException", TooManyRequestsException) {};
-export class BadRequestExceptionError extends Schema.TaggedError<BadRequestExceptionError>()("BadRequestException", BadRequestException) {};
-export class BucketAlreadyExistsError extends Schema.TaggedError<BucketAlreadyExistsError>()("BucketAlreadyExists", BucketAlreadyExists) {};
-export class BucketAlreadyOwnedByYouError extends Schema.TaggedError<BucketAlreadyOwnedByYouError>()("BucketAlreadyOwnedByYou", BucketAlreadyOwnedByYou) {};
-export class NoSuchPublicAccessBlockConfigurationError extends Schema.TaggedError<NoSuchPublicAccessBlockConfigurationError>()("NoSuchPublicAccessBlockConfiguration", NoSuchPublicAccessBlockConfiguration) {};
-export class TooManyTagsExceptionError extends Schema.TaggedError<TooManyTagsExceptionError>()("TooManyTagsException", TooManyTagsException) {};
-export class JobStatusExceptionError extends Schema.TaggedError<JobStatusExceptionError>()("JobStatusException", JobStatusException) {};
-export class InvalidNextTokenExceptionError extends Schema.TaggedError<InvalidNextTokenExceptionError>()("InvalidNextTokenException", InvalidNextTokenException) {};
-export class InvalidRequestExceptionError extends Schema.TaggedError<InvalidRequestExceptionError>()("InvalidRequestException", InvalidRequestException) {};
-export class IdempotencyExceptionError extends Schema.TaggedError<IdempotencyExceptionError>()("IdempotencyException", IdempotencyException) {};
+export class InternalServiceExceptionError extends Schema.TaggedError<InternalServiceExceptionError>()("InternalServiceException", InternalServiceException.fields) {};
+export class NotFoundExceptionError extends Schema.TaggedError<NotFoundExceptionError>()("NotFoundException", NotFoundException.fields) {};
+export class TooManyRequestsExceptionError extends Schema.TaggedError<TooManyRequestsExceptionError>()("TooManyRequestsException", TooManyRequestsException.fields) {};
+export class BadRequestExceptionError extends Schema.TaggedError<BadRequestExceptionError>()("BadRequestException", BadRequestException.fields) {};
+export class BucketAlreadyExistsError extends Schema.TaggedError<BucketAlreadyExistsError>()("BucketAlreadyExists", BucketAlreadyExists.fields) {};
+export class BucketAlreadyOwnedByYouError extends Schema.TaggedError<BucketAlreadyOwnedByYouError>()("BucketAlreadyOwnedByYou", BucketAlreadyOwnedByYou.fields) {};
+export class NoSuchPublicAccessBlockConfigurationError extends Schema.TaggedError<NoSuchPublicAccessBlockConfigurationError>()("NoSuchPublicAccessBlockConfiguration", NoSuchPublicAccessBlockConfiguration.fields) {};
+export class TooManyTagsExceptionError extends Schema.TaggedError<TooManyTagsExceptionError>()("TooManyTagsException", TooManyTagsException.fields) {};
+export class JobStatusExceptionError extends Schema.TaggedError<JobStatusExceptionError>()("JobStatusException", JobStatusException.fields) {};
+export class InvalidNextTokenExceptionError extends Schema.TaggedError<InvalidNextTokenExceptionError>()("InvalidNextTokenException", InvalidNextTokenException.fields) {};
+export class InvalidRequestExceptionError extends Schema.TaggedError<InvalidRequestExceptionError>()("InvalidRequestException", InvalidRequestException.fields) {};
+export class IdempotencyExceptionError extends Schema.TaggedError<IdempotencyExceptionError>()("IdempotencyException", IdempotencyException.fields) {};
 
 //# Operations
 export const associateAccessGrantsIdentityCenter = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-08-20", uri: "/v20180820/accessgrantsinstance/identitycenter", method: "POST", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.AssociateAccessGrantsIdentityCenter" }, AssociateAccessGrantsIdentityCenterRequest, Schema.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);

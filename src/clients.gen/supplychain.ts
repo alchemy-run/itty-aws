@@ -4,50 +4,50 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 
 //# Schemas
 export const TagKeyList = Schema.Array(Schema.String);
-export const GetDataIntegrationEventRequest = Schema.Struct({instanceId: Schema.String, eventId: Schema.String});
-export const GetDataIntegrationFlowExecutionRequest = Schema.Struct({instanceId: Schema.String, flowName: Schema.String, executionId: Schema.String});
-export const ListDataIntegrationEventsRequest = Schema.Struct({instanceId: Schema.String, eventType: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListDataIntegrationFlowExecutionsRequest = Schema.Struct({instanceId: Schema.String, flowName: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListTagsForResourceRequest = Schema.Struct({resourceArn: Schema.String});
-export const UntagResourceRequest = Schema.Struct({resourceArn: Schema.String, tagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
-export const DataIntegrationEventDatasetLoadExecutionDetails = Schema.Struct({status: Schema.String, message: Schema.optional(Schema.String)});
-export const DataIntegrationEventDatasetTargetDetails = Schema.Struct({datasetIdentifier: Schema.String, operationType: Schema.String, datasetLoadExecution: DataIntegrationEventDatasetLoadExecutionDetails});
-export const DataIntegrationEvent = Schema.Struct({instanceId: Schema.String, eventId: Schema.String, eventType: Schema.String, eventGroupId: Schema.String, eventTimestamp: Schema.Date, datasetTargetDetails: Schema.optional(DataIntegrationEventDatasetTargetDetails)});
+export class GetDataIntegrationEventRequest extends Schema.Class<GetDataIntegrationEventRequest>("GetDataIntegrationEventRequest")({instanceId: Schema.String, eventId: Schema.String}) {}
+export class GetDataIntegrationFlowExecutionRequest extends Schema.Class<GetDataIntegrationFlowExecutionRequest>("GetDataIntegrationFlowExecutionRequest")({instanceId: Schema.String, flowName: Schema.String, executionId: Schema.String}) {}
+export class ListDataIntegrationEventsRequest extends Schema.Class<ListDataIntegrationEventsRequest>("ListDataIntegrationEventsRequest")({instanceId: Schema.String, eventType: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListDataIntegrationFlowExecutionsRequest extends Schema.Class<ListDataIntegrationFlowExecutionsRequest>("ListDataIntegrationFlowExecutionsRequest")({instanceId: Schema.String, flowName: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({resourceArn: Schema.String}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({resourceArn: Schema.String, tagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class DataIntegrationEventDatasetLoadExecutionDetails extends Schema.Class<DataIntegrationEventDatasetLoadExecutionDetails>("DataIntegrationEventDatasetLoadExecutionDetails")({status: Schema.String, message: Schema.optional(Schema.String)}) {}
+export class DataIntegrationEventDatasetTargetDetails extends Schema.Class<DataIntegrationEventDatasetTargetDetails>("DataIntegrationEventDatasetTargetDetails")({datasetIdentifier: Schema.String, operationType: Schema.String, datasetLoadExecution: DataIntegrationEventDatasetLoadExecutionDetails}) {}
+export class DataIntegrationEvent extends Schema.Class<DataIntegrationEvent>("DataIntegrationEvent")({instanceId: Schema.String, eventId: Schema.String, eventType: Schema.String, eventGroupId: Schema.String, eventTimestamp: Schema.Date, datasetTargetDetails: Schema.optional(DataIntegrationEventDatasetTargetDetails)}) {}
 export const DataIntegrationEventList = Schema.Array(DataIntegrationEvent);
-export const DataIntegrationFlowS3Source = Schema.Struct({bucketName: Schema.String, key: Schema.String});
-export const DataIntegrationFlowDatasetSource = Schema.Struct({datasetIdentifier: Schema.String});
-export const DataIntegrationFlowExecutionSourceInfo = Schema.Struct({sourceType: Schema.String, s3Source: Schema.optional(DataIntegrationFlowS3Source), datasetSource: Schema.optional(DataIntegrationFlowDatasetSource)});
-export const DataIntegrationFlowExecutionOutputMetadata = Schema.Struct({diagnosticReportsRootS3URI: Schema.optional(Schema.String)});
-export const DataIntegrationFlowExecution = Schema.Struct({instanceId: Schema.String, flowName: Schema.String, executionId: Schema.String, status: Schema.optional(Schema.String), sourceInfo: Schema.optional(DataIntegrationFlowExecutionSourceInfo), message: Schema.optional(Schema.String), startTime: Schema.optional(Schema.Date), endTime: Schema.optional(Schema.Date), outputMetadata: Schema.optional(DataIntegrationFlowExecutionOutputMetadata)});
+export class DataIntegrationFlowS3Source extends Schema.Class<DataIntegrationFlowS3Source>("DataIntegrationFlowS3Source")({bucketName: Schema.String, key: Schema.String}) {}
+export class DataIntegrationFlowDatasetSource extends Schema.Class<DataIntegrationFlowDatasetSource>("DataIntegrationFlowDatasetSource")({datasetIdentifier: Schema.String}) {}
+export class DataIntegrationFlowExecutionSourceInfo extends Schema.Class<DataIntegrationFlowExecutionSourceInfo>("DataIntegrationFlowExecutionSourceInfo")({sourceType: Schema.String, s3Source: Schema.optional(DataIntegrationFlowS3Source), datasetSource: Schema.optional(DataIntegrationFlowDatasetSource)}) {}
+export class DataIntegrationFlowExecutionOutputMetadata extends Schema.Class<DataIntegrationFlowExecutionOutputMetadata>("DataIntegrationFlowExecutionOutputMetadata")({diagnosticReportsRootS3URI: Schema.optional(Schema.String)}) {}
+export class DataIntegrationFlowExecution extends Schema.Class<DataIntegrationFlowExecution>("DataIntegrationFlowExecution")({instanceId: Schema.String, flowName: Schema.String, executionId: Schema.String, status: Schema.optional(Schema.String), sourceInfo: Schema.optional(DataIntegrationFlowExecutionSourceInfo), message: Schema.optional(Schema.String), startTime: Schema.optional(Schema.Date), endTime: Schema.optional(Schema.Date), outputMetadata: Schema.optional(DataIntegrationFlowExecutionOutputMetadata)}) {}
 export const DataIntegrationFlowExecutionList = Schema.Array(DataIntegrationFlowExecution);
-export const DataIntegrationEventDatasetTargetConfiguration = Schema.Struct({datasetIdentifier: Schema.String, operationType: Schema.String});
+export class DataIntegrationEventDatasetTargetConfiguration extends Schema.Class<DataIntegrationEventDatasetTargetConfiguration>("DataIntegrationEventDatasetTargetConfiguration")({datasetIdentifier: Schema.String, operationType: Schema.String}) {}
 export const TagMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const ListDataIntegrationEventsResponse = Schema.Struct({events: DataIntegrationEventList, nextToken: Schema.optional(Schema.String)});
-export const ListDataIntegrationFlowExecutionsResponse = Schema.Struct({flowExecutions: DataIntegrationFlowExecutionList, nextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceResponse = Schema.Struct({tags: TagMap});
-export const SendDataIntegrationEventRequest = Schema.Struct({instanceId: Schema.String, eventType: Schema.String, data: Schema.String, eventGroupId: Schema.String, eventTimestamp: Schema.optional(Schema.Date), clientToken: Schema.optional(Schema.String), datasetTarget: Schema.optional(DataIntegrationEventDatasetTargetConfiguration)});
-export const TagResourceRequest = Schema.Struct({resourceArn: Schema.String, tags: TagMap});
-export const TagResourceResponse = Schema.Struct({});
-export const AccessDeniedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InternalServerException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ThrottlingException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const SendDataIntegrationEventResponse = Schema.Struct({eventId: Schema.String});
-export const ValidationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ConflictException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const GetDataIntegrationEventResponse = Schema.Struct({event: DataIntegrationEvent});
-export const GetDataIntegrationFlowExecutionResponse = Schema.Struct({flowExecution: DataIntegrationFlowExecution});
-export const ServiceQuotaExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
+export class ListDataIntegrationEventsResponse extends Schema.Class<ListDataIntegrationEventsResponse>("ListDataIntegrationEventsResponse")({events: DataIntegrationEventList, nextToken: Schema.optional(Schema.String)}) {}
+export class ListDataIntegrationFlowExecutionsResponse extends Schema.Class<ListDataIntegrationFlowExecutionsResponse>("ListDataIntegrationFlowExecutionsResponse")({flowExecutions: DataIntegrationFlowExecutionList, nextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({tags: TagMap}) {}
+export class SendDataIntegrationEventRequest extends Schema.Class<SendDataIntegrationEventRequest>("SendDataIntegrationEventRequest")({instanceId: Schema.String, eventType: Schema.String, data: Schema.String, eventGroupId: Schema.String, eventTimestamp: Schema.optional(Schema.Date), clientToken: Schema.optional(Schema.String), datasetTarget: Schema.optional(DataIntegrationEventDatasetTargetConfiguration)}) {}
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({resourceArn: Schema.String, tags: TagMap}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({message: Schema.optional(Schema.String)}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({message: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({message: Schema.optional(Schema.String)}) {}
+export class SendDataIntegrationEventResponse extends Schema.Class<SendDataIntegrationEventResponse>("SendDataIntegrationEventResponse")({eventId: Schema.String}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({message: Schema.optional(Schema.String)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({message: Schema.optional(Schema.String)}) {}
+export class GetDataIntegrationEventResponse extends Schema.Class<GetDataIntegrationEventResponse>("GetDataIntegrationEventResponse")({event: DataIntegrationEvent}) {}
+export class GetDataIntegrationFlowExecutionResponse extends Schema.Class<GetDataIntegrationFlowExecutionResponse>("GetDataIntegrationFlowExecutionResponse")({flowExecution: DataIntegrationFlowExecution}) {}
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({message: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
 
 //# Operations
 export const untagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2024-01-01", uri: "/api/tags/{resourceArn}", method: "DELETE", sdkId: "SupplyChain", sigV4ServiceName: "scn", name: "GalaxyPublicAPIGateway.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

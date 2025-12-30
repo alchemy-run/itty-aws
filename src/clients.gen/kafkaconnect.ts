@@ -5,126 +5,126 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 //# Schemas
 export const TagKeyList = Schema.Array(Schema.String);
 export const Tags = Schema.Record({key: Schema.String, value: Schema.String});
-export const CreateWorkerConfigurationRequest = Schema.Struct({description: Schema.optional(Schema.String), name: Schema.String, propertiesFileContent: Schema.String, tags: Schema.optional(Tags)});
-export const DeleteConnectorRequest = Schema.Struct({connectorArn: Schema.String, currentVersion: Schema.optional(Schema.String)});
-export const DeleteCustomPluginRequest = Schema.Struct({customPluginArn: Schema.String});
-export const DeleteWorkerConfigurationRequest = Schema.Struct({workerConfigurationArn: Schema.String});
-export const DescribeConnectorRequest = Schema.Struct({connectorArn: Schema.String});
-export const DescribeConnectorOperationRequest = Schema.Struct({connectorOperationArn: Schema.String});
-export const DescribeCustomPluginRequest = Schema.Struct({customPluginArn: Schema.String});
-export const DescribeWorkerConfigurationRequest = Schema.Struct({workerConfigurationArn: Schema.String});
-export const ListConnectorOperationsRequest = Schema.Struct({connectorArn: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListConnectorsRequest = Schema.Struct({connectorNamePrefix: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListCustomPluginsRequest = Schema.Struct({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String), namePrefix: Schema.optional(Schema.String)});
-export const ListTagsForResourceRequest = Schema.Struct({resourceArn: Schema.String});
-export const ListWorkerConfigurationsRequest = Schema.Struct({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String), namePrefix: Schema.optional(Schema.String)});
-export const TagResourceRequest = Schema.Struct({resourceArn: Schema.String, tags: Tags});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({resourceArn: Schema.String, tagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
+export class CreateWorkerConfigurationRequest extends Schema.Class<CreateWorkerConfigurationRequest>("CreateWorkerConfigurationRequest")({description: Schema.optional(Schema.String), name: Schema.String, propertiesFileContent: Schema.String, tags: Schema.optional(Tags)}) {}
+export class DeleteConnectorRequest extends Schema.Class<DeleteConnectorRequest>("DeleteConnectorRequest")({connectorArn: Schema.String, currentVersion: Schema.optional(Schema.String)}) {}
+export class DeleteCustomPluginRequest extends Schema.Class<DeleteCustomPluginRequest>("DeleteCustomPluginRequest")({customPluginArn: Schema.String}) {}
+export class DeleteWorkerConfigurationRequest extends Schema.Class<DeleteWorkerConfigurationRequest>("DeleteWorkerConfigurationRequest")({workerConfigurationArn: Schema.String}) {}
+export class DescribeConnectorRequest extends Schema.Class<DescribeConnectorRequest>("DescribeConnectorRequest")({connectorArn: Schema.String}) {}
+export class DescribeConnectorOperationRequest extends Schema.Class<DescribeConnectorOperationRequest>("DescribeConnectorOperationRequest")({connectorOperationArn: Schema.String}) {}
+export class DescribeCustomPluginRequest extends Schema.Class<DescribeCustomPluginRequest>("DescribeCustomPluginRequest")({customPluginArn: Schema.String}) {}
+export class DescribeWorkerConfigurationRequest extends Schema.Class<DescribeWorkerConfigurationRequest>("DescribeWorkerConfigurationRequest")({workerConfigurationArn: Schema.String}) {}
+export class ListConnectorOperationsRequest extends Schema.Class<ListConnectorOperationsRequest>("ListConnectorOperationsRequest")({connectorArn: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListConnectorsRequest extends Schema.Class<ListConnectorsRequest>("ListConnectorsRequest")({connectorNamePrefix: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListCustomPluginsRequest extends Schema.Class<ListCustomPluginsRequest>("ListCustomPluginsRequest")({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String), namePrefix: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({resourceArn: Schema.String}) {}
+export class ListWorkerConfigurationsRequest extends Schema.Class<ListWorkerConfigurationsRequest>("ListWorkerConfigurationsRequest")({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String), namePrefix: Schema.optional(Schema.String)}) {}
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({resourceArn: Schema.String, tags: Tags}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({resourceArn: Schema.String, tagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
 export const ConnectorConfiguration = Schema.Record({key: Schema.String, value: Schema.String});
-export const KafkaClusterClientAuthentication = Schema.Struct({authenticationType: Schema.String});
-export const KafkaClusterEncryptionInTransit = Schema.Struct({encryptionType: Schema.String});
-export const WorkerConfiguration = Schema.Struct({revision: Schema.Number, workerConfigurationArn: Schema.String});
+export class KafkaClusterClientAuthentication extends Schema.Class<KafkaClusterClientAuthentication>("KafkaClusterClientAuthentication")({authenticationType: Schema.String}) {}
+export class KafkaClusterEncryptionInTransit extends Schema.Class<KafkaClusterEncryptionInTransit>("KafkaClusterEncryptionInTransit")({encryptionType: Schema.String}) {}
+export class WorkerConfiguration extends Schema.Class<WorkerConfiguration>("WorkerConfiguration")({revision: Schema.Number, workerConfigurationArn: Schema.String}) {}
 export const ConnectorConfigurationUpdate = Schema.Record({key: Schema.String, value: Schema.String});
-export const DeleteConnectorResponse = Schema.Struct({connectorArn: Schema.optional(Schema.String), connectorState: Schema.optional(Schema.String)});
-export const DeleteCustomPluginResponse = Schema.Struct({customPluginArn: Schema.optional(Schema.String), customPluginState: Schema.optional(Schema.String)});
-export const DeleteWorkerConfigurationResponse = Schema.Struct({workerConfigurationArn: Schema.optional(Schema.String), workerConfigurationState: Schema.optional(Schema.String)});
-export const ListTagsForResourceResponse = Schema.Struct({tags: Schema.optional(Tags)});
-export const BadRequestException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ForbiddenException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ProvisionedCapacity = Schema.Struct({mcuCount: Schema.Number, workerCount: Schema.Number});
-export const CustomPlugin = Schema.Struct({customPluginArn: Schema.String, revision: Schema.Number});
-export const S3Location = Schema.Struct({bucketArn: Schema.String, fileKey: Schema.String, objectVersion: Schema.optional(Schema.String)});
-export const ProvisionedCapacityUpdate = Schema.Struct({mcuCount: Schema.Number, workerCount: Schema.Number});
+export class DeleteConnectorResponse extends Schema.Class<DeleteConnectorResponse>("DeleteConnectorResponse")({connectorArn: Schema.optional(Schema.String), connectorState: Schema.optional(Schema.String)}) {}
+export class DeleteCustomPluginResponse extends Schema.Class<DeleteCustomPluginResponse>("DeleteCustomPluginResponse")({customPluginArn: Schema.optional(Schema.String), customPluginState: Schema.optional(Schema.String)}) {}
+export class DeleteWorkerConfigurationResponse extends Schema.Class<DeleteWorkerConfigurationResponse>("DeleteWorkerConfigurationResponse")({workerConfigurationArn: Schema.optional(Schema.String), workerConfigurationState: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({tags: Schema.optional(Tags)}) {}
+export class BadRequestException extends Schema.Class<BadRequestException>("BadRequestException")({message: Schema.optional(Schema.String)}) {}
+export class ForbiddenException extends Schema.Class<ForbiddenException>("ForbiddenException")({message: Schema.optional(Schema.String)}) {}
+export class ProvisionedCapacity extends Schema.Class<ProvisionedCapacity>("ProvisionedCapacity")({mcuCount: Schema.Number, workerCount: Schema.Number}) {}
+export class CustomPlugin extends Schema.Class<CustomPlugin>("CustomPlugin")({customPluginArn: Schema.String, revision: Schema.Number}) {}
+export class S3Location extends Schema.Class<S3Location>("S3Location")({bucketArn: Schema.String, fileKey: Schema.String, objectVersion: Schema.optional(Schema.String)}) {}
+export class ProvisionedCapacityUpdate extends Schema.Class<ProvisionedCapacityUpdate>("ProvisionedCapacityUpdate")({mcuCount: Schema.Number, workerCount: Schema.Number}) {}
 export const __listOf__string = Schema.Array(Schema.String);
-export const Plugin = Schema.Struct({customPlugin: CustomPlugin});
+export class Plugin extends Schema.Class<Plugin>("Plugin")({customPlugin: CustomPlugin}) {}
 export const __listOfPlugin = Schema.Array(Plugin);
-export const CustomPluginLocation = Schema.Struct({s3Location: S3Location});
-export const WorkerConfigurationRevisionSummary = Schema.Struct({creationTime: Schema.optional(Schema.Date), description: Schema.optional(Schema.String), revision: Schema.optional(Schema.Number)});
-export const KafkaClusterClientAuthenticationDescription = Schema.Struct({authenticationType: Schema.optional(Schema.String)});
-export const KafkaClusterEncryptionInTransitDescription = Schema.Struct({encryptionType: Schema.optional(Schema.String)});
-export const WorkerConfigurationDescription = Schema.Struct({revision: Schema.optional(Schema.Number), workerConfigurationArn: Schema.optional(Schema.String)});
-export const StateDescription = Schema.Struct({code: Schema.optional(Schema.String), message: Schema.optional(Schema.String)});
-export const ConnectorOperationStep = Schema.Struct({stepType: Schema.optional(Schema.String), stepState: Schema.optional(Schema.String)});
+export class CustomPluginLocation extends Schema.Class<CustomPluginLocation>("CustomPluginLocation")({s3Location: S3Location}) {}
+export class WorkerConfigurationRevisionSummary extends Schema.Class<WorkerConfigurationRevisionSummary>("WorkerConfigurationRevisionSummary")({creationTime: Schema.optional(Schema.Date), description: Schema.optional(Schema.String), revision: Schema.optional(Schema.Number)}) {}
+export class KafkaClusterClientAuthenticationDescription extends Schema.Class<KafkaClusterClientAuthenticationDescription>("KafkaClusterClientAuthenticationDescription")({authenticationType: Schema.optional(Schema.String)}) {}
+export class KafkaClusterEncryptionInTransitDescription extends Schema.Class<KafkaClusterEncryptionInTransitDescription>("KafkaClusterEncryptionInTransitDescription")({encryptionType: Schema.optional(Schema.String)}) {}
+export class WorkerConfigurationDescription extends Schema.Class<WorkerConfigurationDescription>("WorkerConfigurationDescription")({revision: Schema.optional(Schema.Number), workerConfigurationArn: Schema.optional(Schema.String)}) {}
+export class StateDescription extends Schema.Class<StateDescription>("StateDescription")({code: Schema.optional(Schema.String), message: Schema.optional(Schema.String)}) {}
+export class ConnectorOperationStep extends Schema.Class<ConnectorOperationStep>("ConnectorOperationStep")({stepType: Schema.optional(Schema.String), stepState: Schema.optional(Schema.String)}) {}
 export const __listOfConnectorOperationStep = Schema.Array(ConnectorOperationStep);
-export const ScaleInPolicyDescription = Schema.Struct({cpuUtilizationPercentage: Schema.optional(Schema.Number)});
-export const ScaleOutPolicyDescription = Schema.Struct({cpuUtilizationPercentage: Schema.optional(Schema.Number)});
-export const AutoScalingDescription = Schema.Struct({maxWorkerCount: Schema.optional(Schema.Number), mcuCount: Schema.optional(Schema.Number), minWorkerCount: Schema.optional(Schema.Number), scaleInPolicy: Schema.optional(ScaleInPolicyDescription), scaleOutPolicy: Schema.optional(ScaleOutPolicyDescription)});
-export const ProvisionedCapacityDescription = Schema.Struct({mcuCount: Schema.optional(Schema.Number), workerCount: Schema.optional(Schema.Number)});
-export const CapacityDescription = Schema.Struct({autoScaling: Schema.optional(AutoScalingDescription), provisionedCapacity: Schema.optional(ProvisionedCapacityDescription)});
-export const WorkerSetting = Schema.Struct({capacity: Schema.optional(CapacityDescription)});
-export const WorkerConfigurationRevisionDescription = Schema.Struct({creationTime: Schema.optional(Schema.Date), description: Schema.optional(Schema.String), propertiesFileContent: Schema.optional(Schema.String), revision: Schema.optional(Schema.Number)});
-export const ConnectorOperationSummary = Schema.Struct({connectorOperationArn: Schema.optional(Schema.String), connectorOperationType: Schema.optional(Schema.String), connectorOperationState: Schema.optional(Schema.String), creationTime: Schema.optional(Schema.Date), endTime: Schema.optional(Schema.Date)});
+export class ScaleInPolicyDescription extends Schema.Class<ScaleInPolicyDescription>("ScaleInPolicyDescription")({cpuUtilizationPercentage: Schema.optional(Schema.Number)}) {}
+export class ScaleOutPolicyDescription extends Schema.Class<ScaleOutPolicyDescription>("ScaleOutPolicyDescription")({cpuUtilizationPercentage: Schema.optional(Schema.Number)}) {}
+export class AutoScalingDescription extends Schema.Class<AutoScalingDescription>("AutoScalingDescription")({maxWorkerCount: Schema.optional(Schema.Number), mcuCount: Schema.optional(Schema.Number), minWorkerCount: Schema.optional(Schema.Number), scaleInPolicy: Schema.optional(ScaleInPolicyDescription), scaleOutPolicy: Schema.optional(ScaleOutPolicyDescription)}) {}
+export class ProvisionedCapacityDescription extends Schema.Class<ProvisionedCapacityDescription>("ProvisionedCapacityDescription")({mcuCount: Schema.optional(Schema.Number), workerCount: Schema.optional(Schema.Number)}) {}
+export class CapacityDescription extends Schema.Class<CapacityDescription>("CapacityDescription")({autoScaling: Schema.optional(AutoScalingDescription), provisionedCapacity: Schema.optional(ProvisionedCapacityDescription)}) {}
+export class WorkerSetting extends Schema.Class<WorkerSetting>("WorkerSetting")({capacity: Schema.optional(CapacityDescription)}) {}
+export class WorkerConfigurationRevisionDescription extends Schema.Class<WorkerConfigurationRevisionDescription>("WorkerConfigurationRevisionDescription")({creationTime: Schema.optional(Schema.Date), description: Schema.optional(Schema.String), propertiesFileContent: Schema.optional(Schema.String), revision: Schema.optional(Schema.Number)}) {}
+export class ConnectorOperationSummary extends Schema.Class<ConnectorOperationSummary>("ConnectorOperationSummary")({connectorOperationArn: Schema.optional(Schema.String), connectorOperationType: Schema.optional(Schema.String), connectorOperationState: Schema.optional(Schema.String), creationTime: Schema.optional(Schema.Date), endTime: Schema.optional(Schema.Date)}) {}
 export const __listOfConnectorOperationSummary = Schema.Array(ConnectorOperationSummary);
-export const VpcDescription = Schema.Struct({securityGroups: Schema.optional(__listOf__string), subnets: Schema.optional(__listOf__string)});
-export const ApacheKafkaClusterDescription = Schema.Struct({bootstrapServers: Schema.optional(Schema.String), vpc: Schema.optional(VpcDescription)});
-export const KafkaClusterDescription = Schema.Struct({apacheKafkaCluster: Schema.optional(ApacheKafkaClusterDescription)});
-export const CloudWatchLogsLogDeliveryDescription = Schema.Struct({enabled: Schema.optional(Schema.Boolean), logGroup: Schema.optional(Schema.String)});
-export const FirehoseLogDeliveryDescription = Schema.Struct({deliveryStream: Schema.optional(Schema.String), enabled: Schema.optional(Schema.Boolean)});
-export const S3LogDeliveryDescription = Schema.Struct({bucket: Schema.optional(Schema.String), enabled: Schema.optional(Schema.Boolean), prefix: Schema.optional(Schema.String)});
-export const WorkerLogDeliveryDescription = Schema.Struct({cloudWatchLogs: Schema.optional(CloudWatchLogsLogDeliveryDescription), firehose: Schema.optional(FirehoseLogDeliveryDescription), s3: Schema.optional(S3LogDeliveryDescription)});
-export const LogDeliveryDescription = Schema.Struct({workerLogDelivery: Schema.optional(WorkerLogDeliveryDescription)});
-export const CustomPluginDescription = Schema.Struct({customPluginArn: Schema.optional(Schema.String), revision: Schema.optional(Schema.Number)});
-export const PluginDescription = Schema.Struct({customPlugin: Schema.optional(CustomPluginDescription)});
+export class VpcDescription extends Schema.Class<VpcDescription>("VpcDescription")({securityGroups: Schema.optional(__listOf__string), subnets: Schema.optional(__listOf__string)}) {}
+export class ApacheKafkaClusterDescription extends Schema.Class<ApacheKafkaClusterDescription>("ApacheKafkaClusterDescription")({bootstrapServers: Schema.optional(Schema.String), vpc: Schema.optional(VpcDescription)}) {}
+export class KafkaClusterDescription extends Schema.Class<KafkaClusterDescription>("KafkaClusterDescription")({apacheKafkaCluster: Schema.optional(ApacheKafkaClusterDescription)}) {}
+export class CloudWatchLogsLogDeliveryDescription extends Schema.Class<CloudWatchLogsLogDeliveryDescription>("CloudWatchLogsLogDeliveryDescription")({enabled: Schema.optional(Schema.Boolean), logGroup: Schema.optional(Schema.String)}) {}
+export class FirehoseLogDeliveryDescription extends Schema.Class<FirehoseLogDeliveryDescription>("FirehoseLogDeliveryDescription")({deliveryStream: Schema.optional(Schema.String), enabled: Schema.optional(Schema.Boolean)}) {}
+export class S3LogDeliveryDescription extends Schema.Class<S3LogDeliveryDescription>("S3LogDeliveryDescription")({bucket: Schema.optional(Schema.String), enabled: Schema.optional(Schema.Boolean), prefix: Schema.optional(Schema.String)}) {}
+export class WorkerLogDeliveryDescription extends Schema.Class<WorkerLogDeliveryDescription>("WorkerLogDeliveryDescription")({cloudWatchLogs: Schema.optional(CloudWatchLogsLogDeliveryDescription), firehose: Schema.optional(FirehoseLogDeliveryDescription), s3: Schema.optional(S3LogDeliveryDescription)}) {}
+export class LogDeliveryDescription extends Schema.Class<LogDeliveryDescription>("LogDeliveryDescription")({workerLogDelivery: Schema.optional(WorkerLogDeliveryDescription)}) {}
+export class CustomPluginDescription extends Schema.Class<CustomPluginDescription>("CustomPluginDescription")({customPluginArn: Schema.optional(Schema.String), revision: Schema.optional(Schema.Number)}) {}
+export class PluginDescription extends Schema.Class<PluginDescription>("PluginDescription")({customPlugin: Schema.optional(CustomPluginDescription)}) {}
 export const __listOfPluginDescription = Schema.Array(PluginDescription);
-export const ConnectorSummary = Schema.Struct({capacity: Schema.optional(CapacityDescription), connectorArn: Schema.optional(Schema.String), connectorDescription: Schema.optional(Schema.String), connectorName: Schema.optional(Schema.String), connectorState: Schema.optional(Schema.String), creationTime: Schema.optional(Schema.Date), currentVersion: Schema.optional(Schema.String), kafkaCluster: Schema.optional(KafkaClusterDescription), kafkaClusterClientAuthentication: Schema.optional(KafkaClusterClientAuthenticationDescription), kafkaClusterEncryptionInTransit: Schema.optional(KafkaClusterEncryptionInTransitDescription), kafkaConnectVersion: Schema.optional(Schema.String), logDelivery: Schema.optional(LogDeliveryDescription), plugins: Schema.optional(__listOfPluginDescription), serviceExecutionRoleArn: Schema.optional(Schema.String), workerConfiguration: Schema.optional(WorkerConfigurationDescription)});
+export class ConnectorSummary extends Schema.Class<ConnectorSummary>("ConnectorSummary")({capacity: Schema.optional(CapacityDescription), connectorArn: Schema.optional(Schema.String), connectorDescription: Schema.optional(Schema.String), connectorName: Schema.optional(Schema.String), connectorState: Schema.optional(Schema.String), creationTime: Schema.optional(Schema.Date), currentVersion: Schema.optional(Schema.String), kafkaCluster: Schema.optional(KafkaClusterDescription), kafkaClusterClientAuthentication: Schema.optional(KafkaClusterClientAuthenticationDescription), kafkaClusterEncryptionInTransit: Schema.optional(KafkaClusterEncryptionInTransitDescription), kafkaConnectVersion: Schema.optional(Schema.String), logDelivery: Schema.optional(LogDeliveryDescription), networkType: Schema.optional(Schema.String), plugins: Schema.optional(__listOfPluginDescription), serviceExecutionRoleArn: Schema.optional(Schema.String), workerConfiguration: Schema.optional(WorkerConfigurationDescription)}) {}
 export const __listOfConnectorSummary = Schema.Array(ConnectorSummary);
-export const CustomPluginFileDescription = Schema.Struct({fileMd5: Schema.optional(Schema.String), fileSize: Schema.optional(Schema.Number)});
-export const S3LocationDescription = Schema.Struct({bucketArn: Schema.optional(Schema.String), fileKey: Schema.optional(Schema.String), objectVersion: Schema.optional(Schema.String)});
-export const CustomPluginLocationDescription = Schema.Struct({s3Location: Schema.optional(S3LocationDescription)});
-export const CustomPluginRevisionSummary = Schema.Struct({contentType: Schema.optional(Schema.String), creationTime: Schema.optional(Schema.Date), description: Schema.optional(Schema.String), fileDescription: Schema.optional(CustomPluginFileDescription), location: Schema.optional(CustomPluginLocationDescription), revision: Schema.optional(Schema.Number)});
-export const CustomPluginSummary = Schema.Struct({creationTime: Schema.optional(Schema.Date), customPluginArn: Schema.optional(Schema.String), customPluginState: Schema.optional(Schema.String), description: Schema.optional(Schema.String), latestRevision: Schema.optional(CustomPluginRevisionSummary), name: Schema.optional(Schema.String)});
+export class CustomPluginFileDescription extends Schema.Class<CustomPluginFileDescription>("CustomPluginFileDescription")({fileMd5: Schema.optional(Schema.String), fileSize: Schema.optional(Schema.Number)}) {}
+export class S3LocationDescription extends Schema.Class<S3LocationDescription>("S3LocationDescription")({bucketArn: Schema.optional(Schema.String), fileKey: Schema.optional(Schema.String), objectVersion: Schema.optional(Schema.String)}) {}
+export class CustomPluginLocationDescription extends Schema.Class<CustomPluginLocationDescription>("CustomPluginLocationDescription")({s3Location: Schema.optional(S3LocationDescription)}) {}
+export class CustomPluginRevisionSummary extends Schema.Class<CustomPluginRevisionSummary>("CustomPluginRevisionSummary")({contentType: Schema.optional(Schema.String), creationTime: Schema.optional(Schema.Date), description: Schema.optional(Schema.String), fileDescription: Schema.optional(CustomPluginFileDescription), location: Schema.optional(CustomPluginLocationDescription), revision: Schema.optional(Schema.Number)}) {}
+export class CustomPluginSummary extends Schema.Class<CustomPluginSummary>("CustomPluginSummary")({creationTime: Schema.optional(Schema.Date), customPluginArn: Schema.optional(Schema.String), customPluginState: Schema.optional(Schema.String), description: Schema.optional(Schema.String), latestRevision: Schema.optional(CustomPluginRevisionSummary), name: Schema.optional(Schema.String)}) {}
 export const __listOfCustomPluginSummary = Schema.Array(CustomPluginSummary);
-export const WorkerConfigurationSummary = Schema.Struct({creationTime: Schema.optional(Schema.Date), description: Schema.optional(Schema.String), latestRevision: Schema.optional(WorkerConfigurationRevisionSummary), name: Schema.optional(Schema.String), workerConfigurationArn: Schema.optional(Schema.String), workerConfigurationState: Schema.optional(Schema.String)});
+export class WorkerConfigurationSummary extends Schema.Class<WorkerConfigurationSummary>("WorkerConfigurationSummary")({creationTime: Schema.optional(Schema.Date), description: Schema.optional(Schema.String), latestRevision: Schema.optional(WorkerConfigurationRevisionSummary), name: Schema.optional(Schema.String), workerConfigurationArn: Schema.optional(Schema.String), workerConfigurationState: Schema.optional(Schema.String)}) {}
 export const __listOfWorkerConfigurationSummary = Schema.Array(WorkerConfigurationSummary);
-export const ScaleInPolicy = Schema.Struct({cpuUtilizationPercentage: Schema.Number});
-export const ScaleOutPolicy = Schema.Struct({cpuUtilizationPercentage: Schema.Number});
-export const Vpc = Schema.Struct({securityGroups: Schema.optional(__listOf__string), subnets: __listOf__string});
-export const CloudWatchLogsLogDelivery = Schema.Struct({enabled: Schema.Boolean, logGroup: Schema.optional(Schema.String)});
-export const FirehoseLogDelivery = Schema.Struct({deliveryStream: Schema.optional(Schema.String), enabled: Schema.Boolean});
-export const S3LogDelivery = Schema.Struct({bucket: Schema.optional(Schema.String), enabled: Schema.Boolean, prefix: Schema.optional(Schema.String)});
-export const ScaleInPolicyUpdate = Schema.Struct({cpuUtilizationPercentage: Schema.Number});
-export const ScaleOutPolicyUpdate = Schema.Struct({cpuUtilizationPercentage: Schema.Number});
-export const CreateCustomPluginRequest = Schema.Struct({contentType: Schema.String, description: Schema.optional(Schema.String), location: CustomPluginLocation, name: Schema.String, tags: Schema.optional(Tags)});
-export const CreateWorkerConfigurationResponse = Schema.Struct({creationTime: Schema.optional(Schema.Date), latestRevision: Schema.optional(WorkerConfigurationRevisionSummary), name: Schema.optional(Schema.String), workerConfigurationArn: Schema.optional(Schema.String), workerConfigurationState: Schema.optional(Schema.String)});
-export const InternalServerErrorException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const NotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ServiceUnavailableException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DescribeConnectorOperationResponse = Schema.Struct({connectorArn: Schema.optional(Schema.String), connectorOperationArn: Schema.optional(Schema.String), connectorOperationState: Schema.optional(Schema.String), connectorOperationType: Schema.optional(Schema.String), operationSteps: Schema.optional(__listOfConnectorOperationStep), originWorkerSetting: Schema.optional(WorkerSetting), originConnectorConfiguration: Schema.optional(ConnectorConfiguration), targetWorkerSetting: Schema.optional(WorkerSetting), targetConnectorConfiguration: Schema.optional(ConnectorConfiguration), errorInfo: Schema.optional(StateDescription), creationTime: Schema.optional(Schema.Date), endTime: Schema.optional(Schema.Date)});
-export const DescribeWorkerConfigurationResponse = Schema.Struct({creationTime: Schema.optional(Schema.Date), description: Schema.optional(Schema.String), latestRevision: Schema.optional(WorkerConfigurationRevisionDescription), name: Schema.optional(Schema.String), workerConfigurationArn: Schema.optional(Schema.String), workerConfigurationState: Schema.optional(Schema.String)});
-export const ListConnectorOperationsResponse = Schema.Struct({connectorOperations: Schema.optional(__listOfConnectorOperationSummary), nextToken: Schema.optional(Schema.String)});
-export const ListConnectorsResponse = Schema.Struct({connectors: Schema.optional(__listOfConnectorSummary), nextToken: Schema.optional(Schema.String)});
-export const ListCustomPluginsResponse = Schema.Struct({customPlugins: Schema.optional(__listOfCustomPluginSummary), nextToken: Schema.optional(Schema.String)});
-export const TooManyRequestsException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ListWorkerConfigurationsResponse = Schema.Struct({nextToken: Schema.optional(Schema.String), workerConfigurations: Schema.optional(__listOfWorkerConfigurationSummary)});
-export const ConflictException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UnauthorizedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const AutoScaling = Schema.Struct({maxWorkerCount: Schema.Number, mcuCount: Schema.Number, minWorkerCount: Schema.Number, scaleInPolicy: Schema.optional(ScaleInPolicy), scaleOutPolicy: Schema.optional(ScaleOutPolicy)});
-export const ApacheKafkaCluster = Schema.Struct({bootstrapServers: Schema.String, vpc: Vpc});
-export const WorkerLogDelivery = Schema.Struct({cloudWatchLogs: Schema.optional(CloudWatchLogsLogDelivery), firehose: Schema.optional(FirehoseLogDelivery), s3: Schema.optional(S3LogDelivery)});
-export const AutoScalingUpdate = Schema.Struct({maxWorkerCount: Schema.Number, mcuCount: Schema.Number, minWorkerCount: Schema.Number, scaleInPolicy: ScaleInPolicyUpdate, scaleOutPolicy: ScaleOutPolicyUpdate});
-export const Capacity = Schema.Struct({autoScaling: Schema.optional(AutoScaling), provisionedCapacity: Schema.optional(ProvisionedCapacity)});
-export const KafkaCluster = Schema.Struct({apacheKafkaCluster: ApacheKafkaCluster});
-export const LogDelivery = Schema.Struct({workerLogDelivery: WorkerLogDelivery});
-export const CapacityUpdate = Schema.Struct({autoScaling: Schema.optional(AutoScalingUpdate), provisionedCapacity: Schema.optional(ProvisionedCapacityUpdate)});
-export const CreateConnectorRequest = Schema.Struct({capacity: Capacity, connectorConfiguration: ConnectorConfiguration, connectorDescription: Schema.optional(Schema.String), connectorName: Schema.String, kafkaCluster: KafkaCluster, kafkaClusterClientAuthentication: KafkaClusterClientAuthentication, kafkaClusterEncryptionInTransit: KafkaClusterEncryptionInTransit, kafkaConnectVersion: Schema.String, logDelivery: Schema.optional(LogDelivery), plugins: __listOfPlugin, serviceExecutionRoleArn: Schema.String, workerConfiguration: Schema.optional(WorkerConfiguration), tags: Schema.optional(Tags)});
-export const CreateCustomPluginResponse = Schema.Struct({customPluginArn: Schema.optional(Schema.String), customPluginState: Schema.optional(Schema.String), name: Schema.optional(Schema.String), revision: Schema.optional(Schema.Number)});
-export const UpdateConnectorRequest = Schema.Struct({capacity: Schema.optional(CapacityUpdate), connectorConfiguration: Schema.optional(ConnectorConfigurationUpdate), connectorArn: Schema.String, currentVersion: Schema.String});
-export const CreateConnectorResponse = Schema.Struct({connectorArn: Schema.optional(Schema.String), connectorName: Schema.optional(Schema.String), connectorState: Schema.optional(Schema.String)});
-export const DescribeConnectorResponse = Schema.Struct({capacity: Schema.optional(CapacityDescription), connectorArn: Schema.optional(Schema.String), connectorConfiguration: Schema.optional(ConnectorConfiguration), connectorDescription: Schema.optional(Schema.String), connectorName: Schema.optional(Schema.String), connectorState: Schema.optional(Schema.String), creationTime: Schema.optional(Schema.Date), currentVersion: Schema.optional(Schema.String), kafkaCluster: Schema.optional(KafkaClusterDescription), kafkaClusterClientAuthentication: Schema.optional(KafkaClusterClientAuthenticationDescription), kafkaClusterEncryptionInTransit: Schema.optional(KafkaClusterEncryptionInTransitDescription), kafkaConnectVersion: Schema.optional(Schema.String), logDelivery: Schema.optional(LogDeliveryDescription), plugins: Schema.optional(__listOfPluginDescription), serviceExecutionRoleArn: Schema.optional(Schema.String), workerConfiguration: Schema.optional(WorkerConfigurationDescription), stateDescription: Schema.optional(StateDescription)});
-export const DescribeCustomPluginResponse = Schema.Struct({creationTime: Schema.optional(Schema.Date), customPluginArn: Schema.optional(Schema.String), customPluginState: Schema.optional(Schema.String), description: Schema.optional(Schema.String), latestRevision: Schema.optional(CustomPluginRevisionSummary), name: Schema.optional(Schema.String), stateDescription: Schema.optional(StateDescription)});
-export const UpdateConnectorResponse = Schema.Struct({connectorArn: Schema.optional(Schema.String), connectorState: Schema.optional(Schema.String), connectorOperationArn: Schema.optional(Schema.String)});
+export class ScaleInPolicy extends Schema.Class<ScaleInPolicy>("ScaleInPolicy")({cpuUtilizationPercentage: Schema.Number}) {}
+export class ScaleOutPolicy extends Schema.Class<ScaleOutPolicy>("ScaleOutPolicy")({cpuUtilizationPercentage: Schema.Number}) {}
+export class Vpc extends Schema.Class<Vpc>("Vpc")({securityGroups: Schema.optional(__listOf__string), subnets: __listOf__string}) {}
+export class CloudWatchLogsLogDelivery extends Schema.Class<CloudWatchLogsLogDelivery>("CloudWatchLogsLogDelivery")({enabled: Schema.Boolean, logGroup: Schema.optional(Schema.String)}) {}
+export class FirehoseLogDelivery extends Schema.Class<FirehoseLogDelivery>("FirehoseLogDelivery")({deliveryStream: Schema.optional(Schema.String), enabled: Schema.Boolean}) {}
+export class S3LogDelivery extends Schema.Class<S3LogDelivery>("S3LogDelivery")({bucket: Schema.optional(Schema.String), enabled: Schema.Boolean, prefix: Schema.optional(Schema.String)}) {}
+export class ScaleInPolicyUpdate extends Schema.Class<ScaleInPolicyUpdate>("ScaleInPolicyUpdate")({cpuUtilizationPercentage: Schema.Number}) {}
+export class ScaleOutPolicyUpdate extends Schema.Class<ScaleOutPolicyUpdate>("ScaleOutPolicyUpdate")({cpuUtilizationPercentage: Schema.Number}) {}
+export class CreateCustomPluginRequest extends Schema.Class<CreateCustomPluginRequest>("CreateCustomPluginRequest")({contentType: Schema.String, description: Schema.optional(Schema.String), location: CustomPluginLocation, name: Schema.String, tags: Schema.optional(Tags)}) {}
+export class CreateWorkerConfigurationResponse extends Schema.Class<CreateWorkerConfigurationResponse>("CreateWorkerConfigurationResponse")({creationTime: Schema.optional(Schema.Date), latestRevision: Schema.optional(WorkerConfigurationRevisionSummary), name: Schema.optional(Schema.String), workerConfigurationArn: Schema.optional(Schema.String), workerConfigurationState: Schema.optional(Schema.String)}) {}
+export class InternalServerErrorException extends Schema.Class<InternalServerErrorException>("InternalServerErrorException")({message: Schema.optional(Schema.String)}) {}
+export class NotFoundException extends Schema.Class<NotFoundException>("NotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class ServiceUnavailableException extends Schema.Class<ServiceUnavailableException>("ServiceUnavailableException")({message: Schema.optional(Schema.String)}) {}
+export class DescribeConnectorOperationResponse extends Schema.Class<DescribeConnectorOperationResponse>("DescribeConnectorOperationResponse")({connectorArn: Schema.optional(Schema.String), connectorOperationArn: Schema.optional(Schema.String), connectorOperationState: Schema.optional(Schema.String), connectorOperationType: Schema.optional(Schema.String), operationSteps: Schema.optional(__listOfConnectorOperationStep), originWorkerSetting: Schema.optional(WorkerSetting), originConnectorConfiguration: Schema.optional(ConnectorConfiguration), targetWorkerSetting: Schema.optional(WorkerSetting), targetConnectorConfiguration: Schema.optional(ConnectorConfiguration), errorInfo: Schema.optional(StateDescription), creationTime: Schema.optional(Schema.Date), endTime: Schema.optional(Schema.Date)}) {}
+export class DescribeWorkerConfigurationResponse extends Schema.Class<DescribeWorkerConfigurationResponse>("DescribeWorkerConfigurationResponse")({creationTime: Schema.optional(Schema.Date), description: Schema.optional(Schema.String), latestRevision: Schema.optional(WorkerConfigurationRevisionDescription), name: Schema.optional(Schema.String), workerConfigurationArn: Schema.optional(Schema.String), workerConfigurationState: Schema.optional(Schema.String)}) {}
+export class ListConnectorOperationsResponse extends Schema.Class<ListConnectorOperationsResponse>("ListConnectorOperationsResponse")({connectorOperations: Schema.optional(__listOfConnectorOperationSummary), nextToken: Schema.optional(Schema.String)}) {}
+export class ListConnectorsResponse extends Schema.Class<ListConnectorsResponse>("ListConnectorsResponse")({connectors: Schema.optional(__listOfConnectorSummary), nextToken: Schema.optional(Schema.String)}) {}
+export class ListCustomPluginsResponse extends Schema.Class<ListCustomPluginsResponse>("ListCustomPluginsResponse")({customPlugins: Schema.optional(__listOfCustomPluginSummary), nextToken: Schema.optional(Schema.String)}) {}
+export class TooManyRequestsException extends Schema.Class<TooManyRequestsException>("TooManyRequestsException")({message: Schema.optional(Schema.String)}) {}
+export class ListWorkerConfigurationsResponse extends Schema.Class<ListWorkerConfigurationsResponse>("ListWorkerConfigurationsResponse")({nextToken: Schema.optional(Schema.String), workerConfigurations: Schema.optional(__listOfWorkerConfigurationSummary)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({message: Schema.optional(Schema.String)}) {}
+export class UnauthorizedException extends Schema.Class<UnauthorizedException>("UnauthorizedException")({message: Schema.optional(Schema.String)}) {}
+export class AutoScaling extends Schema.Class<AutoScaling>("AutoScaling")({maxWorkerCount: Schema.Number, mcuCount: Schema.Number, minWorkerCount: Schema.Number, scaleInPolicy: Schema.optional(ScaleInPolicy), scaleOutPolicy: Schema.optional(ScaleOutPolicy)}) {}
+export class ApacheKafkaCluster extends Schema.Class<ApacheKafkaCluster>("ApacheKafkaCluster")({bootstrapServers: Schema.String, vpc: Vpc}) {}
+export class WorkerLogDelivery extends Schema.Class<WorkerLogDelivery>("WorkerLogDelivery")({cloudWatchLogs: Schema.optional(CloudWatchLogsLogDelivery), firehose: Schema.optional(FirehoseLogDelivery), s3: Schema.optional(S3LogDelivery)}) {}
+export class AutoScalingUpdate extends Schema.Class<AutoScalingUpdate>("AutoScalingUpdate")({maxWorkerCount: Schema.Number, mcuCount: Schema.Number, minWorkerCount: Schema.Number, scaleInPolicy: ScaleInPolicyUpdate, scaleOutPolicy: ScaleOutPolicyUpdate}) {}
+export class Capacity extends Schema.Class<Capacity>("Capacity")({autoScaling: Schema.optional(AutoScaling), provisionedCapacity: Schema.optional(ProvisionedCapacity)}) {}
+export class KafkaCluster extends Schema.Class<KafkaCluster>("KafkaCluster")({apacheKafkaCluster: ApacheKafkaCluster}) {}
+export class LogDelivery extends Schema.Class<LogDelivery>("LogDelivery")({workerLogDelivery: WorkerLogDelivery}) {}
+export class CapacityUpdate extends Schema.Class<CapacityUpdate>("CapacityUpdate")({autoScaling: Schema.optional(AutoScalingUpdate), provisionedCapacity: Schema.optional(ProvisionedCapacityUpdate)}) {}
+export class CreateConnectorRequest extends Schema.Class<CreateConnectorRequest>("CreateConnectorRequest")({capacity: Capacity, connectorConfiguration: ConnectorConfiguration, connectorDescription: Schema.optional(Schema.String), connectorName: Schema.String, kafkaCluster: KafkaCluster, kafkaClusterClientAuthentication: KafkaClusterClientAuthentication, kafkaClusterEncryptionInTransit: KafkaClusterEncryptionInTransit, kafkaConnectVersion: Schema.String, logDelivery: Schema.optional(LogDelivery), networkType: Schema.optional(Schema.String), plugins: __listOfPlugin, serviceExecutionRoleArn: Schema.String, workerConfiguration: Schema.optional(WorkerConfiguration), tags: Schema.optional(Tags)}) {}
+export class CreateCustomPluginResponse extends Schema.Class<CreateCustomPluginResponse>("CreateCustomPluginResponse")({customPluginArn: Schema.optional(Schema.String), customPluginState: Schema.optional(Schema.String), name: Schema.optional(Schema.String), revision: Schema.optional(Schema.Number)}) {}
+export class UpdateConnectorRequest extends Schema.Class<UpdateConnectorRequest>("UpdateConnectorRequest")({capacity: Schema.optional(CapacityUpdate), connectorConfiguration: Schema.optional(ConnectorConfigurationUpdate), connectorArn: Schema.String, currentVersion: Schema.String}) {}
+export class CreateConnectorResponse extends Schema.Class<CreateConnectorResponse>("CreateConnectorResponse")({connectorArn: Schema.optional(Schema.String), connectorName: Schema.optional(Schema.String), connectorState: Schema.optional(Schema.String)}) {}
+export class DescribeConnectorResponse extends Schema.Class<DescribeConnectorResponse>("DescribeConnectorResponse")({capacity: Schema.optional(CapacityDescription), connectorArn: Schema.optional(Schema.String), connectorConfiguration: Schema.optional(ConnectorConfiguration), connectorDescription: Schema.optional(Schema.String), connectorName: Schema.optional(Schema.String), connectorState: Schema.optional(Schema.String), creationTime: Schema.optional(Schema.Date), currentVersion: Schema.optional(Schema.String), kafkaCluster: Schema.optional(KafkaClusterDescription), kafkaClusterClientAuthentication: Schema.optional(KafkaClusterClientAuthenticationDescription), kafkaClusterEncryptionInTransit: Schema.optional(KafkaClusterEncryptionInTransitDescription), kafkaConnectVersion: Schema.optional(Schema.String), logDelivery: Schema.optional(LogDeliveryDescription), networkType: Schema.optional(Schema.String), plugins: Schema.optional(__listOfPluginDescription), serviceExecutionRoleArn: Schema.optional(Schema.String), workerConfiguration: Schema.optional(WorkerConfigurationDescription), stateDescription: Schema.optional(StateDescription)}) {}
+export class DescribeCustomPluginResponse extends Schema.Class<DescribeCustomPluginResponse>("DescribeCustomPluginResponse")({creationTime: Schema.optional(Schema.Date), customPluginArn: Schema.optional(Schema.String), customPluginState: Schema.optional(Schema.String), description: Schema.optional(Schema.String), latestRevision: Schema.optional(CustomPluginRevisionSummary), name: Schema.optional(Schema.String), stateDescription: Schema.optional(StateDescription)}) {}
+export class UpdateConnectorResponse extends Schema.Class<UpdateConnectorResponse>("UpdateConnectorResponse")({connectorArn: Schema.optional(Schema.String), connectorState: Schema.optional(Schema.String), connectorOperationArn: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class BadRequestExceptionError extends Schema.TaggedError<BadRequestExceptionError>()("BadRequestException", BadRequestException) {};
-export class ForbiddenExceptionError extends Schema.TaggedError<ForbiddenExceptionError>()("ForbiddenException", ForbiddenException) {};
-export class InternalServerErrorExceptionError extends Schema.TaggedError<InternalServerErrorExceptionError>()("InternalServerErrorException", InternalServerErrorException) {};
-export class NotFoundExceptionError extends Schema.TaggedError<NotFoundExceptionError>()("NotFoundException", NotFoundException) {};
-export class ServiceUnavailableExceptionError extends Schema.TaggedError<ServiceUnavailableExceptionError>()("ServiceUnavailableException", ServiceUnavailableException) {};
-export class TooManyRequestsExceptionError extends Schema.TaggedError<TooManyRequestsExceptionError>()("TooManyRequestsException", TooManyRequestsException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class UnauthorizedExceptionError extends Schema.TaggedError<UnauthorizedExceptionError>()("UnauthorizedException", UnauthorizedException) {};
+export class BadRequestExceptionError extends Schema.TaggedError<BadRequestExceptionError>()("BadRequestException", BadRequestException.fields) {};
+export class ForbiddenExceptionError extends Schema.TaggedError<ForbiddenExceptionError>()("ForbiddenException", ForbiddenException.fields) {};
+export class InternalServerErrorExceptionError extends Schema.TaggedError<InternalServerErrorExceptionError>()("InternalServerErrorException", InternalServerErrorException.fields) {};
+export class NotFoundExceptionError extends Schema.TaggedError<NotFoundExceptionError>()("NotFoundException", NotFoundException.fields) {};
+export class ServiceUnavailableExceptionError extends Schema.TaggedError<ServiceUnavailableExceptionError>()("ServiceUnavailableException", ServiceUnavailableException.fields) {};
+export class TooManyRequestsExceptionError extends Schema.TaggedError<TooManyRequestsExceptionError>()("TooManyRequestsException", TooManyRequestsException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class UnauthorizedExceptionError extends Schema.TaggedError<UnauthorizedExceptionError>()("UnauthorizedException", UnauthorizedException.fields) {};
 
 //# Operations
 export const createWorkerConfiguration = /*#__PURE__*/ makeOperation(() => Operation({ version: "2021-09-14", uri: "/v1/worker-configurations", method: "POST", sdkId: "KafkaConnect", sigV4ServiceName: "kafkaconnect", name: "KafkaConnect.CreateWorkerConfiguration" }, CreateWorkerConfigurationRequest, CreateWorkerConfigurationResponse, [BadRequestExceptionError, ConflictExceptionError, ForbiddenExceptionError, InternalServerErrorExceptionError, NotFoundExceptionError, ServiceUnavailableExceptionError, TooManyRequestsExceptionError, UnauthorizedExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

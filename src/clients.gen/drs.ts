@@ -3,79 +3,79 @@ import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperat
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const InitializeServiceRequest = Schema.Struct({});
-export const InitializeServiceResponse = Schema.Struct({});
+export class InitializeServiceRequest extends Schema.Class<InitializeServiceRequest>("InitializeServiceRequest")({}) {}
+export class InitializeServiceResponse extends Schema.Class<InitializeServiceResponse>("InitializeServiceResponse")({}) {}
 export const TagKeys = Schema.Array(Schema.String);
-export const DeleteLaunchActionRequest = Schema.Struct({resourceId: Schema.String, actionId: Schema.String});
-export const DeleteLaunchActionResponse = Schema.Struct({});
-export const AccessDeniedException = Schema.Struct({message: Schema.optional(Schema.String), code: Schema.optional(Schema.String)});
-export const ListExtensibleSourceServersRequest = Schema.Struct({stagingAccountID: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListStagingAccountsRequest = Schema.Struct({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceRequest = Schema.Struct({resourceArn: Schema.String});
+export class DeleteLaunchActionRequest extends Schema.Class<DeleteLaunchActionRequest>("DeleteLaunchActionRequest")({resourceId: Schema.String, actionId: Schema.String}) {}
+export class DeleteLaunchActionResponse extends Schema.Class<DeleteLaunchActionResponse>("DeleteLaunchActionResponse")({}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({message: Schema.optional(Schema.String), code: Schema.optional(Schema.String)}) {}
+export class ListExtensibleSourceServersRequest extends Schema.Class<ListExtensibleSourceServersRequest>("ListExtensibleSourceServersRequest")({stagingAccountID: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListStagingAccountsRequest extends Schema.Class<ListStagingAccountsRequest>("ListStagingAccountsRequest")({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({resourceArn: Schema.String}) {}
 export const TagsMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const TagResourceRequest = Schema.Struct({resourceArn: Schema.String, tags: TagsMap});
-export const UntagResourceRequest = Schema.Struct({resourceArn: Schema.String, tagKeys: TagKeys});
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({resourceArn: Schema.String, tags: TagsMap}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({resourceArn: Schema.String, tagKeys: TagKeys}) {}
 export const LaunchActionIds = Schema.Array(Schema.String);
-export const LaunchActionsRequestFilters = Schema.Struct({actionIds: Schema.optional(LaunchActionIds)});
-export const CreateExtendedSourceServerRequest = Schema.Struct({sourceServerArn: Schema.String, tags: Schema.optional(TagsMap)});
-export const InternalServerException = Schema.Struct({message: Schema.String, retryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))});
-export const ThrottlingException = Schema.Struct({message: Schema.String, serviceCode: Schema.optional(Schema.String), quotaCode: Schema.optional(Schema.String), retryAfterSeconds: Schema.optional(Header("Retry-After"))});
-export const ListLaunchActionsRequest = Schema.Struct({resourceId: Schema.String, filters: Schema.optional(LaunchActionsRequestFilters), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceResponse = Schema.Struct({tags: Schema.optional(TagsMap)});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.optional(Schema.String), code: Schema.optional(Schema.String), resourceId: Schema.optional(Schema.String), resourceType: Schema.optional(Schema.String)});
-export const LaunchActionParameter = Schema.Struct({value: Schema.optional(Schema.String), type: Schema.optional(Schema.String)});
-export const StagingSourceServer = Schema.Struct({hostname: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), tags: Schema.optional(TagsMap)});
+export class LaunchActionsRequestFilters extends Schema.Class<LaunchActionsRequestFilters>("LaunchActionsRequestFilters")({actionIds: Schema.optional(LaunchActionIds)}) {}
+export class CreateExtendedSourceServerRequest extends Schema.Class<CreateExtendedSourceServerRequest>("CreateExtendedSourceServerRequest")({sourceServerArn: Schema.String, tags: Schema.optional(TagsMap)}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({message: Schema.String, retryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({message: Schema.String, serviceCode: Schema.optional(Schema.String), quotaCode: Schema.optional(Schema.String), retryAfterSeconds: Schema.optional(Header("Retry-After"))}) {}
+export class ListLaunchActionsRequest extends Schema.Class<ListLaunchActionsRequest>("ListLaunchActionsRequest")({resourceId: Schema.String, filters: Schema.optional(LaunchActionsRequestFilters), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({tags: Schema.optional(TagsMap)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.optional(Schema.String), code: Schema.optional(Schema.String), resourceId: Schema.optional(Schema.String), resourceType: Schema.optional(Schema.String)}) {}
+export class LaunchActionParameter extends Schema.Class<LaunchActionParameter>("LaunchActionParameter")({value: Schema.optional(Schema.String), type: Schema.optional(Schema.String)}) {}
+export class StagingSourceServer extends Schema.Class<StagingSourceServer>("StagingSourceServer")({hostname: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), tags: Schema.optional(TagsMap)}) {}
 export const StagingSourceServersList = Schema.Array(StagingSourceServer);
-export const Account = Schema.Struct({accountID: Schema.optional(Schema.String)});
+export class Account extends Schema.Class<Account>("Account")({accountID: Schema.optional(Schema.String)}) {}
 export const Accounts = Schema.Array(Account);
 export const LaunchActionParameters = Schema.Record({key: Schema.String, value: LaunchActionParameter});
-export const ValidationExceptionField = Schema.Struct({name: Schema.optional(Schema.String), message: Schema.optional(Schema.String)});
+export class ValidationExceptionField extends Schema.Class<ValidationExceptionField>("ValidationExceptionField")({name: Schema.optional(Schema.String), message: Schema.optional(Schema.String)}) {}
 export const ValidationExceptionFieldList = Schema.Array(ValidationExceptionField);
-export const UninitializedAccountException = Schema.Struct({message: Schema.optional(Schema.String), code: Schema.optional(Schema.String)});
-export const ListExtensibleSourceServersResponse = Schema.Struct({items: Schema.optional(StagingSourceServersList), nextToken: Schema.optional(Schema.String)});
-export const ListStagingAccountsResponse = Schema.Struct({accounts: Schema.optional(Accounts), nextToken: Schema.optional(Schema.String)});
-export const PutLaunchActionRequest = Schema.Struct({resourceId: Schema.String, actionCode: Schema.String, order: Schema.Number, actionId: Schema.String, optional: Schema.Boolean, active: Schema.Boolean, name: Schema.String, actionVersion: Schema.String, category: Schema.String, parameters: Schema.optional(LaunchActionParameters), description: Schema.String});
-export const ValidationException = Schema.Struct({message: Schema.optional(Schema.String), code: Schema.optional(Schema.String), reason: Schema.optional(Schema.String), fieldList: Schema.optional(ValidationExceptionFieldList)});
-export const LaunchAction = Schema.Struct({actionId: Schema.optional(Schema.String), actionCode: Schema.optional(Schema.String), type: Schema.optional(Schema.String), name: Schema.optional(Schema.String), active: Schema.optional(Schema.Boolean), order: Schema.optional(Schema.Number), actionVersion: Schema.optional(Schema.String), optional: Schema.optional(Schema.Boolean), parameters: Schema.optional(LaunchActionParameters), description: Schema.optional(Schema.String), category: Schema.optional(Schema.String)});
+export class UninitializedAccountException extends Schema.Class<UninitializedAccountException>("UninitializedAccountException")({message: Schema.optional(Schema.String), code: Schema.optional(Schema.String)}) {}
+export class ListExtensibleSourceServersResponse extends Schema.Class<ListExtensibleSourceServersResponse>("ListExtensibleSourceServersResponse")({items: Schema.optional(StagingSourceServersList), nextToken: Schema.optional(Schema.String)}) {}
+export class ListStagingAccountsResponse extends Schema.Class<ListStagingAccountsResponse>("ListStagingAccountsResponse")({accounts: Schema.optional(Accounts), nextToken: Schema.optional(Schema.String)}) {}
+export class PutLaunchActionRequest extends Schema.Class<PutLaunchActionRequest>("PutLaunchActionRequest")({resourceId: Schema.String, actionCode: Schema.String, order: Schema.Number, actionId: Schema.String, optional: Schema.Boolean, active: Schema.Boolean, name: Schema.String, actionVersion: Schema.String, category: Schema.String, parameters: Schema.optional(LaunchActionParameters), description: Schema.String}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({message: Schema.optional(Schema.String), code: Schema.optional(Schema.String), reason: Schema.optional(Schema.String), fieldList: Schema.optional(ValidationExceptionFieldList)}) {}
+export class LaunchAction extends Schema.Class<LaunchAction>("LaunchAction")({actionId: Schema.optional(Schema.String), actionCode: Schema.optional(Schema.String), type: Schema.optional(Schema.String), name: Schema.optional(Schema.String), active: Schema.optional(Schema.Boolean), order: Schema.optional(Schema.Number), actionVersion: Schema.optional(Schema.String), optional: Schema.optional(Schema.Boolean), parameters: Schema.optional(LaunchActionParameters), description: Schema.optional(Schema.String), category: Schema.optional(Schema.String)}) {}
 export const LaunchActions = Schema.Array(LaunchAction);
-export const ListLaunchActionsResponse = Schema.Struct({items: Schema.optional(LaunchActions), nextToken: Schema.optional(Schema.String)});
-export const PutLaunchActionResponse = Schema.Struct({resourceId: Schema.optional(Schema.String), actionId: Schema.optional(Schema.String), actionCode: Schema.optional(Schema.String), type: Schema.optional(Schema.String), name: Schema.optional(Schema.String), active: Schema.optional(Schema.Boolean), order: Schema.optional(Schema.Number), actionVersion: Schema.optional(Schema.String), optional: Schema.optional(Schema.Boolean), parameters: Schema.optional(LaunchActionParameters), description: Schema.optional(Schema.String), category: Schema.optional(Schema.String)});
-export const StagingArea = Schema.Struct({status: Schema.optional(Schema.String), stagingAccountID: Schema.optional(Schema.String), stagingSourceServerArn: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String)});
-export const SourceCloudProperties = Schema.Struct({originAccountID: Schema.optional(Schema.String), originRegion: Schema.optional(Schema.String), originAvailabilityZone: Schema.optional(Schema.String), sourceOutpostArn: Schema.optional(Schema.String)});
+export class ListLaunchActionsResponse extends Schema.Class<ListLaunchActionsResponse>("ListLaunchActionsResponse")({items: Schema.optional(LaunchActions), nextToken: Schema.optional(Schema.String)}) {}
+export class PutLaunchActionResponse extends Schema.Class<PutLaunchActionResponse>("PutLaunchActionResponse")({resourceId: Schema.optional(Schema.String), actionId: Schema.optional(Schema.String), actionCode: Schema.optional(Schema.String), type: Schema.optional(Schema.String), name: Schema.optional(Schema.String), active: Schema.optional(Schema.Boolean), order: Schema.optional(Schema.Number), actionVersion: Schema.optional(Schema.String), optional: Schema.optional(Schema.Boolean), parameters: Schema.optional(LaunchActionParameters), description: Schema.optional(Schema.String), category: Schema.optional(Schema.String)}) {}
+export class StagingArea extends Schema.Class<StagingArea>("StagingArea")({status: Schema.optional(Schema.String), stagingAccountID: Schema.optional(Schema.String), stagingSourceServerArn: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String)}) {}
+export class SourceCloudProperties extends Schema.Class<SourceCloudProperties>("SourceCloudProperties")({originAccountID: Schema.optional(Schema.String), originRegion: Schema.optional(Schema.String), originAvailabilityZone: Schema.optional(Schema.String), sourceOutpostArn: Schema.optional(Schema.String)}) {}
 export const IPsList = Schema.Array(Schema.String);
-export const DataReplicationInfoReplicatedDisk = Schema.Struct({deviceName: Schema.optional(Schema.String), totalStorageBytes: Schema.optional(Schema.Number), replicatedStorageBytes: Schema.optional(Schema.Number), rescannedStorageBytes: Schema.optional(Schema.Number), backloggedStorageBytes: Schema.optional(Schema.Number), volumeStatus: Schema.optional(Schema.String)});
+export class DataReplicationInfoReplicatedDisk extends Schema.Class<DataReplicationInfoReplicatedDisk>("DataReplicationInfoReplicatedDisk")({deviceName: Schema.optional(Schema.String), totalStorageBytes: Schema.optional(Schema.Number), replicatedStorageBytes: Schema.optional(Schema.Number), rescannedStorageBytes: Schema.optional(Schema.Number), backloggedStorageBytes: Schema.optional(Schema.Number), volumeStatus: Schema.optional(Schema.String)}) {}
 export const DataReplicationInfoReplicatedDisks = Schema.Array(DataReplicationInfoReplicatedDisk);
-export const DataReplicationError = Schema.Struct({error: Schema.optional(Schema.String), rawError: Schema.optional(Schema.String)});
-export const IdentificationHints = Schema.Struct({fqdn: Schema.optional(Schema.String), hostname: Schema.optional(Schema.String), vmWareUuid: Schema.optional(Schema.String), awsInstanceID: Schema.optional(Schema.String)});
-export const NetworkInterface = Schema.Struct({macAddress: Schema.optional(Schema.String), ips: Schema.optional(IPsList), isPrimary: Schema.optional(Schema.Boolean)});
+export class DataReplicationError extends Schema.Class<DataReplicationError>("DataReplicationError")({error: Schema.optional(Schema.String), rawError: Schema.optional(Schema.String)}) {}
+export class IdentificationHints extends Schema.Class<IdentificationHints>("IdentificationHints")({fqdn: Schema.optional(Schema.String), hostname: Schema.optional(Schema.String), vmWareUuid: Schema.optional(Schema.String), awsInstanceID: Schema.optional(Schema.String)}) {}
+export class NetworkInterface extends Schema.Class<NetworkInterface>("NetworkInterface")({macAddress: Schema.optional(Schema.String), ips: Schema.optional(IPsList), isPrimary: Schema.optional(Schema.Boolean)}) {}
 export const NetworkInterfaces = Schema.Array(NetworkInterface);
-export const Disk = Schema.Struct({deviceName: Schema.optional(Schema.String), bytes: Schema.optional(Schema.Number)});
+export class Disk extends Schema.Class<Disk>("Disk")({deviceName: Schema.optional(Schema.String), bytes: Schema.optional(Schema.Number)}) {}
 export const Disks = Schema.Array(Disk);
-export const CPU = Schema.Struct({cores: Schema.optional(Schema.Number), modelName: Schema.optional(Schema.String)});
+export class CPU extends Schema.Class<CPU>("CPU")({cores: Schema.optional(Schema.Number), modelName: Schema.optional(Schema.String)}) {}
 export const Cpus = Schema.Array(CPU);
-export const OS = Schema.Struct({fullString: Schema.optional(Schema.String)});
-export const ServiceQuotaExceededException = Schema.Struct({message: Schema.optional(Schema.String), code: Schema.optional(Schema.String), resourceId: Schema.optional(Schema.String), resourceType: Schema.optional(Schema.String), serviceCode: Schema.optional(Schema.String), quotaCode: Schema.optional(Schema.String)});
-export const ConflictException = Schema.Struct({message: Schema.optional(Schema.String), code: Schema.optional(Schema.String), resourceId: Schema.optional(Schema.String), resourceType: Schema.optional(Schema.String)});
-export const SourceProperties = Schema.Struct({lastUpdatedDateTime: Schema.optional(Schema.String), recommendedInstanceType: Schema.optional(Schema.String), identificationHints: Schema.optional(IdentificationHints), networkInterfaces: Schema.optional(NetworkInterfaces), disks: Schema.optional(Disks), cpus: Schema.optional(Cpus), ramBytes: Schema.optional(Schema.Number), os: Schema.optional(OS), supportsNitroInstances: Schema.optional(Schema.Boolean)});
-export const DataReplicationInitiationStep = Schema.Struct({name: Schema.optional(Schema.String), status: Schema.optional(Schema.String)});
+export class OS extends Schema.Class<OS>("OS")({fullString: Schema.optional(Schema.String)}) {}
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({message: Schema.optional(Schema.String), code: Schema.optional(Schema.String), resourceId: Schema.optional(Schema.String), resourceType: Schema.optional(Schema.String), serviceCode: Schema.optional(Schema.String), quotaCode: Schema.optional(Schema.String)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({message: Schema.optional(Schema.String), code: Schema.optional(Schema.String), resourceId: Schema.optional(Schema.String), resourceType: Schema.optional(Schema.String)}) {}
+export class SourceProperties extends Schema.Class<SourceProperties>("SourceProperties")({lastUpdatedDateTime: Schema.optional(Schema.String), recommendedInstanceType: Schema.optional(Schema.String), identificationHints: Schema.optional(IdentificationHints), networkInterfaces: Schema.optional(NetworkInterfaces), disks: Schema.optional(Disks), cpus: Schema.optional(Cpus), ramBytes: Schema.optional(Schema.Number), os: Schema.optional(OS), supportsNitroInstances: Schema.optional(Schema.Boolean)}) {}
+export class DataReplicationInitiationStep extends Schema.Class<DataReplicationInitiationStep>("DataReplicationInitiationStep")({name: Schema.optional(Schema.String), status: Schema.optional(Schema.String)}) {}
 export const DataReplicationInitiationSteps = Schema.Array(DataReplicationInitiationStep);
-export const LifeCycleLastLaunchInitiated = Schema.Struct({apiCallDateTime: Schema.optional(Schema.String), jobID: Schema.optional(Schema.String), type: Schema.optional(Schema.String)});
-export const DataReplicationInitiation = Schema.Struct({startDateTime: Schema.optional(Schema.String), nextAttemptDateTime: Schema.optional(Schema.String), steps: Schema.optional(DataReplicationInitiationSteps)});
-export const LifeCycleLastLaunch = Schema.Struct({initiated: Schema.optional(LifeCycleLastLaunchInitiated), status: Schema.optional(Schema.String)});
-export const DataReplicationInfo = Schema.Struct({lagDuration: Schema.optional(Schema.String), etaDateTime: Schema.optional(Schema.String), replicatedDisks: Schema.optional(DataReplicationInfoReplicatedDisks), dataReplicationState: Schema.optional(Schema.String), dataReplicationInitiation: Schema.optional(DataReplicationInitiation), dataReplicationError: Schema.optional(DataReplicationError), stagingAvailabilityZone: Schema.optional(Schema.String), stagingOutpostArn: Schema.optional(Schema.String)});
-export const LifeCycle = Schema.Struct({addedToServiceDateTime: Schema.optional(Schema.String), firstByteDateTime: Schema.optional(Schema.String), elapsedReplicationDuration: Schema.optional(Schema.String), lastSeenByServiceDateTime: Schema.optional(Schema.String), lastLaunch: Schema.optional(LifeCycleLastLaunch)});
-export const SourceServer = Schema.Struct({sourceServerID: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), tags: Schema.optional(TagsMap), recoveryInstanceId: Schema.optional(Schema.String), lastLaunchResult: Schema.optional(Schema.String), dataReplicationInfo: Schema.optional(DataReplicationInfo), lifeCycle: Schema.optional(LifeCycle), sourceProperties: Schema.optional(SourceProperties), stagingArea: Schema.optional(StagingArea), sourceCloudProperties: Schema.optional(SourceCloudProperties), replicationDirection: Schema.optional(Schema.String), reversedDirectionSourceServerArn: Schema.optional(Schema.String), sourceNetworkID: Schema.optional(Schema.String), agentVersion: Schema.optional(Schema.String)});
-export const CreateExtendedSourceServerResponse = Schema.Struct({sourceServer: Schema.optional(SourceServer)});
+export class LifeCycleLastLaunchInitiated extends Schema.Class<LifeCycleLastLaunchInitiated>("LifeCycleLastLaunchInitiated")({apiCallDateTime: Schema.optional(Schema.String), jobID: Schema.optional(Schema.String), type: Schema.optional(Schema.String)}) {}
+export class DataReplicationInitiation extends Schema.Class<DataReplicationInitiation>("DataReplicationInitiation")({startDateTime: Schema.optional(Schema.String), nextAttemptDateTime: Schema.optional(Schema.String), steps: Schema.optional(DataReplicationInitiationSteps)}) {}
+export class LifeCycleLastLaunch extends Schema.Class<LifeCycleLastLaunch>("LifeCycleLastLaunch")({initiated: Schema.optional(LifeCycleLastLaunchInitiated), status: Schema.optional(Schema.String)}) {}
+export class DataReplicationInfo extends Schema.Class<DataReplicationInfo>("DataReplicationInfo")({lagDuration: Schema.optional(Schema.String), etaDateTime: Schema.optional(Schema.String), replicatedDisks: Schema.optional(DataReplicationInfoReplicatedDisks), dataReplicationState: Schema.optional(Schema.String), dataReplicationInitiation: Schema.optional(DataReplicationInitiation), dataReplicationError: Schema.optional(DataReplicationError), stagingAvailabilityZone: Schema.optional(Schema.String), stagingOutpostArn: Schema.optional(Schema.String)}) {}
+export class LifeCycle extends Schema.Class<LifeCycle>("LifeCycle")({addedToServiceDateTime: Schema.optional(Schema.String), firstByteDateTime: Schema.optional(Schema.String), elapsedReplicationDuration: Schema.optional(Schema.String), lastSeenByServiceDateTime: Schema.optional(Schema.String), lastLaunch: Schema.optional(LifeCycleLastLaunch)}) {}
+export class SourceServer extends Schema.Class<SourceServer>("SourceServer")({sourceServerID: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), tags: Schema.optional(TagsMap), recoveryInstanceId: Schema.optional(Schema.String), lastLaunchResult: Schema.optional(Schema.String), dataReplicationInfo: Schema.optional(DataReplicationInfo), lifeCycle: Schema.optional(LifeCycle), sourceProperties: Schema.optional(SourceProperties), stagingArea: Schema.optional(StagingArea), sourceCloudProperties: Schema.optional(SourceCloudProperties), replicationDirection: Schema.optional(Schema.String), reversedDirectionSourceServerArn: Schema.optional(Schema.String), sourceNetworkID: Schema.optional(Schema.String), agentVersion: Schema.optional(Schema.String)}) {}
+export class CreateExtendedSourceServerResponse extends Schema.Class<CreateExtendedSourceServerResponse>("CreateExtendedSourceServerResponse")({sourceServer: Schema.optional(SourceServer)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class UninitializedAccountExceptionError extends Schema.TaggedError<UninitializedAccountExceptionError>()("UninitializedAccountException", UninitializedAccountException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class UninitializedAccountExceptionError extends Schema.TaggedError<UninitializedAccountExceptionError>()("UninitializedAccountException", UninitializedAccountException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
 
 //# Operations
 export const initializeService = /*#__PURE__*/ makeOperation(() => Operation({ version: "2020-02-26", uri: "/InitializeService", method: "POST", sdkId: "drs", sigV4ServiceName: "drs", name: "ElasticDisasterRecoveryService.InitializeService" }, InitializeServiceRequest, InitializeServiceResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

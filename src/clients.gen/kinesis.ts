@@ -3,136 +3,136 @@ import { FormatAwsJSON11Request,FormatJSONResponse,FormatAwsRestJSONError, makeO
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const DescribeAccountSettingsInput = Schema.Struct({});
-export const DescribeLimitsInput = Schema.Struct({});
+export class DescribeAccountSettingsInput extends Schema.Class<DescribeAccountSettingsInput>("DescribeAccountSettingsInput")({}) {}
+export class DescribeLimitsInput extends Schema.Class<DescribeLimitsInput>("DescribeLimitsInput")({}) {}
 export const MetricsNameList = Schema.Array(Schema.String);
 export const TagKeyList = Schema.Array(Schema.String);
-export const DecreaseStreamRetentionPeriodInput = Schema.Struct({StreamName: Schema.optional(Schema.String), RetentionPeriodHours: Schema.Number, StreamARN: Schema.optional(Schema.String)});
-export const DeleteResourcePolicyInput = Schema.Struct({ResourceARN: Schema.String});
-export const DeleteStreamInput = Schema.Struct({StreamName: Schema.optional(Schema.String), EnforceConsumerDeletion: Schema.optional(Schema.Boolean), StreamARN: Schema.optional(Schema.String)});
-export const DeregisterStreamConsumerInput = Schema.Struct({StreamARN: Schema.optional(Schema.String), ConsumerName: Schema.optional(Schema.String), ConsumerARN: Schema.optional(Schema.String)});
-export const DescribeLimitsOutput = Schema.Struct({ShardLimit: Schema.Number, OpenShardCount: Schema.Number, OnDemandStreamCount: Schema.Number, OnDemandStreamCountLimit: Schema.Number});
-export const DescribeStreamInput = Schema.Struct({StreamName: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number), ExclusiveStartShardId: Schema.optional(Schema.String), StreamARN: Schema.optional(Schema.String)});
-export const DescribeStreamConsumerInput = Schema.Struct({StreamARN: Schema.optional(Schema.String), ConsumerName: Schema.optional(Schema.String), ConsumerARN: Schema.optional(Schema.String)});
-export const DescribeStreamSummaryInput = Schema.Struct({StreamName: Schema.optional(Schema.String), StreamARN: Schema.optional(Schema.String)});
-export const DisableEnhancedMonitoringInput = Schema.Struct({StreamName: Schema.optional(Schema.String), ShardLevelMetrics: MetricsNameList, StreamARN: Schema.optional(Schema.String)});
-export const EnableEnhancedMonitoringInput = Schema.Struct({StreamName: Schema.optional(Schema.String), ShardLevelMetrics: MetricsNameList, StreamARN: Schema.optional(Schema.String)});
-export const GetRecordsInput = Schema.Struct({ShardIterator: Schema.String, Limit: Schema.optional(Schema.Number), StreamARN: Schema.optional(Schema.String)});
-export const GetResourcePolicyInput = Schema.Struct({ResourceARN: Schema.String});
-export const GetShardIteratorInput = Schema.Struct({StreamName: Schema.optional(Schema.String), ShardId: Schema.String, ShardIteratorType: Schema.String, StartingSequenceNumber: Schema.optional(Schema.String), Timestamp: Schema.optional(Schema.Date), StreamARN: Schema.optional(Schema.String)});
-export const IncreaseStreamRetentionPeriodInput = Schema.Struct({StreamName: Schema.optional(Schema.String), RetentionPeriodHours: Schema.Number, StreamARN: Schema.optional(Schema.String)});
-export const ListStreamConsumersInput = Schema.Struct({StreamARN: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), StreamCreationTimestamp: Schema.optional(Schema.Date)});
-export const ListStreamsInput = Schema.Struct({Limit: Schema.optional(Schema.Number), ExclusiveStartStreamName: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceInput = Schema.Struct({ResourceARN: Schema.String});
-export const ListTagsForStreamInput = Schema.Struct({StreamName: Schema.optional(Schema.String), ExclusiveStartTagKey: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number), StreamARN: Schema.optional(Schema.String)});
-export const MergeShardsInput = Schema.Struct({StreamName: Schema.optional(Schema.String), ShardToMerge: Schema.String, AdjacentShardToMerge: Schema.String, StreamARN: Schema.optional(Schema.String)});
-export const PutRecordInput = Schema.Struct({StreamName: Schema.optional(Schema.String), Data: StreamBody(), PartitionKey: Schema.String, ExplicitHashKey: Schema.optional(Schema.String), SequenceNumberForOrdering: Schema.optional(Schema.String), StreamARN: Schema.optional(Schema.String)});
-export const PutResourcePolicyInput = Schema.Struct({ResourceARN: Schema.String, Policy: Schema.String});
+export class DecreaseStreamRetentionPeriodInput extends Schema.Class<DecreaseStreamRetentionPeriodInput>("DecreaseStreamRetentionPeriodInput")({StreamName: Schema.optional(Schema.String), RetentionPeriodHours: Schema.Number, StreamARN: Schema.optional(Schema.String)}) {}
+export class DeleteResourcePolicyInput extends Schema.Class<DeleteResourcePolicyInput>("DeleteResourcePolicyInput")({ResourceARN: Schema.String}) {}
+export class DeleteStreamInput extends Schema.Class<DeleteStreamInput>("DeleteStreamInput")({StreamName: Schema.optional(Schema.String), EnforceConsumerDeletion: Schema.optional(Schema.Boolean), StreamARN: Schema.optional(Schema.String)}) {}
+export class DeregisterStreamConsumerInput extends Schema.Class<DeregisterStreamConsumerInput>("DeregisterStreamConsumerInput")({StreamARN: Schema.optional(Schema.String), ConsumerName: Schema.optional(Schema.String), ConsumerARN: Schema.optional(Schema.String)}) {}
+export class DescribeLimitsOutput extends Schema.Class<DescribeLimitsOutput>("DescribeLimitsOutput")({ShardLimit: Schema.Number, OpenShardCount: Schema.Number, OnDemandStreamCount: Schema.Number, OnDemandStreamCountLimit: Schema.Number}) {}
+export class DescribeStreamInput extends Schema.Class<DescribeStreamInput>("DescribeStreamInput")({StreamName: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number), ExclusiveStartShardId: Schema.optional(Schema.String), StreamARN: Schema.optional(Schema.String)}) {}
+export class DescribeStreamConsumerInput extends Schema.Class<DescribeStreamConsumerInput>("DescribeStreamConsumerInput")({StreamARN: Schema.optional(Schema.String), ConsumerName: Schema.optional(Schema.String), ConsumerARN: Schema.optional(Schema.String)}) {}
+export class DescribeStreamSummaryInput extends Schema.Class<DescribeStreamSummaryInput>("DescribeStreamSummaryInput")({StreamName: Schema.optional(Schema.String), StreamARN: Schema.optional(Schema.String)}) {}
+export class DisableEnhancedMonitoringInput extends Schema.Class<DisableEnhancedMonitoringInput>("DisableEnhancedMonitoringInput")({StreamName: Schema.optional(Schema.String), ShardLevelMetrics: MetricsNameList, StreamARN: Schema.optional(Schema.String)}) {}
+export class EnableEnhancedMonitoringInput extends Schema.Class<EnableEnhancedMonitoringInput>("EnableEnhancedMonitoringInput")({StreamName: Schema.optional(Schema.String), ShardLevelMetrics: MetricsNameList, StreamARN: Schema.optional(Schema.String)}) {}
+export class GetRecordsInput extends Schema.Class<GetRecordsInput>("GetRecordsInput")({ShardIterator: Schema.String, Limit: Schema.optional(Schema.Number), StreamARN: Schema.optional(Schema.String)}) {}
+export class GetResourcePolicyInput extends Schema.Class<GetResourcePolicyInput>("GetResourcePolicyInput")({ResourceARN: Schema.String}) {}
+export class GetShardIteratorInput extends Schema.Class<GetShardIteratorInput>("GetShardIteratorInput")({StreamName: Schema.optional(Schema.String), ShardId: Schema.String, ShardIteratorType: Schema.String, StartingSequenceNumber: Schema.optional(Schema.String), Timestamp: Schema.optional(Schema.Date), StreamARN: Schema.optional(Schema.String)}) {}
+export class IncreaseStreamRetentionPeriodInput extends Schema.Class<IncreaseStreamRetentionPeriodInput>("IncreaseStreamRetentionPeriodInput")({StreamName: Schema.optional(Schema.String), RetentionPeriodHours: Schema.Number, StreamARN: Schema.optional(Schema.String)}) {}
+export class ListStreamConsumersInput extends Schema.Class<ListStreamConsumersInput>("ListStreamConsumersInput")({StreamARN: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), StreamCreationTimestamp: Schema.optional(Schema.Date)}) {}
+export class ListStreamsInput extends Schema.Class<ListStreamsInput>("ListStreamsInput")({Limit: Schema.optional(Schema.Number), ExclusiveStartStreamName: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceInput extends Schema.Class<ListTagsForResourceInput>("ListTagsForResourceInput")({ResourceARN: Schema.String}) {}
+export class ListTagsForStreamInput extends Schema.Class<ListTagsForStreamInput>("ListTagsForStreamInput")({StreamName: Schema.optional(Schema.String), ExclusiveStartTagKey: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number), StreamARN: Schema.optional(Schema.String)}) {}
+export class MergeShardsInput extends Schema.Class<MergeShardsInput>("MergeShardsInput")({StreamName: Schema.optional(Schema.String), ShardToMerge: Schema.String, AdjacentShardToMerge: Schema.String, StreamARN: Schema.optional(Schema.String)}) {}
+export class PutRecordInput extends Schema.Class<PutRecordInput>("PutRecordInput")({StreamName: Schema.optional(Schema.String), Data: StreamBody(), PartitionKey: Schema.String, ExplicitHashKey: Schema.optional(Schema.String), SequenceNumberForOrdering: Schema.optional(Schema.String), StreamARN: Schema.optional(Schema.String)}) {}
+export class PutResourcePolicyInput extends Schema.Class<PutResourcePolicyInput>("PutResourcePolicyInput")({ResourceARN: Schema.String, Policy: Schema.String}) {}
 export const TagMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const RegisterStreamConsumerInput = Schema.Struct({StreamARN: Schema.String, ConsumerName: Schema.String, Tags: Schema.optional(TagMap)});
-export const RemoveTagsFromStreamInput = Schema.Struct({StreamName: Schema.optional(Schema.String), TagKeys: TagKeyList, StreamARN: Schema.optional(Schema.String)});
-export const SplitShardInput = Schema.Struct({StreamName: Schema.optional(Schema.String), ShardToSplit: Schema.String, NewStartingHashKey: Schema.String, StreamARN: Schema.optional(Schema.String)});
-export const StartStreamEncryptionInput = Schema.Struct({StreamName: Schema.optional(Schema.String), EncryptionType: Schema.String, KeyId: Schema.String, StreamARN: Schema.optional(Schema.String)});
-export const StopStreamEncryptionInput = Schema.Struct({StreamName: Schema.optional(Schema.String), EncryptionType: Schema.String, KeyId: Schema.String, StreamARN: Schema.optional(Schema.String)});
-export const TagResourceInput = Schema.Struct({Tags: TagMap, ResourceARN: Schema.String});
-export const UntagResourceInput = Schema.Struct({TagKeys: TagKeyList, ResourceARN: Schema.String});
-export const UpdateMaxRecordSizeInput = Schema.Struct({StreamARN: Schema.optional(Schema.String), MaxRecordSizeInKiB: Schema.Number});
-export const UpdateShardCountInput = Schema.Struct({StreamName: Schema.optional(Schema.String), TargetShardCount: Schema.Number, ScalingType: Schema.String, StreamARN: Schema.optional(Schema.String)});
-export const StreamModeDetails = Schema.Struct({StreamMode: Schema.String});
-export const UpdateStreamModeInput = Schema.Struct({StreamARN: Schema.String, StreamModeDetails: StreamModeDetails, WarmThroughputMiBps: Schema.optional(Schema.Number)});
-export const UpdateStreamWarmThroughputInput = Schema.Struct({StreamARN: Schema.optional(Schema.String), StreamName: Schema.optional(Schema.String), WarmThroughputMiBps: Schema.Number});
-export const MinimumThroughputBillingCommitmentOutput = Schema.Struct({Status: Schema.String, StartedAt: Schema.optional(Schema.Date), EndedAt: Schema.optional(Schema.Date), EarliestAllowedEndAt: Schema.optional(Schema.Date)});
-export const ShardFilter = Schema.Struct({Type: Schema.String, ShardId: Schema.optional(Schema.String), Timestamp: Schema.optional(Schema.Date)});
+export class RegisterStreamConsumerInput extends Schema.Class<RegisterStreamConsumerInput>("RegisterStreamConsumerInput")({StreamARN: Schema.String, ConsumerName: Schema.String, Tags: Schema.optional(TagMap)}) {}
+export class RemoveTagsFromStreamInput extends Schema.Class<RemoveTagsFromStreamInput>("RemoveTagsFromStreamInput")({StreamName: Schema.optional(Schema.String), TagKeys: TagKeyList, StreamARN: Schema.optional(Schema.String)}) {}
+export class SplitShardInput extends Schema.Class<SplitShardInput>("SplitShardInput")({StreamName: Schema.optional(Schema.String), ShardToSplit: Schema.String, NewStartingHashKey: Schema.String, StreamARN: Schema.optional(Schema.String)}) {}
+export class StartStreamEncryptionInput extends Schema.Class<StartStreamEncryptionInput>("StartStreamEncryptionInput")({StreamName: Schema.optional(Schema.String), EncryptionType: Schema.String, KeyId: Schema.String, StreamARN: Schema.optional(Schema.String)}) {}
+export class StopStreamEncryptionInput extends Schema.Class<StopStreamEncryptionInput>("StopStreamEncryptionInput")({StreamName: Schema.optional(Schema.String), EncryptionType: Schema.String, KeyId: Schema.String, StreamARN: Schema.optional(Schema.String)}) {}
+export class TagResourceInput extends Schema.Class<TagResourceInput>("TagResourceInput")({Tags: TagMap, ResourceARN: Schema.String}) {}
+export class UntagResourceInput extends Schema.Class<UntagResourceInput>("UntagResourceInput")({TagKeys: TagKeyList, ResourceARN: Schema.String}) {}
+export class UpdateMaxRecordSizeInput extends Schema.Class<UpdateMaxRecordSizeInput>("UpdateMaxRecordSizeInput")({StreamARN: Schema.optional(Schema.String), MaxRecordSizeInKiB: Schema.Number}) {}
+export class UpdateShardCountInput extends Schema.Class<UpdateShardCountInput>("UpdateShardCountInput")({StreamName: Schema.optional(Schema.String), TargetShardCount: Schema.Number, ScalingType: Schema.String, StreamARN: Schema.optional(Schema.String)}) {}
+export class StreamModeDetails extends Schema.Class<StreamModeDetails>("StreamModeDetails")({StreamMode: Schema.String}) {}
+export class UpdateStreamModeInput extends Schema.Class<UpdateStreamModeInput>("UpdateStreamModeInput")({StreamARN: Schema.String, StreamModeDetails: StreamModeDetails, WarmThroughputMiBps: Schema.optional(Schema.Number)}) {}
+export class UpdateStreamWarmThroughputInput extends Schema.Class<UpdateStreamWarmThroughputInput>("UpdateStreamWarmThroughputInput")({StreamARN: Schema.optional(Schema.String), StreamName: Schema.optional(Schema.String), WarmThroughputMiBps: Schema.Number}) {}
+export class MinimumThroughputBillingCommitmentOutput extends Schema.Class<MinimumThroughputBillingCommitmentOutput>("MinimumThroughputBillingCommitmentOutput")({Status: Schema.String, StartedAt: Schema.optional(Schema.Date), EndedAt: Schema.optional(Schema.Date), EarliestAllowedEndAt: Schema.optional(Schema.Date)}) {}
+export class ShardFilter extends Schema.Class<ShardFilter>("ShardFilter")({Type: Schema.String, ShardId: Schema.optional(Schema.String), Timestamp: Schema.optional(Schema.Date)}) {}
 export const StreamNameList = Schema.Array(Schema.String);
-export const PutRecordsRequestEntry = Schema.Struct({Data: StreamBody(), ExplicitHashKey: Schema.optional(Schema.String), PartitionKey: Schema.String});
+export class PutRecordsRequestEntry extends Schema.Class<PutRecordsRequestEntry>("PutRecordsRequestEntry")({Data: StreamBody(), ExplicitHashKey: Schema.optional(Schema.String), PartitionKey: Schema.String}) {}
 export const PutRecordsRequestEntryList = Schema.Array(PutRecordsRequestEntry);
-export const StartingPosition = Schema.Struct({Type: Schema.String, SequenceNumber: Schema.optional(Schema.String), Timestamp: Schema.optional(Schema.Date)});
-export const MinimumThroughputBillingCommitmentInput = Schema.Struct({Status: Schema.String});
-export const AddTagsToStreamInput = Schema.Struct({StreamName: Schema.optional(Schema.String), Tags: TagMap, StreamARN: Schema.optional(Schema.String)});
-export const CreateStreamInput = Schema.Struct({StreamName: Schema.String, ShardCount: Schema.optional(Schema.Number), StreamModeDetails: Schema.optional(StreamModeDetails), Tags: Schema.optional(TagMap), WarmThroughputMiBps: Schema.optional(Schema.Number), MaxRecordSizeInKiB: Schema.optional(Schema.Number)});
-export const AccessDeniedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidArgumentException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const LimitExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DescribeAccountSettingsOutput = Schema.Struct({MinimumThroughputBillingCommitment: Schema.optional(MinimumThroughputBillingCommitmentOutput)});
-export const EnhancedMonitoringOutput = Schema.Struct({StreamName: Schema.optional(Schema.String), CurrentShardLevelMetrics: Schema.optional(MetricsNameList), DesiredShardLevelMetrics: Schema.optional(MetricsNameList), StreamARN: Schema.optional(Schema.String)});
-export const ResourceInUseException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const GetResourcePolicyOutput = Schema.Struct({Policy: Schema.String});
-export const GetShardIteratorOutput = Schema.Struct({ShardIterator: Schema.optional(Schema.String)});
-export const ListShardsInput = Schema.Struct({StreamName: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), ExclusiveStartShardId: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), StreamCreationTimestamp: Schema.optional(Schema.Date), ShardFilter: Schema.optional(ShardFilter), StreamARN: Schema.optional(Schema.String)});
-export const Tag = Schema.Struct({Key: Schema.String, Value: Schema.optional(Schema.String)});
+export class StartingPosition extends Schema.Class<StartingPosition>("StartingPosition")({Type: Schema.String, SequenceNumber: Schema.optional(Schema.String), Timestamp: Schema.optional(Schema.Date)}) {}
+export class MinimumThroughputBillingCommitmentInput extends Schema.Class<MinimumThroughputBillingCommitmentInput>("MinimumThroughputBillingCommitmentInput")({Status: Schema.String}) {}
+export class AddTagsToStreamInput extends Schema.Class<AddTagsToStreamInput>("AddTagsToStreamInput")({StreamName: Schema.optional(Schema.String), Tags: TagMap, StreamARN: Schema.optional(Schema.String)}) {}
+export class CreateStreamInput extends Schema.Class<CreateStreamInput>("CreateStreamInput")({StreamName: Schema.String, ShardCount: Schema.optional(Schema.Number), StreamModeDetails: Schema.optional(StreamModeDetails), Tags: Schema.optional(TagMap), WarmThroughputMiBps: Schema.optional(Schema.Number), MaxRecordSizeInKiB: Schema.optional(Schema.Number)}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidArgumentException extends Schema.Class<InvalidArgumentException>("InvalidArgumentException")({message: Schema.optional(Schema.String)}) {}
+export class LimitExceededException extends Schema.Class<LimitExceededException>("LimitExceededException")({message: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class DescribeAccountSettingsOutput extends Schema.Class<DescribeAccountSettingsOutput>("DescribeAccountSettingsOutput")({MinimumThroughputBillingCommitment: Schema.optional(MinimumThroughputBillingCommitmentOutput)}) {}
+export class EnhancedMonitoringOutput extends Schema.Class<EnhancedMonitoringOutput>("EnhancedMonitoringOutput")({StreamName: Schema.optional(Schema.String), CurrentShardLevelMetrics: Schema.optional(MetricsNameList), DesiredShardLevelMetrics: Schema.optional(MetricsNameList), StreamARN: Schema.optional(Schema.String)}) {}
+export class ResourceInUseException extends Schema.Class<ResourceInUseException>("ResourceInUseException")({message: Schema.optional(Schema.String)}) {}
+export class GetResourcePolicyOutput extends Schema.Class<GetResourcePolicyOutput>("GetResourcePolicyOutput")({Policy: Schema.String}) {}
+export class GetShardIteratorOutput extends Schema.Class<GetShardIteratorOutput>("GetShardIteratorOutput")({ShardIterator: Schema.optional(Schema.String)}) {}
+export class ListShardsInput extends Schema.Class<ListShardsInput>("ListShardsInput")({StreamName: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), ExclusiveStartShardId: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), StreamCreationTimestamp: Schema.optional(Schema.Date), ShardFilter: Schema.optional(ShardFilter), StreamARN: Schema.optional(Schema.String)}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.String, Value: Schema.optional(Schema.String)}) {}
 export const TagList = Schema.Array(Tag);
-export const ListTagsForStreamOutput = Schema.Struct({Tags: TagList, HasMoreTags: Schema.Boolean});
-export const ValidationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const PutRecordOutput = Schema.Struct({ShardId: Schema.String, SequenceNumber: Schema.String, EncryptionType: Schema.optional(Schema.String)});
-export const PutRecordsInput = Schema.Struct({Records: PutRecordsRequestEntryList, StreamName: Schema.optional(Schema.String), StreamARN: Schema.optional(Schema.String)});
-export const Consumer = Schema.Struct({ConsumerName: Schema.String, ConsumerARN: Schema.String, ConsumerStatus: Schema.String, ConsumerCreationTimestamp: Schema.Date});
-export const RegisterStreamConsumerOutput = Schema.Struct({Consumer: Consumer});
-export const KMSAccessDeniedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const SubscribeToShardInput = Schema.Struct({ConsumerARN: Schema.String, ShardId: Schema.String, StartingPosition: StartingPosition});
-export const UpdateAccountSettingsInput = Schema.Struct({MinimumThroughputBillingCommitment: MinimumThroughputBillingCommitmentInput});
-export const UpdateShardCountOutput = Schema.Struct({StreamName: Schema.optional(Schema.String), CurrentShardCount: Schema.optional(Schema.Number), TargetShardCount: Schema.optional(Schema.Number), StreamARN: Schema.optional(Schema.String)});
+export class ListTagsForStreamOutput extends Schema.Class<ListTagsForStreamOutput>("ListTagsForStreamOutput")({Tags: TagList, HasMoreTags: Schema.Boolean}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({message: Schema.optional(Schema.String)}) {}
+export class PutRecordOutput extends Schema.Class<PutRecordOutput>("PutRecordOutput")({ShardId: Schema.String, SequenceNumber: Schema.String, EncryptionType: Schema.optional(Schema.String)}) {}
+export class PutRecordsInput extends Schema.Class<PutRecordsInput>("PutRecordsInput")({Records: PutRecordsRequestEntryList, StreamName: Schema.optional(Schema.String), StreamARN: Schema.optional(Schema.String)}) {}
+export class Consumer extends Schema.Class<Consumer>("Consumer")({ConsumerName: Schema.String, ConsumerARN: Schema.String, ConsumerStatus: Schema.String, ConsumerCreationTimestamp: Schema.Date}) {}
+export class RegisterStreamConsumerOutput extends Schema.Class<RegisterStreamConsumerOutput>("RegisterStreamConsumerOutput")({Consumer: Consumer}) {}
+export class KMSAccessDeniedException extends Schema.Class<KMSAccessDeniedException>("KMSAccessDeniedException")({message: Schema.optional(Schema.String)}) {}
+export class SubscribeToShardInput extends Schema.Class<SubscribeToShardInput>("SubscribeToShardInput")({ConsumerARN: Schema.String, ShardId: Schema.String, StartingPosition: StartingPosition}) {}
+export class UpdateAccountSettingsInput extends Schema.Class<UpdateAccountSettingsInput>("UpdateAccountSettingsInput")({MinimumThroughputBillingCommitment: MinimumThroughputBillingCommitmentInput}) {}
+export class UpdateShardCountOutput extends Schema.Class<UpdateShardCountOutput>("UpdateShardCountOutput")({StreamName: Schema.optional(Schema.String), CurrentShardCount: Schema.optional(Schema.Number), TargetShardCount: Schema.optional(Schema.Number), StreamARN: Schema.optional(Schema.String)}) {}
 export const ShardIdList = Schema.Array(Schema.String);
-export const ConsumerDescription = Schema.Struct({ConsumerName: Schema.String, ConsumerARN: Schema.String, ConsumerStatus: Schema.String, ConsumerCreationTimestamp: Schema.Date, StreamARN: Schema.String});
-export const EnhancedMetrics = Schema.Struct({ShardLevelMetrics: Schema.optional(MetricsNameList)});
+export class ConsumerDescription extends Schema.Class<ConsumerDescription>("ConsumerDescription")({ConsumerName: Schema.String, ConsumerARN: Schema.String, ConsumerStatus: Schema.String, ConsumerCreationTimestamp: Schema.Date, StreamARN: Schema.String}) {}
+export class EnhancedMetrics extends Schema.Class<EnhancedMetrics>("EnhancedMetrics")({ShardLevelMetrics: Schema.optional(MetricsNameList)}) {}
 export const EnhancedMonitoringList = Schema.Array(EnhancedMetrics);
-export const WarmThroughputObject = Schema.Struct({TargetMiBps: Schema.optional(Schema.Number), CurrentMiBps: Schema.optional(Schema.Number)});
-export const StreamDescriptionSummary = Schema.Struct({StreamName: Schema.String, StreamARN: Schema.String, StreamStatus: Schema.String, StreamModeDetails: Schema.optional(StreamModeDetails), RetentionPeriodHours: Schema.Number, StreamCreationTimestamp: Schema.Date, EnhancedMonitoring: EnhancedMonitoringList, EncryptionType: Schema.optional(Schema.String), KeyId: Schema.optional(Schema.String), OpenShardCount: Schema.Number, ConsumerCount: Schema.optional(Schema.Number), WarmThroughput: Schema.optional(WarmThroughputObject), MaxRecordSizeInKiB: Schema.optional(Schema.Number)});
-export const Record = Schema.Struct({SequenceNumber: Schema.String, ApproximateArrivalTimestamp: Schema.optional(Schema.Date), Data: StreamBody(), PartitionKey: Schema.String, EncryptionType: Schema.optional(Schema.String)});
+export class WarmThroughputObject extends Schema.Class<WarmThroughputObject>("WarmThroughputObject")({TargetMiBps: Schema.optional(Schema.Number), CurrentMiBps: Schema.optional(Schema.Number)}) {}
+export class StreamDescriptionSummary extends Schema.Class<StreamDescriptionSummary>("StreamDescriptionSummary")({StreamName: Schema.String, StreamARN: Schema.String, StreamStatus: Schema.String, StreamModeDetails: Schema.optional(StreamModeDetails), RetentionPeriodHours: Schema.Number, StreamCreationTimestamp: Schema.Date, EnhancedMonitoring: EnhancedMonitoringList, EncryptionType: Schema.optional(Schema.String), KeyId: Schema.optional(Schema.String), OpenShardCount: Schema.Number, ConsumerCount: Schema.optional(Schema.Number), WarmThroughput: Schema.optional(WarmThroughputObject), MaxRecordSizeInKiB: Schema.optional(Schema.Number)}) {}
+export class Record extends Schema.Class<Record>("Record")({SequenceNumber: Schema.String, ApproximateArrivalTimestamp: Schema.optional(Schema.Date), Data: StreamBody(), PartitionKey: Schema.String, EncryptionType: Schema.optional(Schema.String)}) {}
 export const RecordList = Schema.Array(Record);
 export const ConsumerList = Schema.Array(Consumer);
-export const StreamSummary = Schema.Struct({StreamName: Schema.String, StreamARN: Schema.String, StreamStatus: Schema.String, StreamModeDetails: Schema.optional(StreamModeDetails), StreamCreationTimestamp: Schema.optional(Schema.Date)});
+export class StreamSummary extends Schema.Class<StreamSummary>("StreamSummary")({StreamName: Schema.String, StreamARN: Schema.String, StreamStatus: Schema.String, StreamModeDetails: Schema.optional(StreamModeDetails), StreamCreationTimestamp: Schema.optional(Schema.Date)}) {}
 export const StreamSummaryList = Schema.Array(StreamSummary);
-export const DescribeStreamConsumerOutput = Schema.Struct({ConsumerDescription: ConsumerDescription});
-export const DescribeStreamSummaryOutput = Schema.Struct({StreamDescriptionSummary: StreamDescriptionSummary});
-export const InternalFailureException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const HashKeyRange = Schema.Struct({StartingHashKey: Schema.String, EndingHashKey: Schema.String});
-export const SequenceNumberRange = Schema.Struct({StartingSequenceNumber: Schema.String, EndingSequenceNumber: Schema.optional(Schema.String)});
-export const Shard = Schema.Struct({ShardId: Schema.String, ParentShardId: Schema.optional(Schema.String), AdjacentParentShardId: Schema.optional(Schema.String), HashKeyRange: HashKeyRange, SequenceNumberRange: SequenceNumberRange});
+export class DescribeStreamConsumerOutput extends Schema.Class<DescribeStreamConsumerOutput>("DescribeStreamConsumerOutput")({ConsumerDescription: ConsumerDescription}) {}
+export class DescribeStreamSummaryOutput extends Schema.Class<DescribeStreamSummaryOutput>("DescribeStreamSummaryOutput")({StreamDescriptionSummary: StreamDescriptionSummary}) {}
+export class InternalFailureException extends Schema.Class<InternalFailureException>("InternalFailureException")({message: Schema.optional(Schema.String)}) {}
+export class HashKeyRange extends Schema.Class<HashKeyRange>("HashKeyRange")({StartingHashKey: Schema.String, EndingHashKey: Schema.String}) {}
+export class SequenceNumberRange extends Schema.Class<SequenceNumberRange>("SequenceNumberRange")({StartingSequenceNumber: Schema.String, EndingSequenceNumber: Schema.optional(Schema.String)}) {}
+export class Shard extends Schema.Class<Shard>("Shard")({ShardId: Schema.String, ParentShardId: Schema.optional(Schema.String), AdjacentParentShardId: Schema.optional(Schema.String), HashKeyRange: HashKeyRange, SequenceNumberRange: SequenceNumberRange}) {}
 export const ShardList = Schema.Array(Shard);
-export const ListShardsOutput = Schema.Struct({Shards: Schema.optional(ShardList), NextToken: Schema.optional(Schema.String)});
-export const ListStreamConsumersOutput = Schema.Struct({Consumers: Schema.optional(ConsumerList), NextToken: Schema.optional(Schema.String)});
-export const ListStreamsOutput = Schema.Struct({StreamNames: StreamNameList, HasMoreStreams: Schema.Boolean, NextToken: Schema.optional(Schema.String), StreamSummaries: Schema.optional(StreamSummaryList)});
-export const ListTagsForResourceOutput = Schema.Struct({Tags: Schema.optional(TagList)});
-export const KMSDisabledException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const KMSInvalidStateException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UpdateAccountSettingsOutput = Schema.Struct({MinimumThroughputBillingCommitment: Schema.optional(MinimumThroughputBillingCommitmentOutput)});
-export const UpdateStreamWarmThroughputOutput = Schema.Struct({StreamARN: Schema.optional(Schema.String), StreamName: Schema.optional(Schema.String), WarmThroughput: Schema.optional(WarmThroughputObject)});
-export const ChildShard = Schema.Struct({ShardId: Schema.String, ParentShards: ShardIdList, HashKeyRange: HashKeyRange});
+export class ListShardsOutput extends Schema.Class<ListShardsOutput>("ListShardsOutput")({Shards: Schema.optional(ShardList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListStreamConsumersOutput extends Schema.Class<ListStreamConsumersOutput>("ListStreamConsumersOutput")({Consumers: Schema.optional(ConsumerList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListStreamsOutput extends Schema.Class<ListStreamsOutput>("ListStreamsOutput")({StreamNames: StreamNameList, HasMoreStreams: Schema.Boolean, NextToken: Schema.optional(Schema.String), StreamSummaries: Schema.optional(StreamSummaryList)}) {}
+export class ListTagsForResourceOutput extends Schema.Class<ListTagsForResourceOutput>("ListTagsForResourceOutput")({Tags: Schema.optional(TagList)}) {}
+export class KMSDisabledException extends Schema.Class<KMSDisabledException>("KMSDisabledException")({message: Schema.optional(Schema.String)}) {}
+export class KMSInvalidStateException extends Schema.Class<KMSInvalidStateException>("KMSInvalidStateException")({message: Schema.optional(Schema.String)}) {}
+export class UpdateAccountSettingsOutput extends Schema.Class<UpdateAccountSettingsOutput>("UpdateAccountSettingsOutput")({MinimumThroughputBillingCommitment: Schema.optional(MinimumThroughputBillingCommitmentOutput)}) {}
+export class UpdateStreamWarmThroughputOutput extends Schema.Class<UpdateStreamWarmThroughputOutput>("UpdateStreamWarmThroughputOutput")({StreamARN: Schema.optional(Schema.String), StreamName: Schema.optional(Schema.String), WarmThroughput: Schema.optional(WarmThroughputObject)}) {}
+export class ChildShard extends Schema.Class<ChildShard>("ChildShard")({ShardId: Schema.String, ParentShards: ShardIdList, HashKeyRange: HashKeyRange}) {}
 export const ChildShardList = Schema.Array(ChildShard);
-export const PutRecordsResultEntry = Schema.Struct({SequenceNumber: Schema.optional(Schema.String), ShardId: Schema.optional(Schema.String), ErrorCode: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String)});
+export class PutRecordsResultEntry extends Schema.Class<PutRecordsResultEntry>("PutRecordsResultEntry")({SequenceNumber: Schema.optional(Schema.String), ShardId: Schema.optional(Schema.String), ErrorCode: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String)}) {}
 export const PutRecordsResultEntryList = Schema.Array(PutRecordsResultEntry);
-export const GetRecordsOutput = Schema.Struct({Records: RecordList, NextShardIterator: Schema.optional(Schema.String), MillisBehindLatest: Schema.optional(Schema.Number), ChildShards: Schema.optional(ChildShardList)});
-export const ProvisionedThroughputExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ExpiredNextTokenException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const KMSNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const PutRecordsOutput = Schema.Struct({FailedRecordCount: Schema.optional(Schema.Number), Records: PutRecordsResultEntryList, EncryptionType: Schema.optional(Schema.String)});
-export const KMSOptInRequired = Schema.Struct({message: Schema.optional(Schema.String)});
-export const SubscribeToShardEvent = Schema.Struct({Records: RecordList, ContinuationSequenceNumber: Schema.String, MillisBehindLatest: Schema.Number, ChildShards: Schema.optional(ChildShardList)});
-export const KMSThrottlingException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const StreamDescription = Schema.Struct({StreamName: Schema.String, StreamARN: Schema.String, StreamStatus: Schema.String, StreamModeDetails: Schema.optional(StreamModeDetails), Shards: ShardList, HasMoreShards: Schema.Boolean, RetentionPeriodHours: Schema.Number, StreamCreationTimestamp: Schema.Date, EnhancedMonitoring: EnhancedMonitoringList, EncryptionType: Schema.optional(Schema.String), KeyId: Schema.optional(Schema.String)});
+export class GetRecordsOutput extends Schema.Class<GetRecordsOutput>("GetRecordsOutput")({Records: RecordList, NextShardIterator: Schema.optional(Schema.String), MillisBehindLatest: Schema.optional(Schema.Number), ChildShards: Schema.optional(ChildShardList)}) {}
+export class ProvisionedThroughputExceededException extends Schema.Class<ProvisionedThroughputExceededException>("ProvisionedThroughputExceededException")({message: Schema.optional(Schema.String)}) {}
+export class ExpiredNextTokenException extends Schema.Class<ExpiredNextTokenException>("ExpiredNextTokenException")({message: Schema.optional(Schema.String)}) {}
+export class KMSNotFoundException extends Schema.Class<KMSNotFoundException>("KMSNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class PutRecordsOutput extends Schema.Class<PutRecordsOutput>("PutRecordsOutput")({FailedRecordCount: Schema.optional(Schema.Number), Records: PutRecordsResultEntryList, EncryptionType: Schema.optional(Schema.String)}) {}
+export class KMSOptInRequired extends Schema.Class<KMSOptInRequired>("KMSOptInRequired")({message: Schema.optional(Schema.String)}) {}
+export class SubscribeToShardEvent extends Schema.Class<SubscribeToShardEvent>("SubscribeToShardEvent")({Records: RecordList, ContinuationSequenceNumber: Schema.String, MillisBehindLatest: Schema.Number, ChildShards: Schema.optional(ChildShardList)}) {}
+export class KMSThrottlingException extends Schema.Class<KMSThrottlingException>("KMSThrottlingException")({message: Schema.optional(Schema.String)}) {}
+export class StreamDescription extends Schema.Class<StreamDescription>("StreamDescription")({StreamName: Schema.String, StreamARN: Schema.String, StreamStatus: Schema.String, StreamModeDetails: Schema.optional(StreamModeDetails), Shards: ShardList, HasMoreShards: Schema.Boolean, RetentionPeriodHours: Schema.Number, StreamCreationTimestamp: Schema.Date, EnhancedMonitoring: EnhancedMonitoringList, EncryptionType: Schema.optional(Schema.String), KeyId: Schema.optional(Schema.String)}) {}
 export const SubscribeToShardEventStream = Schema.Union(SubscribeToShardEvent, ResourceNotFoundException, ResourceInUseException, KMSDisabledException, KMSInvalidStateException, KMSAccessDeniedException, KMSNotFoundException, KMSOptInRequired, KMSThrottlingException, InternalFailureException);
-export const DescribeStreamOutput = Schema.Struct({StreamDescription: StreamDescription});
-export const ExpiredIteratorException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const SubscribeToShardOutput = Schema.Struct({EventStream: SubscribeToShardEventStream});
+export class DescribeStreamOutput extends Schema.Class<DescribeStreamOutput>("DescribeStreamOutput")({StreamDescription: StreamDescription}) {}
+export class ExpiredIteratorException extends Schema.Class<ExpiredIteratorException>("ExpiredIteratorException")({message: Schema.optional(Schema.String)}) {}
+export class SubscribeToShardOutput extends Schema.Class<SubscribeToShardOutput>("SubscribeToShardOutput")({EventStream: SubscribeToShardEventStream}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class InvalidArgumentExceptionError extends Schema.TaggedError<InvalidArgumentExceptionError>()("InvalidArgumentException", InvalidArgumentException) {};
-export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException) {};
-export class ResourceInUseExceptionError extends Schema.TaggedError<ResourceInUseExceptionError>()("ResourceInUseException", ResourceInUseException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class InternalFailureExceptionError extends Schema.TaggedError<InternalFailureExceptionError>()("InternalFailureException", InternalFailureException) {};
-export class KMSAccessDeniedExceptionError extends Schema.TaggedError<KMSAccessDeniedExceptionError>()("KMSAccessDeniedException", KMSAccessDeniedException) {};
-export class KMSDisabledExceptionError extends Schema.TaggedError<KMSDisabledExceptionError>()("KMSDisabledException", KMSDisabledException) {};
-export class ExpiredNextTokenExceptionError extends Schema.TaggedError<ExpiredNextTokenExceptionError>()("ExpiredNextTokenException", ExpiredNextTokenException) {};
-export class KMSInvalidStateExceptionError extends Schema.TaggedError<KMSInvalidStateExceptionError>()("KMSInvalidStateException", KMSInvalidStateException) {};
-export class KMSNotFoundExceptionError extends Schema.TaggedError<KMSNotFoundExceptionError>()("KMSNotFoundException", KMSNotFoundException) {};
-export class ProvisionedThroughputExceededExceptionError extends Schema.TaggedError<ProvisionedThroughputExceededExceptionError>()("ProvisionedThroughputExceededException", ProvisionedThroughputExceededException) {};
-export class KMSOptInRequiredError extends Schema.TaggedError<KMSOptInRequiredError>()("KMSOptInRequired", KMSOptInRequired) {};
-export class KMSThrottlingExceptionError extends Schema.TaggedError<KMSThrottlingExceptionError>()("KMSThrottlingException", KMSThrottlingException) {};
-export class ExpiredIteratorExceptionError extends Schema.TaggedError<ExpiredIteratorExceptionError>()("ExpiredIteratorException", ExpiredIteratorException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class InvalidArgumentExceptionError extends Schema.TaggedError<InvalidArgumentExceptionError>()("InvalidArgumentException", InvalidArgumentException.fields) {};
+export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException.fields) {};
+export class ResourceInUseExceptionError extends Schema.TaggedError<ResourceInUseExceptionError>()("ResourceInUseException", ResourceInUseException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class InternalFailureExceptionError extends Schema.TaggedError<InternalFailureExceptionError>()("InternalFailureException", InternalFailureException.fields) {};
+export class KMSAccessDeniedExceptionError extends Schema.TaggedError<KMSAccessDeniedExceptionError>()("KMSAccessDeniedException", KMSAccessDeniedException.fields) {};
+export class KMSDisabledExceptionError extends Schema.TaggedError<KMSDisabledExceptionError>()("KMSDisabledException", KMSDisabledException.fields) {};
+export class ExpiredNextTokenExceptionError extends Schema.TaggedError<ExpiredNextTokenExceptionError>()("ExpiredNextTokenException", ExpiredNextTokenException.fields) {};
+export class KMSInvalidStateExceptionError extends Schema.TaggedError<KMSInvalidStateExceptionError>()("KMSInvalidStateException", KMSInvalidStateException.fields) {};
+export class KMSNotFoundExceptionError extends Schema.TaggedError<KMSNotFoundExceptionError>()("KMSNotFoundException", KMSNotFoundException.fields) {};
+export class ProvisionedThroughputExceededExceptionError extends Schema.TaggedError<ProvisionedThroughputExceededExceptionError>()("ProvisionedThroughputExceededException", ProvisionedThroughputExceededException.fields) {};
+export class KMSOptInRequiredError extends Schema.TaggedError<KMSOptInRequiredError>()("KMSOptInRequired", KMSOptInRequired.fields) {};
+export class KMSThrottlingExceptionError extends Schema.TaggedError<KMSThrottlingExceptionError>()("KMSThrottlingException", KMSThrottlingException.fields) {};
+export class ExpiredIteratorExceptionError extends Schema.TaggedError<ExpiredIteratorExceptionError>()("ExpiredIteratorException", ExpiredIteratorException.fields) {};
 
 //# Operations
 export const describeLimits = /*#__PURE__*/ makeOperation(() => Operation({ version: "2013-12-02", uri: "/", method: "POST", sdkId: "Kinesis", sigV4ServiceName: "kinesis", name: "Kinesis_20131202.DescribeLimits" }, DescribeLimitsInput, DescribeLimitsOutput, [LimitExceededExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

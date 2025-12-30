@@ -6,95 +6,95 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 export const __listOfGetDiscoveredSchemaVersionItemInput = Schema.Array(Schema.String);
 export const __listOf__string = Schema.Array(Schema.String);
 export const Tags = Schema.Record({key: Schema.String, value: Schema.String});
-export const CreateRegistryRequest = Schema.Struct({Description: Schema.optional(Schema.String), RegistryName: Schema.String, Tags: Schema.optional(Tags)});
-export const CreateSchemaRequest = Schema.Struct({Content: Schema.String, Description: Schema.optional(Schema.String), RegistryName: Schema.String, SchemaName: Schema.String, Tags: Schema.optional(Tags), Type: Schema.String});
-export const DeleteDiscovererRequest = Schema.Struct({DiscovererId: Schema.String});
-export const DeleteRegistryRequest = Schema.Struct({RegistryName: Schema.String});
-export const DeleteResourcePolicyRequest = Schema.Struct({RegistryName: Schema.optional(Schema.String)});
-export const DeleteSchemaRequest = Schema.Struct({RegistryName: Schema.String, SchemaName: Schema.String});
-export const DeleteSchemaVersionRequest = Schema.Struct({RegistryName: Schema.String, SchemaName: Schema.String, SchemaVersion: Schema.String});
-export const DescribeCodeBindingRequest = Schema.Struct({Language: Schema.String, RegistryName: Schema.String, SchemaName: Schema.String, SchemaVersion: Schema.optional(Schema.String)});
-export const DescribeDiscovererRequest = Schema.Struct({DiscovererId: Schema.String});
-export const DescribeRegistryRequest = Schema.Struct({RegistryName: Schema.String});
-export const DescribeSchemaRequest = Schema.Struct({RegistryName: Schema.String, SchemaName: Schema.String, SchemaVersion: Schema.optional(Schema.String)});
-export const ExportSchemaRequest = Schema.Struct({RegistryName: Schema.String, SchemaName: Schema.String, SchemaVersion: Schema.optional(Schema.String), Type: Schema.String});
-export const GetCodeBindingSourceRequest = Schema.Struct({Language: Schema.String, RegistryName: Schema.String, SchemaName: Schema.String, SchemaVersion: Schema.optional(Schema.String)});
-export const GetDiscoveredSchemaRequest = Schema.Struct({Events: __listOfGetDiscoveredSchemaVersionItemInput, Type: Schema.String});
-export const GetResourcePolicyRequest = Schema.Struct({RegistryName: Schema.optional(Schema.String)});
-export const ListDiscoverersRequest = Schema.Struct({DiscovererIdPrefix: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), SourceArnPrefix: Schema.optional(Schema.String)});
-export const ListRegistriesRequest = Schema.Struct({Limit: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), RegistryNamePrefix: Schema.optional(Schema.String), Scope: Schema.optional(Schema.String)});
-export const ListSchemasRequest = Schema.Struct({Limit: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), RegistryName: Schema.String, SchemaNamePrefix: Schema.optional(Schema.String)});
-export const ListSchemaVersionsRequest = Schema.Struct({Limit: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), RegistryName: Schema.String, SchemaName: Schema.String});
-export const ListTagsForResourceRequest = Schema.Struct({ResourceArn: Schema.String});
-export const PutCodeBindingRequest = Schema.Struct({Language: Schema.String, RegistryName: Schema.String, SchemaName: Schema.String, SchemaVersion: Schema.optional(Schema.String)});
-export const PutResourcePolicyRequest = Schema.Struct({Policy: Schema.String, RegistryName: Schema.optional(Schema.String), RevisionId: Schema.optional(Schema.String)});
-export const SearchSchemasRequest = Schema.Struct({Keywords: Schema.String, Limit: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), RegistryName: Schema.String});
-export const StartDiscovererRequest = Schema.Struct({DiscovererId: Schema.String});
-export const StopDiscovererRequest = Schema.Struct({DiscovererId: Schema.String});
-export const TagResourceRequest = Schema.Struct({ResourceArn: Schema.String, Tags: Tags});
-export const UntagResourceRequest = Schema.Struct({ResourceArn: Schema.String, TagKeys: __listOf__string});
-export const UpdateDiscovererRequest = Schema.Struct({Description: Schema.optional(Schema.String), DiscovererId: Schema.String, CrossAccount: Schema.optional(Schema.Boolean)});
-export const UpdateRegistryRequest = Schema.Struct({Description: Schema.optional(Schema.String), RegistryName: Schema.String});
-export const UpdateSchemaRequest = Schema.Struct({ClientTokenId: Schema.optional(Schema.String), Content: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), RegistryName: Schema.String, SchemaName: Schema.String, Type: Schema.optional(Schema.String)});
-export const CreateDiscovererRequest = Schema.Struct({Description: Schema.optional(Schema.String), SourceArn: Schema.String, CrossAccount: Schema.optional(Schema.Boolean), Tags: Schema.optional(Tags)});
-export const CreateRegistryResponse = Schema.Struct({Description: Schema.optional(Schema.String), RegistryArn: Schema.optional(Schema.String), RegistryName: Schema.optional(Schema.String), Tags: Schema.optional(Tags)});
-export const CreateSchemaResponse = Schema.Struct({Description: Schema.optional(Schema.String), LastModified: Schema.optional(Schema.Date), SchemaArn: Schema.optional(Schema.String), SchemaName: Schema.optional(Schema.String), SchemaVersion: Schema.optional(Schema.String), Tags: Schema.optional(Tags), Type: Schema.optional(Schema.String), VersionCreatedDate: Schema.optional(Schema.Date)});
-export const BadRequestException = Schema.Struct({Code: Schema.String, Message: Schema.String});
-export const ForbiddenException = Schema.Struct({Code: Schema.String, Message: Schema.String});
-export const InternalServerErrorException = Schema.Struct({Code: Schema.String, Message: Schema.String});
-export const NotFoundException = Schema.Struct({Code: Schema.String, Message: Schema.String});
-export const ServiceUnavailableException = Schema.Struct({Code: Schema.String, Message: Schema.String});
-export const DescribeCodeBindingResponse = Schema.Struct({CreationDate: Schema.optional(Schema.Date), LastModified: Schema.optional(Schema.Date), SchemaVersion: Schema.optional(Schema.String), Status: Schema.optional(Schema.String)});
-export const DescribeDiscovererResponse = Schema.Struct({Description: Schema.optional(Schema.String), DiscovererArn: Schema.optional(Schema.String), DiscovererId: Schema.optional(Schema.String), SourceArn: Schema.optional(Schema.String), State: Schema.optional(Schema.String), CrossAccount: Schema.optional(Schema.Boolean), Tags: Schema.optional(Tags)});
-export const DescribeRegistryResponse = Schema.Struct({Description: Schema.optional(Schema.String), RegistryArn: Schema.optional(Schema.String), RegistryName: Schema.optional(Schema.String), Tags: Schema.optional(Tags)});
-export const DescribeSchemaResponse = Schema.Struct({Content: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), LastModified: Schema.optional(Schema.Date), SchemaArn: Schema.optional(Schema.String), SchemaName: Schema.optional(Schema.String), SchemaVersion: Schema.optional(Schema.String), Tags: Schema.optional(Tags), Type: Schema.optional(Schema.String), VersionCreatedDate: Schema.optional(Schema.Date)});
-export const ExportSchemaResponse = Schema.Struct({Content: Schema.optional(Schema.String), SchemaArn: Schema.optional(Schema.String), SchemaName: Schema.optional(Schema.String), SchemaVersion: Schema.optional(Schema.String), Type: Schema.optional(Schema.String)});
-export const GetCodeBindingSourceResponse = Schema.Struct({Body: Schema.optional(Body("undefined", StreamBody()))});
-export const GetDiscoveredSchemaResponse = Schema.Struct({Content: Schema.optional(Schema.String)});
-export const GetResourcePolicyResponse = Schema.Struct({Policy: Schema.optional(Schema.String), RevisionId: Schema.optional(Schema.String)});
-export const ListTagsForResourceResponse = Schema.Struct({Tags: Schema.optional(Tags)});
-export const PutCodeBindingResponse = Schema.Struct({CreationDate: Schema.optional(Schema.Date), LastModified: Schema.optional(Schema.Date), SchemaVersion: Schema.optional(Schema.String), Status: Schema.optional(Schema.String)});
-export const PutResourcePolicyResponse = Schema.Struct({Policy: Schema.optional(Schema.String), RevisionId: Schema.optional(Schema.String)});
-export const StartDiscovererResponse = Schema.Struct({DiscovererId: Schema.optional(Schema.String), State: Schema.optional(Schema.String)});
-export const StopDiscovererResponse = Schema.Struct({DiscovererId: Schema.optional(Schema.String), State: Schema.optional(Schema.String)});
-export const UpdateDiscovererResponse = Schema.Struct({Description: Schema.optional(Schema.String), DiscovererArn: Schema.optional(Schema.String), DiscovererId: Schema.optional(Schema.String), SourceArn: Schema.optional(Schema.String), State: Schema.optional(Schema.String), CrossAccount: Schema.optional(Schema.Boolean), Tags: Schema.optional(Tags)});
-export const UpdateRegistryResponse = Schema.Struct({Description: Schema.optional(Schema.String), RegistryArn: Schema.optional(Schema.String), RegistryName: Schema.optional(Schema.String), Tags: Schema.optional(Tags)});
-export const UpdateSchemaResponse = Schema.Struct({Description: Schema.optional(Schema.String), LastModified: Schema.optional(Schema.Date), SchemaArn: Schema.optional(Schema.String), SchemaName: Schema.optional(Schema.String), SchemaVersion: Schema.optional(Schema.String), Tags: Schema.optional(Tags), Type: Schema.optional(Schema.String), VersionCreatedDate: Schema.optional(Schema.Date)});
-export const DiscovererSummary = Schema.Struct({DiscovererArn: Schema.optional(Schema.String), DiscovererId: Schema.optional(Schema.String), SourceArn: Schema.optional(Schema.String), State: Schema.optional(Schema.String), CrossAccount: Schema.optional(Schema.Boolean), Tags: Schema.optional(Tags)});
+export class CreateRegistryRequest extends Schema.Class<CreateRegistryRequest>("CreateRegistryRequest")({Description: Schema.optional(Schema.String), RegistryName: Schema.String, Tags: Schema.optional(Tags)}) {}
+export class CreateSchemaRequest extends Schema.Class<CreateSchemaRequest>("CreateSchemaRequest")({Content: Schema.String, Description: Schema.optional(Schema.String), RegistryName: Schema.String, SchemaName: Schema.String, Tags: Schema.optional(Tags), Type: Schema.String}) {}
+export class DeleteDiscovererRequest extends Schema.Class<DeleteDiscovererRequest>("DeleteDiscovererRequest")({DiscovererId: Schema.String}) {}
+export class DeleteRegistryRequest extends Schema.Class<DeleteRegistryRequest>("DeleteRegistryRequest")({RegistryName: Schema.String}) {}
+export class DeleteResourcePolicyRequest extends Schema.Class<DeleteResourcePolicyRequest>("DeleteResourcePolicyRequest")({RegistryName: Schema.optional(Schema.String)}) {}
+export class DeleteSchemaRequest extends Schema.Class<DeleteSchemaRequest>("DeleteSchemaRequest")({RegistryName: Schema.String, SchemaName: Schema.String}) {}
+export class DeleteSchemaVersionRequest extends Schema.Class<DeleteSchemaVersionRequest>("DeleteSchemaVersionRequest")({RegistryName: Schema.String, SchemaName: Schema.String, SchemaVersion: Schema.String}) {}
+export class DescribeCodeBindingRequest extends Schema.Class<DescribeCodeBindingRequest>("DescribeCodeBindingRequest")({Language: Schema.String, RegistryName: Schema.String, SchemaName: Schema.String, SchemaVersion: Schema.optional(Schema.String)}) {}
+export class DescribeDiscovererRequest extends Schema.Class<DescribeDiscovererRequest>("DescribeDiscovererRequest")({DiscovererId: Schema.String}) {}
+export class DescribeRegistryRequest extends Schema.Class<DescribeRegistryRequest>("DescribeRegistryRequest")({RegistryName: Schema.String}) {}
+export class DescribeSchemaRequest extends Schema.Class<DescribeSchemaRequest>("DescribeSchemaRequest")({RegistryName: Schema.String, SchemaName: Schema.String, SchemaVersion: Schema.optional(Schema.String)}) {}
+export class ExportSchemaRequest extends Schema.Class<ExportSchemaRequest>("ExportSchemaRequest")({RegistryName: Schema.String, SchemaName: Schema.String, SchemaVersion: Schema.optional(Schema.String), Type: Schema.String}) {}
+export class GetCodeBindingSourceRequest extends Schema.Class<GetCodeBindingSourceRequest>("GetCodeBindingSourceRequest")({Language: Schema.String, RegistryName: Schema.String, SchemaName: Schema.String, SchemaVersion: Schema.optional(Schema.String)}) {}
+export class GetDiscoveredSchemaRequest extends Schema.Class<GetDiscoveredSchemaRequest>("GetDiscoveredSchemaRequest")({Events: __listOfGetDiscoveredSchemaVersionItemInput, Type: Schema.String}) {}
+export class GetResourcePolicyRequest extends Schema.Class<GetResourcePolicyRequest>("GetResourcePolicyRequest")({RegistryName: Schema.optional(Schema.String)}) {}
+export class ListDiscoverersRequest extends Schema.Class<ListDiscoverersRequest>("ListDiscoverersRequest")({DiscovererIdPrefix: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), SourceArnPrefix: Schema.optional(Schema.String)}) {}
+export class ListRegistriesRequest extends Schema.Class<ListRegistriesRequest>("ListRegistriesRequest")({Limit: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), RegistryNamePrefix: Schema.optional(Schema.String), Scope: Schema.optional(Schema.String)}) {}
+export class ListSchemasRequest extends Schema.Class<ListSchemasRequest>("ListSchemasRequest")({Limit: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), RegistryName: Schema.String, SchemaNamePrefix: Schema.optional(Schema.String)}) {}
+export class ListSchemaVersionsRequest extends Schema.Class<ListSchemaVersionsRequest>("ListSchemaVersionsRequest")({Limit: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), RegistryName: Schema.String, SchemaName: Schema.String}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({ResourceArn: Schema.String}) {}
+export class PutCodeBindingRequest extends Schema.Class<PutCodeBindingRequest>("PutCodeBindingRequest")({Language: Schema.String, RegistryName: Schema.String, SchemaName: Schema.String, SchemaVersion: Schema.optional(Schema.String)}) {}
+export class PutResourcePolicyRequest extends Schema.Class<PutResourcePolicyRequest>("PutResourcePolicyRequest")({Policy: Schema.String, RegistryName: Schema.optional(Schema.String), RevisionId: Schema.optional(Schema.String)}) {}
+export class SearchSchemasRequest extends Schema.Class<SearchSchemasRequest>("SearchSchemasRequest")({Keywords: Schema.String, Limit: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), RegistryName: Schema.String}) {}
+export class StartDiscovererRequest extends Schema.Class<StartDiscovererRequest>("StartDiscovererRequest")({DiscovererId: Schema.String}) {}
+export class StopDiscovererRequest extends Schema.Class<StopDiscovererRequest>("StopDiscovererRequest")({DiscovererId: Schema.String}) {}
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({ResourceArn: Schema.String, Tags: Tags}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({ResourceArn: Schema.String, TagKeys: __listOf__string}) {}
+export class UpdateDiscovererRequest extends Schema.Class<UpdateDiscovererRequest>("UpdateDiscovererRequest")({Description: Schema.optional(Schema.String), DiscovererId: Schema.String, CrossAccount: Schema.optional(Schema.Boolean)}) {}
+export class UpdateRegistryRequest extends Schema.Class<UpdateRegistryRequest>("UpdateRegistryRequest")({Description: Schema.optional(Schema.String), RegistryName: Schema.String}) {}
+export class UpdateSchemaRequest extends Schema.Class<UpdateSchemaRequest>("UpdateSchemaRequest")({ClientTokenId: Schema.optional(Schema.String), Content: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), RegistryName: Schema.String, SchemaName: Schema.String, Type: Schema.optional(Schema.String)}) {}
+export class CreateDiscovererRequest extends Schema.Class<CreateDiscovererRequest>("CreateDiscovererRequest")({Description: Schema.optional(Schema.String), SourceArn: Schema.String, CrossAccount: Schema.optional(Schema.Boolean), Tags: Schema.optional(Tags)}) {}
+export class CreateRegistryResponse extends Schema.Class<CreateRegistryResponse>("CreateRegistryResponse")({Description: Schema.optional(Schema.String), RegistryArn: Schema.optional(Schema.String), RegistryName: Schema.optional(Schema.String), Tags: Schema.optional(Tags)}) {}
+export class CreateSchemaResponse extends Schema.Class<CreateSchemaResponse>("CreateSchemaResponse")({Description: Schema.optional(Schema.String), LastModified: Schema.optional(Schema.Date), SchemaArn: Schema.optional(Schema.String), SchemaName: Schema.optional(Schema.String), SchemaVersion: Schema.optional(Schema.String), Tags: Schema.optional(Tags), Type: Schema.optional(Schema.String), VersionCreatedDate: Schema.optional(Schema.Date)}) {}
+export class BadRequestException extends Schema.Class<BadRequestException>("BadRequestException")({Code: Schema.String, Message: Schema.String}) {}
+export class ForbiddenException extends Schema.Class<ForbiddenException>("ForbiddenException")({Code: Schema.String, Message: Schema.String}) {}
+export class InternalServerErrorException extends Schema.Class<InternalServerErrorException>("InternalServerErrorException")({Code: Schema.String, Message: Schema.String}) {}
+export class NotFoundException extends Schema.Class<NotFoundException>("NotFoundException")({Code: Schema.String, Message: Schema.String}) {}
+export class ServiceUnavailableException extends Schema.Class<ServiceUnavailableException>("ServiceUnavailableException")({Code: Schema.String, Message: Schema.String}) {}
+export class DescribeCodeBindingResponse extends Schema.Class<DescribeCodeBindingResponse>("DescribeCodeBindingResponse")({CreationDate: Schema.optional(Schema.Date), LastModified: Schema.optional(Schema.Date), SchemaVersion: Schema.optional(Schema.String), Status: Schema.optional(Schema.String)}) {}
+export class DescribeDiscovererResponse extends Schema.Class<DescribeDiscovererResponse>("DescribeDiscovererResponse")({Description: Schema.optional(Schema.String), DiscovererArn: Schema.optional(Schema.String), DiscovererId: Schema.optional(Schema.String), SourceArn: Schema.optional(Schema.String), State: Schema.optional(Schema.String), CrossAccount: Schema.optional(Schema.Boolean), Tags: Schema.optional(Tags)}) {}
+export class DescribeRegistryResponse extends Schema.Class<DescribeRegistryResponse>("DescribeRegistryResponse")({Description: Schema.optional(Schema.String), RegistryArn: Schema.optional(Schema.String), RegistryName: Schema.optional(Schema.String), Tags: Schema.optional(Tags)}) {}
+export class DescribeSchemaResponse extends Schema.Class<DescribeSchemaResponse>("DescribeSchemaResponse")({Content: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), LastModified: Schema.optional(Schema.Date), SchemaArn: Schema.optional(Schema.String), SchemaName: Schema.optional(Schema.String), SchemaVersion: Schema.optional(Schema.String), Tags: Schema.optional(Tags), Type: Schema.optional(Schema.String), VersionCreatedDate: Schema.optional(Schema.Date)}) {}
+export class ExportSchemaResponse extends Schema.Class<ExportSchemaResponse>("ExportSchemaResponse")({Content: Schema.optional(Schema.String), SchemaArn: Schema.optional(Schema.String), SchemaName: Schema.optional(Schema.String), SchemaVersion: Schema.optional(Schema.String), Type: Schema.optional(Schema.String)}) {}
+export class GetCodeBindingSourceResponse extends Schema.Class<GetCodeBindingSourceResponse>("GetCodeBindingSourceResponse")({Body: Schema.optional(Body("undefined", StreamBody()))}) {}
+export class GetDiscoveredSchemaResponse extends Schema.Class<GetDiscoveredSchemaResponse>("GetDiscoveredSchemaResponse")({Content: Schema.optional(Schema.String)}) {}
+export class GetResourcePolicyResponse extends Schema.Class<GetResourcePolicyResponse>("GetResourcePolicyResponse")({Policy: Schema.optional(Schema.String), RevisionId: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({Tags: Schema.optional(Tags)}) {}
+export class PutCodeBindingResponse extends Schema.Class<PutCodeBindingResponse>("PutCodeBindingResponse")({CreationDate: Schema.optional(Schema.Date), LastModified: Schema.optional(Schema.Date), SchemaVersion: Schema.optional(Schema.String), Status: Schema.optional(Schema.String)}) {}
+export class PutResourcePolicyResponse extends Schema.Class<PutResourcePolicyResponse>("PutResourcePolicyResponse")({Policy: Schema.optional(Schema.String), RevisionId: Schema.optional(Schema.String)}) {}
+export class StartDiscovererResponse extends Schema.Class<StartDiscovererResponse>("StartDiscovererResponse")({DiscovererId: Schema.optional(Schema.String), State: Schema.optional(Schema.String)}) {}
+export class StopDiscovererResponse extends Schema.Class<StopDiscovererResponse>("StopDiscovererResponse")({DiscovererId: Schema.optional(Schema.String), State: Schema.optional(Schema.String)}) {}
+export class UpdateDiscovererResponse extends Schema.Class<UpdateDiscovererResponse>("UpdateDiscovererResponse")({Description: Schema.optional(Schema.String), DiscovererArn: Schema.optional(Schema.String), DiscovererId: Schema.optional(Schema.String), SourceArn: Schema.optional(Schema.String), State: Schema.optional(Schema.String), CrossAccount: Schema.optional(Schema.Boolean), Tags: Schema.optional(Tags)}) {}
+export class UpdateRegistryResponse extends Schema.Class<UpdateRegistryResponse>("UpdateRegistryResponse")({Description: Schema.optional(Schema.String), RegistryArn: Schema.optional(Schema.String), RegistryName: Schema.optional(Schema.String), Tags: Schema.optional(Tags)}) {}
+export class UpdateSchemaResponse extends Schema.Class<UpdateSchemaResponse>("UpdateSchemaResponse")({Description: Schema.optional(Schema.String), LastModified: Schema.optional(Schema.Date), SchemaArn: Schema.optional(Schema.String), SchemaName: Schema.optional(Schema.String), SchemaVersion: Schema.optional(Schema.String), Tags: Schema.optional(Tags), Type: Schema.optional(Schema.String), VersionCreatedDate: Schema.optional(Schema.Date)}) {}
+export class DiscovererSummary extends Schema.Class<DiscovererSummary>("DiscovererSummary")({DiscovererArn: Schema.optional(Schema.String), DiscovererId: Schema.optional(Schema.String), SourceArn: Schema.optional(Schema.String), State: Schema.optional(Schema.String), CrossAccount: Schema.optional(Schema.Boolean), Tags: Schema.optional(Tags)}) {}
 export const __listOfDiscovererSummary = Schema.Array(DiscovererSummary);
-export const RegistrySummary = Schema.Struct({RegistryArn: Schema.optional(Schema.String), RegistryName: Schema.optional(Schema.String), Tags: Schema.optional(Tags)});
+export class RegistrySummary extends Schema.Class<RegistrySummary>("RegistrySummary")({RegistryArn: Schema.optional(Schema.String), RegistryName: Schema.optional(Schema.String), Tags: Schema.optional(Tags)}) {}
 export const __listOfRegistrySummary = Schema.Array(RegistrySummary);
-export const SchemaSummary = Schema.Struct({LastModified: Schema.optional(Schema.Date), SchemaArn: Schema.optional(Schema.String), SchemaName: Schema.optional(Schema.String), Tags: Schema.optional(Tags), VersionCount: Schema.optional(Schema.Number)});
+export class SchemaSummary extends Schema.Class<SchemaSummary>("SchemaSummary")({LastModified: Schema.optional(Schema.Date), SchemaArn: Schema.optional(Schema.String), SchemaName: Schema.optional(Schema.String), Tags: Schema.optional(Tags), VersionCount: Schema.optional(Schema.Number)}) {}
 export const __listOfSchemaSummary = Schema.Array(SchemaSummary);
-export const SchemaVersionSummary = Schema.Struct({SchemaArn: Schema.optional(Schema.String), SchemaName: Schema.optional(Schema.String), SchemaVersion: Schema.optional(Schema.String), Type: Schema.optional(Schema.String)});
+export class SchemaVersionSummary extends Schema.Class<SchemaVersionSummary>("SchemaVersionSummary")({SchemaArn: Schema.optional(Schema.String), SchemaName: Schema.optional(Schema.String), SchemaVersion: Schema.optional(Schema.String), Type: Schema.optional(Schema.String)}) {}
 export const __listOfSchemaVersionSummary = Schema.Array(SchemaVersionSummary);
-export const CreateDiscovererResponse = Schema.Struct({Description: Schema.optional(Schema.String), DiscovererArn: Schema.optional(Schema.String), DiscovererId: Schema.optional(Schema.String), SourceArn: Schema.optional(Schema.String), State: Schema.optional(Schema.String), CrossAccount: Schema.optional(Schema.Boolean), Tags: Schema.optional(Tags)});
-export const ConflictException = Schema.Struct({Code: Schema.String, Message: Schema.String});
-export const UnauthorizedException = Schema.Struct({Code: Schema.String, Message: Schema.String});
-export const TooManyRequestsException = Schema.Struct({Code: Schema.String, Message: Schema.String});
-export const ListDiscoverersResponse = Schema.Struct({Discoverers: Schema.optional(__listOfDiscovererSummary), NextToken: Schema.optional(Schema.String)});
-export const ListRegistriesResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), Registries: Schema.optional(__listOfRegistrySummary)});
-export const ListSchemasResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), Schemas: Schema.optional(__listOfSchemaSummary)});
-export const ListSchemaVersionsResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), SchemaVersions: Schema.optional(__listOfSchemaVersionSummary)});
-export const GoneException = Schema.Struct({Code: Schema.String, Message: Schema.String});
-export const PreconditionFailedException = Schema.Struct({Code: Schema.String, Message: Schema.String});
-export const SearchSchemaVersionSummary = Schema.Struct({CreatedDate: Schema.optional(Schema.Date), SchemaVersion: Schema.optional(Schema.String), Type: Schema.optional(Schema.String)});
+export class CreateDiscovererResponse extends Schema.Class<CreateDiscovererResponse>("CreateDiscovererResponse")({Description: Schema.optional(Schema.String), DiscovererArn: Schema.optional(Schema.String), DiscovererId: Schema.optional(Schema.String), SourceArn: Schema.optional(Schema.String), State: Schema.optional(Schema.String), CrossAccount: Schema.optional(Schema.Boolean), Tags: Schema.optional(Tags)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({Code: Schema.String, Message: Schema.String}) {}
+export class UnauthorizedException extends Schema.Class<UnauthorizedException>("UnauthorizedException")({Code: Schema.String, Message: Schema.String}) {}
+export class TooManyRequestsException extends Schema.Class<TooManyRequestsException>("TooManyRequestsException")({Code: Schema.String, Message: Schema.String}) {}
+export class ListDiscoverersResponse extends Schema.Class<ListDiscoverersResponse>("ListDiscoverersResponse")({Discoverers: Schema.optional(__listOfDiscovererSummary), NextToken: Schema.optional(Schema.String)}) {}
+export class ListRegistriesResponse extends Schema.Class<ListRegistriesResponse>("ListRegistriesResponse")({NextToken: Schema.optional(Schema.String), Registries: Schema.optional(__listOfRegistrySummary)}) {}
+export class ListSchemasResponse extends Schema.Class<ListSchemasResponse>("ListSchemasResponse")({NextToken: Schema.optional(Schema.String), Schemas: Schema.optional(__listOfSchemaSummary)}) {}
+export class ListSchemaVersionsResponse extends Schema.Class<ListSchemaVersionsResponse>("ListSchemaVersionsResponse")({NextToken: Schema.optional(Schema.String), SchemaVersions: Schema.optional(__listOfSchemaVersionSummary)}) {}
+export class GoneException extends Schema.Class<GoneException>("GoneException")({Code: Schema.String, Message: Schema.String}) {}
+export class PreconditionFailedException extends Schema.Class<PreconditionFailedException>("PreconditionFailedException")({Code: Schema.String, Message: Schema.String}) {}
+export class SearchSchemaVersionSummary extends Schema.Class<SearchSchemaVersionSummary>("SearchSchemaVersionSummary")({CreatedDate: Schema.optional(Schema.Date), SchemaVersion: Schema.optional(Schema.String), Type: Schema.optional(Schema.String)}) {}
 export const __listOfSearchSchemaVersionSummary = Schema.Array(SearchSchemaVersionSummary);
-export const SearchSchemaSummary = Schema.Struct({RegistryName: Schema.optional(Schema.String), SchemaArn: Schema.optional(Schema.String), SchemaName: Schema.optional(Schema.String), SchemaVersions: Schema.optional(__listOfSearchSchemaVersionSummary)});
+export class SearchSchemaSummary extends Schema.Class<SearchSchemaSummary>("SearchSchemaSummary")({RegistryName: Schema.optional(Schema.String), SchemaArn: Schema.optional(Schema.String), SchemaName: Schema.optional(Schema.String), SchemaVersions: Schema.optional(__listOfSearchSchemaVersionSummary)}) {}
 export const __listOfSearchSchemaSummary = Schema.Array(SearchSchemaSummary);
-export const SearchSchemasResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), Schemas: Schema.optional(__listOfSearchSchemaSummary)});
+export class SearchSchemasResponse extends Schema.Class<SearchSchemasResponse>("SearchSchemasResponse")({NextToken: Schema.optional(Schema.String), Schemas: Schema.optional(__listOfSearchSchemaSummary)}) {}
 
 //# Errors
-export class BadRequestExceptionError extends Schema.TaggedError<BadRequestExceptionError>()("BadRequestException", BadRequestException) {};
-export class ForbiddenExceptionError extends Schema.TaggedError<ForbiddenExceptionError>()("ForbiddenException", ForbiddenException) {};
-export class InternalServerErrorExceptionError extends Schema.TaggedError<InternalServerErrorExceptionError>()("InternalServerErrorException", InternalServerErrorException) {};
-export class NotFoundExceptionError extends Schema.TaggedError<NotFoundExceptionError>()("NotFoundException", NotFoundException) {};
-export class ServiceUnavailableExceptionError extends Schema.TaggedError<ServiceUnavailableExceptionError>()("ServiceUnavailableException", ServiceUnavailableException) {};
-export class UnauthorizedExceptionError extends Schema.TaggedError<UnauthorizedExceptionError>()("UnauthorizedException", UnauthorizedException) {};
-export class TooManyRequestsExceptionError extends Schema.TaggedError<TooManyRequestsExceptionError>()("TooManyRequestsException", TooManyRequestsException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class GoneExceptionError extends Schema.TaggedError<GoneExceptionError>()("GoneException", GoneException) {};
-export class PreconditionFailedExceptionError extends Schema.TaggedError<PreconditionFailedExceptionError>()("PreconditionFailedException", PreconditionFailedException) {};
+export class BadRequestExceptionError extends Schema.TaggedError<BadRequestExceptionError>()("BadRequestException", BadRequestException.fields) {};
+export class ForbiddenExceptionError extends Schema.TaggedError<ForbiddenExceptionError>()("ForbiddenException", ForbiddenException.fields) {};
+export class InternalServerErrorExceptionError extends Schema.TaggedError<InternalServerErrorExceptionError>()("InternalServerErrorException", InternalServerErrorException.fields) {};
+export class NotFoundExceptionError extends Schema.TaggedError<NotFoundExceptionError>()("NotFoundException", NotFoundException.fields) {};
+export class ServiceUnavailableExceptionError extends Schema.TaggedError<ServiceUnavailableExceptionError>()("ServiceUnavailableException", ServiceUnavailableException.fields) {};
+export class UnauthorizedExceptionError extends Schema.TaggedError<UnauthorizedExceptionError>()("UnauthorizedException", UnauthorizedException.fields) {};
+export class TooManyRequestsExceptionError extends Schema.TaggedError<TooManyRequestsExceptionError>()("TooManyRequestsException", TooManyRequestsException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class GoneExceptionError extends Schema.TaggedError<GoneExceptionError>()("GoneException", GoneException.fields) {};
+export class PreconditionFailedExceptionError extends Schema.TaggedError<PreconditionFailedExceptionError>()("PreconditionFailedException", PreconditionFailedException.fields) {};
 
 //# Operations
 export const tagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-12-02", uri: "/tags/{ResourceArn}", method: "POST", sdkId: "schemas", sigV4ServiceName: "schemas", name: "schemas.TagResource" }, TagResourceRequest, Schema.Struct({}), [BadRequestExceptionError, ForbiddenExceptionError, InternalServerErrorExceptionError, NotFoundExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

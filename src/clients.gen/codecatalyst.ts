@@ -3,10 +3,10 @@ import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperat
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const GetUserDetailsRequest = Schema.Struct({id: Schema.optional(Schema.String), userName: Schema.optional(Schema.String)});
-export const VerifySessionResponse = Schema.Struct({identity: Schema.optional(Schema.String)});
-export const EmailAddress = Schema.Struct({email: Schema.optional(Schema.String), verified: Schema.optional(Schema.Boolean)});
-export const GetUserDetailsResponse = Schema.Struct({userId: Schema.optional(Schema.String), userName: Schema.optional(Schema.String), displayName: Schema.optional(Schema.String), primaryEmail: Schema.optional(EmailAddress), version: Schema.optional(Schema.String)});
+export class GetUserDetailsRequest extends Schema.Class<GetUserDetailsRequest>("GetUserDetailsRequest")({id: Schema.optional(Schema.String), userName: Schema.optional(Schema.String)}) {}
+export class VerifySessionResponse extends Schema.Class<VerifySessionResponse>("VerifySessionResponse")({identity: Schema.optional(Schema.String)}) {}
+export class EmailAddress extends Schema.Class<EmailAddress>("EmailAddress")({email: Schema.optional(Schema.String), verified: Schema.optional(Schema.Boolean)}) {}
+export class GetUserDetailsResponse extends Schema.Class<GetUserDetailsResponse>("GetUserDetailsResponse")({userId: Schema.optional(Schema.String), userName: Schema.optional(Schema.String), displayName: Schema.optional(Schema.String), primaryEmail: Schema.optional(EmailAddress), version: Schema.optional(Schema.String)}) {}
 
 //# Errors
 

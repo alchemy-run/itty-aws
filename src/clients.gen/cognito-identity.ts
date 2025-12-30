@@ -8,88 +8,88 @@ export const SAMLProviderList = Schema.Array(Schema.String);
 export const IdentityIdList = Schema.Array(Schema.String);
 export const LoginsList = Schema.Array(Schema.String);
 export const IdentityPoolTagsListType = Schema.Array(Schema.String);
-export const DeleteIdentitiesInput = Schema.Struct({IdentityIdsToDelete: IdentityIdList});
-export const DeleteIdentityPoolInput = Schema.Struct({IdentityPoolId: Schema.String});
-export const DescribeIdentityInput = Schema.Struct({IdentityId: Schema.String});
-export const DescribeIdentityPoolInput = Schema.Struct({IdentityPoolId: Schema.String});
+export class DeleteIdentitiesInput extends Schema.Class<DeleteIdentitiesInput>("DeleteIdentitiesInput")({IdentityIdsToDelete: IdentityIdList}) {}
+export class DeleteIdentityPoolInput extends Schema.Class<DeleteIdentityPoolInput>("DeleteIdentityPoolInput")({IdentityPoolId: Schema.String}) {}
+export class DescribeIdentityInput extends Schema.Class<DescribeIdentityInput>("DescribeIdentityInput")({IdentityId: Schema.String}) {}
+export class DescribeIdentityPoolInput extends Schema.Class<DescribeIdentityPoolInput>("DescribeIdentityPoolInput")({IdentityPoolId: Schema.String}) {}
 export const LoginsMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const GetIdInput = Schema.Struct({AccountId: Schema.optional(Schema.String), IdentityPoolId: Schema.String, Logins: Schema.optional(LoginsMap)});
-export const GetIdentityPoolRolesInput = Schema.Struct({IdentityPoolId: Schema.String});
-export const GetOpenIdTokenInput = Schema.Struct({IdentityId: Schema.String, Logins: Schema.optional(LoginsMap)});
-export const GetPrincipalTagAttributeMapInput = Schema.Struct({IdentityPoolId: Schema.String, IdentityProviderName: Schema.String});
-export const ListIdentitiesInput = Schema.Struct({IdentityPoolId: Schema.String, MaxResults: Schema.Number, NextToken: Schema.optional(Schema.String), HideDisabled: Schema.optional(Schema.Boolean)});
-export const ListIdentityPoolsInput = Schema.Struct({MaxResults: Schema.Number, NextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceInput = Schema.Struct({ResourceArn: Schema.String});
-export const LookupDeveloperIdentityInput = Schema.Struct({IdentityPoolId: Schema.String, IdentityId: Schema.optional(Schema.String), DeveloperUserIdentifier: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const MergeDeveloperIdentitiesInput = Schema.Struct({SourceUserIdentifier: Schema.String, DestinationUserIdentifier: Schema.String, DeveloperProviderName: Schema.String, IdentityPoolId: Schema.String});
+export class GetIdInput extends Schema.Class<GetIdInput>("GetIdInput")({AccountId: Schema.optional(Schema.String), IdentityPoolId: Schema.String, Logins: Schema.optional(LoginsMap)}) {}
+export class GetIdentityPoolRolesInput extends Schema.Class<GetIdentityPoolRolesInput>("GetIdentityPoolRolesInput")({IdentityPoolId: Schema.String}) {}
+export class GetOpenIdTokenInput extends Schema.Class<GetOpenIdTokenInput>("GetOpenIdTokenInput")({IdentityId: Schema.String, Logins: Schema.optional(LoginsMap)}) {}
+export class GetPrincipalTagAttributeMapInput extends Schema.Class<GetPrincipalTagAttributeMapInput>("GetPrincipalTagAttributeMapInput")({IdentityPoolId: Schema.String, IdentityProviderName: Schema.String}) {}
+export class ListIdentitiesInput extends Schema.Class<ListIdentitiesInput>("ListIdentitiesInput")({IdentityPoolId: Schema.String, MaxResults: Schema.Number, NextToken: Schema.optional(Schema.String), HideDisabled: Schema.optional(Schema.Boolean)}) {}
+export class ListIdentityPoolsInput extends Schema.Class<ListIdentityPoolsInput>("ListIdentityPoolsInput")({MaxResults: Schema.Number, NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceInput extends Schema.Class<ListTagsForResourceInput>("ListTagsForResourceInput")({ResourceArn: Schema.String}) {}
+export class LookupDeveloperIdentityInput extends Schema.Class<LookupDeveloperIdentityInput>("LookupDeveloperIdentityInput")({IdentityPoolId: Schema.String, IdentityId: Schema.optional(Schema.String), DeveloperUserIdentifier: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class MergeDeveloperIdentitiesInput extends Schema.Class<MergeDeveloperIdentitiesInput>("MergeDeveloperIdentitiesInput")({SourceUserIdentifier: Schema.String, DestinationUserIdentifier: Schema.String, DeveloperProviderName: Schema.String, IdentityPoolId: Schema.String}) {}
 export const PrincipalTags = Schema.Record({key: Schema.String, value: Schema.String});
-export const SetPrincipalTagAttributeMapInput = Schema.Struct({IdentityPoolId: Schema.String, IdentityProviderName: Schema.String, UseDefaults: Schema.optional(Schema.Boolean), PrincipalTags: Schema.optional(PrincipalTags)});
+export class SetPrincipalTagAttributeMapInput extends Schema.Class<SetPrincipalTagAttributeMapInput>("SetPrincipalTagAttributeMapInput")({IdentityPoolId: Schema.String, IdentityProviderName: Schema.String, UseDefaults: Schema.optional(Schema.Boolean), PrincipalTags: Schema.optional(PrincipalTags)}) {}
 export const IdentityPoolTagsType = Schema.Record({key: Schema.String, value: Schema.String});
-export const TagResourceInput = Schema.Struct({ResourceArn: Schema.String, Tags: IdentityPoolTagsType});
-export const TagResourceResponse = Schema.Struct({});
-export const UnlinkDeveloperIdentityInput = Schema.Struct({IdentityId: Schema.String, IdentityPoolId: Schema.String, DeveloperProviderName: Schema.String, DeveloperUserIdentifier: Schema.String});
-export const UnlinkIdentityInput = Schema.Struct({IdentityId: Schema.String, Logins: LoginsMap, LoginsToRemove: LoginsList});
-export const UntagResourceInput = Schema.Struct({ResourceArn: Schema.String, TagKeys: IdentityPoolTagsListType});
-export const UntagResourceResponse = Schema.Struct({});
+export class TagResourceInput extends Schema.Class<TagResourceInput>("TagResourceInput")({ResourceArn: Schema.String, Tags: IdentityPoolTagsType}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UnlinkDeveloperIdentityInput extends Schema.Class<UnlinkDeveloperIdentityInput>("UnlinkDeveloperIdentityInput")({IdentityId: Schema.String, IdentityPoolId: Schema.String, DeveloperProviderName: Schema.String, DeveloperUserIdentifier: Schema.String}) {}
+export class UnlinkIdentityInput extends Schema.Class<UnlinkIdentityInput>("UnlinkIdentityInput")({IdentityId: Schema.String, Logins: LoginsMap, LoginsToRemove: LoginsList}) {}
+export class UntagResourceInput extends Schema.Class<UntagResourceInput>("UntagResourceInput")({ResourceArn: Schema.String, TagKeys: IdentityPoolTagsListType}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
 export const IdentityProviders = Schema.Record({key: Schema.String, value: Schema.String});
-export const CognitoIdentityProvider = Schema.Struct({ProviderName: Schema.optional(Schema.String), ClientId: Schema.optional(Schema.String), ServerSideTokenCheck: Schema.optional(Schema.Boolean)});
+export class CognitoIdentityProvider extends Schema.Class<CognitoIdentityProvider>("CognitoIdentityProvider")({ProviderName: Schema.optional(Schema.String), ClientId: Schema.optional(Schema.String), ServerSideTokenCheck: Schema.optional(Schema.Boolean)}) {}
 export const CognitoIdentityProviderList = Schema.Array(CognitoIdentityProvider);
-export const IdentityPool = Schema.Struct({IdentityPoolId: Schema.String, IdentityPoolName: Schema.String, AllowUnauthenticatedIdentities: Schema.Boolean, AllowClassicFlow: Schema.optional(Schema.Boolean), SupportedLoginProviders: Schema.optional(IdentityProviders), DeveloperProviderName: Schema.optional(Schema.String), OpenIdConnectProviderARNs: Schema.optional(OIDCProviderList), CognitoIdentityProviders: Schema.optional(CognitoIdentityProviderList), SamlProviderARNs: Schema.optional(SAMLProviderList), IdentityPoolTags: Schema.optional(IdentityPoolTagsType)});
-export const IdentityDescription = Schema.Struct({IdentityId: Schema.optional(Schema.String), Logins: Schema.optional(LoginsList), CreationDate: Schema.optional(Schema.Date), LastModifiedDate: Schema.optional(Schema.Date)});
+export class IdentityPool extends Schema.Class<IdentityPool>("IdentityPool")({IdentityPoolId: Schema.String, IdentityPoolName: Schema.String, AllowUnauthenticatedIdentities: Schema.Boolean, AllowClassicFlow: Schema.optional(Schema.Boolean), SupportedLoginProviders: Schema.optional(IdentityProviders), DeveloperProviderName: Schema.optional(Schema.String), OpenIdConnectProviderARNs: Schema.optional(OIDCProviderList), CognitoIdentityProviders: Schema.optional(CognitoIdentityProviderList), SamlProviderARNs: Schema.optional(SAMLProviderList), IdentityPoolTags: Schema.optional(IdentityPoolTagsType)}) {}
+export class IdentityDescription extends Schema.Class<IdentityDescription>("IdentityDescription")({IdentityId: Schema.optional(Schema.String), Logins: Schema.optional(LoginsList), CreationDate: Schema.optional(Schema.Date), LastModifiedDate: Schema.optional(Schema.Date)}) {}
 export const IdentitiesList = Schema.Array(IdentityDescription);
 export const DeveloperUserIdentifierList = Schema.Array(Schema.String);
 export const RolesMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const CreateIdentityPoolInput = Schema.Struct({IdentityPoolName: Schema.String, AllowUnauthenticatedIdentities: Schema.Boolean, AllowClassicFlow: Schema.optional(Schema.Boolean), SupportedLoginProviders: Schema.optional(IdentityProviders), DeveloperProviderName: Schema.optional(Schema.String), OpenIdConnectProviderARNs: Schema.optional(OIDCProviderList), CognitoIdentityProviders: Schema.optional(CognitoIdentityProviderList), SamlProviderARNs: Schema.optional(SAMLProviderList), IdentityPoolTags: Schema.optional(IdentityPoolTagsType)});
-export const InternalErrorException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidParameterException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const GetCredentialsForIdentityInput = Schema.Struct({IdentityId: Schema.String, Logins: Schema.optional(LoginsMap), CustomRoleArn: Schema.optional(Schema.String)});
-export const GetIdResponse = Schema.Struct({IdentityId: Schema.optional(Schema.String)});
-export const MappingRule = Schema.Struct({Claim: Schema.String, MatchType: Schema.String, Value: Schema.String, RoleARN: Schema.String});
+export class CreateIdentityPoolInput extends Schema.Class<CreateIdentityPoolInput>("CreateIdentityPoolInput")({IdentityPoolName: Schema.String, AllowUnauthenticatedIdentities: Schema.Boolean, AllowClassicFlow: Schema.optional(Schema.Boolean), SupportedLoginProviders: Schema.optional(IdentityProviders), DeveloperProviderName: Schema.optional(Schema.String), OpenIdConnectProviderARNs: Schema.optional(OIDCProviderList), CognitoIdentityProviders: Schema.optional(CognitoIdentityProviderList), SamlProviderARNs: Schema.optional(SAMLProviderList), IdentityPoolTags: Schema.optional(IdentityPoolTagsType)}) {}
+export class InternalErrorException extends Schema.Class<InternalErrorException>("InternalErrorException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidParameterException extends Schema.Class<InvalidParameterException>("InvalidParameterException")({message: Schema.optional(Schema.String)}) {}
+export class GetCredentialsForIdentityInput extends Schema.Class<GetCredentialsForIdentityInput>("GetCredentialsForIdentityInput")({IdentityId: Schema.String, Logins: Schema.optional(LoginsMap), CustomRoleArn: Schema.optional(Schema.String)}) {}
+export class GetIdResponse extends Schema.Class<GetIdResponse>("GetIdResponse")({IdentityId: Schema.optional(Schema.String)}) {}
+export class MappingRule extends Schema.Class<MappingRule>("MappingRule")({Claim: Schema.String, MatchType: Schema.String, Value: Schema.String, RoleARN: Schema.String}) {}
 export const MappingRulesList = Schema.Array(MappingRule);
-export const RulesConfigurationType = Schema.Struct({Rules: MappingRulesList});
-export const RoleMapping = Schema.Struct({Type: Schema.String, AmbiguousRoleResolution: Schema.optional(Schema.String), RulesConfiguration: Schema.optional(RulesConfigurationType)});
+export class RulesConfigurationType extends Schema.Class<RulesConfigurationType>("RulesConfigurationType")({Rules: MappingRulesList}) {}
+export class RoleMapping extends Schema.Class<RoleMapping>("RoleMapping")({Type: Schema.String, AmbiguousRoleResolution: Schema.optional(Schema.String), RulesConfiguration: Schema.optional(RulesConfigurationType)}) {}
 export const RoleMappingMap = Schema.Record({key: Schema.String, value: RoleMapping});
-export const GetIdentityPoolRolesResponse = Schema.Struct({IdentityPoolId: Schema.optional(Schema.String), Roles: Schema.optional(RolesMap), RoleMappings: Schema.optional(RoleMappingMap)});
-export const GetOpenIdTokenResponse = Schema.Struct({IdentityId: Schema.optional(Schema.String), Token: Schema.optional(Schema.String)});
-export const GetOpenIdTokenForDeveloperIdentityInput = Schema.Struct({IdentityPoolId: Schema.String, IdentityId: Schema.optional(Schema.String), Logins: LoginsMap, PrincipalTags: Schema.optional(PrincipalTags), TokenDuration: Schema.optional(Schema.Number)});
-export const GetPrincipalTagAttributeMapResponse = Schema.Struct({IdentityPoolId: Schema.optional(Schema.String), IdentityProviderName: Schema.optional(Schema.String), UseDefaults: Schema.optional(Schema.Boolean), PrincipalTags: Schema.optional(PrincipalTags)});
-export const ListIdentitiesResponse = Schema.Struct({IdentityPoolId: Schema.optional(Schema.String), Identities: Schema.optional(IdentitiesList), NextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceResponse = Schema.Struct({Tags: Schema.optional(IdentityPoolTagsType)});
-export const LookupDeveloperIdentityResponse = Schema.Struct({IdentityId: Schema.optional(Schema.String), DeveloperUserIdentifierList: Schema.optional(DeveloperUserIdentifierList), NextToken: Schema.optional(Schema.String)});
-export const MergeDeveloperIdentitiesResponse = Schema.Struct({IdentityId: Schema.optional(Schema.String)});
-export const SetPrincipalTagAttributeMapResponse = Schema.Struct({IdentityPoolId: Schema.optional(Schema.String), IdentityProviderName: Schema.optional(Schema.String), UseDefaults: Schema.optional(Schema.Boolean), PrincipalTags: Schema.optional(PrincipalTags)});
-export const NotAuthorizedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ResourceConflictException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ExternalServiceException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ConcurrentModificationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UnprocessedIdentityId = Schema.Struct({IdentityId: Schema.optional(Schema.String), ErrorCode: Schema.optional(Schema.String)});
+export class GetIdentityPoolRolesResponse extends Schema.Class<GetIdentityPoolRolesResponse>("GetIdentityPoolRolesResponse")({IdentityPoolId: Schema.optional(Schema.String), Roles: Schema.optional(RolesMap), RoleMappings: Schema.optional(RoleMappingMap)}) {}
+export class GetOpenIdTokenResponse extends Schema.Class<GetOpenIdTokenResponse>("GetOpenIdTokenResponse")({IdentityId: Schema.optional(Schema.String), Token: Schema.optional(Schema.String)}) {}
+export class GetOpenIdTokenForDeveloperIdentityInput extends Schema.Class<GetOpenIdTokenForDeveloperIdentityInput>("GetOpenIdTokenForDeveloperIdentityInput")({IdentityPoolId: Schema.String, IdentityId: Schema.optional(Schema.String), Logins: LoginsMap, PrincipalTags: Schema.optional(PrincipalTags), TokenDuration: Schema.optional(Schema.Number)}) {}
+export class GetPrincipalTagAttributeMapResponse extends Schema.Class<GetPrincipalTagAttributeMapResponse>("GetPrincipalTagAttributeMapResponse")({IdentityPoolId: Schema.optional(Schema.String), IdentityProviderName: Schema.optional(Schema.String), UseDefaults: Schema.optional(Schema.Boolean), PrincipalTags: Schema.optional(PrincipalTags)}) {}
+export class ListIdentitiesResponse extends Schema.Class<ListIdentitiesResponse>("ListIdentitiesResponse")({IdentityPoolId: Schema.optional(Schema.String), Identities: Schema.optional(IdentitiesList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({Tags: Schema.optional(IdentityPoolTagsType)}) {}
+export class LookupDeveloperIdentityResponse extends Schema.Class<LookupDeveloperIdentityResponse>("LookupDeveloperIdentityResponse")({IdentityId: Schema.optional(Schema.String), DeveloperUserIdentifierList: Schema.optional(DeveloperUserIdentifierList), NextToken: Schema.optional(Schema.String)}) {}
+export class MergeDeveloperIdentitiesResponse extends Schema.Class<MergeDeveloperIdentitiesResponse>("MergeDeveloperIdentitiesResponse")({IdentityId: Schema.optional(Schema.String)}) {}
+export class SetPrincipalTagAttributeMapResponse extends Schema.Class<SetPrincipalTagAttributeMapResponse>("SetPrincipalTagAttributeMapResponse")({IdentityPoolId: Schema.optional(Schema.String), IdentityProviderName: Schema.optional(Schema.String), UseDefaults: Schema.optional(Schema.Boolean), PrincipalTags: Schema.optional(PrincipalTags)}) {}
+export class NotAuthorizedException extends Schema.Class<NotAuthorizedException>("NotAuthorizedException")({message: Schema.optional(Schema.String)}) {}
+export class ResourceConflictException extends Schema.Class<ResourceConflictException>("ResourceConflictException")({message: Schema.optional(Schema.String)}) {}
+export class ExternalServiceException extends Schema.Class<ExternalServiceException>("ExternalServiceException")({message: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class ConcurrentModificationException extends Schema.Class<ConcurrentModificationException>("ConcurrentModificationException")({message: Schema.optional(Schema.String)}) {}
+export class UnprocessedIdentityId extends Schema.Class<UnprocessedIdentityId>("UnprocessedIdentityId")({IdentityId: Schema.optional(Schema.String), ErrorCode: Schema.optional(Schema.String)}) {}
 export const UnprocessedIdentityIdList = Schema.Array(UnprocessedIdentityId);
-export const IdentityPoolShortDescription = Schema.Struct({IdentityPoolId: Schema.optional(Schema.String), IdentityPoolName: Schema.optional(Schema.String)});
+export class IdentityPoolShortDescription extends Schema.Class<IdentityPoolShortDescription>("IdentityPoolShortDescription")({IdentityPoolId: Schema.optional(Schema.String), IdentityPoolName: Schema.optional(Schema.String)}) {}
 export const IdentityPoolsList = Schema.Array(IdentityPoolShortDescription);
-export const LimitExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DeleteIdentitiesResponse = Schema.Struct({UnprocessedIdentityIds: Schema.optional(UnprocessedIdentityIdList)});
-export const TooManyRequestsException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const GetOpenIdTokenForDeveloperIdentityResponse = Schema.Struct({IdentityId: Schema.optional(Schema.String), Token: Schema.optional(Schema.String)});
-export const ListIdentityPoolsResponse = Schema.Struct({IdentityPools: Schema.optional(IdentityPoolsList), NextToken: Schema.optional(Schema.String)});
-export const Credentials = Schema.Struct({AccessKeyId: Schema.optional(Schema.String), SecretKey: Schema.optional(Schema.String), SessionToken: Schema.optional(Schema.String), Expiration: Schema.optional(Schema.Date)});
-export const GetCredentialsForIdentityResponse = Schema.Struct({IdentityId: Schema.optional(Schema.String), Credentials: Schema.optional(Credentials)});
-export const DeveloperUserAlreadyRegisteredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidIdentityPoolConfigurationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const SetIdentityPoolRolesInput = Schema.Struct({IdentityPoolId: Schema.String, Roles: RolesMap, RoleMappings: Schema.optional(RoleMappingMap)});
+export class LimitExceededException extends Schema.Class<LimitExceededException>("LimitExceededException")({message: Schema.optional(Schema.String)}) {}
+export class DeleteIdentitiesResponse extends Schema.Class<DeleteIdentitiesResponse>("DeleteIdentitiesResponse")({UnprocessedIdentityIds: Schema.optional(UnprocessedIdentityIdList)}) {}
+export class TooManyRequestsException extends Schema.Class<TooManyRequestsException>("TooManyRequestsException")({message: Schema.optional(Schema.String)}) {}
+export class GetOpenIdTokenForDeveloperIdentityResponse extends Schema.Class<GetOpenIdTokenForDeveloperIdentityResponse>("GetOpenIdTokenForDeveloperIdentityResponse")({IdentityId: Schema.optional(Schema.String), Token: Schema.optional(Schema.String)}) {}
+export class ListIdentityPoolsResponse extends Schema.Class<ListIdentityPoolsResponse>("ListIdentityPoolsResponse")({IdentityPools: Schema.optional(IdentityPoolsList), NextToken: Schema.optional(Schema.String)}) {}
+export class Credentials extends Schema.Class<Credentials>("Credentials")({AccessKeyId: Schema.optional(Schema.String), SecretKey: Schema.optional(Schema.String), SessionToken: Schema.optional(Schema.String), Expiration: Schema.optional(Schema.Date)}) {}
+export class GetCredentialsForIdentityResponse extends Schema.Class<GetCredentialsForIdentityResponse>("GetCredentialsForIdentityResponse")({IdentityId: Schema.optional(Schema.String), Credentials: Schema.optional(Credentials)}) {}
+export class DeveloperUserAlreadyRegisteredException extends Schema.Class<DeveloperUserAlreadyRegisteredException>("DeveloperUserAlreadyRegisteredException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidIdentityPoolConfigurationException extends Schema.Class<InvalidIdentityPoolConfigurationException>("InvalidIdentityPoolConfigurationException")({message: Schema.optional(Schema.String)}) {}
+export class SetIdentityPoolRolesInput extends Schema.Class<SetIdentityPoolRolesInput>("SetIdentityPoolRolesInput")({IdentityPoolId: Schema.String, Roles: RolesMap, RoleMappings: Schema.optional(RoleMappingMap)}) {}
 
 //# Errors
-export class InternalErrorExceptionError extends Schema.TaggedError<InternalErrorExceptionError>()("InternalErrorException", InternalErrorException) {};
-export class InvalidParameterExceptionError extends Schema.TaggedError<InvalidParameterExceptionError>()("InvalidParameterException", InvalidParameterException) {};
-export class NotAuthorizedExceptionError extends Schema.TaggedError<NotAuthorizedExceptionError>()("NotAuthorizedException", NotAuthorizedException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class TooManyRequestsExceptionError extends Schema.TaggedError<TooManyRequestsExceptionError>()("TooManyRequestsException", TooManyRequestsException) {};
-export class ExternalServiceExceptionError extends Schema.TaggedError<ExternalServiceExceptionError>()("ExternalServiceException", ExternalServiceException) {};
-export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException) {};
-export class ResourceConflictExceptionError extends Schema.TaggedError<ResourceConflictExceptionError>()("ResourceConflictException", ResourceConflictException) {};
-export class ConcurrentModificationExceptionError extends Schema.TaggedError<ConcurrentModificationExceptionError>()("ConcurrentModificationException", ConcurrentModificationException) {};
-export class DeveloperUserAlreadyRegisteredExceptionError extends Schema.TaggedError<DeveloperUserAlreadyRegisteredExceptionError>()("DeveloperUserAlreadyRegisteredException", DeveloperUserAlreadyRegisteredException) {};
-export class InvalidIdentityPoolConfigurationExceptionError extends Schema.TaggedError<InvalidIdentityPoolConfigurationExceptionError>()("InvalidIdentityPoolConfigurationException", InvalidIdentityPoolConfigurationException) {};
+export class InternalErrorExceptionError extends Schema.TaggedError<InternalErrorExceptionError>()("InternalErrorException", InternalErrorException.fields) {};
+export class InvalidParameterExceptionError extends Schema.TaggedError<InvalidParameterExceptionError>()("InvalidParameterException", InvalidParameterException.fields) {};
+export class NotAuthorizedExceptionError extends Schema.TaggedError<NotAuthorizedExceptionError>()("NotAuthorizedException", NotAuthorizedException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class TooManyRequestsExceptionError extends Schema.TaggedError<TooManyRequestsExceptionError>()("TooManyRequestsException", TooManyRequestsException.fields) {};
+export class ExternalServiceExceptionError extends Schema.TaggedError<ExternalServiceExceptionError>()("ExternalServiceException", ExternalServiceException.fields) {};
+export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException.fields) {};
+export class ResourceConflictExceptionError extends Schema.TaggedError<ResourceConflictExceptionError>()("ResourceConflictException", ResourceConflictException.fields) {};
+export class ConcurrentModificationExceptionError extends Schema.TaggedError<ConcurrentModificationExceptionError>()("ConcurrentModificationException", ConcurrentModificationException.fields) {};
+export class DeveloperUserAlreadyRegisteredExceptionError extends Schema.TaggedError<DeveloperUserAlreadyRegisteredExceptionError>()("DeveloperUserAlreadyRegisteredException", DeveloperUserAlreadyRegisteredException.fields) {};
+export class InvalidIdentityPoolConfigurationExceptionError extends Schema.TaggedError<InvalidIdentityPoolConfigurationExceptionError>()("InvalidIdentityPoolConfigurationException", InvalidIdentityPoolConfigurationException.fields) {};
 
 //# Operations
 export const describeIdentity = /*#__PURE__*/ makeOperation(() => Operation({ version: "2014-06-30", uri: "/", method: "POST", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.DescribeIdentity" }, DescribeIdentityInput, IdentityDescription, [InternalErrorExceptionError, InvalidParameterExceptionError, NotAuthorizedExceptionError, ResourceNotFoundExceptionError, TooManyRequestsExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

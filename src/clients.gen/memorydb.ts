@@ -11,287 +11,287 @@ export const SubnetIdentifierList = Schema.Array(Schema.String);
 export const ServiceUpdateStatusList = Schema.Array(Schema.String);
 export const ParameterNameList = Schema.Array(Schema.String);
 export const KeyList = Schema.Array(Schema.String);
-export const Tag = Schema.Struct({Key: Schema.optional(Schema.String), Value: Schema.optional(Schema.String)});
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.optional(Schema.String), Value: Schema.optional(Schema.String)}) {}
 export const TagList = Schema.Array(Tag);
-export const CreateACLRequest = Schema.Struct({ACLName: Schema.String, UserNames: Schema.optional(UserNameListInput), Tags: Schema.optional(TagList)});
-export const CreateClusterRequest = Schema.Struct({ClusterName: Schema.String, NodeType: Schema.String, MultiRegionClusterName: Schema.optional(Schema.String), ParameterGroupName: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), NumShards: Schema.optional(Schema.Number), NumReplicasPerShard: Schema.optional(Schema.Number), SubnetGroupName: Schema.optional(Schema.String), SecurityGroupIds: Schema.optional(SecurityGroupIdsList), MaintenanceWindow: Schema.optional(Schema.String), Port: Schema.optional(Schema.Number), SnsTopicArn: Schema.optional(Schema.String), TLSEnabled: Schema.optional(Schema.Boolean), KmsKeyId: Schema.optional(Schema.String), SnapshotArns: Schema.optional(SnapshotArnsList), SnapshotName: Schema.optional(Schema.String), SnapshotRetentionLimit: Schema.optional(Schema.Number), Tags: Schema.optional(TagList), SnapshotWindow: Schema.optional(Schema.String), ACLName: Schema.String, Engine: Schema.optional(Schema.String), EngineVersion: Schema.optional(Schema.String), AutoMinorVersionUpgrade: Schema.optional(Schema.Boolean), DataTiering: Schema.optional(Schema.Boolean), NetworkType: Schema.optional(Schema.String), IpDiscovery: Schema.optional(Schema.String)});
-export const CreateMultiRegionClusterRequest = Schema.Struct({MultiRegionClusterNameSuffix: Schema.String, Description: Schema.optional(Schema.String), Engine: Schema.optional(Schema.String), EngineVersion: Schema.optional(Schema.String), NodeType: Schema.String, MultiRegionParameterGroupName: Schema.optional(Schema.String), NumShards: Schema.optional(Schema.Number), TLSEnabled: Schema.optional(Schema.Boolean), Tags: Schema.optional(TagList)});
-export const CreateParameterGroupRequest = Schema.Struct({ParameterGroupName: Schema.String, Family: Schema.String, Description: Schema.optional(Schema.String), Tags: Schema.optional(TagList)});
-export const CreateSnapshotRequest = Schema.Struct({ClusterName: Schema.String, SnapshotName: Schema.String, KmsKeyId: Schema.optional(Schema.String), Tags: Schema.optional(TagList)});
-export const CreateSubnetGroupRequest = Schema.Struct({SubnetGroupName: Schema.String, Description: Schema.optional(Schema.String), SubnetIds: SubnetIdentifierList, Tags: Schema.optional(TagList)});
-export const DeleteACLRequest = Schema.Struct({ACLName: Schema.String});
-export const DeleteClusterRequest = Schema.Struct({ClusterName: Schema.String, MultiRegionClusterName: Schema.optional(Schema.String), FinalSnapshotName: Schema.optional(Schema.String)});
-export const DeleteMultiRegionClusterRequest = Schema.Struct({MultiRegionClusterName: Schema.String});
-export const DeleteParameterGroupRequest = Schema.Struct({ParameterGroupName: Schema.String});
-export const DeleteSnapshotRequest = Schema.Struct({SnapshotName: Schema.String});
-export const DeleteSubnetGroupRequest = Schema.Struct({SubnetGroupName: Schema.String});
-export const DeleteUserRequest = Schema.Struct({UserName: Schema.String});
-export const DescribeACLsRequest = Schema.Struct({ACLName: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const DescribeClustersRequest = Schema.Struct({ClusterName: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), ShowShardDetails: Schema.optional(Schema.Boolean)});
-export const DescribeEngineVersionsRequest = Schema.Struct({Engine: Schema.optional(Schema.String), EngineVersion: Schema.optional(Schema.String), ParameterGroupFamily: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), DefaultOnly: Schema.optional(Schema.Boolean)});
-export const DescribeEventsRequest = Schema.Struct({SourceName: Schema.optional(Schema.String), SourceType: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date), Duration: Schema.optional(Schema.Number), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const DescribeMultiRegionClustersRequest = Schema.Struct({MultiRegionClusterName: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), ShowClusterDetails: Schema.optional(Schema.Boolean)});
-export const DescribeMultiRegionParameterGroupsRequest = Schema.Struct({MultiRegionParameterGroupName: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const DescribeMultiRegionParametersRequest = Schema.Struct({MultiRegionParameterGroupName: Schema.String, Source: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const DescribeParameterGroupsRequest = Schema.Struct({ParameterGroupName: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const DescribeParametersRequest = Schema.Struct({ParameterGroupName: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const DescribeReservedNodesRequest = Schema.Struct({ReservationId: Schema.optional(Schema.String), ReservedNodesOfferingId: Schema.optional(Schema.String), NodeType: Schema.optional(Schema.String), Duration: Schema.optional(Schema.String), OfferingType: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const DescribeReservedNodesOfferingsRequest = Schema.Struct({ReservedNodesOfferingId: Schema.optional(Schema.String), NodeType: Schema.optional(Schema.String), Duration: Schema.optional(Schema.String), OfferingType: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const DescribeServiceUpdatesRequest = Schema.Struct({ServiceUpdateName: Schema.optional(Schema.String), ClusterNames: Schema.optional(ClusterNameList), Status: Schema.optional(ServiceUpdateStatusList), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const DescribeSnapshotsRequest = Schema.Struct({ClusterName: Schema.optional(Schema.String), SnapshotName: Schema.optional(Schema.String), Source: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), ShowDetail: Schema.optional(Schema.Boolean)});
-export const DescribeSubnetGroupsRequest = Schema.Struct({SubnetGroupName: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const FailoverShardRequest = Schema.Struct({ClusterName: Schema.String, ShardName: Schema.String});
-export const ListAllowedMultiRegionClusterUpdatesRequest = Schema.Struct({MultiRegionClusterName: Schema.String});
-export const ListAllowedNodeTypeUpdatesRequest = Schema.Struct({ClusterName: Schema.String});
-export const ListTagsRequest = Schema.Struct({ResourceArn: Schema.String});
-export const PurchaseReservedNodesOfferingRequest = Schema.Struct({ReservedNodesOfferingId: Schema.String, ReservationId: Schema.optional(Schema.String), NodeCount: Schema.optional(Schema.Number), Tags: Schema.optional(TagList)});
-export const ResetParameterGroupRequest = Schema.Struct({ParameterGroupName: Schema.String, AllParameters: Schema.optional(Schema.Boolean), ParameterNames: Schema.optional(ParameterNameList)});
-export const TagResourceRequest = Schema.Struct({ResourceArn: Schema.String, Tags: TagList});
-export const UntagResourceRequest = Schema.Struct({ResourceArn: Schema.String, TagKeys: KeyList});
-export const UpdateACLRequest = Schema.Struct({ACLName: Schema.String, UserNamesToAdd: Schema.optional(UserNameListInput), UserNamesToRemove: Schema.optional(UserNameListInput)});
-export const ShardConfigurationRequest = Schema.Struct({ShardCount: Schema.optional(Schema.Number)});
-export const UpdateMultiRegionClusterRequest = Schema.Struct({MultiRegionClusterName: Schema.String, NodeType: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), EngineVersion: Schema.optional(Schema.String), ShardConfiguration: Schema.optional(ShardConfigurationRequest), MultiRegionParameterGroupName: Schema.optional(Schema.String), UpdateStrategy: Schema.optional(Schema.String)});
-export const UpdateSubnetGroupRequest = Schema.Struct({SubnetGroupName: Schema.String, Description: Schema.optional(Schema.String), SubnetIds: Schema.optional(SubnetIdentifierList)});
+export class CreateACLRequest extends Schema.Class<CreateACLRequest>("CreateACLRequest")({ACLName: Schema.String, UserNames: Schema.optional(UserNameListInput), Tags: Schema.optional(TagList)}) {}
+export class CreateClusterRequest extends Schema.Class<CreateClusterRequest>("CreateClusterRequest")({ClusterName: Schema.String, NodeType: Schema.String, MultiRegionClusterName: Schema.optional(Schema.String), ParameterGroupName: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), NumShards: Schema.optional(Schema.Number), NumReplicasPerShard: Schema.optional(Schema.Number), SubnetGroupName: Schema.optional(Schema.String), SecurityGroupIds: Schema.optional(SecurityGroupIdsList), MaintenanceWindow: Schema.optional(Schema.String), Port: Schema.optional(Schema.Number), SnsTopicArn: Schema.optional(Schema.String), TLSEnabled: Schema.optional(Schema.Boolean), KmsKeyId: Schema.optional(Schema.String), SnapshotArns: Schema.optional(SnapshotArnsList), SnapshotName: Schema.optional(Schema.String), SnapshotRetentionLimit: Schema.optional(Schema.Number), Tags: Schema.optional(TagList), SnapshotWindow: Schema.optional(Schema.String), ACLName: Schema.String, Engine: Schema.optional(Schema.String), EngineVersion: Schema.optional(Schema.String), AutoMinorVersionUpgrade: Schema.optional(Schema.Boolean), DataTiering: Schema.optional(Schema.Boolean), NetworkType: Schema.optional(Schema.String), IpDiscovery: Schema.optional(Schema.String)}) {}
+export class CreateMultiRegionClusterRequest extends Schema.Class<CreateMultiRegionClusterRequest>("CreateMultiRegionClusterRequest")({MultiRegionClusterNameSuffix: Schema.String, Description: Schema.optional(Schema.String), Engine: Schema.optional(Schema.String), EngineVersion: Schema.optional(Schema.String), NodeType: Schema.String, MultiRegionParameterGroupName: Schema.optional(Schema.String), NumShards: Schema.optional(Schema.Number), TLSEnabled: Schema.optional(Schema.Boolean), Tags: Schema.optional(TagList)}) {}
+export class CreateParameterGroupRequest extends Schema.Class<CreateParameterGroupRequest>("CreateParameterGroupRequest")({ParameterGroupName: Schema.String, Family: Schema.String, Description: Schema.optional(Schema.String), Tags: Schema.optional(TagList)}) {}
+export class CreateSnapshotRequest extends Schema.Class<CreateSnapshotRequest>("CreateSnapshotRequest")({ClusterName: Schema.String, SnapshotName: Schema.String, KmsKeyId: Schema.optional(Schema.String), Tags: Schema.optional(TagList)}) {}
+export class CreateSubnetGroupRequest extends Schema.Class<CreateSubnetGroupRequest>("CreateSubnetGroupRequest")({SubnetGroupName: Schema.String, Description: Schema.optional(Schema.String), SubnetIds: SubnetIdentifierList, Tags: Schema.optional(TagList)}) {}
+export class DeleteACLRequest extends Schema.Class<DeleteACLRequest>("DeleteACLRequest")({ACLName: Schema.String}) {}
+export class DeleteClusterRequest extends Schema.Class<DeleteClusterRequest>("DeleteClusterRequest")({ClusterName: Schema.String, MultiRegionClusterName: Schema.optional(Schema.String), FinalSnapshotName: Schema.optional(Schema.String)}) {}
+export class DeleteMultiRegionClusterRequest extends Schema.Class<DeleteMultiRegionClusterRequest>("DeleteMultiRegionClusterRequest")({MultiRegionClusterName: Schema.String}) {}
+export class DeleteParameterGroupRequest extends Schema.Class<DeleteParameterGroupRequest>("DeleteParameterGroupRequest")({ParameterGroupName: Schema.String}) {}
+export class DeleteSnapshotRequest extends Schema.Class<DeleteSnapshotRequest>("DeleteSnapshotRequest")({SnapshotName: Schema.String}) {}
+export class DeleteSubnetGroupRequest extends Schema.Class<DeleteSubnetGroupRequest>("DeleteSubnetGroupRequest")({SubnetGroupName: Schema.String}) {}
+export class DeleteUserRequest extends Schema.Class<DeleteUserRequest>("DeleteUserRequest")({UserName: Schema.String}) {}
+export class DescribeACLsRequest extends Schema.Class<DescribeACLsRequest>("DescribeACLsRequest")({ACLName: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class DescribeClustersRequest extends Schema.Class<DescribeClustersRequest>("DescribeClustersRequest")({ClusterName: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), ShowShardDetails: Schema.optional(Schema.Boolean)}) {}
+export class DescribeEngineVersionsRequest extends Schema.Class<DescribeEngineVersionsRequest>("DescribeEngineVersionsRequest")({Engine: Schema.optional(Schema.String), EngineVersion: Schema.optional(Schema.String), ParameterGroupFamily: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), DefaultOnly: Schema.optional(Schema.Boolean)}) {}
+export class DescribeEventsRequest extends Schema.Class<DescribeEventsRequest>("DescribeEventsRequest")({SourceName: Schema.optional(Schema.String), SourceType: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date), Duration: Schema.optional(Schema.Number), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class DescribeMultiRegionClustersRequest extends Schema.Class<DescribeMultiRegionClustersRequest>("DescribeMultiRegionClustersRequest")({MultiRegionClusterName: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), ShowClusterDetails: Schema.optional(Schema.Boolean)}) {}
+export class DescribeMultiRegionParameterGroupsRequest extends Schema.Class<DescribeMultiRegionParameterGroupsRequest>("DescribeMultiRegionParameterGroupsRequest")({MultiRegionParameterGroupName: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class DescribeMultiRegionParametersRequest extends Schema.Class<DescribeMultiRegionParametersRequest>("DescribeMultiRegionParametersRequest")({MultiRegionParameterGroupName: Schema.String, Source: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class DescribeParameterGroupsRequest extends Schema.Class<DescribeParameterGroupsRequest>("DescribeParameterGroupsRequest")({ParameterGroupName: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class DescribeParametersRequest extends Schema.Class<DescribeParametersRequest>("DescribeParametersRequest")({ParameterGroupName: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class DescribeReservedNodesRequest extends Schema.Class<DescribeReservedNodesRequest>("DescribeReservedNodesRequest")({ReservationId: Schema.optional(Schema.String), ReservedNodesOfferingId: Schema.optional(Schema.String), NodeType: Schema.optional(Schema.String), Duration: Schema.optional(Schema.String), OfferingType: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class DescribeReservedNodesOfferingsRequest extends Schema.Class<DescribeReservedNodesOfferingsRequest>("DescribeReservedNodesOfferingsRequest")({ReservedNodesOfferingId: Schema.optional(Schema.String), NodeType: Schema.optional(Schema.String), Duration: Schema.optional(Schema.String), OfferingType: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class DescribeServiceUpdatesRequest extends Schema.Class<DescribeServiceUpdatesRequest>("DescribeServiceUpdatesRequest")({ServiceUpdateName: Schema.optional(Schema.String), ClusterNames: Schema.optional(ClusterNameList), Status: Schema.optional(ServiceUpdateStatusList), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class DescribeSnapshotsRequest extends Schema.Class<DescribeSnapshotsRequest>("DescribeSnapshotsRequest")({ClusterName: Schema.optional(Schema.String), SnapshotName: Schema.optional(Schema.String), Source: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), ShowDetail: Schema.optional(Schema.Boolean)}) {}
+export class DescribeSubnetGroupsRequest extends Schema.Class<DescribeSubnetGroupsRequest>("DescribeSubnetGroupsRequest")({SubnetGroupName: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class FailoverShardRequest extends Schema.Class<FailoverShardRequest>("FailoverShardRequest")({ClusterName: Schema.String, ShardName: Schema.String}) {}
+export class ListAllowedMultiRegionClusterUpdatesRequest extends Schema.Class<ListAllowedMultiRegionClusterUpdatesRequest>("ListAllowedMultiRegionClusterUpdatesRequest")({MultiRegionClusterName: Schema.String}) {}
+export class ListAllowedNodeTypeUpdatesRequest extends Schema.Class<ListAllowedNodeTypeUpdatesRequest>("ListAllowedNodeTypeUpdatesRequest")({ClusterName: Schema.String}) {}
+export class ListTagsRequest extends Schema.Class<ListTagsRequest>("ListTagsRequest")({ResourceArn: Schema.String}) {}
+export class PurchaseReservedNodesOfferingRequest extends Schema.Class<PurchaseReservedNodesOfferingRequest>("PurchaseReservedNodesOfferingRequest")({ReservedNodesOfferingId: Schema.String, ReservationId: Schema.optional(Schema.String), NodeCount: Schema.optional(Schema.Number), Tags: Schema.optional(TagList)}) {}
+export class ResetParameterGroupRequest extends Schema.Class<ResetParameterGroupRequest>("ResetParameterGroupRequest")({ParameterGroupName: Schema.String, AllParameters: Schema.optional(Schema.Boolean), ParameterNames: Schema.optional(ParameterNameList)}) {}
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({ResourceArn: Schema.String, Tags: TagList}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({ResourceArn: Schema.String, TagKeys: KeyList}) {}
+export class UpdateACLRequest extends Schema.Class<UpdateACLRequest>("UpdateACLRequest")({ACLName: Schema.String, UserNamesToAdd: Schema.optional(UserNameListInput), UserNamesToRemove: Schema.optional(UserNameListInput)}) {}
+export class ShardConfigurationRequest extends Schema.Class<ShardConfigurationRequest>("ShardConfigurationRequest")({ShardCount: Schema.optional(Schema.Number)}) {}
+export class UpdateMultiRegionClusterRequest extends Schema.Class<UpdateMultiRegionClusterRequest>("UpdateMultiRegionClusterRequest")({MultiRegionClusterName: Schema.String, NodeType: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), EngineVersion: Schema.optional(Schema.String), ShardConfiguration: Schema.optional(ShardConfigurationRequest), MultiRegionParameterGroupName: Schema.optional(Schema.String), UpdateStrategy: Schema.optional(Schema.String)}) {}
+export class UpdateSubnetGroupRequest extends Schema.Class<UpdateSubnetGroupRequest>("UpdateSubnetGroupRequest")({SubnetGroupName: Schema.String, Description: Schema.optional(Schema.String), SubnetIds: Schema.optional(SubnetIdentifierList)}) {}
 export const PasswordListInput = Schema.Array(Schema.String);
-export const AuthenticationMode = Schema.Struct({Type: Schema.optional(Schema.String), Passwords: Schema.optional(PasswordListInput)});
-export const UpdateUserRequest = Schema.Struct({UserName: Schema.String, AuthenticationMode: Schema.optional(AuthenticationMode), AccessString: Schema.optional(Schema.String)});
+export class AuthenticationMode extends Schema.Class<AuthenticationMode>("AuthenticationMode")({Type: Schema.optional(Schema.String), Passwords: Schema.optional(PasswordListInput)}) {}
+export class UpdateUserRequest extends Schema.Class<UpdateUserRequest>("UpdateUserRequest")({UserName: Schema.String, AuthenticationMode: Schema.optional(AuthenticationMode), AccessString: Schema.optional(Schema.String)}) {}
 export const FilterValueList = Schema.Array(Schema.String);
-export const ServiceUpdateRequest = Schema.Struct({ServiceUpdateNameToApply: Schema.optional(Schema.String)});
+export class ServiceUpdateRequest extends Schema.Class<ServiceUpdateRequest>("ServiceUpdateRequest")({ServiceUpdateNameToApply: Schema.optional(Schema.String)}) {}
 export const UserNameList = Schema.Array(Schema.String);
-export const ACLPendingChanges = Schema.Struct({UserNamesToRemove: Schema.optional(UserNameList), UserNamesToAdd: Schema.optional(UserNameList)});
+export class ACLPendingChanges extends Schema.Class<ACLPendingChanges>("ACLPendingChanges")({UserNamesToRemove: Schema.optional(UserNameList), UserNamesToAdd: Schema.optional(UserNameList)}) {}
 export const ACLClusterNameList = Schema.Array(Schema.String);
-export const ACL = Schema.Struct({Name: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), UserNames: Schema.optional(UserNameList), MinimumEngineVersion: Schema.optional(Schema.String), PendingChanges: Schema.optional(ACLPendingChanges), Clusters: Schema.optional(ACLClusterNameList), ARN: Schema.optional(Schema.String)});
+export class ACL extends Schema.Class<ACL>("ACL")({Name: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), UserNames: Schema.optional(UserNameList), MinimumEngineVersion: Schema.optional(Schema.String), PendingChanges: Schema.optional(ACLPendingChanges), Clusters: Schema.optional(ACLClusterNameList), ARN: Schema.optional(Schema.String)}) {}
 export const ACLList = Schema.Array(ACL);
-export const SlotMigration = Schema.Struct({ProgressPercentage: Schema.optional(Schema.Number)});
-export const ReshardingStatus = Schema.Struct({SlotMigration: Schema.optional(SlotMigration)});
-export const ACLsUpdateStatus = Schema.Struct({ACLToApply: Schema.optional(Schema.String)});
-export const PendingModifiedServiceUpdate = Schema.Struct({ServiceUpdateName: Schema.optional(Schema.String), Status: Schema.optional(Schema.String)});
+export class SlotMigration extends Schema.Class<SlotMigration>("SlotMigration")({ProgressPercentage: Schema.optional(Schema.Number)}) {}
+export class ReshardingStatus extends Schema.Class<ReshardingStatus>("ReshardingStatus")({SlotMigration: Schema.optional(SlotMigration)}) {}
+export class ACLsUpdateStatus extends Schema.Class<ACLsUpdateStatus>("ACLsUpdateStatus")({ACLToApply: Schema.optional(Schema.String)}) {}
+export class PendingModifiedServiceUpdate extends Schema.Class<PendingModifiedServiceUpdate>("PendingModifiedServiceUpdate")({ServiceUpdateName: Schema.optional(Schema.String), Status: Schema.optional(Schema.String)}) {}
 export const PendingModifiedServiceUpdateList = Schema.Array(PendingModifiedServiceUpdate);
-export const ClusterPendingUpdates = Schema.Struct({Resharding: Schema.optional(ReshardingStatus), ACLs: Schema.optional(ACLsUpdateStatus), ServiceUpdates: Schema.optional(PendingModifiedServiceUpdateList)});
-export const Endpoint = Schema.Struct({Address: Schema.optional(Schema.String), Port: Schema.optional(Schema.Number)});
-export const Node = Schema.Struct({Name: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), AvailabilityZone: Schema.optional(Schema.String), CreateTime: Schema.optional(Schema.Date), Endpoint: Schema.optional(Endpoint)});
+export class ClusterPendingUpdates extends Schema.Class<ClusterPendingUpdates>("ClusterPendingUpdates")({Resharding: Schema.optional(ReshardingStatus), ACLs: Schema.optional(ACLsUpdateStatus), ServiceUpdates: Schema.optional(PendingModifiedServiceUpdateList)}) {}
+export class Endpoint extends Schema.Class<Endpoint>("Endpoint")({Address: Schema.optional(Schema.String), Port: Schema.optional(Schema.Number)}) {}
+export class Node extends Schema.Class<Node>("Node")({Name: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), AvailabilityZone: Schema.optional(Schema.String), CreateTime: Schema.optional(Schema.Date), Endpoint: Schema.optional(Endpoint)}) {}
 export const NodeList = Schema.Array(Node);
-export const Shard = Schema.Struct({Name: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), Slots: Schema.optional(Schema.String), Nodes: Schema.optional(NodeList), NumberOfNodes: Schema.optional(Schema.Number)});
+export class Shard extends Schema.Class<Shard>("Shard")({Name: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), Slots: Schema.optional(Schema.String), Nodes: Schema.optional(NodeList), NumberOfNodes: Schema.optional(Schema.Number)}) {}
 export const ShardList = Schema.Array(Shard);
-export const SecurityGroupMembership = Schema.Struct({SecurityGroupId: Schema.optional(Schema.String), Status: Schema.optional(Schema.String)});
+export class SecurityGroupMembership extends Schema.Class<SecurityGroupMembership>("SecurityGroupMembership")({SecurityGroupId: Schema.optional(Schema.String), Status: Schema.optional(Schema.String)}) {}
 export const SecurityGroupMembershipList = Schema.Array(SecurityGroupMembership);
-export const Cluster = Schema.Struct({Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), PendingUpdates: Schema.optional(ClusterPendingUpdates), MultiRegionClusterName: Schema.optional(Schema.String), NumberOfShards: Schema.optional(Schema.Number), Shards: Schema.optional(ShardList), AvailabilityMode: Schema.optional(Schema.String), ClusterEndpoint: Schema.optional(Endpoint), NodeType: Schema.optional(Schema.String), Engine: Schema.optional(Schema.String), EngineVersion: Schema.optional(Schema.String), EnginePatchVersion: Schema.optional(Schema.String), ParameterGroupName: Schema.optional(Schema.String), ParameterGroupStatus: Schema.optional(Schema.String), SecurityGroups: Schema.optional(SecurityGroupMembershipList), SubnetGroupName: Schema.optional(Schema.String), TLSEnabled: Schema.optional(Schema.Boolean), KmsKeyId: Schema.optional(Schema.String), ARN: Schema.optional(Schema.String), SnsTopicArn: Schema.optional(Schema.String), SnsTopicStatus: Schema.optional(Schema.String), SnapshotRetentionLimit: Schema.optional(Schema.Number), MaintenanceWindow: Schema.optional(Schema.String), SnapshotWindow: Schema.optional(Schema.String), ACLName: Schema.optional(Schema.String), AutoMinorVersionUpgrade: Schema.optional(Schema.Boolean), DataTiering: Schema.optional(Schema.String), NetworkType: Schema.optional(Schema.String), IpDiscovery: Schema.optional(Schema.String)});
+export class Cluster extends Schema.Class<Cluster>("Cluster")({Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), PendingUpdates: Schema.optional(ClusterPendingUpdates), MultiRegionClusterName: Schema.optional(Schema.String), NumberOfShards: Schema.optional(Schema.Number), Shards: Schema.optional(ShardList), AvailabilityMode: Schema.optional(Schema.String), ClusterEndpoint: Schema.optional(Endpoint), NodeType: Schema.optional(Schema.String), Engine: Schema.optional(Schema.String), EngineVersion: Schema.optional(Schema.String), EnginePatchVersion: Schema.optional(Schema.String), ParameterGroupName: Schema.optional(Schema.String), ParameterGroupStatus: Schema.optional(Schema.String), SecurityGroups: Schema.optional(SecurityGroupMembershipList), SubnetGroupName: Schema.optional(Schema.String), TLSEnabled: Schema.optional(Schema.Boolean), KmsKeyId: Schema.optional(Schema.String), ARN: Schema.optional(Schema.String), SnsTopicArn: Schema.optional(Schema.String), SnsTopicStatus: Schema.optional(Schema.String), SnapshotRetentionLimit: Schema.optional(Schema.Number), MaintenanceWindow: Schema.optional(Schema.String), SnapshotWindow: Schema.optional(Schema.String), ACLName: Schema.optional(Schema.String), AutoMinorVersionUpgrade: Schema.optional(Schema.Boolean), DataTiering: Schema.optional(Schema.String), NetworkType: Schema.optional(Schema.String), IpDiscovery: Schema.optional(Schema.String)}) {}
 export const ClusterList = Schema.Array(Cluster);
-export const RegionalCluster = Schema.Struct({ClusterName: Schema.optional(Schema.String), Region: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), ARN: Schema.optional(Schema.String)});
+export class RegionalCluster extends Schema.Class<RegionalCluster>("RegionalCluster")({ClusterName: Schema.optional(Schema.String), Region: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), ARN: Schema.optional(Schema.String)}) {}
 export const RegionalClusterList = Schema.Array(RegionalCluster);
-export const MultiRegionCluster = Schema.Struct({MultiRegionClusterName: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), NodeType: Schema.optional(Schema.String), Engine: Schema.optional(Schema.String), EngineVersion: Schema.optional(Schema.String), NumberOfShards: Schema.optional(Schema.Number), Clusters: Schema.optional(RegionalClusterList), MultiRegionParameterGroupName: Schema.optional(Schema.String), TLSEnabled: Schema.optional(Schema.Boolean), ARN: Schema.optional(Schema.String)});
+export class MultiRegionCluster extends Schema.Class<MultiRegionCluster>("MultiRegionCluster")({MultiRegionClusterName: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), NodeType: Schema.optional(Schema.String), Engine: Schema.optional(Schema.String), EngineVersion: Schema.optional(Schema.String), NumberOfShards: Schema.optional(Schema.Number), Clusters: Schema.optional(RegionalClusterList), MultiRegionParameterGroupName: Schema.optional(Schema.String), TLSEnabled: Schema.optional(Schema.Boolean), ARN: Schema.optional(Schema.String)}) {}
 export const MultiRegionClusterList = Schema.Array(MultiRegionCluster);
-export const ParameterGroup = Schema.Struct({Name: Schema.optional(Schema.String), Family: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), ARN: Schema.optional(Schema.String)});
+export class ParameterGroup extends Schema.Class<ParameterGroup>("ParameterGroup")({Name: Schema.optional(Schema.String), Family: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), ARN: Schema.optional(Schema.String)}) {}
 export const ParameterGroupList = Schema.Array(ParameterGroup);
-export const ShardConfiguration = Schema.Struct({Slots: Schema.optional(Schema.String), ReplicaCount: Schema.optional(Schema.Number)});
-export const ShardDetail = Schema.Struct({Name: Schema.optional(Schema.String), Configuration: Schema.optional(ShardConfiguration), Size: Schema.optional(Schema.String), SnapshotCreationTime: Schema.optional(Schema.Date)});
+export class ShardConfiguration extends Schema.Class<ShardConfiguration>("ShardConfiguration")({Slots: Schema.optional(Schema.String), ReplicaCount: Schema.optional(Schema.Number)}) {}
+export class ShardDetail extends Schema.Class<ShardDetail>("ShardDetail")({Name: Schema.optional(Schema.String), Configuration: Schema.optional(ShardConfiguration), Size: Schema.optional(Schema.String), SnapshotCreationTime: Schema.optional(Schema.Date)}) {}
 export const ShardDetails = Schema.Array(ShardDetail);
-export const ClusterConfiguration = Schema.Struct({Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), NodeType: Schema.optional(Schema.String), Engine: Schema.optional(Schema.String), EngineVersion: Schema.optional(Schema.String), MaintenanceWindow: Schema.optional(Schema.String), TopicArn: Schema.optional(Schema.String), Port: Schema.optional(Schema.Number), ParameterGroupName: Schema.optional(Schema.String), SubnetGroupName: Schema.optional(Schema.String), VpcId: Schema.optional(Schema.String), SnapshotRetentionLimit: Schema.optional(Schema.Number), SnapshotWindow: Schema.optional(Schema.String), NumShards: Schema.optional(Schema.Number), Shards: Schema.optional(ShardDetails), MultiRegionParameterGroupName: Schema.optional(Schema.String), MultiRegionClusterName: Schema.optional(Schema.String)});
-export const Snapshot = Schema.Struct({Name: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), Source: Schema.optional(Schema.String), KmsKeyId: Schema.optional(Schema.String), ARN: Schema.optional(Schema.String), ClusterConfiguration: Schema.optional(ClusterConfiguration), DataTiering: Schema.optional(Schema.String)});
+export class ClusterConfiguration extends Schema.Class<ClusterConfiguration>("ClusterConfiguration")({Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), NodeType: Schema.optional(Schema.String), Engine: Schema.optional(Schema.String), EngineVersion: Schema.optional(Schema.String), MaintenanceWindow: Schema.optional(Schema.String), TopicArn: Schema.optional(Schema.String), Port: Schema.optional(Schema.Number), ParameterGroupName: Schema.optional(Schema.String), SubnetGroupName: Schema.optional(Schema.String), VpcId: Schema.optional(Schema.String), SnapshotRetentionLimit: Schema.optional(Schema.Number), SnapshotWindow: Schema.optional(Schema.String), NumShards: Schema.optional(Schema.Number), Shards: Schema.optional(ShardDetails), MultiRegionParameterGroupName: Schema.optional(Schema.String), MultiRegionClusterName: Schema.optional(Schema.String)}) {}
+export class Snapshot extends Schema.Class<Snapshot>("Snapshot")({Name: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), Source: Schema.optional(Schema.String), KmsKeyId: Schema.optional(Schema.String), ARN: Schema.optional(Schema.String), ClusterConfiguration: Schema.optional(ClusterConfiguration), DataTiering: Schema.optional(Schema.String)}) {}
 export const SnapshotList = Schema.Array(Snapshot);
-export const AvailabilityZone = Schema.Struct({Name: Schema.optional(Schema.String)});
+export class AvailabilityZone extends Schema.Class<AvailabilityZone>("AvailabilityZone")({Name: Schema.optional(Schema.String)}) {}
 export const NetworkTypeList = Schema.Array(Schema.String);
-export const Subnet = Schema.Struct({Identifier: Schema.optional(Schema.String), AvailabilityZone: Schema.optional(AvailabilityZone), SupportedNetworkTypes: Schema.optional(NetworkTypeList)});
+export class Subnet extends Schema.Class<Subnet>("Subnet")({Identifier: Schema.optional(Schema.String), AvailabilityZone: Schema.optional(AvailabilityZone), SupportedNetworkTypes: Schema.optional(NetworkTypeList)}) {}
 export const SubnetList = Schema.Array(Subnet);
-export const SubnetGroup = Schema.Struct({Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), VpcId: Schema.optional(Schema.String), Subnets: Schema.optional(SubnetList), ARN: Schema.optional(Schema.String), SupportedNetworkTypes: Schema.optional(NetworkTypeList)});
+export class SubnetGroup extends Schema.Class<SubnetGroup>("SubnetGroup")({Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), VpcId: Schema.optional(Schema.String), Subnets: Schema.optional(SubnetList), ARN: Schema.optional(Schema.String), SupportedNetworkTypes: Schema.optional(NetworkTypeList)}) {}
 export const SubnetGroupList = Schema.Array(SubnetGroup);
-export const Filter = Schema.Struct({Name: Schema.String, Values: FilterValueList});
+export class Filter extends Schema.Class<Filter>("Filter")({Name: Schema.String, Values: FilterValueList}) {}
 export const FilterList = Schema.Array(Filter);
 export const NodeTypeList = Schema.Array(Schema.String);
-export const ReplicaConfigurationRequest = Schema.Struct({ReplicaCount: Schema.optional(Schema.Number)});
-export const ParameterNameValue = Schema.Struct({ParameterName: Schema.optional(Schema.String), ParameterValue: Schema.optional(Schema.String)});
+export class ReplicaConfigurationRequest extends Schema.Class<ReplicaConfigurationRequest>("ReplicaConfigurationRequest")({ReplicaCount: Schema.optional(Schema.Number)}) {}
+export class ParameterNameValue extends Schema.Class<ParameterNameValue>("ParameterNameValue")({ParameterName: Schema.optional(Schema.String), ParameterValue: Schema.optional(Schema.String)}) {}
 export const ParameterNameValueList = Schema.Array(ParameterNameValue);
-export const BatchUpdateClusterRequest = Schema.Struct({ClusterNames: ClusterNameList, ServiceUpdate: Schema.optional(ServiceUpdateRequest)});
-export const CopySnapshotRequest = Schema.Struct({SourceSnapshotName: Schema.String, TargetSnapshotName: Schema.String, TargetBucket: Schema.optional(Schema.String), KmsKeyId: Schema.optional(Schema.String), Tags: Schema.optional(TagList)});
-export const CreateUserRequest = Schema.Struct({UserName: Schema.String, AuthenticationMode: AuthenticationMode, AccessString: Schema.String, Tags: Schema.optional(TagList)});
-export const DeleteACLResponse = Schema.Struct({ACL: Schema.optional(ACL)});
-export const DeleteClusterResponse = Schema.Struct({Cluster: Schema.optional(Cluster)});
-export const DeleteMultiRegionClusterResponse = Schema.Struct({MultiRegionCluster: Schema.optional(MultiRegionCluster)});
-export const DeleteParameterGroupResponse = Schema.Struct({ParameterGroup: Schema.optional(ParameterGroup)});
-export const DeleteSnapshotResponse = Schema.Struct({Snapshot: Schema.optional(Snapshot)});
-export const DeleteSubnetGroupResponse = Schema.Struct({SubnetGroup: Schema.optional(SubnetGroup)});
-export const DescribeACLsResponse = Schema.Struct({ACLs: Schema.optional(ACLList), NextToken: Schema.optional(Schema.String)});
-export const DescribeClustersResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), Clusters: Schema.optional(ClusterList)});
-export const DescribeMultiRegionClustersResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), MultiRegionClusters: Schema.optional(MultiRegionClusterList)});
-export const DescribeParameterGroupsResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), ParameterGroups: Schema.optional(ParameterGroupList)});
-export const DescribeSnapshotsResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), Snapshots: Schema.optional(SnapshotList)});
-export const DescribeSubnetGroupsResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), SubnetGroups: Schema.optional(SubnetGroupList)});
-export const DescribeUsersRequest = Schema.Struct({UserName: Schema.optional(Schema.String), Filters: Schema.optional(FilterList), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const FailoverShardResponse = Schema.Struct({Cluster: Schema.optional(Cluster)});
-export const ListAllowedMultiRegionClusterUpdatesResponse = Schema.Struct({ScaleUpNodeTypes: Schema.optional(NodeTypeList), ScaleDownNodeTypes: Schema.optional(NodeTypeList)});
-export const ListAllowedNodeTypeUpdatesResponse = Schema.Struct({ScaleUpNodeTypes: Schema.optional(NodeTypeList), ScaleDownNodeTypes: Schema.optional(NodeTypeList)});
-export const ListTagsResponse = Schema.Struct({TagList: Schema.optional(TagList)});
-export const RecurringCharge = Schema.Struct({RecurringChargeAmount: Schema.optional(Schema.Number), RecurringChargeFrequency: Schema.optional(Schema.String)});
+export class BatchUpdateClusterRequest extends Schema.Class<BatchUpdateClusterRequest>("BatchUpdateClusterRequest")({ClusterNames: ClusterNameList, ServiceUpdate: Schema.optional(ServiceUpdateRequest)}) {}
+export class CopySnapshotRequest extends Schema.Class<CopySnapshotRequest>("CopySnapshotRequest")({SourceSnapshotName: Schema.String, TargetSnapshotName: Schema.String, TargetBucket: Schema.optional(Schema.String), KmsKeyId: Schema.optional(Schema.String), Tags: Schema.optional(TagList)}) {}
+export class CreateUserRequest extends Schema.Class<CreateUserRequest>("CreateUserRequest")({UserName: Schema.String, AuthenticationMode: AuthenticationMode, AccessString: Schema.String, Tags: Schema.optional(TagList)}) {}
+export class DeleteACLResponse extends Schema.Class<DeleteACLResponse>("DeleteACLResponse")({ACL: Schema.optional(ACL)}) {}
+export class DeleteClusterResponse extends Schema.Class<DeleteClusterResponse>("DeleteClusterResponse")({Cluster: Schema.optional(Cluster)}) {}
+export class DeleteMultiRegionClusterResponse extends Schema.Class<DeleteMultiRegionClusterResponse>("DeleteMultiRegionClusterResponse")({MultiRegionCluster: Schema.optional(MultiRegionCluster)}) {}
+export class DeleteParameterGroupResponse extends Schema.Class<DeleteParameterGroupResponse>("DeleteParameterGroupResponse")({ParameterGroup: Schema.optional(ParameterGroup)}) {}
+export class DeleteSnapshotResponse extends Schema.Class<DeleteSnapshotResponse>("DeleteSnapshotResponse")({Snapshot: Schema.optional(Snapshot)}) {}
+export class DeleteSubnetGroupResponse extends Schema.Class<DeleteSubnetGroupResponse>("DeleteSubnetGroupResponse")({SubnetGroup: Schema.optional(SubnetGroup)}) {}
+export class DescribeACLsResponse extends Schema.Class<DescribeACLsResponse>("DescribeACLsResponse")({ACLs: Schema.optional(ACLList), NextToken: Schema.optional(Schema.String)}) {}
+export class DescribeClustersResponse extends Schema.Class<DescribeClustersResponse>("DescribeClustersResponse")({NextToken: Schema.optional(Schema.String), Clusters: Schema.optional(ClusterList)}) {}
+export class DescribeMultiRegionClustersResponse extends Schema.Class<DescribeMultiRegionClustersResponse>("DescribeMultiRegionClustersResponse")({NextToken: Schema.optional(Schema.String), MultiRegionClusters: Schema.optional(MultiRegionClusterList)}) {}
+export class DescribeParameterGroupsResponse extends Schema.Class<DescribeParameterGroupsResponse>("DescribeParameterGroupsResponse")({NextToken: Schema.optional(Schema.String), ParameterGroups: Schema.optional(ParameterGroupList)}) {}
+export class DescribeSnapshotsResponse extends Schema.Class<DescribeSnapshotsResponse>("DescribeSnapshotsResponse")({NextToken: Schema.optional(Schema.String), Snapshots: Schema.optional(SnapshotList)}) {}
+export class DescribeSubnetGroupsResponse extends Schema.Class<DescribeSubnetGroupsResponse>("DescribeSubnetGroupsResponse")({NextToken: Schema.optional(Schema.String), SubnetGroups: Schema.optional(SubnetGroupList)}) {}
+export class DescribeUsersRequest extends Schema.Class<DescribeUsersRequest>("DescribeUsersRequest")({UserName: Schema.optional(Schema.String), Filters: Schema.optional(FilterList), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class FailoverShardResponse extends Schema.Class<FailoverShardResponse>("FailoverShardResponse")({Cluster: Schema.optional(Cluster)}) {}
+export class ListAllowedMultiRegionClusterUpdatesResponse extends Schema.Class<ListAllowedMultiRegionClusterUpdatesResponse>("ListAllowedMultiRegionClusterUpdatesResponse")({ScaleUpNodeTypes: Schema.optional(NodeTypeList), ScaleDownNodeTypes: Schema.optional(NodeTypeList)}) {}
+export class ListAllowedNodeTypeUpdatesResponse extends Schema.Class<ListAllowedNodeTypeUpdatesResponse>("ListAllowedNodeTypeUpdatesResponse")({ScaleUpNodeTypes: Schema.optional(NodeTypeList), ScaleDownNodeTypes: Schema.optional(NodeTypeList)}) {}
+export class ListTagsResponse extends Schema.Class<ListTagsResponse>("ListTagsResponse")({TagList: Schema.optional(TagList)}) {}
+export class RecurringCharge extends Schema.Class<RecurringCharge>("RecurringCharge")({RecurringChargeAmount: Schema.optional(Schema.Number), RecurringChargeFrequency: Schema.optional(Schema.String)}) {}
 export const RecurringChargeList = Schema.Array(RecurringCharge);
-export const ReservedNode = Schema.Struct({ReservationId: Schema.optional(Schema.String), ReservedNodesOfferingId: Schema.optional(Schema.String), NodeType: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.Date), Duration: Schema.optional(Schema.Number), FixedPrice: Schema.optional(Schema.Number), NodeCount: Schema.optional(Schema.Number), OfferingType: Schema.optional(Schema.String), State: Schema.optional(Schema.String), RecurringCharges: Schema.optional(RecurringChargeList), ARN: Schema.optional(Schema.String)});
-export const PurchaseReservedNodesOfferingResponse = Schema.Struct({ReservedNode: Schema.optional(ReservedNode)});
-export const ResetParameterGroupResponse = Schema.Struct({ParameterGroup: Schema.optional(ParameterGroup)});
-export const TagResourceResponse = Schema.Struct({TagList: Schema.optional(TagList)});
-export const UntagResourceResponse = Schema.Struct({TagList: Schema.optional(TagList)});
-export const UpdateACLResponse = Schema.Struct({ACL: Schema.optional(ACL)});
-export const UpdateClusterRequest = Schema.Struct({ClusterName: Schema.String, Description: Schema.optional(Schema.String), SecurityGroupIds: Schema.optional(SecurityGroupIdsList), MaintenanceWindow: Schema.optional(Schema.String), SnsTopicArn: Schema.optional(Schema.String), SnsTopicStatus: Schema.optional(Schema.String), ParameterGroupName: Schema.optional(Schema.String), SnapshotWindow: Schema.optional(Schema.String), SnapshotRetentionLimit: Schema.optional(Schema.Number), NodeType: Schema.optional(Schema.String), Engine: Schema.optional(Schema.String), EngineVersion: Schema.optional(Schema.String), ReplicaConfiguration: Schema.optional(ReplicaConfigurationRequest), ShardConfiguration: Schema.optional(ShardConfigurationRequest), ACLName: Schema.optional(Schema.String), IpDiscovery: Schema.optional(Schema.String)});
-export const UpdateMultiRegionClusterResponse = Schema.Struct({MultiRegionCluster: Schema.optional(MultiRegionCluster)});
-export const UpdateParameterGroupRequest = Schema.Struct({ParameterGroupName: Schema.String, ParameterNameValues: ParameterNameValueList});
-export const UpdateSubnetGroupResponse = Schema.Struct({SubnetGroup: Schema.optional(SubnetGroup)});
+export class ReservedNode extends Schema.Class<ReservedNode>("ReservedNode")({ReservationId: Schema.optional(Schema.String), ReservedNodesOfferingId: Schema.optional(Schema.String), NodeType: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.Date), Duration: Schema.optional(Schema.Number), FixedPrice: Schema.optional(Schema.Number), NodeCount: Schema.optional(Schema.Number), OfferingType: Schema.optional(Schema.String), State: Schema.optional(Schema.String), RecurringCharges: Schema.optional(RecurringChargeList), ARN: Schema.optional(Schema.String)}) {}
+export class PurchaseReservedNodesOfferingResponse extends Schema.Class<PurchaseReservedNodesOfferingResponse>("PurchaseReservedNodesOfferingResponse")({ReservedNode: Schema.optional(ReservedNode)}) {}
+export class ResetParameterGroupResponse extends Schema.Class<ResetParameterGroupResponse>("ResetParameterGroupResponse")({ParameterGroup: Schema.optional(ParameterGroup)}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({TagList: Schema.optional(TagList)}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({TagList: Schema.optional(TagList)}) {}
+export class UpdateACLResponse extends Schema.Class<UpdateACLResponse>("UpdateACLResponse")({ACL: Schema.optional(ACL)}) {}
+export class UpdateClusterRequest extends Schema.Class<UpdateClusterRequest>("UpdateClusterRequest")({ClusterName: Schema.String, Description: Schema.optional(Schema.String), SecurityGroupIds: Schema.optional(SecurityGroupIdsList), MaintenanceWindow: Schema.optional(Schema.String), SnsTopicArn: Schema.optional(Schema.String), SnsTopicStatus: Schema.optional(Schema.String), ParameterGroupName: Schema.optional(Schema.String), SnapshotWindow: Schema.optional(Schema.String), SnapshotRetentionLimit: Schema.optional(Schema.Number), NodeType: Schema.optional(Schema.String), Engine: Schema.optional(Schema.String), EngineVersion: Schema.optional(Schema.String), ReplicaConfiguration: Schema.optional(ReplicaConfigurationRequest), ShardConfiguration: Schema.optional(ShardConfigurationRequest), ACLName: Schema.optional(Schema.String), IpDiscovery: Schema.optional(Schema.String)}) {}
+export class UpdateMultiRegionClusterResponse extends Schema.Class<UpdateMultiRegionClusterResponse>("UpdateMultiRegionClusterResponse")({MultiRegionCluster: Schema.optional(MultiRegionCluster)}) {}
+export class UpdateParameterGroupRequest extends Schema.Class<UpdateParameterGroupRequest>("UpdateParameterGroupRequest")({ParameterGroupName: Schema.String, ParameterNameValues: ParameterNameValueList}) {}
+export class UpdateSubnetGroupResponse extends Schema.Class<UpdateSubnetGroupResponse>("UpdateSubnetGroupResponse")({SubnetGroup: Schema.optional(SubnetGroup)}) {}
 export const ACLNameList = Schema.Array(Schema.String);
-export const Authentication = Schema.Struct({Type: Schema.optional(Schema.String), PasswordCount: Schema.optional(Schema.Number)});
-export const User = Schema.Struct({Name: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), AccessString: Schema.optional(Schema.String), ACLNames: Schema.optional(ACLNameList), MinimumEngineVersion: Schema.optional(Schema.String), Authentication: Schema.optional(Authentication), ARN: Schema.optional(Schema.String)});
-export const UpdateUserResponse = Schema.Struct({User: Schema.optional(User)});
-export const EngineVersionInfo = Schema.Struct({Engine: Schema.optional(Schema.String), EngineVersion: Schema.optional(Schema.String), EnginePatchVersion: Schema.optional(Schema.String), ParameterGroupFamily: Schema.optional(Schema.String)});
+export class Authentication extends Schema.Class<Authentication>("Authentication")({Type: Schema.optional(Schema.String), PasswordCount: Schema.optional(Schema.Number)}) {}
+export class User extends Schema.Class<User>("User")({Name: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), AccessString: Schema.optional(Schema.String), ACLNames: Schema.optional(ACLNameList), MinimumEngineVersion: Schema.optional(Schema.String), Authentication: Schema.optional(Authentication), ARN: Schema.optional(Schema.String)}) {}
+export class UpdateUserResponse extends Schema.Class<UpdateUserResponse>("UpdateUserResponse")({User: Schema.optional(User)}) {}
+export class EngineVersionInfo extends Schema.Class<EngineVersionInfo>("EngineVersionInfo")({Engine: Schema.optional(Schema.String), EngineVersion: Schema.optional(Schema.String), EnginePatchVersion: Schema.optional(Schema.String), ParameterGroupFamily: Schema.optional(Schema.String)}) {}
 export const EngineVersionInfoList = Schema.Array(EngineVersionInfo);
-export const Event = Schema.Struct({SourceName: Schema.optional(Schema.String), SourceType: Schema.optional(Schema.String), Message: Schema.optional(Schema.String), Date: Schema.optional(Schema.Date)});
+export class Event extends Schema.Class<Event>("Event")({SourceName: Schema.optional(Schema.String), SourceType: Schema.optional(Schema.String), Message: Schema.optional(Schema.String), Date: Schema.optional(Schema.Date)}) {}
 export const EventList = Schema.Array(Event);
-export const MultiRegionParameterGroup = Schema.Struct({Name: Schema.optional(Schema.String), Family: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), ARN: Schema.optional(Schema.String)});
+export class MultiRegionParameterGroup extends Schema.Class<MultiRegionParameterGroup>("MultiRegionParameterGroup")({Name: Schema.optional(Schema.String), Family: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), ARN: Schema.optional(Schema.String)}) {}
 export const MultiRegionParameterGroupList = Schema.Array(MultiRegionParameterGroup);
-export const MultiRegionParameter = Schema.Struct({Name: Schema.optional(Schema.String), Value: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Source: Schema.optional(Schema.String), DataType: Schema.optional(Schema.String), AllowedValues: Schema.optional(Schema.String), MinimumEngineVersion: Schema.optional(Schema.String)});
+export class MultiRegionParameter extends Schema.Class<MultiRegionParameter>("MultiRegionParameter")({Name: Schema.optional(Schema.String), Value: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Source: Schema.optional(Schema.String), DataType: Schema.optional(Schema.String), AllowedValues: Schema.optional(Schema.String), MinimumEngineVersion: Schema.optional(Schema.String)}) {}
 export const MultiRegionParametersList = Schema.Array(MultiRegionParameter);
-export const Parameter = Schema.Struct({Name: Schema.optional(Schema.String), Value: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), DataType: Schema.optional(Schema.String), AllowedValues: Schema.optional(Schema.String), MinimumEngineVersion: Schema.optional(Schema.String)});
+export class Parameter extends Schema.Class<Parameter>("Parameter")({Name: Schema.optional(Schema.String), Value: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), DataType: Schema.optional(Schema.String), AllowedValues: Schema.optional(Schema.String), MinimumEngineVersion: Schema.optional(Schema.String)}) {}
 export const ParametersList = Schema.Array(Parameter);
-export const ReservedNodesOffering = Schema.Struct({ReservedNodesOfferingId: Schema.optional(Schema.String), NodeType: Schema.optional(Schema.String), Duration: Schema.optional(Schema.Number), FixedPrice: Schema.optional(Schema.Number), OfferingType: Schema.optional(Schema.String), RecurringCharges: Schema.optional(RecurringChargeList)});
+export class ReservedNodesOffering extends Schema.Class<ReservedNodesOffering>("ReservedNodesOffering")({ReservedNodesOfferingId: Schema.optional(Schema.String), NodeType: Schema.optional(Schema.String), Duration: Schema.optional(Schema.Number), FixedPrice: Schema.optional(Schema.Number), OfferingType: Schema.optional(Schema.String), RecurringCharges: Schema.optional(RecurringChargeList)}) {}
 export const ReservedNodesOfferingList = Schema.Array(ReservedNodesOffering);
-export const ServiceUpdate = Schema.Struct({ClusterName: Schema.optional(Schema.String), ServiceUpdateName: Schema.optional(Schema.String), ReleaseDate: Schema.optional(Schema.Date), Description: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), Engine: Schema.optional(Schema.String), NodesUpdated: Schema.optional(Schema.String), AutoUpdateStartDate: Schema.optional(Schema.Date)});
+export class ServiceUpdate extends Schema.Class<ServiceUpdate>("ServiceUpdate")({ClusterName: Schema.optional(Schema.String), ServiceUpdateName: Schema.optional(Schema.String), ReleaseDate: Schema.optional(Schema.Date), Description: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), Engine: Schema.optional(Schema.String), NodesUpdated: Schema.optional(Schema.String), AutoUpdateStartDate: Schema.optional(Schema.Date)}) {}
 export const ServiceUpdateList = Schema.Array(ServiceUpdate);
 export const UserList = Schema.Array(User);
-export const CopySnapshotResponse = Schema.Struct({Snapshot: Schema.optional(Snapshot)});
-export const CreateParameterGroupResponse = Schema.Struct({ParameterGroup: Schema.optional(ParameterGroup)});
-export const CreateUserResponse = Schema.Struct({User: Schema.optional(User)});
-export const ACLNotFoundFault = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ClusterNotFoundFault = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidMultiRegionClusterStateFault = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidParameterCombinationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidParameterValueException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ServiceLinkedRoleNotFoundFault = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DescribeEngineVersionsResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), EngineVersions: Schema.optional(EngineVersionInfoList)});
-export const DescribeEventsResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), Events: Schema.optional(EventList)});
-export const MultiRegionClusterNotFoundFault = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DescribeMultiRegionParameterGroupsResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), MultiRegionParameterGroups: Schema.optional(MultiRegionParameterGroupList)});
-export const DescribeMultiRegionParametersResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), MultiRegionParameters: Schema.optional(MultiRegionParametersList)});
-export const ParameterGroupNotFoundFault = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DescribeParametersResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), Parameters: Schema.optional(ParametersList)});
-export const DescribeReservedNodesOfferingsResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), ReservedNodesOfferings: Schema.optional(ReservedNodesOfferingList)});
-export const DescribeServiceUpdatesResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), ServiceUpdates: Schema.optional(ServiceUpdateList)});
-export const SnapshotNotFoundFault = Schema.Struct({message: Schema.optional(Schema.String)});
-export const SubnetGroupNotFoundFault = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DescribeUsersResponse = Schema.Struct({Users: Schema.optional(UserList), NextToken: Schema.optional(Schema.String)});
-export const APICallRateForCustomerExceededFault = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidARNFault = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ReservedNodeAlreadyExistsFault = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidParameterGroupStateFault = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidClusterStateFault = Schema.Struct({message: Schema.optional(Schema.String)});
-export const MultiRegionParameterGroupNotFoundFault = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DefaultUserRequired = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UpdateClusterResponse = Schema.Struct({Cluster: Schema.optional(Cluster)});
-export const UpdateParameterGroupResponse = Schema.Struct({ParameterGroup: Schema.optional(ParameterGroup)});
-export const InvalidSubnet = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidUserStateFault = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UnprocessedCluster = Schema.Struct({ClusterName: Schema.optional(Schema.String), ErrorType: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String)});
+export class CopySnapshotResponse extends Schema.Class<CopySnapshotResponse>("CopySnapshotResponse")({Snapshot: Schema.optional(Snapshot)}) {}
+export class CreateParameterGroupResponse extends Schema.Class<CreateParameterGroupResponse>("CreateParameterGroupResponse")({ParameterGroup: Schema.optional(ParameterGroup)}) {}
+export class CreateUserResponse extends Schema.Class<CreateUserResponse>("CreateUserResponse")({User: Schema.optional(User)}) {}
+export class ACLNotFoundFault extends Schema.Class<ACLNotFoundFault>("ACLNotFoundFault")({message: Schema.optional(Schema.String)}) {}
+export class ClusterNotFoundFault extends Schema.Class<ClusterNotFoundFault>("ClusterNotFoundFault")({message: Schema.optional(Schema.String)}) {}
+export class InvalidMultiRegionClusterStateFault extends Schema.Class<InvalidMultiRegionClusterStateFault>("InvalidMultiRegionClusterStateFault")({message: Schema.optional(Schema.String)}) {}
+export class InvalidParameterCombinationException extends Schema.Class<InvalidParameterCombinationException>("InvalidParameterCombinationException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidParameterValueException extends Schema.Class<InvalidParameterValueException>("InvalidParameterValueException")({message: Schema.optional(Schema.String)}) {}
+export class ServiceLinkedRoleNotFoundFault extends Schema.Class<ServiceLinkedRoleNotFoundFault>("ServiceLinkedRoleNotFoundFault")({message: Schema.optional(Schema.String)}) {}
+export class DescribeEngineVersionsResponse extends Schema.Class<DescribeEngineVersionsResponse>("DescribeEngineVersionsResponse")({NextToken: Schema.optional(Schema.String), EngineVersions: Schema.optional(EngineVersionInfoList)}) {}
+export class DescribeEventsResponse extends Schema.Class<DescribeEventsResponse>("DescribeEventsResponse")({NextToken: Schema.optional(Schema.String), Events: Schema.optional(EventList)}) {}
+export class MultiRegionClusterNotFoundFault extends Schema.Class<MultiRegionClusterNotFoundFault>("MultiRegionClusterNotFoundFault")({message: Schema.optional(Schema.String)}) {}
+export class DescribeMultiRegionParameterGroupsResponse extends Schema.Class<DescribeMultiRegionParameterGroupsResponse>("DescribeMultiRegionParameterGroupsResponse")({NextToken: Schema.optional(Schema.String), MultiRegionParameterGroups: Schema.optional(MultiRegionParameterGroupList)}) {}
+export class DescribeMultiRegionParametersResponse extends Schema.Class<DescribeMultiRegionParametersResponse>("DescribeMultiRegionParametersResponse")({NextToken: Schema.optional(Schema.String), MultiRegionParameters: Schema.optional(MultiRegionParametersList)}) {}
+export class ParameterGroupNotFoundFault extends Schema.Class<ParameterGroupNotFoundFault>("ParameterGroupNotFoundFault")({message: Schema.optional(Schema.String)}) {}
+export class DescribeParametersResponse extends Schema.Class<DescribeParametersResponse>("DescribeParametersResponse")({NextToken: Schema.optional(Schema.String), Parameters: Schema.optional(ParametersList)}) {}
+export class DescribeReservedNodesOfferingsResponse extends Schema.Class<DescribeReservedNodesOfferingsResponse>("DescribeReservedNodesOfferingsResponse")({NextToken: Schema.optional(Schema.String), ReservedNodesOfferings: Schema.optional(ReservedNodesOfferingList)}) {}
+export class DescribeServiceUpdatesResponse extends Schema.Class<DescribeServiceUpdatesResponse>("DescribeServiceUpdatesResponse")({NextToken: Schema.optional(Schema.String), ServiceUpdates: Schema.optional(ServiceUpdateList)}) {}
+export class SnapshotNotFoundFault extends Schema.Class<SnapshotNotFoundFault>("SnapshotNotFoundFault")({message: Schema.optional(Schema.String)}) {}
+export class SubnetGroupNotFoundFault extends Schema.Class<SubnetGroupNotFoundFault>("SubnetGroupNotFoundFault")({message: Schema.optional(Schema.String)}) {}
+export class DescribeUsersResponse extends Schema.Class<DescribeUsersResponse>("DescribeUsersResponse")({Users: Schema.optional(UserList), NextToken: Schema.optional(Schema.String)}) {}
+export class APICallRateForCustomerExceededFault extends Schema.Class<APICallRateForCustomerExceededFault>("APICallRateForCustomerExceededFault")({message: Schema.optional(Schema.String)}) {}
+export class InvalidARNFault extends Schema.Class<InvalidARNFault>("InvalidARNFault")({message: Schema.optional(Schema.String)}) {}
+export class ReservedNodeAlreadyExistsFault extends Schema.Class<ReservedNodeAlreadyExistsFault>("ReservedNodeAlreadyExistsFault")({message: Schema.optional(Schema.String)}) {}
+export class InvalidParameterGroupStateFault extends Schema.Class<InvalidParameterGroupStateFault>("InvalidParameterGroupStateFault")({message: Schema.optional(Schema.String)}) {}
+export class InvalidClusterStateFault extends Schema.Class<InvalidClusterStateFault>("InvalidClusterStateFault")({message: Schema.optional(Schema.String)}) {}
+export class MultiRegionParameterGroupNotFoundFault extends Schema.Class<MultiRegionParameterGroupNotFoundFault>("MultiRegionParameterGroupNotFoundFault")({message: Schema.optional(Schema.String)}) {}
+export class DefaultUserRequired extends Schema.Class<DefaultUserRequired>("DefaultUserRequired")({message: Schema.optional(Schema.String)}) {}
+export class UpdateClusterResponse extends Schema.Class<UpdateClusterResponse>("UpdateClusterResponse")({Cluster: Schema.optional(Cluster)}) {}
+export class UpdateParameterGroupResponse extends Schema.Class<UpdateParameterGroupResponse>("UpdateParameterGroupResponse")({ParameterGroup: Schema.optional(ParameterGroup)}) {}
+export class InvalidSubnet extends Schema.Class<InvalidSubnet>("InvalidSubnet")({message: Schema.optional(Schema.String)}) {}
+export class InvalidUserStateFault extends Schema.Class<InvalidUserStateFault>("InvalidUserStateFault")({message: Schema.optional(Schema.String)}) {}
+export class UnprocessedCluster extends Schema.Class<UnprocessedCluster>("UnprocessedCluster")({ClusterName: Schema.optional(Schema.String), ErrorType: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String)}) {}
 export const UnprocessedClusterList = Schema.Array(UnprocessedCluster);
 export const ReservedNodeList = Schema.Array(ReservedNode);
-export const BatchUpdateClusterResponse = Schema.Struct({ProcessedClusters: Schema.optional(ClusterList), UnprocessedClusters: Schema.optional(UnprocessedClusterList)});
-export const InvalidSnapshotStateFault = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CreateACLResponse = Schema.Struct({ACL: Schema.optional(ACL)});
-export const CreateMultiRegionClusterResponse = Schema.Struct({MultiRegionCluster: Schema.optional(MultiRegionCluster)});
-export const ParameterGroupAlreadyExistsFault = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DuplicateUserNameFault = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidACLStateFault = Schema.Struct({message: Schema.optional(Schema.String)});
-export const SnapshotAlreadyExistsFault = Schema.Struct({message: Schema.optional(Schema.String)});
-export const SubnetGroupInUseFault = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DeleteUserResponse = Schema.Struct({User: Schema.optional(User)});
-export const DescribeReservedNodesResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), ReservedNodes: Schema.optional(ReservedNodeList)});
-export const ReservedNodesOfferingNotFoundFault = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UserNotFoundFault = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidKMSKeyFault = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ReservedNodeQuotaExceededFault = Schema.Struct({message: Schema.optional(Schema.String)});
-export const TagQuotaPerResourceExceeded = Schema.Struct({message: Schema.optional(Schema.String)});
-export const TagNotFoundFault = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ClusterQuotaForCustomerExceededFault = Schema.Struct({message: Schema.optional(Schema.String)});
-export const SubnetInUse = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ServiceUpdateNotFoundFault = Schema.Struct({message: Schema.optional(Schema.String)});
-export const SnapshotQuotaExceededFault = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ACLAlreadyExistsFault = Schema.Struct({message: Schema.optional(Schema.String)});
-export const MultiRegionClusterAlreadyExistsFault = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ParameterGroupQuotaExceededFault = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CreateSubnetGroupResponse = Schema.Struct({SubnetGroup: Schema.optional(SubnetGroup)});
-export const UserAlreadyExistsFault = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ReservedNodeNotFoundFault = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ShardNotFoundFault = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidNodeStateFault = Schema.Struct({message: Schema.optional(Schema.String)});
-export const SubnetNotAllowedFault = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ACLQuotaExceededFault = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CreateClusterResponse = Schema.Struct({Cluster: Schema.optional(Cluster)});
-export const CreateSnapshotResponse = Schema.Struct({Snapshot: Schema.optional(Snapshot)});
-export const SubnetGroupAlreadyExistsFault = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UserQuotaExceededFault = Schema.Struct({message: Schema.optional(Schema.String)});
-export const TestFailoverNotAvailableFault = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidVPCNetworkStateFault = Schema.Struct({message: Schema.optional(Schema.String)});
-export const SubnetQuotaExceededFault = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ClusterAlreadyExistsFault = Schema.Struct({message: Schema.optional(Schema.String)});
-export const SubnetGroupQuotaExceededFault = Schema.Struct({message: Schema.optional(Schema.String)});
-export const NodeQuotaForClusterExceededFault = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InsufficientClusterCapacityFault = Schema.Struct({message: Schema.optional(Schema.String)});
-export const NodeQuotaForCustomerExceededFault = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidCredentialsException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const NoOperationFault = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ShardsPerClusterQuotaExceededFault = Schema.Struct({message: Schema.optional(Schema.String)});
+export class BatchUpdateClusterResponse extends Schema.Class<BatchUpdateClusterResponse>("BatchUpdateClusterResponse")({ProcessedClusters: Schema.optional(ClusterList), UnprocessedClusters: Schema.optional(UnprocessedClusterList)}) {}
+export class InvalidSnapshotStateFault extends Schema.Class<InvalidSnapshotStateFault>("InvalidSnapshotStateFault")({message: Schema.optional(Schema.String)}) {}
+export class CreateACLResponse extends Schema.Class<CreateACLResponse>("CreateACLResponse")({ACL: Schema.optional(ACL)}) {}
+export class CreateMultiRegionClusterResponse extends Schema.Class<CreateMultiRegionClusterResponse>("CreateMultiRegionClusterResponse")({MultiRegionCluster: Schema.optional(MultiRegionCluster)}) {}
+export class ParameterGroupAlreadyExistsFault extends Schema.Class<ParameterGroupAlreadyExistsFault>("ParameterGroupAlreadyExistsFault")({message: Schema.optional(Schema.String)}) {}
+export class DuplicateUserNameFault extends Schema.Class<DuplicateUserNameFault>("DuplicateUserNameFault")({message: Schema.optional(Schema.String)}) {}
+export class InvalidACLStateFault extends Schema.Class<InvalidACLStateFault>("InvalidACLStateFault")({message: Schema.optional(Schema.String)}) {}
+export class SnapshotAlreadyExistsFault extends Schema.Class<SnapshotAlreadyExistsFault>("SnapshotAlreadyExistsFault")({message: Schema.optional(Schema.String)}) {}
+export class SubnetGroupInUseFault extends Schema.Class<SubnetGroupInUseFault>("SubnetGroupInUseFault")({message: Schema.optional(Schema.String)}) {}
+export class DeleteUserResponse extends Schema.Class<DeleteUserResponse>("DeleteUserResponse")({User: Schema.optional(User)}) {}
+export class DescribeReservedNodesResponse extends Schema.Class<DescribeReservedNodesResponse>("DescribeReservedNodesResponse")({NextToken: Schema.optional(Schema.String), ReservedNodes: Schema.optional(ReservedNodeList)}) {}
+export class ReservedNodesOfferingNotFoundFault extends Schema.Class<ReservedNodesOfferingNotFoundFault>("ReservedNodesOfferingNotFoundFault")({message: Schema.optional(Schema.String)}) {}
+export class UserNotFoundFault extends Schema.Class<UserNotFoundFault>("UserNotFoundFault")({message: Schema.optional(Schema.String)}) {}
+export class InvalidKMSKeyFault extends Schema.Class<InvalidKMSKeyFault>("InvalidKMSKeyFault")({message: Schema.optional(Schema.String)}) {}
+export class ReservedNodeQuotaExceededFault extends Schema.Class<ReservedNodeQuotaExceededFault>("ReservedNodeQuotaExceededFault")({message: Schema.optional(Schema.String)}) {}
+export class TagQuotaPerResourceExceeded extends Schema.Class<TagQuotaPerResourceExceeded>("TagQuotaPerResourceExceeded")({message: Schema.optional(Schema.String)}) {}
+export class TagNotFoundFault extends Schema.Class<TagNotFoundFault>("TagNotFoundFault")({message: Schema.optional(Schema.String)}) {}
+export class ClusterQuotaForCustomerExceededFault extends Schema.Class<ClusterQuotaForCustomerExceededFault>("ClusterQuotaForCustomerExceededFault")({message: Schema.optional(Schema.String)}) {}
+export class SubnetInUse extends Schema.Class<SubnetInUse>("SubnetInUse")({message: Schema.optional(Schema.String)}) {}
+export class ServiceUpdateNotFoundFault extends Schema.Class<ServiceUpdateNotFoundFault>("ServiceUpdateNotFoundFault")({message: Schema.optional(Schema.String)}) {}
+export class SnapshotQuotaExceededFault extends Schema.Class<SnapshotQuotaExceededFault>("SnapshotQuotaExceededFault")({message: Schema.optional(Schema.String)}) {}
+export class ACLAlreadyExistsFault extends Schema.Class<ACLAlreadyExistsFault>("ACLAlreadyExistsFault")({message: Schema.optional(Schema.String)}) {}
+export class MultiRegionClusterAlreadyExistsFault extends Schema.Class<MultiRegionClusterAlreadyExistsFault>("MultiRegionClusterAlreadyExistsFault")({message: Schema.optional(Schema.String)}) {}
+export class ParameterGroupQuotaExceededFault extends Schema.Class<ParameterGroupQuotaExceededFault>("ParameterGroupQuotaExceededFault")({message: Schema.optional(Schema.String)}) {}
+export class CreateSubnetGroupResponse extends Schema.Class<CreateSubnetGroupResponse>("CreateSubnetGroupResponse")({SubnetGroup: Schema.optional(SubnetGroup)}) {}
+export class UserAlreadyExistsFault extends Schema.Class<UserAlreadyExistsFault>("UserAlreadyExistsFault")({message: Schema.optional(Schema.String)}) {}
+export class ReservedNodeNotFoundFault extends Schema.Class<ReservedNodeNotFoundFault>("ReservedNodeNotFoundFault")({message: Schema.optional(Schema.String)}) {}
+export class ShardNotFoundFault extends Schema.Class<ShardNotFoundFault>("ShardNotFoundFault")({message: Schema.optional(Schema.String)}) {}
+export class InvalidNodeStateFault extends Schema.Class<InvalidNodeStateFault>("InvalidNodeStateFault")({message: Schema.optional(Schema.String)}) {}
+export class SubnetNotAllowedFault extends Schema.Class<SubnetNotAllowedFault>("SubnetNotAllowedFault")({message: Schema.optional(Schema.String)}) {}
+export class ACLQuotaExceededFault extends Schema.Class<ACLQuotaExceededFault>("ACLQuotaExceededFault")({message: Schema.optional(Schema.String)}) {}
+export class CreateClusterResponse extends Schema.Class<CreateClusterResponse>("CreateClusterResponse")({Cluster: Schema.optional(Cluster)}) {}
+export class CreateSnapshotResponse extends Schema.Class<CreateSnapshotResponse>("CreateSnapshotResponse")({Snapshot: Schema.optional(Snapshot)}) {}
+export class SubnetGroupAlreadyExistsFault extends Schema.Class<SubnetGroupAlreadyExistsFault>("SubnetGroupAlreadyExistsFault")({message: Schema.optional(Schema.String)}) {}
+export class UserQuotaExceededFault extends Schema.Class<UserQuotaExceededFault>("UserQuotaExceededFault")({message: Schema.optional(Schema.String)}) {}
+export class TestFailoverNotAvailableFault extends Schema.Class<TestFailoverNotAvailableFault>("TestFailoverNotAvailableFault")({message: Schema.optional(Schema.String)}) {}
+export class InvalidVPCNetworkStateFault extends Schema.Class<InvalidVPCNetworkStateFault>("InvalidVPCNetworkStateFault")({message: Schema.optional(Schema.String)}) {}
+export class SubnetQuotaExceededFault extends Schema.Class<SubnetQuotaExceededFault>("SubnetQuotaExceededFault")({message: Schema.optional(Schema.String)}) {}
+export class ClusterAlreadyExistsFault extends Schema.Class<ClusterAlreadyExistsFault>("ClusterAlreadyExistsFault")({message: Schema.optional(Schema.String)}) {}
+export class SubnetGroupQuotaExceededFault extends Schema.Class<SubnetGroupQuotaExceededFault>("SubnetGroupQuotaExceededFault")({message: Schema.optional(Schema.String)}) {}
+export class NodeQuotaForClusterExceededFault extends Schema.Class<NodeQuotaForClusterExceededFault>("NodeQuotaForClusterExceededFault")({message: Schema.optional(Schema.String)}) {}
+export class InsufficientClusterCapacityFault extends Schema.Class<InsufficientClusterCapacityFault>("InsufficientClusterCapacityFault")({message: Schema.optional(Schema.String)}) {}
+export class NodeQuotaForCustomerExceededFault extends Schema.Class<NodeQuotaForCustomerExceededFault>("NodeQuotaForCustomerExceededFault")({message: Schema.optional(Schema.String)}) {}
+export class InvalidCredentialsException extends Schema.Class<InvalidCredentialsException>("InvalidCredentialsException")({message: Schema.optional(Schema.String)}) {}
+export class NoOperationFault extends Schema.Class<NoOperationFault>("NoOperationFault")({message: Schema.optional(Schema.String)}) {}
+export class ShardsPerClusterQuotaExceededFault extends Schema.Class<ShardsPerClusterQuotaExceededFault>("ShardsPerClusterQuotaExceededFault")({message: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class InvalidParameterCombinationExceptionError extends Schema.TaggedError<InvalidParameterCombinationExceptionError>()("InvalidParameterCombinationException", InvalidParameterCombinationException) {};
-export class ACLNotFoundFaultError extends Schema.TaggedError<ACLNotFoundFaultError>()("ACLNotFoundFault", ACLNotFoundFault) {};
-export class ClusterNotFoundFaultError extends Schema.TaggedError<ClusterNotFoundFaultError>()("ClusterNotFoundFault", ClusterNotFoundFault) {};
-export class InvalidParameterValueExceptionError extends Schema.TaggedError<InvalidParameterValueExceptionError>()("InvalidParameterValueException", InvalidParameterValueException) {};
-export class ServiceLinkedRoleNotFoundFaultError extends Schema.TaggedError<ServiceLinkedRoleNotFoundFaultError>()("ServiceLinkedRoleNotFoundFault", ServiceLinkedRoleNotFoundFault) {};
-export class MultiRegionClusterNotFoundFaultError extends Schema.TaggedError<MultiRegionClusterNotFoundFaultError>()("MultiRegionClusterNotFoundFault", MultiRegionClusterNotFoundFault) {};
-export class InvalidARNFaultError extends Schema.TaggedError<InvalidARNFaultError>()("InvalidARNFault", InvalidARNFault) {};
-export class InvalidClusterStateFaultError extends Schema.TaggedError<InvalidClusterStateFaultError>()("InvalidClusterStateFault", InvalidClusterStateFault) {};
-export class InvalidMultiRegionClusterStateFaultError extends Schema.TaggedError<InvalidMultiRegionClusterStateFaultError>()("InvalidMultiRegionClusterStateFault", InvalidMultiRegionClusterStateFault) {};
-export class MultiRegionParameterGroupNotFoundFaultError extends Schema.TaggedError<MultiRegionParameterGroupNotFoundFaultError>()("MultiRegionParameterGroupNotFoundFault", MultiRegionParameterGroupNotFoundFault) {};
-export class InvalidParameterGroupStateFaultError extends Schema.TaggedError<InvalidParameterGroupStateFaultError>()("InvalidParameterGroupStateFault", InvalidParameterGroupStateFault) {};
-export class ParameterGroupNotFoundFaultError extends Schema.TaggedError<ParameterGroupNotFoundFaultError>()("ParameterGroupNotFoundFault", ParameterGroupNotFoundFault) {};
-export class InvalidSnapshotStateFaultError extends Schema.TaggedError<InvalidSnapshotStateFaultError>()("InvalidSnapshotStateFault", InvalidSnapshotStateFault) {};
-export class SnapshotNotFoundFaultError extends Schema.TaggedError<SnapshotNotFoundFaultError>()("SnapshotNotFoundFault", SnapshotNotFoundFault) {};
-export class SubnetGroupNotFoundFaultError extends Schema.TaggedError<SubnetGroupNotFoundFaultError>()("SubnetGroupNotFoundFault", SubnetGroupNotFoundFault) {};
-export class APICallRateForCustomerExceededFaultError extends Schema.TaggedError<APICallRateForCustomerExceededFaultError>()("APICallRateForCustomerExceededFault", APICallRateForCustomerExceededFault) {};
-export class UserNotFoundFaultError extends Schema.TaggedError<UserNotFoundFaultError>()("UserNotFoundFault", UserNotFoundFault) {};
-export class ReservedNodeAlreadyExistsFaultError extends Schema.TaggedError<ReservedNodeAlreadyExistsFaultError>()("ReservedNodeAlreadyExistsFault", ReservedNodeAlreadyExistsFault) {};
-export class DefaultUserRequiredError extends Schema.TaggedError<DefaultUserRequiredError>()("DefaultUserRequired", DefaultUserRequired) {};
-export class DuplicateUserNameFaultError extends Schema.TaggedError<DuplicateUserNameFaultError>()("DuplicateUserNameFault", DuplicateUserNameFault) {};
-export class InvalidACLStateFaultError extends Schema.TaggedError<InvalidACLStateFaultError>()("InvalidACLStateFault", InvalidACLStateFault) {};
-export class InvalidSubnetError extends Schema.TaggedError<InvalidSubnetError>()("InvalidSubnet", InvalidSubnet) {};
-export class InvalidUserStateFaultError extends Schema.TaggedError<InvalidUserStateFaultError>()("InvalidUserStateFault", InvalidUserStateFault) {};
-export class SnapshotAlreadyExistsFaultError extends Schema.TaggedError<SnapshotAlreadyExistsFaultError>()("SnapshotAlreadyExistsFault", SnapshotAlreadyExistsFault) {};
-export class ClusterQuotaForCustomerExceededFaultError extends Schema.TaggedError<ClusterQuotaForCustomerExceededFaultError>()("ClusterQuotaForCustomerExceededFault", ClusterQuotaForCustomerExceededFault) {};
-export class ParameterGroupAlreadyExistsFaultError extends Schema.TaggedError<ParameterGroupAlreadyExistsFaultError>()("ParameterGroupAlreadyExistsFault", ParameterGroupAlreadyExistsFault) {};
-export class TagQuotaPerResourceExceededError extends Schema.TaggedError<TagQuotaPerResourceExceededError>()("TagQuotaPerResourceExceeded", TagQuotaPerResourceExceeded) {};
-export class SubnetGroupInUseFaultError extends Schema.TaggedError<SubnetGroupInUseFaultError>()("SubnetGroupInUseFault", SubnetGroupInUseFault) {};
-export class ReservedNodesOfferingNotFoundFaultError extends Schema.TaggedError<ReservedNodesOfferingNotFoundFaultError>()("ReservedNodesOfferingNotFoundFault", ReservedNodesOfferingNotFoundFault) {};
-export class InvalidKMSKeyFaultError extends Schema.TaggedError<InvalidKMSKeyFaultError>()("InvalidKMSKeyFault", InvalidKMSKeyFault) {};
-export class ReservedNodeQuotaExceededFaultError extends Schema.TaggedError<ReservedNodeQuotaExceededFaultError>()("ReservedNodeQuotaExceededFault", ReservedNodeQuotaExceededFault) {};
-export class TagNotFoundFaultError extends Schema.TaggedError<TagNotFoundFaultError>()("TagNotFoundFault", TagNotFoundFault) {};
-export class SubnetInUseError extends Schema.TaggedError<SubnetInUseError>()("SubnetInUse", SubnetInUse) {};
-export class ServiceUpdateNotFoundFaultError extends Schema.TaggedError<ServiceUpdateNotFoundFaultError>()("ServiceUpdateNotFoundFault", ServiceUpdateNotFoundFault) {};
-export class SnapshotQuotaExceededFaultError extends Schema.TaggedError<SnapshotQuotaExceededFaultError>()("SnapshotQuotaExceededFault", SnapshotQuotaExceededFault) {};
-export class ACLAlreadyExistsFaultError extends Schema.TaggedError<ACLAlreadyExistsFaultError>()("ACLAlreadyExistsFault", ACLAlreadyExistsFault) {};
-export class MultiRegionClusterAlreadyExistsFaultError extends Schema.TaggedError<MultiRegionClusterAlreadyExistsFaultError>()("MultiRegionClusterAlreadyExistsFault", MultiRegionClusterAlreadyExistsFault) {};
-export class ParameterGroupQuotaExceededFaultError extends Schema.TaggedError<ParameterGroupQuotaExceededFaultError>()("ParameterGroupQuotaExceededFault", ParameterGroupQuotaExceededFault) {};
-export class UserAlreadyExistsFaultError extends Schema.TaggedError<UserAlreadyExistsFaultError>()("UserAlreadyExistsFault", UserAlreadyExistsFault) {};
-export class ReservedNodeNotFoundFaultError extends Schema.TaggedError<ReservedNodeNotFoundFaultError>()("ReservedNodeNotFoundFault", ReservedNodeNotFoundFault) {};
-export class ShardNotFoundFaultError extends Schema.TaggedError<ShardNotFoundFaultError>()("ShardNotFoundFault", ShardNotFoundFault) {};
-export class InvalidNodeStateFaultError extends Schema.TaggedError<InvalidNodeStateFaultError>()("InvalidNodeStateFault", InvalidNodeStateFault) {};
-export class SubnetNotAllowedFaultError extends Schema.TaggedError<SubnetNotAllowedFaultError>()("SubnetNotAllowedFault", SubnetNotAllowedFault) {};
-export class ACLQuotaExceededFaultError extends Schema.TaggedError<ACLQuotaExceededFaultError>()("ACLQuotaExceededFault", ACLQuotaExceededFault) {};
-export class SubnetGroupAlreadyExistsFaultError extends Schema.TaggedError<SubnetGroupAlreadyExistsFaultError>()("SubnetGroupAlreadyExistsFault", SubnetGroupAlreadyExistsFault) {};
-export class UserQuotaExceededFaultError extends Schema.TaggedError<UserQuotaExceededFaultError>()("UserQuotaExceededFault", UserQuotaExceededFault) {};
-export class TestFailoverNotAvailableFaultError extends Schema.TaggedError<TestFailoverNotAvailableFaultError>()("TestFailoverNotAvailableFault", TestFailoverNotAvailableFault) {};
-export class InvalidVPCNetworkStateFaultError extends Schema.TaggedError<InvalidVPCNetworkStateFaultError>()("InvalidVPCNetworkStateFault", InvalidVPCNetworkStateFault) {};
-export class SubnetQuotaExceededFaultError extends Schema.TaggedError<SubnetQuotaExceededFaultError>()("SubnetQuotaExceededFault", SubnetQuotaExceededFault) {};
-export class ClusterAlreadyExistsFaultError extends Schema.TaggedError<ClusterAlreadyExistsFaultError>()("ClusterAlreadyExistsFault", ClusterAlreadyExistsFault) {};
-export class SubnetGroupQuotaExceededFaultError extends Schema.TaggedError<SubnetGroupQuotaExceededFaultError>()("SubnetGroupQuotaExceededFault", SubnetGroupQuotaExceededFault) {};
-export class NodeQuotaForClusterExceededFaultError extends Schema.TaggedError<NodeQuotaForClusterExceededFaultError>()("NodeQuotaForClusterExceededFault", NodeQuotaForClusterExceededFault) {};
-export class InsufficientClusterCapacityFaultError extends Schema.TaggedError<InsufficientClusterCapacityFaultError>()("InsufficientClusterCapacityFault", InsufficientClusterCapacityFault) {};
-export class NodeQuotaForCustomerExceededFaultError extends Schema.TaggedError<NodeQuotaForCustomerExceededFaultError>()("NodeQuotaForCustomerExceededFault", NodeQuotaForCustomerExceededFault) {};
-export class InvalidCredentialsExceptionError extends Schema.TaggedError<InvalidCredentialsExceptionError>()("InvalidCredentialsException", InvalidCredentialsException) {};
-export class NoOperationFaultError extends Schema.TaggedError<NoOperationFaultError>()("NoOperationFault", NoOperationFault) {};
-export class ShardsPerClusterQuotaExceededFaultError extends Schema.TaggedError<ShardsPerClusterQuotaExceededFaultError>()("ShardsPerClusterQuotaExceededFault", ShardsPerClusterQuotaExceededFault) {};
+export class InvalidParameterCombinationExceptionError extends Schema.TaggedError<InvalidParameterCombinationExceptionError>()("InvalidParameterCombinationException", InvalidParameterCombinationException.fields) {};
+export class ACLNotFoundFaultError extends Schema.TaggedError<ACLNotFoundFaultError>()("ACLNotFoundFault", ACLNotFoundFault.fields) {};
+export class ClusterNotFoundFaultError extends Schema.TaggedError<ClusterNotFoundFaultError>()("ClusterNotFoundFault", ClusterNotFoundFault.fields) {};
+export class InvalidParameterValueExceptionError extends Schema.TaggedError<InvalidParameterValueExceptionError>()("InvalidParameterValueException", InvalidParameterValueException.fields) {};
+export class ServiceLinkedRoleNotFoundFaultError extends Schema.TaggedError<ServiceLinkedRoleNotFoundFaultError>()("ServiceLinkedRoleNotFoundFault", ServiceLinkedRoleNotFoundFault.fields) {};
+export class MultiRegionClusterNotFoundFaultError extends Schema.TaggedError<MultiRegionClusterNotFoundFaultError>()("MultiRegionClusterNotFoundFault", MultiRegionClusterNotFoundFault.fields) {};
+export class InvalidARNFaultError extends Schema.TaggedError<InvalidARNFaultError>()("InvalidARNFault", InvalidARNFault.fields) {};
+export class InvalidClusterStateFaultError extends Schema.TaggedError<InvalidClusterStateFaultError>()("InvalidClusterStateFault", InvalidClusterStateFault.fields) {};
+export class InvalidMultiRegionClusterStateFaultError extends Schema.TaggedError<InvalidMultiRegionClusterStateFaultError>()("InvalidMultiRegionClusterStateFault", InvalidMultiRegionClusterStateFault.fields) {};
+export class MultiRegionParameterGroupNotFoundFaultError extends Schema.TaggedError<MultiRegionParameterGroupNotFoundFaultError>()("MultiRegionParameterGroupNotFoundFault", MultiRegionParameterGroupNotFoundFault.fields) {};
+export class InvalidParameterGroupStateFaultError extends Schema.TaggedError<InvalidParameterGroupStateFaultError>()("InvalidParameterGroupStateFault", InvalidParameterGroupStateFault.fields) {};
+export class ParameterGroupNotFoundFaultError extends Schema.TaggedError<ParameterGroupNotFoundFaultError>()("ParameterGroupNotFoundFault", ParameterGroupNotFoundFault.fields) {};
+export class InvalidSnapshotStateFaultError extends Schema.TaggedError<InvalidSnapshotStateFaultError>()("InvalidSnapshotStateFault", InvalidSnapshotStateFault.fields) {};
+export class SnapshotNotFoundFaultError extends Schema.TaggedError<SnapshotNotFoundFaultError>()("SnapshotNotFoundFault", SnapshotNotFoundFault.fields) {};
+export class SubnetGroupNotFoundFaultError extends Schema.TaggedError<SubnetGroupNotFoundFaultError>()("SubnetGroupNotFoundFault", SubnetGroupNotFoundFault.fields) {};
+export class APICallRateForCustomerExceededFaultError extends Schema.TaggedError<APICallRateForCustomerExceededFaultError>()("APICallRateForCustomerExceededFault", APICallRateForCustomerExceededFault.fields) {};
+export class UserNotFoundFaultError extends Schema.TaggedError<UserNotFoundFaultError>()("UserNotFoundFault", UserNotFoundFault.fields) {};
+export class ReservedNodeAlreadyExistsFaultError extends Schema.TaggedError<ReservedNodeAlreadyExistsFaultError>()("ReservedNodeAlreadyExistsFault", ReservedNodeAlreadyExistsFault.fields) {};
+export class DefaultUserRequiredError extends Schema.TaggedError<DefaultUserRequiredError>()("DefaultUserRequired", DefaultUserRequired.fields) {};
+export class DuplicateUserNameFaultError extends Schema.TaggedError<DuplicateUserNameFaultError>()("DuplicateUserNameFault", DuplicateUserNameFault.fields) {};
+export class InvalidACLStateFaultError extends Schema.TaggedError<InvalidACLStateFaultError>()("InvalidACLStateFault", InvalidACLStateFault.fields) {};
+export class InvalidSubnetError extends Schema.TaggedError<InvalidSubnetError>()("InvalidSubnet", InvalidSubnet.fields) {};
+export class InvalidUserStateFaultError extends Schema.TaggedError<InvalidUserStateFaultError>()("InvalidUserStateFault", InvalidUserStateFault.fields) {};
+export class SnapshotAlreadyExistsFaultError extends Schema.TaggedError<SnapshotAlreadyExistsFaultError>()("SnapshotAlreadyExistsFault", SnapshotAlreadyExistsFault.fields) {};
+export class ClusterQuotaForCustomerExceededFaultError extends Schema.TaggedError<ClusterQuotaForCustomerExceededFaultError>()("ClusterQuotaForCustomerExceededFault", ClusterQuotaForCustomerExceededFault.fields) {};
+export class ParameterGroupAlreadyExistsFaultError extends Schema.TaggedError<ParameterGroupAlreadyExistsFaultError>()("ParameterGroupAlreadyExistsFault", ParameterGroupAlreadyExistsFault.fields) {};
+export class TagQuotaPerResourceExceededError extends Schema.TaggedError<TagQuotaPerResourceExceededError>()("TagQuotaPerResourceExceeded", TagQuotaPerResourceExceeded.fields) {};
+export class SubnetGroupInUseFaultError extends Schema.TaggedError<SubnetGroupInUseFaultError>()("SubnetGroupInUseFault", SubnetGroupInUseFault.fields) {};
+export class ReservedNodesOfferingNotFoundFaultError extends Schema.TaggedError<ReservedNodesOfferingNotFoundFaultError>()("ReservedNodesOfferingNotFoundFault", ReservedNodesOfferingNotFoundFault.fields) {};
+export class InvalidKMSKeyFaultError extends Schema.TaggedError<InvalidKMSKeyFaultError>()("InvalidKMSKeyFault", InvalidKMSKeyFault.fields) {};
+export class ReservedNodeQuotaExceededFaultError extends Schema.TaggedError<ReservedNodeQuotaExceededFaultError>()("ReservedNodeQuotaExceededFault", ReservedNodeQuotaExceededFault.fields) {};
+export class TagNotFoundFaultError extends Schema.TaggedError<TagNotFoundFaultError>()("TagNotFoundFault", TagNotFoundFault.fields) {};
+export class SubnetInUseError extends Schema.TaggedError<SubnetInUseError>()("SubnetInUse", SubnetInUse.fields) {};
+export class ServiceUpdateNotFoundFaultError extends Schema.TaggedError<ServiceUpdateNotFoundFaultError>()("ServiceUpdateNotFoundFault", ServiceUpdateNotFoundFault.fields) {};
+export class SnapshotQuotaExceededFaultError extends Schema.TaggedError<SnapshotQuotaExceededFaultError>()("SnapshotQuotaExceededFault", SnapshotQuotaExceededFault.fields) {};
+export class ACLAlreadyExistsFaultError extends Schema.TaggedError<ACLAlreadyExistsFaultError>()("ACLAlreadyExistsFault", ACLAlreadyExistsFault.fields) {};
+export class MultiRegionClusterAlreadyExistsFaultError extends Schema.TaggedError<MultiRegionClusterAlreadyExistsFaultError>()("MultiRegionClusterAlreadyExistsFault", MultiRegionClusterAlreadyExistsFault.fields) {};
+export class ParameterGroupQuotaExceededFaultError extends Schema.TaggedError<ParameterGroupQuotaExceededFaultError>()("ParameterGroupQuotaExceededFault", ParameterGroupQuotaExceededFault.fields) {};
+export class UserAlreadyExistsFaultError extends Schema.TaggedError<UserAlreadyExistsFaultError>()("UserAlreadyExistsFault", UserAlreadyExistsFault.fields) {};
+export class ReservedNodeNotFoundFaultError extends Schema.TaggedError<ReservedNodeNotFoundFaultError>()("ReservedNodeNotFoundFault", ReservedNodeNotFoundFault.fields) {};
+export class ShardNotFoundFaultError extends Schema.TaggedError<ShardNotFoundFaultError>()("ShardNotFoundFault", ShardNotFoundFault.fields) {};
+export class InvalidNodeStateFaultError extends Schema.TaggedError<InvalidNodeStateFaultError>()("InvalidNodeStateFault", InvalidNodeStateFault.fields) {};
+export class SubnetNotAllowedFaultError extends Schema.TaggedError<SubnetNotAllowedFaultError>()("SubnetNotAllowedFault", SubnetNotAllowedFault.fields) {};
+export class ACLQuotaExceededFaultError extends Schema.TaggedError<ACLQuotaExceededFaultError>()("ACLQuotaExceededFault", ACLQuotaExceededFault.fields) {};
+export class SubnetGroupAlreadyExistsFaultError extends Schema.TaggedError<SubnetGroupAlreadyExistsFaultError>()("SubnetGroupAlreadyExistsFault", SubnetGroupAlreadyExistsFault.fields) {};
+export class UserQuotaExceededFaultError extends Schema.TaggedError<UserQuotaExceededFaultError>()("UserQuotaExceededFault", UserQuotaExceededFault.fields) {};
+export class TestFailoverNotAvailableFaultError extends Schema.TaggedError<TestFailoverNotAvailableFaultError>()("TestFailoverNotAvailableFault", TestFailoverNotAvailableFault.fields) {};
+export class InvalidVPCNetworkStateFaultError extends Schema.TaggedError<InvalidVPCNetworkStateFaultError>()("InvalidVPCNetworkStateFault", InvalidVPCNetworkStateFault.fields) {};
+export class SubnetQuotaExceededFaultError extends Schema.TaggedError<SubnetQuotaExceededFaultError>()("SubnetQuotaExceededFault", SubnetQuotaExceededFault.fields) {};
+export class ClusterAlreadyExistsFaultError extends Schema.TaggedError<ClusterAlreadyExistsFaultError>()("ClusterAlreadyExistsFault", ClusterAlreadyExistsFault.fields) {};
+export class SubnetGroupQuotaExceededFaultError extends Schema.TaggedError<SubnetGroupQuotaExceededFaultError>()("SubnetGroupQuotaExceededFault", SubnetGroupQuotaExceededFault.fields) {};
+export class NodeQuotaForClusterExceededFaultError extends Schema.TaggedError<NodeQuotaForClusterExceededFaultError>()("NodeQuotaForClusterExceededFault", NodeQuotaForClusterExceededFault.fields) {};
+export class InsufficientClusterCapacityFaultError extends Schema.TaggedError<InsufficientClusterCapacityFaultError>()("InsufficientClusterCapacityFault", InsufficientClusterCapacityFault.fields) {};
+export class NodeQuotaForCustomerExceededFaultError extends Schema.TaggedError<NodeQuotaForCustomerExceededFaultError>()("NodeQuotaForCustomerExceededFault", NodeQuotaForCustomerExceededFault.fields) {};
+export class InvalidCredentialsExceptionError extends Schema.TaggedError<InvalidCredentialsExceptionError>()("InvalidCredentialsException", InvalidCredentialsException.fields) {};
+export class NoOperationFaultError extends Schema.TaggedError<NoOperationFaultError>()("NoOperationFault", NoOperationFault.fields) {};
+export class ShardsPerClusterQuotaExceededFaultError extends Schema.TaggedError<ShardsPerClusterQuotaExceededFaultError>()("ShardsPerClusterQuotaExceededFault", ShardsPerClusterQuotaExceededFault.fields) {};
 
 //# Operations
 export const describeACLs = /*#__PURE__*/ makeOperation(() => Operation({ version: "2021-01-01", uri: "/", method: "POST", sdkId: "MemoryDB", sigV4ServiceName: "memorydb", name: "AmazonMemoryDB.DescribeACLs" }, DescribeACLsRequest, DescribeACLsResponse, [ACLNotFoundFaultError, InvalidParameterCombinationExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

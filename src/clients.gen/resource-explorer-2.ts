@@ -7,93 +7,93 @@ export const ViewArnList = Schema.Array(Schema.String);
 export const RegionList = Schema.Array(Schema.String);
 export const AccountIdList = Schema.Array(Schema.String);
 export const StringList = Schema.Array(Schema.String);
-export const BatchGetViewInput = Schema.Struct({ViewArns: Schema.optional(ViewArnList)});
-export const CreateResourceExplorerSetupInput = Schema.Struct({RegionList: RegionList, AggregatorRegions: Schema.optional(RegionList), ViewName: Schema.String});
-export const DeleteResourceExplorerSetupInput = Schema.Struct({RegionList: Schema.optional(RegionList), DeleteInAllRegions: Schema.optional(Schema.Boolean)});
-export const AccessDeniedException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const GetDefaultViewOutput = Schema.Struct({ViewArn: Schema.optional(Schema.String)});
-export const GetManagedViewInput = Schema.Struct({ManagedViewArn: Schema.String});
-export const GetResourceExplorerSetupInput = Schema.Struct({TaskId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const GetServiceIndexOutput = Schema.Struct({Arn: Schema.optional(Schema.String), Type: Schema.optional(Schema.String)});
-export const GetServiceViewInput = Schema.Struct({ServiceViewArn: Schema.String});
-export const ListIndexesForMembersInput = Schema.Struct({AccountIdList: AccountIdList, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListManagedViewsInput = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), ServicePrincipal: Schema.optional(Schema.String)});
-export const ListServiceIndexesInput = Schema.Struct({Regions: Schema.optional(RegionList), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListServiceViewsInput = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListStreamingAccessForServicesInput = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListSupportedResourceTypesInput = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListTagsForResourceInput = Schema.Struct({resourceArn: Schema.String});
-export const SearchInput = Schema.Struct({QueryString: Schema.String, MaxResults: Schema.optional(Schema.Number), ViewArn: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String)});
+export class BatchGetViewInput extends Schema.Class<BatchGetViewInput>("BatchGetViewInput")({ViewArns: Schema.optional(ViewArnList)}) {}
+export class CreateResourceExplorerSetupInput extends Schema.Class<CreateResourceExplorerSetupInput>("CreateResourceExplorerSetupInput")({RegionList: RegionList, AggregatorRegions: Schema.optional(RegionList), ViewName: Schema.String}) {}
+export class DeleteResourceExplorerSetupInput extends Schema.Class<DeleteResourceExplorerSetupInput>("DeleteResourceExplorerSetupInput")({RegionList: Schema.optional(RegionList), DeleteInAllRegions: Schema.optional(Schema.Boolean)}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({Message: Schema.optional(Schema.String)}) {}
+export class GetDefaultViewOutput extends Schema.Class<GetDefaultViewOutput>("GetDefaultViewOutput")({ViewArn: Schema.optional(Schema.String)}) {}
+export class GetManagedViewInput extends Schema.Class<GetManagedViewInput>("GetManagedViewInput")({ManagedViewArn: Schema.String}) {}
+export class GetResourceExplorerSetupInput extends Schema.Class<GetResourceExplorerSetupInput>("GetResourceExplorerSetupInput")({TaskId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class GetServiceIndexOutput extends Schema.Class<GetServiceIndexOutput>("GetServiceIndexOutput")({Arn: Schema.optional(Schema.String), Type: Schema.optional(Schema.String)}) {}
+export class GetServiceViewInput extends Schema.Class<GetServiceViewInput>("GetServiceViewInput")({ServiceViewArn: Schema.String}) {}
+export class ListIndexesForMembersInput extends Schema.Class<ListIndexesForMembersInput>("ListIndexesForMembersInput")({AccountIdList: AccountIdList, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListManagedViewsInput extends Schema.Class<ListManagedViewsInput>("ListManagedViewsInput")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), ServicePrincipal: Schema.optional(Schema.String)}) {}
+export class ListServiceIndexesInput extends Schema.Class<ListServiceIndexesInput>("ListServiceIndexesInput")({Regions: Schema.optional(RegionList), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListServiceViewsInput extends Schema.Class<ListServiceViewsInput>("ListServiceViewsInput")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListStreamingAccessForServicesInput extends Schema.Class<ListStreamingAccessForServicesInput>("ListStreamingAccessForServicesInput")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListSupportedResourceTypesInput extends Schema.Class<ListSupportedResourceTypesInput>("ListSupportedResourceTypesInput")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListTagsForResourceInput extends Schema.Class<ListTagsForResourceInput>("ListTagsForResourceInput")({resourceArn: Schema.String}) {}
+export class SearchInput extends Schema.Class<SearchInput>("SearchInput")({QueryString: Schema.String, MaxResults: Schema.optional(Schema.Number), ViewArn: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String)}) {}
 export const TagMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const TagResourceInput = Schema.Struct({resourceArn: Schema.String, Tags: Schema.optional(TagMap)});
-export const TagResourceOutput = Schema.Struct({});
-export const UntagResourceInput = Schema.Struct({resourceArn: Schema.String, tagKeys: StringList});
-export const UntagResourceOutput = Schema.Struct({});
-export const OrgConfiguration = Schema.Struct({AWSServiceAccessStatus: Schema.String, ServiceLinkedRole: Schema.optional(Schema.String)});
+export class TagResourceInput extends Schema.Class<TagResourceInput>("TagResourceInput")({resourceArn: Schema.String, Tags: Schema.optional(TagMap)}) {}
+export class TagResourceOutput extends Schema.Class<TagResourceOutput>("TagResourceOutput")({}) {}
+export class UntagResourceInput extends Schema.Class<UntagResourceInput>("UntagResourceInput")({resourceArn: Schema.String, tagKeys: StringList}) {}
+export class UntagResourceOutput extends Schema.Class<UntagResourceOutput>("UntagResourceOutput")({}) {}
+export class OrgConfiguration extends Schema.Class<OrgConfiguration>("OrgConfiguration")({AWSServiceAccessStatus: Schema.String, ServiceLinkedRole: Schema.optional(Schema.String)}) {}
 export const ManagedViewArnList = Schema.Array(Schema.String);
-export const SearchFilter = Schema.Struct({FilterString: Schema.String});
+export class SearchFilter extends Schema.Class<SearchFilter>("SearchFilter")({FilterString: Schema.String}) {}
 export const ServiceViewArnList = Schema.Array(Schema.String);
-export const CreateResourceExplorerSetupOutput = Schema.Struct({TaskId: Schema.String});
-export const DeleteResourceExplorerSetupOutput = Schema.Struct({TaskId: Schema.String});
-export const InternalServerException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const GetAccountLevelServiceConfigurationOutput = Schema.Struct({OrgConfiguration: Schema.optional(OrgConfiguration)});
-export const ResourceNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const GetIndexOutput = Schema.Struct({Arn: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), State: Schema.optional(Schema.String), ReplicatingFrom: Schema.optional(RegionList), ReplicatingTo: Schema.optional(RegionList), CreatedAt: Schema.optional(Schema.Date), LastUpdatedAt: Schema.optional(Schema.Date), Tags: Schema.optional(TagMap)});
-export const ThrottlingException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ListManagedViewsOutput = Schema.Struct({NextToken: Schema.optional(Schema.String), ManagedViews: Schema.optional(ManagedViewArnList)});
-export const ListResourcesInput = Schema.Struct({Filters: Schema.optional(SearchFilter), MaxResults: Schema.optional(Schema.Number), ViewArn: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String)});
-export const ListServiceViewsOutput = Schema.Struct({NextToken: Schema.optional(Schema.String), ServiceViews: Schema.optional(ServiceViewArnList)});
-export const ListTagsForResourceOutput = Schema.Struct({Tags: Schema.optional(TagMap)});
-export const ConflictException = Schema.Struct({Message: Schema.String});
-export const UnauthorizedException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const BatchGetViewError = Schema.Struct({ViewArn: Schema.String, ErrorMessage: Schema.String});
+export class CreateResourceExplorerSetupOutput extends Schema.Class<CreateResourceExplorerSetupOutput>("CreateResourceExplorerSetupOutput")({TaskId: Schema.String}) {}
+export class DeleteResourceExplorerSetupOutput extends Schema.Class<DeleteResourceExplorerSetupOutput>("DeleteResourceExplorerSetupOutput")({TaskId: Schema.String}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({Message: Schema.optional(Schema.String)}) {}
+export class GetAccountLevelServiceConfigurationOutput extends Schema.Class<GetAccountLevelServiceConfigurationOutput>("GetAccountLevelServiceConfigurationOutput")({OrgConfiguration: Schema.optional(OrgConfiguration)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class GetIndexOutput extends Schema.Class<GetIndexOutput>("GetIndexOutput")({Arn: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), State: Schema.optional(Schema.String), ReplicatingFrom: Schema.optional(RegionList), ReplicatingTo: Schema.optional(RegionList), CreatedAt: Schema.optional(Schema.Date), LastUpdatedAt: Schema.optional(Schema.Date), Tags: Schema.optional(TagMap)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({Message: Schema.optional(Schema.String)}) {}
+export class ListManagedViewsOutput extends Schema.Class<ListManagedViewsOutput>("ListManagedViewsOutput")({NextToken: Schema.optional(Schema.String), ManagedViews: Schema.optional(ManagedViewArnList)}) {}
+export class ListResourcesInput extends Schema.Class<ListResourcesInput>("ListResourcesInput")({Filters: Schema.optional(SearchFilter), MaxResults: Schema.optional(Schema.Number), ViewArn: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String)}) {}
+export class ListServiceViewsOutput extends Schema.Class<ListServiceViewsOutput>("ListServiceViewsOutput")({NextToken: Schema.optional(Schema.String), ServiceViews: Schema.optional(ServiceViewArnList)}) {}
+export class ListTagsForResourceOutput extends Schema.Class<ListTagsForResourceOutput>("ListTagsForResourceOutput")({Tags: Schema.optional(TagMap)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({Message: Schema.String}) {}
+export class UnauthorizedException extends Schema.Class<UnauthorizedException>("UnauthorizedException")({Message: Schema.optional(Schema.String)}) {}
+export class BatchGetViewError extends Schema.Class<BatchGetViewError>("BatchGetViewError")({ViewArn: Schema.String, ErrorMessage: Schema.String}) {}
 export const BatchGetViewErrors = Schema.Array(BatchGetViewError);
-export const IncludedProperty = Schema.Struct({Name: Schema.String});
+export class IncludedProperty extends Schema.Class<IncludedProperty>("IncludedProperty")({Name: Schema.String}) {}
 export const IncludedPropertyList = Schema.Array(IncludedProperty);
-export const ManagedView = Schema.Struct({ManagedViewArn: Schema.optional(Schema.String), ManagedViewName: Schema.optional(Schema.String), TrustedService: Schema.optional(Schema.String), LastUpdatedAt: Schema.optional(Schema.Date), Owner: Schema.optional(Schema.String), Scope: Schema.optional(Schema.String), IncludedProperties: Schema.optional(IncludedPropertyList), Filters: Schema.optional(SearchFilter), ResourcePolicy: Schema.optional(Schema.String), Version: Schema.optional(Schema.String)});
-export const ServiceView = Schema.Struct({ServiceViewArn: Schema.String, Filters: Schema.optional(SearchFilter), IncludedProperties: Schema.optional(IncludedPropertyList), StreamingAccessForService: Schema.optional(Schema.String), ScopeType: Schema.optional(Schema.String)});
-export const MemberIndex = Schema.Struct({AccountId: Schema.optional(Schema.String), Region: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String), Type: Schema.optional(Schema.String)});
+export class ManagedView extends Schema.Class<ManagedView>("ManagedView")({ManagedViewArn: Schema.optional(Schema.String), ManagedViewName: Schema.optional(Schema.String), TrustedService: Schema.optional(Schema.String), LastUpdatedAt: Schema.optional(Schema.Date), Owner: Schema.optional(Schema.String), Scope: Schema.optional(Schema.String), IncludedProperties: Schema.optional(IncludedPropertyList), Filters: Schema.optional(SearchFilter), ResourcePolicy: Schema.optional(Schema.String), Version: Schema.optional(Schema.String)}) {}
+export class ServiceView extends Schema.Class<ServiceView>("ServiceView")({ServiceViewArn: Schema.String, Filters: Schema.optional(SearchFilter), IncludedProperties: Schema.optional(IncludedPropertyList), StreamingAccessForService: Schema.optional(Schema.String), ScopeType: Schema.optional(Schema.String)}) {}
+export class MemberIndex extends Schema.Class<MemberIndex>("MemberIndex")({AccountId: Schema.optional(Schema.String), Region: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String), Type: Schema.optional(Schema.String)}) {}
 export const MemberIndexList = Schema.Array(MemberIndex);
-export const Index = Schema.Struct({Region: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String), Type: Schema.optional(Schema.String)});
+export class Index extends Schema.Class<Index>("Index")({Region: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String), Type: Schema.optional(Schema.String)}) {}
 export const IndexList = Schema.Array(Index);
-export const StreamingAccessDetails = Schema.Struct({ServicePrincipal: Schema.String, CreatedAt: Schema.Date});
+export class StreamingAccessDetails extends Schema.Class<StreamingAccessDetails>("StreamingAccessDetails")({ServicePrincipal: Schema.String, CreatedAt: Schema.Date}) {}
 export const StreamingAccessDetailsList = Schema.Array(StreamingAccessDetails);
-export const SupportedResourceType = Schema.Struct({Service: Schema.optional(Schema.String), ResourceType: Schema.optional(Schema.String)});
+export class SupportedResourceType extends Schema.Class<SupportedResourceType>("SupportedResourceType")({Service: Schema.optional(Schema.String), ResourceType: Schema.optional(Schema.String)}) {}
 export const ResourceTypeList = Schema.Array(SupportedResourceType);
-export const ResourceCount = Schema.Struct({TotalResources: Schema.optional(Schema.Number), Complete: Schema.optional(Schema.Boolean)});
-export const GetManagedViewOutput = Schema.Struct({ManagedView: Schema.optional(ManagedView)});
-export const GetServiceViewOutput = Schema.Struct({View: ServiceView});
-export const ListIndexesForMembersOutput = Schema.Struct({Indexes: Schema.optional(MemberIndexList), NextToken: Schema.optional(Schema.String)});
-export const ResourceProperty = Schema.Struct({Name: Schema.optional(Schema.String), LastReportedAt: Schema.optional(Schema.Date), Data: Schema.optional(Schema.JsonValue)});
+export class ResourceCount extends Schema.Class<ResourceCount>("ResourceCount")({TotalResources: Schema.optional(Schema.Number), Complete: Schema.optional(Schema.Boolean)}) {}
+export class GetManagedViewOutput extends Schema.Class<GetManagedViewOutput>("GetManagedViewOutput")({ManagedView: Schema.optional(ManagedView)}) {}
+export class GetServiceViewOutput extends Schema.Class<GetServiceViewOutput>("GetServiceViewOutput")({View: ServiceView}) {}
+export class ListIndexesForMembersOutput extends Schema.Class<ListIndexesForMembersOutput>("ListIndexesForMembersOutput")({Indexes: Schema.optional(MemberIndexList), NextToken: Schema.optional(Schema.String)}) {}
+export class ResourceProperty extends Schema.Class<ResourceProperty>("ResourceProperty")({Name: Schema.optional(Schema.String), LastReportedAt: Schema.optional(Schema.Date), Data: Schema.optional(Schema.JsonValue)}) {}
 export const ResourcePropertyList = Schema.Array(ResourceProperty);
-export const Resource = Schema.Struct({Arn: Schema.optional(Schema.String), OwningAccountId: Schema.optional(Schema.String), Region: Schema.optional(Schema.String), ResourceType: Schema.optional(Schema.String), Service: Schema.optional(Schema.String), LastReportedAt: Schema.optional(Schema.Date), Properties: Schema.optional(ResourcePropertyList)});
+export class Resource extends Schema.Class<Resource>("Resource")({Arn: Schema.optional(Schema.String), OwningAccountId: Schema.optional(Schema.String), Region: Schema.optional(Schema.String), ResourceType: Schema.optional(Schema.String), Service: Schema.optional(Schema.String), LastReportedAt: Schema.optional(Schema.Date), Properties: Schema.optional(ResourcePropertyList)}) {}
 export const ResourceList = Schema.Array(Resource);
-export const ListResourcesOutput = Schema.Struct({Resources: Schema.optional(ResourceList), NextToken: Schema.optional(Schema.String), ViewArn: Schema.optional(Schema.String)});
-export const ListServiceIndexesOutput = Schema.Struct({Indexes: Schema.optional(IndexList), NextToken: Schema.optional(Schema.String)});
-export const ListStreamingAccessForServicesOutput = Schema.Struct({StreamingAccessForServices: StreamingAccessDetailsList, NextToken: Schema.optional(Schema.String)});
-export const ListSupportedResourceTypesOutput = Schema.Struct({ResourceTypes: Schema.optional(ResourceTypeList), NextToken: Schema.optional(Schema.String)});
-export const View = Schema.Struct({ViewArn: Schema.optional(Schema.String), Owner: Schema.optional(Schema.String), LastUpdatedAt: Schema.optional(Schema.Date), Scope: Schema.optional(Schema.String), IncludedProperties: Schema.optional(IncludedPropertyList), Filters: Schema.optional(SearchFilter)});
-export const ErrorDetails = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
-export const ViewStatus = Schema.Struct({Status: Schema.optional(Schema.String), View: Schema.optional(View), ErrorDetails: Schema.optional(ErrorDetails)});
+export class ListResourcesOutput extends Schema.Class<ListResourcesOutput>("ListResourcesOutput")({Resources: Schema.optional(ResourceList), NextToken: Schema.optional(Schema.String), ViewArn: Schema.optional(Schema.String)}) {}
+export class ListServiceIndexesOutput extends Schema.Class<ListServiceIndexesOutput>("ListServiceIndexesOutput")({Indexes: Schema.optional(IndexList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListStreamingAccessForServicesOutput extends Schema.Class<ListStreamingAccessForServicesOutput>("ListStreamingAccessForServicesOutput")({StreamingAccessForServices: StreamingAccessDetailsList, NextToken: Schema.optional(Schema.String)}) {}
+export class ListSupportedResourceTypesOutput extends Schema.Class<ListSupportedResourceTypesOutput>("ListSupportedResourceTypesOutput")({ResourceTypes: Schema.optional(ResourceTypeList), NextToken: Schema.optional(Schema.String)}) {}
+export class View extends Schema.Class<View>("View")({ViewArn: Schema.optional(Schema.String), Owner: Schema.optional(Schema.String), LastUpdatedAt: Schema.optional(Schema.Date), Scope: Schema.optional(Schema.String), IncludedProperties: Schema.optional(IncludedPropertyList), Filters: Schema.optional(SearchFilter)}) {}
+export class ErrorDetails extends Schema.Class<ErrorDetails>("ErrorDetails")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
+export class ViewStatus extends Schema.Class<ViewStatus>("ViewStatus")({Status: Schema.optional(Schema.String), View: Schema.optional(View), ErrorDetails: Schema.optional(ErrorDetails)}) {}
 export const ViewList = Schema.Array(View);
-export const ValidationExceptionField = Schema.Struct({Name: Schema.String, ValidationIssue: Schema.String});
+export class ValidationExceptionField extends Schema.Class<ValidationExceptionField>("ValidationExceptionField")({Name: Schema.String, ValidationIssue: Schema.String}) {}
 export const ValidationExceptionFieldList = Schema.Array(ValidationExceptionField);
-export const BatchGetViewOutput = Schema.Struct({Views: Schema.optional(ViewList), Errors: Schema.optional(BatchGetViewErrors)});
-export const ValidationException = Schema.Struct({Message: Schema.String, FieldList: Schema.optional(ValidationExceptionFieldList)});
-export const SearchOutput = Schema.Struct({Resources: Schema.optional(ResourceList), NextToken: Schema.optional(Schema.String), ViewArn: Schema.optional(Schema.String), Count: Schema.optional(ResourceCount)});
-export const IndexStatus = Schema.Struct({Status: Schema.optional(Schema.String), Index: Schema.optional(Index), ErrorDetails: Schema.optional(ErrorDetails)});
-export const RegionStatus = Schema.Struct({Region: Schema.optional(Schema.String), Index: Schema.optional(IndexStatus), View: Schema.optional(ViewStatus)});
+export class BatchGetViewOutput extends Schema.Class<BatchGetViewOutput>("BatchGetViewOutput")({Views: Schema.optional(ViewList), Errors: Schema.optional(BatchGetViewErrors)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({Message: Schema.String, FieldList: Schema.optional(ValidationExceptionFieldList)}) {}
+export class SearchOutput extends Schema.Class<SearchOutput>("SearchOutput")({Resources: Schema.optional(ResourceList), NextToken: Schema.optional(Schema.String), ViewArn: Schema.optional(Schema.String), Count: Schema.optional(ResourceCount)}) {}
+export class IndexStatus extends Schema.Class<IndexStatus>("IndexStatus")({Status: Schema.optional(Schema.String), Index: Schema.optional(Index), ErrorDetails: Schema.optional(ErrorDetails)}) {}
+export class RegionStatus extends Schema.Class<RegionStatus>("RegionStatus")({Region: Schema.optional(Schema.String), Index: Schema.optional(IndexStatus), View: Schema.optional(ViewStatus)}) {}
 export const RegionStatusList = Schema.Array(RegionStatus);
-export const GetResourceExplorerSetupOutput = Schema.Struct({Regions: Schema.optional(RegionStatusList), NextToken: Schema.optional(Schema.String)});
+export class GetResourceExplorerSetupOutput extends Schema.Class<GetResourceExplorerSetupOutput>("GetResourceExplorerSetupOutput")({Regions: Schema.optional(RegionStatusList), NextToken: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class UnauthorizedExceptionError extends Schema.TaggedError<UnauthorizedExceptionError>()("UnauthorizedException", UnauthorizedException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class UnauthorizedExceptionError extends Schema.TaggedError<UnauthorizedExceptionError>()("UnauthorizedException", UnauthorizedException.fields) {};
 
 //# Operations
 export const deleteResourceExplorerSetup = /*#__PURE__*/ makeOperation(() => Operation({ version: "2022-07-28", uri: "/DeleteResourceExplorerSetup", method: "POST", sdkId: "Resource Explorer 2", sigV4ServiceName: "resource-explorer-2", name: "ResourceExplorer.DeleteResourceExplorerSetup" }, DeleteResourceExplorerSetupInput, DeleteResourceExplorerSetupOutput, [AccessDeniedExceptionError, ConflictExceptionError, InternalServerExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

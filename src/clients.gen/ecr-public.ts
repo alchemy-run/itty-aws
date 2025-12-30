@@ -3,135 +3,135 @@ import { FormatAwsJSON11Request,FormatJSONResponse,FormatAwsRestJSONError, makeO
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const GetAuthorizationTokenRequest = Schema.Struct({});
-export const GetRegistryCatalogDataRequest = Schema.Struct({});
+export class GetAuthorizationTokenRequest extends Schema.Class<GetAuthorizationTokenRequest>("GetAuthorizationTokenRequest")({}) {}
+export class GetRegistryCatalogDataRequest extends Schema.Class<GetRegistryCatalogDataRequest>("GetRegistryCatalogDataRequest")({}) {}
 export const BatchedOperationLayerDigestList = Schema.Array(Schema.String);
 export const LayerDigestList = Schema.Array(Schema.String);
 export const RepositoryNameList = Schema.Array(Schema.String);
 export const TagKeyList = Schema.Array(Schema.String);
-export const BatchCheckLayerAvailabilityRequest = Schema.Struct({registryId: Schema.optional(Schema.String), repositoryName: Schema.String, layerDigests: BatchedOperationLayerDigestList});
-export const CompleteLayerUploadRequest = Schema.Struct({registryId: Schema.optional(Schema.String), repositoryName: Schema.String, uploadId: Schema.String, layerDigests: LayerDigestList});
-export const DeleteRepositoryRequest = Schema.Struct({registryId: Schema.optional(Schema.String), repositoryName: Schema.String, force: Schema.optional(Schema.Boolean)});
-export const DeleteRepositoryPolicyRequest = Schema.Struct({registryId: Schema.optional(Schema.String), repositoryName: Schema.String});
-export const ImageIdentifier = Schema.Struct({imageDigest: Schema.optional(Schema.String), imageTag: Schema.optional(Schema.String)});
+export class BatchCheckLayerAvailabilityRequest extends Schema.Class<BatchCheckLayerAvailabilityRequest>("BatchCheckLayerAvailabilityRequest")({registryId: Schema.optional(Schema.String), repositoryName: Schema.String, layerDigests: BatchedOperationLayerDigestList}) {}
+export class CompleteLayerUploadRequest extends Schema.Class<CompleteLayerUploadRequest>("CompleteLayerUploadRequest")({registryId: Schema.optional(Schema.String), repositoryName: Schema.String, uploadId: Schema.String, layerDigests: LayerDigestList}) {}
+export class DeleteRepositoryRequest extends Schema.Class<DeleteRepositoryRequest>("DeleteRepositoryRequest")({registryId: Schema.optional(Schema.String), repositoryName: Schema.String, force: Schema.optional(Schema.Boolean)}) {}
+export class DeleteRepositoryPolicyRequest extends Schema.Class<DeleteRepositoryPolicyRequest>("DeleteRepositoryPolicyRequest")({registryId: Schema.optional(Schema.String), repositoryName: Schema.String}) {}
+export class ImageIdentifier extends Schema.Class<ImageIdentifier>("ImageIdentifier")({imageDigest: Schema.optional(Schema.String), imageTag: Schema.optional(Schema.String)}) {}
 export const ImageIdentifierList = Schema.Array(ImageIdentifier);
-export const DescribeImagesRequest = Schema.Struct({registryId: Schema.optional(Schema.String), repositoryName: Schema.String, imageIds: Schema.optional(ImageIdentifierList), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const DescribeImageTagsRequest = Schema.Struct({registryId: Schema.optional(Schema.String), repositoryName: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const DescribeRegistriesRequest = Schema.Struct({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const DescribeRepositoriesRequest = Schema.Struct({registryId: Schema.optional(Schema.String), repositoryNames: Schema.optional(RepositoryNameList), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const GetRepositoryCatalogDataRequest = Schema.Struct({registryId: Schema.optional(Schema.String), repositoryName: Schema.String});
-export const GetRepositoryPolicyRequest = Schema.Struct({registryId: Schema.optional(Schema.String), repositoryName: Schema.String});
-export const InitiateLayerUploadRequest = Schema.Struct({registryId: Schema.optional(Schema.String), repositoryName: Schema.String});
-export const ListTagsForResourceRequest = Schema.Struct({resourceArn: Schema.String});
-export const PutImageRequest = Schema.Struct({registryId: Schema.optional(Schema.String), repositoryName: Schema.String, imageManifest: Schema.String, imageManifestMediaType: Schema.optional(Schema.String), imageTag: Schema.optional(Schema.String), imageDigest: Schema.optional(Schema.String)});
-export const PutRegistryCatalogDataRequest = Schema.Struct({displayName: Schema.optional(Schema.String)});
+export class DescribeImagesRequest extends Schema.Class<DescribeImagesRequest>("DescribeImagesRequest")({registryId: Schema.optional(Schema.String), repositoryName: Schema.String, imageIds: Schema.optional(ImageIdentifierList), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class DescribeImageTagsRequest extends Schema.Class<DescribeImageTagsRequest>("DescribeImageTagsRequest")({registryId: Schema.optional(Schema.String), repositoryName: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class DescribeRegistriesRequest extends Schema.Class<DescribeRegistriesRequest>("DescribeRegistriesRequest")({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class DescribeRepositoriesRequest extends Schema.Class<DescribeRepositoriesRequest>("DescribeRepositoriesRequest")({registryId: Schema.optional(Schema.String), repositoryNames: Schema.optional(RepositoryNameList), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class GetRepositoryCatalogDataRequest extends Schema.Class<GetRepositoryCatalogDataRequest>("GetRepositoryCatalogDataRequest")({registryId: Schema.optional(Schema.String), repositoryName: Schema.String}) {}
+export class GetRepositoryPolicyRequest extends Schema.Class<GetRepositoryPolicyRequest>("GetRepositoryPolicyRequest")({registryId: Schema.optional(Schema.String), repositoryName: Schema.String}) {}
+export class InitiateLayerUploadRequest extends Schema.Class<InitiateLayerUploadRequest>("InitiateLayerUploadRequest")({registryId: Schema.optional(Schema.String), repositoryName: Schema.String}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({resourceArn: Schema.String}) {}
+export class PutImageRequest extends Schema.Class<PutImageRequest>("PutImageRequest")({registryId: Schema.optional(Schema.String), repositoryName: Schema.String, imageManifest: Schema.String, imageManifestMediaType: Schema.optional(Schema.String), imageTag: Schema.optional(Schema.String), imageDigest: Schema.optional(Schema.String)}) {}
+export class PutRegistryCatalogDataRequest extends Schema.Class<PutRegistryCatalogDataRequest>("PutRegistryCatalogDataRequest")({displayName: Schema.optional(Schema.String)}) {}
 export const ArchitectureList = Schema.Array(Schema.String);
 export const OperatingSystemList = Schema.Array(Schema.String);
-export const RepositoryCatalogDataInput = Schema.Struct({description: Schema.optional(Schema.String), architectures: Schema.optional(ArchitectureList), operatingSystems: Schema.optional(OperatingSystemList), logoImageBlob: Schema.optional(StreamBody()), aboutText: Schema.optional(Schema.String), usageText: Schema.optional(Schema.String)});
-export const PutRepositoryCatalogDataRequest = Schema.Struct({registryId: Schema.optional(Schema.String), repositoryName: Schema.String, catalogData: RepositoryCatalogDataInput});
-export const SetRepositoryPolicyRequest = Schema.Struct({registryId: Schema.optional(Schema.String), repositoryName: Schema.String, policyText: Schema.String, force: Schema.optional(Schema.Boolean)});
-export const Tag = Schema.Struct({Key: Schema.optional(Schema.String), Value: Schema.optional(Schema.String)});
+export class RepositoryCatalogDataInput extends Schema.Class<RepositoryCatalogDataInput>("RepositoryCatalogDataInput")({description: Schema.optional(Schema.String), architectures: Schema.optional(ArchitectureList), operatingSystems: Schema.optional(OperatingSystemList), logoImageBlob: Schema.optional(StreamBody()), aboutText: Schema.optional(Schema.String), usageText: Schema.optional(Schema.String)}) {}
+export class PutRepositoryCatalogDataRequest extends Schema.Class<PutRepositoryCatalogDataRequest>("PutRepositoryCatalogDataRequest")({registryId: Schema.optional(Schema.String), repositoryName: Schema.String, catalogData: RepositoryCatalogDataInput}) {}
+export class SetRepositoryPolicyRequest extends Schema.Class<SetRepositoryPolicyRequest>("SetRepositoryPolicyRequest")({registryId: Schema.optional(Schema.String), repositoryName: Schema.String, policyText: Schema.String, force: Schema.optional(Schema.Boolean)}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.optional(Schema.String), Value: Schema.optional(Schema.String)}) {}
 export const TagList = Schema.Array(Tag);
-export const TagResourceRequest = Schema.Struct({resourceArn: Schema.String, tags: TagList});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({resourceArn: Schema.String, tagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
-export const UploadLayerPartRequest = Schema.Struct({registryId: Schema.optional(Schema.String), repositoryName: Schema.String, uploadId: Schema.String, partFirstByte: Schema.Number, partLastByte: Schema.Number, layerPartBlob: StreamBody()});
-export const Repository = Schema.Struct({repositoryArn: Schema.optional(Schema.String), registryId: Schema.optional(Schema.String), repositoryName: Schema.optional(Schema.String), repositoryUri: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date)});
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({resourceArn: Schema.String, tags: TagList}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({resourceArn: Schema.String, tagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class UploadLayerPartRequest extends Schema.Class<UploadLayerPartRequest>("UploadLayerPartRequest")({registryId: Schema.optional(Schema.String), repositoryName: Schema.String, uploadId: Schema.String, partFirstByte: Schema.Number, partLastByte: Schema.Number, layerPartBlob: StreamBody()}) {}
+export class Repository extends Schema.Class<Repository>("Repository")({repositoryArn: Schema.optional(Schema.String), registryId: Schema.optional(Schema.String), repositoryName: Schema.optional(Schema.String), repositoryUri: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date)}) {}
 export const RepositoryList = Schema.Array(Repository);
-export const AuthorizationData = Schema.Struct({authorizationToken: Schema.optional(Schema.String), expiresAt: Schema.optional(Schema.Date)});
-export const RegistryCatalogData = Schema.Struct({displayName: Schema.optional(Schema.String)});
-export const BatchDeleteImageRequest = Schema.Struct({registryId: Schema.optional(Schema.String), repositoryName: Schema.String, imageIds: ImageIdentifierList});
-export const CompleteLayerUploadResponse = Schema.Struct({registryId: Schema.optional(Schema.String), repositoryName: Schema.optional(Schema.String), uploadId: Schema.optional(Schema.String), layerDigest: Schema.optional(Schema.String)});
-export const CreateRepositoryRequest = Schema.Struct({repositoryName: Schema.String, catalogData: Schema.optional(RepositoryCatalogDataInput), tags: Schema.optional(TagList)});
-export const DeleteRepositoryPolicyResponse = Schema.Struct({registryId: Schema.optional(Schema.String), repositoryName: Schema.optional(Schema.String), policyText: Schema.optional(Schema.String)});
-export const DescribeRepositoriesResponse = Schema.Struct({repositories: Schema.optional(RepositoryList), nextToken: Schema.optional(Schema.String)});
-export const GetAuthorizationTokenResponse = Schema.Struct({authorizationData: Schema.optional(AuthorizationData)});
-export const GetRegistryCatalogDataResponse = Schema.Struct({registryCatalogData: RegistryCatalogData});
-export const GetRepositoryPolicyResponse = Schema.Struct({registryId: Schema.optional(Schema.String), repositoryName: Schema.optional(Schema.String), policyText: Schema.optional(Schema.String)});
-export const InitiateLayerUploadResponse = Schema.Struct({uploadId: Schema.optional(Schema.String), partSize: Schema.optional(Schema.Number)});
-export const ListTagsForResourceResponse = Schema.Struct({tags: Schema.optional(TagList)});
-export const PutRegistryCatalogDataResponse = Schema.Struct({registryCatalogData: RegistryCatalogData});
-export const RepositoryCatalogData = Schema.Struct({description: Schema.optional(Schema.String), architectures: Schema.optional(ArchitectureList), operatingSystems: Schema.optional(OperatingSystemList), logoUrl: Schema.optional(Schema.String), aboutText: Schema.optional(Schema.String), usageText: Schema.optional(Schema.String), marketplaceCertified: Schema.optional(Schema.Boolean)});
-export const PutRepositoryCatalogDataResponse = Schema.Struct({catalogData: Schema.optional(RepositoryCatalogData)});
-export const SetRepositoryPolicyResponse = Schema.Struct({registryId: Schema.optional(Schema.String), repositoryName: Schema.optional(Schema.String), policyText: Schema.optional(Schema.String)});
-export const InvalidParameterException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidTagParameterException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UploadLayerPartResponse = Schema.Struct({registryId: Schema.optional(Schema.String), repositoryName: Schema.optional(Schema.String), uploadId: Schema.optional(Schema.String), lastByteReceived: Schema.optional(Schema.Number)});
+export class AuthorizationData extends Schema.Class<AuthorizationData>("AuthorizationData")({authorizationToken: Schema.optional(Schema.String), expiresAt: Schema.optional(Schema.Date)}) {}
+export class RegistryCatalogData extends Schema.Class<RegistryCatalogData>("RegistryCatalogData")({displayName: Schema.optional(Schema.String)}) {}
+export class BatchDeleteImageRequest extends Schema.Class<BatchDeleteImageRequest>("BatchDeleteImageRequest")({registryId: Schema.optional(Schema.String), repositoryName: Schema.String, imageIds: ImageIdentifierList}) {}
+export class CompleteLayerUploadResponse extends Schema.Class<CompleteLayerUploadResponse>("CompleteLayerUploadResponse")({registryId: Schema.optional(Schema.String), repositoryName: Schema.optional(Schema.String), uploadId: Schema.optional(Schema.String), layerDigest: Schema.optional(Schema.String)}) {}
+export class CreateRepositoryRequest extends Schema.Class<CreateRepositoryRequest>("CreateRepositoryRequest")({repositoryName: Schema.String, catalogData: Schema.optional(RepositoryCatalogDataInput), tags: Schema.optional(TagList)}) {}
+export class DeleteRepositoryPolicyResponse extends Schema.Class<DeleteRepositoryPolicyResponse>("DeleteRepositoryPolicyResponse")({registryId: Schema.optional(Schema.String), repositoryName: Schema.optional(Schema.String), policyText: Schema.optional(Schema.String)}) {}
+export class DescribeRepositoriesResponse extends Schema.Class<DescribeRepositoriesResponse>("DescribeRepositoriesResponse")({repositories: Schema.optional(RepositoryList), nextToken: Schema.optional(Schema.String)}) {}
+export class GetAuthorizationTokenResponse extends Schema.Class<GetAuthorizationTokenResponse>("GetAuthorizationTokenResponse")({authorizationData: Schema.optional(AuthorizationData)}) {}
+export class GetRegistryCatalogDataResponse extends Schema.Class<GetRegistryCatalogDataResponse>("GetRegistryCatalogDataResponse")({registryCatalogData: RegistryCatalogData}) {}
+export class GetRepositoryPolicyResponse extends Schema.Class<GetRepositoryPolicyResponse>("GetRepositoryPolicyResponse")({registryId: Schema.optional(Schema.String), repositoryName: Schema.optional(Schema.String), policyText: Schema.optional(Schema.String)}) {}
+export class InitiateLayerUploadResponse extends Schema.Class<InitiateLayerUploadResponse>("InitiateLayerUploadResponse")({uploadId: Schema.optional(Schema.String), partSize: Schema.optional(Schema.Number)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({tags: Schema.optional(TagList)}) {}
+export class PutRegistryCatalogDataResponse extends Schema.Class<PutRegistryCatalogDataResponse>("PutRegistryCatalogDataResponse")({registryCatalogData: RegistryCatalogData}) {}
+export class RepositoryCatalogData extends Schema.Class<RepositoryCatalogData>("RepositoryCatalogData")({description: Schema.optional(Schema.String), architectures: Schema.optional(ArchitectureList), operatingSystems: Schema.optional(OperatingSystemList), logoUrl: Schema.optional(Schema.String), aboutText: Schema.optional(Schema.String), usageText: Schema.optional(Schema.String), marketplaceCertified: Schema.optional(Schema.Boolean)}) {}
+export class PutRepositoryCatalogDataResponse extends Schema.Class<PutRepositoryCatalogDataResponse>("PutRepositoryCatalogDataResponse")({catalogData: Schema.optional(RepositoryCatalogData)}) {}
+export class SetRepositoryPolicyResponse extends Schema.Class<SetRepositoryPolicyResponse>("SetRepositoryPolicyResponse")({registryId: Schema.optional(Schema.String), repositoryName: Schema.optional(Schema.String), policyText: Schema.optional(Schema.String)}) {}
+export class InvalidParameterException extends Schema.Class<InvalidParameterException>("InvalidParameterException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidTagParameterException extends Schema.Class<InvalidTagParameterException>("InvalidTagParameterException")({message: Schema.optional(Schema.String)}) {}
+export class UploadLayerPartResponse extends Schema.Class<UploadLayerPartResponse>("UploadLayerPartResponse")({registryId: Schema.optional(Schema.String), repositoryName: Schema.optional(Schema.String), uploadId: Schema.optional(Schema.String), lastByteReceived: Schema.optional(Schema.Number)}) {}
 export const ImageTagList = Schema.Array(Schema.String);
-export const Layer = Schema.Struct({layerDigest: Schema.optional(Schema.String), layerAvailability: Schema.optional(Schema.String), layerSize: Schema.optional(Schema.Number), mediaType: Schema.optional(Schema.String)});
+export class Layer extends Schema.Class<Layer>("Layer")({layerDigest: Schema.optional(Schema.String), layerAvailability: Schema.optional(Schema.String), layerSize: Schema.optional(Schema.Number), mediaType: Schema.optional(Schema.String)}) {}
 export const LayerList = Schema.Array(Layer);
-export const LayerFailure = Schema.Struct({layerDigest: Schema.optional(Schema.String), failureCode: Schema.optional(Schema.String), failureReason: Schema.optional(Schema.String)});
+export class LayerFailure extends Schema.Class<LayerFailure>("LayerFailure")({layerDigest: Schema.optional(Schema.String), failureCode: Schema.optional(Schema.String), failureReason: Schema.optional(Schema.String)}) {}
 export const LayerFailureList = Schema.Array(LayerFailure);
-export const ImageDetail = Schema.Struct({registryId: Schema.optional(Schema.String), repositoryName: Schema.optional(Schema.String), imageDigest: Schema.optional(Schema.String), imageTags: Schema.optional(ImageTagList), imageSizeInBytes: Schema.optional(Schema.Number), imagePushedAt: Schema.optional(Schema.Date), imageManifestMediaType: Schema.optional(Schema.String), artifactMediaType: Schema.optional(Schema.String)});
+export class ImageDetail extends Schema.Class<ImageDetail>("ImageDetail")({registryId: Schema.optional(Schema.String), repositoryName: Schema.optional(Schema.String), imageDigest: Schema.optional(Schema.String), imageTags: Schema.optional(ImageTagList), imageSizeInBytes: Schema.optional(Schema.Number), imagePushedAt: Schema.optional(Schema.Date), imageManifestMediaType: Schema.optional(Schema.String), artifactMediaType: Schema.optional(Schema.String)}) {}
 export const ImageDetailList = Schema.Array(ImageDetail);
-export const Image = Schema.Struct({registryId: Schema.optional(Schema.String), repositoryName: Schema.optional(Schema.String), imageId: Schema.optional(ImageIdentifier), imageManifest: Schema.optional(Schema.String), imageManifestMediaType: Schema.optional(Schema.String)});
-export const BatchCheckLayerAvailabilityResponse = Schema.Struct({layers: Schema.optional(LayerList), failures: Schema.optional(LayerFailureList)});
-export const EmptyUploadException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CreateRepositoryResponse = Schema.Struct({repository: Schema.optional(Repository), catalogData: Schema.optional(RepositoryCatalogData)});
-export const DeleteRepositoryResponse = Schema.Struct({repository: Schema.optional(Repository)});
-export const RepositoryNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DescribeImagesResponse = Schema.Struct({imageDetails: Schema.optional(ImageDetailList), nextToken: Schema.optional(Schema.String)});
-export const ServerException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UnsupportedCommandException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const GetRepositoryCatalogDataResponse = Schema.Struct({catalogData: Schema.optional(RepositoryCatalogData)});
-export const RepositoryPolicyNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const RegistryNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const PutImageResponse = Schema.Struct({image: Schema.optional(Image)});
-export const TooManyTagsException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidLayerPartException = Schema.Struct({registryId: Schema.optional(Schema.String), repositoryName: Schema.optional(Schema.String), uploadId: Schema.optional(Schema.String), lastValidByteReceived: Schema.optional(Schema.Number), message: Schema.optional(Schema.String)});
-export const ReferencedImageDetail = Schema.Struct({imageDigest: Schema.optional(Schema.String), imageSizeInBytes: Schema.optional(Schema.Number), imagePushedAt: Schema.optional(Schema.Date), imageManifestMediaType: Schema.optional(Schema.String), artifactMediaType: Schema.optional(Schema.String)});
-export const RegistryAlias = Schema.Struct({name: Schema.String, status: Schema.String, primaryRegistryAlias: Schema.Boolean, defaultRegistryAlias: Schema.Boolean});
+export class Image extends Schema.Class<Image>("Image")({registryId: Schema.optional(Schema.String), repositoryName: Schema.optional(Schema.String), imageId: Schema.optional(ImageIdentifier), imageManifest: Schema.optional(Schema.String), imageManifestMediaType: Schema.optional(Schema.String)}) {}
+export class BatchCheckLayerAvailabilityResponse extends Schema.Class<BatchCheckLayerAvailabilityResponse>("BatchCheckLayerAvailabilityResponse")({layers: Schema.optional(LayerList), failures: Schema.optional(LayerFailureList)}) {}
+export class EmptyUploadException extends Schema.Class<EmptyUploadException>("EmptyUploadException")({message: Schema.optional(Schema.String)}) {}
+export class CreateRepositoryResponse extends Schema.Class<CreateRepositoryResponse>("CreateRepositoryResponse")({repository: Schema.optional(Repository), catalogData: Schema.optional(RepositoryCatalogData)}) {}
+export class DeleteRepositoryResponse extends Schema.Class<DeleteRepositoryResponse>("DeleteRepositoryResponse")({repository: Schema.optional(Repository)}) {}
+export class RepositoryNotFoundException extends Schema.Class<RepositoryNotFoundException>("RepositoryNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class DescribeImagesResponse extends Schema.Class<DescribeImagesResponse>("DescribeImagesResponse")({imageDetails: Schema.optional(ImageDetailList), nextToken: Schema.optional(Schema.String)}) {}
+export class ServerException extends Schema.Class<ServerException>("ServerException")({message: Schema.optional(Schema.String)}) {}
+export class UnsupportedCommandException extends Schema.Class<UnsupportedCommandException>("UnsupportedCommandException")({message: Schema.optional(Schema.String)}) {}
+export class GetRepositoryCatalogDataResponse extends Schema.Class<GetRepositoryCatalogDataResponse>("GetRepositoryCatalogDataResponse")({catalogData: Schema.optional(RepositoryCatalogData)}) {}
+export class RepositoryPolicyNotFoundException extends Schema.Class<RepositoryPolicyNotFoundException>("RepositoryPolicyNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class RegistryNotFoundException extends Schema.Class<RegistryNotFoundException>("RegistryNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class PutImageResponse extends Schema.Class<PutImageResponse>("PutImageResponse")({image: Schema.optional(Image)}) {}
+export class TooManyTagsException extends Schema.Class<TooManyTagsException>("TooManyTagsException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidLayerPartException extends Schema.Class<InvalidLayerPartException>("InvalidLayerPartException")({registryId: Schema.optional(Schema.String), repositoryName: Schema.optional(Schema.String), uploadId: Schema.optional(Schema.String), lastValidByteReceived: Schema.optional(Schema.Number), message: Schema.optional(Schema.String)}) {}
+export class ReferencedImageDetail extends Schema.Class<ReferencedImageDetail>("ReferencedImageDetail")({imageDigest: Schema.optional(Schema.String), imageSizeInBytes: Schema.optional(Schema.Number), imagePushedAt: Schema.optional(Schema.Date), imageManifestMediaType: Schema.optional(Schema.String), artifactMediaType: Schema.optional(Schema.String)}) {}
+export class RegistryAlias extends Schema.Class<RegistryAlias>("RegistryAlias")({name: Schema.String, status: Schema.String, primaryRegistryAlias: Schema.Boolean, defaultRegistryAlias: Schema.Boolean}) {}
 export const RegistryAliasList = Schema.Array(RegistryAlias);
-export const ImageFailure = Schema.Struct({imageId: Schema.optional(ImageIdentifier), failureCode: Schema.optional(Schema.String), failureReason: Schema.optional(Schema.String)});
+export class ImageFailure extends Schema.Class<ImageFailure>("ImageFailure")({imageId: Schema.optional(ImageIdentifier), failureCode: Schema.optional(Schema.String), failureReason: Schema.optional(Schema.String)}) {}
 export const ImageFailureList = Schema.Array(ImageFailure);
-export const ImageTagDetail = Schema.Struct({imageTag: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date), imageDetail: Schema.optional(ReferencedImageDetail)});
+export class ImageTagDetail extends Schema.Class<ImageTagDetail>("ImageTagDetail")({imageTag: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date), imageDetail: Schema.optional(ReferencedImageDetail)}) {}
 export const ImageTagDetailList = Schema.Array(ImageTagDetail);
-export const Registry = Schema.Struct({registryId: Schema.String, registryArn: Schema.String, registryUri: Schema.String, verified: Schema.Boolean, aliases: RegistryAliasList});
+export class Registry extends Schema.Class<Registry>("Registry")({registryId: Schema.String, registryArn: Schema.String, registryUri: Schema.String, verified: Schema.Boolean, aliases: RegistryAliasList}) {}
 export const RegistryList = Schema.Array(Registry);
-export const BatchDeleteImageResponse = Schema.Struct({imageIds: Schema.optional(ImageIdentifierList), failures: Schema.optional(ImageFailureList)});
-export const InvalidLayerException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const LimitExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const RepositoryNotEmptyException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ImageNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DescribeImageTagsResponse = Schema.Struct({imageTagDetails: Schema.optional(ImageTagDetailList), nextToken: Schema.optional(Schema.String)});
-export const DescribeRegistriesResponse = Schema.Struct({registries: RegistryList, nextToken: Schema.optional(Schema.String)});
-export const RepositoryCatalogDataNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ImageAlreadyExistsException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UploadNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const LayerAlreadyExistsException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const RepositoryAlreadyExistsException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ImageDigestDoesNotMatchException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const LayerPartTooSmallException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ImageTagAlreadyExistsException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const LayersNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ReferencedImagesNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
+export class BatchDeleteImageResponse extends Schema.Class<BatchDeleteImageResponse>("BatchDeleteImageResponse")({imageIds: Schema.optional(ImageIdentifierList), failures: Schema.optional(ImageFailureList)}) {}
+export class InvalidLayerException extends Schema.Class<InvalidLayerException>("InvalidLayerException")({message: Schema.optional(Schema.String)}) {}
+export class LimitExceededException extends Schema.Class<LimitExceededException>("LimitExceededException")({message: Schema.optional(Schema.String)}) {}
+export class RepositoryNotEmptyException extends Schema.Class<RepositoryNotEmptyException>("RepositoryNotEmptyException")({message: Schema.optional(Schema.String)}) {}
+export class ImageNotFoundException extends Schema.Class<ImageNotFoundException>("ImageNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class DescribeImageTagsResponse extends Schema.Class<DescribeImageTagsResponse>("DescribeImageTagsResponse")({imageTagDetails: Schema.optional(ImageTagDetailList), nextToken: Schema.optional(Schema.String)}) {}
+export class DescribeRegistriesResponse extends Schema.Class<DescribeRegistriesResponse>("DescribeRegistriesResponse")({registries: RegistryList, nextToken: Schema.optional(Schema.String)}) {}
+export class RepositoryCatalogDataNotFoundException extends Schema.Class<RepositoryCatalogDataNotFoundException>("RepositoryCatalogDataNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class ImageAlreadyExistsException extends Schema.Class<ImageAlreadyExistsException>("ImageAlreadyExistsException")({message: Schema.optional(Schema.String)}) {}
+export class UploadNotFoundException extends Schema.Class<UploadNotFoundException>("UploadNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class LayerAlreadyExistsException extends Schema.Class<LayerAlreadyExistsException>("LayerAlreadyExistsException")({message: Schema.optional(Schema.String)}) {}
+export class RepositoryAlreadyExistsException extends Schema.Class<RepositoryAlreadyExistsException>("RepositoryAlreadyExistsException")({message: Schema.optional(Schema.String)}) {}
+export class ImageDigestDoesNotMatchException extends Schema.Class<ImageDigestDoesNotMatchException>("ImageDigestDoesNotMatchException")({message: Schema.optional(Schema.String)}) {}
+export class LayerPartTooSmallException extends Schema.Class<LayerPartTooSmallException>("LayerPartTooSmallException")({message: Schema.optional(Schema.String)}) {}
+export class ImageTagAlreadyExistsException extends Schema.Class<ImageTagAlreadyExistsException>("ImageTagAlreadyExistsException")({message: Schema.optional(Schema.String)}) {}
+export class LayersNotFoundException extends Schema.Class<LayersNotFoundException>("LayersNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class ReferencedImagesNotFoundException extends Schema.Class<ReferencedImagesNotFoundException>("ReferencedImagesNotFoundException")({message: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class InvalidParameterExceptionError extends Schema.TaggedError<InvalidParameterExceptionError>()("InvalidParameterException", InvalidParameterException) {};
-export class RepositoryNotFoundExceptionError extends Schema.TaggedError<RepositoryNotFoundExceptionError>()("RepositoryNotFoundException", RepositoryNotFoundException) {};
-export class ServerExceptionError extends Schema.TaggedError<ServerExceptionError>()("ServerException", ServerException) {};
-export class UnsupportedCommandExceptionError extends Schema.TaggedError<UnsupportedCommandExceptionError>()("UnsupportedCommandException", UnsupportedCommandException) {};
-export class InvalidTagParameterExceptionError extends Schema.TaggedError<InvalidTagParameterExceptionError>()("InvalidTagParameterException", InvalidTagParameterException) {};
-export class TooManyTagsExceptionError extends Schema.TaggedError<TooManyTagsExceptionError>()("TooManyTagsException", TooManyTagsException) {};
-export class RegistryNotFoundExceptionError extends Schema.TaggedError<RegistryNotFoundExceptionError>()("RegistryNotFoundException", RegistryNotFoundException) {};
-export class EmptyUploadExceptionError extends Schema.TaggedError<EmptyUploadExceptionError>()("EmptyUploadException", EmptyUploadException) {};
-export class RepositoryPolicyNotFoundExceptionError extends Schema.TaggedError<RepositoryPolicyNotFoundExceptionError>()("RepositoryPolicyNotFoundException", RepositoryPolicyNotFoundException) {};
-export class InvalidLayerPartExceptionError extends Schema.TaggedError<InvalidLayerPartExceptionError>()("InvalidLayerPartException", InvalidLayerPartException) {};
-export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException) {};
-export class InvalidLayerExceptionError extends Schema.TaggedError<InvalidLayerExceptionError>()("InvalidLayerException", InvalidLayerException) {};
-export class RepositoryNotEmptyExceptionError extends Schema.TaggedError<RepositoryNotEmptyExceptionError>()("RepositoryNotEmptyException", RepositoryNotEmptyException) {};
-export class ImageNotFoundExceptionError extends Schema.TaggedError<ImageNotFoundExceptionError>()("ImageNotFoundException", ImageNotFoundException) {};
-export class RepositoryCatalogDataNotFoundExceptionError extends Schema.TaggedError<RepositoryCatalogDataNotFoundExceptionError>()("RepositoryCatalogDataNotFoundException", RepositoryCatalogDataNotFoundException) {};
-export class ImageAlreadyExistsExceptionError extends Schema.TaggedError<ImageAlreadyExistsExceptionError>()("ImageAlreadyExistsException", ImageAlreadyExistsException) {};
-export class UploadNotFoundExceptionError extends Schema.TaggedError<UploadNotFoundExceptionError>()("UploadNotFoundException", UploadNotFoundException) {};
-export class LayerAlreadyExistsExceptionError extends Schema.TaggedError<LayerAlreadyExistsExceptionError>()("LayerAlreadyExistsException", LayerAlreadyExistsException) {};
-export class RepositoryAlreadyExistsExceptionError extends Schema.TaggedError<RepositoryAlreadyExistsExceptionError>()("RepositoryAlreadyExistsException", RepositoryAlreadyExistsException) {};
-export class ImageDigestDoesNotMatchExceptionError extends Schema.TaggedError<ImageDigestDoesNotMatchExceptionError>()("ImageDigestDoesNotMatchException", ImageDigestDoesNotMatchException) {};
-export class LayerPartTooSmallExceptionError extends Schema.TaggedError<LayerPartTooSmallExceptionError>()("LayerPartTooSmallException", LayerPartTooSmallException) {};
-export class ImageTagAlreadyExistsExceptionError extends Schema.TaggedError<ImageTagAlreadyExistsExceptionError>()("ImageTagAlreadyExistsException", ImageTagAlreadyExistsException) {};
-export class LayersNotFoundExceptionError extends Schema.TaggedError<LayersNotFoundExceptionError>()("LayersNotFoundException", LayersNotFoundException) {};
-export class ReferencedImagesNotFoundExceptionError extends Schema.TaggedError<ReferencedImagesNotFoundExceptionError>()("ReferencedImagesNotFoundException", ReferencedImagesNotFoundException) {};
+export class InvalidParameterExceptionError extends Schema.TaggedError<InvalidParameterExceptionError>()("InvalidParameterException", InvalidParameterException.fields) {};
+export class RepositoryNotFoundExceptionError extends Schema.TaggedError<RepositoryNotFoundExceptionError>()("RepositoryNotFoundException", RepositoryNotFoundException.fields) {};
+export class ServerExceptionError extends Schema.TaggedError<ServerExceptionError>()("ServerException", ServerException.fields) {};
+export class UnsupportedCommandExceptionError extends Schema.TaggedError<UnsupportedCommandExceptionError>()("UnsupportedCommandException", UnsupportedCommandException.fields) {};
+export class InvalidTagParameterExceptionError extends Schema.TaggedError<InvalidTagParameterExceptionError>()("InvalidTagParameterException", InvalidTagParameterException.fields) {};
+export class TooManyTagsExceptionError extends Schema.TaggedError<TooManyTagsExceptionError>()("TooManyTagsException", TooManyTagsException.fields) {};
+export class RegistryNotFoundExceptionError extends Schema.TaggedError<RegistryNotFoundExceptionError>()("RegistryNotFoundException", RegistryNotFoundException.fields) {};
+export class EmptyUploadExceptionError extends Schema.TaggedError<EmptyUploadExceptionError>()("EmptyUploadException", EmptyUploadException.fields) {};
+export class RepositoryPolicyNotFoundExceptionError extends Schema.TaggedError<RepositoryPolicyNotFoundExceptionError>()("RepositoryPolicyNotFoundException", RepositoryPolicyNotFoundException.fields) {};
+export class InvalidLayerPartExceptionError extends Schema.TaggedError<InvalidLayerPartExceptionError>()("InvalidLayerPartException", InvalidLayerPartException.fields) {};
+export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException.fields) {};
+export class InvalidLayerExceptionError extends Schema.TaggedError<InvalidLayerExceptionError>()("InvalidLayerException", InvalidLayerException.fields) {};
+export class RepositoryNotEmptyExceptionError extends Schema.TaggedError<RepositoryNotEmptyExceptionError>()("RepositoryNotEmptyException", RepositoryNotEmptyException.fields) {};
+export class ImageNotFoundExceptionError extends Schema.TaggedError<ImageNotFoundExceptionError>()("ImageNotFoundException", ImageNotFoundException.fields) {};
+export class RepositoryCatalogDataNotFoundExceptionError extends Schema.TaggedError<RepositoryCatalogDataNotFoundExceptionError>()("RepositoryCatalogDataNotFoundException", RepositoryCatalogDataNotFoundException.fields) {};
+export class ImageAlreadyExistsExceptionError extends Schema.TaggedError<ImageAlreadyExistsExceptionError>()("ImageAlreadyExistsException", ImageAlreadyExistsException.fields) {};
+export class UploadNotFoundExceptionError extends Schema.TaggedError<UploadNotFoundExceptionError>()("UploadNotFoundException", UploadNotFoundException.fields) {};
+export class LayerAlreadyExistsExceptionError extends Schema.TaggedError<LayerAlreadyExistsExceptionError>()("LayerAlreadyExistsException", LayerAlreadyExistsException.fields) {};
+export class RepositoryAlreadyExistsExceptionError extends Schema.TaggedError<RepositoryAlreadyExistsExceptionError>()("RepositoryAlreadyExistsException", RepositoryAlreadyExistsException.fields) {};
+export class ImageDigestDoesNotMatchExceptionError extends Schema.TaggedError<ImageDigestDoesNotMatchExceptionError>()("ImageDigestDoesNotMatchException", ImageDigestDoesNotMatchException.fields) {};
+export class LayerPartTooSmallExceptionError extends Schema.TaggedError<LayerPartTooSmallExceptionError>()("LayerPartTooSmallException", LayerPartTooSmallException.fields) {};
+export class ImageTagAlreadyExistsExceptionError extends Schema.TaggedError<ImageTagAlreadyExistsExceptionError>()("ImageTagAlreadyExistsException", ImageTagAlreadyExistsException.fields) {};
+export class LayersNotFoundExceptionError extends Schema.TaggedError<LayersNotFoundExceptionError>()("LayersNotFoundException", LayersNotFoundException.fields) {};
+export class ReferencedImagesNotFoundExceptionError extends Schema.TaggedError<ReferencedImagesNotFoundExceptionError>()("ReferencedImagesNotFoundException", ReferencedImagesNotFoundException.fields) {};
 
 //# Operations
 export const getRegistryCatalogData = /*#__PURE__*/ makeOperation(() => Operation({ version: "2020-10-30", uri: "/", method: "POST", sdkId: "ECR PUBLIC", sigV4ServiceName: "ecr-public", name: "SpencerFrontendService.GetRegistryCatalogData" }, GetRegistryCatalogDataRequest, GetRegistryCatalogDataResponse, [ServerExceptionError, UnsupportedCommandExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

@@ -8,251 +8,263 @@ export const PreparedStatementNameList = Schema.Array(Schema.String);
 export const QueryExecutionIdList = Schema.Array(Schema.String);
 export const ExecutionParameters = Schema.Array(Schema.String);
 export const TagKeyList = Schema.Array(Schema.String);
-export const BatchGetNamedQueryInput = Schema.Struct({NamedQueryIds: NamedQueryIdList});
-export const BatchGetPreparedStatementInput = Schema.Struct({PreparedStatementNames: PreparedStatementNameList, WorkGroup: Schema.String});
-export const BatchGetQueryExecutionInput = Schema.Struct({QueryExecutionIds: QueryExecutionIdList});
-export const CancelCapacityReservationInput = Schema.Struct({Name: Schema.String});
-export const CancelCapacityReservationOutput = Schema.Struct({});
-export const CreateNamedQueryInput = Schema.Struct({Name: Schema.String, Description: Schema.optional(Schema.String), Database: Schema.String, QueryString: Schema.String, ClientRequestToken: Schema.optional(Schema.String), WorkGroup: Schema.optional(Schema.String)});
-export const CreateNotebookInput = Schema.Struct({WorkGroup: Schema.String, Name: Schema.String, ClientRequestToken: Schema.optional(Schema.String)});
-export const CreatePreparedStatementInput = Schema.Struct({StatementName: Schema.String, WorkGroup: Schema.String, QueryStatement: Schema.String, Description: Schema.optional(Schema.String)});
-export const CreatePreparedStatementOutput = Schema.Struct({});
-export const CreatePresignedNotebookUrlRequest = Schema.Struct({SessionId: Schema.String});
-export const DeleteCapacityReservationInput = Schema.Struct({Name: Schema.String});
-export const DeleteCapacityReservationOutput = Schema.Struct({});
-export const DeleteDataCatalogInput = Schema.Struct({Name: Schema.String, DeleteCatalogOnly: Schema.optional(Schema.Boolean)});
-export const DeleteNamedQueryInput = Schema.Struct({NamedQueryId: Schema.String});
-export const DeleteNamedQueryOutput = Schema.Struct({});
-export const DeleteNotebookInput = Schema.Struct({NotebookId: Schema.String});
-export const DeleteNotebookOutput = Schema.Struct({});
-export const DeletePreparedStatementInput = Schema.Struct({StatementName: Schema.String, WorkGroup: Schema.String});
-export const DeletePreparedStatementOutput = Schema.Struct({});
-export const DeleteWorkGroupInput = Schema.Struct({WorkGroup: Schema.String, RecursiveDeleteOption: Schema.optional(Schema.Boolean)});
-export const DeleteWorkGroupOutput = Schema.Struct({});
-export const ExportNotebookInput = Schema.Struct({NotebookId: Schema.String});
-export const GetCalculationExecutionRequest = Schema.Struct({CalculationExecutionId: Schema.String});
-export const GetCalculationExecutionCodeRequest = Schema.Struct({CalculationExecutionId: Schema.String});
-export const GetCalculationExecutionStatusRequest = Schema.Struct({CalculationExecutionId: Schema.String});
-export const GetCapacityAssignmentConfigurationInput = Schema.Struct({CapacityReservationName: Schema.String});
-export const GetCapacityReservationInput = Schema.Struct({Name: Schema.String});
-export const GetDatabaseInput = Schema.Struct({CatalogName: Schema.String, DatabaseName: Schema.String, WorkGroup: Schema.optional(Schema.String)});
-export const GetDataCatalogInput = Schema.Struct({Name: Schema.String, WorkGroup: Schema.optional(Schema.String)});
-export const GetNamedQueryInput = Schema.Struct({NamedQueryId: Schema.String});
-export const GetNotebookMetadataInput = Schema.Struct({NotebookId: Schema.String});
-export const GetPreparedStatementInput = Schema.Struct({StatementName: Schema.String, WorkGroup: Schema.String});
-export const GetQueryExecutionInput = Schema.Struct({QueryExecutionId: Schema.String});
-export const GetQueryResultsInput = Schema.Struct({QueryExecutionId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), QueryResultType: Schema.optional(Schema.String)});
-export const GetQueryRuntimeStatisticsInput = Schema.Struct({QueryExecutionId: Schema.String});
-export const GetSessionRequest = Schema.Struct({SessionId: Schema.String});
-export const GetSessionStatusRequest = Schema.Struct({SessionId: Schema.String});
-export const GetTableMetadataInput = Schema.Struct({CatalogName: Schema.String, DatabaseName: Schema.String, TableName: Schema.String, WorkGroup: Schema.optional(Schema.String)});
-export const GetWorkGroupInput = Schema.Struct({WorkGroup: Schema.String});
-export const ImportNotebookInput = Schema.Struct({WorkGroup: Schema.String, Name: Schema.String, Payload: Schema.optional(Schema.String), Type: Schema.String, NotebookS3LocationUri: Schema.optional(Schema.String), ClientRequestToken: Schema.optional(Schema.String)});
-export const ListApplicationDPUSizesInput = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListCalculationExecutionsRequest = Schema.Struct({SessionId: Schema.String, StateFilter: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListCapacityReservationsInput = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListDatabasesInput = Schema.Struct({CatalogName: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), WorkGroup: Schema.optional(Schema.String)});
-export const ListDataCatalogsInput = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), WorkGroup: Schema.optional(Schema.String)});
-export const ListEngineVersionsInput = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListExecutorsRequest = Schema.Struct({SessionId: Schema.String, ExecutorStateFilter: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListNamedQueriesInput = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), WorkGroup: Schema.optional(Schema.String)});
-export const ListNotebookSessionsRequest = Schema.Struct({NotebookId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListPreparedStatementsInput = Schema.Struct({WorkGroup: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListQueryExecutionsInput = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), WorkGroup: Schema.optional(Schema.String)});
-export const ListSessionsRequest = Schema.Struct({WorkGroup: Schema.String, StateFilter: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListTableMetadataInput = Schema.Struct({CatalogName: Schema.String, DatabaseName: Schema.String, Expression: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), WorkGroup: Schema.optional(Schema.String)});
-export const ListTagsForResourceInput = Schema.Struct({ResourceARN: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListWorkGroupsInput = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const StopCalculationExecutionRequest = Schema.Struct({CalculationExecutionId: Schema.String});
-export const StopQueryExecutionInput = Schema.Struct({QueryExecutionId: Schema.String});
-export const StopQueryExecutionOutput = Schema.Struct({});
-export const Tag = Schema.Struct({Key: Schema.optional(Schema.String), Value: Schema.optional(Schema.String)});
+export class BatchGetNamedQueryInput extends Schema.Class<BatchGetNamedQueryInput>("BatchGetNamedQueryInput")({NamedQueryIds: NamedQueryIdList}) {}
+export class BatchGetPreparedStatementInput extends Schema.Class<BatchGetPreparedStatementInput>("BatchGetPreparedStatementInput")({PreparedStatementNames: PreparedStatementNameList, WorkGroup: Schema.String}) {}
+export class BatchGetQueryExecutionInput extends Schema.Class<BatchGetQueryExecutionInput>("BatchGetQueryExecutionInput")({QueryExecutionIds: QueryExecutionIdList}) {}
+export class CancelCapacityReservationInput extends Schema.Class<CancelCapacityReservationInput>("CancelCapacityReservationInput")({Name: Schema.String}) {}
+export class CancelCapacityReservationOutput extends Schema.Class<CancelCapacityReservationOutput>("CancelCapacityReservationOutput")({}) {}
+export class CreateNamedQueryInput extends Schema.Class<CreateNamedQueryInput>("CreateNamedQueryInput")({Name: Schema.String, Description: Schema.optional(Schema.String), Database: Schema.String, QueryString: Schema.String, ClientRequestToken: Schema.optional(Schema.String), WorkGroup: Schema.optional(Schema.String)}) {}
+export class CreateNotebookInput extends Schema.Class<CreateNotebookInput>("CreateNotebookInput")({WorkGroup: Schema.String, Name: Schema.String, ClientRequestToken: Schema.optional(Schema.String)}) {}
+export class CreatePreparedStatementInput extends Schema.Class<CreatePreparedStatementInput>("CreatePreparedStatementInput")({StatementName: Schema.String, WorkGroup: Schema.String, QueryStatement: Schema.String, Description: Schema.optional(Schema.String)}) {}
+export class CreatePreparedStatementOutput extends Schema.Class<CreatePreparedStatementOutput>("CreatePreparedStatementOutput")({}) {}
+export class CreatePresignedNotebookUrlRequest extends Schema.Class<CreatePresignedNotebookUrlRequest>("CreatePresignedNotebookUrlRequest")({SessionId: Schema.String}) {}
+export class DeleteCapacityReservationInput extends Schema.Class<DeleteCapacityReservationInput>("DeleteCapacityReservationInput")({Name: Schema.String}) {}
+export class DeleteCapacityReservationOutput extends Schema.Class<DeleteCapacityReservationOutput>("DeleteCapacityReservationOutput")({}) {}
+export class DeleteDataCatalogInput extends Schema.Class<DeleteDataCatalogInput>("DeleteDataCatalogInput")({Name: Schema.String, DeleteCatalogOnly: Schema.optional(Schema.Boolean)}) {}
+export class DeleteNamedQueryInput extends Schema.Class<DeleteNamedQueryInput>("DeleteNamedQueryInput")({NamedQueryId: Schema.String}) {}
+export class DeleteNamedQueryOutput extends Schema.Class<DeleteNamedQueryOutput>("DeleteNamedQueryOutput")({}) {}
+export class DeleteNotebookInput extends Schema.Class<DeleteNotebookInput>("DeleteNotebookInput")({NotebookId: Schema.String}) {}
+export class DeleteNotebookOutput extends Schema.Class<DeleteNotebookOutput>("DeleteNotebookOutput")({}) {}
+export class DeletePreparedStatementInput extends Schema.Class<DeletePreparedStatementInput>("DeletePreparedStatementInput")({StatementName: Schema.String, WorkGroup: Schema.String}) {}
+export class DeletePreparedStatementOutput extends Schema.Class<DeletePreparedStatementOutput>("DeletePreparedStatementOutput")({}) {}
+export class DeleteWorkGroupInput extends Schema.Class<DeleteWorkGroupInput>("DeleteWorkGroupInput")({WorkGroup: Schema.String, RecursiveDeleteOption: Schema.optional(Schema.Boolean)}) {}
+export class DeleteWorkGroupOutput extends Schema.Class<DeleteWorkGroupOutput>("DeleteWorkGroupOutput")({}) {}
+export class ExportNotebookInput extends Schema.Class<ExportNotebookInput>("ExportNotebookInput")({NotebookId: Schema.String}) {}
+export class GetCalculationExecutionRequest extends Schema.Class<GetCalculationExecutionRequest>("GetCalculationExecutionRequest")({CalculationExecutionId: Schema.String}) {}
+export class GetCalculationExecutionCodeRequest extends Schema.Class<GetCalculationExecutionCodeRequest>("GetCalculationExecutionCodeRequest")({CalculationExecutionId: Schema.String}) {}
+export class GetCalculationExecutionStatusRequest extends Schema.Class<GetCalculationExecutionStatusRequest>("GetCalculationExecutionStatusRequest")({CalculationExecutionId: Schema.String}) {}
+export class GetCapacityAssignmentConfigurationInput extends Schema.Class<GetCapacityAssignmentConfigurationInput>("GetCapacityAssignmentConfigurationInput")({CapacityReservationName: Schema.String}) {}
+export class GetCapacityReservationInput extends Schema.Class<GetCapacityReservationInput>("GetCapacityReservationInput")({Name: Schema.String}) {}
+export class GetDatabaseInput extends Schema.Class<GetDatabaseInput>("GetDatabaseInput")({CatalogName: Schema.String, DatabaseName: Schema.String, WorkGroup: Schema.optional(Schema.String)}) {}
+export class GetDataCatalogInput extends Schema.Class<GetDataCatalogInput>("GetDataCatalogInput")({Name: Schema.String, WorkGroup: Schema.optional(Schema.String)}) {}
+export class GetNamedQueryInput extends Schema.Class<GetNamedQueryInput>("GetNamedQueryInput")({NamedQueryId: Schema.String}) {}
+export class GetNotebookMetadataInput extends Schema.Class<GetNotebookMetadataInput>("GetNotebookMetadataInput")({NotebookId: Schema.String}) {}
+export class GetPreparedStatementInput extends Schema.Class<GetPreparedStatementInput>("GetPreparedStatementInput")({StatementName: Schema.String, WorkGroup: Schema.String}) {}
+export class GetQueryExecutionInput extends Schema.Class<GetQueryExecutionInput>("GetQueryExecutionInput")({QueryExecutionId: Schema.String}) {}
+export class GetQueryResultsInput extends Schema.Class<GetQueryResultsInput>("GetQueryResultsInput")({QueryExecutionId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), QueryResultType: Schema.optional(Schema.String)}) {}
+export class GetQueryRuntimeStatisticsInput extends Schema.Class<GetQueryRuntimeStatisticsInput>("GetQueryRuntimeStatisticsInput")({QueryExecutionId: Schema.String}) {}
+export class GetResourceDashboardRequest extends Schema.Class<GetResourceDashboardRequest>("GetResourceDashboardRequest")({ResourceARN: Schema.String}) {}
+export class GetSessionRequest extends Schema.Class<GetSessionRequest>("GetSessionRequest")({SessionId: Schema.String}) {}
+export class GetSessionEndpointRequest extends Schema.Class<GetSessionEndpointRequest>("GetSessionEndpointRequest")({SessionId: Schema.String}) {}
+export class GetSessionStatusRequest extends Schema.Class<GetSessionStatusRequest>("GetSessionStatusRequest")({SessionId: Schema.String}) {}
+export class GetTableMetadataInput extends Schema.Class<GetTableMetadataInput>("GetTableMetadataInput")({CatalogName: Schema.String, DatabaseName: Schema.String, TableName: Schema.String, WorkGroup: Schema.optional(Schema.String)}) {}
+export class GetWorkGroupInput extends Schema.Class<GetWorkGroupInput>("GetWorkGroupInput")({WorkGroup: Schema.String}) {}
+export class ImportNotebookInput extends Schema.Class<ImportNotebookInput>("ImportNotebookInput")({WorkGroup: Schema.String, Name: Schema.String, Payload: Schema.optional(Schema.String), Type: Schema.String, NotebookS3LocationUri: Schema.optional(Schema.String), ClientRequestToken: Schema.optional(Schema.String)}) {}
+export class ListApplicationDPUSizesInput extends Schema.Class<ListApplicationDPUSizesInput>("ListApplicationDPUSizesInput")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListCalculationExecutionsRequest extends Schema.Class<ListCalculationExecutionsRequest>("ListCalculationExecutionsRequest")({SessionId: Schema.String, StateFilter: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListCapacityReservationsInput extends Schema.Class<ListCapacityReservationsInput>("ListCapacityReservationsInput")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListDatabasesInput extends Schema.Class<ListDatabasesInput>("ListDatabasesInput")({CatalogName: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), WorkGroup: Schema.optional(Schema.String)}) {}
+export class ListDataCatalogsInput extends Schema.Class<ListDataCatalogsInput>("ListDataCatalogsInput")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), WorkGroup: Schema.optional(Schema.String)}) {}
+export class ListEngineVersionsInput extends Schema.Class<ListEngineVersionsInput>("ListEngineVersionsInput")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListExecutorsRequest extends Schema.Class<ListExecutorsRequest>("ListExecutorsRequest")({SessionId: Schema.String, ExecutorStateFilter: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListNamedQueriesInput extends Schema.Class<ListNamedQueriesInput>("ListNamedQueriesInput")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), WorkGroup: Schema.optional(Schema.String)}) {}
+export class ListNotebookSessionsRequest extends Schema.Class<ListNotebookSessionsRequest>("ListNotebookSessionsRequest")({NotebookId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListPreparedStatementsInput extends Schema.Class<ListPreparedStatementsInput>("ListPreparedStatementsInput")({WorkGroup: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListQueryExecutionsInput extends Schema.Class<ListQueryExecutionsInput>("ListQueryExecutionsInput")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), WorkGroup: Schema.optional(Schema.String)}) {}
+export class ListSessionsRequest extends Schema.Class<ListSessionsRequest>("ListSessionsRequest")({WorkGroup: Schema.String, StateFilter: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTableMetadataInput extends Schema.Class<ListTableMetadataInput>("ListTableMetadataInput")({CatalogName: Schema.String, DatabaseName: Schema.String, Expression: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), WorkGroup: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceInput extends Schema.Class<ListTagsForResourceInput>("ListTagsForResourceInput")({ResourceARN: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListWorkGroupsInput extends Schema.Class<ListWorkGroupsInput>("ListWorkGroupsInput")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class StopCalculationExecutionRequest extends Schema.Class<StopCalculationExecutionRequest>("StopCalculationExecutionRequest")({CalculationExecutionId: Schema.String}) {}
+export class StopQueryExecutionInput extends Schema.Class<StopQueryExecutionInput>("StopQueryExecutionInput")({QueryExecutionId: Schema.String}) {}
+export class StopQueryExecutionOutput extends Schema.Class<StopQueryExecutionOutput>("StopQueryExecutionOutput")({}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.optional(Schema.String), Value: Schema.optional(Schema.String)}) {}
 export const TagList = Schema.Array(Tag);
-export const TagResourceInput = Schema.Struct({ResourceARN: Schema.String, Tags: TagList});
-export const TagResourceOutput = Schema.Struct({});
-export const TerminateSessionRequest = Schema.Struct({SessionId: Schema.String});
-export const UntagResourceInput = Schema.Struct({ResourceARN: Schema.String, TagKeys: TagKeyList});
-export const UntagResourceOutput = Schema.Struct({});
-export const UpdateCapacityReservationInput = Schema.Struct({TargetDpus: Schema.Number, Name: Schema.String});
-export const UpdateCapacityReservationOutput = Schema.Struct({});
+export class TagResourceInput extends Schema.Class<TagResourceInput>("TagResourceInput")({ResourceARN: Schema.String, Tags: TagList}) {}
+export class TagResourceOutput extends Schema.Class<TagResourceOutput>("TagResourceOutput")({}) {}
+export class TerminateSessionRequest extends Schema.Class<TerminateSessionRequest>("TerminateSessionRequest")({SessionId: Schema.String}) {}
+export class UntagResourceInput extends Schema.Class<UntagResourceInput>("UntagResourceInput")({ResourceARN: Schema.String, TagKeys: TagKeyList}) {}
+export class UntagResourceOutput extends Schema.Class<UntagResourceOutput>("UntagResourceOutput")({}) {}
+export class UpdateCapacityReservationInput extends Schema.Class<UpdateCapacityReservationInput>("UpdateCapacityReservationInput")({TargetDpus: Schema.Number, Name: Schema.String}) {}
+export class UpdateCapacityReservationOutput extends Schema.Class<UpdateCapacityReservationOutput>("UpdateCapacityReservationOutput")({}) {}
 export const ParametersMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const UpdateDataCatalogInput = Schema.Struct({Name: Schema.String, Type: Schema.String, Description: Schema.optional(Schema.String), Parameters: Schema.optional(ParametersMap)});
-export const UpdateDataCatalogOutput = Schema.Struct({});
-export const UpdateNamedQueryInput = Schema.Struct({NamedQueryId: Schema.String, Name: Schema.String, Description: Schema.optional(Schema.String), QueryString: Schema.String});
-export const UpdateNamedQueryOutput = Schema.Struct({});
-export const UpdateNotebookInput = Schema.Struct({NotebookId: Schema.String, Payload: Schema.String, Type: Schema.String, SessionId: Schema.optional(Schema.String), ClientRequestToken: Schema.optional(Schema.String)});
-export const UpdateNotebookOutput = Schema.Struct({});
-export const UpdateNotebookMetadataInput = Schema.Struct({NotebookId: Schema.String, ClientRequestToken: Schema.optional(Schema.String), Name: Schema.String});
-export const UpdateNotebookMetadataOutput = Schema.Struct({});
-export const UpdatePreparedStatementInput = Schema.Struct({StatementName: Schema.String, WorkGroup: Schema.String, QueryStatement: Schema.String, Description: Schema.optional(Schema.String)});
-export const UpdatePreparedStatementOutput = Schema.Struct({});
+export class UpdateDataCatalogInput extends Schema.Class<UpdateDataCatalogInput>("UpdateDataCatalogInput")({Name: Schema.String, Type: Schema.String, Description: Schema.optional(Schema.String), Parameters: Schema.optional(ParametersMap)}) {}
+export class UpdateDataCatalogOutput extends Schema.Class<UpdateDataCatalogOutput>("UpdateDataCatalogOutput")({}) {}
+export class UpdateNamedQueryInput extends Schema.Class<UpdateNamedQueryInput>("UpdateNamedQueryInput")({NamedQueryId: Schema.String, Name: Schema.String, Description: Schema.optional(Schema.String), QueryString: Schema.String}) {}
+export class UpdateNamedQueryOutput extends Schema.Class<UpdateNamedQueryOutput>("UpdateNamedQueryOutput")({}) {}
+export class UpdateNotebookInput extends Schema.Class<UpdateNotebookInput>("UpdateNotebookInput")({NotebookId: Schema.String, Payload: Schema.String, Type: Schema.String, SessionId: Schema.optional(Schema.String), ClientRequestToken: Schema.optional(Schema.String)}) {}
+export class UpdateNotebookOutput extends Schema.Class<UpdateNotebookOutput>("UpdateNotebookOutput")({}) {}
+export class UpdateNotebookMetadataInput extends Schema.Class<UpdateNotebookMetadataInput>("UpdateNotebookMetadataInput")({NotebookId: Schema.String, ClientRequestToken: Schema.optional(Schema.String), Name: Schema.String}) {}
+export class UpdateNotebookMetadataOutput extends Schema.Class<UpdateNotebookMetadataOutput>("UpdateNotebookMetadataOutput")({}) {}
+export class UpdatePreparedStatementInput extends Schema.Class<UpdatePreparedStatementInput>("UpdatePreparedStatementInput")({StatementName: Schema.String, WorkGroup: Schema.String, QueryStatement: Schema.String, Description: Schema.optional(Schema.String)}) {}
+export class UpdatePreparedStatementOutput extends Schema.Class<UpdatePreparedStatementOutput>("UpdatePreparedStatementOutput")({}) {}
 export const WorkGroupNamesList = Schema.Array(Schema.String);
-export const CapacityAllocation = Schema.Struct({Status: Schema.String, StatusMessage: Schema.optional(Schema.String), RequestTime: Schema.Date, RequestCompletionTime: Schema.optional(Schema.Date)});
-export const CapacityReservation = Schema.Struct({Name: Schema.String, Status: Schema.String, TargetDpus: Schema.Number, AllocatedDpus: Schema.Number, LastAllocation: Schema.optional(CapacityAllocation), LastSuccessfulAllocationTime: Schema.optional(Schema.Date), CreationTime: Schema.Date});
+export class CapacityAllocation extends Schema.Class<CapacityAllocation>("CapacityAllocation")({Status: Schema.String, StatusMessage: Schema.optional(Schema.String), RequestTime: Schema.Date, RequestCompletionTime: Schema.optional(Schema.Date)}) {}
+export class CapacityReservation extends Schema.Class<CapacityReservation>("CapacityReservation")({Name: Schema.String, Status: Schema.String, TargetDpus: Schema.Number, AllocatedDpus: Schema.Number, LastAllocation: Schema.optional(CapacityAllocation), LastSuccessfulAllocationTime: Schema.optional(Schema.Date), CreationTime: Schema.Date}) {}
 export const CapacityReservationsList = Schema.Array(CapacityReservation);
-export const Database = Schema.Struct({Name: Schema.String, Description: Schema.optional(Schema.String), Parameters: Schema.optional(ParametersMap)});
+export class Database extends Schema.Class<Database>("Database")({Name: Schema.String, Description: Schema.optional(Schema.String), Parameters: Schema.optional(ParametersMap)}) {}
 export const DatabaseList = Schema.Array(Database);
-export const EngineVersion = Schema.Struct({SelectedEngineVersion: Schema.optional(Schema.String), EffectiveEngineVersion: Schema.optional(Schema.String)});
+export class EngineVersion extends Schema.Class<EngineVersion>("EngineVersion")({SelectedEngineVersion: Schema.optional(Schema.String), EffectiveEngineVersion: Schema.optional(Schema.String)}) {}
 export const EngineVersionsList = Schema.Array(EngineVersion);
-export const FilterDefinition = Schema.Struct({Name: Schema.optional(Schema.String)});
-export const Column = Schema.Struct({Name: Schema.String, Type: Schema.optional(Schema.String), Comment: Schema.optional(Schema.String)});
+export class FilterDefinition extends Schema.Class<FilterDefinition>("FilterDefinition")({Name: Schema.optional(Schema.String)}) {}
+export class Column extends Schema.Class<Column>("Column")({Name: Schema.String, Type: Schema.optional(Schema.String), Comment: Schema.optional(Schema.String)}) {}
 export const ColumnList = Schema.Array(Column);
-export const TableMetadata = Schema.Struct({Name: Schema.String, CreateTime: Schema.optional(Schema.Date), LastAccessTime: Schema.optional(Schema.Date), TableType: Schema.optional(Schema.String), Columns: Schema.optional(ColumnList), PartitionKeys: Schema.optional(ColumnList), Parameters: Schema.optional(ParametersMap)});
+export class TableMetadata extends Schema.Class<TableMetadata>("TableMetadata")({Name: Schema.String, CreateTime: Schema.optional(Schema.Date), LastAccessTime: Schema.optional(Schema.Date), TableType: Schema.optional(Schema.String), Columns: Schema.optional(ColumnList), PartitionKeys: Schema.optional(ColumnList), Parameters: Schema.optional(ParametersMap)}) {}
 export const TableMetadataList = Schema.Array(TableMetadata);
-export const CapacityAssignment = Schema.Struct({WorkGroupNames: Schema.optional(WorkGroupNamesList)});
+export class CapacityAssignment extends Schema.Class<CapacityAssignment>("CapacityAssignment")({WorkGroupNames: Schema.optional(WorkGroupNamesList)}) {}
 export const CapacityAssignmentsList = Schema.Array(CapacityAssignment);
-export const CalculationConfiguration = Schema.Struct({CodeBlock: Schema.optional(Schema.String)});
-export const QueryExecutionContext = Schema.Struct({Database: Schema.optional(Schema.String), Catalog: Schema.optional(Schema.String)});
-export const EngineConfiguration = Schema.Struct({CoordinatorDpuSize: Schema.optional(Schema.Number), MaxConcurrentDpus: Schema.Number, DefaultExecutorDpuSize: Schema.optional(Schema.Number), AdditionalConfigs: Schema.optional(ParametersMap), SparkProperties: Schema.optional(ParametersMap)});
-export const InternalServerException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const CreateCapacityReservationInput = Schema.Struct({TargetDpus: Schema.Number, Name: Schema.String, Tags: Schema.optional(TagList)});
-export const CreateCapacityReservationOutput = Schema.Struct({});
-export const CreateDataCatalogInput = Schema.Struct({Name: Schema.String, Type: Schema.String, Description: Schema.optional(Schema.String), Parameters: Schema.optional(ParametersMap), Tags: Schema.optional(TagList)});
-export const CreateNamedQueryOutput = Schema.Struct({NamedQueryId: Schema.optional(Schema.String)});
-export const CreateNotebookOutput = Schema.Struct({NotebookId: Schema.optional(Schema.String)});
-export const InvalidRequestException = Schema.Struct({AthenaErrorCode: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
-export const CreatePresignedNotebookUrlResponse = Schema.Struct({NotebookUrl: Schema.String, AuthToken: Schema.String, AuthTokenExpirationTime: Schema.Number});
-export const TooManyRequestsException = Schema.Struct({Message: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String), ResourceName: Schema.optional(Schema.String)});
-export const GetCalculationExecutionCodeResponse = Schema.Struct({CodeBlock: Schema.optional(Schema.String)});
-export const CalculationStatus = Schema.Struct({SubmissionDateTime: Schema.optional(Schema.Date), CompletionDateTime: Schema.optional(Schema.Date), State: Schema.optional(Schema.String), StateChangeReason: Schema.optional(Schema.String)});
-export const CalculationStatistics = Schema.Struct({DpuExecutionInMillis: Schema.optional(Schema.Number), Progress: Schema.optional(Schema.String)});
-export const GetCalculationExecutionStatusResponse = Schema.Struct({Status: Schema.optional(CalculationStatus), Statistics: Schema.optional(CalculationStatistics)});
-export const DataCatalog = Schema.Struct({Name: Schema.String, Description: Schema.optional(Schema.String), Type: Schema.String, Parameters: Schema.optional(ParametersMap), Status: Schema.optional(Schema.String), ConnectionType: Schema.optional(Schema.String), Error: Schema.optional(Schema.String)});
-export const GetDataCatalogOutput = Schema.Struct({DataCatalog: Schema.optional(DataCatalog)});
-export const NamedQuery = Schema.Struct({Name: Schema.String, Description: Schema.optional(Schema.String), Database: Schema.String, QueryString: Schema.String, NamedQueryId: Schema.optional(Schema.String), WorkGroup: Schema.optional(Schema.String)});
-export const GetNamedQueryOutput = Schema.Struct({NamedQuery: Schema.optional(NamedQuery)});
-export const NotebookMetadata = Schema.Struct({NotebookId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), WorkGroup: Schema.optional(Schema.String), CreationTime: Schema.optional(Schema.Date), Type: Schema.optional(Schema.String), LastModifiedTime: Schema.optional(Schema.Date)});
-export const GetNotebookMetadataOutput = Schema.Struct({NotebookMetadata: Schema.optional(NotebookMetadata)});
-export const PreparedStatement = Schema.Struct({StatementName: Schema.optional(Schema.String), QueryStatement: Schema.optional(Schema.String), WorkGroupName: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), LastModifiedTime: Schema.optional(Schema.Date)});
-export const GetPreparedStatementOutput = Schema.Struct({PreparedStatement: Schema.optional(PreparedStatement)});
-export const ManagedQueryResultsEncryptionConfiguration = Schema.Struct({KmsKey: Schema.String});
-export const ManagedQueryResultsConfiguration = Schema.Struct({Enabled: Schema.Boolean, EncryptionConfiguration: Schema.optional(ManagedQueryResultsEncryptionConfiguration)});
-export const EncryptionConfiguration = Schema.Struct({EncryptionOption: Schema.String, KmsKey: Schema.optional(Schema.String)});
-export const AclConfiguration = Schema.Struct({S3AclOption: Schema.String});
-export const ResultConfiguration = Schema.Struct({OutputLocation: Schema.optional(Schema.String), EncryptionConfiguration: Schema.optional(EncryptionConfiguration), ExpectedBucketOwner: Schema.optional(Schema.String), AclConfiguration: Schema.optional(AclConfiguration)});
-export const ResultReuseByAgeConfiguration = Schema.Struct({Enabled: Schema.Boolean, MaxAgeInMinutes: Schema.optional(Schema.Number)});
-export const ResultReuseConfiguration = Schema.Struct({ResultReuseByAgeConfiguration: Schema.optional(ResultReuseByAgeConfiguration)});
-export const AthenaError = Schema.Struct({ErrorCategory: Schema.optional(Schema.Number), ErrorType: Schema.optional(Schema.Number), Retryable: Schema.optional(Schema.Boolean), ErrorMessage: Schema.optional(Schema.String)});
-export const QueryExecutionStatus = Schema.Struct({State: Schema.optional(Schema.String), StateChangeReason: Schema.optional(Schema.String), SubmissionDateTime: Schema.optional(Schema.Date), CompletionDateTime: Schema.optional(Schema.Date), AthenaError: Schema.optional(AthenaError)});
-export const ResultReuseInformation = Schema.Struct({ReusedPreviousResult: Schema.Boolean});
-export const QueryExecutionStatistics = Schema.Struct({EngineExecutionTimeInMillis: Schema.optional(Schema.Number), DataScannedInBytes: Schema.optional(Schema.Number), DataManifestLocation: Schema.optional(Schema.String), TotalExecutionTimeInMillis: Schema.optional(Schema.Number), QueryQueueTimeInMillis: Schema.optional(Schema.Number), ServicePreProcessingTimeInMillis: Schema.optional(Schema.Number), QueryPlanningTimeInMillis: Schema.optional(Schema.Number), ServiceProcessingTimeInMillis: Schema.optional(Schema.Number), ResultReuseInformation: Schema.optional(ResultReuseInformation)});
-export const QueryResultsS3AccessGrantsConfiguration = Schema.Struct({EnableS3AccessGrants: Schema.Boolean, CreateUserLevelPrefix: Schema.optional(Schema.Boolean), AuthenticationType: Schema.String});
-export const QueryExecution = Schema.Struct({QueryExecutionId: Schema.optional(Schema.String), Query: Schema.optional(Schema.String), StatementType: Schema.optional(Schema.String), ManagedQueryResultsConfiguration: Schema.optional(ManagedQueryResultsConfiguration), ResultConfiguration: Schema.optional(ResultConfiguration), ResultReuseConfiguration: Schema.optional(ResultReuseConfiguration), QueryExecutionContext: Schema.optional(QueryExecutionContext), Status: Schema.optional(QueryExecutionStatus), Statistics: Schema.optional(QueryExecutionStatistics), WorkGroup: Schema.optional(Schema.String), EngineVersion: Schema.optional(EngineVersion), ExecutionParameters: Schema.optional(ExecutionParameters), SubstatementType: Schema.optional(Schema.String), QueryResultsS3AccessGrantsConfiguration: Schema.optional(QueryResultsS3AccessGrantsConfiguration)});
-export const GetQueryExecutionOutput = Schema.Struct({QueryExecution: Schema.optional(QueryExecution)});
-export const SessionStatus = Schema.Struct({StartDateTime: Schema.optional(Schema.Date), LastModifiedDateTime: Schema.optional(Schema.Date), EndDateTime: Schema.optional(Schema.Date), IdleSinceDateTime: Schema.optional(Schema.Date), State: Schema.optional(Schema.String), StateChangeReason: Schema.optional(Schema.String)});
-export const GetSessionStatusResponse = Schema.Struct({SessionId: Schema.optional(Schema.String), Status: Schema.optional(SessionStatus)});
-export const ImportNotebookOutput = Schema.Struct({NotebookId: Schema.optional(Schema.String)});
-export const ListCapacityReservationsOutput = Schema.Struct({NextToken: Schema.optional(Schema.String), CapacityReservations: CapacityReservationsList});
-export const ListDatabasesOutput = Schema.Struct({DatabaseList: Schema.optional(DatabaseList), NextToken: Schema.optional(Schema.String)});
-export const ListEngineVersionsOutput = Schema.Struct({EngineVersions: Schema.optional(EngineVersionsList), NextToken: Schema.optional(Schema.String)});
-export const ListNamedQueriesOutput = Schema.Struct({NamedQueryIds: Schema.optional(NamedQueryIdList), NextToken: Schema.optional(Schema.String)});
-export const ListNotebookMetadataInput = Schema.Struct({Filters: Schema.optional(FilterDefinition), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), WorkGroup: Schema.String});
-export const ListQueryExecutionsOutput = Schema.Struct({QueryExecutionIds: Schema.optional(QueryExecutionIdList), NextToken: Schema.optional(Schema.String)});
-export const ListTableMetadataOutput = Schema.Struct({TableMetadataList: Schema.optional(TableMetadataList), NextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceOutput = Schema.Struct({Tags: Schema.optional(TagList), NextToken: Schema.optional(Schema.String)});
-export const PutCapacityAssignmentConfigurationInput = Schema.Struct({CapacityReservationName: Schema.String, CapacityAssignments: CapacityAssignmentsList});
-export const PutCapacityAssignmentConfigurationOutput = Schema.Struct({});
-export const StartCalculationExecutionRequest = Schema.Struct({SessionId: Schema.String, Description: Schema.optional(Schema.String), CalculationConfiguration: Schema.optional(CalculationConfiguration), CodeBlock: Schema.optional(Schema.String), ClientRequestToken: Schema.optional(Schema.String)});
-export const StartSessionRequest = Schema.Struct({Description: Schema.optional(Schema.String), WorkGroup: Schema.String, EngineConfiguration: EngineConfiguration, NotebookVersion: Schema.optional(Schema.String), SessionIdleTimeoutInMinutes: Schema.optional(Schema.Number), ClientRequestToken: Schema.optional(Schema.String)});
-export const StopCalculationExecutionResponse = Schema.Struct({State: Schema.optional(Schema.String)});
-export const TerminateSessionResponse = Schema.Struct({State: Schema.optional(Schema.String)});
-export const CustomerContentEncryptionConfiguration = Schema.Struct({KmsKey: Schema.String});
-export const IdentityCenterConfiguration = Schema.Struct({EnableIdentityCenter: Schema.optional(Schema.Boolean), IdentityCenterInstanceArn: Schema.optional(Schema.String)});
+export class CalculationConfiguration extends Schema.Class<CalculationConfiguration>("CalculationConfiguration")({CodeBlock: Schema.optional(Schema.String)}) {}
+export class QueryExecutionContext extends Schema.Class<QueryExecutionContext>("QueryExecutionContext")({Database: Schema.optional(Schema.String), Catalog: Schema.optional(Schema.String)}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({Message: Schema.optional(Schema.String)}) {}
+export class CreateCapacityReservationInput extends Schema.Class<CreateCapacityReservationInput>("CreateCapacityReservationInput")({TargetDpus: Schema.Number, Name: Schema.String, Tags: Schema.optional(TagList)}) {}
+export class CreateCapacityReservationOutput extends Schema.Class<CreateCapacityReservationOutput>("CreateCapacityReservationOutput")({}) {}
+export class CreateDataCatalogInput extends Schema.Class<CreateDataCatalogInput>("CreateDataCatalogInput")({Name: Schema.String, Type: Schema.String, Description: Schema.optional(Schema.String), Parameters: Schema.optional(ParametersMap), Tags: Schema.optional(TagList)}) {}
+export class CreateNamedQueryOutput extends Schema.Class<CreateNamedQueryOutput>("CreateNamedQueryOutput")({NamedQueryId: Schema.optional(Schema.String)}) {}
+export class CreateNotebookOutput extends Schema.Class<CreateNotebookOutput>("CreateNotebookOutput")({NotebookId: Schema.optional(Schema.String)}) {}
+export class InvalidRequestException extends Schema.Class<InvalidRequestException>("InvalidRequestException")({AthenaErrorCode: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
+export class CreatePresignedNotebookUrlResponse extends Schema.Class<CreatePresignedNotebookUrlResponse>("CreatePresignedNotebookUrlResponse")({NotebookUrl: Schema.String, AuthToken: Schema.String, AuthTokenExpirationTime: Schema.Number}) {}
+export class TooManyRequestsException extends Schema.Class<TooManyRequestsException>("TooManyRequestsException")({Message: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({Message: Schema.optional(Schema.String), ResourceName: Schema.optional(Schema.String)}) {}
+export class GetCalculationExecutionCodeResponse extends Schema.Class<GetCalculationExecutionCodeResponse>("GetCalculationExecutionCodeResponse")({CodeBlock: Schema.optional(Schema.String)}) {}
+export class CalculationStatus extends Schema.Class<CalculationStatus>("CalculationStatus")({SubmissionDateTime: Schema.optional(Schema.Date), CompletionDateTime: Schema.optional(Schema.Date), State: Schema.optional(Schema.String), StateChangeReason: Schema.optional(Schema.String)}) {}
+export class CalculationStatistics extends Schema.Class<CalculationStatistics>("CalculationStatistics")({DpuExecutionInMillis: Schema.optional(Schema.Number), Progress: Schema.optional(Schema.String)}) {}
+export class GetCalculationExecutionStatusResponse extends Schema.Class<GetCalculationExecutionStatusResponse>("GetCalculationExecutionStatusResponse")({Status: Schema.optional(CalculationStatus), Statistics: Schema.optional(CalculationStatistics)}) {}
+export class DataCatalog extends Schema.Class<DataCatalog>("DataCatalog")({Name: Schema.String, Description: Schema.optional(Schema.String), Type: Schema.String, Parameters: Schema.optional(ParametersMap), Status: Schema.optional(Schema.String), ConnectionType: Schema.optional(Schema.String), Error: Schema.optional(Schema.String)}) {}
+export class GetDataCatalogOutput extends Schema.Class<GetDataCatalogOutput>("GetDataCatalogOutput")({DataCatalog: Schema.optional(DataCatalog)}) {}
+export class NamedQuery extends Schema.Class<NamedQuery>("NamedQuery")({Name: Schema.String, Description: Schema.optional(Schema.String), Database: Schema.String, QueryString: Schema.String, NamedQueryId: Schema.optional(Schema.String), WorkGroup: Schema.optional(Schema.String)}) {}
+export class GetNamedQueryOutput extends Schema.Class<GetNamedQueryOutput>("GetNamedQueryOutput")({NamedQuery: Schema.optional(NamedQuery)}) {}
+export class NotebookMetadata extends Schema.Class<NotebookMetadata>("NotebookMetadata")({NotebookId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), WorkGroup: Schema.optional(Schema.String), CreationTime: Schema.optional(Schema.Date), Type: Schema.optional(Schema.String), LastModifiedTime: Schema.optional(Schema.Date)}) {}
+export class GetNotebookMetadataOutput extends Schema.Class<GetNotebookMetadataOutput>("GetNotebookMetadataOutput")({NotebookMetadata: Schema.optional(NotebookMetadata)}) {}
+export class PreparedStatement extends Schema.Class<PreparedStatement>("PreparedStatement")({StatementName: Schema.optional(Schema.String), QueryStatement: Schema.optional(Schema.String), WorkGroupName: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), LastModifiedTime: Schema.optional(Schema.Date)}) {}
+export class GetPreparedStatementOutput extends Schema.Class<GetPreparedStatementOutput>("GetPreparedStatementOutput")({PreparedStatement: Schema.optional(PreparedStatement)}) {}
+export class ManagedQueryResultsEncryptionConfiguration extends Schema.Class<ManagedQueryResultsEncryptionConfiguration>("ManagedQueryResultsEncryptionConfiguration")({KmsKey: Schema.String}) {}
+export class ManagedQueryResultsConfiguration extends Schema.Class<ManagedQueryResultsConfiguration>("ManagedQueryResultsConfiguration")({Enabled: Schema.Boolean, EncryptionConfiguration: Schema.optional(ManagedQueryResultsEncryptionConfiguration)}) {}
+export class EncryptionConfiguration extends Schema.Class<EncryptionConfiguration>("EncryptionConfiguration")({EncryptionOption: Schema.String, KmsKey: Schema.optional(Schema.String)}) {}
+export class AclConfiguration extends Schema.Class<AclConfiguration>("AclConfiguration")({S3AclOption: Schema.String}) {}
+export class ResultConfiguration extends Schema.Class<ResultConfiguration>("ResultConfiguration")({OutputLocation: Schema.optional(Schema.String), EncryptionConfiguration: Schema.optional(EncryptionConfiguration), ExpectedBucketOwner: Schema.optional(Schema.String), AclConfiguration: Schema.optional(AclConfiguration)}) {}
+export class ResultReuseByAgeConfiguration extends Schema.Class<ResultReuseByAgeConfiguration>("ResultReuseByAgeConfiguration")({Enabled: Schema.Boolean, MaxAgeInMinutes: Schema.optional(Schema.Number)}) {}
+export class ResultReuseConfiguration extends Schema.Class<ResultReuseConfiguration>("ResultReuseConfiguration")({ResultReuseByAgeConfiguration: Schema.optional(ResultReuseByAgeConfiguration)}) {}
+export class AthenaError extends Schema.Class<AthenaError>("AthenaError")({ErrorCategory: Schema.optional(Schema.Number), ErrorType: Schema.optional(Schema.Number), Retryable: Schema.optional(Schema.Boolean), ErrorMessage: Schema.optional(Schema.String)}) {}
+export class QueryExecutionStatus extends Schema.Class<QueryExecutionStatus>("QueryExecutionStatus")({State: Schema.optional(Schema.String), StateChangeReason: Schema.optional(Schema.String), SubmissionDateTime: Schema.optional(Schema.Date), CompletionDateTime: Schema.optional(Schema.Date), AthenaError: Schema.optional(AthenaError)}) {}
+export class ResultReuseInformation extends Schema.Class<ResultReuseInformation>("ResultReuseInformation")({ReusedPreviousResult: Schema.Boolean}) {}
+export class QueryExecutionStatistics extends Schema.Class<QueryExecutionStatistics>("QueryExecutionStatistics")({EngineExecutionTimeInMillis: Schema.optional(Schema.Number), DataScannedInBytes: Schema.optional(Schema.Number), DataManifestLocation: Schema.optional(Schema.String), TotalExecutionTimeInMillis: Schema.optional(Schema.Number), QueryQueueTimeInMillis: Schema.optional(Schema.Number), ServicePreProcessingTimeInMillis: Schema.optional(Schema.Number), QueryPlanningTimeInMillis: Schema.optional(Schema.Number), ServiceProcessingTimeInMillis: Schema.optional(Schema.Number), ResultReuseInformation: Schema.optional(ResultReuseInformation), DpuCount: Schema.optional(Schema.Number)}) {}
+export class QueryResultsS3AccessGrantsConfiguration extends Schema.Class<QueryResultsS3AccessGrantsConfiguration>("QueryResultsS3AccessGrantsConfiguration")({EnableS3AccessGrants: Schema.Boolean, CreateUserLevelPrefix: Schema.optional(Schema.Boolean), AuthenticationType: Schema.String}) {}
+export class QueryExecution extends Schema.Class<QueryExecution>("QueryExecution")({QueryExecutionId: Schema.optional(Schema.String), Query: Schema.optional(Schema.String), StatementType: Schema.optional(Schema.String), ManagedQueryResultsConfiguration: Schema.optional(ManagedQueryResultsConfiguration), ResultConfiguration: Schema.optional(ResultConfiguration), ResultReuseConfiguration: Schema.optional(ResultReuseConfiguration), QueryExecutionContext: Schema.optional(QueryExecutionContext), Status: Schema.optional(QueryExecutionStatus), Statistics: Schema.optional(QueryExecutionStatistics), WorkGroup: Schema.optional(Schema.String), EngineVersion: Schema.optional(EngineVersion), ExecutionParameters: Schema.optional(ExecutionParameters), SubstatementType: Schema.optional(Schema.String), QueryResultsS3AccessGrantsConfiguration: Schema.optional(QueryResultsS3AccessGrantsConfiguration)}) {}
+export class GetQueryExecutionOutput extends Schema.Class<GetQueryExecutionOutput>("GetQueryExecutionOutput")({QueryExecution: Schema.optional(QueryExecution)}) {}
+export class GetResourceDashboardResponse extends Schema.Class<GetResourceDashboardResponse>("GetResourceDashboardResponse")({Url: Schema.String}) {}
+export class GetSessionEndpointResponse extends Schema.Class<GetSessionEndpointResponse>("GetSessionEndpointResponse")({EndpointUrl: Schema.String, AuthToken: Schema.String, AuthTokenExpirationTime: Schema.Date}) {}
+export class SessionStatus extends Schema.Class<SessionStatus>("SessionStatus")({StartDateTime: Schema.optional(Schema.Date), LastModifiedDateTime: Schema.optional(Schema.Date), EndDateTime: Schema.optional(Schema.Date), IdleSinceDateTime: Schema.optional(Schema.Date), State: Schema.optional(Schema.String), StateChangeReason: Schema.optional(Schema.String)}) {}
+export class GetSessionStatusResponse extends Schema.Class<GetSessionStatusResponse>("GetSessionStatusResponse")({SessionId: Schema.optional(Schema.String), Status: Schema.optional(SessionStatus)}) {}
+export class ImportNotebookOutput extends Schema.Class<ImportNotebookOutput>("ImportNotebookOutput")({NotebookId: Schema.optional(Schema.String)}) {}
+export class ListCapacityReservationsOutput extends Schema.Class<ListCapacityReservationsOutput>("ListCapacityReservationsOutput")({NextToken: Schema.optional(Schema.String), CapacityReservations: CapacityReservationsList}) {}
+export class ListDatabasesOutput extends Schema.Class<ListDatabasesOutput>("ListDatabasesOutput")({DatabaseList: Schema.optional(DatabaseList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListEngineVersionsOutput extends Schema.Class<ListEngineVersionsOutput>("ListEngineVersionsOutput")({EngineVersions: Schema.optional(EngineVersionsList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListNamedQueriesOutput extends Schema.Class<ListNamedQueriesOutput>("ListNamedQueriesOutput")({NamedQueryIds: Schema.optional(NamedQueryIdList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListNotebookMetadataInput extends Schema.Class<ListNotebookMetadataInput>("ListNotebookMetadataInput")({Filters: Schema.optional(FilterDefinition), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), WorkGroup: Schema.String}) {}
+export class ListQueryExecutionsOutput extends Schema.Class<ListQueryExecutionsOutput>("ListQueryExecutionsOutput")({QueryExecutionIds: Schema.optional(QueryExecutionIdList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTableMetadataOutput extends Schema.Class<ListTableMetadataOutput>("ListTableMetadataOutput")({TableMetadataList: Schema.optional(TableMetadataList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceOutput extends Schema.Class<ListTagsForResourceOutput>("ListTagsForResourceOutput")({Tags: Schema.optional(TagList), NextToken: Schema.optional(Schema.String)}) {}
+export class PutCapacityAssignmentConfigurationInput extends Schema.Class<PutCapacityAssignmentConfigurationInput>("PutCapacityAssignmentConfigurationInput")({CapacityReservationName: Schema.String, CapacityAssignments: CapacityAssignmentsList}) {}
+export class PutCapacityAssignmentConfigurationOutput extends Schema.Class<PutCapacityAssignmentConfigurationOutput>("PutCapacityAssignmentConfigurationOutput")({}) {}
+export class StartCalculationExecutionRequest extends Schema.Class<StartCalculationExecutionRequest>("StartCalculationExecutionRequest")({SessionId: Schema.String, Description: Schema.optional(Schema.String), CalculationConfiguration: Schema.optional(CalculationConfiguration), CodeBlock: Schema.optional(Schema.String), ClientRequestToken: Schema.optional(Schema.String)}) {}
+export class StopCalculationExecutionResponse extends Schema.Class<StopCalculationExecutionResponse>("StopCalculationExecutionResponse")({State: Schema.optional(Schema.String)}) {}
+export class TerminateSessionResponse extends Schema.Class<TerminateSessionResponse>("TerminateSessionResponse")({State: Schema.optional(Schema.String)}) {}
+export class CustomerContentEncryptionConfiguration extends Schema.Class<CustomerContentEncryptionConfiguration>("CustomerContentEncryptionConfiguration")({KmsKey: Schema.String}) {}
+export class IdentityCenterConfiguration extends Schema.Class<IdentityCenterConfiguration>("IdentityCenterConfiguration")({EnableIdentityCenter: Schema.optional(Schema.Boolean), IdentityCenterInstanceArn: Schema.optional(Schema.String)}) {}
 export const SupportedDPUSizeList = Schema.Array(Schema.Number);
-export const ResultConfigurationUpdates = Schema.Struct({OutputLocation: Schema.optional(Schema.String), RemoveOutputLocation: Schema.optional(Schema.Boolean), EncryptionConfiguration: Schema.optional(EncryptionConfiguration), RemoveEncryptionConfiguration: Schema.optional(Schema.Boolean), ExpectedBucketOwner: Schema.optional(Schema.String), RemoveExpectedBucketOwner: Schema.optional(Schema.Boolean), AclConfiguration: Schema.optional(AclConfiguration), RemoveAclConfiguration: Schema.optional(Schema.Boolean)});
-export const ManagedQueryResultsConfigurationUpdates = Schema.Struct({Enabled: Schema.optional(Schema.Boolean), EncryptionConfiguration: Schema.optional(ManagedQueryResultsEncryptionConfiguration), RemoveEncryptionConfiguration: Schema.optional(Schema.Boolean)});
+export class Classification extends Schema.Class<Classification>("Classification")({Name: Schema.optional(Schema.String), Properties: Schema.optional(ParametersMap)}) {}
+export const ClassificationList = Schema.Array(Classification);
+export class ManagedLoggingConfiguration extends Schema.Class<ManagedLoggingConfiguration>("ManagedLoggingConfiguration")({Enabled: Schema.Boolean, KmsKey: Schema.optional(Schema.String)}) {}
+export class S3LoggingConfiguration extends Schema.Class<S3LoggingConfiguration>("S3LoggingConfiguration")({Enabled: Schema.Boolean, KmsKey: Schema.optional(Schema.String), LogLocation: Schema.optional(Schema.String)}) {}
+export class ResultConfigurationUpdates extends Schema.Class<ResultConfigurationUpdates>("ResultConfigurationUpdates")({OutputLocation: Schema.optional(Schema.String), RemoveOutputLocation: Schema.optional(Schema.Boolean), EncryptionConfiguration: Schema.optional(EncryptionConfiguration), RemoveEncryptionConfiguration: Schema.optional(Schema.Boolean), ExpectedBucketOwner: Schema.optional(Schema.String), RemoveExpectedBucketOwner: Schema.optional(Schema.Boolean), AclConfiguration: Schema.optional(AclConfiguration), RemoveAclConfiguration: Schema.optional(Schema.Boolean)}) {}
+export class ManagedQueryResultsConfigurationUpdates extends Schema.Class<ManagedQueryResultsConfigurationUpdates>("ManagedQueryResultsConfigurationUpdates")({Enabled: Schema.optional(Schema.Boolean), EncryptionConfiguration: Schema.optional(ManagedQueryResultsEncryptionConfiguration), RemoveEncryptionConfiguration: Schema.optional(Schema.Boolean)}) {}
+export const LogTypeValuesList = Schema.Array(Schema.String);
 export const NamedQueryList = Schema.Array(NamedQuery);
-export const UnprocessedNamedQueryId = Schema.Struct({NamedQueryId: Schema.optional(Schema.String), ErrorCode: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String)});
+export class UnprocessedNamedQueryId extends Schema.Class<UnprocessedNamedQueryId>("UnprocessedNamedQueryId")({NamedQueryId: Schema.optional(Schema.String), ErrorCode: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String)}) {}
 export const UnprocessedNamedQueryIdList = Schema.Array(UnprocessedNamedQueryId);
 export const PreparedStatementDetailsList = Schema.Array(PreparedStatement);
-export const UnprocessedPreparedStatementName = Schema.Struct({StatementName: Schema.optional(Schema.String), ErrorCode: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String)});
+export class UnprocessedPreparedStatementName extends Schema.Class<UnprocessedPreparedStatementName>("UnprocessedPreparedStatementName")({StatementName: Schema.optional(Schema.String), ErrorCode: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String)}) {}
 export const UnprocessedPreparedStatementNameList = Schema.Array(UnprocessedPreparedStatementName);
-export const UnprocessedQueryExecutionId = Schema.Struct({QueryExecutionId: Schema.optional(Schema.String), ErrorCode: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String)});
+export class UnprocessedQueryExecutionId extends Schema.Class<UnprocessedQueryExecutionId>("UnprocessedQueryExecutionId")({QueryExecutionId: Schema.optional(Schema.String), ErrorCode: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String)}) {}
 export const UnprocessedQueryExecutionIdList = Schema.Array(UnprocessedQueryExecutionId);
-export const CalculationResult = Schema.Struct({StdOutS3Uri: Schema.optional(Schema.String), StdErrorS3Uri: Schema.optional(Schema.String), ResultS3Uri: Schema.optional(Schema.String), ResultType: Schema.optional(Schema.String)});
-export const CapacityAssignmentConfiguration = Schema.Struct({CapacityReservationName: Schema.optional(Schema.String), CapacityAssignments: Schema.optional(CapacityAssignmentsList)});
-export const SessionConfiguration = Schema.Struct({ExecutionRole: Schema.optional(Schema.String), WorkingDirectory: Schema.optional(Schema.String), IdleTimeoutSeconds: Schema.optional(Schema.Number), EncryptionConfiguration: Schema.optional(EncryptionConfiguration)});
-export const SessionStatistics = Schema.Struct({DpuExecutionInMillis: Schema.optional(Schema.Number)});
-export const WorkGroupConfiguration = Schema.Struct({ResultConfiguration: Schema.optional(ResultConfiguration), ManagedQueryResultsConfiguration: Schema.optional(ManagedQueryResultsConfiguration), EnforceWorkGroupConfiguration: Schema.optional(Schema.Boolean), PublishCloudWatchMetricsEnabled: Schema.optional(Schema.Boolean), BytesScannedCutoffPerQuery: Schema.optional(Schema.Number), RequesterPaysEnabled: Schema.optional(Schema.Boolean), EngineVersion: Schema.optional(EngineVersion), AdditionalConfiguration: Schema.optional(Schema.String), ExecutionRole: Schema.optional(Schema.String), CustomerContentEncryptionConfiguration: Schema.optional(CustomerContentEncryptionConfiguration), EnableMinimumEncryptionConfiguration: Schema.optional(Schema.Boolean), IdentityCenterConfiguration: Schema.optional(IdentityCenterConfiguration), QueryResultsS3AccessGrantsConfiguration: Schema.optional(QueryResultsS3AccessGrantsConfiguration)});
-export const WorkGroup = Schema.Struct({Name: Schema.String, State: Schema.optional(Schema.String), Configuration: Schema.optional(WorkGroupConfiguration), Description: Schema.optional(Schema.String), CreationTime: Schema.optional(Schema.Date), IdentityCenterApplicationArn: Schema.optional(Schema.String)});
-export const ApplicationDPUSizes = Schema.Struct({ApplicationRuntimeId: Schema.optional(Schema.String), SupportedDPUSizes: Schema.optional(SupportedDPUSizeList)});
+export class CalculationResult extends Schema.Class<CalculationResult>("CalculationResult")({StdOutS3Uri: Schema.optional(Schema.String), StdErrorS3Uri: Schema.optional(Schema.String), ResultS3Uri: Schema.optional(Schema.String), ResultType: Schema.optional(Schema.String)}) {}
+export class CapacityAssignmentConfiguration extends Schema.Class<CapacityAssignmentConfiguration>("CapacityAssignmentConfiguration")({CapacityReservationName: Schema.optional(Schema.String), CapacityAssignments: Schema.optional(CapacityAssignmentsList)}) {}
+export class SessionConfiguration extends Schema.Class<SessionConfiguration>("SessionConfiguration")({ExecutionRole: Schema.optional(Schema.String), WorkingDirectory: Schema.optional(Schema.String), IdleTimeoutSeconds: Schema.optional(Schema.Number), SessionIdleTimeoutInMinutes: Schema.optional(Schema.Number), EncryptionConfiguration: Schema.optional(EncryptionConfiguration)}) {}
+export class SessionStatistics extends Schema.Class<SessionStatistics>("SessionStatistics")({DpuExecutionInMillis: Schema.optional(Schema.Number)}) {}
+export const LogTypesMap = Schema.Record({key: Schema.String, value: LogTypeValuesList});
+export class CloudWatchLoggingConfiguration extends Schema.Class<CloudWatchLoggingConfiguration>("CloudWatchLoggingConfiguration")({Enabled: Schema.Boolean, LogGroup: Schema.optional(Schema.String), LogStreamNamePrefix: Schema.optional(Schema.String), LogTypes: Schema.optional(LogTypesMap)}) {}
+export class MonitoringConfiguration extends Schema.Class<MonitoringConfiguration>("MonitoringConfiguration")({CloudWatchLoggingConfiguration: Schema.optional(CloudWatchLoggingConfiguration), ManagedLoggingConfiguration: Schema.optional(ManagedLoggingConfiguration), S3LoggingConfiguration: Schema.optional(S3LoggingConfiguration)}) {}
+export class EngineConfiguration extends Schema.Class<EngineConfiguration>("EngineConfiguration")({CoordinatorDpuSize: Schema.optional(Schema.Number), MaxConcurrentDpus: Schema.optional(Schema.Number), DefaultExecutorDpuSize: Schema.optional(Schema.Number), AdditionalConfigs: Schema.optional(ParametersMap), SparkProperties: Schema.optional(ParametersMap), Classifications: Schema.optional(ClassificationList)}) {}
+export class WorkGroupConfiguration extends Schema.Class<WorkGroupConfiguration>("WorkGroupConfiguration")({ResultConfiguration: Schema.optional(ResultConfiguration), ManagedQueryResultsConfiguration: Schema.optional(ManagedQueryResultsConfiguration), EnforceWorkGroupConfiguration: Schema.optional(Schema.Boolean), PublishCloudWatchMetricsEnabled: Schema.optional(Schema.Boolean), BytesScannedCutoffPerQuery: Schema.optional(Schema.Number), RequesterPaysEnabled: Schema.optional(Schema.Boolean), EngineVersion: Schema.optional(EngineVersion), AdditionalConfiguration: Schema.optional(Schema.String), ExecutionRole: Schema.optional(Schema.String), MonitoringConfiguration: Schema.optional(MonitoringConfiguration), EngineConfiguration: Schema.optional(EngineConfiguration), CustomerContentEncryptionConfiguration: Schema.optional(CustomerContentEncryptionConfiguration), EnableMinimumEncryptionConfiguration: Schema.optional(Schema.Boolean), IdentityCenterConfiguration: Schema.optional(IdentityCenterConfiguration), QueryResultsS3AccessGrantsConfiguration: Schema.optional(QueryResultsS3AccessGrantsConfiguration)}) {}
+export class WorkGroup extends Schema.Class<WorkGroup>("WorkGroup")({Name: Schema.String, State: Schema.optional(Schema.String), Configuration: Schema.optional(WorkGroupConfiguration), Description: Schema.optional(Schema.String), CreationTime: Schema.optional(Schema.Date), IdentityCenterApplicationArn: Schema.optional(Schema.String)}) {}
+export class ApplicationDPUSizes extends Schema.Class<ApplicationDPUSizes>("ApplicationDPUSizes")({ApplicationRuntimeId: Schema.optional(Schema.String), SupportedDPUSizes: Schema.optional(SupportedDPUSizeList)}) {}
 export const ApplicationDPUSizesList = Schema.Array(ApplicationDPUSizes);
-export const CalculationSummary = Schema.Struct({CalculationExecutionId: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Status: Schema.optional(CalculationStatus)});
+export class CalculationSummary extends Schema.Class<CalculationSummary>("CalculationSummary")({CalculationExecutionId: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Status: Schema.optional(CalculationStatus)}) {}
 export const CalculationsList = Schema.Array(CalculationSummary);
-export const DataCatalogSummary = Schema.Struct({CatalogName: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), ConnectionType: Schema.optional(Schema.String), Error: Schema.optional(Schema.String)});
+export class DataCatalogSummary extends Schema.Class<DataCatalogSummary>("DataCatalogSummary")({CatalogName: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), ConnectionType: Schema.optional(Schema.String), Error: Schema.optional(Schema.String)}) {}
 export const DataCatalogSummaryList = Schema.Array(DataCatalogSummary);
-export const ExecutorsSummary = Schema.Struct({ExecutorId: Schema.String, ExecutorType: Schema.optional(Schema.String), StartDateTime: Schema.optional(Schema.Number), TerminationDateTime: Schema.optional(Schema.Number), ExecutorState: Schema.optional(Schema.String), ExecutorSize: Schema.optional(Schema.Number)});
+export class ExecutorsSummary extends Schema.Class<ExecutorsSummary>("ExecutorsSummary")({ExecutorId: Schema.String, ExecutorType: Schema.optional(Schema.String), StartDateTime: Schema.optional(Schema.Number), TerminationDateTime: Schema.optional(Schema.Number), ExecutorState: Schema.optional(Schema.String), ExecutorSize: Schema.optional(Schema.Number)}) {}
 export const ExecutorsSummaryList = Schema.Array(ExecutorsSummary);
 export const NotebookMetadataArray = Schema.Array(NotebookMetadata);
-export const NotebookSessionSummary = Schema.Struct({SessionId: Schema.optional(Schema.String), CreationTime: Schema.optional(Schema.Date)});
+export class NotebookSessionSummary extends Schema.Class<NotebookSessionSummary>("NotebookSessionSummary")({SessionId: Schema.optional(Schema.String), CreationTime: Schema.optional(Schema.Date)}) {}
 export const NotebookSessionsList = Schema.Array(NotebookSessionSummary);
-export const PreparedStatementSummary = Schema.Struct({StatementName: Schema.optional(Schema.String), LastModifiedTime: Schema.optional(Schema.Date)});
+export class PreparedStatementSummary extends Schema.Class<PreparedStatementSummary>("PreparedStatementSummary")({StatementName: Schema.optional(Schema.String), LastModifiedTime: Schema.optional(Schema.Date)}) {}
 export const PreparedStatementsList = Schema.Array(PreparedStatementSummary);
-export const SessionSummary = Schema.Struct({SessionId: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), EngineVersion: Schema.optional(EngineVersion), NotebookVersion: Schema.optional(Schema.String), Status: Schema.optional(SessionStatus)});
+export class SessionSummary extends Schema.Class<SessionSummary>("SessionSummary")({SessionId: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), EngineVersion: Schema.optional(EngineVersion), NotebookVersion: Schema.optional(Schema.String), Status: Schema.optional(SessionStatus)}) {}
 export const SessionsList = Schema.Array(SessionSummary);
-export const WorkGroupSummary = Schema.Struct({Name: Schema.optional(Schema.String), State: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), CreationTime: Schema.optional(Schema.Date), EngineVersion: Schema.optional(EngineVersion), IdentityCenterApplicationArn: Schema.optional(Schema.String)});
+export class WorkGroupSummary extends Schema.Class<WorkGroupSummary>("WorkGroupSummary")({Name: Schema.optional(Schema.String), State: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), CreationTime: Schema.optional(Schema.Date), EngineVersion: Schema.optional(EngineVersion), IdentityCenterApplicationArn: Schema.optional(Schema.String)}) {}
 export const WorkGroupsList = Schema.Array(WorkGroupSummary);
-export const WorkGroupConfigurationUpdates = Schema.Struct({EnforceWorkGroupConfiguration: Schema.optional(Schema.Boolean), ResultConfigurationUpdates: Schema.optional(ResultConfigurationUpdates), ManagedQueryResultsConfigurationUpdates: Schema.optional(ManagedQueryResultsConfigurationUpdates), PublishCloudWatchMetricsEnabled: Schema.optional(Schema.Boolean), BytesScannedCutoffPerQuery: Schema.optional(Schema.Number), RemoveBytesScannedCutoffPerQuery: Schema.optional(Schema.Boolean), RequesterPaysEnabled: Schema.optional(Schema.Boolean), EngineVersion: Schema.optional(EngineVersion), RemoveCustomerContentEncryptionConfiguration: Schema.optional(Schema.Boolean), AdditionalConfiguration: Schema.optional(Schema.String), ExecutionRole: Schema.optional(Schema.String), CustomerContentEncryptionConfiguration: Schema.optional(CustomerContentEncryptionConfiguration), EnableMinimumEncryptionConfiguration: Schema.optional(Schema.Boolean), QueryResultsS3AccessGrantsConfiguration: Schema.optional(QueryResultsS3AccessGrantsConfiguration)});
-export const QueryStagePlanNodes = Schema.Array(QueryStagePlanNode);
+export class WorkGroupConfigurationUpdates extends Schema.Class<WorkGroupConfigurationUpdates>("WorkGroupConfigurationUpdates")({EnforceWorkGroupConfiguration: Schema.optional(Schema.Boolean), ResultConfigurationUpdates: Schema.optional(ResultConfigurationUpdates), ManagedQueryResultsConfigurationUpdates: Schema.optional(ManagedQueryResultsConfigurationUpdates), PublishCloudWatchMetricsEnabled: Schema.optional(Schema.Boolean), BytesScannedCutoffPerQuery: Schema.optional(Schema.Number), RemoveBytesScannedCutoffPerQuery: Schema.optional(Schema.Boolean), RequesterPaysEnabled: Schema.optional(Schema.Boolean), EngineVersion: Schema.optional(EngineVersion), RemoveCustomerContentEncryptionConfiguration: Schema.optional(Schema.Boolean), AdditionalConfiguration: Schema.optional(Schema.String), ExecutionRole: Schema.optional(Schema.String), CustomerContentEncryptionConfiguration: Schema.optional(CustomerContentEncryptionConfiguration), EnableMinimumEncryptionConfiguration: Schema.optional(Schema.Boolean), QueryResultsS3AccessGrantsConfiguration: Schema.optional(QueryResultsS3AccessGrantsConfiguration), MonitoringConfiguration: Schema.optional(MonitoringConfiguration), EngineConfiguration: Schema.optional(EngineConfiguration)}) {}
+export const QueryStages = Schema.Array(Schema.suspend((): Schema.Schema<QueryStage> => QueryStage));
+export class BatchGetNamedQueryOutput extends Schema.Class<BatchGetNamedQueryOutput>("BatchGetNamedQueryOutput")({NamedQueries: Schema.optional(NamedQueryList), UnprocessedNamedQueryIds: Schema.optional(UnprocessedNamedQueryIdList)}) {}
+export class BatchGetPreparedStatementOutput extends Schema.Class<BatchGetPreparedStatementOutput>("BatchGetPreparedStatementOutput")({PreparedStatements: Schema.optional(PreparedStatementDetailsList), UnprocessedPreparedStatementNames: Schema.optional(UnprocessedPreparedStatementNameList)}) {}
+export class CreateDataCatalogOutput extends Schema.Class<CreateDataCatalogOutput>("CreateDataCatalogOutput")({DataCatalog: Schema.optional(DataCatalog)}) {}
+export class DeleteDataCatalogOutput extends Schema.Class<DeleteDataCatalogOutput>("DeleteDataCatalogOutput")({DataCatalog: Schema.optional(DataCatalog)}) {}
+export class ExportNotebookOutput extends Schema.Class<ExportNotebookOutput>("ExportNotebookOutput")({NotebookMetadata: Schema.optional(NotebookMetadata), Payload: Schema.optional(Schema.String)}) {}
+export class GetCalculationExecutionResponse extends Schema.Class<GetCalculationExecutionResponse>("GetCalculationExecutionResponse")({CalculationExecutionId: Schema.optional(Schema.String), SessionId: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), WorkingDirectory: Schema.optional(Schema.String), Status: Schema.optional(CalculationStatus), Statistics: Schema.optional(CalculationStatistics), Result: Schema.optional(CalculationResult)}) {}
+export class GetCapacityAssignmentConfigurationOutput extends Schema.Class<GetCapacityAssignmentConfigurationOutput>("GetCapacityAssignmentConfigurationOutput")({CapacityAssignmentConfiguration: CapacityAssignmentConfiguration}) {}
+export class GetDatabaseOutput extends Schema.Class<GetDatabaseOutput>("GetDatabaseOutput")({Database: Schema.optional(Database)}) {}
+export class GetSessionResponse extends Schema.Class<GetSessionResponse>("GetSessionResponse")({SessionId: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), WorkGroup: Schema.optional(Schema.String), EngineVersion: Schema.optional(Schema.String), EngineConfiguration: Schema.optional(EngineConfiguration), NotebookVersion: Schema.optional(Schema.String), MonitoringConfiguration: Schema.optional(MonitoringConfiguration), SessionConfiguration: Schema.optional(SessionConfiguration), Status: Schema.optional(SessionStatus), Statistics: Schema.optional(SessionStatistics)}) {}
+export class GetWorkGroupOutput extends Schema.Class<GetWorkGroupOutput>("GetWorkGroupOutput")({WorkGroup: Schema.optional(WorkGroup)}) {}
+export class ListApplicationDPUSizesOutput extends Schema.Class<ListApplicationDPUSizesOutput>("ListApplicationDPUSizesOutput")({ApplicationDPUSizes: Schema.optional(ApplicationDPUSizesList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListCalculationExecutionsResponse extends Schema.Class<ListCalculationExecutionsResponse>("ListCalculationExecutionsResponse")({NextToken: Schema.optional(Schema.String), Calculations: Schema.optional(CalculationsList)}) {}
+export class MetadataException extends Schema.Class<MetadataException>("MetadataException")({Message: Schema.optional(Schema.String)}) {}
+export class ListDataCatalogsOutput extends Schema.Class<ListDataCatalogsOutput>("ListDataCatalogsOutput")({DataCatalogsSummary: Schema.optional(DataCatalogSummaryList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListExecutorsResponse extends Schema.Class<ListExecutorsResponse>("ListExecutorsResponse")({SessionId: Schema.String, NextToken: Schema.optional(Schema.String), ExecutorsSummary: Schema.optional(ExecutorsSummaryList)}) {}
+export class ListNotebookMetadataOutput extends Schema.Class<ListNotebookMetadataOutput>("ListNotebookMetadataOutput")({NextToken: Schema.optional(Schema.String), NotebookMetadataList: Schema.optional(NotebookMetadataArray)}) {}
+export class ListNotebookSessionsResponse extends Schema.Class<ListNotebookSessionsResponse>("ListNotebookSessionsResponse")({NotebookSessionsList: NotebookSessionsList, NextToken: Schema.optional(Schema.String)}) {}
+export class ListPreparedStatementsOutput extends Schema.Class<ListPreparedStatementsOutput>("ListPreparedStatementsOutput")({PreparedStatements: Schema.optional(PreparedStatementsList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListSessionsResponse extends Schema.Class<ListSessionsResponse>("ListSessionsResponse")({NextToken: Schema.optional(Schema.String), Sessions: Schema.optional(SessionsList)}) {}
+export class ListWorkGroupsOutput extends Schema.Class<ListWorkGroupsOutput>("ListWorkGroupsOutput")({WorkGroups: Schema.optional(WorkGroupsList), NextToken: Schema.optional(Schema.String)}) {}
+export class StartCalculationExecutionResponse extends Schema.Class<StartCalculationExecutionResponse>("StartCalculationExecutionResponse")({CalculationExecutionId: Schema.optional(Schema.String), State: Schema.optional(Schema.String)}) {}
+export class StartQueryExecutionInput extends Schema.Class<StartQueryExecutionInput>("StartQueryExecutionInput")({QueryString: Schema.String, ClientRequestToken: Schema.optional(Schema.String), QueryExecutionContext: Schema.optional(QueryExecutionContext), ResultConfiguration: Schema.optional(ResultConfiguration), WorkGroup: Schema.optional(Schema.String), ExecutionParameters: Schema.optional(ExecutionParameters), ResultReuseConfiguration: Schema.optional(ResultReuseConfiguration), EngineConfiguration: Schema.optional(EngineConfiguration)}) {}
+export class UpdateWorkGroupInput extends Schema.Class<UpdateWorkGroupInput>("UpdateWorkGroupInput")({WorkGroup: Schema.String, Description: Schema.optional(Schema.String), ConfigurationUpdates: Schema.optional(WorkGroupConfigurationUpdates), State: Schema.optional(Schema.String)}) {}
+export class UpdateWorkGroupOutput extends Schema.Class<UpdateWorkGroupOutput>("UpdateWorkGroupOutput")({}) {}
+export class QueryRuntimeStatisticsTimeline extends Schema.Class<QueryRuntimeStatisticsTimeline>("QueryRuntimeStatisticsTimeline")({QueryQueueTimeInMillis: Schema.optional(Schema.Number), ServicePreProcessingTimeInMillis: Schema.optional(Schema.Number), QueryPlanningTimeInMillis: Schema.optional(Schema.Number), EngineExecutionTimeInMillis: Schema.optional(Schema.Number), ServiceProcessingTimeInMillis: Schema.optional(Schema.Number), TotalExecutionTimeInMillis: Schema.optional(Schema.Number)}) {}
+export class QueryRuntimeStatisticsRows extends Schema.Class<QueryRuntimeStatisticsRows>("QueryRuntimeStatisticsRows")({InputRows: Schema.optional(Schema.Number), InputBytes: Schema.optional(Schema.Number), OutputBytes: Schema.optional(Schema.Number), OutputRows: Schema.optional(Schema.Number)}) {}
+export const QueryStagePlanNodes = Schema.Array(Schema.suspend((): Schema.Schema<QueryStagePlanNode> => QueryStagePlanNode));
 export const StringList = Schema.Array(Schema.String);
-export const QueryStagePlanNode = Schema.Struct({Name: Schema.optional(Schema.String), Identifier: Schema.optional(Schema.String), Children: Schema.optional(QueryStagePlanNodes), RemoteSources: Schema.optional(StringList)});
-export const QueryStage = Schema.Struct({StageId: Schema.optional(Schema.Number), State: Schema.optional(Schema.String), OutputBytes: Schema.optional(Schema.Number), OutputRows: Schema.optional(Schema.Number), InputBytes: Schema.optional(Schema.Number), InputRows: Schema.optional(Schema.Number), ExecutionTime: Schema.optional(Schema.Number), QueryStagePlan: Schema.optional(QueryStagePlanNode), SubStages: Schema.optional(QueryStages)});
-export const QueryStages = Schema.Array(QueryStage);
-export const BatchGetNamedQueryOutput = Schema.Struct({NamedQueries: Schema.optional(NamedQueryList), UnprocessedNamedQueryIds: Schema.optional(UnprocessedNamedQueryIdList)});
-export const BatchGetPreparedStatementOutput = Schema.Struct({PreparedStatements: Schema.optional(PreparedStatementDetailsList), UnprocessedPreparedStatementNames: Schema.optional(UnprocessedPreparedStatementNameList)});
-export const CreateDataCatalogOutput = Schema.Struct({DataCatalog: Schema.optional(DataCatalog)});
-export const DeleteDataCatalogOutput = Schema.Struct({DataCatalog: Schema.optional(DataCatalog)});
-export const ExportNotebookOutput = Schema.Struct({NotebookMetadata: Schema.optional(NotebookMetadata), Payload: Schema.optional(Schema.String)});
-export const GetCalculationExecutionResponse = Schema.Struct({CalculationExecutionId: Schema.optional(Schema.String), SessionId: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), WorkingDirectory: Schema.optional(Schema.String), Status: Schema.optional(CalculationStatus), Statistics: Schema.optional(CalculationStatistics), Result: Schema.optional(CalculationResult)});
-export const GetCapacityAssignmentConfigurationOutput = Schema.Struct({CapacityAssignmentConfiguration: CapacityAssignmentConfiguration});
-export const GetDatabaseOutput = Schema.Struct({Database: Schema.optional(Database)});
-export const GetSessionResponse = Schema.Struct({SessionId: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), WorkGroup: Schema.optional(Schema.String), EngineVersion: Schema.optional(Schema.String), EngineConfiguration: Schema.optional(EngineConfiguration), NotebookVersion: Schema.optional(Schema.String), SessionConfiguration: Schema.optional(SessionConfiguration), Status: Schema.optional(SessionStatus), Statistics: Schema.optional(SessionStatistics)});
-export const GetWorkGroupOutput = Schema.Struct({WorkGroup: Schema.optional(WorkGroup)});
-export const ListApplicationDPUSizesOutput = Schema.Struct({ApplicationDPUSizes: Schema.optional(ApplicationDPUSizesList), NextToken: Schema.optional(Schema.String)});
-export const ListCalculationExecutionsResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), Calculations: Schema.optional(CalculationsList)});
-export const MetadataException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ListDataCatalogsOutput = Schema.Struct({DataCatalogsSummary: Schema.optional(DataCatalogSummaryList), NextToken: Schema.optional(Schema.String)});
-export const ListExecutorsResponse = Schema.Struct({SessionId: Schema.String, NextToken: Schema.optional(Schema.String), ExecutorsSummary: Schema.optional(ExecutorsSummaryList)});
-export const ListNotebookMetadataOutput = Schema.Struct({NextToken: Schema.optional(Schema.String), NotebookMetadataList: Schema.optional(NotebookMetadataArray)});
-export const ListNotebookSessionsResponse = Schema.Struct({NotebookSessionsList: NotebookSessionsList, NextToken: Schema.optional(Schema.String)});
-export const ListPreparedStatementsOutput = Schema.Struct({PreparedStatements: Schema.optional(PreparedStatementsList), NextToken: Schema.optional(Schema.String)});
-export const ListSessionsResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), Sessions: Schema.optional(SessionsList)});
-export const ListWorkGroupsOutput = Schema.Struct({WorkGroups: Schema.optional(WorkGroupsList), NextToken: Schema.optional(Schema.String)});
-export const StartCalculationExecutionResponse = Schema.Struct({CalculationExecutionId: Schema.optional(Schema.String), State: Schema.optional(Schema.String)});
-export const StartQueryExecutionInput = Schema.Struct({QueryString: Schema.String, ClientRequestToken: Schema.optional(Schema.String), QueryExecutionContext: Schema.optional(QueryExecutionContext), ResultConfiguration: Schema.optional(ResultConfiguration), WorkGroup: Schema.optional(Schema.String), ExecutionParameters: Schema.optional(ExecutionParameters), ResultReuseConfiguration: Schema.optional(ResultReuseConfiguration)});
-export const StartSessionResponse = Schema.Struct({SessionId: Schema.optional(Schema.String), State: Schema.optional(Schema.String)});
-export const UpdateWorkGroupInput = Schema.Struct({WorkGroup: Schema.String, Description: Schema.optional(Schema.String), ConfigurationUpdates: Schema.optional(WorkGroupConfigurationUpdates), State: Schema.optional(Schema.String)});
-export const UpdateWorkGroupOutput = Schema.Struct({});
-export const QueryRuntimeStatisticsTimeline = Schema.Struct({QueryQueueTimeInMillis: Schema.optional(Schema.Number), ServicePreProcessingTimeInMillis: Schema.optional(Schema.Number), QueryPlanningTimeInMillis: Schema.optional(Schema.Number), EngineExecutionTimeInMillis: Schema.optional(Schema.Number), ServiceProcessingTimeInMillis: Schema.optional(Schema.Number), TotalExecutionTimeInMillis: Schema.optional(Schema.Number)});
-export const QueryRuntimeStatisticsRows = Schema.Struct({InputRows: Schema.optional(Schema.Number), InputBytes: Schema.optional(Schema.Number), OutputBytes: Schema.optional(Schema.Number), OutputRows: Schema.optional(Schema.Number)});
-export const Datum = Schema.Struct({VarCharValue: Schema.optional(Schema.String)});
+export class Datum extends Schema.Class<Datum>("Datum")({VarCharValue: Schema.optional(Schema.String)}) {}
 export const datumList = Schema.Array(Datum);
-export const ColumnInfo = Schema.Struct({CatalogName: Schema.optional(Schema.String), SchemaName: Schema.optional(Schema.String), TableName: Schema.optional(Schema.String), Name: Schema.String, Label: Schema.optional(Schema.String), Type: Schema.String, Precision: Schema.optional(Schema.Number), Scale: Schema.optional(Schema.Number), Nullable: Schema.optional(Schema.String), CaseSensitive: Schema.optional(Schema.Boolean)});
+export class ColumnInfo extends Schema.Class<ColumnInfo>("ColumnInfo")({CatalogName: Schema.optional(Schema.String), SchemaName: Schema.optional(Schema.String), TableName: Schema.optional(Schema.String), Name: Schema.String, Label: Schema.optional(Schema.String), Type: Schema.String, Precision: Schema.optional(Schema.Number), Scale: Schema.optional(Schema.Number), Nullable: Schema.optional(Schema.String), CaseSensitive: Schema.optional(Schema.Boolean)}) {}
 export const ColumnInfoList = Schema.Array(ColumnInfo);
-export const CreateWorkGroupInput = Schema.Struct({Name: Schema.String, Configuration: Schema.optional(WorkGroupConfiguration), Description: Schema.optional(Schema.String), Tags: Schema.optional(TagList)});
-export const CreateWorkGroupOutput = Schema.Struct({});
-export const GetCapacityReservationOutput = Schema.Struct({CapacityReservation: CapacityReservation});
-export const GetTableMetadataOutput = Schema.Struct({TableMetadata: Schema.optional(TableMetadata)});
-export const StartQueryExecutionOutput = Schema.Struct({QueryExecutionId: Schema.optional(Schema.String)});
-export const SessionAlreadyExistsException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const Row = Schema.Struct({Data: Schema.optional(datumList)});
+export class QueryStagePlanNode extends Schema.Class<QueryStagePlanNode>("QueryStagePlanNode")({Name: Schema.optional(Schema.String), Identifier: Schema.optional(Schema.String), Children: Schema.optional(Schema.suspend(() => QueryStagePlanNodes)), RemoteSources: Schema.optional(StringList)}) {}
+export class CreateWorkGroupInput extends Schema.Class<CreateWorkGroupInput>("CreateWorkGroupInput")({Name: Schema.String, Configuration: Schema.optional(WorkGroupConfiguration), Description: Schema.optional(Schema.String), Tags: Schema.optional(TagList)}) {}
+export class CreateWorkGroupOutput extends Schema.Class<CreateWorkGroupOutput>("CreateWorkGroupOutput")({}) {}
+export class GetCapacityReservationOutput extends Schema.Class<GetCapacityReservationOutput>("GetCapacityReservationOutput")({CapacityReservation: CapacityReservation}) {}
+export class GetTableMetadataOutput extends Schema.Class<GetTableMetadataOutput>("GetTableMetadataOutput")({TableMetadata: Schema.optional(TableMetadata)}) {}
+export class StartQueryExecutionOutput extends Schema.Class<StartQueryExecutionOutput>("StartQueryExecutionOutput")({QueryExecutionId: Schema.optional(Schema.String)}) {}
+export class StartSessionRequest extends Schema.Class<StartSessionRequest>("StartSessionRequest")({Description: Schema.optional(Schema.String), WorkGroup: Schema.String, EngineConfiguration: EngineConfiguration, ExecutionRole: Schema.optional(Schema.String), MonitoringConfiguration: Schema.optional(MonitoringConfiguration), NotebookVersion: Schema.optional(Schema.String), SessionIdleTimeoutInMinutes: Schema.optional(Schema.Number), ClientRequestToken: Schema.optional(Schema.String), Tags: Schema.optional(TagList), CopyWorkGroupTags: Schema.optional(Schema.Boolean)}) {}
+export class Row extends Schema.Class<Row>("Row")({Data: Schema.optional(datumList)}) {}
 export const RowList = Schema.Array(Row);
-export const ResultSetMetadata = Schema.Struct({ColumnInfo: Schema.optional(ColumnInfoList)});
+export class ResultSetMetadata extends Schema.Class<ResultSetMetadata>("ResultSetMetadata")({ColumnInfo: Schema.optional(ColumnInfoList)}) {}
+export class QueryStage extends Schema.Class<QueryStage>("QueryStage")({StageId: Schema.optional(Schema.Number), State: Schema.optional(Schema.String), OutputBytes: Schema.optional(Schema.Number), OutputRows: Schema.optional(Schema.Number), InputBytes: Schema.optional(Schema.Number), InputRows: Schema.optional(Schema.Number), ExecutionTime: Schema.optional(Schema.Number), QueryStagePlan: Schema.optional(Schema.suspend((): Schema.Schema<QueryStagePlanNode> => QueryStagePlanNode)), SubStages: Schema.optional(Schema.suspend(() => QueryStages))}) {}
 export const QueryExecutionList = Schema.Array(QueryExecution);
-export const ResultSet = Schema.Struct({Rows: Schema.optional(RowList), ResultSetMetadata: Schema.optional(ResultSetMetadata)});
-export const QueryRuntimeStatistics = Schema.Struct({Timeline: Schema.optional(QueryRuntimeStatisticsTimeline), Rows: Schema.optional(QueryRuntimeStatisticsRows), OutputStage: Schema.optional(QueryStage)});
-export const BatchGetQueryExecutionOutput = Schema.Struct({QueryExecutions: Schema.optional(QueryExecutionList), UnprocessedQueryExecutionIds: Schema.optional(UnprocessedQueryExecutionIdList)});
-export const GetQueryResultsOutput = Schema.Struct({UpdateCount: Schema.optional(Schema.Number), ResultSet: Schema.optional(ResultSet), NextToken: Schema.optional(Schema.String)});
-export const GetQueryRuntimeStatisticsOutput = Schema.Struct({QueryRuntimeStatistics: Schema.optional(QueryRuntimeStatistics)});
+export class ResultSet extends Schema.Class<ResultSet>("ResultSet")({Rows: Schema.optional(RowList), ResultSetMetadata: Schema.optional(ResultSetMetadata)}) {}
+export class QueryRuntimeStatistics extends Schema.Class<QueryRuntimeStatistics>("QueryRuntimeStatistics")({Timeline: Schema.optional(QueryRuntimeStatisticsTimeline), Rows: Schema.optional(QueryRuntimeStatisticsRows), OutputStage: Schema.optional(QueryStage)}) {}
+export class BatchGetQueryExecutionOutput extends Schema.Class<BatchGetQueryExecutionOutput>("BatchGetQueryExecutionOutput")({QueryExecutions: Schema.optional(QueryExecutionList), UnprocessedQueryExecutionIds: Schema.optional(UnprocessedQueryExecutionIdList)}) {}
+export class GetQueryResultsOutput extends Schema.Class<GetQueryResultsOutput>("GetQueryResultsOutput")({UpdateCount: Schema.optional(Schema.Number), ResultSet: Schema.optional(ResultSet), NextToken: Schema.optional(Schema.String)}) {}
+export class GetQueryRuntimeStatisticsOutput extends Schema.Class<GetQueryRuntimeStatisticsOutput>("GetQueryRuntimeStatisticsOutput")({QueryRuntimeStatistics: Schema.optional(QueryRuntimeStatistics)}) {}
+export class StartSessionResponse extends Schema.Class<StartSessionResponse>("StartSessionResponse")({SessionId: Schema.optional(Schema.String), State: Schema.optional(Schema.String)}) {}
+export class SessionAlreadyExistsException extends Schema.Class<SessionAlreadyExistsException>("SessionAlreadyExistsException")({Message: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class InvalidRequestExceptionError extends Schema.TaggedError<InvalidRequestExceptionError>()("InvalidRequestException", InvalidRequestException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class TooManyRequestsExceptionError extends Schema.TaggedError<TooManyRequestsExceptionError>()("TooManyRequestsException", TooManyRequestsException) {};
-export class MetadataExceptionError extends Schema.TaggedError<MetadataExceptionError>()("MetadataException", MetadataException) {};
-export class SessionAlreadyExistsExceptionError extends Schema.TaggedError<SessionAlreadyExistsExceptionError>()("SessionAlreadyExistsException", SessionAlreadyExistsException) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class InvalidRequestExceptionError extends Schema.TaggedError<InvalidRequestExceptionError>()("InvalidRequestException", InvalidRequestException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class TooManyRequestsExceptionError extends Schema.TaggedError<TooManyRequestsExceptionError>()("TooManyRequestsException", TooManyRequestsException.fields) {};
+export class MetadataExceptionError extends Schema.TaggedError<MetadataExceptionError>()("MetadataException", MetadataException.fields) {};
+export class SessionAlreadyExistsExceptionError extends Schema.TaggedError<SessionAlreadyExistsExceptionError>()("SessionAlreadyExistsException", SessionAlreadyExistsException.fields) {};
 
 //# Operations
 export const deleteCapacityReservation = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.DeleteCapacityReservation" }, DeleteCapacityReservationInput, DeleteCapacityReservationOutput, [InternalServerExceptionError, InvalidRequestExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -282,6 +294,8 @@ export const getNamedQuery = /*#__PURE__*/ makeOperation(() => Operation({ versi
 export const getNotebookMetadata = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.GetNotebookMetadata" }, GetNotebookMetadataInput, GetNotebookMetadataOutput, [InternalServerExceptionError, InvalidRequestExceptionError, TooManyRequestsExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const getPreparedStatement = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.GetPreparedStatement" }, GetPreparedStatementInput, GetPreparedStatementOutput, [InternalServerExceptionError, InvalidRequestExceptionError, ResourceNotFoundExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const getQueryExecution = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.GetQueryExecution" }, GetQueryExecutionInput, GetQueryExecutionOutput, [InternalServerExceptionError, InvalidRequestExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const getResourceDashboard = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.GetResourceDashboard" }, GetResourceDashboardRequest, GetResourceDashboardResponse, [InternalServerExceptionError, InvalidRequestExceptionError, ResourceNotFoundExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const getSessionEndpoint = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.GetSessionEndpoint" }, GetSessionEndpointRequest, GetSessionEndpointResponse, [InternalServerExceptionError, InvalidRequestExceptionError, ResourceNotFoundExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const getSessionStatus = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.GetSessionStatus" }, GetSessionStatusRequest, GetSessionStatusResponse, [InternalServerExceptionError, InvalidRequestExceptionError, ResourceNotFoundExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const importNotebook = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.ImportNotebook" }, ImportNotebookInput, ImportNotebookOutput, [InternalServerExceptionError, InvalidRequestExceptionError, TooManyRequestsExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const listCapacityReservations = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.ListCapacityReservations" }, ListCapacityReservationsInput, ListCapacityReservationsOutput, [InternalServerExceptionError, InvalidRequestExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -319,7 +333,7 @@ export const createWorkGroup = /*#__PURE__*/ makeOperation(() => Operation({ ver
 export const getCapacityReservation = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.GetCapacityReservation" }, GetCapacityReservationInput, GetCapacityReservationOutput, [InternalServerExceptionError, InvalidRequestExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const getTableMetadata = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.GetTableMetadata" }, GetTableMetadataInput, GetTableMetadataOutput, [InternalServerExceptionError, InvalidRequestExceptionError, MetadataExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const startQueryExecution = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.StartQueryExecution" }, StartQueryExecutionInput, StartQueryExecutionOutput, [InternalServerExceptionError, InvalidRequestExceptionError, TooManyRequestsExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const startSession = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.StartSession" }, StartSessionRequest, StartSessionResponse, [InternalServerExceptionError, InvalidRequestExceptionError, ResourceNotFoundExceptionError, SessionAlreadyExistsExceptionError, TooManyRequestsExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const batchGetQueryExecution = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.BatchGetQueryExecution" }, BatchGetQueryExecutionInput, BatchGetQueryExecutionOutput, [InternalServerExceptionError, InvalidRequestExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const getQueryResults = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.GetQueryResults" }, GetQueryResultsInput, GetQueryResultsOutput, [InternalServerExceptionError, InvalidRequestExceptionError, TooManyRequestsExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const getQueryRuntimeStatistics = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.GetQueryRuntimeStatistics" }, GetQueryRuntimeStatisticsInput, GetQueryRuntimeStatisticsOutput, [InternalServerExceptionError, InvalidRequestExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const startSession = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-05-18", uri: "/", method: "POST", sdkId: "Athena", sigV4ServiceName: "athena", name: "AmazonAthena.StartSession" }, StartSessionRequest, StartSessionResponse, [InternalServerExceptionError, InvalidRequestExceptionError, ResourceNotFoundExceptionError, SessionAlreadyExistsExceptionError, TooManyRequestsExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

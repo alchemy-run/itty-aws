@@ -4,89 +4,89 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 
 //# Schemas
 export const ApplicationIds = Schema.Array(Schema.String);
-export const CreateProgressUpdateStreamRequest = Schema.Struct({ProgressUpdateStreamName: Schema.String, DryRun: Schema.optional(Schema.Boolean)});
-export const CreateProgressUpdateStreamResult = Schema.Struct({});
-export const DeleteProgressUpdateStreamRequest = Schema.Struct({ProgressUpdateStreamName: Schema.String, DryRun: Schema.optional(Schema.Boolean)});
-export const DeleteProgressUpdateStreamResult = Schema.Struct({});
-export const DescribeApplicationStateRequest = Schema.Struct({ApplicationId: Schema.String});
-export const DescribeMigrationTaskRequest = Schema.Struct({ProgressUpdateStream: Schema.String, MigrationTaskName: Schema.String});
-export const DisassociateCreatedArtifactRequest = Schema.Struct({ProgressUpdateStream: Schema.String, MigrationTaskName: Schema.String, CreatedArtifactName: Schema.String, DryRun: Schema.optional(Schema.Boolean)});
-export const DisassociateCreatedArtifactResult = Schema.Struct({});
-export const DisassociateDiscoveredResourceRequest = Schema.Struct({ProgressUpdateStream: Schema.String, MigrationTaskName: Schema.String, ConfigurationId: Schema.String, DryRun: Schema.optional(Schema.Boolean)});
-export const DisassociateDiscoveredResourceResult = Schema.Struct({});
-export const DisassociateSourceResourceRequest = Schema.Struct({ProgressUpdateStream: Schema.String, MigrationTaskName: Schema.String, SourceResourceName: Schema.String, DryRun: Schema.optional(Schema.Boolean)});
-export const DisassociateSourceResourceResult = Schema.Struct({});
-export const ImportMigrationTaskRequest = Schema.Struct({ProgressUpdateStream: Schema.String, MigrationTaskName: Schema.String, DryRun: Schema.optional(Schema.Boolean)});
-export const ImportMigrationTaskResult = Schema.Struct({});
-export const ListApplicationStatesRequest = Schema.Struct({ApplicationIds: Schema.optional(ApplicationIds), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListCreatedArtifactsRequest = Schema.Struct({ProgressUpdateStream: Schema.String, MigrationTaskName: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListDiscoveredResourcesRequest = Schema.Struct({ProgressUpdateStream: Schema.String, MigrationTaskName: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListMigrationTasksRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), ResourceName: Schema.optional(Schema.String)});
-export const ListMigrationTaskUpdatesRequest = Schema.Struct({ProgressUpdateStream: Schema.String, MigrationTaskName: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListProgressUpdateStreamsRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListSourceResourcesRequest = Schema.Struct({ProgressUpdateStream: Schema.String, MigrationTaskName: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const NotifyApplicationStateRequest = Schema.Struct({ApplicationId: Schema.String, Status: Schema.String, UpdateDateTime: Schema.optional(Schema.Date), DryRun: Schema.optional(Schema.Boolean)});
-export const NotifyApplicationStateResult = Schema.Struct({});
-export const CreatedArtifact = Schema.Struct({Name: Schema.String, Description: Schema.optional(Schema.String)});
-export const DiscoveredResource = Schema.Struct({ConfigurationId: Schema.String, Description: Schema.optional(Schema.String)});
-export const SourceResource = Schema.Struct({Name: Schema.String, Description: Schema.optional(Schema.String), StatusDetail: Schema.optional(Schema.String)});
+export class CreateProgressUpdateStreamRequest extends Schema.Class<CreateProgressUpdateStreamRequest>("CreateProgressUpdateStreamRequest")({ProgressUpdateStreamName: Schema.String, DryRun: Schema.optional(Schema.Boolean)}) {}
+export class CreateProgressUpdateStreamResult extends Schema.Class<CreateProgressUpdateStreamResult>("CreateProgressUpdateStreamResult")({}) {}
+export class DeleteProgressUpdateStreamRequest extends Schema.Class<DeleteProgressUpdateStreamRequest>("DeleteProgressUpdateStreamRequest")({ProgressUpdateStreamName: Schema.String, DryRun: Schema.optional(Schema.Boolean)}) {}
+export class DeleteProgressUpdateStreamResult extends Schema.Class<DeleteProgressUpdateStreamResult>("DeleteProgressUpdateStreamResult")({}) {}
+export class DescribeApplicationStateRequest extends Schema.Class<DescribeApplicationStateRequest>("DescribeApplicationStateRequest")({ApplicationId: Schema.String}) {}
+export class DescribeMigrationTaskRequest extends Schema.Class<DescribeMigrationTaskRequest>("DescribeMigrationTaskRequest")({ProgressUpdateStream: Schema.String, MigrationTaskName: Schema.String}) {}
+export class DisassociateCreatedArtifactRequest extends Schema.Class<DisassociateCreatedArtifactRequest>("DisassociateCreatedArtifactRequest")({ProgressUpdateStream: Schema.String, MigrationTaskName: Schema.String, CreatedArtifactName: Schema.String, DryRun: Schema.optional(Schema.Boolean)}) {}
+export class DisassociateCreatedArtifactResult extends Schema.Class<DisassociateCreatedArtifactResult>("DisassociateCreatedArtifactResult")({}) {}
+export class DisassociateDiscoveredResourceRequest extends Schema.Class<DisassociateDiscoveredResourceRequest>("DisassociateDiscoveredResourceRequest")({ProgressUpdateStream: Schema.String, MigrationTaskName: Schema.String, ConfigurationId: Schema.String, DryRun: Schema.optional(Schema.Boolean)}) {}
+export class DisassociateDiscoveredResourceResult extends Schema.Class<DisassociateDiscoveredResourceResult>("DisassociateDiscoveredResourceResult")({}) {}
+export class DisassociateSourceResourceRequest extends Schema.Class<DisassociateSourceResourceRequest>("DisassociateSourceResourceRequest")({ProgressUpdateStream: Schema.String, MigrationTaskName: Schema.String, SourceResourceName: Schema.String, DryRun: Schema.optional(Schema.Boolean)}) {}
+export class DisassociateSourceResourceResult extends Schema.Class<DisassociateSourceResourceResult>("DisassociateSourceResourceResult")({}) {}
+export class ImportMigrationTaskRequest extends Schema.Class<ImportMigrationTaskRequest>("ImportMigrationTaskRequest")({ProgressUpdateStream: Schema.String, MigrationTaskName: Schema.String, DryRun: Schema.optional(Schema.Boolean)}) {}
+export class ImportMigrationTaskResult extends Schema.Class<ImportMigrationTaskResult>("ImportMigrationTaskResult")({}) {}
+export class ListApplicationStatesRequest extends Schema.Class<ListApplicationStatesRequest>("ListApplicationStatesRequest")({ApplicationIds: Schema.optional(ApplicationIds), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListCreatedArtifactsRequest extends Schema.Class<ListCreatedArtifactsRequest>("ListCreatedArtifactsRequest")({ProgressUpdateStream: Schema.String, MigrationTaskName: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListDiscoveredResourcesRequest extends Schema.Class<ListDiscoveredResourcesRequest>("ListDiscoveredResourcesRequest")({ProgressUpdateStream: Schema.String, MigrationTaskName: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListMigrationTasksRequest extends Schema.Class<ListMigrationTasksRequest>("ListMigrationTasksRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), ResourceName: Schema.optional(Schema.String)}) {}
+export class ListMigrationTaskUpdatesRequest extends Schema.Class<ListMigrationTaskUpdatesRequest>("ListMigrationTaskUpdatesRequest")({ProgressUpdateStream: Schema.String, MigrationTaskName: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListProgressUpdateStreamsRequest extends Schema.Class<ListProgressUpdateStreamsRequest>("ListProgressUpdateStreamsRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListSourceResourcesRequest extends Schema.Class<ListSourceResourcesRequest>("ListSourceResourcesRequest")({ProgressUpdateStream: Schema.String, MigrationTaskName: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class NotifyApplicationStateRequest extends Schema.Class<NotifyApplicationStateRequest>("NotifyApplicationStateRequest")({ApplicationId: Schema.String, Status: Schema.String, UpdateDateTime: Schema.optional(Schema.Date), DryRun: Schema.optional(Schema.Boolean)}) {}
+export class NotifyApplicationStateResult extends Schema.Class<NotifyApplicationStateResult>("NotifyApplicationStateResult")({}) {}
+export class CreatedArtifact extends Schema.Class<CreatedArtifact>("CreatedArtifact")({Name: Schema.String, Description: Schema.optional(Schema.String)}) {}
+export class DiscoveredResource extends Schema.Class<DiscoveredResource>("DiscoveredResource")({ConfigurationId: Schema.String, Description: Schema.optional(Schema.String)}) {}
+export class SourceResource extends Schema.Class<SourceResource>("SourceResource")({Name: Schema.String, Description: Schema.optional(Schema.String), StatusDetail: Schema.optional(Schema.String)}) {}
 export const CreatedArtifactList = Schema.Array(CreatedArtifact);
 export const DiscoveredResourceList = Schema.Array(DiscoveredResource);
 export const SourceResourceList = Schema.Array(SourceResource);
-export const Task = Schema.Struct({Status: Schema.String, StatusDetail: Schema.optional(Schema.String), ProgressPercent: Schema.optional(Schema.Number)});
-export const ResourceAttribute = Schema.Struct({Type: Schema.String, Value: Schema.String});
+export class Task extends Schema.Class<Task>("Task")({Status: Schema.String, StatusDetail: Schema.optional(Schema.String), ProgressPercent: Schema.optional(Schema.Number)}) {}
+export class ResourceAttribute extends Schema.Class<ResourceAttribute>("ResourceAttribute")({Type: Schema.String, Value: Schema.String}) {}
 export const ResourceAttributeList = Schema.Array(ResourceAttribute);
-export const AssociateCreatedArtifactRequest = Schema.Struct({ProgressUpdateStream: Schema.String, MigrationTaskName: Schema.String, CreatedArtifact: CreatedArtifact, DryRun: Schema.optional(Schema.Boolean)});
-export const AssociateCreatedArtifactResult = Schema.Struct({});
-export const AssociateDiscoveredResourceRequest = Schema.Struct({ProgressUpdateStream: Schema.String, MigrationTaskName: Schema.String, DiscoveredResource: DiscoveredResource, DryRun: Schema.optional(Schema.Boolean)});
-export const AssociateDiscoveredResourceResult = Schema.Struct({});
-export const AssociateSourceResourceRequest = Schema.Struct({ProgressUpdateStream: Schema.String, MigrationTaskName: Schema.String, SourceResource: SourceResource, DryRun: Schema.optional(Schema.Boolean)});
-export const AssociateSourceResourceResult = Schema.Struct({});
-export const AccessDeniedException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DryRunOperation = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DescribeApplicationStateResult = Schema.Struct({ApplicationStatus: Schema.optional(Schema.String), LastUpdatedTime: Schema.optional(Schema.Date)});
-export const HomeRegionNotSetException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const InternalServerError = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const InvalidInputException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ListCreatedArtifactsResult = Schema.Struct({NextToken: Schema.optional(Schema.String), CreatedArtifactList: Schema.optional(CreatedArtifactList)});
-export const ListDiscoveredResourcesResult = Schema.Struct({NextToken: Schema.optional(Schema.String), DiscoveredResourceList: Schema.optional(DiscoveredResourceList)});
-export const ListSourceResourcesResult = Schema.Struct({NextToken: Schema.optional(Schema.String), SourceResourceList: Schema.optional(SourceResourceList)});
-export const PolicyErrorException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const NotifyMigrationTaskStateRequest = Schema.Struct({ProgressUpdateStream: Schema.String, MigrationTaskName: Schema.String, Task: Task, UpdateDateTime: Schema.Date, NextUpdateSeconds: Schema.Number, DryRun: Schema.optional(Schema.Boolean)});
-export const NotifyMigrationTaskStateResult = Schema.Struct({});
-export const PutResourceAttributesRequest = Schema.Struct({ProgressUpdateStream: Schema.String, MigrationTaskName: Schema.String, ResourceAttributeList: ResourceAttributeList, DryRun: Schema.optional(Schema.Boolean)});
-export const PutResourceAttributesResult = Schema.Struct({});
+export class AssociateCreatedArtifactRequest extends Schema.Class<AssociateCreatedArtifactRequest>("AssociateCreatedArtifactRequest")({ProgressUpdateStream: Schema.String, MigrationTaskName: Schema.String, CreatedArtifact: CreatedArtifact, DryRun: Schema.optional(Schema.Boolean)}) {}
+export class AssociateCreatedArtifactResult extends Schema.Class<AssociateCreatedArtifactResult>("AssociateCreatedArtifactResult")({}) {}
+export class AssociateDiscoveredResourceRequest extends Schema.Class<AssociateDiscoveredResourceRequest>("AssociateDiscoveredResourceRequest")({ProgressUpdateStream: Schema.String, MigrationTaskName: Schema.String, DiscoveredResource: DiscoveredResource, DryRun: Schema.optional(Schema.Boolean)}) {}
+export class AssociateDiscoveredResourceResult extends Schema.Class<AssociateDiscoveredResourceResult>("AssociateDiscoveredResourceResult")({}) {}
+export class AssociateSourceResourceRequest extends Schema.Class<AssociateSourceResourceRequest>("AssociateSourceResourceRequest")({ProgressUpdateStream: Schema.String, MigrationTaskName: Schema.String, SourceResource: SourceResource, DryRun: Schema.optional(Schema.Boolean)}) {}
+export class AssociateSourceResourceResult extends Schema.Class<AssociateSourceResourceResult>("AssociateSourceResourceResult")({}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({Message: Schema.optional(Schema.String)}) {}
+export class DryRunOperation extends Schema.Class<DryRunOperation>("DryRunOperation")({Message: Schema.optional(Schema.String)}) {}
+export class DescribeApplicationStateResult extends Schema.Class<DescribeApplicationStateResult>("DescribeApplicationStateResult")({ApplicationStatus: Schema.optional(Schema.String), LastUpdatedTime: Schema.optional(Schema.Date)}) {}
+export class HomeRegionNotSetException extends Schema.Class<HomeRegionNotSetException>("HomeRegionNotSetException")({Message: Schema.optional(Schema.String)}) {}
+export class InternalServerError extends Schema.Class<InternalServerError>("InternalServerError")({Message: Schema.optional(Schema.String)}) {}
+export class InvalidInputException extends Schema.Class<InvalidInputException>("InvalidInputException")({Message: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class ListCreatedArtifactsResult extends Schema.Class<ListCreatedArtifactsResult>("ListCreatedArtifactsResult")({NextToken: Schema.optional(Schema.String), CreatedArtifactList: Schema.optional(CreatedArtifactList)}) {}
+export class ListDiscoveredResourcesResult extends Schema.Class<ListDiscoveredResourcesResult>("ListDiscoveredResourcesResult")({NextToken: Schema.optional(Schema.String), DiscoveredResourceList: Schema.optional(DiscoveredResourceList)}) {}
+export class ListSourceResourcesResult extends Schema.Class<ListSourceResourcesResult>("ListSourceResourcesResult")({NextToken: Schema.optional(Schema.String), SourceResourceList: Schema.optional(SourceResourceList)}) {}
+export class PolicyErrorException extends Schema.Class<PolicyErrorException>("PolicyErrorException")({Message: Schema.optional(Schema.String)}) {}
+export class NotifyMigrationTaskStateRequest extends Schema.Class<NotifyMigrationTaskStateRequest>("NotifyMigrationTaskStateRequest")({ProgressUpdateStream: Schema.String, MigrationTaskName: Schema.String, Task: Task, UpdateDateTime: Schema.Date, NextUpdateSeconds: Schema.Number, DryRun: Schema.optional(Schema.Boolean)}) {}
+export class NotifyMigrationTaskStateResult extends Schema.Class<NotifyMigrationTaskStateResult>("NotifyMigrationTaskStateResult")({}) {}
+export class PutResourceAttributesRequest extends Schema.Class<PutResourceAttributesRequest>("PutResourceAttributesRequest")({ProgressUpdateStream: Schema.String, MigrationTaskName: Schema.String, ResourceAttributeList: ResourceAttributeList, DryRun: Schema.optional(Schema.Boolean)}) {}
+export class PutResourceAttributesResult extends Schema.Class<PutResourceAttributesResult>("PutResourceAttributesResult")({}) {}
 export const LatestResourceAttributeList = Schema.Array(ResourceAttribute);
-export const MigrationTask = Schema.Struct({ProgressUpdateStream: Schema.optional(Schema.String), MigrationTaskName: Schema.optional(Schema.String), Task: Schema.optional(Task), UpdateDateTime: Schema.optional(Schema.Date), ResourceAttributeList: Schema.optional(LatestResourceAttributeList)});
-export const ApplicationState = Schema.Struct({ApplicationId: Schema.optional(Schema.String), ApplicationStatus: Schema.optional(Schema.String), LastUpdatedTime: Schema.optional(Schema.Date)});
+export class MigrationTask extends Schema.Class<MigrationTask>("MigrationTask")({ProgressUpdateStream: Schema.optional(Schema.String), MigrationTaskName: Schema.optional(Schema.String), Task: Schema.optional(Task), UpdateDateTime: Schema.optional(Schema.Date), ResourceAttributeList: Schema.optional(LatestResourceAttributeList)}) {}
+export class ApplicationState extends Schema.Class<ApplicationState>("ApplicationState")({ApplicationId: Schema.optional(Schema.String), ApplicationStatus: Schema.optional(Schema.String), LastUpdatedTime: Schema.optional(Schema.Date)}) {}
 export const ApplicationStateList = Schema.Array(ApplicationState);
-export const MigrationTaskSummary = Schema.Struct({ProgressUpdateStream: Schema.optional(Schema.String), MigrationTaskName: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), ProgressPercent: Schema.optional(Schema.Number), StatusDetail: Schema.optional(Schema.String), UpdateDateTime: Schema.optional(Schema.Date)});
+export class MigrationTaskSummary extends Schema.Class<MigrationTaskSummary>("MigrationTaskSummary")({ProgressUpdateStream: Schema.optional(Schema.String), MigrationTaskName: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), ProgressPercent: Schema.optional(Schema.Number), StatusDetail: Schema.optional(Schema.String), UpdateDateTime: Schema.optional(Schema.Date)}) {}
 export const MigrationTaskSummaryList = Schema.Array(MigrationTaskSummary);
-export const MigrationTaskUpdate = Schema.Struct({UpdateDateTime: Schema.optional(Schema.Date), UpdateType: Schema.optional(Schema.String), MigrationTaskState: Schema.optional(Task)});
+export class MigrationTaskUpdate extends Schema.Class<MigrationTaskUpdate>("MigrationTaskUpdate")({UpdateDateTime: Schema.optional(Schema.Date), UpdateType: Schema.optional(Schema.String), MigrationTaskState: Schema.optional(Task)}) {}
 export const MigrationTaskUpdateList = Schema.Array(MigrationTaskUpdate);
-export const ProgressUpdateStreamSummary = Schema.Struct({ProgressUpdateStreamName: Schema.optional(Schema.String)});
+export class ProgressUpdateStreamSummary extends Schema.Class<ProgressUpdateStreamSummary>("ProgressUpdateStreamSummary")({ProgressUpdateStreamName: Schema.optional(Schema.String)}) {}
 export const ProgressUpdateStreamSummaryList = Schema.Array(ProgressUpdateStreamSummary);
-export const ServiceUnavailableException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ThrottlingException = Schema.Struct({Message: Schema.String, RetryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))});
-export const UnauthorizedOperation = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DescribeMigrationTaskResult = Schema.Struct({MigrationTask: Schema.optional(MigrationTask)});
-export const ListApplicationStatesResult = Schema.Struct({ApplicationStateList: Schema.optional(ApplicationStateList), NextToken: Schema.optional(Schema.String)});
-export const ListMigrationTasksResult = Schema.Struct({NextToken: Schema.optional(Schema.String), MigrationTaskSummaryList: Schema.optional(MigrationTaskSummaryList)});
-export const ListMigrationTaskUpdatesResult = Schema.Struct({NextToken: Schema.optional(Schema.String), MigrationTaskUpdateList: Schema.optional(MigrationTaskUpdateList)});
-export const ListProgressUpdateStreamsResult = Schema.Struct({ProgressUpdateStreamSummaryList: Schema.optional(ProgressUpdateStreamSummaryList), NextToken: Schema.optional(Schema.String)});
+export class ServiceUnavailableException extends Schema.Class<ServiceUnavailableException>("ServiceUnavailableException")({Message: Schema.optional(Schema.String)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({Message: Schema.String, RetryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))}) {}
+export class UnauthorizedOperation extends Schema.Class<UnauthorizedOperation>("UnauthorizedOperation")({Message: Schema.optional(Schema.String)}) {}
+export class DescribeMigrationTaskResult extends Schema.Class<DescribeMigrationTaskResult>("DescribeMigrationTaskResult")({MigrationTask: Schema.optional(MigrationTask)}) {}
+export class ListApplicationStatesResult extends Schema.Class<ListApplicationStatesResult>("ListApplicationStatesResult")({ApplicationStateList: Schema.optional(ApplicationStateList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListMigrationTasksResult extends Schema.Class<ListMigrationTasksResult>("ListMigrationTasksResult")({NextToken: Schema.optional(Schema.String), MigrationTaskSummaryList: Schema.optional(MigrationTaskSummaryList)}) {}
+export class ListMigrationTaskUpdatesResult extends Schema.Class<ListMigrationTaskUpdatesResult>("ListMigrationTaskUpdatesResult")({NextToken: Schema.optional(Schema.String), MigrationTaskUpdateList: Schema.optional(MigrationTaskUpdateList)}) {}
+export class ListProgressUpdateStreamsResult extends Schema.Class<ListProgressUpdateStreamsResult>("ListProgressUpdateStreamsResult")({ProgressUpdateStreamSummaryList: Schema.optional(ProgressUpdateStreamSummaryList), NextToken: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class DryRunOperationError extends Schema.TaggedError<DryRunOperationError>()("DryRunOperation", DryRunOperation) {};
-export class HomeRegionNotSetExceptionError extends Schema.TaggedError<HomeRegionNotSetExceptionError>()("HomeRegionNotSetException", HomeRegionNotSetException) {};
-export class InternalServerErrorError extends Schema.TaggedError<InternalServerErrorError>()("InternalServerError", InternalServerError) {};
-export class InvalidInputExceptionError extends Schema.TaggedError<InvalidInputExceptionError>()("InvalidInputException", InvalidInputException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class PolicyErrorExceptionError extends Schema.TaggedError<PolicyErrorExceptionError>()("PolicyErrorException", PolicyErrorException) {};
-export class ServiceUnavailableExceptionError extends Schema.TaggedError<ServiceUnavailableExceptionError>()("ServiceUnavailableException", ServiceUnavailableException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class UnauthorizedOperationError extends Schema.TaggedError<UnauthorizedOperationError>()("UnauthorizedOperation", UnauthorizedOperation) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class DryRunOperationError extends Schema.TaggedError<DryRunOperationError>()("DryRunOperation", DryRunOperation.fields) {};
+export class HomeRegionNotSetExceptionError extends Schema.TaggedError<HomeRegionNotSetExceptionError>()("HomeRegionNotSetException", HomeRegionNotSetException.fields) {};
+export class InternalServerErrorError extends Schema.TaggedError<InternalServerErrorError>()("InternalServerError", InternalServerError.fields) {};
+export class InvalidInputExceptionError extends Schema.TaggedError<InvalidInputExceptionError>()("InvalidInputException", InvalidInputException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class PolicyErrorExceptionError extends Schema.TaggedError<PolicyErrorExceptionError>()("PolicyErrorException", PolicyErrorException.fields) {};
+export class ServiceUnavailableExceptionError extends Schema.TaggedError<ServiceUnavailableExceptionError>()("ServiceUnavailableException", ServiceUnavailableException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class UnauthorizedOperationError extends Schema.TaggedError<UnauthorizedOperationError>()("UnauthorizedOperation", UnauthorizedOperation.fields) {};
 
 //# Operations
 export const createProgressUpdateStream = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-05-31", uri: "/", method: "POST", sdkId: "Migration Hub", sigV4ServiceName: "mgh", name: "AWSMigrationHub.CreateProgressUpdateStream" }, CreateProgressUpdateStreamRequest, CreateProgressUpdateStreamResult, [AccessDeniedExceptionError, DryRunOperationError, HomeRegionNotSetExceptionError, InternalServerErrorError, InvalidInputExceptionError, ServiceUnavailableExceptionError, ThrottlingExceptionError, UnauthorizedOperationError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

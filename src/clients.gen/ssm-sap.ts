@@ -6,119 +6,119 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 export const InstanceList = Schema.Array(Schema.String);
 export const ConfigurationCheckTypeList = Schema.Array(Schema.String);
 export const TagKeyList = Schema.Array(Schema.String);
-export const DeleteResourcePermissionInput = Schema.Struct({ActionType: Schema.optional(Schema.String), SourceResourceArn: Schema.optional(Schema.String), ResourceArn: Schema.String});
-export const DeregisterApplicationInput = Schema.Struct({ApplicationId: Schema.String});
-export const DeregisterApplicationOutput = Schema.Struct({});
-export const GetApplicationInput = Schema.Struct({ApplicationId: Schema.optional(Schema.String), ApplicationArn: Schema.optional(Schema.String), AppRegistryArn: Schema.optional(Schema.String)});
-export const GetComponentInput = Schema.Struct({ApplicationId: Schema.String, ComponentId: Schema.String});
-export const GetConfigurationCheckOperationInput = Schema.Struct({OperationId: Schema.String});
-export const GetDatabaseInput = Schema.Struct({ApplicationId: Schema.optional(Schema.String), ComponentId: Schema.optional(Schema.String), DatabaseId: Schema.optional(Schema.String), DatabaseArn: Schema.optional(Schema.String)});
-export const GetOperationInput = Schema.Struct({OperationId: Schema.String});
-export const GetResourcePermissionInput = Schema.Struct({ActionType: Schema.optional(Schema.String), ResourceArn: Schema.String});
-export const ListComponentsInput = Schema.Struct({ApplicationId: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListConfigurationCheckDefinitionsInput = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const Filter = Schema.Struct({Name: Schema.String, Value: Schema.String, Operator: Schema.String});
+export class DeleteResourcePermissionInput extends Schema.Class<DeleteResourcePermissionInput>("DeleteResourcePermissionInput")({ActionType: Schema.optional(Schema.String), SourceResourceArn: Schema.optional(Schema.String), ResourceArn: Schema.String}) {}
+export class DeregisterApplicationInput extends Schema.Class<DeregisterApplicationInput>("DeregisterApplicationInput")({ApplicationId: Schema.String}) {}
+export class DeregisterApplicationOutput extends Schema.Class<DeregisterApplicationOutput>("DeregisterApplicationOutput")({}) {}
+export class GetApplicationInput extends Schema.Class<GetApplicationInput>("GetApplicationInput")({ApplicationId: Schema.optional(Schema.String), ApplicationArn: Schema.optional(Schema.String), AppRegistryArn: Schema.optional(Schema.String)}) {}
+export class GetComponentInput extends Schema.Class<GetComponentInput>("GetComponentInput")({ApplicationId: Schema.String, ComponentId: Schema.String}) {}
+export class GetConfigurationCheckOperationInput extends Schema.Class<GetConfigurationCheckOperationInput>("GetConfigurationCheckOperationInput")({OperationId: Schema.String}) {}
+export class GetDatabaseInput extends Schema.Class<GetDatabaseInput>("GetDatabaseInput")({ApplicationId: Schema.optional(Schema.String), ComponentId: Schema.optional(Schema.String), DatabaseId: Schema.optional(Schema.String), DatabaseArn: Schema.optional(Schema.String)}) {}
+export class GetOperationInput extends Schema.Class<GetOperationInput>("GetOperationInput")({OperationId: Schema.String}) {}
+export class GetResourcePermissionInput extends Schema.Class<GetResourcePermissionInput>("GetResourcePermissionInput")({ActionType: Schema.optional(Schema.String), ResourceArn: Schema.String}) {}
+export class ListComponentsInput extends Schema.Class<ListComponentsInput>("ListComponentsInput")({ApplicationId: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListConfigurationCheckDefinitionsInput extends Schema.Class<ListConfigurationCheckDefinitionsInput>("ListConfigurationCheckDefinitionsInput")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class Filter extends Schema.Class<Filter>("Filter")({Name: Schema.String, Value: Schema.String, Operator: Schema.String}) {}
 export const FilterList = Schema.Array(Filter);
-export const ListConfigurationCheckOperationsInput = Schema.Struct({ApplicationId: Schema.String, ListMode: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), Filters: Schema.optional(FilterList)});
-export const ListDatabasesInput = Schema.Struct({ApplicationId: Schema.optional(Schema.String), ComponentId: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListOperationEventsInput = Schema.Struct({OperationId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), Filters: Schema.optional(FilterList)});
-export const ListOperationsInput = Schema.Struct({ApplicationId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), Filters: Schema.optional(FilterList)});
-export const ListSubCheckResultsInput = Schema.Struct({OperationId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListSubCheckRuleResultsInput = Schema.Struct({SubCheckResultId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceRequest = Schema.Struct({resourceArn: Schema.String});
-export const PutResourcePermissionInput = Schema.Struct({ActionType: Schema.String, SourceResourceArn: Schema.String, ResourceArn: Schema.String});
-export const StartApplicationInput = Schema.Struct({ApplicationId: Schema.String});
-export const StartApplicationRefreshInput = Schema.Struct({ApplicationId: Schema.String});
-export const StartConfigurationChecksInput = Schema.Struct({ApplicationId: Schema.String, ConfigurationCheckIds: Schema.optional(ConfigurationCheckTypeList)});
-export const StopApplicationInput = Schema.Struct({ApplicationId: Schema.String, StopConnectedEntity: Schema.optional(Schema.String), IncludeEc2InstanceShutdown: Schema.optional(Schema.Boolean)});
+export class ListConfigurationCheckOperationsInput extends Schema.Class<ListConfigurationCheckOperationsInput>("ListConfigurationCheckOperationsInput")({ApplicationId: Schema.String, ListMode: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), Filters: Schema.optional(FilterList)}) {}
+export class ListDatabasesInput extends Schema.Class<ListDatabasesInput>("ListDatabasesInput")({ApplicationId: Schema.optional(Schema.String), ComponentId: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListOperationEventsInput extends Schema.Class<ListOperationEventsInput>("ListOperationEventsInput")({OperationId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), Filters: Schema.optional(FilterList)}) {}
+export class ListOperationsInput extends Schema.Class<ListOperationsInput>("ListOperationsInput")({ApplicationId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), Filters: Schema.optional(FilterList)}) {}
+export class ListSubCheckResultsInput extends Schema.Class<ListSubCheckResultsInput>("ListSubCheckResultsInput")({OperationId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListSubCheckRuleResultsInput extends Schema.Class<ListSubCheckRuleResultsInput>("ListSubCheckRuleResultsInput")({SubCheckResultId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({resourceArn: Schema.String}) {}
+export class PutResourcePermissionInput extends Schema.Class<PutResourcePermissionInput>("PutResourcePermissionInput")({ActionType: Schema.String, SourceResourceArn: Schema.String, ResourceArn: Schema.String}) {}
+export class StartApplicationInput extends Schema.Class<StartApplicationInput>("StartApplicationInput")({ApplicationId: Schema.String}) {}
+export class StartApplicationRefreshInput extends Schema.Class<StartApplicationRefreshInput>("StartApplicationRefreshInput")({ApplicationId: Schema.String}) {}
+export class StartConfigurationChecksInput extends Schema.Class<StartConfigurationChecksInput>("StartConfigurationChecksInput")({ApplicationId: Schema.String, ConfigurationCheckIds: Schema.optional(ConfigurationCheckTypeList)}) {}
+export class StopApplicationInput extends Schema.Class<StopApplicationInput>("StopApplicationInput")({ApplicationId: Schema.String, StopConnectedEntity: Schema.optional(Schema.String), IncludeEc2InstanceShutdown: Schema.optional(Schema.Boolean)}) {}
 export const TagMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const TagResourceRequest = Schema.Struct({resourceArn: Schema.String, tags: TagMap});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({resourceArn: Schema.String, tagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
-export const RuleStatusCounts = Schema.Struct({Failed: Schema.optional(Schema.Number), Warning: Schema.optional(Schema.Number), Info: Schema.optional(Schema.Number), Passed: Schema.optional(Schema.Number), Unknown: Schema.optional(Schema.Number)});
-export const ConfigurationCheckOperation = Schema.Struct({Id: Schema.optional(Schema.String), ApplicationId: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), ConfigurationCheckId: Schema.optional(Schema.String), ConfigurationCheckName: Schema.optional(Schema.String), ConfigurationCheckDescription: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date), RuleStatusCounts: Schema.optional(RuleStatusCounts)});
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({resourceArn: Schema.String, tags: TagMap}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({resourceArn: Schema.String, tagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class RuleStatusCounts extends Schema.Class<RuleStatusCounts>("RuleStatusCounts")({Failed: Schema.optional(Schema.Number), Warning: Schema.optional(Schema.Number), Info: Schema.optional(Schema.Number), Passed: Schema.optional(Schema.Number), Unknown: Schema.optional(Schema.Number)}) {}
+export class ConfigurationCheckOperation extends Schema.Class<ConfigurationCheckOperation>("ConfigurationCheckOperation")({Id: Schema.optional(Schema.String), ApplicationId: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), ConfigurationCheckId: Schema.optional(Schema.String), ConfigurationCheckName: Schema.optional(Schema.String), ConfigurationCheckDescription: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date), RuleStatusCounts: Schema.optional(RuleStatusCounts)}) {}
 export const ConfigurationCheckOperationList = Schema.Array(ConfigurationCheckOperation);
 export const OperationProperties = Schema.Record({key: Schema.String, value: Schema.String});
-export const Operation = Schema.Struct({Id: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), Properties: Schema.optional(OperationProperties), ResourceType: Schema.optional(Schema.String), ResourceId: Schema.optional(Schema.String), ResourceArn: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date), LastUpdatedTime: Schema.optional(Schema.Date)});
+export class Operation extends Schema.Class<Operation>("Operation")({Id: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), Properties: Schema.optional(OperationProperties), ResourceType: Schema.optional(Schema.String), ResourceId: Schema.optional(Schema.String), ResourceArn: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date), LastUpdatedTime: Schema.optional(Schema.Date)}) {}
 export const OperationList = Schema.Array(Operation);
-export const ApplicationCredential = Schema.Struct({DatabaseName: Schema.String, CredentialType: Schema.String, SecretId: Schema.String});
+export class ApplicationCredential extends Schema.Class<ApplicationCredential>("ApplicationCredential")({DatabaseName: Schema.String, CredentialType: Schema.String, SecretId: Schema.String}) {}
 export const ApplicationCredentialList = Schema.Array(ApplicationCredential);
-export const ComponentInfo = Schema.Struct({ComponentType: Schema.String, Sid: Schema.String, Ec2InstanceId: Schema.String});
+export class ComponentInfo extends Schema.Class<ComponentInfo>("ComponentInfo")({ComponentType: Schema.String, Sid: Schema.String, Ec2InstanceId: Schema.String}) {}
 export const ComponentInfoList = Schema.Array(ComponentInfo);
-export const BackintConfig = Schema.Struct({BackintMode: Schema.String, EnsureNoBackupInProcess: Schema.Boolean});
-export const DeleteResourcePermissionOutput = Schema.Struct({Policy: Schema.optional(Schema.String)});
-export const InternalServerException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const GetResourcePermissionOutput = Schema.Struct({Policy: Schema.optional(Schema.String)});
-export const ListApplicationsInput = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), Filters: Schema.optional(FilterList)});
-export const ListConfigurationCheckOperationsOutput = Schema.Struct({ConfigurationCheckOperations: Schema.optional(ConfigurationCheckOperationList), NextToken: Schema.optional(Schema.String)});
-export const ListOperationsOutput = Schema.Struct({Operations: Schema.optional(OperationList), NextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceResponse = Schema.Struct({tags: Schema.optional(TagMap)});
-export const PutResourcePermissionOutput = Schema.Struct({Policy: Schema.optional(Schema.String)});
-export const RegisterApplicationInput = Schema.Struct({ApplicationId: Schema.String, ApplicationType: Schema.String, Instances: InstanceList, SapInstanceNumber: Schema.optional(Schema.String), Sid: Schema.optional(Schema.String), Tags: Schema.optional(TagMap), Credentials: Schema.optional(ApplicationCredentialList), DatabaseArn: Schema.optional(Schema.String), ComponentsInfo: Schema.optional(ComponentInfoList)});
-export const StartApplicationOutput = Schema.Struct({OperationId: Schema.optional(Schema.String)});
-export const StartApplicationRefreshOutput = Schema.Struct({OperationId: Schema.optional(Schema.String)});
-export const StartConfigurationChecksOutput = Schema.Struct({ConfigurationCheckOperations: Schema.optional(ConfigurationCheckOperationList)});
-export const StopApplicationOutput = Schema.Struct({OperationId: Schema.optional(Schema.String)});
-export const ConflictException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const UpdateApplicationSettingsInput = Schema.Struct({ApplicationId: Schema.String, CredentialsToAddOrUpdate: Schema.optional(ApplicationCredentialList), CredentialsToRemove: Schema.optional(ApplicationCredentialList), Backint: Schema.optional(BackintConfig), DatabaseArn: Schema.optional(Schema.String)});
+export class BackintConfig extends Schema.Class<BackintConfig>("BackintConfig")({BackintMode: Schema.String, EnsureNoBackupInProcess: Schema.Boolean}) {}
+export class DeleteResourcePermissionOutput extends Schema.Class<DeleteResourcePermissionOutput>("DeleteResourcePermissionOutput")({Policy: Schema.optional(Schema.String)}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({Message: Schema.optional(Schema.String)}) {}
+export class GetResourcePermissionOutput extends Schema.Class<GetResourcePermissionOutput>("GetResourcePermissionOutput")({Policy: Schema.optional(Schema.String)}) {}
+export class ListApplicationsInput extends Schema.Class<ListApplicationsInput>("ListApplicationsInput")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), Filters: Schema.optional(FilterList)}) {}
+export class ListConfigurationCheckOperationsOutput extends Schema.Class<ListConfigurationCheckOperationsOutput>("ListConfigurationCheckOperationsOutput")({ConfigurationCheckOperations: Schema.optional(ConfigurationCheckOperationList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListOperationsOutput extends Schema.Class<ListOperationsOutput>("ListOperationsOutput")({Operations: Schema.optional(OperationList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({tags: Schema.optional(TagMap)}) {}
+export class PutResourcePermissionOutput extends Schema.Class<PutResourcePermissionOutput>("PutResourcePermissionOutput")({Policy: Schema.optional(Schema.String)}) {}
+export class RegisterApplicationInput extends Schema.Class<RegisterApplicationInput>("RegisterApplicationInput")({ApplicationId: Schema.String, ApplicationType: Schema.String, Instances: InstanceList, SapInstanceNumber: Schema.optional(Schema.String), Sid: Schema.optional(Schema.String), Tags: Schema.optional(TagMap), Credentials: Schema.optional(ApplicationCredentialList), DatabaseArn: Schema.optional(Schema.String), ComponentsInfo: Schema.optional(ComponentInfoList)}) {}
+export class StartApplicationOutput extends Schema.Class<StartApplicationOutput>("StartApplicationOutput")({OperationId: Schema.optional(Schema.String)}) {}
+export class StartApplicationRefreshOutput extends Schema.Class<StartApplicationRefreshOutput>("StartApplicationRefreshOutput")({OperationId: Schema.optional(Schema.String)}) {}
+export class StartConfigurationChecksOutput extends Schema.Class<StartConfigurationChecksOutput>("StartConfigurationChecksOutput")({ConfigurationCheckOperations: Schema.optional(ConfigurationCheckOperationList)}) {}
+export class StopApplicationOutput extends Schema.Class<StopApplicationOutput>("StopApplicationOutput")({OperationId: Schema.optional(Schema.String)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({Message: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class UpdateApplicationSettingsInput extends Schema.Class<UpdateApplicationSettingsInput>("UpdateApplicationSettingsInput")({ApplicationId: Schema.String, CredentialsToAddOrUpdate: Schema.optional(ApplicationCredentialList), CredentialsToRemove: Schema.optional(ApplicationCredentialList), Backint: Schema.optional(BackintConfig), DatabaseArn: Schema.optional(Schema.String)}) {}
 export const ComponentIdList = Schema.Array(Schema.String);
 export const ApplicationArnList = Schema.Array(Schema.String);
 export const DatabaseIdList = Schema.Array(Schema.String);
 export const ComponentArnList = Schema.Array(Schema.String);
 export const ApplicationTypeList = Schema.Array(Schema.String);
 export const SubCheckReferencesList = Schema.Array(Schema.String);
-export const Application = Schema.Struct({Id: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String), AppRegistryArn: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), DiscoveryStatus: Schema.optional(Schema.String), Components: Schema.optional(ComponentIdList), LastUpdated: Schema.optional(Schema.Date), StatusMessage: Schema.optional(Schema.String), AssociatedApplicationArns: Schema.optional(ApplicationArnList)});
-export const Database = Schema.Struct({ApplicationId: Schema.optional(Schema.String), ComponentId: Schema.optional(Schema.String), Credentials: Schema.optional(ApplicationCredentialList), DatabaseId: Schema.optional(Schema.String), DatabaseName: Schema.optional(Schema.String), DatabaseType: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), PrimaryHost: Schema.optional(Schema.String), SQLPort: Schema.optional(Schema.Number), LastUpdated: Schema.optional(Schema.Date), ConnectedComponentArns: Schema.optional(ComponentArnList)});
-export const ComponentSummary = Schema.Struct({ApplicationId: Schema.optional(Schema.String), ComponentId: Schema.optional(Schema.String), ComponentType: Schema.optional(Schema.String), Tags: Schema.optional(TagMap), Arn: Schema.optional(Schema.String)});
+export class Application extends Schema.Class<Application>("Application")({Id: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String), AppRegistryArn: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), DiscoveryStatus: Schema.optional(Schema.String), Components: Schema.optional(ComponentIdList), LastUpdated: Schema.optional(Schema.Date), StatusMessage: Schema.optional(Schema.String), AssociatedApplicationArns: Schema.optional(ApplicationArnList)}) {}
+export class Database extends Schema.Class<Database>("Database")({ApplicationId: Schema.optional(Schema.String), ComponentId: Schema.optional(Schema.String), Credentials: Schema.optional(ApplicationCredentialList), DatabaseId: Schema.optional(Schema.String), DatabaseName: Schema.optional(Schema.String), DatabaseType: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), PrimaryHost: Schema.optional(Schema.String), SQLPort: Schema.optional(Schema.Number), LastUpdated: Schema.optional(Schema.Date), ConnectedComponentArns: Schema.optional(ComponentArnList)}) {}
+export class ComponentSummary extends Schema.Class<ComponentSummary>("ComponentSummary")({ApplicationId: Schema.optional(Schema.String), ComponentId: Schema.optional(Schema.String), ComponentType: Schema.optional(Schema.String), Tags: Schema.optional(TagMap), Arn: Schema.optional(Schema.String)}) {}
 export const ComponentSummaryList = Schema.Array(ComponentSummary);
-export const ConfigurationCheckDefinition = Schema.Struct({Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), ApplicableApplicationTypes: Schema.optional(ApplicationTypeList)});
+export class ConfigurationCheckDefinition extends Schema.Class<ConfigurationCheckDefinition>("ConfigurationCheckDefinition")({Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), ApplicableApplicationTypes: Schema.optional(ApplicationTypeList)}) {}
 export const ConfigurationCheckDefinitionList = Schema.Array(ConfigurationCheckDefinition);
-export const DatabaseSummary = Schema.Struct({ApplicationId: Schema.optional(Schema.String), ComponentId: Schema.optional(Schema.String), DatabaseId: Schema.optional(Schema.String), DatabaseType: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String), Tags: Schema.optional(TagMap)});
+export class DatabaseSummary extends Schema.Class<DatabaseSummary>("DatabaseSummary")({ApplicationId: Schema.optional(Schema.String), ComponentId: Schema.optional(Schema.String), DatabaseId: Schema.optional(Schema.String), DatabaseType: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String), Tags: Schema.optional(TagMap)}) {}
 export const DatabaseSummaryList = Schema.Array(DatabaseSummary);
-export const SubCheckResult = Schema.Struct({Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), References: Schema.optional(SubCheckReferencesList)});
+export class SubCheckResult extends Schema.Class<SubCheckResult>("SubCheckResult")({Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), References: Schema.optional(SubCheckReferencesList)}) {}
 export const SubCheckResultList = Schema.Array(SubCheckResult);
 export const OperationIdList = Schema.Array(Schema.String);
-export const ValidationException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const UnauthorizedException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const GetApplicationOutput = Schema.Struct({Application: Schema.optional(Application), Tags: Schema.optional(TagMap)});
-export const GetDatabaseOutput = Schema.Struct({Database: Schema.optional(Database), Tags: Schema.optional(TagMap)});
-export const ListComponentsOutput = Schema.Struct({Components: Schema.optional(ComponentSummaryList), NextToken: Schema.optional(Schema.String)});
-export const ListConfigurationCheckDefinitionsOutput = Schema.Struct({ConfigurationChecks: Schema.optional(ConfigurationCheckDefinitionList), NextToken: Schema.optional(Schema.String)});
-export const ListDatabasesOutput = Schema.Struct({Databases: Schema.optional(DatabaseSummaryList), NextToken: Schema.optional(Schema.String)});
-export const ListSubCheckResultsOutput = Schema.Struct({SubCheckResults: Schema.optional(SubCheckResultList), NextToken: Schema.optional(Schema.String)});
-export const RegisterApplicationOutput = Schema.Struct({Application: Schema.optional(Application), OperationId: Schema.optional(Schema.String)});
-export const UpdateApplicationSettingsOutput = Schema.Struct({Message: Schema.optional(Schema.String), OperationIds: Schema.optional(OperationIdList)});
-export const Resilience = Schema.Struct({HsrTier: Schema.optional(Schema.String), HsrReplicationMode: Schema.optional(Schema.String), HsrOperationMode: Schema.optional(Schema.String), ClusterStatus: Schema.optional(Schema.String), EnqueueReplication: Schema.optional(Schema.Boolean)});
-export const Host = Schema.Struct({HostName: Schema.optional(Schema.String), HostIp: Schema.optional(Schema.String), EC2InstanceId: Schema.optional(Schema.String), InstanceId: Schema.optional(Schema.String), HostRole: Schema.optional(Schema.String), OsVersion: Schema.optional(Schema.String)});
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({Message: Schema.optional(Schema.String)}) {}
+export class UnauthorizedException extends Schema.Class<UnauthorizedException>("UnauthorizedException")({Message: Schema.optional(Schema.String)}) {}
+export class GetApplicationOutput extends Schema.Class<GetApplicationOutput>("GetApplicationOutput")({Application: Schema.optional(Application), Tags: Schema.optional(TagMap)}) {}
+export class GetDatabaseOutput extends Schema.Class<GetDatabaseOutput>("GetDatabaseOutput")({Database: Schema.optional(Database), Tags: Schema.optional(TagMap)}) {}
+export class ListComponentsOutput extends Schema.Class<ListComponentsOutput>("ListComponentsOutput")({Components: Schema.optional(ComponentSummaryList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListConfigurationCheckDefinitionsOutput extends Schema.Class<ListConfigurationCheckDefinitionsOutput>("ListConfigurationCheckDefinitionsOutput")({ConfigurationChecks: Schema.optional(ConfigurationCheckDefinitionList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListDatabasesOutput extends Schema.Class<ListDatabasesOutput>("ListDatabasesOutput")({Databases: Schema.optional(DatabaseSummaryList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListSubCheckResultsOutput extends Schema.Class<ListSubCheckResultsOutput>("ListSubCheckResultsOutput")({SubCheckResults: Schema.optional(SubCheckResultList), NextToken: Schema.optional(Schema.String)}) {}
+export class RegisterApplicationOutput extends Schema.Class<RegisterApplicationOutput>("RegisterApplicationOutput")({Application: Schema.optional(Application), OperationId: Schema.optional(Schema.String)}) {}
+export class UpdateApplicationSettingsOutput extends Schema.Class<UpdateApplicationSettingsOutput>("UpdateApplicationSettingsOutput")({Message: Schema.optional(Schema.String), OperationIds: Schema.optional(OperationIdList)}) {}
+export class Resilience extends Schema.Class<Resilience>("Resilience")({HsrTier: Schema.optional(Schema.String), HsrReplicationMode: Schema.optional(Schema.String), HsrOperationMode: Schema.optional(Schema.String), ClusterStatus: Schema.optional(Schema.String), EnqueueReplication: Schema.optional(Schema.Boolean)}) {}
+export class Host extends Schema.Class<Host>("Host")({HostName: Schema.optional(Schema.String), HostIp: Schema.optional(Schema.String), EC2InstanceId: Schema.optional(Schema.String), InstanceId: Schema.optional(Schema.String), HostRole: Schema.optional(Schema.String), OsVersion: Schema.optional(Schema.String)}) {}
 export const HostList = Schema.Array(Host);
-export const DatabaseConnection = Schema.Struct({DatabaseConnectionMethod: Schema.optional(Schema.String), DatabaseArn: Schema.optional(Schema.String), ConnectionIp: Schema.optional(Schema.String)});
-export const Resource = Schema.Struct({ResourceArn: Schema.optional(Schema.String), ResourceType: Schema.optional(Schema.String)});
+export class DatabaseConnection extends Schema.Class<DatabaseConnection>("DatabaseConnection")({DatabaseConnectionMethod: Schema.optional(Schema.String), DatabaseArn: Schema.optional(Schema.String), ConnectionIp: Schema.optional(Schema.String)}) {}
+export class Resource extends Schema.Class<Resource>("Resource")({ResourceArn: Schema.optional(Schema.String), ResourceType: Schema.optional(Schema.String)}) {}
 export const RuleResultMetadata = Schema.Record({key: Schema.String, value: Schema.String});
-export const ApplicationSummary = Schema.Struct({Id: Schema.optional(Schema.String), DiscoveryStatus: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String), Tags: Schema.optional(TagMap)});
+export class ApplicationSummary extends Schema.Class<ApplicationSummary>("ApplicationSummary")({Id: Schema.optional(Schema.String), DiscoveryStatus: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String), Tags: Schema.optional(TagMap)}) {}
 export const ApplicationSummaryList = Schema.Array(ApplicationSummary);
-export const OperationEvent = Schema.Struct({Description: Schema.optional(Schema.String), Resource: Schema.optional(Resource), Status: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), Timestamp: Schema.optional(Schema.Date)});
+export class OperationEvent extends Schema.Class<OperationEvent>("OperationEvent")({Description: Schema.optional(Schema.String), Resource: Schema.optional(Resource), Status: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), Timestamp: Schema.optional(Schema.Date)}) {}
 export const OperationEventList = Schema.Array(OperationEvent);
-export const RuleResult = Schema.Struct({Id: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), Message: Schema.optional(Schema.String), Metadata: Schema.optional(RuleResultMetadata)});
+export class RuleResult extends Schema.Class<RuleResult>("RuleResult")({Id: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), Message: Schema.optional(Schema.String), Metadata: Schema.optional(RuleResultMetadata)}) {}
 export const RuleResultList = Schema.Array(RuleResult);
-export const IpAddressMember = Schema.Struct({IpAddress: Schema.optional(Schema.String), Primary: Schema.optional(Schema.Boolean), AllocationType: Schema.optional(Schema.String)});
+export class IpAddressMember extends Schema.Class<IpAddressMember>("IpAddressMember")({IpAddress: Schema.optional(Schema.String), Primary: Schema.optional(Schema.Boolean), AllocationType: Schema.optional(Schema.String)}) {}
 export const IpAddressList = Schema.Array(IpAddressMember);
-export const GetConfigurationCheckOperationOutput = Schema.Struct({ConfigurationCheckOperation: Schema.optional(ConfigurationCheckOperation)});
-export const GetOperationOutput = Schema.Struct({Operation: Schema.optional(Operation)});
-export const ListApplicationsOutput = Schema.Struct({Applications: Schema.optional(ApplicationSummaryList), NextToken: Schema.optional(Schema.String)});
-export const ListOperationEventsOutput = Schema.Struct({OperationEvents: Schema.optional(OperationEventList), NextToken: Schema.optional(Schema.String)});
-export const ListSubCheckRuleResultsOutput = Schema.Struct({RuleResults: Schema.optional(RuleResultList), NextToken: Schema.optional(Schema.String)});
-export const AssociatedHost = Schema.Struct({Hostname: Schema.optional(Schema.String), Ec2InstanceId: Schema.optional(Schema.String), IpAddresses: Schema.optional(IpAddressList), OsVersion: Schema.optional(Schema.String)});
-export const Component = Schema.Struct({ComponentId: Schema.optional(Schema.String), Sid: Schema.optional(Schema.String), SystemNumber: Schema.optional(Schema.String), ParentComponent: Schema.optional(Schema.String), ChildComponents: Schema.optional(ComponentIdList), ApplicationId: Schema.optional(Schema.String), ComponentType: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), SapHostname: Schema.optional(Schema.String), SapFeature: Schema.optional(Schema.String), SapKernelVersion: Schema.optional(Schema.String), HdbVersion: Schema.optional(Schema.String), Resilience: Schema.optional(Resilience), AssociatedHost: Schema.optional(AssociatedHost), Databases: Schema.optional(DatabaseIdList), Hosts: Schema.optional(HostList), PrimaryHost: Schema.optional(Schema.String), DatabaseConnection: Schema.optional(DatabaseConnection), LastUpdated: Schema.optional(Schema.Date), Arn: Schema.optional(Schema.String)});
-export const GetComponentOutput = Schema.Struct({Component: Schema.optional(Component), Tags: Schema.optional(TagMap)});
+export class GetConfigurationCheckOperationOutput extends Schema.Class<GetConfigurationCheckOperationOutput>("GetConfigurationCheckOperationOutput")({ConfigurationCheckOperation: Schema.optional(ConfigurationCheckOperation)}) {}
+export class GetOperationOutput extends Schema.Class<GetOperationOutput>("GetOperationOutput")({Operation: Schema.optional(Operation)}) {}
+export class ListApplicationsOutput extends Schema.Class<ListApplicationsOutput>("ListApplicationsOutput")({Applications: Schema.optional(ApplicationSummaryList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListOperationEventsOutput extends Schema.Class<ListOperationEventsOutput>("ListOperationEventsOutput")({OperationEvents: Schema.optional(OperationEventList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListSubCheckRuleResultsOutput extends Schema.Class<ListSubCheckRuleResultsOutput>("ListSubCheckRuleResultsOutput")({RuleResults: Schema.optional(RuleResultList), NextToken: Schema.optional(Schema.String)}) {}
+export class AssociatedHost extends Schema.Class<AssociatedHost>("AssociatedHost")({Hostname: Schema.optional(Schema.String), Ec2InstanceId: Schema.optional(Schema.String), IpAddresses: Schema.optional(IpAddressList), OsVersion: Schema.optional(Schema.String)}) {}
+export class Component extends Schema.Class<Component>("Component")({ComponentId: Schema.optional(Schema.String), Sid: Schema.optional(Schema.String), SystemNumber: Schema.optional(Schema.String), ParentComponent: Schema.optional(Schema.String), ChildComponents: Schema.optional(ComponentIdList), ApplicationId: Schema.optional(Schema.String), ComponentType: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), SapHostname: Schema.optional(Schema.String), SapFeature: Schema.optional(Schema.String), SapKernelVersion: Schema.optional(Schema.String), HdbVersion: Schema.optional(Schema.String), Resilience: Schema.optional(Resilience), AssociatedHost: Schema.optional(AssociatedHost), Databases: Schema.optional(DatabaseIdList), Hosts: Schema.optional(HostList), PrimaryHost: Schema.optional(Schema.String), DatabaseConnection: Schema.optional(DatabaseConnection), LastUpdated: Schema.optional(Schema.Date), Arn: Schema.optional(Schema.String)}) {}
+export class GetComponentOutput extends Schema.Class<GetComponentOutput>("GetComponentOutput")({Component: Schema.optional(Component), Tags: Schema.optional(TagMap)}) {}
 
 //# Errors
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class UnauthorizedExceptionError extends Schema.TaggedError<UnauthorizedExceptionError>()("UnauthorizedException", UnauthorizedException) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class UnauthorizedExceptionError extends Schema.TaggedError<UnauthorizedExceptionError>()("UnauthorizedException", UnauthorizedException.fields) {};
 
 //# Operations
 export const getResourcePermission = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-05-10", uri: "/get-resource-permission", method: "POST", sdkId: "Ssm Sap", sigV4ServiceName: "ssm-sap", name: "SsmSap.GetResourcePermission" }, GetResourcePermissionInput, GetResourcePermissionOutput, [InternalServerExceptionError, ResourceNotFoundExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

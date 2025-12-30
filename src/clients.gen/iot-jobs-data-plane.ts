@@ -3,47 +3,47 @@ import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperat
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const DescribeJobExecutionRequest = Schema.Struct({jobId: Schema.String, thingName: Schema.String, includeJobDocument: Schema.optional(Schema.Boolean), executionNumber: Schema.optional(Schema.Number)});
-export const GetPendingJobExecutionsRequest = Schema.Struct({thingName: Schema.String});
+export class DescribeJobExecutionRequest extends Schema.Class<DescribeJobExecutionRequest>("DescribeJobExecutionRequest")({jobId: Schema.String, thingName: Schema.String, includeJobDocument: Schema.optional(Schema.Boolean), executionNumber: Schema.optional(Schema.Number)}) {}
+export class GetPendingJobExecutionsRequest extends Schema.Class<GetPendingJobExecutionsRequest>("GetPendingJobExecutionsRequest")({thingName: Schema.String}) {}
 export const DetailsMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const UpdateJobExecutionRequest = Schema.Struct({jobId: Schema.String, thingName: Schema.String, status: Schema.String, statusDetails: Schema.optional(DetailsMap), stepTimeoutInMinutes: Schema.optional(Schema.Number), expectedVersion: Schema.optional(Schema.Number), includeJobExecutionState: Schema.optional(Schema.Boolean), includeJobDocument: Schema.optional(Schema.Boolean), executionNumber: Schema.optional(Schema.Number)});
-export const StartNextPendingJobExecutionRequest = Schema.Struct({thingName: Schema.String, statusDetails: Schema.optional(DetailsMap), stepTimeoutInMinutes: Schema.optional(Schema.Number)});
-export const CommandParameterValue = Schema.Struct({S: Schema.optional(Schema.String), B: Schema.optional(Schema.Boolean), I: Schema.optional(Schema.Number), L: Schema.optional(Schema.Number), D: Schema.optional(Schema.Number), BIN: Schema.optional(StreamBody()), UL: Schema.optional(Schema.String)});
-export const JobExecution = Schema.Struct({jobId: Schema.optional(Schema.String), thingName: Schema.optional(Schema.String), status: Schema.optional(Schema.String), statusDetails: Schema.optional(DetailsMap), queuedAt: Schema.optional(Schema.Number), startedAt: Schema.optional(Schema.Number), lastUpdatedAt: Schema.optional(Schema.Number), approximateSecondsBeforeTimedOut: Schema.optional(Schema.Number), versionNumber: Schema.optional(Schema.Number), executionNumber: Schema.optional(Schema.Number), jobDocument: Schema.optional(Schema.String)});
-export const JobExecutionSummary = Schema.Struct({jobId: Schema.optional(Schema.String), queuedAt: Schema.optional(Schema.Number), startedAt: Schema.optional(Schema.Number), lastUpdatedAt: Schema.optional(Schema.Number), versionNumber: Schema.optional(Schema.Number), executionNumber: Schema.optional(Schema.Number)});
+export class UpdateJobExecutionRequest extends Schema.Class<UpdateJobExecutionRequest>("UpdateJobExecutionRequest")({jobId: Schema.String, thingName: Schema.String, status: Schema.String, statusDetails: Schema.optional(DetailsMap), stepTimeoutInMinutes: Schema.optional(Schema.Number), expectedVersion: Schema.optional(Schema.Number), includeJobExecutionState: Schema.optional(Schema.Boolean), includeJobDocument: Schema.optional(Schema.Boolean), executionNumber: Schema.optional(Schema.Number)}) {}
+export class StartNextPendingJobExecutionRequest extends Schema.Class<StartNextPendingJobExecutionRequest>("StartNextPendingJobExecutionRequest")({thingName: Schema.String, statusDetails: Schema.optional(DetailsMap), stepTimeoutInMinutes: Schema.optional(Schema.Number)}) {}
+export class CommandParameterValue extends Schema.Class<CommandParameterValue>("CommandParameterValue")({S: Schema.optional(Schema.String), B: Schema.optional(Schema.Boolean), I: Schema.optional(Schema.Number), L: Schema.optional(Schema.Number), D: Schema.optional(Schema.Number), BIN: Schema.optional(StreamBody()), UL: Schema.optional(Schema.String)}) {}
+export class JobExecution extends Schema.Class<JobExecution>("JobExecution")({jobId: Schema.optional(Schema.String), thingName: Schema.optional(Schema.String), status: Schema.optional(Schema.String), statusDetails: Schema.optional(DetailsMap), queuedAt: Schema.optional(Schema.Number), startedAt: Schema.optional(Schema.Number), lastUpdatedAt: Schema.optional(Schema.Number), approximateSecondsBeforeTimedOut: Schema.optional(Schema.Number), versionNumber: Schema.optional(Schema.Number), executionNumber: Schema.optional(Schema.Number), jobDocument: Schema.optional(Schema.String)}) {}
+export class JobExecutionSummary extends Schema.Class<JobExecutionSummary>("JobExecutionSummary")({jobId: Schema.optional(Schema.String), queuedAt: Schema.optional(Schema.Number), startedAt: Schema.optional(Schema.Number), lastUpdatedAt: Schema.optional(Schema.Number), versionNumber: Schema.optional(Schema.Number), executionNumber: Schema.optional(Schema.Number)}) {}
 export const JobExecutionSummaryList = Schema.Array(JobExecutionSummary);
 export const CommandExecutionParameterMap = Schema.Record({key: Schema.String, value: CommandParameterValue});
-export const JobExecutionState = Schema.Struct({status: Schema.optional(Schema.String), statusDetails: Schema.optional(DetailsMap), versionNumber: Schema.optional(Schema.Number)});
-export const DescribeJobExecutionResponse = Schema.Struct({execution: Schema.optional(JobExecution)});
-export const GetPendingJobExecutionsResponse = Schema.Struct({inProgressJobs: Schema.optional(JobExecutionSummaryList), queuedJobs: Schema.optional(JobExecutionSummaryList)});
-export const StartCommandExecutionRequest = Schema.Struct({targetArn: Schema.String, commandArn: Schema.String, parameters: Schema.optional(CommandExecutionParameterMap), executionTimeoutSeconds: Schema.optional(Schema.Number), clientToken: Schema.optional(Schema.String)});
-export const StartNextPendingJobExecutionResponse = Schema.Struct({execution: Schema.optional(JobExecution)});
-export const UpdateJobExecutionResponse = Schema.Struct({executionState: Schema.optional(JobExecutionState), jobDocument: Schema.optional(Schema.String)});
-export const CertificateValidationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidRequestException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const StartCommandExecutionResponse = Schema.Struct({executionId: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidStateTransitionException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ServiceUnavailableException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ThrottlingException = Schema.Struct({message: Schema.optional(Schema.String), payload: Schema.optional(StreamBody())});
-export const ConflictException = Schema.Struct({message: Schema.optional(Schema.String), resourceId: Schema.optional(Schema.String)});
-export const TerminalStateException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InternalServerException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ServiceQuotaExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ValidationException = Schema.Struct({message: Schema.optional(Schema.String)});
+export class JobExecutionState extends Schema.Class<JobExecutionState>("JobExecutionState")({status: Schema.optional(Schema.String), statusDetails: Schema.optional(DetailsMap), versionNumber: Schema.optional(Schema.Number)}) {}
+export class DescribeJobExecutionResponse extends Schema.Class<DescribeJobExecutionResponse>("DescribeJobExecutionResponse")({execution: Schema.optional(JobExecution)}) {}
+export class GetPendingJobExecutionsResponse extends Schema.Class<GetPendingJobExecutionsResponse>("GetPendingJobExecutionsResponse")({inProgressJobs: Schema.optional(JobExecutionSummaryList), queuedJobs: Schema.optional(JobExecutionSummaryList)}) {}
+export class StartCommandExecutionRequest extends Schema.Class<StartCommandExecutionRequest>("StartCommandExecutionRequest")({targetArn: Schema.String, commandArn: Schema.String, parameters: Schema.optional(CommandExecutionParameterMap), executionTimeoutSeconds: Schema.optional(Schema.Number), clientToken: Schema.optional(Schema.String)}) {}
+export class StartNextPendingJobExecutionResponse extends Schema.Class<StartNextPendingJobExecutionResponse>("StartNextPendingJobExecutionResponse")({execution: Schema.optional(JobExecution)}) {}
+export class UpdateJobExecutionResponse extends Schema.Class<UpdateJobExecutionResponse>("UpdateJobExecutionResponse")({executionState: Schema.optional(JobExecutionState), jobDocument: Schema.optional(Schema.String)}) {}
+export class CertificateValidationException extends Schema.Class<CertificateValidationException>("CertificateValidationException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidRequestException extends Schema.Class<InvalidRequestException>("InvalidRequestException")({message: Schema.optional(Schema.String)}) {}
+export class StartCommandExecutionResponse extends Schema.Class<StartCommandExecutionResponse>("StartCommandExecutionResponse")({executionId: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidStateTransitionException extends Schema.Class<InvalidStateTransitionException>("InvalidStateTransitionException")({message: Schema.optional(Schema.String)}) {}
+export class ServiceUnavailableException extends Schema.Class<ServiceUnavailableException>("ServiceUnavailableException")({message: Schema.optional(Schema.String)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({message: Schema.optional(Schema.String), payload: Schema.optional(StreamBody())}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({message: Schema.optional(Schema.String), resourceId: Schema.optional(Schema.String)}) {}
+export class TerminalStateException extends Schema.Class<TerminalStateException>("TerminalStateException")({message: Schema.optional(Schema.String)}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({message: Schema.optional(Schema.String)}) {}
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({message: Schema.optional(Schema.String)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({message: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class CertificateValidationExceptionError extends Schema.TaggedError<CertificateValidationExceptionError>()("CertificateValidationException", CertificateValidationException) {};
-export class InvalidRequestExceptionError extends Schema.TaggedError<InvalidRequestExceptionError>()("InvalidRequestException", InvalidRequestException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ServiceUnavailableExceptionError extends Schema.TaggedError<ServiceUnavailableExceptionError>()("ServiceUnavailableException", ServiceUnavailableException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class InvalidStateTransitionExceptionError extends Schema.TaggedError<InvalidStateTransitionExceptionError>()("InvalidStateTransitionException", InvalidStateTransitionException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class TerminalStateExceptionError extends Schema.TaggedError<TerminalStateExceptionError>()("TerminalStateException", TerminalStateException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
+export class CertificateValidationExceptionError extends Schema.TaggedError<CertificateValidationExceptionError>()("CertificateValidationException", CertificateValidationException.fields) {};
+export class InvalidRequestExceptionError extends Schema.TaggedError<InvalidRequestExceptionError>()("InvalidRequestException", InvalidRequestException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ServiceUnavailableExceptionError extends Schema.TaggedError<ServiceUnavailableExceptionError>()("ServiceUnavailableException", ServiceUnavailableException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class InvalidStateTransitionExceptionError extends Schema.TaggedError<InvalidStateTransitionExceptionError>()("InvalidStateTransitionException", InvalidStateTransitionException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class TerminalStateExceptionError extends Schema.TaggedError<TerminalStateExceptionError>()("TerminalStateException", TerminalStateException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
 
 //# Operations
 export const startNextPendingJobExecution = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-09-29", uri: "/things/{thingName}/jobs/$next", method: "PUT", sdkId: "IoT Jobs Data Plane", sigV4ServiceName: "iot-jobs-data", name: "IotLaserThingJobManagerExternalService.StartNextPendingJobExecution" }, StartNextPendingJobExecutionRequest, StartNextPendingJobExecutionResponse, [CertificateValidationExceptionError, InvalidRequestExceptionError, ResourceNotFoundExceptionError, ServiceUnavailableExceptionError, ThrottlingExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

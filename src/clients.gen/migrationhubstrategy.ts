@@ -3,157 +3,157 @@ import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperat
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const GetLatestAssessmentIdRequest = Schema.Struct({});
-export const GetPortfolioPreferencesRequest = Schema.Struct({});
-export const GetPortfolioSummaryRequest = Schema.Struct({});
-export const GetApplicationComponentDetailsRequest = Schema.Struct({applicationComponentId: Schema.String});
-export const GetApplicationComponentStrategiesRequest = Schema.Struct({applicationComponentId: Schema.String});
-export const GetAssessmentRequest = Schema.Struct({id: Schema.String});
-export const GetImportFileTaskRequest = Schema.Struct({id: Schema.String});
-export const GetLatestAssessmentIdResponse = Schema.Struct({id: Schema.optional(Schema.String)});
-export const GetRecommendationReportDetailsRequest = Schema.Struct({id: Schema.String});
-export const GetServerDetailsRequest = Schema.Struct({serverId: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const GetServerStrategiesRequest = Schema.Struct({serverId: Schema.String});
-export const ListAnalyzableServersRequest = Schema.Struct({sort: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListCollectorsRequest = Schema.Struct({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListImportFileTaskRequest = Schema.Struct({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const Group = Schema.Struct({name: Schema.optional(Schema.String), value: Schema.optional(Schema.String)});
+export class GetLatestAssessmentIdRequest extends Schema.Class<GetLatestAssessmentIdRequest>("GetLatestAssessmentIdRequest")({}) {}
+export class GetPortfolioPreferencesRequest extends Schema.Class<GetPortfolioPreferencesRequest>("GetPortfolioPreferencesRequest")({}) {}
+export class GetPortfolioSummaryRequest extends Schema.Class<GetPortfolioSummaryRequest>("GetPortfolioSummaryRequest")({}) {}
+export class GetApplicationComponentDetailsRequest extends Schema.Class<GetApplicationComponentDetailsRequest>("GetApplicationComponentDetailsRequest")({applicationComponentId: Schema.String}) {}
+export class GetApplicationComponentStrategiesRequest extends Schema.Class<GetApplicationComponentStrategiesRequest>("GetApplicationComponentStrategiesRequest")({applicationComponentId: Schema.String}) {}
+export class GetAssessmentRequest extends Schema.Class<GetAssessmentRequest>("GetAssessmentRequest")({id: Schema.String}) {}
+export class GetImportFileTaskRequest extends Schema.Class<GetImportFileTaskRequest>("GetImportFileTaskRequest")({id: Schema.String}) {}
+export class GetLatestAssessmentIdResponse extends Schema.Class<GetLatestAssessmentIdResponse>("GetLatestAssessmentIdResponse")({id: Schema.optional(Schema.String)}) {}
+export class GetRecommendationReportDetailsRequest extends Schema.Class<GetRecommendationReportDetailsRequest>("GetRecommendationReportDetailsRequest")({id: Schema.String}) {}
+export class GetServerDetailsRequest extends Schema.Class<GetServerDetailsRequest>("GetServerDetailsRequest")({serverId: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class GetServerStrategiesRequest extends Schema.Class<GetServerStrategiesRequest>("GetServerStrategiesRequest")({serverId: Schema.String}) {}
+export class ListAnalyzableServersRequest extends Schema.Class<ListAnalyzableServersRequest>("ListAnalyzableServersRequest")({sort: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListCollectorsRequest extends Schema.Class<ListCollectorsRequest>("ListCollectorsRequest")({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListImportFileTaskRequest extends Schema.Class<ListImportFileTaskRequest>("ListImportFileTaskRequest")({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class Group extends Schema.Class<Group>("Group")({name: Schema.optional(Schema.String), value: Schema.optional(Schema.String)}) {}
 export const GroupIds = Schema.Array(Group);
-export const ListServersRequest = Schema.Struct({serverCriteria: Schema.optional(Schema.String), filterValue: Schema.optional(Schema.String), sort: Schema.optional(Schema.String), groupIdFilter: Schema.optional(GroupIds), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const BusinessGoals = Schema.Struct({speedOfMigration: Schema.optional(Schema.Number), reduceOperationalOverheadWithManagedServices: Schema.optional(Schema.Number), modernizeInfrastructureWithCloudNativeTechnologies: Schema.optional(Schema.Number), licenseCostReduction: Schema.optional(Schema.Number)});
-export const PrioritizeBusinessGoals = Schema.Struct({businessGoals: Schema.optional(BusinessGoals)});
+export class ListServersRequest extends Schema.Class<ListServersRequest>("ListServersRequest")({serverCriteria: Schema.optional(Schema.String), filterValue: Schema.optional(Schema.String), sort: Schema.optional(Schema.String), groupIdFilter: Schema.optional(GroupIds), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class BusinessGoals extends Schema.Class<BusinessGoals>("BusinessGoals")({speedOfMigration: Schema.optional(Schema.Number), reduceOperationalOverheadWithManagedServices: Schema.optional(Schema.Number), modernizeInfrastructureWithCloudNativeTechnologies: Schema.optional(Schema.Number), licenseCostReduction: Schema.optional(Schema.Number)}) {}
+export class PrioritizeBusinessGoals extends Schema.Class<PrioritizeBusinessGoals>("PrioritizeBusinessGoals")({businessGoals: Schema.optional(BusinessGoals)}) {}
 export const AwsManagedTargetDestinations = Schema.Array(Schema.String);
-export const AwsManagedResources = Schema.Struct({targetDestination: AwsManagedTargetDestinations});
+export class AwsManagedResources extends Schema.Class<AwsManagedResources>("AwsManagedResources")({targetDestination: AwsManagedTargetDestinations}) {}
 export const SelfManageTargetDestinations = Schema.Array(Schema.String);
-export const SelfManageResources = Schema.Struct({targetDestination: SelfManageTargetDestinations});
+export class SelfManageResources extends Schema.Class<SelfManageResources>("SelfManageResources")({targetDestination: SelfManageTargetDestinations}) {}
 export const NoPreferenceTargetDestinations = Schema.Array(Schema.String);
-export const NoManagementPreference = Schema.Struct({targetDestination: NoPreferenceTargetDestinations});
+export class NoManagementPreference extends Schema.Class<NoManagementPreference>("NoManagementPreference")({targetDestination: NoPreferenceTargetDestinations}) {}
 export const ManagementPreference = Schema.Union(AwsManagedResources, SelfManageResources, NoManagementPreference);
-export const ApplicationPreferences = Schema.Struct({managementPreference: Schema.optional(ManagementPreference)});
+export class ApplicationPreferences extends Schema.Class<ApplicationPreferences>("ApplicationPreferences")({managementPreference: Schema.optional(ManagementPreference)}) {}
 export const HeterogeneousTargetDatabaseEngines = Schema.Array(Schema.String);
-export const Heterogeneous = Schema.Struct({targetDatabaseEngine: HeterogeneousTargetDatabaseEngines});
+export class Heterogeneous extends Schema.Class<Heterogeneous>("Heterogeneous")({targetDatabaseEngine: HeterogeneousTargetDatabaseEngines}) {}
 export const HomogeneousTargetDatabaseEngines = Schema.Array(Schema.String);
-export const Homogeneous = Schema.Struct({targetDatabaseEngine: Schema.optional(HomogeneousTargetDatabaseEngines)});
+export class Homogeneous extends Schema.Class<Homogeneous>("Homogeneous")({targetDatabaseEngine: Schema.optional(HomogeneousTargetDatabaseEngines)}) {}
 export const TargetDatabaseEngines = Schema.Array(Schema.String);
-export const NoDatabaseMigrationPreference = Schema.Struct({targetDatabaseEngine: TargetDatabaseEngines});
+export class NoDatabaseMigrationPreference extends Schema.Class<NoDatabaseMigrationPreference>("NoDatabaseMigrationPreference")({targetDatabaseEngine: TargetDatabaseEngines}) {}
 export const DatabaseMigrationPreference = Schema.Union(Heterogeneous, Homogeneous, NoDatabaseMigrationPreference);
-export const DatabasePreferences = Schema.Struct({databaseManagementPreference: Schema.optional(Schema.String), databaseMigrationPreference: Schema.optional(DatabaseMigrationPreference)});
-export const PutPortfolioPreferencesRequest = Schema.Struct({prioritizeBusinessGoals: Schema.optional(PrioritizeBusinessGoals), applicationPreferences: Schema.optional(ApplicationPreferences), databasePreferences: Schema.optional(DatabasePreferences), applicationMode: Schema.optional(Schema.String)});
-export const PutPortfolioPreferencesResponse = Schema.Struct({});
-export const StartImportFileTaskRequest = Schema.Struct({name: Schema.String, S3Bucket: Schema.String, s3key: Schema.String, dataSourceType: Schema.optional(Schema.String), groupId: Schema.optional(GroupIds), s3bucketForReportData: Schema.optional(Schema.String)});
-export const StartRecommendationReportGenerationRequest = Schema.Struct({outputFormat: Schema.optional(Schema.String), groupIdFilter: Schema.optional(GroupIds)});
-export const StopAssessmentRequest = Schema.Struct({assessmentId: Schema.String});
-export const StopAssessmentResponse = Schema.Struct({});
-export const StrategyOption = Schema.Struct({strategy: Schema.optional(Schema.String), toolName: Schema.optional(Schema.String), targetDestination: Schema.optional(Schema.String), isPreferred: Schema.optional(Schema.Boolean)});
-export const UpdateServerConfigRequest = Schema.Struct({serverId: Schema.String, strategyOption: Schema.optional(StrategyOption)});
-export const UpdateServerConfigResponse = Schema.Struct({});
+export class DatabasePreferences extends Schema.Class<DatabasePreferences>("DatabasePreferences")({databaseManagementPreference: Schema.optional(Schema.String), databaseMigrationPreference: Schema.optional(DatabaseMigrationPreference)}) {}
+export class PutPortfolioPreferencesRequest extends Schema.Class<PutPortfolioPreferencesRequest>("PutPortfolioPreferencesRequest")({prioritizeBusinessGoals: Schema.optional(PrioritizeBusinessGoals), applicationPreferences: Schema.optional(ApplicationPreferences), databasePreferences: Schema.optional(DatabasePreferences), applicationMode: Schema.optional(Schema.String)}) {}
+export class PutPortfolioPreferencesResponse extends Schema.Class<PutPortfolioPreferencesResponse>("PutPortfolioPreferencesResponse")({}) {}
+export class StartImportFileTaskRequest extends Schema.Class<StartImportFileTaskRequest>("StartImportFileTaskRequest")({name: Schema.String, S3Bucket: Schema.String, s3key: Schema.String, dataSourceType: Schema.optional(Schema.String), groupId: Schema.optional(GroupIds), s3bucketForReportData: Schema.optional(Schema.String)}) {}
+export class StartRecommendationReportGenerationRequest extends Schema.Class<StartRecommendationReportGenerationRequest>("StartRecommendationReportGenerationRequest")({outputFormat: Schema.optional(Schema.String), groupIdFilter: Schema.optional(GroupIds)}) {}
+export class StopAssessmentRequest extends Schema.Class<StopAssessmentRequest>("StopAssessmentRequest")({assessmentId: Schema.String}) {}
+export class StopAssessmentResponse extends Schema.Class<StopAssessmentResponse>("StopAssessmentResponse")({}) {}
+export class StrategyOption extends Schema.Class<StrategyOption>("StrategyOption")({strategy: Schema.optional(Schema.String), toolName: Schema.optional(Schema.String), targetDestination: Schema.optional(Schema.String), isPreferred: Schema.optional(Schema.Boolean)}) {}
+export class UpdateServerConfigRequest extends Schema.Class<UpdateServerConfigRequest>("UpdateServerConfigRequest")({serverId: Schema.String, strategyOption: Schema.optional(StrategyOption)}) {}
+export class UpdateServerConfigResponse extends Schema.Class<UpdateServerConfigResponse>("UpdateServerConfigResponse")({}) {}
 export const AssessmentTargetValues = Schema.Array(Schema.String);
 export const AssociatedServerIDs = Schema.Array(Schema.String);
-export const TransformationTool = Schema.Struct({name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), tranformationToolInstallationLink: Schema.optional(Schema.String)});
-export const RecommendationSet = Schema.Struct({transformationTool: Schema.optional(TransformationTool), targetDestination: Schema.optional(Schema.String), strategy: Schema.optional(Schema.String)});
-export const AntipatternSeveritySummary = Schema.Struct({severity: Schema.optional(Schema.String), count: Schema.optional(Schema.Number)});
+export class TransformationTool extends Schema.Class<TransformationTool>("TransformationTool")({name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), tranformationToolInstallationLink: Schema.optional(Schema.String)}) {}
+export class RecommendationSet extends Schema.Class<RecommendationSet>("RecommendationSet")({transformationTool: Schema.optional(TransformationTool), targetDestination: Schema.optional(Schema.String), strategy: Schema.optional(Schema.String)}) {}
+export class AntipatternSeveritySummary extends Schema.Class<AntipatternSeveritySummary>("AntipatternSeveritySummary")({severity: Schema.optional(Schema.String), count: Schema.optional(Schema.Number)}) {}
 export const ListAntipatternSeveritySummary = Schema.Array(AntipatternSeveritySummary);
-export const OSInfo = Schema.Struct({type: Schema.optional(Schema.String), version: Schema.optional(Schema.String)});
-export const NetworkInfo = Schema.Struct({interfaceName: Schema.String, ipAddress: Schema.String, macAddress: Schema.String, netMask: Schema.String});
+export class OSInfo extends Schema.Class<OSInfo>("OSInfo")({type: Schema.optional(Schema.String), version: Schema.optional(Schema.String)}) {}
+export class NetworkInfo extends Schema.Class<NetworkInfo>("NetworkInfo")({interfaceName: Schema.String, ipAddress: Schema.String, macAddress: Schema.String, netMask: Schema.String}) {}
 export const NetworkInfoList = Schema.Array(NetworkInfo);
-export const SystemInfo = Schema.Struct({osInfo: Schema.optional(OSInfo), fileSystemType: Schema.optional(Schema.String), networkInfoList: Schema.optional(NetworkInfoList), cpuArchitecture: Schema.optional(Schema.String)});
-export const StrategySummary = Schema.Struct({strategy: Schema.optional(Schema.String), count: Schema.optional(Schema.Number)});
+export class SystemInfo extends Schema.Class<SystemInfo>("SystemInfo")({osInfo: Schema.optional(OSInfo), fileSystemType: Schema.optional(Schema.String), networkInfoList: Schema.optional(NetworkInfoList), cpuArchitecture: Schema.optional(Schema.String)}) {}
+export class StrategySummary extends Schema.Class<StrategySummary>("StrategySummary")({strategy: Schema.optional(Schema.String), count: Schema.optional(Schema.Number)}) {}
 export const ListStrategySummary = Schema.Array(StrategySummary);
-export const S3Object = Schema.Struct({s3Bucket: Schema.optional(Schema.String), s3key: Schema.optional(Schema.String)});
-export const ServerError = Schema.Struct({serverErrorCategory: Schema.optional(Schema.String)});
-export const ServerDetail = Schema.Struct({id: Schema.optional(Schema.String), name: Schema.optional(Schema.String), recommendationSet: Schema.optional(RecommendationSet), dataCollectionStatus: Schema.optional(Schema.String), statusMessage: Schema.optional(Schema.String), listAntipatternSeveritySummary: Schema.optional(ListAntipatternSeveritySummary), systemInfo: Schema.optional(SystemInfo), applicationComponentStrategySummary: Schema.optional(ListStrategySummary), antipatternReportS3Object: Schema.optional(S3Object), antipatternReportStatus: Schema.optional(Schema.String), antipatternReportStatusMessage: Schema.optional(Schema.String), serverType: Schema.optional(Schema.String), lastAnalyzedTimestamp: Schema.optional(Schema.Date), serverError: Schema.optional(ServerError)});
+export class S3Object extends Schema.Class<S3Object>("S3Object")({s3Bucket: Schema.optional(Schema.String), s3key: Schema.optional(Schema.String)}) {}
+export class ServerError extends Schema.Class<ServerError>("ServerError")({serverErrorCategory: Schema.optional(Schema.String)}) {}
+export class ServerDetail extends Schema.Class<ServerDetail>("ServerDetail")({id: Schema.optional(Schema.String), name: Schema.optional(Schema.String), recommendationSet: Schema.optional(RecommendationSet), dataCollectionStatus: Schema.optional(Schema.String), statusMessage: Schema.optional(Schema.String), listAntipatternSeveritySummary: Schema.optional(ListAntipatternSeveritySummary), systemInfo: Schema.optional(SystemInfo), applicationComponentStrategySummary: Schema.optional(ListStrategySummary), antipatternReportS3Object: Schema.optional(S3Object), antipatternReportStatus: Schema.optional(Schema.String), antipatternReportStatusMessage: Schema.optional(Schema.String), serverType: Schema.optional(Schema.String), lastAnalyzedTimestamp: Schema.optional(Schema.Date), serverError: Schema.optional(ServerError)}) {}
 export const ServerDetails = Schema.Array(ServerDetail);
-export const AssessmentTarget = Schema.Struct({condition: Schema.String, name: Schema.String, values: AssessmentTargetValues});
+export class AssessmentTarget extends Schema.Class<AssessmentTarget>("AssessmentTarget")({condition: Schema.String, name: Schema.String, values: AssessmentTargetValues}) {}
 export const AssessmentTargets = Schema.Array(AssessmentTarget);
-export const SourceCode = Schema.Struct({versionControl: Schema.optional(Schema.String), sourceVersion: Schema.optional(Schema.String), location: Schema.optional(Schema.String), projectName: Schema.optional(Schema.String)});
+export class SourceCode extends Schema.Class<SourceCode>("SourceCode")({versionControl: Schema.optional(Schema.String), sourceVersion: Schema.optional(Schema.String), location: Schema.optional(Schema.String), projectName: Schema.optional(Schema.String)}) {}
 export const SourceCodeList = Schema.Array(SourceCode);
-export const GetImportFileTaskResponse = Schema.Struct({id: Schema.optional(Schema.String), status: Schema.optional(Schema.String), startTime: Schema.optional(Schema.Date), inputS3Bucket: Schema.optional(Schema.String), inputS3Key: Schema.optional(Schema.String), statusReportS3Bucket: Schema.optional(Schema.String), statusReportS3Key: Schema.optional(Schema.String), completionTime: Schema.optional(Schema.Date), numberOfRecordsSuccess: Schema.optional(Schema.Number), numberOfRecordsFailed: Schema.optional(Schema.Number), importName: Schema.optional(Schema.String)});
-export const AccessDeniedException = Schema.Struct({message: Schema.String});
-export const ListApplicationComponentsRequest = Schema.Struct({applicationComponentCriteria: Schema.optional(Schema.String), filterValue: Schema.optional(Schema.String), sort: Schema.optional(Schema.String), groupIdFilter: Schema.optional(GroupIds), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListServersResponse = Schema.Struct({serverInfos: Schema.optional(ServerDetails), nextToken: Schema.optional(Schema.String)});
-export const ConflictException = Schema.Struct({message: Schema.String});
-export const StartAssessmentRequest = Schema.Struct({s3bucketForAnalysisData: Schema.optional(Schema.String), s3bucketForReportData: Schema.optional(Schema.String), assessmentTargets: Schema.optional(AssessmentTargets), assessmentDataSourceType: Schema.optional(Schema.String)});
-export const StartImportFileTaskResponse = Schema.Struct({id: Schema.optional(Schema.String)});
-export const StartRecommendationReportGenerationResponse = Schema.Struct({id: Schema.optional(Schema.String)});
-export const InternalServerException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UpdateApplicationComponentConfigRequest = Schema.Struct({applicationComponentId: Schema.String, inclusionStatus: Schema.optional(Schema.String), strategyOption: Schema.optional(StrategyOption), sourceCodeList: Schema.optional(SourceCodeList), secretsManagerKey: Schema.optional(Schema.String), configureOnly: Schema.optional(Schema.Boolean), appType: Schema.optional(Schema.String)});
-export const UpdateApplicationComponentConfigResponse = Schema.Struct({});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ApplicationComponentSummary = Schema.Struct({appType: Schema.optional(Schema.String), count: Schema.optional(Schema.Number)});
+export class GetImportFileTaskResponse extends Schema.Class<GetImportFileTaskResponse>("GetImportFileTaskResponse")({id: Schema.optional(Schema.String), status: Schema.optional(Schema.String), startTime: Schema.optional(Schema.Date), inputS3Bucket: Schema.optional(Schema.String), inputS3Key: Schema.optional(Schema.String), statusReportS3Bucket: Schema.optional(Schema.String), statusReportS3Key: Schema.optional(Schema.String), completionTime: Schema.optional(Schema.Date), numberOfRecordsSuccess: Schema.optional(Schema.Number), numberOfRecordsFailed: Schema.optional(Schema.Number), importName: Schema.optional(Schema.String)}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({message: Schema.String}) {}
+export class ListApplicationComponentsRequest extends Schema.Class<ListApplicationComponentsRequest>("ListApplicationComponentsRequest")({applicationComponentCriteria: Schema.optional(Schema.String), filterValue: Schema.optional(Schema.String), sort: Schema.optional(Schema.String), groupIdFilter: Schema.optional(GroupIds), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListServersResponse extends Schema.Class<ListServersResponse>("ListServersResponse")({serverInfos: Schema.optional(ServerDetails), nextToken: Schema.optional(Schema.String)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({message: Schema.String}) {}
+export class StartAssessmentRequest extends Schema.Class<StartAssessmentRequest>("StartAssessmentRequest")({s3bucketForAnalysisData: Schema.optional(Schema.String), s3bucketForReportData: Schema.optional(Schema.String), assessmentTargets: Schema.optional(AssessmentTargets), assessmentDataSourceType: Schema.optional(Schema.String)}) {}
+export class StartImportFileTaskResponse extends Schema.Class<StartImportFileTaskResponse>("StartImportFileTaskResponse")({id: Schema.optional(Schema.String)}) {}
+export class StartRecommendationReportGenerationResponse extends Schema.Class<StartRecommendationReportGenerationResponse>("StartRecommendationReportGenerationResponse")({id: Schema.optional(Schema.String)}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({message: Schema.optional(Schema.String)}) {}
+export class UpdateApplicationComponentConfigRequest extends Schema.Class<UpdateApplicationComponentConfigRequest>("UpdateApplicationComponentConfigRequest")({applicationComponentId: Schema.String, inclusionStatus: Schema.optional(Schema.String), strategyOption: Schema.optional(StrategyOption), sourceCodeList: Schema.optional(SourceCodeList), secretsManagerKey: Schema.optional(Schema.String), configureOnly: Schema.optional(Schema.Boolean), appType: Schema.optional(Schema.String)}) {}
+export class UpdateApplicationComponentConfigResponse extends Schema.Class<UpdateApplicationComponentConfigResponse>("UpdateApplicationComponentConfigResponse")({}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class ApplicationComponentSummary extends Schema.Class<ApplicationComponentSummary>("ApplicationComponentSummary")({appType: Schema.optional(Schema.String), count: Schema.optional(Schema.Number)}) {}
 export const ListApplicationComponentSummary = Schema.Array(ApplicationComponentSummary);
-export const ServerSummary = Schema.Struct({ServerOsType: Schema.optional(Schema.String), count: Schema.optional(Schema.Number)});
+export class ServerSummary extends Schema.Class<ServerSummary>("ServerSummary")({ServerOsType: Schema.optional(Schema.String), count: Schema.optional(Schema.Number)}) {}
 export const ListServerSummary = Schema.Array(ServerSummary);
-export const ApplicationComponentStatusSummary = Schema.Struct({srcCodeOrDbAnalysisStatus: Schema.optional(Schema.String), count: Schema.optional(Schema.Number)});
+export class ApplicationComponentStatusSummary extends Schema.Class<ApplicationComponentStatusSummary>("ApplicationComponentStatusSummary")({srcCodeOrDbAnalysisStatus: Schema.optional(Schema.String), count: Schema.optional(Schema.Number)}) {}
 export const ListApplicationComponentStatusSummary = Schema.Array(ApplicationComponentStatusSummary);
-export const ServerStatusSummary = Schema.Struct({runTimeAssessmentStatus: Schema.optional(Schema.String), count: Schema.optional(Schema.Number)});
+export class ServerStatusSummary extends Schema.Class<ServerStatusSummary>("ServerStatusSummary")({runTimeAssessmentStatus: Schema.optional(Schema.String), count: Schema.optional(Schema.Number)}) {}
 export const ListServerStatusSummary = Schema.Array(ServerStatusSummary);
 export const S3Keys = Schema.Array(Schema.String);
-export const AssociatedApplication = Schema.Struct({name: Schema.optional(Schema.String), id: Schema.optional(Schema.String)});
+export class AssociatedApplication extends Schema.Class<AssociatedApplication>("AssociatedApplication")({name: Schema.optional(Schema.String), id: Schema.optional(Schema.String)}) {}
 export const AssociatedApplications = Schema.Array(AssociatedApplication);
-export const ApplicationComponentStrategy = Schema.Struct({recommendation: Schema.optional(RecommendationSet), status: Schema.optional(Schema.String), isPreferred: Schema.optional(Schema.Boolean)});
+export class ApplicationComponentStrategy extends Schema.Class<ApplicationComponentStrategy>("ApplicationComponentStrategy")({recommendation: Schema.optional(RecommendationSet), status: Schema.optional(Schema.String), isPreferred: Schema.optional(Schema.Boolean)}) {}
 export const ApplicationComponentStrategies = Schema.Array(ApplicationComponentStrategy);
-export const DataCollectionDetails = Schema.Struct({status: Schema.optional(Schema.String), servers: Schema.optional(Schema.Number), failed: Schema.optional(Schema.Number), success: Schema.optional(Schema.Number), inProgress: Schema.optional(Schema.Number), startTime: Schema.optional(Schema.Date), completionTime: Schema.optional(Schema.Date), statusMessage: Schema.optional(Schema.String)});
-export const AssessmentSummary = Schema.Struct({listServerStrategySummary: Schema.optional(ListStrategySummary), listApplicationComponentStrategySummary: Schema.optional(ListStrategySummary), listAntipatternSeveritySummary: Schema.optional(ListAntipatternSeveritySummary), listApplicationComponentSummary: Schema.optional(ListApplicationComponentSummary), listServerSummary: Schema.optional(ListServerSummary), antipatternReportS3Object: Schema.optional(S3Object), antipatternReportStatus: Schema.optional(Schema.String), antipatternReportStatusMessage: Schema.optional(Schema.String), lastAnalyzedTimestamp: Schema.optional(Schema.Date), listApplicationComponentStatusSummary: Schema.optional(ListApplicationComponentStatusSummary), listServerStatusSummary: Schema.optional(ListServerStatusSummary)});
-export const RecommendationReportDetails = Schema.Struct({status: Schema.optional(Schema.String), statusMessage: Schema.optional(Schema.String), startTime: Schema.optional(Schema.Date), completionTime: Schema.optional(Schema.Date), s3Bucket: Schema.optional(Schema.String), s3Keys: Schema.optional(S3Keys)});
-export const ServerStrategy = Schema.Struct({recommendation: Schema.optional(RecommendationSet), status: Schema.optional(Schema.String), numberOfApplicationComponents: Schema.optional(Schema.Number), isPreferred: Schema.optional(Schema.Boolean)});
+export class DataCollectionDetails extends Schema.Class<DataCollectionDetails>("DataCollectionDetails")({status: Schema.optional(Schema.String), servers: Schema.optional(Schema.Number), failed: Schema.optional(Schema.Number), success: Schema.optional(Schema.Number), inProgress: Schema.optional(Schema.Number), startTime: Schema.optional(Schema.Date), completionTime: Schema.optional(Schema.Date), statusMessage: Schema.optional(Schema.String)}) {}
+export class AssessmentSummary extends Schema.Class<AssessmentSummary>("AssessmentSummary")({listServerStrategySummary: Schema.optional(ListStrategySummary), listApplicationComponentStrategySummary: Schema.optional(ListStrategySummary), listAntipatternSeveritySummary: Schema.optional(ListAntipatternSeveritySummary), listApplicationComponentSummary: Schema.optional(ListApplicationComponentSummary), listServerSummary: Schema.optional(ListServerSummary), antipatternReportS3Object: Schema.optional(S3Object), antipatternReportStatus: Schema.optional(Schema.String), antipatternReportStatusMessage: Schema.optional(Schema.String), lastAnalyzedTimestamp: Schema.optional(Schema.Date), listApplicationComponentStatusSummary: Schema.optional(ListApplicationComponentStatusSummary), listServerStatusSummary: Schema.optional(ListServerStatusSummary)}) {}
+export class RecommendationReportDetails extends Schema.Class<RecommendationReportDetails>("RecommendationReportDetails")({status: Schema.optional(Schema.String), statusMessage: Schema.optional(Schema.String), startTime: Schema.optional(Schema.Date), completionTime: Schema.optional(Schema.Date), s3Bucket: Schema.optional(Schema.String), s3Keys: Schema.optional(S3Keys)}) {}
+export class ServerStrategy extends Schema.Class<ServerStrategy>("ServerStrategy")({recommendation: Schema.optional(RecommendationSet), status: Schema.optional(Schema.String), numberOfApplicationComponents: Schema.optional(Schema.Number), isPreferred: Schema.optional(Schema.Boolean)}) {}
 export const ServerStrategies = Schema.Array(ServerStrategy);
-export const AnalyzableServerSummary = Schema.Struct({hostname: Schema.optional(Schema.String), ipAddress: Schema.optional(Schema.String), source: Schema.optional(Schema.String), vmId: Schema.optional(Schema.String)});
+export class AnalyzableServerSummary extends Schema.Class<AnalyzableServerSummary>("AnalyzableServerSummary")({hostname: Schema.optional(Schema.String), ipAddress: Schema.optional(Schema.String), source: Schema.optional(Schema.String), vmId: Schema.optional(Schema.String)}) {}
 export const AnalyzableServerSummaryList = Schema.Array(AnalyzableServerSummary);
-export const DatabaseConfigDetail = Schema.Struct({secretName: Schema.optional(Schema.String)});
-export const SourceCodeRepository = Schema.Struct({repository: Schema.optional(Schema.String), branch: Schema.optional(Schema.String), versionControlType: Schema.optional(Schema.String), projectName: Schema.optional(Schema.String)});
+export class DatabaseConfigDetail extends Schema.Class<DatabaseConfigDetail>("DatabaseConfigDetail")({secretName: Schema.optional(Schema.String)}) {}
+export class SourceCodeRepository extends Schema.Class<SourceCodeRepository>("SourceCodeRepository")({repository: Schema.optional(Schema.String), branch: Schema.optional(Schema.String), versionControlType: Schema.optional(Schema.String), projectName: Schema.optional(Schema.String)}) {}
 export const SourceCodeRepositories = Schema.Array(SourceCodeRepository);
-export const AppUnitError = Schema.Struct({appUnitErrorCategory: Schema.optional(Schema.String)});
+export class AppUnitError extends Schema.Class<AppUnitError>("AppUnitError")({appUnitErrorCategory: Schema.optional(Schema.String)}) {}
 export const AnalysisStatusUnion = Schema.Union(Schema.String, Schema.String);
 export const AnalyzerNameUnion = Schema.Union(Schema.String, Schema.String, Schema.String);
-export const AntipatternReportResult = Schema.Struct({analyzerName: Schema.optional(AnalyzerNameUnion), antiPatternReportS3Object: Schema.optional(S3Object), antipatternReportStatus: Schema.optional(Schema.String), antipatternReportStatusMessage: Schema.optional(Schema.String)});
+export class AntipatternReportResult extends Schema.Class<AntipatternReportResult>("AntipatternReportResult")({analyzerName: Schema.optional(AnalyzerNameUnion), antiPatternReportS3Object: Schema.optional(S3Object), antipatternReportStatus: Schema.optional(Schema.String), antipatternReportStatusMessage: Schema.optional(Schema.String)}) {}
 export const AntipatternReportResultList = Schema.Array(AntipatternReportResult);
-export const Result = Schema.Struct({analysisType: Schema.optional(Schema.String), analysisStatus: Schema.optional(AnalysisStatusUnion), statusMessage: Schema.optional(Schema.String), antipatternReportResultList: Schema.optional(AntipatternReportResultList)});
+export class Result extends Schema.Class<Result>("Result")({analysisType: Schema.optional(Schema.String), analysisStatus: Schema.optional(AnalysisStatusUnion), statusMessage: Schema.optional(Schema.String), antipatternReportResultList: Schema.optional(AntipatternReportResultList)}) {}
 export const ResultList = Schema.Array(Result);
-export const ApplicationComponentDetail = Schema.Struct({id: Schema.optional(Schema.String), name: Schema.optional(Schema.String), recommendationSet: Schema.optional(RecommendationSet), analysisStatus: Schema.optional(Schema.String), statusMessage: Schema.optional(Schema.String), listAntipatternSeveritySummary: Schema.optional(ListAntipatternSeveritySummary), databaseConfigDetail: Schema.optional(DatabaseConfigDetail), sourceCodeRepositories: Schema.optional(SourceCodeRepositories), appType: Schema.optional(Schema.String), resourceSubType: Schema.optional(Schema.String), inclusionStatus: Schema.optional(Schema.String), antipatternReportS3Object: Schema.optional(S3Object), antipatternReportStatus: Schema.optional(Schema.String), antipatternReportStatusMessage: Schema.optional(Schema.String), osVersion: Schema.optional(Schema.String), osDriver: Schema.optional(Schema.String), lastAnalyzedTimestamp: Schema.optional(Schema.Date), associatedServerId: Schema.optional(Schema.String), moreServerAssociationExists: Schema.optional(Schema.Boolean), runtimeStatus: Schema.optional(Schema.String), runtimeStatusMessage: Schema.optional(Schema.String), appUnitError: Schema.optional(AppUnitError), resultList: Schema.optional(ResultList)});
+export class ApplicationComponentDetail extends Schema.Class<ApplicationComponentDetail>("ApplicationComponentDetail")({id: Schema.optional(Schema.String), name: Schema.optional(Schema.String), recommendationSet: Schema.optional(RecommendationSet), analysisStatus: Schema.optional(Schema.String), statusMessage: Schema.optional(Schema.String), listAntipatternSeveritySummary: Schema.optional(ListAntipatternSeveritySummary), databaseConfigDetail: Schema.optional(DatabaseConfigDetail), sourceCodeRepositories: Schema.optional(SourceCodeRepositories), appType: Schema.optional(Schema.String), resourceSubType: Schema.optional(Schema.String), inclusionStatus: Schema.optional(Schema.String), antipatternReportS3Object: Schema.optional(S3Object), antipatternReportStatus: Schema.optional(Schema.String), antipatternReportStatusMessage: Schema.optional(Schema.String), osVersion: Schema.optional(Schema.String), osDriver: Schema.optional(Schema.String), lastAnalyzedTimestamp: Schema.optional(Schema.Date), associatedServerId: Schema.optional(Schema.String), moreServerAssociationExists: Schema.optional(Schema.Boolean), runtimeStatus: Schema.optional(Schema.String), runtimeStatusMessage: Schema.optional(Schema.String), appUnitError: Schema.optional(AppUnitError), resultList: Schema.optional(ResultList)}) {}
 export const ApplicationComponentDetails = Schema.Array(ApplicationComponentDetail);
-export const ImportFileTaskInformation = Schema.Struct({id: Schema.optional(Schema.String), status: Schema.optional(Schema.String), startTime: Schema.optional(Schema.Date), inputS3Bucket: Schema.optional(Schema.String), inputS3Key: Schema.optional(Schema.String), statusReportS3Bucket: Schema.optional(Schema.String), statusReportS3Key: Schema.optional(Schema.String), completionTime: Schema.optional(Schema.Date), numberOfRecordsSuccess: Schema.optional(Schema.Number), numberOfRecordsFailed: Schema.optional(Schema.Number), importName: Schema.optional(Schema.String)});
+export class ImportFileTaskInformation extends Schema.Class<ImportFileTaskInformation>("ImportFileTaskInformation")({id: Schema.optional(Schema.String), status: Schema.optional(Schema.String), startTime: Schema.optional(Schema.Date), inputS3Bucket: Schema.optional(Schema.String), inputS3Key: Schema.optional(Schema.String), statusReportS3Bucket: Schema.optional(Schema.String), statusReportS3Key: Schema.optional(Schema.String), completionTime: Schema.optional(Schema.Date), numberOfRecordsSuccess: Schema.optional(Schema.Number), numberOfRecordsFailed: Schema.optional(Schema.Number), importName: Schema.optional(Schema.String)}) {}
 export const ListImportFileTaskInformation = Schema.Array(ImportFileTaskInformation);
-export const GetApplicationComponentStrategiesResponse = Schema.Struct({applicationComponentStrategies: Schema.optional(ApplicationComponentStrategies)});
-export const GetAssessmentResponse = Schema.Struct({id: Schema.optional(Schema.String), dataCollectionDetails: Schema.optional(DataCollectionDetails), assessmentTargets: Schema.optional(AssessmentTargets)});
-export const ThrottlingException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DependencyException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const GetPortfolioSummaryResponse = Schema.Struct({assessmentSummary: Schema.optional(AssessmentSummary)});
-export const GetRecommendationReportDetailsResponse = Schema.Struct({id: Schema.optional(Schema.String), recommendationReportDetails: Schema.optional(RecommendationReportDetails)});
-export const GetServerStrategiesResponse = Schema.Struct({serverStrategies: Schema.optional(ServerStrategies)});
-export const ListAnalyzableServersResponse = Schema.Struct({analyzableServers: Schema.optional(AnalyzableServerSummaryList), nextToken: Schema.optional(Schema.String)});
-export const ListApplicationComponentsResponse = Schema.Struct({applicationComponentInfos: Schema.optional(ApplicationComponentDetails), nextToken: Schema.optional(Schema.String)});
-export const ListImportFileTaskResponse = Schema.Struct({taskInfos: Schema.optional(ListImportFileTaskInformation), nextToken: Schema.optional(Schema.String)});
-export const ValidationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const StartAssessmentResponse = Schema.Struct({assessmentId: Schema.optional(Schema.String)});
-export const ServiceQuotaExceededException = Schema.Struct({message: Schema.String});
-export const VcenterBasedRemoteInfo = Schema.Struct({vcenterConfigurationTimeStamp: Schema.optional(Schema.String), osType: Schema.optional(Schema.String)});
+export class GetApplicationComponentStrategiesResponse extends Schema.Class<GetApplicationComponentStrategiesResponse>("GetApplicationComponentStrategiesResponse")({applicationComponentStrategies: Schema.optional(ApplicationComponentStrategies)}) {}
+export class GetAssessmentResponse extends Schema.Class<GetAssessmentResponse>("GetAssessmentResponse")({id: Schema.optional(Schema.String), dataCollectionDetails: Schema.optional(DataCollectionDetails), assessmentTargets: Schema.optional(AssessmentTargets)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({message: Schema.optional(Schema.String)}) {}
+export class DependencyException extends Schema.Class<DependencyException>("DependencyException")({message: Schema.optional(Schema.String)}) {}
+export class GetPortfolioSummaryResponse extends Schema.Class<GetPortfolioSummaryResponse>("GetPortfolioSummaryResponse")({assessmentSummary: Schema.optional(AssessmentSummary)}) {}
+export class GetRecommendationReportDetailsResponse extends Schema.Class<GetRecommendationReportDetailsResponse>("GetRecommendationReportDetailsResponse")({id: Schema.optional(Schema.String), recommendationReportDetails: Schema.optional(RecommendationReportDetails)}) {}
+export class GetServerStrategiesResponse extends Schema.Class<GetServerStrategiesResponse>("GetServerStrategiesResponse")({serverStrategies: Schema.optional(ServerStrategies)}) {}
+export class ListAnalyzableServersResponse extends Schema.Class<ListAnalyzableServersResponse>("ListAnalyzableServersResponse")({analyzableServers: Schema.optional(AnalyzableServerSummaryList), nextToken: Schema.optional(Schema.String)}) {}
+export class ListApplicationComponentsResponse extends Schema.Class<ListApplicationComponentsResponse>("ListApplicationComponentsResponse")({applicationComponentInfos: Schema.optional(ApplicationComponentDetails), nextToken: Schema.optional(Schema.String)}) {}
+export class ListImportFileTaskResponse extends Schema.Class<ListImportFileTaskResponse>("ListImportFileTaskResponse")({taskInfos: Schema.optional(ListImportFileTaskInformation), nextToken: Schema.optional(Schema.String)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({message: Schema.optional(Schema.String)}) {}
+export class StartAssessmentResponse extends Schema.Class<StartAssessmentResponse>("StartAssessmentResponse")({assessmentId: Schema.optional(Schema.String)}) {}
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({message: Schema.String}) {}
+export class VcenterBasedRemoteInfo extends Schema.Class<VcenterBasedRemoteInfo>("VcenterBasedRemoteInfo")({vcenterConfigurationTimeStamp: Schema.optional(Schema.String), osType: Schema.optional(Schema.String)}) {}
 export const VcenterBasedRemoteInfoList = Schema.Array(VcenterBasedRemoteInfo);
-export const IPAddressBasedRemoteInfo = Schema.Struct({ipAddressConfigurationTimeStamp: Schema.optional(Schema.String), authType: Schema.optional(Schema.String), osType: Schema.optional(Schema.String)});
+export class IPAddressBasedRemoteInfo extends Schema.Class<IPAddressBasedRemoteInfo>("IPAddressBasedRemoteInfo")({ipAddressConfigurationTimeStamp: Schema.optional(Schema.String), authType: Schema.optional(Schema.String), osType: Schema.optional(Schema.String)}) {}
 export const IPAddressBasedRemoteInfoList = Schema.Array(IPAddressBasedRemoteInfo);
-export const VersionControlInfo = Schema.Struct({versionControlType: Schema.optional(Schema.String), versionControlConfigurationTimeStamp: Schema.optional(Schema.String)});
+export class VersionControlInfo extends Schema.Class<VersionControlInfo>("VersionControlInfo")({versionControlType: Schema.optional(Schema.String), versionControlConfigurationTimeStamp: Schema.optional(Schema.String)}) {}
 export const VersionControlInfoList = Schema.Array(VersionControlInfo);
-export const PipelineInfo = Schema.Struct({pipelineType: Schema.optional(Schema.String), pipelineConfigurationTimeStamp: Schema.optional(Schema.String)});
+export class PipelineInfo extends Schema.Class<PipelineInfo>("PipelineInfo")({pipelineType: Schema.optional(Schema.String), pipelineConfigurationTimeStamp: Schema.optional(Schema.String)}) {}
 export const PipelineInfoList = Schema.Array(PipelineInfo);
-export const RemoteSourceCodeAnalysisServerInfo = Schema.Struct({remoteSourceCodeAnalysisServerConfigurationTimestamp: Schema.optional(Schema.String)});
-export const GetPortfolioPreferencesResponse = Schema.Struct({prioritizeBusinessGoals: Schema.optional(PrioritizeBusinessGoals), applicationPreferences: Schema.optional(ApplicationPreferences), databasePreferences: Schema.optional(DatabasePreferences), applicationMode: Schema.optional(Schema.String)});
-export const ServiceLinkedRoleLockClientException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ConfigurationSummary = Schema.Struct({vcenterBasedRemoteInfoList: Schema.optional(VcenterBasedRemoteInfoList), ipAddressBasedRemoteInfoList: Schema.optional(IPAddressBasedRemoteInfoList), versionControlInfoList: Schema.optional(VersionControlInfoList), pipelineInfoList: Schema.optional(PipelineInfoList), remoteSourceCodeAnalysisServerInfo: Schema.optional(RemoteSourceCodeAnalysisServerInfo)});
-export const Collector = Schema.Struct({collectorId: Schema.optional(Schema.String), ipAddress: Schema.optional(Schema.String), hostName: Schema.optional(Schema.String), collectorHealth: Schema.optional(Schema.String), collectorVersion: Schema.optional(Schema.String), registeredTimeStamp: Schema.optional(Schema.String), lastActivityTimeStamp: Schema.optional(Schema.String), configurationSummary: Schema.optional(ConfigurationSummary)});
+export class RemoteSourceCodeAnalysisServerInfo extends Schema.Class<RemoteSourceCodeAnalysisServerInfo>("RemoteSourceCodeAnalysisServerInfo")({remoteSourceCodeAnalysisServerConfigurationTimestamp: Schema.optional(Schema.String)}) {}
+export class GetPortfolioPreferencesResponse extends Schema.Class<GetPortfolioPreferencesResponse>("GetPortfolioPreferencesResponse")({prioritizeBusinessGoals: Schema.optional(PrioritizeBusinessGoals), applicationPreferences: Schema.optional(ApplicationPreferences), databasePreferences: Schema.optional(DatabasePreferences), applicationMode: Schema.optional(Schema.String)}) {}
+export class ServiceLinkedRoleLockClientException extends Schema.Class<ServiceLinkedRoleLockClientException>("ServiceLinkedRoleLockClientException")({message: Schema.optional(Schema.String)}) {}
+export class ConfigurationSummary extends Schema.Class<ConfigurationSummary>("ConfigurationSummary")({vcenterBasedRemoteInfoList: Schema.optional(VcenterBasedRemoteInfoList), ipAddressBasedRemoteInfoList: Schema.optional(IPAddressBasedRemoteInfoList), versionControlInfoList: Schema.optional(VersionControlInfoList), pipelineInfoList: Schema.optional(PipelineInfoList), remoteSourceCodeAnalysisServerInfo: Schema.optional(RemoteSourceCodeAnalysisServerInfo)}) {}
+export class Collector extends Schema.Class<Collector>("Collector")({collectorId: Schema.optional(Schema.String), ipAddress: Schema.optional(Schema.String), hostName: Schema.optional(Schema.String), collectorHealth: Schema.optional(Schema.String), collectorVersion: Schema.optional(Schema.String), registeredTimeStamp: Schema.optional(Schema.String), lastActivityTimeStamp: Schema.optional(Schema.String), configurationSummary: Schema.optional(ConfigurationSummary)}) {}
 export const Collectors = Schema.Array(Collector);
-export const GetServerDetailsResponse = Schema.Struct({nextToken: Schema.optional(Schema.String), serverDetail: Schema.optional(ServerDetail), associatedApplications: Schema.optional(AssociatedApplications)});
-export const ListCollectorsResponse = Schema.Struct({Collectors: Schema.optional(Collectors), nextToken: Schema.optional(Schema.String)});
-export const GetApplicationComponentDetailsResponse = Schema.Struct({applicationComponentDetail: Schema.optional(ApplicationComponentDetail), associatedApplications: Schema.optional(AssociatedApplications), moreApplicationResource: Schema.optional(Schema.Boolean), associatedServerIds: Schema.optional(AssociatedServerIDs)});
+export class GetServerDetailsResponse extends Schema.Class<GetServerDetailsResponse>("GetServerDetailsResponse")({nextToken: Schema.optional(Schema.String), serverDetail: Schema.optional(ServerDetail), associatedApplications: Schema.optional(AssociatedApplications)}) {}
+export class ListCollectorsResponse extends Schema.Class<ListCollectorsResponse>("ListCollectorsResponse")({Collectors: Schema.optional(Collectors), nextToken: Schema.optional(Schema.String)}) {}
+export class GetApplicationComponentDetailsResponse extends Schema.Class<GetApplicationComponentDetailsResponse>("GetApplicationComponentDetailsResponse")({applicationComponentDetail: Schema.optional(ApplicationComponentDetail), associatedApplications: Schema.optional(AssociatedApplications), moreApplicationResource: Schema.optional(Schema.Boolean), associatedServerIds: Schema.optional(AssociatedServerIDs)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class DependencyExceptionError extends Schema.TaggedError<DependencyExceptionError>()("DependencyException", DependencyException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
-export class ServiceLinkedRoleLockClientExceptionError extends Schema.TaggedError<ServiceLinkedRoleLockClientExceptionError>()("ServiceLinkedRoleLockClientException", ServiceLinkedRoleLockClientException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class DependencyExceptionError extends Schema.TaggedError<DependencyExceptionError>()("DependencyException", DependencyException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
+export class ServiceLinkedRoleLockClientExceptionError extends Schema.TaggedError<ServiceLinkedRoleLockClientExceptionError>()("ServiceLinkedRoleLockClientException", ServiceLinkedRoleLockClientException.fields) {};
 
 //# Operations
 export const putPortfolioPreferences = /*#__PURE__*/ makeOperation(() => Operation({ version: "2020-02-19", uri: "/put-portfolio-preferences", method: "POST", sdkId: "MigrationHubStrategy", sigV4ServiceName: "migrationhub-strategy", name: "AWSMigrationHubStrategyRecommendation.PutPortfolioPreferences" }, PutPortfolioPreferencesRequest, PutPortfolioPreferencesResponse, [AccessDeniedExceptionError, ConflictExceptionError, InternalServerExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

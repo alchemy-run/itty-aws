@@ -5,91 +5,91 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 //# Schemas
 export const __listOf__string = Schema.Array(Schema.String);
 export const __mapOf__stringMin0Max256PatternS = Schema.Record({key: Schema.String, value: Schema.String});
-export const CreateControlPanelRequest = Schema.Struct({ClientToken: Schema.optional(Schema.String), ClusterArn: Schema.String, ControlPanelName: Schema.String, Tags: Schema.optional(__mapOf__stringMin0Max256PatternS)});
-export const CreateRoutingControlRequest = Schema.Struct({ClientToken: Schema.optional(Schema.String), ClusterArn: Schema.String, ControlPanelArn: Schema.optional(Schema.String), RoutingControlName: Schema.String});
-export const DeleteClusterRequest = Schema.Struct({ClusterArn: Schema.String});
-export const DeleteClusterResponse = Schema.Struct({});
-export const DeleteControlPanelRequest = Schema.Struct({ControlPanelArn: Schema.String});
-export const DeleteControlPanelResponse = Schema.Struct({});
-export const DeleteRoutingControlRequest = Schema.Struct({RoutingControlArn: Schema.String});
-export const DeleteRoutingControlResponse = Schema.Struct({});
-export const DeleteSafetyRuleRequest = Schema.Struct({SafetyRuleArn: Schema.String});
-export const DeleteSafetyRuleResponse = Schema.Struct({});
-export const DescribeClusterRequest = Schema.Struct({ClusterArn: Schema.String});
-export const DescribeControlPanelRequest = Schema.Struct({ControlPanelArn: Schema.String});
-export const DescribeRoutingControlRequest = Schema.Struct({RoutingControlArn: Schema.String});
-export const DescribeSafetyRuleRequest = Schema.Struct({SafetyRuleArn: Schema.String});
-export const GetResourcePolicyRequest = Schema.Struct({ResourceArn: Schema.String});
-export const ListAssociatedRoute53HealthChecksRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), RoutingControlArn: Schema.String});
-export const ListClustersRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListControlPanelsRequest = Schema.Struct({ClusterArn: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListRoutingControlsRequest = Schema.Struct({ControlPanelArn: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListSafetyRulesRequest = Schema.Struct({ControlPanelArn: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceRequest = Schema.Struct({ResourceArn: Schema.String});
-export const TagResourceRequest = Schema.Struct({ResourceArn: Schema.String, Tags: __mapOf__stringMin0Max256PatternS});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({ResourceArn: Schema.String, TagKeys: __listOf__string});
-export const UntagResourceResponse = Schema.Struct({});
-export const UpdateClusterRequest = Schema.Struct({ClusterArn: Schema.String, NetworkType: Schema.String});
-export const UpdateControlPanelRequest = Schema.Struct({ControlPanelArn: Schema.String, ControlPanelName: Schema.String});
-export const UpdateRoutingControlRequest = Schema.Struct({RoutingControlArn: Schema.String, RoutingControlName: Schema.String});
+export class CreateControlPanelRequest extends Schema.Class<CreateControlPanelRequest>("CreateControlPanelRequest")({ClientToken: Schema.optional(Schema.String), ClusterArn: Schema.String, ControlPanelName: Schema.String, Tags: Schema.optional(__mapOf__stringMin0Max256PatternS)}) {}
+export class CreateRoutingControlRequest extends Schema.Class<CreateRoutingControlRequest>("CreateRoutingControlRequest")({ClientToken: Schema.optional(Schema.String), ClusterArn: Schema.String, ControlPanelArn: Schema.optional(Schema.String), RoutingControlName: Schema.String}) {}
+export class DeleteClusterRequest extends Schema.Class<DeleteClusterRequest>("DeleteClusterRequest")({ClusterArn: Schema.String}) {}
+export class DeleteClusterResponse extends Schema.Class<DeleteClusterResponse>("DeleteClusterResponse")({}) {}
+export class DeleteControlPanelRequest extends Schema.Class<DeleteControlPanelRequest>("DeleteControlPanelRequest")({ControlPanelArn: Schema.String}) {}
+export class DeleteControlPanelResponse extends Schema.Class<DeleteControlPanelResponse>("DeleteControlPanelResponse")({}) {}
+export class DeleteRoutingControlRequest extends Schema.Class<DeleteRoutingControlRequest>("DeleteRoutingControlRequest")({RoutingControlArn: Schema.String}) {}
+export class DeleteRoutingControlResponse extends Schema.Class<DeleteRoutingControlResponse>("DeleteRoutingControlResponse")({}) {}
+export class DeleteSafetyRuleRequest extends Schema.Class<DeleteSafetyRuleRequest>("DeleteSafetyRuleRequest")({SafetyRuleArn: Schema.String}) {}
+export class DeleteSafetyRuleResponse extends Schema.Class<DeleteSafetyRuleResponse>("DeleteSafetyRuleResponse")({}) {}
+export class DescribeClusterRequest extends Schema.Class<DescribeClusterRequest>("DescribeClusterRequest")({ClusterArn: Schema.String}) {}
+export class DescribeControlPanelRequest extends Schema.Class<DescribeControlPanelRequest>("DescribeControlPanelRequest")({ControlPanelArn: Schema.String}) {}
+export class DescribeRoutingControlRequest extends Schema.Class<DescribeRoutingControlRequest>("DescribeRoutingControlRequest")({RoutingControlArn: Schema.String}) {}
+export class DescribeSafetyRuleRequest extends Schema.Class<DescribeSafetyRuleRequest>("DescribeSafetyRuleRequest")({SafetyRuleArn: Schema.String}) {}
+export class GetResourcePolicyRequest extends Schema.Class<GetResourcePolicyRequest>("GetResourcePolicyRequest")({ResourceArn: Schema.String}) {}
+export class ListAssociatedRoute53HealthChecksRequest extends Schema.Class<ListAssociatedRoute53HealthChecksRequest>("ListAssociatedRoute53HealthChecksRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), RoutingControlArn: Schema.String}) {}
+export class ListClustersRequest extends Schema.Class<ListClustersRequest>("ListClustersRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListControlPanelsRequest extends Schema.Class<ListControlPanelsRequest>("ListControlPanelsRequest")({ClusterArn: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListRoutingControlsRequest extends Schema.Class<ListRoutingControlsRequest>("ListRoutingControlsRequest")({ControlPanelArn: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListSafetyRulesRequest extends Schema.Class<ListSafetyRulesRequest>("ListSafetyRulesRequest")({ControlPanelArn: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({ResourceArn: Schema.String}) {}
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({ResourceArn: Schema.String, Tags: __mapOf__stringMin0Max256PatternS}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({ResourceArn: Schema.String, TagKeys: __listOf__string}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class UpdateClusterRequest extends Schema.Class<UpdateClusterRequest>("UpdateClusterRequest")({ClusterArn: Schema.String, NetworkType: Schema.String}) {}
+export class UpdateControlPanelRequest extends Schema.Class<UpdateControlPanelRequest>("UpdateControlPanelRequest")({ControlPanelArn: Schema.String, ControlPanelName: Schema.String}) {}
+export class UpdateRoutingControlRequest extends Schema.Class<UpdateRoutingControlRequest>("UpdateRoutingControlRequest")({RoutingControlArn: Schema.String, RoutingControlName: Schema.String}) {}
 export const __listOf__stringMin1Max256PatternAZaZ09 = Schema.Array(Schema.String);
-export const RuleConfig = Schema.Struct({Inverted: Schema.Boolean, Threshold: Schema.Number, Type: Schema.String});
-export const NewGatingRule = Schema.Struct({ControlPanelArn: Schema.String, GatingControls: __listOf__stringMin1Max256PatternAZaZ09, Name: Schema.String, RuleConfig: RuleConfig, TargetControls: __listOf__stringMin1Max256PatternAZaZ09, WaitPeriodMs: Schema.Number});
+export class RuleConfig extends Schema.Class<RuleConfig>("RuleConfig")({Inverted: Schema.Boolean, Threshold: Schema.Number, Type: Schema.String}) {}
+export class NewGatingRule extends Schema.Class<NewGatingRule>("NewGatingRule")({ControlPanelArn: Schema.String, GatingControls: __listOf__stringMin1Max256PatternAZaZ09, Name: Schema.String, RuleConfig: RuleConfig, TargetControls: __listOf__stringMin1Max256PatternAZaZ09, WaitPeriodMs: Schema.Number}) {}
 export const __listOf__stringMax36PatternS = Schema.Array(Schema.String);
-export const ClusterEndpoint = Schema.Struct({Endpoint: Schema.optional(Schema.String), Region: Schema.optional(Schema.String)});
+export class ClusterEndpoint extends Schema.Class<ClusterEndpoint>("ClusterEndpoint")({Endpoint: Schema.optional(Schema.String), Region: Schema.optional(Schema.String)}) {}
 export const __listOfClusterEndpoint = Schema.Array(ClusterEndpoint);
-export const Cluster = Schema.Struct({ClusterArn: Schema.optional(Schema.String), ClusterEndpoints: Schema.optional(__listOfClusterEndpoint), Name: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), Owner: Schema.optional(Schema.String), NetworkType: Schema.optional(Schema.String)});
+export class Cluster extends Schema.Class<Cluster>("Cluster")({ClusterArn: Schema.optional(Schema.String), ClusterEndpoints: Schema.optional(__listOfClusterEndpoint), Name: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), Owner: Schema.optional(Schema.String), NetworkType: Schema.optional(Schema.String)}) {}
 export const __listOfCluster = Schema.Array(Cluster);
-export const ControlPanel = Schema.Struct({ClusterArn: Schema.optional(Schema.String), ControlPanelArn: Schema.optional(Schema.String), DefaultControlPanel: Schema.optional(Schema.Boolean), Name: Schema.optional(Schema.String), RoutingControlCount: Schema.optional(Schema.Number), Status: Schema.optional(Schema.String), Owner: Schema.optional(Schema.String)});
+export class ControlPanel extends Schema.Class<ControlPanel>("ControlPanel")({ClusterArn: Schema.optional(Schema.String), ControlPanelArn: Schema.optional(Schema.String), DefaultControlPanel: Schema.optional(Schema.Boolean), Name: Schema.optional(Schema.String), RoutingControlCount: Schema.optional(Schema.Number), Status: Schema.optional(Schema.String), Owner: Schema.optional(Schema.String)}) {}
 export const __listOfControlPanel = Schema.Array(ControlPanel);
-export const RoutingControl = Schema.Struct({ControlPanelArn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), RoutingControlArn: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), Owner: Schema.optional(Schema.String)});
+export class RoutingControl extends Schema.Class<RoutingControl>("RoutingControl")({ControlPanelArn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), RoutingControlArn: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), Owner: Schema.optional(Schema.String)}) {}
 export const __listOfRoutingControl = Schema.Array(RoutingControl);
-export const AssertionRuleUpdate = Schema.Struct({Name: Schema.String, SafetyRuleArn: Schema.String, WaitPeriodMs: Schema.Number});
-export const GatingRuleUpdate = Schema.Struct({Name: Schema.String, SafetyRuleArn: Schema.String, WaitPeriodMs: Schema.Number});
-export const CreateClusterRequest = Schema.Struct({ClientToken: Schema.optional(Schema.String), ClusterName: Schema.String, Tags: Schema.optional(__mapOf__stringMin0Max256PatternS), NetworkType: Schema.optional(Schema.String)});
-export const AccessDeniedException = Schema.Struct({Message: Schema.String});
-export const ConflictException = Schema.Struct({Message: Schema.String});
-export const InternalServerException = Schema.Struct({Message: Schema.String});
-export const ResourceNotFoundException = Schema.Struct({Message: Schema.String});
-export const DescribeControlPanelResponse = Schema.Struct({ControlPanel: Schema.optional(ControlPanel)});
-export const DescribeRoutingControlResponse = Schema.Struct({RoutingControl: Schema.optional(RoutingControl)});
-export const GetResourcePolicyResponse = Schema.Struct({Policy: Schema.optional(Schema.String)});
-export const ListAssociatedRoute53HealthChecksResponse = Schema.Struct({HealthCheckIds: Schema.optional(__listOf__stringMax36PatternS), NextToken: Schema.optional(Schema.String)});
-export const ListClustersResponse = Schema.Struct({Clusters: Schema.optional(__listOfCluster), NextToken: Schema.optional(Schema.String)});
-export const ListControlPanelsResponse = Schema.Struct({ControlPanels: Schema.optional(__listOfControlPanel), NextToken: Schema.optional(Schema.String)});
-export const ListRoutingControlsResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), RoutingControls: Schema.optional(__listOfRoutingControl)});
-export const ListTagsForResourceResponse = Schema.Struct({Tags: Schema.optional(__mapOf__stringMin0Max256PatternS)});
-export const ValidationException = Schema.Struct({Message: Schema.String});
-export const UpdateClusterResponse = Schema.Struct({Cluster: Schema.optional(Cluster)});
-export const UpdateControlPanelResponse = Schema.Struct({ControlPanel: Schema.optional(ControlPanel)});
-export const UpdateRoutingControlResponse = Schema.Struct({RoutingControl: Schema.optional(RoutingControl)});
-export const UpdateSafetyRuleRequest = Schema.Struct({AssertionRuleUpdate: Schema.optional(AssertionRuleUpdate), GatingRuleUpdate: Schema.optional(GatingRuleUpdate)});
-export const NewAssertionRule = Schema.Struct({AssertedControls: __listOf__stringMin1Max256PatternAZaZ09, ControlPanelArn: Schema.String, Name: Schema.String, RuleConfig: RuleConfig, WaitPeriodMs: Schema.Number});
-export const AssertionRule = Schema.Struct({AssertedControls: __listOf__stringMin1Max256PatternAZaZ09, ControlPanelArn: Schema.String, Name: Schema.String, RuleConfig: RuleConfig, SafetyRuleArn: Schema.String, Status: Schema.String, WaitPeriodMs: Schema.Number, Owner: Schema.optional(Schema.String)});
-export const GatingRule = Schema.Struct({ControlPanelArn: Schema.String, GatingControls: __listOf__stringMin1Max256PatternAZaZ09, Name: Schema.String, RuleConfig: RuleConfig, SafetyRuleArn: Schema.String, Status: Schema.String, TargetControls: __listOf__stringMin1Max256PatternAZaZ09, WaitPeriodMs: Schema.Number, Owner: Schema.optional(Schema.String)});
-export const Rule = Schema.Struct({ASSERTION: Schema.optional(AssertionRule), GATING: Schema.optional(GatingRule)});
+export class AssertionRuleUpdate extends Schema.Class<AssertionRuleUpdate>("AssertionRuleUpdate")({Name: Schema.String, SafetyRuleArn: Schema.String, WaitPeriodMs: Schema.Number}) {}
+export class GatingRuleUpdate extends Schema.Class<GatingRuleUpdate>("GatingRuleUpdate")({Name: Schema.String, SafetyRuleArn: Schema.String, WaitPeriodMs: Schema.Number}) {}
+export class CreateClusterRequest extends Schema.Class<CreateClusterRequest>("CreateClusterRequest")({ClientToken: Schema.optional(Schema.String), ClusterName: Schema.String, Tags: Schema.optional(__mapOf__stringMin0Max256PatternS), NetworkType: Schema.optional(Schema.String)}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({Message: Schema.String}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({Message: Schema.String}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({Message: Schema.String}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({Message: Schema.String}) {}
+export class DescribeControlPanelResponse extends Schema.Class<DescribeControlPanelResponse>("DescribeControlPanelResponse")({ControlPanel: Schema.optional(ControlPanel)}) {}
+export class DescribeRoutingControlResponse extends Schema.Class<DescribeRoutingControlResponse>("DescribeRoutingControlResponse")({RoutingControl: Schema.optional(RoutingControl)}) {}
+export class GetResourcePolicyResponse extends Schema.Class<GetResourcePolicyResponse>("GetResourcePolicyResponse")({Policy: Schema.optional(Schema.String)}) {}
+export class ListAssociatedRoute53HealthChecksResponse extends Schema.Class<ListAssociatedRoute53HealthChecksResponse>("ListAssociatedRoute53HealthChecksResponse")({HealthCheckIds: Schema.optional(__listOf__stringMax36PatternS), NextToken: Schema.optional(Schema.String)}) {}
+export class ListClustersResponse extends Schema.Class<ListClustersResponse>("ListClustersResponse")({Clusters: Schema.optional(__listOfCluster), NextToken: Schema.optional(Schema.String)}) {}
+export class ListControlPanelsResponse extends Schema.Class<ListControlPanelsResponse>("ListControlPanelsResponse")({ControlPanels: Schema.optional(__listOfControlPanel), NextToken: Schema.optional(Schema.String)}) {}
+export class ListRoutingControlsResponse extends Schema.Class<ListRoutingControlsResponse>("ListRoutingControlsResponse")({NextToken: Schema.optional(Schema.String), RoutingControls: Schema.optional(__listOfRoutingControl)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({Tags: Schema.optional(__mapOf__stringMin0Max256PatternS)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({Message: Schema.String}) {}
+export class UpdateClusterResponse extends Schema.Class<UpdateClusterResponse>("UpdateClusterResponse")({Cluster: Schema.optional(Cluster)}) {}
+export class UpdateControlPanelResponse extends Schema.Class<UpdateControlPanelResponse>("UpdateControlPanelResponse")({ControlPanel: Schema.optional(ControlPanel)}) {}
+export class UpdateRoutingControlResponse extends Schema.Class<UpdateRoutingControlResponse>("UpdateRoutingControlResponse")({RoutingControl: Schema.optional(RoutingControl)}) {}
+export class UpdateSafetyRuleRequest extends Schema.Class<UpdateSafetyRuleRequest>("UpdateSafetyRuleRequest")({AssertionRuleUpdate: Schema.optional(AssertionRuleUpdate), GatingRuleUpdate: Schema.optional(GatingRuleUpdate)}) {}
+export class NewAssertionRule extends Schema.Class<NewAssertionRule>("NewAssertionRule")({AssertedControls: __listOf__stringMin1Max256PatternAZaZ09, ControlPanelArn: Schema.String, Name: Schema.String, RuleConfig: RuleConfig, WaitPeriodMs: Schema.Number}) {}
+export class AssertionRule extends Schema.Class<AssertionRule>("AssertionRule")({AssertedControls: __listOf__stringMin1Max256PatternAZaZ09, ControlPanelArn: Schema.String, Name: Schema.String, RuleConfig: RuleConfig, SafetyRuleArn: Schema.String, Status: Schema.String, WaitPeriodMs: Schema.Number, Owner: Schema.optional(Schema.String)}) {}
+export class GatingRule extends Schema.Class<GatingRule>("GatingRule")({ControlPanelArn: Schema.String, GatingControls: __listOf__stringMin1Max256PatternAZaZ09, Name: Schema.String, RuleConfig: RuleConfig, SafetyRuleArn: Schema.String, Status: Schema.String, TargetControls: __listOf__stringMin1Max256PatternAZaZ09, WaitPeriodMs: Schema.Number, Owner: Schema.optional(Schema.String)}) {}
+export class Rule extends Schema.Class<Rule>("Rule")({ASSERTION: Schema.optional(AssertionRule), GATING: Schema.optional(GatingRule)}) {}
 export const __listOfRule = Schema.Array(Rule);
-export const CreateClusterResponse = Schema.Struct({Cluster: Schema.optional(Cluster)});
-export const CreateControlPanelResponse = Schema.Struct({ControlPanel: Schema.optional(ControlPanel)});
-export const CreateRoutingControlResponse = Schema.Struct({RoutingControl: Schema.optional(RoutingControl)});
-export const CreateSafetyRuleRequest = Schema.Struct({AssertionRule: Schema.optional(NewAssertionRule), ClientToken: Schema.optional(Schema.String), GatingRule: Schema.optional(NewGatingRule), Tags: Schema.optional(__mapOf__stringMin0Max256PatternS)});
-export const ThrottlingException = Schema.Struct({Message: Schema.String});
-export const DescribeSafetyRuleResponse = Schema.Struct({AssertionRule: Schema.optional(AssertionRule), GatingRule: Schema.optional(GatingRule)});
-export const ListSafetyRulesResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), SafetyRules: Schema.optional(__listOfRule)});
-export const UpdateSafetyRuleResponse = Schema.Struct({AssertionRule: Schema.optional(AssertionRule), GatingRule: Schema.optional(GatingRule)});
-export const ServiceQuotaExceededException = Schema.Struct({Message: Schema.String});
-export const CreateSafetyRuleResponse = Schema.Struct({AssertionRule: Schema.optional(AssertionRule), GatingRule: Schema.optional(GatingRule)});
-export const DescribeClusterResponse = Schema.Struct({Cluster: Schema.optional(Cluster)});
+export class CreateClusterResponse extends Schema.Class<CreateClusterResponse>("CreateClusterResponse")({Cluster: Schema.optional(Cluster)}) {}
+export class CreateControlPanelResponse extends Schema.Class<CreateControlPanelResponse>("CreateControlPanelResponse")({ControlPanel: Schema.optional(ControlPanel)}) {}
+export class CreateRoutingControlResponse extends Schema.Class<CreateRoutingControlResponse>("CreateRoutingControlResponse")({RoutingControl: Schema.optional(RoutingControl)}) {}
+export class CreateSafetyRuleRequest extends Schema.Class<CreateSafetyRuleRequest>("CreateSafetyRuleRequest")({AssertionRule: Schema.optional(NewAssertionRule), ClientToken: Schema.optional(Schema.String), GatingRule: Schema.optional(NewGatingRule), Tags: Schema.optional(__mapOf__stringMin0Max256PatternS)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({Message: Schema.String}) {}
+export class DescribeSafetyRuleResponse extends Schema.Class<DescribeSafetyRuleResponse>("DescribeSafetyRuleResponse")({AssertionRule: Schema.optional(AssertionRule), GatingRule: Schema.optional(GatingRule)}) {}
+export class ListSafetyRulesResponse extends Schema.Class<ListSafetyRulesResponse>("ListSafetyRulesResponse")({NextToken: Schema.optional(Schema.String), SafetyRules: Schema.optional(__listOfRule)}) {}
+export class UpdateSafetyRuleResponse extends Schema.Class<UpdateSafetyRuleResponse>("UpdateSafetyRuleResponse")({AssertionRule: Schema.optional(AssertionRule), GatingRule: Schema.optional(GatingRule)}) {}
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({Message: Schema.String}) {}
+export class CreateSafetyRuleResponse extends Schema.Class<CreateSafetyRuleResponse>("CreateSafetyRuleResponse")({AssertionRule: Schema.optional(AssertionRule), GatingRule: Schema.optional(GatingRule)}) {}
+export class DescribeClusterResponse extends Schema.Class<DescribeClusterResponse>("DescribeClusterResponse")({Cluster: Schema.optional(Cluster)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
 
 //# Operations
 export const untagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2020-11-02", uri: "/tags/{ResourceArn}", method: "DELETE", sdkId: "Route53 Recovery Control Config", sigV4ServiceName: "route53-recovery-control-config", name: "Route53RecoveryControlConfig.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InternalServerExceptionError, ResourceNotFoundExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

@@ -4,61 +4,61 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 
 //# Schemas
 export const TagKeyList = Schema.Array(Schema.String);
-export const DeleteSuiteDefinitionRequest = Schema.Struct({suiteDefinitionId: Schema.String});
-export const DeleteSuiteDefinitionResponse = Schema.Struct({});
-export const GetEndpointRequest = Schema.Struct({thingArn: Schema.optional(Schema.String), certificateArn: Schema.optional(Schema.String), deviceRoleArn: Schema.optional(Schema.String), authenticationMethod: Schema.optional(Schema.String)});
-export const GetSuiteDefinitionRequest = Schema.Struct({suiteDefinitionId: Schema.String, suiteDefinitionVersion: Schema.optional(Schema.String)});
-export const GetSuiteRunRequest = Schema.Struct({suiteDefinitionId: Schema.String, suiteRunId: Schema.String});
-export const GetSuiteRunReportRequest = Schema.Struct({suiteDefinitionId: Schema.String, suiteRunId: Schema.String});
-export const ListSuiteDefinitionsRequest = Schema.Struct({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListSuiteRunsRequest = Schema.Struct({suiteDefinitionId: Schema.optional(Schema.String), suiteDefinitionVersion: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceRequest = Schema.Struct({resourceArn: Schema.String});
-export const StopSuiteRunRequest = Schema.Struct({suiteDefinitionId: Schema.String, suiteRunId: Schema.String});
-export const StopSuiteRunResponse = Schema.Struct({});
+export class DeleteSuiteDefinitionRequest extends Schema.Class<DeleteSuiteDefinitionRequest>("DeleteSuiteDefinitionRequest")({suiteDefinitionId: Schema.String}) {}
+export class DeleteSuiteDefinitionResponse extends Schema.Class<DeleteSuiteDefinitionResponse>("DeleteSuiteDefinitionResponse")({}) {}
+export class GetEndpointRequest extends Schema.Class<GetEndpointRequest>("GetEndpointRequest")({thingArn: Schema.optional(Schema.String), certificateArn: Schema.optional(Schema.String), deviceRoleArn: Schema.optional(Schema.String), authenticationMethod: Schema.optional(Schema.String)}) {}
+export class GetSuiteDefinitionRequest extends Schema.Class<GetSuiteDefinitionRequest>("GetSuiteDefinitionRequest")({suiteDefinitionId: Schema.String, suiteDefinitionVersion: Schema.optional(Schema.String)}) {}
+export class GetSuiteRunRequest extends Schema.Class<GetSuiteRunRequest>("GetSuiteRunRequest")({suiteDefinitionId: Schema.String, suiteRunId: Schema.String}) {}
+export class GetSuiteRunReportRequest extends Schema.Class<GetSuiteRunReportRequest>("GetSuiteRunReportRequest")({suiteDefinitionId: Schema.String, suiteRunId: Schema.String}) {}
+export class ListSuiteDefinitionsRequest extends Schema.Class<ListSuiteDefinitionsRequest>("ListSuiteDefinitionsRequest")({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListSuiteRunsRequest extends Schema.Class<ListSuiteRunsRequest>("ListSuiteRunsRequest")({suiteDefinitionId: Schema.optional(Schema.String), suiteDefinitionVersion: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({resourceArn: Schema.String}) {}
+export class StopSuiteRunRequest extends Schema.Class<StopSuiteRunRequest>("StopSuiteRunRequest")({suiteDefinitionId: Schema.String, suiteRunId: Schema.String}) {}
+export class StopSuiteRunResponse extends Schema.Class<StopSuiteRunResponse>("StopSuiteRunResponse")({}) {}
 export const TagMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const TagResourceRequest = Schema.Struct({resourceArn: Schema.String, tags: TagMap});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({resourceArn: Schema.String, tagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
-export const DeviceUnderTest = Schema.Struct({thingArn: Schema.optional(Schema.String), certificateArn: Schema.optional(Schema.String), deviceRoleArn: Schema.optional(Schema.String)});
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({resourceArn: Schema.String, tags: TagMap}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({resourceArn: Schema.String, tagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class DeviceUnderTest extends Schema.Class<DeviceUnderTest>("DeviceUnderTest")({thingArn: Schema.optional(Schema.String), certificateArn: Schema.optional(Schema.String), deviceRoleArn: Schema.optional(Schema.String)}) {}
 export const DeviceUnderTestList = Schema.Array(DeviceUnderTest);
-export const SuiteDefinitionConfiguration = Schema.Struct({suiteDefinitionName: Schema.String, devices: Schema.optional(DeviceUnderTestList), intendedForQualification: Schema.optional(Schema.Boolean), isLongDurationTest: Schema.optional(Schema.Boolean), rootGroup: Schema.String, devicePermissionRoleArn: Schema.String, protocol: Schema.optional(Schema.String)});
-export const UpdateSuiteDefinitionRequest = Schema.Struct({suiteDefinitionId: Schema.String, suiteDefinitionConfiguration: SuiteDefinitionConfiguration});
+export class SuiteDefinitionConfiguration extends Schema.Class<SuiteDefinitionConfiguration>("SuiteDefinitionConfiguration")({suiteDefinitionName: Schema.String, devices: Schema.optional(DeviceUnderTestList), intendedForQualification: Schema.optional(Schema.Boolean), isLongDurationTest: Schema.optional(Schema.Boolean), rootGroup: Schema.String, devicePermissionRoleArn: Schema.String, protocol: Schema.optional(Schema.String)}) {}
+export class UpdateSuiteDefinitionRequest extends Schema.Class<UpdateSuiteDefinitionRequest>("UpdateSuiteDefinitionRequest")({suiteDefinitionId: Schema.String, suiteDefinitionConfiguration: SuiteDefinitionConfiguration}) {}
 export const SelectedTestList = Schema.Array(Schema.String);
-export const SuiteRunConfiguration = Schema.Struct({primaryDevice: DeviceUnderTest, selectedTestList: Schema.optional(SelectedTestList), parallelRun: Schema.optional(Schema.Boolean)});
-export const InternalServerException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const GetEndpointResponse = Schema.Struct({endpoint: Schema.optional(Schema.String)});
-export const GetSuiteDefinitionResponse = Schema.Struct({suiteDefinitionId: Schema.optional(Schema.String), suiteDefinitionArn: Schema.optional(Schema.String), suiteDefinitionVersion: Schema.optional(Schema.String), latestVersion: Schema.optional(Schema.String), suiteDefinitionConfiguration: Schema.optional(SuiteDefinitionConfiguration), createdAt: Schema.optional(Schema.Date), lastModifiedAt: Schema.optional(Schema.Date), tags: Schema.optional(TagMap)});
-export const GetSuiteRunReportResponse = Schema.Struct({qualificationReportDownloadUrl: Schema.optional(Schema.String)});
-export const ListTagsForResourceResponse = Schema.Struct({tags: Schema.optional(TagMap)});
-export const StartSuiteRunRequest = Schema.Struct({suiteDefinitionId: Schema.String, suiteDefinitionVersion: Schema.optional(Schema.String), suiteRunConfiguration: SuiteRunConfiguration, tags: Schema.optional(TagMap)});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ValidationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UpdateSuiteDefinitionResponse = Schema.Struct({suiteDefinitionId: Schema.optional(Schema.String), suiteDefinitionArn: Schema.optional(Schema.String), suiteDefinitionName: Schema.optional(Schema.String), suiteDefinitionVersion: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date), lastUpdatedAt: Schema.optional(Schema.Date)});
-export const SuiteDefinitionInformation = Schema.Struct({suiteDefinitionId: Schema.optional(Schema.String), suiteDefinitionName: Schema.optional(Schema.String), defaultDevices: Schema.optional(DeviceUnderTestList), intendedForQualification: Schema.optional(Schema.Boolean), isLongDurationTest: Schema.optional(Schema.Boolean), protocol: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date)});
+export class SuiteRunConfiguration extends Schema.Class<SuiteRunConfiguration>("SuiteRunConfiguration")({primaryDevice: DeviceUnderTest, selectedTestList: Schema.optional(SelectedTestList), parallelRun: Schema.optional(Schema.Boolean)}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({message: Schema.optional(Schema.String)}) {}
+export class GetEndpointResponse extends Schema.Class<GetEndpointResponse>("GetEndpointResponse")({endpoint: Schema.optional(Schema.String)}) {}
+export class GetSuiteDefinitionResponse extends Schema.Class<GetSuiteDefinitionResponse>("GetSuiteDefinitionResponse")({suiteDefinitionId: Schema.optional(Schema.String), suiteDefinitionArn: Schema.optional(Schema.String), suiteDefinitionVersion: Schema.optional(Schema.String), latestVersion: Schema.optional(Schema.String), suiteDefinitionConfiguration: Schema.optional(SuiteDefinitionConfiguration), createdAt: Schema.optional(Schema.Date), lastModifiedAt: Schema.optional(Schema.Date), tags: Schema.optional(TagMap)}) {}
+export class GetSuiteRunReportResponse extends Schema.Class<GetSuiteRunReportResponse>("GetSuiteRunReportResponse")({qualificationReportDownloadUrl: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({tags: Schema.optional(TagMap)}) {}
+export class StartSuiteRunRequest extends Schema.Class<StartSuiteRunRequest>("StartSuiteRunRequest")({suiteDefinitionId: Schema.String, suiteDefinitionVersion: Schema.optional(Schema.String), suiteRunConfiguration: SuiteRunConfiguration, tags: Schema.optional(TagMap)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({message: Schema.optional(Schema.String)}) {}
+export class UpdateSuiteDefinitionResponse extends Schema.Class<UpdateSuiteDefinitionResponse>("UpdateSuiteDefinitionResponse")({suiteDefinitionId: Schema.optional(Schema.String), suiteDefinitionArn: Schema.optional(Schema.String), suiteDefinitionName: Schema.optional(Schema.String), suiteDefinitionVersion: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date), lastUpdatedAt: Schema.optional(Schema.Date)}) {}
+export class SuiteDefinitionInformation extends Schema.Class<SuiteDefinitionInformation>("SuiteDefinitionInformation")({suiteDefinitionId: Schema.optional(Schema.String), suiteDefinitionName: Schema.optional(Schema.String), defaultDevices: Schema.optional(DeviceUnderTestList), intendedForQualification: Schema.optional(Schema.Boolean), isLongDurationTest: Schema.optional(Schema.Boolean), protocol: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date)}) {}
 export const SuiteDefinitionInformationList = Schema.Array(SuiteDefinitionInformation);
-export const SuiteRunInformation = Schema.Struct({suiteDefinitionId: Schema.optional(Schema.String), suiteDefinitionVersion: Schema.optional(Schema.String), suiteDefinitionName: Schema.optional(Schema.String), suiteRunId: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date), startedAt: Schema.optional(Schema.Date), endAt: Schema.optional(Schema.Date), status: Schema.optional(Schema.String), passed: Schema.optional(Schema.Number), failed: Schema.optional(Schema.Number)});
+export class SuiteRunInformation extends Schema.Class<SuiteRunInformation>("SuiteRunInformation")({suiteDefinitionId: Schema.optional(Schema.String), suiteDefinitionVersion: Schema.optional(Schema.String), suiteDefinitionName: Schema.optional(Schema.String), suiteRunId: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date), startedAt: Schema.optional(Schema.Date), endAt: Schema.optional(Schema.Date), status: Schema.optional(Schema.String), passed: Schema.optional(Schema.Number), failed: Schema.optional(Schema.Number)}) {}
 export const SuiteRunsList = Schema.Array(SuiteRunInformation);
-export const CreateSuiteDefinitionRequest = Schema.Struct({suiteDefinitionConfiguration: SuiteDefinitionConfiguration, tags: Schema.optional(TagMap), clientToken: Schema.optional(Schema.String)});
-export const ListSuiteDefinitionsResponse = Schema.Struct({suiteDefinitionInformationList: Schema.optional(SuiteDefinitionInformationList), nextToken: Schema.optional(Schema.String)});
-export const ListSuiteRunsResponse = Schema.Struct({suiteRunsList: Schema.optional(SuiteRunsList), nextToken: Schema.optional(Schema.String)});
-export const StartSuiteRunResponse = Schema.Struct({suiteRunId: Schema.optional(Schema.String), suiteRunArn: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date), endpoint: Schema.optional(Schema.String)});
-export const CreateSuiteDefinitionResponse = Schema.Struct({suiteDefinitionId: Schema.optional(Schema.String), suiteDefinitionArn: Schema.optional(Schema.String), suiteDefinitionName: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date)});
-export const ConflictException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const TestCaseScenario = Schema.Struct({testCaseScenarioId: Schema.optional(Schema.String), testCaseScenarioType: Schema.optional(Schema.String), status: Schema.optional(Schema.String), failure: Schema.optional(Schema.String), systemMessage: Schema.optional(Schema.String)});
+export class CreateSuiteDefinitionRequest extends Schema.Class<CreateSuiteDefinitionRequest>("CreateSuiteDefinitionRequest")({suiteDefinitionConfiguration: SuiteDefinitionConfiguration, tags: Schema.optional(TagMap), clientToken: Schema.optional(Schema.String)}) {}
+export class ListSuiteDefinitionsResponse extends Schema.Class<ListSuiteDefinitionsResponse>("ListSuiteDefinitionsResponse")({suiteDefinitionInformationList: Schema.optional(SuiteDefinitionInformationList), nextToken: Schema.optional(Schema.String)}) {}
+export class ListSuiteRunsResponse extends Schema.Class<ListSuiteRunsResponse>("ListSuiteRunsResponse")({suiteRunsList: Schema.optional(SuiteRunsList), nextToken: Schema.optional(Schema.String)}) {}
+export class StartSuiteRunResponse extends Schema.Class<StartSuiteRunResponse>("StartSuiteRunResponse")({suiteRunId: Schema.optional(Schema.String), suiteRunArn: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date), endpoint: Schema.optional(Schema.String)}) {}
+export class CreateSuiteDefinitionResponse extends Schema.Class<CreateSuiteDefinitionResponse>("CreateSuiteDefinitionResponse")({suiteDefinitionId: Schema.optional(Schema.String), suiteDefinitionArn: Schema.optional(Schema.String), suiteDefinitionName: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({message: Schema.optional(Schema.String)}) {}
+export class TestCaseScenario extends Schema.Class<TestCaseScenario>("TestCaseScenario")({testCaseScenarioId: Schema.optional(Schema.String), testCaseScenarioType: Schema.optional(Schema.String), status: Schema.optional(Schema.String), failure: Schema.optional(Schema.String), systemMessage: Schema.optional(Schema.String)}) {}
 export const TestCaseScenariosList = Schema.Array(TestCaseScenario);
-export const TestCaseRun = Schema.Struct({testCaseRunId: Schema.optional(Schema.String), testCaseDefinitionId: Schema.optional(Schema.String), testCaseDefinitionName: Schema.optional(Schema.String), status: Schema.optional(Schema.String), startTime: Schema.optional(Schema.Date), endTime: Schema.optional(Schema.Date), logUrl: Schema.optional(Schema.String), warnings: Schema.optional(Schema.String), failure: Schema.optional(Schema.String), testScenarios: Schema.optional(TestCaseScenariosList)});
+export class TestCaseRun extends Schema.Class<TestCaseRun>("TestCaseRun")({testCaseRunId: Schema.optional(Schema.String), testCaseDefinitionId: Schema.optional(Schema.String), testCaseDefinitionName: Schema.optional(Schema.String), status: Schema.optional(Schema.String), startTime: Schema.optional(Schema.Date), endTime: Schema.optional(Schema.Date), logUrl: Schema.optional(Schema.String), warnings: Schema.optional(Schema.String), failure: Schema.optional(Schema.String), testScenarios: Schema.optional(TestCaseScenariosList)}) {}
 export const TestCaseRuns = Schema.Array(TestCaseRun);
-export const GroupResult = Schema.Struct({groupId: Schema.optional(Schema.String), groupName: Schema.optional(Schema.String), tests: Schema.optional(TestCaseRuns)});
+export class GroupResult extends Schema.Class<GroupResult>("GroupResult")({groupId: Schema.optional(Schema.String), groupName: Schema.optional(Schema.String), tests: Schema.optional(TestCaseRuns)}) {}
 export const GroupResultList = Schema.Array(GroupResult);
-export const TestResult = Schema.Struct({groups: Schema.optional(GroupResultList)});
-export const GetSuiteRunResponse = Schema.Struct({suiteDefinitionId: Schema.optional(Schema.String), suiteDefinitionVersion: Schema.optional(Schema.String), suiteRunId: Schema.optional(Schema.String), suiteRunArn: Schema.optional(Schema.String), suiteRunConfiguration: Schema.optional(SuiteRunConfiguration), testResult: Schema.optional(TestResult), startTime: Schema.optional(Schema.Date), endTime: Schema.optional(Schema.Date), status: Schema.optional(Schema.String), errorReason: Schema.optional(Schema.String), tags: Schema.optional(TagMap)});
+export class TestResult extends Schema.Class<TestResult>("TestResult")({groups: Schema.optional(GroupResultList)}) {}
+export class GetSuiteRunResponse extends Schema.Class<GetSuiteRunResponse>("GetSuiteRunResponse")({suiteDefinitionId: Schema.optional(Schema.String), suiteDefinitionVersion: Schema.optional(Schema.String), suiteRunId: Schema.optional(Schema.String), suiteRunArn: Schema.optional(Schema.String), suiteRunConfiguration: Schema.optional(SuiteRunConfiguration), testResult: Schema.optional(TestResult), startTime: Schema.optional(Schema.Date), endTime: Schema.optional(Schema.Date), status: Schema.optional(Schema.String), errorReason: Schema.optional(Schema.String), tags: Schema.optional(TagMap)}) {}
 
 //# Errors
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
 
 //# Operations
 export const untagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2020-09-18", uri: "/tags/{resourceArn}", method: "DELETE", sdkId: "IotDeviceAdvisor", sigV4ServiceName: "iotdeviceadvisor", name: "IotSenateService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InternalServerExceptionError, ResourceNotFoundExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

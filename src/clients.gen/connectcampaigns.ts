@@ -5,84 +5,84 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 //# Schemas
 export const CampaignIdList = Schema.Array(Schema.String);
 export const TagKeyList = Schema.Array(Schema.String);
-export const DeleteCampaignRequest = Schema.Struct({id: Schema.String});
-export const DeleteConnectInstanceConfigRequest = Schema.Struct({connectInstanceId: Schema.String});
-export const DeleteInstanceOnboardingJobRequest = Schema.Struct({connectInstanceId: Schema.String});
-export const DescribeCampaignRequest = Schema.Struct({id: Schema.String});
-export const GetCampaignStateRequest = Schema.Struct({id: Schema.String});
-export const GetCampaignStateBatchRequest = Schema.Struct({campaignIds: CampaignIdList});
-export const GetConnectInstanceConfigRequest = Schema.Struct({connectInstanceId: Schema.String});
-export const GetInstanceOnboardingJobStatusRequest = Schema.Struct({connectInstanceId: Schema.String});
-export const ListTagsForResourceRequest = Schema.Struct({arn: Schema.String});
-export const PauseCampaignRequest = Schema.Struct({id: Schema.String});
-export const ResumeCampaignRequest = Schema.Struct({id: Schema.String});
-export const StartCampaignRequest = Schema.Struct({id: Schema.String});
-export const StopCampaignRequest = Schema.Struct({id: Schema.String});
+export class DeleteCampaignRequest extends Schema.Class<DeleteCampaignRequest>("DeleteCampaignRequest")({id: Schema.String}) {}
+export class DeleteConnectInstanceConfigRequest extends Schema.Class<DeleteConnectInstanceConfigRequest>("DeleteConnectInstanceConfigRequest")({connectInstanceId: Schema.String}) {}
+export class DeleteInstanceOnboardingJobRequest extends Schema.Class<DeleteInstanceOnboardingJobRequest>("DeleteInstanceOnboardingJobRequest")({connectInstanceId: Schema.String}) {}
+export class DescribeCampaignRequest extends Schema.Class<DescribeCampaignRequest>("DescribeCampaignRequest")({id: Schema.String}) {}
+export class GetCampaignStateRequest extends Schema.Class<GetCampaignStateRequest>("GetCampaignStateRequest")({id: Schema.String}) {}
+export class GetCampaignStateBatchRequest extends Schema.Class<GetCampaignStateBatchRequest>("GetCampaignStateBatchRequest")({campaignIds: CampaignIdList}) {}
+export class GetConnectInstanceConfigRequest extends Schema.Class<GetConnectInstanceConfigRequest>("GetConnectInstanceConfigRequest")({connectInstanceId: Schema.String}) {}
+export class GetInstanceOnboardingJobStatusRequest extends Schema.Class<GetInstanceOnboardingJobStatusRequest>("GetInstanceOnboardingJobStatusRequest")({connectInstanceId: Schema.String}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({arn: Schema.String}) {}
+export class PauseCampaignRequest extends Schema.Class<PauseCampaignRequest>("PauseCampaignRequest")({id: Schema.String}) {}
+export class ResumeCampaignRequest extends Schema.Class<ResumeCampaignRequest>("ResumeCampaignRequest")({id: Schema.String}) {}
+export class StartCampaignRequest extends Schema.Class<StartCampaignRequest>("StartCampaignRequest")({id: Schema.String}) {}
+export class StopCampaignRequest extends Schema.Class<StopCampaignRequest>("StopCampaignRequest")({id: Schema.String}) {}
 export const TagMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const TagResourceRequest = Schema.Struct({arn: Schema.String, tags: TagMap});
-export const UntagResourceRequest = Schema.Struct({arn: Schema.String, tagKeys: TagKeyList});
-export const ProgressiveDialerConfig = Schema.Struct({bandwidthAllocation: Schema.Number, dialingCapacity: Schema.optional(Schema.Number)});
-export const PredictiveDialerConfig = Schema.Struct({bandwidthAllocation: Schema.Number, dialingCapacity: Schema.optional(Schema.Number)});
-export const AgentlessDialerConfig = Schema.Struct({dialingCapacity: Schema.optional(Schema.Number)});
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({arn: Schema.String, tags: TagMap}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({arn: Schema.String, tagKeys: TagKeyList}) {}
+export class ProgressiveDialerConfig extends Schema.Class<ProgressiveDialerConfig>("ProgressiveDialerConfig")({bandwidthAllocation: Schema.Number, dialingCapacity: Schema.optional(Schema.Number)}) {}
+export class PredictiveDialerConfig extends Schema.Class<PredictiveDialerConfig>("PredictiveDialerConfig")({bandwidthAllocation: Schema.Number, dialingCapacity: Schema.optional(Schema.Number)}) {}
+export class AgentlessDialerConfig extends Schema.Class<AgentlessDialerConfig>("AgentlessDialerConfig")({dialingCapacity: Schema.optional(Schema.Number)}) {}
 export const DialerConfig = Schema.Union(ProgressiveDialerConfig, PredictiveDialerConfig, AgentlessDialerConfig);
-export const UpdateCampaignDialerConfigRequest = Schema.Struct({id: Schema.String, dialerConfig: DialerConfig});
-export const UpdateCampaignNameRequest = Schema.Struct({id: Schema.String, name: Schema.String});
-export const AnswerMachineDetectionConfig = Schema.Struct({enableAnswerMachineDetection: Schema.Boolean, awaitAnswerMachinePrompt: Schema.optional(Schema.Boolean)});
-export const OutboundCallConfig = Schema.Struct({connectContactFlowId: Schema.String, connectSourcePhoneNumber: Schema.optional(Schema.String), connectQueueId: Schema.optional(Schema.String), answerMachineDetectionConfig: Schema.optional(AnswerMachineDetectionConfig)});
-export const EncryptionConfig = Schema.Struct({enabled: Schema.Boolean, encryptionType: Schema.optional(Schema.String), keyArn: Schema.optional(Schema.String)});
-export const AccessDeniedException = Schema.Struct({message: Schema.String, xAmzErrorType: Schema.optional(Header("x-amzn-ErrorType"))});
-export const InternalServerException = Schema.Struct({message: Schema.String, xAmzErrorType: Schema.optional(Header("x-amzn-ErrorType"))});
-export const InvalidStateException = Schema.Struct({message: Schema.String, xAmzErrorType: Schema.optional(Header("x-amzn-ErrorType"))});
-export const GetCampaignStateResponse = Schema.Struct({state: Schema.optional(Schema.String)});
-export const ListTagsForResourceResponse = Schema.Struct({tags: Schema.optional(TagMap)});
-export const ConflictException = Schema.Struct({message: Schema.String, xAmzErrorType: Schema.optional(Header("x-amzn-ErrorType"))});
-export const InvalidCampaignStateException = Schema.Struct({state: Schema.String, message: Schema.String, xAmzErrorType: Schema.optional(Header("x-amzn-ErrorType"))});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.String, xAmzErrorType: Schema.optional(Header("x-amzn-ErrorType"))});
-export const StartInstanceOnboardingJobRequest = Schema.Struct({connectInstanceId: Schema.String, encryptionConfig: EncryptionConfig});
-export const ThrottlingException = Schema.Struct({message: Schema.String, xAmzErrorType: Schema.optional(Header("x-amzn-ErrorType"))});
-export const ValidationException = Schema.Struct({message: Schema.String, xAmzErrorType: Schema.optional(Header("x-amzn-ErrorType"))});
-export const UpdateCampaignOutboundCallConfigRequest = Schema.Struct({id: Schema.String, connectContactFlowId: Schema.optional(Schema.String), connectSourcePhoneNumber: Schema.optional(Schema.String), answerMachineDetectionConfig: Schema.optional(AnswerMachineDetectionConfig)});
-export const InstanceIdFilter = Schema.Struct({value: Schema.String, operator: Schema.String});
+export class UpdateCampaignDialerConfigRequest extends Schema.Class<UpdateCampaignDialerConfigRequest>("UpdateCampaignDialerConfigRequest")({id: Schema.String, dialerConfig: DialerConfig}) {}
+export class UpdateCampaignNameRequest extends Schema.Class<UpdateCampaignNameRequest>("UpdateCampaignNameRequest")({id: Schema.String, name: Schema.String}) {}
+export class AnswerMachineDetectionConfig extends Schema.Class<AnswerMachineDetectionConfig>("AnswerMachineDetectionConfig")({enableAnswerMachineDetection: Schema.Boolean, awaitAnswerMachinePrompt: Schema.optional(Schema.Boolean)}) {}
+export class OutboundCallConfig extends Schema.Class<OutboundCallConfig>("OutboundCallConfig")({connectContactFlowId: Schema.String, connectSourcePhoneNumber: Schema.optional(Schema.String), connectQueueId: Schema.optional(Schema.String), answerMachineDetectionConfig: Schema.optional(AnswerMachineDetectionConfig)}) {}
+export class EncryptionConfig extends Schema.Class<EncryptionConfig>("EncryptionConfig")({enabled: Schema.Boolean, encryptionType: Schema.optional(Schema.String), keyArn: Schema.optional(Schema.String)}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({message: Schema.String, xAmzErrorType: Schema.optional(Header("x-amzn-ErrorType"))}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({message: Schema.String, xAmzErrorType: Schema.optional(Header("x-amzn-ErrorType"))}) {}
+export class InvalidStateException extends Schema.Class<InvalidStateException>("InvalidStateException")({message: Schema.String, xAmzErrorType: Schema.optional(Header("x-amzn-ErrorType"))}) {}
+export class GetCampaignStateResponse extends Schema.Class<GetCampaignStateResponse>("GetCampaignStateResponse")({state: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({tags: Schema.optional(TagMap)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({message: Schema.String, xAmzErrorType: Schema.optional(Header("x-amzn-ErrorType"))}) {}
+export class InvalidCampaignStateException extends Schema.Class<InvalidCampaignStateException>("InvalidCampaignStateException")({state: Schema.String, message: Schema.String, xAmzErrorType: Schema.optional(Header("x-amzn-ErrorType"))}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.String, xAmzErrorType: Schema.optional(Header("x-amzn-ErrorType"))}) {}
+export class StartInstanceOnboardingJobRequest extends Schema.Class<StartInstanceOnboardingJobRequest>("StartInstanceOnboardingJobRequest")({connectInstanceId: Schema.String, encryptionConfig: EncryptionConfig}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({message: Schema.String, xAmzErrorType: Schema.optional(Header("x-amzn-ErrorType"))}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({message: Schema.String, xAmzErrorType: Schema.optional(Header("x-amzn-ErrorType"))}) {}
+export class UpdateCampaignOutboundCallConfigRequest extends Schema.Class<UpdateCampaignOutboundCallConfigRequest>("UpdateCampaignOutboundCallConfigRequest")({id: Schema.String, connectContactFlowId: Schema.optional(Schema.String), connectSourcePhoneNumber: Schema.optional(Schema.String), answerMachineDetectionConfig: Schema.optional(AnswerMachineDetectionConfig)}) {}
+export class InstanceIdFilter extends Schema.Class<InstanceIdFilter>("InstanceIdFilter")({value: Schema.String, operator: Schema.String}) {}
 export const Attributes = Schema.Record({key: Schema.String, value: Schema.String});
-export const Campaign = Schema.Struct({id: Schema.String, arn: Schema.String, name: Schema.String, connectInstanceId: Schema.String, dialerConfig: DialerConfig, outboundCallConfig: OutboundCallConfig, tags: Schema.optional(TagMap)});
-export const SuccessfulCampaignStateResponse = Schema.Struct({campaignId: Schema.optional(Schema.String), state: Schema.optional(Schema.String)});
+export class Campaign extends Schema.Class<Campaign>("Campaign")({id: Schema.String, arn: Schema.String, name: Schema.String, connectInstanceId: Schema.String, dialerConfig: DialerConfig, outboundCallConfig: OutboundCallConfig, tags: Schema.optional(TagMap)}) {}
+export class SuccessfulCampaignStateResponse extends Schema.Class<SuccessfulCampaignStateResponse>("SuccessfulCampaignStateResponse")({campaignId: Schema.optional(Schema.String), state: Schema.optional(Schema.String)}) {}
 export const SuccessfulCampaignStateResponseList = Schema.Array(SuccessfulCampaignStateResponse);
-export const FailedCampaignStateResponse = Schema.Struct({campaignId: Schema.optional(Schema.String), failureCode: Schema.optional(Schema.String)});
+export class FailedCampaignStateResponse extends Schema.Class<FailedCampaignStateResponse>("FailedCampaignStateResponse")({campaignId: Schema.optional(Schema.String), failureCode: Schema.optional(Schema.String)}) {}
 export const FailedCampaignStateResponseList = Schema.Array(FailedCampaignStateResponse);
-export const InstanceConfig = Schema.Struct({connectInstanceId: Schema.String, serviceLinkedRoleArn: Schema.String, encryptionConfig: EncryptionConfig});
-export const InstanceOnboardingJobStatus = Schema.Struct({connectInstanceId: Schema.String, status: Schema.String, failureCode: Schema.optional(Schema.String)});
-export const CampaignFilters = Schema.Struct({instanceIdFilter: Schema.optional(InstanceIdFilter)});
-export const DialRequest = Schema.Struct({clientToken: Schema.String, phoneNumber: Schema.String, expirationTime: Schema.Date, attributes: Attributes});
+export class InstanceConfig extends Schema.Class<InstanceConfig>("InstanceConfig")({connectInstanceId: Schema.String, serviceLinkedRoleArn: Schema.String, encryptionConfig: EncryptionConfig}) {}
+export class InstanceOnboardingJobStatus extends Schema.Class<InstanceOnboardingJobStatus>("InstanceOnboardingJobStatus")({connectInstanceId: Schema.String, status: Schema.String, failureCode: Schema.optional(Schema.String)}) {}
+export class CampaignFilters extends Schema.Class<CampaignFilters>("CampaignFilters")({instanceIdFilter: Schema.optional(InstanceIdFilter)}) {}
+export class DialRequest extends Schema.Class<DialRequest>("DialRequest")({clientToken: Schema.String, phoneNumber: Schema.String, expirationTime: Schema.Date, attributes: Attributes}) {}
 export const DialRequestList = Schema.Array(DialRequest);
-export const CreateCampaignRequest = Schema.Struct({name: Schema.String, connectInstanceId: Schema.String, dialerConfig: DialerConfig, outboundCallConfig: OutboundCallConfig, tags: Schema.optional(TagMap)});
-export const DescribeCampaignResponse = Schema.Struct({campaign: Schema.optional(Campaign)});
-export const GetCampaignStateBatchResponse = Schema.Struct({successfulRequests: Schema.optional(SuccessfulCampaignStateResponseList), failedRequests: Schema.optional(FailedCampaignStateResponseList)});
-export const GetConnectInstanceConfigResponse = Schema.Struct({connectInstanceConfig: Schema.optional(InstanceConfig)});
-export const GetInstanceOnboardingJobStatusResponse = Schema.Struct({connectInstanceOnboardingJobStatus: Schema.optional(InstanceOnboardingJobStatus)});
-export const ListCampaignsRequest = Schema.Struct({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String), filters: Schema.optional(CampaignFilters)});
-export const PutDialRequestBatchRequest = Schema.Struct({id: Schema.String, dialRequests: DialRequestList});
-export const StartInstanceOnboardingJobResponse = Schema.Struct({connectInstanceOnboardingJobStatus: Schema.optional(InstanceOnboardingJobStatus)});
-export const CreateCampaignResponse = Schema.Struct({id: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), tags: Schema.optional(TagMap)});
-export const CampaignSummary = Schema.Struct({id: Schema.String, arn: Schema.String, name: Schema.String, connectInstanceId: Schema.String});
+export class CreateCampaignRequest extends Schema.Class<CreateCampaignRequest>("CreateCampaignRequest")({name: Schema.String, connectInstanceId: Schema.String, dialerConfig: DialerConfig, outboundCallConfig: OutboundCallConfig, tags: Schema.optional(TagMap)}) {}
+export class DescribeCampaignResponse extends Schema.Class<DescribeCampaignResponse>("DescribeCampaignResponse")({campaign: Schema.optional(Campaign)}) {}
+export class GetCampaignStateBatchResponse extends Schema.Class<GetCampaignStateBatchResponse>("GetCampaignStateBatchResponse")({successfulRequests: Schema.optional(SuccessfulCampaignStateResponseList), failedRequests: Schema.optional(FailedCampaignStateResponseList)}) {}
+export class GetConnectInstanceConfigResponse extends Schema.Class<GetConnectInstanceConfigResponse>("GetConnectInstanceConfigResponse")({connectInstanceConfig: Schema.optional(InstanceConfig)}) {}
+export class GetInstanceOnboardingJobStatusResponse extends Schema.Class<GetInstanceOnboardingJobStatusResponse>("GetInstanceOnboardingJobStatusResponse")({connectInstanceOnboardingJobStatus: Schema.optional(InstanceOnboardingJobStatus)}) {}
+export class ListCampaignsRequest extends Schema.Class<ListCampaignsRequest>("ListCampaignsRequest")({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String), filters: Schema.optional(CampaignFilters)}) {}
+export class PutDialRequestBatchRequest extends Schema.Class<PutDialRequestBatchRequest>("PutDialRequestBatchRequest")({id: Schema.String, dialRequests: DialRequestList}) {}
+export class StartInstanceOnboardingJobResponse extends Schema.Class<StartInstanceOnboardingJobResponse>("StartInstanceOnboardingJobResponse")({connectInstanceOnboardingJobStatus: Schema.optional(InstanceOnboardingJobStatus)}) {}
+export class CreateCampaignResponse extends Schema.Class<CreateCampaignResponse>("CreateCampaignResponse")({id: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), tags: Schema.optional(TagMap)}) {}
+export class CampaignSummary extends Schema.Class<CampaignSummary>("CampaignSummary")({id: Schema.String, arn: Schema.String, name: Schema.String, connectInstanceId: Schema.String}) {}
 export const CampaignSummaryList = Schema.Array(CampaignSummary);
-export const SuccessfulRequest = Schema.Struct({clientToken: Schema.optional(Schema.String), id: Schema.optional(Schema.String)});
+export class SuccessfulRequest extends Schema.Class<SuccessfulRequest>("SuccessfulRequest")({clientToken: Schema.optional(Schema.String), id: Schema.optional(Schema.String)}) {}
 export const SuccessfulRequestList = Schema.Array(SuccessfulRequest);
-export const FailedRequest = Schema.Struct({clientToken: Schema.optional(Schema.String), id: Schema.optional(Schema.String), failureCode: Schema.optional(Schema.String)});
+export class FailedRequest extends Schema.Class<FailedRequest>("FailedRequest")({clientToken: Schema.optional(Schema.String), id: Schema.optional(Schema.String), failureCode: Schema.optional(Schema.String)}) {}
 export const FailedRequestList = Schema.Array(FailedRequest);
-export const ServiceQuotaExceededException = Schema.Struct({message: Schema.String, xAmzErrorType: Schema.optional(Header("x-amzn-ErrorType"))});
-export const ListCampaignsResponse = Schema.Struct({nextToken: Schema.optional(Schema.String), campaignSummaryList: Schema.optional(CampaignSummaryList)});
-export const PutDialRequestBatchResponse = Schema.Struct({successfulRequests: Schema.optional(SuccessfulRequestList), failedRequests: Schema.optional(FailedRequestList)});
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({message: Schema.String, xAmzErrorType: Schema.optional(Header("x-amzn-ErrorType"))}) {}
+export class ListCampaignsResponse extends Schema.Class<ListCampaignsResponse>("ListCampaignsResponse")({nextToken: Schema.optional(Schema.String), campaignSummaryList: Schema.optional(CampaignSummaryList)}) {}
+export class PutDialRequestBatchResponse extends Schema.Class<PutDialRequestBatchResponse>("PutDialRequestBatchResponse")({successfulRequests: Schema.optional(SuccessfulRequestList), failedRequests: Schema.optional(FailedRequestList)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class InvalidCampaignStateExceptionError extends Schema.TaggedError<InvalidCampaignStateExceptionError>()("InvalidCampaignStateException", InvalidCampaignStateException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class InvalidStateExceptionError extends Schema.TaggedError<InvalidStateExceptionError>()("InvalidStateException", InvalidStateException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class InvalidCampaignStateExceptionError extends Schema.TaggedError<InvalidCampaignStateExceptionError>()("InvalidCampaignStateException", InvalidCampaignStateException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class InvalidStateExceptionError extends Schema.TaggedError<InvalidStateExceptionError>()("InvalidStateException", InvalidStateException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
 
 //# Operations
 export const untagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2021-01-30", uri: "/tags/{arn}", method: "DELETE", sdkId: "ConnectCampaigns", sigV4ServiceName: "connect-campaigns", name: "AmazonConnectCampaignService.UntagResource" }, UntagResourceRequest, Schema.Struct({}), [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

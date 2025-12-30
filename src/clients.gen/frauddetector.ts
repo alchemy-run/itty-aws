@@ -8,286 +8,286 @@ export const ListOfStrings = Schema.Array(Schema.String);
 export const ElementsList = Schema.Array(Schema.String);
 export const NonEmptyListOfStrings = Schema.Array(Schema.String);
 export const tagKeyList = Schema.Array(Schema.String);
-export const BatchGetVariableRequest = Schema.Struct({names: NameList});
-export const CancelBatchImportJobRequest = Schema.Struct({jobId: Schema.String});
-export const CancelBatchImportJobResult = Schema.Struct({});
-export const CancelBatchPredictionJobRequest = Schema.Struct({jobId: Schema.String});
-export const CancelBatchPredictionJobResult = Schema.Struct({});
-export const Tag = Schema.Struct({key: Schema.String, value: Schema.String});
+export class BatchGetVariableRequest extends Schema.Class<BatchGetVariableRequest>("BatchGetVariableRequest")({names: NameList}) {}
+export class CancelBatchImportJobRequest extends Schema.Class<CancelBatchImportJobRequest>("CancelBatchImportJobRequest")({jobId: Schema.String}) {}
+export class CancelBatchImportJobResult extends Schema.Class<CancelBatchImportJobResult>("CancelBatchImportJobResult")({}) {}
+export class CancelBatchPredictionJobRequest extends Schema.Class<CancelBatchPredictionJobRequest>("CancelBatchPredictionJobRequest")({jobId: Schema.String}) {}
+export class CancelBatchPredictionJobResult extends Schema.Class<CancelBatchPredictionJobResult>("CancelBatchPredictionJobResult")({}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({key: Schema.String, value: Schema.String}) {}
 export const tagList = Schema.Array(Tag);
-export const CreateBatchImportJobRequest = Schema.Struct({jobId: Schema.String, inputPath: Schema.String, outputPath: Schema.String, eventTypeName: Schema.String, iamRoleArn: Schema.String, tags: Schema.optional(tagList)});
-export const CreateBatchImportJobResult = Schema.Struct({});
-export const CreateBatchPredictionJobRequest = Schema.Struct({jobId: Schema.String, inputPath: Schema.String, outputPath: Schema.String, eventTypeName: Schema.String, detectorName: Schema.String, detectorVersion: Schema.optional(Schema.String), iamRoleArn: Schema.String, tags: Schema.optional(tagList)});
-export const CreateBatchPredictionJobResult = Schema.Struct({});
-export const CreateListRequest = Schema.Struct({name: Schema.String, elements: Schema.optional(ElementsList), variableType: Schema.optional(Schema.String), description: Schema.optional(Schema.String), tags: Schema.optional(tagList)});
-export const CreateListResult = Schema.Struct({});
-export const CreateModelRequest = Schema.Struct({modelId: Schema.String, modelType: Schema.String, description: Schema.optional(Schema.String), eventTypeName: Schema.String, tags: Schema.optional(tagList)});
-export const CreateModelResult = Schema.Struct({});
-export const CreateRuleRequest = Schema.Struct({ruleId: Schema.String, detectorId: Schema.String, description: Schema.optional(Schema.String), expression: Schema.String, language: Schema.String, outcomes: NonEmptyListOfStrings, tags: Schema.optional(tagList)});
-export const CreateVariableRequest = Schema.Struct({name: Schema.String, dataType: Schema.String, dataSource: Schema.String, defaultValue: Schema.String, description: Schema.optional(Schema.String), variableType: Schema.optional(Schema.String), tags: Schema.optional(tagList)});
-export const CreateVariableResult = Schema.Struct({});
-export const DeleteBatchImportJobRequest = Schema.Struct({jobId: Schema.String});
-export const DeleteBatchImportJobResult = Schema.Struct({});
-export const DeleteBatchPredictionJobRequest = Schema.Struct({jobId: Schema.String});
-export const DeleteBatchPredictionJobResult = Schema.Struct({});
-export const DeleteDetectorRequest = Schema.Struct({detectorId: Schema.String});
-export const DeleteDetectorResult = Schema.Struct({});
-export const DeleteDetectorVersionRequest = Schema.Struct({detectorId: Schema.String, detectorVersionId: Schema.String});
-export const DeleteDetectorVersionResult = Schema.Struct({});
-export const DeleteEntityTypeRequest = Schema.Struct({name: Schema.String});
-export const DeleteEntityTypeResult = Schema.Struct({});
-export const DeleteEventRequest = Schema.Struct({eventId: Schema.String, eventTypeName: Schema.String, deleteAuditHistory: Schema.optional(Schema.Boolean)});
-export const DeleteEventResult = Schema.Struct({});
-export const DeleteEventsByEventTypeRequest = Schema.Struct({eventTypeName: Schema.String});
-export const DeleteEventTypeRequest = Schema.Struct({name: Schema.String});
-export const DeleteEventTypeResult = Schema.Struct({});
-export const DeleteExternalModelRequest = Schema.Struct({modelEndpoint: Schema.String});
-export const DeleteExternalModelResult = Schema.Struct({});
-export const DeleteLabelRequest = Schema.Struct({name: Schema.String});
-export const DeleteLabelResult = Schema.Struct({});
-export const DeleteListRequest = Schema.Struct({name: Schema.String});
-export const DeleteListResult = Schema.Struct({});
-export const DeleteModelRequest = Schema.Struct({modelId: Schema.String, modelType: Schema.String});
-export const DeleteModelResult = Schema.Struct({});
-export const DeleteModelVersionRequest = Schema.Struct({modelId: Schema.String, modelType: Schema.String, modelVersionNumber: Schema.String});
-export const DeleteModelVersionResult = Schema.Struct({});
-export const DeleteOutcomeRequest = Schema.Struct({name: Schema.String});
-export const DeleteOutcomeResult = Schema.Struct({});
-export const Rule = Schema.Struct({detectorId: Schema.String, ruleId: Schema.String, ruleVersion: Schema.String});
-export const DeleteRuleRequest = Schema.Struct({rule: Rule});
-export const DeleteRuleResult = Schema.Struct({});
-export const DeleteVariableRequest = Schema.Struct({name: Schema.String});
-export const DeleteVariableResult = Schema.Struct({});
-export const DescribeDetectorRequest = Schema.Struct({detectorId: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const DescribeModelVersionsRequest = Schema.Struct({modelId: Schema.optional(Schema.String), modelVersionNumber: Schema.optional(Schema.String), modelType: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const GetBatchImportJobsRequest = Schema.Struct({jobId: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const GetBatchPredictionJobsRequest = Schema.Struct({jobId: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const GetDeleteEventsByEventTypeStatusRequest = Schema.Struct({eventTypeName: Schema.String});
-export const GetDetectorsRequest = Schema.Struct({detectorId: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const GetDetectorVersionRequest = Schema.Struct({detectorId: Schema.String, detectorVersionId: Schema.String});
-export const GetEntityTypesRequest = Schema.Struct({name: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const GetEventRequest = Schema.Struct({eventId: Schema.String, eventTypeName: Schema.String});
-export const GetEventPredictionMetadataRequest = Schema.Struct({eventId: Schema.String, eventTypeName: Schema.String, detectorId: Schema.String, detectorVersionId: Schema.String, predictionTimestamp: Schema.String});
-export const GetEventTypesRequest = Schema.Struct({name: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const GetExternalModelsRequest = Schema.Struct({modelEndpoint: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const GetLabelsRequest = Schema.Struct({name: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const GetListElementsRequest = Schema.Struct({name: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const GetListsMetadataRequest = Schema.Struct({name: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const GetModelsRequest = Schema.Struct({modelId: Schema.optional(Schema.String), modelType: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const GetModelVersionRequest = Schema.Struct({modelId: Schema.String, modelType: Schema.String, modelVersionNumber: Schema.String});
-export const GetOutcomesRequest = Schema.Struct({name: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const GetRulesRequest = Schema.Struct({ruleId: Schema.optional(Schema.String), detectorId: Schema.String, ruleVersion: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const GetVariablesRequest = Schema.Struct({name: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListTagsForResourceRequest = Schema.Struct({resourceARN: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const PutDetectorRequest = Schema.Struct({detectorId: Schema.String, description: Schema.optional(Schema.String), eventTypeName: Schema.String, tags: Schema.optional(tagList)});
-export const PutDetectorResult = Schema.Struct({});
-export const PutEntityTypeRequest = Schema.Struct({name: Schema.String, description: Schema.optional(Schema.String), tags: Schema.optional(tagList)});
-export const PutEntityTypeResult = Schema.Struct({});
-export const PutKMSEncryptionKeyRequest = Schema.Struct({kmsEncryptionKeyArn: Schema.String});
-export const PutKMSEncryptionKeyResult = Schema.Struct({});
-export const PutLabelRequest = Schema.Struct({name: Schema.String, description: Schema.optional(Schema.String), tags: Schema.optional(tagList)});
-export const PutLabelResult = Schema.Struct({});
-export const PutOutcomeRequest = Schema.Struct({name: Schema.String, description: Schema.optional(Schema.String), tags: Schema.optional(tagList)});
-export const PutOutcomeResult = Schema.Struct({});
+export class CreateBatchImportJobRequest extends Schema.Class<CreateBatchImportJobRequest>("CreateBatchImportJobRequest")({jobId: Schema.String, inputPath: Schema.String, outputPath: Schema.String, eventTypeName: Schema.String, iamRoleArn: Schema.String, tags: Schema.optional(tagList)}) {}
+export class CreateBatchImportJobResult extends Schema.Class<CreateBatchImportJobResult>("CreateBatchImportJobResult")({}) {}
+export class CreateBatchPredictionJobRequest extends Schema.Class<CreateBatchPredictionJobRequest>("CreateBatchPredictionJobRequest")({jobId: Schema.String, inputPath: Schema.String, outputPath: Schema.String, eventTypeName: Schema.String, detectorName: Schema.String, detectorVersion: Schema.optional(Schema.String), iamRoleArn: Schema.String, tags: Schema.optional(tagList)}) {}
+export class CreateBatchPredictionJobResult extends Schema.Class<CreateBatchPredictionJobResult>("CreateBatchPredictionJobResult")({}) {}
+export class CreateListRequest extends Schema.Class<CreateListRequest>("CreateListRequest")({name: Schema.String, elements: Schema.optional(ElementsList), variableType: Schema.optional(Schema.String), description: Schema.optional(Schema.String), tags: Schema.optional(tagList)}) {}
+export class CreateListResult extends Schema.Class<CreateListResult>("CreateListResult")({}) {}
+export class CreateModelRequest extends Schema.Class<CreateModelRequest>("CreateModelRequest")({modelId: Schema.String, modelType: Schema.String, description: Schema.optional(Schema.String), eventTypeName: Schema.String, tags: Schema.optional(tagList)}) {}
+export class CreateModelResult extends Schema.Class<CreateModelResult>("CreateModelResult")({}) {}
+export class CreateRuleRequest extends Schema.Class<CreateRuleRequest>("CreateRuleRequest")({ruleId: Schema.String, detectorId: Schema.String, description: Schema.optional(Schema.String), expression: Schema.String, language: Schema.String, outcomes: NonEmptyListOfStrings, tags: Schema.optional(tagList)}) {}
+export class CreateVariableRequest extends Schema.Class<CreateVariableRequest>("CreateVariableRequest")({name: Schema.String, dataType: Schema.String, dataSource: Schema.String, defaultValue: Schema.String, description: Schema.optional(Schema.String), variableType: Schema.optional(Schema.String), tags: Schema.optional(tagList)}) {}
+export class CreateVariableResult extends Schema.Class<CreateVariableResult>("CreateVariableResult")({}) {}
+export class DeleteBatchImportJobRequest extends Schema.Class<DeleteBatchImportJobRequest>("DeleteBatchImportJobRequest")({jobId: Schema.String}) {}
+export class DeleteBatchImportJobResult extends Schema.Class<DeleteBatchImportJobResult>("DeleteBatchImportJobResult")({}) {}
+export class DeleteBatchPredictionJobRequest extends Schema.Class<DeleteBatchPredictionJobRequest>("DeleteBatchPredictionJobRequest")({jobId: Schema.String}) {}
+export class DeleteBatchPredictionJobResult extends Schema.Class<DeleteBatchPredictionJobResult>("DeleteBatchPredictionJobResult")({}) {}
+export class DeleteDetectorRequest extends Schema.Class<DeleteDetectorRequest>("DeleteDetectorRequest")({detectorId: Schema.String}) {}
+export class DeleteDetectorResult extends Schema.Class<DeleteDetectorResult>("DeleteDetectorResult")({}) {}
+export class DeleteDetectorVersionRequest extends Schema.Class<DeleteDetectorVersionRequest>("DeleteDetectorVersionRequest")({detectorId: Schema.String, detectorVersionId: Schema.String}) {}
+export class DeleteDetectorVersionResult extends Schema.Class<DeleteDetectorVersionResult>("DeleteDetectorVersionResult")({}) {}
+export class DeleteEntityTypeRequest extends Schema.Class<DeleteEntityTypeRequest>("DeleteEntityTypeRequest")({name: Schema.String}) {}
+export class DeleteEntityTypeResult extends Schema.Class<DeleteEntityTypeResult>("DeleteEntityTypeResult")({}) {}
+export class DeleteEventRequest extends Schema.Class<DeleteEventRequest>("DeleteEventRequest")({eventId: Schema.String, eventTypeName: Schema.String, deleteAuditHistory: Schema.optional(Schema.Boolean)}) {}
+export class DeleteEventResult extends Schema.Class<DeleteEventResult>("DeleteEventResult")({}) {}
+export class DeleteEventsByEventTypeRequest extends Schema.Class<DeleteEventsByEventTypeRequest>("DeleteEventsByEventTypeRequest")({eventTypeName: Schema.String}) {}
+export class DeleteEventTypeRequest extends Schema.Class<DeleteEventTypeRequest>("DeleteEventTypeRequest")({name: Schema.String}) {}
+export class DeleteEventTypeResult extends Schema.Class<DeleteEventTypeResult>("DeleteEventTypeResult")({}) {}
+export class DeleteExternalModelRequest extends Schema.Class<DeleteExternalModelRequest>("DeleteExternalModelRequest")({modelEndpoint: Schema.String}) {}
+export class DeleteExternalModelResult extends Schema.Class<DeleteExternalModelResult>("DeleteExternalModelResult")({}) {}
+export class DeleteLabelRequest extends Schema.Class<DeleteLabelRequest>("DeleteLabelRequest")({name: Schema.String}) {}
+export class DeleteLabelResult extends Schema.Class<DeleteLabelResult>("DeleteLabelResult")({}) {}
+export class DeleteListRequest extends Schema.Class<DeleteListRequest>("DeleteListRequest")({name: Schema.String}) {}
+export class DeleteListResult extends Schema.Class<DeleteListResult>("DeleteListResult")({}) {}
+export class DeleteModelRequest extends Schema.Class<DeleteModelRequest>("DeleteModelRequest")({modelId: Schema.String, modelType: Schema.String}) {}
+export class DeleteModelResult extends Schema.Class<DeleteModelResult>("DeleteModelResult")({}) {}
+export class DeleteModelVersionRequest extends Schema.Class<DeleteModelVersionRequest>("DeleteModelVersionRequest")({modelId: Schema.String, modelType: Schema.String, modelVersionNumber: Schema.String}) {}
+export class DeleteModelVersionResult extends Schema.Class<DeleteModelVersionResult>("DeleteModelVersionResult")({}) {}
+export class DeleteOutcomeRequest extends Schema.Class<DeleteOutcomeRequest>("DeleteOutcomeRequest")({name: Schema.String}) {}
+export class DeleteOutcomeResult extends Schema.Class<DeleteOutcomeResult>("DeleteOutcomeResult")({}) {}
+export class Rule extends Schema.Class<Rule>("Rule")({detectorId: Schema.String, ruleId: Schema.String, ruleVersion: Schema.String}) {}
+export class DeleteRuleRequest extends Schema.Class<DeleteRuleRequest>("DeleteRuleRequest")({rule: Rule}) {}
+export class DeleteRuleResult extends Schema.Class<DeleteRuleResult>("DeleteRuleResult")({}) {}
+export class DeleteVariableRequest extends Schema.Class<DeleteVariableRequest>("DeleteVariableRequest")({name: Schema.String}) {}
+export class DeleteVariableResult extends Schema.Class<DeleteVariableResult>("DeleteVariableResult")({}) {}
+export class DescribeDetectorRequest extends Schema.Class<DescribeDetectorRequest>("DescribeDetectorRequest")({detectorId: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class DescribeModelVersionsRequest extends Schema.Class<DescribeModelVersionsRequest>("DescribeModelVersionsRequest")({modelId: Schema.optional(Schema.String), modelVersionNumber: Schema.optional(Schema.String), modelType: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class GetBatchImportJobsRequest extends Schema.Class<GetBatchImportJobsRequest>("GetBatchImportJobsRequest")({jobId: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class GetBatchPredictionJobsRequest extends Schema.Class<GetBatchPredictionJobsRequest>("GetBatchPredictionJobsRequest")({jobId: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class GetDeleteEventsByEventTypeStatusRequest extends Schema.Class<GetDeleteEventsByEventTypeStatusRequest>("GetDeleteEventsByEventTypeStatusRequest")({eventTypeName: Schema.String}) {}
+export class GetDetectorsRequest extends Schema.Class<GetDetectorsRequest>("GetDetectorsRequest")({detectorId: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class GetDetectorVersionRequest extends Schema.Class<GetDetectorVersionRequest>("GetDetectorVersionRequest")({detectorId: Schema.String, detectorVersionId: Schema.String}) {}
+export class GetEntityTypesRequest extends Schema.Class<GetEntityTypesRequest>("GetEntityTypesRequest")({name: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class GetEventRequest extends Schema.Class<GetEventRequest>("GetEventRequest")({eventId: Schema.String, eventTypeName: Schema.String}) {}
+export class GetEventPredictionMetadataRequest extends Schema.Class<GetEventPredictionMetadataRequest>("GetEventPredictionMetadataRequest")({eventId: Schema.String, eventTypeName: Schema.String, detectorId: Schema.String, detectorVersionId: Schema.String, predictionTimestamp: Schema.String}) {}
+export class GetEventTypesRequest extends Schema.Class<GetEventTypesRequest>("GetEventTypesRequest")({name: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class GetExternalModelsRequest extends Schema.Class<GetExternalModelsRequest>("GetExternalModelsRequest")({modelEndpoint: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class GetLabelsRequest extends Schema.Class<GetLabelsRequest>("GetLabelsRequest")({name: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class GetListElementsRequest extends Schema.Class<GetListElementsRequest>("GetListElementsRequest")({name: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class GetListsMetadataRequest extends Schema.Class<GetListsMetadataRequest>("GetListsMetadataRequest")({name: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class GetModelsRequest extends Schema.Class<GetModelsRequest>("GetModelsRequest")({modelId: Schema.optional(Schema.String), modelType: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class GetModelVersionRequest extends Schema.Class<GetModelVersionRequest>("GetModelVersionRequest")({modelId: Schema.String, modelType: Schema.String, modelVersionNumber: Schema.String}) {}
+export class GetOutcomesRequest extends Schema.Class<GetOutcomesRequest>("GetOutcomesRequest")({name: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class GetRulesRequest extends Schema.Class<GetRulesRequest>("GetRulesRequest")({ruleId: Schema.optional(Schema.String), detectorId: Schema.String, ruleVersion: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class GetVariablesRequest extends Schema.Class<GetVariablesRequest>("GetVariablesRequest")({name: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({resourceARN: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class PutDetectorRequest extends Schema.Class<PutDetectorRequest>("PutDetectorRequest")({detectorId: Schema.String, description: Schema.optional(Schema.String), eventTypeName: Schema.String, tags: Schema.optional(tagList)}) {}
+export class PutDetectorResult extends Schema.Class<PutDetectorResult>("PutDetectorResult")({}) {}
+export class PutEntityTypeRequest extends Schema.Class<PutEntityTypeRequest>("PutEntityTypeRequest")({name: Schema.String, description: Schema.optional(Schema.String), tags: Schema.optional(tagList)}) {}
+export class PutEntityTypeResult extends Schema.Class<PutEntityTypeResult>("PutEntityTypeResult")({}) {}
+export class PutKMSEncryptionKeyRequest extends Schema.Class<PutKMSEncryptionKeyRequest>("PutKMSEncryptionKeyRequest")({kmsEncryptionKeyArn: Schema.String}) {}
+export class PutKMSEncryptionKeyResult extends Schema.Class<PutKMSEncryptionKeyResult>("PutKMSEncryptionKeyResult")({}) {}
+export class PutLabelRequest extends Schema.Class<PutLabelRequest>("PutLabelRequest")({name: Schema.String, description: Schema.optional(Schema.String), tags: Schema.optional(tagList)}) {}
+export class PutLabelResult extends Schema.Class<PutLabelResult>("PutLabelResult")({}) {}
+export class PutOutcomeRequest extends Schema.Class<PutOutcomeRequest>("PutOutcomeRequest")({name: Schema.String, description: Schema.optional(Schema.String), tags: Schema.optional(tagList)}) {}
+export class PutOutcomeResult extends Schema.Class<PutOutcomeResult>("PutOutcomeResult")({}) {}
 export const EventVariableMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const Entity = Schema.Struct({entityType: Schema.String, entityId: Schema.String});
+export class Entity extends Schema.Class<Entity>("Entity")({entityType: Schema.String, entityId: Schema.String}) {}
 export const listOfEntities = Schema.Array(Entity);
-export const SendEventRequest = Schema.Struct({eventId: Schema.String, eventTypeName: Schema.String, eventTimestamp: Schema.String, eventVariables: EventVariableMap, assignedLabel: Schema.optional(Schema.String), labelTimestamp: Schema.optional(Schema.String), entities: listOfEntities});
-export const SendEventResult = Schema.Struct({});
-export const TagResourceRequest = Schema.Struct({resourceARN: Schema.String, tags: tagList});
-export const TagResourceResult = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({resourceARN: Schema.String, tagKeys: tagKeyList});
-export const UntagResourceResult = Schema.Struct({});
+export class SendEventRequest extends Schema.Class<SendEventRequest>("SendEventRequest")({eventId: Schema.String, eventTypeName: Schema.String, eventTimestamp: Schema.String, eventVariables: EventVariableMap, assignedLabel: Schema.optional(Schema.String), labelTimestamp: Schema.optional(Schema.String), entities: listOfEntities}) {}
+export class SendEventResult extends Schema.Class<SendEventResult>("SendEventResult")({}) {}
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({resourceARN: Schema.String, tags: tagList}) {}
+export class TagResourceResult extends Schema.Class<TagResourceResult>("TagResourceResult")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({resourceARN: Schema.String, tagKeys: tagKeyList}) {}
+export class UntagResourceResult extends Schema.Class<UntagResourceResult>("UntagResourceResult")({}) {}
 export const RuleList = Schema.Array(Rule);
-export const ModelVersion = Schema.Struct({modelId: Schema.String, modelType: Schema.String, modelVersionNumber: Schema.String, arn: Schema.optional(Schema.String)});
+export class ModelVersion extends Schema.Class<ModelVersion>("ModelVersion")({modelId: Schema.String, modelType: Schema.String, modelVersionNumber: Schema.String, arn: Schema.optional(Schema.String)}) {}
 export const ListOfModelVersions = Schema.Array(ModelVersion);
-export const UpdateDetectorVersionRequest = Schema.Struct({detectorId: Schema.String, detectorVersionId: Schema.String, externalModelEndpoints: ListOfStrings, rules: RuleList, description: Schema.optional(Schema.String), modelVersions: Schema.optional(ListOfModelVersions), ruleExecutionMode: Schema.optional(Schema.String)});
-export const UpdateDetectorVersionResult = Schema.Struct({});
-export const UpdateDetectorVersionMetadataRequest = Schema.Struct({detectorId: Schema.String, detectorVersionId: Schema.String, description: Schema.String});
-export const UpdateDetectorVersionMetadataResult = Schema.Struct({});
-export const UpdateDetectorVersionStatusRequest = Schema.Struct({detectorId: Schema.String, detectorVersionId: Schema.String, status: Schema.String});
-export const UpdateDetectorVersionStatusResult = Schema.Struct({});
-export const UpdateEventLabelRequest = Schema.Struct({eventId: Schema.String, eventTypeName: Schema.String, assignedLabel: Schema.String, labelTimestamp: Schema.String});
-export const UpdateEventLabelResult = Schema.Struct({});
-export const UpdateListRequest = Schema.Struct({name: Schema.String, elements: Schema.optional(ElementsList), description: Schema.optional(Schema.String), updateMode: Schema.optional(Schema.String), variableType: Schema.optional(Schema.String)});
-export const UpdateListResult = Schema.Struct({});
-export const UpdateModelRequest = Schema.Struct({modelId: Schema.String, modelType: Schema.String, description: Schema.optional(Schema.String)});
-export const UpdateModelResult = Schema.Struct({});
-export const ExternalEventsDetail = Schema.Struct({dataLocation: Schema.String, dataAccessRoleArn: Schema.String});
-export const IngestedEventsTimeWindow = Schema.Struct({startTime: Schema.String, endTime: Schema.String});
-export const IngestedEventsDetail = Schema.Struct({ingestedEventsTimeWindow: IngestedEventsTimeWindow});
-export const UpdateModelVersionRequest = Schema.Struct({modelId: Schema.String, modelType: Schema.String, majorVersionNumber: Schema.String, externalEventsDetail: Schema.optional(ExternalEventsDetail), ingestedEventsDetail: Schema.optional(IngestedEventsDetail), tags: Schema.optional(tagList)});
-export const UpdateModelVersionStatusRequest = Schema.Struct({modelId: Schema.String, modelType: Schema.String, modelVersionNumber: Schema.String, status: Schema.String});
-export const UpdateModelVersionStatusResult = Schema.Struct({});
-export const UpdateRuleMetadataRequest = Schema.Struct({rule: Rule, description: Schema.String});
-export const UpdateRuleMetadataResult = Schema.Struct({});
-export const UpdateRuleVersionRequest = Schema.Struct({rule: Rule, description: Schema.optional(Schema.String), expression: Schema.String, language: Schema.String, outcomes: NonEmptyListOfStrings, tags: Schema.optional(tagList)});
-export const UpdateVariableRequest = Schema.Struct({name: Schema.String, defaultValue: Schema.optional(Schema.String), description: Schema.optional(Schema.String), variableType: Schema.optional(Schema.String)});
-export const UpdateVariableResult = Schema.Struct({});
-export const VariableEntry = Schema.Struct({name: Schema.optional(Schema.String), dataType: Schema.optional(Schema.String), dataSource: Schema.optional(Schema.String), defaultValue: Schema.optional(Schema.String), description: Schema.optional(Schema.String), variableType: Schema.optional(Schema.String)});
+export class UpdateDetectorVersionRequest extends Schema.Class<UpdateDetectorVersionRequest>("UpdateDetectorVersionRequest")({detectorId: Schema.String, detectorVersionId: Schema.String, externalModelEndpoints: ListOfStrings, rules: RuleList, description: Schema.optional(Schema.String), modelVersions: Schema.optional(ListOfModelVersions), ruleExecutionMode: Schema.optional(Schema.String)}) {}
+export class UpdateDetectorVersionResult extends Schema.Class<UpdateDetectorVersionResult>("UpdateDetectorVersionResult")({}) {}
+export class UpdateDetectorVersionMetadataRequest extends Schema.Class<UpdateDetectorVersionMetadataRequest>("UpdateDetectorVersionMetadataRequest")({detectorId: Schema.String, detectorVersionId: Schema.String, description: Schema.String}) {}
+export class UpdateDetectorVersionMetadataResult extends Schema.Class<UpdateDetectorVersionMetadataResult>("UpdateDetectorVersionMetadataResult")({}) {}
+export class UpdateDetectorVersionStatusRequest extends Schema.Class<UpdateDetectorVersionStatusRequest>("UpdateDetectorVersionStatusRequest")({detectorId: Schema.String, detectorVersionId: Schema.String, status: Schema.String}) {}
+export class UpdateDetectorVersionStatusResult extends Schema.Class<UpdateDetectorVersionStatusResult>("UpdateDetectorVersionStatusResult")({}) {}
+export class UpdateEventLabelRequest extends Schema.Class<UpdateEventLabelRequest>("UpdateEventLabelRequest")({eventId: Schema.String, eventTypeName: Schema.String, assignedLabel: Schema.String, labelTimestamp: Schema.String}) {}
+export class UpdateEventLabelResult extends Schema.Class<UpdateEventLabelResult>("UpdateEventLabelResult")({}) {}
+export class UpdateListRequest extends Schema.Class<UpdateListRequest>("UpdateListRequest")({name: Schema.String, elements: Schema.optional(ElementsList), description: Schema.optional(Schema.String), updateMode: Schema.optional(Schema.String), variableType: Schema.optional(Schema.String)}) {}
+export class UpdateListResult extends Schema.Class<UpdateListResult>("UpdateListResult")({}) {}
+export class UpdateModelRequest extends Schema.Class<UpdateModelRequest>("UpdateModelRequest")({modelId: Schema.String, modelType: Schema.String, description: Schema.optional(Schema.String)}) {}
+export class UpdateModelResult extends Schema.Class<UpdateModelResult>("UpdateModelResult")({}) {}
+export class ExternalEventsDetail extends Schema.Class<ExternalEventsDetail>("ExternalEventsDetail")({dataLocation: Schema.String, dataAccessRoleArn: Schema.String}) {}
+export class IngestedEventsTimeWindow extends Schema.Class<IngestedEventsTimeWindow>("IngestedEventsTimeWindow")({startTime: Schema.String, endTime: Schema.String}) {}
+export class IngestedEventsDetail extends Schema.Class<IngestedEventsDetail>("IngestedEventsDetail")({ingestedEventsTimeWindow: IngestedEventsTimeWindow}) {}
+export class UpdateModelVersionRequest extends Schema.Class<UpdateModelVersionRequest>("UpdateModelVersionRequest")({modelId: Schema.String, modelType: Schema.String, majorVersionNumber: Schema.String, externalEventsDetail: Schema.optional(ExternalEventsDetail), ingestedEventsDetail: Schema.optional(IngestedEventsDetail), tags: Schema.optional(tagList)}) {}
+export class UpdateModelVersionStatusRequest extends Schema.Class<UpdateModelVersionStatusRequest>("UpdateModelVersionStatusRequest")({modelId: Schema.String, modelType: Schema.String, modelVersionNumber: Schema.String, status: Schema.String}) {}
+export class UpdateModelVersionStatusResult extends Schema.Class<UpdateModelVersionStatusResult>("UpdateModelVersionStatusResult")({}) {}
+export class UpdateRuleMetadataRequest extends Schema.Class<UpdateRuleMetadataRequest>("UpdateRuleMetadataRequest")({rule: Rule, description: Schema.String}) {}
+export class UpdateRuleMetadataResult extends Schema.Class<UpdateRuleMetadataResult>("UpdateRuleMetadataResult")({}) {}
+export class UpdateRuleVersionRequest extends Schema.Class<UpdateRuleVersionRequest>("UpdateRuleVersionRequest")({rule: Rule, description: Schema.optional(Schema.String), expression: Schema.String, language: Schema.String, outcomes: NonEmptyListOfStrings, tags: Schema.optional(tagList)}) {}
+export class UpdateVariableRequest extends Schema.Class<UpdateVariableRequest>("UpdateVariableRequest")({name: Schema.String, defaultValue: Schema.optional(Schema.String), description: Schema.optional(Schema.String), variableType: Schema.optional(Schema.String)}) {}
+export class UpdateVariableResult extends Schema.Class<UpdateVariableResult>("UpdateVariableResult")({}) {}
+export class VariableEntry extends Schema.Class<VariableEntry>("VariableEntry")({name: Schema.optional(Schema.String), dataType: Schema.optional(Schema.String), dataSource: Schema.optional(Schema.String), defaultValue: Schema.optional(Schema.String), description: Schema.optional(Schema.String), variableType: Schema.optional(Schema.String)}) {}
 export const VariableEntryList = Schema.Array(VariableEntry);
-export const KMSKey = Schema.Struct({kmsEncryptionKeyArn: Schema.optional(Schema.String)});
-export const FilterCondition = Schema.Struct({value: Schema.optional(Schema.String)});
-export const PredictionTimeRange = Schema.Struct({startTime: Schema.String, endTime: Schema.String});
-export const EventOrchestration = Schema.Struct({eventBridgeEnabled: Schema.Boolean});
-export const ModelInputConfiguration = Schema.Struct({eventTypeName: Schema.optional(Schema.String), format: Schema.optional(Schema.String), useEventVariables: Schema.Boolean, jsonInputTemplate: Schema.optional(Schema.String), csvInputTemplate: Schema.optional(Schema.String)});
-export const BatchCreateVariableRequest = Schema.Struct({variableEntries: VariableEntryList, tags: Schema.optional(tagList)});
-export const AccessDeniedException = Schema.Struct({message: Schema.String});
-export const InternalServerException = Schema.Struct({message: Schema.String});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.String});
-export const ThrottlingException = Schema.Struct({message: Schema.String});
-export const CreateDetectorVersionRequest = Schema.Struct({detectorId: Schema.String, description: Schema.optional(Schema.String), externalModelEndpoints: Schema.optional(ListOfStrings), rules: RuleList, modelVersions: Schema.optional(ListOfModelVersions), ruleExecutionMode: Schema.optional(Schema.String), tags: Schema.optional(tagList)});
-export const ValidationException = Schema.Struct({message: Schema.String});
-export const CreateRuleResult = Schema.Struct({rule: Schema.optional(Rule)});
-export const ConflictException = Schema.Struct({message: Schema.String});
-export const DeleteEventsByEventTypeResult = Schema.Struct({eventTypeName: Schema.optional(Schema.String), eventsDeletionStatus: Schema.optional(Schema.String)});
-export const GetDeleteEventsByEventTypeStatusResult = Schema.Struct({eventTypeName: Schema.optional(Schema.String), eventsDeletionStatus: Schema.optional(Schema.String)});
-export const GetDetectorVersionResult = Schema.Struct({detectorId: Schema.optional(Schema.String), detectorVersionId: Schema.optional(Schema.String), description: Schema.optional(Schema.String), externalModelEndpoints: Schema.optional(ListOfStrings), modelVersions: Schema.optional(ListOfModelVersions), rules: Schema.optional(RuleList), status: Schema.optional(Schema.String), lastUpdatedTime: Schema.optional(Schema.String), createdTime: Schema.optional(Schema.String), ruleExecutionMode: Schema.optional(Schema.String), arn: Schema.optional(Schema.String)});
-export const GetKMSEncryptionKeyResult = Schema.Struct({kmsKey: Schema.optional(KMSKey)});
-export const GetListElementsResult = Schema.Struct({elements: Schema.optional(ElementsList), nextToken: Schema.optional(Schema.String)});
+export class KMSKey extends Schema.Class<KMSKey>("KMSKey")({kmsEncryptionKeyArn: Schema.optional(Schema.String)}) {}
+export class FilterCondition extends Schema.Class<FilterCondition>("FilterCondition")({value: Schema.optional(Schema.String)}) {}
+export class PredictionTimeRange extends Schema.Class<PredictionTimeRange>("PredictionTimeRange")({startTime: Schema.String, endTime: Schema.String}) {}
+export class EventOrchestration extends Schema.Class<EventOrchestration>("EventOrchestration")({eventBridgeEnabled: Schema.Boolean}) {}
+export class ModelInputConfiguration extends Schema.Class<ModelInputConfiguration>("ModelInputConfiguration")({eventTypeName: Schema.optional(Schema.String), format: Schema.optional(Schema.String), useEventVariables: Schema.Boolean, jsonInputTemplate: Schema.optional(Schema.String), csvInputTemplate: Schema.optional(Schema.String)}) {}
+export class BatchCreateVariableRequest extends Schema.Class<BatchCreateVariableRequest>("BatchCreateVariableRequest")({variableEntries: VariableEntryList, tags: Schema.optional(tagList)}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({message: Schema.String}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({message: Schema.String}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.String}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({message: Schema.String}) {}
+export class CreateDetectorVersionRequest extends Schema.Class<CreateDetectorVersionRequest>("CreateDetectorVersionRequest")({detectorId: Schema.String, description: Schema.optional(Schema.String), externalModelEndpoints: Schema.optional(ListOfStrings), rules: RuleList, modelVersions: Schema.optional(ListOfModelVersions), ruleExecutionMode: Schema.optional(Schema.String), tags: Schema.optional(tagList)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({message: Schema.String}) {}
+export class CreateRuleResult extends Schema.Class<CreateRuleResult>("CreateRuleResult")({rule: Schema.optional(Rule)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({message: Schema.String}) {}
+export class DeleteEventsByEventTypeResult extends Schema.Class<DeleteEventsByEventTypeResult>("DeleteEventsByEventTypeResult")({eventTypeName: Schema.optional(Schema.String), eventsDeletionStatus: Schema.optional(Schema.String)}) {}
+export class GetDeleteEventsByEventTypeStatusResult extends Schema.Class<GetDeleteEventsByEventTypeStatusResult>("GetDeleteEventsByEventTypeStatusResult")({eventTypeName: Schema.optional(Schema.String), eventsDeletionStatus: Schema.optional(Schema.String)}) {}
+export class GetDetectorVersionResult extends Schema.Class<GetDetectorVersionResult>("GetDetectorVersionResult")({detectorId: Schema.optional(Schema.String), detectorVersionId: Schema.optional(Schema.String), description: Schema.optional(Schema.String), externalModelEndpoints: Schema.optional(ListOfStrings), modelVersions: Schema.optional(ListOfModelVersions), rules: Schema.optional(RuleList), status: Schema.optional(Schema.String), lastUpdatedTime: Schema.optional(Schema.String), createdTime: Schema.optional(Schema.String), ruleExecutionMode: Schema.optional(Schema.String), arn: Schema.optional(Schema.String)}) {}
+export class GetKMSEncryptionKeyResult extends Schema.Class<GetKMSEncryptionKeyResult>("GetKMSEncryptionKeyResult")({kmsKey: Schema.optional(KMSKey)}) {}
+export class GetListElementsResult extends Schema.Class<GetListElementsResult>("GetListElementsResult")({elements: Schema.optional(ElementsList), nextToken: Schema.optional(Schema.String)}) {}
 export const labelMapper = Schema.Record({key: Schema.String, value: ListOfStrings});
-export const LabelSchema = Schema.Struct({labelMapper: Schema.optional(labelMapper), unlabeledEventsTreatment: Schema.optional(Schema.String)});
-export const TrainingDataSchema = Schema.Struct({modelVariables: ListOfStrings, labelSchema: Schema.optional(LabelSchema)});
-export const GetModelVersionResult = Schema.Struct({modelId: Schema.optional(Schema.String), modelType: Schema.optional(Schema.String), modelVersionNumber: Schema.optional(Schema.String), trainingDataSource: Schema.optional(Schema.String), trainingDataSchema: Schema.optional(TrainingDataSchema), externalEventsDetail: Schema.optional(ExternalEventsDetail), ingestedEventsDetail: Schema.optional(IngestedEventsDetail), status: Schema.optional(Schema.String), arn: Schema.optional(Schema.String)});
-export const Variable = Schema.Struct({name: Schema.optional(Schema.String), dataType: Schema.optional(Schema.String), dataSource: Schema.optional(Schema.String), defaultValue: Schema.optional(Schema.String), description: Schema.optional(Schema.String), variableType: Schema.optional(Schema.String), lastUpdatedTime: Schema.optional(Schema.String), createdTime: Schema.optional(Schema.String), arn: Schema.optional(Schema.String)});
+export class LabelSchema extends Schema.Class<LabelSchema>("LabelSchema")({labelMapper: Schema.optional(labelMapper), unlabeledEventsTreatment: Schema.optional(Schema.String)}) {}
+export class TrainingDataSchema extends Schema.Class<TrainingDataSchema>("TrainingDataSchema")({modelVariables: ListOfStrings, labelSchema: Schema.optional(LabelSchema)}) {}
+export class GetModelVersionResult extends Schema.Class<GetModelVersionResult>("GetModelVersionResult")({modelId: Schema.optional(Schema.String), modelType: Schema.optional(Schema.String), modelVersionNumber: Schema.optional(Schema.String), trainingDataSource: Schema.optional(Schema.String), trainingDataSchema: Schema.optional(TrainingDataSchema), externalEventsDetail: Schema.optional(ExternalEventsDetail), ingestedEventsDetail: Schema.optional(IngestedEventsDetail), status: Schema.optional(Schema.String), arn: Schema.optional(Schema.String)}) {}
+export class Variable extends Schema.Class<Variable>("Variable")({name: Schema.optional(Schema.String), dataType: Schema.optional(Schema.String), dataSource: Schema.optional(Schema.String), defaultValue: Schema.optional(Schema.String), description: Schema.optional(Schema.String), variableType: Schema.optional(Schema.String), lastUpdatedTime: Schema.optional(Schema.String), createdTime: Schema.optional(Schema.String), arn: Schema.optional(Schema.String)}) {}
 export const VariableList = Schema.Array(Variable);
-export const GetVariablesResult = Schema.Struct({variables: Schema.optional(VariableList), nextToken: Schema.optional(Schema.String)});
-export const ListEventPredictionsRequest = Schema.Struct({eventId: Schema.optional(FilterCondition), eventType: Schema.optional(FilterCondition), detectorId: Schema.optional(FilterCondition), detectorVersionId: Schema.optional(FilterCondition), predictionTimeRange: Schema.optional(PredictionTimeRange), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListTagsForResourceResult = Schema.Struct({tags: Schema.optional(tagList), nextToken: Schema.optional(Schema.String)});
-export const PutEventTypeRequest = Schema.Struct({name: Schema.String, description: Schema.optional(Schema.String), eventVariables: NonEmptyListOfStrings, labels: Schema.optional(ListOfStrings), entityTypes: NonEmptyListOfStrings, eventIngestion: Schema.optional(Schema.String), tags: Schema.optional(tagList), eventOrchestration: Schema.optional(EventOrchestration)});
-export const PutEventTypeResult = Schema.Struct({});
-export const UpdateModelVersionResult = Schema.Struct({modelId: Schema.optional(Schema.String), modelType: Schema.optional(Schema.String), modelVersionNumber: Schema.optional(Schema.String), status: Schema.optional(Schema.String)});
-export const UpdateRuleVersionResult = Schema.Struct({rule: Schema.optional(Rule)});
-export const ModelEndpointDataBlob = Schema.Struct({byteBuffer: Schema.optional(StreamBody()), contentType: Schema.optional(Schema.String)});
+export class GetVariablesResult extends Schema.Class<GetVariablesResult>("GetVariablesResult")({variables: Schema.optional(VariableList), nextToken: Schema.optional(Schema.String)}) {}
+export class ListEventPredictionsRequest extends Schema.Class<ListEventPredictionsRequest>("ListEventPredictionsRequest")({eventId: Schema.optional(FilterCondition), eventType: Schema.optional(FilterCondition), detectorId: Schema.optional(FilterCondition), detectorVersionId: Schema.optional(FilterCondition), predictionTimeRange: Schema.optional(PredictionTimeRange), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListTagsForResourceResult extends Schema.Class<ListTagsForResourceResult>("ListTagsForResourceResult")({tags: Schema.optional(tagList), nextToken: Schema.optional(Schema.String)}) {}
+export class PutEventTypeRequest extends Schema.Class<PutEventTypeRequest>("PutEventTypeRequest")({name: Schema.String, description: Schema.optional(Schema.String), eventVariables: NonEmptyListOfStrings, labels: Schema.optional(ListOfStrings), entityTypes: NonEmptyListOfStrings, eventIngestion: Schema.optional(Schema.String), tags: Schema.optional(tagList), eventOrchestration: Schema.optional(EventOrchestration)}) {}
+export class PutEventTypeResult extends Schema.Class<PutEventTypeResult>("PutEventTypeResult")({}) {}
+export class UpdateModelVersionResult extends Schema.Class<UpdateModelVersionResult>("UpdateModelVersionResult")({modelId: Schema.optional(Schema.String), modelType: Schema.optional(Schema.String), modelVersionNumber: Schema.optional(Schema.String), status: Schema.optional(Schema.String)}) {}
+export class UpdateRuleVersionResult extends Schema.Class<UpdateRuleVersionResult>("UpdateRuleVersionResult")({rule: Schema.optional(Rule)}) {}
+export class ModelEndpointDataBlob extends Schema.Class<ModelEndpointDataBlob>("ModelEndpointDataBlob")({byteBuffer: Schema.optional(StreamBody()), contentType: Schema.optional(Schema.String)}) {}
 export const JsonKeyToVariableMap = Schema.Record({key: Schema.String, value: Schema.String});
 export const CsvIndexToVariableMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const BatchGetVariableError = Schema.Struct({name: Schema.optional(Schema.String), code: Schema.optional(Schema.Number), message: Schema.optional(Schema.String)});
+export class BatchGetVariableError extends Schema.Class<BatchGetVariableError>("BatchGetVariableError")({name: Schema.optional(Schema.String), code: Schema.optional(Schema.Number), message: Schema.optional(Schema.String)}) {}
 export const BatchGetVariableErrorList = Schema.Array(BatchGetVariableError);
-export const DetectorVersionSummary = Schema.Struct({detectorVersionId: Schema.optional(Schema.String), status: Schema.optional(Schema.String), description: Schema.optional(Schema.String), lastUpdatedTime: Schema.optional(Schema.String)});
+export class DetectorVersionSummary extends Schema.Class<DetectorVersionSummary>("DetectorVersionSummary")({detectorVersionId: Schema.optional(Schema.String), status: Schema.optional(Schema.String), description: Schema.optional(Schema.String), lastUpdatedTime: Schema.optional(Schema.String)}) {}
 export const DetectorVersionSummaryList = Schema.Array(DetectorVersionSummary);
-export const BatchImport = Schema.Struct({jobId: Schema.optional(Schema.String), status: Schema.optional(Schema.String), failureReason: Schema.optional(Schema.String), startTime: Schema.optional(Schema.String), completionTime: Schema.optional(Schema.String), inputPath: Schema.optional(Schema.String), outputPath: Schema.optional(Schema.String), eventTypeName: Schema.optional(Schema.String), iamRoleArn: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), processedRecordsCount: Schema.optional(Schema.Number), failedRecordsCount: Schema.optional(Schema.Number), totalRecordsCount: Schema.optional(Schema.Number)});
+export class BatchImport extends Schema.Class<BatchImport>("BatchImport")({jobId: Schema.optional(Schema.String), status: Schema.optional(Schema.String), failureReason: Schema.optional(Schema.String), startTime: Schema.optional(Schema.String), completionTime: Schema.optional(Schema.String), inputPath: Schema.optional(Schema.String), outputPath: Schema.optional(Schema.String), eventTypeName: Schema.optional(Schema.String), iamRoleArn: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), processedRecordsCount: Schema.optional(Schema.Number), failedRecordsCount: Schema.optional(Schema.Number), totalRecordsCount: Schema.optional(Schema.Number)}) {}
 export const BatchImportList = Schema.Array(BatchImport);
-export const BatchPrediction = Schema.Struct({jobId: Schema.optional(Schema.String), status: Schema.optional(Schema.String), failureReason: Schema.optional(Schema.String), startTime: Schema.optional(Schema.String), completionTime: Schema.optional(Schema.String), lastHeartbeatTime: Schema.optional(Schema.String), inputPath: Schema.optional(Schema.String), outputPath: Schema.optional(Schema.String), eventTypeName: Schema.optional(Schema.String), detectorName: Schema.optional(Schema.String), detectorVersion: Schema.optional(Schema.String), iamRoleArn: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), processedRecordsCount: Schema.optional(Schema.Number), totalRecordsCount: Schema.optional(Schema.Number)});
+export class BatchPrediction extends Schema.Class<BatchPrediction>("BatchPrediction")({jobId: Schema.optional(Schema.String), status: Schema.optional(Schema.String), failureReason: Schema.optional(Schema.String), startTime: Schema.optional(Schema.String), completionTime: Schema.optional(Schema.String), lastHeartbeatTime: Schema.optional(Schema.String), inputPath: Schema.optional(Schema.String), outputPath: Schema.optional(Schema.String), eventTypeName: Schema.optional(Schema.String), detectorName: Schema.optional(Schema.String), detectorVersion: Schema.optional(Schema.String), iamRoleArn: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), processedRecordsCount: Schema.optional(Schema.Number), totalRecordsCount: Schema.optional(Schema.Number)}) {}
 export const BatchPredictionList = Schema.Array(BatchPrediction);
-export const Detector = Schema.Struct({detectorId: Schema.optional(Schema.String), description: Schema.optional(Schema.String), eventTypeName: Schema.optional(Schema.String), lastUpdatedTime: Schema.optional(Schema.String), createdTime: Schema.optional(Schema.String), arn: Schema.optional(Schema.String)});
+export class Detector extends Schema.Class<Detector>("Detector")({detectorId: Schema.optional(Schema.String), description: Schema.optional(Schema.String), eventTypeName: Schema.optional(Schema.String), lastUpdatedTime: Schema.optional(Schema.String), createdTime: Schema.optional(Schema.String), arn: Schema.optional(Schema.String)}) {}
 export const DetectorList = Schema.Array(Detector);
-export const EntityType = Schema.Struct({name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), lastUpdatedTime: Schema.optional(Schema.String), createdTime: Schema.optional(Schema.String), arn: Schema.optional(Schema.String)});
+export class EntityType extends Schema.Class<EntityType>("EntityType")({name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), lastUpdatedTime: Schema.optional(Schema.String), createdTime: Schema.optional(Schema.String), arn: Schema.optional(Schema.String)}) {}
 export const entityTypeList = Schema.Array(EntityType);
 export const ExternalModelEndpointDataBlobMap = Schema.Record({key: Schema.String, value: ModelEndpointDataBlob});
-export const EventVariableSummary = Schema.Struct({name: Schema.optional(Schema.String), value: Schema.optional(Schema.String), source: Schema.optional(Schema.String)});
+export class EventVariableSummary extends Schema.Class<EventVariableSummary>("EventVariableSummary")({name: Schema.optional(Schema.String), value: Schema.optional(Schema.String), source: Schema.optional(Schema.String)}) {}
 export const ListOfEventVariableSummaries = Schema.Array(EventVariableSummary);
-export const EvaluatedRule = Schema.Struct({ruleId: Schema.optional(Schema.String), ruleVersion: Schema.optional(Schema.String), expression: Schema.optional(Schema.String), expressionWithValues: Schema.optional(Schema.String), outcomes: Schema.optional(ListOfStrings), evaluated: Schema.optional(Schema.Boolean), matched: Schema.optional(Schema.Boolean)});
+export class EvaluatedRule extends Schema.Class<EvaluatedRule>("EvaluatedRule")({ruleId: Schema.optional(Schema.String), ruleVersion: Schema.optional(Schema.String), expression: Schema.optional(Schema.String), expressionWithValues: Schema.optional(Schema.String), outcomes: Schema.optional(ListOfStrings), evaluated: Schema.optional(Schema.Boolean), matched: Schema.optional(Schema.Boolean)}) {}
 export const EvaluatedRuleList = Schema.Array(EvaluatedRule);
-export const ModelOutputConfiguration = Schema.Struct({format: Schema.String, jsonKeyToVariableMap: Schema.optional(JsonKeyToVariableMap), csvIndexToVariableMap: Schema.optional(CsvIndexToVariableMap)});
-export const ExternalModel = Schema.Struct({modelEndpoint: Schema.optional(Schema.String), modelSource: Schema.optional(Schema.String), invokeModelEndpointRoleArn: Schema.optional(Schema.String), inputConfiguration: Schema.optional(ModelInputConfiguration), outputConfiguration: Schema.optional(ModelOutputConfiguration), modelEndpointStatus: Schema.optional(Schema.String), lastUpdatedTime: Schema.optional(Schema.String), createdTime: Schema.optional(Schema.String), arn: Schema.optional(Schema.String)});
+export class ModelOutputConfiguration extends Schema.Class<ModelOutputConfiguration>("ModelOutputConfiguration")({format: Schema.String, jsonKeyToVariableMap: Schema.optional(JsonKeyToVariableMap), csvIndexToVariableMap: Schema.optional(CsvIndexToVariableMap)}) {}
+export class ExternalModel extends Schema.Class<ExternalModel>("ExternalModel")({modelEndpoint: Schema.optional(Schema.String), modelSource: Schema.optional(Schema.String), invokeModelEndpointRoleArn: Schema.optional(Schema.String), inputConfiguration: Schema.optional(ModelInputConfiguration), outputConfiguration: Schema.optional(ModelOutputConfiguration), modelEndpointStatus: Schema.optional(Schema.String), lastUpdatedTime: Schema.optional(Schema.String), createdTime: Schema.optional(Schema.String), arn: Schema.optional(Schema.String)}) {}
 export const ExternalModelList = Schema.Array(ExternalModel);
-export const Label = Schema.Struct({name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), lastUpdatedTime: Schema.optional(Schema.String), createdTime: Schema.optional(Schema.String), arn: Schema.optional(Schema.String)});
+export class Label extends Schema.Class<Label>("Label")({name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), lastUpdatedTime: Schema.optional(Schema.String), createdTime: Schema.optional(Schema.String), arn: Schema.optional(Schema.String)}) {}
 export const labelList = Schema.Array(Label);
-export const AllowDenyList = Schema.Struct({name: Schema.String, description: Schema.optional(Schema.String), variableType: Schema.optional(Schema.String), createdTime: Schema.optional(Schema.String), updatedTime: Schema.optional(Schema.String), arn: Schema.optional(Schema.String)});
+export class AllowDenyList extends Schema.Class<AllowDenyList>("AllowDenyList")({name: Schema.String, description: Schema.optional(Schema.String), variableType: Schema.optional(Schema.String), createdTime: Schema.optional(Schema.String), updatedTime: Schema.optional(Schema.String), arn: Schema.optional(Schema.String)}) {}
 export const AllowDenyLists = Schema.Array(AllowDenyList);
-export const Model = Schema.Struct({modelId: Schema.optional(Schema.String), modelType: Schema.optional(Schema.String), description: Schema.optional(Schema.String), eventTypeName: Schema.optional(Schema.String), createdTime: Schema.optional(Schema.String), lastUpdatedTime: Schema.optional(Schema.String), arn: Schema.optional(Schema.String)});
+export class Model extends Schema.Class<Model>("Model")({modelId: Schema.optional(Schema.String), modelType: Schema.optional(Schema.String), description: Schema.optional(Schema.String), eventTypeName: Schema.optional(Schema.String), createdTime: Schema.optional(Schema.String), lastUpdatedTime: Schema.optional(Schema.String), arn: Schema.optional(Schema.String)}) {}
 export const modelList = Schema.Array(Model);
-export const Outcome = Schema.Struct({name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), lastUpdatedTime: Schema.optional(Schema.String), createdTime: Schema.optional(Schema.String), arn: Schema.optional(Schema.String)});
+export class Outcome extends Schema.Class<Outcome>("Outcome")({name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), lastUpdatedTime: Schema.optional(Schema.String), createdTime: Schema.optional(Schema.String), arn: Schema.optional(Schema.String)}) {}
 export const OutcomeList = Schema.Array(Outcome);
-export const RuleDetail = Schema.Struct({ruleId: Schema.optional(Schema.String), description: Schema.optional(Schema.String), detectorId: Schema.optional(Schema.String), ruleVersion: Schema.optional(Schema.String), expression: Schema.optional(Schema.String), language: Schema.optional(Schema.String), outcomes: Schema.optional(NonEmptyListOfStrings), lastUpdatedTime: Schema.optional(Schema.String), createdTime: Schema.optional(Schema.String), arn: Schema.optional(Schema.String)});
+export class RuleDetail extends Schema.Class<RuleDetail>("RuleDetail")({ruleId: Schema.optional(Schema.String), description: Schema.optional(Schema.String), detectorId: Schema.optional(Schema.String), ruleVersion: Schema.optional(Schema.String), expression: Schema.optional(Schema.String), language: Schema.optional(Schema.String), outcomes: Schema.optional(NonEmptyListOfStrings), lastUpdatedTime: Schema.optional(Schema.String), createdTime: Schema.optional(Schema.String), arn: Schema.optional(Schema.String)}) {}
 export const RuleDetailList = Schema.Array(RuleDetail);
-export const BatchGetVariableResult = Schema.Struct({variables: Schema.optional(VariableList), errors: Schema.optional(BatchGetVariableErrorList)});
-export const CreateDetectorVersionResult = Schema.Struct({detectorId: Schema.optional(Schema.String), detectorVersionId: Schema.optional(Schema.String), status: Schema.optional(Schema.String)});
-export const DescribeDetectorResult = Schema.Struct({detectorId: Schema.optional(Schema.String), detectorVersionSummaries: Schema.optional(DetectorVersionSummaryList), nextToken: Schema.optional(Schema.String), arn: Schema.optional(Schema.String)});
-export const GetBatchImportJobsResult = Schema.Struct({batchImports: Schema.optional(BatchImportList), nextToken: Schema.optional(Schema.String)});
-export const GetBatchPredictionJobsResult = Schema.Struct({batchPredictions: Schema.optional(BatchPredictionList), nextToken: Schema.optional(Schema.String)});
-export const GetDetectorsResult = Schema.Struct({detectors: Schema.optional(DetectorList), nextToken: Schema.optional(Schema.String)});
-export const GetEntityTypesResult = Schema.Struct({entityTypes: Schema.optional(entityTypeList), nextToken: Schema.optional(Schema.String)});
-export const GetEventPredictionRequest = Schema.Struct({detectorId: Schema.String, detectorVersionId: Schema.optional(Schema.String), eventId: Schema.String, eventTypeName: Schema.String, entities: listOfEntities, eventTimestamp: Schema.String, eventVariables: EventVariableMap, externalModelEndpointDataBlobs: Schema.optional(ExternalModelEndpointDataBlobMap)});
-export const GetExternalModelsResult = Schema.Struct({externalModels: Schema.optional(ExternalModelList), nextToken: Schema.optional(Schema.String)});
-export const GetLabelsResult = Schema.Struct({labels: Schema.optional(labelList), nextToken: Schema.optional(Schema.String)});
-export const GetListsMetadataResult = Schema.Struct({lists: Schema.optional(AllowDenyLists), nextToken: Schema.optional(Schema.String)});
-export const GetModelsResult = Schema.Struct({nextToken: Schema.optional(Schema.String), models: Schema.optional(modelList)});
-export const GetOutcomesResult = Schema.Struct({outcomes: Schema.optional(OutcomeList), nextToken: Schema.optional(Schema.String)});
-export const GetRulesResult = Schema.Struct({ruleDetails: Schema.optional(RuleDetailList), nextToken: Schema.optional(Schema.String)});
-export const PutExternalModelRequest = Schema.Struct({modelEndpoint: Schema.String, modelSource: Schema.String, invokeModelEndpointRoleArn: Schema.String, inputConfiguration: ModelInputConfiguration, outputConfiguration: ModelOutputConfiguration, modelEndpointStatus: Schema.String, tags: Schema.optional(tagList)});
-export const PutExternalModelResult = Schema.Struct({});
+export class BatchGetVariableResult extends Schema.Class<BatchGetVariableResult>("BatchGetVariableResult")({variables: Schema.optional(VariableList), errors: Schema.optional(BatchGetVariableErrorList)}) {}
+export class CreateDetectorVersionResult extends Schema.Class<CreateDetectorVersionResult>("CreateDetectorVersionResult")({detectorId: Schema.optional(Schema.String), detectorVersionId: Schema.optional(Schema.String), status: Schema.optional(Schema.String)}) {}
+export class DescribeDetectorResult extends Schema.Class<DescribeDetectorResult>("DescribeDetectorResult")({detectorId: Schema.optional(Schema.String), detectorVersionSummaries: Schema.optional(DetectorVersionSummaryList), nextToken: Schema.optional(Schema.String), arn: Schema.optional(Schema.String)}) {}
+export class GetBatchImportJobsResult extends Schema.Class<GetBatchImportJobsResult>("GetBatchImportJobsResult")({batchImports: Schema.optional(BatchImportList), nextToken: Schema.optional(Schema.String)}) {}
+export class GetBatchPredictionJobsResult extends Schema.Class<GetBatchPredictionJobsResult>("GetBatchPredictionJobsResult")({batchPredictions: Schema.optional(BatchPredictionList), nextToken: Schema.optional(Schema.String)}) {}
+export class GetDetectorsResult extends Schema.Class<GetDetectorsResult>("GetDetectorsResult")({detectors: Schema.optional(DetectorList), nextToken: Schema.optional(Schema.String)}) {}
+export class GetEntityTypesResult extends Schema.Class<GetEntityTypesResult>("GetEntityTypesResult")({entityTypes: Schema.optional(entityTypeList), nextToken: Schema.optional(Schema.String)}) {}
+export class GetEventPredictionRequest extends Schema.Class<GetEventPredictionRequest>("GetEventPredictionRequest")({detectorId: Schema.String, detectorVersionId: Schema.optional(Schema.String), eventId: Schema.String, eventTypeName: Schema.String, entities: listOfEntities, eventTimestamp: Schema.String, eventVariables: EventVariableMap, externalModelEndpointDataBlobs: Schema.optional(ExternalModelEndpointDataBlobMap)}) {}
+export class GetExternalModelsResult extends Schema.Class<GetExternalModelsResult>("GetExternalModelsResult")({externalModels: Schema.optional(ExternalModelList), nextToken: Schema.optional(Schema.String)}) {}
+export class GetLabelsResult extends Schema.Class<GetLabelsResult>("GetLabelsResult")({labels: Schema.optional(labelList), nextToken: Schema.optional(Schema.String)}) {}
+export class GetListsMetadataResult extends Schema.Class<GetListsMetadataResult>("GetListsMetadataResult")({lists: Schema.optional(AllowDenyLists), nextToken: Schema.optional(Schema.String)}) {}
+export class GetModelsResult extends Schema.Class<GetModelsResult>("GetModelsResult")({nextToken: Schema.optional(Schema.String), models: Schema.optional(modelList)}) {}
+export class GetOutcomesResult extends Schema.Class<GetOutcomesResult>("GetOutcomesResult")({outcomes: Schema.optional(OutcomeList), nextToken: Schema.optional(Schema.String)}) {}
+export class GetRulesResult extends Schema.Class<GetRulesResult>("GetRulesResult")({ruleDetails: Schema.optional(RuleDetailList), nextToken: Schema.optional(Schema.String)}) {}
+export class PutExternalModelRequest extends Schema.Class<PutExternalModelRequest>("PutExternalModelRequest")({modelEndpoint: Schema.String, modelSource: Schema.String, invokeModelEndpointRoleArn: Schema.String, inputConfiguration: ModelInputConfiguration, outputConfiguration: ModelOutputConfiguration, modelEndpointStatus: Schema.String, tags: Schema.optional(tagList)}) {}
+export class PutExternalModelResult extends Schema.Class<PutExternalModelResult>("PutExternalModelResult")({}) {}
 export const EventAttributeMap = Schema.Record({key: Schema.String, value: Schema.String});
 export const MapOfStrings = Schema.Record({key: Schema.String, value: Schema.String});
-export const IngestedEventStatistics = Schema.Struct({numberOfEvents: Schema.optional(Schema.Number), eventDataSizeInBytes: Schema.optional(Schema.Number), leastRecentEvent: Schema.optional(Schema.String), mostRecentEvent: Schema.optional(Schema.String), lastUpdatedTime: Schema.optional(Schema.String)});
-export const BatchCreateVariableError = Schema.Struct({name: Schema.optional(Schema.String), code: Schema.optional(Schema.Number), message: Schema.optional(Schema.String)});
+export class IngestedEventStatistics extends Schema.Class<IngestedEventStatistics>("IngestedEventStatistics")({numberOfEvents: Schema.optional(Schema.Number), eventDataSizeInBytes: Schema.optional(Schema.Number), leastRecentEvent: Schema.optional(Schema.String), mostRecentEvent: Schema.optional(Schema.String), lastUpdatedTime: Schema.optional(Schema.String)}) {}
+export class BatchCreateVariableError extends Schema.Class<BatchCreateVariableError>("BatchCreateVariableError")({name: Schema.optional(Schema.String), code: Schema.optional(Schema.Number), message: Schema.optional(Schema.String)}) {}
 export const BatchCreateVariableErrorList = Schema.Array(BatchCreateVariableError);
-export const Event = Schema.Struct({eventId: Schema.optional(Schema.String), eventTypeName: Schema.optional(Schema.String), eventTimestamp: Schema.optional(Schema.String), eventVariables: Schema.optional(EventAttributeMap), currentLabel: Schema.optional(Schema.String), labelTimestamp: Schema.optional(Schema.String), entities: Schema.optional(listOfEntities)});
-export const EvaluatedExternalModel = Schema.Struct({modelEndpoint: Schema.optional(Schema.String), useEventVariables: Schema.optional(Schema.Boolean), inputVariables: Schema.optional(MapOfStrings), outputVariables: Schema.optional(MapOfStrings)});
+export class Event extends Schema.Class<Event>("Event")({eventId: Schema.optional(Schema.String), eventTypeName: Schema.optional(Schema.String), eventTimestamp: Schema.optional(Schema.String), eventVariables: Schema.optional(EventAttributeMap), currentLabel: Schema.optional(Schema.String), labelTimestamp: Schema.optional(Schema.String), entities: Schema.optional(listOfEntities)}) {}
+export class EvaluatedExternalModel extends Schema.Class<EvaluatedExternalModel>("EvaluatedExternalModel")({modelEndpoint: Schema.optional(Schema.String), useEventVariables: Schema.optional(Schema.Boolean), inputVariables: Schema.optional(MapOfStrings), outputVariables: Schema.optional(MapOfStrings)}) {}
 export const ListOfEvaluatedExternalModels = Schema.Array(EvaluatedExternalModel);
-export const EventType = Schema.Struct({name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), eventVariables: Schema.optional(ListOfStrings), labels: Schema.optional(ListOfStrings), entityTypes: Schema.optional(NonEmptyListOfStrings), eventIngestion: Schema.optional(Schema.String), ingestedEventStatistics: Schema.optional(IngestedEventStatistics), lastUpdatedTime: Schema.optional(Schema.String), createdTime: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), eventOrchestration: Schema.optional(EventOrchestration)});
+export class EventType extends Schema.Class<EventType>("EventType")({name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), eventVariables: Schema.optional(ListOfStrings), labels: Schema.optional(ListOfStrings), entityTypes: Schema.optional(NonEmptyListOfStrings), eventIngestion: Schema.optional(Schema.String), ingestedEventStatistics: Schema.optional(IngestedEventStatistics), lastUpdatedTime: Schema.optional(Schema.String), createdTime: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), eventOrchestration: Schema.optional(EventOrchestration)}) {}
 export const eventTypeList = Schema.Array(EventType);
-export const EventPredictionSummary = Schema.Struct({eventId: Schema.optional(Schema.String), eventTypeName: Schema.optional(Schema.String), eventTimestamp: Schema.optional(Schema.String), predictionTimestamp: Schema.optional(Schema.String), detectorId: Schema.optional(Schema.String), detectorVersionId: Schema.optional(Schema.String)});
+export class EventPredictionSummary extends Schema.Class<EventPredictionSummary>("EventPredictionSummary")({eventId: Schema.optional(Schema.String), eventTypeName: Schema.optional(Schema.String), eventTimestamp: Schema.optional(Schema.String), predictionTimestamp: Schema.optional(Schema.String), detectorId: Schema.optional(Schema.String), detectorVersionId: Schema.optional(Schema.String)}) {}
 export const ListOfEventPredictionSummaries = Schema.Array(EventPredictionSummary);
-export const BatchCreateVariableResult = Schema.Struct({errors: Schema.optional(BatchCreateVariableErrorList)});
-export const CreateModelVersionRequest = Schema.Struct({modelId: Schema.String, modelType: Schema.String, trainingDataSource: Schema.String, trainingDataSchema: TrainingDataSchema, externalEventsDetail: Schema.optional(ExternalEventsDetail), ingestedEventsDetail: Schema.optional(IngestedEventsDetail), tags: Schema.optional(tagList)});
-export const GetEventResult = Schema.Struct({event: Schema.optional(Event)});
-export const GetEventTypesResult = Schema.Struct({eventTypes: Schema.optional(eventTypeList), nextToken: Schema.optional(Schema.String)});
-export const ListEventPredictionsResult = Schema.Struct({eventPredictionSummaries: Schema.optional(ListOfEventPredictionSummaries), nextToken: Schema.optional(Schema.String)});
-export const FileValidationMessage = Schema.Struct({title: Schema.optional(Schema.String), content: Schema.optional(Schema.String), type: Schema.optional(Schema.String)});
+export class BatchCreateVariableResult extends Schema.Class<BatchCreateVariableResult>("BatchCreateVariableResult")({errors: Schema.optional(BatchCreateVariableErrorList)}) {}
+export class CreateModelVersionRequest extends Schema.Class<CreateModelVersionRequest>("CreateModelVersionRequest")({modelId: Schema.String, modelType: Schema.String, trainingDataSource: Schema.String, trainingDataSchema: TrainingDataSchema, externalEventsDetail: Schema.optional(ExternalEventsDetail), ingestedEventsDetail: Schema.optional(IngestedEventsDetail), tags: Schema.optional(tagList)}) {}
+export class GetEventResult extends Schema.Class<GetEventResult>("GetEventResult")({event: Schema.optional(Event)}) {}
+export class GetEventTypesResult extends Schema.Class<GetEventTypesResult>("GetEventTypesResult")({eventTypes: Schema.optional(eventTypeList), nextToken: Schema.optional(Schema.String)}) {}
+export class ListEventPredictionsResult extends Schema.Class<ListEventPredictionsResult>("ListEventPredictionsResult")({eventPredictionSummaries: Schema.optional(ListOfEventPredictionSummaries), nextToken: Schema.optional(Schema.String)}) {}
+export class FileValidationMessage extends Schema.Class<FileValidationMessage>("FileValidationMessage")({title: Schema.optional(Schema.String), content: Schema.optional(Schema.String), type: Schema.optional(Schema.String)}) {}
 export const fileValidationMessageList = Schema.Array(FileValidationMessage);
-export const FieldValidationMessage = Schema.Struct({fieldName: Schema.optional(Schema.String), identifier: Schema.optional(Schema.String), title: Schema.optional(Schema.String), content: Schema.optional(Schema.String), type: Schema.optional(Schema.String)});
+export class FieldValidationMessage extends Schema.Class<FieldValidationMessage>("FieldValidationMessage")({fieldName: Schema.optional(Schema.String), identifier: Schema.optional(Schema.String), title: Schema.optional(Schema.String), content: Schema.optional(Schema.String), type: Schema.optional(Schema.String)}) {}
 export const fieldValidationMessageList = Schema.Array(FieldValidationMessage);
-export const MetricDataPoint = Schema.Struct({fpr: Schema.optional(Schema.Number), precision: Schema.optional(Schema.Number), tpr: Schema.optional(Schema.Number), threshold: Schema.optional(Schema.Number)});
+export class MetricDataPoint extends Schema.Class<MetricDataPoint>("MetricDataPoint")({fpr: Schema.optional(Schema.Number), precision: Schema.optional(Schema.Number), tpr: Schema.optional(Schema.Number), threshold: Schema.optional(Schema.Number)}) {}
 export const metricDataPointsList = Schema.Array(MetricDataPoint);
-export const LogOddsMetric = Schema.Struct({variableName: Schema.String, variableType: Schema.String, variableImportance: Schema.Number});
+export class LogOddsMetric extends Schema.Class<LogOddsMetric>("LogOddsMetric")({variableName: Schema.String, variableType: Schema.String, variableImportance: Schema.Number}) {}
 export const ListOfLogOddsMetrics = Schema.Array(LogOddsMetric);
-export const AggregatedLogOddsMetric = Schema.Struct({variableNames: ListOfStrings, aggregatedVariablesImportance: Schema.Number});
+export class AggregatedLogOddsMetric extends Schema.Class<AggregatedLogOddsMetric>("AggregatedLogOddsMetric")({variableNames: ListOfStrings, aggregatedVariablesImportance: Schema.Number}) {}
 export const ListOfAggregatedLogOddsMetrics = Schema.Array(AggregatedLogOddsMetric);
-export const VariableImpactExplanation = Schema.Struct({eventVariableName: Schema.optional(Schema.String), relativeImpact: Schema.optional(Schema.String), logOddsImpact: Schema.optional(Schema.Number)});
+export class VariableImpactExplanation extends Schema.Class<VariableImpactExplanation>("VariableImpactExplanation")({eventVariableName: Schema.optional(Schema.String), relativeImpact: Schema.optional(Schema.String), logOddsImpact: Schema.optional(Schema.Number)}) {}
 export const listOfVariableImpactExplanations = Schema.Array(VariableImpactExplanation);
-export const AggregatedVariablesImpactExplanation = Schema.Struct({eventVariableNames: Schema.optional(ListOfStrings), relativeImpact: Schema.optional(Schema.String), logOddsImpact: Schema.optional(Schema.Number)});
+export class AggregatedVariablesImpactExplanation extends Schema.Class<AggregatedVariablesImpactExplanation>("AggregatedVariablesImpactExplanation")({eventVariableNames: Schema.optional(ListOfStrings), relativeImpact: Schema.optional(Schema.String), logOddsImpact: Schema.optional(Schema.Number)}) {}
 export const ListOfAggregatedVariablesImpactExplanations = Schema.Array(AggregatedVariablesImpactExplanation);
-export const RuleResult = Schema.Struct({ruleId: Schema.optional(Schema.String), outcomes: Schema.optional(ListOfStrings)});
+export class RuleResult extends Schema.Class<RuleResult>("RuleResult")({ruleId: Schema.optional(Schema.String), outcomes: Schema.optional(ListOfStrings)}) {}
 export const ListOfRuleResults = Schema.Array(RuleResult);
-export const DataValidationMetrics = Schema.Struct({fileLevelMessages: Schema.optional(fileValidationMessageList), fieldLevelMessages: Schema.optional(fieldValidationMessageList)});
-export const TrainingMetrics = Schema.Struct({auc: Schema.optional(Schema.Number), metricDataPoints: Schema.optional(metricDataPointsList)});
-export const VariableImportanceMetrics = Schema.Struct({logOddsMetrics: Schema.optional(ListOfLogOddsMetrics)});
-export const AggregatedVariablesImportanceMetrics = Schema.Struct({logOddsMetrics: Schema.optional(ListOfAggregatedLogOddsMetrics)});
-export const PredictionExplanations = Schema.Struct({variableImpactExplanations: Schema.optional(listOfVariableImpactExplanations), aggregatedVariablesImpactExplanations: Schema.optional(ListOfAggregatedVariablesImpactExplanations)});
-export const CreateModelVersionResult = Schema.Struct({modelId: Schema.optional(Schema.String), modelType: Schema.optional(Schema.String), modelVersionNumber: Schema.optional(Schema.String), status: Schema.optional(Schema.String)});
-export const OFIMetricDataPoint = Schema.Struct({fpr: Schema.optional(Schema.Number), precision: Schema.optional(Schema.Number), tpr: Schema.optional(Schema.Number), threshold: Schema.optional(Schema.Number)});
+export class DataValidationMetrics extends Schema.Class<DataValidationMetrics>("DataValidationMetrics")({fileLevelMessages: Schema.optional(fileValidationMessageList), fieldLevelMessages: Schema.optional(fieldValidationMessageList)}) {}
+export class TrainingMetrics extends Schema.Class<TrainingMetrics>("TrainingMetrics")({auc: Schema.optional(Schema.Number), metricDataPoints: Schema.optional(metricDataPointsList)}) {}
+export class VariableImportanceMetrics extends Schema.Class<VariableImportanceMetrics>("VariableImportanceMetrics")({logOddsMetrics: Schema.optional(ListOfLogOddsMetrics)}) {}
+export class AggregatedVariablesImportanceMetrics extends Schema.Class<AggregatedVariablesImportanceMetrics>("AggregatedVariablesImportanceMetrics")({logOddsMetrics: Schema.optional(ListOfAggregatedLogOddsMetrics)}) {}
+export class PredictionExplanations extends Schema.Class<PredictionExplanations>("PredictionExplanations")({variableImpactExplanations: Schema.optional(listOfVariableImpactExplanations), aggregatedVariablesImpactExplanations: Schema.optional(ListOfAggregatedVariablesImpactExplanations)}) {}
+export class CreateModelVersionResult extends Schema.Class<CreateModelVersionResult>("CreateModelVersionResult")({modelId: Schema.optional(Schema.String), modelType: Schema.optional(Schema.String), modelVersionNumber: Schema.optional(Schema.String), status: Schema.optional(Schema.String)}) {}
+export class OFIMetricDataPoint extends Schema.Class<OFIMetricDataPoint>("OFIMetricDataPoint")({fpr: Schema.optional(Schema.Number), precision: Schema.optional(Schema.Number), tpr: Schema.optional(Schema.Number), threshold: Schema.optional(Schema.Number)}) {}
 export const OFIMetricDataPointsList = Schema.Array(OFIMetricDataPoint);
-export const TFIMetricDataPoint = Schema.Struct({fpr: Schema.optional(Schema.Number), precision: Schema.optional(Schema.Number), tpr: Schema.optional(Schema.Number), threshold: Schema.optional(Schema.Number)});
+export class TFIMetricDataPoint extends Schema.Class<TFIMetricDataPoint>("TFIMetricDataPoint")({fpr: Schema.optional(Schema.Number), precision: Schema.optional(Schema.Number), tpr: Schema.optional(Schema.Number), threshold: Schema.optional(Schema.Number)}) {}
 export const TFIMetricDataPointsList = Schema.Array(TFIMetricDataPoint);
-export const UncertaintyRange = Schema.Struct({lowerBoundValue: Schema.Number, upperBoundValue: Schema.Number});
-export const TFIModelPerformance = Schema.Struct({auc: Schema.optional(Schema.Number), uncertaintyRange: Schema.optional(UncertaintyRange)});
-export const ATIMetricDataPoint = Schema.Struct({cr: Schema.optional(Schema.Number), adr: Schema.optional(Schema.Number), threshold: Schema.optional(Schema.Number), atodr: Schema.optional(Schema.Number)});
+export class UncertaintyRange extends Schema.Class<UncertaintyRange>("UncertaintyRange")({lowerBoundValue: Schema.Number, upperBoundValue: Schema.Number}) {}
+export class TFIModelPerformance extends Schema.Class<TFIModelPerformance>("TFIModelPerformance")({auc: Schema.optional(Schema.Number), uncertaintyRange: Schema.optional(UncertaintyRange)}) {}
+export class ATIMetricDataPoint extends Schema.Class<ATIMetricDataPoint>("ATIMetricDataPoint")({cr: Schema.optional(Schema.Number), adr: Schema.optional(Schema.Number), threshold: Schema.optional(Schema.Number), atodr: Schema.optional(Schema.Number)}) {}
 export const ATIMetricDataPointsList = Schema.Array(ATIMetricDataPoint);
-export const ATIModelPerformance = Schema.Struct({asi: Schema.optional(Schema.Number)});
-export const TrainingResult = Schema.Struct({dataValidationMetrics: Schema.optional(DataValidationMetrics), trainingMetrics: Schema.optional(TrainingMetrics), variableImportanceMetrics: Schema.optional(VariableImportanceMetrics)});
+export class ATIModelPerformance extends Schema.Class<ATIModelPerformance>("ATIModelPerformance")({asi: Schema.optional(Schema.Number)}) {}
+export class TrainingResult extends Schema.Class<TrainingResult>("TrainingResult")({dataValidationMetrics: Schema.optional(DataValidationMetrics), trainingMetrics: Schema.optional(TrainingMetrics), variableImportanceMetrics: Schema.optional(VariableImportanceMetrics)}) {}
 export const ModelPredictionMap = Schema.Record({key: Schema.String, value: Schema.Number});
-export const ExternalModelSummary = Schema.Struct({modelEndpoint: Schema.optional(Schema.String), modelSource: Schema.optional(Schema.String)});
+export class ExternalModelSummary extends Schema.Class<ExternalModelSummary>("ExternalModelSummary")({modelEndpoint: Schema.optional(Schema.String), modelSource: Schema.optional(Schema.String)}) {}
 export const ExternalModelPredictionMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const ModelVersionEvaluation = Schema.Struct({outputVariableName: Schema.optional(Schema.String), evaluationScore: Schema.optional(Schema.String), predictionExplanations: Schema.optional(PredictionExplanations)});
+export class ModelVersionEvaluation extends Schema.Class<ModelVersionEvaluation>("ModelVersionEvaluation")({outputVariableName: Schema.optional(Schema.String), evaluationScore: Schema.optional(Schema.String), predictionExplanations: Schema.optional(PredictionExplanations)}) {}
 export const ListOfModelVersionEvaluations = Schema.Array(ModelVersionEvaluation);
-export const TFITrainingMetricsValue = Schema.Struct({metricDataPoints: Schema.optional(TFIMetricDataPointsList), modelPerformance: Schema.optional(TFIModelPerformance)});
-export const ATITrainingMetricsValue = Schema.Struct({metricDataPoints: Schema.optional(ATIMetricDataPointsList), modelPerformance: Schema.optional(ATIModelPerformance)});
-export const ModelScores = Schema.Struct({modelVersion: Schema.optional(ModelVersion), scores: Schema.optional(ModelPredictionMap)});
+export class TFITrainingMetricsValue extends Schema.Class<TFITrainingMetricsValue>("TFITrainingMetricsValue")({metricDataPoints: Schema.optional(TFIMetricDataPointsList), modelPerformance: Schema.optional(TFIModelPerformance)}) {}
+export class ATITrainingMetricsValue extends Schema.Class<ATITrainingMetricsValue>("ATITrainingMetricsValue")({metricDataPoints: Schema.optional(ATIMetricDataPointsList), modelPerformance: Schema.optional(ATIModelPerformance)}) {}
+export class ModelScores extends Schema.Class<ModelScores>("ModelScores")({modelVersion: Schema.optional(ModelVersion), scores: Schema.optional(ModelPredictionMap)}) {}
 export const ListOfModelScores = Schema.Array(ModelScores);
-export const ExternalModelOutputs = Schema.Struct({externalModel: Schema.optional(ExternalModelSummary), outputs: Schema.optional(ExternalModelPredictionMap)});
+export class ExternalModelOutputs extends Schema.Class<ExternalModelOutputs>("ExternalModelOutputs")({externalModel: Schema.optional(ExternalModelSummary), outputs: Schema.optional(ExternalModelPredictionMap)}) {}
 export const ListOfExternalModelOutputs = Schema.Array(ExternalModelOutputs);
-export const EvaluatedModelVersion = Schema.Struct({modelId: Schema.optional(Schema.String), modelVersion: Schema.optional(Schema.String), modelType: Schema.optional(Schema.String), evaluations: Schema.optional(ListOfModelVersionEvaluations)});
+export class EvaluatedModelVersion extends Schema.Class<EvaluatedModelVersion>("EvaluatedModelVersion")({modelId: Schema.optional(Schema.String), modelVersion: Schema.optional(Schema.String), modelType: Schema.optional(Schema.String), evaluations: Schema.optional(ListOfModelVersionEvaluations)}) {}
 export const ListOfEvaluatedModelVersions = Schema.Array(EvaluatedModelVersion);
-export const OFIModelPerformance = Schema.Struct({auc: Schema.optional(Schema.Number), uncertaintyRange: Schema.optional(UncertaintyRange)});
-export const GetEventPredictionResult = Schema.Struct({modelScores: Schema.optional(ListOfModelScores), ruleResults: Schema.optional(ListOfRuleResults), externalModelOutputs: Schema.optional(ListOfExternalModelOutputs)});
-export const GetEventPredictionMetadataResult = Schema.Struct({eventId: Schema.optional(Schema.String), eventTypeName: Schema.optional(Schema.String), entityId: Schema.optional(Schema.String), entityType: Schema.optional(Schema.String), eventTimestamp: Schema.optional(Schema.String), detectorId: Schema.optional(Schema.String), detectorVersionId: Schema.optional(Schema.String), detectorVersionStatus: Schema.optional(Schema.String), eventVariables: Schema.optional(ListOfEventVariableSummaries), rules: Schema.optional(EvaluatedRuleList), ruleExecutionMode: Schema.optional(Schema.String), outcomes: Schema.optional(ListOfStrings), evaluatedModelVersions: Schema.optional(ListOfEvaluatedModelVersions), evaluatedExternalModels: Schema.optional(ListOfEvaluatedExternalModels), predictionTimestamp: Schema.optional(Schema.String)});
-export const OFITrainingMetricsValue = Schema.Struct({metricDataPoints: Schema.optional(OFIMetricDataPointsList), modelPerformance: Schema.optional(OFIModelPerformance)});
-export const TrainingMetricsV2 = Schema.Struct({ofi: Schema.optional(OFITrainingMetricsValue), tfi: Schema.optional(TFITrainingMetricsValue), ati: Schema.optional(ATITrainingMetricsValue)});
-export const ResourceUnavailableException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const TrainingResultV2 = Schema.Struct({dataValidationMetrics: Schema.optional(DataValidationMetrics), trainingMetricsV2: Schema.optional(TrainingMetricsV2), variableImportanceMetrics: Schema.optional(VariableImportanceMetrics), aggregatedVariablesImportanceMetrics: Schema.optional(AggregatedVariablesImportanceMetrics)});
-export const ModelVersionDetail = Schema.Struct({modelId: Schema.optional(Schema.String), modelType: Schema.optional(Schema.String), modelVersionNumber: Schema.optional(Schema.String), status: Schema.optional(Schema.String), trainingDataSource: Schema.optional(Schema.String), trainingDataSchema: Schema.optional(TrainingDataSchema), externalEventsDetail: Schema.optional(ExternalEventsDetail), ingestedEventsDetail: Schema.optional(IngestedEventsDetail), trainingResult: Schema.optional(TrainingResult), lastUpdatedTime: Schema.optional(Schema.String), createdTime: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), trainingResultV2: Schema.optional(TrainingResultV2)});
+export class OFIModelPerformance extends Schema.Class<OFIModelPerformance>("OFIModelPerformance")({auc: Schema.optional(Schema.Number), uncertaintyRange: Schema.optional(UncertaintyRange)}) {}
+export class GetEventPredictionResult extends Schema.Class<GetEventPredictionResult>("GetEventPredictionResult")({modelScores: Schema.optional(ListOfModelScores), ruleResults: Schema.optional(ListOfRuleResults), externalModelOutputs: Schema.optional(ListOfExternalModelOutputs)}) {}
+export class GetEventPredictionMetadataResult extends Schema.Class<GetEventPredictionMetadataResult>("GetEventPredictionMetadataResult")({eventId: Schema.optional(Schema.String), eventTypeName: Schema.optional(Schema.String), entityId: Schema.optional(Schema.String), entityType: Schema.optional(Schema.String), eventTimestamp: Schema.optional(Schema.String), detectorId: Schema.optional(Schema.String), detectorVersionId: Schema.optional(Schema.String), detectorVersionStatus: Schema.optional(Schema.String), eventVariables: Schema.optional(ListOfEventVariableSummaries), rules: Schema.optional(EvaluatedRuleList), ruleExecutionMode: Schema.optional(Schema.String), outcomes: Schema.optional(ListOfStrings), evaluatedModelVersions: Schema.optional(ListOfEvaluatedModelVersions), evaluatedExternalModels: Schema.optional(ListOfEvaluatedExternalModels), predictionTimestamp: Schema.optional(Schema.String)}) {}
+export class OFITrainingMetricsValue extends Schema.Class<OFITrainingMetricsValue>("OFITrainingMetricsValue")({metricDataPoints: Schema.optional(OFIMetricDataPointsList), modelPerformance: Schema.optional(OFIModelPerformance)}) {}
+export class TrainingMetricsV2 extends Schema.Class<TrainingMetricsV2>("TrainingMetricsV2")({ofi: Schema.optional(OFITrainingMetricsValue), tfi: Schema.optional(TFITrainingMetricsValue), ati: Schema.optional(ATITrainingMetricsValue)}) {}
+export class ResourceUnavailableException extends Schema.Class<ResourceUnavailableException>("ResourceUnavailableException")({message: Schema.optional(Schema.String)}) {}
+export class TrainingResultV2 extends Schema.Class<TrainingResultV2>("TrainingResultV2")({dataValidationMetrics: Schema.optional(DataValidationMetrics), trainingMetricsV2: Schema.optional(TrainingMetricsV2), variableImportanceMetrics: Schema.optional(VariableImportanceMetrics), aggregatedVariablesImportanceMetrics: Schema.optional(AggregatedVariablesImportanceMetrics)}) {}
+export class ModelVersionDetail extends Schema.Class<ModelVersionDetail>("ModelVersionDetail")({modelId: Schema.optional(Schema.String), modelType: Schema.optional(Schema.String), modelVersionNumber: Schema.optional(Schema.String), status: Schema.optional(Schema.String), trainingDataSource: Schema.optional(Schema.String), trainingDataSchema: Schema.optional(TrainingDataSchema), externalEventsDetail: Schema.optional(ExternalEventsDetail), ingestedEventsDetail: Schema.optional(IngestedEventsDetail), trainingResult: Schema.optional(TrainingResult), lastUpdatedTime: Schema.optional(Schema.String), createdTime: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), trainingResultV2: Schema.optional(TrainingResultV2)}) {}
 export const modelVersionDetailList = Schema.Array(ModelVersionDetail);
-export const DescribeModelVersionsResult = Schema.Struct({modelVersionDetails: Schema.optional(modelVersionDetailList), nextToken: Schema.optional(Schema.String)});
+export class DescribeModelVersionsResult extends Schema.Class<DescribeModelVersionsResult>("DescribeModelVersionsResult")({modelVersionDetails: Schema.optional(modelVersionDetailList), nextToken: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class ResourceUnavailableExceptionError extends Schema.TaggedError<ResourceUnavailableExceptionError>()("ResourceUnavailableException", ResourceUnavailableException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class ResourceUnavailableExceptionError extends Schema.TaggedError<ResourceUnavailableExceptionError>()("ResourceUnavailableException", ResourceUnavailableException.fields) {};
 
 //# Operations
 export const createModel = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-11-15", uri: "/", method: "POST", sdkId: "FraudDetector", sigV4ServiceName: "frauddetector", name: "AWSHawksNestServiceFacade.CreateModel" }, CreateModelRequest, CreateModelResult, [AccessDeniedExceptionError, InternalServerExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

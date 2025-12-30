@@ -3,21 +3,21 @@ import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperat
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const DeleteConnectionRequest = Schema.Struct({ConnectionId: Schema.String});
-export const ForbiddenException = Schema.Struct({});
-export const GoneException = Schema.Struct({});
-export const LimitExceededException = Schema.Struct({});
-export const GetConnectionRequest = Schema.Struct({ConnectionId: Schema.String});
-export const PostToConnectionRequest = Schema.Struct({Data: Body("undefined", StreamBody()), ConnectionId: Schema.String});
-export const PayloadTooLargeException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const Identity = Schema.Struct({SourceIp: Schema.String, UserAgent: Schema.String});
-export const GetConnectionResponse = Schema.Struct({ConnectedAt: Schema.optional(Schema.Date), Identity: Schema.optional(Identity), LastActiveAt: Schema.optional(Schema.Date)});
+export class DeleteConnectionRequest extends Schema.Class<DeleteConnectionRequest>("DeleteConnectionRequest")({ConnectionId: Schema.String}) {}
+export class ForbiddenException extends Schema.Class<ForbiddenException>("ForbiddenException")({}) {}
+export class GoneException extends Schema.Class<GoneException>("GoneException")({}) {}
+export class LimitExceededException extends Schema.Class<LimitExceededException>("LimitExceededException")({}) {}
+export class GetConnectionRequest extends Schema.Class<GetConnectionRequest>("GetConnectionRequest")({ConnectionId: Schema.String}) {}
+export class PostToConnectionRequest extends Schema.Class<PostToConnectionRequest>("PostToConnectionRequest")({Data: Body("undefined", StreamBody()), ConnectionId: Schema.String}) {}
+export class PayloadTooLargeException extends Schema.Class<PayloadTooLargeException>("PayloadTooLargeException")({Message: Schema.optional(Schema.String)}) {}
+export class Identity extends Schema.Class<Identity>("Identity")({SourceIp: Schema.String, UserAgent: Schema.String}) {}
+export class GetConnectionResponse extends Schema.Class<GetConnectionResponse>("GetConnectionResponse")({ConnectedAt: Schema.optional(Schema.Date), Identity: Schema.optional(Identity), LastActiveAt: Schema.optional(Schema.Date)}) {}
 
 //# Errors
-export class ForbiddenExceptionError extends Schema.TaggedError<ForbiddenExceptionError>()("ForbiddenException", ForbiddenException) {};
-export class GoneExceptionError extends Schema.TaggedError<GoneExceptionError>()("GoneException", GoneException) {};
-export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException) {};
-export class PayloadTooLargeExceptionError extends Schema.TaggedError<PayloadTooLargeExceptionError>()("PayloadTooLargeException", PayloadTooLargeException) {};
+export class ForbiddenExceptionError extends Schema.TaggedError<ForbiddenExceptionError>()("ForbiddenException", ForbiddenException.fields) {};
+export class GoneExceptionError extends Schema.TaggedError<GoneExceptionError>()("GoneException", GoneException.fields) {};
+export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException.fields) {};
+export class PayloadTooLargeExceptionError extends Schema.TaggedError<PayloadTooLargeExceptionError>()("PayloadTooLargeException", PayloadTooLargeException.fields) {};
 
 //# Operations
 export const deleteConnection = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-11-29", uri: "/@connections/{ConnectionId}", method: "DELETE", sdkId: "ApiGatewayManagementApi", sigV4ServiceName: "execute-api", name: "ApiGatewayManagementApi.DeleteConnection" }, DeleteConnectionRequest, Schema.Struct({}), [ForbiddenExceptionError, GoneExceptionError, LimitExceededExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

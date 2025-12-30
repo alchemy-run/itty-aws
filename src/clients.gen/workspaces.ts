@@ -3,7 +3,7 @@ import { FormatAwsJSON11Request,FormatJSONResponse,FormatAwsRestJSONError, makeO
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const DescribeAccountRequest = Schema.Struct({});
+export class DescribeAccountRequest extends Schema.Class<DescribeAccountRequest>("DescribeAccountRequest")({}) {}
 export const IpGroupIdList = Schema.Array(Schema.String);
 export const ClientDeviceTypeList = Schema.Array(Schema.String);
 export const TagKeyList = Schema.Array(Schema.String);
@@ -28,373 +28,373 @@ export const DeletableCertificateBasedAuthPropertiesList = Schema.Array(Schema.S
 export const DeletableSamlPropertiesList = Schema.Array(Schema.String);
 export const SubnetIds = Schema.Array(Schema.String);
 export const IpRevokedRuleList = Schema.Array(Schema.String);
-export const AcceptAccountLinkInvitationRequest = Schema.Struct({LinkId: Schema.String, ClientToken: Schema.optional(Schema.String)});
-export const AssociateConnectionAliasRequest = Schema.Struct({AliasId: Schema.String, ResourceId: Schema.String});
-export const AssociateIpGroupsRequest = Schema.Struct({DirectoryId: Schema.String, GroupIds: IpGroupIdList});
-export const AssociateIpGroupsResult = Schema.Struct({});
-export const AssociateWorkspaceApplicationRequest = Schema.Struct({WorkspaceId: Schema.String, ApplicationId: Schema.String});
-export const CreateAccountLinkInvitationRequest = Schema.Struct({TargetAccountId: Schema.String, ClientToken: Schema.optional(Schema.String)});
-export const CreateConnectClientAddInRequest = Schema.Struct({ResourceId: Schema.String, Name: Schema.String, URL: Schema.String});
-export const Tag = Schema.Struct({Key: Schema.String, Value: Schema.optional(Schema.String)});
+export class AcceptAccountLinkInvitationRequest extends Schema.Class<AcceptAccountLinkInvitationRequest>("AcceptAccountLinkInvitationRequest")({LinkId: Schema.String, ClientToken: Schema.optional(Schema.String)}) {}
+export class AssociateConnectionAliasRequest extends Schema.Class<AssociateConnectionAliasRequest>("AssociateConnectionAliasRequest")({AliasId: Schema.String, ResourceId: Schema.String}) {}
+export class AssociateIpGroupsRequest extends Schema.Class<AssociateIpGroupsRequest>("AssociateIpGroupsRequest")({DirectoryId: Schema.String, GroupIds: IpGroupIdList}) {}
+export class AssociateIpGroupsResult extends Schema.Class<AssociateIpGroupsResult>("AssociateIpGroupsResult")({}) {}
+export class AssociateWorkspaceApplicationRequest extends Schema.Class<AssociateWorkspaceApplicationRequest>("AssociateWorkspaceApplicationRequest")({WorkspaceId: Schema.String, ApplicationId: Schema.String}) {}
+export class CreateAccountLinkInvitationRequest extends Schema.Class<CreateAccountLinkInvitationRequest>("CreateAccountLinkInvitationRequest")({TargetAccountId: Schema.String, ClientToken: Schema.optional(Schema.String)}) {}
+export class CreateConnectClientAddInRequest extends Schema.Class<CreateConnectClientAddInRequest>("CreateConnectClientAddInRequest")({ResourceId: Schema.String, Name: Schema.String, URL: Schema.String}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.String, Value: Schema.optional(Schema.String)}) {}
 export const TagList = Schema.Array(Tag);
-export const CreateConnectionAliasRequest = Schema.Struct({ConnectionString: Schema.String, Tags: Schema.optional(TagList)});
-export const IpRuleItem = Schema.Struct({ipRule: Schema.optional(Schema.String), ruleDesc: Schema.optional(Schema.String)});
+export class CreateConnectionAliasRequest extends Schema.Class<CreateConnectionAliasRequest>("CreateConnectionAliasRequest")({ConnectionString: Schema.String, Tags: Schema.optional(TagList)}) {}
+export class IpRuleItem extends Schema.Class<IpRuleItem>("IpRuleItem")({ipRule: Schema.optional(Schema.String), ruleDesc: Schema.optional(Schema.String)}) {}
 export const IpRuleList = Schema.Array(IpRuleItem);
-export const CreateIpGroupRequest = Schema.Struct({GroupName: Schema.String, GroupDesc: Schema.optional(Schema.String), UserRules: Schema.optional(IpRuleList), Tags: Schema.optional(TagList)});
-export const CreateTagsRequest = Schema.Struct({ResourceId: Schema.String, Tags: TagList});
-export const CreateTagsResult = Schema.Struct({});
-export const CreateUpdatedWorkspaceImageRequest = Schema.Struct({Name: Schema.String, Description: Schema.String, SourceImageId: Schema.String, Tags: Schema.optional(TagList)});
-export const CreateWorkspaceImageRequest = Schema.Struct({Name: Schema.String, Description: Schema.String, WorkspaceId: Schema.String, Tags: Schema.optional(TagList)});
-export const DeleteAccountLinkInvitationRequest = Schema.Struct({LinkId: Schema.String, ClientToken: Schema.optional(Schema.String)});
-export const DeleteClientBrandingRequest = Schema.Struct({ResourceId: Schema.String, Platforms: ClientDeviceTypeList});
-export const DeleteClientBrandingResult = Schema.Struct({});
-export const DeleteConnectClientAddInRequest = Schema.Struct({AddInId: Schema.String, ResourceId: Schema.String});
-export const DeleteConnectClientAddInResult = Schema.Struct({});
-export const DeleteConnectionAliasRequest = Schema.Struct({AliasId: Schema.String});
-export const DeleteConnectionAliasResult = Schema.Struct({});
-export const DeleteIpGroupRequest = Schema.Struct({GroupId: Schema.String});
-export const DeleteIpGroupResult = Schema.Struct({});
-export const DeleteTagsRequest = Schema.Struct({ResourceId: Schema.String, TagKeys: TagKeyList});
-export const DeleteTagsResult = Schema.Struct({});
-export const DeleteWorkspaceBundleRequest = Schema.Struct({BundleId: Schema.optional(Schema.String)});
-export const DeleteWorkspaceBundleResult = Schema.Struct({});
-export const DeleteWorkspaceImageRequest = Schema.Struct({ImageId: Schema.String});
-export const DeleteWorkspaceImageResult = Schema.Struct({});
-export const DeployWorkspaceApplicationsRequest = Schema.Struct({WorkspaceId: Schema.String, Force: Schema.optional(Schema.Boolean)});
-export const DeregisterWorkspaceDirectoryRequest = Schema.Struct({DirectoryId: Schema.String});
-export const DeregisterWorkspaceDirectoryResult = Schema.Struct({});
-export const DescribeAccountResult = Schema.Struct({DedicatedTenancySupport: Schema.optional(Schema.String), DedicatedTenancyManagementCidrRange: Schema.optional(Schema.String), DedicatedTenancyAccountType: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
-export const DescribeAccountModificationsRequest = Schema.Struct({NextToken: Schema.optional(Schema.String)});
-export const DescribeApplicationAssociationsRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), ApplicationId: Schema.String, AssociatedResourceTypes: ApplicationAssociatedResourceTypeList});
-export const DescribeApplicationsRequest = Schema.Struct({ApplicationIds: Schema.optional(WorkSpaceApplicationIdList), ComputeTypeNames: Schema.optional(ComputeList), LicenseType: Schema.optional(Schema.String), OperatingSystemNames: Schema.optional(OperatingSystemNameList), Owner: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const DescribeBundleAssociationsRequest = Schema.Struct({BundleId: Schema.String, AssociatedResourceTypes: BundleAssociatedResourceTypeList});
-export const DescribeClientBrandingRequest = Schema.Struct({ResourceId: Schema.String});
-export const DescribeClientPropertiesRequest = Schema.Struct({ResourceIds: ResourceIdList});
-export const DescribeConnectClientAddInsRequest = Schema.Struct({ResourceId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const DescribeConnectionAliasesRequest = Schema.Struct({AliasIds: Schema.optional(ConnectionAliasIdList), ResourceId: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const DescribeConnectionAliasPermissionsRequest = Schema.Struct({AliasId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const DescribeCustomWorkspaceImageImportRequest = Schema.Struct({ImageId: Schema.String});
-export const DescribeImageAssociationsRequest = Schema.Struct({ImageId: Schema.String, AssociatedResourceTypes: ImageAssociatedResourceTypeList});
-export const DescribeIpGroupsRequest = Schema.Struct({GroupIds: Schema.optional(IpGroupIdList), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const DescribeTagsRequest = Schema.Struct({ResourceId: Schema.String});
-export const DescribeWorkspaceAssociationsRequest = Schema.Struct({WorkspaceId: Schema.String, AssociatedResourceTypes: WorkSpaceAssociatedResourceTypeList});
-export const DescribeWorkspaceBundlesRequest = Schema.Struct({BundleIds: Schema.optional(BundleIdList), Owner: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String)});
-export const DescribeWorkspaceImagePermissionsRequest = Schema.Struct({ImageId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const DescribeWorkspaceImagesRequest = Schema.Struct({ImageIds: Schema.optional(WorkspaceImageIdList), ImageType: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const DescribeWorkspacesRequest = Schema.Struct({WorkspaceIds: Schema.optional(WorkspaceIdList), DirectoryId: Schema.optional(Schema.String), UserName: Schema.optional(Schema.String), BundleId: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), WorkspaceName: Schema.optional(Schema.String)});
-export const DescribeWorkspacesConnectionStatusRequest = Schema.Struct({WorkspaceIds: Schema.optional(WorkspaceIdList), NextToken: Schema.optional(Schema.String)});
-export const DescribeWorkspaceSnapshotsRequest = Schema.Struct({WorkspaceId: Schema.String});
-export const DescribeWorkspacesPoolSessionsRequest = Schema.Struct({PoolId: Schema.String, UserId: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const DisassociateConnectionAliasRequest = Schema.Struct({AliasId: Schema.String});
-export const DisassociateConnectionAliasResult = Schema.Struct({});
-export const DisassociateIpGroupsRequest = Schema.Struct({DirectoryId: Schema.String, GroupIds: IpGroupIdList});
-export const DisassociateIpGroupsResult = Schema.Struct({});
-export const DisassociateWorkspaceApplicationRequest = Schema.Struct({WorkspaceId: Schema.String, ApplicationId: Schema.String});
-export const GetAccountLinkRequest = Schema.Struct({LinkId: Schema.optional(Schema.String), LinkedAccountId: Schema.optional(Schema.String)});
-export const ImportWorkspaceImageRequest = Schema.Struct({Ec2ImageId: Schema.String, IngestionProcess: Schema.String, ImageName: Schema.String, ImageDescription: Schema.String, Tags: Schema.optional(TagList), Applications: Schema.optional(ApplicationList)});
-export const ListAccountLinksRequest = Schema.Struct({LinkStatusFilter: Schema.optional(LinkStatusFilterList), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListAvailableManagementCidrRangesRequest = Schema.Struct({ManagementCidrRangeConstraint: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const MigrateWorkspaceRequest = Schema.Struct({SourceWorkspaceId: Schema.String, BundleId: Schema.String});
-export const ModifyAccountRequest = Schema.Struct({DedicatedTenancySupport: Schema.optional(Schema.String), DedicatedTenancyManagementCidrRange: Schema.optional(Schema.String)});
-export const ModifyEndpointEncryptionModeRequest = Schema.Struct({DirectoryId: Schema.String, EndpointEncryptionMode: Schema.String});
-export const ModifyEndpointEncryptionModeResponse = Schema.Struct({});
-export const ModifyWorkspaceStateRequest = Schema.Struct({WorkspaceId: Schema.String, WorkspaceState: Schema.String});
-export const ModifyWorkspaceStateResult = Schema.Struct({});
-export const RejectAccountLinkInvitationRequest = Schema.Struct({LinkId: Schema.String, ClientToken: Schema.optional(Schema.String)});
-export const RestoreWorkspaceRequest = Schema.Struct({WorkspaceId: Schema.String});
-export const RestoreWorkspaceResult = Schema.Struct({});
-export const RevokeIpRulesRequest = Schema.Struct({GroupId: Schema.String, UserRules: IpRevokedRuleList});
-export const RevokeIpRulesResult = Schema.Struct({});
-export const StartWorkspacesPoolRequest = Schema.Struct({PoolId: Schema.String});
-export const StartWorkspacesPoolResult = Schema.Struct({});
-export const StopWorkspacesPoolRequest = Schema.Struct({PoolId: Schema.String});
-export const StopWorkspacesPoolResult = Schema.Struct({});
-export const TerminateWorkspacesPoolRequest = Schema.Struct({PoolId: Schema.String});
-export const TerminateWorkspacesPoolResult = Schema.Struct({});
-export const TerminateWorkspacesPoolSessionRequest = Schema.Struct({SessionId: Schema.String});
-export const TerminateWorkspacesPoolSessionResult = Schema.Struct({});
-export const UpdateConnectClientAddInRequest = Schema.Struct({AddInId: Schema.String, ResourceId: Schema.String, Name: Schema.optional(Schema.String), URL: Schema.optional(Schema.String)});
-export const UpdateConnectClientAddInResult = Schema.Struct({});
-export const UpdateRulesOfIpGroupRequest = Schema.Struct({GroupId: Schema.String, UserRules: IpRuleList});
-export const UpdateRulesOfIpGroupResult = Schema.Struct({});
-export const UpdateWorkspaceBundleRequest = Schema.Struct({BundleId: Schema.optional(Schema.String), ImageId: Schema.optional(Schema.String)});
-export const UpdateWorkspaceBundleResult = Schema.Struct({});
-export const UpdateWorkspaceImagePermissionRequest = Schema.Struct({ImageId: Schema.String, AllowCopyImage: Schema.Boolean, SharedAccountId: Schema.String});
-export const UpdateWorkspaceImagePermissionResult = Schema.Struct({});
-export const Capacity = Schema.Struct({DesiredUserSessions: Schema.Number});
-export const ApplicationSettingsRequest = Schema.Struct({Status: Schema.String, SettingsGroup: Schema.optional(Schema.String)});
-export const TimeoutSettings = Schema.Struct({DisconnectTimeoutInSeconds: Schema.optional(Schema.Number), IdleDisconnectTimeoutInSeconds: Schema.optional(Schema.Number), MaxUserDurationInSeconds: Schema.optional(Schema.Number)});
-export const UpdateWorkspacesPoolRequest = Schema.Struct({PoolId: Schema.String, Description: Schema.optional(Schema.String), BundleId: Schema.optional(Schema.String), DirectoryId: Schema.optional(Schema.String), Capacity: Schema.optional(Capacity), ApplicationSettings: Schema.optional(ApplicationSettingsRequest), TimeoutSettings: Schema.optional(TimeoutSettings), RunningMode: Schema.optional(Schema.String)});
+export class CreateIpGroupRequest extends Schema.Class<CreateIpGroupRequest>("CreateIpGroupRequest")({GroupName: Schema.String, GroupDesc: Schema.optional(Schema.String), UserRules: Schema.optional(IpRuleList), Tags: Schema.optional(TagList)}) {}
+export class CreateTagsRequest extends Schema.Class<CreateTagsRequest>("CreateTagsRequest")({ResourceId: Schema.String, Tags: TagList}) {}
+export class CreateTagsResult extends Schema.Class<CreateTagsResult>("CreateTagsResult")({}) {}
+export class CreateUpdatedWorkspaceImageRequest extends Schema.Class<CreateUpdatedWorkspaceImageRequest>("CreateUpdatedWorkspaceImageRequest")({Name: Schema.String, Description: Schema.String, SourceImageId: Schema.String, Tags: Schema.optional(TagList)}) {}
+export class CreateWorkspaceImageRequest extends Schema.Class<CreateWorkspaceImageRequest>("CreateWorkspaceImageRequest")({Name: Schema.String, Description: Schema.String, WorkspaceId: Schema.String, Tags: Schema.optional(TagList)}) {}
+export class DeleteAccountLinkInvitationRequest extends Schema.Class<DeleteAccountLinkInvitationRequest>("DeleteAccountLinkInvitationRequest")({LinkId: Schema.String, ClientToken: Schema.optional(Schema.String)}) {}
+export class DeleteClientBrandingRequest extends Schema.Class<DeleteClientBrandingRequest>("DeleteClientBrandingRequest")({ResourceId: Schema.String, Platforms: ClientDeviceTypeList}) {}
+export class DeleteClientBrandingResult extends Schema.Class<DeleteClientBrandingResult>("DeleteClientBrandingResult")({}) {}
+export class DeleteConnectClientAddInRequest extends Schema.Class<DeleteConnectClientAddInRequest>("DeleteConnectClientAddInRequest")({AddInId: Schema.String, ResourceId: Schema.String}) {}
+export class DeleteConnectClientAddInResult extends Schema.Class<DeleteConnectClientAddInResult>("DeleteConnectClientAddInResult")({}) {}
+export class DeleteConnectionAliasRequest extends Schema.Class<DeleteConnectionAliasRequest>("DeleteConnectionAliasRequest")({AliasId: Schema.String}) {}
+export class DeleteConnectionAliasResult extends Schema.Class<DeleteConnectionAliasResult>("DeleteConnectionAliasResult")({}) {}
+export class DeleteIpGroupRequest extends Schema.Class<DeleteIpGroupRequest>("DeleteIpGroupRequest")({GroupId: Schema.String}) {}
+export class DeleteIpGroupResult extends Schema.Class<DeleteIpGroupResult>("DeleteIpGroupResult")({}) {}
+export class DeleteTagsRequest extends Schema.Class<DeleteTagsRequest>("DeleteTagsRequest")({ResourceId: Schema.String, TagKeys: TagKeyList}) {}
+export class DeleteTagsResult extends Schema.Class<DeleteTagsResult>("DeleteTagsResult")({}) {}
+export class DeleteWorkspaceBundleRequest extends Schema.Class<DeleteWorkspaceBundleRequest>("DeleteWorkspaceBundleRequest")({BundleId: Schema.optional(Schema.String)}) {}
+export class DeleteWorkspaceBundleResult extends Schema.Class<DeleteWorkspaceBundleResult>("DeleteWorkspaceBundleResult")({}) {}
+export class DeleteWorkspaceImageRequest extends Schema.Class<DeleteWorkspaceImageRequest>("DeleteWorkspaceImageRequest")({ImageId: Schema.String}) {}
+export class DeleteWorkspaceImageResult extends Schema.Class<DeleteWorkspaceImageResult>("DeleteWorkspaceImageResult")({}) {}
+export class DeployWorkspaceApplicationsRequest extends Schema.Class<DeployWorkspaceApplicationsRequest>("DeployWorkspaceApplicationsRequest")({WorkspaceId: Schema.String, Force: Schema.optional(Schema.Boolean)}) {}
+export class DeregisterWorkspaceDirectoryRequest extends Schema.Class<DeregisterWorkspaceDirectoryRequest>("DeregisterWorkspaceDirectoryRequest")({DirectoryId: Schema.String}) {}
+export class DeregisterWorkspaceDirectoryResult extends Schema.Class<DeregisterWorkspaceDirectoryResult>("DeregisterWorkspaceDirectoryResult")({}) {}
+export class DescribeAccountResult extends Schema.Class<DescribeAccountResult>("DescribeAccountResult")({DedicatedTenancySupport: Schema.optional(Schema.String), DedicatedTenancyManagementCidrRange: Schema.optional(Schema.String), DedicatedTenancyAccountType: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
+export class DescribeAccountModificationsRequest extends Schema.Class<DescribeAccountModificationsRequest>("DescribeAccountModificationsRequest")({NextToken: Schema.optional(Schema.String)}) {}
+export class DescribeApplicationAssociationsRequest extends Schema.Class<DescribeApplicationAssociationsRequest>("DescribeApplicationAssociationsRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), ApplicationId: Schema.String, AssociatedResourceTypes: ApplicationAssociatedResourceTypeList}) {}
+export class DescribeApplicationsRequest extends Schema.Class<DescribeApplicationsRequest>("DescribeApplicationsRequest")({ApplicationIds: Schema.optional(WorkSpaceApplicationIdList), ComputeTypeNames: Schema.optional(ComputeList), LicenseType: Schema.optional(Schema.String), OperatingSystemNames: Schema.optional(OperatingSystemNameList), Owner: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class DescribeBundleAssociationsRequest extends Schema.Class<DescribeBundleAssociationsRequest>("DescribeBundleAssociationsRequest")({BundleId: Schema.String, AssociatedResourceTypes: BundleAssociatedResourceTypeList}) {}
+export class DescribeClientBrandingRequest extends Schema.Class<DescribeClientBrandingRequest>("DescribeClientBrandingRequest")({ResourceId: Schema.String}) {}
+export class DescribeClientPropertiesRequest extends Schema.Class<DescribeClientPropertiesRequest>("DescribeClientPropertiesRequest")({ResourceIds: ResourceIdList}) {}
+export class DescribeConnectClientAddInsRequest extends Schema.Class<DescribeConnectClientAddInsRequest>("DescribeConnectClientAddInsRequest")({ResourceId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class DescribeConnectionAliasesRequest extends Schema.Class<DescribeConnectionAliasesRequest>("DescribeConnectionAliasesRequest")({AliasIds: Schema.optional(ConnectionAliasIdList), ResourceId: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class DescribeConnectionAliasPermissionsRequest extends Schema.Class<DescribeConnectionAliasPermissionsRequest>("DescribeConnectionAliasPermissionsRequest")({AliasId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class DescribeCustomWorkspaceImageImportRequest extends Schema.Class<DescribeCustomWorkspaceImageImportRequest>("DescribeCustomWorkspaceImageImportRequest")({ImageId: Schema.String}) {}
+export class DescribeImageAssociationsRequest extends Schema.Class<DescribeImageAssociationsRequest>("DescribeImageAssociationsRequest")({ImageId: Schema.String, AssociatedResourceTypes: ImageAssociatedResourceTypeList}) {}
+export class DescribeIpGroupsRequest extends Schema.Class<DescribeIpGroupsRequest>("DescribeIpGroupsRequest")({GroupIds: Schema.optional(IpGroupIdList), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class DescribeTagsRequest extends Schema.Class<DescribeTagsRequest>("DescribeTagsRequest")({ResourceId: Schema.String}) {}
+export class DescribeWorkspaceAssociationsRequest extends Schema.Class<DescribeWorkspaceAssociationsRequest>("DescribeWorkspaceAssociationsRequest")({WorkspaceId: Schema.String, AssociatedResourceTypes: WorkSpaceAssociatedResourceTypeList}) {}
+export class DescribeWorkspaceBundlesRequest extends Schema.Class<DescribeWorkspaceBundlesRequest>("DescribeWorkspaceBundlesRequest")({BundleIds: Schema.optional(BundleIdList), Owner: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String)}) {}
+export class DescribeWorkspaceImagePermissionsRequest extends Schema.Class<DescribeWorkspaceImagePermissionsRequest>("DescribeWorkspaceImagePermissionsRequest")({ImageId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class DescribeWorkspaceImagesRequest extends Schema.Class<DescribeWorkspaceImagesRequest>("DescribeWorkspaceImagesRequest")({ImageIds: Schema.optional(WorkspaceImageIdList), ImageType: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class DescribeWorkspacesRequest extends Schema.Class<DescribeWorkspacesRequest>("DescribeWorkspacesRequest")({WorkspaceIds: Schema.optional(WorkspaceIdList), DirectoryId: Schema.optional(Schema.String), UserName: Schema.optional(Schema.String), BundleId: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), WorkspaceName: Schema.optional(Schema.String)}) {}
+export class DescribeWorkspacesConnectionStatusRequest extends Schema.Class<DescribeWorkspacesConnectionStatusRequest>("DescribeWorkspacesConnectionStatusRequest")({WorkspaceIds: Schema.optional(WorkspaceIdList), NextToken: Schema.optional(Schema.String)}) {}
+export class DescribeWorkspaceSnapshotsRequest extends Schema.Class<DescribeWorkspaceSnapshotsRequest>("DescribeWorkspaceSnapshotsRequest")({WorkspaceId: Schema.String}) {}
+export class DescribeWorkspacesPoolSessionsRequest extends Schema.Class<DescribeWorkspacesPoolSessionsRequest>("DescribeWorkspacesPoolSessionsRequest")({PoolId: Schema.String, UserId: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class DisassociateConnectionAliasRequest extends Schema.Class<DisassociateConnectionAliasRequest>("DisassociateConnectionAliasRequest")({AliasId: Schema.String}) {}
+export class DisassociateConnectionAliasResult extends Schema.Class<DisassociateConnectionAliasResult>("DisassociateConnectionAliasResult")({}) {}
+export class DisassociateIpGroupsRequest extends Schema.Class<DisassociateIpGroupsRequest>("DisassociateIpGroupsRequest")({DirectoryId: Schema.String, GroupIds: IpGroupIdList}) {}
+export class DisassociateIpGroupsResult extends Schema.Class<DisassociateIpGroupsResult>("DisassociateIpGroupsResult")({}) {}
+export class DisassociateWorkspaceApplicationRequest extends Schema.Class<DisassociateWorkspaceApplicationRequest>("DisassociateWorkspaceApplicationRequest")({WorkspaceId: Schema.String, ApplicationId: Schema.String}) {}
+export class GetAccountLinkRequest extends Schema.Class<GetAccountLinkRequest>("GetAccountLinkRequest")({LinkId: Schema.optional(Schema.String), LinkedAccountId: Schema.optional(Schema.String)}) {}
+export class ImportWorkspaceImageRequest extends Schema.Class<ImportWorkspaceImageRequest>("ImportWorkspaceImageRequest")({Ec2ImageId: Schema.String, IngestionProcess: Schema.String, ImageName: Schema.String, ImageDescription: Schema.String, Tags: Schema.optional(TagList), Applications: Schema.optional(ApplicationList)}) {}
+export class ListAccountLinksRequest extends Schema.Class<ListAccountLinksRequest>("ListAccountLinksRequest")({LinkStatusFilter: Schema.optional(LinkStatusFilterList), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListAvailableManagementCidrRangesRequest extends Schema.Class<ListAvailableManagementCidrRangesRequest>("ListAvailableManagementCidrRangesRequest")({ManagementCidrRangeConstraint: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class MigrateWorkspaceRequest extends Schema.Class<MigrateWorkspaceRequest>("MigrateWorkspaceRequest")({SourceWorkspaceId: Schema.String, BundleId: Schema.String}) {}
+export class ModifyAccountRequest extends Schema.Class<ModifyAccountRequest>("ModifyAccountRequest")({DedicatedTenancySupport: Schema.optional(Schema.String), DedicatedTenancyManagementCidrRange: Schema.optional(Schema.String)}) {}
+export class ModifyEndpointEncryptionModeRequest extends Schema.Class<ModifyEndpointEncryptionModeRequest>("ModifyEndpointEncryptionModeRequest")({DirectoryId: Schema.String, EndpointEncryptionMode: Schema.String}) {}
+export class ModifyEndpointEncryptionModeResponse extends Schema.Class<ModifyEndpointEncryptionModeResponse>("ModifyEndpointEncryptionModeResponse")({}) {}
+export class ModifyWorkspaceStateRequest extends Schema.Class<ModifyWorkspaceStateRequest>("ModifyWorkspaceStateRequest")({WorkspaceId: Schema.String, WorkspaceState: Schema.String}) {}
+export class ModifyWorkspaceStateResult extends Schema.Class<ModifyWorkspaceStateResult>("ModifyWorkspaceStateResult")({}) {}
+export class RejectAccountLinkInvitationRequest extends Schema.Class<RejectAccountLinkInvitationRequest>("RejectAccountLinkInvitationRequest")({LinkId: Schema.String, ClientToken: Schema.optional(Schema.String)}) {}
+export class RestoreWorkspaceRequest extends Schema.Class<RestoreWorkspaceRequest>("RestoreWorkspaceRequest")({WorkspaceId: Schema.String}) {}
+export class RestoreWorkspaceResult extends Schema.Class<RestoreWorkspaceResult>("RestoreWorkspaceResult")({}) {}
+export class RevokeIpRulesRequest extends Schema.Class<RevokeIpRulesRequest>("RevokeIpRulesRequest")({GroupId: Schema.String, UserRules: IpRevokedRuleList}) {}
+export class RevokeIpRulesResult extends Schema.Class<RevokeIpRulesResult>("RevokeIpRulesResult")({}) {}
+export class StartWorkspacesPoolRequest extends Schema.Class<StartWorkspacesPoolRequest>("StartWorkspacesPoolRequest")({PoolId: Schema.String}) {}
+export class StartWorkspacesPoolResult extends Schema.Class<StartWorkspacesPoolResult>("StartWorkspacesPoolResult")({}) {}
+export class StopWorkspacesPoolRequest extends Schema.Class<StopWorkspacesPoolRequest>("StopWorkspacesPoolRequest")({PoolId: Schema.String}) {}
+export class StopWorkspacesPoolResult extends Schema.Class<StopWorkspacesPoolResult>("StopWorkspacesPoolResult")({}) {}
+export class TerminateWorkspacesPoolRequest extends Schema.Class<TerminateWorkspacesPoolRequest>("TerminateWorkspacesPoolRequest")({PoolId: Schema.String}) {}
+export class TerminateWorkspacesPoolResult extends Schema.Class<TerminateWorkspacesPoolResult>("TerminateWorkspacesPoolResult")({}) {}
+export class TerminateWorkspacesPoolSessionRequest extends Schema.Class<TerminateWorkspacesPoolSessionRequest>("TerminateWorkspacesPoolSessionRequest")({SessionId: Schema.String}) {}
+export class TerminateWorkspacesPoolSessionResult extends Schema.Class<TerminateWorkspacesPoolSessionResult>("TerminateWorkspacesPoolSessionResult")({}) {}
+export class UpdateConnectClientAddInRequest extends Schema.Class<UpdateConnectClientAddInRequest>("UpdateConnectClientAddInRequest")({AddInId: Schema.String, ResourceId: Schema.String, Name: Schema.optional(Schema.String), URL: Schema.optional(Schema.String)}) {}
+export class UpdateConnectClientAddInResult extends Schema.Class<UpdateConnectClientAddInResult>("UpdateConnectClientAddInResult")({}) {}
+export class UpdateRulesOfIpGroupRequest extends Schema.Class<UpdateRulesOfIpGroupRequest>("UpdateRulesOfIpGroupRequest")({GroupId: Schema.String, UserRules: IpRuleList}) {}
+export class UpdateRulesOfIpGroupResult extends Schema.Class<UpdateRulesOfIpGroupResult>("UpdateRulesOfIpGroupResult")({}) {}
+export class UpdateWorkspaceBundleRequest extends Schema.Class<UpdateWorkspaceBundleRequest>("UpdateWorkspaceBundleRequest")({BundleId: Schema.optional(Schema.String), ImageId: Schema.optional(Schema.String)}) {}
+export class UpdateWorkspaceBundleResult extends Schema.Class<UpdateWorkspaceBundleResult>("UpdateWorkspaceBundleResult")({}) {}
+export class UpdateWorkspaceImagePermissionRequest extends Schema.Class<UpdateWorkspaceImagePermissionRequest>("UpdateWorkspaceImagePermissionRequest")({ImageId: Schema.String, AllowCopyImage: Schema.Boolean, SharedAccountId: Schema.String}) {}
+export class UpdateWorkspaceImagePermissionResult extends Schema.Class<UpdateWorkspaceImagePermissionResult>("UpdateWorkspaceImagePermissionResult")({}) {}
+export class Capacity extends Schema.Class<Capacity>("Capacity")({DesiredUserSessions: Schema.Number}) {}
+export class ApplicationSettingsRequest extends Schema.Class<ApplicationSettingsRequest>("ApplicationSettingsRequest")({Status: Schema.String, SettingsGroup: Schema.optional(Schema.String)}) {}
+export class TimeoutSettings extends Schema.Class<TimeoutSettings>("TimeoutSettings")({DisconnectTimeoutInSeconds: Schema.optional(Schema.Number), IdleDisconnectTimeoutInSeconds: Schema.optional(Schema.Number), MaxUserDurationInSeconds: Schema.optional(Schema.Number)}) {}
+export class UpdateWorkspacesPoolRequest extends Schema.Class<UpdateWorkspacesPoolRequest>("UpdateWorkspacesPoolRequest")({PoolId: Schema.String, Description: Schema.optional(Schema.String), BundleId: Schema.optional(Schema.String), DirectoryId: Schema.optional(Schema.String), Capacity: Schema.optional(Capacity), ApplicationSettings: Schema.optional(ApplicationSettingsRequest), TimeoutSettings: Schema.optional(TimeoutSettings), RunningMode: Schema.optional(Schema.String)}) {}
 export const DescribeWorkspaceDirectoriesFilterValues = Schema.Array(Schema.String);
 export const DescribeWorkspacesPoolsFilterValues = Schema.Array(Schema.String);
 export const ProtocolList = Schema.Array(Schema.String);
-export const StandbyWorkspace = Schema.Struct({PrimaryWorkspaceId: Schema.String, VolumeEncryptionKey: Schema.optional(Schema.String), DirectoryId: Schema.String, Tags: Schema.optional(TagList), DataReplication: Schema.optional(Schema.String)});
+export class StandbyWorkspace extends Schema.Class<StandbyWorkspace>("StandbyWorkspace")({PrimaryWorkspaceId: Schema.String, VolumeEncryptionKey: Schema.optional(Schema.String), DirectoryId: Schema.String, Tags: Schema.optional(TagList), DataReplication: Schema.optional(Schema.String)}) {}
 export const StandbyWorkspacesList = Schema.Array(StandbyWorkspace);
-export const ComputeType = Schema.Struct({Name: Schema.optional(Schema.String)});
-export const UserStorage = Schema.Struct({Capacity: Schema.String});
-export const RootStorage = Schema.Struct({Capacity: Schema.String});
-export const GlobalAcceleratorForWorkSpace = Schema.Struct({Mode: Schema.String, PreferredProtocol: Schema.optional(Schema.String)});
-export const WorkspaceProperties = Schema.Struct({RunningMode: Schema.optional(Schema.String), RunningModeAutoStopTimeoutInMinutes: Schema.optional(Schema.Number), RootVolumeSizeGib: Schema.optional(Schema.Number), UserVolumeSizeGib: Schema.optional(Schema.Number), ComputeTypeName: Schema.optional(Schema.String), Protocols: Schema.optional(ProtocolList), OperatingSystemName: Schema.optional(Schema.String), GlobalAccelerator: Schema.optional(GlobalAcceleratorForWorkSpace)});
-export const WorkspaceRequest = Schema.Struct({DirectoryId: Schema.String, UserName: Schema.String, BundleId: Schema.String, VolumeEncryptionKey: Schema.optional(Schema.String), UserVolumeEncryptionEnabled: Schema.optional(Schema.Boolean), RootVolumeEncryptionEnabled: Schema.optional(Schema.Boolean), WorkspaceProperties: Schema.optional(WorkspaceProperties), Tags: Schema.optional(TagList), WorkspaceName: Schema.optional(Schema.String), Ipv6Address: Schema.optional(Schema.String)});
+export class ComputeType extends Schema.Class<ComputeType>("ComputeType")({Name: Schema.optional(Schema.String)}) {}
+export class UserStorage extends Schema.Class<UserStorage>("UserStorage")({Capacity: Schema.String}) {}
+export class RootStorage extends Schema.Class<RootStorage>("RootStorage")({Capacity: Schema.String}) {}
+export class GlobalAcceleratorForWorkSpace extends Schema.Class<GlobalAcceleratorForWorkSpace>("GlobalAcceleratorForWorkSpace")({Mode: Schema.String, PreferredProtocol: Schema.optional(Schema.String)}) {}
+export class WorkspaceProperties extends Schema.Class<WorkspaceProperties>("WorkspaceProperties")({RunningMode: Schema.optional(Schema.String), RunningModeAutoStopTimeoutInMinutes: Schema.optional(Schema.Number), RootVolumeSizeGib: Schema.optional(Schema.Number), UserVolumeSizeGib: Schema.optional(Schema.Number), ComputeTypeName: Schema.optional(Schema.String), Protocols: Schema.optional(ProtocolList), OperatingSystemName: Schema.optional(Schema.String), GlobalAccelerator: Schema.optional(GlobalAcceleratorForWorkSpace)}) {}
+export class WorkspaceRequest extends Schema.Class<WorkspaceRequest>("WorkspaceRequest")({DirectoryId: Schema.String, UserName: Schema.String, BundleId: Schema.String, VolumeEncryptionKey: Schema.optional(Schema.String), UserVolumeEncryptionEnabled: Schema.optional(Schema.Boolean), RootVolumeEncryptionEnabled: Schema.optional(Schema.Boolean), WorkspaceProperties: Schema.optional(WorkspaceProperties), Tags: Schema.optional(TagList), WorkspaceName: Schema.optional(Schema.String), Ipv6Address: Schema.optional(Schema.String)}) {}
 export const WorkspaceRequestList = Schema.Array(WorkspaceRequest);
-export const ConnectionAliasPermission = Schema.Struct({SharedAccountId: Schema.String, AllowAssociation: Schema.Boolean});
+export class ConnectionAliasPermission extends Schema.Class<ConnectionAliasPermission>("ConnectionAliasPermission")({SharedAccountId: Schema.String, AllowAssociation: Schema.Boolean}) {}
 export const ConnectionAliasPermissions = Schema.Array(ConnectionAliasPermission);
-export const AssociationStateReason = Schema.Struct({ErrorCode: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String)});
-export const WorkspaceResourceAssociation = Schema.Struct({AssociatedResourceId: Schema.optional(Schema.String), AssociatedResourceType: Schema.optional(Schema.String), Created: Schema.optional(Schema.Date), LastUpdatedTime: Schema.optional(Schema.Date), State: Schema.optional(Schema.String), StateReason: Schema.optional(AssociationStateReason), WorkspaceId: Schema.optional(Schema.String)});
+export class AssociationStateReason extends Schema.Class<AssociationStateReason>("AssociationStateReason")({ErrorCode: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String)}) {}
+export class WorkspaceResourceAssociation extends Schema.Class<WorkspaceResourceAssociation>("WorkspaceResourceAssociation")({AssociatedResourceId: Schema.optional(Schema.String), AssociatedResourceType: Schema.optional(Schema.String), Created: Schema.optional(Schema.Date), LastUpdatedTime: Schema.optional(Schema.Date), State: Schema.optional(Schema.String), StateReason: Schema.optional(AssociationStateReason), WorkspaceId: Schema.optional(Schema.String)}) {}
 export const WorkspaceResourceAssociationList = Schema.Array(WorkspaceResourceAssociation);
-export const DescribeWorkspaceDirectoriesFilter = Schema.Struct({Name: Schema.String, Values: DescribeWorkspaceDirectoriesFilterValues});
+export class DescribeWorkspaceDirectoriesFilter extends Schema.Class<DescribeWorkspaceDirectoriesFilter>("DescribeWorkspaceDirectoriesFilter")({Name: Schema.String, Values: DescribeWorkspaceDirectoriesFilterValues}) {}
 export const DescribeWorkspaceDirectoriesFilterList = Schema.Array(DescribeWorkspaceDirectoriesFilter);
-export const DescribeWorkspacesPoolsFilter = Schema.Struct({Name: Schema.String, Values: DescribeWorkspacesPoolsFilterValues, Operator: Schema.String});
+export class DescribeWorkspacesPoolsFilter extends Schema.Class<DescribeWorkspacesPoolsFilter>("DescribeWorkspacesPoolsFilter")({Name: Schema.String, Values: DescribeWorkspacesPoolsFilterValues, Operator: Schema.String}) {}
 export const DescribeWorkspacesPoolsFilters = Schema.Array(DescribeWorkspacesPoolsFilter);
 export const LoginMessage = Schema.Record({key: Schema.String, value: Schema.String});
-export const IosImportClientBrandingAttributes = Schema.Struct({Logo: Schema.optional(StreamBody()), Logo2x: Schema.optional(StreamBody()), Logo3x: Schema.optional(StreamBody()), SupportEmail: Schema.optional(Schema.String), SupportLink: Schema.optional(Schema.String), ForgotPasswordLink: Schema.optional(Schema.String), LoginMessage: Schema.optional(LoginMessage)});
+export class IosImportClientBrandingAttributes extends Schema.Class<IosImportClientBrandingAttributes>("IosImportClientBrandingAttributes")({Logo: Schema.optional(StreamBody()), Logo2x: Schema.optional(StreamBody()), Logo3x: Schema.optional(StreamBody()), SupportEmail: Schema.optional(Schema.String), SupportLink: Schema.optional(Schema.String), ForgotPasswordLink: Schema.optional(Schema.String), LoginMessage: Schema.optional(LoginMessage)}) {}
 export const ImageSourceIdentifier = Schema.Union(Schema.String, Schema.String, Schema.String);
-export const AccountLink = Schema.Struct({AccountLinkId: Schema.optional(Schema.String), AccountLinkStatus: Schema.optional(Schema.String), SourceAccountId: Schema.optional(Schema.String), TargetAccountId: Schema.optional(Schema.String)});
+export class AccountLink extends Schema.Class<AccountLink>("AccountLink")({AccountLinkId: Schema.optional(Schema.String), AccountLinkStatus: Schema.optional(Schema.String), SourceAccountId: Schema.optional(Schema.String), TargetAccountId: Schema.optional(Schema.String)}) {}
 export const AccountLinkList = Schema.Array(AccountLink);
 export const DedicatedTenancyCidrRangeList = Schema.Array(Schema.String);
-export const CertificateBasedAuthProperties = Schema.Struct({Status: Schema.optional(Schema.String), CertificateAuthorityArn: Schema.optional(Schema.String)});
-export const ClientProperties = Schema.Struct({ReconnectEnabled: Schema.optional(Schema.String), LogUploadEnabled: Schema.optional(Schema.String)});
-export const SamlProperties = Schema.Struct({Status: Schema.optional(Schema.String), UserAccessUrl: Schema.optional(Schema.String), RelayStateParameterName: Schema.optional(Schema.String)});
-export const SelfservicePermissions = Schema.Struct({RestartWorkspace: Schema.optional(Schema.String), IncreaseVolumeSize: Schema.optional(Schema.String), ChangeComputeType: Schema.optional(Schema.String), SwitchRunningMode: Schema.optional(Schema.String), RebuildWorkspace: Schema.optional(Schema.String)});
-export const WorkspaceCreationProperties = Schema.Struct({EnableInternetAccess: Schema.optional(Schema.Boolean), DefaultOu: Schema.optional(Schema.String), CustomSecurityGroupId: Schema.optional(Schema.String), UserEnabledAsLocalAdministrator: Schema.optional(Schema.Boolean), EnableMaintenanceMode: Schema.optional(Schema.Boolean), InstanceIamRoleArn: Schema.optional(Schema.String)});
-export const RebootRequest = Schema.Struct({WorkspaceId: Schema.String});
+export class CertificateBasedAuthProperties extends Schema.Class<CertificateBasedAuthProperties>("CertificateBasedAuthProperties")({Status: Schema.optional(Schema.String), CertificateAuthorityArn: Schema.optional(Schema.String)}) {}
+export class ClientProperties extends Schema.Class<ClientProperties>("ClientProperties")({ReconnectEnabled: Schema.optional(Schema.String), LogUploadEnabled: Schema.optional(Schema.String)}) {}
+export class SamlProperties extends Schema.Class<SamlProperties>("SamlProperties")({Status: Schema.optional(Schema.String), UserAccessUrl: Schema.optional(Schema.String), RelayStateParameterName: Schema.optional(Schema.String)}) {}
+export class SelfservicePermissions extends Schema.Class<SelfservicePermissions>("SelfservicePermissions")({RestartWorkspace: Schema.optional(Schema.String), IncreaseVolumeSize: Schema.optional(Schema.String), ChangeComputeType: Schema.optional(Schema.String), SwitchRunningMode: Schema.optional(Schema.String), RebuildWorkspace: Schema.optional(Schema.String)}) {}
+export class WorkspaceCreationProperties extends Schema.Class<WorkspaceCreationProperties>("WorkspaceCreationProperties")({EnableInternetAccess: Schema.optional(Schema.Boolean), DefaultOu: Schema.optional(Schema.String), CustomSecurityGroupId: Schema.optional(Schema.String), UserEnabledAsLocalAdministrator: Schema.optional(Schema.Boolean), EnableMaintenanceMode: Schema.optional(Schema.Boolean), InstanceIamRoleArn: Schema.optional(Schema.String)}) {}
+export class RebootRequest extends Schema.Class<RebootRequest>("RebootRequest")({WorkspaceId: Schema.String}) {}
 export const RebootWorkspaceRequests = Schema.Array(RebootRequest);
-export const RebuildRequest = Schema.Struct({WorkspaceId: Schema.String});
+export class RebuildRequest extends Schema.Class<RebuildRequest>("RebuildRequest")({WorkspaceId: Schema.String}) {}
 export const RebuildWorkspaceRequests = Schema.Array(RebuildRequest);
-export const MicrosoftEntraConfig = Schema.Struct({TenantId: Schema.optional(Schema.String), ApplicationConfigSecretArn: Schema.optional(Schema.String)});
-export const ActiveDirectoryConfig = Schema.Struct({DomainName: Schema.String, ServiceAccountSecretArn: Schema.String});
-export const StartRequest = Schema.Struct({WorkspaceId: Schema.optional(Schema.String)});
+export class MicrosoftEntraConfig extends Schema.Class<MicrosoftEntraConfig>("MicrosoftEntraConfig")({TenantId: Schema.optional(Schema.String), ApplicationConfigSecretArn: Schema.optional(Schema.String)}) {}
+export class ActiveDirectoryConfig extends Schema.Class<ActiveDirectoryConfig>("ActiveDirectoryConfig")({DomainName: Schema.String, ServiceAccountSecretArn: Schema.String}) {}
+export class StartRequest extends Schema.Class<StartRequest>("StartRequest")({WorkspaceId: Schema.optional(Schema.String)}) {}
 export const StartWorkspaceRequests = Schema.Array(StartRequest);
-export const StopRequest = Schema.Struct({WorkspaceId: Schema.optional(Schema.String)});
+export class StopRequest extends Schema.Class<StopRequest>("StopRequest")({WorkspaceId: Schema.optional(Schema.String)}) {}
 export const StopWorkspaceRequests = Schema.Array(StopRequest);
-export const TerminateRequest = Schema.Struct({WorkspaceId: Schema.String});
+export class TerminateRequest extends Schema.Class<TerminateRequest>("TerminateRequest")({WorkspaceId: Schema.String}) {}
 export const TerminateWorkspaceRequests = Schema.Array(TerminateRequest);
 export const InternetFallbackProtocolList = Schema.Array(Schema.String);
-export const AssociateConnectionAliasResult = Schema.Struct({ConnectionIdentifier: Schema.optional(Schema.String)});
-export const AccessDeniedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const AuthorizeIpRulesRequest = Schema.Struct({GroupId: Schema.String, UserRules: IpRuleList});
-export const AuthorizeIpRulesResult = Schema.Struct({});
-export const CopyWorkspaceImageRequest = Schema.Struct({Name: Schema.String, Description: Schema.optional(Schema.String), SourceImageId: Schema.String, SourceRegion: Schema.String, Tags: Schema.optional(TagList)});
-export const CreateAccountLinkInvitationResult = Schema.Struct({AccountLink: Schema.optional(AccountLink)});
-export const CreateConnectClientAddInResult = Schema.Struct({AddInId: Schema.optional(Schema.String)});
-export const CreateConnectionAliasResult = Schema.Struct({AliasId: Schema.optional(Schema.String)});
-export const CreateIpGroupResult = Schema.Struct({GroupId: Schema.optional(Schema.String)});
-export const CreateStandbyWorkspacesRequest = Schema.Struct({PrimaryRegion: Schema.String, StandbyWorkspaces: StandbyWorkspacesList});
-export const InvalidParameterValuesException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CreateUpdatedWorkspaceImageResult = Schema.Struct({ImageId: Schema.optional(Schema.String)});
-export const CreateWorkspaceBundleRequest = Schema.Struct({BundleName: Schema.String, BundleDescription: Schema.String, ImageId: Schema.String, ComputeType: ComputeType, UserStorage: UserStorage, RootStorage: Schema.optional(RootStorage), Tags: Schema.optional(TagList)});
-export const CreateWorkspacesRequest = Schema.Struct({Workspaces: WorkspaceRequestList});
-export const CreateWorkspacesPoolRequest = Schema.Struct({PoolName: Schema.String, Description: Schema.String, BundleId: Schema.String, DirectoryId: Schema.String, Capacity: Capacity, Tags: Schema.optional(TagList), ApplicationSettings: Schema.optional(ApplicationSettingsRequest), TimeoutSettings: Schema.optional(TimeoutSettings), RunningMode: Schema.optional(Schema.String)});
-export const DeleteAccountLinkInvitationResult = Schema.Struct({AccountLink: Schema.optional(AccountLink)});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.optional(Schema.String), ResourceId: Schema.optional(Schema.String)});
-export const InvalidResourceStateException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ResourceAssociatedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const OperationNotSupportedException = Schema.Struct({message: Schema.optional(Schema.String), reason: Schema.optional(Schema.String)});
-export const DescribeConnectionAliasPermissionsResult = Schema.Struct({AliasId: Schema.optional(Schema.String), ConnectionAliasPermissions: Schema.optional(ConnectionAliasPermissions), NextToken: Schema.optional(Schema.String)});
-export const DescribeTagsResult = Schema.Struct({TagList: Schema.optional(TagList)});
-export const DescribeWorkspaceAssociationsResult = Schema.Struct({Associations: Schema.optional(WorkspaceResourceAssociationList)});
-export const DescribeWorkspaceDirectoriesRequest = Schema.Struct({DirectoryIds: Schema.optional(DirectoryIdList), WorkspaceDirectoryNames: Schema.optional(WorkspaceDirectoryNameList), Limit: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), Filters: Schema.optional(DescribeWorkspaceDirectoriesFilterList)});
-export const DescribeWorkspacesPoolsRequest = Schema.Struct({PoolIds: Schema.optional(WorkspacesPoolIds), Filters: Schema.optional(DescribeWorkspacesPoolsFilters), Limit: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const DisassociateWorkspaceApplicationResult = Schema.Struct({Association: Schema.optional(WorkspaceResourceAssociation)});
-export const GetAccountLinkResult = Schema.Struct({AccountLink: Schema.optional(AccountLink)});
-export const ImportCustomWorkspaceImageRequest = Schema.Struct({ImageName: Schema.String, ImageDescription: Schema.String, ComputeType: Schema.String, Protocol: Schema.String, ImageSource: ImageSourceIdentifier, InfrastructureConfigurationArn: Schema.String, Platform: Schema.String, OsVersion: Schema.String, Tags: Schema.optional(TagList)});
-export const ImportWorkspaceImageResult = Schema.Struct({ImageId: Schema.optional(Schema.String)});
-export const ListAccountLinksResult = Schema.Struct({AccountLinks: Schema.optional(AccountLinkList), NextToken: Schema.optional(Schema.String)});
-export const ListAvailableManagementCidrRangesResult = Schema.Struct({ManagementCidrRanges: Schema.optional(DedicatedTenancyCidrRangeList), NextToken: Schema.optional(Schema.String)});
-export const MigrateWorkspaceResult = Schema.Struct({SourceWorkspaceId: Schema.optional(Schema.String), TargetWorkspaceId: Schema.optional(Schema.String)});
-export const ModifyAccountResult = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ModifyCertificateBasedAuthPropertiesRequest = Schema.Struct({ResourceId: Schema.String, CertificateBasedAuthProperties: Schema.optional(CertificateBasedAuthProperties), PropertiesToDelete: Schema.optional(DeletableCertificateBasedAuthPropertiesList)});
-export const ModifyCertificateBasedAuthPropertiesResult = Schema.Struct({});
-export const ModifyClientPropertiesRequest = Schema.Struct({ResourceId: Schema.String, ClientProperties: ClientProperties});
-export const ModifyClientPropertiesResult = Schema.Struct({});
-export const ModifySamlPropertiesRequest = Schema.Struct({ResourceId: Schema.String, SamlProperties: Schema.optional(SamlProperties), PropertiesToDelete: Schema.optional(DeletableSamlPropertiesList)});
-export const ModifySamlPropertiesResult = Schema.Struct({});
-export const ModifySelfservicePermissionsRequest = Schema.Struct({ResourceId: Schema.String, SelfservicePermissions: SelfservicePermissions});
-export const ModifySelfservicePermissionsResult = Schema.Struct({});
-export const ModifyWorkspaceCreationPropertiesRequest = Schema.Struct({ResourceId: Schema.String, WorkspaceCreationProperties: WorkspaceCreationProperties});
-export const ModifyWorkspaceCreationPropertiesResult = Schema.Struct({});
-export const RebootWorkspacesRequest = Schema.Struct({RebootWorkspaceRequests: RebootWorkspaceRequests});
-export const RebuildWorkspacesRequest = Schema.Struct({RebuildWorkspaceRequests: RebuildWorkspaceRequests});
-export const RegisterWorkspaceDirectoryRequest = Schema.Struct({DirectoryId: Schema.optional(Schema.String), SubnetIds: Schema.optional(SubnetIds), EnableSelfService: Schema.optional(Schema.Boolean), Tenancy: Schema.optional(Schema.String), Tags: Schema.optional(TagList), WorkspaceDirectoryName: Schema.optional(Schema.String), WorkspaceDirectoryDescription: Schema.optional(Schema.String), UserIdentityType: Schema.optional(Schema.String), IdcInstanceArn: Schema.optional(Schema.String), MicrosoftEntraConfig: Schema.optional(MicrosoftEntraConfig), WorkspaceType: Schema.optional(Schema.String), ActiveDirectoryConfig: Schema.optional(ActiveDirectoryConfig)});
-export const RejectAccountLinkInvitationResult = Schema.Struct({AccountLink: Schema.optional(AccountLink)});
-export const StartWorkspacesRequest = Schema.Struct({StartWorkspaceRequests: StartWorkspaceRequests});
-export const OperationInProgressException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const StopWorkspacesRequest = Schema.Struct({StopWorkspaceRequests: StopWorkspaceRequests});
-export const TerminateWorkspacesRequest = Schema.Struct({TerminateWorkspaceRequests: TerminateWorkspaceRequests});
-export const UpdateConnectionAliasPermissionRequest = Schema.Struct({AliasId: Schema.String, ConnectionAliasPermission: ConnectionAliasPermission});
-export const UpdateConnectionAliasPermissionResult = Schema.Struct({});
-export const ResourceLimitExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ResourceUnavailableException = Schema.Struct({message: Schema.optional(Schema.String), ResourceId: Schema.optional(Schema.String)});
-export const UserSetting = Schema.Struct({Action: Schema.String, Permission: Schema.String, MaximumLength: Schema.optional(Schema.Number)});
+export class AssociateConnectionAliasResult extends Schema.Class<AssociateConnectionAliasResult>("AssociateConnectionAliasResult")({ConnectionIdentifier: Schema.optional(Schema.String)}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({message: Schema.optional(Schema.String)}) {}
+export class AuthorizeIpRulesRequest extends Schema.Class<AuthorizeIpRulesRequest>("AuthorizeIpRulesRequest")({GroupId: Schema.String, UserRules: IpRuleList}) {}
+export class AuthorizeIpRulesResult extends Schema.Class<AuthorizeIpRulesResult>("AuthorizeIpRulesResult")({}) {}
+export class CopyWorkspaceImageRequest extends Schema.Class<CopyWorkspaceImageRequest>("CopyWorkspaceImageRequest")({Name: Schema.String, Description: Schema.optional(Schema.String), SourceImageId: Schema.String, SourceRegion: Schema.String, Tags: Schema.optional(TagList)}) {}
+export class CreateAccountLinkInvitationResult extends Schema.Class<CreateAccountLinkInvitationResult>("CreateAccountLinkInvitationResult")({AccountLink: Schema.optional(AccountLink)}) {}
+export class CreateConnectClientAddInResult extends Schema.Class<CreateConnectClientAddInResult>("CreateConnectClientAddInResult")({AddInId: Schema.optional(Schema.String)}) {}
+export class CreateConnectionAliasResult extends Schema.Class<CreateConnectionAliasResult>("CreateConnectionAliasResult")({AliasId: Schema.optional(Schema.String)}) {}
+export class CreateIpGroupResult extends Schema.Class<CreateIpGroupResult>("CreateIpGroupResult")({GroupId: Schema.optional(Schema.String)}) {}
+export class CreateStandbyWorkspacesRequest extends Schema.Class<CreateStandbyWorkspacesRequest>("CreateStandbyWorkspacesRequest")({PrimaryRegion: Schema.String, StandbyWorkspaces: StandbyWorkspacesList}) {}
+export class InvalidParameterValuesException extends Schema.Class<InvalidParameterValuesException>("InvalidParameterValuesException")({message: Schema.optional(Schema.String)}) {}
+export class CreateUpdatedWorkspaceImageResult extends Schema.Class<CreateUpdatedWorkspaceImageResult>("CreateUpdatedWorkspaceImageResult")({ImageId: Schema.optional(Schema.String)}) {}
+export class CreateWorkspaceBundleRequest extends Schema.Class<CreateWorkspaceBundleRequest>("CreateWorkspaceBundleRequest")({BundleName: Schema.String, BundleDescription: Schema.String, ImageId: Schema.String, ComputeType: ComputeType, UserStorage: UserStorage, RootStorage: Schema.optional(RootStorage), Tags: Schema.optional(TagList)}) {}
+export class CreateWorkspacesRequest extends Schema.Class<CreateWorkspacesRequest>("CreateWorkspacesRequest")({Workspaces: WorkspaceRequestList}) {}
+export class CreateWorkspacesPoolRequest extends Schema.Class<CreateWorkspacesPoolRequest>("CreateWorkspacesPoolRequest")({PoolName: Schema.String, Description: Schema.String, BundleId: Schema.String, DirectoryId: Schema.String, Capacity: Capacity, Tags: Schema.optional(TagList), ApplicationSettings: Schema.optional(ApplicationSettingsRequest), TimeoutSettings: Schema.optional(TimeoutSettings), RunningMode: Schema.optional(Schema.String)}) {}
+export class DeleteAccountLinkInvitationResult extends Schema.Class<DeleteAccountLinkInvitationResult>("DeleteAccountLinkInvitationResult")({AccountLink: Schema.optional(AccountLink)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.optional(Schema.String), ResourceId: Schema.optional(Schema.String)}) {}
+export class InvalidResourceStateException extends Schema.Class<InvalidResourceStateException>("InvalidResourceStateException")({message: Schema.optional(Schema.String)}) {}
+export class ResourceAssociatedException extends Schema.Class<ResourceAssociatedException>("ResourceAssociatedException")({message: Schema.optional(Schema.String)}) {}
+export class OperationNotSupportedException extends Schema.Class<OperationNotSupportedException>("OperationNotSupportedException")({message: Schema.optional(Schema.String), reason: Schema.optional(Schema.String)}) {}
+export class DescribeConnectionAliasPermissionsResult extends Schema.Class<DescribeConnectionAliasPermissionsResult>("DescribeConnectionAliasPermissionsResult")({AliasId: Schema.optional(Schema.String), ConnectionAliasPermissions: Schema.optional(ConnectionAliasPermissions), NextToken: Schema.optional(Schema.String)}) {}
+export class DescribeTagsResult extends Schema.Class<DescribeTagsResult>("DescribeTagsResult")({TagList: Schema.optional(TagList)}) {}
+export class DescribeWorkspaceAssociationsResult extends Schema.Class<DescribeWorkspaceAssociationsResult>("DescribeWorkspaceAssociationsResult")({Associations: Schema.optional(WorkspaceResourceAssociationList)}) {}
+export class DescribeWorkspaceDirectoriesRequest extends Schema.Class<DescribeWorkspaceDirectoriesRequest>("DescribeWorkspaceDirectoriesRequest")({DirectoryIds: Schema.optional(DirectoryIdList), WorkspaceDirectoryNames: Schema.optional(WorkspaceDirectoryNameList), Limit: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), Filters: Schema.optional(DescribeWorkspaceDirectoriesFilterList)}) {}
+export class DescribeWorkspacesPoolsRequest extends Schema.Class<DescribeWorkspacesPoolsRequest>("DescribeWorkspacesPoolsRequest")({PoolIds: Schema.optional(WorkspacesPoolIds), Filters: Schema.optional(DescribeWorkspacesPoolsFilters), Limit: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class DisassociateWorkspaceApplicationResult extends Schema.Class<DisassociateWorkspaceApplicationResult>("DisassociateWorkspaceApplicationResult")({Association: Schema.optional(WorkspaceResourceAssociation)}) {}
+export class GetAccountLinkResult extends Schema.Class<GetAccountLinkResult>("GetAccountLinkResult")({AccountLink: Schema.optional(AccountLink)}) {}
+export class ImportCustomWorkspaceImageRequest extends Schema.Class<ImportCustomWorkspaceImageRequest>("ImportCustomWorkspaceImageRequest")({ImageName: Schema.String, ImageDescription: Schema.String, ComputeType: Schema.String, Protocol: Schema.String, ImageSource: ImageSourceIdentifier, InfrastructureConfigurationArn: Schema.String, Platform: Schema.String, OsVersion: Schema.String, Tags: Schema.optional(TagList)}) {}
+export class ImportWorkspaceImageResult extends Schema.Class<ImportWorkspaceImageResult>("ImportWorkspaceImageResult")({ImageId: Schema.optional(Schema.String)}) {}
+export class ListAccountLinksResult extends Schema.Class<ListAccountLinksResult>("ListAccountLinksResult")({AccountLinks: Schema.optional(AccountLinkList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListAvailableManagementCidrRangesResult extends Schema.Class<ListAvailableManagementCidrRangesResult>("ListAvailableManagementCidrRangesResult")({ManagementCidrRanges: Schema.optional(DedicatedTenancyCidrRangeList), NextToken: Schema.optional(Schema.String)}) {}
+export class MigrateWorkspaceResult extends Schema.Class<MigrateWorkspaceResult>("MigrateWorkspaceResult")({SourceWorkspaceId: Schema.optional(Schema.String), TargetWorkspaceId: Schema.optional(Schema.String)}) {}
+export class ModifyAccountResult extends Schema.Class<ModifyAccountResult>("ModifyAccountResult")({Message: Schema.optional(Schema.String)}) {}
+export class ModifyCertificateBasedAuthPropertiesRequest extends Schema.Class<ModifyCertificateBasedAuthPropertiesRequest>("ModifyCertificateBasedAuthPropertiesRequest")({ResourceId: Schema.String, CertificateBasedAuthProperties: Schema.optional(CertificateBasedAuthProperties), PropertiesToDelete: Schema.optional(DeletableCertificateBasedAuthPropertiesList)}) {}
+export class ModifyCertificateBasedAuthPropertiesResult extends Schema.Class<ModifyCertificateBasedAuthPropertiesResult>("ModifyCertificateBasedAuthPropertiesResult")({}) {}
+export class ModifyClientPropertiesRequest extends Schema.Class<ModifyClientPropertiesRequest>("ModifyClientPropertiesRequest")({ResourceId: Schema.String, ClientProperties: ClientProperties}) {}
+export class ModifyClientPropertiesResult extends Schema.Class<ModifyClientPropertiesResult>("ModifyClientPropertiesResult")({}) {}
+export class ModifySamlPropertiesRequest extends Schema.Class<ModifySamlPropertiesRequest>("ModifySamlPropertiesRequest")({ResourceId: Schema.String, SamlProperties: Schema.optional(SamlProperties), PropertiesToDelete: Schema.optional(DeletableSamlPropertiesList)}) {}
+export class ModifySamlPropertiesResult extends Schema.Class<ModifySamlPropertiesResult>("ModifySamlPropertiesResult")({}) {}
+export class ModifySelfservicePermissionsRequest extends Schema.Class<ModifySelfservicePermissionsRequest>("ModifySelfservicePermissionsRequest")({ResourceId: Schema.String, SelfservicePermissions: SelfservicePermissions}) {}
+export class ModifySelfservicePermissionsResult extends Schema.Class<ModifySelfservicePermissionsResult>("ModifySelfservicePermissionsResult")({}) {}
+export class ModifyWorkspaceCreationPropertiesRequest extends Schema.Class<ModifyWorkspaceCreationPropertiesRequest>("ModifyWorkspaceCreationPropertiesRequest")({ResourceId: Schema.String, WorkspaceCreationProperties: WorkspaceCreationProperties}) {}
+export class ModifyWorkspaceCreationPropertiesResult extends Schema.Class<ModifyWorkspaceCreationPropertiesResult>("ModifyWorkspaceCreationPropertiesResult")({}) {}
+export class RebootWorkspacesRequest extends Schema.Class<RebootWorkspacesRequest>("RebootWorkspacesRequest")({RebootWorkspaceRequests: RebootWorkspaceRequests}) {}
+export class RebuildWorkspacesRequest extends Schema.Class<RebuildWorkspacesRequest>("RebuildWorkspacesRequest")({RebuildWorkspaceRequests: RebuildWorkspaceRequests}) {}
+export class RegisterWorkspaceDirectoryRequest extends Schema.Class<RegisterWorkspaceDirectoryRequest>("RegisterWorkspaceDirectoryRequest")({DirectoryId: Schema.optional(Schema.String), SubnetIds: Schema.optional(SubnetIds), EnableSelfService: Schema.optional(Schema.Boolean), Tenancy: Schema.optional(Schema.String), Tags: Schema.optional(TagList), WorkspaceDirectoryName: Schema.optional(Schema.String), WorkspaceDirectoryDescription: Schema.optional(Schema.String), UserIdentityType: Schema.optional(Schema.String), IdcInstanceArn: Schema.optional(Schema.String), MicrosoftEntraConfig: Schema.optional(MicrosoftEntraConfig), WorkspaceType: Schema.optional(Schema.String), ActiveDirectoryConfig: Schema.optional(ActiveDirectoryConfig)}) {}
+export class RejectAccountLinkInvitationResult extends Schema.Class<RejectAccountLinkInvitationResult>("RejectAccountLinkInvitationResult")({AccountLink: Schema.optional(AccountLink)}) {}
+export class StartWorkspacesRequest extends Schema.Class<StartWorkspacesRequest>("StartWorkspacesRequest")({StartWorkspaceRequests: StartWorkspaceRequests}) {}
+export class OperationInProgressException extends Schema.Class<OperationInProgressException>("OperationInProgressException")({message: Schema.optional(Schema.String)}) {}
+export class StopWorkspacesRequest extends Schema.Class<StopWorkspacesRequest>("StopWorkspacesRequest")({StopWorkspaceRequests: StopWorkspaceRequests}) {}
+export class TerminateWorkspacesRequest extends Schema.Class<TerminateWorkspacesRequest>("TerminateWorkspacesRequest")({TerminateWorkspaceRequests: TerminateWorkspaceRequests}) {}
+export class UpdateConnectionAliasPermissionRequest extends Schema.Class<UpdateConnectionAliasPermissionRequest>("UpdateConnectionAliasPermissionRequest")({AliasId: Schema.String, ConnectionAliasPermission: ConnectionAliasPermission}) {}
+export class UpdateConnectionAliasPermissionResult extends Schema.Class<UpdateConnectionAliasPermissionResult>("UpdateConnectionAliasPermissionResult")({}) {}
+export class ResourceLimitExceededException extends Schema.Class<ResourceLimitExceededException>("ResourceLimitExceededException")({message: Schema.optional(Schema.String)}) {}
+export class ResourceUnavailableException extends Schema.Class<ResourceUnavailableException>("ResourceUnavailableException")({message: Schema.optional(Schema.String), ResourceId: Schema.optional(Schema.String)}) {}
+export class UserSetting extends Schema.Class<UserSetting>("UserSetting")({Action: Schema.String, Permission: Schema.String, MaximumLength: Schema.optional(Schema.Number)}) {}
 export const UserSettings = Schema.Array(UserSetting);
-export const StorageConnector = Schema.Struct({ConnectorType: Schema.String, Status: Schema.String});
+export class StorageConnector extends Schema.Class<StorageConnector>("StorageConnector")({ConnectorType: Schema.String, Status: Schema.String}) {}
 export const StorageConnectors = Schema.Array(StorageConnector);
-export const GlobalAcceleratorForDirectory = Schema.Struct({Mode: Schema.String, PreferredProtocol: Schema.optional(Schema.String)});
-export const OperatingSystem = Schema.Struct({Type: Schema.optional(Schema.String)});
-export const WorkSpaceApplicationDeployment = Schema.Struct({Associations: Schema.optional(WorkspaceResourceAssociationList)});
-export const AccountModification = Schema.Struct({ModificationState: Schema.optional(Schema.String), DedicatedTenancySupport: Schema.optional(Schema.String), DedicatedTenancyManagementCidrRange: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.Date), ErrorCode: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String)});
+export class GlobalAcceleratorForDirectory extends Schema.Class<GlobalAcceleratorForDirectory>("GlobalAcceleratorForDirectory")({Mode: Schema.String, PreferredProtocol: Schema.optional(Schema.String)}) {}
+export class OperatingSystem extends Schema.Class<OperatingSystem>("OperatingSystem")({Type: Schema.optional(Schema.String)}) {}
+export class WorkSpaceApplicationDeployment extends Schema.Class<WorkSpaceApplicationDeployment>("WorkSpaceApplicationDeployment")({Associations: Schema.optional(WorkspaceResourceAssociationList)}) {}
+export class AccountModification extends Schema.Class<AccountModification>("AccountModification")({ModificationState: Schema.optional(Schema.String), DedicatedTenancySupport: Schema.optional(Schema.String), DedicatedTenancyManagementCidrRange: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.Date), ErrorCode: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String)}) {}
 export const AccountModificationList = Schema.Array(AccountModification);
-export const ApplicationResourceAssociation = Schema.Struct({ApplicationId: Schema.optional(Schema.String), AssociatedResourceId: Schema.optional(Schema.String), AssociatedResourceType: Schema.optional(Schema.String), Created: Schema.optional(Schema.Date), LastUpdatedTime: Schema.optional(Schema.Date), State: Schema.optional(Schema.String), StateReason: Schema.optional(AssociationStateReason)});
+export class ApplicationResourceAssociation extends Schema.Class<ApplicationResourceAssociation>("ApplicationResourceAssociation")({ApplicationId: Schema.optional(Schema.String), AssociatedResourceId: Schema.optional(Schema.String), AssociatedResourceType: Schema.optional(Schema.String), Created: Schema.optional(Schema.Date), LastUpdatedTime: Schema.optional(Schema.Date), State: Schema.optional(Schema.String), StateReason: Schema.optional(AssociationStateReason)}) {}
 export const ApplicationResourceAssociationList = Schema.Array(ApplicationResourceAssociation);
-export const WorkSpaceApplication = Schema.Struct({ApplicationId: Schema.optional(Schema.String), Created: Schema.optional(Schema.Date), Description: Schema.optional(Schema.String), LicenseType: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Owner: Schema.optional(Schema.String), State: Schema.optional(Schema.String), SupportedComputeTypeNames: Schema.optional(ComputeList), SupportedOperatingSystemNames: Schema.optional(OperatingSystemNameList)});
+export class WorkSpaceApplication extends Schema.Class<WorkSpaceApplication>("WorkSpaceApplication")({ApplicationId: Schema.optional(Schema.String), Created: Schema.optional(Schema.Date), Description: Schema.optional(Schema.String), LicenseType: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Owner: Schema.optional(Schema.String), State: Schema.optional(Schema.String), SupportedComputeTypeNames: Schema.optional(ComputeList), SupportedOperatingSystemNames: Schema.optional(OperatingSystemNameList)}) {}
 export const WorkSpaceApplicationList = Schema.Array(WorkSpaceApplication);
-export const BundleResourceAssociation = Schema.Struct({AssociatedResourceId: Schema.optional(Schema.String), AssociatedResourceType: Schema.optional(Schema.String), BundleId: Schema.optional(Schema.String), Created: Schema.optional(Schema.Date), LastUpdatedTime: Schema.optional(Schema.Date), State: Schema.optional(Schema.String), StateReason: Schema.optional(AssociationStateReason)});
+export class BundleResourceAssociation extends Schema.Class<BundleResourceAssociation>("BundleResourceAssociation")({AssociatedResourceId: Schema.optional(Schema.String), AssociatedResourceType: Schema.optional(Schema.String), BundleId: Schema.optional(Schema.String), Created: Schema.optional(Schema.Date), LastUpdatedTime: Schema.optional(Schema.Date), State: Schema.optional(Schema.String), StateReason: Schema.optional(AssociationStateReason)}) {}
 export const BundleResourceAssociationList = Schema.Array(BundleResourceAssociation);
-export const DefaultClientBrandingAttributes = Schema.Struct({LogoUrl: Schema.optional(Schema.String), SupportEmail: Schema.optional(Schema.String), SupportLink: Schema.optional(Schema.String), ForgotPasswordLink: Schema.optional(Schema.String), LoginMessage: Schema.optional(LoginMessage)});
-export const IosClientBrandingAttributes = Schema.Struct({LogoUrl: Schema.optional(Schema.String), Logo2xUrl: Schema.optional(Schema.String), Logo3xUrl: Schema.optional(Schema.String), SupportEmail: Schema.optional(Schema.String), SupportLink: Schema.optional(Schema.String), ForgotPasswordLink: Schema.optional(Schema.String), LoginMessage: Schema.optional(LoginMessage)});
-export const ClientPropertiesResult = Schema.Struct({ResourceId: Schema.optional(Schema.String), ClientProperties: Schema.optional(ClientProperties)});
+export class DefaultClientBrandingAttributes extends Schema.Class<DefaultClientBrandingAttributes>("DefaultClientBrandingAttributes")({LogoUrl: Schema.optional(Schema.String), SupportEmail: Schema.optional(Schema.String), SupportLink: Schema.optional(Schema.String), ForgotPasswordLink: Schema.optional(Schema.String), LoginMessage: Schema.optional(LoginMessage)}) {}
+export class IosClientBrandingAttributes extends Schema.Class<IosClientBrandingAttributes>("IosClientBrandingAttributes")({LogoUrl: Schema.optional(Schema.String), Logo2xUrl: Schema.optional(Schema.String), Logo3xUrl: Schema.optional(Schema.String), SupportEmail: Schema.optional(Schema.String), SupportLink: Schema.optional(Schema.String), ForgotPasswordLink: Schema.optional(Schema.String), LoginMessage: Schema.optional(LoginMessage)}) {}
+export class ClientPropertiesResult extends Schema.Class<ClientPropertiesResult>("ClientPropertiesResult")({ResourceId: Schema.optional(Schema.String), ClientProperties: Schema.optional(ClientProperties)}) {}
 export const ClientPropertiesList = Schema.Array(ClientPropertiesResult);
-export const ConnectClientAddIn = Schema.Struct({AddInId: Schema.optional(Schema.String), ResourceId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), URL: Schema.optional(Schema.String)});
+export class ConnectClientAddIn extends Schema.Class<ConnectClientAddIn>("ConnectClientAddIn")({AddInId: Schema.optional(Schema.String), ResourceId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), URL: Schema.optional(Schema.String)}) {}
 export const ConnectClientAddInList = Schema.Array(ConnectClientAddIn);
-export const CustomWorkspaceImageImportErrorDetails = Schema.Struct({ErrorCode: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String)});
+export class CustomWorkspaceImageImportErrorDetails extends Schema.Class<CustomWorkspaceImageImportErrorDetails>("CustomWorkspaceImageImportErrorDetails")({ErrorCode: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String)}) {}
 export const CustomWorkspaceImageImportErrorDetailsList = Schema.Array(CustomWorkspaceImageImportErrorDetails);
-export const ImageResourceAssociation = Schema.Struct({AssociatedResourceId: Schema.optional(Schema.String), AssociatedResourceType: Schema.optional(Schema.String), Created: Schema.optional(Schema.Date), LastUpdatedTime: Schema.optional(Schema.Date), ImageId: Schema.optional(Schema.String), State: Schema.optional(Schema.String), StateReason: Schema.optional(AssociationStateReason)});
+export class ImageResourceAssociation extends Schema.Class<ImageResourceAssociation>("ImageResourceAssociation")({AssociatedResourceId: Schema.optional(Schema.String), AssociatedResourceType: Schema.optional(Schema.String), Created: Schema.optional(Schema.Date), LastUpdatedTime: Schema.optional(Schema.Date), ImageId: Schema.optional(Schema.String), State: Schema.optional(Schema.String), StateReason: Schema.optional(AssociationStateReason)}) {}
 export const ImageResourceAssociationList = Schema.Array(ImageResourceAssociation);
-export const WorkspacesIpGroup = Schema.Struct({groupId: Schema.optional(Schema.String), groupName: Schema.optional(Schema.String), groupDesc: Schema.optional(Schema.String), userRules: Schema.optional(IpRuleList)});
+export class WorkspacesIpGroup extends Schema.Class<WorkspacesIpGroup>("WorkspacesIpGroup")({groupId: Schema.optional(Schema.String), groupName: Schema.optional(Schema.String), groupDesc: Schema.optional(Schema.String), userRules: Schema.optional(IpRuleList)}) {}
 export const WorkspacesIpGroupsList = Schema.Array(WorkspacesIpGroup);
-export const WorkspaceBundle = Schema.Struct({BundleId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Owner: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), ImageId: Schema.optional(Schema.String), RootStorage: Schema.optional(RootStorage), UserStorage: Schema.optional(UserStorage), ComputeType: Schema.optional(ComputeType), LastUpdatedTime: Schema.optional(Schema.Date), CreationTime: Schema.optional(Schema.Date), State: Schema.optional(Schema.String), BundleType: Schema.optional(Schema.String)});
+export class WorkspaceBundle extends Schema.Class<WorkspaceBundle>("WorkspaceBundle")({BundleId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Owner: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), ImageId: Schema.optional(Schema.String), RootStorage: Schema.optional(RootStorage), UserStorage: Schema.optional(UserStorage), ComputeType: Schema.optional(ComputeType), LastUpdatedTime: Schema.optional(Schema.Date), CreationTime: Schema.optional(Schema.Date), State: Schema.optional(Schema.String), BundleType: Schema.optional(Schema.String)}) {}
 export const BundleList = Schema.Array(WorkspaceBundle);
-export const ImagePermission = Schema.Struct({SharedAccountId: Schema.optional(Schema.String)});
+export class ImagePermission extends Schema.Class<ImagePermission>("ImagePermission")({SharedAccountId: Schema.optional(Schema.String)}) {}
 export const ImagePermissions = Schema.Array(ImagePermission);
-export const WorkspaceConnectionStatus = Schema.Struct({WorkspaceId: Schema.optional(Schema.String), ConnectionState: Schema.optional(Schema.String), ConnectionStateCheckTimestamp: Schema.optional(Schema.Date), LastKnownUserConnectionTimestamp: Schema.optional(Schema.Date)});
+export class WorkspaceConnectionStatus extends Schema.Class<WorkspaceConnectionStatus>("WorkspaceConnectionStatus")({WorkspaceId: Schema.optional(Schema.String), ConnectionState: Schema.optional(Schema.String), ConnectionStateCheckTimestamp: Schema.optional(Schema.Date), LastKnownUserConnectionTimestamp: Schema.optional(Schema.Date)}) {}
 export const WorkspaceConnectionStatusList = Schema.Array(WorkspaceConnectionStatus);
-export const Snapshot = Schema.Struct({SnapshotTime: Schema.optional(Schema.Date)});
+export class Snapshot extends Schema.Class<Snapshot>("Snapshot")({SnapshotTime: Schema.optional(Schema.Date)}) {}
 export const SnapshotList = Schema.Array(Snapshot);
-export const CapacityStatus = Schema.Struct({AvailableUserSessions: Schema.Number, DesiredUserSessions: Schema.Number, ActualUserSessions: Schema.Number, ActiveUserSessions: Schema.Number});
-export const WorkspacesPoolError = Schema.Struct({ErrorCode: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String)});
+export class CapacityStatus extends Schema.Class<CapacityStatus>("CapacityStatus")({AvailableUserSessions: Schema.Number, DesiredUserSessions: Schema.Number, ActualUserSessions: Schema.Number, ActiveUserSessions: Schema.Number}) {}
+export class WorkspacesPoolError extends Schema.Class<WorkspacesPoolError>("WorkspacesPoolError")({ErrorCode: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String)}) {}
 export const WorkspacesPoolErrors = Schema.Array(WorkspacesPoolError);
-export const ApplicationSettingsResponse = Schema.Struct({Status: Schema.String, SettingsGroup: Schema.optional(Schema.String), S3BucketName: Schema.optional(Schema.String)});
-export const WorkspacesPool = Schema.Struct({PoolId: Schema.String, PoolArn: Schema.String, CapacityStatus: CapacityStatus, PoolName: Schema.String, Description: Schema.optional(Schema.String), State: Schema.String, CreatedAt: Schema.Date, BundleId: Schema.String, DirectoryId: Schema.String, Errors: Schema.optional(WorkspacesPoolErrors), ApplicationSettings: Schema.optional(ApplicationSettingsResponse), TimeoutSettings: Schema.optional(TimeoutSettings), RunningMode: Schema.String});
+export class ApplicationSettingsResponse extends Schema.Class<ApplicationSettingsResponse>("ApplicationSettingsResponse")({Status: Schema.String, SettingsGroup: Schema.optional(Schema.String), S3BucketName: Schema.optional(Schema.String)}) {}
+export class WorkspacesPool extends Schema.Class<WorkspacesPool>("WorkspacesPool")({PoolId: Schema.String, PoolArn: Schema.String, CapacityStatus: CapacityStatus, PoolName: Schema.String, Description: Schema.optional(Schema.String), State: Schema.String, CreatedAt: Schema.Date, BundleId: Schema.String, DirectoryId: Schema.String, Errors: Schema.optional(WorkspacesPoolErrors), ApplicationSettings: Schema.optional(ApplicationSettingsResponse), TimeoutSettings: Schema.optional(TimeoutSettings), RunningMode: Schema.String}) {}
 export const WorkspacesPools = Schema.Array(WorkspacesPool);
-export const DefaultImportClientBrandingAttributes = Schema.Struct({Logo: Schema.optional(StreamBody()), SupportEmail: Schema.optional(Schema.String), SupportLink: Schema.optional(Schema.String), ForgotPasswordLink: Schema.optional(Schema.String), LoginMessage: Schema.optional(LoginMessage)});
-export const StreamingProperties = Schema.Struct({StreamingExperiencePreferredProtocol: Schema.optional(Schema.String), UserSettings: Schema.optional(UserSettings), StorageConnectors: Schema.optional(StorageConnectors), GlobalAccelerator: Schema.optional(GlobalAcceleratorForDirectory)});
-export const FailedWorkspaceChangeRequest = Schema.Struct({WorkspaceId: Schema.optional(Schema.String), ErrorCode: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String)});
+export class DefaultImportClientBrandingAttributes extends Schema.Class<DefaultImportClientBrandingAttributes>("DefaultImportClientBrandingAttributes")({Logo: Schema.optional(StreamBody()), SupportEmail: Schema.optional(Schema.String), SupportLink: Schema.optional(Schema.String), ForgotPasswordLink: Schema.optional(Schema.String), LoginMessage: Schema.optional(LoginMessage)}) {}
+export class StreamingProperties extends Schema.Class<StreamingProperties>("StreamingProperties")({StreamingExperiencePreferredProtocol: Schema.optional(Schema.String), UserSettings: Schema.optional(UserSettings), StorageConnectors: Schema.optional(StorageConnectors), GlobalAccelerator: Schema.optional(GlobalAcceleratorForDirectory)}) {}
+export class FailedWorkspaceChangeRequest extends Schema.Class<FailedWorkspaceChangeRequest>("FailedWorkspaceChangeRequest")({WorkspaceId: Schema.optional(Schema.String), ErrorCode: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String)}) {}
 export const FailedRebuildWorkspaceRequests = Schema.Array(FailedWorkspaceChangeRequest);
 export const FailedStartWorkspaceRequests = Schema.Array(FailedWorkspaceChangeRequest);
 export const FailedStopWorkspaceRequests = Schema.Array(FailedWorkspaceChangeRequest);
 export const FailedTerminateWorkspaceRequests = Schema.Array(FailedWorkspaceChangeRequest);
-export const AccessEndpoint = Schema.Struct({AccessEndpointType: Schema.optional(Schema.String), VpcEndpointId: Schema.optional(Schema.String)});
+export class AccessEndpoint extends Schema.Class<AccessEndpoint>("AccessEndpoint")({AccessEndpointType: Schema.optional(Schema.String), VpcEndpointId: Schema.optional(Schema.String)}) {}
 export const AccessEndpointList = Schema.Array(AccessEndpoint);
-export const AcceptAccountLinkInvitationResult = Schema.Struct({AccountLink: Schema.optional(AccountLink)});
-export const CopyWorkspaceImageResult = Schema.Struct({ImageId: Schema.optional(Schema.String)});
-export const ConflictException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ResourceAlreadyExistsException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ResourceCreationFailedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CreateWorkspaceBundleResult = Schema.Struct({WorkspaceBundle: Schema.optional(WorkspaceBundle)});
-export const CreateWorkspaceImageResult = Schema.Struct({ImageId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), OperatingSystem: Schema.optional(OperatingSystem), State: Schema.optional(Schema.String), RequiredTenancy: Schema.optional(Schema.String), Created: Schema.optional(Schema.Date), OwnerAccountId: Schema.optional(Schema.String)});
-export const CreateWorkspacesPoolResult = Schema.Struct({WorkspacesPool: Schema.optional(WorkspacesPool)});
-export const InternalServerException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DeployWorkspaceApplicationsResult = Schema.Struct({Deployment: Schema.optional(WorkSpaceApplicationDeployment)});
-export const IncompatibleApplicationsException = Schema.Struct({});
-export const DescribeAccountModificationsResult = Schema.Struct({AccountModifications: Schema.optional(AccountModificationList), NextToken: Schema.optional(Schema.String)});
-export const DescribeApplicationAssociationsResult = Schema.Struct({Associations: Schema.optional(ApplicationResourceAssociationList), NextToken: Schema.optional(Schema.String)});
-export const DescribeApplicationsResult = Schema.Struct({Applications: Schema.optional(WorkSpaceApplicationList), NextToken: Schema.optional(Schema.String)});
-export const DescribeBundleAssociationsResult = Schema.Struct({Associations: Schema.optional(BundleResourceAssociationList)});
-export const DescribeClientBrandingResult = Schema.Struct({DeviceTypeWindows: Schema.optional(DefaultClientBrandingAttributes), DeviceTypeOsx: Schema.optional(DefaultClientBrandingAttributes), DeviceTypeAndroid: Schema.optional(DefaultClientBrandingAttributes), DeviceTypeIos: Schema.optional(IosClientBrandingAttributes), DeviceTypeLinux: Schema.optional(DefaultClientBrandingAttributes), DeviceTypeWeb: Schema.optional(DefaultClientBrandingAttributes)});
-export const DescribeClientPropertiesResult = Schema.Struct({ClientPropertiesList: Schema.optional(ClientPropertiesList)});
-export const DescribeConnectClientAddInsResult = Schema.Struct({AddIns: Schema.optional(ConnectClientAddInList), NextToken: Schema.optional(Schema.String)});
-export const DescribeCustomWorkspaceImageImportResult = Schema.Struct({ImageId: Schema.optional(Schema.String), InfrastructureConfigurationArn: Schema.optional(Schema.String), State: Schema.optional(Schema.String), Created: Schema.optional(Schema.Date), LastUpdatedTime: Schema.optional(Schema.Date), ImageSource: Schema.optional(ImageSourceIdentifier), ImageBuilderInstanceId: Schema.optional(Schema.String), ErrorDetails: Schema.optional(CustomWorkspaceImageImportErrorDetailsList)});
-export const DescribeImageAssociationsResult = Schema.Struct({Associations: Schema.optional(ImageResourceAssociationList)});
-export const DescribeIpGroupsResult = Schema.Struct({Result: Schema.optional(WorkspacesIpGroupsList), NextToken: Schema.optional(Schema.String)});
-export const DescribeWorkspaceBundlesResult = Schema.Struct({Bundles: Schema.optional(BundleList), NextToken: Schema.optional(Schema.String)});
-export const DescribeWorkspaceImagePermissionsResult = Schema.Struct({ImageId: Schema.optional(Schema.String), ImagePermissions: Schema.optional(ImagePermissions), NextToken: Schema.optional(Schema.String)});
-export const DescribeWorkspacesConnectionStatusResult = Schema.Struct({WorkspacesConnectionStatus: Schema.optional(WorkspaceConnectionStatusList), NextToken: Schema.optional(Schema.String)});
-export const DescribeWorkspaceSnapshotsResult = Schema.Struct({RebuildSnapshots: Schema.optional(SnapshotList), RestoreSnapshots: Schema.optional(SnapshotList)});
-export const DescribeWorkspacesPoolsResult = Schema.Struct({WorkspacesPools: Schema.optional(WorkspacesPools), NextToken: Schema.optional(Schema.String)});
-export const ResourceInUseException = Schema.Struct({message: Schema.optional(Schema.String), ResourceId: Schema.optional(Schema.String)});
-export const ValidationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ImportClientBrandingRequest = Schema.Struct({ResourceId: Schema.String, DeviceTypeWindows: Schema.optional(DefaultImportClientBrandingAttributes), DeviceTypeOsx: Schema.optional(DefaultImportClientBrandingAttributes), DeviceTypeAndroid: Schema.optional(DefaultImportClientBrandingAttributes), DeviceTypeIos: Schema.optional(IosImportClientBrandingAttributes), DeviceTypeLinux: Schema.optional(DefaultImportClientBrandingAttributes), DeviceTypeWeb: Schema.optional(DefaultImportClientBrandingAttributes)});
-export const ImportCustomWorkspaceImageResult = Schema.Struct({ImageId: Schema.optional(Schema.String), State: Schema.optional(Schema.String)});
-export const ModifyStreamingPropertiesRequest = Schema.Struct({ResourceId: Schema.String, StreamingProperties: Schema.optional(StreamingProperties)});
-export const ModifyStreamingPropertiesResult = Schema.Struct({});
-export const ModifyWorkspacePropertiesRequest = Schema.Struct({WorkspaceId: Schema.String, WorkspaceProperties: Schema.optional(WorkspaceProperties), DataReplication: Schema.optional(Schema.String)});
-export const ModifyWorkspacePropertiesResult = Schema.Struct({});
-export const RebuildWorkspacesResult = Schema.Struct({FailedRequests: Schema.optional(FailedRebuildWorkspaceRequests)});
-export const RegisterWorkspaceDirectoryResult = Schema.Struct({DirectoryId: Schema.optional(Schema.String), State: Schema.optional(Schema.String)});
-export const StartWorkspacesResult = Schema.Struct({FailedRequests: Schema.optional(FailedStartWorkspaceRequests)});
-export const StopWorkspacesResult = Schema.Struct({FailedRequests: Schema.optional(FailedStopWorkspaceRequests)});
-export const TerminateWorkspacesResult = Schema.Struct({FailedRequests: Schema.optional(FailedTerminateWorkspaceRequests)});
-export const ConnectionAliasAssociation = Schema.Struct({AssociationStatus: Schema.optional(Schema.String), AssociatedAccountId: Schema.optional(Schema.String), ResourceId: Schema.optional(Schema.String), ConnectionIdentifier: Schema.optional(Schema.String)});
+export class AcceptAccountLinkInvitationResult extends Schema.Class<AcceptAccountLinkInvitationResult>("AcceptAccountLinkInvitationResult")({AccountLink: Schema.optional(AccountLink)}) {}
+export class CopyWorkspaceImageResult extends Schema.Class<CopyWorkspaceImageResult>("CopyWorkspaceImageResult")({ImageId: Schema.optional(Schema.String)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({message: Schema.optional(Schema.String)}) {}
+export class ResourceAlreadyExistsException extends Schema.Class<ResourceAlreadyExistsException>("ResourceAlreadyExistsException")({message: Schema.optional(Schema.String)}) {}
+export class ResourceCreationFailedException extends Schema.Class<ResourceCreationFailedException>("ResourceCreationFailedException")({message: Schema.optional(Schema.String)}) {}
+export class CreateWorkspaceBundleResult extends Schema.Class<CreateWorkspaceBundleResult>("CreateWorkspaceBundleResult")({WorkspaceBundle: Schema.optional(WorkspaceBundle)}) {}
+export class CreateWorkspaceImageResult extends Schema.Class<CreateWorkspaceImageResult>("CreateWorkspaceImageResult")({ImageId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), OperatingSystem: Schema.optional(OperatingSystem), State: Schema.optional(Schema.String), RequiredTenancy: Schema.optional(Schema.String), Created: Schema.optional(Schema.Date), OwnerAccountId: Schema.optional(Schema.String)}) {}
+export class CreateWorkspacesPoolResult extends Schema.Class<CreateWorkspacesPoolResult>("CreateWorkspacesPoolResult")({WorkspacesPool: Schema.optional(WorkspacesPool)}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({message: Schema.optional(Schema.String)}) {}
+export class DeployWorkspaceApplicationsResult extends Schema.Class<DeployWorkspaceApplicationsResult>("DeployWorkspaceApplicationsResult")({Deployment: Schema.optional(WorkSpaceApplicationDeployment)}) {}
+export class IncompatibleApplicationsException extends Schema.Class<IncompatibleApplicationsException>("IncompatibleApplicationsException")({}) {}
+export class DescribeAccountModificationsResult extends Schema.Class<DescribeAccountModificationsResult>("DescribeAccountModificationsResult")({AccountModifications: Schema.optional(AccountModificationList), NextToken: Schema.optional(Schema.String)}) {}
+export class DescribeApplicationAssociationsResult extends Schema.Class<DescribeApplicationAssociationsResult>("DescribeApplicationAssociationsResult")({Associations: Schema.optional(ApplicationResourceAssociationList), NextToken: Schema.optional(Schema.String)}) {}
+export class DescribeApplicationsResult extends Schema.Class<DescribeApplicationsResult>("DescribeApplicationsResult")({Applications: Schema.optional(WorkSpaceApplicationList), NextToken: Schema.optional(Schema.String)}) {}
+export class DescribeBundleAssociationsResult extends Schema.Class<DescribeBundleAssociationsResult>("DescribeBundleAssociationsResult")({Associations: Schema.optional(BundleResourceAssociationList)}) {}
+export class DescribeClientBrandingResult extends Schema.Class<DescribeClientBrandingResult>("DescribeClientBrandingResult")({DeviceTypeWindows: Schema.optional(DefaultClientBrandingAttributes), DeviceTypeOsx: Schema.optional(DefaultClientBrandingAttributes), DeviceTypeAndroid: Schema.optional(DefaultClientBrandingAttributes), DeviceTypeIos: Schema.optional(IosClientBrandingAttributes), DeviceTypeLinux: Schema.optional(DefaultClientBrandingAttributes), DeviceTypeWeb: Schema.optional(DefaultClientBrandingAttributes)}) {}
+export class DescribeClientPropertiesResult extends Schema.Class<DescribeClientPropertiesResult>("DescribeClientPropertiesResult")({ClientPropertiesList: Schema.optional(ClientPropertiesList)}) {}
+export class DescribeConnectClientAddInsResult extends Schema.Class<DescribeConnectClientAddInsResult>("DescribeConnectClientAddInsResult")({AddIns: Schema.optional(ConnectClientAddInList), NextToken: Schema.optional(Schema.String)}) {}
+export class DescribeCustomWorkspaceImageImportResult extends Schema.Class<DescribeCustomWorkspaceImageImportResult>("DescribeCustomWorkspaceImageImportResult")({ImageId: Schema.optional(Schema.String), InfrastructureConfigurationArn: Schema.optional(Schema.String), State: Schema.optional(Schema.String), Created: Schema.optional(Schema.Date), LastUpdatedTime: Schema.optional(Schema.Date), ImageSource: Schema.optional(ImageSourceIdentifier), ImageBuilderInstanceId: Schema.optional(Schema.String), ErrorDetails: Schema.optional(CustomWorkspaceImageImportErrorDetailsList)}) {}
+export class DescribeImageAssociationsResult extends Schema.Class<DescribeImageAssociationsResult>("DescribeImageAssociationsResult")({Associations: Schema.optional(ImageResourceAssociationList)}) {}
+export class DescribeIpGroupsResult extends Schema.Class<DescribeIpGroupsResult>("DescribeIpGroupsResult")({Result: Schema.optional(WorkspacesIpGroupsList), NextToken: Schema.optional(Schema.String)}) {}
+export class DescribeWorkspaceBundlesResult extends Schema.Class<DescribeWorkspaceBundlesResult>("DescribeWorkspaceBundlesResult")({Bundles: Schema.optional(BundleList), NextToken: Schema.optional(Schema.String)}) {}
+export class DescribeWorkspaceImagePermissionsResult extends Schema.Class<DescribeWorkspaceImagePermissionsResult>("DescribeWorkspaceImagePermissionsResult")({ImageId: Schema.optional(Schema.String), ImagePermissions: Schema.optional(ImagePermissions), NextToken: Schema.optional(Schema.String)}) {}
+export class DescribeWorkspacesConnectionStatusResult extends Schema.Class<DescribeWorkspacesConnectionStatusResult>("DescribeWorkspacesConnectionStatusResult")({WorkspacesConnectionStatus: Schema.optional(WorkspaceConnectionStatusList), NextToken: Schema.optional(Schema.String)}) {}
+export class DescribeWorkspaceSnapshotsResult extends Schema.Class<DescribeWorkspaceSnapshotsResult>("DescribeWorkspaceSnapshotsResult")({RebuildSnapshots: Schema.optional(SnapshotList), RestoreSnapshots: Schema.optional(SnapshotList)}) {}
+export class DescribeWorkspacesPoolsResult extends Schema.Class<DescribeWorkspacesPoolsResult>("DescribeWorkspacesPoolsResult")({WorkspacesPools: Schema.optional(WorkspacesPools), NextToken: Schema.optional(Schema.String)}) {}
+export class ResourceInUseException extends Schema.Class<ResourceInUseException>("ResourceInUseException")({message: Schema.optional(Schema.String), ResourceId: Schema.optional(Schema.String)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({message: Schema.optional(Schema.String)}) {}
+export class ImportClientBrandingRequest extends Schema.Class<ImportClientBrandingRequest>("ImportClientBrandingRequest")({ResourceId: Schema.String, DeviceTypeWindows: Schema.optional(DefaultImportClientBrandingAttributes), DeviceTypeOsx: Schema.optional(DefaultImportClientBrandingAttributes), DeviceTypeAndroid: Schema.optional(DefaultImportClientBrandingAttributes), DeviceTypeIos: Schema.optional(IosImportClientBrandingAttributes), DeviceTypeLinux: Schema.optional(DefaultImportClientBrandingAttributes), DeviceTypeWeb: Schema.optional(DefaultImportClientBrandingAttributes)}) {}
+export class ImportCustomWorkspaceImageResult extends Schema.Class<ImportCustomWorkspaceImageResult>("ImportCustomWorkspaceImageResult")({ImageId: Schema.optional(Schema.String), State: Schema.optional(Schema.String)}) {}
+export class ModifyStreamingPropertiesRequest extends Schema.Class<ModifyStreamingPropertiesRequest>("ModifyStreamingPropertiesRequest")({ResourceId: Schema.String, StreamingProperties: Schema.optional(StreamingProperties)}) {}
+export class ModifyStreamingPropertiesResult extends Schema.Class<ModifyStreamingPropertiesResult>("ModifyStreamingPropertiesResult")({}) {}
+export class ModifyWorkspacePropertiesRequest extends Schema.Class<ModifyWorkspacePropertiesRequest>("ModifyWorkspacePropertiesRequest")({WorkspaceId: Schema.String, WorkspaceProperties: Schema.optional(WorkspaceProperties), DataReplication: Schema.optional(Schema.String)}) {}
+export class ModifyWorkspacePropertiesResult extends Schema.Class<ModifyWorkspacePropertiesResult>("ModifyWorkspacePropertiesResult")({}) {}
+export class RebuildWorkspacesResult extends Schema.Class<RebuildWorkspacesResult>("RebuildWorkspacesResult")({FailedRequests: Schema.optional(FailedRebuildWorkspaceRequests)}) {}
+export class RegisterWorkspaceDirectoryResult extends Schema.Class<RegisterWorkspaceDirectoryResult>("RegisterWorkspaceDirectoryResult")({DirectoryId: Schema.optional(Schema.String), State: Schema.optional(Schema.String)}) {}
+export class StartWorkspacesResult extends Schema.Class<StartWorkspacesResult>("StartWorkspacesResult")({FailedRequests: Schema.optional(FailedStartWorkspaceRequests)}) {}
+export class StopWorkspacesResult extends Schema.Class<StopWorkspacesResult>("StopWorkspacesResult")({FailedRequests: Schema.optional(FailedStopWorkspaceRequests)}) {}
+export class TerminateWorkspacesResult extends Schema.Class<TerminateWorkspacesResult>("TerminateWorkspacesResult")({FailedRequests: Schema.optional(FailedTerminateWorkspaceRequests)}) {}
+export class ConnectionAliasAssociation extends Schema.Class<ConnectionAliasAssociation>("ConnectionAliasAssociation")({AssociationStatus: Schema.optional(Schema.String), AssociatedAccountId: Schema.optional(Schema.String), ResourceId: Schema.optional(Schema.String), ConnectionIdentifier: Schema.optional(Schema.String)}) {}
 export const ConnectionAliasAssociationList = Schema.Array(ConnectionAliasAssociation);
 export const DnsIpAddresses = Schema.Array(Schema.String);
 export const DnsIpv6Addresses = Schema.Array(Schema.String);
-export const UpdateResult = Schema.Struct({UpdateAvailable: Schema.optional(Schema.Boolean), Description: Schema.optional(Schema.String)});
-export const ErrorDetails = Schema.Struct({ErrorCode: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String)});
+export class UpdateResult extends Schema.Class<UpdateResult>("UpdateResult")({UpdateAvailable: Schema.optional(Schema.Boolean), Description: Schema.optional(Schema.String)}) {}
+export class ErrorDetails extends Schema.Class<ErrorDetails>("ErrorDetails")({ErrorCode: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String)}) {}
 export const ErrorDetailsList = Schema.Array(ErrorDetails);
-export const ModificationState = Schema.Struct({Resource: Schema.optional(Schema.String), State: Schema.optional(Schema.String)});
+export class ModificationState extends Schema.Class<ModificationState>("ModificationState")({Resource: Schema.optional(Schema.String), State: Schema.optional(Schema.String)}) {}
 export const ModificationStateList = Schema.Array(ModificationState);
-export const RelatedWorkspaceProperties = Schema.Struct({WorkspaceId: Schema.optional(Schema.String), Region: Schema.optional(Schema.String), State: Schema.optional(Schema.String), Type: Schema.optional(Schema.String)});
+export class RelatedWorkspaceProperties extends Schema.Class<RelatedWorkspaceProperties>("RelatedWorkspaceProperties")({WorkspaceId: Schema.optional(Schema.String), Region: Schema.optional(Schema.String), State: Schema.optional(Schema.String), Type: Schema.optional(Schema.String)}) {}
 export const RelatedWorkspaces = Schema.Array(RelatedWorkspaceProperties);
-export const DataReplicationSettings = Schema.Struct({DataReplication: Schema.optional(Schema.String), RecoverySnapshotTime: Schema.optional(Schema.Date)});
-export const StandbyWorkspacesProperties = Schema.Struct({StandbyWorkspaceId: Schema.optional(Schema.String), DataReplication: Schema.optional(Schema.String), RecoverySnapshotTime: Schema.optional(Schema.Date)});
+export class DataReplicationSettings extends Schema.Class<DataReplicationSettings>("DataReplicationSettings")({DataReplication: Schema.optional(Schema.String), RecoverySnapshotTime: Schema.optional(Schema.Date)}) {}
+export class StandbyWorkspacesProperties extends Schema.Class<StandbyWorkspacesProperties>("StandbyWorkspacesProperties")({StandbyWorkspaceId: Schema.optional(Schema.String), DataReplication: Schema.optional(Schema.String), RecoverySnapshotTime: Schema.optional(Schema.Date)}) {}
 export const StandbyWorkspacesPropertiesList = Schema.Array(StandbyWorkspacesProperties);
-export const NetworkAccessConfiguration = Schema.Struct({EniPrivateIpAddress: Schema.optional(Schema.String), EniId: Schema.optional(Schema.String)});
-export const AccessEndpointConfig = Schema.Struct({AccessEndpoints: AccessEndpointList, InternetFallbackProtocols: Schema.optional(InternetFallbackProtocolList)});
-export const FailedCreateStandbyWorkspacesRequest = Schema.Struct({StandbyWorkspaceRequest: Schema.optional(StandbyWorkspace), ErrorCode: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String)});
+export class NetworkAccessConfiguration extends Schema.Class<NetworkAccessConfiguration>("NetworkAccessConfiguration")({EniPrivateIpAddress: Schema.optional(Schema.String), EniId: Schema.optional(Schema.String)}) {}
+export class AccessEndpointConfig extends Schema.Class<AccessEndpointConfig>("AccessEndpointConfig")({AccessEndpoints: AccessEndpointList, InternetFallbackProtocols: Schema.optional(InternetFallbackProtocolList)}) {}
+export class FailedCreateStandbyWorkspacesRequest extends Schema.Class<FailedCreateStandbyWorkspacesRequest>("FailedCreateStandbyWorkspacesRequest")({StandbyWorkspaceRequest: Schema.optional(StandbyWorkspace), ErrorCode: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String)}) {}
 export const FailedCreateStandbyWorkspacesRequestList = Schema.Array(FailedCreateStandbyWorkspacesRequest);
-export const PendingCreateStandbyWorkspacesRequest = Schema.Struct({UserName: Schema.optional(Schema.String), DirectoryId: Schema.optional(Schema.String), State: Schema.optional(Schema.String), WorkspaceId: Schema.optional(Schema.String)});
+export class PendingCreateStandbyWorkspacesRequest extends Schema.Class<PendingCreateStandbyWorkspacesRequest>("PendingCreateStandbyWorkspacesRequest")({UserName: Schema.optional(Schema.String), DirectoryId: Schema.optional(Schema.String), State: Schema.optional(Schema.String), WorkspaceId: Schema.optional(Schema.String)}) {}
 export const PendingCreateStandbyWorkspacesRequestList = Schema.Array(PendingCreateStandbyWorkspacesRequest);
-export const FailedCreateWorkspaceRequest = Schema.Struct({WorkspaceRequest: Schema.optional(WorkspaceRequest), ErrorCode: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String)});
+export class FailedCreateWorkspaceRequest extends Schema.Class<FailedCreateWorkspaceRequest>("FailedCreateWorkspaceRequest")({WorkspaceRequest: Schema.optional(WorkspaceRequest), ErrorCode: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String)}) {}
 export const FailedCreateWorkspaceRequests = Schema.Array(FailedCreateWorkspaceRequest);
-export const ConnectionAlias = Schema.Struct({ConnectionString: Schema.optional(Schema.String), AliasId: Schema.optional(Schema.String), State: Schema.optional(Schema.String), OwnerAccountId: Schema.optional(Schema.String), Associations: Schema.optional(ConnectionAliasAssociationList)});
+export class ConnectionAlias extends Schema.Class<ConnectionAlias>("ConnectionAlias")({ConnectionString: Schema.optional(Schema.String), AliasId: Schema.optional(Schema.String), State: Schema.optional(Schema.String), OwnerAccountId: Schema.optional(Schema.String), Associations: Schema.optional(ConnectionAliasAssociationList)}) {}
 export const ConnectionAliasList = Schema.Array(ConnectionAlias);
-export const WorkspaceImage = Schema.Struct({ImageId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), OperatingSystem: Schema.optional(OperatingSystem), State: Schema.optional(Schema.String), RequiredTenancy: Schema.optional(Schema.String), ErrorCode: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String), Created: Schema.optional(Schema.Date), OwnerAccountId: Schema.optional(Schema.String), Updates: Schema.optional(UpdateResult), ErrorDetails: Schema.optional(ErrorDetailsList)});
+export class WorkspaceImage extends Schema.Class<WorkspaceImage>("WorkspaceImage")({ImageId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), OperatingSystem: Schema.optional(OperatingSystem), State: Schema.optional(Schema.String), RequiredTenancy: Schema.optional(Schema.String), ErrorCode: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String), Created: Schema.optional(Schema.Date), OwnerAccountId: Schema.optional(Schema.String), Updates: Schema.optional(UpdateResult), ErrorDetails: Schema.optional(ErrorDetailsList)}) {}
 export const WorkspaceImageList = Schema.Array(WorkspaceImage);
-export const Workspace = Schema.Struct({WorkspaceId: Schema.optional(Schema.String), DirectoryId: Schema.optional(Schema.String), UserName: Schema.optional(Schema.String), IpAddress: Schema.optional(Schema.String), Ipv6Address: Schema.optional(Schema.String), State: Schema.optional(Schema.String), BundleId: Schema.optional(Schema.String), SubnetId: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String), ErrorCode: Schema.optional(Schema.String), ComputerName: Schema.optional(Schema.String), VolumeEncryptionKey: Schema.optional(Schema.String), UserVolumeEncryptionEnabled: Schema.optional(Schema.Boolean), RootVolumeEncryptionEnabled: Schema.optional(Schema.Boolean), WorkspaceName: Schema.optional(Schema.String), WorkspaceProperties: Schema.optional(WorkspaceProperties), ModificationStates: Schema.optional(ModificationStateList), RelatedWorkspaces: Schema.optional(RelatedWorkspaces), DataReplicationSettings: Schema.optional(DataReplicationSettings), StandbyWorkspacesProperties: Schema.optional(StandbyWorkspacesPropertiesList)});
+export class Workspace extends Schema.Class<Workspace>("Workspace")({WorkspaceId: Schema.optional(Schema.String), DirectoryId: Schema.optional(Schema.String), UserName: Schema.optional(Schema.String), IpAddress: Schema.optional(Schema.String), Ipv6Address: Schema.optional(Schema.String), State: Schema.optional(Schema.String), BundleId: Schema.optional(Schema.String), SubnetId: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String), ErrorCode: Schema.optional(Schema.String), ComputerName: Schema.optional(Schema.String), VolumeEncryptionKey: Schema.optional(Schema.String), UserVolumeEncryptionEnabled: Schema.optional(Schema.Boolean), RootVolumeEncryptionEnabled: Schema.optional(Schema.Boolean), WorkspaceName: Schema.optional(Schema.String), WorkspaceProperties: Schema.optional(WorkspaceProperties), ModificationStates: Schema.optional(ModificationStateList), RelatedWorkspaces: Schema.optional(RelatedWorkspaces), DataReplicationSettings: Schema.optional(DataReplicationSettings), StandbyWorkspacesProperties: Schema.optional(StandbyWorkspacesPropertiesList)}) {}
 export const WorkspaceList = Schema.Array(Workspace);
-export const WorkspacesPoolSession = Schema.Struct({AuthenticationType: Schema.optional(Schema.String), ConnectionState: Schema.optional(Schema.String), SessionId: Schema.String, InstanceId: Schema.optional(Schema.String), PoolId: Schema.String, ExpirationTime: Schema.optional(Schema.Date), NetworkAccessConfiguration: Schema.optional(NetworkAccessConfiguration), StartTime: Schema.optional(Schema.Date), UserId: Schema.String});
+export class WorkspacesPoolSession extends Schema.Class<WorkspacesPoolSession>("WorkspacesPoolSession")({AuthenticationType: Schema.optional(Schema.String), ConnectionState: Schema.optional(Schema.String), SessionId: Schema.String, InstanceId: Schema.optional(Schema.String), PoolId: Schema.String, ExpirationTime: Schema.optional(Schema.Date), NetworkAccessConfiguration: Schema.optional(NetworkAccessConfiguration), StartTime: Schema.optional(Schema.Date), UserId: Schema.String}) {}
 export const WorkspacesPoolSessions = Schema.Array(WorkspacesPoolSession);
-export const WorkspaceAccessProperties = Schema.Struct({DeviceTypeWindows: Schema.optional(Schema.String), DeviceTypeOsx: Schema.optional(Schema.String), DeviceTypeWeb: Schema.optional(Schema.String), DeviceTypeIos: Schema.optional(Schema.String), DeviceTypeAndroid: Schema.optional(Schema.String), DeviceTypeChromeOs: Schema.optional(Schema.String), DeviceTypeZeroClient: Schema.optional(Schema.String), DeviceTypeLinux: Schema.optional(Schema.String), DeviceTypeWorkSpacesThinClient: Schema.optional(Schema.String), AccessEndpointConfig: Schema.optional(AccessEndpointConfig)});
+export class WorkspaceAccessProperties extends Schema.Class<WorkspaceAccessProperties>("WorkspaceAccessProperties")({DeviceTypeWindows: Schema.optional(Schema.String), DeviceTypeOsx: Schema.optional(Schema.String), DeviceTypeWeb: Schema.optional(Schema.String), DeviceTypeIos: Schema.optional(Schema.String), DeviceTypeAndroid: Schema.optional(Schema.String), DeviceTypeChromeOs: Schema.optional(Schema.String), DeviceTypeZeroClient: Schema.optional(Schema.String), DeviceTypeLinux: Schema.optional(Schema.String), DeviceTypeWorkSpacesThinClient: Schema.optional(Schema.String), AccessEndpointConfig: Schema.optional(AccessEndpointConfig)}) {}
 export const FailedRebootWorkspaceRequests = Schema.Array(FailedWorkspaceChangeRequest);
-export const AssociateWorkspaceApplicationResult = Schema.Struct({Association: Schema.optional(WorkspaceResourceAssociation)});
-export const ApplicationNotSupportedException = Schema.Struct({});
-export const ComputeNotCompatibleException = Schema.Struct({});
-export const OperatingSystemNotCompatibleException = Schema.Struct({});
-export const CreateStandbyWorkspacesResult = Schema.Struct({FailedStandbyRequests: Schema.optional(FailedCreateStandbyWorkspacesRequestList), PendingStandbyRequests: Schema.optional(PendingCreateStandbyWorkspacesRequestList)});
-export const CreateWorkspacesResult = Schema.Struct({FailedRequests: Schema.optional(FailedCreateWorkspaceRequests), PendingRequests: Schema.optional(WorkspaceList)});
-export const DescribeConnectionAliasesResult = Schema.Struct({ConnectionAliases: Schema.optional(ConnectionAliasList), NextToken: Schema.optional(Schema.String)});
-export const DescribeWorkspaceImagesResult = Schema.Struct({Images: Schema.optional(WorkspaceImageList), NextToken: Schema.optional(Schema.String)});
-export const DescribeWorkspacesResult = Schema.Struct({Workspaces: Schema.optional(WorkspaceList), NextToken: Schema.optional(Schema.String)});
-export const DescribeWorkspacesPoolSessionsResult = Schema.Struct({Sessions: Schema.optional(WorkspacesPoolSessions), NextToken: Schema.optional(Schema.String)});
-export const ImportClientBrandingResult = Schema.Struct({DeviceTypeWindows: Schema.optional(DefaultClientBrandingAttributes), DeviceTypeOsx: Schema.optional(DefaultClientBrandingAttributes), DeviceTypeAndroid: Schema.optional(DefaultClientBrandingAttributes), DeviceTypeIos: Schema.optional(IosClientBrandingAttributes), DeviceTypeLinux: Schema.optional(DefaultClientBrandingAttributes), DeviceTypeWeb: Schema.optional(DefaultClientBrandingAttributes)});
-export const ModifyWorkspaceAccessPropertiesRequest = Schema.Struct({ResourceId: Schema.String, WorkspaceAccessProperties: WorkspaceAccessProperties});
-export const ModifyWorkspaceAccessPropertiesResult = Schema.Struct({});
-export const UnsupportedWorkspaceConfigurationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const RebootWorkspacesResult = Schema.Struct({FailedRequests: Schema.optional(FailedRebootWorkspaceRequests)});
-export const UnsupportedNetworkConfigurationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UpdateWorkspacesPoolResult = Schema.Struct({WorkspacesPool: Schema.optional(WorkspacesPool)});
-export const DefaultWorkspaceCreationProperties = Schema.Struct({EnableInternetAccess: Schema.optional(Schema.Boolean), DefaultOu: Schema.optional(Schema.String), CustomSecurityGroupId: Schema.optional(Schema.String), UserEnabledAsLocalAdministrator: Schema.optional(Schema.Boolean), EnableMaintenanceMode: Schema.optional(Schema.Boolean), InstanceIamRoleArn: Schema.optional(Schema.String)});
-export const IDCConfig = Schema.Struct({InstanceArn: Schema.optional(Schema.String), ApplicationArn: Schema.optional(Schema.String)});
-export const WorkspaceDirectory = Schema.Struct({DirectoryId: Schema.optional(Schema.String), Alias: Schema.optional(Schema.String), DirectoryName: Schema.optional(Schema.String), RegistrationCode: Schema.optional(Schema.String), SubnetIds: Schema.optional(SubnetIds), DnsIpAddresses: Schema.optional(DnsIpAddresses), DnsIpv6Addresses: Schema.optional(DnsIpv6Addresses), CustomerUserName: Schema.optional(Schema.String), IamRoleId: Schema.optional(Schema.String), DirectoryType: Schema.optional(Schema.String), WorkspaceSecurityGroupId: Schema.optional(Schema.String), State: Schema.optional(Schema.String), WorkspaceCreationProperties: Schema.optional(DefaultWorkspaceCreationProperties), ipGroupIds: Schema.optional(IpGroupIdList), WorkspaceAccessProperties: Schema.optional(WorkspaceAccessProperties), Tenancy: Schema.optional(Schema.String), SelfservicePermissions: Schema.optional(SelfservicePermissions), SamlProperties: Schema.optional(SamlProperties), CertificateBasedAuthProperties: Schema.optional(CertificateBasedAuthProperties), EndpointEncryptionMode: Schema.optional(Schema.String), MicrosoftEntraConfig: Schema.optional(MicrosoftEntraConfig), WorkspaceDirectoryName: Schema.optional(Schema.String), WorkspaceDirectoryDescription: Schema.optional(Schema.String), UserIdentityType: Schema.optional(Schema.String), WorkspaceType: Schema.optional(Schema.String), IDCConfig: Schema.optional(IDCConfig), ActiveDirectoryConfig: Schema.optional(ActiveDirectoryConfig), StreamingProperties: Schema.optional(StreamingProperties), ErrorMessage: Schema.optional(Schema.String)});
+export class AssociateWorkspaceApplicationResult extends Schema.Class<AssociateWorkspaceApplicationResult>("AssociateWorkspaceApplicationResult")({Association: Schema.optional(WorkspaceResourceAssociation)}) {}
+export class ApplicationNotSupportedException extends Schema.Class<ApplicationNotSupportedException>("ApplicationNotSupportedException")({}) {}
+export class ComputeNotCompatibleException extends Schema.Class<ComputeNotCompatibleException>("ComputeNotCompatibleException")({}) {}
+export class OperatingSystemNotCompatibleException extends Schema.Class<OperatingSystemNotCompatibleException>("OperatingSystemNotCompatibleException")({}) {}
+export class CreateStandbyWorkspacesResult extends Schema.Class<CreateStandbyWorkspacesResult>("CreateStandbyWorkspacesResult")({FailedStandbyRequests: Schema.optional(FailedCreateStandbyWorkspacesRequestList), PendingStandbyRequests: Schema.optional(PendingCreateStandbyWorkspacesRequestList)}) {}
+export class CreateWorkspacesResult extends Schema.Class<CreateWorkspacesResult>("CreateWorkspacesResult")({FailedRequests: Schema.optional(FailedCreateWorkspaceRequests), PendingRequests: Schema.optional(WorkspaceList)}) {}
+export class DescribeConnectionAliasesResult extends Schema.Class<DescribeConnectionAliasesResult>("DescribeConnectionAliasesResult")({ConnectionAliases: Schema.optional(ConnectionAliasList), NextToken: Schema.optional(Schema.String)}) {}
+export class DescribeWorkspaceImagesResult extends Schema.Class<DescribeWorkspaceImagesResult>("DescribeWorkspaceImagesResult")({Images: Schema.optional(WorkspaceImageList), NextToken: Schema.optional(Schema.String)}) {}
+export class DescribeWorkspacesResult extends Schema.Class<DescribeWorkspacesResult>("DescribeWorkspacesResult")({Workspaces: Schema.optional(WorkspaceList), NextToken: Schema.optional(Schema.String)}) {}
+export class DescribeWorkspacesPoolSessionsResult extends Schema.Class<DescribeWorkspacesPoolSessionsResult>("DescribeWorkspacesPoolSessionsResult")({Sessions: Schema.optional(WorkspacesPoolSessions), NextToken: Schema.optional(Schema.String)}) {}
+export class ImportClientBrandingResult extends Schema.Class<ImportClientBrandingResult>("ImportClientBrandingResult")({DeviceTypeWindows: Schema.optional(DefaultClientBrandingAttributes), DeviceTypeOsx: Schema.optional(DefaultClientBrandingAttributes), DeviceTypeAndroid: Schema.optional(DefaultClientBrandingAttributes), DeviceTypeIos: Schema.optional(IosClientBrandingAttributes), DeviceTypeLinux: Schema.optional(DefaultClientBrandingAttributes), DeviceTypeWeb: Schema.optional(DefaultClientBrandingAttributes)}) {}
+export class ModifyWorkspaceAccessPropertiesRequest extends Schema.Class<ModifyWorkspaceAccessPropertiesRequest>("ModifyWorkspaceAccessPropertiesRequest")({ResourceId: Schema.String, WorkspaceAccessProperties: WorkspaceAccessProperties}) {}
+export class ModifyWorkspaceAccessPropertiesResult extends Schema.Class<ModifyWorkspaceAccessPropertiesResult>("ModifyWorkspaceAccessPropertiesResult")({}) {}
+export class UnsupportedWorkspaceConfigurationException extends Schema.Class<UnsupportedWorkspaceConfigurationException>("UnsupportedWorkspaceConfigurationException")({message: Schema.optional(Schema.String)}) {}
+export class RebootWorkspacesResult extends Schema.Class<RebootWorkspacesResult>("RebootWorkspacesResult")({FailedRequests: Schema.optional(FailedRebootWorkspaceRequests)}) {}
+export class UnsupportedNetworkConfigurationException extends Schema.Class<UnsupportedNetworkConfigurationException>("UnsupportedNetworkConfigurationException")({message: Schema.optional(Schema.String)}) {}
+export class UpdateWorkspacesPoolResult extends Schema.Class<UpdateWorkspacesPoolResult>("UpdateWorkspacesPoolResult")({WorkspacesPool: Schema.optional(WorkspacesPool)}) {}
+export class DefaultWorkspaceCreationProperties extends Schema.Class<DefaultWorkspaceCreationProperties>("DefaultWorkspaceCreationProperties")({EnableInternetAccess: Schema.optional(Schema.Boolean), DefaultOu: Schema.optional(Schema.String), CustomSecurityGroupId: Schema.optional(Schema.String), UserEnabledAsLocalAdministrator: Schema.optional(Schema.Boolean), EnableMaintenanceMode: Schema.optional(Schema.Boolean), InstanceIamRoleArn: Schema.optional(Schema.String)}) {}
+export class IDCConfig extends Schema.Class<IDCConfig>("IDCConfig")({InstanceArn: Schema.optional(Schema.String), ApplicationArn: Schema.optional(Schema.String)}) {}
+export class WorkspaceDirectory extends Schema.Class<WorkspaceDirectory>("WorkspaceDirectory")({DirectoryId: Schema.optional(Schema.String), Alias: Schema.optional(Schema.String), DirectoryName: Schema.optional(Schema.String), RegistrationCode: Schema.optional(Schema.String), SubnetIds: Schema.optional(SubnetIds), DnsIpAddresses: Schema.optional(DnsIpAddresses), DnsIpv6Addresses: Schema.optional(DnsIpv6Addresses), CustomerUserName: Schema.optional(Schema.String), IamRoleId: Schema.optional(Schema.String), DirectoryType: Schema.optional(Schema.String), WorkspaceSecurityGroupId: Schema.optional(Schema.String), State: Schema.optional(Schema.String), WorkspaceCreationProperties: Schema.optional(DefaultWorkspaceCreationProperties), ipGroupIds: Schema.optional(IpGroupIdList), WorkspaceAccessProperties: Schema.optional(WorkspaceAccessProperties), Tenancy: Schema.optional(Schema.String), SelfservicePermissions: Schema.optional(SelfservicePermissions), SamlProperties: Schema.optional(SamlProperties), CertificateBasedAuthProperties: Schema.optional(CertificateBasedAuthProperties), EndpointEncryptionMode: Schema.optional(Schema.String), MicrosoftEntraConfig: Schema.optional(MicrosoftEntraConfig), WorkspaceDirectoryName: Schema.optional(Schema.String), WorkspaceDirectoryDescription: Schema.optional(Schema.String), UserIdentityType: Schema.optional(Schema.String), WorkspaceType: Schema.optional(Schema.String), IDCConfig: Schema.optional(IDCConfig), ActiveDirectoryConfig: Schema.optional(ActiveDirectoryConfig), StreamingProperties: Schema.optional(StreamingProperties), ErrorMessage: Schema.optional(Schema.String)}) {}
 export const DirectoryList = Schema.Array(WorkspaceDirectory);
-export const DescribeWorkspaceDirectoriesResult = Schema.Struct({Directories: Schema.optional(DirectoryList), NextToken: Schema.optional(Schema.String)});
-export const InvalidParameterCombinationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const WorkspacesDefaultRoleNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
+export class DescribeWorkspaceDirectoriesResult extends Schema.Class<DescribeWorkspaceDirectoriesResult>("DescribeWorkspaceDirectoriesResult")({Directories: Schema.optional(DirectoryList), NextToken: Schema.optional(Schema.String)}) {}
+export class InvalidParameterCombinationException extends Schema.Class<InvalidParameterCombinationException>("InvalidParameterCombinationException")({message: Schema.optional(Schema.String)}) {}
+export class WorkspacesDefaultRoleNotFoundException extends Schema.Class<WorkspacesDefaultRoleNotFoundException>("WorkspacesDefaultRoleNotFoundException")({message: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class InvalidParameterValuesExceptionError extends Schema.TaggedError<InvalidParameterValuesExceptionError>()("InvalidParameterValuesException", InvalidParameterValuesException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ResourceAssociatedExceptionError extends Schema.TaggedError<ResourceAssociatedExceptionError>()("ResourceAssociatedException", ResourceAssociatedException) {};
-export class InvalidResourceStateExceptionError extends Schema.TaggedError<InvalidResourceStateExceptionError>()("InvalidResourceStateException", InvalidResourceStateException) {};
-export class OperationNotSupportedExceptionError extends Schema.TaggedError<OperationNotSupportedExceptionError>()("OperationNotSupportedException", OperationNotSupportedException) {};
-export class OperationInProgressExceptionError extends Schema.TaggedError<OperationInProgressExceptionError>()("OperationInProgressException", OperationInProgressException) {};
-export class ResourceUnavailableExceptionError extends Schema.TaggedError<ResourceUnavailableExceptionError>()("ResourceUnavailableException", ResourceUnavailableException) {};
-export class ResourceLimitExceededExceptionError extends Schema.TaggedError<ResourceLimitExceededExceptionError>()("ResourceLimitExceededException", ResourceLimitExceededException) {};
-export class ResourceAlreadyExistsExceptionError extends Schema.TaggedError<ResourceAlreadyExistsExceptionError>()("ResourceAlreadyExistsException", ResourceAlreadyExistsException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class ResourceCreationFailedExceptionError extends Schema.TaggedError<ResourceCreationFailedExceptionError>()("ResourceCreationFailedException", ResourceCreationFailedException) {};
-export class IncompatibleApplicationsExceptionError extends Schema.TaggedError<IncompatibleApplicationsExceptionError>()("IncompatibleApplicationsException", IncompatibleApplicationsException) {};
-export class ResourceInUseExceptionError extends Schema.TaggedError<ResourceInUseExceptionError>()("ResourceInUseException", ResourceInUseException) {};
-export class ApplicationNotSupportedExceptionError extends Schema.TaggedError<ApplicationNotSupportedExceptionError>()("ApplicationNotSupportedException", ApplicationNotSupportedException) {};
-export class ComputeNotCompatibleExceptionError extends Schema.TaggedError<ComputeNotCompatibleExceptionError>()("ComputeNotCompatibleException", ComputeNotCompatibleException) {};
-export class OperatingSystemNotCompatibleExceptionError extends Schema.TaggedError<OperatingSystemNotCompatibleExceptionError>()("OperatingSystemNotCompatibleException", OperatingSystemNotCompatibleException) {};
-export class UnsupportedWorkspaceConfigurationExceptionError extends Schema.TaggedError<UnsupportedWorkspaceConfigurationExceptionError>()("UnsupportedWorkspaceConfigurationException", UnsupportedWorkspaceConfigurationException) {};
-export class UnsupportedNetworkConfigurationExceptionError extends Schema.TaggedError<UnsupportedNetworkConfigurationExceptionError>()("UnsupportedNetworkConfigurationException", UnsupportedNetworkConfigurationException) {};
-export class InvalidParameterCombinationExceptionError extends Schema.TaggedError<InvalidParameterCombinationExceptionError>()("InvalidParameterCombinationException", InvalidParameterCombinationException) {};
-export class WorkspacesDefaultRoleNotFoundExceptionError extends Schema.TaggedError<WorkspacesDefaultRoleNotFoundExceptionError>()("WorkspacesDefaultRoleNotFoundException", WorkspacesDefaultRoleNotFoundException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class InvalidParameterValuesExceptionError extends Schema.TaggedError<InvalidParameterValuesExceptionError>()("InvalidParameterValuesException", InvalidParameterValuesException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ResourceAssociatedExceptionError extends Schema.TaggedError<ResourceAssociatedExceptionError>()("ResourceAssociatedException", ResourceAssociatedException.fields) {};
+export class InvalidResourceStateExceptionError extends Schema.TaggedError<InvalidResourceStateExceptionError>()("InvalidResourceStateException", InvalidResourceStateException.fields) {};
+export class OperationNotSupportedExceptionError extends Schema.TaggedError<OperationNotSupportedExceptionError>()("OperationNotSupportedException", OperationNotSupportedException.fields) {};
+export class OperationInProgressExceptionError extends Schema.TaggedError<OperationInProgressExceptionError>()("OperationInProgressException", OperationInProgressException.fields) {};
+export class ResourceUnavailableExceptionError extends Schema.TaggedError<ResourceUnavailableExceptionError>()("ResourceUnavailableException", ResourceUnavailableException.fields) {};
+export class ResourceLimitExceededExceptionError extends Schema.TaggedError<ResourceLimitExceededExceptionError>()("ResourceLimitExceededException", ResourceLimitExceededException.fields) {};
+export class ResourceAlreadyExistsExceptionError extends Schema.TaggedError<ResourceAlreadyExistsExceptionError>()("ResourceAlreadyExistsException", ResourceAlreadyExistsException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class ResourceCreationFailedExceptionError extends Schema.TaggedError<ResourceCreationFailedExceptionError>()("ResourceCreationFailedException", ResourceCreationFailedException.fields) {};
+export class IncompatibleApplicationsExceptionError extends Schema.TaggedError<IncompatibleApplicationsExceptionError>()("IncompatibleApplicationsException", IncompatibleApplicationsException.fields) {};
+export class ResourceInUseExceptionError extends Schema.TaggedError<ResourceInUseExceptionError>()("ResourceInUseException", ResourceInUseException.fields) {};
+export class ApplicationNotSupportedExceptionError extends Schema.TaggedError<ApplicationNotSupportedExceptionError>()("ApplicationNotSupportedException", ApplicationNotSupportedException.fields) {};
+export class ComputeNotCompatibleExceptionError extends Schema.TaggedError<ComputeNotCompatibleExceptionError>()("ComputeNotCompatibleException", ComputeNotCompatibleException.fields) {};
+export class OperatingSystemNotCompatibleExceptionError extends Schema.TaggedError<OperatingSystemNotCompatibleExceptionError>()("OperatingSystemNotCompatibleException", OperatingSystemNotCompatibleException.fields) {};
+export class UnsupportedWorkspaceConfigurationExceptionError extends Schema.TaggedError<UnsupportedWorkspaceConfigurationExceptionError>()("UnsupportedWorkspaceConfigurationException", UnsupportedWorkspaceConfigurationException.fields) {};
+export class UnsupportedNetworkConfigurationExceptionError extends Schema.TaggedError<UnsupportedNetworkConfigurationExceptionError>()("UnsupportedNetworkConfigurationException", UnsupportedNetworkConfigurationException.fields) {};
+export class InvalidParameterCombinationExceptionError extends Schema.TaggedError<InvalidParameterCombinationExceptionError>()("InvalidParameterCombinationException", InvalidParameterCombinationException.fields) {};
+export class WorkspacesDefaultRoleNotFoundExceptionError extends Schema.TaggedError<WorkspacesDefaultRoleNotFoundExceptionError>()("WorkspacesDefaultRoleNotFoundException", WorkspacesDefaultRoleNotFoundException.fields) {};
 
 //# Operations
 export const deleteConnectClientAddIn = /*#__PURE__*/ makeOperation(() => Operation({ version: "2015-04-08", uri: "/", method: "POST", sdkId: "WorkSpaces", sigV4ServiceName: "workspaces", name: "WorkspacesService.DeleteConnectClientAddIn" }, DeleteConnectClientAddInRequest, DeleteConnectClientAddInResult, [AccessDeniedExceptionError, InvalidParameterValuesExceptionError, ResourceNotFoundExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

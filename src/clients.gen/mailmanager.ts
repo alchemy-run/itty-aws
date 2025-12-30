@@ -4,97 +4,97 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 
 //# Schemas
 export const TagKeyList = Schema.Array(Schema.String);
-export const DeregisterMemberFromAddressListRequest = Schema.Struct({AddressListId: Schema.String, Address: Schema.String});
-export const DeregisterMemberFromAddressListResponse = Schema.Struct({});
-export const GetAddressListImportJobRequest = Schema.Struct({JobId: Schema.String});
-export const GetArchiveExportRequest = Schema.Struct({ExportId: Schema.String});
-export const GetArchiveMessageRequest = Schema.Struct({ArchivedMessageId: Schema.String});
-export const GetArchiveMessageContentRequest = Schema.Struct({ArchivedMessageId: Schema.String});
-export const GetArchiveSearchRequest = Schema.Struct({SearchId: Schema.String});
-export const GetArchiveSearchResultsRequest = Schema.Struct({SearchId: Schema.String});
-export const GetMemberOfAddressListRequest = Schema.Struct({AddressListId: Schema.String, Address: Schema.String});
-export const ListAddressListImportJobsRequest = Schema.Struct({AddressListId: Schema.String, NextToken: Schema.optional(Schema.String), PageSize: Schema.optional(Schema.Number)});
-export const ListArchiveExportsRequest = Schema.Struct({ArchiveId: Schema.String, NextToken: Schema.optional(Schema.String), PageSize: Schema.optional(Schema.Number)});
-export const ListArchiveSearchesRequest = Schema.Struct({ArchiveId: Schema.String, NextToken: Schema.optional(Schema.String), PageSize: Schema.optional(Schema.Number)});
-export const ListTagsForResourceRequest = Schema.Struct({ResourceArn: Schema.String});
-export const RegisterMemberToAddressListRequest = Schema.Struct({AddressListId: Schema.String, Address: Schema.String});
-export const RegisterMemberToAddressListResponse = Schema.Struct({});
-export const StartAddressListImportJobRequest = Schema.Struct({JobId: Schema.String});
-export const StartAddressListImportJobResponse = Schema.Struct({});
+export class DeregisterMemberFromAddressListRequest extends Schema.Class<DeregisterMemberFromAddressListRequest>("DeregisterMemberFromAddressListRequest")({AddressListId: Schema.String, Address: Schema.String}) {}
+export class DeregisterMemberFromAddressListResponse extends Schema.Class<DeregisterMemberFromAddressListResponse>("DeregisterMemberFromAddressListResponse")({}) {}
+export class GetAddressListImportJobRequest extends Schema.Class<GetAddressListImportJobRequest>("GetAddressListImportJobRequest")({JobId: Schema.String}) {}
+export class GetArchiveExportRequest extends Schema.Class<GetArchiveExportRequest>("GetArchiveExportRequest")({ExportId: Schema.String}) {}
+export class GetArchiveMessageRequest extends Schema.Class<GetArchiveMessageRequest>("GetArchiveMessageRequest")({ArchivedMessageId: Schema.String}) {}
+export class GetArchiveMessageContentRequest extends Schema.Class<GetArchiveMessageContentRequest>("GetArchiveMessageContentRequest")({ArchivedMessageId: Schema.String}) {}
+export class GetArchiveSearchRequest extends Schema.Class<GetArchiveSearchRequest>("GetArchiveSearchRequest")({SearchId: Schema.String}) {}
+export class GetArchiveSearchResultsRequest extends Schema.Class<GetArchiveSearchResultsRequest>("GetArchiveSearchResultsRequest")({SearchId: Schema.String}) {}
+export class GetMemberOfAddressListRequest extends Schema.Class<GetMemberOfAddressListRequest>("GetMemberOfAddressListRequest")({AddressListId: Schema.String, Address: Schema.String}) {}
+export class ListAddressListImportJobsRequest extends Schema.Class<ListAddressListImportJobsRequest>("ListAddressListImportJobsRequest")({AddressListId: Schema.String, NextToken: Schema.optional(Schema.String), PageSize: Schema.optional(Schema.Number)}) {}
+export class ListArchiveExportsRequest extends Schema.Class<ListArchiveExportsRequest>("ListArchiveExportsRequest")({ArchiveId: Schema.String, NextToken: Schema.optional(Schema.String), PageSize: Schema.optional(Schema.Number)}) {}
+export class ListArchiveSearchesRequest extends Schema.Class<ListArchiveSearchesRequest>("ListArchiveSearchesRequest")({ArchiveId: Schema.String, NextToken: Schema.optional(Schema.String), PageSize: Schema.optional(Schema.Number)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({ResourceArn: Schema.String}) {}
+export class RegisterMemberToAddressListRequest extends Schema.Class<RegisterMemberToAddressListRequest>("RegisterMemberToAddressListRequest")({AddressListId: Schema.String, Address: Schema.String}) {}
+export class RegisterMemberToAddressListResponse extends Schema.Class<RegisterMemberToAddressListResponse>("RegisterMemberToAddressListResponse")({}) {}
+export class StartAddressListImportJobRequest extends Schema.Class<StartAddressListImportJobRequest>("StartAddressListImportJobRequest")({JobId: Schema.String}) {}
+export class StartAddressListImportJobResponse extends Schema.Class<StartAddressListImportJobResponse>("StartAddressListImportJobResponse")({}) {}
 export const ArchiveStringToEvaluate = Schema.Union(Schema.String);
 export const StringValueList = Schema.Array(Schema.String);
-export const ArchiveStringExpression = Schema.Struct({Evaluate: ArchiveStringToEvaluate, Operator: Schema.String, Values: StringValueList});
+export class ArchiveStringExpression extends Schema.Class<ArchiveStringExpression>("ArchiveStringExpression")({Evaluate: ArchiveStringToEvaluate, Operator: Schema.String, Values: StringValueList}) {}
 export const ArchiveBooleanToEvaluate = Schema.Union(Schema.String);
-export const ArchiveBooleanExpression = Schema.Struct({Evaluate: ArchiveBooleanToEvaluate, Operator: Schema.String});
+export class ArchiveBooleanExpression extends Schema.Class<ArchiveBooleanExpression>("ArchiveBooleanExpression")({Evaluate: ArchiveBooleanToEvaluate, Operator: Schema.String}) {}
 export const ArchiveFilterCondition = Schema.Union(ArchiveStringExpression, ArchiveBooleanExpression);
 export const ArchiveFilterConditions = Schema.Array(ArchiveFilterCondition);
-export const ArchiveFilters = Schema.Struct({Include: Schema.optional(ArchiveFilterConditions), Unless: Schema.optional(ArchiveFilterConditions)});
-export const StartArchiveSearchRequest = Schema.Struct({ArchiveId: Schema.String, Filters: Schema.optional(ArchiveFilters), FromTimestamp: Schema.Date, ToTimestamp: Schema.Date, MaxResults: Schema.Number});
-export const StopAddressListImportJobRequest = Schema.Struct({JobId: Schema.String});
-export const StopAddressListImportJobResponse = Schema.Struct({});
-export const StopArchiveExportRequest = Schema.Struct({ExportId: Schema.String});
-export const StopArchiveExportResponse = Schema.Struct({});
-export const StopArchiveSearchRequest = Schema.Struct({SearchId: Schema.String});
-export const StopArchiveSearchResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({ResourceArn: Schema.String, TagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
-export const ImportDataFormat = Schema.Struct({ImportDataType: Schema.String});
-export const AddressFilter = Schema.Struct({AddressPrefix: Schema.optional(Schema.String)});
-export const Tag = Schema.Struct({Key: Schema.String, Value: Schema.String});
+export class ArchiveFilters extends Schema.Class<ArchiveFilters>("ArchiveFilters")({Include: Schema.optional(ArchiveFilterConditions), Unless: Schema.optional(ArchiveFilterConditions)}) {}
+export class StartArchiveSearchRequest extends Schema.Class<StartArchiveSearchRequest>("StartArchiveSearchRequest")({ArchiveId: Schema.String, Filters: Schema.optional(ArchiveFilters), FromTimestamp: Schema.Date, ToTimestamp: Schema.Date, MaxResults: Schema.Number}) {}
+export class StopAddressListImportJobRequest extends Schema.Class<StopAddressListImportJobRequest>("StopAddressListImportJobRequest")({JobId: Schema.String}) {}
+export class StopAddressListImportJobResponse extends Schema.Class<StopAddressListImportJobResponse>("StopAddressListImportJobResponse")({}) {}
+export class StopArchiveExportRequest extends Schema.Class<StopArchiveExportRequest>("StopArchiveExportRequest")({ExportId: Schema.String}) {}
+export class StopArchiveExportResponse extends Schema.Class<StopArchiveExportResponse>("StopArchiveExportResponse")({}) {}
+export class StopArchiveSearchRequest extends Schema.Class<StopArchiveSearchRequest>("StopArchiveSearchRequest")({SearchId: Schema.String}) {}
+export class StopArchiveSearchResponse extends Schema.Class<StopArchiveSearchResponse>("StopArchiveSearchResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({ResourceArn: Schema.String, TagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class ImportDataFormat extends Schema.Class<ImportDataFormat>("ImportDataFormat")({ImportDataType: Schema.String}) {}
+export class AddressFilter extends Schema.Class<AddressFilter>("AddressFilter")({AddressPrefix: Schema.optional(Schema.String)}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.String, Value: Schema.String}) {}
 export const TagList = Schema.Array(Tag);
-export const CreateAddressListImportJobRequest = Schema.Struct({ClientToken: Schema.optional(Schema.String), AddressListId: Schema.String, Name: Schema.String, ImportDataFormat: ImportDataFormat});
-export const AccessDeniedException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const GetAddressListImportJobResponse = Schema.Struct({JobId: Schema.String, Name: Schema.String, Status: Schema.String, PreSignedUrl: Schema.String, ImportedItemsCount: Schema.optional(Schema.Number), FailedItemsCount: Schema.optional(Schema.Number), ImportDataFormat: ImportDataFormat, AddressListId: Schema.String, CreatedTimestamp: Schema.Date, StartTimestamp: Schema.optional(Schema.Date), CompletedTimestamp: Schema.optional(Schema.Date), Error: Schema.optional(Schema.String)});
-export const GetMemberOfAddressListResponse = Schema.Struct({Address: Schema.String, CreatedTimestamp: Schema.Date});
-export const ListMembersOfAddressListRequest = Schema.Struct({AddressListId: Schema.String, Filter: Schema.optional(AddressFilter), NextToken: Schema.optional(Schema.String), PageSize: Schema.optional(Schema.Number)});
-export const ListTagsForResourceResponse = Schema.Struct({Tags: TagList});
-export const ResourceNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ConflictException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const StartArchiveSearchResponse = Schema.Struct({SearchId: Schema.optional(Schema.String)});
-export const ThrottlingException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ValidationException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const TagResourceRequest = Schema.Struct({ResourceArn: Schema.String, Tags: TagList});
-export const TagResourceResponse = Schema.Struct({});
+export class CreateAddressListImportJobRequest extends Schema.Class<CreateAddressListImportJobRequest>("CreateAddressListImportJobRequest")({ClientToken: Schema.optional(Schema.String), AddressListId: Schema.String, Name: Schema.String, ImportDataFormat: ImportDataFormat}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({Message: Schema.optional(Schema.String)}) {}
+export class GetAddressListImportJobResponse extends Schema.Class<GetAddressListImportJobResponse>("GetAddressListImportJobResponse")({JobId: Schema.String, Name: Schema.String, Status: Schema.String, PreSignedUrl: Schema.String, ImportedItemsCount: Schema.optional(Schema.Number), FailedItemsCount: Schema.optional(Schema.Number), ImportDataFormat: ImportDataFormat, AddressListId: Schema.String, CreatedTimestamp: Schema.Date, StartTimestamp: Schema.optional(Schema.Date), CompletedTimestamp: Schema.optional(Schema.Date), Error: Schema.optional(Schema.String)}) {}
+export class GetMemberOfAddressListResponse extends Schema.Class<GetMemberOfAddressListResponse>("GetMemberOfAddressListResponse")({Address: Schema.String, CreatedTimestamp: Schema.Date}) {}
+export class ListMembersOfAddressListRequest extends Schema.Class<ListMembersOfAddressListRequest>("ListMembersOfAddressListRequest")({AddressListId: Schema.String, Filter: Schema.optional(AddressFilter), NextToken: Schema.optional(Schema.String), PageSize: Schema.optional(Schema.Number)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({Tags: TagList}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({Message: Schema.optional(Schema.String)}) {}
+export class StartArchiveSearchResponse extends Schema.Class<StartArchiveSearchResponse>("StartArchiveSearchResponse")({SearchId: Schema.optional(Schema.String)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({Message: Schema.optional(Schema.String)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({Message: Schema.optional(Schema.String)}) {}
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({ResourceArn: Schema.String, Tags: TagList}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
 export const StringList = Schema.Array(Schema.String);
 export const EmailReceivedHeadersList = Schema.Array(Schema.String);
-export const S3ExportDestinationConfiguration = Schema.Struct({S3Location: Schema.optional(Schema.String)});
-export const ExportStatus = Schema.Struct({SubmissionTimestamp: Schema.optional(Schema.Date), CompletionTimestamp: Schema.optional(Schema.Date), State: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String)});
-export const Metadata = Schema.Struct({Timestamp: Schema.optional(Schema.Date), IngressPointId: Schema.optional(Schema.String), TrafficPolicyId: Schema.optional(Schema.String), RuleSetId: Schema.optional(Schema.String), SenderHostname: Schema.optional(Schema.String), SenderIpAddress: Schema.optional(Schema.String), TlsCipherSuite: Schema.optional(Schema.String), TlsProtocol: Schema.optional(Schema.String), SendingMethod: Schema.optional(Schema.String), SourceIdentity: Schema.optional(Schema.String), SendingPool: Schema.optional(Schema.String), ConfigurationSet: Schema.optional(Schema.String), SourceArn: Schema.optional(Schema.String)});
-export const Envelope = Schema.Struct({Helo: Schema.optional(Schema.String), From: Schema.optional(Schema.String), To: Schema.optional(StringList)});
-export const MessageBody = Schema.Struct({Text: Schema.optional(Schema.String), Html: Schema.optional(Schema.String), MessageMalformed: Schema.optional(Schema.Boolean)});
-export const SearchStatus = Schema.Struct({SubmissionTimestamp: Schema.optional(Schema.Date), CompletionTimestamp: Schema.optional(Schema.Date), State: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String)});
-export const Row = Schema.Struct({ArchivedMessageId: Schema.optional(Schema.String), ReceivedTimestamp: Schema.optional(Schema.Date), Date: Schema.optional(Schema.String), To: Schema.optional(Schema.String), From: Schema.optional(Schema.String), Cc: Schema.optional(Schema.String), Subject: Schema.optional(Schema.String), MessageId: Schema.optional(Schema.String), HasAttachments: Schema.optional(Schema.Boolean), ReceivedHeaders: Schema.optional(EmailReceivedHeadersList), InReplyTo: Schema.optional(Schema.String), XMailer: Schema.optional(Schema.String), XOriginalMailer: Schema.optional(Schema.String), XPriority: Schema.optional(Schema.String), IngressPointId: Schema.optional(Schema.String), SenderHostname: Schema.optional(Schema.String), SenderIpAddress: Schema.optional(Schema.String), Envelope: Schema.optional(Envelope), SourceArn: Schema.optional(Schema.String)});
+export class S3ExportDestinationConfiguration extends Schema.Class<S3ExportDestinationConfiguration>("S3ExportDestinationConfiguration")({S3Location: Schema.optional(Schema.String)}) {}
+export class ExportStatus extends Schema.Class<ExportStatus>("ExportStatus")({SubmissionTimestamp: Schema.optional(Schema.Date), CompletionTimestamp: Schema.optional(Schema.Date), State: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String)}) {}
+export class Metadata extends Schema.Class<Metadata>("Metadata")({Timestamp: Schema.optional(Schema.Date), IngressPointId: Schema.optional(Schema.String), TrafficPolicyId: Schema.optional(Schema.String), RuleSetId: Schema.optional(Schema.String), SenderHostname: Schema.optional(Schema.String), SenderIpAddress: Schema.optional(Schema.String), TlsCipherSuite: Schema.optional(Schema.String), TlsProtocol: Schema.optional(Schema.String), SendingMethod: Schema.optional(Schema.String), SourceIdentity: Schema.optional(Schema.String), SendingPool: Schema.optional(Schema.String), ConfigurationSet: Schema.optional(Schema.String), SourceArn: Schema.optional(Schema.String)}) {}
+export class Envelope extends Schema.Class<Envelope>("Envelope")({Helo: Schema.optional(Schema.String), From: Schema.optional(Schema.String), To: Schema.optional(StringList)}) {}
+export class MessageBody extends Schema.Class<MessageBody>("MessageBody")({Text: Schema.optional(Schema.String), Html: Schema.optional(Schema.String), MessageMalformed: Schema.optional(Schema.Boolean)}) {}
+export class SearchStatus extends Schema.Class<SearchStatus>("SearchStatus")({SubmissionTimestamp: Schema.optional(Schema.Date), CompletionTimestamp: Schema.optional(Schema.Date), State: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String)}) {}
+export class Row extends Schema.Class<Row>("Row")({ArchivedMessageId: Schema.optional(Schema.String), ReceivedTimestamp: Schema.optional(Schema.Date), Date: Schema.optional(Schema.String), To: Schema.optional(Schema.String), From: Schema.optional(Schema.String), Cc: Schema.optional(Schema.String), Subject: Schema.optional(Schema.String), MessageId: Schema.optional(Schema.String), HasAttachments: Schema.optional(Schema.Boolean), ReceivedHeaders: Schema.optional(EmailReceivedHeadersList), InReplyTo: Schema.optional(Schema.String), XMailer: Schema.optional(Schema.String), XOriginalMailer: Schema.optional(Schema.String), XPriority: Schema.optional(Schema.String), IngressPointId: Schema.optional(Schema.String), SenderHostname: Schema.optional(Schema.String), SenderIpAddress: Schema.optional(Schema.String), Envelope: Schema.optional(Envelope), SourceArn: Schema.optional(Schema.String)}) {}
 export const RowsList = Schema.Array(Row);
-export const ImportJob = Schema.Struct({JobId: Schema.String, Name: Schema.String, Status: Schema.String, PreSignedUrl: Schema.String, ImportedItemsCount: Schema.optional(Schema.Number), FailedItemsCount: Schema.optional(Schema.Number), ImportDataFormat: ImportDataFormat, AddressListId: Schema.String, CreatedTimestamp: Schema.Date, StartTimestamp: Schema.optional(Schema.Date), CompletedTimestamp: Schema.optional(Schema.Date), Error: Schema.optional(Schema.String)});
+export class ImportJob extends Schema.Class<ImportJob>("ImportJob")({JobId: Schema.String, Name: Schema.String, Status: Schema.String, PreSignedUrl: Schema.String, ImportedItemsCount: Schema.optional(Schema.Number), FailedItemsCount: Schema.optional(Schema.Number), ImportDataFormat: ImportDataFormat, AddressListId: Schema.String, CreatedTimestamp: Schema.Date, StartTimestamp: Schema.optional(Schema.Date), CompletedTimestamp: Schema.optional(Schema.Date), Error: Schema.optional(Schema.String)}) {}
 export const ImportJobs = Schema.Array(ImportJob);
-export const ExportSummary = Schema.Struct({ExportId: Schema.optional(Schema.String), Status: Schema.optional(ExportStatus)});
+export class ExportSummary extends Schema.Class<ExportSummary>("ExportSummary")({ExportId: Schema.optional(Schema.String), Status: Schema.optional(ExportStatus)}) {}
 export const ExportSummaryList = Schema.Array(ExportSummary);
-export const SearchSummary = Schema.Struct({SearchId: Schema.optional(Schema.String), Status: Schema.optional(SearchStatus)});
+export class SearchSummary extends Schema.Class<SearchSummary>("SearchSummary")({SearchId: Schema.optional(Schema.String), Status: Schema.optional(SearchStatus)}) {}
 export const SearchSummaryList = Schema.Array(SearchSummary);
 export const ExportDestinationConfiguration = Schema.Union(S3ExportDestinationConfiguration);
-export const CreateAddressListImportJobResponse = Schema.Struct({JobId: Schema.String, PreSignedUrl: Schema.String});
-export const GetArchiveExportResponse = Schema.Struct({ArchiveId: Schema.optional(Schema.String), Filters: Schema.optional(ArchiveFilters), FromTimestamp: Schema.optional(Schema.Date), ToTimestamp: Schema.optional(Schema.Date), MaxResults: Schema.optional(Schema.Number), ExportDestinationConfiguration: Schema.optional(ExportDestinationConfiguration), Status: Schema.optional(ExportStatus)});
-export const GetArchiveMessageResponse = Schema.Struct({MessageDownloadLink: Schema.optional(Schema.String), Metadata: Schema.optional(Metadata), Envelope: Schema.optional(Envelope)});
-export const GetArchiveMessageContentResponse = Schema.Struct({Body: Schema.optional(MessageBody)});
-export const GetArchiveSearchResponse = Schema.Struct({ArchiveId: Schema.optional(Schema.String), Filters: Schema.optional(ArchiveFilters), FromTimestamp: Schema.optional(Schema.Date), ToTimestamp: Schema.optional(Schema.Date), MaxResults: Schema.optional(Schema.Number), Status: Schema.optional(SearchStatus)});
-export const GetArchiveSearchResultsResponse = Schema.Struct({Rows: Schema.optional(RowsList)});
-export const ListAddressListImportJobsResponse = Schema.Struct({ImportJobs: ImportJobs, NextToken: Schema.optional(Schema.String)});
-export const ListArchiveExportsResponse = Schema.Struct({Exports: Schema.optional(ExportSummaryList), NextToken: Schema.optional(Schema.String)});
-export const ListArchiveSearchesResponse = Schema.Struct({Searches: Schema.optional(SearchSummaryList), NextToken: Schema.optional(Schema.String)});
-export const ServiceQuotaExceededException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const SavedAddress = Schema.Struct({Address: Schema.String, CreatedTimestamp: Schema.Date});
+export class CreateAddressListImportJobResponse extends Schema.Class<CreateAddressListImportJobResponse>("CreateAddressListImportJobResponse")({JobId: Schema.String, PreSignedUrl: Schema.String}) {}
+export class GetArchiveExportResponse extends Schema.Class<GetArchiveExportResponse>("GetArchiveExportResponse")({ArchiveId: Schema.optional(Schema.String), Filters: Schema.optional(ArchiveFilters), FromTimestamp: Schema.optional(Schema.Date), ToTimestamp: Schema.optional(Schema.Date), MaxResults: Schema.optional(Schema.Number), ExportDestinationConfiguration: Schema.optional(ExportDestinationConfiguration), Status: Schema.optional(ExportStatus)}) {}
+export class GetArchiveMessageResponse extends Schema.Class<GetArchiveMessageResponse>("GetArchiveMessageResponse")({MessageDownloadLink: Schema.optional(Schema.String), Metadata: Schema.optional(Metadata), Envelope: Schema.optional(Envelope)}) {}
+export class GetArchiveMessageContentResponse extends Schema.Class<GetArchiveMessageContentResponse>("GetArchiveMessageContentResponse")({Body: Schema.optional(MessageBody)}) {}
+export class GetArchiveSearchResponse extends Schema.Class<GetArchiveSearchResponse>("GetArchiveSearchResponse")({ArchiveId: Schema.optional(Schema.String), Filters: Schema.optional(ArchiveFilters), FromTimestamp: Schema.optional(Schema.Date), ToTimestamp: Schema.optional(Schema.Date), MaxResults: Schema.optional(Schema.Number), Status: Schema.optional(SearchStatus)}) {}
+export class GetArchiveSearchResultsResponse extends Schema.Class<GetArchiveSearchResultsResponse>("GetArchiveSearchResultsResponse")({Rows: Schema.optional(RowsList)}) {}
+export class ListAddressListImportJobsResponse extends Schema.Class<ListAddressListImportJobsResponse>("ListAddressListImportJobsResponse")({ImportJobs: ImportJobs, NextToken: Schema.optional(Schema.String)}) {}
+export class ListArchiveExportsResponse extends Schema.Class<ListArchiveExportsResponse>("ListArchiveExportsResponse")({Exports: Schema.optional(ExportSummaryList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListArchiveSearchesResponse extends Schema.Class<ListArchiveSearchesResponse>("ListArchiveSearchesResponse")({Searches: Schema.optional(SearchSummaryList), NextToken: Schema.optional(Schema.String)}) {}
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({Message: Schema.optional(Schema.String)}) {}
+export class SavedAddress extends Schema.Class<SavedAddress>("SavedAddress")({Address: Schema.String, CreatedTimestamp: Schema.Date}) {}
 export const SavedAddresses = Schema.Array(SavedAddress);
-export const ListMembersOfAddressListResponse = Schema.Struct({Addresses: SavedAddresses, NextToken: Schema.optional(Schema.String)});
-export const StartArchiveExportRequest = Schema.Struct({ArchiveId: Schema.String, Filters: Schema.optional(ArchiveFilters), FromTimestamp: Schema.Date, ToTimestamp: Schema.Date, MaxResults: Schema.optional(Schema.Number), ExportDestinationConfiguration: ExportDestinationConfiguration, IncludeMetadata: Schema.optional(Schema.Boolean)});
-export const StartArchiveExportResponse = Schema.Struct({ExportId: Schema.optional(Schema.String)});
+export class ListMembersOfAddressListResponse extends Schema.Class<ListMembersOfAddressListResponse>("ListMembersOfAddressListResponse")({Addresses: SavedAddresses, NextToken: Schema.optional(Schema.String)}) {}
+export class StartArchiveExportRequest extends Schema.Class<StartArchiveExportRequest>("StartArchiveExportRequest")({ArchiveId: Schema.String, Filters: Schema.optional(ArchiveFilters), FromTimestamp: Schema.Date, ToTimestamp: Schema.Date, MaxResults: Schema.optional(Schema.Number), ExportDestinationConfiguration: ExportDestinationConfiguration, IncludeMetadata: Schema.optional(Schema.Boolean)}) {}
+export class StartArchiveExportResponse extends Schema.Class<StartArchiveExportResponse>("StartArchiveExportResponse")({ExportId: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
 
 //# Operations
 export const stopArchiveSearch = /*#__PURE__*/ makeOperation(() => Operation({ version: "2023-10-17", uri: "/", method: "POST", sdkId: "MailManager", sigV4ServiceName: "ses", name: "MailManagerSvc.StopArchiveSearch" }, StopArchiveSearchRequest, StopArchiveSearchResponse, [AccessDeniedExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);

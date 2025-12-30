@@ -6,70 +6,70 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 export const ChatTokenCapabilities = Schema.Array(Schema.String);
 export const LoggingConfigurationIdentifierList = Schema.Array(Schema.String);
 export const TagKeyList = Schema.Array(Schema.String);
-export const DeleteLoggingConfigurationRequest = Schema.Struct({identifier: Schema.String});
-export const DeleteMessageRequest = Schema.Struct({roomIdentifier: Schema.String, id: Schema.String, reason: Schema.optional(Schema.String)});
-export const DeleteRoomRequest = Schema.Struct({identifier: Schema.String});
-export const DisconnectUserRequest = Schema.Struct({roomIdentifier: Schema.String, userId: Schema.String, reason: Schema.optional(Schema.String)});
-export const DisconnectUserResponse = Schema.Struct({});
-export const GetLoggingConfigurationRequest = Schema.Struct({identifier: Schema.String});
-export const GetRoomRequest = Schema.Struct({identifier: Schema.String});
-export const ListLoggingConfigurationsRequest = Schema.Struct({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListRoomsRequest = Schema.Struct({name: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), messageReviewHandlerUri: Schema.optional(Schema.String), loggingConfigurationIdentifier: Schema.optional(Schema.String)});
-export const ListTagsForResourceRequest = Schema.Struct({resourceArn: Schema.String});
+export class DeleteLoggingConfigurationRequest extends Schema.Class<DeleteLoggingConfigurationRequest>("DeleteLoggingConfigurationRequest")({identifier: Schema.String}) {}
+export class DeleteMessageRequest extends Schema.Class<DeleteMessageRequest>("DeleteMessageRequest")({roomIdentifier: Schema.String, id: Schema.String, reason: Schema.optional(Schema.String)}) {}
+export class DeleteRoomRequest extends Schema.Class<DeleteRoomRequest>("DeleteRoomRequest")({identifier: Schema.String}) {}
+export class DisconnectUserRequest extends Schema.Class<DisconnectUserRequest>("DisconnectUserRequest")({roomIdentifier: Schema.String, userId: Schema.String, reason: Schema.optional(Schema.String)}) {}
+export class DisconnectUserResponse extends Schema.Class<DisconnectUserResponse>("DisconnectUserResponse")({}) {}
+export class GetLoggingConfigurationRequest extends Schema.Class<GetLoggingConfigurationRequest>("GetLoggingConfigurationRequest")({identifier: Schema.String}) {}
+export class GetRoomRequest extends Schema.Class<GetRoomRequest>("GetRoomRequest")({identifier: Schema.String}) {}
+export class ListLoggingConfigurationsRequest extends Schema.Class<ListLoggingConfigurationsRequest>("ListLoggingConfigurationsRequest")({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListRoomsRequest extends Schema.Class<ListRoomsRequest>("ListRoomsRequest")({name: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), messageReviewHandlerUri: Schema.optional(Schema.String), loggingConfigurationIdentifier: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({resourceArn: Schema.String}) {}
 export const Tags = Schema.Record({key: Schema.String, value: Schema.String});
-export const TagResourceRequest = Schema.Struct({resourceArn: Schema.String, tags: Tags});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({resourceArn: Schema.String, tagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
-export const S3DestinationConfiguration = Schema.Struct({bucketName: Schema.String});
-export const CloudWatchLogsDestinationConfiguration = Schema.Struct({logGroupName: Schema.String});
-export const FirehoseDestinationConfiguration = Schema.Struct({deliveryStreamName: Schema.String});
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({resourceArn: Schema.String, tags: Tags}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({resourceArn: Schema.String, tagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class S3DestinationConfiguration extends Schema.Class<S3DestinationConfiguration>("S3DestinationConfiguration")({bucketName: Schema.String}) {}
+export class CloudWatchLogsDestinationConfiguration extends Schema.Class<CloudWatchLogsDestinationConfiguration>("CloudWatchLogsDestinationConfiguration")({logGroupName: Schema.String}) {}
+export class FirehoseDestinationConfiguration extends Schema.Class<FirehoseDestinationConfiguration>("FirehoseDestinationConfiguration")({deliveryStreamName: Schema.String}) {}
 export const DestinationConfiguration = Schema.Union(S3DestinationConfiguration, CloudWatchLogsDestinationConfiguration, FirehoseDestinationConfiguration);
-export const UpdateLoggingConfigurationRequest = Schema.Struct({identifier: Schema.String, name: Schema.optional(Schema.String), destinationConfiguration: Schema.optional(DestinationConfiguration)});
-export const MessageReviewHandler = Schema.Struct({uri: Schema.optional(Schema.String), fallbackResult: Schema.optional(Schema.String)});
-export const UpdateRoomRequest = Schema.Struct({identifier: Schema.String, name: Schema.optional(Schema.String), maximumMessageRatePerSecond: Schema.optional(Schema.Number), maximumMessageLength: Schema.optional(Schema.Number), messageReviewHandler: Schema.optional(MessageReviewHandler), loggingConfigurationIdentifiers: Schema.optional(LoggingConfigurationIdentifierList)});
+export class UpdateLoggingConfigurationRequest extends Schema.Class<UpdateLoggingConfigurationRequest>("UpdateLoggingConfigurationRequest")({identifier: Schema.String, name: Schema.optional(Schema.String), destinationConfiguration: Schema.optional(DestinationConfiguration)}) {}
+export class MessageReviewHandler extends Schema.Class<MessageReviewHandler>("MessageReviewHandler")({uri: Schema.optional(Schema.String), fallbackResult: Schema.optional(Schema.String)}) {}
+export class UpdateRoomRequest extends Schema.Class<UpdateRoomRequest>("UpdateRoomRequest")({identifier: Schema.String, name: Schema.optional(Schema.String), maximumMessageRatePerSecond: Schema.optional(Schema.Number), maximumMessageLength: Schema.optional(Schema.Number), messageReviewHandler: Schema.optional(MessageReviewHandler), loggingConfigurationIdentifiers: Schema.optional(LoggingConfigurationIdentifierList)}) {}
 export const ChatTokenAttributes = Schema.Record({key: Schema.String, value: Schema.String});
 export const EventAttributes = Schema.Record({key: Schema.String, value: Schema.String});
-export const CreateChatTokenRequest = Schema.Struct({roomIdentifier: Schema.String, userId: Schema.String, capabilities: Schema.optional(ChatTokenCapabilities), sessionDurationInMinutes: Schema.optional(Schema.Number), attributes: Schema.optional(ChatTokenAttributes)});
-export const CreateRoomRequest = Schema.Struct({name: Schema.optional(Schema.String), maximumMessageRatePerSecond: Schema.optional(Schema.Number), maximumMessageLength: Schema.optional(Schema.Number), messageReviewHandler: Schema.optional(MessageReviewHandler), tags: Schema.optional(Tags), loggingConfigurationIdentifiers: Schema.optional(LoggingConfigurationIdentifierList)});
-export const AccessDeniedException = Schema.Struct({message: Schema.String});
-export const DeleteMessageResponse = Schema.Struct({id: Schema.optional(Schema.String)});
-export const PendingVerification = Schema.Struct({message: Schema.String});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String});
-export const GetLoggingConfigurationResponse = Schema.Struct({arn: Schema.optional(Schema.String), id: Schema.optional(Schema.String), createTime: Schema.optional(Schema.Date), updateTime: Schema.optional(Schema.Date), name: Schema.optional(Schema.String), destinationConfiguration: Schema.optional(DestinationConfiguration), state: Schema.optional(Schema.String), tags: Schema.optional(Tags)});
-export const GetRoomResponse = Schema.Struct({arn: Schema.optional(Schema.String), id: Schema.optional(Schema.String), name: Schema.optional(Schema.String), createTime: Schema.optional(Schema.Date), updateTime: Schema.optional(Schema.Date), maximumMessageRatePerSecond: Schema.optional(Schema.Number), maximumMessageLength: Schema.optional(Schema.Number), messageReviewHandler: Schema.optional(MessageReviewHandler), tags: Schema.optional(Tags), loggingConfigurationIdentifiers: Schema.optional(LoggingConfigurationIdentifierList)});
-export const ListTagsForResourceResponse = Schema.Struct({tags: Tags});
-export const SendEventRequest = Schema.Struct({roomIdentifier: Schema.String, eventName: Schema.String, attributes: Schema.optional(EventAttributes)});
-export const InternalServerException = Schema.Struct({message: Schema.String});
-export const UpdateLoggingConfigurationResponse = Schema.Struct({arn: Schema.optional(Schema.String), id: Schema.optional(Schema.String), createTime: Schema.optional(Schema.Date), updateTime: Schema.optional(Schema.Date), name: Schema.optional(Schema.String), destinationConfiguration: Schema.optional(DestinationConfiguration), state: Schema.optional(Schema.String), tags: Schema.optional(Tags)});
-export const UpdateRoomResponse = Schema.Struct({arn: Schema.optional(Schema.String), id: Schema.optional(Schema.String), name: Schema.optional(Schema.String), createTime: Schema.optional(Schema.Date), updateTime: Schema.optional(Schema.Date), maximumMessageRatePerSecond: Schema.optional(Schema.Number), maximumMessageLength: Schema.optional(Schema.Number), messageReviewHandler: Schema.optional(MessageReviewHandler), tags: Schema.optional(Tags), loggingConfigurationIdentifiers: Schema.optional(LoggingConfigurationIdentifierList)});
-export const LoggingConfigurationSummary = Schema.Struct({arn: Schema.optional(Schema.String), id: Schema.optional(Schema.String), createTime: Schema.optional(Schema.Date), updateTime: Schema.optional(Schema.Date), name: Schema.optional(Schema.String), destinationConfiguration: Schema.optional(DestinationConfiguration), state: Schema.optional(Schema.String), tags: Schema.optional(Tags)});
+export class CreateChatTokenRequest extends Schema.Class<CreateChatTokenRequest>("CreateChatTokenRequest")({roomIdentifier: Schema.String, userId: Schema.String, capabilities: Schema.optional(ChatTokenCapabilities), sessionDurationInMinutes: Schema.optional(Schema.Number), attributes: Schema.optional(ChatTokenAttributes)}) {}
+export class CreateRoomRequest extends Schema.Class<CreateRoomRequest>("CreateRoomRequest")({name: Schema.optional(Schema.String), maximumMessageRatePerSecond: Schema.optional(Schema.Number), maximumMessageLength: Schema.optional(Schema.Number), messageReviewHandler: Schema.optional(MessageReviewHandler), tags: Schema.optional(Tags), loggingConfigurationIdentifiers: Schema.optional(LoggingConfigurationIdentifierList)}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({message: Schema.String}) {}
+export class DeleteMessageResponse extends Schema.Class<DeleteMessageResponse>("DeleteMessageResponse")({id: Schema.optional(Schema.String)}) {}
+export class PendingVerification extends Schema.Class<PendingVerification>("PendingVerification")({message: Schema.String}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String}) {}
+export class GetLoggingConfigurationResponse extends Schema.Class<GetLoggingConfigurationResponse>("GetLoggingConfigurationResponse")({arn: Schema.optional(Schema.String), id: Schema.optional(Schema.String), createTime: Schema.optional(Schema.Date), updateTime: Schema.optional(Schema.Date), name: Schema.optional(Schema.String), destinationConfiguration: Schema.optional(DestinationConfiguration), state: Schema.optional(Schema.String), tags: Schema.optional(Tags)}) {}
+export class GetRoomResponse extends Schema.Class<GetRoomResponse>("GetRoomResponse")({arn: Schema.optional(Schema.String), id: Schema.optional(Schema.String), name: Schema.optional(Schema.String), createTime: Schema.optional(Schema.Date), updateTime: Schema.optional(Schema.Date), maximumMessageRatePerSecond: Schema.optional(Schema.Number), maximumMessageLength: Schema.optional(Schema.Number), messageReviewHandler: Schema.optional(MessageReviewHandler), tags: Schema.optional(Tags), loggingConfigurationIdentifiers: Schema.optional(LoggingConfigurationIdentifierList)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({tags: Tags}) {}
+export class SendEventRequest extends Schema.Class<SendEventRequest>("SendEventRequest")({roomIdentifier: Schema.String, eventName: Schema.String, attributes: Schema.optional(EventAttributes)}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({message: Schema.String}) {}
+export class UpdateLoggingConfigurationResponse extends Schema.Class<UpdateLoggingConfigurationResponse>("UpdateLoggingConfigurationResponse")({arn: Schema.optional(Schema.String), id: Schema.optional(Schema.String), createTime: Schema.optional(Schema.Date), updateTime: Schema.optional(Schema.Date), name: Schema.optional(Schema.String), destinationConfiguration: Schema.optional(DestinationConfiguration), state: Schema.optional(Schema.String), tags: Schema.optional(Tags)}) {}
+export class UpdateRoomResponse extends Schema.Class<UpdateRoomResponse>("UpdateRoomResponse")({arn: Schema.optional(Schema.String), id: Schema.optional(Schema.String), name: Schema.optional(Schema.String), createTime: Schema.optional(Schema.Date), updateTime: Schema.optional(Schema.Date), maximumMessageRatePerSecond: Schema.optional(Schema.Number), maximumMessageLength: Schema.optional(Schema.Number), messageReviewHandler: Schema.optional(MessageReviewHandler), tags: Schema.optional(Tags), loggingConfigurationIdentifiers: Schema.optional(LoggingConfigurationIdentifierList)}) {}
+export class LoggingConfigurationSummary extends Schema.Class<LoggingConfigurationSummary>("LoggingConfigurationSummary")({arn: Schema.optional(Schema.String), id: Schema.optional(Schema.String), createTime: Schema.optional(Schema.Date), updateTime: Schema.optional(Schema.Date), name: Schema.optional(Schema.String), destinationConfiguration: Schema.optional(DestinationConfiguration), state: Schema.optional(Schema.String), tags: Schema.optional(Tags)}) {}
 export const LoggingConfigurationList = Schema.Array(LoggingConfigurationSummary);
-export const RoomSummary = Schema.Struct({arn: Schema.optional(Schema.String), id: Schema.optional(Schema.String), name: Schema.optional(Schema.String), messageReviewHandler: Schema.optional(MessageReviewHandler), createTime: Schema.optional(Schema.Date), updateTime: Schema.optional(Schema.Date), tags: Schema.optional(Tags), loggingConfigurationIdentifiers: Schema.optional(LoggingConfigurationIdentifierList)});
+export class RoomSummary extends Schema.Class<RoomSummary>("RoomSummary")({arn: Schema.optional(Schema.String), id: Schema.optional(Schema.String), name: Schema.optional(Schema.String), messageReviewHandler: Schema.optional(MessageReviewHandler), createTime: Schema.optional(Schema.Date), updateTime: Schema.optional(Schema.Date), tags: Schema.optional(Tags), loggingConfigurationIdentifiers: Schema.optional(LoggingConfigurationIdentifierList)}) {}
 export const RoomList = Schema.Array(RoomSummary);
-export const ValidationExceptionField = Schema.Struct({name: Schema.String, message: Schema.String});
+export class ValidationExceptionField extends Schema.Class<ValidationExceptionField>("ValidationExceptionField")({name: Schema.String, message: Schema.String}) {}
 export const ValidationExceptionFieldList = Schema.Array(ValidationExceptionField);
-export const CreateChatTokenResponse = Schema.Struct({token: Schema.optional(Schema.String), tokenExpirationTime: Schema.optional(Schema.Date), sessionExpirationTime: Schema.optional(Schema.Date)});
-export const CreateLoggingConfigurationRequest = Schema.Struct({name: Schema.optional(Schema.String), destinationConfiguration: DestinationConfiguration, tags: Schema.optional(Tags)});
-export const CreateRoomResponse = Schema.Struct({arn: Schema.optional(Schema.String), id: Schema.optional(Schema.String), name: Schema.optional(Schema.String), createTime: Schema.optional(Schema.Date), updateTime: Schema.optional(Schema.Date), maximumMessageRatePerSecond: Schema.optional(Schema.Number), maximumMessageLength: Schema.optional(Schema.Number), messageReviewHandler: Schema.optional(MessageReviewHandler), tags: Schema.optional(Tags), loggingConfigurationIdentifiers: Schema.optional(LoggingConfigurationIdentifierList)});
-export const ConflictException = Schema.Struct({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String});
-export const ThrottlingException = Schema.Struct({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String, limit: Schema.Number});
-export const ListLoggingConfigurationsResponse = Schema.Struct({loggingConfigurations: LoggingConfigurationList, nextToken: Schema.optional(Schema.String)});
-export const ListRoomsResponse = Schema.Struct({rooms: RoomList, nextToken: Schema.optional(Schema.String)});
-export const SendEventResponse = Schema.Struct({id: Schema.optional(Schema.String)});
-export const ValidationException = Schema.Struct({message: Schema.String, reason: Schema.String, fieldList: Schema.optional(ValidationExceptionFieldList)});
-export const CreateLoggingConfigurationResponse = Schema.Struct({arn: Schema.optional(Schema.String), id: Schema.optional(Schema.String), createTime: Schema.optional(Schema.Date), updateTime: Schema.optional(Schema.Date), name: Schema.optional(Schema.String), destinationConfiguration: Schema.optional(DestinationConfiguration), state: Schema.optional(Schema.String), tags: Schema.optional(Tags)});
-export const ServiceQuotaExceededException = Schema.Struct({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String, limit: Schema.Number});
+export class CreateChatTokenResponse extends Schema.Class<CreateChatTokenResponse>("CreateChatTokenResponse")({token: Schema.optional(Schema.String), tokenExpirationTime: Schema.optional(Schema.Date), sessionExpirationTime: Schema.optional(Schema.Date)}) {}
+export class CreateLoggingConfigurationRequest extends Schema.Class<CreateLoggingConfigurationRequest>("CreateLoggingConfigurationRequest")({name: Schema.optional(Schema.String), destinationConfiguration: DestinationConfiguration, tags: Schema.optional(Tags)}) {}
+export class CreateRoomResponse extends Schema.Class<CreateRoomResponse>("CreateRoomResponse")({arn: Schema.optional(Schema.String), id: Schema.optional(Schema.String), name: Schema.optional(Schema.String), createTime: Schema.optional(Schema.Date), updateTime: Schema.optional(Schema.Date), maximumMessageRatePerSecond: Schema.optional(Schema.Number), maximumMessageLength: Schema.optional(Schema.Number), messageReviewHandler: Schema.optional(MessageReviewHandler), tags: Schema.optional(Tags), loggingConfigurationIdentifiers: Schema.optional(LoggingConfigurationIdentifierList)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String, limit: Schema.Number}) {}
+export class ListLoggingConfigurationsResponse extends Schema.Class<ListLoggingConfigurationsResponse>("ListLoggingConfigurationsResponse")({loggingConfigurations: LoggingConfigurationList, nextToken: Schema.optional(Schema.String)}) {}
+export class ListRoomsResponse extends Schema.Class<ListRoomsResponse>("ListRoomsResponse")({rooms: RoomList, nextToken: Schema.optional(Schema.String)}) {}
+export class SendEventResponse extends Schema.Class<SendEventResponse>("SendEventResponse")({id: Schema.optional(Schema.String)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({message: Schema.String, reason: Schema.String, fieldList: Schema.optional(ValidationExceptionFieldList)}) {}
+export class CreateLoggingConfigurationResponse extends Schema.Class<CreateLoggingConfigurationResponse>("CreateLoggingConfigurationResponse")({arn: Schema.optional(Schema.String), id: Schema.optional(Schema.String), createTime: Schema.optional(Schema.Date), updateTime: Schema.optional(Schema.Date), name: Schema.optional(Schema.String), destinationConfiguration: Schema.optional(DestinationConfiguration), state: Schema.optional(Schema.String), tags: Schema.optional(Tags)}) {}
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String, limit: Schema.Number}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class PendingVerificationError extends Schema.TaggedError<PendingVerificationError>()("PendingVerification", PendingVerification) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class PendingVerificationError extends Schema.TaggedError<PendingVerificationError>()("PendingVerification", PendingVerification.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
 
 //# Operations
 export const deleteRoom = /*#__PURE__*/ makeOperation(() => Operation({ version: "2020-07-14", uri: "/DeleteRoom", method: "POST", sdkId: "ivschat", sigV4ServiceName: "ivschat", name: "AmazonInteractiveVideoServiceChat.DeleteRoom" }, DeleteRoomRequest, Schema.Struct({}), [AccessDeniedExceptionError, PendingVerificationError, ResourceNotFoundExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

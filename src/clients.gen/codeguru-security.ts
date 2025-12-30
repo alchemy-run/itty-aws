@@ -3,82 +3,82 @@ import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperat
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const GetAccountConfigurationRequest = Schema.Struct({});
+export class GetAccountConfigurationRequest extends Schema.Class<GetAccountConfigurationRequest>("GetAccountConfigurationRequest")({}) {}
 export const TagKeyList = Schema.Array(Schema.String);
-export const CreateUploadUrlRequest = Schema.Struct({scanName: Schema.String});
-export const GetFindingsRequest = Schema.Struct({scanName: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), status: Schema.optional(Schema.String)});
-export const GetMetricsSummaryRequest = Schema.Struct({date: Schema.Date});
-export const GetScanRequest = Schema.Struct({scanName: Schema.String, runId: Schema.optional(Schema.String)});
-export const ListFindingsMetricsRequest = Schema.Struct({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), startDate: Schema.Date, endDate: Schema.Date});
-export const ListScansRequest = Schema.Struct({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListTagsForResourceRequest = Schema.Struct({resourceArn: Schema.String});
+export class CreateUploadUrlRequest extends Schema.Class<CreateUploadUrlRequest>("CreateUploadUrlRequest")({scanName: Schema.String}) {}
+export class GetFindingsRequest extends Schema.Class<GetFindingsRequest>("GetFindingsRequest")({scanName: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), status: Schema.optional(Schema.String)}) {}
+export class GetMetricsSummaryRequest extends Schema.Class<GetMetricsSummaryRequest>("GetMetricsSummaryRequest")({date: Schema.Date}) {}
+export class GetScanRequest extends Schema.Class<GetScanRequest>("GetScanRequest")({scanName: Schema.String, runId: Schema.optional(Schema.String)}) {}
+export class ListFindingsMetricsRequest extends Schema.Class<ListFindingsMetricsRequest>("ListFindingsMetricsRequest")({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), startDate: Schema.Date, endDate: Schema.Date}) {}
+export class ListScansRequest extends Schema.Class<ListScansRequest>("ListScansRequest")({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({resourceArn: Schema.String}) {}
 export const TagMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const TagResourceRequest = Schema.Struct({resourceArn: Schema.String, tags: TagMap});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({resourceArn: Schema.String, tagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
-export const EncryptionConfig = Schema.Struct({kmsKeyArn: Schema.optional(Schema.String)});
-export const UpdateAccountConfigurationRequest = Schema.Struct({encryptionConfig: EncryptionConfig});
-export const FindingIdentifier = Schema.Struct({scanName: Schema.String, findingId: Schema.String});
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({resourceArn: Schema.String, tags: TagMap}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({resourceArn: Schema.String, tagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class EncryptionConfig extends Schema.Class<EncryptionConfig>("EncryptionConfig")({kmsKeyArn: Schema.optional(Schema.String)}) {}
+export class UpdateAccountConfigurationRequest extends Schema.Class<UpdateAccountConfigurationRequest>("UpdateAccountConfigurationRequest")({encryptionConfig: EncryptionConfig}) {}
+export class FindingIdentifier extends Schema.Class<FindingIdentifier>("FindingIdentifier")({scanName: Schema.String, findingId: Schema.String}) {}
 export const FindingIdentifiers = Schema.Array(FindingIdentifier);
 export const ResourceId = Schema.Union(Schema.String);
-export const BatchGetFindingsRequest = Schema.Struct({findingIdentifiers: FindingIdentifiers});
-export const CreateScanRequest = Schema.Struct({clientToken: Schema.optional(Schema.String), resourceId: ResourceId, scanName: Schema.String, scanType: Schema.optional(Schema.String), analysisType: Schema.optional(Schema.String), tags: Schema.optional(TagMap)});
-export const GetAccountConfigurationResponse = Schema.Struct({encryptionConfig: EncryptionConfig});
-export const GetScanResponse = Schema.Struct({scanName: Schema.String, runId: Schema.String, scanState: Schema.String, createdAt: Schema.Date, analysisType: Schema.String, updatedAt: Schema.optional(Schema.Date), numberOfRevisions: Schema.optional(Schema.Number), scanNameArn: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String)});
-export const ListTagsForResourceResponse = Schema.Struct({tags: Schema.optional(TagMap)});
-export const AccessDeniedException = Schema.Struct({errorCode: Schema.String, message: Schema.String, resourceId: Schema.optional(Schema.String), resourceType: Schema.optional(Schema.String)});
-export const ConflictException = Schema.Struct({errorCode: Schema.String, message: Schema.String, resourceId: Schema.String, resourceType: Schema.String});
-export const UpdateAccountConfigurationResponse = Schema.Struct({encryptionConfig: EncryptionConfig});
+export class BatchGetFindingsRequest extends Schema.Class<BatchGetFindingsRequest>("BatchGetFindingsRequest")({findingIdentifiers: FindingIdentifiers}) {}
+export class CreateScanRequest extends Schema.Class<CreateScanRequest>("CreateScanRequest")({clientToken: Schema.optional(Schema.String), resourceId: ResourceId, scanName: Schema.String, scanType: Schema.optional(Schema.String), analysisType: Schema.optional(Schema.String), tags: Schema.optional(TagMap)}) {}
+export class GetAccountConfigurationResponse extends Schema.Class<GetAccountConfigurationResponse>("GetAccountConfigurationResponse")({encryptionConfig: EncryptionConfig}) {}
+export class GetScanResponse extends Schema.Class<GetScanResponse>("GetScanResponse")({scanName: Schema.String, runId: Schema.String, scanState: Schema.String, createdAt: Schema.Date, analysisType: Schema.String, updatedAt: Schema.optional(Schema.Date), numberOfRevisions: Schema.optional(Schema.Number), scanNameArn: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({tags: Schema.optional(TagMap)}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({errorCode: Schema.String, message: Schema.String, resourceId: Schema.optional(Schema.String), resourceType: Schema.optional(Schema.String)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({errorCode: Schema.String, message: Schema.String, resourceId: Schema.String, resourceType: Schema.String}) {}
+export class UpdateAccountConfigurationResponse extends Schema.Class<UpdateAccountConfigurationResponse>("UpdateAccountConfigurationResponse")({encryptionConfig: EncryptionConfig}) {}
 export const DetectorTags = Schema.Array(Schema.String);
-export const ScanNameWithFindingNum = Schema.Struct({scanName: Schema.optional(Schema.String), findingNumber: Schema.optional(Schema.Number)});
+export class ScanNameWithFindingNum extends Schema.Class<ScanNameWithFindingNum>("ScanNameWithFindingNum")({scanName: Schema.optional(Schema.String), findingNumber: Schema.optional(Schema.Number)}) {}
 export const ScansWithMostOpenCriticalFindings = Schema.Array(ScanNameWithFindingNum);
 export const RequestHeaderMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const FindingMetricsValuePerSeverity = Schema.Struct({info: Schema.optional(Schema.Number), low: Schema.optional(Schema.Number), medium: Schema.optional(Schema.Number), high: Schema.optional(Schema.Number), critical: Schema.optional(Schema.Number)});
-export const AccountFindingsMetric = Schema.Struct({date: Schema.optional(Schema.Date), newFindings: Schema.optional(FindingMetricsValuePerSeverity), closedFindings: Schema.optional(FindingMetricsValuePerSeverity), openFindings: Schema.optional(FindingMetricsValuePerSeverity), meanTimeToClose: Schema.optional(FindingMetricsValuePerSeverity)});
+export class FindingMetricsValuePerSeverity extends Schema.Class<FindingMetricsValuePerSeverity>("FindingMetricsValuePerSeverity")({info: Schema.optional(Schema.Number), low: Schema.optional(Schema.Number), medium: Schema.optional(Schema.Number), high: Schema.optional(Schema.Number), critical: Schema.optional(Schema.Number)}) {}
+export class AccountFindingsMetric extends Schema.Class<AccountFindingsMetric>("AccountFindingsMetric")({date: Schema.optional(Schema.Date), newFindings: Schema.optional(FindingMetricsValuePerSeverity), closedFindings: Schema.optional(FindingMetricsValuePerSeverity), openFindings: Schema.optional(FindingMetricsValuePerSeverity), meanTimeToClose: Schema.optional(FindingMetricsValuePerSeverity)}) {}
 export const FindingsMetricList = Schema.Array(AccountFindingsMetric);
-export const ScanSummary = Schema.Struct({scanState: Schema.String, createdAt: Schema.Date, updatedAt: Schema.optional(Schema.Date), scanName: Schema.String, runId: Schema.String, scanNameArn: Schema.optional(Schema.String)});
+export class ScanSummary extends Schema.Class<ScanSummary>("ScanSummary")({scanState: Schema.String, createdAt: Schema.Date, updatedAt: Schema.optional(Schema.Date), scanName: Schema.String, runId: Schema.String, scanNameArn: Schema.optional(Schema.String)}) {}
 export const ScanSummaries = Schema.Array(ScanSummary);
 export const ReferenceUrls = Schema.Array(Schema.String);
 export const RelatedVulnerabilities = Schema.Array(Schema.String);
-export const CreateScanResponse = Schema.Struct({scanName: Schema.String, runId: Schema.String, resourceId: ResourceId, scanState: Schema.String, scanNameArn: Schema.optional(Schema.String)});
-export const CreateUploadUrlResponse = Schema.Struct({s3Url: Schema.String, requestHeaders: RequestHeaderMap, codeArtifactId: Schema.String});
-export const InternalServerException = Schema.Struct({error: Schema.optional(Schema.String), message: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({errorCode: Schema.String, message: Schema.String, resourceId: Schema.String, resourceType: Schema.String});
-export const ListFindingsMetricsResponse = Schema.Struct({findingsMetrics: Schema.optional(FindingsMetricList), nextToken: Schema.optional(Schema.String)});
-export const ListScansResponse = Schema.Struct({summaries: Schema.optional(ScanSummaries), nextToken: Schema.optional(Schema.String)});
-export const ThrottlingException = Schema.Struct({errorCode: Schema.String, message: Schema.String, serviceCode: Schema.optional(Schema.String), quotaCode: Schema.optional(Schema.String)});
-export const Resource = Schema.Struct({id: Schema.optional(Schema.String), subResourceId: Schema.optional(Schema.String)});
-export const CategoryWithFindingNum = Schema.Struct({categoryName: Schema.optional(Schema.String), findingNumber: Schema.optional(Schema.Number)});
+export class CreateScanResponse extends Schema.Class<CreateScanResponse>("CreateScanResponse")({scanName: Schema.String, runId: Schema.String, resourceId: ResourceId, scanState: Schema.String, scanNameArn: Schema.optional(Schema.String)}) {}
+export class CreateUploadUrlResponse extends Schema.Class<CreateUploadUrlResponse>("CreateUploadUrlResponse")({s3Url: Schema.String, requestHeaders: RequestHeaderMap, codeArtifactId: Schema.String}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({error: Schema.optional(Schema.String), message: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({errorCode: Schema.String, message: Schema.String, resourceId: Schema.String, resourceType: Schema.String}) {}
+export class ListFindingsMetricsResponse extends Schema.Class<ListFindingsMetricsResponse>("ListFindingsMetricsResponse")({findingsMetrics: Schema.optional(FindingsMetricList), nextToken: Schema.optional(Schema.String)}) {}
+export class ListScansResponse extends Schema.Class<ListScansResponse>("ListScansResponse")({summaries: Schema.optional(ScanSummaries), nextToken: Schema.optional(Schema.String)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({errorCode: Schema.String, message: Schema.String, serviceCode: Schema.optional(Schema.String), quotaCode: Schema.optional(Schema.String)}) {}
+export class Resource extends Schema.Class<Resource>("Resource")({id: Schema.optional(Schema.String), subResourceId: Schema.optional(Schema.String)}) {}
+export class CategoryWithFindingNum extends Schema.Class<CategoryWithFindingNum>("CategoryWithFindingNum")({categoryName: Schema.optional(Schema.String), findingNumber: Schema.optional(Schema.Number)}) {}
 export const CategoriesWithMostFindings = Schema.Array(CategoryWithFindingNum);
 export const ScansWithMostOpenFindings = Schema.Array(ScanNameWithFindingNum);
-export const BatchGetFindingsError = Schema.Struct({scanName: Schema.String, findingId: Schema.String, errorCode: Schema.String, message: Schema.String});
+export class BatchGetFindingsError extends Schema.Class<BatchGetFindingsError>("BatchGetFindingsError")({scanName: Schema.String, findingId: Schema.String, errorCode: Schema.String, message: Schema.String}) {}
 export const BatchGetFindingsErrors = Schema.Array(BatchGetFindingsError);
-export const MetricsSummary = Schema.Struct({date: Schema.optional(Schema.Date), openFindings: Schema.optional(FindingMetricsValuePerSeverity), categoriesWithMostFindings: Schema.optional(CategoriesWithMostFindings), scansWithMostOpenFindings: Schema.optional(ScansWithMostOpenFindings), scansWithMostOpenCriticalFindings: Schema.optional(ScansWithMostOpenCriticalFindings)});
-export const ValidationExceptionField = Schema.Struct({name: Schema.String, message: Schema.String});
+export class MetricsSummary extends Schema.Class<MetricsSummary>("MetricsSummary")({date: Schema.optional(Schema.Date), openFindings: Schema.optional(FindingMetricsValuePerSeverity), categoriesWithMostFindings: Schema.optional(CategoriesWithMostFindings), scansWithMostOpenFindings: Schema.optional(ScansWithMostOpenFindings), scansWithMostOpenCriticalFindings: Schema.optional(ScansWithMostOpenCriticalFindings)}) {}
+export class ValidationExceptionField extends Schema.Class<ValidationExceptionField>("ValidationExceptionField")({name: Schema.String, message: Schema.String}) {}
 export const ValidationExceptionFieldList = Schema.Array(ValidationExceptionField);
-export const Recommendation = Schema.Struct({text: Schema.optional(Schema.String), url: Schema.optional(Schema.String)});
-export const SuggestedFix = Schema.Struct({description: Schema.optional(Schema.String), code: Schema.optional(Schema.String)});
+export class Recommendation extends Schema.Class<Recommendation>("Recommendation")({text: Schema.optional(Schema.String), url: Schema.optional(Schema.String)}) {}
+export class SuggestedFix extends Schema.Class<SuggestedFix>("SuggestedFix")({description: Schema.optional(Schema.String), code: Schema.optional(Schema.String)}) {}
 export const SuggestedFixes = Schema.Array(SuggestedFix);
-export const CodeLine = Schema.Struct({number: Schema.optional(Schema.Number), content: Schema.optional(Schema.String)});
+export class CodeLine extends Schema.Class<CodeLine>("CodeLine")({number: Schema.optional(Schema.Number), content: Schema.optional(Schema.String)}) {}
 export const CodeSnippet = Schema.Array(CodeLine);
-export const FilePath = Schema.Struct({name: Schema.optional(Schema.String), path: Schema.optional(Schema.String), startLine: Schema.optional(Schema.Number), endLine: Schema.optional(Schema.Number), codeSnippet: Schema.optional(CodeSnippet)});
-export const Vulnerability = Schema.Struct({referenceUrls: Schema.optional(ReferenceUrls), relatedVulnerabilities: Schema.optional(RelatedVulnerabilities), id: Schema.optional(Schema.String), filePath: Schema.optional(FilePath), itemCount: Schema.optional(Schema.Number)});
-export const Remediation = Schema.Struct({recommendation: Schema.optional(Recommendation), suggestedFixes: Schema.optional(SuggestedFixes)});
-export const Finding = Schema.Struct({createdAt: Schema.optional(Schema.Date), description: Schema.optional(Schema.String), generatorId: Schema.optional(Schema.String), id: Schema.optional(Schema.String), updatedAt: Schema.optional(Schema.Date), type: Schema.optional(Schema.String), status: Schema.optional(Schema.String), resource: Schema.optional(Resource), vulnerability: Schema.optional(Vulnerability), severity: Schema.optional(Schema.String), remediation: Schema.optional(Remediation), title: Schema.optional(Schema.String), detectorTags: Schema.optional(DetectorTags), detectorId: Schema.optional(Schema.String), detectorName: Schema.optional(Schema.String), ruleId: Schema.optional(Schema.String)});
+export class FilePath extends Schema.Class<FilePath>("FilePath")({name: Schema.optional(Schema.String), path: Schema.optional(Schema.String), startLine: Schema.optional(Schema.Number), endLine: Schema.optional(Schema.Number), codeSnippet: Schema.optional(CodeSnippet)}) {}
+export class Vulnerability extends Schema.Class<Vulnerability>("Vulnerability")({referenceUrls: Schema.optional(ReferenceUrls), relatedVulnerabilities: Schema.optional(RelatedVulnerabilities), id: Schema.optional(Schema.String), filePath: Schema.optional(FilePath), itemCount: Schema.optional(Schema.Number)}) {}
+export class Remediation extends Schema.Class<Remediation>("Remediation")({recommendation: Schema.optional(Recommendation), suggestedFixes: Schema.optional(SuggestedFixes)}) {}
+export class Finding extends Schema.Class<Finding>("Finding")({createdAt: Schema.optional(Schema.Date), description: Schema.optional(Schema.String), generatorId: Schema.optional(Schema.String), id: Schema.optional(Schema.String), updatedAt: Schema.optional(Schema.Date), type: Schema.optional(Schema.String), status: Schema.optional(Schema.String), resource: Schema.optional(Resource), vulnerability: Schema.optional(Vulnerability), severity: Schema.optional(Schema.String), remediation: Schema.optional(Remediation), title: Schema.optional(Schema.String), detectorTags: Schema.optional(DetectorTags), detectorId: Schema.optional(Schema.String), detectorName: Schema.optional(Schema.String), ruleId: Schema.optional(Schema.String)}) {}
 export const Findings = Schema.Array(Finding);
-export const BatchGetFindingsResponse = Schema.Struct({findings: Findings, failedFindings: BatchGetFindingsErrors});
-export const GetMetricsSummaryResponse = Schema.Struct({metricsSummary: Schema.optional(MetricsSummary)});
-export const ValidationException = Schema.Struct({errorCode: Schema.String, message: Schema.String, reason: Schema.String, fieldList: Schema.optional(ValidationExceptionFieldList)});
-export const GetFindingsResponse = Schema.Struct({findings: Schema.optional(Findings), nextToken: Schema.optional(Schema.String)});
+export class BatchGetFindingsResponse extends Schema.Class<BatchGetFindingsResponse>("BatchGetFindingsResponse")({findings: Findings, failedFindings: BatchGetFindingsErrors}) {}
+export class GetMetricsSummaryResponse extends Schema.Class<GetMetricsSummaryResponse>("GetMetricsSummaryResponse")({metricsSummary: Schema.optional(MetricsSummary)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({errorCode: Schema.String, message: Schema.String, reason: Schema.String, fieldList: Schema.optional(ValidationExceptionFieldList)}) {}
+export class GetFindingsResponse extends Schema.Class<GetFindingsResponse>("GetFindingsResponse")({findings: Schema.optional(Findings), nextToken: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
 
 //# Operations
 export const untagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-05-10", uri: "/tags/{resourceArn}", method: "DELETE", sdkId: "CodeGuru Security", sigV4ServiceName: "codeguru-security", name: "AwsCodeGuruSecurity.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [AccessDeniedExceptionError, ConflictExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

@@ -7,63 +7,65 @@ export const BillingViewSourceViewsList = Schema.Array(Schema.String);
 export const BillingViewArnList = Schema.Array(Schema.String);
 export const BillingViewTypeList = Schema.Array(Schema.String);
 export const ResourceTagKeyList = Schema.Array(Schema.String);
-export const AssociateSourceViewsRequest = Schema.Struct({arn: Schema.String, sourceViews: BillingViewSourceViewsList});
-export const DeleteBillingViewRequest = Schema.Struct({arn: Schema.String, force: Schema.optional(Schema.Boolean)});
-export const DisassociateSourceViewsRequest = Schema.Struct({arn: Schema.String, sourceViews: BillingViewSourceViewsList});
-export const GetBillingViewRequest = Schema.Struct({arn: Schema.String});
-export const GetResourcePolicyRequest = Schema.Struct({resourceArn: Schema.String});
-export const ListSourceViewsForBillingViewRequest = Schema.Struct({arn: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceRequest = Schema.Struct({resourceArn: Schema.String});
-export const ResourceTag = Schema.Struct({key: Schema.String, value: Schema.optional(Schema.String)});
+export class AssociateSourceViewsRequest extends Schema.Class<AssociateSourceViewsRequest>("AssociateSourceViewsRequest")({arn: Schema.String, sourceViews: BillingViewSourceViewsList}) {}
+export class DeleteBillingViewRequest extends Schema.Class<DeleteBillingViewRequest>("DeleteBillingViewRequest")({arn: Schema.String, force: Schema.optional(Schema.Boolean)}) {}
+export class DisassociateSourceViewsRequest extends Schema.Class<DisassociateSourceViewsRequest>("DisassociateSourceViewsRequest")({arn: Schema.String, sourceViews: BillingViewSourceViewsList}) {}
+export class GetBillingViewRequest extends Schema.Class<GetBillingViewRequest>("GetBillingViewRequest")({arn: Schema.String}) {}
+export class GetResourcePolicyRequest extends Schema.Class<GetResourcePolicyRequest>("GetResourcePolicyRequest")({resourceArn: Schema.String}) {}
+export class ListSourceViewsForBillingViewRequest extends Schema.Class<ListSourceViewsForBillingViewRequest>("ListSourceViewsForBillingViewRequest")({arn: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({resourceArn: Schema.String}) {}
+export class ResourceTag extends Schema.Class<ResourceTag>("ResourceTag")({key: Schema.String, value: Schema.optional(Schema.String)}) {}
 export const ResourceTagList = Schema.Array(ResourceTag);
-export const TagResourceRequest = Schema.Struct({resourceArn: Schema.String, resourceTags: ResourceTagList});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({resourceArn: Schema.String, resourceTagKeys: ResourceTagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({resourceArn: Schema.String, resourceTags: ResourceTagList}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({resourceArn: Schema.String, resourceTagKeys: ResourceTagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
 export const Values = Schema.Array(Schema.String);
-export const DimensionValues = Schema.Struct({key: Schema.String, values: Values});
-export const TagValues = Schema.Struct({key: Schema.String, values: Values});
-export const TimeRange = Schema.Struct({beginDateInclusive: Schema.optional(Schema.Date), endDateInclusive: Schema.optional(Schema.Date)});
-export const Expression = Schema.Struct({dimensions: Schema.optional(DimensionValues), tags: Schema.optional(TagValues), timeRange: Schema.optional(TimeRange)});
-export const UpdateBillingViewRequest = Schema.Struct({arn: Schema.String, name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), dataFilterExpression: Schema.optional(Expression)});
-export const ActiveTimeRange = Schema.Struct({activeAfterInclusive: Schema.Date, activeBeforeInclusive: Schema.Date});
-export const AssociateSourceViewsResponse = Schema.Struct({arn: Schema.String});
-export const DeleteBillingViewResponse = Schema.Struct({arn: Schema.String});
-export const DisassociateSourceViewsResponse = Schema.Struct({arn: Schema.String});
-export const GetResourcePolicyResponse = Schema.Struct({resourceArn: Schema.String, policy: Schema.optional(Schema.String)});
-export const ListBillingViewsRequest = Schema.Struct({activeTimeRange: Schema.optional(ActiveTimeRange), arns: Schema.optional(BillingViewArnList), billingViewTypes: Schema.optional(BillingViewTypeList), ownerAccountId: Schema.optional(Schema.String), sourceAccountId: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListSourceViewsForBillingViewResponse = Schema.Struct({sourceViews: BillingViewSourceViewsList, nextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceResponse = Schema.Struct({resourceTags: Schema.optional(ResourceTagList)});
-export const AccessDeniedException = Schema.Struct({message: Schema.String});
-export const InternalServerException = Schema.Struct({message: Schema.String});
-export const UpdateBillingViewResponse = Schema.Struct({arn: Schema.String, updatedAt: Schema.optional(Schema.Date)});
+export class DimensionValues extends Schema.Class<DimensionValues>("DimensionValues")({key: Schema.String, values: Values}) {}
+export class TagValues extends Schema.Class<TagValues>("TagValues")({key: Schema.String, values: Values}) {}
+export class TimeRange extends Schema.Class<TimeRange>("TimeRange")({beginDateInclusive: Schema.optional(Schema.Date), endDateInclusive: Schema.optional(Schema.Date)}) {}
+export class Expression extends Schema.Class<Expression>("Expression")({dimensions: Schema.optional(DimensionValues), tags: Schema.optional(TagValues), timeRange: Schema.optional(TimeRange)}) {}
+export class UpdateBillingViewRequest extends Schema.Class<UpdateBillingViewRequest>("UpdateBillingViewRequest")({arn: Schema.String, name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), dataFilterExpression: Schema.optional(Expression)}) {}
+export class ActiveTimeRange extends Schema.Class<ActiveTimeRange>("ActiveTimeRange")({activeAfterInclusive: Schema.Date, activeBeforeInclusive: Schema.Date}) {}
+export class StringSearch extends Schema.Class<StringSearch>("StringSearch")({searchOption: Schema.String, searchValue: Schema.String}) {}
+export const StringSearches = Schema.Array(StringSearch);
+export class AssociateSourceViewsResponse extends Schema.Class<AssociateSourceViewsResponse>("AssociateSourceViewsResponse")({arn: Schema.String}) {}
+export class DeleteBillingViewResponse extends Schema.Class<DeleteBillingViewResponse>("DeleteBillingViewResponse")({arn: Schema.String}) {}
+export class DisassociateSourceViewsResponse extends Schema.Class<DisassociateSourceViewsResponse>("DisassociateSourceViewsResponse")({arn: Schema.String}) {}
+export class GetResourcePolicyResponse extends Schema.Class<GetResourcePolicyResponse>("GetResourcePolicyResponse")({resourceArn: Schema.String, policy: Schema.optional(Schema.String)}) {}
+export class ListBillingViewsRequest extends Schema.Class<ListBillingViewsRequest>("ListBillingViewsRequest")({activeTimeRange: Schema.optional(ActiveTimeRange), arns: Schema.optional(BillingViewArnList), billingViewTypes: Schema.optional(BillingViewTypeList), names: Schema.optional(StringSearches), ownerAccountId: Schema.optional(Schema.String), sourceAccountId: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListSourceViewsForBillingViewResponse extends Schema.Class<ListSourceViewsForBillingViewResponse>("ListSourceViewsForBillingViewResponse")({sourceViews: BillingViewSourceViewsList, nextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({resourceTags: Schema.optional(ResourceTagList)}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({message: Schema.String}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({message: Schema.String}) {}
+export class UpdateBillingViewResponse extends Schema.Class<UpdateBillingViewResponse>("UpdateBillingViewResponse")({arn: Schema.String, updatedAt: Schema.optional(Schema.Date)}) {}
 export const BillingViewStatusReasons = Schema.Array(Schema.String);
-export const BillingViewHealthStatusException = Schema.Struct({message: Schema.String});
-export const CreateBillingViewRequest = Schema.Struct({name: Schema.String, description: Schema.optional(Schema.String), sourceViews: BillingViewSourceViewsList, dataFilterExpression: Schema.optional(Expression), clientToken: Schema.optional(Header("X-Amzn-Client-Token")), resourceTags: Schema.optional(ResourceTagList)});
-export const ConflictException = Schema.Struct({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String});
-export const ThrottlingException = Schema.Struct({message: Schema.String});
-export const ServiceQuotaExceededException = Schema.Struct({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String, serviceCode: Schema.String, quotaCode: Schema.String});
-export const BillingViewHealthStatus = Schema.Struct({statusCode: Schema.optional(Schema.String), statusReasons: Schema.optional(BillingViewStatusReasons)});
-export const BillingViewElement = Schema.Struct({arn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), billingViewType: Schema.optional(Schema.String), ownerAccountId: Schema.optional(Schema.String), sourceAccountId: Schema.optional(Schema.String), dataFilterExpression: Schema.optional(Expression), createdAt: Schema.optional(Schema.Date), updatedAt: Schema.optional(Schema.Date), derivedViewCount: Schema.optional(Schema.Number), sourceViewCount: Schema.optional(Schema.Number), viewDefinitionLastUpdatedAt: Schema.optional(Schema.Date), healthStatus: Schema.optional(BillingViewHealthStatus)});
-export const BillingViewListElement = Schema.Struct({arn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), ownerAccountId: Schema.optional(Schema.String), sourceAccountId: Schema.optional(Schema.String), billingViewType: Schema.optional(Schema.String), healthStatus: Schema.optional(BillingViewHealthStatus)});
+export class BillingViewHealthStatusException extends Schema.Class<BillingViewHealthStatusException>("BillingViewHealthStatusException")({message: Schema.String}) {}
+export class CreateBillingViewRequest extends Schema.Class<CreateBillingViewRequest>("CreateBillingViewRequest")({name: Schema.String, description: Schema.optional(Schema.String), sourceViews: BillingViewSourceViewsList, dataFilterExpression: Schema.optional(Expression), clientToken: Schema.optional(Header("X-Amzn-Client-Token")), resourceTags: Schema.optional(ResourceTagList)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({message: Schema.String}) {}
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String, serviceCode: Schema.String, quotaCode: Schema.String}) {}
+export class BillingViewHealthStatus extends Schema.Class<BillingViewHealthStatus>("BillingViewHealthStatus")({statusCode: Schema.optional(Schema.String), statusReasons: Schema.optional(BillingViewStatusReasons)}) {}
+export class BillingViewElement extends Schema.Class<BillingViewElement>("BillingViewElement")({arn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), billingViewType: Schema.optional(Schema.String), ownerAccountId: Schema.optional(Schema.String), sourceAccountId: Schema.optional(Schema.String), dataFilterExpression: Schema.optional(Expression), createdAt: Schema.optional(Schema.Date), updatedAt: Schema.optional(Schema.Date), derivedViewCount: Schema.optional(Schema.Number), sourceViewCount: Schema.optional(Schema.Number), viewDefinitionLastUpdatedAt: Schema.optional(Schema.Date), healthStatus: Schema.optional(BillingViewHealthStatus)}) {}
+export class BillingViewListElement extends Schema.Class<BillingViewListElement>("BillingViewListElement")({arn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), ownerAccountId: Schema.optional(Schema.String), sourceAccountId: Schema.optional(Schema.String), billingViewType: Schema.optional(Schema.String), healthStatus: Schema.optional(BillingViewHealthStatus)}) {}
 export const BillingViewList = Schema.Array(BillingViewListElement);
-export const ValidationExceptionField = Schema.Struct({name: Schema.String, message: Schema.String});
+export class ValidationExceptionField extends Schema.Class<ValidationExceptionField>("ValidationExceptionField")({name: Schema.String, message: Schema.String}) {}
 export const ValidationExceptionFieldList = Schema.Array(ValidationExceptionField);
-export const CreateBillingViewResponse = Schema.Struct({arn: Schema.String, createdAt: Schema.optional(Schema.Date)});
-export const GetBillingViewResponse = Schema.Struct({billingView: BillingViewElement});
-export const ListBillingViewsResponse = Schema.Struct({billingViews: BillingViewList, nextToken: Schema.optional(Schema.String)});
-export const ValidationException = Schema.Struct({message: Schema.String, reason: Schema.String, fieldList: Schema.optional(ValidationExceptionFieldList)});
+export class CreateBillingViewResponse extends Schema.Class<CreateBillingViewResponse>("CreateBillingViewResponse")({arn: Schema.String, createdAt: Schema.optional(Schema.Date)}) {}
+export class GetBillingViewResponse extends Schema.Class<GetBillingViewResponse>("GetBillingViewResponse")({billingView: BillingViewElement}) {}
+export class ListBillingViewsResponse extends Schema.Class<ListBillingViewsResponse>("ListBillingViewsResponse")({billingViews: BillingViewList, nextToken: Schema.optional(Schema.String)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({message: Schema.String, reason: Schema.String, fieldList: Schema.optional(ValidationExceptionFieldList)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class BillingViewHealthStatusExceptionError extends Schema.TaggedError<BillingViewHealthStatusExceptionError>()("BillingViewHealthStatusException", BillingViewHealthStatusException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class BillingViewHealthStatusExceptionError extends Schema.TaggedError<BillingViewHealthStatusExceptionError>()("BillingViewHealthStatusException", BillingViewHealthStatusException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
 
 //# Operations
 export const listTagsForResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2023-09-07", uri: "/", method: "POST", sdkId: "Billing", sigV4ServiceName: "billing", name: "AWSBilling.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);

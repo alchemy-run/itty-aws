@@ -3,38 +3,38 @@ import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperat
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const DeleteKeyRequest = Schema.Struct({KvsARN: Path("KvsARN", Schema.String), Key: Schema.String, IfMatch: Header("If-Match")});
-export const DescribeKeyValueStoreRequest = Schema.Struct({KvsARN: Path("KvsARN", Schema.String)});
-export const GetKeyRequest = Schema.Struct({KvsARN: Path("KvsARN", Schema.String), Key: Schema.String});
-export const ListKeysRequest = Schema.Struct({KvsARN: Path("KvsARN", Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const PutKeyRequest = Schema.Struct({Key: Schema.String, Value: Schema.String, KvsARN: Path("KvsARN", Schema.String), IfMatch: Header("If-Match")});
-export const PutKeyRequestListItem = Schema.Struct({Key: Schema.String, Value: Schema.String});
+export class DeleteKeyRequest extends Schema.Class<DeleteKeyRequest>("DeleteKeyRequest")({KvsARN: Path("KvsARN", Schema.String), Key: Schema.String, IfMatch: Header("If-Match")}) {}
+export class DescribeKeyValueStoreRequest extends Schema.Class<DescribeKeyValueStoreRequest>("DescribeKeyValueStoreRequest")({KvsARN: Path("KvsARN", Schema.String)}) {}
+export class GetKeyRequest extends Schema.Class<GetKeyRequest>("GetKeyRequest")({KvsARN: Path("KvsARN", Schema.String), Key: Schema.String}) {}
+export class ListKeysRequest extends Schema.Class<ListKeysRequest>("ListKeysRequest")({KvsARN: Path("KvsARN", Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class PutKeyRequest extends Schema.Class<PutKeyRequest>("PutKeyRequest")({Key: Schema.String, Value: Schema.String, KvsARN: Path("KvsARN", Schema.String), IfMatch: Header("If-Match")}) {}
+export class PutKeyRequestListItem extends Schema.Class<PutKeyRequestListItem>("PutKeyRequestListItem")({Key: Schema.String, Value: Schema.String}) {}
 export const PutKeyRequestsList = Schema.Array(PutKeyRequestListItem);
-export const DeleteKeyRequestListItem = Schema.Struct({Key: Schema.String});
+export class DeleteKeyRequestListItem extends Schema.Class<DeleteKeyRequestListItem>("DeleteKeyRequestListItem")({Key: Schema.String}) {}
 export const DeleteKeyRequestsList = Schema.Array(DeleteKeyRequestListItem);
-export const DeleteKeyResponse = Schema.Struct({ItemCount: Schema.Number, TotalSizeInBytes: Schema.Number, ETag: Header("ETag")});
-export const DescribeKeyValueStoreResponse = Schema.Struct({ItemCount: Schema.Number, TotalSizeInBytes: Schema.Number, KvsARN: Schema.String, Created: Schema.Date, ETag: Header("ETag"), LastModified: Schema.optional(Schema.Date), Status: Schema.optional(Schema.String), FailureReason: Schema.optional(Schema.String)});
-export const GetKeyResponse = Schema.Struct({Key: Schema.String, Value: Schema.String, ItemCount: Schema.Number, TotalSizeInBytes: Schema.Number});
-export const PutKeyResponse = Schema.Struct({ItemCount: Schema.Number, TotalSizeInBytes: Schema.Number, ETag: Header("ETag")});
-export const UpdateKeysRequest = Schema.Struct({KvsARN: Path("KvsARN", Schema.String), IfMatch: Header("If-Match"), Puts: Schema.optional(PutKeyRequestsList), Deletes: Schema.optional(DeleteKeyRequestsList)});
-export const ListKeysResponseListItem = Schema.Struct({Key: Schema.String, Value: Schema.String});
+export class DeleteKeyResponse extends Schema.Class<DeleteKeyResponse>("DeleteKeyResponse")({ItemCount: Schema.Number, TotalSizeInBytes: Schema.Number, ETag: Header("ETag")}) {}
+export class DescribeKeyValueStoreResponse extends Schema.Class<DescribeKeyValueStoreResponse>("DescribeKeyValueStoreResponse")({ItemCount: Schema.Number, TotalSizeInBytes: Schema.Number, KvsARN: Schema.String, Created: Schema.Date, ETag: Header("ETag"), LastModified: Schema.optional(Schema.Date), Status: Schema.optional(Schema.String), FailureReason: Schema.optional(Schema.String)}) {}
+export class GetKeyResponse extends Schema.Class<GetKeyResponse>("GetKeyResponse")({Key: Schema.String, Value: Schema.String, ItemCount: Schema.Number, TotalSizeInBytes: Schema.Number}) {}
+export class PutKeyResponse extends Schema.Class<PutKeyResponse>("PutKeyResponse")({ItemCount: Schema.Number, TotalSizeInBytes: Schema.Number, ETag: Header("ETag")}) {}
+export class UpdateKeysRequest extends Schema.Class<UpdateKeysRequest>("UpdateKeysRequest")({KvsARN: Path("KvsARN", Schema.String), IfMatch: Header("If-Match"), Puts: Schema.optional(PutKeyRequestsList), Deletes: Schema.optional(DeleteKeyRequestsList)}) {}
+export class ListKeysResponseListItem extends Schema.Class<ListKeysResponseListItem>("ListKeysResponseListItem")({Key: Schema.String, Value: Schema.String}) {}
 export const ListKeysResponseList = Schema.Array(ListKeysResponseListItem);
-export const AccessDeniedException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ConflictException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const InternalServerException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ListKeysResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), Items: Schema.optional(ListKeysResponseList)});
-export const ResourceNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const UpdateKeysResponse = Schema.Struct({ItemCount: Schema.Number, TotalSizeInBytes: Schema.Number, ETag: Header("ETag")});
-export const ServiceQuotaExceededException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ValidationException = Schema.Struct({Message: Schema.optional(Schema.String)});
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({Message: Schema.optional(Schema.String)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({Message: Schema.optional(Schema.String)}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({Message: Schema.optional(Schema.String)}) {}
+export class ListKeysResponse extends Schema.Class<ListKeysResponse>("ListKeysResponse")({NextToken: Schema.optional(Schema.String), Items: Schema.optional(ListKeysResponseList)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class UpdateKeysResponse extends Schema.Class<UpdateKeysResponse>("UpdateKeysResponse")({ItemCount: Schema.Number, TotalSizeInBytes: Schema.Number, ETag: Header("ETag")}) {}
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({Message: Schema.optional(Schema.String)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({Message: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
 
 //# Operations
 export const describeKeyValueStore = /*#__PURE__*/ makeOperation(() => Operation({ version: "2022-07-26", uri: "/key-value-stores/{KvsARN}", method: "GET", sdkId: "CloudFront KeyValueStore", sigV4ServiceName: "cloudfront-keyvaluestore", name: "CloudFrontKeyValueStore.DescribeKeyValueStore" }, DescribeKeyValueStoreRequest, DescribeKeyValueStoreResponse, [AccessDeniedExceptionError, ConflictExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

@@ -5,72 +5,72 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 //# Schemas
 export const SubnetIds = Schema.Array(Schema.String);
 export const TagKeyList = Schema.Array(Schema.String);
-export const CreateHsmRequest = Schema.Struct({ClusterId: Schema.String, AvailabilityZone: Schema.String, IpAddress: Schema.optional(Schema.String)});
-export const DeleteBackupRequest = Schema.Struct({BackupId: Schema.String});
-export const DeleteClusterRequest = Schema.Struct({ClusterId: Schema.String});
-export const DeleteHsmRequest = Schema.Struct({ClusterId: Schema.String, HsmId: Schema.optional(Schema.String), EniId: Schema.optional(Schema.String), EniIp: Schema.optional(Schema.String)});
-export const DeleteResourcePolicyRequest = Schema.Struct({ResourceArn: Schema.optional(Schema.String)});
+export class CreateHsmRequest extends Schema.Class<CreateHsmRequest>("CreateHsmRequest")({ClusterId: Schema.String, AvailabilityZone: Schema.String, IpAddress: Schema.optional(Schema.String)}) {}
+export class DeleteBackupRequest extends Schema.Class<DeleteBackupRequest>("DeleteBackupRequest")({BackupId: Schema.String}) {}
+export class DeleteClusterRequest extends Schema.Class<DeleteClusterRequest>("DeleteClusterRequest")({ClusterId: Schema.String}) {}
+export class DeleteHsmRequest extends Schema.Class<DeleteHsmRequest>("DeleteHsmRequest")({ClusterId: Schema.String, HsmId: Schema.optional(Schema.String), EniId: Schema.optional(Schema.String), EniIp: Schema.optional(Schema.String)}) {}
+export class DeleteResourcePolicyRequest extends Schema.Class<DeleteResourcePolicyRequest>("DeleteResourcePolicyRequest")({ResourceArn: Schema.optional(Schema.String)}) {}
 export const Strings = Schema.Array(Schema.String);
 export const Filters = Schema.Record({key: Schema.String, value: Strings});
-export const DescribeClustersRequest = Schema.Struct({Filters: Schema.optional(Filters), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const GetResourcePolicyRequest = Schema.Struct({ResourceArn: Schema.optional(Schema.String)});
-export const InitializeClusterRequest = Schema.Struct({ClusterId: Schema.String, SignedCert: Schema.String, TrustAnchor: Schema.String});
-export const ListTagsRequest = Schema.Struct({ResourceId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ModifyBackupAttributesRequest = Schema.Struct({BackupId: Schema.String, NeverExpires: Schema.Boolean});
-export const BackupRetentionPolicy = Schema.Struct({Type: Schema.optional(Schema.String), Value: Schema.optional(Schema.String)});
-export const ModifyClusterRequest = Schema.Struct({HsmType: Schema.optional(Schema.String), BackupRetentionPolicy: Schema.optional(BackupRetentionPolicy), ClusterId: Schema.String});
-export const PutResourcePolicyRequest = Schema.Struct({ResourceArn: Schema.optional(Schema.String), Policy: Schema.optional(Schema.String)});
-export const RestoreBackupRequest = Schema.Struct({BackupId: Schema.String});
-export const Tag = Schema.Struct({Key: Schema.String, Value: Schema.String});
+export class DescribeClustersRequest extends Schema.Class<DescribeClustersRequest>("DescribeClustersRequest")({Filters: Schema.optional(Filters), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class GetResourcePolicyRequest extends Schema.Class<GetResourcePolicyRequest>("GetResourcePolicyRequest")({ResourceArn: Schema.optional(Schema.String)}) {}
+export class InitializeClusterRequest extends Schema.Class<InitializeClusterRequest>("InitializeClusterRequest")({ClusterId: Schema.String, SignedCert: Schema.String, TrustAnchor: Schema.String}) {}
+export class ListTagsRequest extends Schema.Class<ListTagsRequest>("ListTagsRequest")({ResourceId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ModifyBackupAttributesRequest extends Schema.Class<ModifyBackupAttributesRequest>("ModifyBackupAttributesRequest")({BackupId: Schema.String, NeverExpires: Schema.Boolean}) {}
+export class BackupRetentionPolicy extends Schema.Class<BackupRetentionPolicy>("BackupRetentionPolicy")({Type: Schema.optional(Schema.String), Value: Schema.optional(Schema.String)}) {}
+export class ModifyClusterRequest extends Schema.Class<ModifyClusterRequest>("ModifyClusterRequest")({HsmType: Schema.optional(Schema.String), BackupRetentionPolicy: Schema.optional(BackupRetentionPolicy), ClusterId: Schema.String}) {}
+export class PutResourcePolicyRequest extends Schema.Class<PutResourcePolicyRequest>("PutResourcePolicyRequest")({ResourceArn: Schema.optional(Schema.String), Policy: Schema.optional(Schema.String)}) {}
+export class RestoreBackupRequest extends Schema.Class<RestoreBackupRequest>("RestoreBackupRequest")({BackupId: Schema.String}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.String, Value: Schema.String}) {}
 export const TagList = Schema.Array(Tag);
-export const TagResourceRequest = Schema.Struct({ResourceId: Schema.String, TagList: TagList});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({ResourceId: Schema.String, TagKeyList: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
-export const Hsm = Schema.Struct({AvailabilityZone: Schema.optional(Schema.String), ClusterId: Schema.optional(Schema.String), SubnetId: Schema.optional(Schema.String), EniId: Schema.optional(Schema.String), EniIp: Schema.optional(Schema.String), EniIpV6: Schema.optional(Schema.String), HsmId: Schema.String, HsmType: Schema.optional(Schema.String), State: Schema.optional(Schema.String), StateMessage: Schema.optional(Schema.String)});
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({ResourceId: Schema.String, TagList: TagList}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({ResourceId: Schema.String, TagKeyList: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class Hsm extends Schema.Class<Hsm>("Hsm")({AvailabilityZone: Schema.optional(Schema.String), ClusterId: Schema.optional(Schema.String), SubnetId: Schema.optional(Schema.String), EniId: Schema.optional(Schema.String), EniIp: Schema.optional(Schema.String), EniIpV6: Schema.optional(Schema.String), HsmId: Schema.String, HsmType: Schema.optional(Schema.String), State: Schema.optional(Schema.String), StateMessage: Schema.optional(Schema.String)}) {}
 export const Hsms = Schema.Array(Hsm);
 export const ExternalSubnetMapping = Schema.Record({key: Schema.String, value: Schema.String});
-export const Certificates = Schema.Struct({ClusterCsr: Schema.optional(Schema.String), HsmCertificate: Schema.optional(Schema.String), AwsHardwareCertificate: Schema.optional(Schema.String), ManufacturerHardwareCertificate: Schema.optional(Schema.String), ClusterCertificate: Schema.optional(Schema.String)});
-export const Cluster = Schema.Struct({BackupPolicy: Schema.optional(Schema.String), BackupRetentionPolicy: Schema.optional(BackupRetentionPolicy), ClusterId: Schema.optional(Schema.String), CreateTimestamp: Schema.optional(Schema.Date), Hsms: Schema.optional(Hsms), HsmType: Schema.optional(Schema.String), HsmTypeRollbackExpiration: Schema.optional(Schema.Date), PreCoPassword: Schema.optional(Schema.String), SecurityGroup: Schema.optional(Schema.String), SourceBackupId: Schema.optional(Schema.String), State: Schema.optional(Schema.String), StateMessage: Schema.optional(Schema.String), SubnetMapping: Schema.optional(ExternalSubnetMapping), VpcId: Schema.optional(Schema.String), NetworkType: Schema.optional(Schema.String), Certificates: Schema.optional(Certificates), TagList: Schema.optional(TagList), Mode: Schema.optional(Schema.String)});
+export class Certificates extends Schema.Class<Certificates>("Certificates")({ClusterCsr: Schema.optional(Schema.String), HsmCertificate: Schema.optional(Schema.String), AwsHardwareCertificate: Schema.optional(Schema.String), ManufacturerHardwareCertificate: Schema.optional(Schema.String), ClusterCertificate: Schema.optional(Schema.String)}) {}
+export class Cluster extends Schema.Class<Cluster>("Cluster")({BackupPolicy: Schema.optional(Schema.String), BackupRetentionPolicy: Schema.optional(BackupRetentionPolicy), ClusterId: Schema.optional(Schema.String), CreateTimestamp: Schema.optional(Schema.Date), Hsms: Schema.optional(Hsms), HsmType: Schema.optional(Schema.String), HsmTypeRollbackExpiration: Schema.optional(Schema.Date), PreCoPassword: Schema.optional(Schema.String), SecurityGroup: Schema.optional(Schema.String), SourceBackupId: Schema.optional(Schema.String), State: Schema.optional(Schema.String), StateMessage: Schema.optional(Schema.String), SubnetMapping: Schema.optional(ExternalSubnetMapping), VpcId: Schema.optional(Schema.String), NetworkType: Schema.optional(Schema.String), Certificates: Schema.optional(Certificates), TagList: Schema.optional(TagList), Mode: Schema.optional(Schema.String)}) {}
 export const Clusters = Schema.Array(Cluster);
-export const CopyBackupToRegionRequest = Schema.Struct({DestinationRegion: Schema.String, BackupId: Schema.String, TagList: Schema.optional(TagList)});
-export const CreateClusterRequest = Schema.Struct({BackupRetentionPolicy: Schema.optional(BackupRetentionPolicy), HsmType: Schema.String, SourceBackupId: Schema.optional(Schema.String), SubnetIds: SubnetIds, NetworkType: Schema.optional(Schema.String), TagList: Schema.optional(TagList), Mode: Schema.optional(Schema.String)});
-export const DeleteHsmResponse = Schema.Struct({HsmId: Schema.optional(Schema.String)});
-export const DeleteResourcePolicyResponse = Schema.Struct({ResourceArn: Schema.optional(Schema.String), Policy: Schema.optional(Schema.String)});
-export const DescribeBackupsRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), Filters: Schema.optional(Filters), Shared: Schema.optional(Schema.Boolean), SortAscending: Schema.optional(Schema.Boolean)});
-export const DescribeClustersResponse = Schema.Struct({Clusters: Schema.optional(Clusters), NextToken: Schema.optional(Schema.String)});
-export const GetResourcePolicyResponse = Schema.Struct({Policy: Schema.optional(Schema.String)});
-export const InitializeClusterResponse = Schema.Struct({State: Schema.optional(Schema.String), StateMessage: Schema.optional(Schema.String)});
-export const ListTagsResponse = Schema.Struct({TagList: TagList, NextToken: Schema.optional(Schema.String)});
-export const Backup = Schema.Struct({BackupId: Schema.String, BackupArn: Schema.optional(Schema.String), BackupState: Schema.optional(Schema.String), ClusterId: Schema.optional(Schema.String), CreateTimestamp: Schema.optional(Schema.Date), CopyTimestamp: Schema.optional(Schema.Date), NeverExpires: Schema.optional(Schema.Boolean), SourceRegion: Schema.optional(Schema.String), SourceBackup: Schema.optional(Schema.String), SourceCluster: Schema.optional(Schema.String), DeleteTimestamp: Schema.optional(Schema.Date), TagList: Schema.optional(TagList), HsmType: Schema.optional(Schema.String), Mode: Schema.optional(Schema.String)});
-export const ModifyBackupAttributesResponse = Schema.Struct({Backup: Schema.optional(Backup)});
-export const ModifyClusterResponse = Schema.Struct({Cluster: Schema.optional(Cluster)});
-export const PutResourcePolicyResponse = Schema.Struct({ResourceArn: Schema.optional(Schema.String), Policy: Schema.optional(Schema.String)});
-export const RestoreBackupResponse = Schema.Struct({Backup: Schema.optional(Backup)});
-export const CloudHsmAccessDeniedException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const CloudHsmInternalFailureException = Schema.Struct({Message: Schema.optional(Schema.String)});
+export class CopyBackupToRegionRequest extends Schema.Class<CopyBackupToRegionRequest>("CopyBackupToRegionRequest")({DestinationRegion: Schema.String, BackupId: Schema.String, TagList: Schema.optional(TagList)}) {}
+export class CreateClusterRequest extends Schema.Class<CreateClusterRequest>("CreateClusterRequest")({BackupRetentionPolicy: Schema.optional(BackupRetentionPolicy), HsmType: Schema.String, SourceBackupId: Schema.optional(Schema.String), SubnetIds: SubnetIds, NetworkType: Schema.optional(Schema.String), TagList: Schema.optional(TagList), Mode: Schema.optional(Schema.String)}) {}
+export class DeleteHsmResponse extends Schema.Class<DeleteHsmResponse>("DeleteHsmResponse")({HsmId: Schema.optional(Schema.String)}) {}
+export class DeleteResourcePolicyResponse extends Schema.Class<DeleteResourcePolicyResponse>("DeleteResourcePolicyResponse")({ResourceArn: Schema.optional(Schema.String), Policy: Schema.optional(Schema.String)}) {}
+export class DescribeBackupsRequest extends Schema.Class<DescribeBackupsRequest>("DescribeBackupsRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), Filters: Schema.optional(Filters), Shared: Schema.optional(Schema.Boolean), SortAscending: Schema.optional(Schema.Boolean)}) {}
+export class DescribeClustersResponse extends Schema.Class<DescribeClustersResponse>("DescribeClustersResponse")({Clusters: Schema.optional(Clusters), NextToken: Schema.optional(Schema.String)}) {}
+export class GetResourcePolicyResponse extends Schema.Class<GetResourcePolicyResponse>("GetResourcePolicyResponse")({Policy: Schema.optional(Schema.String)}) {}
+export class InitializeClusterResponse extends Schema.Class<InitializeClusterResponse>("InitializeClusterResponse")({State: Schema.optional(Schema.String), StateMessage: Schema.optional(Schema.String)}) {}
+export class ListTagsResponse extends Schema.Class<ListTagsResponse>("ListTagsResponse")({TagList: TagList, NextToken: Schema.optional(Schema.String)}) {}
+export class Backup extends Schema.Class<Backup>("Backup")({BackupId: Schema.String, BackupArn: Schema.optional(Schema.String), BackupState: Schema.optional(Schema.String), ClusterId: Schema.optional(Schema.String), CreateTimestamp: Schema.optional(Schema.Date), CopyTimestamp: Schema.optional(Schema.Date), NeverExpires: Schema.optional(Schema.Boolean), SourceRegion: Schema.optional(Schema.String), SourceBackup: Schema.optional(Schema.String), SourceCluster: Schema.optional(Schema.String), DeleteTimestamp: Schema.optional(Schema.Date), TagList: Schema.optional(TagList), HsmType: Schema.optional(Schema.String), Mode: Schema.optional(Schema.String)}) {}
+export class ModifyBackupAttributesResponse extends Schema.Class<ModifyBackupAttributesResponse>("ModifyBackupAttributesResponse")({Backup: Schema.optional(Backup)}) {}
+export class ModifyClusterResponse extends Schema.Class<ModifyClusterResponse>("ModifyClusterResponse")({Cluster: Schema.optional(Cluster)}) {}
+export class PutResourcePolicyResponse extends Schema.Class<PutResourcePolicyResponse>("PutResourcePolicyResponse")({ResourceArn: Schema.optional(Schema.String), Policy: Schema.optional(Schema.String)}) {}
+export class RestoreBackupResponse extends Schema.Class<RestoreBackupResponse>("RestoreBackupResponse")({Backup: Schema.optional(Backup)}) {}
+export class CloudHsmAccessDeniedException extends Schema.Class<CloudHsmAccessDeniedException>("CloudHsmAccessDeniedException")({Message: Schema.optional(Schema.String)}) {}
+export class CloudHsmInternalFailureException extends Schema.Class<CloudHsmInternalFailureException>("CloudHsmInternalFailureException")({Message: Schema.optional(Schema.String)}) {}
 export const Backups = Schema.Array(Backup);
-export const CreateClusterResponse = Schema.Struct({Cluster: Schema.optional(Cluster)});
-export const CreateHsmResponse = Schema.Struct({Hsm: Schema.optional(Hsm)});
-export const DeleteBackupResponse = Schema.Struct({Backup: Schema.optional(Backup)});
-export const CloudHsmInvalidRequestException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const CloudHsmResourceNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DescribeBackupsResponse = Schema.Struct({Backups: Schema.optional(Backups), NextToken: Schema.optional(Schema.String)});
-export const CloudHsmServiceException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const CloudHsmTagException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const CloudHsmResourceLimitExceededException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DestinationBackup = Schema.Struct({CreateTimestamp: Schema.optional(Schema.Date), SourceRegion: Schema.optional(Schema.String), SourceBackup: Schema.optional(Schema.String), SourceCluster: Schema.optional(Schema.String)});
-export const CopyBackupToRegionResponse = Schema.Struct({DestinationBackup: Schema.optional(DestinationBackup)});
-export const DeleteClusterResponse = Schema.Struct({Cluster: Schema.optional(Cluster)});
+export class CreateClusterResponse extends Schema.Class<CreateClusterResponse>("CreateClusterResponse")({Cluster: Schema.optional(Cluster)}) {}
+export class CreateHsmResponse extends Schema.Class<CreateHsmResponse>("CreateHsmResponse")({Hsm: Schema.optional(Hsm)}) {}
+export class DeleteBackupResponse extends Schema.Class<DeleteBackupResponse>("DeleteBackupResponse")({Backup: Schema.optional(Backup)}) {}
+export class CloudHsmInvalidRequestException extends Schema.Class<CloudHsmInvalidRequestException>("CloudHsmInvalidRequestException")({Message: Schema.optional(Schema.String)}) {}
+export class CloudHsmResourceNotFoundException extends Schema.Class<CloudHsmResourceNotFoundException>("CloudHsmResourceNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class DescribeBackupsResponse extends Schema.Class<DescribeBackupsResponse>("DescribeBackupsResponse")({Backups: Schema.optional(Backups), NextToken: Schema.optional(Schema.String)}) {}
+export class CloudHsmServiceException extends Schema.Class<CloudHsmServiceException>("CloudHsmServiceException")({Message: Schema.optional(Schema.String)}) {}
+export class CloudHsmTagException extends Schema.Class<CloudHsmTagException>("CloudHsmTagException")({Message: Schema.optional(Schema.String)}) {}
+export class CloudHsmResourceLimitExceededException extends Schema.Class<CloudHsmResourceLimitExceededException>("CloudHsmResourceLimitExceededException")({Message: Schema.optional(Schema.String)}) {}
+export class DestinationBackup extends Schema.Class<DestinationBackup>("DestinationBackup")({CreateTimestamp: Schema.optional(Schema.Date), SourceRegion: Schema.optional(Schema.String), SourceBackup: Schema.optional(Schema.String), SourceCluster: Schema.optional(Schema.String)}) {}
+export class CopyBackupToRegionResponse extends Schema.Class<CopyBackupToRegionResponse>("CopyBackupToRegionResponse")({DestinationBackup: Schema.optional(DestinationBackup)}) {}
+export class DeleteClusterResponse extends Schema.Class<DeleteClusterResponse>("DeleteClusterResponse")({Cluster: Schema.optional(Cluster)}) {}
 
 //# Errors
-export class CloudHsmAccessDeniedExceptionError extends Schema.TaggedError<CloudHsmAccessDeniedExceptionError>()("CloudHsmAccessDeniedException", CloudHsmAccessDeniedException) {};
-export class CloudHsmInternalFailureExceptionError extends Schema.TaggedError<CloudHsmInternalFailureExceptionError>()("CloudHsmInternalFailureException", CloudHsmInternalFailureException) {};
-export class CloudHsmInvalidRequestExceptionError extends Schema.TaggedError<CloudHsmInvalidRequestExceptionError>()("CloudHsmInvalidRequestException", CloudHsmInvalidRequestException) {};
-export class CloudHsmResourceNotFoundExceptionError extends Schema.TaggedError<CloudHsmResourceNotFoundExceptionError>()("CloudHsmResourceNotFoundException", CloudHsmResourceNotFoundException) {};
-export class CloudHsmServiceExceptionError extends Schema.TaggedError<CloudHsmServiceExceptionError>()("CloudHsmServiceException", CloudHsmServiceException) {};
-export class CloudHsmTagExceptionError extends Schema.TaggedError<CloudHsmTagExceptionError>()("CloudHsmTagException", CloudHsmTagException) {};
-export class CloudHsmResourceLimitExceededExceptionError extends Schema.TaggedError<CloudHsmResourceLimitExceededExceptionError>()("CloudHsmResourceLimitExceededException", CloudHsmResourceLimitExceededException) {};
+export class CloudHsmAccessDeniedExceptionError extends Schema.TaggedError<CloudHsmAccessDeniedExceptionError>()("CloudHsmAccessDeniedException", CloudHsmAccessDeniedException.fields) {};
+export class CloudHsmInternalFailureExceptionError extends Schema.TaggedError<CloudHsmInternalFailureExceptionError>()("CloudHsmInternalFailureException", CloudHsmInternalFailureException.fields) {};
+export class CloudHsmInvalidRequestExceptionError extends Schema.TaggedError<CloudHsmInvalidRequestExceptionError>()("CloudHsmInvalidRequestException", CloudHsmInvalidRequestException.fields) {};
+export class CloudHsmResourceNotFoundExceptionError extends Schema.TaggedError<CloudHsmResourceNotFoundExceptionError>()("CloudHsmResourceNotFoundException", CloudHsmResourceNotFoundException.fields) {};
+export class CloudHsmServiceExceptionError extends Schema.TaggedError<CloudHsmServiceExceptionError>()("CloudHsmServiceException", CloudHsmServiceException.fields) {};
+export class CloudHsmTagExceptionError extends Schema.TaggedError<CloudHsmTagExceptionError>()("CloudHsmTagException", CloudHsmTagException.fields) {};
+export class CloudHsmResourceLimitExceededExceptionError extends Schema.TaggedError<CloudHsmResourceLimitExceededExceptionError>()("CloudHsmResourceLimitExceededException", CloudHsmResourceLimitExceededException.fields) {};
 
 //# Operations
 export const getResourcePolicy = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-04-28", uri: "/", method: "POST", sdkId: "CloudHSM V2", sigV4ServiceName: "cloudhsm", name: "BaldrApiService.GetResourcePolicy" }, GetResourcePolicyRequest, GetResourcePolicyResponse, [CloudHsmAccessDeniedExceptionError, CloudHsmInternalFailureExceptionError, CloudHsmInvalidRequestExceptionError, CloudHsmResourceNotFoundExceptionError, CloudHsmServiceExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

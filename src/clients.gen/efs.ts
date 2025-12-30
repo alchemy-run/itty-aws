@@ -5,140 +5,140 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 //# Schemas
 export const SecurityGroups = Schema.Array(Schema.String);
 export const TagKeys = Schema.Array(Schema.String);
-export const Tag = Schema.Struct({Key: Schema.String, Value: Schema.String});
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.String, Value: Schema.String}) {}
 export const Tags = Schema.Array(Tag);
-export const CreateFileSystemRequest = Schema.Struct({CreationToken: Schema.String, PerformanceMode: Schema.optional(Schema.String), Encrypted: Schema.optional(Schema.Boolean), KmsKeyId: Schema.optional(Schema.String), ThroughputMode: Schema.optional(Schema.String), ProvisionedThroughputInMibps: Schema.optional(Schema.Number), AvailabilityZoneName: Schema.optional(Schema.String), Backup: Schema.optional(Schema.Boolean), Tags: Schema.optional(Tags)});
-export const CreateMountTargetRequest = Schema.Struct({FileSystemId: Schema.String, SubnetId: Schema.String, IpAddress: Schema.optional(Schema.String), Ipv6Address: Schema.optional(Schema.String), IpAddressType: Schema.optional(Schema.String), SecurityGroups: Schema.optional(SecurityGroups)});
-export const CreateTagsRequest = Schema.Struct({FileSystemId: Schema.String, Tags: Tags});
-export const DeleteAccessPointRequest = Schema.Struct({AccessPointId: Schema.String});
-export const DeleteFileSystemRequest = Schema.Struct({FileSystemId: Schema.String});
-export const DeleteFileSystemPolicyRequest = Schema.Struct({FileSystemId: Schema.String});
-export const DeleteMountTargetRequest = Schema.Struct({MountTargetId: Schema.String});
-export const DeleteReplicationConfigurationRequest = Schema.Struct({SourceFileSystemId: Schema.String, DeletionMode: Schema.optional(Schema.String)});
-export const DeleteTagsRequest = Schema.Struct({FileSystemId: Schema.String, TagKeys: TagKeys});
-export const DescribeAccessPointsRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), AccessPointId: Schema.optional(Schema.String), FileSystemId: Schema.optional(Schema.String)});
-export const DescribeAccountPreferencesRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const DescribeBackupPolicyRequest = Schema.Struct({FileSystemId: Schema.String});
-export const DescribeFileSystemPolicyRequest = Schema.Struct({FileSystemId: Schema.String});
-export const DescribeFileSystemsRequest = Schema.Struct({MaxItems: Schema.optional(Schema.Number), Marker: Schema.optional(Schema.String), CreationToken: Schema.optional(Schema.String), FileSystemId: Schema.optional(Schema.String)});
-export const DescribeLifecycleConfigurationRequest = Schema.Struct({FileSystemId: Schema.String});
-export const DescribeMountTargetsRequest = Schema.Struct({MaxItems: Schema.optional(Schema.Number), Marker: Schema.optional(Schema.String), FileSystemId: Schema.optional(Schema.String), MountTargetId: Schema.optional(Schema.String), AccessPointId: Schema.optional(Schema.String)});
-export const DescribeMountTargetSecurityGroupsRequest = Schema.Struct({MountTargetId: Schema.String});
-export const DescribeReplicationConfigurationsRequest = Schema.Struct({FileSystemId: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const DescribeTagsRequest = Schema.Struct({MaxItems: Schema.optional(Schema.Number), Marker: Schema.optional(Schema.String), FileSystemId: Schema.String});
-export const ListTagsForResourceRequest = Schema.Struct({ResourceId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ModifyMountTargetSecurityGroupsRequest = Schema.Struct({MountTargetId: Schema.String, SecurityGroups: Schema.optional(SecurityGroups)});
-export const PutAccountPreferencesRequest = Schema.Struct({ResourceIdType: Schema.String});
-export const PutFileSystemPolicyRequest = Schema.Struct({FileSystemId: Schema.String, Policy: Schema.String, BypassPolicyLockoutSafetyCheck: Schema.optional(Schema.Boolean)});
-export const TagResourceRequest = Schema.Struct({ResourceId: Schema.String, Tags: Tags});
-export const UntagResourceRequest = Schema.Struct({ResourceId: Schema.String, TagKeys: TagKeys});
-export const UpdateFileSystemRequest = Schema.Struct({FileSystemId: Schema.String, ThroughputMode: Schema.optional(Schema.String), ProvisionedThroughputInMibps: Schema.optional(Schema.Number)});
-export const UpdateFileSystemProtectionRequest = Schema.Struct({FileSystemId: Schema.String, ReplicationOverwriteProtection: Schema.optional(Schema.String)});
+export class CreateFileSystemRequest extends Schema.Class<CreateFileSystemRequest>("CreateFileSystemRequest")({CreationToken: Schema.String, PerformanceMode: Schema.optional(Schema.String), Encrypted: Schema.optional(Schema.Boolean), KmsKeyId: Schema.optional(Schema.String), ThroughputMode: Schema.optional(Schema.String), ProvisionedThroughputInMibps: Schema.optional(Schema.Number), AvailabilityZoneName: Schema.optional(Schema.String), Backup: Schema.optional(Schema.Boolean), Tags: Schema.optional(Tags)}) {}
+export class CreateMountTargetRequest extends Schema.Class<CreateMountTargetRequest>("CreateMountTargetRequest")({FileSystemId: Schema.String, SubnetId: Schema.String, IpAddress: Schema.optional(Schema.String), Ipv6Address: Schema.optional(Schema.String), IpAddressType: Schema.optional(Schema.String), SecurityGroups: Schema.optional(SecurityGroups)}) {}
+export class CreateTagsRequest extends Schema.Class<CreateTagsRequest>("CreateTagsRequest")({FileSystemId: Schema.String, Tags: Tags}) {}
+export class DeleteAccessPointRequest extends Schema.Class<DeleteAccessPointRequest>("DeleteAccessPointRequest")({AccessPointId: Schema.String}) {}
+export class DeleteFileSystemRequest extends Schema.Class<DeleteFileSystemRequest>("DeleteFileSystemRequest")({FileSystemId: Schema.String}) {}
+export class DeleteFileSystemPolicyRequest extends Schema.Class<DeleteFileSystemPolicyRequest>("DeleteFileSystemPolicyRequest")({FileSystemId: Schema.String}) {}
+export class DeleteMountTargetRequest extends Schema.Class<DeleteMountTargetRequest>("DeleteMountTargetRequest")({MountTargetId: Schema.String}) {}
+export class DeleteReplicationConfigurationRequest extends Schema.Class<DeleteReplicationConfigurationRequest>("DeleteReplicationConfigurationRequest")({SourceFileSystemId: Schema.String, DeletionMode: Schema.optional(Schema.String)}) {}
+export class DeleteTagsRequest extends Schema.Class<DeleteTagsRequest>("DeleteTagsRequest")({FileSystemId: Schema.String, TagKeys: TagKeys}) {}
+export class DescribeAccessPointsRequest extends Schema.Class<DescribeAccessPointsRequest>("DescribeAccessPointsRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), AccessPointId: Schema.optional(Schema.String), FileSystemId: Schema.optional(Schema.String)}) {}
+export class DescribeAccountPreferencesRequest extends Schema.Class<DescribeAccountPreferencesRequest>("DescribeAccountPreferencesRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class DescribeBackupPolicyRequest extends Schema.Class<DescribeBackupPolicyRequest>("DescribeBackupPolicyRequest")({FileSystemId: Schema.String}) {}
+export class DescribeFileSystemPolicyRequest extends Schema.Class<DescribeFileSystemPolicyRequest>("DescribeFileSystemPolicyRequest")({FileSystemId: Schema.String}) {}
+export class DescribeFileSystemsRequest extends Schema.Class<DescribeFileSystemsRequest>("DescribeFileSystemsRequest")({MaxItems: Schema.optional(Schema.Number), Marker: Schema.optional(Schema.String), CreationToken: Schema.optional(Schema.String), FileSystemId: Schema.optional(Schema.String)}) {}
+export class DescribeLifecycleConfigurationRequest extends Schema.Class<DescribeLifecycleConfigurationRequest>("DescribeLifecycleConfigurationRequest")({FileSystemId: Schema.String}) {}
+export class DescribeMountTargetsRequest extends Schema.Class<DescribeMountTargetsRequest>("DescribeMountTargetsRequest")({MaxItems: Schema.optional(Schema.Number), Marker: Schema.optional(Schema.String), FileSystemId: Schema.optional(Schema.String), MountTargetId: Schema.optional(Schema.String), AccessPointId: Schema.optional(Schema.String)}) {}
+export class DescribeMountTargetSecurityGroupsRequest extends Schema.Class<DescribeMountTargetSecurityGroupsRequest>("DescribeMountTargetSecurityGroupsRequest")({MountTargetId: Schema.String}) {}
+export class DescribeReplicationConfigurationsRequest extends Schema.Class<DescribeReplicationConfigurationsRequest>("DescribeReplicationConfigurationsRequest")({FileSystemId: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class DescribeTagsRequest extends Schema.Class<DescribeTagsRequest>("DescribeTagsRequest")({MaxItems: Schema.optional(Schema.Number), Marker: Schema.optional(Schema.String), FileSystemId: Schema.String}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({ResourceId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ModifyMountTargetSecurityGroupsRequest extends Schema.Class<ModifyMountTargetSecurityGroupsRequest>("ModifyMountTargetSecurityGroupsRequest")({MountTargetId: Schema.String, SecurityGroups: Schema.optional(SecurityGroups)}) {}
+export class PutAccountPreferencesRequest extends Schema.Class<PutAccountPreferencesRequest>("PutAccountPreferencesRequest")({ResourceIdType: Schema.String}) {}
+export class PutFileSystemPolicyRequest extends Schema.Class<PutFileSystemPolicyRequest>("PutFileSystemPolicyRequest")({FileSystemId: Schema.String, Policy: Schema.String, BypassPolicyLockoutSafetyCheck: Schema.optional(Schema.Boolean)}) {}
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({ResourceId: Schema.String, Tags: Tags}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({ResourceId: Schema.String, TagKeys: TagKeys}) {}
+export class UpdateFileSystemRequest extends Schema.Class<UpdateFileSystemRequest>("UpdateFileSystemRequest")({FileSystemId: Schema.String, ThroughputMode: Schema.optional(Schema.String), ProvisionedThroughputInMibps: Schema.optional(Schema.Number)}) {}
+export class UpdateFileSystemProtectionRequest extends Schema.Class<UpdateFileSystemProtectionRequest>("UpdateFileSystemProtectionRequest")({FileSystemId: Schema.String, ReplicationOverwriteProtection: Schema.optional(Schema.String)}) {}
 export const SecondaryGids = Schema.Array(Schema.Number);
-export const PosixUser = Schema.Struct({Uid: Schema.Number, Gid: Schema.Number, SecondaryGids: Schema.optional(SecondaryGids)});
-export const DestinationToCreate = Schema.Struct({Region: Schema.optional(Schema.String), AvailabilityZoneName: Schema.optional(Schema.String), KmsKeyId: Schema.optional(Schema.String), FileSystemId: Schema.optional(Schema.String), RoleArn: Schema.optional(Schema.String)});
+export class PosixUser extends Schema.Class<PosixUser>("PosixUser")({Uid: Schema.Number, Gid: Schema.Number, SecondaryGids: Schema.optional(SecondaryGids)}) {}
+export class DestinationToCreate extends Schema.Class<DestinationToCreate>("DestinationToCreate")({Region: Schema.optional(Schema.String), AvailabilityZoneName: Schema.optional(Schema.String), KmsKeyId: Schema.optional(Schema.String), FileSystemId: Schema.optional(Schema.String), RoleArn: Schema.optional(Schema.String)}) {}
 export const DestinationsToCreate = Schema.Array(DestinationToCreate);
-export const FileSystemSize = Schema.Struct({Value: Schema.Number, Timestamp: Schema.optional(Schema.Date), ValueInIA: Schema.optional(Schema.Number), ValueInStandard: Schema.optional(Schema.Number), ValueInArchive: Schema.optional(Schema.Number)});
-export const FileSystemProtectionDescription = Schema.Struct({ReplicationOverwriteProtection: Schema.optional(Schema.String)});
-export const FileSystemDescription = Schema.Struct({OwnerId: Schema.String, CreationToken: Schema.String, FileSystemId: Schema.String, FileSystemArn: Schema.optional(Schema.String), CreationTime: Schema.Date, LifeCycleState: Schema.String, Name: Schema.optional(Schema.String), NumberOfMountTargets: Schema.Number, SizeInBytes: FileSystemSize, PerformanceMode: Schema.String, Encrypted: Schema.optional(Schema.Boolean), KmsKeyId: Schema.optional(Schema.String), ThroughputMode: Schema.optional(Schema.String), ProvisionedThroughputInMibps: Schema.optional(Schema.Number), AvailabilityZoneName: Schema.optional(Schema.String), AvailabilityZoneId: Schema.optional(Schema.String), Tags: Tags, FileSystemProtection: Schema.optional(FileSystemProtectionDescription)});
+export class FileSystemSize extends Schema.Class<FileSystemSize>("FileSystemSize")({Value: Schema.Number, Timestamp: Schema.optional(Schema.Date), ValueInIA: Schema.optional(Schema.Number), ValueInStandard: Schema.optional(Schema.Number), ValueInArchive: Schema.optional(Schema.Number)}) {}
+export class FileSystemProtectionDescription extends Schema.Class<FileSystemProtectionDescription>("FileSystemProtectionDescription")({ReplicationOverwriteProtection: Schema.optional(Schema.String)}) {}
+export class FileSystemDescription extends Schema.Class<FileSystemDescription>("FileSystemDescription")({OwnerId: Schema.String, CreationToken: Schema.String, FileSystemId: Schema.String, FileSystemArn: Schema.optional(Schema.String), CreationTime: Schema.Date, LifeCycleState: Schema.String, Name: Schema.optional(Schema.String), NumberOfMountTargets: Schema.Number, SizeInBytes: FileSystemSize, PerformanceMode: Schema.String, Encrypted: Schema.optional(Schema.Boolean), KmsKeyId: Schema.optional(Schema.String), ThroughputMode: Schema.optional(Schema.String), ProvisionedThroughputInMibps: Schema.optional(Schema.Number), AvailabilityZoneName: Schema.optional(Schema.String), AvailabilityZoneId: Schema.optional(Schema.String), Tags: Tags, FileSystemProtection: Schema.optional(FileSystemProtectionDescription)}) {}
 export const FileSystemDescriptions = Schema.Array(FileSystemDescription);
-export const MountTargetDescription = Schema.Struct({OwnerId: Schema.optional(Schema.String), MountTargetId: Schema.String, FileSystemId: Schema.String, SubnetId: Schema.String, LifeCycleState: Schema.String, IpAddress: Schema.optional(Schema.String), Ipv6Address: Schema.optional(Schema.String), NetworkInterfaceId: Schema.optional(Schema.String), AvailabilityZoneId: Schema.optional(Schema.String), AvailabilityZoneName: Schema.optional(Schema.String), VpcId: Schema.optional(Schema.String)});
+export class MountTargetDescription extends Schema.Class<MountTargetDescription>("MountTargetDescription")({OwnerId: Schema.optional(Schema.String), MountTargetId: Schema.String, FileSystemId: Schema.String, SubnetId: Schema.String, LifeCycleState: Schema.String, IpAddress: Schema.optional(Schema.String), Ipv6Address: Schema.optional(Schema.String), NetworkInterfaceId: Schema.optional(Schema.String), AvailabilityZoneId: Schema.optional(Schema.String), AvailabilityZoneName: Schema.optional(Schema.String), VpcId: Schema.optional(Schema.String)}) {}
 export const MountTargetDescriptions = Schema.Array(MountTargetDescription);
-export const BackupPolicy = Schema.Struct({Status: Schema.String});
-export const LifecyclePolicy = Schema.Struct({TransitionToIA: Schema.optional(Schema.String), TransitionToPrimaryStorageClass: Schema.optional(Schema.String), TransitionToArchive: Schema.optional(Schema.String)});
+export class BackupPolicy extends Schema.Class<BackupPolicy>("BackupPolicy")({Status: Schema.String}) {}
+export class LifecyclePolicy extends Schema.Class<LifecyclePolicy>("LifecyclePolicy")({TransitionToIA: Schema.optional(Schema.String), TransitionToPrimaryStorageClass: Schema.optional(Schema.String), TransitionToArchive: Schema.optional(Schema.String)}) {}
 export const LifecyclePolicies = Schema.Array(LifecyclePolicy);
-export const CreateReplicationConfigurationRequest = Schema.Struct({SourceFileSystemId: Schema.String, Destinations: DestinationsToCreate});
-export const BadRequest = Schema.Struct({ErrorCode: Schema.String, Message: Schema.optional(Schema.String)});
-export const AccessPointNotFound = Schema.Struct({ErrorCode: Schema.String, Message: Schema.optional(Schema.String)});
-export const FileSystemInUse = Schema.Struct({ErrorCode: Schema.String, Message: Schema.optional(Schema.String)});
-export const FileSystemNotFound = Schema.Struct({ErrorCode: Schema.String, Message: Schema.optional(Schema.String)});
-export const DependencyTimeout = Schema.Struct({ErrorCode: Schema.String, Message: Schema.optional(Schema.String)});
-export const InternalServerError = Schema.Struct({ErrorCode: Schema.String, Message: Schema.optional(Schema.String)});
-export const BackupPolicyDescription = Schema.Struct({BackupPolicy: Schema.optional(BackupPolicy)});
-export const FileSystemPolicyDescription = Schema.Struct({FileSystemId: Schema.optional(Schema.String), Policy: Schema.optional(Schema.String)});
-export const DescribeFileSystemsResponse = Schema.Struct({Marker: Schema.optional(Schema.String), FileSystems: Schema.optional(FileSystemDescriptions), NextMarker: Schema.optional(Schema.String)});
-export const LifecycleConfigurationDescription = Schema.Struct({LifecyclePolicies: Schema.optional(LifecyclePolicies)});
-export const DescribeMountTargetsResponse = Schema.Struct({Marker: Schema.optional(Schema.String), MountTargets: Schema.optional(MountTargetDescriptions), NextMarker: Schema.optional(Schema.String)});
-export const DescribeMountTargetSecurityGroupsResponse = Schema.Struct({SecurityGroups: SecurityGroups});
-export const DescribeTagsResponse = Schema.Struct({Marker: Schema.optional(Schema.String), Tags: Tags, NextMarker: Schema.optional(Schema.String)});
-export const ListTagsForResourceResponse = Schema.Struct({Tags: Schema.optional(Tags), NextToken: Schema.optional(Schema.String)});
-export const IncorrectMountTargetState = Schema.Struct({ErrorCode: Schema.String, Message: Schema.optional(Schema.String)});
+export class CreateReplicationConfigurationRequest extends Schema.Class<CreateReplicationConfigurationRequest>("CreateReplicationConfigurationRequest")({SourceFileSystemId: Schema.String, Destinations: DestinationsToCreate}) {}
+export class BadRequest extends Schema.Class<BadRequest>("BadRequest")({ErrorCode: Schema.String, Message: Schema.optional(Schema.String)}) {}
+export class AccessPointNotFound extends Schema.Class<AccessPointNotFound>("AccessPointNotFound")({ErrorCode: Schema.String, Message: Schema.optional(Schema.String)}) {}
+export class FileSystemInUse extends Schema.Class<FileSystemInUse>("FileSystemInUse")({ErrorCode: Schema.String, Message: Schema.optional(Schema.String)}) {}
+export class FileSystemNotFound extends Schema.Class<FileSystemNotFound>("FileSystemNotFound")({ErrorCode: Schema.String, Message: Schema.optional(Schema.String)}) {}
+export class DependencyTimeout extends Schema.Class<DependencyTimeout>("DependencyTimeout")({ErrorCode: Schema.String, Message: Schema.optional(Schema.String)}) {}
+export class InternalServerError extends Schema.Class<InternalServerError>("InternalServerError")({ErrorCode: Schema.String, Message: Schema.optional(Schema.String)}) {}
+export class BackupPolicyDescription extends Schema.Class<BackupPolicyDescription>("BackupPolicyDescription")({BackupPolicy: Schema.optional(BackupPolicy)}) {}
+export class FileSystemPolicyDescription extends Schema.Class<FileSystemPolicyDescription>("FileSystemPolicyDescription")({FileSystemId: Schema.optional(Schema.String), Policy: Schema.optional(Schema.String)}) {}
+export class DescribeFileSystemsResponse extends Schema.Class<DescribeFileSystemsResponse>("DescribeFileSystemsResponse")({Marker: Schema.optional(Schema.String), FileSystems: Schema.optional(FileSystemDescriptions), NextMarker: Schema.optional(Schema.String)}) {}
+export class LifecycleConfigurationDescription extends Schema.Class<LifecycleConfigurationDescription>("LifecycleConfigurationDescription")({LifecyclePolicies: Schema.optional(LifecyclePolicies)}) {}
+export class DescribeMountTargetsResponse extends Schema.Class<DescribeMountTargetsResponse>("DescribeMountTargetsResponse")({Marker: Schema.optional(Schema.String), MountTargets: Schema.optional(MountTargetDescriptions), NextMarker: Schema.optional(Schema.String)}) {}
+export class DescribeMountTargetSecurityGroupsResponse extends Schema.Class<DescribeMountTargetSecurityGroupsResponse>("DescribeMountTargetSecurityGroupsResponse")({SecurityGroups: SecurityGroups}) {}
+export class DescribeTagsResponse extends Schema.Class<DescribeTagsResponse>("DescribeTagsResponse")({Marker: Schema.optional(Schema.String), Tags: Tags, NextMarker: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({Tags: Schema.optional(Tags), NextToken: Schema.optional(Schema.String)}) {}
+export class IncorrectMountTargetState extends Schema.Class<IncorrectMountTargetState>("IncorrectMountTargetState")({ErrorCode: Schema.String, Message: Schema.optional(Schema.String)}) {}
 export const Resources = Schema.Array(Schema.String);
-export const ResourceIdPreference = Schema.Struct({ResourceIdType: Schema.optional(Schema.String), Resources: Schema.optional(Resources)});
-export const PutAccountPreferencesResponse = Schema.Struct({ResourceIdPreference: Schema.optional(ResourceIdPreference)});
-export const PutBackupPolicyRequest = Schema.Struct({FileSystemId: Schema.String, BackupPolicy: BackupPolicy});
-export const IncorrectFileSystemLifeCycleState = Schema.Struct({ErrorCode: Schema.String, Message: Schema.optional(Schema.String)});
-export const PutLifecycleConfigurationRequest = Schema.Struct({FileSystemId: Schema.String, LifecyclePolicies: LifecyclePolicies});
-export const InsufficientThroughputCapacity = Schema.Struct({ErrorCode: Schema.String, Message: Schema.optional(Schema.String)});
-export const CreationInfo = Schema.Struct({OwnerUid: Schema.Number, OwnerGid: Schema.Number, Permissions: Schema.String});
-export const RootDirectory = Schema.Struct({Path: Schema.optional(Schema.String), CreationInfo: Schema.optional(CreationInfo)});
-export const AccessPointDescription = Schema.Struct({ClientToken: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Tags: Schema.optional(Tags), AccessPointId: Schema.optional(Schema.String), AccessPointArn: Schema.optional(Schema.String), FileSystemId: Schema.optional(Schema.String), PosixUser: Schema.optional(PosixUser), RootDirectory: Schema.optional(RootDirectory), OwnerId: Schema.optional(Schema.String), LifeCycleState: Schema.optional(Schema.String)});
+export class ResourceIdPreference extends Schema.Class<ResourceIdPreference>("ResourceIdPreference")({ResourceIdType: Schema.optional(Schema.String), Resources: Schema.optional(Resources)}) {}
+export class PutAccountPreferencesResponse extends Schema.Class<PutAccountPreferencesResponse>("PutAccountPreferencesResponse")({ResourceIdPreference: Schema.optional(ResourceIdPreference)}) {}
+export class PutBackupPolicyRequest extends Schema.Class<PutBackupPolicyRequest>("PutBackupPolicyRequest")({FileSystemId: Schema.String, BackupPolicy: BackupPolicy}) {}
+export class IncorrectFileSystemLifeCycleState extends Schema.Class<IncorrectFileSystemLifeCycleState>("IncorrectFileSystemLifeCycleState")({ErrorCode: Schema.String, Message: Schema.optional(Schema.String)}) {}
+export class PutLifecycleConfigurationRequest extends Schema.Class<PutLifecycleConfigurationRequest>("PutLifecycleConfigurationRequest")({FileSystemId: Schema.String, LifecyclePolicies: LifecyclePolicies}) {}
+export class InsufficientThroughputCapacity extends Schema.Class<InsufficientThroughputCapacity>("InsufficientThroughputCapacity")({ErrorCode: Schema.String, Message: Schema.optional(Schema.String)}) {}
+export class CreationInfo extends Schema.Class<CreationInfo>("CreationInfo")({OwnerUid: Schema.Number, OwnerGid: Schema.Number, Permissions: Schema.String}) {}
+export class RootDirectory extends Schema.Class<RootDirectory>("RootDirectory")({Path: Schema.optional(Schema.String), CreationInfo: Schema.optional(CreationInfo)}) {}
+export class AccessPointDescription extends Schema.Class<AccessPointDescription>("AccessPointDescription")({ClientToken: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Tags: Schema.optional(Tags), AccessPointId: Schema.optional(Schema.String), AccessPointArn: Schema.optional(Schema.String), FileSystemId: Schema.optional(Schema.String), PosixUser: Schema.optional(PosixUser), RootDirectory: Schema.optional(RootDirectory), OwnerId: Schema.optional(Schema.String), LifeCycleState: Schema.optional(Schema.String)}) {}
 export const AccessPointDescriptions = Schema.Array(AccessPointDescription);
-export const CreateAccessPointRequest = Schema.Struct({ClientToken: Schema.String, Tags: Schema.optional(Tags), FileSystemId: Schema.String, PosixUser: Schema.optional(PosixUser), RootDirectory: Schema.optional(RootDirectory)});
-export const AvailabilityZonesMismatch = Schema.Struct({ErrorCode: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
-export const ConflictException = Schema.Struct({ErrorCode: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
-export const MountTargetNotFound = Schema.Struct({ErrorCode: Schema.String, Message: Schema.optional(Schema.String)});
-export const ReplicationNotFound = Schema.Struct({ErrorCode: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
-export const DescribeAccessPointsResponse = Schema.Struct({AccessPoints: Schema.optional(AccessPointDescriptions), NextToken: Schema.optional(Schema.String)});
-export const DescribeAccountPreferencesResponse = Schema.Struct({ResourceIdPreference: Schema.optional(ResourceIdPreference), NextToken: Schema.optional(Schema.String)});
-export const PolicyNotFound = Schema.Struct({ErrorCode: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
-export const SecurityGroupLimitExceeded = Schema.Struct({ErrorCode: Schema.String, Message: Schema.optional(Schema.String)});
-export const ValidationException = Schema.Struct({ErrorCode: Schema.String, Message: Schema.optional(Schema.String)});
-export const InvalidPolicyException = Schema.Struct({ErrorCode: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
-export const ThroughputLimitExceeded = Schema.Struct({ErrorCode: Schema.String, Message: Schema.optional(Schema.String)});
-export const ReplicationAlreadyExists = Schema.Struct({ErrorCode: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
-export const Destination = Schema.Struct({Status: Schema.String, FileSystemId: Schema.String, Region: Schema.String, LastReplicatedTimestamp: Schema.optional(Schema.Date), OwnerId: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), RoleArn: Schema.optional(Schema.String)});
+export class CreateAccessPointRequest extends Schema.Class<CreateAccessPointRequest>("CreateAccessPointRequest")({ClientToken: Schema.String, Tags: Schema.optional(Tags), FileSystemId: Schema.String, PosixUser: Schema.optional(PosixUser), RootDirectory: Schema.optional(RootDirectory)}) {}
+export class AvailabilityZonesMismatch extends Schema.Class<AvailabilityZonesMismatch>("AvailabilityZonesMismatch")({ErrorCode: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({ErrorCode: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
+export class MountTargetNotFound extends Schema.Class<MountTargetNotFound>("MountTargetNotFound")({ErrorCode: Schema.String, Message: Schema.optional(Schema.String)}) {}
+export class ReplicationNotFound extends Schema.Class<ReplicationNotFound>("ReplicationNotFound")({ErrorCode: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
+export class DescribeAccessPointsResponse extends Schema.Class<DescribeAccessPointsResponse>("DescribeAccessPointsResponse")({AccessPoints: Schema.optional(AccessPointDescriptions), NextToken: Schema.optional(Schema.String)}) {}
+export class DescribeAccountPreferencesResponse extends Schema.Class<DescribeAccountPreferencesResponse>("DescribeAccountPreferencesResponse")({ResourceIdPreference: Schema.optional(ResourceIdPreference), NextToken: Schema.optional(Schema.String)}) {}
+export class PolicyNotFound extends Schema.Class<PolicyNotFound>("PolicyNotFound")({ErrorCode: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
+export class SecurityGroupLimitExceeded extends Schema.Class<SecurityGroupLimitExceeded>("SecurityGroupLimitExceeded")({ErrorCode: Schema.String, Message: Schema.optional(Schema.String)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({ErrorCode: Schema.String, Message: Schema.optional(Schema.String)}) {}
+export class InvalidPolicyException extends Schema.Class<InvalidPolicyException>("InvalidPolicyException")({ErrorCode: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
+export class ThroughputLimitExceeded extends Schema.Class<ThroughputLimitExceeded>("ThroughputLimitExceeded")({ErrorCode: Schema.String, Message: Schema.optional(Schema.String)}) {}
+export class ReplicationAlreadyExists extends Schema.Class<ReplicationAlreadyExists>("ReplicationAlreadyExists")({ErrorCode: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
+export class Destination extends Schema.Class<Destination>("Destination")({Status: Schema.String, FileSystemId: Schema.String, Region: Schema.String, LastReplicatedTimestamp: Schema.optional(Schema.Date), OwnerId: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), RoleArn: Schema.optional(Schema.String)}) {}
 export const Destinations = Schema.Array(Destination);
-export const ReplicationConfigurationDescription = Schema.Struct({SourceFileSystemId: Schema.String, SourceFileSystemRegion: Schema.String, SourceFileSystemArn: Schema.String, OriginalSourceFileSystemArn: Schema.String, CreationTime: Schema.Date, Destinations: Destinations, SourceFileSystemOwnerId: Schema.optional(Schema.String)});
+export class ReplicationConfigurationDescription extends Schema.Class<ReplicationConfigurationDescription>("ReplicationConfigurationDescription")({SourceFileSystemId: Schema.String, SourceFileSystemRegion: Schema.String, SourceFileSystemArn: Schema.String, OriginalSourceFileSystemArn: Schema.String, CreationTime: Schema.Date, Destinations: Destinations, SourceFileSystemOwnerId: Schema.optional(Schema.String)}) {}
 export const ReplicationConfigurationDescriptions = Schema.Array(ReplicationConfigurationDescription);
-export const AccessPointAlreadyExists = Schema.Struct({ErrorCode: Schema.String, Message: Schema.optional(Schema.String), AccessPointId: Schema.String});
-export const FileSystemAlreadyExists = Schema.Struct({ErrorCode: Schema.String, Message: Schema.optional(Schema.String), FileSystemId: Schema.String});
-export const IpAddressInUse = Schema.Struct({ErrorCode: Schema.String, Message: Schema.optional(Schema.String)});
-export const FileSystemLimitExceeded = Schema.Struct({ErrorCode: Schema.String, Message: Schema.optional(Schema.String)});
-export const DescribeReplicationConfigurationsResponse = Schema.Struct({Replications: Schema.optional(ReplicationConfigurationDescriptions), NextToken: Schema.optional(Schema.String)});
-export const SecurityGroupNotFound = Schema.Struct({ErrorCode: Schema.String, Message: Schema.optional(Schema.String)});
-export const TooManyRequests = Schema.Struct({ErrorCode: Schema.String, Message: Schema.optional(Schema.String)});
-export const AccessPointLimitExceeded = Schema.Struct({ErrorCode: Schema.String, Message: Schema.optional(Schema.String)});
-export const UnsupportedAvailabilityZone = Schema.Struct({ErrorCode: Schema.String, Message: Schema.optional(Schema.String)});
-export const MountTargetConflict = Schema.Struct({ErrorCode: Schema.String, Message: Schema.optional(Schema.String)});
-export const ThrottlingException = Schema.Struct({ErrorCode: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
-export const NetworkInterfaceLimitExceeded = Schema.Struct({ErrorCode: Schema.String, Message: Schema.optional(Schema.String)});
-export const NoFreeAddressesInSubnet = Schema.Struct({ErrorCode: Schema.String, Message: Schema.optional(Schema.String)});
-export const SubnetNotFound = Schema.Struct({ErrorCode: Schema.String, Message: Schema.optional(Schema.String)});
+export class AccessPointAlreadyExists extends Schema.Class<AccessPointAlreadyExists>("AccessPointAlreadyExists")({ErrorCode: Schema.String, Message: Schema.optional(Schema.String), AccessPointId: Schema.String}) {}
+export class FileSystemAlreadyExists extends Schema.Class<FileSystemAlreadyExists>("FileSystemAlreadyExists")({ErrorCode: Schema.String, Message: Schema.optional(Schema.String), FileSystemId: Schema.String}) {}
+export class IpAddressInUse extends Schema.Class<IpAddressInUse>("IpAddressInUse")({ErrorCode: Schema.String, Message: Schema.optional(Schema.String)}) {}
+export class FileSystemLimitExceeded extends Schema.Class<FileSystemLimitExceeded>("FileSystemLimitExceeded")({ErrorCode: Schema.String, Message: Schema.optional(Schema.String)}) {}
+export class DescribeReplicationConfigurationsResponse extends Schema.Class<DescribeReplicationConfigurationsResponse>("DescribeReplicationConfigurationsResponse")({Replications: Schema.optional(ReplicationConfigurationDescriptions), NextToken: Schema.optional(Schema.String)}) {}
+export class SecurityGroupNotFound extends Schema.Class<SecurityGroupNotFound>("SecurityGroupNotFound")({ErrorCode: Schema.String, Message: Schema.optional(Schema.String)}) {}
+export class TooManyRequests extends Schema.Class<TooManyRequests>("TooManyRequests")({ErrorCode: Schema.String, Message: Schema.optional(Schema.String)}) {}
+export class AccessPointLimitExceeded extends Schema.Class<AccessPointLimitExceeded>("AccessPointLimitExceeded")({ErrorCode: Schema.String, Message: Schema.optional(Schema.String)}) {}
+export class UnsupportedAvailabilityZone extends Schema.Class<UnsupportedAvailabilityZone>("UnsupportedAvailabilityZone")({ErrorCode: Schema.String, Message: Schema.optional(Schema.String)}) {}
+export class MountTargetConflict extends Schema.Class<MountTargetConflict>("MountTargetConflict")({ErrorCode: Schema.String, Message: Schema.optional(Schema.String)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({ErrorCode: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
+export class NetworkInterfaceLimitExceeded extends Schema.Class<NetworkInterfaceLimitExceeded>("NetworkInterfaceLimitExceeded")({ErrorCode: Schema.String, Message: Schema.optional(Schema.String)}) {}
+export class NoFreeAddressesInSubnet extends Schema.Class<NoFreeAddressesInSubnet>("NoFreeAddressesInSubnet")({ErrorCode: Schema.String, Message: Schema.optional(Schema.String)}) {}
+export class SubnetNotFound extends Schema.Class<SubnetNotFound>("SubnetNotFound")({ErrorCode: Schema.String, Message: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class BadRequestError extends Schema.TaggedError<BadRequestError>()("BadRequest", BadRequest) {};
-export class FileSystemNotFoundError extends Schema.TaggedError<FileSystemNotFoundError>()("FileSystemNotFound", FileSystemNotFound) {};
-export class InternalServerErrorError extends Schema.TaggedError<InternalServerErrorError>()("InternalServerError", InternalServerError) {};
-export class AccessPointNotFoundError extends Schema.TaggedError<AccessPointNotFoundError>()("AccessPointNotFound", AccessPointNotFound) {};
-export class IncorrectFileSystemLifeCycleStateError extends Schema.TaggedError<IncorrectFileSystemLifeCycleStateError>()("IncorrectFileSystemLifeCycleState", IncorrectFileSystemLifeCycleState) {};
-export class FileSystemInUseError extends Schema.TaggedError<FileSystemInUseError>()("FileSystemInUse", FileSystemInUse) {};
-export class DependencyTimeoutError extends Schema.TaggedError<DependencyTimeoutError>()("DependencyTimeout", DependencyTimeout) {};
-export class PolicyNotFoundError extends Schema.TaggedError<PolicyNotFoundError>()("PolicyNotFound", PolicyNotFound) {};
-export class MountTargetNotFoundError extends Schema.TaggedError<MountTargetNotFoundError>()("MountTargetNotFound", MountTargetNotFound) {};
-export class IncorrectMountTargetStateError extends Schema.TaggedError<IncorrectMountTargetStateError>()("IncorrectMountTargetState", IncorrectMountTargetState) {};
-export class InsufficientThroughputCapacityError extends Schema.TaggedError<InsufficientThroughputCapacityError>()("InsufficientThroughputCapacity", InsufficientThroughputCapacity) {};
-export class AvailabilityZonesMismatchError extends Schema.TaggedError<AvailabilityZonesMismatchError>()("AvailabilityZonesMismatch", AvailabilityZonesMismatch) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class ReplicationNotFoundError extends Schema.TaggedError<ReplicationNotFoundError>()("ReplicationNotFound", ReplicationNotFound) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class SecurityGroupLimitExceededError extends Schema.TaggedError<SecurityGroupLimitExceededError>()("SecurityGroupLimitExceeded", SecurityGroupLimitExceeded) {};
-export class InvalidPolicyExceptionError extends Schema.TaggedError<InvalidPolicyExceptionError>()("InvalidPolicyException", InvalidPolicyException) {};
-export class ThroughputLimitExceededError extends Schema.TaggedError<ThroughputLimitExceededError>()("ThroughputLimitExceeded", ThroughputLimitExceeded) {};
-export class ReplicationAlreadyExistsError extends Schema.TaggedError<ReplicationAlreadyExistsError>()("ReplicationAlreadyExists", ReplicationAlreadyExists) {};
-export class TooManyRequestsError extends Schema.TaggedError<TooManyRequestsError>()("TooManyRequests", TooManyRequests) {};
-export class AccessPointAlreadyExistsError extends Schema.TaggedError<AccessPointAlreadyExistsError>()("AccessPointAlreadyExists", AccessPointAlreadyExists) {};
-export class FileSystemAlreadyExistsError extends Schema.TaggedError<FileSystemAlreadyExistsError>()("FileSystemAlreadyExists", FileSystemAlreadyExists) {};
-export class FileSystemLimitExceededError extends Schema.TaggedError<FileSystemLimitExceededError>()("FileSystemLimitExceeded", FileSystemLimitExceeded) {};
-export class IpAddressInUseError extends Schema.TaggedError<IpAddressInUseError>()("IpAddressInUse", IpAddressInUse) {};
-export class UnsupportedAvailabilityZoneError extends Schema.TaggedError<UnsupportedAvailabilityZoneError>()("UnsupportedAvailabilityZone", UnsupportedAvailabilityZone) {};
-export class SecurityGroupNotFoundError extends Schema.TaggedError<SecurityGroupNotFoundError>()("SecurityGroupNotFound", SecurityGroupNotFound) {};
-export class AccessPointLimitExceededError extends Schema.TaggedError<AccessPointLimitExceededError>()("AccessPointLimitExceeded", AccessPointLimitExceeded) {};
-export class MountTargetConflictError extends Schema.TaggedError<MountTargetConflictError>()("MountTargetConflict", MountTargetConflict) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class NetworkInterfaceLimitExceededError extends Schema.TaggedError<NetworkInterfaceLimitExceededError>()("NetworkInterfaceLimitExceeded", NetworkInterfaceLimitExceeded) {};
-export class NoFreeAddressesInSubnetError extends Schema.TaggedError<NoFreeAddressesInSubnetError>()("NoFreeAddressesInSubnet", NoFreeAddressesInSubnet) {};
-export class SubnetNotFoundError extends Schema.TaggedError<SubnetNotFoundError>()("SubnetNotFound", SubnetNotFound) {};
+export class BadRequestError extends Schema.TaggedError<BadRequestError>()("BadRequest", BadRequest.fields) {};
+export class FileSystemNotFoundError extends Schema.TaggedError<FileSystemNotFoundError>()("FileSystemNotFound", FileSystemNotFound.fields) {};
+export class InternalServerErrorError extends Schema.TaggedError<InternalServerErrorError>()("InternalServerError", InternalServerError.fields) {};
+export class AccessPointNotFoundError extends Schema.TaggedError<AccessPointNotFoundError>()("AccessPointNotFound", AccessPointNotFound.fields) {};
+export class IncorrectFileSystemLifeCycleStateError extends Schema.TaggedError<IncorrectFileSystemLifeCycleStateError>()("IncorrectFileSystemLifeCycleState", IncorrectFileSystemLifeCycleState.fields) {};
+export class FileSystemInUseError extends Schema.TaggedError<FileSystemInUseError>()("FileSystemInUse", FileSystemInUse.fields) {};
+export class DependencyTimeoutError extends Schema.TaggedError<DependencyTimeoutError>()("DependencyTimeout", DependencyTimeout.fields) {};
+export class PolicyNotFoundError extends Schema.TaggedError<PolicyNotFoundError>()("PolicyNotFound", PolicyNotFound.fields) {};
+export class MountTargetNotFoundError extends Schema.TaggedError<MountTargetNotFoundError>()("MountTargetNotFound", MountTargetNotFound.fields) {};
+export class IncorrectMountTargetStateError extends Schema.TaggedError<IncorrectMountTargetStateError>()("IncorrectMountTargetState", IncorrectMountTargetState.fields) {};
+export class InsufficientThroughputCapacityError extends Schema.TaggedError<InsufficientThroughputCapacityError>()("InsufficientThroughputCapacity", InsufficientThroughputCapacity.fields) {};
+export class AvailabilityZonesMismatchError extends Schema.TaggedError<AvailabilityZonesMismatchError>()("AvailabilityZonesMismatch", AvailabilityZonesMismatch.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class ReplicationNotFoundError extends Schema.TaggedError<ReplicationNotFoundError>()("ReplicationNotFound", ReplicationNotFound.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class SecurityGroupLimitExceededError extends Schema.TaggedError<SecurityGroupLimitExceededError>()("SecurityGroupLimitExceeded", SecurityGroupLimitExceeded.fields) {};
+export class InvalidPolicyExceptionError extends Schema.TaggedError<InvalidPolicyExceptionError>()("InvalidPolicyException", InvalidPolicyException.fields) {};
+export class ThroughputLimitExceededError extends Schema.TaggedError<ThroughputLimitExceededError>()("ThroughputLimitExceeded", ThroughputLimitExceeded.fields) {};
+export class ReplicationAlreadyExistsError extends Schema.TaggedError<ReplicationAlreadyExistsError>()("ReplicationAlreadyExists", ReplicationAlreadyExists.fields) {};
+export class TooManyRequestsError extends Schema.TaggedError<TooManyRequestsError>()("TooManyRequests", TooManyRequests.fields) {};
+export class AccessPointAlreadyExistsError extends Schema.TaggedError<AccessPointAlreadyExistsError>()("AccessPointAlreadyExists", AccessPointAlreadyExists.fields) {};
+export class FileSystemAlreadyExistsError extends Schema.TaggedError<FileSystemAlreadyExistsError>()("FileSystemAlreadyExists", FileSystemAlreadyExists.fields) {};
+export class FileSystemLimitExceededError extends Schema.TaggedError<FileSystemLimitExceededError>()("FileSystemLimitExceeded", FileSystemLimitExceeded.fields) {};
+export class IpAddressInUseError extends Schema.TaggedError<IpAddressInUseError>()("IpAddressInUse", IpAddressInUse.fields) {};
+export class UnsupportedAvailabilityZoneError extends Schema.TaggedError<UnsupportedAvailabilityZoneError>()("UnsupportedAvailabilityZone", UnsupportedAvailabilityZone.fields) {};
+export class SecurityGroupNotFoundError extends Schema.TaggedError<SecurityGroupNotFoundError>()("SecurityGroupNotFound", SecurityGroupNotFound.fields) {};
+export class AccessPointLimitExceededError extends Schema.TaggedError<AccessPointLimitExceededError>()("AccessPointLimitExceeded", AccessPointLimitExceeded.fields) {};
+export class MountTargetConflictError extends Schema.TaggedError<MountTargetConflictError>()("MountTargetConflict", MountTargetConflict.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class NetworkInterfaceLimitExceededError extends Schema.TaggedError<NetworkInterfaceLimitExceededError>()("NetworkInterfaceLimitExceeded", NetworkInterfaceLimitExceeded.fields) {};
+export class NoFreeAddressesInSubnetError extends Schema.TaggedError<NoFreeAddressesInSubnetError>()("NoFreeAddressesInSubnet", NoFreeAddressesInSubnet.fields) {};
+export class SubnetNotFoundError extends Schema.TaggedError<SubnetNotFoundError>()("SubnetNotFound", SubnetNotFound.fields) {};
 
 //# Operations
 export const deleteTags = /*#__PURE__*/ makeOperation(() => Operation({ version: "2015-02-01", uri: "/2015-02-01/delete-tags/{FileSystemId}", method: "POST", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.DeleteTags" }, DeleteTagsRequest, Schema.Struct({}), [BadRequestError, FileSystemNotFoundError, InternalServerErrorError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

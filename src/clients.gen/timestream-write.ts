@@ -3,106 +3,106 @@ import { FormatAwsJSON10Request,FormatJSONResponse,FormatAwsRestJSONError, makeO
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const DescribeEndpointsRequest = Schema.Struct({});
+export class DescribeEndpointsRequest extends Schema.Class<DescribeEndpointsRequest>("DescribeEndpointsRequest")({}) {}
 export const TagKeyList = Schema.Array(Schema.String);
-export const Dimension = Schema.Struct({Name: Schema.String, Value: Schema.String, DimensionValueType: Schema.optional(Schema.String)});
+export class Dimension extends Schema.Class<Dimension>("Dimension")({Name: Schema.String, Value: Schema.String, DimensionValueType: Schema.optional(Schema.String)}) {}
 export const Dimensions = Schema.Array(Dimension);
-export const MeasureValue = Schema.Struct({Name: Schema.String, Value: Schema.String, Type: Schema.String});
+export class MeasureValue extends Schema.Class<MeasureValue>("MeasureValue")({Name: Schema.String, Value: Schema.String, Type: Schema.String}) {}
 export const MeasureValues = Schema.Array(MeasureValue);
-export const Record = Schema.Struct({Dimensions: Schema.optional(Dimensions), MeasureName: Schema.optional(Schema.String), MeasureValue: Schema.optional(Schema.String), MeasureValueType: Schema.optional(Schema.String), Time: Schema.optional(Schema.String), TimeUnit: Schema.optional(Schema.String), Version: Schema.optional(Schema.Number), MeasureValues: Schema.optional(MeasureValues)});
+export class Record extends Schema.Class<Record>("Record")({Dimensions: Schema.optional(Dimensions), MeasureName: Schema.optional(Schema.String), MeasureValue: Schema.optional(Schema.String), MeasureValueType: Schema.optional(Schema.String), Time: Schema.optional(Schema.String), TimeUnit: Schema.optional(Schema.String), Version: Schema.optional(Schema.Number), MeasureValues: Schema.optional(MeasureValues)}) {}
 export const Records = Schema.Array(Record);
-export const DeleteDatabaseRequest = Schema.Struct({DatabaseName: Schema.String});
-export const DeleteTableRequest = Schema.Struct({DatabaseName: Schema.String, TableName: Schema.String});
-export const DescribeBatchLoadTaskRequest = Schema.Struct({TaskId: Schema.String});
-export const DescribeDatabaseRequest = Schema.Struct({DatabaseName: Schema.String});
-export const DescribeTableRequest = Schema.Struct({DatabaseName: Schema.String, TableName: Schema.String});
-export const ListBatchLoadTasksRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), TaskStatus: Schema.optional(Schema.String)});
-export const ListDatabasesRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListTablesRequest = Schema.Struct({DatabaseName: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListTagsForResourceRequest = Schema.Struct({ResourceARN: Schema.String});
-export const ResumeBatchLoadTaskRequest = Schema.Struct({TaskId: Schema.String});
-export const ResumeBatchLoadTaskResponse = Schema.Struct({});
-export const Tag = Schema.Struct({Key: Schema.String, Value: Schema.String});
+export class DeleteDatabaseRequest extends Schema.Class<DeleteDatabaseRequest>("DeleteDatabaseRequest")({DatabaseName: Schema.String}) {}
+export class DeleteTableRequest extends Schema.Class<DeleteTableRequest>("DeleteTableRequest")({DatabaseName: Schema.String, TableName: Schema.String}) {}
+export class DescribeBatchLoadTaskRequest extends Schema.Class<DescribeBatchLoadTaskRequest>("DescribeBatchLoadTaskRequest")({TaskId: Schema.String}) {}
+export class DescribeDatabaseRequest extends Schema.Class<DescribeDatabaseRequest>("DescribeDatabaseRequest")({DatabaseName: Schema.String}) {}
+export class DescribeTableRequest extends Schema.Class<DescribeTableRequest>("DescribeTableRequest")({DatabaseName: Schema.String, TableName: Schema.String}) {}
+export class ListBatchLoadTasksRequest extends Schema.Class<ListBatchLoadTasksRequest>("ListBatchLoadTasksRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), TaskStatus: Schema.optional(Schema.String)}) {}
+export class ListDatabasesRequest extends Schema.Class<ListDatabasesRequest>("ListDatabasesRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListTablesRequest extends Schema.Class<ListTablesRequest>("ListTablesRequest")({DatabaseName: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({ResourceARN: Schema.String}) {}
+export class ResumeBatchLoadTaskRequest extends Schema.Class<ResumeBatchLoadTaskRequest>("ResumeBatchLoadTaskRequest")({TaskId: Schema.String}) {}
+export class ResumeBatchLoadTaskResponse extends Schema.Class<ResumeBatchLoadTaskResponse>("ResumeBatchLoadTaskResponse")({}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.String, Value: Schema.String}) {}
 export const TagList = Schema.Array(Tag);
-export const TagResourceRequest = Schema.Struct({ResourceARN: Schema.String, Tags: TagList});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({ResourceARN: Schema.String, TagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
-export const UpdateDatabaseRequest = Schema.Struct({DatabaseName: Schema.String, KmsKeyId: Schema.String});
-export const RetentionProperties = Schema.Struct({MemoryStoreRetentionPeriodInHours: Schema.Number, MagneticStoreRetentionPeriodInDays: Schema.Number});
-export const S3Configuration = Schema.Struct({BucketName: Schema.optional(Schema.String), ObjectKeyPrefix: Schema.optional(Schema.String), EncryptionOption: Schema.optional(Schema.String), KmsKeyId: Schema.optional(Schema.String)});
-export const MagneticStoreRejectedDataLocation = Schema.Struct({S3Configuration: Schema.optional(S3Configuration)});
-export const MagneticStoreWriteProperties = Schema.Struct({EnableMagneticStoreWrites: Schema.Boolean, MagneticStoreRejectedDataLocation: Schema.optional(MagneticStoreRejectedDataLocation)});
-export const PartitionKey = Schema.Struct({Type: Schema.String, Name: Schema.optional(Schema.String), EnforcementInRecord: Schema.optional(Schema.String)});
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({ResourceARN: Schema.String, Tags: TagList}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({ResourceARN: Schema.String, TagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class UpdateDatabaseRequest extends Schema.Class<UpdateDatabaseRequest>("UpdateDatabaseRequest")({DatabaseName: Schema.String, KmsKeyId: Schema.String}) {}
+export class RetentionProperties extends Schema.Class<RetentionProperties>("RetentionProperties")({MemoryStoreRetentionPeriodInHours: Schema.Number, MagneticStoreRetentionPeriodInDays: Schema.Number}) {}
+export class S3Configuration extends Schema.Class<S3Configuration>("S3Configuration")({BucketName: Schema.optional(Schema.String), ObjectKeyPrefix: Schema.optional(Schema.String), EncryptionOption: Schema.optional(Schema.String), KmsKeyId: Schema.optional(Schema.String)}) {}
+export class MagneticStoreRejectedDataLocation extends Schema.Class<MagneticStoreRejectedDataLocation>("MagneticStoreRejectedDataLocation")({S3Configuration: Schema.optional(S3Configuration)}) {}
+export class MagneticStoreWriteProperties extends Schema.Class<MagneticStoreWriteProperties>("MagneticStoreWriteProperties")({EnableMagneticStoreWrites: Schema.Boolean, MagneticStoreRejectedDataLocation: Schema.optional(MagneticStoreRejectedDataLocation)}) {}
+export class PartitionKey extends Schema.Class<PartitionKey>("PartitionKey")({Type: Schema.String, Name: Schema.optional(Schema.String), EnforcementInRecord: Schema.optional(Schema.String)}) {}
 export const PartitionKeyList = Schema.Array(PartitionKey);
-export const Schema = Schema.Struct({CompositePartitionKey: Schema.optional(PartitionKeyList)});
-export const UpdateTableRequest = Schema.Struct({DatabaseName: Schema.String, TableName: Schema.String, RetentionProperties: Schema.optional(RetentionProperties), MagneticStoreWriteProperties: Schema.optional(MagneticStoreWriteProperties), Schema: Schema.optional(Schema)});
-export const Endpoint = Schema.Struct({Address: Schema.String, CachePeriodInMinutes: Schema.Number});
+export class Schema extends Schema.Class<Schema>("Schema")({CompositePartitionKey: Schema.optional(PartitionKeyList)}) {}
+export class UpdateTableRequest extends Schema.Class<UpdateTableRequest>("UpdateTableRequest")({DatabaseName: Schema.String, TableName: Schema.String, RetentionProperties: Schema.optional(RetentionProperties), MagneticStoreWriteProperties: Schema.optional(MagneticStoreWriteProperties), Schema: Schema.optional(Schema)}) {}
+export class Endpoint extends Schema.Class<Endpoint>("Endpoint")({Address: Schema.String, CachePeriodInMinutes: Schema.Number}) {}
 export const Endpoints = Schema.Array(Endpoint);
-export const Database = Schema.Struct({Arn: Schema.optional(Schema.String), DatabaseName: Schema.optional(Schema.String), TableCount: Schema.optional(Schema.Number), KmsKeyId: Schema.optional(Schema.String), CreationTime: Schema.optional(Schema.Date), LastUpdatedTime: Schema.optional(Schema.Date)});
+export class Database extends Schema.Class<Database>("Database")({Arn: Schema.optional(Schema.String), DatabaseName: Schema.optional(Schema.String), TableCount: Schema.optional(Schema.Number), KmsKeyId: Schema.optional(Schema.String), CreationTime: Schema.optional(Schema.Date), LastUpdatedTime: Schema.optional(Schema.Date)}) {}
 export const DatabaseList = Schema.Array(Database);
-export const Table = Schema.Struct({Arn: Schema.optional(Schema.String), TableName: Schema.optional(Schema.String), DatabaseName: Schema.optional(Schema.String), TableStatus: Schema.optional(Schema.String), RetentionProperties: Schema.optional(RetentionProperties), CreationTime: Schema.optional(Schema.Date), LastUpdatedTime: Schema.optional(Schema.Date), MagneticStoreWriteProperties: Schema.optional(MagneticStoreWriteProperties), Schema: Schema.optional(Schema)});
+export class Table extends Schema.Class<Table>("Table")({Arn: Schema.optional(Schema.String), TableName: Schema.optional(Schema.String), DatabaseName: Schema.optional(Schema.String), TableStatus: Schema.optional(Schema.String), RetentionProperties: Schema.optional(RetentionProperties), CreationTime: Schema.optional(Schema.Date), LastUpdatedTime: Schema.optional(Schema.Date), MagneticStoreWriteProperties: Schema.optional(MagneticStoreWriteProperties), Schema: Schema.optional(Schema)}) {}
 export const TableList = Schema.Array(Table);
-export const CreateDatabaseRequest = Schema.Struct({DatabaseName: Schema.String, KmsKeyId: Schema.optional(Schema.String), Tags: Schema.optional(TagList)});
-export const AccessDeniedException = Schema.Struct({Message: Schema.String});
-export const InternalServerException = Schema.Struct({Message: Schema.String});
-export const DescribeEndpointsResponse = Schema.Struct({Endpoints: Endpoints});
-export const ListDatabasesResponse = Schema.Struct({Databases: Schema.optional(DatabaseList), NextToken: Schema.optional(Schema.String)});
-export const ListTablesResponse = Schema.Struct({Tables: Schema.optional(TableList), NextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceResponse = Schema.Struct({Tags: Schema.optional(TagList)});
-export const InvalidEndpointException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ServiceQuotaExceededException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const UpdateDatabaseResponse = Schema.Struct({Database: Schema.optional(Database)});
-export const UpdateTableResponse = Schema.Struct({Table: Schema.optional(Table)});
-export const DataModelS3Configuration = Schema.Struct({BucketName: Schema.optional(Schema.String), ObjectKey: Schema.optional(Schema.String)});
-export const DataSourceS3Configuration = Schema.Struct({BucketName: Schema.String, ObjectKeyPrefix: Schema.optional(Schema.String)});
-export const CsvConfiguration = Schema.Struct({ColumnSeparator: Schema.optional(Schema.String), EscapeChar: Schema.optional(Schema.String), QuoteChar: Schema.optional(Schema.String), NullValue: Schema.optional(Schema.String), TrimWhiteSpace: Schema.optional(Schema.Boolean)});
-export const ReportS3Configuration = Schema.Struct({BucketName: Schema.String, ObjectKeyPrefix: Schema.optional(Schema.String), EncryptionOption: Schema.optional(Schema.String), KmsKeyId: Schema.optional(Schema.String)});
-export const DataSourceConfiguration = Schema.Struct({DataSourceS3Configuration: DataSourceS3Configuration, CsvConfiguration: Schema.optional(CsvConfiguration), DataFormat: Schema.String});
-export const ReportConfiguration = Schema.Struct({ReportS3Configuration: Schema.optional(ReportS3Configuration)});
-export const BatchLoadTask = Schema.Struct({TaskId: Schema.optional(Schema.String), TaskStatus: Schema.optional(Schema.String), DatabaseName: Schema.optional(Schema.String), TableName: Schema.optional(Schema.String), CreationTime: Schema.optional(Schema.Date), LastUpdatedTime: Schema.optional(Schema.Date), ResumableUntil: Schema.optional(Schema.Date)});
+export class CreateDatabaseRequest extends Schema.Class<CreateDatabaseRequest>("CreateDatabaseRequest")({DatabaseName: Schema.String, KmsKeyId: Schema.optional(Schema.String), Tags: Schema.optional(TagList)}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({Message: Schema.String}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({Message: Schema.String}) {}
+export class DescribeEndpointsResponse extends Schema.Class<DescribeEndpointsResponse>("DescribeEndpointsResponse")({Endpoints: Endpoints}) {}
+export class ListDatabasesResponse extends Schema.Class<ListDatabasesResponse>("ListDatabasesResponse")({Databases: Schema.optional(DatabaseList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTablesResponse extends Schema.Class<ListTablesResponse>("ListTablesResponse")({Tables: Schema.optional(TableList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({Tags: Schema.optional(TagList)}) {}
+export class InvalidEndpointException extends Schema.Class<InvalidEndpointException>("InvalidEndpointException")({Message: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({Message: Schema.optional(Schema.String)}) {}
+export class UpdateDatabaseResponse extends Schema.Class<UpdateDatabaseResponse>("UpdateDatabaseResponse")({Database: Schema.optional(Database)}) {}
+export class UpdateTableResponse extends Schema.Class<UpdateTableResponse>("UpdateTableResponse")({Table: Schema.optional(Table)}) {}
+export class DataModelS3Configuration extends Schema.Class<DataModelS3Configuration>("DataModelS3Configuration")({BucketName: Schema.optional(Schema.String), ObjectKey: Schema.optional(Schema.String)}) {}
+export class DataSourceS3Configuration extends Schema.Class<DataSourceS3Configuration>("DataSourceS3Configuration")({BucketName: Schema.String, ObjectKeyPrefix: Schema.optional(Schema.String)}) {}
+export class CsvConfiguration extends Schema.Class<CsvConfiguration>("CsvConfiguration")({ColumnSeparator: Schema.optional(Schema.String), EscapeChar: Schema.optional(Schema.String), QuoteChar: Schema.optional(Schema.String), NullValue: Schema.optional(Schema.String), TrimWhiteSpace: Schema.optional(Schema.Boolean)}) {}
+export class ReportS3Configuration extends Schema.Class<ReportS3Configuration>("ReportS3Configuration")({BucketName: Schema.String, ObjectKeyPrefix: Schema.optional(Schema.String), EncryptionOption: Schema.optional(Schema.String), KmsKeyId: Schema.optional(Schema.String)}) {}
+export class DataSourceConfiguration extends Schema.Class<DataSourceConfiguration>("DataSourceConfiguration")({DataSourceS3Configuration: DataSourceS3Configuration, CsvConfiguration: Schema.optional(CsvConfiguration), DataFormat: Schema.String}) {}
+export class ReportConfiguration extends Schema.Class<ReportConfiguration>("ReportConfiguration")({ReportS3Configuration: Schema.optional(ReportS3Configuration)}) {}
+export class BatchLoadTask extends Schema.Class<BatchLoadTask>("BatchLoadTask")({TaskId: Schema.optional(Schema.String), TaskStatus: Schema.optional(Schema.String), DatabaseName: Schema.optional(Schema.String), TableName: Schema.optional(Schema.String), CreationTime: Schema.optional(Schema.Date), LastUpdatedTime: Schema.optional(Schema.Date), ResumableUntil: Schema.optional(Schema.Date)}) {}
 export const BatchLoadTaskList = Schema.Array(BatchLoadTask);
-export const DimensionMapping = Schema.Struct({SourceColumn: Schema.optional(Schema.String), DestinationColumn: Schema.optional(Schema.String)});
+export class DimensionMapping extends Schema.Class<DimensionMapping>("DimensionMapping")({SourceColumn: Schema.optional(Schema.String), DestinationColumn: Schema.optional(Schema.String)}) {}
 export const DimensionMappings = Schema.Array(DimensionMapping);
-export const MultiMeasureAttributeMapping = Schema.Struct({SourceColumn: Schema.String, TargetMultiMeasureAttributeName: Schema.optional(Schema.String), MeasureValueType: Schema.optional(Schema.String)});
+export class MultiMeasureAttributeMapping extends Schema.Class<MultiMeasureAttributeMapping>("MultiMeasureAttributeMapping")({SourceColumn: Schema.String, TargetMultiMeasureAttributeName: Schema.optional(Schema.String), MeasureValueType: Schema.optional(Schema.String)}) {}
 export const MultiMeasureAttributeMappingList = Schema.Array(MultiMeasureAttributeMapping);
-export const MixedMeasureMapping = Schema.Struct({MeasureName: Schema.optional(Schema.String), SourceColumn: Schema.optional(Schema.String), TargetMeasureName: Schema.optional(Schema.String), MeasureValueType: Schema.String, MultiMeasureAttributeMappings: Schema.optional(MultiMeasureAttributeMappingList)});
+export class MixedMeasureMapping extends Schema.Class<MixedMeasureMapping>("MixedMeasureMapping")({MeasureName: Schema.optional(Schema.String), SourceColumn: Schema.optional(Schema.String), TargetMeasureName: Schema.optional(Schema.String), MeasureValueType: Schema.String, MultiMeasureAttributeMappings: Schema.optional(MultiMeasureAttributeMappingList)}) {}
 export const MixedMeasureMappingList = Schema.Array(MixedMeasureMapping);
-export const CreateDatabaseResponse = Schema.Struct({Database: Schema.optional(Database)});
-export const ThrottlingException = Schema.Struct({Message: Schema.String});
-export const ValidationException = Schema.Struct({Message: Schema.String});
-export const DescribeDatabaseResponse = Schema.Struct({Database: Schema.optional(Database)});
-export const DescribeTableResponse = Schema.Struct({Table: Schema.optional(Table)});
-export const ListBatchLoadTasksResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), BatchLoadTasks: Schema.optional(BatchLoadTaskList)});
-export const WriteRecordsRequest = Schema.Struct({DatabaseName: Schema.String, TableName: Schema.String, CommonAttributes: Schema.optional(Record), Records: Records});
-export const BatchLoadProgressReport = Schema.Struct({RecordsProcessed: Schema.optional(Schema.Number), RecordsIngested: Schema.optional(Schema.Number), ParseFailures: Schema.optional(Schema.Number), RecordIngestionFailures: Schema.optional(Schema.Number), FileFailures: Schema.optional(Schema.Number), BytesMetered: Schema.optional(Schema.Number)});
-export const MultiMeasureMappings = Schema.Struct({TargetMultiMeasureName: Schema.optional(Schema.String), MultiMeasureAttributeMappings: MultiMeasureAttributeMappingList});
-export const DataModel = Schema.Struct({TimeColumn: Schema.optional(Schema.String), TimeUnit: Schema.optional(Schema.String), DimensionMappings: DimensionMappings, MultiMeasureMappings: Schema.optional(MultiMeasureMappings), MixedMeasureMappings: Schema.optional(MixedMeasureMappingList), MeasureNameColumn: Schema.optional(Schema.String)});
-export const DataModelConfiguration = Schema.Struct({DataModel: Schema.optional(DataModel), DataModelS3Configuration: Schema.optional(DataModelS3Configuration)});
-export const BatchLoadTaskDescription = Schema.Struct({TaskId: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String), DataSourceConfiguration: Schema.optional(DataSourceConfiguration), ProgressReport: Schema.optional(BatchLoadProgressReport), ReportConfiguration: Schema.optional(ReportConfiguration), DataModelConfiguration: Schema.optional(DataModelConfiguration), TargetDatabaseName: Schema.optional(Schema.String), TargetTableName: Schema.optional(Schema.String), TaskStatus: Schema.optional(Schema.String), RecordVersion: Schema.optional(Schema.Number), CreationTime: Schema.optional(Schema.Date), LastUpdatedTime: Schema.optional(Schema.Date), ResumableUntil: Schema.optional(Schema.Date)});
-export const ConflictException = Schema.Struct({Message: Schema.String});
-export const CreateTableRequest = Schema.Struct({DatabaseName: Schema.String, TableName: Schema.String, RetentionProperties: Schema.optional(RetentionProperties), Tags: Schema.optional(TagList), MagneticStoreWriteProperties: Schema.optional(MagneticStoreWriteProperties), Schema: Schema.optional(Schema)});
-export const DescribeBatchLoadTaskResponse = Schema.Struct({BatchLoadTaskDescription: BatchLoadTaskDescription});
-export const RecordsIngested = Schema.Struct({Total: Schema.optional(Schema.Number), MemoryStore: Schema.optional(Schema.Number), MagneticStore: Schema.optional(Schema.Number)});
-export const CreateBatchLoadTaskRequest = Schema.Struct({ClientToken: Schema.optional(Schema.String), DataModelConfiguration: Schema.optional(DataModelConfiguration), DataSourceConfiguration: DataSourceConfiguration, ReportConfiguration: ReportConfiguration, TargetDatabaseName: Schema.String, TargetTableName: Schema.String, RecordVersion: Schema.optional(Schema.Number)});
-export const CreateTableResponse = Schema.Struct({Table: Schema.optional(Table)});
-export const WriteRecordsResponse = Schema.Struct({RecordsIngested: Schema.optional(RecordsIngested)});
-export const CreateBatchLoadTaskResponse = Schema.Struct({TaskId: Schema.String});
-export const RejectedRecord = Schema.Struct({RecordIndex: Schema.optional(Schema.Number), Reason: Schema.optional(Schema.String), ExistingVersion: Schema.optional(Schema.Number)});
+export class CreateDatabaseResponse extends Schema.Class<CreateDatabaseResponse>("CreateDatabaseResponse")({Database: Schema.optional(Database)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({Message: Schema.String}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({Message: Schema.String}) {}
+export class DescribeDatabaseResponse extends Schema.Class<DescribeDatabaseResponse>("DescribeDatabaseResponse")({Database: Schema.optional(Database)}) {}
+export class DescribeTableResponse extends Schema.Class<DescribeTableResponse>("DescribeTableResponse")({Table: Schema.optional(Table)}) {}
+export class ListBatchLoadTasksResponse extends Schema.Class<ListBatchLoadTasksResponse>("ListBatchLoadTasksResponse")({NextToken: Schema.optional(Schema.String), BatchLoadTasks: Schema.optional(BatchLoadTaskList)}) {}
+export class WriteRecordsRequest extends Schema.Class<WriteRecordsRequest>("WriteRecordsRequest")({DatabaseName: Schema.String, TableName: Schema.String, CommonAttributes: Schema.optional(Record), Records: Records}) {}
+export class BatchLoadProgressReport extends Schema.Class<BatchLoadProgressReport>("BatchLoadProgressReport")({RecordsProcessed: Schema.optional(Schema.Number), RecordsIngested: Schema.optional(Schema.Number), ParseFailures: Schema.optional(Schema.Number), RecordIngestionFailures: Schema.optional(Schema.Number), FileFailures: Schema.optional(Schema.Number), BytesMetered: Schema.optional(Schema.Number)}) {}
+export class MultiMeasureMappings extends Schema.Class<MultiMeasureMappings>("MultiMeasureMappings")({TargetMultiMeasureName: Schema.optional(Schema.String), MultiMeasureAttributeMappings: MultiMeasureAttributeMappingList}) {}
+export class DataModel extends Schema.Class<DataModel>("DataModel")({TimeColumn: Schema.optional(Schema.String), TimeUnit: Schema.optional(Schema.String), DimensionMappings: DimensionMappings, MultiMeasureMappings: Schema.optional(MultiMeasureMappings), MixedMeasureMappings: Schema.optional(MixedMeasureMappingList), MeasureNameColumn: Schema.optional(Schema.String)}) {}
+export class DataModelConfiguration extends Schema.Class<DataModelConfiguration>("DataModelConfiguration")({DataModel: Schema.optional(DataModel), DataModelS3Configuration: Schema.optional(DataModelS3Configuration)}) {}
+export class BatchLoadTaskDescription extends Schema.Class<BatchLoadTaskDescription>("BatchLoadTaskDescription")({TaskId: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String), DataSourceConfiguration: Schema.optional(DataSourceConfiguration), ProgressReport: Schema.optional(BatchLoadProgressReport), ReportConfiguration: Schema.optional(ReportConfiguration), DataModelConfiguration: Schema.optional(DataModelConfiguration), TargetDatabaseName: Schema.optional(Schema.String), TargetTableName: Schema.optional(Schema.String), TaskStatus: Schema.optional(Schema.String), RecordVersion: Schema.optional(Schema.Number), CreationTime: Schema.optional(Schema.Date), LastUpdatedTime: Schema.optional(Schema.Date), ResumableUntil: Schema.optional(Schema.Date)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({Message: Schema.String}) {}
+export class CreateTableRequest extends Schema.Class<CreateTableRequest>("CreateTableRequest")({DatabaseName: Schema.String, TableName: Schema.String, RetentionProperties: Schema.optional(RetentionProperties), Tags: Schema.optional(TagList), MagneticStoreWriteProperties: Schema.optional(MagneticStoreWriteProperties), Schema: Schema.optional(Schema)}) {}
+export class DescribeBatchLoadTaskResponse extends Schema.Class<DescribeBatchLoadTaskResponse>("DescribeBatchLoadTaskResponse")({BatchLoadTaskDescription: BatchLoadTaskDescription}) {}
+export class RecordsIngested extends Schema.Class<RecordsIngested>("RecordsIngested")({Total: Schema.optional(Schema.Number), MemoryStore: Schema.optional(Schema.Number), MagneticStore: Schema.optional(Schema.Number)}) {}
+export class CreateBatchLoadTaskRequest extends Schema.Class<CreateBatchLoadTaskRequest>("CreateBatchLoadTaskRequest")({ClientToken: Schema.optional(Schema.String), DataModelConfiguration: Schema.optional(DataModelConfiguration), DataSourceConfiguration: DataSourceConfiguration, ReportConfiguration: ReportConfiguration, TargetDatabaseName: Schema.String, TargetTableName: Schema.String, RecordVersion: Schema.optional(Schema.Number)}) {}
+export class CreateTableResponse extends Schema.Class<CreateTableResponse>("CreateTableResponse")({Table: Schema.optional(Table)}) {}
+export class WriteRecordsResponse extends Schema.Class<WriteRecordsResponse>("WriteRecordsResponse")({RecordsIngested: Schema.optional(RecordsIngested)}) {}
+export class CreateBatchLoadTaskResponse extends Schema.Class<CreateBatchLoadTaskResponse>("CreateBatchLoadTaskResponse")({TaskId: Schema.String}) {}
+export class RejectedRecord extends Schema.Class<RejectedRecord>("RejectedRecord")({RecordIndex: Schema.optional(Schema.Number), Reason: Schema.optional(Schema.String), ExistingVersion: Schema.optional(Schema.Number)}) {}
 export const RejectedRecords = Schema.Array(RejectedRecord);
-export const RejectedRecordsException = Schema.Struct({Message: Schema.optional(Schema.String), RejectedRecords: Schema.optional(RejectedRecords)});
+export class RejectedRecordsException extends Schema.Class<RejectedRecordsException>("RejectedRecordsException")({Message: Schema.optional(Schema.String), RejectedRecords: Schema.optional(RejectedRecords)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class InvalidEndpointExceptionError extends Schema.TaggedError<InvalidEndpointExceptionError>()("InvalidEndpointException", InvalidEndpointException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class RejectedRecordsExceptionError extends Schema.TaggedError<RejectedRecordsExceptionError>()("RejectedRecordsException", RejectedRecordsException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class InvalidEndpointExceptionError extends Schema.TaggedError<InvalidEndpointExceptionError>()("InvalidEndpointException", InvalidEndpointException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class RejectedRecordsExceptionError extends Schema.TaggedError<RejectedRecordsExceptionError>()("RejectedRecordsException", RejectedRecordsException.fields) {};
 
 //# Operations
 export const describeEndpoints = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-11-01", uri: "/", method: "POST", sdkId: "Timestream Write", sigV4ServiceName: "timestream", name: "Timestream_20181101.DescribeEndpoints" }, DescribeEndpointsRequest, DescribeEndpointsResponse, [InternalServerExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);

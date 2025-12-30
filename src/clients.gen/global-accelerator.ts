@@ -3,7 +3,7 @@ import { FormatAwsJSON11Request,FormatJSONResponse,FormatAwsRestJSONError, makeO
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const ListCrossAccountResourceAccountsRequest = Schema.Struct({});
+export class ListCrossAccountResourceAccountsRequest extends Schema.Class<ListCrossAccountResourceAccountsRequest>("ListCrossAccountResourceAccountsRequest")({}) {}
 export const DestinationAddresses = Schema.Array(Schema.String);
 export const DestinationPorts = Schema.Array(Schema.Number);
 export const IpAddresses = Schema.Array(Schema.String);
@@ -11,205 +11,205 @@ export const Principals = Schema.Array(Schema.String);
 export const AwsAccountIds = Schema.Array(Schema.String);
 export const EndpointIds = Schema.Array(Schema.String);
 export const TagKeys = Schema.Array(Schema.String);
-export const AdvertiseByoipCidrRequest = Schema.Struct({Cidr: Schema.String});
-export const AllowCustomRoutingTrafficRequest = Schema.Struct({EndpointGroupArn: Schema.String, EndpointId: Schema.String, DestinationAddresses: Schema.optional(DestinationAddresses), DestinationPorts: Schema.optional(DestinationPorts), AllowAllTrafficToEndpoint: Schema.optional(Schema.Boolean)});
-export const Tag = Schema.Struct({Key: Schema.String, Value: Schema.String});
+export class AdvertiseByoipCidrRequest extends Schema.Class<AdvertiseByoipCidrRequest>("AdvertiseByoipCidrRequest")({Cidr: Schema.String}) {}
+export class AllowCustomRoutingTrafficRequest extends Schema.Class<AllowCustomRoutingTrafficRequest>("AllowCustomRoutingTrafficRequest")({EndpointGroupArn: Schema.String, EndpointId: Schema.String, DestinationAddresses: Schema.optional(DestinationAddresses), DestinationPorts: Schema.optional(DestinationPorts), AllowAllTrafficToEndpoint: Schema.optional(Schema.Boolean)}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.String, Value: Schema.String}) {}
 export const Tags = Schema.Array(Tag);
-export const CreateCustomRoutingAcceleratorRequest = Schema.Struct({Name: Schema.String, IpAddressType: Schema.optional(Schema.String), IpAddresses: Schema.optional(IpAddresses), Enabled: Schema.optional(Schema.Boolean), IdempotencyToken: Schema.String, Tags: Schema.optional(Tags)});
-export const PortRange = Schema.Struct({FromPort: Schema.optional(Schema.Number), ToPort: Schema.optional(Schema.Number)});
+export class CreateCustomRoutingAcceleratorRequest extends Schema.Class<CreateCustomRoutingAcceleratorRequest>("CreateCustomRoutingAcceleratorRequest")({Name: Schema.String, IpAddressType: Schema.optional(Schema.String), IpAddresses: Schema.optional(IpAddresses), Enabled: Schema.optional(Schema.Boolean), IdempotencyToken: Schema.String, Tags: Schema.optional(Tags)}) {}
+export class PortRange extends Schema.Class<PortRange>("PortRange")({FromPort: Schema.optional(Schema.Number), ToPort: Schema.optional(Schema.Number)}) {}
 export const PortRanges = Schema.Array(PortRange);
-export const CreateListenerRequest = Schema.Struct({AcceleratorArn: Schema.String, PortRanges: PortRanges, Protocol: Schema.String, ClientAffinity: Schema.optional(Schema.String), IdempotencyToken: Schema.String});
-export const DeleteAcceleratorRequest = Schema.Struct({AcceleratorArn: Schema.String});
-export const DeleteCrossAccountAttachmentRequest = Schema.Struct({AttachmentArn: Schema.String});
-export const DeleteCustomRoutingAcceleratorRequest = Schema.Struct({AcceleratorArn: Schema.String});
-export const DeleteCustomRoutingEndpointGroupRequest = Schema.Struct({EndpointGroupArn: Schema.String});
-export const DeleteCustomRoutingListenerRequest = Schema.Struct({ListenerArn: Schema.String});
-export const DeleteEndpointGroupRequest = Schema.Struct({EndpointGroupArn: Schema.String});
-export const DeleteListenerRequest = Schema.Struct({ListenerArn: Schema.String});
-export const DenyCustomRoutingTrafficRequest = Schema.Struct({EndpointGroupArn: Schema.String, EndpointId: Schema.String, DestinationAddresses: Schema.optional(DestinationAddresses), DestinationPorts: Schema.optional(DestinationPorts), DenyAllTrafficToEndpoint: Schema.optional(Schema.Boolean)});
-export const DeprovisionByoipCidrRequest = Schema.Struct({Cidr: Schema.String});
-export const DescribeAcceleratorRequest = Schema.Struct({AcceleratorArn: Schema.String});
-export const DescribeAcceleratorAttributesRequest = Schema.Struct({AcceleratorArn: Schema.String});
-export const DescribeCrossAccountAttachmentRequest = Schema.Struct({AttachmentArn: Schema.String});
-export const DescribeCustomRoutingAcceleratorRequest = Schema.Struct({AcceleratorArn: Schema.String});
-export const DescribeCustomRoutingAcceleratorAttributesRequest = Schema.Struct({AcceleratorArn: Schema.String});
-export const DescribeCustomRoutingEndpointGroupRequest = Schema.Struct({EndpointGroupArn: Schema.String});
-export const DescribeCustomRoutingListenerRequest = Schema.Struct({ListenerArn: Schema.String});
-export const DescribeEndpointGroupRequest = Schema.Struct({EndpointGroupArn: Schema.String});
-export const DescribeListenerRequest = Schema.Struct({ListenerArn: Schema.String});
-export const ListAcceleratorsRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListByoipCidrsRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListCrossAccountAttachmentsRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListCrossAccountResourceAccountsResponse = Schema.Struct({ResourceOwnerAwsAccountIds: Schema.optional(AwsAccountIds)});
-export const ListCrossAccountResourcesRequest = Schema.Struct({AcceleratorArn: Schema.optional(Schema.String), ResourceOwnerAwsAccountId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListCustomRoutingAcceleratorsRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListCustomRoutingEndpointGroupsRequest = Schema.Struct({ListenerArn: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListCustomRoutingListenersRequest = Schema.Struct({AcceleratorArn: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListCustomRoutingPortMappingsRequest = Schema.Struct({AcceleratorArn: Schema.String, EndpointGroupArn: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListCustomRoutingPortMappingsByDestinationRequest = Schema.Struct({EndpointId: Schema.String, DestinationAddress: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListEndpointGroupsRequest = Schema.Struct({ListenerArn: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListListenersRequest = Schema.Struct({AcceleratorArn: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceRequest = Schema.Struct({ResourceArn: Schema.String});
-export const RemoveCustomRoutingEndpointsRequest = Schema.Struct({EndpointIds: EndpointIds, EndpointGroupArn: Schema.String});
-export const TagResourceRequest = Schema.Struct({ResourceArn: Schema.String, Tags: Tags});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({ResourceArn: Schema.String, TagKeys: TagKeys});
-export const UntagResourceResponse = Schema.Struct({});
-export const UpdateAcceleratorRequest = Schema.Struct({AcceleratorArn: Schema.String, Name: Schema.optional(Schema.String), IpAddressType: Schema.optional(Schema.String), IpAddresses: Schema.optional(IpAddresses), Enabled: Schema.optional(Schema.Boolean)});
-export const UpdateAcceleratorAttributesRequest = Schema.Struct({AcceleratorArn: Schema.String, FlowLogsEnabled: Schema.optional(Schema.Boolean), FlowLogsS3Bucket: Schema.optional(Schema.String), FlowLogsS3Prefix: Schema.optional(Schema.String)});
-export const Resource = Schema.Struct({EndpointId: Schema.optional(Schema.String), Cidr: Schema.optional(Schema.String), Region: Schema.optional(Schema.String)});
+export class CreateListenerRequest extends Schema.Class<CreateListenerRequest>("CreateListenerRequest")({AcceleratorArn: Schema.String, PortRanges: PortRanges, Protocol: Schema.String, ClientAffinity: Schema.optional(Schema.String), IdempotencyToken: Schema.String}) {}
+export class DeleteAcceleratorRequest extends Schema.Class<DeleteAcceleratorRequest>("DeleteAcceleratorRequest")({AcceleratorArn: Schema.String}) {}
+export class DeleteCrossAccountAttachmentRequest extends Schema.Class<DeleteCrossAccountAttachmentRequest>("DeleteCrossAccountAttachmentRequest")({AttachmentArn: Schema.String}) {}
+export class DeleteCustomRoutingAcceleratorRequest extends Schema.Class<DeleteCustomRoutingAcceleratorRequest>("DeleteCustomRoutingAcceleratorRequest")({AcceleratorArn: Schema.String}) {}
+export class DeleteCustomRoutingEndpointGroupRequest extends Schema.Class<DeleteCustomRoutingEndpointGroupRequest>("DeleteCustomRoutingEndpointGroupRequest")({EndpointGroupArn: Schema.String}) {}
+export class DeleteCustomRoutingListenerRequest extends Schema.Class<DeleteCustomRoutingListenerRequest>("DeleteCustomRoutingListenerRequest")({ListenerArn: Schema.String}) {}
+export class DeleteEndpointGroupRequest extends Schema.Class<DeleteEndpointGroupRequest>("DeleteEndpointGroupRequest")({EndpointGroupArn: Schema.String}) {}
+export class DeleteListenerRequest extends Schema.Class<DeleteListenerRequest>("DeleteListenerRequest")({ListenerArn: Schema.String}) {}
+export class DenyCustomRoutingTrafficRequest extends Schema.Class<DenyCustomRoutingTrafficRequest>("DenyCustomRoutingTrafficRequest")({EndpointGroupArn: Schema.String, EndpointId: Schema.String, DestinationAddresses: Schema.optional(DestinationAddresses), DestinationPorts: Schema.optional(DestinationPorts), DenyAllTrafficToEndpoint: Schema.optional(Schema.Boolean)}) {}
+export class DeprovisionByoipCidrRequest extends Schema.Class<DeprovisionByoipCidrRequest>("DeprovisionByoipCidrRequest")({Cidr: Schema.String}) {}
+export class DescribeAcceleratorRequest extends Schema.Class<DescribeAcceleratorRequest>("DescribeAcceleratorRequest")({AcceleratorArn: Schema.String}) {}
+export class DescribeAcceleratorAttributesRequest extends Schema.Class<DescribeAcceleratorAttributesRequest>("DescribeAcceleratorAttributesRequest")({AcceleratorArn: Schema.String}) {}
+export class DescribeCrossAccountAttachmentRequest extends Schema.Class<DescribeCrossAccountAttachmentRequest>("DescribeCrossAccountAttachmentRequest")({AttachmentArn: Schema.String}) {}
+export class DescribeCustomRoutingAcceleratorRequest extends Schema.Class<DescribeCustomRoutingAcceleratorRequest>("DescribeCustomRoutingAcceleratorRequest")({AcceleratorArn: Schema.String}) {}
+export class DescribeCustomRoutingAcceleratorAttributesRequest extends Schema.Class<DescribeCustomRoutingAcceleratorAttributesRequest>("DescribeCustomRoutingAcceleratorAttributesRequest")({AcceleratorArn: Schema.String}) {}
+export class DescribeCustomRoutingEndpointGroupRequest extends Schema.Class<DescribeCustomRoutingEndpointGroupRequest>("DescribeCustomRoutingEndpointGroupRequest")({EndpointGroupArn: Schema.String}) {}
+export class DescribeCustomRoutingListenerRequest extends Schema.Class<DescribeCustomRoutingListenerRequest>("DescribeCustomRoutingListenerRequest")({ListenerArn: Schema.String}) {}
+export class DescribeEndpointGroupRequest extends Schema.Class<DescribeEndpointGroupRequest>("DescribeEndpointGroupRequest")({EndpointGroupArn: Schema.String}) {}
+export class DescribeListenerRequest extends Schema.Class<DescribeListenerRequest>("DescribeListenerRequest")({ListenerArn: Schema.String}) {}
+export class ListAcceleratorsRequest extends Schema.Class<ListAcceleratorsRequest>("ListAcceleratorsRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListByoipCidrsRequest extends Schema.Class<ListByoipCidrsRequest>("ListByoipCidrsRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListCrossAccountAttachmentsRequest extends Schema.Class<ListCrossAccountAttachmentsRequest>("ListCrossAccountAttachmentsRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListCrossAccountResourceAccountsResponse extends Schema.Class<ListCrossAccountResourceAccountsResponse>("ListCrossAccountResourceAccountsResponse")({ResourceOwnerAwsAccountIds: Schema.optional(AwsAccountIds)}) {}
+export class ListCrossAccountResourcesRequest extends Schema.Class<ListCrossAccountResourcesRequest>("ListCrossAccountResourcesRequest")({AcceleratorArn: Schema.optional(Schema.String), ResourceOwnerAwsAccountId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListCustomRoutingAcceleratorsRequest extends Schema.Class<ListCustomRoutingAcceleratorsRequest>("ListCustomRoutingAcceleratorsRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListCustomRoutingEndpointGroupsRequest extends Schema.Class<ListCustomRoutingEndpointGroupsRequest>("ListCustomRoutingEndpointGroupsRequest")({ListenerArn: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListCustomRoutingListenersRequest extends Schema.Class<ListCustomRoutingListenersRequest>("ListCustomRoutingListenersRequest")({AcceleratorArn: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListCustomRoutingPortMappingsRequest extends Schema.Class<ListCustomRoutingPortMappingsRequest>("ListCustomRoutingPortMappingsRequest")({AcceleratorArn: Schema.String, EndpointGroupArn: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListCustomRoutingPortMappingsByDestinationRequest extends Schema.Class<ListCustomRoutingPortMappingsByDestinationRequest>("ListCustomRoutingPortMappingsByDestinationRequest")({EndpointId: Schema.String, DestinationAddress: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListEndpointGroupsRequest extends Schema.Class<ListEndpointGroupsRequest>("ListEndpointGroupsRequest")({ListenerArn: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListListenersRequest extends Schema.Class<ListListenersRequest>("ListListenersRequest")({AcceleratorArn: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({ResourceArn: Schema.String}) {}
+export class RemoveCustomRoutingEndpointsRequest extends Schema.Class<RemoveCustomRoutingEndpointsRequest>("RemoveCustomRoutingEndpointsRequest")({EndpointIds: EndpointIds, EndpointGroupArn: Schema.String}) {}
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({ResourceArn: Schema.String, Tags: Tags}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({ResourceArn: Schema.String, TagKeys: TagKeys}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class UpdateAcceleratorRequest extends Schema.Class<UpdateAcceleratorRequest>("UpdateAcceleratorRequest")({AcceleratorArn: Schema.String, Name: Schema.optional(Schema.String), IpAddressType: Schema.optional(Schema.String), IpAddresses: Schema.optional(IpAddresses), Enabled: Schema.optional(Schema.Boolean)}) {}
+export class UpdateAcceleratorAttributesRequest extends Schema.Class<UpdateAcceleratorAttributesRequest>("UpdateAcceleratorAttributesRequest")({AcceleratorArn: Schema.String, FlowLogsEnabled: Schema.optional(Schema.Boolean), FlowLogsS3Bucket: Schema.optional(Schema.String), FlowLogsS3Prefix: Schema.optional(Schema.String)}) {}
+export class Resource extends Schema.Class<Resource>("Resource")({EndpointId: Schema.optional(Schema.String), Cidr: Schema.optional(Schema.String), Region: Schema.optional(Schema.String)}) {}
 export const Resources = Schema.Array(Resource);
-export const UpdateCrossAccountAttachmentRequest = Schema.Struct({AttachmentArn: Schema.String, Name: Schema.optional(Schema.String), AddPrincipals: Schema.optional(Principals), RemovePrincipals: Schema.optional(Principals), AddResources: Schema.optional(Resources), RemoveResources: Schema.optional(Resources)});
-export const UpdateCustomRoutingAcceleratorRequest = Schema.Struct({AcceleratorArn: Schema.String, Name: Schema.optional(Schema.String), IpAddressType: Schema.optional(Schema.String), IpAddresses: Schema.optional(IpAddresses), Enabled: Schema.optional(Schema.Boolean)});
-export const UpdateCustomRoutingAcceleratorAttributesRequest = Schema.Struct({AcceleratorArn: Schema.String, FlowLogsEnabled: Schema.optional(Schema.Boolean), FlowLogsS3Bucket: Schema.optional(Schema.String), FlowLogsS3Prefix: Schema.optional(Schema.String)});
-export const UpdateCustomRoutingListenerRequest = Schema.Struct({ListenerArn: Schema.String, PortRanges: PortRanges});
-export const EndpointConfiguration = Schema.Struct({EndpointId: Schema.optional(Schema.String), Weight: Schema.optional(Schema.Number), ClientIPPreservationEnabled: Schema.optional(Schema.Boolean), AttachmentArn: Schema.optional(Schema.String)});
+export class UpdateCrossAccountAttachmentRequest extends Schema.Class<UpdateCrossAccountAttachmentRequest>("UpdateCrossAccountAttachmentRequest")({AttachmentArn: Schema.String, Name: Schema.optional(Schema.String), AddPrincipals: Schema.optional(Principals), RemovePrincipals: Schema.optional(Principals), AddResources: Schema.optional(Resources), RemoveResources: Schema.optional(Resources)}) {}
+export class UpdateCustomRoutingAcceleratorRequest extends Schema.Class<UpdateCustomRoutingAcceleratorRequest>("UpdateCustomRoutingAcceleratorRequest")({AcceleratorArn: Schema.String, Name: Schema.optional(Schema.String), IpAddressType: Schema.optional(Schema.String), IpAddresses: Schema.optional(IpAddresses), Enabled: Schema.optional(Schema.Boolean)}) {}
+export class UpdateCustomRoutingAcceleratorAttributesRequest extends Schema.Class<UpdateCustomRoutingAcceleratorAttributesRequest>("UpdateCustomRoutingAcceleratorAttributesRequest")({AcceleratorArn: Schema.String, FlowLogsEnabled: Schema.optional(Schema.Boolean), FlowLogsS3Bucket: Schema.optional(Schema.String), FlowLogsS3Prefix: Schema.optional(Schema.String)}) {}
+export class UpdateCustomRoutingListenerRequest extends Schema.Class<UpdateCustomRoutingListenerRequest>("UpdateCustomRoutingListenerRequest")({ListenerArn: Schema.String, PortRanges: PortRanges}) {}
+export class EndpointConfiguration extends Schema.Class<EndpointConfiguration>("EndpointConfiguration")({EndpointId: Schema.optional(Schema.String), Weight: Schema.optional(Schema.Number), ClientIPPreservationEnabled: Schema.optional(Schema.Boolean), AttachmentArn: Schema.optional(Schema.String)}) {}
 export const EndpointConfigurations = Schema.Array(EndpointConfiguration);
-export const PortOverride = Schema.Struct({ListenerPort: Schema.optional(Schema.Number), EndpointPort: Schema.optional(Schema.Number)});
+export class PortOverride extends Schema.Class<PortOverride>("PortOverride")({ListenerPort: Schema.optional(Schema.Number), EndpointPort: Schema.optional(Schema.Number)}) {}
 export const PortOverrides = Schema.Array(PortOverride);
-export const UpdateEndpointGroupRequest = Schema.Struct({EndpointGroupArn: Schema.String, EndpointConfigurations: Schema.optional(EndpointConfigurations), TrafficDialPercentage: Schema.optional(Schema.Number), HealthCheckPort: Schema.optional(Schema.Number), HealthCheckProtocol: Schema.optional(Schema.String), HealthCheckPath: Schema.optional(Schema.String), HealthCheckIntervalSeconds: Schema.optional(Schema.Number), ThresholdCount: Schema.optional(Schema.Number), PortOverrides: Schema.optional(PortOverrides)});
-export const UpdateListenerRequest = Schema.Struct({ListenerArn: Schema.String, PortRanges: Schema.optional(PortRanges), Protocol: Schema.optional(Schema.String), ClientAffinity: Schema.optional(Schema.String)});
-export const WithdrawByoipCidrRequest = Schema.Struct({Cidr: Schema.String});
+export class UpdateEndpointGroupRequest extends Schema.Class<UpdateEndpointGroupRequest>("UpdateEndpointGroupRequest")({EndpointGroupArn: Schema.String, EndpointConfigurations: Schema.optional(EndpointConfigurations), TrafficDialPercentage: Schema.optional(Schema.Number), HealthCheckPort: Schema.optional(Schema.Number), HealthCheckProtocol: Schema.optional(Schema.String), HealthCheckPath: Schema.optional(Schema.String), HealthCheckIntervalSeconds: Schema.optional(Schema.Number), ThresholdCount: Schema.optional(Schema.Number), PortOverrides: Schema.optional(PortOverrides)}) {}
+export class UpdateListenerRequest extends Schema.Class<UpdateListenerRequest>("UpdateListenerRequest")({ListenerArn: Schema.String, PortRanges: Schema.optional(PortRanges), Protocol: Schema.optional(Schema.String), ClientAffinity: Schema.optional(Schema.String)}) {}
+export class WithdrawByoipCidrRequest extends Schema.Class<WithdrawByoipCidrRequest>("WithdrawByoipCidrRequest")({Cidr: Schema.String}) {}
 export const CustomRoutingProtocols = Schema.Array(Schema.String);
-export const CustomRoutingEndpointConfiguration = Schema.Struct({EndpointId: Schema.optional(Schema.String), AttachmentArn: Schema.optional(Schema.String)});
+export class CustomRoutingEndpointConfiguration extends Schema.Class<CustomRoutingEndpointConfiguration>("CustomRoutingEndpointConfiguration")({EndpointId: Schema.optional(Schema.String), AttachmentArn: Schema.optional(Schema.String)}) {}
 export const CustomRoutingEndpointConfigurations = Schema.Array(CustomRoutingEndpointConfiguration);
-export const CustomRoutingDestinationConfiguration = Schema.Struct({FromPort: Schema.Number, ToPort: Schema.Number, Protocols: CustomRoutingProtocols});
+export class CustomRoutingDestinationConfiguration extends Schema.Class<CustomRoutingDestinationConfiguration>("CustomRoutingDestinationConfiguration")({FromPort: Schema.Number, ToPort: Schema.Number, Protocols: CustomRoutingProtocols}) {}
 export const CustomRoutingDestinationConfigurations = Schema.Array(CustomRoutingDestinationConfiguration);
-export const IpSet = Schema.Struct({IpFamily: Schema.optional(Schema.String), IpAddresses: Schema.optional(IpAddresses), IpAddressFamily: Schema.optional(Schema.String)});
+export class IpSet extends Schema.Class<IpSet>("IpSet")({IpFamily: Schema.optional(Schema.String), IpAddresses: Schema.optional(IpAddresses), IpAddressFamily: Schema.optional(Schema.String)}) {}
 export const IpSets = Schema.Array(IpSet);
-export const AcceleratorEvent = Schema.Struct({Message: Schema.optional(Schema.String), Timestamp: Schema.optional(Schema.Date)});
+export class AcceleratorEvent extends Schema.Class<AcceleratorEvent>("AcceleratorEvent")({Message: Schema.optional(Schema.String), Timestamp: Schema.optional(Schema.Date)}) {}
 export const AcceleratorEvents = Schema.Array(AcceleratorEvent);
-export const Accelerator = Schema.Struct({AcceleratorArn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), IpAddressType: Schema.optional(Schema.String), Enabled: Schema.optional(Schema.Boolean), IpSets: Schema.optional(IpSets), DnsName: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), CreatedTime: Schema.optional(Schema.Date), LastModifiedTime: Schema.optional(Schema.Date), DualStackDnsName: Schema.optional(Schema.String), Events: Schema.optional(AcceleratorEvents)});
+export class Accelerator extends Schema.Class<Accelerator>("Accelerator")({AcceleratorArn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), IpAddressType: Schema.optional(Schema.String), Enabled: Schema.optional(Schema.Boolean), IpSets: Schema.optional(IpSets), DnsName: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), CreatedTime: Schema.optional(Schema.Date), LastModifiedTime: Schema.optional(Schema.Date), DualStackDnsName: Schema.optional(Schema.String), Events: Schema.optional(AcceleratorEvents)}) {}
 export const Accelerators = Schema.Array(Accelerator);
-export const ByoipCidrEvent = Schema.Struct({Message: Schema.optional(Schema.String), Timestamp: Schema.optional(Schema.Date)});
+export class ByoipCidrEvent extends Schema.Class<ByoipCidrEvent>("ByoipCidrEvent")({Message: Schema.optional(Schema.String), Timestamp: Schema.optional(Schema.Date)}) {}
 export const ByoipCidrEvents = Schema.Array(ByoipCidrEvent);
-export const ByoipCidr = Schema.Struct({Cidr: Schema.optional(Schema.String), State: Schema.optional(Schema.String), Events: Schema.optional(ByoipCidrEvents)});
+export class ByoipCidr extends Schema.Class<ByoipCidr>("ByoipCidr")({Cidr: Schema.optional(Schema.String), State: Schema.optional(Schema.String), Events: Schema.optional(ByoipCidrEvents)}) {}
 export const ByoipCidrs = Schema.Array(ByoipCidr);
-export const Attachment = Schema.Struct({AttachmentArn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Principals: Schema.optional(Principals), Resources: Schema.optional(Resources), LastModifiedTime: Schema.optional(Schema.Date), CreatedTime: Schema.optional(Schema.Date)});
+export class Attachment extends Schema.Class<Attachment>("Attachment")({AttachmentArn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Principals: Schema.optional(Principals), Resources: Schema.optional(Resources), LastModifiedTime: Schema.optional(Schema.Date), CreatedTime: Schema.optional(Schema.Date)}) {}
 export const Attachments = Schema.Array(Attachment);
-export const CustomRoutingAccelerator = Schema.Struct({AcceleratorArn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), IpAddressType: Schema.optional(Schema.String), Enabled: Schema.optional(Schema.Boolean), IpSets: Schema.optional(IpSets), DnsName: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), CreatedTime: Schema.optional(Schema.Date), LastModifiedTime: Schema.optional(Schema.Date)});
+export class CustomRoutingAccelerator extends Schema.Class<CustomRoutingAccelerator>("CustomRoutingAccelerator")({AcceleratorArn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), IpAddressType: Schema.optional(Schema.String), Enabled: Schema.optional(Schema.Boolean), IpSets: Schema.optional(IpSets), DnsName: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), CreatedTime: Schema.optional(Schema.Date), LastModifiedTime: Schema.optional(Schema.Date)}) {}
 export const CustomRoutingAccelerators = Schema.Array(CustomRoutingAccelerator);
 export const Protocols = Schema.Array(Schema.String);
-export const CustomRoutingDestinationDescription = Schema.Struct({FromPort: Schema.optional(Schema.Number), ToPort: Schema.optional(Schema.Number), Protocols: Schema.optional(Protocols)});
+export class CustomRoutingDestinationDescription extends Schema.Class<CustomRoutingDestinationDescription>("CustomRoutingDestinationDescription")({FromPort: Schema.optional(Schema.Number), ToPort: Schema.optional(Schema.Number), Protocols: Schema.optional(Protocols)}) {}
 export const CustomRoutingDestinationDescriptions = Schema.Array(CustomRoutingDestinationDescription);
-export const CustomRoutingEndpointDescription = Schema.Struct({EndpointId: Schema.optional(Schema.String)});
+export class CustomRoutingEndpointDescription extends Schema.Class<CustomRoutingEndpointDescription>("CustomRoutingEndpointDescription")({EndpointId: Schema.optional(Schema.String)}) {}
 export const CustomRoutingEndpointDescriptions = Schema.Array(CustomRoutingEndpointDescription);
-export const CustomRoutingEndpointGroup = Schema.Struct({EndpointGroupArn: Schema.optional(Schema.String), EndpointGroupRegion: Schema.optional(Schema.String), DestinationDescriptions: Schema.optional(CustomRoutingDestinationDescriptions), EndpointDescriptions: Schema.optional(CustomRoutingEndpointDescriptions)});
+export class CustomRoutingEndpointGroup extends Schema.Class<CustomRoutingEndpointGroup>("CustomRoutingEndpointGroup")({EndpointGroupArn: Schema.optional(Schema.String), EndpointGroupRegion: Schema.optional(Schema.String), DestinationDescriptions: Schema.optional(CustomRoutingDestinationDescriptions), EndpointDescriptions: Schema.optional(CustomRoutingEndpointDescriptions)}) {}
 export const CustomRoutingEndpointGroups = Schema.Array(CustomRoutingEndpointGroup);
-export const CustomRoutingListener = Schema.Struct({ListenerArn: Schema.optional(Schema.String), PortRanges: Schema.optional(PortRanges)});
+export class CustomRoutingListener extends Schema.Class<CustomRoutingListener>("CustomRoutingListener")({ListenerArn: Schema.optional(Schema.String), PortRanges: Schema.optional(PortRanges)}) {}
 export const CustomRoutingListeners = Schema.Array(CustomRoutingListener);
-export const EndpointDescription = Schema.Struct({EndpointId: Schema.optional(Schema.String), Weight: Schema.optional(Schema.Number), HealthState: Schema.optional(Schema.String), HealthReason: Schema.optional(Schema.String), ClientIPPreservationEnabled: Schema.optional(Schema.Boolean)});
+export class EndpointDescription extends Schema.Class<EndpointDescription>("EndpointDescription")({EndpointId: Schema.optional(Schema.String), Weight: Schema.optional(Schema.Number), HealthState: Schema.optional(Schema.String), HealthReason: Schema.optional(Schema.String), ClientIPPreservationEnabled: Schema.optional(Schema.Boolean)}) {}
 export const EndpointDescriptions = Schema.Array(EndpointDescription);
-export const EndpointGroup = Schema.Struct({EndpointGroupArn: Schema.optional(Schema.String), EndpointGroupRegion: Schema.optional(Schema.String), EndpointDescriptions: Schema.optional(EndpointDescriptions), TrafficDialPercentage: Schema.optional(Schema.Number), HealthCheckPort: Schema.optional(Schema.Number), HealthCheckProtocol: Schema.optional(Schema.String), HealthCheckPath: Schema.optional(Schema.String), HealthCheckIntervalSeconds: Schema.optional(Schema.Number), ThresholdCount: Schema.optional(Schema.Number), PortOverrides: Schema.optional(PortOverrides)});
+export class EndpointGroup extends Schema.Class<EndpointGroup>("EndpointGroup")({EndpointGroupArn: Schema.optional(Schema.String), EndpointGroupRegion: Schema.optional(Schema.String), EndpointDescriptions: Schema.optional(EndpointDescriptions), TrafficDialPercentage: Schema.optional(Schema.Number), HealthCheckPort: Schema.optional(Schema.Number), HealthCheckProtocol: Schema.optional(Schema.String), HealthCheckPath: Schema.optional(Schema.String), HealthCheckIntervalSeconds: Schema.optional(Schema.Number), ThresholdCount: Schema.optional(Schema.Number), PortOverrides: Schema.optional(PortOverrides)}) {}
 export const EndpointGroups = Schema.Array(EndpointGroup);
-export const Listener = Schema.Struct({ListenerArn: Schema.optional(Schema.String), PortRanges: Schema.optional(PortRanges), Protocol: Schema.optional(Schema.String), ClientAffinity: Schema.optional(Schema.String)});
+export class Listener extends Schema.Class<Listener>("Listener")({ListenerArn: Schema.optional(Schema.String), PortRanges: Schema.optional(PortRanges), Protocol: Schema.optional(Schema.String), ClientAffinity: Schema.optional(Schema.String)}) {}
 export const Listeners = Schema.Array(Listener);
-export const CidrAuthorizationContext = Schema.Struct({Message: Schema.String, Signature: Schema.String});
-export const EndpointIdentifier = Schema.Struct({EndpointId: Schema.String, ClientIPPreservationEnabled: Schema.optional(Schema.Boolean)});
+export class CidrAuthorizationContext extends Schema.Class<CidrAuthorizationContext>("CidrAuthorizationContext")({Message: Schema.String, Signature: Schema.String}) {}
+export class EndpointIdentifier extends Schema.Class<EndpointIdentifier>("EndpointIdentifier")({EndpointId: Schema.String, ClientIPPreservationEnabled: Schema.optional(Schema.Boolean)}) {}
 export const EndpointIdentifiers = Schema.Array(EndpointIdentifier);
-export const AddCustomRoutingEndpointsRequest = Schema.Struct({EndpointConfigurations: CustomRoutingEndpointConfigurations, EndpointGroupArn: Schema.String});
-export const AddEndpointsRequest = Schema.Struct({EndpointConfigurations: EndpointConfigurations, EndpointGroupArn: Schema.String});
-export const EndpointGroupNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const CreateAcceleratorRequest = Schema.Struct({Name: Schema.String, IpAddressType: Schema.optional(Schema.String), IpAddresses: Schema.optional(IpAddresses), Enabled: Schema.optional(Schema.Boolean), IdempotencyToken: Schema.String, Tags: Schema.optional(Tags)});
-export const CreateCrossAccountAttachmentRequest = Schema.Struct({Name: Schema.String, Principals: Schema.optional(Principals), Resources: Schema.optional(Resources), IdempotencyToken: Schema.String, Tags: Schema.optional(Tags)});
-export const CreateCustomRoutingEndpointGroupRequest = Schema.Struct({ListenerArn: Schema.String, EndpointGroupRegion: Schema.String, DestinationConfigurations: CustomRoutingDestinationConfigurations, IdempotencyToken: Schema.String});
-export const CreateCustomRoutingListenerRequest = Schema.Struct({AcceleratorArn: Schema.String, PortRanges: PortRanges, IdempotencyToken: Schema.String});
-export const CreateEndpointGroupRequest = Schema.Struct({ListenerArn: Schema.String, EndpointGroupRegion: Schema.String, EndpointConfigurations: Schema.optional(EndpointConfigurations), TrafficDialPercentage: Schema.optional(Schema.Number), HealthCheckPort: Schema.optional(Schema.Number), HealthCheckProtocol: Schema.optional(Schema.String), HealthCheckPath: Schema.optional(Schema.String), HealthCheckIntervalSeconds: Schema.optional(Schema.Number), ThresholdCount: Schema.optional(Schema.Number), IdempotencyToken: Schema.String, PortOverrides: Schema.optional(PortOverrides)});
-export const AcceleratorNotDisabledException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const AccessDeniedException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const AcceleratorNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const InternalServiceErrorException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const AssociatedEndpointGroupFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const InvalidArgumentException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ListenerNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DeprovisionByoipCidrResponse = Schema.Struct({ByoipCidr: Schema.optional(ByoipCidr)});
-export const DescribeCustomRoutingAcceleratorResponse = Schema.Struct({Accelerator: Schema.optional(CustomRoutingAccelerator)});
-export const DescribeListenerResponse = Schema.Struct({Listener: Schema.optional(Listener)});
-export const ListAcceleratorsResponse = Schema.Struct({Accelerators: Schema.optional(Accelerators), NextToken: Schema.optional(Schema.String)});
-export const ListByoipCidrsResponse = Schema.Struct({ByoipCidrs: Schema.optional(ByoipCidrs), NextToken: Schema.optional(Schema.String)});
-export const ListCrossAccountAttachmentsResponse = Schema.Struct({CrossAccountAttachments: Schema.optional(Attachments), NextToken: Schema.optional(Schema.String)});
-export const ListCustomRoutingAcceleratorsResponse = Schema.Struct({Accelerators: Schema.optional(CustomRoutingAccelerators), NextToken: Schema.optional(Schema.String)});
-export const ListCustomRoutingEndpointGroupsResponse = Schema.Struct({EndpointGroups: Schema.optional(CustomRoutingEndpointGroups), NextToken: Schema.optional(Schema.String)});
-export const ListCustomRoutingListenersResponse = Schema.Struct({Listeners: Schema.optional(CustomRoutingListeners), NextToken: Schema.optional(Schema.String)});
-export const ListEndpointGroupsResponse = Schema.Struct({EndpointGroups: Schema.optional(EndpointGroups), NextToken: Schema.optional(Schema.String)});
-export const ListListenersResponse = Schema.Struct({Listeners: Schema.optional(Listeners), NextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceResponse = Schema.Struct({Tags: Schema.optional(Tags)});
-export const ProvisionByoipCidrRequest = Schema.Struct({Cidr: Schema.String, CidrAuthorizationContext: CidrAuthorizationContext});
-export const ConflictException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const RemoveEndpointsRequest = Schema.Struct({EndpointIdentifiers: EndpointIdentifiers, EndpointGroupArn: Schema.String});
-export const UpdateAcceleratorResponse = Schema.Struct({Accelerator: Schema.optional(Accelerator)});
-export const AcceleratorAttributes = Schema.Struct({FlowLogsEnabled: Schema.optional(Schema.Boolean), FlowLogsS3Bucket: Schema.optional(Schema.String), FlowLogsS3Prefix: Schema.optional(Schema.String)});
-export const UpdateAcceleratorAttributesResponse = Schema.Struct({AcceleratorAttributes: Schema.optional(AcceleratorAttributes)});
-export const UpdateCrossAccountAttachmentResponse = Schema.Struct({CrossAccountAttachment: Schema.optional(Attachment)});
-export const UpdateCustomRoutingAcceleratorResponse = Schema.Struct({Accelerator: Schema.optional(CustomRoutingAccelerator)});
-export const CustomRoutingAcceleratorAttributes = Schema.Struct({FlowLogsEnabled: Schema.optional(Schema.Boolean), FlowLogsS3Bucket: Schema.optional(Schema.String), FlowLogsS3Prefix: Schema.optional(Schema.String)});
-export const UpdateCustomRoutingAcceleratorAttributesResponse = Schema.Struct({AcceleratorAttributes: Schema.optional(CustomRoutingAcceleratorAttributes)});
-export const UpdateCustomRoutingListenerResponse = Schema.Struct({Listener: Schema.optional(CustomRoutingListener)});
-export const UpdateEndpointGroupResponse = Schema.Struct({EndpointGroup: Schema.optional(EndpointGroup)});
-export const UpdateListenerResponse = Schema.Struct({Listener: Schema.optional(Listener)});
-export const WithdrawByoipCidrResponse = Schema.Struct({ByoipCidr: Schema.optional(ByoipCidr)});
-export const SocketAddress = Schema.Struct({IpAddress: Schema.optional(Schema.String), Port: Schema.optional(Schema.Number)});
+export class AddCustomRoutingEndpointsRequest extends Schema.Class<AddCustomRoutingEndpointsRequest>("AddCustomRoutingEndpointsRequest")({EndpointConfigurations: CustomRoutingEndpointConfigurations, EndpointGroupArn: Schema.String}) {}
+export class AddEndpointsRequest extends Schema.Class<AddEndpointsRequest>("AddEndpointsRequest")({EndpointConfigurations: EndpointConfigurations, EndpointGroupArn: Schema.String}) {}
+export class EndpointGroupNotFoundException extends Schema.Class<EndpointGroupNotFoundException>("EndpointGroupNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class CreateAcceleratorRequest extends Schema.Class<CreateAcceleratorRequest>("CreateAcceleratorRequest")({Name: Schema.String, IpAddressType: Schema.optional(Schema.String), IpAddresses: Schema.optional(IpAddresses), Enabled: Schema.optional(Schema.Boolean), IdempotencyToken: Schema.String, Tags: Schema.optional(Tags)}) {}
+export class CreateCrossAccountAttachmentRequest extends Schema.Class<CreateCrossAccountAttachmentRequest>("CreateCrossAccountAttachmentRequest")({Name: Schema.String, Principals: Schema.optional(Principals), Resources: Schema.optional(Resources), IdempotencyToken: Schema.String, Tags: Schema.optional(Tags)}) {}
+export class CreateCustomRoutingEndpointGroupRequest extends Schema.Class<CreateCustomRoutingEndpointGroupRequest>("CreateCustomRoutingEndpointGroupRequest")({ListenerArn: Schema.String, EndpointGroupRegion: Schema.String, DestinationConfigurations: CustomRoutingDestinationConfigurations, IdempotencyToken: Schema.String}) {}
+export class CreateCustomRoutingListenerRequest extends Schema.Class<CreateCustomRoutingListenerRequest>("CreateCustomRoutingListenerRequest")({AcceleratorArn: Schema.String, PortRanges: PortRanges, IdempotencyToken: Schema.String}) {}
+export class CreateEndpointGroupRequest extends Schema.Class<CreateEndpointGroupRequest>("CreateEndpointGroupRequest")({ListenerArn: Schema.String, EndpointGroupRegion: Schema.String, EndpointConfigurations: Schema.optional(EndpointConfigurations), TrafficDialPercentage: Schema.optional(Schema.Number), HealthCheckPort: Schema.optional(Schema.Number), HealthCheckProtocol: Schema.optional(Schema.String), HealthCheckPath: Schema.optional(Schema.String), HealthCheckIntervalSeconds: Schema.optional(Schema.Number), ThresholdCount: Schema.optional(Schema.Number), IdempotencyToken: Schema.String, PortOverrides: Schema.optional(PortOverrides)}) {}
+export class AcceleratorNotDisabledException extends Schema.Class<AcceleratorNotDisabledException>("AcceleratorNotDisabledException")({Message: Schema.optional(Schema.String)}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({Message: Schema.optional(Schema.String)}) {}
+export class AcceleratorNotFoundException extends Schema.Class<AcceleratorNotFoundException>("AcceleratorNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class InternalServiceErrorException extends Schema.Class<InternalServiceErrorException>("InternalServiceErrorException")({Message: Schema.optional(Schema.String)}) {}
+export class AssociatedEndpointGroupFoundException extends Schema.Class<AssociatedEndpointGroupFoundException>("AssociatedEndpointGroupFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class InvalidArgumentException extends Schema.Class<InvalidArgumentException>("InvalidArgumentException")({Message: Schema.optional(Schema.String)}) {}
+export class ListenerNotFoundException extends Schema.Class<ListenerNotFoundException>("ListenerNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class DeprovisionByoipCidrResponse extends Schema.Class<DeprovisionByoipCidrResponse>("DeprovisionByoipCidrResponse")({ByoipCidr: Schema.optional(ByoipCidr)}) {}
+export class DescribeCustomRoutingAcceleratorResponse extends Schema.Class<DescribeCustomRoutingAcceleratorResponse>("DescribeCustomRoutingAcceleratorResponse")({Accelerator: Schema.optional(CustomRoutingAccelerator)}) {}
+export class DescribeListenerResponse extends Schema.Class<DescribeListenerResponse>("DescribeListenerResponse")({Listener: Schema.optional(Listener)}) {}
+export class ListAcceleratorsResponse extends Schema.Class<ListAcceleratorsResponse>("ListAcceleratorsResponse")({Accelerators: Schema.optional(Accelerators), NextToken: Schema.optional(Schema.String)}) {}
+export class ListByoipCidrsResponse extends Schema.Class<ListByoipCidrsResponse>("ListByoipCidrsResponse")({ByoipCidrs: Schema.optional(ByoipCidrs), NextToken: Schema.optional(Schema.String)}) {}
+export class ListCrossAccountAttachmentsResponse extends Schema.Class<ListCrossAccountAttachmentsResponse>("ListCrossAccountAttachmentsResponse")({CrossAccountAttachments: Schema.optional(Attachments), NextToken: Schema.optional(Schema.String)}) {}
+export class ListCustomRoutingAcceleratorsResponse extends Schema.Class<ListCustomRoutingAcceleratorsResponse>("ListCustomRoutingAcceleratorsResponse")({Accelerators: Schema.optional(CustomRoutingAccelerators), NextToken: Schema.optional(Schema.String)}) {}
+export class ListCustomRoutingEndpointGroupsResponse extends Schema.Class<ListCustomRoutingEndpointGroupsResponse>("ListCustomRoutingEndpointGroupsResponse")({EndpointGroups: Schema.optional(CustomRoutingEndpointGroups), NextToken: Schema.optional(Schema.String)}) {}
+export class ListCustomRoutingListenersResponse extends Schema.Class<ListCustomRoutingListenersResponse>("ListCustomRoutingListenersResponse")({Listeners: Schema.optional(CustomRoutingListeners), NextToken: Schema.optional(Schema.String)}) {}
+export class ListEndpointGroupsResponse extends Schema.Class<ListEndpointGroupsResponse>("ListEndpointGroupsResponse")({EndpointGroups: Schema.optional(EndpointGroups), NextToken: Schema.optional(Schema.String)}) {}
+export class ListListenersResponse extends Schema.Class<ListListenersResponse>("ListListenersResponse")({Listeners: Schema.optional(Listeners), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({Tags: Schema.optional(Tags)}) {}
+export class ProvisionByoipCidrRequest extends Schema.Class<ProvisionByoipCidrRequest>("ProvisionByoipCidrRequest")({Cidr: Schema.String, CidrAuthorizationContext: CidrAuthorizationContext}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({Message: Schema.optional(Schema.String)}) {}
+export class RemoveEndpointsRequest extends Schema.Class<RemoveEndpointsRequest>("RemoveEndpointsRequest")({EndpointIdentifiers: EndpointIdentifiers, EndpointGroupArn: Schema.String}) {}
+export class UpdateAcceleratorResponse extends Schema.Class<UpdateAcceleratorResponse>("UpdateAcceleratorResponse")({Accelerator: Schema.optional(Accelerator)}) {}
+export class AcceleratorAttributes extends Schema.Class<AcceleratorAttributes>("AcceleratorAttributes")({FlowLogsEnabled: Schema.optional(Schema.Boolean), FlowLogsS3Bucket: Schema.optional(Schema.String), FlowLogsS3Prefix: Schema.optional(Schema.String)}) {}
+export class UpdateAcceleratorAttributesResponse extends Schema.Class<UpdateAcceleratorAttributesResponse>("UpdateAcceleratorAttributesResponse")({AcceleratorAttributes: Schema.optional(AcceleratorAttributes)}) {}
+export class UpdateCrossAccountAttachmentResponse extends Schema.Class<UpdateCrossAccountAttachmentResponse>("UpdateCrossAccountAttachmentResponse")({CrossAccountAttachment: Schema.optional(Attachment)}) {}
+export class UpdateCustomRoutingAcceleratorResponse extends Schema.Class<UpdateCustomRoutingAcceleratorResponse>("UpdateCustomRoutingAcceleratorResponse")({Accelerator: Schema.optional(CustomRoutingAccelerator)}) {}
+export class CustomRoutingAcceleratorAttributes extends Schema.Class<CustomRoutingAcceleratorAttributes>("CustomRoutingAcceleratorAttributes")({FlowLogsEnabled: Schema.optional(Schema.Boolean), FlowLogsS3Bucket: Schema.optional(Schema.String), FlowLogsS3Prefix: Schema.optional(Schema.String)}) {}
+export class UpdateCustomRoutingAcceleratorAttributesResponse extends Schema.Class<UpdateCustomRoutingAcceleratorAttributesResponse>("UpdateCustomRoutingAcceleratorAttributesResponse")({AcceleratorAttributes: Schema.optional(CustomRoutingAcceleratorAttributes)}) {}
+export class UpdateCustomRoutingListenerResponse extends Schema.Class<UpdateCustomRoutingListenerResponse>("UpdateCustomRoutingListenerResponse")({Listener: Schema.optional(CustomRoutingListener)}) {}
+export class UpdateEndpointGroupResponse extends Schema.Class<UpdateEndpointGroupResponse>("UpdateEndpointGroupResponse")({EndpointGroup: Schema.optional(EndpointGroup)}) {}
+export class UpdateListenerResponse extends Schema.Class<UpdateListenerResponse>("UpdateListenerResponse")({Listener: Schema.optional(Listener)}) {}
+export class WithdrawByoipCidrResponse extends Schema.Class<WithdrawByoipCidrResponse>("WithdrawByoipCidrResponse")({ByoipCidr: Schema.optional(ByoipCidr)}) {}
+export class SocketAddress extends Schema.Class<SocketAddress>("SocketAddress")({IpAddress: Schema.optional(Schema.String), Port: Schema.optional(Schema.Number)}) {}
 export const SocketAddresses = Schema.Array(SocketAddress);
-export const CrossAccountResource = Schema.Struct({EndpointId: Schema.optional(Schema.String), Cidr: Schema.optional(Schema.String), AttachmentArn: Schema.optional(Schema.String)});
+export class CrossAccountResource extends Schema.Class<CrossAccountResource>("CrossAccountResource")({EndpointId: Schema.optional(Schema.String), Cidr: Schema.optional(Schema.String), AttachmentArn: Schema.optional(Schema.String)}) {}
 export const CrossAccountResources = Schema.Array(CrossAccountResource);
-export const DestinationPortMapping = Schema.Struct({AcceleratorArn: Schema.optional(Schema.String), AcceleratorSocketAddresses: Schema.optional(SocketAddresses), EndpointGroupArn: Schema.optional(Schema.String), EndpointId: Schema.optional(Schema.String), EndpointGroupRegion: Schema.optional(Schema.String), DestinationSocketAddress: Schema.optional(SocketAddress), IpAddressType: Schema.optional(Schema.String), DestinationTrafficState: Schema.optional(Schema.String)});
+export class DestinationPortMapping extends Schema.Class<DestinationPortMapping>("DestinationPortMapping")({AcceleratorArn: Schema.optional(Schema.String), AcceleratorSocketAddresses: Schema.optional(SocketAddresses), EndpointGroupArn: Schema.optional(Schema.String), EndpointId: Schema.optional(Schema.String), EndpointGroupRegion: Schema.optional(Schema.String), DestinationSocketAddress: Schema.optional(SocketAddress), IpAddressType: Schema.optional(Schema.String), DestinationTrafficState: Schema.optional(Schema.String)}) {}
 export const DestinationPortMappings = Schema.Array(DestinationPortMapping);
-export const AddCustomRoutingEndpointsResponse = Schema.Struct({EndpointDescriptions: Schema.optional(CustomRoutingEndpointDescriptions), EndpointGroupArn: Schema.optional(Schema.String)});
-export const AddEndpointsResponse = Schema.Struct({EndpointDescriptions: Schema.optional(EndpointDescriptions), EndpointGroupArn: Schema.optional(Schema.String)});
-export const CreateAcceleratorResponse = Schema.Struct({Accelerator: Schema.optional(Accelerator)});
-export const CreateCrossAccountAttachmentResponse = Schema.Struct({CrossAccountAttachment: Schema.optional(Attachment)});
-export const CreateCustomRoutingEndpointGroupResponse = Schema.Struct({EndpointGroup: Schema.optional(CustomRoutingEndpointGroup)});
-export const CreateCustomRoutingListenerResponse = Schema.Struct({Listener: Schema.optional(CustomRoutingListener)});
-export const CreateEndpointGroupResponse = Schema.Struct({EndpointGroup: Schema.optional(EndpointGroup)});
-export const CreateListenerResponse = Schema.Struct({Listener: Schema.optional(Listener)});
-export const AssociatedListenerFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const AttachmentNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const TransactionInProgressException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ByoipCidrNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DescribeAcceleratorAttributesResponse = Schema.Struct({AcceleratorAttributes: Schema.optional(AcceleratorAttributes)});
-export const DescribeCrossAccountAttachmentResponse = Schema.Struct({CrossAccountAttachment: Schema.optional(Attachment)});
-export const DescribeCustomRoutingAcceleratorAttributesResponse = Schema.Struct({AcceleratorAttributes: Schema.optional(CustomRoutingAcceleratorAttributes)});
-export const DescribeCustomRoutingListenerResponse = Schema.Struct({Listener: Schema.optional(CustomRoutingListener)});
-export const InvalidNextTokenException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ListCrossAccountResourcesResponse = Schema.Struct({CrossAccountResources: Schema.optional(CrossAccountResources), NextToken: Schema.optional(Schema.String)});
-export const ListCustomRoutingPortMappingsByDestinationResponse = Schema.Struct({DestinationPortMappings: Schema.optional(DestinationPortMappings), NextToken: Schema.optional(Schema.String)});
-export const ProvisionByoipCidrResponse = Schema.Struct({ByoipCidr: Schema.optional(ByoipCidr)});
-export const EndpointNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const LimitExceededException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const InvalidPortRangeException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const IncorrectCidrStateException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const PortMapping = Schema.Struct({AcceleratorPort: Schema.optional(Schema.Number), EndpointGroupArn: Schema.optional(Schema.String), EndpointId: Schema.optional(Schema.String), DestinationSocketAddress: Schema.optional(SocketAddress), Protocols: Schema.optional(CustomRoutingProtocols), DestinationTrafficState: Schema.optional(Schema.String)});
+export class AddCustomRoutingEndpointsResponse extends Schema.Class<AddCustomRoutingEndpointsResponse>("AddCustomRoutingEndpointsResponse")({EndpointDescriptions: Schema.optional(CustomRoutingEndpointDescriptions), EndpointGroupArn: Schema.optional(Schema.String)}) {}
+export class AddEndpointsResponse extends Schema.Class<AddEndpointsResponse>("AddEndpointsResponse")({EndpointDescriptions: Schema.optional(EndpointDescriptions), EndpointGroupArn: Schema.optional(Schema.String)}) {}
+export class CreateAcceleratorResponse extends Schema.Class<CreateAcceleratorResponse>("CreateAcceleratorResponse")({Accelerator: Schema.optional(Accelerator)}) {}
+export class CreateCrossAccountAttachmentResponse extends Schema.Class<CreateCrossAccountAttachmentResponse>("CreateCrossAccountAttachmentResponse")({CrossAccountAttachment: Schema.optional(Attachment)}) {}
+export class CreateCustomRoutingEndpointGroupResponse extends Schema.Class<CreateCustomRoutingEndpointGroupResponse>("CreateCustomRoutingEndpointGroupResponse")({EndpointGroup: Schema.optional(CustomRoutingEndpointGroup)}) {}
+export class CreateCustomRoutingListenerResponse extends Schema.Class<CreateCustomRoutingListenerResponse>("CreateCustomRoutingListenerResponse")({Listener: Schema.optional(CustomRoutingListener)}) {}
+export class CreateEndpointGroupResponse extends Schema.Class<CreateEndpointGroupResponse>("CreateEndpointGroupResponse")({EndpointGroup: Schema.optional(EndpointGroup)}) {}
+export class CreateListenerResponse extends Schema.Class<CreateListenerResponse>("CreateListenerResponse")({Listener: Schema.optional(Listener)}) {}
+export class AssociatedListenerFoundException extends Schema.Class<AssociatedListenerFoundException>("AssociatedListenerFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class AttachmentNotFoundException extends Schema.Class<AttachmentNotFoundException>("AttachmentNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class TransactionInProgressException extends Schema.Class<TransactionInProgressException>("TransactionInProgressException")({Message: Schema.optional(Schema.String)}) {}
+export class ByoipCidrNotFoundException extends Schema.Class<ByoipCidrNotFoundException>("ByoipCidrNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class DescribeAcceleratorAttributesResponse extends Schema.Class<DescribeAcceleratorAttributesResponse>("DescribeAcceleratorAttributesResponse")({AcceleratorAttributes: Schema.optional(AcceleratorAttributes)}) {}
+export class DescribeCrossAccountAttachmentResponse extends Schema.Class<DescribeCrossAccountAttachmentResponse>("DescribeCrossAccountAttachmentResponse")({CrossAccountAttachment: Schema.optional(Attachment)}) {}
+export class DescribeCustomRoutingAcceleratorAttributesResponse extends Schema.Class<DescribeCustomRoutingAcceleratorAttributesResponse>("DescribeCustomRoutingAcceleratorAttributesResponse")({AcceleratorAttributes: Schema.optional(CustomRoutingAcceleratorAttributes)}) {}
+export class DescribeCustomRoutingListenerResponse extends Schema.Class<DescribeCustomRoutingListenerResponse>("DescribeCustomRoutingListenerResponse")({Listener: Schema.optional(CustomRoutingListener)}) {}
+export class InvalidNextTokenException extends Schema.Class<InvalidNextTokenException>("InvalidNextTokenException")({Message: Schema.optional(Schema.String)}) {}
+export class ListCrossAccountResourcesResponse extends Schema.Class<ListCrossAccountResourcesResponse>("ListCrossAccountResourcesResponse")({CrossAccountResources: Schema.optional(CrossAccountResources), NextToken: Schema.optional(Schema.String)}) {}
+export class ListCustomRoutingPortMappingsByDestinationResponse extends Schema.Class<ListCustomRoutingPortMappingsByDestinationResponse>("ListCustomRoutingPortMappingsByDestinationResponse")({DestinationPortMappings: Schema.optional(DestinationPortMappings), NextToken: Schema.optional(Schema.String)}) {}
+export class ProvisionByoipCidrResponse extends Schema.Class<ProvisionByoipCidrResponse>("ProvisionByoipCidrResponse")({ByoipCidr: Schema.optional(ByoipCidr)}) {}
+export class EndpointNotFoundException extends Schema.Class<EndpointNotFoundException>("EndpointNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class LimitExceededException extends Schema.Class<LimitExceededException>("LimitExceededException")({Message: Schema.optional(Schema.String)}) {}
+export class InvalidPortRangeException extends Schema.Class<InvalidPortRangeException>("InvalidPortRangeException")({Message: Schema.optional(Schema.String)}) {}
+export class IncorrectCidrStateException extends Schema.Class<IncorrectCidrStateException>("IncorrectCidrStateException")({Message: Schema.optional(Schema.String)}) {}
+export class PortMapping extends Schema.Class<PortMapping>("PortMapping")({AcceleratorPort: Schema.optional(Schema.Number), EndpointGroupArn: Schema.optional(Schema.String), EndpointId: Schema.optional(Schema.String), DestinationSocketAddress: Schema.optional(SocketAddress), Protocols: Schema.optional(CustomRoutingProtocols), DestinationTrafficState: Schema.optional(Schema.String)}) {}
 export const PortMappings = Schema.Array(PortMapping);
-export const EndpointAlreadyExistsException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const AdvertiseByoipCidrResponse = Schema.Struct({ByoipCidr: Schema.optional(ByoipCidr)});
-export const CreateCustomRoutingAcceleratorResponse = Schema.Struct({Accelerator: Schema.optional(CustomRoutingAccelerator)});
-export const EndpointGroupAlreadyExistsException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DescribeAcceleratorResponse = Schema.Struct({Accelerator: Schema.optional(Accelerator)});
-export const DescribeCustomRoutingEndpointGroupResponse = Schema.Struct({EndpointGroup: Schema.optional(CustomRoutingEndpointGroup)});
-export const DescribeEndpointGroupResponse = Schema.Struct({EndpointGroup: Schema.optional(EndpointGroup)});
-export const ListCustomRoutingPortMappingsResponse = Schema.Struct({PortMappings: Schema.optional(PortMappings), NextToken: Schema.optional(Schema.String)});
+export class EndpointAlreadyExistsException extends Schema.Class<EndpointAlreadyExistsException>("EndpointAlreadyExistsException")({Message: Schema.optional(Schema.String)}) {}
+export class AdvertiseByoipCidrResponse extends Schema.Class<AdvertiseByoipCidrResponse>("AdvertiseByoipCidrResponse")({ByoipCidr: Schema.optional(ByoipCidr)}) {}
+export class CreateCustomRoutingAcceleratorResponse extends Schema.Class<CreateCustomRoutingAcceleratorResponse>("CreateCustomRoutingAcceleratorResponse")({Accelerator: Schema.optional(CustomRoutingAccelerator)}) {}
+export class EndpointGroupAlreadyExistsException extends Schema.Class<EndpointGroupAlreadyExistsException>("EndpointGroupAlreadyExistsException")({Message: Schema.optional(Schema.String)}) {}
+export class DescribeAcceleratorResponse extends Schema.Class<DescribeAcceleratorResponse>("DescribeAcceleratorResponse")({Accelerator: Schema.optional(Accelerator)}) {}
+export class DescribeCustomRoutingEndpointGroupResponse extends Schema.Class<DescribeCustomRoutingEndpointGroupResponse>("DescribeCustomRoutingEndpointGroupResponse")({EndpointGroup: Schema.optional(CustomRoutingEndpointGroup)}) {}
+export class DescribeEndpointGroupResponse extends Schema.Class<DescribeEndpointGroupResponse>("DescribeEndpointGroupResponse")({EndpointGroup: Schema.optional(EndpointGroup)}) {}
+export class ListCustomRoutingPortMappingsResponse extends Schema.Class<ListCustomRoutingPortMappingsResponse>("ListCustomRoutingPortMappingsResponse")({PortMappings: Schema.optional(PortMappings), NextToken: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class AcceleratorNotDisabledExceptionError extends Schema.TaggedError<AcceleratorNotDisabledExceptionError>()("AcceleratorNotDisabledException", AcceleratorNotDisabledException) {};
-export class EndpointGroupNotFoundExceptionError extends Schema.TaggedError<EndpointGroupNotFoundExceptionError>()("EndpointGroupNotFoundException", EndpointGroupNotFoundException) {};
-export class InternalServiceErrorExceptionError extends Schema.TaggedError<InternalServiceErrorExceptionError>()("InternalServiceErrorException", InternalServiceErrorException) {};
-export class AssociatedEndpointGroupFoundExceptionError extends Schema.TaggedError<AssociatedEndpointGroupFoundExceptionError>()("AssociatedEndpointGroupFoundException", AssociatedEndpointGroupFoundException) {};
-export class InvalidArgumentExceptionError extends Schema.TaggedError<InvalidArgumentExceptionError>()("InvalidArgumentException", InvalidArgumentException) {};
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class AcceleratorNotFoundExceptionError extends Schema.TaggedError<AcceleratorNotFoundExceptionError>()("AcceleratorNotFoundException", AcceleratorNotFoundException) {};
-export class AssociatedListenerFoundExceptionError extends Schema.TaggedError<AssociatedListenerFoundExceptionError>()("AssociatedListenerFoundException", AssociatedListenerFoundException) {};
-export class ListenerNotFoundExceptionError extends Schema.TaggedError<ListenerNotFoundExceptionError>()("ListenerNotFoundException", ListenerNotFoundException) {};
-export class InvalidNextTokenExceptionError extends Schema.TaggedError<InvalidNextTokenExceptionError>()("InvalidNextTokenException", InvalidNextTokenException) {};
-export class AttachmentNotFoundExceptionError extends Schema.TaggedError<AttachmentNotFoundExceptionError>()("AttachmentNotFoundException", AttachmentNotFoundException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class TransactionInProgressExceptionError extends Schema.TaggedError<TransactionInProgressExceptionError>()("TransactionInProgressException", TransactionInProgressException) {};
-export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException) {};
-export class InvalidPortRangeExceptionError extends Schema.TaggedError<InvalidPortRangeExceptionError>()("InvalidPortRangeException", InvalidPortRangeException) {};
-export class ByoipCidrNotFoundExceptionError extends Schema.TaggedError<ByoipCidrNotFoundExceptionError>()("ByoipCidrNotFoundException", ByoipCidrNotFoundException) {};
-export class EndpointGroupAlreadyExistsExceptionError extends Schema.TaggedError<EndpointGroupAlreadyExistsExceptionError>()("EndpointGroupAlreadyExistsException", EndpointGroupAlreadyExistsException) {};
-export class IncorrectCidrStateExceptionError extends Schema.TaggedError<IncorrectCidrStateExceptionError>()("IncorrectCidrStateException", IncorrectCidrStateException) {};
-export class EndpointNotFoundExceptionError extends Schema.TaggedError<EndpointNotFoundExceptionError>()("EndpointNotFoundException", EndpointNotFoundException) {};
-export class EndpointAlreadyExistsExceptionError extends Schema.TaggedError<EndpointAlreadyExistsExceptionError>()("EndpointAlreadyExistsException", EndpointAlreadyExistsException) {};
+export class AcceleratorNotDisabledExceptionError extends Schema.TaggedError<AcceleratorNotDisabledExceptionError>()("AcceleratorNotDisabledException", AcceleratorNotDisabledException.fields) {};
+export class EndpointGroupNotFoundExceptionError extends Schema.TaggedError<EndpointGroupNotFoundExceptionError>()("EndpointGroupNotFoundException", EndpointGroupNotFoundException.fields) {};
+export class InternalServiceErrorExceptionError extends Schema.TaggedError<InternalServiceErrorExceptionError>()("InternalServiceErrorException", InternalServiceErrorException.fields) {};
+export class AssociatedEndpointGroupFoundExceptionError extends Schema.TaggedError<AssociatedEndpointGroupFoundExceptionError>()("AssociatedEndpointGroupFoundException", AssociatedEndpointGroupFoundException.fields) {};
+export class InvalidArgumentExceptionError extends Schema.TaggedError<InvalidArgumentExceptionError>()("InvalidArgumentException", InvalidArgumentException.fields) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class AcceleratorNotFoundExceptionError extends Schema.TaggedError<AcceleratorNotFoundExceptionError>()("AcceleratorNotFoundException", AcceleratorNotFoundException.fields) {};
+export class AssociatedListenerFoundExceptionError extends Schema.TaggedError<AssociatedListenerFoundExceptionError>()("AssociatedListenerFoundException", AssociatedListenerFoundException.fields) {};
+export class ListenerNotFoundExceptionError extends Schema.TaggedError<ListenerNotFoundExceptionError>()("ListenerNotFoundException", ListenerNotFoundException.fields) {};
+export class InvalidNextTokenExceptionError extends Schema.TaggedError<InvalidNextTokenExceptionError>()("InvalidNextTokenException", InvalidNextTokenException.fields) {};
+export class AttachmentNotFoundExceptionError extends Schema.TaggedError<AttachmentNotFoundExceptionError>()("AttachmentNotFoundException", AttachmentNotFoundException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class TransactionInProgressExceptionError extends Schema.TaggedError<TransactionInProgressExceptionError>()("TransactionInProgressException", TransactionInProgressException.fields) {};
+export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException.fields) {};
+export class InvalidPortRangeExceptionError extends Schema.TaggedError<InvalidPortRangeExceptionError>()("InvalidPortRangeException", InvalidPortRangeException.fields) {};
+export class ByoipCidrNotFoundExceptionError extends Schema.TaggedError<ByoipCidrNotFoundExceptionError>()("ByoipCidrNotFoundException", ByoipCidrNotFoundException.fields) {};
+export class EndpointGroupAlreadyExistsExceptionError extends Schema.TaggedError<EndpointGroupAlreadyExistsExceptionError>()("EndpointGroupAlreadyExistsException", EndpointGroupAlreadyExistsException.fields) {};
+export class IncorrectCidrStateExceptionError extends Schema.TaggedError<IncorrectCidrStateExceptionError>()("IncorrectCidrStateException", IncorrectCidrStateException.fields) {};
+export class EndpointNotFoundExceptionError extends Schema.TaggedError<EndpointNotFoundExceptionError>()("EndpointNotFoundException", EndpointNotFoundException.fields) {};
+export class EndpointAlreadyExistsExceptionError extends Schema.TaggedError<EndpointAlreadyExistsExceptionError>()("EndpointAlreadyExistsException", EndpointAlreadyExistsException.fields) {};
 
 //# Operations
 export const denyCustomRoutingTraffic = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-08-08", uri: "/", method: "POST", sdkId: "Global Accelerator", sigV4ServiceName: "globalaccelerator", name: "GlobalAccelerator_V20180706.DenyCustomRoutingTraffic" }, DenyCustomRoutingTrafficRequest, Schema.Struct({}), [EndpointGroupNotFoundExceptionError, InternalServiceErrorExceptionError, InvalidArgumentExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

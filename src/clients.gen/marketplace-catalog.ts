@@ -4,45 +4,46 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 
 //# Schemas
 export const TagKeyList = Schema.Array(Schema.String);
-export const CancelChangeSetRequest = Schema.Struct({Catalog: Schema.String, ChangeSetId: Schema.String});
-export const DeleteResourcePolicyRequest = Schema.Struct({ResourceArn: Schema.String});
-export const DeleteResourcePolicyResponse = Schema.Struct({});
-export const DescribeChangeSetRequest = Schema.Struct({Catalog: Schema.String, ChangeSetId: Schema.String});
-export const DescribeEntityRequest = Schema.Struct({Catalog: Schema.String, EntityId: Schema.String});
-export const GetResourcePolicyRequest = Schema.Struct({ResourceArn: Schema.String});
-export const ListTagsForResourceRequest = Schema.Struct({ResourceArn: Schema.String});
-export const PutResourcePolicyRequest = Schema.Struct({ResourceArn: Schema.String, Policy: Schema.String});
-export const PutResourcePolicyResponse = Schema.Struct({});
-export const Tag = Schema.Struct({Key: Schema.String, Value: Schema.String});
+export class CancelChangeSetRequest extends Schema.Class<CancelChangeSetRequest>("CancelChangeSetRequest")({Catalog: Schema.String, ChangeSetId: Schema.String}) {}
+export class DeleteResourcePolicyRequest extends Schema.Class<DeleteResourcePolicyRequest>("DeleteResourcePolicyRequest")({ResourceArn: Schema.String}) {}
+export class DeleteResourcePolicyResponse extends Schema.Class<DeleteResourcePolicyResponse>("DeleteResourcePolicyResponse")({}) {}
+export class DescribeChangeSetRequest extends Schema.Class<DescribeChangeSetRequest>("DescribeChangeSetRequest")({Catalog: Schema.String, ChangeSetId: Schema.String}) {}
+export class DescribeEntityRequest extends Schema.Class<DescribeEntityRequest>("DescribeEntityRequest")({Catalog: Schema.String, EntityId: Schema.String}) {}
+export class GetResourcePolicyRequest extends Schema.Class<GetResourcePolicyRequest>("GetResourcePolicyRequest")({ResourceArn: Schema.String}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({ResourceArn: Schema.String}) {}
+export class PutResourcePolicyRequest extends Schema.Class<PutResourcePolicyRequest>("PutResourcePolicyRequest")({ResourceArn: Schema.String, Policy: Schema.String}) {}
+export class PutResourcePolicyResponse extends Schema.Class<PutResourcePolicyResponse>("PutResourcePolicyResponse")({}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.String, Value: Schema.String}) {}
 export const TagList = Schema.Array(Tag);
-export const TagResourceRequest = Schema.Struct({ResourceArn: Schema.String, Tags: TagList});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({ResourceArn: Schema.String, TagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({ResourceArn: Schema.String, Tags: TagList}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({ResourceArn: Schema.String, TagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
 export const ValueList = Schema.Array(Schema.String);
-export const EntityRequest = Schema.Struct({Catalog: Schema.String, EntityId: Schema.String});
+export class EntityRequest extends Schema.Class<EntityRequest>("EntityRequest")({Catalog: Schema.String, EntityId: Schema.String}) {}
 export const EntityRequestList = Schema.Array(EntityRequest);
-export const Filter = Schema.Struct({Name: Schema.optional(Schema.String), ValueList: Schema.optional(ValueList)});
+export class Filter extends Schema.Class<Filter>("Filter")({Name: Schema.optional(Schema.String), ValueList: Schema.optional(ValueList)}) {}
 export const FilterList = Schema.Array(Filter);
-export const Sort = Schema.Struct({SortBy: Schema.optional(Schema.String), SortOrder: Schema.optional(Schema.String)});
-export const BatchDescribeEntitiesRequest = Schema.Struct({EntityRequestList: EntityRequestList});
-export const CancelChangeSetResponse = Schema.Struct({ChangeSetId: Schema.optional(Schema.String), ChangeSetArn: Schema.optional(Schema.String)});
-export const AccessDeniedException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DescribeEntityResponse = Schema.Struct({EntityType: Schema.optional(Schema.String), EntityIdentifier: Schema.optional(Schema.String), EntityArn: Schema.optional(Schema.String), LastModifiedDate: Schema.optional(Schema.String), Details: Schema.optional(Schema.String), DetailsDocument: Schema.optional(Schema.JsonValue)});
-export const GetResourcePolicyResponse = Schema.Struct({Policy: Schema.optional(Schema.String)});
-export const ListChangeSetsRequest = Schema.Struct({Catalog: Schema.String, FilterList: Schema.optional(FilterList), Sort: Schema.optional(Sort), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceResponse = Schema.Struct({ResourceArn: Schema.optional(Schema.String), Tags: Schema.optional(TagList)});
-export const InternalServiceException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ThrottlingException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DataProductSort = Schema.Struct({SortBy: Schema.optional(Schema.String), SortOrder: Schema.optional(Schema.String)});
-export const SaaSProductSort = Schema.Struct({SortBy: Schema.optional(Schema.String), SortOrder: Schema.optional(Schema.String)});
-export const AmiProductSort = Schema.Struct({SortBy: Schema.optional(Schema.String), SortOrder: Schema.optional(Schema.String)});
-export const OfferSort = Schema.Struct({SortBy: Schema.optional(Schema.String), SortOrder: Schema.optional(Schema.String)});
-export const ContainerProductSort = Schema.Struct({SortBy: Schema.optional(Schema.String), SortOrder: Schema.optional(Schema.String)});
-export const ResaleAuthorizationSort = Schema.Struct({SortBy: Schema.optional(Schema.String), SortOrder: Schema.optional(Schema.String)});
-export const MachineLearningProductSort = Schema.Struct({SortBy: Schema.optional(Schema.String), SortOrder: Schema.optional(Schema.String)});
-export const Entity = Schema.Struct({Type: Schema.String, Identifier: Schema.optional(Schema.String)});
+export class Sort extends Schema.Class<Sort>("Sort")({SortBy: Schema.optional(Schema.String), SortOrder: Schema.optional(Schema.String)}) {}
+export class BatchDescribeEntitiesRequest extends Schema.Class<BatchDescribeEntitiesRequest>("BatchDescribeEntitiesRequest")({EntityRequestList: EntityRequestList}) {}
+export class CancelChangeSetResponse extends Schema.Class<CancelChangeSetResponse>("CancelChangeSetResponse")({ChangeSetId: Schema.optional(Schema.String), ChangeSetArn: Schema.optional(Schema.String)}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({Message: Schema.optional(Schema.String)}) {}
+export class DescribeEntityResponse extends Schema.Class<DescribeEntityResponse>("DescribeEntityResponse")({EntityType: Schema.optional(Schema.String), EntityIdentifier: Schema.optional(Schema.String), EntityArn: Schema.optional(Schema.String), LastModifiedDate: Schema.optional(Schema.String), Details: Schema.optional(Schema.String), DetailsDocument: Schema.optional(Schema.JsonValue)}) {}
+export class GetResourcePolicyResponse extends Schema.Class<GetResourcePolicyResponse>("GetResourcePolicyResponse")({Policy: Schema.optional(Schema.String)}) {}
+export class ListChangeSetsRequest extends Schema.Class<ListChangeSetsRequest>("ListChangeSetsRequest")({Catalog: Schema.String, FilterList: Schema.optional(FilterList), Sort: Schema.optional(Sort), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({ResourceArn: Schema.optional(Schema.String), Tags: Schema.optional(TagList)}) {}
+export class InternalServiceException extends Schema.Class<InternalServiceException>("InternalServiceException")({Message: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({Message: Schema.optional(Schema.String)}) {}
+export class DataProductSort extends Schema.Class<DataProductSort>("DataProductSort")({SortBy: Schema.optional(Schema.String), SortOrder: Schema.optional(Schema.String)}) {}
+export class SaaSProductSort extends Schema.Class<SaaSProductSort>("SaaSProductSort")({SortBy: Schema.optional(Schema.String), SortOrder: Schema.optional(Schema.String)}) {}
+export class AmiProductSort extends Schema.Class<AmiProductSort>("AmiProductSort")({SortBy: Schema.optional(Schema.String), SortOrder: Schema.optional(Schema.String)}) {}
+export class OfferSort extends Schema.Class<OfferSort>("OfferSort")({SortBy: Schema.optional(Schema.String), SortOrder: Schema.optional(Schema.String)}) {}
+export class ContainerProductSort extends Schema.Class<ContainerProductSort>("ContainerProductSort")({SortBy: Schema.optional(Schema.String), SortOrder: Schema.optional(Schema.String)}) {}
+export class ResaleAuthorizationSort extends Schema.Class<ResaleAuthorizationSort>("ResaleAuthorizationSort")({SortBy: Schema.optional(Schema.String), SortOrder: Schema.optional(Schema.String)}) {}
+export class MachineLearningProductSort extends Schema.Class<MachineLearningProductSort>("MachineLearningProductSort")({SortBy: Schema.optional(Schema.String), SortOrder: Schema.optional(Schema.String)}) {}
+export class OfferSetSort extends Schema.Class<OfferSetSort>("OfferSetSort")({SortBy: Schema.optional(Schema.String), SortOrder: Schema.optional(Schema.String)}) {}
+export class Entity extends Schema.Class<Entity>("Entity")({Type: Schema.String, Identifier: Schema.optional(Schema.String)}) {}
 export const DataProductEntityIdFilterValueList = Schema.Array(Schema.String);
 export const DataProductTitleFilterValueList = Schema.Array(Schema.String);
 export const DataProductVisibilityFilterValueList = Schema.Array(Schema.String);
@@ -58,6 +59,7 @@ export const OfferProductIdFilterValueList = Schema.Array(Schema.String);
 export const OfferResaleAuthorizationIdFilterValueList = Schema.Array(Schema.String);
 export const OfferStateFilterValueList = Schema.Array(Schema.String);
 export const OfferTargetingFilterValueList = Schema.Array(Schema.String);
+export const OfferSetIdFilterValueList = Schema.Array(Schema.String);
 export const ContainerProductEntityIdFilterValueList = Schema.Array(Schema.String);
 export const ContainerProductTitleFilterValueList = Schema.Array(Schema.String);
 export const ContainerProductVisibilityFilterValueList = Schema.Array(Schema.String);
@@ -76,114 +78,132 @@ export const ResaleAuthorizationOfferExtendedStatusFilterValueList = Schema.Arra
 export const MachineLearningProductEntityIdFilterValueList = Schema.Array(Schema.String);
 export const MachineLearningProductTitleFilterValueList = Schema.Array(Schema.String);
 export const MachineLearningProductVisibilityFilterValueList = Schema.Array(Schema.String);
-export const EntityTypeSort = Schema.Union(DataProductSort, SaaSProductSort, AmiProductSort, OfferSort, ContainerProductSort, ResaleAuthorizationSort, MachineLearningProductSort);
-export const Change = Schema.Struct({ChangeType: Schema.String, Entity: Entity, EntityTags: Schema.optional(TagList), Details: Schema.optional(Schema.String), DetailsDocument: Schema.optional(Schema.JsonValue), ChangeName: Schema.optional(Schema.String)});
+export const OfferSetEntityIdFilterValueList = Schema.Array(Schema.String);
+export const OfferSetNameFilterValueList = Schema.Array(Schema.String);
+export const OfferSetStateFilterValueList = Schema.Array(Schema.String);
+export const OfferSetAssociatedOfferIdsFilterValueList = Schema.Array(Schema.String);
+export const OfferSetSolutionIdFilterValueList = Schema.Array(Schema.String);
+export const EntityTypeSort = Schema.Union(DataProductSort, SaaSProductSort, AmiProductSort, OfferSort, ContainerProductSort, ResaleAuthorizationSort, MachineLearningProductSort, OfferSetSort);
+export class Change extends Schema.Class<Change>("Change")({ChangeType: Schema.String, Entity: Entity, EntityTags: Schema.optional(TagList), Details: Schema.optional(Schema.String), DetailsDocument: Schema.optional(Schema.JsonValue), ChangeName: Schema.optional(Schema.String)}) {}
 export const RequestedChangeList = Schema.Array(Change);
-export const DataProductEntityIdFilter = Schema.Struct({ValueList: Schema.optional(DataProductEntityIdFilterValueList)});
-export const DataProductTitleFilter = Schema.Struct({ValueList: Schema.optional(DataProductTitleFilterValueList), WildCardValue: Schema.optional(Schema.String)});
-export const DataProductVisibilityFilter = Schema.Struct({ValueList: Schema.optional(DataProductVisibilityFilterValueList)});
-export const SaaSProductEntityIdFilter = Schema.Struct({ValueList: Schema.optional(SaaSProductEntityIdFilterValueList)});
-export const SaaSProductTitleFilter = Schema.Struct({ValueList: Schema.optional(SaaSProductTitleFilterValueList), WildCardValue: Schema.optional(Schema.String)});
-export const SaaSProductVisibilityFilter = Schema.Struct({ValueList: Schema.optional(SaaSProductVisibilityFilterValueList)});
-export const AmiProductEntityIdFilter = Schema.Struct({ValueList: Schema.optional(AmiProductEntityIdFilterValueList)});
-export const AmiProductTitleFilter = Schema.Struct({ValueList: Schema.optional(AmiProductTitleFilterValueList), WildCardValue: Schema.optional(Schema.String)});
-export const AmiProductVisibilityFilter = Schema.Struct({ValueList: Schema.optional(AmiProductVisibilityFilterValueList)});
-export const OfferEntityIdFilter = Schema.Struct({ValueList: Schema.optional(OfferEntityIdFilterValueList)});
-export const OfferNameFilter = Schema.Struct({ValueList: Schema.optional(OfferNameFilterValueList), WildCardValue: Schema.optional(Schema.String)});
-export const OfferProductIdFilter = Schema.Struct({ValueList: Schema.optional(OfferProductIdFilterValueList)});
-export const OfferResaleAuthorizationIdFilter = Schema.Struct({ValueList: Schema.optional(OfferResaleAuthorizationIdFilterValueList)});
-export const OfferBuyerAccountsFilter = Schema.Struct({WildCardValue: Schema.optional(Schema.String)});
-export const OfferStateFilter = Schema.Struct({ValueList: Schema.optional(OfferStateFilterValueList)});
-export const OfferTargetingFilter = Schema.Struct({ValueList: Schema.optional(OfferTargetingFilterValueList)});
-export const ContainerProductEntityIdFilter = Schema.Struct({ValueList: Schema.optional(ContainerProductEntityIdFilterValueList)});
-export const ContainerProductTitleFilter = Schema.Struct({ValueList: Schema.optional(ContainerProductTitleFilterValueList), WildCardValue: Schema.optional(Schema.String)});
-export const ContainerProductVisibilityFilter = Schema.Struct({ValueList: Schema.optional(ContainerProductVisibilityFilterValueList)});
-export const ResaleAuthorizationEntityIdFilter = Schema.Struct({ValueList: Schema.optional(ResaleAuthorizationEntityIdFilterValueList)});
-export const ResaleAuthorizationNameFilter = Schema.Struct({ValueList: Schema.optional(ResaleAuthorizationNameFilterValueList), WildCardValue: Schema.optional(Schema.String)});
-export const ResaleAuthorizationProductIdFilter = Schema.Struct({ValueList: Schema.optional(ResaleAuthorizationProductIdFilterValueList), WildCardValue: Schema.optional(Schema.String)});
-export const ResaleAuthorizationManufacturerAccountIdFilter = Schema.Struct({ValueList: Schema.optional(ResaleAuthorizationManufacturerAccountIdFilterValueList), WildCardValue: Schema.optional(Schema.String)});
-export const ResaleAuthorizationProductNameFilter = Schema.Struct({ValueList: Schema.optional(ResaleAuthorizationProductNameFilterValueList), WildCardValue: Schema.optional(Schema.String)});
-export const ResaleAuthorizationManufacturerLegalNameFilter = Schema.Struct({ValueList: Schema.optional(ResaleAuthorizationManufacturerLegalNameFilterValueList), WildCardValue: Schema.optional(Schema.String)});
-export const ResaleAuthorizationResellerAccountIDFilter = Schema.Struct({ValueList: Schema.optional(ResaleAuthorizationResellerAccountIDFilterValueList), WildCardValue: Schema.optional(Schema.String)});
-export const ResaleAuthorizationResellerLegalNameFilter = Schema.Struct({ValueList: Schema.optional(ResaleAuthorizationResellerLegalNameFilterValueList), WildCardValue: Schema.optional(Schema.String)});
-export const ResaleAuthorizationStatusFilter = Schema.Struct({ValueList: Schema.optional(ResaleAuthorizationStatusFilterValueList)});
-export const ResaleAuthorizationOfferExtendedStatusFilter = Schema.Struct({ValueList: Schema.optional(ResaleAuthorizationOfferExtendedStatusFilterValueList)});
-export const MachineLearningProductEntityIdFilter = Schema.Struct({ValueList: Schema.optional(MachineLearningProductEntityIdFilterValueList)});
-export const MachineLearningProductTitleFilter = Schema.Struct({ValueList: Schema.optional(MachineLearningProductTitleFilterValueList), WildCardValue: Schema.optional(Schema.String)});
-export const MachineLearningProductVisibilityFilter = Schema.Struct({ValueList: Schema.optional(MachineLearningProductVisibilityFilterValueList)});
-export const ResourceInUseException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ValidationException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ResourceNotSupportedException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const StartChangeSetRequest = Schema.Struct({Catalog: Schema.String, ChangeSet: RequestedChangeList, ChangeSetName: Schema.optional(Schema.String), ClientRequestToken: Schema.optional(Schema.String), ChangeSetTags: Schema.optional(TagList), Intent: Schema.optional(Schema.String)});
-export const ErrorDetail = Schema.Struct({ErrorCode: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String)});
+export class DataProductEntityIdFilter extends Schema.Class<DataProductEntityIdFilter>("DataProductEntityIdFilter")({ValueList: Schema.optional(DataProductEntityIdFilterValueList)}) {}
+export class DataProductTitleFilter extends Schema.Class<DataProductTitleFilter>("DataProductTitleFilter")({ValueList: Schema.optional(DataProductTitleFilterValueList), WildCardValue: Schema.optional(Schema.String)}) {}
+export class DataProductVisibilityFilter extends Schema.Class<DataProductVisibilityFilter>("DataProductVisibilityFilter")({ValueList: Schema.optional(DataProductVisibilityFilterValueList)}) {}
+export class SaaSProductEntityIdFilter extends Schema.Class<SaaSProductEntityIdFilter>("SaaSProductEntityIdFilter")({ValueList: Schema.optional(SaaSProductEntityIdFilterValueList)}) {}
+export class SaaSProductTitleFilter extends Schema.Class<SaaSProductTitleFilter>("SaaSProductTitleFilter")({ValueList: Schema.optional(SaaSProductTitleFilterValueList), WildCardValue: Schema.optional(Schema.String)}) {}
+export class SaaSProductVisibilityFilter extends Schema.Class<SaaSProductVisibilityFilter>("SaaSProductVisibilityFilter")({ValueList: Schema.optional(SaaSProductVisibilityFilterValueList)}) {}
+export class AmiProductEntityIdFilter extends Schema.Class<AmiProductEntityIdFilter>("AmiProductEntityIdFilter")({ValueList: Schema.optional(AmiProductEntityIdFilterValueList)}) {}
+export class AmiProductTitleFilter extends Schema.Class<AmiProductTitleFilter>("AmiProductTitleFilter")({ValueList: Schema.optional(AmiProductTitleFilterValueList), WildCardValue: Schema.optional(Schema.String)}) {}
+export class AmiProductVisibilityFilter extends Schema.Class<AmiProductVisibilityFilter>("AmiProductVisibilityFilter")({ValueList: Schema.optional(AmiProductVisibilityFilterValueList)}) {}
+export class OfferEntityIdFilter extends Schema.Class<OfferEntityIdFilter>("OfferEntityIdFilter")({ValueList: Schema.optional(OfferEntityIdFilterValueList)}) {}
+export class OfferNameFilter extends Schema.Class<OfferNameFilter>("OfferNameFilter")({ValueList: Schema.optional(OfferNameFilterValueList), WildCardValue: Schema.optional(Schema.String)}) {}
+export class OfferProductIdFilter extends Schema.Class<OfferProductIdFilter>("OfferProductIdFilter")({ValueList: Schema.optional(OfferProductIdFilterValueList)}) {}
+export class OfferResaleAuthorizationIdFilter extends Schema.Class<OfferResaleAuthorizationIdFilter>("OfferResaleAuthorizationIdFilter")({ValueList: Schema.optional(OfferResaleAuthorizationIdFilterValueList)}) {}
+export class OfferBuyerAccountsFilter extends Schema.Class<OfferBuyerAccountsFilter>("OfferBuyerAccountsFilter")({WildCardValue: Schema.optional(Schema.String)}) {}
+export class OfferStateFilter extends Schema.Class<OfferStateFilter>("OfferStateFilter")({ValueList: Schema.optional(OfferStateFilterValueList)}) {}
+export class OfferTargetingFilter extends Schema.Class<OfferTargetingFilter>("OfferTargetingFilter")({ValueList: Schema.optional(OfferTargetingFilterValueList)}) {}
+export class OfferSetIdFilter extends Schema.Class<OfferSetIdFilter>("OfferSetIdFilter")({ValueList: Schema.optional(OfferSetIdFilterValueList)}) {}
+export class ContainerProductEntityIdFilter extends Schema.Class<ContainerProductEntityIdFilter>("ContainerProductEntityIdFilter")({ValueList: Schema.optional(ContainerProductEntityIdFilterValueList)}) {}
+export class ContainerProductTitleFilter extends Schema.Class<ContainerProductTitleFilter>("ContainerProductTitleFilter")({ValueList: Schema.optional(ContainerProductTitleFilterValueList), WildCardValue: Schema.optional(Schema.String)}) {}
+export class ContainerProductVisibilityFilter extends Schema.Class<ContainerProductVisibilityFilter>("ContainerProductVisibilityFilter")({ValueList: Schema.optional(ContainerProductVisibilityFilterValueList)}) {}
+export class ResaleAuthorizationEntityIdFilter extends Schema.Class<ResaleAuthorizationEntityIdFilter>("ResaleAuthorizationEntityIdFilter")({ValueList: Schema.optional(ResaleAuthorizationEntityIdFilterValueList)}) {}
+export class ResaleAuthorizationNameFilter extends Schema.Class<ResaleAuthorizationNameFilter>("ResaleAuthorizationNameFilter")({ValueList: Schema.optional(ResaleAuthorizationNameFilterValueList), WildCardValue: Schema.optional(Schema.String)}) {}
+export class ResaleAuthorizationProductIdFilter extends Schema.Class<ResaleAuthorizationProductIdFilter>("ResaleAuthorizationProductIdFilter")({ValueList: Schema.optional(ResaleAuthorizationProductIdFilterValueList), WildCardValue: Schema.optional(Schema.String)}) {}
+export class ResaleAuthorizationManufacturerAccountIdFilter extends Schema.Class<ResaleAuthorizationManufacturerAccountIdFilter>("ResaleAuthorizationManufacturerAccountIdFilter")({ValueList: Schema.optional(ResaleAuthorizationManufacturerAccountIdFilterValueList), WildCardValue: Schema.optional(Schema.String)}) {}
+export class ResaleAuthorizationProductNameFilter extends Schema.Class<ResaleAuthorizationProductNameFilter>("ResaleAuthorizationProductNameFilter")({ValueList: Schema.optional(ResaleAuthorizationProductNameFilterValueList), WildCardValue: Schema.optional(Schema.String)}) {}
+export class ResaleAuthorizationManufacturerLegalNameFilter extends Schema.Class<ResaleAuthorizationManufacturerLegalNameFilter>("ResaleAuthorizationManufacturerLegalNameFilter")({ValueList: Schema.optional(ResaleAuthorizationManufacturerLegalNameFilterValueList), WildCardValue: Schema.optional(Schema.String)}) {}
+export class ResaleAuthorizationResellerAccountIDFilter extends Schema.Class<ResaleAuthorizationResellerAccountIDFilter>("ResaleAuthorizationResellerAccountIDFilter")({ValueList: Schema.optional(ResaleAuthorizationResellerAccountIDFilterValueList), WildCardValue: Schema.optional(Schema.String)}) {}
+export class ResaleAuthorizationResellerLegalNameFilter extends Schema.Class<ResaleAuthorizationResellerLegalNameFilter>("ResaleAuthorizationResellerLegalNameFilter")({ValueList: Schema.optional(ResaleAuthorizationResellerLegalNameFilterValueList), WildCardValue: Schema.optional(Schema.String)}) {}
+export class ResaleAuthorizationStatusFilter extends Schema.Class<ResaleAuthorizationStatusFilter>("ResaleAuthorizationStatusFilter")({ValueList: Schema.optional(ResaleAuthorizationStatusFilterValueList)}) {}
+export class ResaleAuthorizationOfferExtendedStatusFilter extends Schema.Class<ResaleAuthorizationOfferExtendedStatusFilter>("ResaleAuthorizationOfferExtendedStatusFilter")({ValueList: Schema.optional(ResaleAuthorizationOfferExtendedStatusFilterValueList)}) {}
+export class MachineLearningProductEntityIdFilter extends Schema.Class<MachineLearningProductEntityIdFilter>("MachineLearningProductEntityIdFilter")({ValueList: Schema.optional(MachineLearningProductEntityIdFilterValueList)}) {}
+export class MachineLearningProductTitleFilter extends Schema.Class<MachineLearningProductTitleFilter>("MachineLearningProductTitleFilter")({ValueList: Schema.optional(MachineLearningProductTitleFilterValueList), WildCardValue: Schema.optional(Schema.String)}) {}
+export class MachineLearningProductVisibilityFilter extends Schema.Class<MachineLearningProductVisibilityFilter>("MachineLearningProductVisibilityFilter")({ValueList: Schema.optional(MachineLearningProductVisibilityFilterValueList)}) {}
+export class OfferSetEntityIdFilter extends Schema.Class<OfferSetEntityIdFilter>("OfferSetEntityIdFilter")({ValueList: Schema.optional(OfferSetEntityIdFilterValueList)}) {}
+export class OfferSetNameFilter extends Schema.Class<OfferSetNameFilter>("OfferSetNameFilter")({ValueList: Schema.optional(OfferSetNameFilterValueList)}) {}
+export class OfferSetStateFilter extends Schema.Class<OfferSetStateFilter>("OfferSetStateFilter")({ValueList: Schema.optional(OfferSetStateFilterValueList)}) {}
+export class OfferSetAssociatedOfferIdsFilter extends Schema.Class<OfferSetAssociatedOfferIdsFilter>("OfferSetAssociatedOfferIdsFilter")({ValueList: Schema.optional(OfferSetAssociatedOfferIdsFilterValueList)}) {}
+export class OfferSetSolutionIdFilter extends Schema.Class<OfferSetSolutionIdFilter>("OfferSetSolutionIdFilter")({ValueList: Schema.optional(OfferSetSolutionIdFilterValueList)}) {}
+export class ResourceInUseException extends Schema.Class<ResourceInUseException>("ResourceInUseException")({Message: Schema.optional(Schema.String)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({Message: Schema.optional(Schema.String)}) {}
+export class ResourceNotSupportedException extends Schema.Class<ResourceNotSupportedException>("ResourceNotSupportedException")({Message: Schema.optional(Schema.String)}) {}
+export class StartChangeSetRequest extends Schema.Class<StartChangeSetRequest>("StartChangeSetRequest")({Catalog: Schema.String, ChangeSet: RequestedChangeList, ChangeSetName: Schema.optional(Schema.String), ClientRequestToken: Schema.optional(Schema.String), ChangeSetTags: Schema.optional(TagList), Intent: Schema.optional(Schema.String)}) {}
+export class ErrorDetail extends Schema.Class<ErrorDetail>("ErrorDetail")({ErrorCode: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String)}) {}
 export const ErrorDetailList = Schema.Array(ErrorDetail);
 export const ResourceIdList = Schema.Array(Schema.String);
-export const DataProductLastModifiedDateFilterDateRange = Schema.Struct({AfterValue: Schema.optional(Schema.String), BeforeValue: Schema.optional(Schema.String)});
-export const SaaSProductLastModifiedDateFilterDateRange = Schema.Struct({AfterValue: Schema.optional(Schema.String), BeforeValue: Schema.optional(Schema.String)});
-export const AmiProductLastModifiedDateFilterDateRange = Schema.Struct({AfterValue: Schema.optional(Schema.String), BeforeValue: Schema.optional(Schema.String)});
-export const OfferReleaseDateFilterDateRange = Schema.Struct({AfterValue: Schema.optional(Schema.String), BeforeValue: Schema.optional(Schema.String)});
-export const OfferAvailabilityEndDateFilterDateRange = Schema.Struct({AfterValue: Schema.optional(Schema.String), BeforeValue: Schema.optional(Schema.String)});
-export const OfferLastModifiedDateFilterDateRange = Schema.Struct({AfterValue: Schema.optional(Schema.String), BeforeValue: Schema.optional(Schema.String)});
-export const ContainerProductLastModifiedDateFilterDateRange = Schema.Struct({AfterValue: Schema.optional(Schema.String), BeforeValue: Schema.optional(Schema.String)});
-export const ResaleAuthorizationCreatedDateFilterDateRange = Schema.Struct({AfterValue: Schema.optional(Schema.String), BeforeValue: Schema.optional(Schema.String)});
-export const ResaleAuthorizationAvailabilityEndDateFilterDateRange = Schema.Struct({AfterValue: Schema.optional(Schema.String), BeforeValue: Schema.optional(Schema.String)});
-export const ResaleAuthorizationLastModifiedDateFilterDateRange = Schema.Struct({AfterValue: Schema.optional(Schema.String), BeforeValue: Schema.optional(Schema.String)});
-export const MachineLearningProductLastModifiedDateFilterDateRange = Schema.Struct({AfterValue: Schema.optional(Schema.String), BeforeValue: Schema.optional(Schema.String)});
-export const ChangeSummary = Schema.Struct({ChangeType: Schema.optional(Schema.String), Entity: Schema.optional(Entity), Details: Schema.optional(Schema.String), DetailsDocument: Schema.optional(Schema.JsonValue), ErrorDetailList: Schema.optional(ErrorDetailList), ChangeName: Schema.optional(Schema.String)});
+export class DataProductLastModifiedDateFilterDateRange extends Schema.Class<DataProductLastModifiedDateFilterDateRange>("DataProductLastModifiedDateFilterDateRange")({AfterValue: Schema.optional(Schema.String), BeforeValue: Schema.optional(Schema.String)}) {}
+export class SaaSProductLastModifiedDateFilterDateRange extends Schema.Class<SaaSProductLastModifiedDateFilterDateRange>("SaaSProductLastModifiedDateFilterDateRange")({AfterValue: Schema.optional(Schema.String), BeforeValue: Schema.optional(Schema.String)}) {}
+export class AmiProductLastModifiedDateFilterDateRange extends Schema.Class<AmiProductLastModifiedDateFilterDateRange>("AmiProductLastModifiedDateFilterDateRange")({AfterValue: Schema.optional(Schema.String), BeforeValue: Schema.optional(Schema.String)}) {}
+export class OfferReleaseDateFilterDateRange extends Schema.Class<OfferReleaseDateFilterDateRange>("OfferReleaseDateFilterDateRange")({AfterValue: Schema.optional(Schema.String), BeforeValue: Schema.optional(Schema.String)}) {}
+export class OfferAvailabilityEndDateFilterDateRange extends Schema.Class<OfferAvailabilityEndDateFilterDateRange>("OfferAvailabilityEndDateFilterDateRange")({AfterValue: Schema.optional(Schema.String), BeforeValue: Schema.optional(Schema.String)}) {}
+export class OfferLastModifiedDateFilterDateRange extends Schema.Class<OfferLastModifiedDateFilterDateRange>("OfferLastModifiedDateFilterDateRange")({AfterValue: Schema.optional(Schema.String), BeforeValue: Schema.optional(Schema.String)}) {}
+export class ContainerProductLastModifiedDateFilterDateRange extends Schema.Class<ContainerProductLastModifiedDateFilterDateRange>("ContainerProductLastModifiedDateFilterDateRange")({AfterValue: Schema.optional(Schema.String), BeforeValue: Schema.optional(Schema.String)}) {}
+export class ResaleAuthorizationCreatedDateFilterDateRange extends Schema.Class<ResaleAuthorizationCreatedDateFilterDateRange>("ResaleAuthorizationCreatedDateFilterDateRange")({AfterValue: Schema.optional(Schema.String), BeforeValue: Schema.optional(Schema.String)}) {}
+export class ResaleAuthorizationAvailabilityEndDateFilterDateRange extends Schema.Class<ResaleAuthorizationAvailabilityEndDateFilterDateRange>("ResaleAuthorizationAvailabilityEndDateFilterDateRange")({AfterValue: Schema.optional(Schema.String), BeforeValue: Schema.optional(Schema.String)}) {}
+export class ResaleAuthorizationLastModifiedDateFilterDateRange extends Schema.Class<ResaleAuthorizationLastModifiedDateFilterDateRange>("ResaleAuthorizationLastModifiedDateFilterDateRange")({AfterValue: Schema.optional(Schema.String), BeforeValue: Schema.optional(Schema.String)}) {}
+export class MachineLearningProductLastModifiedDateFilterDateRange extends Schema.Class<MachineLearningProductLastModifiedDateFilterDateRange>("MachineLearningProductLastModifiedDateFilterDateRange")({AfterValue: Schema.optional(Schema.String), BeforeValue: Schema.optional(Schema.String)}) {}
+export class OfferSetReleaseDateFilterDateRange extends Schema.Class<OfferSetReleaseDateFilterDateRange>("OfferSetReleaseDateFilterDateRange")({AfterValue: Schema.optional(Schema.String), BeforeValue: Schema.optional(Schema.String)}) {}
+export class OfferSetLastModifiedDateFilterDateRange extends Schema.Class<OfferSetLastModifiedDateFilterDateRange>("OfferSetLastModifiedDateFilterDateRange")({AfterValue: Schema.optional(Schema.String), BeforeValue: Schema.optional(Schema.String)}) {}
+export class ChangeSummary extends Schema.Class<ChangeSummary>("ChangeSummary")({ChangeType: Schema.optional(Schema.String), Entity: Schema.optional(Entity), Details: Schema.optional(Schema.String), DetailsDocument: Schema.optional(Schema.JsonValue), ErrorDetailList: Schema.optional(ErrorDetailList), ChangeName: Schema.optional(Schema.String)}) {}
 export const ChangeSetDescription = Schema.Array(ChangeSummary);
-export const ChangeSetSummaryListItem = Schema.Struct({ChangeSetId: Schema.optional(Schema.String), ChangeSetArn: Schema.optional(Schema.String), ChangeSetName: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.String), EndTime: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), EntityIdList: Schema.optional(ResourceIdList), FailureCode: Schema.optional(Schema.String)});
+export class ChangeSetSummaryListItem extends Schema.Class<ChangeSetSummaryListItem>("ChangeSetSummaryListItem")({ChangeSetId: Schema.optional(Schema.String), ChangeSetArn: Schema.optional(Schema.String), ChangeSetName: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.String), EndTime: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), EntityIdList: Schema.optional(ResourceIdList), FailureCode: Schema.optional(Schema.String)}) {}
 export const ChangeSetSummaryList = Schema.Array(ChangeSetSummaryListItem);
-export const DataProductLastModifiedDateFilter = Schema.Struct({DateRange: Schema.optional(DataProductLastModifiedDateFilterDateRange)});
-export const SaaSProductLastModifiedDateFilter = Schema.Struct({DateRange: Schema.optional(SaaSProductLastModifiedDateFilterDateRange)});
-export const AmiProductLastModifiedDateFilter = Schema.Struct({DateRange: Schema.optional(AmiProductLastModifiedDateFilterDateRange)});
-export const OfferReleaseDateFilter = Schema.Struct({DateRange: Schema.optional(OfferReleaseDateFilterDateRange)});
-export const OfferAvailabilityEndDateFilter = Schema.Struct({DateRange: Schema.optional(OfferAvailabilityEndDateFilterDateRange)});
-export const OfferLastModifiedDateFilter = Schema.Struct({DateRange: Schema.optional(OfferLastModifiedDateFilterDateRange)});
-export const ContainerProductLastModifiedDateFilter = Schema.Struct({DateRange: Schema.optional(ContainerProductLastModifiedDateFilterDateRange)});
-export const ResaleAuthorizationCreatedDateFilter = Schema.Struct({DateRange: Schema.optional(ResaleAuthorizationCreatedDateFilterDateRange), ValueList: Schema.optional(ResaleAuthorizationCreatedDateFilterValueList)});
-export const ResaleAuthorizationAvailabilityEndDateFilter = Schema.Struct({DateRange: Schema.optional(ResaleAuthorizationAvailabilityEndDateFilterDateRange), ValueList: Schema.optional(ResaleAuthorizationAvailabilityEndDateFilterValueList)});
-export const ResaleAuthorizationLastModifiedDateFilter = Schema.Struct({DateRange: Schema.optional(ResaleAuthorizationLastModifiedDateFilterDateRange)});
-export const MachineLearningProductLastModifiedDateFilter = Schema.Struct({DateRange: Schema.optional(MachineLearningProductLastModifiedDateFilterDateRange)});
-export const DescribeChangeSetResponse = Schema.Struct({ChangeSetId: Schema.optional(Schema.String), ChangeSetArn: Schema.optional(Schema.String), ChangeSetName: Schema.optional(Schema.String), Intent: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.String), EndTime: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), FailureCode: Schema.optional(Schema.String), FailureDescription: Schema.optional(Schema.String), ChangeSet: Schema.optional(ChangeSetDescription)});
-export const ListChangeSetsResponse = Schema.Struct({ChangeSetSummaryList: Schema.optional(ChangeSetSummaryList), NextToken: Schema.optional(Schema.String)});
-export const StartChangeSetResponse = Schema.Struct({ChangeSetId: Schema.optional(Schema.String), ChangeSetArn: Schema.optional(Schema.String)});
-export const EntityDetail = Schema.Struct({EntityType: Schema.optional(Schema.String), EntityArn: Schema.optional(Schema.String), EntityIdentifier: Schema.optional(Schema.String), LastModifiedDate: Schema.optional(Schema.String), DetailsDocument: Schema.optional(Schema.JsonValue)});
-export const BatchDescribeErrorDetail = Schema.Struct({ErrorCode: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String)});
-export const DataProductFilters = Schema.Struct({EntityId: Schema.optional(DataProductEntityIdFilter), ProductTitle: Schema.optional(DataProductTitleFilter), Visibility: Schema.optional(DataProductVisibilityFilter), LastModifiedDate: Schema.optional(DataProductLastModifiedDateFilter)});
-export const SaaSProductFilters = Schema.Struct({EntityId: Schema.optional(SaaSProductEntityIdFilter), ProductTitle: Schema.optional(SaaSProductTitleFilter), Visibility: Schema.optional(SaaSProductVisibilityFilter), LastModifiedDate: Schema.optional(SaaSProductLastModifiedDateFilter)});
-export const AmiProductFilters = Schema.Struct({EntityId: Schema.optional(AmiProductEntityIdFilter), LastModifiedDate: Schema.optional(AmiProductLastModifiedDateFilter), ProductTitle: Schema.optional(AmiProductTitleFilter), Visibility: Schema.optional(AmiProductVisibilityFilter)});
-export const OfferFilters = Schema.Struct({EntityId: Schema.optional(OfferEntityIdFilter), Name: Schema.optional(OfferNameFilter), ProductId: Schema.optional(OfferProductIdFilter), ResaleAuthorizationId: Schema.optional(OfferResaleAuthorizationIdFilter), ReleaseDate: Schema.optional(OfferReleaseDateFilter), AvailabilityEndDate: Schema.optional(OfferAvailabilityEndDateFilter), BuyerAccounts: Schema.optional(OfferBuyerAccountsFilter), State: Schema.optional(OfferStateFilter), Targeting: Schema.optional(OfferTargetingFilter), LastModifiedDate: Schema.optional(OfferLastModifiedDateFilter)});
-export const ContainerProductFilters = Schema.Struct({EntityId: Schema.optional(ContainerProductEntityIdFilter), LastModifiedDate: Schema.optional(ContainerProductLastModifiedDateFilter), ProductTitle: Schema.optional(ContainerProductTitleFilter), Visibility: Schema.optional(ContainerProductVisibilityFilter)});
-export const ResaleAuthorizationFilters = Schema.Struct({EntityId: Schema.optional(ResaleAuthorizationEntityIdFilter), Name: Schema.optional(ResaleAuthorizationNameFilter), ProductId: Schema.optional(ResaleAuthorizationProductIdFilter), CreatedDate: Schema.optional(ResaleAuthorizationCreatedDateFilter), AvailabilityEndDate: Schema.optional(ResaleAuthorizationAvailabilityEndDateFilter), ManufacturerAccountId: Schema.optional(ResaleAuthorizationManufacturerAccountIdFilter), ProductName: Schema.optional(ResaleAuthorizationProductNameFilter), ManufacturerLegalName: Schema.optional(ResaleAuthorizationManufacturerLegalNameFilter), ResellerAccountID: Schema.optional(ResaleAuthorizationResellerAccountIDFilter), ResellerLegalName: Schema.optional(ResaleAuthorizationResellerLegalNameFilter), Status: Schema.optional(ResaleAuthorizationStatusFilter), OfferExtendedStatus: Schema.optional(ResaleAuthorizationOfferExtendedStatusFilter), LastModifiedDate: Schema.optional(ResaleAuthorizationLastModifiedDateFilter)});
-export const MachineLearningProductFilters = Schema.Struct({EntityId: Schema.optional(MachineLearningProductEntityIdFilter), LastModifiedDate: Schema.optional(MachineLearningProductLastModifiedDateFilter), ProductTitle: Schema.optional(MachineLearningProductTitleFilter), Visibility: Schema.optional(MachineLearningProductVisibilityFilter)});
+export class DataProductLastModifiedDateFilter extends Schema.Class<DataProductLastModifiedDateFilter>("DataProductLastModifiedDateFilter")({DateRange: Schema.optional(DataProductLastModifiedDateFilterDateRange)}) {}
+export class SaaSProductLastModifiedDateFilter extends Schema.Class<SaaSProductLastModifiedDateFilter>("SaaSProductLastModifiedDateFilter")({DateRange: Schema.optional(SaaSProductLastModifiedDateFilterDateRange)}) {}
+export class AmiProductLastModifiedDateFilter extends Schema.Class<AmiProductLastModifiedDateFilter>("AmiProductLastModifiedDateFilter")({DateRange: Schema.optional(AmiProductLastModifiedDateFilterDateRange)}) {}
+export class OfferReleaseDateFilter extends Schema.Class<OfferReleaseDateFilter>("OfferReleaseDateFilter")({DateRange: Schema.optional(OfferReleaseDateFilterDateRange)}) {}
+export class OfferAvailabilityEndDateFilter extends Schema.Class<OfferAvailabilityEndDateFilter>("OfferAvailabilityEndDateFilter")({DateRange: Schema.optional(OfferAvailabilityEndDateFilterDateRange)}) {}
+export class OfferLastModifiedDateFilter extends Schema.Class<OfferLastModifiedDateFilter>("OfferLastModifiedDateFilter")({DateRange: Schema.optional(OfferLastModifiedDateFilterDateRange)}) {}
+export class ContainerProductLastModifiedDateFilter extends Schema.Class<ContainerProductLastModifiedDateFilter>("ContainerProductLastModifiedDateFilter")({DateRange: Schema.optional(ContainerProductLastModifiedDateFilterDateRange)}) {}
+export class ResaleAuthorizationCreatedDateFilter extends Schema.Class<ResaleAuthorizationCreatedDateFilter>("ResaleAuthorizationCreatedDateFilter")({DateRange: Schema.optional(ResaleAuthorizationCreatedDateFilterDateRange), ValueList: Schema.optional(ResaleAuthorizationCreatedDateFilterValueList)}) {}
+export class ResaleAuthorizationAvailabilityEndDateFilter extends Schema.Class<ResaleAuthorizationAvailabilityEndDateFilter>("ResaleAuthorizationAvailabilityEndDateFilter")({DateRange: Schema.optional(ResaleAuthorizationAvailabilityEndDateFilterDateRange), ValueList: Schema.optional(ResaleAuthorizationAvailabilityEndDateFilterValueList)}) {}
+export class ResaleAuthorizationLastModifiedDateFilter extends Schema.Class<ResaleAuthorizationLastModifiedDateFilter>("ResaleAuthorizationLastModifiedDateFilter")({DateRange: Schema.optional(ResaleAuthorizationLastModifiedDateFilterDateRange)}) {}
+export class MachineLearningProductLastModifiedDateFilter extends Schema.Class<MachineLearningProductLastModifiedDateFilter>("MachineLearningProductLastModifiedDateFilter")({DateRange: Schema.optional(MachineLearningProductLastModifiedDateFilterDateRange)}) {}
+export class OfferSetReleaseDateFilter extends Schema.Class<OfferSetReleaseDateFilter>("OfferSetReleaseDateFilter")({DateRange: Schema.optional(OfferSetReleaseDateFilterDateRange)}) {}
+export class OfferSetLastModifiedDateFilter extends Schema.Class<OfferSetLastModifiedDateFilter>("OfferSetLastModifiedDateFilter")({DateRange: Schema.optional(OfferSetLastModifiedDateFilterDateRange)}) {}
+export class DescribeChangeSetResponse extends Schema.Class<DescribeChangeSetResponse>("DescribeChangeSetResponse")({ChangeSetId: Schema.optional(Schema.String), ChangeSetArn: Schema.optional(Schema.String), ChangeSetName: Schema.optional(Schema.String), Intent: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.String), EndTime: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), FailureCode: Schema.optional(Schema.String), FailureDescription: Schema.optional(Schema.String), ChangeSet: Schema.optional(ChangeSetDescription)}) {}
+export class ListChangeSetsResponse extends Schema.Class<ListChangeSetsResponse>("ListChangeSetsResponse")({ChangeSetSummaryList: Schema.optional(ChangeSetSummaryList), NextToken: Schema.optional(Schema.String)}) {}
+export class StartChangeSetResponse extends Schema.Class<StartChangeSetResponse>("StartChangeSetResponse")({ChangeSetId: Schema.optional(Schema.String), ChangeSetArn: Schema.optional(Schema.String)}) {}
+export class EntityDetail extends Schema.Class<EntityDetail>("EntityDetail")({EntityType: Schema.optional(Schema.String), EntityArn: Schema.optional(Schema.String), EntityIdentifier: Schema.optional(Schema.String), LastModifiedDate: Schema.optional(Schema.String), DetailsDocument: Schema.optional(Schema.JsonValue)}) {}
+export class BatchDescribeErrorDetail extends Schema.Class<BatchDescribeErrorDetail>("BatchDescribeErrorDetail")({ErrorCode: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String)}) {}
+export class DataProductFilters extends Schema.Class<DataProductFilters>("DataProductFilters")({EntityId: Schema.optional(DataProductEntityIdFilter), ProductTitle: Schema.optional(DataProductTitleFilter), Visibility: Schema.optional(DataProductVisibilityFilter), LastModifiedDate: Schema.optional(DataProductLastModifiedDateFilter)}) {}
+export class SaaSProductFilters extends Schema.Class<SaaSProductFilters>("SaaSProductFilters")({EntityId: Schema.optional(SaaSProductEntityIdFilter), ProductTitle: Schema.optional(SaaSProductTitleFilter), Visibility: Schema.optional(SaaSProductVisibilityFilter), LastModifiedDate: Schema.optional(SaaSProductLastModifiedDateFilter)}) {}
+export class AmiProductFilters extends Schema.Class<AmiProductFilters>("AmiProductFilters")({EntityId: Schema.optional(AmiProductEntityIdFilter), LastModifiedDate: Schema.optional(AmiProductLastModifiedDateFilter), ProductTitle: Schema.optional(AmiProductTitleFilter), Visibility: Schema.optional(AmiProductVisibilityFilter)}) {}
+export class OfferFilters extends Schema.Class<OfferFilters>("OfferFilters")({EntityId: Schema.optional(OfferEntityIdFilter), Name: Schema.optional(OfferNameFilter), ProductId: Schema.optional(OfferProductIdFilter), ResaleAuthorizationId: Schema.optional(OfferResaleAuthorizationIdFilter), ReleaseDate: Schema.optional(OfferReleaseDateFilter), AvailabilityEndDate: Schema.optional(OfferAvailabilityEndDateFilter), BuyerAccounts: Schema.optional(OfferBuyerAccountsFilter), State: Schema.optional(OfferStateFilter), Targeting: Schema.optional(OfferTargetingFilter), LastModifiedDate: Schema.optional(OfferLastModifiedDateFilter), OfferSetId: Schema.optional(OfferSetIdFilter)}) {}
+export class ContainerProductFilters extends Schema.Class<ContainerProductFilters>("ContainerProductFilters")({EntityId: Schema.optional(ContainerProductEntityIdFilter), LastModifiedDate: Schema.optional(ContainerProductLastModifiedDateFilter), ProductTitle: Schema.optional(ContainerProductTitleFilter), Visibility: Schema.optional(ContainerProductVisibilityFilter)}) {}
+export class ResaleAuthorizationFilters extends Schema.Class<ResaleAuthorizationFilters>("ResaleAuthorizationFilters")({EntityId: Schema.optional(ResaleAuthorizationEntityIdFilter), Name: Schema.optional(ResaleAuthorizationNameFilter), ProductId: Schema.optional(ResaleAuthorizationProductIdFilter), CreatedDate: Schema.optional(ResaleAuthorizationCreatedDateFilter), AvailabilityEndDate: Schema.optional(ResaleAuthorizationAvailabilityEndDateFilter), ManufacturerAccountId: Schema.optional(ResaleAuthorizationManufacturerAccountIdFilter), ProductName: Schema.optional(ResaleAuthorizationProductNameFilter), ManufacturerLegalName: Schema.optional(ResaleAuthorizationManufacturerLegalNameFilter), ResellerAccountID: Schema.optional(ResaleAuthorizationResellerAccountIDFilter), ResellerLegalName: Schema.optional(ResaleAuthorizationResellerLegalNameFilter), Status: Schema.optional(ResaleAuthorizationStatusFilter), OfferExtendedStatus: Schema.optional(ResaleAuthorizationOfferExtendedStatusFilter), LastModifiedDate: Schema.optional(ResaleAuthorizationLastModifiedDateFilter)}) {}
+export class MachineLearningProductFilters extends Schema.Class<MachineLearningProductFilters>("MachineLearningProductFilters")({EntityId: Schema.optional(MachineLearningProductEntityIdFilter), LastModifiedDate: Schema.optional(MachineLearningProductLastModifiedDateFilter), ProductTitle: Schema.optional(MachineLearningProductTitleFilter), Visibility: Schema.optional(MachineLearningProductVisibilityFilter)}) {}
+export class OfferSetFilters extends Schema.Class<OfferSetFilters>("OfferSetFilters")({EntityId: Schema.optional(OfferSetEntityIdFilter), Name: Schema.optional(OfferSetNameFilter), State: Schema.optional(OfferSetStateFilter), ReleaseDate: Schema.optional(OfferSetReleaseDateFilter), AssociatedOfferIds: Schema.optional(OfferSetAssociatedOfferIdsFilter), SolutionId: Schema.optional(OfferSetSolutionIdFilter), LastModifiedDate: Schema.optional(OfferSetLastModifiedDateFilter)}) {}
 export const EntityDetails = Schema.Record({key: Schema.String, value: EntityDetail});
 export const Errors = Schema.Record({key: Schema.String, value: BatchDescribeErrorDetail});
-export const EntityTypeFilters = Schema.Union(DataProductFilters, SaaSProductFilters, AmiProductFilters, OfferFilters, ContainerProductFilters, ResaleAuthorizationFilters, MachineLearningProductFilters);
-export const BatchDescribeEntitiesResponse = Schema.Struct({EntityDetails: Schema.optional(EntityDetails), Errors: Schema.optional(Errors)});
-export const ListEntitiesRequest = Schema.Struct({Catalog: Schema.String, EntityType: Schema.String, FilterList: Schema.optional(FilterList), Sort: Schema.optional(Sort), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), OwnershipType: Schema.optional(Schema.String), EntityTypeFilters: Schema.optional(EntityTypeFilters), EntityTypeSort: Schema.optional(EntityTypeSort)});
-export const ServiceQuotaExceededException = Schema.Struct({Message: Schema.optional(Schema.String)});
+export const EntityTypeFilters = Schema.Union(DataProductFilters, SaaSProductFilters, AmiProductFilters, OfferFilters, ContainerProductFilters, ResaleAuthorizationFilters, MachineLearningProductFilters, OfferSetFilters);
+export class BatchDescribeEntitiesResponse extends Schema.Class<BatchDescribeEntitiesResponse>("BatchDescribeEntitiesResponse")({EntityDetails: Schema.optional(EntityDetails), Errors: Schema.optional(Errors)}) {}
+export class ListEntitiesRequest extends Schema.Class<ListEntitiesRequest>("ListEntitiesRequest")({Catalog: Schema.String, EntityType: Schema.String, FilterList: Schema.optional(FilterList), Sort: Schema.optional(Sort), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), OwnershipType: Schema.optional(Schema.String), EntityTypeFilters: Schema.optional(EntityTypeFilters), EntityTypeSort: Schema.optional(EntityTypeSort)}) {}
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({Message: Schema.optional(Schema.String)}) {}
 export const OfferBuyerAccountsList = Schema.Array(Schema.String);
 export const OfferTargetingList = Schema.Array(Schema.String);
-export const AmiProductSummary = Schema.Struct({ProductTitle: Schema.optional(Schema.String), Visibility: Schema.optional(Schema.String)});
-export const ContainerProductSummary = Schema.Struct({ProductTitle: Schema.optional(Schema.String), Visibility: Schema.optional(Schema.String)});
-export const DataProductSummary = Schema.Struct({ProductTitle: Schema.optional(Schema.String), Visibility: Schema.optional(Schema.String)});
-export const SaaSProductSummary = Schema.Struct({ProductTitle: Schema.optional(Schema.String), Visibility: Schema.optional(Schema.String)});
-export const OfferSummary = Schema.Struct({Name: Schema.optional(Schema.String), ProductId: Schema.optional(Schema.String), ResaleAuthorizationId: Schema.optional(Schema.String), ReleaseDate: Schema.optional(Schema.String), AvailabilityEndDate: Schema.optional(Schema.String), BuyerAccounts: Schema.optional(OfferBuyerAccountsList), State: Schema.optional(Schema.String), Targeting: Schema.optional(OfferTargetingList)});
-export const ResaleAuthorizationSummary = Schema.Struct({Name: Schema.optional(Schema.String), ProductId: Schema.optional(Schema.String), ProductName: Schema.optional(Schema.String), ManufacturerAccountId: Schema.optional(Schema.String), ManufacturerLegalName: Schema.optional(Schema.String), ResellerAccountID: Schema.optional(Schema.String), ResellerLegalName: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), OfferExtendedStatus: Schema.optional(Schema.String), CreatedDate: Schema.optional(Schema.String), AvailabilityEndDate: Schema.optional(Schema.String)});
-export const MachineLearningProductSummary = Schema.Struct({ProductTitle: Schema.optional(Schema.String), Visibility: Schema.optional(Schema.String)});
-export const EntitySummary = Schema.Struct({Name: Schema.optional(Schema.String), EntityType: Schema.optional(Schema.String), EntityId: Schema.optional(Schema.String), EntityArn: Schema.optional(Schema.String), LastModifiedDate: Schema.optional(Schema.String), Visibility: Schema.optional(Schema.String), AmiProductSummary: Schema.optional(AmiProductSummary), ContainerProductSummary: Schema.optional(ContainerProductSummary), DataProductSummary: Schema.optional(DataProductSummary), SaaSProductSummary: Schema.optional(SaaSProductSummary), OfferSummary: Schema.optional(OfferSummary), ResaleAuthorizationSummary: Schema.optional(ResaleAuthorizationSummary), MachineLearningProductSummary: Schema.optional(MachineLearningProductSummary)});
+export const OfferSetAssociatedOfferIdsList = Schema.Array(Schema.String);
+export class AmiProductSummary extends Schema.Class<AmiProductSummary>("AmiProductSummary")({ProductTitle: Schema.optional(Schema.String), Visibility: Schema.optional(Schema.String)}) {}
+export class ContainerProductSummary extends Schema.Class<ContainerProductSummary>("ContainerProductSummary")({ProductTitle: Schema.optional(Schema.String), Visibility: Schema.optional(Schema.String)}) {}
+export class DataProductSummary extends Schema.Class<DataProductSummary>("DataProductSummary")({ProductTitle: Schema.optional(Schema.String), Visibility: Schema.optional(Schema.String)}) {}
+export class SaaSProductSummary extends Schema.Class<SaaSProductSummary>("SaaSProductSummary")({ProductTitle: Schema.optional(Schema.String), Visibility: Schema.optional(Schema.String)}) {}
+export class OfferSummary extends Schema.Class<OfferSummary>("OfferSummary")({Name: Schema.optional(Schema.String), ProductId: Schema.optional(Schema.String), ResaleAuthorizationId: Schema.optional(Schema.String), ReleaseDate: Schema.optional(Schema.String), AvailabilityEndDate: Schema.optional(Schema.String), BuyerAccounts: Schema.optional(OfferBuyerAccountsList), State: Schema.optional(Schema.String), Targeting: Schema.optional(OfferTargetingList), OfferSetId: Schema.optional(Schema.String)}) {}
+export class ResaleAuthorizationSummary extends Schema.Class<ResaleAuthorizationSummary>("ResaleAuthorizationSummary")({Name: Schema.optional(Schema.String), ProductId: Schema.optional(Schema.String), ProductName: Schema.optional(Schema.String), ManufacturerAccountId: Schema.optional(Schema.String), ManufacturerLegalName: Schema.optional(Schema.String), ResellerAccountID: Schema.optional(Schema.String), ResellerLegalName: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), OfferExtendedStatus: Schema.optional(Schema.String), CreatedDate: Schema.optional(Schema.String), AvailabilityEndDate: Schema.optional(Schema.String)}) {}
+export class MachineLearningProductSummary extends Schema.Class<MachineLearningProductSummary>("MachineLearningProductSummary")({ProductTitle: Schema.optional(Schema.String), Visibility: Schema.optional(Schema.String)}) {}
+export class OfferSetSummary extends Schema.Class<OfferSetSummary>("OfferSetSummary")({Name: Schema.optional(Schema.String), State: Schema.optional(Schema.String), ReleaseDate: Schema.optional(Schema.String), AssociatedOfferIds: Schema.optional(OfferSetAssociatedOfferIdsList), SolutionId: Schema.optional(Schema.String)}) {}
+export class EntitySummary extends Schema.Class<EntitySummary>("EntitySummary")({Name: Schema.optional(Schema.String), EntityType: Schema.optional(Schema.String), EntityId: Schema.optional(Schema.String), EntityArn: Schema.optional(Schema.String), LastModifiedDate: Schema.optional(Schema.String), Visibility: Schema.optional(Schema.String), AmiProductSummary: Schema.optional(AmiProductSummary), ContainerProductSummary: Schema.optional(ContainerProductSummary), DataProductSummary: Schema.optional(DataProductSummary), SaaSProductSummary: Schema.optional(SaaSProductSummary), OfferSummary: Schema.optional(OfferSummary), ResaleAuthorizationSummary: Schema.optional(ResaleAuthorizationSummary), MachineLearningProductSummary: Schema.optional(MachineLearningProductSummary), OfferSetSummary: Schema.optional(OfferSetSummary)}) {}
 export const EntitySummaryList = Schema.Array(EntitySummary);
-export const ListEntitiesResponse = Schema.Struct({EntitySummaryList: Schema.optional(EntitySummaryList), NextToken: Schema.optional(Schema.String)});
+export class ListEntitiesResponse extends Schema.Class<ListEntitiesResponse>("ListEntitiesResponse")({EntitySummaryList: Schema.optional(EntitySummaryList), NextToken: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class InternalServiceExceptionError extends Schema.TaggedError<InternalServiceExceptionError>()("InternalServiceException", InternalServiceException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class ResourceInUseExceptionError extends Schema.TaggedError<ResourceInUseExceptionError>()("ResourceInUseException", ResourceInUseException) {};
-export class ResourceNotSupportedExceptionError extends Schema.TaggedError<ResourceNotSupportedExceptionError>()("ResourceNotSupportedException", ResourceNotSupportedException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class InternalServiceExceptionError extends Schema.TaggedError<InternalServiceExceptionError>()("InternalServiceException", InternalServiceException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class ResourceInUseExceptionError extends Schema.TaggedError<ResourceInUseExceptionError>()("ResourceInUseException", ResourceInUseException.fields) {};
+export class ResourceNotSupportedExceptionError extends Schema.TaggedError<ResourceNotSupportedExceptionError>()("ResourceNotSupportedException", ResourceNotSupportedException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
 
 //# Operations
 export const getResourcePolicy = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-09-17", uri: "/GetResourcePolicy", method: "GET", sdkId: "Marketplace Catalog", sigV4ServiceName: "aws-marketplace", name: "AWSMPSeymour.GetResourcePolicy" }, GetResourcePolicyRequest, GetResourcePolicyResponse, [AccessDeniedExceptionError, InternalServiceExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

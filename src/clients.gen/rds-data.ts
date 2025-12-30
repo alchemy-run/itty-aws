@@ -3,81 +3,81 @@ import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperat
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const BeginTransactionRequest = Schema.Struct({resourceArn: Schema.String, secretArn: Schema.String, database: Schema.optional(Schema.String), schema: Schema.optional(Schema.String)});
-export const CommitTransactionRequest = Schema.Struct({resourceArn: Schema.String, secretArn: Schema.String, transactionId: Schema.String});
-export const ExecuteSqlRequest = Schema.Struct({dbClusterOrInstanceArn: Schema.String, awsSecretStoreArn: Schema.String, sqlStatements: Schema.String, database: Schema.optional(Schema.String), schema: Schema.optional(Schema.String)});
-export const RollbackTransactionRequest = Schema.Struct({resourceArn: Schema.String, secretArn: Schema.String, transactionId: Schema.String});
-export const ResultSetOptions = Schema.Struct({decimalReturnType: Schema.optional(Schema.String), longReturnType: Schema.optional(Schema.String)});
-export const BeginTransactionResponse = Schema.Struct({transactionId: Schema.optional(Schema.String)});
-export const CommitTransactionResponse = Schema.Struct({transactionStatus: Schema.optional(Schema.String)});
+export class BeginTransactionRequest extends Schema.Class<BeginTransactionRequest>("BeginTransactionRequest")({resourceArn: Schema.String, secretArn: Schema.String, database: Schema.optional(Schema.String), schema: Schema.optional(Schema.String)}) {}
+export class CommitTransactionRequest extends Schema.Class<CommitTransactionRequest>("CommitTransactionRequest")({resourceArn: Schema.String, secretArn: Schema.String, transactionId: Schema.String}) {}
+export class ExecuteSqlRequest extends Schema.Class<ExecuteSqlRequest>("ExecuteSqlRequest")({dbClusterOrInstanceArn: Schema.String, awsSecretStoreArn: Schema.String, sqlStatements: Schema.String, database: Schema.optional(Schema.String), schema: Schema.optional(Schema.String)}) {}
+export class RollbackTransactionRequest extends Schema.Class<RollbackTransactionRequest>("RollbackTransactionRequest")({resourceArn: Schema.String, secretArn: Schema.String, transactionId: Schema.String}) {}
+export class ResultSetOptions extends Schema.Class<ResultSetOptions>("ResultSetOptions")({decimalReturnType: Schema.optional(Schema.String), longReturnType: Schema.optional(Schema.String)}) {}
+export class BeginTransactionResponse extends Schema.Class<BeginTransactionResponse>("BeginTransactionResponse")({transactionId: Schema.optional(Schema.String)}) {}
+export class CommitTransactionResponse extends Schema.Class<CommitTransactionResponse>("CommitTransactionResponse")({transactionStatus: Schema.optional(Schema.String)}) {}
 export const BooleanArray = Schema.Array(Schema.Boolean);
 export const LongArray = Schema.Array(Schema.Number);
 export const DoubleArray = Schema.Array(Schema.Number);
 export const StringArray = Schema.Array(Schema.String);
-export const ArrayOfArray = Schema.Array(ArrayValue);
-export const ArrayValue = Schema.Union(BooleanArray, LongArray, DoubleArray, StringArray, ArrayOfArray);
+export const ArrayValue = Schema.Union(BooleanArray, LongArray, DoubleArray, StringArray, Schema.suspend(() => ArrayOfArray));
 export const Field = Schema.Union(Schema.Boolean, Schema.Boolean, Schema.Number, Schema.Number, Schema.String, StreamBody(), ArrayValue);
-export const SqlParameter = Schema.Struct({name: Schema.optional(Schema.String), value: Schema.optional(Field), typeHint: Schema.optional(Schema.String)});
+export class SqlParameter extends Schema.Class<SqlParameter>("SqlParameter")({name: Schema.optional(Schema.String), value: Schema.optional(Field), typeHint: Schema.optional(Schema.String)}) {}
 export const SqlParametersList = Schema.Array(SqlParameter);
-export const ExecuteStatementRequest = Schema.Struct({resourceArn: Schema.String, secretArn: Schema.String, sql: Schema.String, database: Schema.optional(Schema.String), schema: Schema.optional(Schema.String), parameters: Schema.optional(SqlParametersList), transactionId: Schema.optional(Schema.String), includeResultMetadata: Schema.optional(Schema.Boolean), continueAfterTimeout: Schema.optional(Schema.Boolean), resultSetOptions: Schema.optional(ResultSetOptions), formatRecordsAs: Schema.optional(Schema.String)});
-export const RollbackTransactionResponse = Schema.Struct({transactionStatus: Schema.optional(Schema.String)});
+export class ExecuteStatementRequest extends Schema.Class<ExecuteStatementRequest>("ExecuteStatementRequest")({resourceArn: Schema.String, secretArn: Schema.String, sql: Schema.String, database: Schema.optional(Schema.String), schema: Schema.optional(Schema.String), parameters: Schema.optional(SqlParametersList), transactionId: Schema.optional(Schema.String), includeResultMetadata: Schema.optional(Schema.Boolean), continueAfterTimeout: Schema.optional(Schema.Boolean), resultSetOptions: Schema.optional(ResultSetOptions), formatRecordsAs: Schema.optional(Schema.String)}) {}
+export class RollbackTransactionResponse extends Schema.Class<RollbackTransactionResponse>("RollbackTransactionResponse")({transactionStatus: Schema.optional(Schema.String)}) {}
+export const ArrayOfArray = Schema.Array(Schema.suspend(() => ArrayValue));
 export const FieldList = Schema.Array(Field);
 export const SqlRecords = Schema.Array(FieldList);
-export const AccessDeniedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const BadRequestException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DatabaseUnavailableException = Schema.Struct({});
-export const DatabaseErrorException = Schema.Struct({message: Schema.optional(Schema.String)});
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({message: Schema.optional(Schema.String)}) {}
+export class BadRequestException extends Schema.Class<BadRequestException>("BadRequestException")({message: Schema.optional(Schema.String)}) {}
+export class DatabaseUnavailableException extends Schema.Class<DatabaseUnavailableException>("DatabaseUnavailableException")({}) {}
+export class DatabaseErrorException extends Schema.Class<DatabaseErrorException>("DatabaseErrorException")({message: Schema.optional(Schema.String)}) {}
 export const SqlParameterSets = Schema.Array(SqlParametersList);
-export const ColumnMetadata = Schema.Struct({name: Schema.optional(Schema.String), type: Schema.optional(Schema.Number), typeName: Schema.optional(Schema.String), label: Schema.optional(Schema.String), schemaName: Schema.optional(Schema.String), tableName: Schema.optional(Schema.String), isAutoIncrement: Schema.optional(Schema.Boolean), isSigned: Schema.optional(Schema.Boolean), isCurrency: Schema.optional(Schema.Boolean), isCaseSensitive: Schema.optional(Schema.Boolean), nullable: Schema.optional(Schema.Number), precision: Schema.optional(Schema.Number), scale: Schema.optional(Schema.Number), arrayBaseColumnType: Schema.optional(Schema.Number)});
+export class ColumnMetadata extends Schema.Class<ColumnMetadata>("ColumnMetadata")({name: Schema.optional(Schema.String), type: Schema.optional(Schema.Number), typeName: Schema.optional(Schema.String), label: Schema.optional(Schema.String), schemaName: Schema.optional(Schema.String), tableName: Schema.optional(Schema.String), isAutoIncrement: Schema.optional(Schema.Boolean), isSigned: Schema.optional(Schema.Boolean), isCurrency: Schema.optional(Schema.Boolean), isCaseSensitive: Schema.optional(Schema.Boolean), nullable: Schema.optional(Schema.Number), precision: Schema.optional(Schema.Number), scale: Schema.optional(Schema.Number), arrayBaseColumnType: Schema.optional(Schema.Number)}) {}
 export const Metadata = Schema.Array(ColumnMetadata);
-export const ResultSetMetadata = Schema.Struct({columnCount: Schema.optional(Schema.Number), columnMetadata: Schema.optional(Metadata)});
-export const BatchExecuteStatementRequest = Schema.Struct({resourceArn: Schema.String, secretArn: Schema.String, sql: Schema.String, database: Schema.optional(Schema.String), schema: Schema.optional(Schema.String), parameterSets: Schema.optional(SqlParameterSets), transactionId: Schema.optional(Schema.String)});
-export const DatabaseNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ForbiddenException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InternalServerErrorException = Schema.Struct({});
-export const StructValue = Schema.Struct({attributes: Schema.optional(ArrayValueList)});
-export const Value = Schema.Union(Schema.Boolean, Schema.Boolean, Schema.Number, Schema.Number, Schema.Number, Schema.Number, Schema.String, StreamBody(), ArrayValueList, StructValue);
-export const ArrayValueList = Schema.Array(Value);
-export const ExecuteStatementResponse = Schema.Struct({records: Schema.optional(SqlRecords), columnMetadata: Schema.optional(Metadata), numberOfRecordsUpdated: Schema.optional(Schema.Number), generatedFields: Schema.optional(FieldList), formattedRecords: Schema.optional(Schema.String)});
-export const HttpEndpointNotEnabledException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DatabaseResumingException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidResourceStateException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ServiceUnavailableError = Schema.Struct({});
-export const InvalidSecretException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const NotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const Row = Schema.Array(Value);
-export const UpdateResult = Schema.Struct({generatedFields: Schema.optional(FieldList)});
+export class ResultSetMetadata extends Schema.Class<ResultSetMetadata>("ResultSetMetadata")({columnCount: Schema.optional(Schema.Number), columnMetadata: Schema.optional(Metadata)}) {}
+export class BatchExecuteStatementRequest extends Schema.Class<BatchExecuteStatementRequest>("BatchExecuteStatementRequest")({resourceArn: Schema.String, secretArn: Schema.String, sql: Schema.String, database: Schema.optional(Schema.String), schema: Schema.optional(Schema.String), parameterSets: Schema.optional(SqlParameterSets), transactionId: Schema.optional(Schema.String)}) {}
+export class DatabaseNotFoundException extends Schema.Class<DatabaseNotFoundException>("DatabaseNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class ForbiddenException extends Schema.Class<ForbiddenException>("ForbiddenException")({message: Schema.optional(Schema.String)}) {}
+export class InternalServerErrorException extends Schema.Class<InternalServerErrorException>("InternalServerErrorException")({}) {}
+export const ArrayValueList = Schema.Array(Schema.suspend(() => Value));
+export class ExecuteStatementResponse extends Schema.Class<ExecuteStatementResponse>("ExecuteStatementResponse")({records: Schema.optional(SqlRecords), columnMetadata: Schema.optional(Metadata), numberOfRecordsUpdated: Schema.optional(Schema.Number), generatedFields: Schema.optional(FieldList), formattedRecords: Schema.optional(Schema.String)}) {}
+export class HttpEndpointNotEnabledException extends Schema.Class<HttpEndpointNotEnabledException>("HttpEndpointNotEnabledException")({message: Schema.optional(Schema.String)}) {}
+export class DatabaseResumingException extends Schema.Class<DatabaseResumingException>("DatabaseResumingException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidResourceStateException extends Schema.Class<InvalidResourceStateException>("InvalidResourceStateException")({message: Schema.optional(Schema.String)}) {}
+export class ServiceUnavailableError extends Schema.Class<ServiceUnavailableError>("ServiceUnavailableError")({}) {}
+export class StructValue extends Schema.Class<StructValue>("StructValue")({attributes: Schema.optional(Schema.suspend(() => ArrayValueList))}) {}
+export class InvalidSecretException extends Schema.Class<InvalidSecretException>("InvalidSecretException")({message: Schema.optional(Schema.String)}) {}
+export class NotFoundException extends Schema.Class<NotFoundException>("NotFoundException")({message: Schema.optional(Schema.String)}) {}
+export const Value = Schema.Union(Schema.Boolean, Schema.Boolean, Schema.Number, Schema.Number, Schema.Number, Schema.Number, Schema.String, StreamBody(), Schema.suspend(() => ArrayValueList), Schema.suspend((): Schema.Schema<StructValue> => StructValue));
+export const Row = Schema.Array(Schema.suspend(() => Value));
+export class UpdateResult extends Schema.Class<UpdateResult>("UpdateResult")({generatedFields: Schema.optional(FieldList)}) {}
 export const UpdateResults = Schema.Array(UpdateResult);
-export const Record = Schema.Struct({values: Schema.optional(Row)});
+export class Record extends Schema.Class<Record>("Record")({values: Schema.optional(Row)}) {}
 export const Records = Schema.Array(Record);
-export const BatchExecuteStatementResponse = Schema.Struct({updateResults: Schema.optional(UpdateResults)});
-export const SecretsErrorException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const StatementTimeoutException = Schema.Struct({message: Schema.optional(Schema.String), dbConnectionId: Schema.optional(Schema.Number)});
-export const TransactionNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ResultFrame = Schema.Struct({resultSetMetadata: Schema.optional(ResultSetMetadata), records: Schema.optional(Records)});
-export const SqlStatementResult = Schema.Struct({resultFrame: Schema.optional(ResultFrame), numberOfRecordsUpdated: Schema.optional(Schema.Number)});
+export class BatchExecuteStatementResponse extends Schema.Class<BatchExecuteStatementResponse>("BatchExecuteStatementResponse")({updateResults: Schema.optional(UpdateResults)}) {}
+export class SecretsErrorException extends Schema.Class<SecretsErrorException>("SecretsErrorException")({message: Schema.optional(Schema.String)}) {}
+export class StatementTimeoutException extends Schema.Class<StatementTimeoutException>("StatementTimeoutException")({message: Schema.optional(Schema.String), dbConnectionId: Schema.optional(Schema.Number)}) {}
+export class TransactionNotFoundException extends Schema.Class<TransactionNotFoundException>("TransactionNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class ResultFrame extends Schema.Class<ResultFrame>("ResultFrame")({resultSetMetadata: Schema.optional(ResultSetMetadata), records: Schema.optional(Records)}) {}
+export class SqlStatementResult extends Schema.Class<SqlStatementResult>("SqlStatementResult")({resultFrame: Schema.optional(ResultFrame), numberOfRecordsUpdated: Schema.optional(Schema.Number)}) {}
 export const SqlStatementResults = Schema.Array(SqlStatementResult);
-export const ExecuteSqlResponse = Schema.Struct({sqlStatementResults: Schema.optional(SqlStatementResults)});
-export const UnsupportedResultException = Schema.Struct({message: Schema.optional(Schema.String)});
+export class ExecuteSqlResponse extends Schema.Class<ExecuteSqlResponse>("ExecuteSqlResponse")({sqlStatementResults: Schema.optional(SqlStatementResults)}) {}
+export class UnsupportedResultException extends Schema.Class<UnsupportedResultException>("UnsupportedResultException")({message: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class BadRequestExceptionError extends Schema.TaggedError<BadRequestExceptionError>()("BadRequestException", BadRequestException) {};
-export class DatabaseErrorExceptionError extends Schema.TaggedError<DatabaseErrorExceptionError>()("DatabaseErrorException", DatabaseErrorException) {};
-export class DatabaseNotFoundExceptionError extends Schema.TaggedError<DatabaseNotFoundExceptionError>()("DatabaseNotFoundException", DatabaseNotFoundException) {};
-export class DatabaseUnavailableExceptionError extends Schema.TaggedError<DatabaseUnavailableExceptionError>()("DatabaseUnavailableException", DatabaseUnavailableException) {};
-export class ForbiddenExceptionError extends Schema.TaggedError<ForbiddenExceptionError>()("ForbiddenException", ForbiddenException) {};
-export class HttpEndpointNotEnabledExceptionError extends Schema.TaggedError<HttpEndpointNotEnabledExceptionError>()("HttpEndpointNotEnabledException", HttpEndpointNotEnabledException) {};
-export class InternalServerErrorExceptionError extends Schema.TaggedError<InternalServerErrorExceptionError>()("InternalServerErrorException", InternalServerErrorException) {};
-export class DatabaseResumingExceptionError extends Schema.TaggedError<DatabaseResumingExceptionError>()("DatabaseResumingException", DatabaseResumingException) {};
-export class InvalidResourceStateExceptionError extends Schema.TaggedError<InvalidResourceStateExceptionError>()("InvalidResourceStateException", InvalidResourceStateException) {};
-export class InvalidSecretExceptionError extends Schema.TaggedError<InvalidSecretExceptionError>()("InvalidSecretException", InvalidSecretException) {};
-export class NotFoundExceptionError extends Schema.TaggedError<NotFoundExceptionError>()("NotFoundException", NotFoundException) {};
-export class SecretsErrorExceptionError extends Schema.TaggedError<SecretsErrorExceptionError>()("SecretsErrorException", SecretsErrorException) {};
-export class ServiceUnavailableErrorError extends Schema.TaggedError<ServiceUnavailableErrorError>()("ServiceUnavailableError", ServiceUnavailableError) {};
-export class StatementTimeoutExceptionError extends Schema.TaggedError<StatementTimeoutExceptionError>()("StatementTimeoutException", StatementTimeoutException) {};
-export class TransactionNotFoundExceptionError extends Schema.TaggedError<TransactionNotFoundExceptionError>()("TransactionNotFoundException", TransactionNotFoundException) {};
-export class UnsupportedResultExceptionError extends Schema.TaggedError<UnsupportedResultExceptionError>()("UnsupportedResultException", UnsupportedResultException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class BadRequestExceptionError extends Schema.TaggedError<BadRequestExceptionError>()("BadRequestException", BadRequestException.fields) {};
+export class DatabaseErrorExceptionError extends Schema.TaggedError<DatabaseErrorExceptionError>()("DatabaseErrorException", DatabaseErrorException.fields) {};
+export class DatabaseNotFoundExceptionError extends Schema.TaggedError<DatabaseNotFoundExceptionError>()("DatabaseNotFoundException", DatabaseNotFoundException.fields) {};
+export class DatabaseUnavailableExceptionError extends Schema.TaggedError<DatabaseUnavailableExceptionError>()("DatabaseUnavailableException", DatabaseUnavailableException.fields) {};
+export class ForbiddenExceptionError extends Schema.TaggedError<ForbiddenExceptionError>()("ForbiddenException", ForbiddenException.fields) {};
+export class HttpEndpointNotEnabledExceptionError extends Schema.TaggedError<HttpEndpointNotEnabledExceptionError>()("HttpEndpointNotEnabledException", HttpEndpointNotEnabledException.fields) {};
+export class InternalServerErrorExceptionError extends Schema.TaggedError<InternalServerErrorExceptionError>()("InternalServerErrorException", InternalServerErrorException.fields) {};
+export class DatabaseResumingExceptionError extends Schema.TaggedError<DatabaseResumingExceptionError>()("DatabaseResumingException", DatabaseResumingException.fields) {};
+export class InvalidResourceStateExceptionError extends Schema.TaggedError<InvalidResourceStateExceptionError>()("InvalidResourceStateException", InvalidResourceStateException.fields) {};
+export class InvalidSecretExceptionError extends Schema.TaggedError<InvalidSecretExceptionError>()("InvalidSecretException", InvalidSecretException.fields) {};
+export class NotFoundExceptionError extends Schema.TaggedError<NotFoundExceptionError>()("NotFoundException", NotFoundException.fields) {};
+export class SecretsErrorExceptionError extends Schema.TaggedError<SecretsErrorExceptionError>()("SecretsErrorException", SecretsErrorException.fields) {};
+export class ServiceUnavailableErrorError extends Schema.TaggedError<ServiceUnavailableErrorError>()("ServiceUnavailableError", ServiceUnavailableError.fields) {};
+export class StatementTimeoutExceptionError extends Schema.TaggedError<StatementTimeoutExceptionError>()("StatementTimeoutException", StatementTimeoutException.fields) {};
+export class TransactionNotFoundExceptionError extends Schema.TaggedError<TransactionNotFoundExceptionError>()("TransactionNotFoundException", TransactionNotFoundException.fields) {};
+export class UnsupportedResultExceptionError extends Schema.TaggedError<UnsupportedResultExceptionError>()("UnsupportedResultException", UnsupportedResultException.fields) {};
 
 //# Operations
 export const rollbackTransaction = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-08-01", uri: "/RollbackTransaction", method: "POST", sdkId: "RDS Data", sigV4ServiceName: "rds-data", name: "RdsDataService.RollbackTransaction" }, RollbackTransactionRequest, RollbackTransactionResponse, [AccessDeniedExceptionError, BadRequestExceptionError, DatabaseErrorExceptionError, DatabaseNotFoundExceptionError, DatabaseUnavailableExceptionError, ForbiddenExceptionError, HttpEndpointNotEnabledExceptionError, InternalServerErrorExceptionError, InvalidResourceStateExceptionError, InvalidSecretExceptionError, NotFoundExceptionError, SecretsErrorExceptionError, ServiceUnavailableErrorError, StatementTimeoutExceptionError, TransactionNotFoundExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

@@ -6,102 +6,102 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 export const TargetLanguageCodeStringList = Schema.Array(Schema.String);
 export const ResourceNameList = Schema.Array(Schema.String);
 export const TagKeyList = Schema.Array(Schema.String);
-export const DeleteParallelDataRequest = Schema.Struct({Name: Schema.String});
-export const DeleteTerminologyRequest = Schema.Struct({Name: Schema.String});
-export const DescribeTextTranslationJobRequest = Schema.Struct({JobId: Schema.String});
-export const GetParallelDataRequest = Schema.Struct({Name: Schema.String});
-export const GetTerminologyRequest = Schema.Struct({Name: Schema.String, TerminologyDataFormat: Schema.optional(Schema.String)});
-export const ListLanguagesRequest = Schema.Struct({DisplayLanguageCode: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListParallelDataRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListTagsForResourceRequest = Schema.Struct({ResourceArn: Schema.String});
-export const ListTerminologiesRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const StopTextTranslationJobRequest = Schema.Struct({JobId: Schema.String});
-export const Tag = Schema.Struct({Key: Schema.String, Value: Schema.String});
+export class DeleteParallelDataRequest extends Schema.Class<DeleteParallelDataRequest>("DeleteParallelDataRequest")({Name: Schema.String}) {}
+export class DeleteTerminologyRequest extends Schema.Class<DeleteTerminologyRequest>("DeleteTerminologyRequest")({Name: Schema.String}) {}
+export class DescribeTextTranslationJobRequest extends Schema.Class<DescribeTextTranslationJobRequest>("DescribeTextTranslationJobRequest")({JobId: Schema.String}) {}
+export class GetParallelDataRequest extends Schema.Class<GetParallelDataRequest>("GetParallelDataRequest")({Name: Schema.String}) {}
+export class GetTerminologyRequest extends Schema.Class<GetTerminologyRequest>("GetTerminologyRequest")({Name: Schema.String, TerminologyDataFormat: Schema.optional(Schema.String)}) {}
+export class ListLanguagesRequest extends Schema.Class<ListLanguagesRequest>("ListLanguagesRequest")({DisplayLanguageCode: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListParallelDataRequest extends Schema.Class<ListParallelDataRequest>("ListParallelDataRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({ResourceArn: Schema.String}) {}
+export class ListTerminologiesRequest extends Schema.Class<ListTerminologiesRequest>("ListTerminologiesRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class StopTextTranslationJobRequest extends Schema.Class<StopTextTranslationJobRequest>("StopTextTranslationJobRequest")({JobId: Schema.String}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.String, Value: Schema.String}) {}
 export const TagList = Schema.Array(Tag);
-export const TagResourceRequest = Schema.Struct({ResourceArn: Schema.String, Tags: TagList});
-export const TagResourceResponse = Schema.Struct({});
-export const TranslationSettings = Schema.Struct({Formality: Schema.optional(Schema.String), Profanity: Schema.optional(Schema.String), Brevity: Schema.optional(Schema.String)});
-export const TranslateTextRequest = Schema.Struct({Text: Schema.String, TerminologyNames: Schema.optional(ResourceNameList), SourceLanguageCode: Schema.String, TargetLanguageCode: Schema.String, Settings: Schema.optional(TranslationSettings)});
-export const UntagResourceRequest = Schema.Struct({ResourceArn: Schema.String, TagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
-export const ParallelDataConfig = Schema.Struct({S3Uri: Schema.optional(Schema.String), Format: Schema.optional(Schema.String)});
-export const UpdateParallelDataRequest = Schema.Struct({Name: Schema.String, Description: Schema.optional(Schema.String), ParallelDataConfig: ParallelDataConfig, ClientToken: Schema.String});
-export const EncryptionKey = Schema.Struct({Type: Schema.String, Id: Schema.String});
-export const TerminologyData = Schema.Struct({File: StreamBody(), Format: Schema.String, Directionality: Schema.optional(Schema.String)});
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({ResourceArn: Schema.String, Tags: TagList}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class TranslationSettings extends Schema.Class<TranslationSettings>("TranslationSettings")({Formality: Schema.optional(Schema.String), Profanity: Schema.optional(Schema.String), Brevity: Schema.optional(Schema.String)}) {}
+export class TranslateTextRequest extends Schema.Class<TranslateTextRequest>("TranslateTextRequest")({Text: Schema.String, TerminologyNames: Schema.optional(ResourceNameList), SourceLanguageCode: Schema.String, TargetLanguageCode: Schema.String, Settings: Schema.optional(TranslationSettings)}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({ResourceArn: Schema.String, TagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class ParallelDataConfig extends Schema.Class<ParallelDataConfig>("ParallelDataConfig")({S3Uri: Schema.optional(Schema.String), Format: Schema.optional(Schema.String)}) {}
+export class UpdateParallelDataRequest extends Schema.Class<UpdateParallelDataRequest>("UpdateParallelDataRequest")({Name: Schema.String, Description: Schema.optional(Schema.String), ParallelDataConfig: ParallelDataConfig, ClientToken: Schema.String}) {}
+export class EncryptionKey extends Schema.Class<EncryptionKey>("EncryptionKey")({Type: Schema.String, Id: Schema.String}) {}
+export class TerminologyData extends Schema.Class<TerminologyData>("TerminologyData")({File: StreamBody(), Format: Schema.String, Directionality: Schema.optional(Schema.String)}) {}
 export const LanguageCodeStringList = Schema.Array(Schema.String);
-export const ParallelDataProperties = Schema.Struct({Name: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), SourceLanguageCode: Schema.optional(Schema.String), TargetLanguageCodes: Schema.optional(LanguageCodeStringList), ParallelDataConfig: Schema.optional(ParallelDataConfig), Message: Schema.optional(Schema.String), ImportedDataSize: Schema.optional(Schema.Number), ImportedRecordCount: Schema.optional(Schema.Number), FailedRecordCount: Schema.optional(Schema.Number), SkippedRecordCount: Schema.optional(Schema.Number), EncryptionKey: Schema.optional(EncryptionKey), CreatedAt: Schema.optional(Schema.Date), LastUpdatedAt: Schema.optional(Schema.Date), LatestUpdateAttemptStatus: Schema.optional(Schema.String), LatestUpdateAttemptAt: Schema.optional(Schema.Date)});
+export class ParallelDataProperties extends Schema.Class<ParallelDataProperties>("ParallelDataProperties")({Name: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), SourceLanguageCode: Schema.optional(Schema.String), TargetLanguageCodes: Schema.optional(LanguageCodeStringList), ParallelDataConfig: Schema.optional(ParallelDataConfig), Message: Schema.optional(Schema.String), ImportedDataSize: Schema.optional(Schema.Number), ImportedRecordCount: Schema.optional(Schema.Number), FailedRecordCount: Schema.optional(Schema.Number), SkippedRecordCount: Schema.optional(Schema.Number), EncryptionKey: Schema.optional(EncryptionKey), CreatedAt: Schema.optional(Schema.Date), LastUpdatedAt: Schema.optional(Schema.Date), LatestUpdateAttemptStatus: Schema.optional(Schema.String), LatestUpdateAttemptAt: Schema.optional(Schema.Date)}) {}
 export const ParallelDataPropertiesList = Schema.Array(ParallelDataProperties);
-export const TerminologyProperties = Schema.Struct({Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String), SourceLanguageCode: Schema.optional(Schema.String), TargetLanguageCodes: Schema.optional(LanguageCodeStringList), EncryptionKey: Schema.optional(EncryptionKey), SizeBytes: Schema.optional(Schema.Number), TermCount: Schema.optional(Schema.Number), CreatedAt: Schema.optional(Schema.Date), LastUpdatedAt: Schema.optional(Schema.Date), Directionality: Schema.optional(Schema.String), Message: Schema.optional(Schema.String), SkippedTermCount: Schema.optional(Schema.Number), Format: Schema.optional(Schema.String)});
+export class TerminologyProperties extends Schema.Class<TerminologyProperties>("TerminologyProperties")({Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String), SourceLanguageCode: Schema.optional(Schema.String), TargetLanguageCodes: Schema.optional(LanguageCodeStringList), EncryptionKey: Schema.optional(EncryptionKey), SizeBytes: Schema.optional(Schema.Number), TermCount: Schema.optional(Schema.Number), CreatedAt: Schema.optional(Schema.Date), LastUpdatedAt: Schema.optional(Schema.Date), Directionality: Schema.optional(Schema.String), Message: Schema.optional(Schema.String), SkippedTermCount: Schema.optional(Schema.Number), Format: Schema.optional(Schema.String)}) {}
 export const TerminologyPropertiesList = Schema.Array(TerminologyProperties);
-export const TextTranslationJobFilter = Schema.Struct({JobName: Schema.optional(Schema.String), JobStatus: Schema.optional(Schema.String), SubmittedBeforeTime: Schema.optional(Schema.Date), SubmittedAfterTime: Schema.optional(Schema.Date)});
-export const InputDataConfig = Schema.Struct({S3Uri: Schema.String, ContentType: Schema.String});
-export const OutputDataConfig = Schema.Struct({S3Uri: Schema.String, EncryptionKey: Schema.optional(EncryptionKey)});
-export const Document = Schema.Struct({Content: StreamBody(), ContentType: Schema.String});
-export const CreateParallelDataRequest = Schema.Struct({Name: Schema.String, Description: Schema.optional(Schema.String), ParallelDataConfig: ParallelDataConfig, EncryptionKey: Schema.optional(EncryptionKey), ClientToken: Schema.String, Tags: Schema.optional(TagList)});
-export const DeleteParallelDataResponse = Schema.Struct({Name: Schema.optional(Schema.String), Status: Schema.optional(Schema.String)});
-export const InternalServerException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ImportTerminologyRequest = Schema.Struct({Name: Schema.String, MergeStrategy: Schema.String, Description: Schema.optional(Schema.String), TerminologyData: TerminologyData, EncryptionKey: Schema.optional(EncryptionKey), Tags: Schema.optional(TagList)});
-export const ListParallelDataResponse = Schema.Struct({ParallelDataPropertiesList: Schema.optional(ParallelDataPropertiesList), NextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceResponse = Schema.Struct({Tags: Schema.optional(TagList)});
-export const ListTerminologiesResponse = Schema.Struct({TerminologyPropertiesList: Schema.optional(TerminologyPropertiesList), NextToken: Schema.optional(Schema.String)});
-export const ListTextTranslationJobsRequest = Schema.Struct({Filter: Schema.optional(TextTranslationJobFilter), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const StartTextTranslationJobRequest = Schema.Struct({JobName: Schema.optional(Schema.String), InputDataConfig: InputDataConfig, OutputDataConfig: OutputDataConfig, DataAccessRoleArn: Schema.String, SourceLanguageCode: Schema.String, TargetLanguageCodes: TargetLanguageCodeStringList, TerminologyNames: Schema.optional(ResourceNameList), ParallelDataNames: Schema.optional(ResourceNameList), ClientToken: Schema.String, Settings: Schema.optional(TranslationSettings)});
-export const StopTextTranslationJobResponse = Schema.Struct({JobId: Schema.optional(Schema.String), JobStatus: Schema.optional(Schema.String)});
-export const ConcurrentModificationException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const TranslateDocumentRequest = Schema.Struct({Document: Document, TerminologyNames: Schema.optional(ResourceNameList), SourceLanguageCode: Schema.String, TargetLanguageCode: Schema.String, Settings: Schema.optional(TranslationSettings)});
-export const InvalidParameterValueException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const UpdateParallelDataResponse = Schema.Struct({Name: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), LatestUpdateAttemptStatus: Schema.optional(Schema.String), LatestUpdateAttemptAt: Schema.optional(Schema.Date)});
-export const ParallelDataDataLocation = Schema.Struct({RepositoryType: Schema.String, Location: Schema.String});
-export const TerminologyDataLocation = Schema.Struct({RepositoryType: Schema.String, Location: Schema.String});
-export const Language = Schema.Struct({LanguageName: Schema.String, LanguageCode: Schema.String});
+export class TextTranslationJobFilter extends Schema.Class<TextTranslationJobFilter>("TextTranslationJobFilter")({JobName: Schema.optional(Schema.String), JobStatus: Schema.optional(Schema.String), SubmittedBeforeTime: Schema.optional(Schema.Date), SubmittedAfterTime: Schema.optional(Schema.Date)}) {}
+export class InputDataConfig extends Schema.Class<InputDataConfig>("InputDataConfig")({S3Uri: Schema.String, ContentType: Schema.String}) {}
+export class OutputDataConfig extends Schema.Class<OutputDataConfig>("OutputDataConfig")({S3Uri: Schema.String, EncryptionKey: Schema.optional(EncryptionKey)}) {}
+export class Document extends Schema.Class<Document>("Document")({Content: StreamBody(), ContentType: Schema.String}) {}
+export class CreateParallelDataRequest extends Schema.Class<CreateParallelDataRequest>("CreateParallelDataRequest")({Name: Schema.String, Description: Schema.optional(Schema.String), ParallelDataConfig: ParallelDataConfig, EncryptionKey: Schema.optional(EncryptionKey), ClientToken: Schema.String, Tags: Schema.optional(TagList)}) {}
+export class DeleteParallelDataResponse extends Schema.Class<DeleteParallelDataResponse>("DeleteParallelDataResponse")({Name: Schema.optional(Schema.String), Status: Schema.optional(Schema.String)}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({Message: Schema.optional(Schema.String)}) {}
+export class ImportTerminologyRequest extends Schema.Class<ImportTerminologyRequest>("ImportTerminologyRequest")({Name: Schema.String, MergeStrategy: Schema.String, Description: Schema.optional(Schema.String), TerminologyData: TerminologyData, EncryptionKey: Schema.optional(EncryptionKey), Tags: Schema.optional(TagList)}) {}
+export class ListParallelDataResponse extends Schema.Class<ListParallelDataResponse>("ListParallelDataResponse")({ParallelDataPropertiesList: Schema.optional(ParallelDataPropertiesList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({Tags: Schema.optional(TagList)}) {}
+export class ListTerminologiesResponse extends Schema.Class<ListTerminologiesResponse>("ListTerminologiesResponse")({TerminologyPropertiesList: Schema.optional(TerminologyPropertiesList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTextTranslationJobsRequest extends Schema.Class<ListTextTranslationJobsRequest>("ListTextTranslationJobsRequest")({Filter: Schema.optional(TextTranslationJobFilter), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class StartTextTranslationJobRequest extends Schema.Class<StartTextTranslationJobRequest>("StartTextTranslationJobRequest")({JobName: Schema.optional(Schema.String), InputDataConfig: InputDataConfig, OutputDataConfig: OutputDataConfig, DataAccessRoleArn: Schema.String, SourceLanguageCode: Schema.String, TargetLanguageCodes: TargetLanguageCodeStringList, TerminologyNames: Schema.optional(ResourceNameList), ParallelDataNames: Schema.optional(ResourceNameList), ClientToken: Schema.String, Settings: Schema.optional(TranslationSettings)}) {}
+export class StopTextTranslationJobResponse extends Schema.Class<StopTextTranslationJobResponse>("StopTextTranslationJobResponse")({JobId: Schema.optional(Schema.String), JobStatus: Schema.optional(Schema.String)}) {}
+export class ConcurrentModificationException extends Schema.Class<ConcurrentModificationException>("ConcurrentModificationException")({Message: Schema.optional(Schema.String)}) {}
+export class TranslateDocumentRequest extends Schema.Class<TranslateDocumentRequest>("TranslateDocumentRequest")({Document: Document, TerminologyNames: Schema.optional(ResourceNameList), SourceLanguageCode: Schema.String, TargetLanguageCode: Schema.String, Settings: Schema.optional(TranslationSettings)}) {}
+export class InvalidParameterValueException extends Schema.Class<InvalidParameterValueException>("InvalidParameterValueException")({Message: Schema.optional(Schema.String)}) {}
+export class UpdateParallelDataResponse extends Schema.Class<UpdateParallelDataResponse>("UpdateParallelDataResponse")({Name: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), LatestUpdateAttemptStatus: Schema.optional(Schema.String), LatestUpdateAttemptAt: Schema.optional(Schema.Date)}) {}
+export class ParallelDataDataLocation extends Schema.Class<ParallelDataDataLocation>("ParallelDataDataLocation")({RepositoryType: Schema.String, Location: Schema.String}) {}
+export class TerminologyDataLocation extends Schema.Class<TerminologyDataLocation>("TerminologyDataLocation")({RepositoryType: Schema.String, Location: Schema.String}) {}
+export class Language extends Schema.Class<Language>("Language")({LanguageName: Schema.String, LanguageCode: Schema.String}) {}
 export const LanguagesList = Schema.Array(Language);
-export const JobDetails = Schema.Struct({TranslatedDocumentsCount: Schema.optional(Schema.Number), DocumentsWithErrorsCount: Schema.optional(Schema.Number), InputDocumentsCount: Schema.optional(Schema.Number)});
-export const TextTranslationJobProperties = Schema.Struct({JobId: Schema.optional(Schema.String), JobName: Schema.optional(Schema.String), JobStatus: Schema.optional(Schema.String), JobDetails: Schema.optional(JobDetails), SourceLanguageCode: Schema.optional(Schema.String), TargetLanguageCodes: Schema.optional(TargetLanguageCodeStringList), TerminologyNames: Schema.optional(ResourceNameList), ParallelDataNames: Schema.optional(ResourceNameList), Message: Schema.optional(Schema.String), SubmittedTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date), InputDataConfig: Schema.optional(InputDataConfig), OutputDataConfig: Schema.optional(OutputDataConfig), DataAccessRoleArn: Schema.optional(Schema.String), Settings: Schema.optional(TranslationSettings)});
+export class JobDetails extends Schema.Class<JobDetails>("JobDetails")({TranslatedDocumentsCount: Schema.optional(Schema.Number), DocumentsWithErrorsCount: Schema.optional(Schema.Number), InputDocumentsCount: Schema.optional(Schema.Number)}) {}
+export class TextTranslationJobProperties extends Schema.Class<TextTranslationJobProperties>("TextTranslationJobProperties")({JobId: Schema.optional(Schema.String), JobName: Schema.optional(Schema.String), JobStatus: Schema.optional(Schema.String), JobDetails: Schema.optional(JobDetails), SourceLanguageCode: Schema.optional(Schema.String), TargetLanguageCodes: Schema.optional(TargetLanguageCodeStringList), TerminologyNames: Schema.optional(ResourceNameList), ParallelDataNames: Schema.optional(ResourceNameList), Message: Schema.optional(Schema.String), SubmittedTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date), InputDataConfig: Schema.optional(InputDataConfig), OutputDataConfig: Schema.optional(OutputDataConfig), DataAccessRoleArn: Schema.optional(Schema.String), Settings: Schema.optional(TranslationSettings)}) {}
 export const TextTranslationJobPropertiesList = Schema.Array(TextTranslationJobProperties);
-export const CreateParallelDataResponse = Schema.Struct({Name: Schema.optional(Schema.String), Status: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const TooManyRequestsException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const GetParallelDataResponse = Schema.Struct({ParallelDataProperties: Schema.optional(ParallelDataProperties), DataLocation: Schema.optional(ParallelDataDataLocation), AuxiliaryDataLocation: Schema.optional(ParallelDataDataLocation), LatestUpdateAttemptAuxiliaryDataLocation: Schema.optional(ParallelDataDataLocation)});
-export const GetTerminologyResponse = Schema.Struct({TerminologyProperties: Schema.optional(TerminologyProperties), TerminologyDataLocation: Schema.optional(TerminologyDataLocation), AuxiliaryDataLocation: Schema.optional(TerminologyDataLocation)});
-export const ImportTerminologyResponse = Schema.Struct({TerminologyProperties: Schema.optional(TerminologyProperties), AuxiliaryDataLocation: Schema.optional(TerminologyDataLocation)});
-export const ListLanguagesResponse = Schema.Struct({Languages: Schema.optional(LanguagesList), DisplayLanguageCode: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String)});
-export const ListTextTranslationJobsResponse = Schema.Struct({TextTranslationJobPropertiesList: Schema.optional(TextTranslationJobPropertiesList), NextToken: Schema.optional(Schema.String)});
-export const StartTextTranslationJobResponse = Schema.Struct({JobId: Schema.optional(Schema.String), JobStatus: Schema.optional(Schema.String)});
-export const TooManyTagsException = Schema.Struct({message: Schema.optional(Schema.String), ResourceArn: Schema.optional(Schema.String)});
-export const ConflictException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const Term = Schema.Struct({SourceText: Schema.optional(Schema.String), TargetText: Schema.optional(Schema.String)});
+export class CreateParallelDataResponse extends Schema.Class<CreateParallelDataResponse>("CreateParallelDataResponse")({Name: Schema.optional(Schema.String), Status: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class TooManyRequestsException extends Schema.Class<TooManyRequestsException>("TooManyRequestsException")({Message: Schema.optional(Schema.String)}) {}
+export class GetParallelDataResponse extends Schema.Class<GetParallelDataResponse>("GetParallelDataResponse")({ParallelDataProperties: Schema.optional(ParallelDataProperties), DataLocation: Schema.optional(ParallelDataDataLocation), AuxiliaryDataLocation: Schema.optional(ParallelDataDataLocation), LatestUpdateAttemptAuxiliaryDataLocation: Schema.optional(ParallelDataDataLocation)}) {}
+export class GetTerminologyResponse extends Schema.Class<GetTerminologyResponse>("GetTerminologyResponse")({TerminologyProperties: Schema.optional(TerminologyProperties), TerminologyDataLocation: Schema.optional(TerminologyDataLocation), AuxiliaryDataLocation: Schema.optional(TerminologyDataLocation)}) {}
+export class ImportTerminologyResponse extends Schema.Class<ImportTerminologyResponse>("ImportTerminologyResponse")({TerminologyProperties: Schema.optional(TerminologyProperties), AuxiliaryDataLocation: Schema.optional(TerminologyDataLocation)}) {}
+export class ListLanguagesResponse extends Schema.Class<ListLanguagesResponse>("ListLanguagesResponse")({Languages: Schema.optional(LanguagesList), DisplayLanguageCode: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTextTranslationJobsResponse extends Schema.Class<ListTextTranslationJobsResponse>("ListTextTranslationJobsResponse")({TextTranslationJobPropertiesList: Schema.optional(TextTranslationJobPropertiesList), NextToken: Schema.optional(Schema.String)}) {}
+export class StartTextTranslationJobResponse extends Schema.Class<StartTextTranslationJobResponse>("StartTextTranslationJobResponse")({JobId: Schema.optional(Schema.String), JobStatus: Schema.optional(Schema.String)}) {}
+export class TooManyTagsException extends Schema.Class<TooManyTagsException>("TooManyTagsException")({message: Schema.optional(Schema.String), ResourceArn: Schema.optional(Schema.String)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({Message: Schema.optional(Schema.String)}) {}
+export class Term extends Schema.Class<Term>("Term")({SourceText: Schema.optional(Schema.String), TargetText: Schema.optional(Schema.String)}) {}
 export const TermList = Schema.Array(Term);
-export const TranslatedDocument = Schema.Struct({Content: StreamBody()});
-export const AppliedTerminology = Schema.Struct({Name: Schema.optional(Schema.String), Terms: Schema.optional(TermList)});
+export class TranslatedDocument extends Schema.Class<TranslatedDocument>("TranslatedDocument")({Content: StreamBody()}) {}
+export class AppliedTerminology extends Schema.Class<AppliedTerminology>("AppliedTerminology")({Name: Schema.optional(Schema.String), Terms: Schema.optional(TermList)}) {}
 export const AppliedTerminologyList = Schema.Array(AppliedTerminology);
-export const InvalidRequestException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DescribeTextTranslationJobResponse = Schema.Struct({TextTranslationJobProperties: Schema.optional(TextTranslationJobProperties)});
-export const LimitExceededException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const UnsupportedDisplayLanguageCodeException = Schema.Struct({Message: Schema.optional(Schema.String), DisplayLanguageCode: Schema.optional(Schema.String)});
-export const InvalidFilterException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const UnsupportedLanguagePairException = Schema.Struct({Message: Schema.optional(Schema.String), SourceLanguageCode: Schema.optional(Schema.String), TargetLanguageCode: Schema.optional(Schema.String)});
-export const TranslateDocumentResponse = Schema.Struct({TranslatedDocument: TranslatedDocument, SourceLanguageCode: Schema.String, TargetLanguageCode: Schema.String, AppliedTerminologies: Schema.optional(AppliedTerminologyList), AppliedSettings: Schema.optional(TranslationSettings)});
-export const TranslateTextResponse = Schema.Struct({TranslatedText: Schema.String, SourceLanguageCode: Schema.String, TargetLanguageCode: Schema.String, AppliedTerminologies: Schema.optional(AppliedTerminologyList), AppliedSettings: Schema.optional(TranslationSettings)});
-export const ServiceUnavailableException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DetectedLanguageLowConfidenceException = Schema.Struct({Message: Schema.optional(Schema.String), DetectedLanguageCode: Schema.optional(Schema.String)});
-export const TextSizeLimitExceededException = Schema.Struct({Message: Schema.optional(Schema.String)});
+export class InvalidRequestException extends Schema.Class<InvalidRequestException>("InvalidRequestException")({Message: Schema.optional(Schema.String)}) {}
+export class DescribeTextTranslationJobResponse extends Schema.Class<DescribeTextTranslationJobResponse>("DescribeTextTranslationJobResponse")({TextTranslationJobProperties: Schema.optional(TextTranslationJobProperties)}) {}
+export class LimitExceededException extends Schema.Class<LimitExceededException>("LimitExceededException")({Message: Schema.optional(Schema.String)}) {}
+export class UnsupportedDisplayLanguageCodeException extends Schema.Class<UnsupportedDisplayLanguageCodeException>("UnsupportedDisplayLanguageCodeException")({Message: Schema.optional(Schema.String), DisplayLanguageCode: Schema.optional(Schema.String)}) {}
+export class InvalidFilterException extends Schema.Class<InvalidFilterException>("InvalidFilterException")({Message: Schema.optional(Schema.String)}) {}
+export class UnsupportedLanguagePairException extends Schema.Class<UnsupportedLanguagePairException>("UnsupportedLanguagePairException")({Message: Schema.optional(Schema.String), SourceLanguageCode: Schema.optional(Schema.String), TargetLanguageCode: Schema.optional(Schema.String)}) {}
+export class TranslateDocumentResponse extends Schema.Class<TranslateDocumentResponse>("TranslateDocumentResponse")({TranslatedDocument: TranslatedDocument, SourceLanguageCode: Schema.String, TargetLanguageCode: Schema.String, AppliedTerminologies: Schema.optional(AppliedTerminologyList), AppliedSettings: Schema.optional(TranslationSettings)}) {}
+export class TranslateTextResponse extends Schema.Class<TranslateTextResponse>("TranslateTextResponse")({TranslatedText: Schema.String, SourceLanguageCode: Schema.String, TargetLanguageCode: Schema.String, AppliedTerminologies: Schema.optional(AppliedTerminologyList), AppliedSettings: Schema.optional(TranslationSettings)}) {}
+export class ServiceUnavailableException extends Schema.Class<ServiceUnavailableException>("ServiceUnavailableException")({Message: Schema.optional(Schema.String)}) {}
+export class DetectedLanguageLowConfidenceException extends Schema.Class<DetectedLanguageLowConfidenceException>("DetectedLanguageLowConfidenceException")({Message: Schema.optional(Schema.String), DetectedLanguageCode: Schema.optional(Schema.String)}) {}
+export class TextSizeLimitExceededException extends Schema.Class<TextSizeLimitExceededException>("TextSizeLimitExceededException")({Message: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class ConcurrentModificationExceptionError extends Schema.TaggedError<ConcurrentModificationExceptionError>()("ConcurrentModificationException", ConcurrentModificationException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class InvalidParameterValueExceptionError extends Schema.TaggedError<InvalidParameterValueExceptionError>()("InvalidParameterValueException", InvalidParameterValueException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class TooManyRequestsExceptionError extends Schema.TaggedError<TooManyRequestsExceptionError>()("TooManyRequestsException", TooManyRequestsException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class InvalidRequestExceptionError extends Schema.TaggedError<InvalidRequestExceptionError>()("InvalidRequestException", InvalidRequestException) {};
-export class TooManyTagsExceptionError extends Schema.TaggedError<TooManyTagsExceptionError>()("TooManyTagsException", TooManyTagsException) {};
-export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException) {};
-export class UnsupportedDisplayLanguageCodeExceptionError extends Schema.TaggedError<UnsupportedDisplayLanguageCodeExceptionError>()("UnsupportedDisplayLanguageCodeException", UnsupportedDisplayLanguageCodeException) {};
-export class InvalidFilterExceptionError extends Schema.TaggedError<InvalidFilterExceptionError>()("InvalidFilterException", InvalidFilterException) {};
-export class UnsupportedLanguagePairExceptionError extends Schema.TaggedError<UnsupportedLanguagePairExceptionError>()("UnsupportedLanguagePairException", UnsupportedLanguagePairException) {};
-export class ServiceUnavailableExceptionError extends Schema.TaggedError<ServiceUnavailableExceptionError>()("ServiceUnavailableException", ServiceUnavailableException) {};
-export class DetectedLanguageLowConfidenceExceptionError extends Schema.TaggedError<DetectedLanguageLowConfidenceExceptionError>()("DetectedLanguageLowConfidenceException", DetectedLanguageLowConfidenceException) {};
-export class TextSizeLimitExceededExceptionError extends Schema.TaggedError<TextSizeLimitExceededExceptionError>()("TextSizeLimitExceededException", TextSizeLimitExceededException) {};
+export class ConcurrentModificationExceptionError extends Schema.TaggedError<ConcurrentModificationExceptionError>()("ConcurrentModificationException", ConcurrentModificationException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class InvalidParameterValueExceptionError extends Schema.TaggedError<InvalidParameterValueExceptionError>()("InvalidParameterValueException", InvalidParameterValueException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class TooManyRequestsExceptionError extends Schema.TaggedError<TooManyRequestsExceptionError>()("TooManyRequestsException", TooManyRequestsException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class InvalidRequestExceptionError extends Schema.TaggedError<InvalidRequestExceptionError>()("InvalidRequestException", InvalidRequestException.fields) {};
+export class TooManyTagsExceptionError extends Schema.TaggedError<TooManyTagsExceptionError>()("TooManyTagsException", TooManyTagsException.fields) {};
+export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException.fields) {};
+export class UnsupportedDisplayLanguageCodeExceptionError extends Schema.TaggedError<UnsupportedDisplayLanguageCodeExceptionError>()("UnsupportedDisplayLanguageCodeException", UnsupportedDisplayLanguageCodeException.fields) {};
+export class InvalidFilterExceptionError extends Schema.TaggedError<InvalidFilterExceptionError>()("InvalidFilterException", InvalidFilterException.fields) {};
+export class UnsupportedLanguagePairExceptionError extends Schema.TaggedError<UnsupportedLanguagePairExceptionError>()("UnsupportedLanguagePairException", UnsupportedLanguagePairException.fields) {};
+export class ServiceUnavailableExceptionError extends Schema.TaggedError<ServiceUnavailableExceptionError>()("ServiceUnavailableException", ServiceUnavailableException.fields) {};
+export class DetectedLanguageLowConfidenceExceptionError extends Schema.TaggedError<DetectedLanguageLowConfidenceExceptionError>()("DetectedLanguageLowConfidenceException", DetectedLanguageLowConfidenceException.fields) {};
+export class TextSizeLimitExceededExceptionError extends Schema.TaggedError<TextSizeLimitExceededExceptionError>()("TextSizeLimitExceededException", TextSizeLimitExceededException.fields) {};
 
 //# Operations
 export const listParallelData = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-07-01", uri: "/", method: "POST", sdkId: "Translate", sigV4ServiceName: "translate", name: "AWSShineFrontendService_20170701.ListParallelData" }, ListParallelDataRequest, ListParallelDataResponse, [InternalServerExceptionError, InvalidParameterValueExceptionError, TooManyRequestsExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

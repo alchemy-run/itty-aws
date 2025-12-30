@@ -4,130 +4,130 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 
 //# Schemas
 export const TagKeyList = Schema.Array(Schema.String);
-export const DeleteAccessorInput = Schema.Struct({AccessorId: Schema.String});
-export const DeleteAccessorOutput = Schema.Struct({});
-export const DeleteMemberInput = Schema.Struct({NetworkId: Schema.String, MemberId: Schema.String});
-export const DeleteMemberOutput = Schema.Struct({});
-export const InternalServiceErrorException = Schema.Struct({});
-export const DeleteNodeInput = Schema.Struct({NetworkId: Schema.String, MemberId: Schema.optional(Schema.String), NodeId: Schema.String});
-export const DeleteNodeOutput = Schema.Struct({});
-export const GetAccessorInput = Schema.Struct({AccessorId: Schema.String});
-export const GetMemberInput = Schema.Struct({NetworkId: Schema.String, MemberId: Schema.String});
-export const GetNetworkInput = Schema.Struct({NetworkId: Schema.String});
-export const GetNodeInput = Schema.Struct({NetworkId: Schema.String, MemberId: Schema.optional(Schema.String), NodeId: Schema.String});
-export const GetProposalInput = Schema.Struct({NetworkId: Schema.String, ProposalId: Schema.String});
-export const ListAccessorsInput = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), NetworkType: Schema.optional(Schema.String)});
-export const ListInvitationsInput = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListMembersInput = Schema.Struct({NetworkId: Schema.String, Name: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), IsOwned: Schema.optional(Schema.Boolean), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListNetworksInput = Schema.Struct({Name: Schema.optional(Schema.String), Framework: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListNodesInput = Schema.Struct({NetworkId: Schema.String, MemberId: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListProposalsInput = Schema.Struct({NetworkId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListProposalVotesInput = Schema.Struct({NetworkId: Schema.String, ProposalId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceRequest = Schema.Struct({ResourceArn: Schema.String});
-export const RejectInvitationInput = Schema.Struct({InvitationId: Schema.String});
-export const RejectInvitationOutput = Schema.Struct({});
+export class DeleteAccessorInput extends Schema.Class<DeleteAccessorInput>("DeleteAccessorInput")({AccessorId: Schema.String}) {}
+export class DeleteAccessorOutput extends Schema.Class<DeleteAccessorOutput>("DeleteAccessorOutput")({}) {}
+export class DeleteMemberInput extends Schema.Class<DeleteMemberInput>("DeleteMemberInput")({NetworkId: Schema.String, MemberId: Schema.String}) {}
+export class DeleteMemberOutput extends Schema.Class<DeleteMemberOutput>("DeleteMemberOutput")({}) {}
+export class InternalServiceErrorException extends Schema.Class<InternalServiceErrorException>("InternalServiceErrorException")({}) {}
+export class DeleteNodeInput extends Schema.Class<DeleteNodeInput>("DeleteNodeInput")({NetworkId: Schema.String, MemberId: Schema.optional(Schema.String), NodeId: Schema.String}) {}
+export class DeleteNodeOutput extends Schema.Class<DeleteNodeOutput>("DeleteNodeOutput")({}) {}
+export class GetAccessorInput extends Schema.Class<GetAccessorInput>("GetAccessorInput")({AccessorId: Schema.String}) {}
+export class GetMemberInput extends Schema.Class<GetMemberInput>("GetMemberInput")({NetworkId: Schema.String, MemberId: Schema.String}) {}
+export class GetNetworkInput extends Schema.Class<GetNetworkInput>("GetNetworkInput")({NetworkId: Schema.String}) {}
+export class GetNodeInput extends Schema.Class<GetNodeInput>("GetNodeInput")({NetworkId: Schema.String, MemberId: Schema.optional(Schema.String), NodeId: Schema.String}) {}
+export class GetProposalInput extends Schema.Class<GetProposalInput>("GetProposalInput")({NetworkId: Schema.String, ProposalId: Schema.String}) {}
+export class ListAccessorsInput extends Schema.Class<ListAccessorsInput>("ListAccessorsInput")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), NetworkType: Schema.optional(Schema.String)}) {}
+export class ListInvitationsInput extends Schema.Class<ListInvitationsInput>("ListInvitationsInput")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListMembersInput extends Schema.Class<ListMembersInput>("ListMembersInput")({NetworkId: Schema.String, Name: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), IsOwned: Schema.optional(Schema.Boolean), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListNetworksInput extends Schema.Class<ListNetworksInput>("ListNetworksInput")({Name: Schema.optional(Schema.String), Framework: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListNodesInput extends Schema.Class<ListNodesInput>("ListNodesInput")({NetworkId: Schema.String, MemberId: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListProposalsInput extends Schema.Class<ListProposalsInput>("ListProposalsInput")({NetworkId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListProposalVotesInput extends Schema.Class<ListProposalVotesInput>("ListProposalVotesInput")({NetworkId: Schema.String, ProposalId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({ResourceArn: Schema.String}) {}
+export class RejectInvitationInput extends Schema.Class<RejectInvitationInput>("RejectInvitationInput")({InvitationId: Schema.String}) {}
+export class RejectInvitationOutput extends Schema.Class<RejectInvitationOutput>("RejectInvitationOutput")({}) {}
 export const InputTagMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const TagResourceRequest = Schema.Struct({ResourceArn: Schema.String, Tags: InputTagMap});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({ResourceArn: Schema.String, TagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
-export const VoteOnProposalInput = Schema.Struct({NetworkId: Schema.String, ProposalId: Schema.String, VoterMemberId: Schema.String, Vote: Schema.String});
-export const VoteOnProposalOutput = Schema.Struct({});
-export const ThrottlingException = Schema.Struct({});
-export const LogConfiguration = Schema.Struct({Enabled: Schema.optional(Schema.Boolean)});
-export const LogConfigurations = Schema.Struct({Cloudwatch: Schema.optional(LogConfiguration)});
-export const NodeFabricLogPublishingConfiguration = Schema.Struct({ChaincodeLogs: Schema.optional(LogConfigurations), PeerLogs: Schema.optional(LogConfigurations)});
-export const NodeLogPublishingConfiguration = Schema.Struct({Fabric: Schema.optional(NodeFabricLogPublishingConfiguration)});
-export const NodeConfiguration = Schema.Struct({InstanceType: Schema.String, AvailabilityZone: Schema.optional(Schema.String), LogPublishingConfiguration: Schema.optional(NodeLogPublishingConfiguration), StateDB: Schema.optional(Schema.String)});
-export const CreateAccessorInput = Schema.Struct({ClientRequestToken: Schema.String, AccessorType: Schema.String, Tags: Schema.optional(InputTagMap), NetworkType: Schema.optional(Schema.String)});
-export const CreateNodeInput = Schema.Struct({ClientRequestToken: Schema.String, NetworkId: Schema.String, MemberId: Schema.optional(Schema.String), NodeConfiguration: NodeConfiguration, Tags: Schema.optional(InputTagMap)});
-export const AccessDeniedException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const InvalidRequestException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String), ResourceName: Schema.optional(Schema.String)});
-export const IllegalActionException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ResourceNotReadyException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const NetworkFabricConfiguration = Schema.Struct({Edition: Schema.String});
-export const ApprovalThresholdPolicy = Schema.Struct({ThresholdPercentage: Schema.optional(Schema.Number), ProposalDurationInHours: Schema.optional(Schema.Number), ThresholdComparator: Schema.optional(Schema.String)});
-export const InviteAction = Schema.Struct({Principal: Schema.String});
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({ResourceArn: Schema.String, Tags: InputTagMap}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({ResourceArn: Schema.String, TagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class VoteOnProposalInput extends Schema.Class<VoteOnProposalInput>("VoteOnProposalInput")({NetworkId: Schema.String, ProposalId: Schema.String, VoterMemberId: Schema.String, Vote: Schema.String}) {}
+export class VoteOnProposalOutput extends Schema.Class<VoteOnProposalOutput>("VoteOnProposalOutput")({}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({}) {}
+export class LogConfiguration extends Schema.Class<LogConfiguration>("LogConfiguration")({Enabled: Schema.optional(Schema.Boolean)}) {}
+export class LogConfigurations extends Schema.Class<LogConfigurations>("LogConfigurations")({Cloudwatch: Schema.optional(LogConfiguration)}) {}
+export class NodeFabricLogPublishingConfiguration extends Schema.Class<NodeFabricLogPublishingConfiguration>("NodeFabricLogPublishingConfiguration")({ChaincodeLogs: Schema.optional(LogConfigurations), PeerLogs: Schema.optional(LogConfigurations)}) {}
+export class NodeLogPublishingConfiguration extends Schema.Class<NodeLogPublishingConfiguration>("NodeLogPublishingConfiguration")({Fabric: Schema.optional(NodeFabricLogPublishingConfiguration)}) {}
+export class NodeConfiguration extends Schema.Class<NodeConfiguration>("NodeConfiguration")({InstanceType: Schema.String, AvailabilityZone: Schema.optional(Schema.String), LogPublishingConfiguration: Schema.optional(NodeLogPublishingConfiguration), StateDB: Schema.optional(Schema.String)}) {}
+export class CreateAccessorInput extends Schema.Class<CreateAccessorInput>("CreateAccessorInput")({ClientRequestToken: Schema.String, AccessorType: Schema.String, Tags: Schema.optional(InputTagMap), NetworkType: Schema.optional(Schema.String)}) {}
+export class CreateNodeInput extends Schema.Class<CreateNodeInput>("CreateNodeInput")({ClientRequestToken: Schema.String, NetworkId: Schema.String, MemberId: Schema.optional(Schema.String), NodeConfiguration: NodeConfiguration, Tags: Schema.optional(InputTagMap)}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({Message: Schema.optional(Schema.String)}) {}
+export class InvalidRequestException extends Schema.Class<InvalidRequestException>("InvalidRequestException")({Message: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({Message: Schema.optional(Schema.String), ResourceName: Schema.optional(Schema.String)}) {}
+export class IllegalActionException extends Schema.Class<IllegalActionException>("IllegalActionException")({Message: Schema.optional(Schema.String)}) {}
+export class ResourceNotReadyException extends Schema.Class<ResourceNotReadyException>("ResourceNotReadyException")({Message: Schema.optional(Schema.String)}) {}
+export class NetworkFabricConfiguration extends Schema.Class<NetworkFabricConfiguration>("NetworkFabricConfiguration")({Edition: Schema.String}) {}
+export class ApprovalThresholdPolicy extends Schema.Class<ApprovalThresholdPolicy>("ApprovalThresholdPolicy")({ThresholdPercentage: Schema.optional(Schema.Number), ProposalDurationInHours: Schema.optional(Schema.Number), ThresholdComparator: Schema.optional(Schema.String)}) {}
+export class InviteAction extends Schema.Class<InviteAction>("InviteAction")({Principal: Schema.String}) {}
 export const InviteActionList = Schema.Array(InviteAction);
-export const RemoveAction = Schema.Struct({MemberId: Schema.String});
+export class RemoveAction extends Schema.Class<RemoveAction>("RemoveAction")({MemberId: Schema.String}) {}
 export const RemoveActionList = Schema.Array(RemoveAction);
-export const NetworkFrameworkConfiguration = Schema.Struct({Fabric: Schema.optional(NetworkFabricConfiguration)});
-export const VotingPolicy = Schema.Struct({ApprovalThresholdPolicy: Schema.optional(ApprovalThresholdPolicy)});
-export const ProposalActions = Schema.Struct({Invitations: Schema.optional(InviteActionList), Removals: Schema.optional(RemoveActionList)});
+export class NetworkFrameworkConfiguration extends Schema.Class<NetworkFrameworkConfiguration>("NetworkFrameworkConfiguration")({Fabric: Schema.optional(NetworkFabricConfiguration)}) {}
+export class VotingPolicy extends Schema.Class<VotingPolicy>("VotingPolicy")({ApprovalThresholdPolicy: Schema.optional(ApprovalThresholdPolicy)}) {}
+export class ProposalActions extends Schema.Class<ProposalActions>("ProposalActions")({Invitations: Schema.optional(InviteActionList), Removals: Schema.optional(RemoveActionList)}) {}
 export const OutputTagMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const Accessor = Schema.Struct({Id: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), BillingToken: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), CreationDate: Schema.optional(Schema.Date), Arn: Schema.optional(Schema.String), Tags: Schema.optional(OutputTagMap), NetworkType: Schema.optional(Schema.String)});
-export const Proposal = Schema.Struct({ProposalId: Schema.optional(Schema.String), NetworkId: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Actions: Schema.optional(ProposalActions), ProposedByMemberId: Schema.optional(Schema.String), ProposedByMemberName: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), CreationDate: Schema.optional(Schema.Date), ExpirationDate: Schema.optional(Schema.Date), YesVoteCount: Schema.optional(Schema.Number), NoVoteCount: Schema.optional(Schema.Number), OutstandingVoteCount: Schema.optional(Schema.Number), Tags: Schema.optional(OutputTagMap), Arn: Schema.optional(Schema.String)});
-export const AccessorSummary = Schema.Struct({Id: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), CreationDate: Schema.optional(Schema.Date), Arn: Schema.optional(Schema.String), NetworkType: Schema.optional(Schema.String)});
+export class Accessor extends Schema.Class<Accessor>("Accessor")({Id: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), BillingToken: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), CreationDate: Schema.optional(Schema.Date), Arn: Schema.optional(Schema.String), Tags: Schema.optional(OutputTagMap), NetworkType: Schema.optional(Schema.String)}) {}
+export class Proposal extends Schema.Class<Proposal>("Proposal")({ProposalId: Schema.optional(Schema.String), NetworkId: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Actions: Schema.optional(ProposalActions), ProposedByMemberId: Schema.optional(Schema.String), ProposedByMemberName: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), CreationDate: Schema.optional(Schema.Date), ExpirationDate: Schema.optional(Schema.Date), YesVoteCount: Schema.optional(Schema.Number), NoVoteCount: Schema.optional(Schema.Number), OutstandingVoteCount: Schema.optional(Schema.Number), Tags: Schema.optional(OutputTagMap), Arn: Schema.optional(Schema.String)}) {}
+export class AccessorSummary extends Schema.Class<AccessorSummary>("AccessorSummary")({Id: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), CreationDate: Schema.optional(Schema.Date), Arn: Schema.optional(Schema.String), NetworkType: Schema.optional(Schema.String)}) {}
 export const AccessorSummaryList = Schema.Array(AccessorSummary);
-export const NetworkSummary = Schema.Struct({Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Framework: Schema.optional(Schema.String), FrameworkVersion: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), CreationDate: Schema.optional(Schema.Date), Arn: Schema.optional(Schema.String)});
-export const Invitation = Schema.Struct({InvitationId: Schema.optional(Schema.String), CreationDate: Schema.optional(Schema.Date), ExpirationDate: Schema.optional(Schema.Date), Status: Schema.optional(Schema.String), NetworkSummary: Schema.optional(NetworkSummary), Arn: Schema.optional(Schema.String)});
+export class NetworkSummary extends Schema.Class<NetworkSummary>("NetworkSummary")({Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Framework: Schema.optional(Schema.String), FrameworkVersion: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), CreationDate: Schema.optional(Schema.Date), Arn: Schema.optional(Schema.String)}) {}
+export class Invitation extends Schema.Class<Invitation>("Invitation")({InvitationId: Schema.optional(Schema.String), CreationDate: Schema.optional(Schema.Date), ExpirationDate: Schema.optional(Schema.Date), Status: Schema.optional(Schema.String), NetworkSummary: Schema.optional(NetworkSummary), Arn: Schema.optional(Schema.String)}) {}
 export const InvitationList = Schema.Array(Invitation);
-export const MemberSummary = Schema.Struct({Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), CreationDate: Schema.optional(Schema.Date), IsOwned: Schema.optional(Schema.Boolean), Arn: Schema.optional(Schema.String)});
+export class MemberSummary extends Schema.Class<MemberSummary>("MemberSummary")({Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), CreationDate: Schema.optional(Schema.Date), IsOwned: Schema.optional(Schema.Boolean), Arn: Schema.optional(Schema.String)}) {}
 export const MemberSummaryList = Schema.Array(MemberSummary);
 export const NetworkSummaryList = Schema.Array(NetworkSummary);
-export const NodeSummary = Schema.Struct({Id: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), CreationDate: Schema.optional(Schema.Date), AvailabilityZone: Schema.optional(Schema.String), InstanceType: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String)});
+export class NodeSummary extends Schema.Class<NodeSummary>("NodeSummary")({Id: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), CreationDate: Schema.optional(Schema.Date), AvailabilityZone: Schema.optional(Schema.String), InstanceType: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String)}) {}
 export const NodeSummaryList = Schema.Array(NodeSummary);
-export const ProposalSummary = Schema.Struct({ProposalId: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), ProposedByMemberId: Schema.optional(Schema.String), ProposedByMemberName: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), CreationDate: Schema.optional(Schema.Date), ExpirationDate: Schema.optional(Schema.Date), Arn: Schema.optional(Schema.String)});
+export class ProposalSummary extends Schema.Class<ProposalSummary>("ProposalSummary")({ProposalId: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), ProposedByMemberId: Schema.optional(Schema.String), ProposedByMemberName: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), CreationDate: Schema.optional(Schema.Date), ExpirationDate: Schema.optional(Schema.Date), Arn: Schema.optional(Schema.String)}) {}
 export const ProposalSummaryList = Schema.Array(ProposalSummary);
-export const VoteSummary = Schema.Struct({Vote: Schema.optional(Schema.String), MemberName: Schema.optional(Schema.String), MemberId: Schema.optional(Schema.String)});
+export class VoteSummary extends Schema.Class<VoteSummary>("VoteSummary")({Vote: Schema.optional(Schema.String), MemberName: Schema.optional(Schema.String), MemberId: Schema.optional(Schema.String)}) {}
 export const ProposalVoteList = Schema.Array(VoteSummary);
-export const MemberFabricConfiguration = Schema.Struct({AdminUsername: Schema.String, AdminPassword: Schema.String});
-export const CreateAccessorOutput = Schema.Struct({AccessorId: Schema.optional(Schema.String), BillingToken: Schema.optional(Schema.String), NetworkType: Schema.optional(Schema.String)});
-export const MemberFrameworkConfiguration = Schema.Struct({Fabric: Schema.optional(MemberFabricConfiguration)});
-export const MemberFabricLogPublishingConfiguration = Schema.Struct({CaLogs: Schema.optional(LogConfigurations)});
-export const MemberLogPublishingConfiguration = Schema.Struct({Fabric: Schema.optional(MemberFabricLogPublishingConfiguration)});
-export const MemberConfiguration = Schema.Struct({Name: Schema.String, Description: Schema.optional(Schema.String), FrameworkConfiguration: MemberFrameworkConfiguration, LogPublishingConfiguration: Schema.optional(MemberLogPublishingConfiguration), Tags: Schema.optional(InputTagMap), KmsKeyArn: Schema.optional(Schema.String)});
-export const CreateNetworkInput = Schema.Struct({ClientRequestToken: Schema.String, Name: Schema.String, Description: Schema.optional(Schema.String), Framework: Schema.String, FrameworkVersion: Schema.String, FrameworkConfiguration: Schema.optional(NetworkFrameworkConfiguration), VotingPolicy: VotingPolicy, MemberConfiguration: MemberConfiguration, Tags: Schema.optional(InputTagMap)});
-export const CreateNodeOutput = Schema.Struct({NodeId: Schema.optional(Schema.String)});
-export const CreateProposalInput = Schema.Struct({ClientRequestToken: Schema.String, NetworkId: Schema.String, MemberId: Schema.String, Actions: ProposalActions, Description: Schema.optional(Schema.String), Tags: Schema.optional(InputTagMap)});
-export const GetAccessorOutput = Schema.Struct({Accessor: Schema.optional(Accessor)});
-export const GetProposalOutput = Schema.Struct({Proposal: Schema.optional(Proposal)});
-export const ListAccessorsOutput = Schema.Struct({Accessors: Schema.optional(AccessorSummaryList), NextToken: Schema.optional(Schema.String)});
-export const ListInvitationsOutput = Schema.Struct({Invitations: Schema.optional(InvitationList), NextToken: Schema.optional(Schema.String)});
-export const ListMembersOutput = Schema.Struct({Members: Schema.optional(MemberSummaryList), NextToken: Schema.optional(Schema.String)});
-export const ListNetworksOutput = Schema.Struct({Networks: Schema.optional(NetworkSummaryList), NextToken: Schema.optional(Schema.String)});
-export const ListNodesOutput = Schema.Struct({Nodes: Schema.optional(NodeSummaryList), NextToken: Schema.optional(Schema.String)});
-export const ListProposalsOutput = Schema.Struct({Proposals: Schema.optional(ProposalSummaryList), NextToken: Schema.optional(Schema.String)});
-export const ListProposalVotesOutput = Schema.Struct({ProposalVotes: Schema.optional(ProposalVoteList), NextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceResponse = Schema.Struct({Tags: Schema.optional(OutputTagMap)});
-export const TooManyTagsException = Schema.Struct({Message: Schema.optional(Schema.String), ResourceName: Schema.optional(Schema.String)});
-export const UpdateNodeInput = Schema.Struct({NetworkId: Schema.String, MemberId: Schema.optional(Schema.String), NodeId: Schema.String, LogPublishingConfiguration: Schema.optional(NodeLogPublishingConfiguration)});
-export const UpdateNodeOutput = Schema.Struct({});
-export const MemberFabricAttributes = Schema.Struct({AdminUsername: Schema.optional(Schema.String), CaEndpoint: Schema.optional(Schema.String)});
-export const NetworkFabricAttributes = Schema.Struct({OrderingServiceEndpoint: Schema.optional(Schema.String), Edition: Schema.optional(Schema.String)});
-export const NetworkEthereumAttributes = Schema.Struct({ChainId: Schema.optional(Schema.String)});
-export const NodeFabricAttributes = Schema.Struct({PeerEndpoint: Schema.optional(Schema.String), PeerEventEndpoint: Schema.optional(Schema.String)});
-export const NodeEthereumAttributes = Schema.Struct({HttpEndpoint: Schema.optional(Schema.String), WebSocketEndpoint: Schema.optional(Schema.String)});
-export const ResourceAlreadyExistsException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const CreateMemberInput = Schema.Struct({ClientRequestToken: Schema.String, InvitationId: Schema.String, NetworkId: Schema.String, MemberConfiguration: MemberConfiguration});
-export const CreateNetworkOutput = Schema.Struct({NetworkId: Schema.optional(Schema.String), MemberId: Schema.optional(Schema.String)});
-export const ResourceLimitExceededException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const CreateProposalOutput = Schema.Struct({ProposalId: Schema.optional(Schema.String)});
-export const MemberFrameworkAttributes = Schema.Struct({Fabric: Schema.optional(MemberFabricAttributes)});
-export const NetworkFrameworkAttributes = Schema.Struct({Fabric: Schema.optional(NetworkFabricAttributes), Ethereum: Schema.optional(NetworkEthereumAttributes)});
-export const NodeFrameworkAttributes = Schema.Struct({Fabric: Schema.optional(NodeFabricAttributes), Ethereum: Schema.optional(NodeEthereumAttributes)});
-export const Member = Schema.Struct({NetworkId: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), FrameworkAttributes: Schema.optional(MemberFrameworkAttributes), LogPublishingConfiguration: Schema.optional(MemberLogPublishingConfiguration), Status: Schema.optional(Schema.String), CreationDate: Schema.optional(Schema.Date), Tags: Schema.optional(OutputTagMap), Arn: Schema.optional(Schema.String), KmsKeyArn: Schema.optional(Schema.String)});
-export const Network = Schema.Struct({Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Framework: Schema.optional(Schema.String), FrameworkVersion: Schema.optional(Schema.String), FrameworkAttributes: Schema.optional(NetworkFrameworkAttributes), VpcEndpointServiceName: Schema.optional(Schema.String), VotingPolicy: Schema.optional(VotingPolicy), Status: Schema.optional(Schema.String), CreationDate: Schema.optional(Schema.Date), Tags: Schema.optional(OutputTagMap), Arn: Schema.optional(Schema.String)});
-export const Node = Schema.Struct({NetworkId: Schema.optional(Schema.String), MemberId: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), InstanceType: Schema.optional(Schema.String), AvailabilityZone: Schema.optional(Schema.String), FrameworkAttributes: Schema.optional(NodeFrameworkAttributes), LogPublishingConfiguration: Schema.optional(NodeLogPublishingConfiguration), StateDB: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), CreationDate: Schema.optional(Schema.Date), Tags: Schema.optional(OutputTagMap), Arn: Schema.optional(Schema.String), KmsKeyArn: Schema.optional(Schema.String)});
-export const CreateMemberOutput = Schema.Struct({MemberId: Schema.optional(Schema.String)});
-export const GetMemberOutput = Schema.Struct({Member: Schema.optional(Member)});
-export const GetNetworkOutput = Schema.Struct({Network: Schema.optional(Network)});
-export const GetNodeOutput = Schema.Struct({Node: Schema.optional(Node)});
-export const UpdateMemberInput = Schema.Struct({NetworkId: Schema.String, MemberId: Schema.String, LogPublishingConfiguration: Schema.optional(MemberLogPublishingConfiguration)});
-export const UpdateMemberOutput = Schema.Struct({});
+export class MemberFabricConfiguration extends Schema.Class<MemberFabricConfiguration>("MemberFabricConfiguration")({AdminUsername: Schema.String, AdminPassword: Schema.String}) {}
+export class CreateAccessorOutput extends Schema.Class<CreateAccessorOutput>("CreateAccessorOutput")({AccessorId: Schema.optional(Schema.String), BillingToken: Schema.optional(Schema.String), NetworkType: Schema.optional(Schema.String)}) {}
+export class MemberFrameworkConfiguration extends Schema.Class<MemberFrameworkConfiguration>("MemberFrameworkConfiguration")({Fabric: Schema.optional(MemberFabricConfiguration)}) {}
+export class MemberFabricLogPublishingConfiguration extends Schema.Class<MemberFabricLogPublishingConfiguration>("MemberFabricLogPublishingConfiguration")({CaLogs: Schema.optional(LogConfigurations)}) {}
+export class MemberLogPublishingConfiguration extends Schema.Class<MemberLogPublishingConfiguration>("MemberLogPublishingConfiguration")({Fabric: Schema.optional(MemberFabricLogPublishingConfiguration)}) {}
+export class MemberConfiguration extends Schema.Class<MemberConfiguration>("MemberConfiguration")({Name: Schema.String, Description: Schema.optional(Schema.String), FrameworkConfiguration: MemberFrameworkConfiguration, LogPublishingConfiguration: Schema.optional(MemberLogPublishingConfiguration), Tags: Schema.optional(InputTagMap), KmsKeyArn: Schema.optional(Schema.String)}) {}
+export class CreateNetworkInput extends Schema.Class<CreateNetworkInput>("CreateNetworkInput")({ClientRequestToken: Schema.String, Name: Schema.String, Description: Schema.optional(Schema.String), Framework: Schema.String, FrameworkVersion: Schema.String, FrameworkConfiguration: Schema.optional(NetworkFrameworkConfiguration), VotingPolicy: VotingPolicy, MemberConfiguration: MemberConfiguration, Tags: Schema.optional(InputTagMap)}) {}
+export class CreateNodeOutput extends Schema.Class<CreateNodeOutput>("CreateNodeOutput")({NodeId: Schema.optional(Schema.String)}) {}
+export class CreateProposalInput extends Schema.Class<CreateProposalInput>("CreateProposalInput")({ClientRequestToken: Schema.String, NetworkId: Schema.String, MemberId: Schema.String, Actions: ProposalActions, Description: Schema.optional(Schema.String), Tags: Schema.optional(InputTagMap)}) {}
+export class GetAccessorOutput extends Schema.Class<GetAccessorOutput>("GetAccessorOutput")({Accessor: Schema.optional(Accessor)}) {}
+export class GetProposalOutput extends Schema.Class<GetProposalOutput>("GetProposalOutput")({Proposal: Schema.optional(Proposal)}) {}
+export class ListAccessorsOutput extends Schema.Class<ListAccessorsOutput>("ListAccessorsOutput")({Accessors: Schema.optional(AccessorSummaryList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListInvitationsOutput extends Schema.Class<ListInvitationsOutput>("ListInvitationsOutput")({Invitations: Schema.optional(InvitationList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListMembersOutput extends Schema.Class<ListMembersOutput>("ListMembersOutput")({Members: Schema.optional(MemberSummaryList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListNetworksOutput extends Schema.Class<ListNetworksOutput>("ListNetworksOutput")({Networks: Schema.optional(NetworkSummaryList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListNodesOutput extends Schema.Class<ListNodesOutput>("ListNodesOutput")({Nodes: Schema.optional(NodeSummaryList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListProposalsOutput extends Schema.Class<ListProposalsOutput>("ListProposalsOutput")({Proposals: Schema.optional(ProposalSummaryList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListProposalVotesOutput extends Schema.Class<ListProposalVotesOutput>("ListProposalVotesOutput")({ProposalVotes: Schema.optional(ProposalVoteList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({Tags: Schema.optional(OutputTagMap)}) {}
+export class TooManyTagsException extends Schema.Class<TooManyTagsException>("TooManyTagsException")({Message: Schema.optional(Schema.String), ResourceName: Schema.optional(Schema.String)}) {}
+export class UpdateNodeInput extends Schema.Class<UpdateNodeInput>("UpdateNodeInput")({NetworkId: Schema.String, MemberId: Schema.optional(Schema.String), NodeId: Schema.String, LogPublishingConfiguration: Schema.optional(NodeLogPublishingConfiguration)}) {}
+export class UpdateNodeOutput extends Schema.Class<UpdateNodeOutput>("UpdateNodeOutput")({}) {}
+export class MemberFabricAttributes extends Schema.Class<MemberFabricAttributes>("MemberFabricAttributes")({AdminUsername: Schema.optional(Schema.String), CaEndpoint: Schema.optional(Schema.String)}) {}
+export class NetworkFabricAttributes extends Schema.Class<NetworkFabricAttributes>("NetworkFabricAttributes")({OrderingServiceEndpoint: Schema.optional(Schema.String), Edition: Schema.optional(Schema.String)}) {}
+export class NetworkEthereumAttributes extends Schema.Class<NetworkEthereumAttributes>("NetworkEthereumAttributes")({ChainId: Schema.optional(Schema.String)}) {}
+export class NodeFabricAttributes extends Schema.Class<NodeFabricAttributes>("NodeFabricAttributes")({PeerEndpoint: Schema.optional(Schema.String), PeerEventEndpoint: Schema.optional(Schema.String)}) {}
+export class NodeEthereumAttributes extends Schema.Class<NodeEthereumAttributes>("NodeEthereumAttributes")({HttpEndpoint: Schema.optional(Schema.String), WebSocketEndpoint: Schema.optional(Schema.String)}) {}
+export class ResourceAlreadyExistsException extends Schema.Class<ResourceAlreadyExistsException>("ResourceAlreadyExistsException")({Message: Schema.optional(Schema.String)}) {}
+export class CreateMemberInput extends Schema.Class<CreateMemberInput>("CreateMemberInput")({ClientRequestToken: Schema.String, InvitationId: Schema.String, NetworkId: Schema.String, MemberConfiguration: MemberConfiguration}) {}
+export class CreateNetworkOutput extends Schema.Class<CreateNetworkOutput>("CreateNetworkOutput")({NetworkId: Schema.optional(Schema.String), MemberId: Schema.optional(Schema.String)}) {}
+export class ResourceLimitExceededException extends Schema.Class<ResourceLimitExceededException>("ResourceLimitExceededException")({Message: Schema.optional(Schema.String)}) {}
+export class CreateProposalOutput extends Schema.Class<CreateProposalOutput>("CreateProposalOutput")({ProposalId: Schema.optional(Schema.String)}) {}
+export class MemberFrameworkAttributes extends Schema.Class<MemberFrameworkAttributes>("MemberFrameworkAttributes")({Fabric: Schema.optional(MemberFabricAttributes)}) {}
+export class NetworkFrameworkAttributes extends Schema.Class<NetworkFrameworkAttributes>("NetworkFrameworkAttributes")({Fabric: Schema.optional(NetworkFabricAttributes), Ethereum: Schema.optional(NetworkEthereumAttributes)}) {}
+export class NodeFrameworkAttributes extends Schema.Class<NodeFrameworkAttributes>("NodeFrameworkAttributes")({Fabric: Schema.optional(NodeFabricAttributes), Ethereum: Schema.optional(NodeEthereumAttributes)}) {}
+export class Member extends Schema.Class<Member>("Member")({NetworkId: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), FrameworkAttributes: Schema.optional(MemberFrameworkAttributes), LogPublishingConfiguration: Schema.optional(MemberLogPublishingConfiguration), Status: Schema.optional(Schema.String), CreationDate: Schema.optional(Schema.Date), Tags: Schema.optional(OutputTagMap), Arn: Schema.optional(Schema.String), KmsKeyArn: Schema.optional(Schema.String)}) {}
+export class Network extends Schema.Class<Network>("Network")({Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Framework: Schema.optional(Schema.String), FrameworkVersion: Schema.optional(Schema.String), FrameworkAttributes: Schema.optional(NetworkFrameworkAttributes), VpcEndpointServiceName: Schema.optional(Schema.String), VotingPolicy: Schema.optional(VotingPolicy), Status: Schema.optional(Schema.String), CreationDate: Schema.optional(Schema.Date), Tags: Schema.optional(OutputTagMap), Arn: Schema.optional(Schema.String)}) {}
+export class Node extends Schema.Class<Node>("Node")({NetworkId: Schema.optional(Schema.String), MemberId: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), InstanceType: Schema.optional(Schema.String), AvailabilityZone: Schema.optional(Schema.String), FrameworkAttributes: Schema.optional(NodeFrameworkAttributes), LogPublishingConfiguration: Schema.optional(NodeLogPublishingConfiguration), StateDB: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), CreationDate: Schema.optional(Schema.Date), Tags: Schema.optional(OutputTagMap), Arn: Schema.optional(Schema.String), KmsKeyArn: Schema.optional(Schema.String)}) {}
+export class CreateMemberOutput extends Schema.Class<CreateMemberOutput>("CreateMemberOutput")({MemberId: Schema.optional(Schema.String)}) {}
+export class GetMemberOutput extends Schema.Class<GetMemberOutput>("GetMemberOutput")({Member: Schema.optional(Member)}) {}
+export class GetNetworkOutput extends Schema.Class<GetNetworkOutput>("GetNetworkOutput")({Network: Schema.optional(Network)}) {}
+export class GetNodeOutput extends Schema.Class<GetNodeOutput>("GetNodeOutput")({Node: Schema.optional(Node)}) {}
+export class UpdateMemberInput extends Schema.Class<UpdateMemberInput>("UpdateMemberInput")({NetworkId: Schema.String, MemberId: Schema.String, LogPublishingConfiguration: Schema.optional(MemberLogPublishingConfiguration)}) {}
+export class UpdateMemberOutput extends Schema.Class<UpdateMemberOutput>("UpdateMemberOutput")({}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class InternalServiceErrorExceptionError extends Schema.TaggedError<InternalServiceErrorExceptionError>()("InternalServiceErrorException", InternalServiceErrorException) {};
-export class InvalidRequestExceptionError extends Schema.TaggedError<InvalidRequestExceptionError>()("InvalidRequestException", InvalidRequestException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ResourceNotReadyExceptionError extends Schema.TaggedError<ResourceNotReadyExceptionError>()("ResourceNotReadyException", ResourceNotReadyException) {};
-export class IllegalActionExceptionError extends Schema.TaggedError<IllegalActionExceptionError>()("IllegalActionException", IllegalActionException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ResourceAlreadyExistsExceptionError extends Schema.TaggedError<ResourceAlreadyExistsExceptionError>()("ResourceAlreadyExistsException", ResourceAlreadyExistsException) {};
-export class ResourceLimitExceededExceptionError extends Schema.TaggedError<ResourceLimitExceededExceptionError>()("ResourceLimitExceededException", ResourceLimitExceededException) {};
-export class TooManyTagsExceptionError extends Schema.TaggedError<TooManyTagsExceptionError>()("TooManyTagsException", TooManyTagsException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class InternalServiceErrorExceptionError extends Schema.TaggedError<InternalServiceErrorExceptionError>()("InternalServiceErrorException", InternalServiceErrorException.fields) {};
+export class InvalidRequestExceptionError extends Schema.TaggedError<InvalidRequestExceptionError>()("InvalidRequestException", InvalidRequestException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ResourceNotReadyExceptionError extends Schema.TaggedError<ResourceNotReadyExceptionError>()("ResourceNotReadyException", ResourceNotReadyException.fields) {};
+export class IllegalActionExceptionError extends Schema.TaggedError<IllegalActionExceptionError>()("IllegalActionException", IllegalActionException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ResourceAlreadyExistsExceptionError extends Schema.TaggedError<ResourceAlreadyExistsExceptionError>()("ResourceAlreadyExistsException", ResourceAlreadyExistsException.fields) {};
+export class ResourceLimitExceededExceptionError extends Schema.TaggedError<ResourceLimitExceededExceptionError>()("ResourceLimitExceededException", ResourceLimitExceededException.fields) {};
+export class TooManyTagsExceptionError extends Schema.TaggedError<TooManyTagsExceptionError>()("TooManyTagsException", TooManyTagsException.fields) {};
 
 //# Operations
 export const untagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-09-24", uri: "/tags/{ResourceArn}", method: "DELETE", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InternalServiceErrorExceptionError, InvalidRequestExceptionError, ResourceNotFoundExceptionError, ResourceNotReadyExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

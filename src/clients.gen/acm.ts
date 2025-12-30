@@ -5,90 +5,90 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 //# Schemas
 export const CertificateStatuses = Schema.Array(Schema.String);
 export const DomainList = Schema.Array(Schema.String);
-export const DeleteCertificateRequest = Schema.Struct({CertificateArn: Schema.String});
-export const DescribeCertificateRequest = Schema.Struct({CertificateArn: Schema.String});
-export const ExportCertificateRequest = Schema.Struct({CertificateArn: Schema.String, Passphrase: StreamBody()});
-export const GetCertificateRequest = Schema.Struct({CertificateArn: Schema.String});
-export const Tag = Schema.Struct({Key: Schema.String, Value: Schema.optional(Schema.String)});
+export class DeleteCertificateRequest extends Schema.Class<DeleteCertificateRequest>("DeleteCertificateRequest")({CertificateArn: Schema.String}) {}
+export class DescribeCertificateRequest extends Schema.Class<DescribeCertificateRequest>("DescribeCertificateRequest")({CertificateArn: Schema.String}) {}
+export class ExportCertificateRequest extends Schema.Class<ExportCertificateRequest>("ExportCertificateRequest")({CertificateArn: Schema.String, Passphrase: StreamBody()}) {}
+export class GetCertificateRequest extends Schema.Class<GetCertificateRequest>("GetCertificateRequest")({CertificateArn: Schema.String}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.String, Value: Schema.optional(Schema.String)}) {}
 export const TagList = Schema.Array(Tag);
-export const ImportCertificateRequest = Schema.Struct({CertificateArn: Schema.optional(Schema.String), Certificate: StreamBody(), PrivateKey: StreamBody(), CertificateChain: Schema.optional(StreamBody()), Tags: Schema.optional(TagList)});
-export const ListTagsForCertificateRequest = Schema.Struct({CertificateArn: Schema.String});
-export const ExpiryEventsConfiguration = Schema.Struct({DaysBeforeExpiry: Schema.optional(Schema.Number)});
-export const PutAccountConfigurationRequest = Schema.Struct({ExpiryEvents: Schema.optional(ExpiryEventsConfiguration), IdempotencyToken: Schema.String});
-export const RemoveTagsFromCertificateRequest = Schema.Struct({CertificateArn: Schema.String, Tags: TagList});
-export const RenewCertificateRequest = Schema.Struct({CertificateArn: Schema.String});
-export const ResendValidationEmailRequest = Schema.Struct({CertificateArn: Schema.String, Domain: Schema.String, ValidationDomain: Schema.String});
-export const RevokeCertificateRequest = Schema.Struct({CertificateArn: Schema.String, RevocationReason: Schema.String});
-export const CertificateOptions = Schema.Struct({CertificateTransparencyLoggingPreference: Schema.optional(Schema.String), Export: Schema.optional(Schema.String)});
-export const UpdateCertificateOptionsRequest = Schema.Struct({CertificateArn: Schema.String, Options: CertificateOptions});
+export class ImportCertificateRequest extends Schema.Class<ImportCertificateRequest>("ImportCertificateRequest")({CertificateArn: Schema.optional(Schema.String), Certificate: StreamBody(), PrivateKey: StreamBody(), CertificateChain: Schema.optional(StreamBody()), Tags: Schema.optional(TagList)}) {}
+export class ListTagsForCertificateRequest extends Schema.Class<ListTagsForCertificateRequest>("ListTagsForCertificateRequest")({CertificateArn: Schema.String}) {}
+export class ExpiryEventsConfiguration extends Schema.Class<ExpiryEventsConfiguration>("ExpiryEventsConfiguration")({DaysBeforeExpiry: Schema.optional(Schema.Number)}) {}
+export class PutAccountConfigurationRequest extends Schema.Class<PutAccountConfigurationRequest>("PutAccountConfigurationRequest")({ExpiryEvents: Schema.optional(ExpiryEventsConfiguration), IdempotencyToken: Schema.String}) {}
+export class RemoveTagsFromCertificateRequest extends Schema.Class<RemoveTagsFromCertificateRequest>("RemoveTagsFromCertificateRequest")({CertificateArn: Schema.String, Tags: TagList}) {}
+export class RenewCertificateRequest extends Schema.Class<RenewCertificateRequest>("RenewCertificateRequest")({CertificateArn: Schema.String}) {}
+export class ResendValidationEmailRequest extends Schema.Class<ResendValidationEmailRequest>("ResendValidationEmailRequest")({CertificateArn: Schema.String, Domain: Schema.String, ValidationDomain: Schema.String}) {}
+export class RevokeCertificateRequest extends Schema.Class<RevokeCertificateRequest>("RevokeCertificateRequest")({CertificateArn: Schema.String, RevocationReason: Schema.String}) {}
+export class CertificateOptions extends Schema.Class<CertificateOptions>("CertificateOptions")({CertificateTransparencyLoggingPreference: Schema.optional(Schema.String), Export: Schema.optional(Schema.String)}) {}
+export class UpdateCertificateOptionsRequest extends Schema.Class<UpdateCertificateOptionsRequest>("UpdateCertificateOptionsRequest")({CertificateArn: Schema.String, Options: CertificateOptions}) {}
 export const ExtendedKeyUsageFilterList = Schema.Array(Schema.String);
 export const KeyUsageFilterList = Schema.Array(Schema.String);
 export const KeyAlgorithmList = Schema.Array(Schema.String);
-export const Filters = Schema.Struct({extendedKeyUsage: Schema.optional(ExtendedKeyUsageFilterList), keyUsage: Schema.optional(KeyUsageFilterList), keyTypes: Schema.optional(KeyAlgorithmList), exportOption: Schema.optional(Schema.String), managedBy: Schema.optional(Schema.String)});
-export const DomainValidationOption = Schema.Struct({DomainName: Schema.String, ValidationDomain: Schema.String});
+export class Filters extends Schema.Class<Filters>("Filters")({extendedKeyUsage: Schema.optional(ExtendedKeyUsageFilterList), keyUsage: Schema.optional(KeyUsageFilterList), keyTypes: Schema.optional(KeyAlgorithmList), exportOption: Schema.optional(Schema.String), managedBy: Schema.optional(Schema.String)}) {}
+export class DomainValidationOption extends Schema.Class<DomainValidationOption>("DomainValidationOption")({DomainName: Schema.String, ValidationDomain: Schema.String}) {}
 export const DomainValidationOptionList = Schema.Array(DomainValidationOption);
-export const AddTagsToCertificateRequest = Schema.Struct({CertificateArn: Schema.String, Tags: TagList});
-export const AccessDeniedException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ExportCertificateResponse = Schema.Struct({Certificate: Schema.optional(Schema.String), CertificateChain: Schema.optional(Schema.String), PrivateKey: Schema.optional(Schema.String)});
-export const GetAccountConfigurationResponse = Schema.Struct({ExpiryEvents: Schema.optional(ExpiryEventsConfiguration)});
-export const GetCertificateResponse = Schema.Struct({Certificate: Schema.optional(Schema.String), CertificateChain: Schema.optional(Schema.String)});
-export const ImportCertificateResponse = Schema.Struct({CertificateArn: Schema.optional(Schema.String)});
-export const ListCertificatesRequest = Schema.Struct({CertificateStatuses: Schema.optional(CertificateStatuses), Includes: Schema.optional(Filters), NextToken: Schema.optional(Schema.String), MaxItems: Schema.optional(Schema.Number), SortBy: Schema.optional(Schema.String), SortOrder: Schema.optional(Schema.String)});
-export const ListTagsForCertificateResponse = Schema.Struct({Tags: Schema.optional(TagList)});
-export const ConflictException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidArnException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const RequestInProgressException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const RequestCertificateRequest = Schema.Struct({DomainName: Schema.String, ValidationMethod: Schema.optional(Schema.String), SubjectAlternativeNames: Schema.optional(DomainList), IdempotencyToken: Schema.optional(Schema.String), DomainValidationOptions: Schema.optional(DomainValidationOptionList), Options: Schema.optional(CertificateOptions), CertificateAuthorityArn: Schema.optional(Schema.String), Tags: Schema.optional(TagList), KeyAlgorithm: Schema.optional(Schema.String), ManagedBy: Schema.optional(Schema.String)});
-export const InvalidDomainValidationOptionsException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const RevokeCertificateResponse = Schema.Struct({CertificateArn: Schema.optional(Schema.String)});
-export const InvalidStateException = Schema.Struct({message: Schema.optional(Schema.String)});
+export class AddTagsToCertificateRequest extends Schema.Class<AddTagsToCertificateRequest>("AddTagsToCertificateRequest")({CertificateArn: Schema.String, Tags: TagList}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({Message: Schema.optional(Schema.String)}) {}
+export class ExportCertificateResponse extends Schema.Class<ExportCertificateResponse>("ExportCertificateResponse")({Certificate: Schema.optional(Schema.String), CertificateChain: Schema.optional(Schema.String), PrivateKey: Schema.optional(Schema.String)}) {}
+export class GetAccountConfigurationResponse extends Schema.Class<GetAccountConfigurationResponse>("GetAccountConfigurationResponse")({ExpiryEvents: Schema.optional(ExpiryEventsConfiguration)}) {}
+export class GetCertificateResponse extends Schema.Class<GetCertificateResponse>("GetCertificateResponse")({Certificate: Schema.optional(Schema.String), CertificateChain: Schema.optional(Schema.String)}) {}
+export class ImportCertificateResponse extends Schema.Class<ImportCertificateResponse>("ImportCertificateResponse")({CertificateArn: Schema.optional(Schema.String)}) {}
+export class ListCertificatesRequest extends Schema.Class<ListCertificatesRequest>("ListCertificatesRequest")({CertificateStatuses: Schema.optional(CertificateStatuses), Includes: Schema.optional(Filters), NextToken: Schema.optional(Schema.String), MaxItems: Schema.optional(Schema.Number), SortBy: Schema.optional(Schema.String), SortOrder: Schema.optional(Schema.String)}) {}
+export class ListTagsForCertificateResponse extends Schema.Class<ListTagsForCertificateResponse>("ListTagsForCertificateResponse")({Tags: Schema.optional(TagList)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidArnException extends Schema.Class<InvalidArnException>("InvalidArnException")({message: Schema.optional(Schema.String)}) {}
+export class RequestInProgressException extends Schema.Class<RequestInProgressException>("RequestInProgressException")({message: Schema.optional(Schema.String)}) {}
+export class RequestCertificateRequest extends Schema.Class<RequestCertificateRequest>("RequestCertificateRequest")({DomainName: Schema.String, ValidationMethod: Schema.optional(Schema.String), SubjectAlternativeNames: Schema.optional(DomainList), IdempotencyToken: Schema.optional(Schema.String), DomainValidationOptions: Schema.optional(DomainValidationOptionList), Options: Schema.optional(CertificateOptions), CertificateAuthorityArn: Schema.optional(Schema.String), Tags: Schema.optional(TagList), KeyAlgorithm: Schema.optional(Schema.String), ManagedBy: Schema.optional(Schema.String)}) {}
+export class InvalidDomainValidationOptionsException extends Schema.Class<InvalidDomainValidationOptionsException>("InvalidDomainValidationOptionsException")({message: Schema.optional(Schema.String)}) {}
+export class RevokeCertificateResponse extends Schema.Class<RevokeCertificateResponse>("RevokeCertificateResponse")({CertificateArn: Schema.optional(Schema.String)}) {}
+export class InvalidStateException extends Schema.Class<InvalidStateException>("InvalidStateException")({message: Schema.optional(Schema.String)}) {}
 export const InUseList = Schema.Array(Schema.String);
 export const ValidationEmailList = Schema.Array(Schema.String);
-export const InvalidParameterException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ResourceInUseException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ThrottlingException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidTagException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ValidationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const TagPolicyException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const RequestCertificateResponse = Schema.Struct({CertificateArn: Schema.optional(Schema.String)});
-export const LimitExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ResourceRecord = Schema.Struct({Name: Schema.String, Type: Schema.String, Value: Schema.String});
-export const HttpRedirect = Schema.Struct({RedirectFrom: Schema.optional(Schema.String), RedirectTo: Schema.optional(Schema.String)});
-export const DomainValidation = Schema.Struct({DomainName: Schema.String, ValidationEmails: Schema.optional(ValidationEmailList), ValidationDomain: Schema.optional(Schema.String), ValidationStatus: Schema.optional(Schema.String), ResourceRecord: Schema.optional(ResourceRecord), HttpRedirect: Schema.optional(HttpRedirect), ValidationMethod: Schema.optional(Schema.String)});
+export class InvalidParameterException extends Schema.Class<InvalidParameterException>("InvalidParameterException")({message: Schema.optional(Schema.String)}) {}
+export class ResourceInUseException extends Schema.Class<ResourceInUseException>("ResourceInUseException")({message: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidTagException extends Schema.Class<InvalidTagException>("InvalidTagException")({message: Schema.optional(Schema.String)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({message: Schema.optional(Schema.String)}) {}
+export class TagPolicyException extends Schema.Class<TagPolicyException>("TagPolicyException")({message: Schema.optional(Schema.String)}) {}
+export class RequestCertificateResponse extends Schema.Class<RequestCertificateResponse>("RequestCertificateResponse")({CertificateArn: Schema.optional(Schema.String)}) {}
+export class LimitExceededException extends Schema.Class<LimitExceededException>("LimitExceededException")({message: Schema.optional(Schema.String)}) {}
+export class ResourceRecord extends Schema.Class<ResourceRecord>("ResourceRecord")({Name: Schema.String, Type: Schema.String, Value: Schema.String}) {}
+export class HttpRedirect extends Schema.Class<HttpRedirect>("HttpRedirect")({RedirectFrom: Schema.optional(Schema.String), RedirectTo: Schema.optional(Schema.String)}) {}
+export class DomainValidation extends Schema.Class<DomainValidation>("DomainValidation")({DomainName: Schema.String, ValidationEmails: Schema.optional(ValidationEmailList), ValidationDomain: Schema.optional(Schema.String), ValidationStatus: Schema.optional(Schema.String), ResourceRecord: Schema.optional(ResourceRecord), HttpRedirect: Schema.optional(HttpRedirect), ValidationMethod: Schema.optional(Schema.String)}) {}
 export const DomainValidationList = Schema.Array(DomainValidation);
-export const RenewalSummary = Schema.Struct({RenewalStatus: Schema.String, DomainValidationOptions: DomainValidationList, RenewalStatusReason: Schema.optional(Schema.String), UpdatedAt: Schema.Date});
-export const KeyUsage = Schema.Struct({Name: Schema.optional(Schema.String)});
+export class RenewalSummary extends Schema.Class<RenewalSummary>("RenewalSummary")({RenewalStatus: Schema.String, DomainValidationOptions: DomainValidationList, RenewalStatusReason: Schema.optional(Schema.String), UpdatedAt: Schema.Date}) {}
+export class KeyUsage extends Schema.Class<KeyUsage>("KeyUsage")({Name: Schema.optional(Schema.String)}) {}
 export const KeyUsageList = Schema.Array(KeyUsage);
-export const ExtendedKeyUsage = Schema.Struct({Name: Schema.optional(Schema.String), OID: Schema.optional(Schema.String)});
+export class ExtendedKeyUsage extends Schema.Class<ExtendedKeyUsage>("ExtendedKeyUsage")({Name: Schema.optional(Schema.String), OID: Schema.optional(Schema.String)}) {}
 export const ExtendedKeyUsageList = Schema.Array(ExtendedKeyUsage);
 export const KeyUsageNames = Schema.Array(Schema.String);
 export const ExtendedKeyUsageNames = Schema.Array(Schema.String);
-export const CertificateSummary = Schema.Struct({CertificateArn: Schema.optional(Schema.String), DomainName: Schema.optional(Schema.String), SubjectAlternativeNameSummaries: Schema.optional(DomainList), HasAdditionalSubjectAlternativeNames: Schema.optional(Schema.Boolean), Status: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), KeyAlgorithm: Schema.optional(Schema.String), KeyUsages: Schema.optional(KeyUsageNames), ExtendedKeyUsages: Schema.optional(ExtendedKeyUsageNames), ExportOption: Schema.optional(Schema.String), InUse: Schema.optional(Schema.Boolean), Exported: Schema.optional(Schema.Boolean), RenewalEligibility: Schema.optional(Schema.String), NotBefore: Schema.optional(Schema.Date), NotAfter: Schema.optional(Schema.Date), CreatedAt: Schema.optional(Schema.Date), IssuedAt: Schema.optional(Schema.Date), ImportedAt: Schema.optional(Schema.Date), RevokedAt: Schema.optional(Schema.Date), ManagedBy: Schema.optional(Schema.String)});
+export class CertificateSummary extends Schema.Class<CertificateSummary>("CertificateSummary")({CertificateArn: Schema.optional(Schema.String), DomainName: Schema.optional(Schema.String), SubjectAlternativeNameSummaries: Schema.optional(DomainList), HasAdditionalSubjectAlternativeNames: Schema.optional(Schema.Boolean), Status: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), KeyAlgorithm: Schema.optional(Schema.String), KeyUsages: Schema.optional(KeyUsageNames), ExtendedKeyUsages: Schema.optional(ExtendedKeyUsageNames), ExportOption: Schema.optional(Schema.String), InUse: Schema.optional(Schema.Boolean), Exported: Schema.optional(Schema.Boolean), RenewalEligibility: Schema.optional(Schema.String), NotBefore: Schema.optional(Schema.Date), NotAfter: Schema.optional(Schema.Date), CreatedAt: Schema.optional(Schema.Date), IssuedAt: Schema.optional(Schema.Date), ImportedAt: Schema.optional(Schema.Date), RevokedAt: Schema.optional(Schema.Date), ManagedBy: Schema.optional(Schema.String)}) {}
 export const CertificateSummaryList = Schema.Array(CertificateSummary);
-export const TooManyTagsException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ListCertificatesResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), CertificateSummaryList: Schema.optional(CertificateSummaryList)});
-export const CertificateDetail = Schema.Struct({CertificateArn: Schema.optional(Schema.String), DomainName: Schema.optional(Schema.String), SubjectAlternativeNames: Schema.optional(DomainList), ManagedBy: Schema.optional(Schema.String), DomainValidationOptions: Schema.optional(DomainValidationList), Serial: Schema.optional(Schema.String), Subject: Schema.optional(Schema.String), Issuer: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date), IssuedAt: Schema.optional(Schema.Date), ImportedAt: Schema.optional(Schema.Date), Status: Schema.optional(Schema.String), RevokedAt: Schema.optional(Schema.Date), RevocationReason: Schema.optional(Schema.String), NotBefore: Schema.optional(Schema.Date), NotAfter: Schema.optional(Schema.Date), KeyAlgorithm: Schema.optional(Schema.String), SignatureAlgorithm: Schema.optional(Schema.String), InUseBy: Schema.optional(InUseList), FailureReason: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), RenewalSummary: Schema.optional(RenewalSummary), KeyUsages: Schema.optional(KeyUsageList), ExtendedKeyUsages: Schema.optional(ExtendedKeyUsageList), CertificateAuthorityArn: Schema.optional(Schema.String), RenewalEligibility: Schema.optional(Schema.String), Options: Schema.optional(CertificateOptions)});
-export const DescribeCertificateResponse = Schema.Struct({Certificate: Schema.optional(CertificateDetail)});
-export const InvalidArgsException = Schema.Struct({message: Schema.optional(Schema.String)});
+export class TooManyTagsException extends Schema.Class<TooManyTagsException>("TooManyTagsException")({message: Schema.optional(Schema.String)}) {}
+export class ListCertificatesResponse extends Schema.Class<ListCertificatesResponse>("ListCertificatesResponse")({NextToken: Schema.optional(Schema.String), CertificateSummaryList: Schema.optional(CertificateSummaryList)}) {}
+export class CertificateDetail extends Schema.Class<CertificateDetail>("CertificateDetail")({CertificateArn: Schema.optional(Schema.String), DomainName: Schema.optional(Schema.String), SubjectAlternativeNames: Schema.optional(DomainList), ManagedBy: Schema.optional(Schema.String), DomainValidationOptions: Schema.optional(DomainValidationList), Serial: Schema.optional(Schema.String), Subject: Schema.optional(Schema.String), Issuer: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date), IssuedAt: Schema.optional(Schema.Date), ImportedAt: Schema.optional(Schema.Date), Status: Schema.optional(Schema.String), RevokedAt: Schema.optional(Schema.Date), RevocationReason: Schema.optional(Schema.String), NotBefore: Schema.optional(Schema.Date), NotAfter: Schema.optional(Schema.Date), KeyAlgorithm: Schema.optional(Schema.String), SignatureAlgorithm: Schema.optional(Schema.String), InUseBy: Schema.optional(InUseList), FailureReason: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), RenewalSummary: Schema.optional(RenewalSummary), KeyUsages: Schema.optional(KeyUsageList), ExtendedKeyUsages: Schema.optional(ExtendedKeyUsageList), CertificateAuthorityArn: Schema.optional(Schema.String), RenewalEligibility: Schema.optional(Schema.String), Options: Schema.optional(CertificateOptions)}) {}
+export class DescribeCertificateResponse extends Schema.Class<DescribeCertificateResponse>("DescribeCertificateResponse")({Certificate: Schema.optional(CertificateDetail)}) {}
+export class InvalidArgsException extends Schema.Class<InvalidArgsException>("InvalidArgsException")({message: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class InvalidArnExceptionError extends Schema.TaggedError<InvalidArnExceptionError>()("InvalidArnException", InvalidArnException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class RequestInProgressExceptionError extends Schema.TaggedError<RequestInProgressExceptionError>()("RequestInProgressException", RequestInProgressException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class InvalidParameterExceptionError extends Schema.TaggedError<InvalidParameterExceptionError>()("InvalidParameterException", InvalidParameterException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class InvalidTagExceptionError extends Schema.TaggedError<InvalidTagExceptionError>()("InvalidTagException", InvalidTagException) {};
-export class InvalidDomainValidationOptionsExceptionError extends Schema.TaggedError<InvalidDomainValidationOptionsExceptionError>()("InvalidDomainValidationOptionsException", InvalidDomainValidationOptionsException) {};
-export class InvalidStateExceptionError extends Schema.TaggedError<InvalidStateExceptionError>()("InvalidStateException", InvalidStateException) {};
-export class ResourceInUseExceptionError extends Schema.TaggedError<ResourceInUseExceptionError>()("ResourceInUseException", ResourceInUseException) {};
-export class TagPolicyExceptionError extends Schema.TaggedError<TagPolicyExceptionError>()("TagPolicyException", TagPolicyException) {};
-export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException) {};
-export class TooManyTagsExceptionError extends Schema.TaggedError<TooManyTagsExceptionError>()("TooManyTagsException", TooManyTagsException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class InvalidArgsExceptionError extends Schema.TaggedError<InvalidArgsExceptionError>()("InvalidArgsException", InvalidArgsException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class InvalidArnExceptionError extends Schema.TaggedError<InvalidArnExceptionError>()("InvalidArnException", InvalidArnException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class RequestInProgressExceptionError extends Schema.TaggedError<RequestInProgressExceptionError>()("RequestInProgressException", RequestInProgressException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class InvalidParameterExceptionError extends Schema.TaggedError<InvalidParameterExceptionError>()("InvalidParameterException", InvalidParameterException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class InvalidTagExceptionError extends Schema.TaggedError<InvalidTagExceptionError>()("InvalidTagException", InvalidTagException.fields) {};
+export class InvalidDomainValidationOptionsExceptionError extends Schema.TaggedError<InvalidDomainValidationOptionsExceptionError>()("InvalidDomainValidationOptionsException", InvalidDomainValidationOptionsException.fields) {};
+export class InvalidStateExceptionError extends Schema.TaggedError<InvalidStateExceptionError>()("InvalidStateException", InvalidStateException.fields) {};
+export class ResourceInUseExceptionError extends Schema.TaggedError<ResourceInUseExceptionError>()("ResourceInUseException", ResourceInUseException.fields) {};
+export class TagPolicyExceptionError extends Schema.TaggedError<TagPolicyExceptionError>()("TagPolicyException", TagPolicyException.fields) {};
+export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException.fields) {};
+export class TooManyTagsExceptionError extends Schema.TaggedError<TooManyTagsExceptionError>()("TooManyTagsException", TooManyTagsException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class InvalidArgsExceptionError extends Schema.TaggedError<InvalidArgsExceptionError>()("InvalidArgsException", InvalidArgsException.fields) {};
 
 //# Operations
 export const getCertificate = /*#__PURE__*/ makeOperation(() => Operation({ version: "2015-12-08", uri: "/", method: "POST", sdkId: "ACM", sigV4ServiceName: "acm", name: "CertificateManager.GetCertificate" }, GetCertificateRequest, GetCertificateResponse, [InvalidArnExceptionError, RequestInProgressExceptionError, ResourceNotFoundExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

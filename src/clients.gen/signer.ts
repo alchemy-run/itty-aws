@@ -6,94 +6,94 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 export const CertificateHashes = Schema.Array(Schema.String);
 export const Statuses = Schema.Array(Schema.String);
 export const TagKeyList = Schema.Array(Schema.String);
-export const AddProfilePermissionRequest = Schema.Struct({profileName: Schema.String, profileVersion: Schema.optional(Schema.String), action: Schema.String, principal: Schema.String, revisionId: Schema.optional(Schema.String), statementId: Schema.String});
-export const CancelSigningProfileRequest = Schema.Struct({profileName: Schema.String});
-export const DescribeSigningJobRequest = Schema.Struct({jobId: Schema.String});
-export const GetRevocationStatusRequest = Schema.Struct({signatureTimestamp: Schema.Date, platformId: Schema.String, profileVersionArn: Schema.String, jobArn: Schema.String, certificateHashes: CertificateHashes});
-export const GetSigningPlatformRequest = Schema.Struct({platformId: Schema.String});
-export const GetSigningProfileRequest = Schema.Struct({profileName: Schema.String, profileOwner: Schema.optional(Schema.String)});
-export const ListProfilePermissionsRequest = Schema.Struct({profileName: Schema.String, nextToken: Schema.optional(Schema.String)});
-export const ListSigningJobsRequest = Schema.Struct({status: Schema.optional(Schema.String), platformId: Schema.optional(Schema.String), requestedBy: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String), isRevoked: Schema.optional(Schema.Boolean), signatureExpiresBefore: Schema.optional(Schema.Date), signatureExpiresAfter: Schema.optional(Schema.Date), jobInvoker: Schema.optional(Schema.String)});
-export const ListSigningPlatformsRequest = Schema.Struct({category: Schema.optional(Schema.String), partner: Schema.optional(Schema.String), target: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListSigningProfilesRequest = Schema.Struct({includeCanceled: Schema.optional(Schema.Boolean), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String), platformId: Schema.optional(Schema.String), statuses: Schema.optional(Statuses)});
-export const ListTagsForResourceRequest = Schema.Struct({resourceArn: Schema.String});
-export const RemoveProfilePermissionRequest = Schema.Struct({profileName: Schema.String, revisionId: Schema.String, statementId: Schema.String});
-export const RevokeSignatureRequest = Schema.Struct({jobId: Schema.String, jobOwner: Schema.optional(Schema.String), reason: Schema.String});
-export const RevokeSigningProfileRequest = Schema.Struct({profileName: Schema.String, profileVersion: Schema.String, reason: Schema.String, effectiveTime: Schema.Date});
-export const SignPayloadRequest = Schema.Struct({profileName: Schema.String, profileOwner: Schema.optional(Schema.String), payload: StreamBody(), payloadFormat: Schema.String});
+export class AddProfilePermissionRequest extends Schema.Class<AddProfilePermissionRequest>("AddProfilePermissionRequest")({profileName: Schema.String, profileVersion: Schema.optional(Schema.String), action: Schema.String, principal: Schema.String, revisionId: Schema.optional(Schema.String), statementId: Schema.String}) {}
+export class CancelSigningProfileRequest extends Schema.Class<CancelSigningProfileRequest>("CancelSigningProfileRequest")({profileName: Schema.String}) {}
+export class DescribeSigningJobRequest extends Schema.Class<DescribeSigningJobRequest>("DescribeSigningJobRequest")({jobId: Schema.String}) {}
+export class GetRevocationStatusRequest extends Schema.Class<GetRevocationStatusRequest>("GetRevocationStatusRequest")({signatureTimestamp: Schema.Date, platformId: Schema.String, profileVersionArn: Schema.String, jobArn: Schema.String, certificateHashes: CertificateHashes}) {}
+export class GetSigningPlatformRequest extends Schema.Class<GetSigningPlatformRequest>("GetSigningPlatformRequest")({platformId: Schema.String}) {}
+export class GetSigningProfileRequest extends Schema.Class<GetSigningProfileRequest>("GetSigningProfileRequest")({profileName: Schema.String, profileOwner: Schema.optional(Schema.String)}) {}
+export class ListProfilePermissionsRequest extends Schema.Class<ListProfilePermissionsRequest>("ListProfilePermissionsRequest")({profileName: Schema.String, nextToken: Schema.optional(Schema.String)}) {}
+export class ListSigningJobsRequest extends Schema.Class<ListSigningJobsRequest>("ListSigningJobsRequest")({status: Schema.optional(Schema.String), platformId: Schema.optional(Schema.String), requestedBy: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String), isRevoked: Schema.optional(Schema.Boolean), signatureExpiresBefore: Schema.optional(Schema.Date), signatureExpiresAfter: Schema.optional(Schema.Date), jobInvoker: Schema.optional(Schema.String)}) {}
+export class ListSigningPlatformsRequest extends Schema.Class<ListSigningPlatformsRequest>("ListSigningPlatformsRequest")({category: Schema.optional(Schema.String), partner: Schema.optional(Schema.String), target: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListSigningProfilesRequest extends Schema.Class<ListSigningProfilesRequest>("ListSigningProfilesRequest")({includeCanceled: Schema.optional(Schema.Boolean), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String), platformId: Schema.optional(Schema.String), statuses: Schema.optional(Statuses)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({resourceArn: Schema.String}) {}
+export class RemoveProfilePermissionRequest extends Schema.Class<RemoveProfilePermissionRequest>("RemoveProfilePermissionRequest")({profileName: Schema.String, revisionId: Schema.String, statementId: Schema.String}) {}
+export class RevokeSignatureRequest extends Schema.Class<RevokeSignatureRequest>("RevokeSignatureRequest")({jobId: Schema.String, jobOwner: Schema.optional(Schema.String), reason: Schema.String}) {}
+export class RevokeSigningProfileRequest extends Schema.Class<RevokeSigningProfileRequest>("RevokeSigningProfileRequest")({profileName: Schema.String, profileVersion: Schema.String, reason: Schema.String, effectiveTime: Schema.Date}) {}
+export class SignPayloadRequest extends Schema.Class<SignPayloadRequest>("SignPayloadRequest")({profileName: Schema.String, profileOwner: Schema.optional(Schema.String), payload: StreamBody(), payloadFormat: Schema.String}) {}
 export const TagMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const TagResourceRequest = Schema.Struct({resourceArn: Schema.String, tags: TagMap});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({resourceArn: Schema.String, tagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({resourceArn: Schema.String, tags: TagMap}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({resourceArn: Schema.String, tagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
 export const RevokedEntities = Schema.Array(Schema.String);
-export const SigningMaterial = Schema.Struct({certificateArn: Schema.String});
-export const SignatureValidityPeriod = Schema.Struct({value: Schema.optional(Schema.Number), type: Schema.optional(Schema.String)});
+export class SigningMaterial extends Schema.Class<SigningMaterial>("SigningMaterial")({certificateArn: Schema.String}) {}
+export class SignatureValidityPeriod extends Schema.Class<SignatureValidityPeriod>("SignatureValidityPeriod")({value: Schema.optional(Schema.Number), type: Schema.optional(Schema.String)}) {}
 export const SigningParameters = Schema.Record({key: Schema.String, value: Schema.String});
-export const AddProfilePermissionResponse = Schema.Struct({revisionId: Schema.optional(Schema.String)});
-export const AccessDeniedException = Schema.Struct({message: Schema.optional(Schema.String), code: Schema.optional(Schema.String)});
-export const GetRevocationStatusResponse = Schema.Struct({revokedEntities: Schema.optional(RevokedEntities)});
-export const ListTagsForResourceResponse = Schema.Struct({tags: Schema.optional(TagMap)});
-export const RemoveProfilePermissionResponse = Schema.Struct({revisionId: Schema.optional(Schema.String)});
-export const InternalServiceErrorException = Schema.Struct({message: Schema.optional(Schema.String), code: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.optional(Schema.String), code: Schema.optional(Schema.String)});
-export const BadRequestException = Schema.Struct({message: Schema.optional(Schema.String), code: Schema.optional(Schema.String)});
-export const NotFoundException = Schema.Struct({message: Schema.optional(Schema.String), code: Schema.optional(Schema.String)});
+export class AddProfilePermissionResponse extends Schema.Class<AddProfilePermissionResponse>("AddProfilePermissionResponse")({revisionId: Schema.optional(Schema.String)}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({message: Schema.optional(Schema.String), code: Schema.optional(Schema.String)}) {}
+export class GetRevocationStatusResponse extends Schema.Class<GetRevocationStatusResponse>("GetRevocationStatusResponse")({revokedEntities: Schema.optional(RevokedEntities)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({tags: Schema.optional(TagMap)}) {}
+export class RemoveProfilePermissionResponse extends Schema.Class<RemoveProfilePermissionResponse>("RemoveProfilePermissionResponse")({revisionId: Schema.optional(Schema.String)}) {}
+export class InternalServiceErrorException extends Schema.Class<InternalServiceErrorException>("InternalServiceErrorException")({message: Schema.optional(Schema.String), code: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.optional(Schema.String), code: Schema.optional(Schema.String)}) {}
+export class BadRequestException extends Schema.Class<BadRequestException>("BadRequestException")({message: Schema.optional(Schema.String), code: Schema.optional(Schema.String)}) {}
+export class NotFoundException extends Schema.Class<NotFoundException>("NotFoundException")({message: Schema.optional(Schema.String), code: Schema.optional(Schema.String)}) {}
 export const ImageFormats = Schema.Array(Schema.String);
-export const SigningConfigurationOverrides = Schema.Struct({encryptionAlgorithm: Schema.optional(Schema.String), hashAlgorithm: Schema.optional(Schema.String)});
-export const S3Source = Schema.Struct({bucketName: Schema.String, key: Schema.String, version: Schema.String});
-export const S3Destination = Schema.Struct({bucketName: Schema.optional(Schema.String), prefix: Schema.optional(Schema.String)});
-export const SigningJobRevocationRecord = Schema.Struct({reason: Schema.optional(Schema.String), revokedAt: Schema.optional(Schema.Date), revokedBy: Schema.optional(Schema.String)});
-export const SigningImageFormat = Schema.Struct({supportedFormats: ImageFormats, defaultFormat: Schema.String});
-export const SigningProfileRevocationRecord = Schema.Struct({revocationEffectiveFrom: Schema.optional(Schema.Date), revokedAt: Schema.optional(Schema.Date), revokedBy: Schema.optional(Schema.String)});
-export const Permission = Schema.Struct({action: Schema.optional(Schema.String), principal: Schema.optional(Schema.String), statementId: Schema.optional(Schema.String), profileVersion: Schema.optional(Schema.String)});
+export class SigningConfigurationOverrides extends Schema.Class<SigningConfigurationOverrides>("SigningConfigurationOverrides")({encryptionAlgorithm: Schema.optional(Schema.String), hashAlgorithm: Schema.optional(Schema.String)}) {}
+export class S3Source extends Schema.Class<S3Source>("S3Source")({bucketName: Schema.String, key: Schema.String, version: Schema.String}) {}
+export class S3Destination extends Schema.Class<S3Destination>("S3Destination")({bucketName: Schema.optional(Schema.String), prefix: Schema.optional(Schema.String)}) {}
+export class SigningJobRevocationRecord extends Schema.Class<SigningJobRevocationRecord>("SigningJobRevocationRecord")({reason: Schema.optional(Schema.String), revokedAt: Schema.optional(Schema.Date), revokedBy: Schema.optional(Schema.String)}) {}
+export class SigningImageFormat extends Schema.Class<SigningImageFormat>("SigningImageFormat")({supportedFormats: ImageFormats, defaultFormat: Schema.String}) {}
+export class SigningProfileRevocationRecord extends Schema.Class<SigningProfileRevocationRecord>("SigningProfileRevocationRecord")({revocationEffectiveFrom: Schema.optional(Schema.Date), revokedAt: Schema.optional(Schema.Date), revokedBy: Schema.optional(Schema.String)}) {}
+export class Permission extends Schema.Class<Permission>("Permission")({action: Schema.optional(Schema.String), principal: Schema.optional(Schema.String), statementId: Schema.optional(Schema.String), profileVersion: Schema.optional(Schema.String)}) {}
 export const Permissions = Schema.Array(Permission);
-export const Source = Schema.Struct({s3: Schema.optional(S3Source)});
-export const S3SignedObject = Schema.Struct({bucketName: Schema.optional(Schema.String), key: Schema.optional(Schema.String)});
-export const SignedObject = Schema.Struct({s3: Schema.optional(S3SignedObject)});
-export const SigningJob = Schema.Struct({jobId: Schema.optional(Schema.String), source: Schema.optional(Source), signedObject: Schema.optional(SignedObject), signingMaterial: Schema.optional(SigningMaterial), createdAt: Schema.optional(Schema.Date), status: Schema.optional(Schema.String), isRevoked: Schema.optional(Schema.Boolean), profileName: Schema.optional(Schema.String), profileVersion: Schema.optional(Schema.String), platformId: Schema.optional(Schema.String), platformDisplayName: Schema.optional(Schema.String), signatureExpiresAt: Schema.optional(Schema.Date), jobOwner: Schema.optional(Schema.String), jobInvoker: Schema.optional(Schema.String)});
+export class Source extends Schema.Class<Source>("Source")({s3: Schema.optional(S3Source)}) {}
+export class S3SignedObject extends Schema.Class<S3SignedObject>("S3SignedObject")({bucketName: Schema.optional(Schema.String), key: Schema.optional(Schema.String)}) {}
+export class SignedObject extends Schema.Class<SignedObject>("SignedObject")({s3: Schema.optional(S3SignedObject)}) {}
+export class SigningJob extends Schema.Class<SigningJob>("SigningJob")({jobId: Schema.optional(Schema.String), source: Schema.optional(Source), signedObject: Schema.optional(SignedObject), signingMaterial: Schema.optional(SigningMaterial), createdAt: Schema.optional(Schema.Date), status: Schema.optional(Schema.String), isRevoked: Schema.optional(Schema.Boolean), profileName: Schema.optional(Schema.String), profileVersion: Schema.optional(Schema.String), platformId: Schema.optional(Schema.String), platformDisplayName: Schema.optional(Schema.String), signatureExpiresAt: Schema.optional(Schema.Date), jobOwner: Schema.optional(Schema.String), jobInvoker: Schema.optional(Schema.String)}) {}
 export const SigningJobs = Schema.Array(SigningJob);
 export const EncryptionAlgorithms = Schema.Array(Schema.String);
-export const EncryptionAlgorithmOptions = Schema.Struct({allowedValues: EncryptionAlgorithms, defaultValue: Schema.String});
+export class EncryptionAlgorithmOptions extends Schema.Class<EncryptionAlgorithmOptions>("EncryptionAlgorithmOptions")({allowedValues: EncryptionAlgorithms, defaultValue: Schema.String}) {}
 export const HashAlgorithms = Schema.Array(Schema.String);
-export const HashAlgorithmOptions = Schema.Struct({allowedValues: HashAlgorithms, defaultValue: Schema.String});
-export const SigningConfiguration = Schema.Struct({encryptionAlgorithmOptions: EncryptionAlgorithmOptions, hashAlgorithmOptions: HashAlgorithmOptions});
-export const SigningPlatform = Schema.Struct({platformId: Schema.optional(Schema.String), displayName: Schema.optional(Schema.String), partner: Schema.optional(Schema.String), target: Schema.optional(Schema.String), category: Schema.optional(Schema.String), signingConfiguration: Schema.optional(SigningConfiguration), signingImageFormat: Schema.optional(SigningImageFormat), maxSizeInMB: Schema.optional(Schema.Number), revocationSupported: Schema.optional(Schema.Boolean)});
+export class HashAlgorithmOptions extends Schema.Class<HashAlgorithmOptions>("HashAlgorithmOptions")({allowedValues: HashAlgorithms, defaultValue: Schema.String}) {}
+export class SigningConfiguration extends Schema.Class<SigningConfiguration>("SigningConfiguration")({encryptionAlgorithmOptions: EncryptionAlgorithmOptions, hashAlgorithmOptions: HashAlgorithmOptions}) {}
+export class SigningPlatform extends Schema.Class<SigningPlatform>("SigningPlatform")({platformId: Schema.optional(Schema.String), displayName: Schema.optional(Schema.String), partner: Schema.optional(Schema.String), target: Schema.optional(Schema.String), category: Schema.optional(Schema.String), signingConfiguration: Schema.optional(SigningConfiguration), signingImageFormat: Schema.optional(SigningImageFormat), maxSizeInMB: Schema.optional(Schema.Number), revocationSupported: Schema.optional(Schema.Boolean)}) {}
 export const SigningPlatforms = Schema.Array(SigningPlatform);
-export const SigningProfile = Schema.Struct({profileName: Schema.optional(Schema.String), profileVersion: Schema.optional(Schema.String), profileVersionArn: Schema.optional(Schema.String), signingMaterial: Schema.optional(SigningMaterial), signatureValidityPeriod: Schema.optional(SignatureValidityPeriod), platformId: Schema.optional(Schema.String), platformDisplayName: Schema.optional(Schema.String), signingParameters: Schema.optional(SigningParameters), status: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), tags: Schema.optional(TagMap)});
+export class SigningProfile extends Schema.Class<SigningProfile>("SigningProfile")({profileName: Schema.optional(Schema.String), profileVersion: Schema.optional(Schema.String), profileVersionArn: Schema.optional(Schema.String), signingMaterial: Schema.optional(SigningMaterial), signatureValidityPeriod: Schema.optional(SignatureValidityPeriod), platformId: Schema.optional(Schema.String), platformDisplayName: Schema.optional(Schema.String), signingParameters: Schema.optional(SigningParameters), status: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), tags: Schema.optional(TagMap)}) {}
 export const SigningProfiles = Schema.Array(SigningProfile);
-export const SigningPlatformOverrides = Schema.Struct({signingConfiguration: Schema.optional(SigningConfigurationOverrides), signingImageFormat: Schema.optional(Schema.String)});
+export class SigningPlatformOverrides extends Schema.Class<SigningPlatformOverrides>("SigningPlatformOverrides")({signingConfiguration: Schema.optional(SigningConfigurationOverrides), signingImageFormat: Schema.optional(Schema.String)}) {}
 export const Metadata = Schema.Record({key: Schema.String, value: Schema.String});
-export const Destination = Schema.Struct({s3: Schema.optional(S3Destination)});
-export const ConflictException = Schema.Struct({message: Schema.optional(Schema.String), code: Schema.optional(Schema.String)});
-export const TooManyRequestsException = Schema.Struct({message: Schema.optional(Schema.String), code: Schema.optional(Schema.String)});
-export const ValidationException = Schema.Struct({message: Schema.optional(Schema.String), code: Schema.optional(Schema.String)});
-export const GetSigningProfileResponse = Schema.Struct({profileName: Schema.optional(Schema.String), profileVersion: Schema.optional(Schema.String), profileVersionArn: Schema.optional(Schema.String), revocationRecord: Schema.optional(SigningProfileRevocationRecord), signingMaterial: Schema.optional(SigningMaterial), platformId: Schema.optional(Schema.String), platformDisplayName: Schema.optional(Schema.String), signatureValidityPeriod: Schema.optional(SignatureValidityPeriod), overrides: Schema.optional(SigningPlatformOverrides), signingParameters: Schema.optional(SigningParameters), status: Schema.optional(Schema.String), statusReason: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), tags: Schema.optional(TagMap)});
-export const ListProfilePermissionsResponse = Schema.Struct({revisionId: Schema.optional(Schema.String), policySizeBytes: Schema.optional(Schema.Number), permissions: Schema.optional(Permissions), nextToken: Schema.optional(Schema.String)});
-export const ListSigningJobsResponse = Schema.Struct({jobs: Schema.optional(SigningJobs), nextToken: Schema.optional(Schema.String)});
-export const ListSigningPlatformsResponse = Schema.Struct({platforms: Schema.optional(SigningPlatforms), nextToken: Schema.optional(Schema.String)});
-export const ListSigningProfilesResponse = Schema.Struct({profiles: Schema.optional(SigningProfiles), nextToken: Schema.optional(Schema.String)});
-export const PutSigningProfileRequest = Schema.Struct({profileName: Schema.String, signingMaterial: Schema.optional(SigningMaterial), signatureValidityPeriod: Schema.optional(SignatureValidityPeriod), platformId: Schema.String, overrides: Schema.optional(SigningPlatformOverrides), signingParameters: Schema.optional(SigningParameters), tags: Schema.optional(TagMap)});
-export const SignPayloadResponse = Schema.Struct({jobId: Schema.optional(Schema.String), jobOwner: Schema.optional(Schema.String), metadata: Schema.optional(Metadata), signature: Schema.optional(StreamBody())});
-export const StartSigningJobRequest = Schema.Struct({source: Source, destination: Destination, profileName: Schema.String, clientRequestToken: Schema.String, profileOwner: Schema.optional(Schema.String)});
-export const ServiceLimitExceededException = Schema.Struct({message: Schema.optional(Schema.String), code: Schema.optional(Schema.String)});
-export const DescribeSigningJobResponse = Schema.Struct({jobId: Schema.optional(Schema.String), source: Schema.optional(Source), signingMaterial: Schema.optional(SigningMaterial), platformId: Schema.optional(Schema.String), platformDisplayName: Schema.optional(Schema.String), profileName: Schema.optional(Schema.String), profileVersion: Schema.optional(Schema.String), overrides: Schema.optional(SigningPlatformOverrides), signingParameters: Schema.optional(SigningParameters), createdAt: Schema.optional(Schema.Date), completedAt: Schema.optional(Schema.Date), signatureExpiresAt: Schema.optional(Schema.Date), requestedBy: Schema.optional(Schema.String), status: Schema.optional(Schema.String), statusReason: Schema.optional(Schema.String), revocationRecord: Schema.optional(SigningJobRevocationRecord), signedObject: Schema.optional(SignedObject), jobOwner: Schema.optional(Schema.String), jobInvoker: Schema.optional(Schema.String)});
-export const GetSigningPlatformResponse = Schema.Struct({platformId: Schema.optional(Schema.String), displayName: Schema.optional(Schema.String), partner: Schema.optional(Schema.String), target: Schema.optional(Schema.String), category: Schema.optional(Schema.String), signingConfiguration: Schema.optional(SigningConfiguration), signingImageFormat: Schema.optional(SigningImageFormat), maxSizeInMB: Schema.optional(Schema.Number), revocationSupported: Schema.optional(Schema.Boolean)});
-export const PutSigningProfileResponse = Schema.Struct({arn: Schema.optional(Schema.String), profileVersion: Schema.optional(Schema.String), profileVersionArn: Schema.optional(Schema.String)});
-export const StartSigningJobResponse = Schema.Struct({jobId: Schema.optional(Schema.String), jobOwner: Schema.optional(Schema.String)});
-export const ThrottlingException = Schema.Struct({message: Schema.optional(Schema.String), code: Schema.optional(Schema.String)});
+export class Destination extends Schema.Class<Destination>("Destination")({s3: Schema.optional(S3Destination)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({message: Schema.optional(Schema.String), code: Schema.optional(Schema.String)}) {}
+export class TooManyRequestsException extends Schema.Class<TooManyRequestsException>("TooManyRequestsException")({message: Schema.optional(Schema.String), code: Schema.optional(Schema.String)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({message: Schema.optional(Schema.String), code: Schema.optional(Schema.String)}) {}
+export class GetSigningProfileResponse extends Schema.Class<GetSigningProfileResponse>("GetSigningProfileResponse")({profileName: Schema.optional(Schema.String), profileVersion: Schema.optional(Schema.String), profileVersionArn: Schema.optional(Schema.String), revocationRecord: Schema.optional(SigningProfileRevocationRecord), signingMaterial: Schema.optional(SigningMaterial), platformId: Schema.optional(Schema.String), platformDisplayName: Schema.optional(Schema.String), signatureValidityPeriod: Schema.optional(SignatureValidityPeriod), overrides: Schema.optional(SigningPlatformOverrides), signingParameters: Schema.optional(SigningParameters), status: Schema.optional(Schema.String), statusReason: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), tags: Schema.optional(TagMap)}) {}
+export class ListProfilePermissionsResponse extends Schema.Class<ListProfilePermissionsResponse>("ListProfilePermissionsResponse")({revisionId: Schema.optional(Schema.String), policySizeBytes: Schema.optional(Schema.Number), permissions: Schema.optional(Permissions), nextToken: Schema.optional(Schema.String)}) {}
+export class ListSigningJobsResponse extends Schema.Class<ListSigningJobsResponse>("ListSigningJobsResponse")({jobs: Schema.optional(SigningJobs), nextToken: Schema.optional(Schema.String)}) {}
+export class ListSigningPlatformsResponse extends Schema.Class<ListSigningPlatformsResponse>("ListSigningPlatformsResponse")({platforms: Schema.optional(SigningPlatforms), nextToken: Schema.optional(Schema.String)}) {}
+export class ListSigningProfilesResponse extends Schema.Class<ListSigningProfilesResponse>("ListSigningProfilesResponse")({profiles: Schema.optional(SigningProfiles), nextToken: Schema.optional(Schema.String)}) {}
+export class PutSigningProfileRequest extends Schema.Class<PutSigningProfileRequest>("PutSigningProfileRequest")({profileName: Schema.String, signingMaterial: Schema.optional(SigningMaterial), signatureValidityPeriod: Schema.optional(SignatureValidityPeriod), platformId: Schema.String, overrides: Schema.optional(SigningPlatformOverrides), signingParameters: Schema.optional(SigningParameters), tags: Schema.optional(TagMap)}) {}
+export class SignPayloadResponse extends Schema.Class<SignPayloadResponse>("SignPayloadResponse")({jobId: Schema.optional(Schema.String), jobOwner: Schema.optional(Schema.String), metadata: Schema.optional(Metadata), signature: Schema.optional(StreamBody())}) {}
+export class StartSigningJobRequest extends Schema.Class<StartSigningJobRequest>("StartSigningJobRequest")({source: Source, destination: Destination, profileName: Schema.String, clientRequestToken: Schema.String, profileOwner: Schema.optional(Schema.String)}) {}
+export class ServiceLimitExceededException extends Schema.Class<ServiceLimitExceededException>("ServiceLimitExceededException")({message: Schema.optional(Schema.String), code: Schema.optional(Schema.String)}) {}
+export class DescribeSigningJobResponse extends Schema.Class<DescribeSigningJobResponse>("DescribeSigningJobResponse")({jobId: Schema.optional(Schema.String), source: Schema.optional(Source), signingMaterial: Schema.optional(SigningMaterial), platformId: Schema.optional(Schema.String), platformDisplayName: Schema.optional(Schema.String), profileName: Schema.optional(Schema.String), profileVersion: Schema.optional(Schema.String), overrides: Schema.optional(SigningPlatformOverrides), signingParameters: Schema.optional(SigningParameters), createdAt: Schema.optional(Schema.Date), completedAt: Schema.optional(Schema.Date), signatureExpiresAt: Schema.optional(Schema.Date), requestedBy: Schema.optional(Schema.String), status: Schema.optional(Schema.String), statusReason: Schema.optional(Schema.String), revocationRecord: Schema.optional(SigningJobRevocationRecord), signedObject: Schema.optional(SignedObject), jobOwner: Schema.optional(Schema.String), jobInvoker: Schema.optional(Schema.String)}) {}
+export class GetSigningPlatformResponse extends Schema.Class<GetSigningPlatformResponse>("GetSigningPlatformResponse")({platformId: Schema.optional(Schema.String), displayName: Schema.optional(Schema.String), partner: Schema.optional(Schema.String), target: Schema.optional(Schema.String), category: Schema.optional(Schema.String), signingConfiguration: Schema.optional(SigningConfiguration), signingImageFormat: Schema.optional(SigningImageFormat), maxSizeInMB: Schema.optional(Schema.Number), revocationSupported: Schema.optional(Schema.Boolean)}) {}
+export class PutSigningProfileResponse extends Schema.Class<PutSigningProfileResponse>("PutSigningProfileResponse")({arn: Schema.optional(Schema.String), profileVersion: Schema.optional(Schema.String), profileVersionArn: Schema.optional(Schema.String)}) {}
+export class StartSigningJobResponse extends Schema.Class<StartSigningJobResponse>("StartSigningJobResponse")({jobId: Schema.optional(Schema.String), jobOwner: Schema.optional(Schema.String)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({message: Schema.optional(Schema.String), code: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class InternalServiceErrorExceptionError extends Schema.TaggedError<InternalServiceErrorExceptionError>()("InternalServiceErrorException", InternalServiceErrorException) {};
-export class BadRequestExceptionError extends Schema.TaggedError<BadRequestExceptionError>()("BadRequestException", BadRequestException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class TooManyRequestsExceptionError extends Schema.TaggedError<TooManyRequestsExceptionError>()("TooManyRequestsException", TooManyRequestsException) {};
-export class NotFoundExceptionError extends Schema.TaggedError<NotFoundExceptionError>()("NotFoundException", NotFoundException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class ServiceLimitExceededExceptionError extends Schema.TaggedError<ServiceLimitExceededExceptionError>()("ServiceLimitExceededException", ServiceLimitExceededException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class InternalServiceErrorExceptionError extends Schema.TaggedError<InternalServiceErrorExceptionError>()("InternalServiceErrorException", InternalServiceErrorException.fields) {};
+export class BadRequestExceptionError extends Schema.TaggedError<BadRequestExceptionError>()("BadRequestException", BadRequestException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class TooManyRequestsExceptionError extends Schema.TaggedError<TooManyRequestsExceptionError>()("TooManyRequestsException", TooManyRequestsException.fields) {};
+export class NotFoundExceptionError extends Schema.TaggedError<NotFoundExceptionError>()("NotFoundException", NotFoundException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class ServiceLimitExceededExceptionError extends Schema.TaggedError<ServiceLimitExceededExceptionError>()("ServiceLimitExceededException", ServiceLimitExceededException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
 
 //# Operations
 export const listTagsForResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-08-25", uri: "/tags/{resourceArn}", method: "GET", sdkId: "signer", sigV4ServiceName: "signer", name: "WallabyService.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [BadRequestExceptionError, InternalServiceErrorExceptionError, NotFoundExceptionError, TooManyRequestsExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

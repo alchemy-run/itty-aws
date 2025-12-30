@@ -4,52 +4,52 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 
 //# Schemas
 export const ScopesListType = Schema.Array(Schema.String);
-export const GetResourceApiKeyRequest = Schema.Struct({workloadIdentityToken: Schema.String, resourceCredentialProviderName: Schema.String});
-export const GetWorkloadAccessTokenRequest = Schema.Struct({workloadName: Schema.String});
-export const GetWorkloadAccessTokenForJWTRequest = Schema.Struct({workloadName: Schema.String, userToken: Schema.String});
-export const GetWorkloadAccessTokenForUserIdRequest = Schema.Struct({workloadName: Schema.String, userId: Schema.String});
+export class GetResourceApiKeyRequest extends Schema.Class<GetResourceApiKeyRequest>("GetResourceApiKeyRequest")({workloadIdentityToken: Schema.String, resourceCredentialProviderName: Schema.String}) {}
+export class GetWorkloadAccessTokenRequest extends Schema.Class<GetWorkloadAccessTokenRequest>("GetWorkloadAccessTokenRequest")({workloadName: Schema.String}) {}
+export class GetWorkloadAccessTokenForJWTRequest extends Schema.Class<GetWorkloadAccessTokenForJWTRequest>("GetWorkloadAccessTokenForJWTRequest")({workloadName: Schema.String, userToken: Schema.String}) {}
+export class GetWorkloadAccessTokenForUserIdRequest extends Schema.Class<GetWorkloadAccessTokenForUserIdRequest>("GetWorkloadAccessTokenForUserIdRequest")({workloadName: Schema.String, userId: Schema.String}) {}
 export const StringList = Schema.Array(Schema.String);
 export const UserIdentifier = Schema.Union(Schema.String, Schema.String);
 export const CustomRequestParametersType = Schema.Record({key: Schema.String, value: Schema.String});
-export const CompleteResourceTokenAuthRequest = Schema.Struct({userIdentifier: UserIdentifier, sessionUri: Schema.String});
-export const CompleteResourceTokenAuthResponse = Schema.Struct({});
-export const GetResourceApiKeyResponse = Schema.Struct({apiKey: Schema.String});
-export const GetResourceOauth2TokenRequest = Schema.Struct({workloadIdentityToken: Schema.String, resourceCredentialProviderName: Schema.String, scopes: ScopesListType, oauth2Flow: Schema.String, sessionUri: Schema.optional(Schema.String), resourceOauth2ReturnUrl: Schema.optional(Schema.String), forceAuthentication: Schema.optional(Schema.Boolean), customParameters: Schema.optional(CustomRequestParametersType), customState: Schema.optional(Schema.String)});
-export const GetWorkloadAccessTokenResponse = Schema.Struct({workloadAccessToken: Schema.String});
-export const GetWorkloadAccessTokenForJWTResponse = Schema.Struct({workloadAccessToken: Schema.String});
-export const GetWorkloadAccessTokenForUserIdResponse = Schema.Struct({workloadAccessToken: Schema.String});
-export const InputContentBlock = Schema.Struct({path: Schema.String, text: Schema.optional(Schema.String), blob: Schema.optional(StreamBody())});
+export class CompleteResourceTokenAuthRequest extends Schema.Class<CompleteResourceTokenAuthRequest>("CompleteResourceTokenAuthRequest")({userIdentifier: UserIdentifier, sessionUri: Schema.String}) {}
+export class CompleteResourceTokenAuthResponse extends Schema.Class<CompleteResourceTokenAuthResponse>("CompleteResourceTokenAuthResponse")({}) {}
+export class GetResourceApiKeyResponse extends Schema.Class<GetResourceApiKeyResponse>("GetResourceApiKeyResponse")({apiKey: Schema.String}) {}
+export class GetResourceOauth2TokenRequest extends Schema.Class<GetResourceOauth2TokenRequest>("GetResourceOauth2TokenRequest")({workloadIdentityToken: Schema.String, resourceCredentialProviderName: Schema.String, scopes: ScopesListType, oauth2Flow: Schema.String, sessionUri: Schema.optional(Schema.String), resourceOauth2ReturnUrl: Schema.optional(Schema.String), forceAuthentication: Schema.optional(Schema.Boolean), customParameters: Schema.optional(CustomRequestParametersType), customState: Schema.optional(Schema.String)}) {}
+export class GetWorkloadAccessTokenResponse extends Schema.Class<GetWorkloadAccessTokenResponse>("GetWorkloadAccessTokenResponse")({workloadAccessToken: Schema.String}) {}
+export class GetWorkloadAccessTokenForJWTResponse extends Schema.Class<GetWorkloadAccessTokenForJWTResponse>("GetWorkloadAccessTokenForJWTResponse")({workloadAccessToken: Schema.String}) {}
+export class GetWorkloadAccessTokenForUserIdResponse extends Schema.Class<GetWorkloadAccessTokenForUserIdResponse>("GetWorkloadAccessTokenForUserIdResponse")({workloadAccessToken: Schema.String}) {}
+export class InputContentBlock extends Schema.Class<InputContentBlock>("InputContentBlock")({path: Schema.String, text: Schema.optional(Schema.String), blob: Schema.optional(StreamBody())}) {}
 export const InputContentBlockList = Schema.Array(InputContentBlock);
-export const ToolArguments = Schema.Struct({code: Schema.optional(Schema.String), language: Schema.optional(Schema.String), clearContext: Schema.optional(Schema.Boolean), command: Schema.optional(Schema.String), path: Schema.optional(Schema.String), paths: Schema.optional(StringList), content: Schema.optional(InputContentBlockList), directoryPath: Schema.optional(Schema.String), taskId: Schema.optional(Schema.String)});
-export const AccessDeniedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InternalServerException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const GetResourceOauth2TokenResponse = Schema.Struct({authorizationUrl: Schema.optional(Schema.String), accessToken: Schema.optional(Schema.String), sessionUri: Schema.optional(Schema.String), sessionStatus: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ThrottlingException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UnauthorizedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvokeCodeInterpreterRequest = Schema.Struct({codeInterpreterIdentifier: Schema.String, sessionId: Schema.optional(Header("x-amzn-code-interpreter-session-id")), traceId: Schema.optional(Header("X-Amzn-Trace-Id")), traceParent: Schema.optional(Header("traceparent")), name: Schema.String, arguments: Schema.optional(ToolArguments)});
-export const ValidationExceptionField = Schema.Struct({name: Schema.String, message: Schema.String});
+export class ToolArguments extends Schema.Class<ToolArguments>("ToolArguments")({code: Schema.optional(Schema.String), language: Schema.optional(Schema.String), clearContext: Schema.optional(Schema.Boolean), command: Schema.optional(Schema.String), path: Schema.optional(Schema.String), paths: Schema.optional(StringList), content: Schema.optional(InputContentBlockList), directoryPath: Schema.optional(Schema.String), taskId: Schema.optional(Schema.String)}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({message: Schema.optional(Schema.String)}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({message: Schema.optional(Schema.String)}) {}
+export class GetResourceOauth2TokenResponse extends Schema.Class<GetResourceOauth2TokenResponse>("GetResourceOauth2TokenResponse")({authorizationUrl: Schema.optional(Schema.String), accessToken: Schema.optional(Schema.String), sessionUri: Schema.optional(Schema.String), sessionStatus: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({message: Schema.optional(Schema.String)}) {}
+export class UnauthorizedException extends Schema.Class<UnauthorizedException>("UnauthorizedException")({message: Schema.optional(Schema.String)}) {}
+export class InvokeCodeInterpreterRequest extends Schema.Class<InvokeCodeInterpreterRequest>("InvokeCodeInterpreterRequest")({codeInterpreterIdentifier: Schema.String, sessionId: Schema.optional(Header("x-amzn-code-interpreter-session-id")), traceId: Schema.optional(Header("X-Amzn-Trace-Id")), traceParent: Schema.optional(Header("traceparent")), name: Schema.String, arguments: Schema.optional(ToolArguments)}) {}
+export class ValidationExceptionField extends Schema.Class<ValidationExceptionField>("ValidationExceptionField")({name: Schema.String, message: Schema.String}) {}
 export const ValidationExceptionFieldList = Schema.Array(ValidationExceptionField);
-export const ValidationException = Schema.Struct({message: Schema.String, reason: Schema.String, fieldList: Schema.optional(ValidationExceptionFieldList)});
-export const ConflictException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ServiceQuotaExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ToolResultStructuredContent = Schema.Struct({taskId: Schema.optional(Schema.String), taskStatus: Schema.optional(Schema.String), stdout: Schema.optional(Schema.String), stderr: Schema.optional(Schema.String), exitCode: Schema.optional(Schema.Number), executionTime: Schema.optional(Schema.Number)});
-export const ResourceContent = Schema.Struct({type: Schema.String, uri: Schema.optional(Schema.String), mimeType: Schema.optional(Schema.String), text: Schema.optional(Schema.String), blob: Schema.optional(StreamBody())});
-export const ContentBlock = Schema.Struct({type: Schema.String, text: Schema.optional(Schema.String), data: Schema.optional(StreamBody()), mimeType: Schema.optional(Schema.String), uri: Schema.optional(Schema.String), name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), size: Schema.optional(Schema.Number), resource: Schema.optional(ResourceContent)});
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({message: Schema.String, reason: Schema.String, fieldList: Schema.optional(ValidationExceptionFieldList)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({message: Schema.optional(Schema.String)}) {}
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({message: Schema.optional(Schema.String)}) {}
+export class ToolResultStructuredContent extends Schema.Class<ToolResultStructuredContent>("ToolResultStructuredContent")({taskId: Schema.optional(Schema.String), taskStatus: Schema.optional(Schema.String), stdout: Schema.optional(Schema.String), stderr: Schema.optional(Schema.String), exitCode: Schema.optional(Schema.Number), executionTime: Schema.optional(Schema.Number)}) {}
+export class ResourceContent extends Schema.Class<ResourceContent>("ResourceContent")({type: Schema.String, uri: Schema.optional(Schema.String), mimeType: Schema.optional(Schema.String), text: Schema.optional(Schema.String), blob: Schema.optional(StreamBody())}) {}
+export class ContentBlock extends Schema.Class<ContentBlock>("ContentBlock")({type: Schema.String, text: Schema.optional(Schema.String), data: Schema.optional(StreamBody()), mimeType: Schema.optional(Schema.String), uri: Schema.optional(Schema.String), name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), size: Schema.optional(Schema.Number), resource: Schema.optional(ResourceContent)}) {}
 export const ContentBlockList = Schema.Array(ContentBlock);
-export const CodeInterpreterResult = Schema.Struct({content: ContentBlockList, structuredContent: Schema.optional(ToolResultStructuredContent), isError: Schema.optional(Schema.Boolean)});
+export class CodeInterpreterResult extends Schema.Class<CodeInterpreterResult>("CodeInterpreterResult")({content: ContentBlockList, structuredContent: Schema.optional(ToolResultStructuredContent), isError: Schema.optional(Schema.Boolean)}) {}
 export const CodeInterpreterStreamOutput = Schema.Union(CodeInterpreterResult, AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException);
-export const InvokeCodeInterpreterResponse = Schema.Struct({sessionId: Schema.optional(Header("x-amzn-code-interpreter-session-id")), stream: Body("undefined", CodeInterpreterStreamOutput)});
+export class InvokeCodeInterpreterResponse extends Schema.Class<InvokeCodeInterpreterResponse>("InvokeCodeInterpreterResponse")({sessionId: Schema.optional(Header("x-amzn-code-interpreter-session-id")), stream: Body("undefined", CodeInterpreterStreamOutput)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class UnauthorizedExceptionError extends Schema.TaggedError<UnauthorizedExceptionError>()("UnauthorizedException", UnauthorizedException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class UnauthorizedExceptionError extends Schema.TaggedError<UnauthorizedExceptionError>()("UnauthorizedException", UnauthorizedException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
 
 //# Operations
 export const getResourceApiKey = /*#__PURE__*/ makeOperation(() => Operation({ version: "2024-02-28", uri: "/identities/api-key", method: "POST", sdkId: "Bedrock AgentCore", sigV4ServiceName: "bedrock-agentcore", name: "AmazonBedrockAgentCore.GetResourceApiKey" }, GetResourceApiKeyRequest, GetResourceApiKeyResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, UnauthorizedExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

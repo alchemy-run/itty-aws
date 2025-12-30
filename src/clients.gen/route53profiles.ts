@@ -4,70 +4,70 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 
 //# Schemas
 export const TagKeyList = Schema.Array(Schema.String);
-export const AssociateResourceToProfileRequest = Schema.Struct({ProfileId: Schema.String, ResourceArn: Schema.String, Name: Schema.String, ResourceProperties: Schema.optional(Schema.String)});
-export const Tag = Schema.Struct({Key: Schema.String, Value: Schema.String});
+export class AssociateResourceToProfileRequest extends Schema.Class<AssociateResourceToProfileRequest>("AssociateResourceToProfileRequest")({ProfileId: Schema.String, ResourceArn: Schema.String, Name: Schema.String, ResourceProperties: Schema.optional(Schema.String)}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.String, Value: Schema.String}) {}
 export const TagList = Schema.Array(Tag);
-export const CreateProfileRequest = Schema.Struct({Name: Schema.String, ClientToken: Schema.String, Tags: Schema.optional(TagList)});
-export const DeleteProfileRequest = Schema.Struct({ProfileId: Schema.String});
-export const DisassociateProfileRequest = Schema.Struct({ProfileId: Schema.String, ResourceId: Schema.String});
-export const DisassociateResourceFromProfileRequest = Schema.Struct({ProfileId: Schema.String, ResourceArn: Schema.String});
-export const GetProfileRequest = Schema.Struct({ProfileId: Schema.String});
-export const GetProfileAssociationRequest = Schema.Struct({ProfileAssociationId: Schema.String});
-export const GetProfileResourceAssociationRequest = Schema.Struct({ProfileResourceAssociationId: Schema.String});
-export const ListProfileAssociationsRequest = Schema.Struct({ResourceId: Schema.optional(Schema.String), ProfileId: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListProfileResourceAssociationsRequest = Schema.Struct({ProfileId: Schema.String, ResourceType: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListProfilesRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceRequest = Schema.Struct({ResourceArn: Schema.String});
-export const UntagResourceRequest = Schema.Struct({ResourceArn: Schema.String, TagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
-export const UpdateProfileResourceAssociationRequest = Schema.Struct({ProfileResourceAssociationId: Schema.String, Name: Schema.optional(Schema.String), ResourceProperties: Schema.optional(Schema.String)});
-export const ProfileAssociation = Schema.Struct({Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), OwnerId: Schema.optional(Schema.String), ProfileId: Schema.optional(Schema.String), ResourceId: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), CreationTime: Schema.optional(Schema.Date), ModificationTime: Schema.optional(Schema.Date)});
+export class CreateProfileRequest extends Schema.Class<CreateProfileRequest>("CreateProfileRequest")({Name: Schema.String, ClientToken: Schema.String, Tags: Schema.optional(TagList)}) {}
+export class DeleteProfileRequest extends Schema.Class<DeleteProfileRequest>("DeleteProfileRequest")({ProfileId: Schema.String}) {}
+export class DisassociateProfileRequest extends Schema.Class<DisassociateProfileRequest>("DisassociateProfileRequest")({ProfileId: Schema.String, ResourceId: Schema.String}) {}
+export class DisassociateResourceFromProfileRequest extends Schema.Class<DisassociateResourceFromProfileRequest>("DisassociateResourceFromProfileRequest")({ProfileId: Schema.String, ResourceArn: Schema.String}) {}
+export class GetProfileRequest extends Schema.Class<GetProfileRequest>("GetProfileRequest")({ProfileId: Schema.String}) {}
+export class GetProfileAssociationRequest extends Schema.Class<GetProfileAssociationRequest>("GetProfileAssociationRequest")({ProfileAssociationId: Schema.String}) {}
+export class GetProfileResourceAssociationRequest extends Schema.Class<GetProfileResourceAssociationRequest>("GetProfileResourceAssociationRequest")({ProfileResourceAssociationId: Schema.String}) {}
+export class ListProfileAssociationsRequest extends Schema.Class<ListProfileAssociationsRequest>("ListProfileAssociationsRequest")({ResourceId: Schema.optional(Schema.String), ProfileId: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListProfileResourceAssociationsRequest extends Schema.Class<ListProfileResourceAssociationsRequest>("ListProfileResourceAssociationsRequest")({ProfileId: Schema.String, ResourceType: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListProfilesRequest extends Schema.Class<ListProfilesRequest>("ListProfilesRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({ResourceArn: Schema.String}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({ResourceArn: Schema.String, TagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class UpdateProfileResourceAssociationRequest extends Schema.Class<UpdateProfileResourceAssociationRequest>("UpdateProfileResourceAssociationRequest")({ProfileResourceAssociationId: Schema.String, Name: Schema.optional(Schema.String), ResourceProperties: Schema.optional(Schema.String)}) {}
+export class ProfileAssociation extends Schema.Class<ProfileAssociation>("ProfileAssociation")({Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), OwnerId: Schema.optional(Schema.String), ProfileId: Schema.optional(Schema.String), ResourceId: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), CreationTime: Schema.optional(Schema.Date), ModificationTime: Schema.optional(Schema.Date)}) {}
 export const ProfileAssociations = Schema.Array(ProfileAssociation);
-export const ProfileResourceAssociation = Schema.Struct({Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), OwnerId: Schema.optional(Schema.String), ProfileId: Schema.optional(Schema.String), ResourceArn: Schema.optional(Schema.String), ResourceType: Schema.optional(Schema.String), ResourceProperties: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), CreationTime: Schema.optional(Schema.Date), ModificationTime: Schema.optional(Schema.Date)});
+export class ProfileResourceAssociation extends Schema.Class<ProfileResourceAssociation>("ProfileResourceAssociation")({Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), OwnerId: Schema.optional(Schema.String), ProfileId: Schema.optional(Schema.String), ResourceArn: Schema.optional(Schema.String), ResourceType: Schema.optional(Schema.String), ResourceProperties: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), CreationTime: Schema.optional(Schema.Date), ModificationTime: Schema.optional(Schema.Date)}) {}
 export const ProfileResourceAssociations = Schema.Array(ProfileResourceAssociation);
 export const TagMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const AssociateProfileRequest = Schema.Struct({ProfileId: Schema.String, ResourceId: Schema.String, Name: Schema.String, Tags: Schema.optional(TagList)});
-export const Profile = Schema.Struct({Id: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), OwnerId: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), ShareStatus: Schema.optional(Schema.String), CreationTime: Schema.optional(Schema.Date), ModificationTime: Schema.optional(Schema.Date), ClientToken: Schema.optional(Schema.String)});
-export const DeleteProfileResponse = Schema.Struct({Profile: Schema.optional(Profile)});
-export const DisassociateResourceFromProfileResponse = Schema.Struct({ProfileResourceAssociation: Schema.optional(ProfileResourceAssociation)});
-export const GetProfileResponse = Schema.Struct({Profile: Schema.optional(Profile)});
-export const GetProfileAssociationResponse = Schema.Struct({ProfileAssociation: Schema.optional(ProfileAssociation)});
-export const GetProfileResourceAssociationResponse = Schema.Struct({ProfileResourceAssociation: Schema.optional(ProfileResourceAssociation)});
-export const ListProfileAssociationsResponse = Schema.Struct({ProfileAssociations: Schema.optional(ProfileAssociations), NextToken: Schema.optional(Schema.String)});
-export const ListProfileResourceAssociationsResponse = Schema.Struct({ProfileResourceAssociations: Schema.optional(ProfileResourceAssociations), NextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceResponse = Schema.Struct({Tags: TagMap});
-export const TagResourceRequest = Schema.Struct({ResourceArn: Schema.String, Tags: TagMap});
-export const TagResourceResponse = Schema.Struct({});
-export const AccessDeniedException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const UpdateProfileResourceAssociationResponse = Schema.Struct({ProfileResourceAssociation: Schema.optional(ProfileResourceAssociation)});
-export const ProfileSummary = Schema.Struct({Id: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), ShareStatus: Schema.optional(Schema.String)});
+export class AssociateProfileRequest extends Schema.Class<AssociateProfileRequest>("AssociateProfileRequest")({ProfileId: Schema.String, ResourceId: Schema.String, Name: Schema.String, Tags: Schema.optional(TagList)}) {}
+export class Profile extends Schema.Class<Profile>("Profile")({Id: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), OwnerId: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), ShareStatus: Schema.optional(Schema.String), CreationTime: Schema.optional(Schema.Date), ModificationTime: Schema.optional(Schema.Date), ClientToken: Schema.optional(Schema.String)}) {}
+export class DeleteProfileResponse extends Schema.Class<DeleteProfileResponse>("DeleteProfileResponse")({Profile: Schema.optional(Profile)}) {}
+export class DisassociateResourceFromProfileResponse extends Schema.Class<DisassociateResourceFromProfileResponse>("DisassociateResourceFromProfileResponse")({ProfileResourceAssociation: Schema.optional(ProfileResourceAssociation)}) {}
+export class GetProfileResponse extends Schema.Class<GetProfileResponse>("GetProfileResponse")({Profile: Schema.optional(Profile)}) {}
+export class GetProfileAssociationResponse extends Schema.Class<GetProfileAssociationResponse>("GetProfileAssociationResponse")({ProfileAssociation: Schema.optional(ProfileAssociation)}) {}
+export class GetProfileResourceAssociationResponse extends Schema.Class<GetProfileResourceAssociationResponse>("GetProfileResourceAssociationResponse")({ProfileResourceAssociation: Schema.optional(ProfileResourceAssociation)}) {}
+export class ListProfileAssociationsResponse extends Schema.Class<ListProfileAssociationsResponse>("ListProfileAssociationsResponse")({ProfileAssociations: Schema.optional(ProfileAssociations), NextToken: Schema.optional(Schema.String)}) {}
+export class ListProfileResourceAssociationsResponse extends Schema.Class<ListProfileResourceAssociationsResponse>("ListProfileResourceAssociationsResponse")({ProfileResourceAssociations: Schema.optional(ProfileResourceAssociations), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({Tags: TagMap}) {}
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({ResourceArn: Schema.String, Tags: TagMap}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({Message: Schema.optional(Schema.String)}) {}
+export class UpdateProfileResourceAssociationResponse extends Schema.Class<UpdateProfileResourceAssociationResponse>("UpdateProfileResourceAssociationResponse")({ProfileResourceAssociation: Schema.optional(ProfileResourceAssociation)}) {}
+export class ProfileSummary extends Schema.Class<ProfileSummary>("ProfileSummary")({Id: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), ShareStatus: Schema.optional(Schema.String)}) {}
 export const ProfileSummaryList = Schema.Array(ProfileSummary);
-export const AssociateProfileResponse = Schema.Struct({ProfileAssociation: Schema.optional(ProfileAssociation)});
-export const AssociateResourceToProfileResponse = Schema.Struct({ProfileResourceAssociation: Schema.optional(ProfileResourceAssociation)});
-export const CreateProfileResponse = Schema.Struct({Profile: Schema.optional(Profile)});
-export const ConflictException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DisassociateProfileResponse = Schema.Struct({ProfileAssociation: Schema.optional(ProfileAssociation)});
-export const InternalServiceErrorException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String), ResourceType: Schema.optional(Schema.String)});
-export const ThrottlingException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const InvalidParameterException = Schema.Struct({Message: Schema.String, FieldName: Schema.optional(Schema.String)});
-export const InvalidNextTokenException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ValidationException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ListProfilesResponse = Schema.Struct({ProfileSummaries: Schema.optional(ProfileSummaryList), NextToken: Schema.optional(Schema.String)});
-export const LimitExceededException = Schema.Struct({Message: Schema.optional(Schema.String), ResourceType: Schema.optional(Schema.String)});
-export const ResourceExistsException = Schema.Struct({Message: Schema.optional(Schema.String), ResourceType: Schema.optional(Schema.String)});
+export class AssociateProfileResponse extends Schema.Class<AssociateProfileResponse>("AssociateProfileResponse")({ProfileAssociation: Schema.optional(ProfileAssociation)}) {}
+export class AssociateResourceToProfileResponse extends Schema.Class<AssociateResourceToProfileResponse>("AssociateResourceToProfileResponse")({ProfileResourceAssociation: Schema.optional(ProfileResourceAssociation)}) {}
+export class CreateProfileResponse extends Schema.Class<CreateProfileResponse>("CreateProfileResponse")({Profile: Schema.optional(Profile)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({Message: Schema.optional(Schema.String)}) {}
+export class DisassociateProfileResponse extends Schema.Class<DisassociateProfileResponse>("DisassociateProfileResponse")({ProfileAssociation: Schema.optional(ProfileAssociation)}) {}
+export class InternalServiceErrorException extends Schema.Class<InternalServiceErrorException>("InternalServiceErrorException")({Message: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({Message: Schema.optional(Schema.String), ResourceType: Schema.optional(Schema.String)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({Message: Schema.optional(Schema.String)}) {}
+export class InvalidParameterException extends Schema.Class<InvalidParameterException>("InvalidParameterException")({Message: Schema.String, FieldName: Schema.optional(Schema.String)}) {}
+export class InvalidNextTokenException extends Schema.Class<InvalidNextTokenException>("InvalidNextTokenException")({Message: Schema.optional(Schema.String)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({Message: Schema.optional(Schema.String)}) {}
+export class ListProfilesResponse extends Schema.Class<ListProfilesResponse>("ListProfilesResponse")({ProfileSummaries: Schema.optional(ProfileSummaryList), NextToken: Schema.optional(Schema.String)}) {}
+export class LimitExceededException extends Schema.Class<LimitExceededException>("LimitExceededException")({Message: Schema.optional(Schema.String), ResourceType: Schema.optional(Schema.String)}) {}
+export class ResourceExistsException extends Schema.Class<ResourceExistsException>("ResourceExistsException")({Message: Schema.optional(Schema.String), ResourceType: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class InternalServiceErrorExceptionError extends Schema.TaggedError<InternalServiceErrorExceptionError>()("InternalServiceErrorException", InternalServiceErrorException) {};
-export class InvalidNextTokenExceptionError extends Schema.TaggedError<InvalidNextTokenExceptionError>()("InvalidNextTokenException", InvalidNextTokenException) {};
-export class InvalidParameterExceptionError extends Schema.TaggedError<InvalidParameterExceptionError>()("InvalidParameterException", InvalidParameterException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException) {};
-export class ResourceExistsExceptionError extends Schema.TaggedError<ResourceExistsExceptionError>()("ResourceExistsException", ResourceExistsException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class InternalServiceErrorExceptionError extends Schema.TaggedError<InternalServiceErrorExceptionError>()("InternalServiceErrorException", InternalServiceErrorException.fields) {};
+export class InvalidNextTokenExceptionError extends Schema.TaggedError<InvalidNextTokenExceptionError>()("InvalidNextTokenException", InvalidNextTokenException.fields) {};
+export class InvalidParameterExceptionError extends Schema.TaggedError<InvalidParameterExceptionError>()("InvalidParameterException", InvalidParameterException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException.fields) {};
+export class ResourceExistsExceptionError extends Schema.TaggedError<ResourceExistsExceptionError>()("ResourceExistsException", ResourceExistsException.fields) {};
 
 //# Operations
 export const listTagsForResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-05-10", uri: "/tags/{ResourceArn}", method: "GET", sdkId: "Route53Profiles", sigV4ServiceName: "route53profiles", name: "Route53Profiles.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [AccessDeniedExceptionError, ConflictExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

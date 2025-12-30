@@ -4,107 +4,107 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 
 //# Schemas
 export const __listOf__string = Schema.Array(Schema.String);
-export const CreateCrossAccountAuthorizationRequest = Schema.Struct({CrossAccountAuthorization: Schema.String});
+export class CreateCrossAccountAuthorizationRequest extends Schema.Class<CreateCrossAccountAuthorizationRequest>("CreateCrossAccountAuthorizationRequest")({CrossAccountAuthorization: Schema.String}) {}
 export const Tags = Schema.Record({key: Schema.String, value: Schema.String});
-export const CreateReadinessCheckRequest = Schema.Struct({ReadinessCheckName: Schema.String, ResourceSetName: Schema.String, Tags: Schema.optional(Tags)});
-export const CreateRecoveryGroupRequest = Schema.Struct({Cells: Schema.optional(__listOf__string), RecoveryGroupName: Schema.String, Tags: Schema.optional(Tags)});
-export const DeleteCellRequest = Schema.Struct({CellName: Schema.String});
-export const DeleteCrossAccountAuthorizationRequest = Schema.Struct({CrossAccountAuthorization: Schema.String});
-export const DeleteCrossAccountAuthorizationResponse = Schema.Struct({});
-export const DeleteReadinessCheckRequest = Schema.Struct({ReadinessCheckName: Schema.String});
-export const DeleteRecoveryGroupRequest = Schema.Struct({RecoveryGroupName: Schema.String});
-export const DeleteResourceSetRequest = Schema.Struct({ResourceSetName: Schema.String});
-export const GetArchitectureRecommendationsRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), RecoveryGroupName: Schema.String});
-export const GetCellRequest = Schema.Struct({CellName: Schema.String});
-export const GetCellReadinessSummaryRequest = Schema.Struct({CellName: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const GetReadinessCheckRequest = Schema.Struct({ReadinessCheckName: Schema.String});
-export const GetReadinessCheckResourceStatusRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), ReadinessCheckName: Schema.String, ResourceIdentifier: Schema.String});
-export const GetReadinessCheckStatusRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), ReadinessCheckName: Schema.String});
-export const GetRecoveryGroupRequest = Schema.Struct({RecoveryGroupName: Schema.String});
-export const GetRecoveryGroupReadinessSummaryRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), RecoveryGroupName: Schema.String});
-export const GetResourceSetRequest = Schema.Struct({ResourceSetName: Schema.String});
-export const ListCellsRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListCrossAccountAuthorizationsRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListReadinessChecksRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListRecoveryGroupsRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListResourceSetsRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListRulesRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), ResourceType: Schema.optional(Schema.String)});
-export const ListTagsForResourcesRequest = Schema.Struct({ResourceArn: Schema.String});
-export const TagResourceRequest = Schema.Struct({ResourceArn: Schema.String, Tags: Tags});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({ResourceArn: Schema.String, TagKeys: __listOf__string});
-export const UpdateCellRequest = Schema.Struct({CellName: Schema.String, Cells: __listOf__string});
-export const UpdateReadinessCheckRequest = Schema.Struct({ReadinessCheckName: Schema.String, ResourceSetName: Schema.String});
-export const UpdateRecoveryGroupRequest = Schema.Struct({Cells: __listOf__string, RecoveryGroupName: Schema.String});
-export const NLBResource = Schema.Struct({Arn: Schema.optional(Schema.String)});
-export const R53ResourceRecord = Schema.Struct({DomainName: Schema.optional(Schema.String), RecordSetId: Schema.optional(Schema.String)});
-export const TargetResource = Schema.Struct({NLBResource: Schema.optional(NLBResource), R53Resource: Schema.optional(R53ResourceRecord)});
-export const DNSTargetResource = Schema.Struct({DomainName: Schema.optional(Schema.String), HostedZoneArn: Schema.optional(Schema.String), RecordSetId: Schema.optional(Schema.String), RecordType: Schema.optional(Schema.String), TargetResource: Schema.optional(TargetResource)});
-export const Resource = Schema.Struct({ComponentId: Schema.optional(Schema.String), DnsTargetResource: Schema.optional(DNSTargetResource), ReadinessScopes: Schema.optional(__listOf__string), ResourceArn: Schema.optional(Schema.String)});
+export class CreateReadinessCheckRequest extends Schema.Class<CreateReadinessCheckRequest>("CreateReadinessCheckRequest")({ReadinessCheckName: Schema.String, ResourceSetName: Schema.String, Tags: Schema.optional(Tags)}) {}
+export class CreateRecoveryGroupRequest extends Schema.Class<CreateRecoveryGroupRequest>("CreateRecoveryGroupRequest")({Cells: Schema.optional(__listOf__string), RecoveryGroupName: Schema.String, Tags: Schema.optional(Tags)}) {}
+export class DeleteCellRequest extends Schema.Class<DeleteCellRequest>("DeleteCellRequest")({CellName: Schema.String}) {}
+export class DeleteCrossAccountAuthorizationRequest extends Schema.Class<DeleteCrossAccountAuthorizationRequest>("DeleteCrossAccountAuthorizationRequest")({CrossAccountAuthorization: Schema.String}) {}
+export class DeleteCrossAccountAuthorizationResponse extends Schema.Class<DeleteCrossAccountAuthorizationResponse>("DeleteCrossAccountAuthorizationResponse")({}) {}
+export class DeleteReadinessCheckRequest extends Schema.Class<DeleteReadinessCheckRequest>("DeleteReadinessCheckRequest")({ReadinessCheckName: Schema.String}) {}
+export class DeleteRecoveryGroupRequest extends Schema.Class<DeleteRecoveryGroupRequest>("DeleteRecoveryGroupRequest")({RecoveryGroupName: Schema.String}) {}
+export class DeleteResourceSetRequest extends Schema.Class<DeleteResourceSetRequest>("DeleteResourceSetRequest")({ResourceSetName: Schema.String}) {}
+export class GetArchitectureRecommendationsRequest extends Schema.Class<GetArchitectureRecommendationsRequest>("GetArchitectureRecommendationsRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), RecoveryGroupName: Schema.String}) {}
+export class GetCellRequest extends Schema.Class<GetCellRequest>("GetCellRequest")({CellName: Schema.String}) {}
+export class GetCellReadinessSummaryRequest extends Schema.Class<GetCellReadinessSummaryRequest>("GetCellReadinessSummaryRequest")({CellName: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class GetReadinessCheckRequest extends Schema.Class<GetReadinessCheckRequest>("GetReadinessCheckRequest")({ReadinessCheckName: Schema.String}) {}
+export class GetReadinessCheckResourceStatusRequest extends Schema.Class<GetReadinessCheckResourceStatusRequest>("GetReadinessCheckResourceStatusRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), ReadinessCheckName: Schema.String, ResourceIdentifier: Schema.String}) {}
+export class GetReadinessCheckStatusRequest extends Schema.Class<GetReadinessCheckStatusRequest>("GetReadinessCheckStatusRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), ReadinessCheckName: Schema.String}) {}
+export class GetRecoveryGroupRequest extends Schema.Class<GetRecoveryGroupRequest>("GetRecoveryGroupRequest")({RecoveryGroupName: Schema.String}) {}
+export class GetRecoveryGroupReadinessSummaryRequest extends Schema.Class<GetRecoveryGroupReadinessSummaryRequest>("GetRecoveryGroupReadinessSummaryRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), RecoveryGroupName: Schema.String}) {}
+export class GetResourceSetRequest extends Schema.Class<GetResourceSetRequest>("GetResourceSetRequest")({ResourceSetName: Schema.String}) {}
+export class ListCellsRequest extends Schema.Class<ListCellsRequest>("ListCellsRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListCrossAccountAuthorizationsRequest extends Schema.Class<ListCrossAccountAuthorizationsRequest>("ListCrossAccountAuthorizationsRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListReadinessChecksRequest extends Schema.Class<ListReadinessChecksRequest>("ListReadinessChecksRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListRecoveryGroupsRequest extends Schema.Class<ListRecoveryGroupsRequest>("ListRecoveryGroupsRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListResourceSetsRequest extends Schema.Class<ListResourceSetsRequest>("ListResourceSetsRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListRulesRequest extends Schema.Class<ListRulesRequest>("ListRulesRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), ResourceType: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourcesRequest extends Schema.Class<ListTagsForResourcesRequest>("ListTagsForResourcesRequest")({ResourceArn: Schema.String}) {}
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({ResourceArn: Schema.String, Tags: Tags}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({ResourceArn: Schema.String, TagKeys: __listOf__string}) {}
+export class UpdateCellRequest extends Schema.Class<UpdateCellRequest>("UpdateCellRequest")({CellName: Schema.String, Cells: __listOf__string}) {}
+export class UpdateReadinessCheckRequest extends Schema.Class<UpdateReadinessCheckRequest>("UpdateReadinessCheckRequest")({ReadinessCheckName: Schema.String, ResourceSetName: Schema.String}) {}
+export class UpdateRecoveryGroupRequest extends Schema.Class<UpdateRecoveryGroupRequest>("UpdateRecoveryGroupRequest")({Cells: __listOf__string, RecoveryGroupName: Schema.String}) {}
+export class NLBResource extends Schema.Class<NLBResource>("NLBResource")({Arn: Schema.optional(Schema.String)}) {}
+export class R53ResourceRecord extends Schema.Class<R53ResourceRecord>("R53ResourceRecord")({DomainName: Schema.optional(Schema.String), RecordSetId: Schema.optional(Schema.String)}) {}
+export class TargetResource extends Schema.Class<TargetResource>("TargetResource")({NLBResource: Schema.optional(NLBResource), R53Resource: Schema.optional(R53ResourceRecord)}) {}
+export class DNSTargetResource extends Schema.Class<DNSTargetResource>("DNSTargetResource")({DomainName: Schema.optional(Schema.String), HostedZoneArn: Schema.optional(Schema.String), RecordSetId: Schema.optional(Schema.String), RecordType: Schema.optional(Schema.String), TargetResource: Schema.optional(TargetResource)}) {}
+export class Resource extends Schema.Class<Resource>("Resource")({ComponentId: Schema.optional(Schema.String), DnsTargetResource: Schema.optional(DNSTargetResource), ReadinessScopes: Schema.optional(__listOf__string), ResourceArn: Schema.optional(Schema.String)}) {}
 export const __listOfResource = Schema.Array(Resource);
-export const UpdateResourceSetRequest = Schema.Struct({ResourceSetName: Schema.String, ResourceSetType: Schema.String, Resources: __listOfResource});
+export class UpdateResourceSetRequest extends Schema.Class<UpdateResourceSetRequest>("UpdateResourceSetRequest")({ResourceSetName: Schema.String, ResourceSetType: Schema.String, Resources: __listOfResource}) {}
 export const __listOfCrossAccountAuthorization = Schema.Array(Schema.String);
-export const CreateCellRequest = Schema.Struct({CellName: Schema.String, Cells: Schema.optional(__listOf__string), Tags: Schema.optional(Tags)});
-export const CreateCrossAccountAuthorizationResponse = Schema.Struct({CrossAccountAuthorization: Schema.optional(Schema.String)});
-export const CreateReadinessCheckResponse = Schema.Struct({ReadinessCheckArn: Schema.optional(Schema.String), ReadinessCheckName: Schema.optional(Schema.String), ResourceSet: Schema.optional(Schema.String), Tags: Schema.optional(Tags)});
-export const CreateRecoveryGroupResponse = Schema.Struct({Cells: Schema.optional(__listOf__string), RecoveryGroupArn: Schema.optional(Schema.String), RecoveryGroupName: Schema.optional(Schema.String), Tags: Schema.optional(Tags)});
-export const AccessDeniedException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const InternalServerException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ThrottlingException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ValidationException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const GetCellResponse = Schema.Struct({CellArn: Schema.optional(Schema.String), CellName: Schema.optional(Schema.String), Cells: Schema.optional(__listOf__string), ParentReadinessScopes: Schema.optional(__listOf__string), Tags: Schema.optional(Tags)});
-export const GetReadinessCheckResponse = Schema.Struct({ReadinessCheckArn: Schema.optional(Schema.String), ReadinessCheckName: Schema.optional(Schema.String), ResourceSet: Schema.optional(Schema.String), Tags: Schema.optional(Tags)});
-export const GetRecoveryGroupResponse = Schema.Struct({Cells: Schema.optional(__listOf__string), RecoveryGroupArn: Schema.optional(Schema.String), RecoveryGroupName: Schema.optional(Schema.String), Tags: Schema.optional(Tags)});
-export const ReadinessCheckSummary = Schema.Struct({Readiness: Schema.optional(Schema.String), ReadinessCheckName: Schema.optional(Schema.String)});
+export class CreateCellRequest extends Schema.Class<CreateCellRequest>("CreateCellRequest")({CellName: Schema.String, Cells: Schema.optional(__listOf__string), Tags: Schema.optional(Tags)}) {}
+export class CreateCrossAccountAuthorizationResponse extends Schema.Class<CreateCrossAccountAuthorizationResponse>("CreateCrossAccountAuthorizationResponse")({CrossAccountAuthorization: Schema.optional(Schema.String)}) {}
+export class CreateReadinessCheckResponse extends Schema.Class<CreateReadinessCheckResponse>("CreateReadinessCheckResponse")({ReadinessCheckArn: Schema.optional(Schema.String), ReadinessCheckName: Schema.optional(Schema.String), ResourceSet: Schema.optional(Schema.String), Tags: Schema.optional(Tags)}) {}
+export class CreateRecoveryGroupResponse extends Schema.Class<CreateRecoveryGroupResponse>("CreateRecoveryGroupResponse")({Cells: Schema.optional(__listOf__string), RecoveryGroupArn: Schema.optional(Schema.String), RecoveryGroupName: Schema.optional(Schema.String), Tags: Schema.optional(Tags)}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({Message: Schema.optional(Schema.String)}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({Message: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({Message: Schema.optional(Schema.String)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({Message: Schema.optional(Schema.String)}) {}
+export class GetCellResponse extends Schema.Class<GetCellResponse>("GetCellResponse")({CellArn: Schema.optional(Schema.String), CellName: Schema.optional(Schema.String), Cells: Schema.optional(__listOf__string), ParentReadinessScopes: Schema.optional(__listOf__string), Tags: Schema.optional(Tags)}) {}
+export class GetReadinessCheckResponse extends Schema.Class<GetReadinessCheckResponse>("GetReadinessCheckResponse")({ReadinessCheckArn: Schema.optional(Schema.String), ReadinessCheckName: Schema.optional(Schema.String), ResourceSet: Schema.optional(Schema.String), Tags: Schema.optional(Tags)}) {}
+export class GetRecoveryGroupResponse extends Schema.Class<GetRecoveryGroupResponse>("GetRecoveryGroupResponse")({Cells: Schema.optional(__listOf__string), RecoveryGroupArn: Schema.optional(Schema.String), RecoveryGroupName: Schema.optional(Schema.String), Tags: Schema.optional(Tags)}) {}
+export class ReadinessCheckSummary extends Schema.Class<ReadinessCheckSummary>("ReadinessCheckSummary")({Readiness: Schema.optional(Schema.String), ReadinessCheckName: Schema.optional(Schema.String)}) {}
 export const __listOfReadinessCheckSummary = Schema.Array(ReadinessCheckSummary);
-export const GetRecoveryGroupReadinessSummaryResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), Readiness: Schema.optional(Schema.String), ReadinessChecks: Schema.optional(__listOfReadinessCheckSummary)});
-export const GetResourceSetResponse = Schema.Struct({ResourceSetArn: Schema.optional(Schema.String), ResourceSetName: Schema.optional(Schema.String), ResourceSetType: Schema.optional(Schema.String), Resources: Schema.optional(__listOfResource), Tags: Schema.optional(Tags)});
-export const ListCrossAccountAuthorizationsResponse = Schema.Struct({CrossAccountAuthorizations: Schema.optional(__listOfCrossAccountAuthorization), NextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourcesResponse = Schema.Struct({Tags: Schema.optional(Tags)});
-export const UpdateCellResponse = Schema.Struct({CellArn: Schema.optional(Schema.String), CellName: Schema.optional(Schema.String), Cells: Schema.optional(__listOf__string), ParentReadinessScopes: Schema.optional(__listOf__string), Tags: Schema.optional(Tags)});
-export const UpdateReadinessCheckResponse = Schema.Struct({ReadinessCheckArn: Schema.optional(Schema.String), ReadinessCheckName: Schema.optional(Schema.String), ResourceSet: Schema.optional(Schema.String), Tags: Schema.optional(Tags)});
-export const UpdateRecoveryGroupResponse = Schema.Struct({Cells: Schema.optional(__listOf__string), RecoveryGroupArn: Schema.optional(Schema.String), RecoveryGroupName: Schema.optional(Schema.String), Tags: Schema.optional(Tags)});
-export const UpdateResourceSetResponse = Schema.Struct({ResourceSetArn: Schema.optional(Schema.String), ResourceSetName: Schema.optional(Schema.String), ResourceSetType: Schema.optional(Schema.String), Resources: Schema.optional(__listOfResource), Tags: Schema.optional(Tags)});
-export const Recommendation = Schema.Struct({RecommendationText: Schema.String});
+export class GetRecoveryGroupReadinessSummaryResponse extends Schema.Class<GetRecoveryGroupReadinessSummaryResponse>("GetRecoveryGroupReadinessSummaryResponse")({NextToken: Schema.optional(Schema.String), Readiness: Schema.optional(Schema.String), ReadinessChecks: Schema.optional(__listOfReadinessCheckSummary)}) {}
+export class GetResourceSetResponse extends Schema.Class<GetResourceSetResponse>("GetResourceSetResponse")({ResourceSetArn: Schema.optional(Schema.String), ResourceSetName: Schema.optional(Schema.String), ResourceSetType: Schema.optional(Schema.String), Resources: Schema.optional(__listOfResource), Tags: Schema.optional(Tags)}) {}
+export class ListCrossAccountAuthorizationsResponse extends Schema.Class<ListCrossAccountAuthorizationsResponse>("ListCrossAccountAuthorizationsResponse")({CrossAccountAuthorizations: Schema.optional(__listOfCrossAccountAuthorization), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourcesResponse extends Schema.Class<ListTagsForResourcesResponse>("ListTagsForResourcesResponse")({Tags: Schema.optional(Tags)}) {}
+export class UpdateCellResponse extends Schema.Class<UpdateCellResponse>("UpdateCellResponse")({CellArn: Schema.optional(Schema.String), CellName: Schema.optional(Schema.String), Cells: Schema.optional(__listOf__string), ParentReadinessScopes: Schema.optional(__listOf__string), Tags: Schema.optional(Tags)}) {}
+export class UpdateReadinessCheckResponse extends Schema.Class<UpdateReadinessCheckResponse>("UpdateReadinessCheckResponse")({ReadinessCheckArn: Schema.optional(Schema.String), ReadinessCheckName: Schema.optional(Schema.String), ResourceSet: Schema.optional(Schema.String), Tags: Schema.optional(Tags)}) {}
+export class UpdateRecoveryGroupResponse extends Schema.Class<UpdateRecoveryGroupResponse>("UpdateRecoveryGroupResponse")({Cells: Schema.optional(__listOf__string), RecoveryGroupArn: Schema.optional(Schema.String), RecoveryGroupName: Schema.optional(Schema.String), Tags: Schema.optional(Tags)}) {}
+export class UpdateResourceSetResponse extends Schema.Class<UpdateResourceSetResponse>("UpdateResourceSetResponse")({ResourceSetArn: Schema.optional(Schema.String), ResourceSetName: Schema.optional(Schema.String), ResourceSetType: Schema.optional(Schema.String), Resources: Schema.optional(__listOfResource), Tags: Schema.optional(Tags)}) {}
+export class Recommendation extends Schema.Class<Recommendation>("Recommendation")({RecommendationText: Schema.String}) {}
 export const __listOfRecommendation = Schema.Array(Recommendation);
-export const Message = Schema.Struct({MessageText: Schema.optional(Schema.String)});
+export class Message extends Schema.Class<Message>("Message")({MessageText: Schema.optional(Schema.String)}) {}
 export const __listOfMessage = Schema.Array(Message);
-export const RuleResult = Schema.Struct({LastCheckedTimestamp: Schema.Date, Messages: __listOfMessage, Readiness: Schema.String, RuleId: Schema.String});
+export class RuleResult extends Schema.Class<RuleResult>("RuleResult")({LastCheckedTimestamp: Schema.Date, Messages: __listOfMessage, Readiness: Schema.String, RuleId: Schema.String}) {}
 export const __listOfRuleResult = Schema.Array(RuleResult);
-export const ResourceResult = Schema.Struct({ComponentId: Schema.optional(Schema.String), LastCheckedTimestamp: Schema.Date, Readiness: Schema.String, ResourceArn: Schema.optional(Schema.String)});
+export class ResourceResult extends Schema.Class<ResourceResult>("ResourceResult")({ComponentId: Schema.optional(Schema.String), LastCheckedTimestamp: Schema.Date, Readiness: Schema.String, ResourceArn: Schema.optional(Schema.String)}) {}
 export const __listOfResourceResult = Schema.Array(ResourceResult);
-export const CellOutput = Schema.Struct({CellArn: Schema.String, CellName: Schema.String, Cells: __listOf__string, ParentReadinessScopes: __listOf__string, Tags: Schema.optional(Tags)});
+export class CellOutput extends Schema.Class<CellOutput>("CellOutput")({CellArn: Schema.String, CellName: Schema.String, Cells: __listOf__string, ParentReadinessScopes: __listOf__string, Tags: Schema.optional(Tags)}) {}
 export const __listOfCellOutput = Schema.Array(CellOutput);
-export const ReadinessCheckOutput = Schema.Struct({ReadinessCheckArn: Schema.String, ReadinessCheckName: Schema.optional(Schema.String), ResourceSet: Schema.String, Tags: Schema.optional(Tags)});
+export class ReadinessCheckOutput extends Schema.Class<ReadinessCheckOutput>("ReadinessCheckOutput")({ReadinessCheckArn: Schema.String, ReadinessCheckName: Schema.optional(Schema.String), ResourceSet: Schema.String, Tags: Schema.optional(Tags)}) {}
 export const __listOfReadinessCheckOutput = Schema.Array(ReadinessCheckOutput);
-export const RecoveryGroupOutput = Schema.Struct({Cells: __listOf__string, RecoveryGroupArn: Schema.String, RecoveryGroupName: Schema.String, Tags: Schema.optional(Tags)});
+export class RecoveryGroupOutput extends Schema.Class<RecoveryGroupOutput>("RecoveryGroupOutput")({Cells: __listOf__string, RecoveryGroupArn: Schema.String, RecoveryGroupName: Schema.String, Tags: Schema.optional(Tags)}) {}
 export const __listOfRecoveryGroupOutput = Schema.Array(RecoveryGroupOutput);
-export const ResourceSetOutput = Schema.Struct({ResourceSetArn: Schema.String, ResourceSetName: Schema.String, ResourceSetType: Schema.String, Resources: __listOfResource, Tags: Schema.optional(Tags)});
+export class ResourceSetOutput extends Schema.Class<ResourceSetOutput>("ResourceSetOutput")({ResourceSetArn: Schema.String, ResourceSetName: Schema.String, ResourceSetType: Schema.String, Resources: __listOfResource, Tags: Schema.optional(Tags)}) {}
 export const __listOfResourceSetOutput = Schema.Array(ResourceSetOutput);
-export const ListRulesOutput = Schema.Struct({ResourceType: Schema.String, RuleDescription: Schema.String, RuleId: Schema.String});
+export class ListRulesOutput extends Schema.Class<ListRulesOutput>("ListRulesOutput")({ResourceType: Schema.String, RuleDescription: Schema.String, RuleId: Schema.String}) {}
 export const __listOfListRulesOutput = Schema.Array(ListRulesOutput);
-export const CreateCellResponse = Schema.Struct({CellArn: Schema.optional(Schema.String), CellName: Schema.optional(Schema.String), Cells: Schema.optional(__listOf__string), ParentReadinessScopes: Schema.optional(__listOf__string), Tags: Schema.optional(Tags)});
-export const ConflictException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const GetArchitectureRecommendationsResponse = Schema.Struct({LastAuditTimestamp: Schema.optional(Schema.Date), NextToken: Schema.optional(Schema.String), Recommendations: Schema.optional(__listOfRecommendation)});
-export const GetCellReadinessSummaryResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), Readiness: Schema.optional(Schema.String), ReadinessChecks: Schema.optional(__listOfReadinessCheckSummary)});
-export const GetReadinessCheckResourceStatusResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), Readiness: Schema.optional(Schema.String), Rules: Schema.optional(__listOfRuleResult)});
-export const GetReadinessCheckStatusResponse = Schema.Struct({Messages: Schema.optional(__listOfMessage), NextToken: Schema.optional(Schema.String), Readiness: Schema.optional(Schema.String), Resources: Schema.optional(__listOfResourceResult)});
-export const ListCellsResponse = Schema.Struct({Cells: Schema.optional(__listOfCellOutput), NextToken: Schema.optional(Schema.String)});
-export const ListReadinessChecksResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), ReadinessChecks: Schema.optional(__listOfReadinessCheckOutput)});
-export const ListRecoveryGroupsResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), RecoveryGroups: Schema.optional(__listOfRecoveryGroupOutput)});
-export const ListResourceSetsResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), ResourceSets: Schema.optional(__listOfResourceSetOutput)});
-export const ListRulesResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), Rules: Schema.optional(__listOfListRulesOutput)});
-export const CreateResourceSetRequest = Schema.Struct({ResourceSetName: Schema.String, ResourceSetType: Schema.String, Resources: __listOfResource, Tags: Schema.optional(Tags)});
-export const CreateResourceSetResponse = Schema.Struct({ResourceSetArn: Schema.optional(Schema.String), ResourceSetName: Schema.optional(Schema.String), ResourceSetType: Schema.optional(Schema.String), Resources: Schema.optional(__listOfResource), Tags: Schema.optional(Tags)});
+export class CreateCellResponse extends Schema.Class<CreateCellResponse>("CreateCellResponse")({CellArn: Schema.optional(Schema.String), CellName: Schema.optional(Schema.String), Cells: Schema.optional(__listOf__string), ParentReadinessScopes: Schema.optional(__listOf__string), Tags: Schema.optional(Tags)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({Message: Schema.optional(Schema.String)}) {}
+export class GetArchitectureRecommendationsResponse extends Schema.Class<GetArchitectureRecommendationsResponse>("GetArchitectureRecommendationsResponse")({LastAuditTimestamp: Schema.optional(Schema.Date), NextToken: Schema.optional(Schema.String), Recommendations: Schema.optional(__listOfRecommendation)}) {}
+export class GetCellReadinessSummaryResponse extends Schema.Class<GetCellReadinessSummaryResponse>("GetCellReadinessSummaryResponse")({NextToken: Schema.optional(Schema.String), Readiness: Schema.optional(Schema.String), ReadinessChecks: Schema.optional(__listOfReadinessCheckSummary)}) {}
+export class GetReadinessCheckResourceStatusResponse extends Schema.Class<GetReadinessCheckResourceStatusResponse>("GetReadinessCheckResourceStatusResponse")({NextToken: Schema.optional(Schema.String), Readiness: Schema.optional(Schema.String), Rules: Schema.optional(__listOfRuleResult)}) {}
+export class GetReadinessCheckStatusResponse extends Schema.Class<GetReadinessCheckStatusResponse>("GetReadinessCheckStatusResponse")({Messages: Schema.optional(__listOfMessage), NextToken: Schema.optional(Schema.String), Readiness: Schema.optional(Schema.String), Resources: Schema.optional(__listOfResourceResult)}) {}
+export class ListCellsResponse extends Schema.Class<ListCellsResponse>("ListCellsResponse")({Cells: Schema.optional(__listOfCellOutput), NextToken: Schema.optional(Schema.String)}) {}
+export class ListReadinessChecksResponse extends Schema.Class<ListReadinessChecksResponse>("ListReadinessChecksResponse")({NextToken: Schema.optional(Schema.String), ReadinessChecks: Schema.optional(__listOfReadinessCheckOutput)}) {}
+export class ListRecoveryGroupsResponse extends Schema.Class<ListRecoveryGroupsResponse>("ListRecoveryGroupsResponse")({NextToken: Schema.optional(Schema.String), RecoveryGroups: Schema.optional(__listOfRecoveryGroupOutput)}) {}
+export class ListResourceSetsResponse extends Schema.Class<ListResourceSetsResponse>("ListResourceSetsResponse")({NextToken: Schema.optional(Schema.String), ResourceSets: Schema.optional(__listOfResourceSetOutput)}) {}
+export class ListRulesResponse extends Schema.Class<ListRulesResponse>("ListRulesResponse")({NextToken: Schema.optional(Schema.String), Rules: Schema.optional(__listOfListRulesOutput)}) {}
+export class CreateResourceSetRequest extends Schema.Class<CreateResourceSetRequest>("CreateResourceSetRequest")({ResourceSetName: Schema.String, ResourceSetType: Schema.String, Resources: __listOfResource, Tags: Schema.optional(Tags)}) {}
+export class CreateResourceSetResponse extends Schema.Class<CreateResourceSetResponse>("CreateResourceSetResponse")({ResourceSetArn: Schema.optional(Schema.String), ResourceSetName: Schema.optional(Schema.String), ResourceSetType: Schema.optional(Schema.String), Resources: Schema.optional(__listOfResource), Tags: Schema.optional(Tags)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
 
 //# Operations
 export const tagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-12-02", uri: "/tags/{ResourceArn}", method: "POST", sdkId: "Route53 Recovery Readiness", sigV4ServiceName: "route53-recovery-readiness", name: "Route53RecoveryReadiness.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalServerExceptionError, ResourceNotFoundExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

@@ -3,44 +3,44 @@ import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperat
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const DeleteAccountAliasRequest = Schema.Struct({});
-export const DeleteAccountAliasResult = Schema.Struct({});
-export const GetAccountAliasRequest = Schema.Struct({});
-export const CreateSlackChannelConfigurationRequest = Schema.Struct({teamId: Schema.String, channelId: Schema.String, channelName: Schema.optional(Schema.String), notifyOnCreateOrReopenCase: Schema.optional(Schema.Boolean), notifyOnAddCorrespondenceToCase: Schema.optional(Schema.Boolean), notifyOnResolveCase: Schema.optional(Schema.Boolean), notifyOnCaseSeverity: Schema.String, channelRoleArn: Schema.String});
-export const CreateSlackChannelConfigurationResult = Schema.Struct({});
-export const AccessDeniedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DeleteSlackChannelConfigurationRequest = Schema.Struct({teamId: Schema.String, channelId: Schema.String});
-export const DeleteSlackChannelConfigurationResult = Schema.Struct({});
-export const DeleteSlackWorkspaceConfigurationRequest = Schema.Struct({teamId: Schema.String});
-export const DeleteSlackWorkspaceConfigurationResult = Schema.Struct({});
-export const GetAccountAliasResult = Schema.Struct({accountAlias: Schema.optional(Schema.String)});
-export const ListSlackChannelConfigurationsRequest = Schema.Struct({nextToken: Schema.optional(Schema.String)});
-export const ListSlackWorkspaceConfigurationsRequest = Schema.Struct({nextToken: Schema.optional(Schema.String)});
-export const PutAccountAliasRequest = Schema.Struct({accountAlias: Schema.String});
-export const PutAccountAliasResult = Schema.Struct({});
-export const RegisterSlackWorkspaceForOrganizationRequest = Schema.Struct({teamId: Schema.String});
-export const UpdateSlackChannelConfigurationRequest = Schema.Struct({teamId: Schema.String, channelId: Schema.String, channelName: Schema.optional(Schema.String), notifyOnCreateOrReopenCase: Schema.optional(Schema.Boolean), notifyOnAddCorrespondenceToCase: Schema.optional(Schema.Boolean), notifyOnResolveCase: Schema.optional(Schema.Boolean), notifyOnCaseSeverity: Schema.optional(Schema.String), channelRoleArn: Schema.optional(Schema.String)});
-export const ConflictException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InternalServerException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ValidationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const RegisterSlackWorkspaceForOrganizationResult = Schema.Struct({teamId: Schema.optional(Schema.String), teamName: Schema.optional(Schema.String), accountType: Schema.optional(Schema.String)});
-export const UpdateSlackChannelConfigurationResult = Schema.Struct({teamId: Schema.optional(Schema.String), channelId: Schema.optional(Schema.String), channelName: Schema.optional(Schema.String), notifyOnCreateOrReopenCase: Schema.optional(Schema.Boolean), notifyOnAddCorrespondenceToCase: Schema.optional(Schema.Boolean), notifyOnResolveCase: Schema.optional(Schema.Boolean), notifyOnCaseSeverity: Schema.optional(Schema.String), channelRoleArn: Schema.optional(Schema.String)});
-export const SlackChannelConfiguration = Schema.Struct({teamId: Schema.String, channelId: Schema.String, channelName: Schema.optional(Schema.String), notifyOnCreateOrReopenCase: Schema.optional(Schema.Boolean), notifyOnAddCorrespondenceToCase: Schema.optional(Schema.Boolean), notifyOnResolveCase: Schema.optional(Schema.Boolean), notifyOnCaseSeverity: Schema.optional(Schema.String), channelRoleArn: Schema.optional(Schema.String)});
+export class DeleteAccountAliasRequest extends Schema.Class<DeleteAccountAliasRequest>("DeleteAccountAliasRequest")({}) {}
+export class DeleteAccountAliasResult extends Schema.Class<DeleteAccountAliasResult>("DeleteAccountAliasResult")({}) {}
+export class GetAccountAliasRequest extends Schema.Class<GetAccountAliasRequest>("GetAccountAliasRequest")({}) {}
+export class CreateSlackChannelConfigurationRequest extends Schema.Class<CreateSlackChannelConfigurationRequest>("CreateSlackChannelConfigurationRequest")({teamId: Schema.String, channelId: Schema.String, channelName: Schema.optional(Schema.String), notifyOnCreateOrReopenCase: Schema.optional(Schema.Boolean), notifyOnAddCorrespondenceToCase: Schema.optional(Schema.Boolean), notifyOnResolveCase: Schema.optional(Schema.Boolean), notifyOnCaseSeverity: Schema.String, channelRoleArn: Schema.String}) {}
+export class CreateSlackChannelConfigurationResult extends Schema.Class<CreateSlackChannelConfigurationResult>("CreateSlackChannelConfigurationResult")({}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({message: Schema.optional(Schema.String)}) {}
+export class DeleteSlackChannelConfigurationRequest extends Schema.Class<DeleteSlackChannelConfigurationRequest>("DeleteSlackChannelConfigurationRequest")({teamId: Schema.String, channelId: Schema.String}) {}
+export class DeleteSlackChannelConfigurationResult extends Schema.Class<DeleteSlackChannelConfigurationResult>("DeleteSlackChannelConfigurationResult")({}) {}
+export class DeleteSlackWorkspaceConfigurationRequest extends Schema.Class<DeleteSlackWorkspaceConfigurationRequest>("DeleteSlackWorkspaceConfigurationRequest")({teamId: Schema.String}) {}
+export class DeleteSlackWorkspaceConfigurationResult extends Schema.Class<DeleteSlackWorkspaceConfigurationResult>("DeleteSlackWorkspaceConfigurationResult")({}) {}
+export class GetAccountAliasResult extends Schema.Class<GetAccountAliasResult>("GetAccountAliasResult")({accountAlias: Schema.optional(Schema.String)}) {}
+export class ListSlackChannelConfigurationsRequest extends Schema.Class<ListSlackChannelConfigurationsRequest>("ListSlackChannelConfigurationsRequest")({nextToken: Schema.optional(Schema.String)}) {}
+export class ListSlackWorkspaceConfigurationsRequest extends Schema.Class<ListSlackWorkspaceConfigurationsRequest>("ListSlackWorkspaceConfigurationsRequest")({nextToken: Schema.optional(Schema.String)}) {}
+export class PutAccountAliasRequest extends Schema.Class<PutAccountAliasRequest>("PutAccountAliasRequest")({accountAlias: Schema.String}) {}
+export class PutAccountAliasResult extends Schema.Class<PutAccountAliasResult>("PutAccountAliasResult")({}) {}
+export class RegisterSlackWorkspaceForOrganizationRequest extends Schema.Class<RegisterSlackWorkspaceForOrganizationRequest>("RegisterSlackWorkspaceForOrganizationRequest")({teamId: Schema.String}) {}
+export class UpdateSlackChannelConfigurationRequest extends Schema.Class<UpdateSlackChannelConfigurationRequest>("UpdateSlackChannelConfigurationRequest")({teamId: Schema.String, channelId: Schema.String, channelName: Schema.optional(Schema.String), notifyOnCreateOrReopenCase: Schema.optional(Schema.Boolean), notifyOnAddCorrespondenceToCase: Schema.optional(Schema.Boolean), notifyOnResolveCase: Schema.optional(Schema.Boolean), notifyOnCaseSeverity: Schema.optional(Schema.String), channelRoleArn: Schema.optional(Schema.String)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({message: Schema.optional(Schema.String)}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({message: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({message: Schema.optional(Schema.String)}) {}
+export class RegisterSlackWorkspaceForOrganizationResult extends Schema.Class<RegisterSlackWorkspaceForOrganizationResult>("RegisterSlackWorkspaceForOrganizationResult")({teamId: Schema.optional(Schema.String), teamName: Schema.optional(Schema.String), accountType: Schema.optional(Schema.String)}) {}
+export class UpdateSlackChannelConfigurationResult extends Schema.Class<UpdateSlackChannelConfigurationResult>("UpdateSlackChannelConfigurationResult")({teamId: Schema.optional(Schema.String), channelId: Schema.optional(Schema.String), channelName: Schema.optional(Schema.String), notifyOnCreateOrReopenCase: Schema.optional(Schema.Boolean), notifyOnAddCorrespondenceToCase: Schema.optional(Schema.Boolean), notifyOnResolveCase: Schema.optional(Schema.Boolean), notifyOnCaseSeverity: Schema.optional(Schema.String), channelRoleArn: Schema.optional(Schema.String)}) {}
+export class SlackChannelConfiguration extends Schema.Class<SlackChannelConfiguration>("SlackChannelConfiguration")({teamId: Schema.String, channelId: Schema.String, channelName: Schema.optional(Schema.String), notifyOnCreateOrReopenCase: Schema.optional(Schema.Boolean), notifyOnAddCorrespondenceToCase: Schema.optional(Schema.Boolean), notifyOnResolveCase: Schema.optional(Schema.Boolean), notifyOnCaseSeverity: Schema.optional(Schema.String), channelRoleArn: Schema.optional(Schema.String)}) {}
 export const slackChannelConfigurationList = Schema.Array(SlackChannelConfiguration);
-export const SlackWorkspaceConfiguration = Schema.Struct({teamId: Schema.String, teamName: Schema.optional(Schema.String), allowOrganizationMemberAccount: Schema.optional(Schema.Boolean)});
+export class SlackWorkspaceConfiguration extends Schema.Class<SlackWorkspaceConfiguration>("SlackWorkspaceConfiguration")({teamId: Schema.String, teamName: Schema.optional(Schema.String), allowOrganizationMemberAccount: Schema.optional(Schema.Boolean)}) {}
 export const SlackWorkspaceConfigurationList = Schema.Array(SlackWorkspaceConfiguration);
-export const ServiceQuotaExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ListSlackChannelConfigurationsResult = Schema.Struct({nextToken: Schema.optional(Schema.String), slackChannelConfigurations: slackChannelConfigurationList});
-export const ListSlackWorkspaceConfigurationsResult = Schema.Struct({nextToken: Schema.optional(Schema.String), slackWorkspaceConfigurations: Schema.optional(SlackWorkspaceConfigurationList)});
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({message: Schema.optional(Schema.String)}) {}
+export class ListSlackChannelConfigurationsResult extends Schema.Class<ListSlackChannelConfigurationsResult>("ListSlackChannelConfigurationsResult")({nextToken: Schema.optional(Schema.String), slackChannelConfigurations: slackChannelConfigurationList}) {}
+export class ListSlackWorkspaceConfigurationsResult extends Schema.Class<ListSlackWorkspaceConfigurationsResult>("ListSlackWorkspaceConfigurationsResult")({nextToken: Schema.optional(Schema.String), slackWorkspaceConfigurations: Schema.optional(SlackWorkspaceConfigurationList)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
 
 //# Operations
 export const getAccountAlias = /*#__PURE__*/ makeOperation(() => Operation({ version: "2021-08-20", uri: "/control/get-account-alias", method: "POST", sdkId: "Support App", sigV4ServiceName: "supportapp", name: "SupportApp.GetAccountAlias" }, GetAccountAliasRequest, GetAccountAliasResult, [InternalServerExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

@@ -3,49 +3,49 @@ import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperat
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const ResourceTag = Schema.Struct({ResourceTagKey: Schema.String, ResourceTagValue: Schema.optional(Schema.String)});
+export class ResourceTag extends Schema.Class<ResourceTag>("ResourceTag")({ResourceTagKey: Schema.String, ResourceTagValue: Schema.optional(Schema.String)}) {}
 export const ExcludeResourceTags = Schema.Array(ResourceTag);
 export const TagKeyList = Schema.Array(Schema.String);
-export const DeleteRuleRequest = Schema.Struct({Identifier: Schema.String});
-export const DeleteRuleResponse = Schema.Struct({});
-export const GetRuleRequest = Schema.Struct({Identifier: Schema.String});
+export class DeleteRuleRequest extends Schema.Class<DeleteRuleRequest>("DeleteRuleRequest")({Identifier: Schema.String}) {}
+export class DeleteRuleResponse extends Schema.Class<DeleteRuleResponse>("DeleteRuleResponse")({}) {}
+export class GetRuleRequest extends Schema.Class<GetRuleRequest>("GetRuleRequest")({Identifier: Schema.String}) {}
 export const ResourceTags = Schema.Array(ResourceTag);
-export const ListRulesRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), ResourceType: Schema.String, ResourceTags: Schema.optional(ResourceTags), LockState: Schema.optional(Schema.String), ExcludeResourceTags: Schema.optional(ExcludeResourceTags)});
-export const ListTagsForResourceRequest = Schema.Struct({ResourceArn: Schema.String});
-export const UnlockDelay = Schema.Struct({UnlockDelayValue: Schema.Number, UnlockDelayUnit: Schema.String});
-export const LockConfiguration = Schema.Struct({UnlockDelay: UnlockDelay});
-export const LockRuleRequest = Schema.Struct({Identifier: Schema.String, LockConfiguration: LockConfiguration});
-export const Tag = Schema.Struct({Key: Schema.String, Value: Schema.String});
+export class ListRulesRequest extends Schema.Class<ListRulesRequest>("ListRulesRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), ResourceType: Schema.String, ResourceTags: Schema.optional(ResourceTags), LockState: Schema.optional(Schema.String), ExcludeResourceTags: Schema.optional(ExcludeResourceTags)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({ResourceArn: Schema.String}) {}
+export class UnlockDelay extends Schema.Class<UnlockDelay>("UnlockDelay")({UnlockDelayValue: Schema.Number, UnlockDelayUnit: Schema.String}) {}
+export class LockConfiguration extends Schema.Class<LockConfiguration>("LockConfiguration")({UnlockDelay: UnlockDelay}) {}
+export class LockRuleRequest extends Schema.Class<LockRuleRequest>("LockRuleRequest")({Identifier: Schema.String, LockConfiguration: LockConfiguration}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.String, Value: Schema.String}) {}
 export const TagList = Schema.Array(Tag);
-export const TagResourceRequest = Schema.Struct({ResourceArn: Schema.String, Tags: TagList});
-export const TagResourceResponse = Schema.Struct({});
-export const UnlockRuleRequest = Schema.Struct({Identifier: Schema.String});
-export const UntagResourceRequest = Schema.Struct({ResourceArn: Schema.String, TagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
-export const RetentionPeriod = Schema.Struct({RetentionPeriodValue: Schema.Number, RetentionPeriodUnit: Schema.String});
-export const UpdateRuleRequest = Schema.Struct({Identifier: Schema.String, RetentionPeriod: Schema.optional(RetentionPeriod), Description: Schema.optional(Schema.String), ResourceType: Schema.optional(Schema.String), ResourceTags: Schema.optional(ResourceTags), ExcludeResourceTags: Schema.optional(ExcludeResourceTags)});
-export const ConflictException = Schema.Struct({Message: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String)});
-export const GetRuleResponse = Schema.Struct({Identifier: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), ResourceType: Schema.optional(Schema.String), RetentionPeriod: Schema.optional(RetentionPeriod), ResourceTags: Schema.optional(ResourceTags), Status: Schema.optional(Schema.String), LockConfiguration: Schema.optional(LockConfiguration), LockState: Schema.optional(Schema.String), LockEndTime: Schema.optional(Schema.Date), RuleArn: Schema.optional(Schema.String), ExcludeResourceTags: Schema.optional(ExcludeResourceTags)});
-export const ListTagsForResourceResponse = Schema.Struct({Tags: Schema.optional(TagList)});
-export const LockRuleResponse = Schema.Struct({Identifier: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), ResourceType: Schema.optional(Schema.String), RetentionPeriod: Schema.optional(RetentionPeriod), ResourceTags: Schema.optional(ResourceTags), Status: Schema.optional(Schema.String), LockConfiguration: Schema.optional(LockConfiguration), LockState: Schema.optional(Schema.String), RuleArn: Schema.optional(Schema.String), ExcludeResourceTags: Schema.optional(ExcludeResourceTags)});
-export const InternalServerException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const UnlockRuleResponse = Schema.Struct({Identifier: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), ResourceType: Schema.optional(Schema.String), RetentionPeriod: Schema.optional(RetentionPeriod), ResourceTags: Schema.optional(ResourceTags), Status: Schema.optional(Schema.String), LockConfiguration: Schema.optional(LockConfiguration), LockState: Schema.optional(Schema.String), LockEndTime: Schema.optional(Schema.Date), RuleArn: Schema.optional(Schema.String), ExcludeResourceTags: Schema.optional(ExcludeResourceTags)});
-export const ResourceNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String)});
-export const UpdateRuleResponse = Schema.Struct({Identifier: Schema.optional(Schema.String), RetentionPeriod: Schema.optional(RetentionPeriod), Description: Schema.optional(Schema.String), ResourceType: Schema.optional(Schema.String), ResourceTags: Schema.optional(ResourceTags), Status: Schema.optional(Schema.String), LockState: Schema.optional(Schema.String), LockEndTime: Schema.optional(Schema.Date), RuleArn: Schema.optional(Schema.String), ExcludeResourceTags: Schema.optional(ExcludeResourceTags)});
-export const RuleSummary = Schema.Struct({Identifier: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), RetentionPeriod: Schema.optional(RetentionPeriod), LockState: Schema.optional(Schema.String), RuleArn: Schema.optional(Schema.String)});
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({ResourceArn: Schema.String, Tags: TagList}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UnlockRuleRequest extends Schema.Class<UnlockRuleRequest>("UnlockRuleRequest")({Identifier: Schema.String}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({ResourceArn: Schema.String, TagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class RetentionPeriod extends Schema.Class<RetentionPeriod>("RetentionPeriod")({RetentionPeriodValue: Schema.Number, RetentionPeriodUnit: Schema.String}) {}
+export class UpdateRuleRequest extends Schema.Class<UpdateRuleRequest>("UpdateRuleRequest")({Identifier: Schema.String, RetentionPeriod: Schema.optional(RetentionPeriod), Description: Schema.optional(Schema.String), ResourceType: Schema.optional(Schema.String), ResourceTags: Schema.optional(ResourceTags), ExcludeResourceTags: Schema.optional(ExcludeResourceTags)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({Message: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String)}) {}
+export class GetRuleResponse extends Schema.Class<GetRuleResponse>("GetRuleResponse")({Identifier: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), ResourceType: Schema.optional(Schema.String), RetentionPeriod: Schema.optional(RetentionPeriod), ResourceTags: Schema.optional(ResourceTags), Status: Schema.optional(Schema.String), LockConfiguration: Schema.optional(LockConfiguration), LockState: Schema.optional(Schema.String), LockEndTime: Schema.optional(Schema.Date), RuleArn: Schema.optional(Schema.String), ExcludeResourceTags: Schema.optional(ExcludeResourceTags)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({Tags: Schema.optional(TagList)}) {}
+export class LockRuleResponse extends Schema.Class<LockRuleResponse>("LockRuleResponse")({Identifier: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), ResourceType: Schema.optional(Schema.String), RetentionPeriod: Schema.optional(RetentionPeriod), ResourceTags: Schema.optional(ResourceTags), Status: Schema.optional(Schema.String), LockConfiguration: Schema.optional(LockConfiguration), LockState: Schema.optional(Schema.String), RuleArn: Schema.optional(Schema.String), ExcludeResourceTags: Schema.optional(ExcludeResourceTags)}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({Message: Schema.optional(Schema.String)}) {}
+export class UnlockRuleResponse extends Schema.Class<UnlockRuleResponse>("UnlockRuleResponse")({Identifier: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), ResourceType: Schema.optional(Schema.String), RetentionPeriod: Schema.optional(RetentionPeriod), ResourceTags: Schema.optional(ResourceTags), Status: Schema.optional(Schema.String), LockConfiguration: Schema.optional(LockConfiguration), LockState: Schema.optional(Schema.String), LockEndTime: Schema.optional(Schema.Date), RuleArn: Schema.optional(Schema.String), ExcludeResourceTags: Schema.optional(ExcludeResourceTags)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({Message: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String)}) {}
+export class UpdateRuleResponse extends Schema.Class<UpdateRuleResponse>("UpdateRuleResponse")({Identifier: Schema.optional(Schema.String), RetentionPeriod: Schema.optional(RetentionPeriod), Description: Schema.optional(Schema.String), ResourceType: Schema.optional(Schema.String), ResourceTags: Schema.optional(ResourceTags), Status: Schema.optional(Schema.String), LockState: Schema.optional(Schema.String), LockEndTime: Schema.optional(Schema.Date), RuleArn: Schema.optional(Schema.String), ExcludeResourceTags: Schema.optional(ExcludeResourceTags)}) {}
+export class RuleSummary extends Schema.Class<RuleSummary>("RuleSummary")({Identifier: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), RetentionPeriod: Schema.optional(RetentionPeriod), LockState: Schema.optional(Schema.String), RuleArn: Schema.optional(Schema.String)}) {}
 export const RuleSummaryList = Schema.Array(RuleSummary);
-export const CreateRuleRequest = Schema.Struct({RetentionPeriod: RetentionPeriod, Description: Schema.optional(Schema.String), Tags: Schema.optional(TagList), ResourceType: Schema.String, ResourceTags: Schema.optional(ResourceTags), LockConfiguration: Schema.optional(LockConfiguration), ExcludeResourceTags: Schema.optional(ExcludeResourceTags)});
-export const ValidationException = Schema.Struct({Message: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String)});
-export const ListRulesResponse = Schema.Struct({Rules: Schema.optional(RuleSummaryList), NextToken: Schema.optional(Schema.String)});
-export const ServiceQuotaExceededException = Schema.Struct({Message: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String)});
-export const CreateRuleResponse = Schema.Struct({Identifier: Schema.optional(Schema.String), RetentionPeriod: Schema.optional(RetentionPeriod), Description: Schema.optional(Schema.String), Tags: Schema.optional(TagList), ResourceType: Schema.optional(Schema.String), ResourceTags: Schema.optional(ResourceTags), Status: Schema.optional(Schema.String), LockConfiguration: Schema.optional(LockConfiguration), LockState: Schema.optional(Schema.String), RuleArn: Schema.optional(Schema.String), ExcludeResourceTags: Schema.optional(ExcludeResourceTags)});
+export class CreateRuleRequest extends Schema.Class<CreateRuleRequest>("CreateRuleRequest")({RetentionPeriod: RetentionPeriod, Description: Schema.optional(Schema.String), Tags: Schema.optional(TagList), ResourceType: Schema.String, ResourceTags: Schema.optional(ResourceTags), LockConfiguration: Schema.optional(LockConfiguration), ExcludeResourceTags: Schema.optional(ExcludeResourceTags)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({Message: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String)}) {}
+export class ListRulesResponse extends Schema.Class<ListRulesResponse>("ListRulesResponse")({Rules: Schema.optional(RuleSummaryList), NextToken: Schema.optional(Schema.String)}) {}
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({Message: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String)}) {}
+export class CreateRuleResponse extends Schema.Class<CreateRuleResponse>("CreateRuleResponse")({Identifier: Schema.optional(Schema.String), RetentionPeriod: Schema.optional(RetentionPeriod), Description: Schema.optional(Schema.String), Tags: Schema.optional(TagList), ResourceType: Schema.optional(Schema.String), ResourceTags: Schema.optional(ResourceTags), Status: Schema.optional(Schema.String), LockConfiguration: Schema.optional(LockConfiguration), LockState: Schema.optional(Schema.String), RuleArn: Schema.optional(Schema.String), ExcludeResourceTags: Schema.optional(ExcludeResourceTags)}) {}
 
 //# Errors
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
 
 //# Operations
 export const getRule = /*#__PURE__*/ makeOperation(() => Operation({ version: "2021-06-15", uri: "/rules/{Identifier}", method: "GET", sdkId: "rbin", sigV4ServiceName: "rbin", name: "AmazonRecycleBin.GetRule" }, GetRuleRequest, GetRuleResponse, [InternalServerExceptionError, ResourceNotFoundExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

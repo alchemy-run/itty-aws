@@ -4,63 +4,63 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 
 //# Schemas
 export const TagKeys = Schema.Array(Schema.String);
-export const DeleteConfigurationManagerInput = Schema.Struct({ManagerArn: Schema.String});
-export const GetConfigurationInput = Schema.Struct({ConfigurationId: Schema.String});
-export const GetConfigurationManagerInput = Schema.Struct({ManagerArn: Schema.String});
+export class DeleteConfigurationManagerInput extends Schema.Class<DeleteConfigurationManagerInput>("DeleteConfigurationManagerInput")({ManagerArn: Schema.String}) {}
+export class GetConfigurationInput extends Schema.Class<GetConfigurationInput>("GetConfigurationInput")({ConfigurationId: Schema.String}) {}
+export class GetConfigurationManagerInput extends Schema.Class<GetConfigurationManagerInput>("GetConfigurationManagerInput")({ManagerArn: Schema.String}) {}
 export const FilterValues = Schema.Array(Schema.String);
-export const Filter = Schema.Struct({Key: Schema.String, Values: FilterValues});
+export class Filter extends Schema.Class<Filter>("Filter")({Key: Schema.String, Values: FilterValues}) {}
 export const FiltersList = Schema.Array(Filter);
-export const ListConfigurationsInput = Schema.Struct({StartingToken: Schema.optional(Schema.String), MaxItems: Schema.optional(Schema.Number), Filters: Schema.optional(FiltersList), ManagerArn: Schema.optional(Schema.String), ConfigurationDefinitionId: Schema.optional(Schema.String)});
-export const ListTagsForResourceRequest = Schema.Struct({ResourceArn: Schema.String});
+export class ListConfigurationsInput extends Schema.Class<ListConfigurationsInput>("ListConfigurationsInput")({StartingToken: Schema.optional(Schema.String), MaxItems: Schema.optional(Schema.Number), Filters: Schema.optional(FiltersList), ManagerArn: Schema.optional(Schema.String), ConfigurationDefinitionId: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({ResourceArn: Schema.String}) {}
 export const TagsMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const TagResourceInput = Schema.Struct({ResourceArn: Schema.String, Tags: TagsMap});
-export const UntagResourceInput = Schema.Struct({ResourceArn: Schema.String, TagKeys: TagKeys});
-export const UpdateConfigurationManagerInput = Schema.Struct({ManagerArn: Schema.String, Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String)});
-export const UpdateServiceSettingsInput = Schema.Struct({ExplorerEnablingRoleArn: Schema.optional(Schema.String)});
+export class TagResourceInput extends Schema.Class<TagResourceInput>("TagResourceInput")({ResourceArn: Schema.String, Tags: TagsMap}) {}
+export class UntagResourceInput extends Schema.Class<UntagResourceInput>("UntagResourceInput")({ResourceArn: Schema.String, TagKeys: TagKeys}) {}
+export class UpdateConfigurationManagerInput extends Schema.Class<UpdateConfigurationManagerInput>("UpdateConfigurationManagerInput")({ManagerArn: Schema.String, Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String)}) {}
+export class UpdateServiceSettingsInput extends Schema.Class<UpdateServiceSettingsInput>("UpdateServiceSettingsInput")({ExplorerEnablingRoleArn: Schema.optional(Schema.String)}) {}
 export const ConfigurationParametersMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const ConfigurationDefinitionInput = Schema.Struct({Type: Schema.String, Parameters: ConfigurationParametersMap, TypeVersion: Schema.optional(Schema.String), LocalDeploymentExecutionRoleName: Schema.optional(Schema.String), LocalDeploymentAdministrationRoleArn: Schema.optional(Schema.String)});
+export class ConfigurationDefinitionInput extends Schema.Class<ConfigurationDefinitionInput>("ConfigurationDefinitionInput")({Type: Schema.String, Parameters: ConfigurationParametersMap, TypeVersion: Schema.optional(Schema.String), LocalDeploymentExecutionRoleName: Schema.optional(Schema.String), LocalDeploymentAdministrationRoleArn: Schema.optional(Schema.String)}) {}
 export const ConfigurationDefinitionsInputList = Schema.Array(ConfigurationDefinitionInput);
-export const ServiceSettings = Schema.Struct({ExplorerEnablingRoleArn: Schema.optional(Schema.String)});
-export const QuickSetupTypeOutput = Schema.Struct({Type: Schema.optional(Schema.String), LatestVersion: Schema.optional(Schema.String)});
+export class ServiceSettings extends Schema.Class<ServiceSettings>("ServiceSettings")({ExplorerEnablingRoleArn: Schema.optional(Schema.String)}) {}
+export class QuickSetupTypeOutput extends Schema.Class<QuickSetupTypeOutput>("QuickSetupTypeOutput")({Type: Schema.optional(Schema.String), LatestVersion: Schema.optional(Schema.String)}) {}
 export const QuickSetupTypeList = Schema.Array(QuickSetupTypeOutput);
-export const CreateConfigurationManagerInput = Schema.Struct({Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), ConfigurationDefinitions: ConfigurationDefinitionsInputList, Tags: Schema.optional(TagsMap)});
-export const AccessDeniedException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const GetServiceSettingsOutput = Schema.Struct({ServiceSettings: Schema.optional(ServiceSettings)});
-export const ListConfigurationManagersInput = Schema.Struct({StartingToken: Schema.optional(Schema.String), MaxItems: Schema.optional(Schema.Number), Filters: Schema.optional(FiltersList)});
-export const ListQuickSetupTypesOutput = Schema.Struct({QuickSetupTypeList: Schema.optional(QuickSetupTypeList)});
-export const ConflictException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const InternalServerException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const UpdateConfigurationDefinitionInput = Schema.Struct({ManagerArn: Schema.String, Id: Schema.String, TypeVersion: Schema.optional(Schema.String), Parameters: Schema.optional(ConfigurationParametersMap), LocalDeploymentExecutionRoleName: Schema.optional(Schema.String), LocalDeploymentAdministrationRoleArn: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ThrottlingException = Schema.Struct({Message: Schema.String});
-export const ConfigurationDefinition = Schema.Struct({Type: Schema.String, Parameters: ConfigurationParametersMap, TypeVersion: Schema.optional(Schema.String), LocalDeploymentExecutionRoleName: Schema.optional(Schema.String), LocalDeploymentAdministrationRoleArn: Schema.optional(Schema.String), Id: Schema.optional(Schema.String)});
+export class CreateConfigurationManagerInput extends Schema.Class<CreateConfigurationManagerInput>("CreateConfigurationManagerInput")({Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), ConfigurationDefinitions: ConfigurationDefinitionsInputList, Tags: Schema.optional(TagsMap)}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({Message: Schema.optional(Schema.String)}) {}
+export class GetServiceSettingsOutput extends Schema.Class<GetServiceSettingsOutput>("GetServiceSettingsOutput")({ServiceSettings: Schema.optional(ServiceSettings)}) {}
+export class ListConfigurationManagersInput extends Schema.Class<ListConfigurationManagersInput>("ListConfigurationManagersInput")({StartingToken: Schema.optional(Schema.String), MaxItems: Schema.optional(Schema.Number), Filters: Schema.optional(FiltersList)}) {}
+export class ListQuickSetupTypesOutput extends Schema.Class<ListQuickSetupTypesOutput>("ListQuickSetupTypesOutput")({QuickSetupTypeList: Schema.optional(QuickSetupTypeList)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({Message: Schema.optional(Schema.String)}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({Message: Schema.optional(Schema.String)}) {}
+export class UpdateConfigurationDefinitionInput extends Schema.Class<UpdateConfigurationDefinitionInput>("UpdateConfigurationDefinitionInput")({ManagerArn: Schema.String, Id: Schema.String, TypeVersion: Schema.optional(Schema.String), Parameters: Schema.optional(ConfigurationParametersMap), LocalDeploymentExecutionRoleName: Schema.optional(Schema.String), LocalDeploymentAdministrationRoleArn: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({Message: Schema.String}) {}
+export class ConfigurationDefinition extends Schema.Class<ConfigurationDefinition>("ConfigurationDefinition")({Type: Schema.String, Parameters: ConfigurationParametersMap, TypeVersion: Schema.optional(Schema.String), LocalDeploymentExecutionRoleName: Schema.optional(Schema.String), LocalDeploymentAdministrationRoleArn: Schema.optional(Schema.String), Id: Schema.optional(Schema.String)}) {}
 export const ConfigurationDefinitionsList = Schema.Array(ConfigurationDefinition);
 export const StatusDetails = Schema.Record({key: Schema.String, value: Schema.String});
-export const StatusSummary = Schema.Struct({StatusType: Schema.String, Status: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), LastUpdatedAt: Schema.Date, StatusDetails: Schema.optional(StatusDetails)});
+export class StatusSummary extends Schema.Class<StatusSummary>("StatusSummary")({StatusType: Schema.String, Status: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), LastUpdatedAt: Schema.Date, StatusDetails: Schema.optional(StatusDetails)}) {}
 export const StatusSummariesList = Schema.Array(StatusSummary);
-export const ConfigurationSummary = Schema.Struct({Id: Schema.optional(Schema.String), ManagerArn: Schema.optional(Schema.String), ConfigurationDefinitionId: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), TypeVersion: Schema.optional(Schema.String), Region: Schema.optional(Schema.String), Account: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date), FirstClassParameters: Schema.optional(ConfigurationParametersMap), StatusSummaries: Schema.optional(StatusSummariesList)});
+export class ConfigurationSummary extends Schema.Class<ConfigurationSummary>("ConfigurationSummary")({Id: Schema.optional(Schema.String), ManagerArn: Schema.optional(Schema.String), ConfigurationDefinitionId: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), TypeVersion: Schema.optional(Schema.String), Region: Schema.optional(Schema.String), Account: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date), FirstClassParameters: Schema.optional(ConfigurationParametersMap), StatusSummaries: Schema.optional(StatusSummariesList)}) {}
 export const ConfigurationsList = Schema.Array(ConfigurationSummary);
-export const TagEntry = Schema.Struct({Key: Schema.optional(Schema.String), Value: Schema.optional(Schema.String)});
+export class TagEntry extends Schema.Class<TagEntry>("TagEntry")({Key: Schema.optional(Schema.String), Value: Schema.optional(Schema.String)}) {}
 export const Tags = Schema.Array(TagEntry);
-export const CreateConfigurationManagerOutput = Schema.Struct({ManagerArn: Schema.String});
-export const ValidationException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const GetConfigurationManagerOutput = Schema.Struct({ManagerArn: Schema.String, Description: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date), LastModifiedAt: Schema.optional(Schema.Date), StatusSummaries: Schema.optional(StatusSummariesList), ConfigurationDefinitions: Schema.optional(ConfigurationDefinitionsList), Tags: Schema.optional(TagsMap)});
-export const ListConfigurationsOutput = Schema.Struct({ConfigurationsList: Schema.optional(ConfigurationsList), NextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceResponse = Schema.Struct({Tags: Schema.optional(Tags)});
-export const GetConfigurationOutput = Schema.Struct({Id: Schema.optional(Schema.String), ManagerArn: Schema.optional(Schema.String), ConfigurationDefinitionId: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), TypeVersion: Schema.optional(Schema.String), Account: Schema.optional(Schema.String), Region: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date), LastModifiedAt: Schema.optional(Schema.Date), StatusSummaries: Schema.optional(StatusSummariesList), Parameters: Schema.optional(ConfigurationParametersMap)});
-export const ConfigurationDefinitionSummary = Schema.Struct({Id: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), TypeVersion: Schema.optional(Schema.String), FirstClassParameters: Schema.optional(ConfigurationParametersMap)});
+export class CreateConfigurationManagerOutput extends Schema.Class<CreateConfigurationManagerOutput>("CreateConfigurationManagerOutput")({ManagerArn: Schema.String}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({Message: Schema.optional(Schema.String)}) {}
+export class GetConfigurationManagerOutput extends Schema.Class<GetConfigurationManagerOutput>("GetConfigurationManagerOutput")({ManagerArn: Schema.String, Description: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date), LastModifiedAt: Schema.optional(Schema.Date), StatusSummaries: Schema.optional(StatusSummariesList), ConfigurationDefinitions: Schema.optional(ConfigurationDefinitionsList), Tags: Schema.optional(TagsMap)}) {}
+export class ListConfigurationsOutput extends Schema.Class<ListConfigurationsOutput>("ListConfigurationsOutput")({ConfigurationsList: Schema.optional(ConfigurationsList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({Tags: Schema.optional(Tags)}) {}
+export class GetConfigurationOutput extends Schema.Class<GetConfigurationOutput>("GetConfigurationOutput")({Id: Schema.optional(Schema.String), ManagerArn: Schema.optional(Schema.String), ConfigurationDefinitionId: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), TypeVersion: Schema.optional(Schema.String), Account: Schema.optional(Schema.String), Region: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date), LastModifiedAt: Schema.optional(Schema.Date), StatusSummaries: Schema.optional(StatusSummariesList), Parameters: Schema.optional(ConfigurationParametersMap)}) {}
+export class ConfigurationDefinitionSummary extends Schema.Class<ConfigurationDefinitionSummary>("ConfigurationDefinitionSummary")({Id: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), TypeVersion: Schema.optional(Schema.String), FirstClassParameters: Schema.optional(ConfigurationParametersMap)}) {}
 export const ConfigurationDefinitionSummariesList = Schema.Array(ConfigurationDefinitionSummary);
-export const ConfigurationManagerSummary = Schema.Struct({ManagerArn: Schema.String, Description: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), StatusSummaries: Schema.optional(StatusSummariesList), ConfigurationDefinitionSummaries: Schema.optional(ConfigurationDefinitionSummariesList)});
+export class ConfigurationManagerSummary extends Schema.Class<ConfigurationManagerSummary>("ConfigurationManagerSummary")({ManagerArn: Schema.String, Description: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), StatusSummaries: Schema.optional(StatusSummariesList), ConfigurationDefinitionSummaries: Schema.optional(ConfigurationDefinitionSummariesList)}) {}
 export const ConfigurationManagerList = Schema.Array(ConfigurationManagerSummary);
-export const ListConfigurationManagersOutput = Schema.Struct({ConfigurationManagersList: Schema.optional(ConfigurationManagerList), NextToken: Schema.optional(Schema.String)});
+export class ListConfigurationManagersOutput extends Schema.Class<ListConfigurationManagersOutput>("ListConfigurationManagersOutput")({ConfigurationManagersList: Schema.optional(ConfigurationManagerList), NextToken: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
 
 //# Operations
 export const getServiceSettings = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-05-10", uri: "/serviceSettings", method: "GET", sdkId: "SSM QuickSetup", sigV4ServiceName: "ssm-quicksetup", name: "QuickSetup.GetServiceSettings" }, Schema.Struct({}), GetServiceSettingsOutput, [AccessDeniedExceptionError, ConflictExceptionError, InternalServerExceptionError, ThrottlingExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

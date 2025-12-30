@@ -3,146 +3,146 @@ import { FormatAwsJSON11Request,FormatJSONResponse,FormatAwsRestJSONError, makeO
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const InputLambdaProcessor = Schema.Struct({ResourceARN: Schema.String, RoleARN: Schema.String});
-export const InputProcessingConfiguration = Schema.Struct({InputLambdaProcessor: InputLambdaProcessor});
-export const KinesisStreamsInput = Schema.Struct({ResourceARN: Schema.String, RoleARN: Schema.String});
-export const KinesisFirehoseInput = Schema.Struct({ResourceARN: Schema.String, RoleARN: Schema.String});
-export const InputParallelism = Schema.Struct({Count: Schema.optional(Schema.Number)});
-export const JSONMappingParameters = Schema.Struct({RecordRowPath: Schema.String});
-export const CSVMappingParameters = Schema.Struct({RecordRowDelimiter: Schema.String, RecordColumnDelimiter: Schema.String});
-export const MappingParameters = Schema.Struct({JSONMappingParameters: Schema.optional(JSONMappingParameters), CSVMappingParameters: Schema.optional(CSVMappingParameters)});
-export const RecordFormat = Schema.Struct({RecordFormatType: Schema.String, MappingParameters: Schema.optional(MappingParameters)});
-export const RecordColumn = Schema.Struct({Name: Schema.String, Mapping: Schema.optional(Schema.String), SqlType: Schema.String});
+export class InputLambdaProcessor extends Schema.Class<InputLambdaProcessor>("InputLambdaProcessor")({ResourceARN: Schema.String, RoleARN: Schema.String}) {}
+export class InputProcessingConfiguration extends Schema.Class<InputProcessingConfiguration>("InputProcessingConfiguration")({InputLambdaProcessor: InputLambdaProcessor}) {}
+export class KinesisStreamsInput extends Schema.Class<KinesisStreamsInput>("KinesisStreamsInput")({ResourceARN: Schema.String, RoleARN: Schema.String}) {}
+export class KinesisFirehoseInput extends Schema.Class<KinesisFirehoseInput>("KinesisFirehoseInput")({ResourceARN: Schema.String, RoleARN: Schema.String}) {}
+export class InputParallelism extends Schema.Class<InputParallelism>("InputParallelism")({Count: Schema.optional(Schema.Number)}) {}
+export class JSONMappingParameters extends Schema.Class<JSONMappingParameters>("JSONMappingParameters")({RecordRowPath: Schema.String}) {}
+export class CSVMappingParameters extends Schema.Class<CSVMappingParameters>("CSVMappingParameters")({RecordRowDelimiter: Schema.String, RecordColumnDelimiter: Schema.String}) {}
+export class MappingParameters extends Schema.Class<MappingParameters>("MappingParameters")({JSONMappingParameters: Schema.optional(JSONMappingParameters), CSVMappingParameters: Schema.optional(CSVMappingParameters)}) {}
+export class RecordFormat extends Schema.Class<RecordFormat>("RecordFormat")({RecordFormatType: Schema.String, MappingParameters: Schema.optional(MappingParameters)}) {}
+export class RecordColumn extends Schema.Class<RecordColumn>("RecordColumn")({Name: Schema.String, Mapping: Schema.optional(Schema.String), SqlType: Schema.String}) {}
 export const RecordColumns = Schema.Array(RecordColumn);
-export const SourceSchema = Schema.Struct({RecordFormat: RecordFormat, RecordEncoding: Schema.optional(Schema.String), RecordColumns: RecordColumns});
-export const Input = Schema.Struct({NamePrefix: Schema.String, InputProcessingConfiguration: Schema.optional(InputProcessingConfiguration), KinesisStreamsInput: Schema.optional(KinesisStreamsInput), KinesisFirehoseInput: Schema.optional(KinesisFirehoseInput), InputParallelism: Schema.optional(InputParallelism), InputSchema: SourceSchema});
+export class SourceSchema extends Schema.Class<SourceSchema>("SourceSchema")({RecordFormat: RecordFormat, RecordEncoding: Schema.optional(Schema.String), RecordColumns: RecordColumns}) {}
+export class Input extends Schema.Class<Input>("Input")({NamePrefix: Schema.String, InputProcessingConfiguration: Schema.optional(InputProcessingConfiguration), KinesisStreamsInput: Schema.optional(KinesisStreamsInput), KinesisFirehoseInput: Schema.optional(KinesisFirehoseInput), InputParallelism: Schema.optional(InputParallelism), InputSchema: SourceSchema}) {}
 export const Inputs = Schema.Array(Input);
-export const KinesisStreamsOutput = Schema.Struct({ResourceARN: Schema.String, RoleARN: Schema.String});
-export const KinesisFirehoseOutput = Schema.Struct({ResourceARN: Schema.String, RoleARN: Schema.String});
-export const LambdaOutput = Schema.Struct({ResourceARN: Schema.String, RoleARN: Schema.String});
-export const DestinationSchema = Schema.Struct({RecordFormatType: Schema.String});
-export const Output = Schema.Struct({Name: Schema.String, KinesisStreamsOutput: Schema.optional(KinesisStreamsOutput), KinesisFirehoseOutput: Schema.optional(KinesisFirehoseOutput), LambdaOutput: Schema.optional(LambdaOutput), DestinationSchema: DestinationSchema});
+export class KinesisStreamsOutput extends Schema.Class<KinesisStreamsOutput>("KinesisStreamsOutput")({ResourceARN: Schema.String, RoleARN: Schema.String}) {}
+export class KinesisFirehoseOutput extends Schema.Class<KinesisFirehoseOutput>("KinesisFirehoseOutput")({ResourceARN: Schema.String, RoleARN: Schema.String}) {}
+export class LambdaOutput extends Schema.Class<LambdaOutput>("LambdaOutput")({ResourceARN: Schema.String, RoleARN: Schema.String}) {}
+export class DestinationSchema extends Schema.Class<DestinationSchema>("DestinationSchema")({RecordFormatType: Schema.String}) {}
+export class Output extends Schema.Class<Output>("Output")({Name: Schema.String, KinesisStreamsOutput: Schema.optional(KinesisStreamsOutput), KinesisFirehoseOutput: Schema.optional(KinesisFirehoseOutput), LambdaOutput: Schema.optional(LambdaOutput), DestinationSchema: DestinationSchema}) {}
 export const Outputs = Schema.Array(Output);
-export const CloudWatchLoggingOption = Schema.Struct({LogStreamARN: Schema.String, RoleARN: Schema.String});
+export class CloudWatchLoggingOption extends Schema.Class<CloudWatchLoggingOption>("CloudWatchLoggingOption")({LogStreamARN: Schema.String, RoleARN: Schema.String}) {}
 export const CloudWatchLoggingOptions = Schema.Array(CloudWatchLoggingOption);
 export const TagKeys = Schema.Array(Schema.String);
-export const DeleteApplicationRequest = Schema.Struct({ApplicationName: Schema.String, CreateTimestamp: Schema.Date});
-export const DeleteApplicationResponse = Schema.Struct({});
-export const DeleteApplicationCloudWatchLoggingOptionRequest = Schema.Struct({ApplicationName: Schema.String, CurrentApplicationVersionId: Schema.Number, CloudWatchLoggingOptionId: Schema.String});
-export const DeleteApplicationCloudWatchLoggingOptionResponse = Schema.Struct({});
-export const DeleteApplicationInputProcessingConfigurationRequest = Schema.Struct({ApplicationName: Schema.String, CurrentApplicationVersionId: Schema.Number, InputId: Schema.String});
-export const DeleteApplicationInputProcessingConfigurationResponse = Schema.Struct({});
-export const DeleteApplicationOutputRequest = Schema.Struct({ApplicationName: Schema.String, CurrentApplicationVersionId: Schema.Number, OutputId: Schema.String});
-export const DeleteApplicationOutputResponse = Schema.Struct({});
-export const DeleteApplicationReferenceDataSourceRequest = Schema.Struct({ApplicationName: Schema.String, CurrentApplicationVersionId: Schema.Number, ReferenceId: Schema.String});
-export const DeleteApplicationReferenceDataSourceResponse = Schema.Struct({});
-export const DescribeApplicationRequest = Schema.Struct({ApplicationName: Schema.String});
-export const ListApplicationsRequest = Schema.Struct({Limit: Schema.optional(Schema.Number), ExclusiveStartApplicationName: Schema.optional(Schema.String)});
-export const ListTagsForResourceRequest = Schema.Struct({ResourceARN: Schema.String});
-export const StopApplicationRequest = Schema.Struct({ApplicationName: Schema.String});
-export const StopApplicationResponse = Schema.Struct({});
-export const Tag = Schema.Struct({Key: Schema.String, Value: Schema.optional(Schema.String)});
+export class DeleteApplicationRequest extends Schema.Class<DeleteApplicationRequest>("DeleteApplicationRequest")({ApplicationName: Schema.String, CreateTimestamp: Schema.Date}) {}
+export class DeleteApplicationResponse extends Schema.Class<DeleteApplicationResponse>("DeleteApplicationResponse")({}) {}
+export class DeleteApplicationCloudWatchLoggingOptionRequest extends Schema.Class<DeleteApplicationCloudWatchLoggingOptionRequest>("DeleteApplicationCloudWatchLoggingOptionRequest")({ApplicationName: Schema.String, CurrentApplicationVersionId: Schema.Number, CloudWatchLoggingOptionId: Schema.String}) {}
+export class DeleteApplicationCloudWatchLoggingOptionResponse extends Schema.Class<DeleteApplicationCloudWatchLoggingOptionResponse>("DeleteApplicationCloudWatchLoggingOptionResponse")({}) {}
+export class DeleteApplicationInputProcessingConfigurationRequest extends Schema.Class<DeleteApplicationInputProcessingConfigurationRequest>("DeleteApplicationInputProcessingConfigurationRequest")({ApplicationName: Schema.String, CurrentApplicationVersionId: Schema.Number, InputId: Schema.String}) {}
+export class DeleteApplicationInputProcessingConfigurationResponse extends Schema.Class<DeleteApplicationInputProcessingConfigurationResponse>("DeleteApplicationInputProcessingConfigurationResponse")({}) {}
+export class DeleteApplicationOutputRequest extends Schema.Class<DeleteApplicationOutputRequest>("DeleteApplicationOutputRequest")({ApplicationName: Schema.String, CurrentApplicationVersionId: Schema.Number, OutputId: Schema.String}) {}
+export class DeleteApplicationOutputResponse extends Schema.Class<DeleteApplicationOutputResponse>("DeleteApplicationOutputResponse")({}) {}
+export class DeleteApplicationReferenceDataSourceRequest extends Schema.Class<DeleteApplicationReferenceDataSourceRequest>("DeleteApplicationReferenceDataSourceRequest")({ApplicationName: Schema.String, CurrentApplicationVersionId: Schema.Number, ReferenceId: Schema.String}) {}
+export class DeleteApplicationReferenceDataSourceResponse extends Schema.Class<DeleteApplicationReferenceDataSourceResponse>("DeleteApplicationReferenceDataSourceResponse")({}) {}
+export class DescribeApplicationRequest extends Schema.Class<DescribeApplicationRequest>("DescribeApplicationRequest")({ApplicationName: Schema.String}) {}
+export class ListApplicationsRequest extends Schema.Class<ListApplicationsRequest>("ListApplicationsRequest")({Limit: Schema.optional(Schema.Number), ExclusiveStartApplicationName: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({ResourceARN: Schema.String}) {}
+export class StopApplicationRequest extends Schema.Class<StopApplicationRequest>("StopApplicationRequest")({ApplicationName: Schema.String}) {}
+export class StopApplicationResponse extends Schema.Class<StopApplicationResponse>("StopApplicationResponse")({}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.String, Value: Schema.optional(Schema.String)}) {}
 export const Tags = Schema.Array(Tag);
-export const TagResourceRequest = Schema.Struct({ResourceARN: Schema.String, Tags: Tags});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({ResourceARN: Schema.String, TagKeys: TagKeys});
-export const UntagResourceResponse = Schema.Struct({});
-export const InputStartingPositionConfiguration = Schema.Struct({InputStartingPosition: Schema.optional(Schema.String)});
-export const S3Configuration = Schema.Struct({RoleARN: Schema.String, BucketARN: Schema.String, FileKey: Schema.String});
-export const InputConfiguration = Schema.Struct({Id: Schema.String, InputStartingPositionConfiguration: InputStartingPositionConfiguration});
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({ResourceARN: Schema.String, Tags: Tags}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({ResourceARN: Schema.String, TagKeys: TagKeys}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class InputStartingPositionConfiguration extends Schema.Class<InputStartingPositionConfiguration>("InputStartingPositionConfiguration")({InputStartingPosition: Schema.optional(Schema.String)}) {}
+export class S3Configuration extends Schema.Class<S3Configuration>("S3Configuration")({RoleARN: Schema.String, BucketARN: Schema.String, FileKey: Schema.String}) {}
+export class InputConfiguration extends Schema.Class<InputConfiguration>("InputConfiguration")({Id: Schema.String, InputStartingPositionConfiguration: InputStartingPositionConfiguration}) {}
 export const InputConfigurations = Schema.Array(InputConfiguration);
-export const AddApplicationCloudWatchLoggingOptionRequest = Schema.Struct({ApplicationName: Schema.String, CurrentApplicationVersionId: Schema.Number, CloudWatchLoggingOption: CloudWatchLoggingOption});
-export const AddApplicationCloudWatchLoggingOptionResponse = Schema.Struct({});
-export const CreateApplicationRequest = Schema.Struct({ApplicationName: Schema.String, ApplicationDescription: Schema.optional(Schema.String), Inputs: Schema.optional(Inputs), Outputs: Schema.optional(Outputs), CloudWatchLoggingOptions: Schema.optional(CloudWatchLoggingOptions), ApplicationCode: Schema.optional(Schema.String), Tags: Schema.optional(Tags)});
-export const ConcurrentModificationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidArgumentException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ResourceInUseException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UnsupportedOperationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DiscoverInputSchemaRequest = Schema.Struct({ResourceARN: Schema.optional(Schema.String), RoleARN: Schema.optional(Schema.String), InputStartingPositionConfiguration: Schema.optional(InputStartingPositionConfiguration), S3Configuration: Schema.optional(S3Configuration), InputProcessingConfiguration: Schema.optional(InputProcessingConfiguration)});
-export const ListTagsForResourceResponse = Schema.Struct({Tags: Schema.optional(Tags)});
-export const StartApplicationRequest = Schema.Struct({ApplicationName: Schema.String, InputConfigurations: InputConfigurations});
-export const StartApplicationResponse = Schema.Struct({});
-export const TooManyTagsException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const S3ReferenceDataSource = Schema.Struct({BucketARN: Schema.String, FileKey: Schema.String, ReferenceRoleARN: Schema.String});
-export const CloudWatchLoggingOptionUpdate = Schema.Struct({CloudWatchLoggingOptionId: Schema.String, LogStreamARNUpdate: Schema.optional(Schema.String), RoleARNUpdate: Schema.optional(Schema.String)});
+export class AddApplicationCloudWatchLoggingOptionRequest extends Schema.Class<AddApplicationCloudWatchLoggingOptionRequest>("AddApplicationCloudWatchLoggingOptionRequest")({ApplicationName: Schema.String, CurrentApplicationVersionId: Schema.Number, CloudWatchLoggingOption: CloudWatchLoggingOption}) {}
+export class AddApplicationCloudWatchLoggingOptionResponse extends Schema.Class<AddApplicationCloudWatchLoggingOptionResponse>("AddApplicationCloudWatchLoggingOptionResponse")({}) {}
+export class CreateApplicationRequest extends Schema.Class<CreateApplicationRequest>("CreateApplicationRequest")({ApplicationName: Schema.String, ApplicationDescription: Schema.optional(Schema.String), Inputs: Schema.optional(Inputs), Outputs: Schema.optional(Outputs), CloudWatchLoggingOptions: Schema.optional(CloudWatchLoggingOptions), ApplicationCode: Schema.optional(Schema.String), Tags: Schema.optional(Tags)}) {}
+export class ConcurrentModificationException extends Schema.Class<ConcurrentModificationException>("ConcurrentModificationException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidArgumentException extends Schema.Class<InvalidArgumentException>("InvalidArgumentException")({message: Schema.optional(Schema.String)}) {}
+export class ResourceInUseException extends Schema.Class<ResourceInUseException>("ResourceInUseException")({message: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class UnsupportedOperationException extends Schema.Class<UnsupportedOperationException>("UnsupportedOperationException")({message: Schema.optional(Schema.String)}) {}
+export class DiscoverInputSchemaRequest extends Schema.Class<DiscoverInputSchemaRequest>("DiscoverInputSchemaRequest")({ResourceARN: Schema.optional(Schema.String), RoleARN: Schema.optional(Schema.String), InputStartingPositionConfiguration: Schema.optional(InputStartingPositionConfiguration), S3Configuration: Schema.optional(S3Configuration), InputProcessingConfiguration: Schema.optional(InputProcessingConfiguration)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({Tags: Schema.optional(Tags)}) {}
+export class StartApplicationRequest extends Schema.Class<StartApplicationRequest>("StartApplicationRequest")({ApplicationName: Schema.String, InputConfigurations: InputConfigurations}) {}
+export class StartApplicationResponse extends Schema.Class<StartApplicationResponse>("StartApplicationResponse")({}) {}
+export class TooManyTagsException extends Schema.Class<TooManyTagsException>("TooManyTagsException")({message: Schema.optional(Schema.String)}) {}
+export class S3ReferenceDataSource extends Schema.Class<S3ReferenceDataSource>("S3ReferenceDataSource")({BucketARN: Schema.String, FileKey: Schema.String, ReferenceRoleARN: Schema.String}) {}
+export class CloudWatchLoggingOptionUpdate extends Schema.Class<CloudWatchLoggingOptionUpdate>("CloudWatchLoggingOptionUpdate")({CloudWatchLoggingOptionId: Schema.String, LogStreamARNUpdate: Schema.optional(Schema.String), RoleARNUpdate: Schema.optional(Schema.String)}) {}
 export const CloudWatchLoggingOptionUpdates = Schema.Array(CloudWatchLoggingOptionUpdate);
-export const ReferenceDataSource = Schema.Struct({TableName: Schema.String, S3ReferenceDataSource: Schema.optional(S3ReferenceDataSource), ReferenceSchema: SourceSchema});
+export class ReferenceDataSource extends Schema.Class<ReferenceDataSource>("ReferenceDataSource")({TableName: Schema.String, S3ReferenceDataSource: Schema.optional(S3ReferenceDataSource), ReferenceSchema: SourceSchema}) {}
 export const ParsedInputRecord = Schema.Array(Schema.String);
 export const ParsedInputRecords = Schema.Array(ParsedInputRecord);
 export const ProcessedInputRecords = Schema.Array(Schema.String);
 export const RawInputRecords = Schema.Array(Schema.String);
-export const ApplicationSummary = Schema.Struct({ApplicationName: Schema.String, ApplicationARN: Schema.String, ApplicationStatus: Schema.String});
+export class ApplicationSummary extends Schema.Class<ApplicationSummary>("ApplicationSummary")({ApplicationName: Schema.String, ApplicationARN: Schema.String, ApplicationStatus: Schema.String}) {}
 export const ApplicationSummaries = Schema.Array(ApplicationSummary);
 export const InAppStreamNames = Schema.Array(Schema.String);
-export const KinesisStreamsInputUpdate = Schema.Struct({ResourceARNUpdate: Schema.optional(Schema.String), RoleARNUpdate: Schema.optional(Schema.String)});
-export const KinesisFirehoseInputUpdate = Schema.Struct({ResourceARNUpdate: Schema.optional(Schema.String), RoleARNUpdate: Schema.optional(Schema.String)});
-export const InputSchemaUpdate = Schema.Struct({RecordFormatUpdate: Schema.optional(RecordFormat), RecordEncodingUpdate: Schema.optional(Schema.String), RecordColumnUpdates: Schema.optional(RecordColumns)});
-export const InputParallelismUpdate = Schema.Struct({CountUpdate: Schema.optional(Schema.Number)});
-export const KinesisStreamsOutputUpdate = Schema.Struct({ResourceARNUpdate: Schema.optional(Schema.String), RoleARNUpdate: Schema.optional(Schema.String)});
-export const KinesisFirehoseOutputUpdate = Schema.Struct({ResourceARNUpdate: Schema.optional(Schema.String), RoleARNUpdate: Schema.optional(Schema.String)});
-export const LambdaOutputUpdate = Schema.Struct({ResourceARNUpdate: Schema.optional(Schema.String), RoleARNUpdate: Schema.optional(Schema.String)});
-export const S3ReferenceDataSourceUpdate = Schema.Struct({BucketARNUpdate: Schema.optional(Schema.String), FileKeyUpdate: Schema.optional(Schema.String), ReferenceRoleARNUpdate: Schema.optional(Schema.String)});
-export const AddApplicationInputProcessingConfigurationRequest = Schema.Struct({ApplicationName: Schema.String, CurrentApplicationVersionId: Schema.Number, InputId: Schema.String, InputProcessingConfiguration: InputProcessingConfiguration});
-export const AddApplicationInputProcessingConfigurationResponse = Schema.Struct({});
-export const AddApplicationOutputRequest = Schema.Struct({ApplicationName: Schema.String, CurrentApplicationVersionId: Schema.Number, Output: Output});
-export const AddApplicationOutputResponse = Schema.Struct({});
-export const AddApplicationReferenceDataSourceRequest = Schema.Struct({ApplicationName: Schema.String, CurrentApplicationVersionId: Schema.Number, ReferenceDataSource: ReferenceDataSource});
-export const AddApplicationReferenceDataSourceResponse = Schema.Struct({});
-export const CreateApplicationResponse = Schema.Struct({ApplicationSummary: ApplicationSummary});
-export const DiscoverInputSchemaResponse = Schema.Struct({InputSchema: Schema.optional(SourceSchema), ParsedInputRecords: Schema.optional(ParsedInputRecords), ProcessedInputRecords: Schema.optional(ProcessedInputRecords), RawInputRecords: Schema.optional(RawInputRecords)});
-export const ListApplicationsResponse = Schema.Struct({ApplicationSummaries: ApplicationSummaries, HasMoreApplications: Schema.Boolean});
-export const InvalidApplicationConfigurationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CloudWatchLoggingOptionDescription = Schema.Struct({CloudWatchLoggingOptionId: Schema.optional(Schema.String), LogStreamARN: Schema.String, RoleARN: Schema.String});
+export class KinesisStreamsInputUpdate extends Schema.Class<KinesisStreamsInputUpdate>("KinesisStreamsInputUpdate")({ResourceARNUpdate: Schema.optional(Schema.String), RoleARNUpdate: Schema.optional(Schema.String)}) {}
+export class KinesisFirehoseInputUpdate extends Schema.Class<KinesisFirehoseInputUpdate>("KinesisFirehoseInputUpdate")({ResourceARNUpdate: Schema.optional(Schema.String), RoleARNUpdate: Schema.optional(Schema.String)}) {}
+export class InputSchemaUpdate extends Schema.Class<InputSchemaUpdate>("InputSchemaUpdate")({RecordFormatUpdate: Schema.optional(RecordFormat), RecordEncodingUpdate: Schema.optional(Schema.String), RecordColumnUpdates: Schema.optional(RecordColumns)}) {}
+export class InputParallelismUpdate extends Schema.Class<InputParallelismUpdate>("InputParallelismUpdate")({CountUpdate: Schema.optional(Schema.Number)}) {}
+export class KinesisStreamsOutputUpdate extends Schema.Class<KinesisStreamsOutputUpdate>("KinesisStreamsOutputUpdate")({ResourceARNUpdate: Schema.optional(Schema.String), RoleARNUpdate: Schema.optional(Schema.String)}) {}
+export class KinesisFirehoseOutputUpdate extends Schema.Class<KinesisFirehoseOutputUpdate>("KinesisFirehoseOutputUpdate")({ResourceARNUpdate: Schema.optional(Schema.String), RoleARNUpdate: Schema.optional(Schema.String)}) {}
+export class LambdaOutputUpdate extends Schema.Class<LambdaOutputUpdate>("LambdaOutputUpdate")({ResourceARNUpdate: Schema.optional(Schema.String), RoleARNUpdate: Schema.optional(Schema.String)}) {}
+export class S3ReferenceDataSourceUpdate extends Schema.Class<S3ReferenceDataSourceUpdate>("S3ReferenceDataSourceUpdate")({BucketARNUpdate: Schema.optional(Schema.String), FileKeyUpdate: Schema.optional(Schema.String), ReferenceRoleARNUpdate: Schema.optional(Schema.String)}) {}
+export class AddApplicationInputProcessingConfigurationRequest extends Schema.Class<AddApplicationInputProcessingConfigurationRequest>("AddApplicationInputProcessingConfigurationRequest")({ApplicationName: Schema.String, CurrentApplicationVersionId: Schema.Number, InputId: Schema.String, InputProcessingConfiguration: InputProcessingConfiguration}) {}
+export class AddApplicationInputProcessingConfigurationResponse extends Schema.Class<AddApplicationInputProcessingConfigurationResponse>("AddApplicationInputProcessingConfigurationResponse")({}) {}
+export class AddApplicationOutputRequest extends Schema.Class<AddApplicationOutputRequest>("AddApplicationOutputRequest")({ApplicationName: Schema.String, CurrentApplicationVersionId: Schema.Number, Output: Output}) {}
+export class AddApplicationOutputResponse extends Schema.Class<AddApplicationOutputResponse>("AddApplicationOutputResponse")({}) {}
+export class AddApplicationReferenceDataSourceRequest extends Schema.Class<AddApplicationReferenceDataSourceRequest>("AddApplicationReferenceDataSourceRequest")({ApplicationName: Schema.String, CurrentApplicationVersionId: Schema.Number, ReferenceDataSource: ReferenceDataSource}) {}
+export class AddApplicationReferenceDataSourceResponse extends Schema.Class<AddApplicationReferenceDataSourceResponse>("AddApplicationReferenceDataSourceResponse")({}) {}
+export class CreateApplicationResponse extends Schema.Class<CreateApplicationResponse>("CreateApplicationResponse")({ApplicationSummary: ApplicationSummary}) {}
+export class DiscoverInputSchemaResponse extends Schema.Class<DiscoverInputSchemaResponse>("DiscoverInputSchemaResponse")({InputSchema: Schema.optional(SourceSchema), ParsedInputRecords: Schema.optional(ParsedInputRecords), ProcessedInputRecords: Schema.optional(ProcessedInputRecords), RawInputRecords: Schema.optional(RawInputRecords)}) {}
+export class ListApplicationsResponse extends Schema.Class<ListApplicationsResponse>("ListApplicationsResponse")({ApplicationSummaries: ApplicationSummaries, HasMoreApplications: Schema.Boolean}) {}
+export class InvalidApplicationConfigurationException extends Schema.Class<InvalidApplicationConfigurationException>("InvalidApplicationConfigurationException")({message: Schema.optional(Schema.String)}) {}
+export class CloudWatchLoggingOptionDescription extends Schema.Class<CloudWatchLoggingOptionDescription>("CloudWatchLoggingOptionDescription")({CloudWatchLoggingOptionId: Schema.optional(Schema.String), LogStreamARN: Schema.String, RoleARN: Schema.String}) {}
 export const CloudWatchLoggingOptionDescriptions = Schema.Array(CloudWatchLoggingOptionDescription);
-export const OutputUpdate = Schema.Struct({OutputId: Schema.String, NameUpdate: Schema.optional(Schema.String), KinesisStreamsOutputUpdate: Schema.optional(KinesisStreamsOutputUpdate), KinesisFirehoseOutputUpdate: Schema.optional(KinesisFirehoseOutputUpdate), LambdaOutputUpdate: Schema.optional(LambdaOutputUpdate), DestinationSchemaUpdate: Schema.optional(DestinationSchema)});
+export class OutputUpdate extends Schema.Class<OutputUpdate>("OutputUpdate")({OutputId: Schema.String, NameUpdate: Schema.optional(Schema.String), KinesisStreamsOutputUpdate: Schema.optional(KinesisStreamsOutputUpdate), KinesisFirehoseOutputUpdate: Schema.optional(KinesisFirehoseOutputUpdate), LambdaOutputUpdate: Schema.optional(LambdaOutputUpdate), DestinationSchemaUpdate: Schema.optional(DestinationSchema)}) {}
 export const OutputUpdates = Schema.Array(OutputUpdate);
-export const ReferenceDataSourceUpdate = Schema.Struct({ReferenceId: Schema.String, TableNameUpdate: Schema.optional(Schema.String), S3ReferenceDataSourceUpdate: Schema.optional(S3ReferenceDataSourceUpdate), ReferenceSchemaUpdate: Schema.optional(SourceSchema)});
+export class ReferenceDataSourceUpdate extends Schema.Class<ReferenceDataSourceUpdate>("ReferenceDataSourceUpdate")({ReferenceId: Schema.String, TableNameUpdate: Schema.optional(Schema.String), S3ReferenceDataSourceUpdate: Schema.optional(S3ReferenceDataSourceUpdate), ReferenceSchemaUpdate: Schema.optional(SourceSchema)}) {}
 export const ReferenceDataSourceUpdates = Schema.Array(ReferenceDataSourceUpdate);
-export const InputLambdaProcessorUpdate = Schema.Struct({ResourceARNUpdate: Schema.optional(Schema.String), RoleARNUpdate: Schema.optional(Schema.String)});
-export const KinesisStreamsInputDescription = Schema.Struct({ResourceARN: Schema.optional(Schema.String), RoleARN: Schema.optional(Schema.String)});
-export const KinesisFirehoseInputDescription = Schema.Struct({ResourceARN: Schema.optional(Schema.String), RoleARN: Schema.optional(Schema.String)});
-export const KinesisStreamsOutputDescription = Schema.Struct({ResourceARN: Schema.optional(Schema.String), RoleARN: Schema.optional(Schema.String)});
-export const KinesisFirehoseOutputDescription = Schema.Struct({ResourceARN: Schema.optional(Schema.String), RoleARN: Schema.optional(Schema.String)});
-export const LambdaOutputDescription = Schema.Struct({ResourceARN: Schema.optional(Schema.String), RoleARN: Schema.optional(Schema.String)});
-export const S3ReferenceDataSourceDescription = Schema.Struct({BucketARN: Schema.String, FileKey: Schema.String, ReferenceRoleARN: Schema.String});
-export const InputProcessingConfigurationUpdate = Schema.Struct({InputLambdaProcessorUpdate: InputLambdaProcessorUpdate});
-export const CodeValidationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ResourceProvisionedThroughputExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const OutputDescription = Schema.Struct({OutputId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), KinesisStreamsOutputDescription: Schema.optional(KinesisStreamsOutputDescription), KinesisFirehoseOutputDescription: Schema.optional(KinesisFirehoseOutputDescription), LambdaOutputDescription: Schema.optional(LambdaOutputDescription), DestinationSchema: Schema.optional(DestinationSchema)});
+export class InputLambdaProcessorUpdate extends Schema.Class<InputLambdaProcessorUpdate>("InputLambdaProcessorUpdate")({ResourceARNUpdate: Schema.optional(Schema.String), RoleARNUpdate: Schema.optional(Schema.String)}) {}
+export class KinesisStreamsInputDescription extends Schema.Class<KinesisStreamsInputDescription>("KinesisStreamsInputDescription")({ResourceARN: Schema.optional(Schema.String), RoleARN: Schema.optional(Schema.String)}) {}
+export class KinesisFirehoseInputDescription extends Schema.Class<KinesisFirehoseInputDescription>("KinesisFirehoseInputDescription")({ResourceARN: Schema.optional(Schema.String), RoleARN: Schema.optional(Schema.String)}) {}
+export class KinesisStreamsOutputDescription extends Schema.Class<KinesisStreamsOutputDescription>("KinesisStreamsOutputDescription")({ResourceARN: Schema.optional(Schema.String), RoleARN: Schema.optional(Schema.String)}) {}
+export class KinesisFirehoseOutputDescription extends Schema.Class<KinesisFirehoseOutputDescription>("KinesisFirehoseOutputDescription")({ResourceARN: Schema.optional(Schema.String), RoleARN: Schema.optional(Schema.String)}) {}
+export class LambdaOutputDescription extends Schema.Class<LambdaOutputDescription>("LambdaOutputDescription")({ResourceARN: Schema.optional(Schema.String), RoleARN: Schema.optional(Schema.String)}) {}
+export class S3ReferenceDataSourceDescription extends Schema.Class<S3ReferenceDataSourceDescription>("S3ReferenceDataSourceDescription")({BucketARN: Schema.String, FileKey: Schema.String, ReferenceRoleARN: Schema.String}) {}
+export class InputProcessingConfigurationUpdate extends Schema.Class<InputProcessingConfigurationUpdate>("InputProcessingConfigurationUpdate")({InputLambdaProcessorUpdate: InputLambdaProcessorUpdate}) {}
+export class CodeValidationException extends Schema.Class<CodeValidationException>("CodeValidationException")({message: Schema.optional(Schema.String)}) {}
+export class ResourceProvisionedThroughputExceededException extends Schema.Class<ResourceProvisionedThroughputExceededException>("ResourceProvisionedThroughputExceededException")({message: Schema.optional(Schema.String)}) {}
+export class OutputDescription extends Schema.Class<OutputDescription>("OutputDescription")({OutputId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), KinesisStreamsOutputDescription: Schema.optional(KinesisStreamsOutputDescription), KinesisFirehoseOutputDescription: Schema.optional(KinesisFirehoseOutputDescription), LambdaOutputDescription: Schema.optional(LambdaOutputDescription), DestinationSchema: Schema.optional(DestinationSchema)}) {}
 export const OutputDescriptions = Schema.Array(OutputDescription);
-export const ReferenceDataSourceDescription = Schema.Struct({ReferenceId: Schema.String, TableName: Schema.String, S3ReferenceDataSourceDescription: S3ReferenceDataSourceDescription, ReferenceSchema: Schema.optional(SourceSchema)});
+export class ReferenceDataSourceDescription extends Schema.Class<ReferenceDataSourceDescription>("ReferenceDataSourceDescription")({ReferenceId: Schema.String, TableName: Schema.String, S3ReferenceDataSourceDescription: S3ReferenceDataSourceDescription, ReferenceSchema: Schema.optional(SourceSchema)}) {}
 export const ReferenceDataSourceDescriptions = Schema.Array(ReferenceDataSourceDescription);
-export const InputUpdate = Schema.Struct({InputId: Schema.String, NamePrefixUpdate: Schema.optional(Schema.String), InputProcessingConfigurationUpdate: Schema.optional(InputProcessingConfigurationUpdate), KinesisStreamsInputUpdate: Schema.optional(KinesisStreamsInputUpdate), KinesisFirehoseInputUpdate: Schema.optional(KinesisFirehoseInputUpdate), InputSchemaUpdate: Schema.optional(InputSchemaUpdate), InputParallelismUpdate: Schema.optional(InputParallelismUpdate)});
+export class InputUpdate extends Schema.Class<InputUpdate>("InputUpdate")({InputId: Schema.String, NamePrefixUpdate: Schema.optional(Schema.String), InputProcessingConfigurationUpdate: Schema.optional(InputProcessingConfigurationUpdate), KinesisStreamsInputUpdate: Schema.optional(KinesisStreamsInputUpdate), KinesisFirehoseInputUpdate: Schema.optional(KinesisFirehoseInputUpdate), InputSchemaUpdate: Schema.optional(InputSchemaUpdate), InputParallelismUpdate: Schema.optional(InputParallelismUpdate)}) {}
 export const InputUpdates = Schema.Array(InputUpdate);
-export const InputLambdaProcessorDescription = Schema.Struct({ResourceARN: Schema.optional(Schema.String), RoleARN: Schema.optional(Schema.String)});
-export const ApplicationUpdate = Schema.Struct({InputUpdates: Schema.optional(InputUpdates), ApplicationCodeUpdate: Schema.optional(Schema.String), OutputUpdates: Schema.optional(OutputUpdates), ReferenceDataSourceUpdates: Schema.optional(ReferenceDataSourceUpdates), CloudWatchLoggingOptionUpdates: Schema.optional(CloudWatchLoggingOptionUpdates)});
-export const InputProcessingConfigurationDescription = Schema.Struct({InputLambdaProcessorDescription: Schema.optional(InputLambdaProcessorDescription)});
-export const LimitExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ServiceUnavailableException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UpdateApplicationRequest = Schema.Struct({ApplicationName: Schema.String, CurrentApplicationVersionId: Schema.Number, ApplicationUpdate: ApplicationUpdate});
-export const UpdateApplicationResponse = Schema.Struct({});
-export const InputDescription = Schema.Struct({InputId: Schema.optional(Schema.String), NamePrefix: Schema.optional(Schema.String), InAppStreamNames: Schema.optional(InAppStreamNames), InputProcessingConfigurationDescription: Schema.optional(InputProcessingConfigurationDescription), KinesisStreamsInputDescription: Schema.optional(KinesisStreamsInputDescription), KinesisFirehoseInputDescription: Schema.optional(KinesisFirehoseInputDescription), InputSchema: Schema.optional(SourceSchema), InputParallelism: Schema.optional(InputParallelism), InputStartingPositionConfiguration: Schema.optional(InputStartingPositionConfiguration)});
+export class InputLambdaProcessorDescription extends Schema.Class<InputLambdaProcessorDescription>("InputLambdaProcessorDescription")({ResourceARN: Schema.optional(Schema.String), RoleARN: Schema.optional(Schema.String)}) {}
+export class ApplicationUpdate extends Schema.Class<ApplicationUpdate>("ApplicationUpdate")({InputUpdates: Schema.optional(InputUpdates), ApplicationCodeUpdate: Schema.optional(Schema.String), OutputUpdates: Schema.optional(OutputUpdates), ReferenceDataSourceUpdates: Schema.optional(ReferenceDataSourceUpdates), CloudWatchLoggingOptionUpdates: Schema.optional(CloudWatchLoggingOptionUpdates)}) {}
+export class InputProcessingConfigurationDescription extends Schema.Class<InputProcessingConfigurationDescription>("InputProcessingConfigurationDescription")({InputLambdaProcessorDescription: Schema.optional(InputLambdaProcessorDescription)}) {}
+export class LimitExceededException extends Schema.Class<LimitExceededException>("LimitExceededException")({message: Schema.optional(Schema.String)}) {}
+export class ServiceUnavailableException extends Schema.Class<ServiceUnavailableException>("ServiceUnavailableException")({message: Schema.optional(Schema.String)}) {}
+export class UpdateApplicationRequest extends Schema.Class<UpdateApplicationRequest>("UpdateApplicationRequest")({ApplicationName: Schema.String, CurrentApplicationVersionId: Schema.Number, ApplicationUpdate: ApplicationUpdate}) {}
+export class UpdateApplicationResponse extends Schema.Class<UpdateApplicationResponse>("UpdateApplicationResponse")({}) {}
+export class InputDescription extends Schema.Class<InputDescription>("InputDescription")({InputId: Schema.optional(Schema.String), NamePrefix: Schema.optional(Schema.String), InAppStreamNames: Schema.optional(InAppStreamNames), InputProcessingConfigurationDescription: Schema.optional(InputProcessingConfigurationDescription), KinesisStreamsInputDescription: Schema.optional(KinesisStreamsInputDescription), KinesisFirehoseInputDescription: Schema.optional(KinesisFirehoseInputDescription), InputSchema: Schema.optional(SourceSchema), InputParallelism: Schema.optional(InputParallelism), InputStartingPositionConfiguration: Schema.optional(InputStartingPositionConfiguration)}) {}
 export const InputDescriptions = Schema.Array(InputDescription);
-export const ApplicationDetail = Schema.Struct({ApplicationName: Schema.String, ApplicationDescription: Schema.optional(Schema.String), ApplicationARN: Schema.String, ApplicationStatus: Schema.String, CreateTimestamp: Schema.optional(Schema.Date), LastUpdateTimestamp: Schema.optional(Schema.Date), InputDescriptions: Schema.optional(InputDescriptions), OutputDescriptions: Schema.optional(OutputDescriptions), ReferenceDataSourceDescriptions: Schema.optional(ReferenceDataSourceDescriptions), CloudWatchLoggingOptionDescriptions: Schema.optional(CloudWatchLoggingOptionDescriptions), ApplicationCode: Schema.optional(Schema.String), ApplicationVersionId: Schema.Number});
-export const AddApplicationInputRequest = Schema.Struct({ApplicationName: Schema.String, CurrentApplicationVersionId: Schema.Number, Input: Input});
-export const AddApplicationInputResponse = Schema.Struct({});
-export const DescribeApplicationResponse = Schema.Struct({ApplicationDetail: ApplicationDetail});
-export const UnableToDetectSchemaException = Schema.Struct({message: Schema.optional(Schema.String), RawInputRecords: Schema.optional(RawInputRecords), ProcessedInputRecords: Schema.optional(ProcessedInputRecords)});
+export class ApplicationDetail extends Schema.Class<ApplicationDetail>("ApplicationDetail")({ApplicationName: Schema.String, ApplicationDescription: Schema.optional(Schema.String), ApplicationARN: Schema.String, ApplicationStatus: Schema.String, CreateTimestamp: Schema.optional(Schema.Date), LastUpdateTimestamp: Schema.optional(Schema.Date), InputDescriptions: Schema.optional(InputDescriptions), OutputDescriptions: Schema.optional(OutputDescriptions), ReferenceDataSourceDescriptions: Schema.optional(ReferenceDataSourceDescriptions), CloudWatchLoggingOptionDescriptions: Schema.optional(CloudWatchLoggingOptionDescriptions), ApplicationCode: Schema.optional(Schema.String), ApplicationVersionId: Schema.Number}) {}
+export class AddApplicationInputRequest extends Schema.Class<AddApplicationInputRequest>("AddApplicationInputRequest")({ApplicationName: Schema.String, CurrentApplicationVersionId: Schema.Number, Input: Input}) {}
+export class AddApplicationInputResponse extends Schema.Class<AddApplicationInputResponse>("AddApplicationInputResponse")({}) {}
+export class DescribeApplicationResponse extends Schema.Class<DescribeApplicationResponse>("DescribeApplicationResponse")({ApplicationDetail: ApplicationDetail}) {}
+export class UnableToDetectSchemaException extends Schema.Class<UnableToDetectSchemaException>("UnableToDetectSchemaException")({message: Schema.optional(Schema.String), RawInputRecords: Schema.optional(RawInputRecords), ProcessedInputRecords: Schema.optional(ProcessedInputRecords)}) {}
 
 //# Errors
-export class ConcurrentModificationExceptionError extends Schema.TaggedError<ConcurrentModificationExceptionError>()("ConcurrentModificationException", ConcurrentModificationException) {};
-export class InvalidArgumentExceptionError extends Schema.TaggedError<InvalidArgumentExceptionError>()("InvalidArgumentException", InvalidArgumentException) {};
-export class ResourceInUseExceptionError extends Schema.TaggedError<ResourceInUseExceptionError>()("ResourceInUseException", ResourceInUseException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class UnsupportedOperationExceptionError extends Schema.TaggedError<UnsupportedOperationExceptionError>()("UnsupportedOperationException", UnsupportedOperationException) {};
-export class TooManyTagsExceptionError extends Schema.TaggedError<TooManyTagsExceptionError>()("TooManyTagsException", TooManyTagsException) {};
-export class InvalidApplicationConfigurationExceptionError extends Schema.TaggedError<InvalidApplicationConfigurationExceptionError>()("InvalidApplicationConfigurationException", InvalidApplicationConfigurationException) {};
-export class CodeValidationExceptionError extends Schema.TaggedError<CodeValidationExceptionError>()("CodeValidationException", CodeValidationException) {};
-export class ResourceProvisionedThroughputExceededExceptionError extends Schema.TaggedError<ResourceProvisionedThroughputExceededExceptionError>()("ResourceProvisionedThroughputExceededException", ResourceProvisionedThroughputExceededException) {};
-export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException) {};
-export class ServiceUnavailableExceptionError extends Schema.TaggedError<ServiceUnavailableExceptionError>()("ServiceUnavailableException", ServiceUnavailableException) {};
-export class UnableToDetectSchemaExceptionError extends Schema.TaggedError<UnableToDetectSchemaExceptionError>()("UnableToDetectSchemaException", UnableToDetectSchemaException) {};
+export class ConcurrentModificationExceptionError extends Schema.TaggedError<ConcurrentModificationExceptionError>()("ConcurrentModificationException", ConcurrentModificationException.fields) {};
+export class InvalidArgumentExceptionError extends Schema.TaggedError<InvalidArgumentExceptionError>()("InvalidArgumentException", InvalidArgumentException.fields) {};
+export class ResourceInUseExceptionError extends Schema.TaggedError<ResourceInUseExceptionError>()("ResourceInUseException", ResourceInUseException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class UnsupportedOperationExceptionError extends Schema.TaggedError<UnsupportedOperationExceptionError>()("UnsupportedOperationException", UnsupportedOperationException.fields) {};
+export class TooManyTagsExceptionError extends Schema.TaggedError<TooManyTagsExceptionError>()("TooManyTagsException", TooManyTagsException.fields) {};
+export class InvalidApplicationConfigurationExceptionError extends Schema.TaggedError<InvalidApplicationConfigurationExceptionError>()("InvalidApplicationConfigurationException", InvalidApplicationConfigurationException.fields) {};
+export class CodeValidationExceptionError extends Schema.TaggedError<CodeValidationExceptionError>()("CodeValidationException", CodeValidationException.fields) {};
+export class ResourceProvisionedThroughputExceededExceptionError extends Schema.TaggedError<ResourceProvisionedThroughputExceededExceptionError>()("ResourceProvisionedThroughputExceededException", ResourceProvisionedThroughputExceededException.fields) {};
+export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException.fields) {};
+export class ServiceUnavailableExceptionError extends Schema.TaggedError<ServiceUnavailableExceptionError>()("ServiceUnavailableException", ServiceUnavailableException.fields) {};
+export class UnableToDetectSchemaExceptionError extends Schema.TaggedError<UnableToDetectSchemaExceptionError>()("UnableToDetectSchemaException", UnableToDetectSchemaException.fields) {};
 
 //# Operations
 export const stopApplication = /*#__PURE__*/ makeOperation(() => Operation({ version: "2015-08-14", uri: "/", method: "POST", sdkId: "Kinesis Analytics", sigV4ServiceName: "kinesisanalytics", name: "KinesisAnalytics_20150814.StopApplication" }, StopApplicationRequest, StopApplicationResponse, [ResourceInUseExceptionError, ResourceNotFoundExceptionError, UnsupportedOperationExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

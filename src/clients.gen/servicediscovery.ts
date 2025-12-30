@@ -6,148 +6,148 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 export const ServiceAttributeKeyList = Schema.Array(Schema.String);
 export const InstanceIdList = Schema.Array(Schema.String);
 export const TagKeyList = Schema.Array(Schema.String);
-export const DeleteNamespaceRequest = Schema.Struct({Id: Schema.String});
-export const DeleteServiceRequest = Schema.Struct({Id: Schema.String});
-export const DeleteServiceResponse = Schema.Struct({});
-export const DeleteServiceAttributesRequest = Schema.Struct({ServiceId: Schema.String, Attributes: ServiceAttributeKeyList});
-export const DeleteServiceAttributesResponse = Schema.Struct({});
-export const DeregisterInstanceRequest = Schema.Struct({ServiceId: Schema.String, InstanceId: Schema.String});
-export const DiscoverInstancesRevisionRequest = Schema.Struct({NamespaceName: Schema.String, ServiceName: Schema.String, OwnerAccount: Schema.optional(Schema.String)});
-export const GetInstanceRequest = Schema.Struct({ServiceId: Schema.String, InstanceId: Schema.String});
-export const GetInstancesHealthStatusRequest = Schema.Struct({ServiceId: Schema.String, Instances: Schema.optional(InstanceIdList), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const GetNamespaceRequest = Schema.Struct({Id: Schema.String});
-export const GetOperationRequest = Schema.Struct({OperationId: Schema.String, OwnerAccount: Schema.optional(Schema.String)});
-export const GetServiceRequest = Schema.Struct({Id: Schema.String});
-export const GetServiceAttributesRequest = Schema.Struct({ServiceId: Schema.String});
-export const ListInstancesRequest = Schema.Struct({ServiceId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListTagsForResourceRequest = Schema.Struct({ResourceARN: Schema.String});
+export class DeleteNamespaceRequest extends Schema.Class<DeleteNamespaceRequest>("DeleteNamespaceRequest")({Id: Schema.String}) {}
+export class DeleteServiceRequest extends Schema.Class<DeleteServiceRequest>("DeleteServiceRequest")({Id: Schema.String}) {}
+export class DeleteServiceResponse extends Schema.Class<DeleteServiceResponse>("DeleteServiceResponse")({}) {}
+export class DeleteServiceAttributesRequest extends Schema.Class<DeleteServiceAttributesRequest>("DeleteServiceAttributesRequest")({ServiceId: Schema.String, Attributes: ServiceAttributeKeyList}) {}
+export class DeleteServiceAttributesResponse extends Schema.Class<DeleteServiceAttributesResponse>("DeleteServiceAttributesResponse")({}) {}
+export class DeregisterInstanceRequest extends Schema.Class<DeregisterInstanceRequest>("DeregisterInstanceRequest")({ServiceId: Schema.String, InstanceId: Schema.String}) {}
+export class DiscoverInstancesRevisionRequest extends Schema.Class<DiscoverInstancesRevisionRequest>("DiscoverInstancesRevisionRequest")({NamespaceName: Schema.String, ServiceName: Schema.String, OwnerAccount: Schema.optional(Schema.String)}) {}
+export class GetInstanceRequest extends Schema.Class<GetInstanceRequest>("GetInstanceRequest")({ServiceId: Schema.String, InstanceId: Schema.String}) {}
+export class GetInstancesHealthStatusRequest extends Schema.Class<GetInstancesHealthStatusRequest>("GetInstancesHealthStatusRequest")({ServiceId: Schema.String, Instances: Schema.optional(InstanceIdList), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class GetNamespaceRequest extends Schema.Class<GetNamespaceRequest>("GetNamespaceRequest")({Id: Schema.String}) {}
+export class GetOperationRequest extends Schema.Class<GetOperationRequest>("GetOperationRequest")({OperationId: Schema.String, OwnerAccount: Schema.optional(Schema.String)}) {}
+export class GetServiceRequest extends Schema.Class<GetServiceRequest>("GetServiceRequest")({Id: Schema.String}) {}
+export class GetServiceAttributesRequest extends Schema.Class<GetServiceAttributesRequest>("GetServiceAttributesRequest")({ServiceId: Schema.String}) {}
+export class ListInstancesRequest extends Schema.Class<ListInstancesRequest>("ListInstancesRequest")({ServiceId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({ResourceARN: Schema.String}) {}
 export const Attributes = Schema.Record({key: Schema.String, value: Schema.String});
-export const RegisterInstanceRequest = Schema.Struct({ServiceId: Schema.String, InstanceId: Schema.String, CreatorRequestId: Schema.optional(Schema.String), Attributes: Attributes});
-export const Tag = Schema.Struct({Key: Schema.String, Value: Schema.String});
+export class RegisterInstanceRequest extends Schema.Class<RegisterInstanceRequest>("RegisterInstanceRequest")({ServiceId: Schema.String, InstanceId: Schema.String, CreatorRequestId: Schema.optional(Schema.String), Attributes: Attributes}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.String, Value: Schema.String}) {}
 export const TagList = Schema.Array(Tag);
-export const TagResourceRequest = Schema.Struct({ResourceARN: Schema.String, Tags: TagList});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({ResourceARN: Schema.String, TagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
-export const UpdateInstanceCustomHealthStatusRequest = Schema.Struct({ServiceId: Schema.String, InstanceId: Schema.String, Status: Schema.String});
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({ResourceARN: Schema.String, Tags: TagList}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({ResourceARN: Schema.String, TagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class UpdateInstanceCustomHealthStatusRequest extends Schema.Class<UpdateInstanceCustomHealthStatusRequest>("UpdateInstanceCustomHealthStatusRequest")({ServiceId: Schema.String, InstanceId: Schema.String, Status: Schema.String}) {}
 export const FilterValues = Schema.Array(Schema.String);
-export const HealthCheckConfig = Schema.Struct({Type: Schema.String, ResourcePath: Schema.optional(Schema.String), FailureThreshold: Schema.optional(Schema.Number)});
-export const HealthCheckCustomConfig = Schema.Struct({FailureThreshold: Schema.optional(Schema.Number)});
-export const NamespaceFilter = Schema.Struct({Name: Schema.String, Values: FilterValues, Condition: Schema.optional(Schema.String)});
+export class HealthCheckConfig extends Schema.Class<HealthCheckConfig>("HealthCheckConfig")({Type: Schema.String, ResourcePath: Schema.optional(Schema.String), FailureThreshold: Schema.optional(Schema.Number)}) {}
+export class HealthCheckCustomConfig extends Schema.Class<HealthCheckCustomConfig>("HealthCheckCustomConfig")({FailureThreshold: Schema.optional(Schema.Number)}) {}
+export class NamespaceFilter extends Schema.Class<NamespaceFilter>("NamespaceFilter")({Name: Schema.String, Values: FilterValues, Condition: Schema.optional(Schema.String)}) {}
 export const NamespaceFilters = Schema.Array(NamespaceFilter);
-export const OperationFilter = Schema.Struct({Name: Schema.String, Values: FilterValues, Condition: Schema.optional(Schema.String)});
+export class OperationFilter extends Schema.Class<OperationFilter>("OperationFilter")({Name: Schema.String, Values: FilterValues, Condition: Schema.optional(Schema.String)}) {}
 export const OperationFilters = Schema.Array(OperationFilter);
-export const ServiceFilter = Schema.Struct({Name: Schema.String, Values: FilterValues, Condition: Schema.optional(Schema.String)});
+export class ServiceFilter extends Schema.Class<ServiceFilter>("ServiceFilter")({Name: Schema.String, Values: FilterValues, Condition: Schema.optional(Schema.String)}) {}
 export const ServiceFilters = Schema.Array(ServiceFilter);
-export const HttpNamespaceChange = Schema.Struct({Description: Schema.String});
+export class HttpNamespaceChange extends Schema.Class<HttpNamespaceChange>("HttpNamespaceChange")({Description: Schema.String}) {}
 export const ServiceAttributesMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const CreateHttpNamespaceRequest = Schema.Struct({Name: Schema.String, CreatorRequestId: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Tags: Schema.optional(TagList)});
-export const DeleteNamespaceResponse = Schema.Struct({OperationId: Schema.optional(Schema.String)});
-export const InvalidInput = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ServiceNotFound = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DeregisterInstanceResponse = Schema.Struct({OperationId: Schema.optional(Schema.String)});
-export const DiscoverInstancesRequest = Schema.Struct({NamespaceName: Schema.String, ServiceName: Schema.String, MaxResults: Schema.optional(Schema.Number), QueryParameters: Schema.optional(Attributes), OptionalParameters: Schema.optional(Attributes), HealthStatus: Schema.optional(Schema.String), OwnerAccount: Schema.optional(Schema.String)});
-export const DiscoverInstancesRevisionResponse = Schema.Struct({InstancesRevision: Schema.optional(Schema.Number)});
-export const ListNamespacesRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), Filters: Schema.optional(NamespaceFilters)});
-export const ListOperationsRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), Filters: Schema.optional(OperationFilters)});
-export const ListServicesRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), Filters: Schema.optional(ServiceFilters)});
-export const ListTagsForResourceResponse = Schema.Struct({Tags: Schema.optional(TagList)});
-export const RegisterInstanceResponse = Schema.Struct({OperationId: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const UpdateHttpNamespaceRequest = Schema.Struct({Id: Schema.String, UpdaterRequestId: Schema.optional(Schema.String), Namespace: HttpNamespaceChange});
-export const CustomHealthNotFound = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const UpdateServiceAttributesRequest = Schema.Struct({ServiceId: Schema.String, Attributes: ServiceAttributesMap});
-export const UpdateServiceAttributesResponse = Schema.Struct({});
-export const SOA = Schema.Struct({TTL: Schema.Number});
-export const PublicDnsPropertiesMutable = Schema.Struct({SOA: SOA});
-export const DnsRecord = Schema.Struct({Type: Schema.String, TTL: Schema.Number});
+export class CreateHttpNamespaceRequest extends Schema.Class<CreateHttpNamespaceRequest>("CreateHttpNamespaceRequest")({Name: Schema.String, CreatorRequestId: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Tags: Schema.optional(TagList)}) {}
+export class DeleteNamespaceResponse extends Schema.Class<DeleteNamespaceResponse>("DeleteNamespaceResponse")({OperationId: Schema.optional(Schema.String)}) {}
+export class InvalidInput extends Schema.Class<InvalidInput>("InvalidInput")({Message: Schema.optional(Schema.String)}) {}
+export class ServiceNotFound extends Schema.Class<ServiceNotFound>("ServiceNotFound")({Message: Schema.optional(Schema.String)}) {}
+export class DeregisterInstanceResponse extends Schema.Class<DeregisterInstanceResponse>("DeregisterInstanceResponse")({OperationId: Schema.optional(Schema.String)}) {}
+export class DiscoverInstancesRequest extends Schema.Class<DiscoverInstancesRequest>("DiscoverInstancesRequest")({NamespaceName: Schema.String, ServiceName: Schema.String, MaxResults: Schema.optional(Schema.Number), QueryParameters: Schema.optional(Attributes), OptionalParameters: Schema.optional(Attributes), HealthStatus: Schema.optional(Schema.String), OwnerAccount: Schema.optional(Schema.String)}) {}
+export class DiscoverInstancesRevisionResponse extends Schema.Class<DiscoverInstancesRevisionResponse>("DiscoverInstancesRevisionResponse")({InstancesRevision: Schema.optional(Schema.Number)}) {}
+export class ListNamespacesRequest extends Schema.Class<ListNamespacesRequest>("ListNamespacesRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), Filters: Schema.optional(NamespaceFilters)}) {}
+export class ListOperationsRequest extends Schema.Class<ListOperationsRequest>("ListOperationsRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), Filters: Schema.optional(OperationFilters)}) {}
+export class ListServicesRequest extends Schema.Class<ListServicesRequest>("ListServicesRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), Filters: Schema.optional(ServiceFilters)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({Tags: Schema.optional(TagList)}) {}
+export class RegisterInstanceResponse extends Schema.Class<RegisterInstanceResponse>("RegisterInstanceResponse")({OperationId: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class UpdateHttpNamespaceRequest extends Schema.Class<UpdateHttpNamespaceRequest>("UpdateHttpNamespaceRequest")({Id: Schema.String, UpdaterRequestId: Schema.optional(Schema.String), Namespace: HttpNamespaceChange}) {}
+export class CustomHealthNotFound extends Schema.Class<CustomHealthNotFound>("CustomHealthNotFound")({Message: Schema.optional(Schema.String)}) {}
+export class UpdateServiceAttributesRequest extends Schema.Class<UpdateServiceAttributesRequest>("UpdateServiceAttributesRequest")({ServiceId: Schema.String, Attributes: ServiceAttributesMap}) {}
+export class UpdateServiceAttributesResponse extends Schema.Class<UpdateServiceAttributesResponse>("UpdateServiceAttributesResponse")({}) {}
+export class SOA extends Schema.Class<SOA>("SOA")({TTL: Schema.Number}) {}
+export class PublicDnsPropertiesMutable extends Schema.Class<PublicDnsPropertiesMutable>("PublicDnsPropertiesMutable")({SOA: SOA}) {}
+export class DnsRecord extends Schema.Class<DnsRecord>("DnsRecord")({Type: Schema.String, TTL: Schema.Number}) {}
 export const DnsRecordList = Schema.Array(DnsRecord);
-export const DnsConfigChange = Schema.Struct({DnsRecords: DnsRecordList});
-export const PublicDnsNamespaceProperties = Schema.Struct({DnsProperties: PublicDnsPropertiesMutable});
-export const DnsConfig = Schema.Struct({NamespaceId: Schema.optional(Schema.String), RoutingPolicy: Schema.optional(Schema.String), DnsRecords: DnsRecordList});
-export const Instance = Schema.Struct({Id: Schema.String, CreatorRequestId: Schema.optional(Schema.String), Attributes: Schema.optional(Attributes), CreatedByAccount: Schema.optional(Schema.String)});
+export class DnsConfigChange extends Schema.Class<DnsConfigChange>("DnsConfigChange")({DnsRecords: DnsRecordList}) {}
+export class PublicDnsNamespaceProperties extends Schema.Class<PublicDnsNamespaceProperties>("PublicDnsNamespaceProperties")({DnsProperties: PublicDnsPropertiesMutable}) {}
+export class DnsConfig extends Schema.Class<DnsConfig>("DnsConfig")({NamespaceId: Schema.optional(Schema.String), RoutingPolicy: Schema.optional(Schema.String), DnsRecords: DnsRecordList}) {}
+export class Instance extends Schema.Class<Instance>("Instance")({Id: Schema.String, CreatorRequestId: Schema.optional(Schema.String), Attributes: Schema.optional(Attributes), CreatedByAccount: Schema.optional(Schema.String)}) {}
 export const InstanceHealthStatusMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const Service = Schema.Struct({Id: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String), ResourceOwner: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), NamespaceId: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), InstanceCount: Schema.optional(Schema.Number), DnsConfig: Schema.optional(DnsConfig), Type: Schema.optional(Schema.String), HealthCheckConfig: Schema.optional(HealthCheckConfig), HealthCheckCustomConfig: Schema.optional(HealthCheckCustomConfig), CreateDate: Schema.optional(Schema.Date), CreatorRequestId: Schema.optional(Schema.String), CreatedByAccount: Schema.optional(Schema.String)});
-export const ServiceAttributes = Schema.Struct({ServiceArn: Schema.optional(Schema.String), ResourceOwner: Schema.optional(Schema.String), Attributes: Schema.optional(ServiceAttributesMap)});
-export const InstanceSummary = Schema.Struct({Id: Schema.optional(Schema.String), Attributes: Schema.optional(Attributes), CreatedByAccount: Schema.optional(Schema.String)});
+export class Service extends Schema.Class<Service>("Service")({Id: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String), ResourceOwner: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), NamespaceId: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), InstanceCount: Schema.optional(Schema.Number), DnsConfig: Schema.optional(DnsConfig), Type: Schema.optional(Schema.String), HealthCheckConfig: Schema.optional(HealthCheckConfig), HealthCheckCustomConfig: Schema.optional(HealthCheckCustomConfig), CreateDate: Schema.optional(Schema.Date), CreatorRequestId: Schema.optional(Schema.String), CreatedByAccount: Schema.optional(Schema.String)}) {}
+export class ServiceAttributes extends Schema.Class<ServiceAttributes>("ServiceAttributes")({ServiceArn: Schema.optional(Schema.String), ResourceOwner: Schema.optional(Schema.String), Attributes: Schema.optional(ServiceAttributesMap)}) {}
+export class InstanceSummary extends Schema.Class<InstanceSummary>("InstanceSummary")({Id: Schema.optional(Schema.String), Attributes: Schema.optional(Attributes), CreatedByAccount: Schema.optional(Schema.String)}) {}
 export const InstanceSummaryList = Schema.Array(InstanceSummary);
-export const ServiceChange = Schema.Struct({Description: Schema.optional(Schema.String), DnsConfig: Schema.optional(DnsConfigChange), HealthCheckConfig: Schema.optional(HealthCheckConfig)});
-export const SOAChange = Schema.Struct({TTL: Schema.Number});
-export const PublicDnsPropertiesMutableChange = Schema.Struct({SOA: SOAChange});
-export const CreateHttpNamespaceResponse = Schema.Struct({OperationId: Schema.optional(Schema.String)});
-export const CreatePublicDnsNamespaceRequest = Schema.Struct({Name: Schema.String, CreatorRequestId: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Tags: Schema.optional(TagList), Properties: Schema.optional(PublicDnsNamespaceProperties)});
-export const CreateServiceRequest = Schema.Struct({Name: Schema.String, NamespaceId: Schema.optional(Schema.String), CreatorRequestId: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), DnsConfig: Schema.optional(DnsConfig), HealthCheckConfig: Schema.optional(HealthCheckConfig), HealthCheckCustomConfig: Schema.optional(HealthCheckCustomConfig), Tags: Schema.optional(TagList), Type: Schema.optional(Schema.String)});
-export const DuplicateRequest = Schema.Struct({Message: Schema.optional(Schema.String), DuplicateOperationId: Schema.optional(Schema.String)});
-export const ResourceInUse = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const InstanceNotFound = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const NamespaceNotFound = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const GetInstanceResponse = Schema.Struct({ResourceOwner: Schema.optional(Schema.String), Instance: Schema.optional(Instance)});
-export const GetInstancesHealthStatusResponse = Schema.Struct({Status: Schema.optional(InstanceHealthStatusMap), NextToken: Schema.optional(Schema.String)});
-export const GetServiceResponse = Schema.Struct({Service: Schema.optional(Service)});
-export const GetServiceAttributesResponse = Schema.Struct({ServiceAttributes: Schema.optional(ServiceAttributes)});
-export const ListInstancesResponse = Schema.Struct({ResourceOwner: Schema.optional(Schema.String), Instances: Schema.optional(InstanceSummaryList), NextToken: Schema.optional(Schema.String)});
-export const ResourceLimitExceeded = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const TooManyTagsException = Schema.Struct({Message: Schema.optional(Schema.String), ResourceName: Schema.optional(Schema.String)});
-export const UpdateHttpNamespaceResponse = Schema.Struct({OperationId: Schema.optional(Schema.String)});
-export const UpdateServiceRequest = Schema.Struct({Id: Schema.String, Service: ServiceChange});
-export const ServiceAttributesLimitExceededException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const PrivateDnsPropertiesMutable = Schema.Struct({SOA: SOA});
+export class ServiceChange extends Schema.Class<ServiceChange>("ServiceChange")({Description: Schema.optional(Schema.String), DnsConfig: Schema.optional(DnsConfigChange), HealthCheckConfig: Schema.optional(HealthCheckConfig)}) {}
+export class SOAChange extends Schema.Class<SOAChange>("SOAChange")({TTL: Schema.Number}) {}
+export class PublicDnsPropertiesMutableChange extends Schema.Class<PublicDnsPropertiesMutableChange>("PublicDnsPropertiesMutableChange")({SOA: SOAChange}) {}
+export class CreateHttpNamespaceResponse extends Schema.Class<CreateHttpNamespaceResponse>("CreateHttpNamespaceResponse")({OperationId: Schema.optional(Schema.String)}) {}
+export class CreatePublicDnsNamespaceRequest extends Schema.Class<CreatePublicDnsNamespaceRequest>("CreatePublicDnsNamespaceRequest")({Name: Schema.String, CreatorRequestId: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Tags: Schema.optional(TagList), Properties: Schema.optional(PublicDnsNamespaceProperties)}) {}
+export class CreateServiceRequest extends Schema.Class<CreateServiceRequest>("CreateServiceRequest")({Name: Schema.String, NamespaceId: Schema.optional(Schema.String), CreatorRequestId: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), DnsConfig: Schema.optional(DnsConfig), HealthCheckConfig: Schema.optional(HealthCheckConfig), HealthCheckCustomConfig: Schema.optional(HealthCheckCustomConfig), Tags: Schema.optional(TagList), Type: Schema.optional(Schema.String)}) {}
+export class DuplicateRequest extends Schema.Class<DuplicateRequest>("DuplicateRequest")({Message: Schema.optional(Schema.String), DuplicateOperationId: Schema.optional(Schema.String)}) {}
+export class ResourceInUse extends Schema.Class<ResourceInUse>("ResourceInUse")({Message: Schema.optional(Schema.String)}) {}
+export class InstanceNotFound extends Schema.Class<InstanceNotFound>("InstanceNotFound")({Message: Schema.optional(Schema.String)}) {}
+export class NamespaceNotFound extends Schema.Class<NamespaceNotFound>("NamespaceNotFound")({Message: Schema.optional(Schema.String)}) {}
+export class GetInstanceResponse extends Schema.Class<GetInstanceResponse>("GetInstanceResponse")({ResourceOwner: Schema.optional(Schema.String), Instance: Schema.optional(Instance)}) {}
+export class GetInstancesHealthStatusResponse extends Schema.Class<GetInstancesHealthStatusResponse>("GetInstancesHealthStatusResponse")({Status: Schema.optional(InstanceHealthStatusMap), NextToken: Schema.optional(Schema.String)}) {}
+export class GetServiceResponse extends Schema.Class<GetServiceResponse>("GetServiceResponse")({Service: Schema.optional(Service)}) {}
+export class GetServiceAttributesResponse extends Schema.Class<GetServiceAttributesResponse>("GetServiceAttributesResponse")({ServiceAttributes: Schema.optional(ServiceAttributes)}) {}
+export class ListInstancesResponse extends Schema.Class<ListInstancesResponse>("ListInstancesResponse")({ResourceOwner: Schema.optional(Schema.String), Instances: Schema.optional(InstanceSummaryList), NextToken: Schema.optional(Schema.String)}) {}
+export class ResourceLimitExceeded extends Schema.Class<ResourceLimitExceeded>("ResourceLimitExceeded")({Message: Schema.optional(Schema.String)}) {}
+export class TooManyTagsException extends Schema.Class<TooManyTagsException>("TooManyTagsException")({Message: Schema.optional(Schema.String), ResourceName: Schema.optional(Schema.String)}) {}
+export class UpdateHttpNamespaceResponse extends Schema.Class<UpdateHttpNamespaceResponse>("UpdateHttpNamespaceResponse")({OperationId: Schema.optional(Schema.String)}) {}
+export class UpdateServiceRequest extends Schema.Class<UpdateServiceRequest>("UpdateServiceRequest")({Id: Schema.String, Service: ServiceChange}) {}
+export class ServiceAttributesLimitExceededException extends Schema.Class<ServiceAttributesLimitExceededException>("ServiceAttributesLimitExceededException")({Message: Schema.optional(Schema.String)}) {}
+export class PrivateDnsPropertiesMutable extends Schema.Class<PrivateDnsPropertiesMutable>("PrivateDnsPropertiesMutable")({SOA: SOA}) {}
 export const OperationTargetsMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const PublicDnsNamespacePropertiesChange = Schema.Struct({DnsProperties: PublicDnsPropertiesMutableChange});
-export const PrivateDnsNamespaceProperties = Schema.Struct({DnsProperties: PrivateDnsPropertiesMutable});
-export const HttpInstanceSummary = Schema.Struct({InstanceId: Schema.optional(Schema.String), NamespaceName: Schema.optional(Schema.String), ServiceName: Schema.optional(Schema.String), HealthStatus: Schema.optional(Schema.String), Attributes: Schema.optional(Attributes)});
+export class PublicDnsNamespacePropertiesChange extends Schema.Class<PublicDnsNamespacePropertiesChange>("PublicDnsNamespacePropertiesChange")({DnsProperties: PublicDnsPropertiesMutableChange}) {}
+export class PrivateDnsNamespaceProperties extends Schema.Class<PrivateDnsNamespaceProperties>("PrivateDnsNamespaceProperties")({DnsProperties: PrivateDnsPropertiesMutable}) {}
+export class HttpInstanceSummary extends Schema.Class<HttpInstanceSummary>("HttpInstanceSummary")({InstanceId: Schema.optional(Schema.String), NamespaceName: Schema.optional(Schema.String), ServiceName: Schema.optional(Schema.String), HealthStatus: Schema.optional(Schema.String), Attributes: Schema.optional(Attributes)}) {}
 export const HttpInstanceSummaryList = Schema.Array(HttpInstanceSummary);
-export const Operation = Schema.Struct({Id: Schema.optional(Schema.String), OwnerAccount: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String), ErrorCode: Schema.optional(Schema.String), CreateDate: Schema.optional(Schema.Date), UpdateDate: Schema.optional(Schema.Date), Targets: Schema.optional(OperationTargetsMap)});
-export const DnsProperties = Schema.Struct({HostedZoneId: Schema.optional(Schema.String), SOA: Schema.optional(SOA)});
-export const HttpProperties = Schema.Struct({HttpName: Schema.optional(Schema.String)});
-export const NamespaceProperties = Schema.Struct({DnsProperties: Schema.optional(DnsProperties), HttpProperties: Schema.optional(HttpProperties)});
-export const NamespaceSummary = Schema.Struct({Id: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String), ResourceOwner: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), ServiceCount: Schema.optional(Schema.Number), Properties: Schema.optional(NamespaceProperties), CreateDate: Schema.optional(Schema.Date)});
+export class Operation extends Schema.Class<Operation>("Operation")({Id: Schema.optional(Schema.String), OwnerAccount: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String), ErrorCode: Schema.optional(Schema.String), CreateDate: Schema.optional(Schema.Date), UpdateDate: Schema.optional(Schema.Date), Targets: Schema.optional(OperationTargetsMap)}) {}
+export class DnsProperties extends Schema.Class<DnsProperties>("DnsProperties")({HostedZoneId: Schema.optional(Schema.String), SOA: Schema.optional(SOA)}) {}
+export class HttpProperties extends Schema.Class<HttpProperties>("HttpProperties")({HttpName: Schema.optional(Schema.String)}) {}
+export class NamespaceProperties extends Schema.Class<NamespaceProperties>("NamespaceProperties")({DnsProperties: Schema.optional(DnsProperties), HttpProperties: Schema.optional(HttpProperties)}) {}
+export class NamespaceSummary extends Schema.Class<NamespaceSummary>("NamespaceSummary")({Id: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String), ResourceOwner: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), ServiceCount: Schema.optional(Schema.Number), Properties: Schema.optional(NamespaceProperties), CreateDate: Schema.optional(Schema.Date)}) {}
 export const NamespaceSummariesList = Schema.Array(NamespaceSummary);
-export const OperationSummary = Schema.Struct({Id: Schema.optional(Schema.String), Status: Schema.optional(Schema.String)});
+export class OperationSummary extends Schema.Class<OperationSummary>("OperationSummary")({Id: Schema.optional(Schema.String), Status: Schema.optional(Schema.String)}) {}
 export const OperationSummaryList = Schema.Array(OperationSummary);
-export const ServiceSummary = Schema.Struct({Id: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String), ResourceOwner: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), InstanceCount: Schema.optional(Schema.Number), DnsConfig: Schema.optional(DnsConfig), HealthCheckConfig: Schema.optional(HealthCheckConfig), HealthCheckCustomConfig: Schema.optional(HealthCheckCustomConfig), CreateDate: Schema.optional(Schema.Date), CreatedByAccount: Schema.optional(Schema.String)});
+export class ServiceSummary extends Schema.Class<ServiceSummary>("ServiceSummary")({Id: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String), ResourceOwner: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), InstanceCount: Schema.optional(Schema.Number), DnsConfig: Schema.optional(DnsConfig), HealthCheckConfig: Schema.optional(HealthCheckConfig), HealthCheckCustomConfig: Schema.optional(HealthCheckCustomConfig), CreateDate: Schema.optional(Schema.Date), CreatedByAccount: Schema.optional(Schema.String)}) {}
 export const ServiceSummariesList = Schema.Array(ServiceSummary);
-export const PublicDnsNamespaceChange = Schema.Struct({Description: Schema.optional(Schema.String), Properties: Schema.optional(PublicDnsNamespacePropertiesChange)});
-export const PrivateDnsPropertiesMutableChange = Schema.Struct({SOA: SOAChange});
-export const NamespaceAlreadyExists = Schema.Struct({Message: Schema.optional(Schema.String), CreatorRequestId: Schema.optional(Schema.String), NamespaceId: Schema.optional(Schema.String)});
-export const CreatePrivateDnsNamespaceRequest = Schema.Struct({Name: Schema.String, CreatorRequestId: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Vpc: Schema.String, Tags: Schema.optional(TagList), Properties: Schema.optional(PrivateDnsNamespaceProperties)});
-export const CreatePublicDnsNamespaceResponse = Schema.Struct({OperationId: Schema.optional(Schema.String)});
-export const CreateServiceResponse = Schema.Struct({Service: Schema.optional(Service)});
-export const DiscoverInstancesResponse = Schema.Struct({Instances: Schema.optional(HttpInstanceSummaryList), InstancesRevision: Schema.optional(Schema.Number)});
-export const RequestLimitExceeded = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const GetOperationResponse = Schema.Struct({Operation: Schema.optional(Operation)});
-export const ListNamespacesResponse = Schema.Struct({Namespaces: Schema.optional(NamespaceSummariesList), NextToken: Schema.optional(Schema.String)});
-export const ListOperationsResponse = Schema.Struct({Operations: Schema.optional(OperationSummaryList), NextToken: Schema.optional(Schema.String)});
-export const ListServicesResponse = Schema.Struct({Services: Schema.optional(ServiceSummariesList), NextToken: Schema.optional(Schema.String)});
-export const UpdatePublicDnsNamespaceRequest = Schema.Struct({Id: Schema.String, UpdaterRequestId: Schema.optional(Schema.String), Namespace: PublicDnsNamespaceChange});
-export const UpdateServiceResponse = Schema.Struct({OperationId: Schema.optional(Schema.String)});
-export const PrivateDnsNamespacePropertiesChange = Schema.Struct({DnsProperties: PrivateDnsPropertiesMutableChange});
-export const Namespace = Schema.Struct({Id: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String), ResourceOwner: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), ServiceCount: Schema.optional(Schema.Number), Properties: Schema.optional(NamespaceProperties), CreateDate: Schema.optional(Schema.Date), CreatorRequestId: Schema.optional(Schema.String)});
-export const PrivateDnsNamespaceChange = Schema.Struct({Description: Schema.optional(Schema.String), Properties: Schema.optional(PrivateDnsNamespacePropertiesChange)});
-export const CreatePrivateDnsNamespaceResponse = Schema.Struct({OperationId: Schema.optional(Schema.String)});
-export const ServiceAlreadyExists = Schema.Struct({Message: Schema.optional(Schema.String), CreatorRequestId: Schema.optional(Schema.String), ServiceId: Schema.optional(Schema.String), ServiceArn: Schema.optional(Schema.String)});
-export const GetNamespaceResponse = Schema.Struct({Namespace: Schema.optional(Namespace)});
-export const OperationNotFound = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const UpdatePrivateDnsNamespaceRequest = Schema.Struct({Id: Schema.String, UpdaterRequestId: Schema.optional(Schema.String), Namespace: PrivateDnsNamespaceChange});
-export const UpdatePublicDnsNamespaceResponse = Schema.Struct({OperationId: Schema.optional(Schema.String)});
-export const UpdatePrivateDnsNamespaceResponse = Schema.Struct({OperationId: Schema.optional(Schema.String)});
+export class PublicDnsNamespaceChange extends Schema.Class<PublicDnsNamespaceChange>("PublicDnsNamespaceChange")({Description: Schema.optional(Schema.String), Properties: Schema.optional(PublicDnsNamespacePropertiesChange)}) {}
+export class PrivateDnsPropertiesMutableChange extends Schema.Class<PrivateDnsPropertiesMutableChange>("PrivateDnsPropertiesMutableChange")({SOA: SOAChange}) {}
+export class NamespaceAlreadyExists extends Schema.Class<NamespaceAlreadyExists>("NamespaceAlreadyExists")({Message: Schema.optional(Schema.String), CreatorRequestId: Schema.optional(Schema.String), NamespaceId: Schema.optional(Schema.String)}) {}
+export class CreatePrivateDnsNamespaceRequest extends Schema.Class<CreatePrivateDnsNamespaceRequest>("CreatePrivateDnsNamespaceRequest")({Name: Schema.String, CreatorRequestId: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Vpc: Schema.String, Tags: Schema.optional(TagList), Properties: Schema.optional(PrivateDnsNamespaceProperties)}) {}
+export class CreatePublicDnsNamespaceResponse extends Schema.Class<CreatePublicDnsNamespaceResponse>("CreatePublicDnsNamespaceResponse")({OperationId: Schema.optional(Schema.String)}) {}
+export class CreateServiceResponse extends Schema.Class<CreateServiceResponse>("CreateServiceResponse")({Service: Schema.optional(Service)}) {}
+export class DiscoverInstancesResponse extends Schema.Class<DiscoverInstancesResponse>("DiscoverInstancesResponse")({Instances: Schema.optional(HttpInstanceSummaryList), InstancesRevision: Schema.optional(Schema.Number)}) {}
+export class RequestLimitExceeded extends Schema.Class<RequestLimitExceeded>("RequestLimitExceeded")({Message: Schema.optional(Schema.String)}) {}
+export class GetOperationResponse extends Schema.Class<GetOperationResponse>("GetOperationResponse")({Operation: Schema.optional(Operation)}) {}
+export class ListNamespacesResponse extends Schema.Class<ListNamespacesResponse>("ListNamespacesResponse")({Namespaces: Schema.optional(NamespaceSummariesList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListOperationsResponse extends Schema.Class<ListOperationsResponse>("ListOperationsResponse")({Operations: Schema.optional(OperationSummaryList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListServicesResponse extends Schema.Class<ListServicesResponse>("ListServicesResponse")({Services: Schema.optional(ServiceSummariesList), NextToken: Schema.optional(Schema.String)}) {}
+export class UpdatePublicDnsNamespaceRequest extends Schema.Class<UpdatePublicDnsNamespaceRequest>("UpdatePublicDnsNamespaceRequest")({Id: Schema.String, UpdaterRequestId: Schema.optional(Schema.String), Namespace: PublicDnsNamespaceChange}) {}
+export class UpdateServiceResponse extends Schema.Class<UpdateServiceResponse>("UpdateServiceResponse")({OperationId: Schema.optional(Schema.String)}) {}
+export class PrivateDnsNamespacePropertiesChange extends Schema.Class<PrivateDnsNamespacePropertiesChange>("PrivateDnsNamespacePropertiesChange")({DnsProperties: PrivateDnsPropertiesMutableChange}) {}
+export class Namespace extends Schema.Class<Namespace>("Namespace")({Id: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String), ResourceOwner: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), ServiceCount: Schema.optional(Schema.Number), Properties: Schema.optional(NamespaceProperties), CreateDate: Schema.optional(Schema.Date), CreatorRequestId: Schema.optional(Schema.String)}) {}
+export class PrivateDnsNamespaceChange extends Schema.Class<PrivateDnsNamespaceChange>("PrivateDnsNamespaceChange")({Description: Schema.optional(Schema.String), Properties: Schema.optional(PrivateDnsNamespacePropertiesChange)}) {}
+export class CreatePrivateDnsNamespaceResponse extends Schema.Class<CreatePrivateDnsNamespaceResponse>("CreatePrivateDnsNamespaceResponse")({OperationId: Schema.optional(Schema.String)}) {}
+export class ServiceAlreadyExists extends Schema.Class<ServiceAlreadyExists>("ServiceAlreadyExists")({Message: Schema.optional(Schema.String), CreatorRequestId: Schema.optional(Schema.String), ServiceId: Schema.optional(Schema.String), ServiceArn: Schema.optional(Schema.String)}) {}
+export class GetNamespaceResponse extends Schema.Class<GetNamespaceResponse>("GetNamespaceResponse")({Namespace: Schema.optional(Namespace)}) {}
+export class OperationNotFound extends Schema.Class<OperationNotFound>("OperationNotFound")({Message: Schema.optional(Schema.String)}) {}
+export class UpdatePrivateDnsNamespaceRequest extends Schema.Class<UpdatePrivateDnsNamespaceRequest>("UpdatePrivateDnsNamespaceRequest")({Id: Schema.String, UpdaterRequestId: Schema.optional(Schema.String), Namespace: PrivateDnsNamespaceChange}) {}
+export class UpdatePublicDnsNamespaceResponse extends Schema.Class<UpdatePublicDnsNamespaceResponse>("UpdatePublicDnsNamespaceResponse")({OperationId: Schema.optional(Schema.String)}) {}
+export class UpdatePrivateDnsNamespaceResponse extends Schema.Class<UpdatePrivateDnsNamespaceResponse>("UpdatePrivateDnsNamespaceResponse")({OperationId: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class InvalidInputError extends Schema.TaggedError<InvalidInputError>()("InvalidInput", InvalidInput) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ServiceNotFoundError extends Schema.TaggedError<ServiceNotFoundError>()("ServiceNotFound", ServiceNotFound) {};
-export class DuplicateRequestError extends Schema.TaggedError<DuplicateRequestError>()("DuplicateRequest", DuplicateRequest) {};
-export class ResourceInUseError extends Schema.TaggedError<ResourceInUseError>()("ResourceInUse", ResourceInUse) {};
-export class CustomHealthNotFoundError extends Schema.TaggedError<CustomHealthNotFoundError>()("CustomHealthNotFound", CustomHealthNotFound) {};
-export class InstanceNotFoundError extends Schema.TaggedError<InstanceNotFoundError>()("InstanceNotFound", InstanceNotFound) {};
-export class NamespaceNotFoundError extends Schema.TaggedError<NamespaceNotFoundError>()("NamespaceNotFound", NamespaceNotFound) {};
-export class ResourceLimitExceededError extends Schema.TaggedError<ResourceLimitExceededError>()("ResourceLimitExceeded", ResourceLimitExceeded) {};
-export class TooManyTagsExceptionError extends Schema.TaggedError<TooManyTagsExceptionError>()("TooManyTagsException", TooManyTagsException) {};
-export class ServiceAttributesLimitExceededExceptionError extends Schema.TaggedError<ServiceAttributesLimitExceededExceptionError>()("ServiceAttributesLimitExceededException", ServiceAttributesLimitExceededException) {};
-export class NamespaceAlreadyExistsError extends Schema.TaggedError<NamespaceAlreadyExistsError>()("NamespaceAlreadyExists", NamespaceAlreadyExists) {};
-export class RequestLimitExceededError extends Schema.TaggedError<RequestLimitExceededError>()("RequestLimitExceeded", RequestLimitExceeded) {};
-export class ServiceAlreadyExistsError extends Schema.TaggedError<ServiceAlreadyExistsError>()("ServiceAlreadyExists", ServiceAlreadyExists) {};
-export class OperationNotFoundError extends Schema.TaggedError<OperationNotFoundError>()("OperationNotFound", OperationNotFound) {};
+export class InvalidInputError extends Schema.TaggedError<InvalidInputError>()("InvalidInput", InvalidInput.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ServiceNotFoundError extends Schema.TaggedError<ServiceNotFoundError>()("ServiceNotFound", ServiceNotFound.fields) {};
+export class DuplicateRequestError extends Schema.TaggedError<DuplicateRequestError>()("DuplicateRequest", DuplicateRequest.fields) {};
+export class ResourceInUseError extends Schema.TaggedError<ResourceInUseError>()("ResourceInUse", ResourceInUse.fields) {};
+export class CustomHealthNotFoundError extends Schema.TaggedError<CustomHealthNotFoundError>()("CustomHealthNotFound", CustomHealthNotFound.fields) {};
+export class InstanceNotFoundError extends Schema.TaggedError<InstanceNotFoundError>()("InstanceNotFound", InstanceNotFound.fields) {};
+export class NamespaceNotFoundError extends Schema.TaggedError<NamespaceNotFoundError>()("NamespaceNotFound", NamespaceNotFound.fields) {};
+export class ResourceLimitExceededError extends Schema.TaggedError<ResourceLimitExceededError>()("ResourceLimitExceeded", ResourceLimitExceeded.fields) {};
+export class TooManyTagsExceptionError extends Schema.TaggedError<TooManyTagsExceptionError>()("TooManyTagsException", TooManyTagsException.fields) {};
+export class ServiceAttributesLimitExceededExceptionError extends Schema.TaggedError<ServiceAttributesLimitExceededExceptionError>()("ServiceAttributesLimitExceededException", ServiceAttributesLimitExceededException.fields) {};
+export class NamespaceAlreadyExistsError extends Schema.TaggedError<NamespaceAlreadyExistsError>()("NamespaceAlreadyExists", NamespaceAlreadyExists.fields) {};
+export class RequestLimitExceededError extends Schema.TaggedError<RequestLimitExceededError>()("RequestLimitExceeded", RequestLimitExceeded.fields) {};
+export class ServiceAlreadyExistsError extends Schema.TaggedError<ServiceAlreadyExistsError>()("ServiceAlreadyExists", ServiceAlreadyExists.fields) {};
+export class OperationNotFoundError extends Schema.TaggedError<OperationNotFoundError>()("OperationNotFound", OperationNotFound.fields) {};
 
 //# Operations
 export const untagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-03-14", uri: "/", method: "POST", sdkId: "ServiceDiscovery", sigV4ServiceName: "servicediscovery", name: "Route53AutoNaming_v20170314.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InvalidInputError, ResourceNotFoundExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

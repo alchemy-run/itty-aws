@@ -3,75 +3,75 @@ import { FormatAwsJSON10Request,FormatJSONResponse,FormatAwsRestJSONError, makeO
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const CancelResourceRequestInput = Schema.Struct({RequestToken: Schema.String});
-export const CreateResourceInput = Schema.Struct({TypeName: Schema.String, TypeVersionId: Schema.optional(Schema.String), RoleArn: Schema.optional(Schema.String), ClientToken: Schema.optional(Schema.String), DesiredState: Schema.String});
-export const DeleteResourceInput = Schema.Struct({TypeName: Schema.String, TypeVersionId: Schema.optional(Schema.String), RoleArn: Schema.optional(Schema.String), ClientToken: Schema.optional(Schema.String), Identifier: Schema.String});
-export const GetResourceInput = Schema.Struct({TypeName: Schema.String, TypeVersionId: Schema.optional(Schema.String), RoleArn: Schema.optional(Schema.String), Identifier: Schema.String});
-export const GetResourceRequestStatusInput = Schema.Struct({RequestToken: Schema.String});
-export const ListResourcesInput = Schema.Struct({TypeName: Schema.String, TypeVersionId: Schema.optional(Schema.String), RoleArn: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), ResourceModel: Schema.optional(Schema.String)});
-export const UpdateResourceInput = Schema.Struct({TypeName: Schema.String, TypeVersionId: Schema.optional(Schema.String), RoleArn: Schema.optional(Schema.String), ClientToken: Schema.optional(Schema.String), Identifier: Schema.String, PatchDocument: Schema.String});
+export class CancelResourceRequestInput extends Schema.Class<CancelResourceRequestInput>("CancelResourceRequestInput")({RequestToken: Schema.String}) {}
+export class CreateResourceInput extends Schema.Class<CreateResourceInput>("CreateResourceInput")({TypeName: Schema.String, TypeVersionId: Schema.optional(Schema.String), RoleArn: Schema.optional(Schema.String), ClientToken: Schema.optional(Schema.String), DesiredState: Schema.String}) {}
+export class DeleteResourceInput extends Schema.Class<DeleteResourceInput>("DeleteResourceInput")({TypeName: Schema.String, TypeVersionId: Schema.optional(Schema.String), RoleArn: Schema.optional(Schema.String), ClientToken: Schema.optional(Schema.String), Identifier: Schema.String}) {}
+export class GetResourceInput extends Schema.Class<GetResourceInput>("GetResourceInput")({TypeName: Schema.String, TypeVersionId: Schema.optional(Schema.String), RoleArn: Schema.optional(Schema.String), Identifier: Schema.String}) {}
+export class GetResourceRequestStatusInput extends Schema.Class<GetResourceRequestStatusInput>("GetResourceRequestStatusInput")({RequestToken: Schema.String}) {}
+export class ListResourcesInput extends Schema.Class<ListResourcesInput>("ListResourcesInput")({TypeName: Schema.String, TypeVersionId: Schema.optional(Schema.String), RoleArn: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), ResourceModel: Schema.optional(Schema.String)}) {}
+export class UpdateResourceInput extends Schema.Class<UpdateResourceInput>("UpdateResourceInput")({TypeName: Schema.String, TypeVersionId: Schema.optional(Schema.String), RoleArn: Schema.optional(Schema.String), ClientToken: Schema.optional(Schema.String), Identifier: Schema.String, PatchDocument: Schema.String}) {}
 export const Operations = Schema.Array(Schema.String);
 export const OperationStatuses = Schema.Array(Schema.String);
-export const ResourceRequestStatusFilter = Schema.Struct({Operations: Schema.optional(Operations), OperationStatuses: Schema.optional(OperationStatuses)});
-export const ResourceDescription = Schema.Struct({Identifier: Schema.optional(Schema.String), Properties: Schema.optional(Schema.String)});
+export class ResourceRequestStatusFilter extends Schema.Class<ResourceRequestStatusFilter>("ResourceRequestStatusFilter")({Operations: Schema.optional(Operations), OperationStatuses: Schema.optional(OperationStatuses)}) {}
+export class ResourceDescription extends Schema.Class<ResourceDescription>("ResourceDescription")({Identifier: Schema.optional(Schema.String), Properties: Schema.optional(Schema.String)}) {}
 export const ResourceDescriptions = Schema.Array(ResourceDescription);
-export const ProgressEvent = Schema.Struct({TypeName: Schema.optional(Schema.String), Identifier: Schema.optional(Schema.String), RequestToken: Schema.optional(Schema.String), HooksRequestToken: Schema.optional(Schema.String), Operation: Schema.optional(Schema.String), OperationStatus: Schema.optional(Schema.String), EventTime: Schema.optional(Schema.Date), ResourceModel: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), ErrorCode: Schema.optional(Schema.String), RetryAfter: Schema.optional(Schema.Date)});
-export const CreateResourceOutput = Schema.Struct({ProgressEvent: Schema.optional(ProgressEvent)});
-export const DeleteResourceOutput = Schema.Struct({ProgressEvent: Schema.optional(ProgressEvent)});
-export const ListResourceRequestsInput = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), ResourceRequestStatusFilter: Schema.optional(ResourceRequestStatusFilter)});
-export const ListResourcesOutput = Schema.Struct({TypeName: Schema.optional(Schema.String), ResourceDescriptions: Schema.optional(ResourceDescriptions), NextToken: Schema.optional(Schema.String)});
-export const UpdateResourceOutput = Schema.Struct({ProgressEvent: Schema.optional(ProgressEvent)});
-export const HookProgressEvent = Schema.Struct({HookTypeName: Schema.optional(Schema.String), HookTypeVersionId: Schema.optional(Schema.String), HookTypeArn: Schema.optional(Schema.String), InvocationPoint: Schema.optional(Schema.String), HookStatus: Schema.optional(Schema.String), HookEventTime: Schema.optional(Schema.Date), HookStatusMessage: Schema.optional(Schema.String), FailureMode: Schema.optional(Schema.String)});
+export class ProgressEvent extends Schema.Class<ProgressEvent>("ProgressEvent")({TypeName: Schema.optional(Schema.String), Identifier: Schema.optional(Schema.String), RequestToken: Schema.optional(Schema.String), HooksRequestToken: Schema.optional(Schema.String), Operation: Schema.optional(Schema.String), OperationStatus: Schema.optional(Schema.String), EventTime: Schema.optional(Schema.Date), ResourceModel: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), ErrorCode: Schema.optional(Schema.String), RetryAfter: Schema.optional(Schema.Date)}) {}
+export class CreateResourceOutput extends Schema.Class<CreateResourceOutput>("CreateResourceOutput")({ProgressEvent: Schema.optional(ProgressEvent)}) {}
+export class DeleteResourceOutput extends Schema.Class<DeleteResourceOutput>("DeleteResourceOutput")({ProgressEvent: Schema.optional(ProgressEvent)}) {}
+export class ListResourceRequestsInput extends Schema.Class<ListResourceRequestsInput>("ListResourceRequestsInput")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), ResourceRequestStatusFilter: Schema.optional(ResourceRequestStatusFilter)}) {}
+export class ListResourcesOutput extends Schema.Class<ListResourcesOutput>("ListResourcesOutput")({TypeName: Schema.optional(Schema.String), ResourceDescriptions: Schema.optional(ResourceDescriptions), NextToken: Schema.optional(Schema.String)}) {}
+export class UpdateResourceOutput extends Schema.Class<UpdateResourceOutput>("UpdateResourceOutput")({ProgressEvent: Schema.optional(ProgressEvent)}) {}
+export class HookProgressEvent extends Schema.Class<HookProgressEvent>("HookProgressEvent")({HookTypeName: Schema.optional(Schema.String), HookTypeVersionId: Schema.optional(Schema.String), HookTypeArn: Schema.optional(Schema.String), InvocationPoint: Schema.optional(Schema.String), HookStatus: Schema.optional(Schema.String), HookEventTime: Schema.optional(Schema.Date), HookStatusMessage: Schema.optional(Schema.String), FailureMode: Schema.optional(Schema.String)}) {}
 export const HooksProgressEvent = Schema.Array(HookProgressEvent);
 export const ResourceRequestStatusSummaries = Schema.Array(ProgressEvent);
-export const CancelResourceRequestOutput = Schema.Struct({ProgressEvent: Schema.optional(ProgressEvent)});
-export const AlreadyExistsException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ClientTokenConflictException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const GetResourceOutput = Schema.Struct({TypeName: Schema.optional(Schema.String), ResourceDescription: Schema.optional(ResourceDescription)});
-export const GetResourceRequestStatusOutput = Schema.Struct({ProgressEvent: Schema.optional(ProgressEvent), HooksProgressEvent: Schema.optional(HooksProgressEvent)});
-export const ListResourceRequestsOutput = Schema.Struct({ResourceRequestStatusSummaries: Schema.optional(ResourceRequestStatusSummaries), NextToken: Schema.optional(Schema.String)});
-export const GeneralServiceException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ConcurrentOperationException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ConcurrentModificationException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const HandlerFailureException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const HandlerInternalFailureException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const InvalidCredentialsException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const RequestTokenNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const InvalidRequestException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const NetworkFailureException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const NotStabilizedException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const NotUpdatableException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const PrivateTypeException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ResourceConflictException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ServiceInternalErrorException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ServiceLimitExceededException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ThrottlingException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const TypeNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const UnsupportedActionException = Schema.Struct({Message: Schema.optional(Schema.String)});
+export class CancelResourceRequestOutput extends Schema.Class<CancelResourceRequestOutput>("CancelResourceRequestOutput")({ProgressEvent: Schema.optional(ProgressEvent)}) {}
+export class AlreadyExistsException extends Schema.Class<AlreadyExistsException>("AlreadyExistsException")({Message: Schema.optional(Schema.String)}) {}
+export class ClientTokenConflictException extends Schema.Class<ClientTokenConflictException>("ClientTokenConflictException")({Message: Schema.optional(Schema.String)}) {}
+export class GetResourceOutput extends Schema.Class<GetResourceOutput>("GetResourceOutput")({TypeName: Schema.optional(Schema.String), ResourceDescription: Schema.optional(ResourceDescription)}) {}
+export class GetResourceRequestStatusOutput extends Schema.Class<GetResourceRequestStatusOutput>("GetResourceRequestStatusOutput")({ProgressEvent: Schema.optional(ProgressEvent), HooksProgressEvent: Schema.optional(HooksProgressEvent)}) {}
+export class ListResourceRequestsOutput extends Schema.Class<ListResourceRequestsOutput>("ListResourceRequestsOutput")({ResourceRequestStatusSummaries: Schema.optional(ResourceRequestStatusSummaries), NextToken: Schema.optional(Schema.String)}) {}
+export class GeneralServiceException extends Schema.Class<GeneralServiceException>("GeneralServiceException")({Message: Schema.optional(Schema.String)}) {}
+export class ConcurrentOperationException extends Schema.Class<ConcurrentOperationException>("ConcurrentOperationException")({Message: Schema.optional(Schema.String)}) {}
+export class ConcurrentModificationException extends Schema.Class<ConcurrentModificationException>("ConcurrentModificationException")({Message: Schema.optional(Schema.String)}) {}
+export class HandlerFailureException extends Schema.Class<HandlerFailureException>("HandlerFailureException")({Message: Schema.optional(Schema.String)}) {}
+export class HandlerInternalFailureException extends Schema.Class<HandlerInternalFailureException>("HandlerInternalFailureException")({Message: Schema.optional(Schema.String)}) {}
+export class InvalidCredentialsException extends Schema.Class<InvalidCredentialsException>("InvalidCredentialsException")({Message: Schema.optional(Schema.String)}) {}
+export class RequestTokenNotFoundException extends Schema.Class<RequestTokenNotFoundException>("RequestTokenNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class InvalidRequestException extends Schema.Class<InvalidRequestException>("InvalidRequestException")({Message: Schema.optional(Schema.String)}) {}
+export class NetworkFailureException extends Schema.Class<NetworkFailureException>("NetworkFailureException")({Message: Schema.optional(Schema.String)}) {}
+export class NotStabilizedException extends Schema.Class<NotStabilizedException>("NotStabilizedException")({Message: Schema.optional(Schema.String)}) {}
+export class NotUpdatableException extends Schema.Class<NotUpdatableException>("NotUpdatableException")({Message: Schema.optional(Schema.String)}) {}
+export class PrivateTypeException extends Schema.Class<PrivateTypeException>("PrivateTypeException")({Message: Schema.optional(Schema.String)}) {}
+export class ResourceConflictException extends Schema.Class<ResourceConflictException>("ResourceConflictException")({Message: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class ServiceInternalErrorException extends Schema.Class<ServiceInternalErrorException>("ServiceInternalErrorException")({Message: Schema.optional(Schema.String)}) {}
+export class ServiceLimitExceededException extends Schema.Class<ServiceLimitExceededException>("ServiceLimitExceededException")({Message: Schema.optional(Schema.String)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({Message: Schema.optional(Schema.String)}) {}
+export class TypeNotFoundException extends Schema.Class<TypeNotFoundException>("TypeNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class UnsupportedActionException extends Schema.Class<UnsupportedActionException>("UnsupportedActionException")({Message: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class AlreadyExistsExceptionError extends Schema.TaggedError<AlreadyExistsExceptionError>()("AlreadyExistsException", AlreadyExistsException) {};
-export class ClientTokenConflictExceptionError extends Schema.TaggedError<ClientTokenConflictExceptionError>()("ClientTokenConflictException", ClientTokenConflictException) {};
-export class ConcurrentOperationExceptionError extends Schema.TaggedError<ConcurrentOperationExceptionError>()("ConcurrentOperationException", ConcurrentOperationException) {};
-export class GeneralServiceExceptionError extends Schema.TaggedError<GeneralServiceExceptionError>()("GeneralServiceException", GeneralServiceException) {};
-export class HandlerFailureExceptionError extends Schema.TaggedError<HandlerFailureExceptionError>()("HandlerFailureException", HandlerFailureException) {};
-export class HandlerInternalFailureExceptionError extends Schema.TaggedError<HandlerInternalFailureExceptionError>()("HandlerInternalFailureException", HandlerInternalFailureException) {};
-export class InvalidCredentialsExceptionError extends Schema.TaggedError<InvalidCredentialsExceptionError>()("InvalidCredentialsException", InvalidCredentialsException) {};
-export class InvalidRequestExceptionError extends Schema.TaggedError<InvalidRequestExceptionError>()("InvalidRequestException", InvalidRequestException) {};
-export class ConcurrentModificationExceptionError extends Schema.TaggedError<ConcurrentModificationExceptionError>()("ConcurrentModificationException", ConcurrentModificationException) {};
-export class RequestTokenNotFoundExceptionError extends Schema.TaggedError<RequestTokenNotFoundExceptionError>()("RequestTokenNotFoundException", RequestTokenNotFoundException) {};
-export class NetworkFailureExceptionError extends Schema.TaggedError<NetworkFailureExceptionError>()("NetworkFailureException", NetworkFailureException) {};
-export class NotStabilizedExceptionError extends Schema.TaggedError<NotStabilizedExceptionError>()("NotStabilizedException", NotStabilizedException) {};
-export class NotUpdatableExceptionError extends Schema.TaggedError<NotUpdatableExceptionError>()("NotUpdatableException", NotUpdatableException) {};
-export class PrivateTypeExceptionError extends Schema.TaggedError<PrivateTypeExceptionError>()("PrivateTypeException", PrivateTypeException) {};
-export class ResourceConflictExceptionError extends Schema.TaggedError<ResourceConflictExceptionError>()("ResourceConflictException", ResourceConflictException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ServiceInternalErrorExceptionError extends Schema.TaggedError<ServiceInternalErrorExceptionError>()("ServiceInternalErrorException", ServiceInternalErrorException) {};
-export class ServiceLimitExceededExceptionError extends Schema.TaggedError<ServiceLimitExceededExceptionError>()("ServiceLimitExceededException", ServiceLimitExceededException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class TypeNotFoundExceptionError extends Schema.TaggedError<TypeNotFoundExceptionError>()("TypeNotFoundException", TypeNotFoundException) {};
-export class UnsupportedActionExceptionError extends Schema.TaggedError<UnsupportedActionExceptionError>()("UnsupportedActionException", UnsupportedActionException) {};
+export class AlreadyExistsExceptionError extends Schema.TaggedError<AlreadyExistsExceptionError>()("AlreadyExistsException", AlreadyExistsException.fields) {};
+export class ClientTokenConflictExceptionError extends Schema.TaggedError<ClientTokenConflictExceptionError>()("ClientTokenConflictException", ClientTokenConflictException.fields) {};
+export class ConcurrentOperationExceptionError extends Schema.TaggedError<ConcurrentOperationExceptionError>()("ConcurrentOperationException", ConcurrentOperationException.fields) {};
+export class GeneralServiceExceptionError extends Schema.TaggedError<GeneralServiceExceptionError>()("GeneralServiceException", GeneralServiceException.fields) {};
+export class HandlerFailureExceptionError extends Schema.TaggedError<HandlerFailureExceptionError>()("HandlerFailureException", HandlerFailureException.fields) {};
+export class HandlerInternalFailureExceptionError extends Schema.TaggedError<HandlerInternalFailureExceptionError>()("HandlerInternalFailureException", HandlerInternalFailureException.fields) {};
+export class InvalidCredentialsExceptionError extends Schema.TaggedError<InvalidCredentialsExceptionError>()("InvalidCredentialsException", InvalidCredentialsException.fields) {};
+export class InvalidRequestExceptionError extends Schema.TaggedError<InvalidRequestExceptionError>()("InvalidRequestException", InvalidRequestException.fields) {};
+export class ConcurrentModificationExceptionError extends Schema.TaggedError<ConcurrentModificationExceptionError>()("ConcurrentModificationException", ConcurrentModificationException.fields) {};
+export class RequestTokenNotFoundExceptionError extends Schema.TaggedError<RequestTokenNotFoundExceptionError>()("RequestTokenNotFoundException", RequestTokenNotFoundException.fields) {};
+export class NetworkFailureExceptionError extends Schema.TaggedError<NetworkFailureExceptionError>()("NetworkFailureException", NetworkFailureException.fields) {};
+export class NotStabilizedExceptionError extends Schema.TaggedError<NotStabilizedExceptionError>()("NotStabilizedException", NotStabilizedException.fields) {};
+export class NotUpdatableExceptionError extends Schema.TaggedError<NotUpdatableExceptionError>()("NotUpdatableException", NotUpdatableException.fields) {};
+export class PrivateTypeExceptionError extends Schema.TaggedError<PrivateTypeExceptionError>()("PrivateTypeException", PrivateTypeException.fields) {};
+export class ResourceConflictExceptionError extends Schema.TaggedError<ResourceConflictExceptionError>()("ResourceConflictException", ResourceConflictException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ServiceInternalErrorExceptionError extends Schema.TaggedError<ServiceInternalErrorExceptionError>()("ServiceInternalErrorException", ServiceInternalErrorException.fields) {};
+export class ServiceLimitExceededExceptionError extends Schema.TaggedError<ServiceLimitExceededExceptionError>()("ServiceLimitExceededException", ServiceLimitExceededException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class TypeNotFoundExceptionError extends Schema.TaggedError<TypeNotFoundExceptionError>()("TypeNotFoundException", TypeNotFoundException.fields) {};
+export class UnsupportedActionExceptionError extends Schema.TaggedError<UnsupportedActionExceptionError>()("UnsupportedActionException", UnsupportedActionException.fields) {};
 
 //# Operations
 export const listResourceRequests = /*#__PURE__*/ makeOperation(() => Operation({ version: "2021-09-30", uri: "/", method: "POST", sdkId: "CloudControl", sigV4ServiceName: "cloudcontrolapi", name: "CloudApiService.ListResourceRequests" }, ListResourceRequestsInput, ListResourceRequestsOutput, []), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);

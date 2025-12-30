@@ -4,76 +4,76 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 
 //# Schemas
 export const TagKeyList = Schema.Array(Schema.String);
-export const DeleteImageSetRequest = Schema.Struct({datastoreId: Schema.String, imageSetId: Schema.String});
-export const GetDICOMImportJobRequest = Schema.Struct({datastoreId: Schema.String, jobId: Schema.String});
-export const GetImageSetRequest = Schema.Struct({datastoreId: Schema.String, imageSetId: Schema.String, versionId: Schema.optional(Schema.String)});
-export const GetImageSetMetadataRequest = Schema.Struct({datastoreId: Schema.String, imageSetId: Schema.String, versionId: Schema.optional(Schema.String)});
-export const ListDICOMImportJobsRequest = Schema.Struct({datastoreId: Schema.String, jobStatus: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListImageSetVersionsRequest = Schema.Struct({datastoreId: Schema.String, imageSetId: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListTagsForResourceRequest = Schema.Struct({resourceArn: Schema.String});
-export const StartDICOMImportJobRequest = Schema.Struct({jobName: Schema.optional(Schema.String), dataAccessRoleArn: Schema.String, clientToken: Schema.String, datastoreId: Schema.String, inputS3Uri: Schema.String, outputS3Uri: Schema.String, inputOwnerAccountId: Schema.optional(Schema.String)});
-export const UntagResourceRequest = Schema.Struct({resourceArn: Schema.String, tagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
-export const ImageFrameInformation = Schema.Struct({imageFrameId: Schema.String});
+export class DeleteImageSetRequest extends Schema.Class<DeleteImageSetRequest>("DeleteImageSetRequest")({datastoreId: Schema.String, imageSetId: Schema.String}) {}
+export class GetDICOMImportJobRequest extends Schema.Class<GetDICOMImportJobRequest>("GetDICOMImportJobRequest")({datastoreId: Schema.String, jobId: Schema.String}) {}
+export class GetImageSetRequest extends Schema.Class<GetImageSetRequest>("GetImageSetRequest")({datastoreId: Schema.String, imageSetId: Schema.String, versionId: Schema.optional(Schema.String)}) {}
+export class GetImageSetMetadataRequest extends Schema.Class<GetImageSetMetadataRequest>("GetImageSetMetadataRequest")({datastoreId: Schema.String, imageSetId: Schema.String, versionId: Schema.optional(Schema.String)}) {}
+export class ListDICOMImportJobsRequest extends Schema.Class<ListDICOMImportJobsRequest>("ListDICOMImportJobsRequest")({datastoreId: Schema.String, jobStatus: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListImageSetVersionsRequest extends Schema.Class<ListImageSetVersionsRequest>("ListImageSetVersionsRequest")({datastoreId: Schema.String, imageSetId: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({resourceArn: Schema.String}) {}
+export class StartDICOMImportJobRequest extends Schema.Class<StartDICOMImportJobRequest>("StartDICOMImportJobRequest")({jobName: Schema.optional(Schema.String), dataAccessRoleArn: Schema.String, clientToken: Schema.String, datastoreId: Schema.String, inputS3Uri: Schema.String, outputS3Uri: Schema.String, inputOwnerAccountId: Schema.optional(Schema.String)}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({resourceArn: Schema.String, tagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class ImageFrameInformation extends Schema.Class<ImageFrameInformation>("ImageFrameInformation")({imageFrameId: Schema.String}) {}
 export const TagMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const DeleteImageSetResponse = Schema.Struct({datastoreId: Schema.String, imageSetId: Schema.String, imageSetState: Schema.String, imageSetWorkflowStatus: Schema.String});
-export const GetImageFrameRequest = Schema.Struct({datastoreId: Schema.String, imageSetId: Schema.String, imageFrameInformation: Body("undefined", ImageFrameInformation)});
-export const GetImageSetMetadataResponse = Schema.Struct({imageSetMetadataBlob: Body("undefined", StreamBody()), contentType: Schema.optional(Header("Content-Type")), contentEncoding: Schema.optional(Header("Content-Encoding"))});
-export const ListTagsForResourceResponse = Schema.Struct({tags: TagMap});
-export const StartDICOMImportJobResponse = Schema.Struct({datastoreId: Schema.String, jobId: Schema.String, jobStatus: Schema.String, submittedAt: Schema.Date});
-export const TagResourceRequest = Schema.Struct({resourceArn: Schema.String, tags: TagMap});
-export const TagResourceResponse = Schema.Struct({});
-export const AccessDeniedException = Schema.Struct({message: Schema.String});
-export const CopyDestinationImageSet = Schema.Struct({imageSetId: Schema.String, latestVersionId: Schema.String});
-export const Sort = Schema.Struct({sortOrder: Schema.String, sortField: Schema.String});
-export const DICOMUpdates = Schema.Struct({removableAttributes: Schema.optional(StreamBody()), updatableAttributes: Schema.optional(StreamBody())});
-export const DICOMImportJobProperties = Schema.Struct({jobId: Schema.String, jobName: Schema.String, jobStatus: Schema.String, datastoreId: Schema.String, dataAccessRoleArn: Schema.String, endedAt: Schema.optional(Schema.Date), submittedAt: Schema.optional(Schema.Date), inputS3Uri: Schema.String, outputS3Uri: Schema.String, message: Schema.optional(Schema.String)});
-export const Overrides = Schema.Struct({forced: Schema.optional(Schema.Boolean)});
-export const DICOMImportJobSummary = Schema.Struct({jobId: Schema.String, jobName: Schema.String, jobStatus: Schema.String, datastoreId: Schema.String, dataAccessRoleArn: Schema.optional(Schema.String), endedAt: Schema.optional(Schema.Date), submittedAt: Schema.optional(Schema.Date), message: Schema.optional(Schema.String)});
+export class DeleteImageSetResponse extends Schema.Class<DeleteImageSetResponse>("DeleteImageSetResponse")({datastoreId: Schema.String, imageSetId: Schema.String, imageSetState: Schema.String, imageSetWorkflowStatus: Schema.String}) {}
+export class GetImageFrameRequest extends Schema.Class<GetImageFrameRequest>("GetImageFrameRequest")({datastoreId: Schema.String, imageSetId: Schema.String, imageFrameInformation: Body("undefined", ImageFrameInformation)}) {}
+export class GetImageSetMetadataResponse extends Schema.Class<GetImageSetMetadataResponse>("GetImageSetMetadataResponse")({imageSetMetadataBlob: Body("undefined", StreamBody()), contentType: Schema.optional(Header("Content-Type")), contentEncoding: Schema.optional(Header("Content-Encoding"))}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({tags: TagMap}) {}
+export class StartDICOMImportJobResponse extends Schema.Class<StartDICOMImportJobResponse>("StartDICOMImportJobResponse")({datastoreId: Schema.String, jobId: Schema.String, jobStatus: Schema.String, submittedAt: Schema.Date}) {}
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({resourceArn: Schema.String, tags: TagMap}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({message: Schema.String}) {}
+export class CopyDestinationImageSet extends Schema.Class<CopyDestinationImageSet>("CopyDestinationImageSet")({imageSetId: Schema.String, latestVersionId: Schema.String}) {}
+export class Sort extends Schema.Class<Sort>("Sort")({sortOrder: Schema.String, sortField: Schema.String}) {}
+export class DICOMUpdates extends Schema.Class<DICOMUpdates>("DICOMUpdates")({removableAttributes: Schema.optional(StreamBody()), updatableAttributes: Schema.optional(StreamBody())}) {}
+export class DICOMImportJobProperties extends Schema.Class<DICOMImportJobProperties>("DICOMImportJobProperties")({jobId: Schema.String, jobName: Schema.String, jobStatus: Schema.String, datastoreId: Schema.String, dataAccessRoleArn: Schema.String, endedAt: Schema.optional(Schema.Date), submittedAt: Schema.optional(Schema.Date), inputS3Uri: Schema.String, outputS3Uri: Schema.String, message: Schema.optional(Schema.String)}) {}
+export class Overrides extends Schema.Class<Overrides>("Overrides")({forced: Schema.optional(Schema.Boolean)}) {}
+export class DICOMImportJobSummary extends Schema.Class<DICOMImportJobSummary>("DICOMImportJobSummary")({jobId: Schema.String, jobName: Schema.String, jobStatus: Schema.String, datastoreId: Schema.String, dataAccessRoleArn: Schema.optional(Schema.String), endedAt: Schema.optional(Schema.Date), submittedAt: Schema.optional(Schema.Date), message: Schema.optional(Schema.String)}) {}
 export const DICOMImportJobSummaries = Schema.Array(DICOMImportJobSummary);
-export const ImageSetProperties = Schema.Struct({imageSetId: Schema.String, versionId: Schema.String, imageSetState: Schema.String, ImageSetWorkflowStatus: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date), updatedAt: Schema.optional(Schema.Date), deletedAt: Schema.optional(Schema.Date), message: Schema.optional(Schema.String), overrides: Schema.optional(Overrides), isPrimary: Schema.optional(Schema.Boolean)});
+export class ImageSetProperties extends Schema.Class<ImageSetProperties>("ImageSetProperties")({imageSetId: Schema.String, versionId: Schema.String, imageSetState: Schema.String, ImageSetWorkflowStatus: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date), updatedAt: Schema.optional(Schema.Date), deletedAt: Schema.optional(Schema.Date), message: Schema.optional(Schema.String), overrides: Schema.optional(Overrides), isPrimary: Schema.optional(Schema.Boolean)}) {}
 export const ImageSetPropertiesList = Schema.Array(ImageSetProperties);
 export const MetadataUpdates = Schema.Union(DICOMUpdates, Schema.String);
-export const MetadataCopies = Schema.Struct({copiableAttributes: Schema.String});
-export const ConflictException = Schema.Struct({message: Schema.String});
-export const GetDICOMImportJobResponse = Schema.Struct({jobProperties: DICOMImportJobProperties});
-export const GetImageFrameResponse = Schema.Struct({imageFrameBlob: Body("undefined", StreamBody()), contentType: Schema.optional(Header("Content-Type"))});
-export const GetImageSetResponse = Schema.Struct({datastoreId: Schema.String, imageSetId: Schema.String, versionId: Schema.String, imageSetState: Schema.String, imageSetWorkflowStatus: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date), updatedAt: Schema.optional(Schema.Date), deletedAt: Schema.optional(Schema.Date), message: Schema.optional(Schema.String), imageSetArn: Schema.optional(Schema.String), overrides: Schema.optional(Overrides), isPrimary: Schema.optional(Schema.Boolean)});
-export const InternalServerException = Schema.Struct({message: Schema.String});
-export const ListDICOMImportJobsResponse = Schema.Struct({jobSummaries: DICOMImportJobSummaries, nextToken: Schema.optional(Schema.String)});
-export const ListImageSetVersionsResponse = Schema.Struct({imageSetPropertiesList: ImageSetPropertiesList, nextToken: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.String});
-export const ServiceQuotaExceededException = Schema.Struct({message: Schema.String});
-export const ThrottlingException = Schema.Struct({message: Schema.String});
-export const ValidationException = Schema.Struct({message: Schema.String});
-export const UpdateImageSetMetadataRequest = Schema.Struct({datastoreId: Schema.String, imageSetId: Schema.String, latestVersionId: Schema.String, force: Schema.optional(Schema.Boolean), updateImageSetMetadataUpdates: Body("undefined", MetadataUpdates)});
-export const CopySourceImageSetInformation = Schema.Struct({latestVersionId: Schema.String, DICOMCopies: Schema.optional(MetadataCopies)});
-export const DICOMStudyDateAndTime = Schema.Struct({DICOMStudyDate: Schema.String, DICOMStudyTime: Schema.optional(Schema.String)});
-export const CopyImageSetInformation = Schema.Struct({sourceImageSet: CopySourceImageSetInformation, destinationImageSet: Schema.optional(CopyDestinationImageSet)});
+export class MetadataCopies extends Schema.Class<MetadataCopies>("MetadataCopies")({copiableAttributes: Schema.String}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({message: Schema.String}) {}
+export class GetDICOMImportJobResponse extends Schema.Class<GetDICOMImportJobResponse>("GetDICOMImportJobResponse")({jobProperties: DICOMImportJobProperties}) {}
+export class GetImageFrameResponse extends Schema.Class<GetImageFrameResponse>("GetImageFrameResponse")({imageFrameBlob: Body("undefined", StreamBody()), contentType: Schema.optional(Header("Content-Type"))}) {}
+export class GetImageSetResponse extends Schema.Class<GetImageSetResponse>("GetImageSetResponse")({datastoreId: Schema.String, imageSetId: Schema.String, versionId: Schema.String, imageSetState: Schema.String, imageSetWorkflowStatus: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date), updatedAt: Schema.optional(Schema.Date), deletedAt: Schema.optional(Schema.Date), message: Schema.optional(Schema.String), imageSetArn: Schema.optional(Schema.String), overrides: Schema.optional(Overrides), isPrimary: Schema.optional(Schema.Boolean), lastAccessedAt: Schema.optional(Schema.Date), storageTier: Schema.optional(Schema.String)}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({message: Schema.String}) {}
+export class ListDICOMImportJobsResponse extends Schema.Class<ListDICOMImportJobsResponse>("ListDICOMImportJobsResponse")({jobSummaries: DICOMImportJobSummaries, nextToken: Schema.optional(Schema.String)}) {}
+export class ListImageSetVersionsResponse extends Schema.Class<ListImageSetVersionsResponse>("ListImageSetVersionsResponse")({imageSetPropertiesList: ImageSetPropertiesList, nextToken: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.String}) {}
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({message: Schema.String}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({message: Schema.String}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({message: Schema.String}) {}
+export class UpdateImageSetMetadataRequest extends Schema.Class<UpdateImageSetMetadataRequest>("UpdateImageSetMetadataRequest")({datastoreId: Schema.String, imageSetId: Schema.String, latestVersionId: Schema.String, force: Schema.optional(Schema.Boolean), updateImageSetMetadataUpdates: Body("undefined", MetadataUpdates)}) {}
+export class CopySourceImageSetInformation extends Schema.Class<CopySourceImageSetInformation>("CopySourceImageSetInformation")({latestVersionId: Schema.String, DICOMCopies: Schema.optional(MetadataCopies)}) {}
+export class DICOMStudyDateAndTime extends Schema.Class<DICOMStudyDateAndTime>("DICOMStudyDateAndTime")({DICOMStudyDate: Schema.String, DICOMStudyTime: Schema.optional(Schema.String)}) {}
+export class CopyImageSetInformation extends Schema.Class<CopyImageSetInformation>("CopyImageSetInformation")({sourceImageSet: CopySourceImageSetInformation, destinationImageSet: Schema.optional(CopyDestinationImageSet)}) {}
 export const SearchByAttributeValue = Schema.Union(Schema.String, Schema.String, Schema.String, Schema.String, Schema.String, Schema.Date, Schema.Date, DICOMStudyDateAndTime, Schema.Boolean);
 export const SearchByAttributeValues = Schema.Array(SearchByAttributeValue);
-export const CopyImageSetRequest = Schema.Struct({datastoreId: Schema.String, sourceImageSetId: Schema.String, copyImageSetInformation: Body("undefined", CopyImageSetInformation), force: Schema.optional(Schema.Boolean), promoteToPrimary: Schema.optional(Schema.Boolean)});
-export const UpdateImageSetMetadataResponse = Schema.Struct({datastoreId: Schema.String, imageSetId: Schema.String, latestVersionId: Schema.String, imageSetState: Schema.String, imageSetWorkflowStatus: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date), updatedAt: Schema.optional(Schema.Date), message: Schema.optional(Schema.String)});
-export const SearchFilter = Schema.Struct({values: SearchByAttributeValues, operator: Schema.String});
+export class CopyImageSetRequest extends Schema.Class<CopyImageSetRequest>("CopyImageSetRequest")({datastoreId: Schema.String, sourceImageSetId: Schema.String, copyImageSetInformation: Body("undefined", CopyImageSetInformation), force: Schema.optional(Schema.Boolean), promoteToPrimary: Schema.optional(Schema.Boolean)}) {}
+export class UpdateImageSetMetadataResponse extends Schema.Class<UpdateImageSetMetadataResponse>("UpdateImageSetMetadataResponse")({datastoreId: Schema.String, imageSetId: Schema.String, latestVersionId: Schema.String, imageSetState: Schema.String, imageSetWorkflowStatus: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date), updatedAt: Schema.optional(Schema.Date), message: Schema.optional(Schema.String)}) {}
+export class SearchFilter extends Schema.Class<SearchFilter>("SearchFilter")({values: SearchByAttributeValues, operator: Schema.String}) {}
 export const SearchFilters = Schema.Array(SearchFilter);
-export const SearchCriteria = Schema.Struct({filters: Schema.optional(SearchFilters), sort: Schema.optional(Sort)});
-export const SearchImageSetsRequest = Schema.Struct({datastoreId: Schema.String, searchCriteria: Schema.optional(Body("undefined", SearchCriteria)), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const CopySourceImageSetProperties = Schema.Struct({imageSetId: Schema.String, latestVersionId: Schema.String, imageSetState: Schema.optional(Schema.String), imageSetWorkflowStatus: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date), updatedAt: Schema.optional(Schema.Date), imageSetArn: Schema.optional(Schema.String)});
-export const CopyDestinationImageSetProperties = Schema.Struct({imageSetId: Schema.String, latestVersionId: Schema.String, imageSetState: Schema.optional(Schema.String), imageSetWorkflowStatus: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date), updatedAt: Schema.optional(Schema.Date), imageSetArn: Schema.optional(Schema.String)});
-export const CopyImageSetResponse = Schema.Struct({datastoreId: Schema.String, sourceImageSetProperties: CopySourceImageSetProperties, destinationImageSetProperties: CopyDestinationImageSetProperties});
-export const DICOMTags = Schema.Struct({DICOMPatientId: Schema.optional(Schema.String), DICOMPatientName: Schema.optional(Schema.String), DICOMPatientBirthDate: Schema.optional(Schema.String), DICOMPatientSex: Schema.optional(Schema.String), DICOMStudyInstanceUID: Schema.optional(Schema.String), DICOMStudyId: Schema.optional(Schema.String), DICOMStudyDescription: Schema.optional(Schema.String), DICOMNumberOfStudyRelatedSeries: Schema.optional(Schema.Number), DICOMNumberOfStudyRelatedInstances: Schema.optional(Schema.Number), DICOMAccessionNumber: Schema.optional(Schema.String), DICOMSeriesInstanceUID: Schema.optional(Schema.String), DICOMSeriesModality: Schema.optional(Schema.String), DICOMSeriesBodyPart: Schema.optional(Schema.String), DICOMSeriesNumber: Schema.optional(Schema.Number), DICOMStudyDate: Schema.optional(Schema.String), DICOMStudyTime: Schema.optional(Schema.String)});
-export const ImageSetsMetadataSummary = Schema.Struct({imageSetId: Schema.String, version: Schema.optional(Schema.Number), createdAt: Schema.optional(Schema.Date), updatedAt: Schema.optional(Schema.Date), DICOMTags: Schema.optional(DICOMTags), isPrimary: Schema.optional(Schema.Boolean)});
+export class SearchCriteria extends Schema.Class<SearchCriteria>("SearchCriteria")({filters: Schema.optional(SearchFilters), sort: Schema.optional(Sort)}) {}
+export class SearchImageSetsRequest extends Schema.Class<SearchImageSetsRequest>("SearchImageSetsRequest")({datastoreId: Schema.String, searchCriteria: Schema.optional(Body("undefined", SearchCriteria)), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class CopySourceImageSetProperties extends Schema.Class<CopySourceImageSetProperties>("CopySourceImageSetProperties")({imageSetId: Schema.String, latestVersionId: Schema.String, imageSetState: Schema.optional(Schema.String), imageSetWorkflowStatus: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date), updatedAt: Schema.optional(Schema.Date), imageSetArn: Schema.optional(Schema.String)}) {}
+export class CopyDestinationImageSetProperties extends Schema.Class<CopyDestinationImageSetProperties>("CopyDestinationImageSetProperties")({imageSetId: Schema.String, latestVersionId: Schema.String, imageSetState: Schema.optional(Schema.String), imageSetWorkflowStatus: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date), updatedAt: Schema.optional(Schema.Date), imageSetArn: Schema.optional(Schema.String)}) {}
+export class CopyImageSetResponse extends Schema.Class<CopyImageSetResponse>("CopyImageSetResponse")({datastoreId: Schema.String, sourceImageSetProperties: CopySourceImageSetProperties, destinationImageSetProperties: CopyDestinationImageSetProperties}) {}
+export class DICOMTags extends Schema.Class<DICOMTags>("DICOMTags")({DICOMPatientId: Schema.optional(Schema.String), DICOMPatientName: Schema.optional(Schema.String), DICOMPatientBirthDate: Schema.optional(Schema.String), DICOMPatientSex: Schema.optional(Schema.String), DICOMStudyInstanceUID: Schema.optional(Schema.String), DICOMStudyId: Schema.optional(Schema.String), DICOMStudyDescription: Schema.optional(Schema.String), DICOMNumberOfStudyRelatedSeries: Schema.optional(Schema.Number), DICOMNumberOfStudyRelatedInstances: Schema.optional(Schema.Number), DICOMAccessionNumber: Schema.optional(Schema.String), DICOMSeriesInstanceUID: Schema.optional(Schema.String), DICOMSeriesModality: Schema.optional(Schema.String), DICOMSeriesBodyPart: Schema.optional(Schema.String), DICOMSeriesNumber: Schema.optional(Schema.Number), DICOMStudyDate: Schema.optional(Schema.String), DICOMStudyTime: Schema.optional(Schema.String)}) {}
+export class ImageSetsMetadataSummary extends Schema.Class<ImageSetsMetadataSummary>("ImageSetsMetadataSummary")({imageSetId: Schema.String, version: Schema.optional(Schema.Number), createdAt: Schema.optional(Schema.Date), updatedAt: Schema.optional(Schema.Date), lastAccessedAt: Schema.optional(Schema.Date), storageTier: Schema.optional(Schema.String), DICOMTags: Schema.optional(DICOMTags), isPrimary: Schema.optional(Schema.Boolean)}) {}
 export const ImageSetsMetadataSummaries = Schema.Array(ImageSetsMetadataSummary);
-export const SearchImageSetsResponse = Schema.Struct({imageSetsMetadataSummaries: ImageSetsMetadataSummaries, sort: Schema.optional(Sort), nextToken: Schema.optional(Schema.String)});
+export class SearchImageSetsResponse extends Schema.Class<SearchImageSetsResponse>("SearchImageSetsResponse")({imageSetsMetadataSummaries: ImageSetsMetadataSummaries, sort: Schema.optional(Sort), nextToken: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
 
 //# Operations
 export const deleteImageSet = /*#__PURE__*/ makeOperation(() => Operation({ version: "2023-07-19", uri: "/datastore/{datastoreId}/imageSet/{imageSetId}/deleteImageSet", method: "POST", sdkId: "Medical Imaging", sigV4ServiceName: "medical-imaging", name: "AHIGatewayService.DeleteImageSet" }, DeleteImageSetRequest, DeleteImageSetResponse, [AccessDeniedExceptionError, ConflictExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

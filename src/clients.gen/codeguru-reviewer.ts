@@ -13,83 +13,83 @@ export const Names = Schema.Array(Schema.String);
 export const Owners = Schema.Array(Schema.String);
 export const Reactions = Schema.Array(Schema.String);
 export const TagKeyList = Schema.Array(Schema.String);
-export const DescribeCodeReviewRequest = Schema.Struct({CodeReviewArn: Schema.String});
-export const DescribeRecommendationFeedbackRequest = Schema.Struct({CodeReviewArn: Schema.String, RecommendationId: Schema.String, UserId: Schema.optional(Schema.String)});
-export const DescribeRepositoryAssociationRequest = Schema.Struct({AssociationArn: Schema.String});
-export const DisassociateRepositoryRequest = Schema.Struct({AssociationArn: Schema.String});
-export const ListCodeReviewsRequest = Schema.Struct({ProviderTypes: Schema.optional(ProviderTypes), States: Schema.optional(JobStates), RepositoryNames: Schema.optional(RepositoryNames), Type: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListRecommendationFeedbackRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), CodeReviewArn: Schema.String, UserIds: Schema.optional(UserIds), RecommendationIds: Schema.optional(RecommendationIds)});
-export const ListRecommendationsRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), CodeReviewArn: Schema.String});
-export const ListRepositoryAssociationsRequest = Schema.Struct({ProviderTypes: Schema.optional(ProviderTypes), States: Schema.optional(RepositoryAssociationStates), Names: Schema.optional(Names), Owners: Schema.optional(Owners), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceRequest = Schema.Struct({resourceArn: Schema.String});
-export const PutRecommendationFeedbackRequest = Schema.Struct({CodeReviewArn: Schema.String, RecommendationId: Schema.String, Reactions: Reactions});
-export const PutRecommendationFeedbackResponse = Schema.Struct({});
+export class DescribeCodeReviewRequest extends Schema.Class<DescribeCodeReviewRequest>("DescribeCodeReviewRequest")({CodeReviewArn: Schema.String}) {}
+export class DescribeRecommendationFeedbackRequest extends Schema.Class<DescribeRecommendationFeedbackRequest>("DescribeRecommendationFeedbackRequest")({CodeReviewArn: Schema.String, RecommendationId: Schema.String, UserId: Schema.optional(Schema.String)}) {}
+export class DescribeRepositoryAssociationRequest extends Schema.Class<DescribeRepositoryAssociationRequest>("DescribeRepositoryAssociationRequest")({AssociationArn: Schema.String}) {}
+export class DisassociateRepositoryRequest extends Schema.Class<DisassociateRepositoryRequest>("DisassociateRepositoryRequest")({AssociationArn: Schema.String}) {}
+export class ListCodeReviewsRequest extends Schema.Class<ListCodeReviewsRequest>("ListCodeReviewsRequest")({ProviderTypes: Schema.optional(ProviderTypes), States: Schema.optional(JobStates), RepositoryNames: Schema.optional(RepositoryNames), Type: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListRecommendationFeedbackRequest extends Schema.Class<ListRecommendationFeedbackRequest>("ListRecommendationFeedbackRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), CodeReviewArn: Schema.String, UserIds: Schema.optional(UserIds), RecommendationIds: Schema.optional(RecommendationIds)}) {}
+export class ListRecommendationsRequest extends Schema.Class<ListRecommendationsRequest>("ListRecommendationsRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), CodeReviewArn: Schema.String}) {}
+export class ListRepositoryAssociationsRequest extends Schema.Class<ListRepositoryAssociationsRequest>("ListRepositoryAssociationsRequest")({ProviderTypes: Schema.optional(ProviderTypes), States: Schema.optional(RepositoryAssociationStates), Names: Schema.optional(Names), Owners: Schema.optional(Owners), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({resourceArn: Schema.String}) {}
+export class PutRecommendationFeedbackRequest extends Schema.Class<PutRecommendationFeedbackRequest>("PutRecommendationFeedbackRequest")({CodeReviewArn: Schema.String, RecommendationId: Schema.String, Reactions: Reactions}) {}
+export class PutRecommendationFeedbackResponse extends Schema.Class<PutRecommendationFeedbackResponse>("PutRecommendationFeedbackResponse")({}) {}
 export const TagMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const TagResourceRequest = Schema.Struct({resourceArn: Schema.String, Tags: TagMap});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({resourceArn: Schema.String, TagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({resourceArn: Schema.String, Tags: TagMap}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({resourceArn: Schema.String, TagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
 export const AnalysisTypes = Schema.Array(Schema.String);
-export const KMSKeyDetails = Schema.Struct({KMSKeyId: Schema.optional(Schema.String), EncryptionOption: Schema.optional(Schema.String)});
-export const CodeArtifacts = Schema.Struct({SourceCodeArtifactsObjectKey: Schema.String, BuildArtifactsObjectKey: Schema.optional(Schema.String)});
-export const S3RepositoryDetails = Schema.Struct({BucketName: Schema.optional(Schema.String), CodeArtifacts: Schema.optional(CodeArtifacts)});
-export const RepositoryAssociation = Schema.Struct({AssociationId: Schema.optional(Schema.String), AssociationArn: Schema.optional(Schema.String), ConnectionArn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Owner: Schema.optional(Schema.String), ProviderType: Schema.optional(Schema.String), State: Schema.optional(Schema.String), StateReason: Schema.optional(Schema.String), LastUpdatedTimeStamp: Schema.optional(Schema.Date), CreatedTimeStamp: Schema.optional(Schema.Date), KMSKeyDetails: Schema.optional(KMSKeyDetails), S3RepositoryDetails: Schema.optional(S3RepositoryDetails)});
-export const DisassociateRepositoryResponse = Schema.Struct({RepositoryAssociation: Schema.optional(RepositoryAssociation), Tags: Schema.optional(TagMap)});
-export const ListTagsForResourceResponse = Schema.Struct({Tags: Schema.optional(TagMap)});
-export const AccessDeniedException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const InternalServerException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const CodeCommitRepository = Schema.Struct({Name: Schema.String});
-export const ThirdPartySourceRepository = Schema.Struct({Name: Schema.String, ConnectionArn: Schema.String, Owner: Schema.String});
-export const S3Repository = Schema.Struct({Name: Schema.String, BucketName: Schema.String});
-export const Repository = Schema.Struct({CodeCommit: Schema.optional(CodeCommitRepository), Bitbucket: Schema.optional(ThirdPartySourceRepository), GitHubEnterpriseServer: Schema.optional(ThirdPartySourceRepository), S3Bucket: Schema.optional(S3Repository)});
-export const RecommendationFeedback = Schema.Struct({CodeReviewArn: Schema.optional(Schema.String), RecommendationId: Schema.optional(Schema.String), Reactions: Schema.optional(Reactions), UserId: Schema.optional(Schema.String), CreatedTimeStamp: Schema.optional(Schema.Date), LastUpdatedTimeStamp: Schema.optional(Schema.Date)});
-export const RecommendationFeedbackSummary = Schema.Struct({RecommendationId: Schema.optional(Schema.String), Reactions: Schema.optional(Reactions), UserId: Schema.optional(Schema.String)});
+export class KMSKeyDetails extends Schema.Class<KMSKeyDetails>("KMSKeyDetails")({KMSKeyId: Schema.optional(Schema.String), EncryptionOption: Schema.optional(Schema.String)}) {}
+export class CodeArtifacts extends Schema.Class<CodeArtifacts>("CodeArtifacts")({SourceCodeArtifactsObjectKey: Schema.String, BuildArtifactsObjectKey: Schema.optional(Schema.String)}) {}
+export class S3RepositoryDetails extends Schema.Class<S3RepositoryDetails>("S3RepositoryDetails")({BucketName: Schema.optional(Schema.String), CodeArtifacts: Schema.optional(CodeArtifacts)}) {}
+export class RepositoryAssociation extends Schema.Class<RepositoryAssociation>("RepositoryAssociation")({AssociationId: Schema.optional(Schema.String), AssociationArn: Schema.optional(Schema.String), ConnectionArn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Owner: Schema.optional(Schema.String), ProviderType: Schema.optional(Schema.String), State: Schema.optional(Schema.String), StateReason: Schema.optional(Schema.String), LastUpdatedTimeStamp: Schema.optional(Schema.Date), CreatedTimeStamp: Schema.optional(Schema.Date), KMSKeyDetails: Schema.optional(KMSKeyDetails), S3RepositoryDetails: Schema.optional(S3RepositoryDetails)}) {}
+export class DisassociateRepositoryResponse extends Schema.Class<DisassociateRepositoryResponse>("DisassociateRepositoryResponse")({RepositoryAssociation: Schema.optional(RepositoryAssociation), Tags: Schema.optional(TagMap)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({Tags: Schema.optional(TagMap)}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({Message: Schema.optional(Schema.String)}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({Message: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class CodeCommitRepository extends Schema.Class<CodeCommitRepository>("CodeCommitRepository")({Name: Schema.String}) {}
+export class ThirdPartySourceRepository extends Schema.Class<ThirdPartySourceRepository>("ThirdPartySourceRepository")({Name: Schema.String, ConnectionArn: Schema.String, Owner: Schema.String}) {}
+export class S3Repository extends Schema.Class<S3Repository>("S3Repository")({Name: Schema.String, BucketName: Schema.String}) {}
+export class Repository extends Schema.Class<Repository>("Repository")({CodeCommit: Schema.optional(CodeCommitRepository), Bitbucket: Schema.optional(ThirdPartySourceRepository), GitHubEnterpriseServer: Schema.optional(ThirdPartySourceRepository), S3Bucket: Schema.optional(S3Repository)}) {}
+export class RecommendationFeedback extends Schema.Class<RecommendationFeedback>("RecommendationFeedback")({CodeReviewArn: Schema.optional(Schema.String), RecommendationId: Schema.optional(Schema.String), Reactions: Schema.optional(Reactions), UserId: Schema.optional(Schema.String), CreatedTimeStamp: Schema.optional(Schema.Date), LastUpdatedTimeStamp: Schema.optional(Schema.Date)}) {}
+export class RecommendationFeedbackSummary extends Schema.Class<RecommendationFeedbackSummary>("RecommendationFeedbackSummary")({RecommendationId: Schema.optional(Schema.String), Reactions: Schema.optional(Reactions), UserId: Schema.optional(Schema.String)}) {}
 export const RecommendationFeedbackSummaries = Schema.Array(RecommendationFeedbackSummary);
-export const RepositoryAssociationSummary = Schema.Struct({AssociationArn: Schema.optional(Schema.String), ConnectionArn: Schema.optional(Schema.String), LastUpdatedTimeStamp: Schema.optional(Schema.Date), AssociationId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Owner: Schema.optional(Schema.String), ProviderType: Schema.optional(Schema.String), State: Schema.optional(Schema.String)});
+export class RepositoryAssociationSummary extends Schema.Class<RepositoryAssociationSummary>("RepositoryAssociationSummary")({AssociationArn: Schema.optional(Schema.String), ConnectionArn: Schema.optional(Schema.String), LastUpdatedTimeStamp: Schema.optional(Schema.Date), AssociationId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Owner: Schema.optional(Schema.String), ProviderType: Schema.optional(Schema.String), State: Schema.optional(Schema.String)}) {}
 export const RepositoryAssociationSummaries = Schema.Array(RepositoryAssociationSummary);
-export const RepositoryHeadSourceCodeType = Schema.Struct({BranchName: Schema.String});
+export class RepositoryHeadSourceCodeType extends Schema.Class<RepositoryHeadSourceCodeType>("RepositoryHeadSourceCodeType")({BranchName: Schema.String}) {}
 export const RuleTags = Schema.Array(Schema.String);
-export const AssociateRepositoryRequest = Schema.Struct({Repository: Repository, ClientRequestToken: Schema.optional(Schema.String), Tags: Schema.optional(TagMap), KMSKeyDetails: Schema.optional(KMSKeyDetails)});
-export const DescribeRecommendationFeedbackResponse = Schema.Struct({RecommendationFeedback: Schema.optional(RecommendationFeedback)});
-export const ConflictException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ListRecommendationFeedbackResponse = Schema.Struct({RecommendationFeedbackSummaries: Schema.optional(RecommendationFeedbackSummaries), NextToken: Schema.optional(Schema.String)});
-export const ListRepositoryAssociationsResponse = Schema.Struct({RepositoryAssociationSummaries: Schema.optional(RepositoryAssociationSummaries), NextToken: Schema.optional(Schema.String)});
-export const ValidationException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ThrottlingException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const Metrics = Schema.Struct({MeteredLinesOfCodeCount: Schema.optional(Schema.Number), SuppressedLinesOfCodeCount: Schema.optional(Schema.Number), FindingsCount: Schema.optional(Schema.Number)});
-export const MetricsSummary = Schema.Struct({MeteredLinesOfCodeCount: Schema.optional(Schema.Number), SuppressedLinesOfCodeCount: Schema.optional(Schema.Number), FindingsCount: Schema.optional(Schema.Number)});
-export const RuleMetadata = Schema.Struct({RuleId: Schema.optional(Schema.String), RuleName: Schema.optional(Schema.String), ShortDescription: Schema.optional(Schema.String), LongDescription: Schema.optional(Schema.String), RuleTags: Schema.optional(RuleTags)});
-export const CommitDiffSourceCodeType = Schema.Struct({SourceCommit: Schema.optional(Schema.String), DestinationCommit: Schema.optional(Schema.String), MergeBaseCommit: Schema.optional(Schema.String)});
-export const BranchDiffSourceCodeType = Schema.Struct({SourceBranchName: Schema.String, DestinationBranchName: Schema.String});
-export const S3BucketRepository = Schema.Struct({Name: Schema.String, Details: Schema.optional(S3RepositoryDetails)});
-export const EventInfo = Schema.Struct({Name: Schema.optional(Schema.String), State: Schema.optional(Schema.String)});
-export const RequestMetadata = Schema.Struct({RequestId: Schema.optional(Schema.String), Requester: Schema.optional(Schema.String), EventInfo: Schema.optional(EventInfo), VendorName: Schema.optional(Schema.String)});
-export const SourceCodeType = Schema.Struct({CommitDiff: Schema.optional(CommitDiffSourceCodeType), RepositoryHead: Schema.optional(RepositoryHeadSourceCodeType), BranchDiff: Schema.optional(BranchDiffSourceCodeType), S3BucketRepository: Schema.optional(S3BucketRepository), RequestMetadata: Schema.optional(RequestMetadata)});
-export const CodeReview = Schema.Struct({Name: Schema.optional(Schema.String), CodeReviewArn: Schema.optional(Schema.String), RepositoryName: Schema.optional(Schema.String), Owner: Schema.optional(Schema.String), ProviderType: Schema.optional(Schema.String), State: Schema.optional(Schema.String), StateReason: Schema.optional(Schema.String), CreatedTimeStamp: Schema.optional(Schema.Date), LastUpdatedTimeStamp: Schema.optional(Schema.Date), Type: Schema.optional(Schema.String), PullRequestId: Schema.optional(Schema.String), SourceCodeType: Schema.optional(SourceCodeType), AssociationArn: Schema.optional(Schema.String), Metrics: Schema.optional(Metrics), AnalysisTypes: Schema.optional(AnalysisTypes), ConfigFileState: Schema.optional(Schema.String)});
-export const CodeReviewSummary = Schema.Struct({Name: Schema.optional(Schema.String), CodeReviewArn: Schema.optional(Schema.String), RepositoryName: Schema.optional(Schema.String), Owner: Schema.optional(Schema.String), ProviderType: Schema.optional(Schema.String), State: Schema.optional(Schema.String), CreatedTimeStamp: Schema.optional(Schema.Date), LastUpdatedTimeStamp: Schema.optional(Schema.Date), Type: Schema.optional(Schema.String), PullRequestId: Schema.optional(Schema.String), MetricsSummary: Schema.optional(MetricsSummary), SourceCodeType: Schema.optional(SourceCodeType)});
+export class AssociateRepositoryRequest extends Schema.Class<AssociateRepositoryRequest>("AssociateRepositoryRequest")({Repository: Repository, ClientRequestToken: Schema.optional(Schema.String), Tags: Schema.optional(TagMap), KMSKeyDetails: Schema.optional(KMSKeyDetails)}) {}
+export class DescribeRecommendationFeedbackResponse extends Schema.Class<DescribeRecommendationFeedbackResponse>("DescribeRecommendationFeedbackResponse")({RecommendationFeedback: Schema.optional(RecommendationFeedback)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({Message: Schema.optional(Schema.String)}) {}
+export class ListRecommendationFeedbackResponse extends Schema.Class<ListRecommendationFeedbackResponse>("ListRecommendationFeedbackResponse")({RecommendationFeedbackSummaries: Schema.optional(RecommendationFeedbackSummaries), NextToken: Schema.optional(Schema.String)}) {}
+export class ListRepositoryAssociationsResponse extends Schema.Class<ListRepositoryAssociationsResponse>("ListRepositoryAssociationsResponse")({RepositoryAssociationSummaries: Schema.optional(RepositoryAssociationSummaries), NextToken: Schema.optional(Schema.String)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({Message: Schema.optional(Schema.String)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({Message: Schema.optional(Schema.String)}) {}
+export class Metrics extends Schema.Class<Metrics>("Metrics")({MeteredLinesOfCodeCount: Schema.optional(Schema.Number), SuppressedLinesOfCodeCount: Schema.optional(Schema.Number), FindingsCount: Schema.optional(Schema.Number)}) {}
+export class MetricsSummary extends Schema.Class<MetricsSummary>("MetricsSummary")({MeteredLinesOfCodeCount: Schema.optional(Schema.Number), SuppressedLinesOfCodeCount: Schema.optional(Schema.Number), FindingsCount: Schema.optional(Schema.Number)}) {}
+export class RuleMetadata extends Schema.Class<RuleMetadata>("RuleMetadata")({RuleId: Schema.optional(Schema.String), RuleName: Schema.optional(Schema.String), ShortDescription: Schema.optional(Schema.String), LongDescription: Schema.optional(Schema.String), RuleTags: Schema.optional(RuleTags)}) {}
+export class CommitDiffSourceCodeType extends Schema.Class<CommitDiffSourceCodeType>("CommitDiffSourceCodeType")({SourceCommit: Schema.optional(Schema.String), DestinationCommit: Schema.optional(Schema.String), MergeBaseCommit: Schema.optional(Schema.String)}) {}
+export class BranchDiffSourceCodeType extends Schema.Class<BranchDiffSourceCodeType>("BranchDiffSourceCodeType")({SourceBranchName: Schema.String, DestinationBranchName: Schema.String}) {}
+export class S3BucketRepository extends Schema.Class<S3BucketRepository>("S3BucketRepository")({Name: Schema.String, Details: Schema.optional(S3RepositoryDetails)}) {}
+export class EventInfo extends Schema.Class<EventInfo>("EventInfo")({Name: Schema.optional(Schema.String), State: Schema.optional(Schema.String)}) {}
+export class RequestMetadata extends Schema.Class<RequestMetadata>("RequestMetadata")({RequestId: Schema.optional(Schema.String), Requester: Schema.optional(Schema.String), EventInfo: Schema.optional(EventInfo), VendorName: Schema.optional(Schema.String)}) {}
+export class SourceCodeType extends Schema.Class<SourceCodeType>("SourceCodeType")({CommitDiff: Schema.optional(CommitDiffSourceCodeType), RepositoryHead: Schema.optional(RepositoryHeadSourceCodeType), BranchDiff: Schema.optional(BranchDiffSourceCodeType), S3BucketRepository: Schema.optional(S3BucketRepository), RequestMetadata: Schema.optional(RequestMetadata)}) {}
+export class CodeReview extends Schema.Class<CodeReview>("CodeReview")({Name: Schema.optional(Schema.String), CodeReviewArn: Schema.optional(Schema.String), RepositoryName: Schema.optional(Schema.String), Owner: Schema.optional(Schema.String), ProviderType: Schema.optional(Schema.String), State: Schema.optional(Schema.String), StateReason: Schema.optional(Schema.String), CreatedTimeStamp: Schema.optional(Schema.Date), LastUpdatedTimeStamp: Schema.optional(Schema.Date), Type: Schema.optional(Schema.String), PullRequestId: Schema.optional(Schema.String), SourceCodeType: Schema.optional(SourceCodeType), AssociationArn: Schema.optional(Schema.String), Metrics: Schema.optional(Metrics), AnalysisTypes: Schema.optional(AnalysisTypes), ConfigFileState: Schema.optional(Schema.String)}) {}
+export class CodeReviewSummary extends Schema.Class<CodeReviewSummary>("CodeReviewSummary")({Name: Schema.optional(Schema.String), CodeReviewArn: Schema.optional(Schema.String), RepositoryName: Schema.optional(Schema.String), Owner: Schema.optional(Schema.String), ProviderType: Schema.optional(Schema.String), State: Schema.optional(Schema.String), CreatedTimeStamp: Schema.optional(Schema.Date), LastUpdatedTimeStamp: Schema.optional(Schema.Date), Type: Schema.optional(Schema.String), PullRequestId: Schema.optional(Schema.String), MetricsSummary: Schema.optional(MetricsSummary), SourceCodeType: Schema.optional(SourceCodeType)}) {}
 export const CodeReviewSummaries = Schema.Array(CodeReviewSummary);
-export const RecommendationSummary = Schema.Struct({FilePath: Schema.optional(Schema.String), RecommendationId: Schema.optional(Schema.String), StartLine: Schema.optional(Schema.Number), EndLine: Schema.optional(Schema.Number), Description: Schema.optional(Schema.String), RecommendationCategory: Schema.optional(Schema.String), RuleMetadata: Schema.optional(RuleMetadata), Severity: Schema.optional(Schema.String)});
+export class RecommendationSummary extends Schema.Class<RecommendationSummary>("RecommendationSummary")({FilePath: Schema.optional(Schema.String), RecommendationId: Schema.optional(Schema.String), StartLine: Schema.optional(Schema.Number), EndLine: Schema.optional(Schema.Number), Description: Schema.optional(Schema.String), RecommendationCategory: Schema.optional(Schema.String), RuleMetadata: Schema.optional(RuleMetadata), Severity: Schema.optional(Schema.String)}) {}
 export const RecommendationSummaries = Schema.Array(RecommendationSummary);
-export const AssociateRepositoryResponse = Schema.Struct({RepositoryAssociation: Schema.optional(RepositoryAssociation), Tags: Schema.optional(TagMap)});
-export const DescribeCodeReviewResponse = Schema.Struct({CodeReview: Schema.optional(CodeReview)});
-export const NotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ListCodeReviewsResponse = Schema.Struct({CodeReviewSummaries: Schema.optional(CodeReviewSummaries), NextToken: Schema.optional(Schema.String)});
-export const ListRecommendationsResponse = Schema.Struct({RecommendationSummaries: Schema.optional(RecommendationSummaries), NextToken: Schema.optional(Schema.String)});
-export const DescribeRepositoryAssociationResponse = Schema.Struct({RepositoryAssociation: Schema.optional(RepositoryAssociation), Tags: Schema.optional(TagMap)});
-export const RepositoryAnalysis = Schema.Struct({RepositoryHead: Schema.optional(RepositoryHeadSourceCodeType), SourceCodeType: Schema.optional(SourceCodeType)});
-export const CodeReviewType = Schema.Struct({RepositoryAnalysis: RepositoryAnalysis, AnalysisTypes: Schema.optional(AnalysisTypes)});
-export const CreateCodeReviewRequest = Schema.Struct({Name: Schema.String, RepositoryAssociationArn: Schema.String, Type: CodeReviewType, ClientRequestToken: Schema.optional(Schema.String)});
-export const CreateCodeReviewResponse = Schema.Struct({CodeReview: Schema.optional(CodeReview)});
+export class AssociateRepositoryResponse extends Schema.Class<AssociateRepositoryResponse>("AssociateRepositoryResponse")({RepositoryAssociation: Schema.optional(RepositoryAssociation), Tags: Schema.optional(TagMap)}) {}
+export class DescribeCodeReviewResponse extends Schema.Class<DescribeCodeReviewResponse>("DescribeCodeReviewResponse")({CodeReview: Schema.optional(CodeReview)}) {}
+export class NotFoundException extends Schema.Class<NotFoundException>("NotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class ListCodeReviewsResponse extends Schema.Class<ListCodeReviewsResponse>("ListCodeReviewsResponse")({CodeReviewSummaries: Schema.optional(CodeReviewSummaries), NextToken: Schema.optional(Schema.String)}) {}
+export class ListRecommendationsResponse extends Schema.Class<ListRecommendationsResponse>("ListRecommendationsResponse")({RecommendationSummaries: Schema.optional(RecommendationSummaries), NextToken: Schema.optional(Schema.String)}) {}
+export class DescribeRepositoryAssociationResponse extends Schema.Class<DescribeRepositoryAssociationResponse>("DescribeRepositoryAssociationResponse")({RepositoryAssociation: Schema.optional(RepositoryAssociation), Tags: Schema.optional(TagMap)}) {}
+export class RepositoryAnalysis extends Schema.Class<RepositoryAnalysis>("RepositoryAnalysis")({RepositoryHead: Schema.optional(RepositoryHeadSourceCodeType), SourceCodeType: Schema.optional(SourceCodeType)}) {}
+export class CodeReviewType extends Schema.Class<CodeReviewType>("CodeReviewType")({RepositoryAnalysis: RepositoryAnalysis, AnalysisTypes: Schema.optional(AnalysisTypes)}) {}
+export class CreateCodeReviewRequest extends Schema.Class<CreateCodeReviewRequest>("CreateCodeReviewRequest")({Name: Schema.String, RepositoryAssociationArn: Schema.String, Type: CodeReviewType, ClientRequestToken: Schema.optional(Schema.String)}) {}
+export class CreateCodeReviewResponse extends Schema.Class<CreateCodeReviewResponse>("CreateCodeReviewResponse")({CodeReview: Schema.optional(CodeReview)}) {}
 
 //# Errors
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class NotFoundExceptionError extends Schema.TaggedError<NotFoundExceptionError>()("NotFoundException", NotFoundException) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class NotFoundExceptionError extends Schema.TaggedError<NotFoundExceptionError>()("NotFoundException", NotFoundException.fields) {};
 
 //# Operations
 export const tagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-09-19", uri: "/tags/{resourceArn}", method: "POST", sdkId: "CodeGuru Reviewer", sigV4ServiceName: "codeguru-reviewer", name: "AWSGuruFrontendService.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalServerExceptionError, ResourceNotFoundExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

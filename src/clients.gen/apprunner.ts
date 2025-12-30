@@ -5,140 +5,140 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 //# Schemas
 export const StringList = Schema.Array(Schema.String);
 export const TagKeyList = Schema.Array(Schema.String);
-export const AssociateCustomDomainRequest = Schema.Struct({ServiceArn: Schema.String, DomainName: Schema.String, EnableWWWSubdomain: Schema.optional(Schema.Boolean)});
-export const Tag = Schema.Struct({Key: Schema.optional(Schema.String), Value: Schema.optional(Schema.String)});
+export class AssociateCustomDomainRequest extends Schema.Class<AssociateCustomDomainRequest>("AssociateCustomDomainRequest")({ServiceArn: Schema.String, DomainName: Schema.String, EnableWWWSubdomain: Schema.optional(Schema.Boolean)}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.optional(Schema.String), Value: Schema.optional(Schema.String)}) {}
 export const TagList = Schema.Array(Tag);
-export const CreateConnectionRequest = Schema.Struct({ConnectionName: Schema.String, ProviderType: Schema.String, Tags: Schema.optional(TagList)});
-export const CreateVpcConnectorRequest = Schema.Struct({VpcConnectorName: Schema.String, Subnets: StringList, SecurityGroups: Schema.optional(StringList), Tags: Schema.optional(TagList)});
-export const DeleteAutoScalingConfigurationRequest = Schema.Struct({AutoScalingConfigurationArn: Schema.String, DeleteAllRevisions: Schema.optional(Schema.Boolean)});
-export const DeleteConnectionRequest = Schema.Struct({ConnectionArn: Schema.String});
-export const DeleteObservabilityConfigurationRequest = Schema.Struct({ObservabilityConfigurationArn: Schema.String});
-export const DeleteServiceRequest = Schema.Struct({ServiceArn: Schema.String});
-export const DeleteVpcConnectorRequest = Schema.Struct({VpcConnectorArn: Schema.String});
-export const DeleteVpcIngressConnectionRequest = Schema.Struct({VpcIngressConnectionArn: Schema.String});
-export const DescribeAutoScalingConfigurationRequest = Schema.Struct({AutoScalingConfigurationArn: Schema.String});
-export const DescribeCustomDomainsRequest = Schema.Struct({ServiceArn: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const DescribeObservabilityConfigurationRequest = Schema.Struct({ObservabilityConfigurationArn: Schema.String});
-export const DescribeServiceRequest = Schema.Struct({ServiceArn: Schema.String});
-export const DescribeVpcConnectorRequest = Schema.Struct({VpcConnectorArn: Schema.String});
-export const DescribeVpcIngressConnectionRequest = Schema.Struct({VpcIngressConnectionArn: Schema.String});
-export const DisassociateCustomDomainRequest = Schema.Struct({ServiceArn: Schema.String, DomainName: Schema.String});
-export const ListAutoScalingConfigurationsRequest = Schema.Struct({AutoScalingConfigurationName: Schema.optional(Schema.String), LatestOnly: Schema.optional(Schema.Boolean), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListConnectionsRequest = Schema.Struct({ConnectionName: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListObservabilityConfigurationsRequest = Schema.Struct({ObservabilityConfigurationName: Schema.optional(Schema.String), LatestOnly: Schema.optional(Schema.Boolean), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListOperationsRequest = Schema.Struct({ServiceArn: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListServicesRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListServicesForAutoScalingConfigurationRequest = Schema.Struct({AutoScalingConfigurationArn: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceRequest = Schema.Struct({ResourceArn: Schema.String});
-export const ListVpcConnectorsRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const PauseServiceRequest = Schema.Struct({ServiceArn: Schema.String});
-export const ResumeServiceRequest = Schema.Struct({ServiceArn: Schema.String});
-export const StartDeploymentRequest = Schema.Struct({ServiceArn: Schema.String});
-export const TagResourceRequest = Schema.Struct({ResourceArn: Schema.String, Tags: TagList});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({ResourceArn: Schema.String, TagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
-export const UpdateDefaultAutoScalingConfigurationRequest = Schema.Struct({AutoScalingConfigurationArn: Schema.String});
-export const SourceCodeVersion = Schema.Struct({Type: Schema.String, Value: Schema.String});
+export class CreateConnectionRequest extends Schema.Class<CreateConnectionRequest>("CreateConnectionRequest")({ConnectionName: Schema.String, ProviderType: Schema.String, Tags: Schema.optional(TagList)}) {}
+export class CreateVpcConnectorRequest extends Schema.Class<CreateVpcConnectorRequest>("CreateVpcConnectorRequest")({VpcConnectorName: Schema.String, Subnets: StringList, SecurityGroups: Schema.optional(StringList), Tags: Schema.optional(TagList)}) {}
+export class DeleteAutoScalingConfigurationRequest extends Schema.Class<DeleteAutoScalingConfigurationRequest>("DeleteAutoScalingConfigurationRequest")({AutoScalingConfigurationArn: Schema.String, DeleteAllRevisions: Schema.optional(Schema.Boolean)}) {}
+export class DeleteConnectionRequest extends Schema.Class<DeleteConnectionRequest>("DeleteConnectionRequest")({ConnectionArn: Schema.String}) {}
+export class DeleteObservabilityConfigurationRequest extends Schema.Class<DeleteObservabilityConfigurationRequest>("DeleteObservabilityConfigurationRequest")({ObservabilityConfigurationArn: Schema.String}) {}
+export class DeleteServiceRequest extends Schema.Class<DeleteServiceRequest>("DeleteServiceRequest")({ServiceArn: Schema.String}) {}
+export class DeleteVpcConnectorRequest extends Schema.Class<DeleteVpcConnectorRequest>("DeleteVpcConnectorRequest")({VpcConnectorArn: Schema.String}) {}
+export class DeleteVpcIngressConnectionRequest extends Schema.Class<DeleteVpcIngressConnectionRequest>("DeleteVpcIngressConnectionRequest")({VpcIngressConnectionArn: Schema.String}) {}
+export class DescribeAutoScalingConfigurationRequest extends Schema.Class<DescribeAutoScalingConfigurationRequest>("DescribeAutoScalingConfigurationRequest")({AutoScalingConfigurationArn: Schema.String}) {}
+export class DescribeCustomDomainsRequest extends Schema.Class<DescribeCustomDomainsRequest>("DescribeCustomDomainsRequest")({ServiceArn: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class DescribeObservabilityConfigurationRequest extends Schema.Class<DescribeObservabilityConfigurationRequest>("DescribeObservabilityConfigurationRequest")({ObservabilityConfigurationArn: Schema.String}) {}
+export class DescribeServiceRequest extends Schema.Class<DescribeServiceRequest>("DescribeServiceRequest")({ServiceArn: Schema.String}) {}
+export class DescribeVpcConnectorRequest extends Schema.Class<DescribeVpcConnectorRequest>("DescribeVpcConnectorRequest")({VpcConnectorArn: Schema.String}) {}
+export class DescribeVpcIngressConnectionRequest extends Schema.Class<DescribeVpcIngressConnectionRequest>("DescribeVpcIngressConnectionRequest")({VpcIngressConnectionArn: Schema.String}) {}
+export class DisassociateCustomDomainRequest extends Schema.Class<DisassociateCustomDomainRequest>("DisassociateCustomDomainRequest")({ServiceArn: Schema.String, DomainName: Schema.String}) {}
+export class ListAutoScalingConfigurationsRequest extends Schema.Class<ListAutoScalingConfigurationsRequest>("ListAutoScalingConfigurationsRequest")({AutoScalingConfigurationName: Schema.optional(Schema.String), LatestOnly: Schema.optional(Schema.Boolean), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListConnectionsRequest extends Schema.Class<ListConnectionsRequest>("ListConnectionsRequest")({ConnectionName: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListObservabilityConfigurationsRequest extends Schema.Class<ListObservabilityConfigurationsRequest>("ListObservabilityConfigurationsRequest")({ObservabilityConfigurationName: Schema.optional(Schema.String), LatestOnly: Schema.optional(Schema.Boolean), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListOperationsRequest extends Schema.Class<ListOperationsRequest>("ListOperationsRequest")({ServiceArn: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListServicesRequest extends Schema.Class<ListServicesRequest>("ListServicesRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListServicesForAutoScalingConfigurationRequest extends Schema.Class<ListServicesForAutoScalingConfigurationRequest>("ListServicesForAutoScalingConfigurationRequest")({AutoScalingConfigurationArn: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({ResourceArn: Schema.String}) {}
+export class ListVpcConnectorsRequest extends Schema.Class<ListVpcConnectorsRequest>("ListVpcConnectorsRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class PauseServiceRequest extends Schema.Class<PauseServiceRequest>("PauseServiceRequest")({ServiceArn: Schema.String}) {}
+export class ResumeServiceRequest extends Schema.Class<ResumeServiceRequest>("ResumeServiceRequest")({ServiceArn: Schema.String}) {}
+export class StartDeploymentRequest extends Schema.Class<StartDeploymentRequest>("StartDeploymentRequest")({ServiceArn: Schema.String}) {}
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({ResourceArn: Schema.String, Tags: TagList}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({ResourceArn: Schema.String, TagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class UpdateDefaultAutoScalingConfigurationRequest extends Schema.Class<UpdateDefaultAutoScalingConfigurationRequest>("UpdateDefaultAutoScalingConfigurationRequest")({AutoScalingConfigurationArn: Schema.String}) {}
+export class SourceCodeVersion extends Schema.Class<SourceCodeVersion>("SourceCodeVersion")({Type: Schema.String, Value: Schema.String}) {}
 export const RuntimeEnvironmentVariables = Schema.Record({key: Schema.String, value: Schema.String});
 export const RuntimeEnvironmentSecrets = Schema.Record({key: Schema.String, value: Schema.String});
-export const CodeConfigurationValues = Schema.Struct({Runtime: Schema.String, BuildCommand: Schema.optional(Schema.String), StartCommand: Schema.optional(Schema.String), Port: Schema.optional(Schema.String), RuntimeEnvironmentVariables: Schema.optional(RuntimeEnvironmentVariables), RuntimeEnvironmentSecrets: Schema.optional(RuntimeEnvironmentSecrets)});
-export const CodeConfiguration = Schema.Struct({ConfigurationSource: Schema.String, CodeConfigurationValues: Schema.optional(CodeConfigurationValues)});
-export const CodeRepository = Schema.Struct({RepositoryUrl: Schema.String, SourceCodeVersion: SourceCodeVersion, CodeConfiguration: Schema.optional(CodeConfiguration), SourceDirectory: Schema.optional(Schema.String)});
-export const ImageConfiguration = Schema.Struct({RuntimeEnvironmentVariables: Schema.optional(RuntimeEnvironmentVariables), StartCommand: Schema.optional(Schema.String), Port: Schema.optional(Schema.String), RuntimeEnvironmentSecrets: Schema.optional(RuntimeEnvironmentSecrets)});
-export const ImageRepository = Schema.Struct({ImageIdentifier: Schema.String, ImageConfiguration: Schema.optional(ImageConfiguration), ImageRepositoryType: Schema.String});
-export const AuthenticationConfiguration = Schema.Struct({ConnectionArn: Schema.optional(Schema.String), AccessRoleArn: Schema.optional(Schema.String)});
-export const SourceConfiguration = Schema.Struct({CodeRepository: Schema.optional(CodeRepository), ImageRepository: Schema.optional(ImageRepository), AutoDeploymentsEnabled: Schema.optional(Schema.Boolean), AuthenticationConfiguration: Schema.optional(AuthenticationConfiguration)});
-export const InstanceConfiguration = Schema.Struct({Cpu: Schema.optional(Schema.String), Memory: Schema.optional(Schema.String), InstanceRoleArn: Schema.optional(Schema.String)});
-export const HealthCheckConfiguration = Schema.Struct({Protocol: Schema.optional(Schema.String), Path: Schema.optional(Schema.String), Interval: Schema.optional(Schema.Number), Timeout: Schema.optional(Schema.Number), HealthyThreshold: Schema.optional(Schema.Number), UnhealthyThreshold: Schema.optional(Schema.Number)});
-export const EgressConfiguration = Schema.Struct({EgressType: Schema.optional(Schema.String), VpcConnectorArn: Schema.optional(Schema.String)});
-export const IngressConfiguration = Schema.Struct({IsPubliclyAccessible: Schema.optional(Schema.Boolean)});
-export const NetworkConfiguration = Schema.Struct({EgressConfiguration: Schema.optional(EgressConfiguration), IngressConfiguration: Schema.optional(IngressConfiguration), IpAddressType: Schema.optional(Schema.String)});
-export const ServiceObservabilityConfiguration = Schema.Struct({ObservabilityEnabled: Schema.Boolean, ObservabilityConfigurationArn: Schema.optional(Schema.String)});
-export const UpdateServiceRequest = Schema.Struct({ServiceArn: Schema.String, SourceConfiguration: Schema.optional(SourceConfiguration), InstanceConfiguration: Schema.optional(InstanceConfiguration), AutoScalingConfigurationArn: Schema.optional(Schema.String), HealthCheckConfiguration: Schema.optional(HealthCheckConfiguration), NetworkConfiguration: Schema.optional(NetworkConfiguration), ObservabilityConfiguration: Schema.optional(ServiceObservabilityConfiguration)});
-export const IngressVpcConfiguration = Schema.Struct({VpcId: Schema.optional(Schema.String), VpcEndpointId: Schema.optional(Schema.String)});
-export const UpdateVpcIngressConnectionRequest = Schema.Struct({VpcIngressConnectionArn: Schema.String, IngressVpcConfiguration: IngressVpcConfiguration});
-export const TraceConfiguration = Schema.Struct({Vendor: Schema.String});
-export const EncryptionConfiguration = Schema.Struct({KmsKey: Schema.String});
-export const CertificateValidationRecord = Schema.Struct({Name: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), Value: Schema.optional(Schema.String), Status: Schema.optional(Schema.String)});
+export class CodeConfigurationValues extends Schema.Class<CodeConfigurationValues>("CodeConfigurationValues")({Runtime: Schema.String, BuildCommand: Schema.optional(Schema.String), StartCommand: Schema.optional(Schema.String), Port: Schema.optional(Schema.String), RuntimeEnvironmentVariables: Schema.optional(RuntimeEnvironmentVariables), RuntimeEnvironmentSecrets: Schema.optional(RuntimeEnvironmentSecrets)}) {}
+export class CodeConfiguration extends Schema.Class<CodeConfiguration>("CodeConfiguration")({ConfigurationSource: Schema.String, CodeConfigurationValues: Schema.optional(CodeConfigurationValues)}) {}
+export class CodeRepository extends Schema.Class<CodeRepository>("CodeRepository")({RepositoryUrl: Schema.String, SourceCodeVersion: SourceCodeVersion, CodeConfiguration: Schema.optional(CodeConfiguration), SourceDirectory: Schema.optional(Schema.String)}) {}
+export class ImageConfiguration extends Schema.Class<ImageConfiguration>("ImageConfiguration")({RuntimeEnvironmentVariables: Schema.optional(RuntimeEnvironmentVariables), StartCommand: Schema.optional(Schema.String), Port: Schema.optional(Schema.String), RuntimeEnvironmentSecrets: Schema.optional(RuntimeEnvironmentSecrets)}) {}
+export class ImageRepository extends Schema.Class<ImageRepository>("ImageRepository")({ImageIdentifier: Schema.String, ImageConfiguration: Schema.optional(ImageConfiguration), ImageRepositoryType: Schema.String}) {}
+export class AuthenticationConfiguration extends Schema.Class<AuthenticationConfiguration>("AuthenticationConfiguration")({ConnectionArn: Schema.optional(Schema.String), AccessRoleArn: Schema.optional(Schema.String)}) {}
+export class SourceConfiguration extends Schema.Class<SourceConfiguration>("SourceConfiguration")({CodeRepository: Schema.optional(CodeRepository), ImageRepository: Schema.optional(ImageRepository), AutoDeploymentsEnabled: Schema.optional(Schema.Boolean), AuthenticationConfiguration: Schema.optional(AuthenticationConfiguration)}) {}
+export class InstanceConfiguration extends Schema.Class<InstanceConfiguration>("InstanceConfiguration")({Cpu: Schema.optional(Schema.String), Memory: Schema.optional(Schema.String), InstanceRoleArn: Schema.optional(Schema.String)}) {}
+export class HealthCheckConfiguration extends Schema.Class<HealthCheckConfiguration>("HealthCheckConfiguration")({Protocol: Schema.optional(Schema.String), Path: Schema.optional(Schema.String), Interval: Schema.optional(Schema.Number), Timeout: Schema.optional(Schema.Number), HealthyThreshold: Schema.optional(Schema.Number), UnhealthyThreshold: Schema.optional(Schema.Number)}) {}
+export class EgressConfiguration extends Schema.Class<EgressConfiguration>("EgressConfiguration")({EgressType: Schema.optional(Schema.String), VpcConnectorArn: Schema.optional(Schema.String)}) {}
+export class IngressConfiguration extends Schema.Class<IngressConfiguration>("IngressConfiguration")({IsPubliclyAccessible: Schema.optional(Schema.Boolean)}) {}
+export class NetworkConfiguration extends Schema.Class<NetworkConfiguration>("NetworkConfiguration")({EgressConfiguration: Schema.optional(EgressConfiguration), IngressConfiguration: Schema.optional(IngressConfiguration), IpAddressType: Schema.optional(Schema.String)}) {}
+export class ServiceObservabilityConfiguration extends Schema.Class<ServiceObservabilityConfiguration>("ServiceObservabilityConfiguration")({ObservabilityEnabled: Schema.Boolean, ObservabilityConfigurationArn: Schema.optional(Schema.String)}) {}
+export class UpdateServiceRequest extends Schema.Class<UpdateServiceRequest>("UpdateServiceRequest")({ServiceArn: Schema.String, SourceConfiguration: Schema.optional(SourceConfiguration), InstanceConfiguration: Schema.optional(InstanceConfiguration), AutoScalingConfigurationArn: Schema.optional(Schema.String), HealthCheckConfiguration: Schema.optional(HealthCheckConfiguration), NetworkConfiguration: Schema.optional(NetworkConfiguration), ObservabilityConfiguration: Schema.optional(ServiceObservabilityConfiguration)}) {}
+export class IngressVpcConfiguration extends Schema.Class<IngressVpcConfiguration>("IngressVpcConfiguration")({VpcId: Schema.optional(Schema.String), VpcEndpointId: Schema.optional(Schema.String)}) {}
+export class UpdateVpcIngressConnectionRequest extends Schema.Class<UpdateVpcIngressConnectionRequest>("UpdateVpcIngressConnectionRequest")({VpcIngressConnectionArn: Schema.String, IngressVpcConfiguration: IngressVpcConfiguration}) {}
+export class TraceConfiguration extends Schema.Class<TraceConfiguration>("TraceConfiguration")({Vendor: Schema.String}) {}
+export class EncryptionConfiguration extends Schema.Class<EncryptionConfiguration>("EncryptionConfiguration")({KmsKey: Schema.String}) {}
+export class CertificateValidationRecord extends Schema.Class<CertificateValidationRecord>("CertificateValidationRecord")({Name: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), Value: Schema.optional(Schema.String), Status: Schema.optional(Schema.String)}) {}
 export const CertificateValidationRecordList = Schema.Array(CertificateValidationRecord);
-export const CustomDomain = Schema.Struct({DomainName: Schema.String, EnableWWWSubdomain: Schema.Boolean, CertificateValidationRecords: Schema.optional(CertificateValidationRecordList), Status: Schema.String});
+export class CustomDomain extends Schema.Class<CustomDomain>("CustomDomain")({DomainName: Schema.String, EnableWWWSubdomain: Schema.Boolean, CertificateValidationRecords: Schema.optional(CertificateValidationRecordList), Status: Schema.String}) {}
 export const CustomDomainList = Schema.Array(CustomDomain);
 export const ServiceArnList = Schema.Array(Schema.String);
-export const VpcConnector = Schema.Struct({VpcConnectorName: Schema.optional(Schema.String), VpcConnectorArn: Schema.optional(Schema.String), VpcConnectorRevision: Schema.optional(Schema.Number), Subnets: Schema.optional(StringList), SecurityGroups: Schema.optional(StringList), Status: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date), DeletedAt: Schema.optional(Schema.Date)});
+export class VpcConnector extends Schema.Class<VpcConnector>("VpcConnector")({VpcConnectorName: Schema.optional(Schema.String), VpcConnectorArn: Schema.optional(Schema.String), VpcConnectorRevision: Schema.optional(Schema.Number), Subnets: Schema.optional(StringList), SecurityGroups: Schema.optional(StringList), Status: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date), DeletedAt: Schema.optional(Schema.Date)}) {}
 export const VpcConnectors = Schema.Array(VpcConnector);
-export const ListVpcIngressConnectionsFilter = Schema.Struct({ServiceArn: Schema.optional(Schema.String), VpcEndpointId: Schema.optional(Schema.String)});
-export const CreateAutoScalingConfigurationRequest = Schema.Struct({AutoScalingConfigurationName: Schema.String, MaxConcurrency: Schema.optional(Schema.Number), MinSize: Schema.optional(Schema.Number), MaxSize: Schema.optional(Schema.Number), Tags: Schema.optional(TagList)});
-export const CreateObservabilityConfigurationRequest = Schema.Struct({ObservabilityConfigurationName: Schema.String, TraceConfiguration: Schema.optional(TraceConfiguration), Tags: Schema.optional(TagList)});
-export const CreateVpcIngressConnectionRequest = Schema.Struct({ServiceArn: Schema.String, VpcIngressConnectionName: Schema.String, IngressVpcConfiguration: IngressVpcConfiguration, Tags: Schema.optional(TagList)});
-export const Connection = Schema.Struct({ConnectionName: Schema.optional(Schema.String), ConnectionArn: Schema.optional(Schema.String), ProviderType: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date)});
-export const DeleteConnectionResponse = Schema.Struct({Connection: Schema.optional(Connection)});
-export const DeleteVpcConnectorResponse = Schema.Struct({VpcConnector: VpcConnector});
-export const AutoScalingConfiguration = Schema.Struct({AutoScalingConfigurationArn: Schema.optional(Schema.String), AutoScalingConfigurationName: Schema.optional(Schema.String), AutoScalingConfigurationRevision: Schema.optional(Schema.Number), Latest: Schema.optional(Schema.Boolean), Status: Schema.optional(Schema.String), MaxConcurrency: Schema.optional(Schema.Number), MinSize: Schema.optional(Schema.Number), MaxSize: Schema.optional(Schema.Number), CreatedAt: Schema.optional(Schema.Date), DeletedAt: Schema.optional(Schema.Date), HasAssociatedService: Schema.optional(Schema.Boolean), IsDefault: Schema.optional(Schema.Boolean)});
-export const DescribeAutoScalingConfigurationResponse = Schema.Struct({AutoScalingConfiguration: AutoScalingConfiguration});
-export const VpcDNSTarget = Schema.Struct({VpcIngressConnectionArn: Schema.optional(Schema.String), VpcId: Schema.optional(Schema.String), DomainName: Schema.optional(Schema.String)});
+export class ListVpcIngressConnectionsFilter extends Schema.Class<ListVpcIngressConnectionsFilter>("ListVpcIngressConnectionsFilter")({ServiceArn: Schema.optional(Schema.String), VpcEndpointId: Schema.optional(Schema.String)}) {}
+export class CreateAutoScalingConfigurationRequest extends Schema.Class<CreateAutoScalingConfigurationRequest>("CreateAutoScalingConfigurationRequest")({AutoScalingConfigurationName: Schema.String, MaxConcurrency: Schema.optional(Schema.Number), MinSize: Schema.optional(Schema.Number), MaxSize: Schema.optional(Schema.Number), Tags: Schema.optional(TagList)}) {}
+export class CreateObservabilityConfigurationRequest extends Schema.Class<CreateObservabilityConfigurationRequest>("CreateObservabilityConfigurationRequest")({ObservabilityConfigurationName: Schema.String, TraceConfiguration: Schema.optional(TraceConfiguration), Tags: Schema.optional(TagList)}) {}
+export class CreateVpcIngressConnectionRequest extends Schema.Class<CreateVpcIngressConnectionRequest>("CreateVpcIngressConnectionRequest")({ServiceArn: Schema.String, VpcIngressConnectionName: Schema.String, IngressVpcConfiguration: IngressVpcConfiguration, Tags: Schema.optional(TagList)}) {}
+export class Connection extends Schema.Class<Connection>("Connection")({ConnectionName: Schema.optional(Schema.String), ConnectionArn: Schema.optional(Schema.String), ProviderType: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date)}) {}
+export class DeleteConnectionResponse extends Schema.Class<DeleteConnectionResponse>("DeleteConnectionResponse")({Connection: Schema.optional(Connection)}) {}
+export class DeleteVpcConnectorResponse extends Schema.Class<DeleteVpcConnectorResponse>("DeleteVpcConnectorResponse")({VpcConnector: VpcConnector}) {}
+export class AutoScalingConfiguration extends Schema.Class<AutoScalingConfiguration>("AutoScalingConfiguration")({AutoScalingConfigurationArn: Schema.optional(Schema.String), AutoScalingConfigurationName: Schema.optional(Schema.String), AutoScalingConfigurationRevision: Schema.optional(Schema.Number), Latest: Schema.optional(Schema.Boolean), Status: Schema.optional(Schema.String), MaxConcurrency: Schema.optional(Schema.Number), MinSize: Schema.optional(Schema.Number), MaxSize: Schema.optional(Schema.Number), CreatedAt: Schema.optional(Schema.Date), DeletedAt: Schema.optional(Schema.Date), HasAssociatedService: Schema.optional(Schema.Boolean), IsDefault: Schema.optional(Schema.Boolean)}) {}
+export class DescribeAutoScalingConfigurationResponse extends Schema.Class<DescribeAutoScalingConfigurationResponse>("DescribeAutoScalingConfigurationResponse")({AutoScalingConfiguration: AutoScalingConfiguration}) {}
+export class VpcDNSTarget extends Schema.Class<VpcDNSTarget>("VpcDNSTarget")({VpcIngressConnectionArn: Schema.optional(Schema.String), VpcId: Schema.optional(Schema.String), DomainName: Schema.optional(Schema.String)}) {}
 export const VpcDNSTargetList = Schema.Array(VpcDNSTarget);
-export const DescribeCustomDomainsResponse = Schema.Struct({DNSTarget: Schema.String, ServiceArn: Schema.String, CustomDomains: CustomDomainList, VpcDNSTargets: VpcDNSTargetList, NextToken: Schema.optional(Schema.String)});
-export const ObservabilityConfiguration = Schema.Struct({ObservabilityConfigurationArn: Schema.optional(Schema.String), ObservabilityConfigurationName: Schema.optional(Schema.String), TraceConfiguration: Schema.optional(TraceConfiguration), ObservabilityConfigurationRevision: Schema.optional(Schema.Number), Latest: Schema.optional(Schema.Boolean), Status: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date), DeletedAt: Schema.optional(Schema.Date)});
-export const DescribeObservabilityConfigurationResponse = Schema.Struct({ObservabilityConfiguration: ObservabilityConfiguration});
-export const AutoScalingConfigurationSummary = Schema.Struct({AutoScalingConfigurationArn: Schema.optional(Schema.String), AutoScalingConfigurationName: Schema.optional(Schema.String), AutoScalingConfigurationRevision: Schema.optional(Schema.Number), Status: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date), HasAssociatedService: Schema.optional(Schema.Boolean), IsDefault: Schema.optional(Schema.Boolean)});
-export const Service = Schema.Struct({ServiceName: Schema.String, ServiceId: Schema.String, ServiceArn: Schema.String, ServiceUrl: Schema.optional(Schema.String), CreatedAt: Schema.Date, UpdatedAt: Schema.Date, DeletedAt: Schema.optional(Schema.Date), Status: Schema.String, SourceConfiguration: SourceConfiguration, InstanceConfiguration: InstanceConfiguration, EncryptionConfiguration: Schema.optional(EncryptionConfiguration), HealthCheckConfiguration: Schema.optional(HealthCheckConfiguration), AutoScalingConfigurationSummary: AutoScalingConfigurationSummary, NetworkConfiguration: NetworkConfiguration, ObservabilityConfiguration: Schema.optional(ServiceObservabilityConfiguration)});
-export const DescribeServiceResponse = Schema.Struct({Service: Service});
-export const DescribeVpcConnectorResponse = Schema.Struct({VpcConnector: VpcConnector});
-export const VpcIngressConnection = Schema.Struct({VpcIngressConnectionArn: Schema.optional(Schema.String), VpcIngressConnectionName: Schema.optional(Schema.String), ServiceArn: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), AccountId: Schema.optional(Schema.String), DomainName: Schema.optional(Schema.String), IngressVpcConfiguration: Schema.optional(IngressVpcConfiguration), CreatedAt: Schema.optional(Schema.Date), DeletedAt: Schema.optional(Schema.Date)});
-export const DescribeVpcIngressConnectionResponse = Schema.Struct({VpcIngressConnection: VpcIngressConnection});
-export const DisassociateCustomDomainResponse = Schema.Struct({DNSTarget: Schema.String, ServiceArn: Schema.String, CustomDomain: CustomDomain, VpcDNSTargets: VpcDNSTargetList});
-export const ListServicesForAutoScalingConfigurationResponse = Schema.Struct({ServiceArnList: ServiceArnList, NextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceResponse = Schema.Struct({Tags: Schema.optional(TagList)});
-export const ListVpcConnectorsResponse = Schema.Struct({VpcConnectors: VpcConnectors, NextToken: Schema.optional(Schema.String)});
-export const ListVpcIngressConnectionsRequest = Schema.Struct({Filter: Schema.optional(ListVpcIngressConnectionsFilter), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const PauseServiceResponse = Schema.Struct({Service: Service, OperationId: Schema.optional(Schema.String)});
-export const ResumeServiceResponse = Schema.Struct({Service: Service, OperationId: Schema.optional(Schema.String)});
-export const StartDeploymentResponse = Schema.Struct({OperationId: Schema.String});
-export const InternalServiceErrorException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const InvalidRequestException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const UpdateDefaultAutoScalingConfigurationResponse = Schema.Struct({AutoScalingConfiguration: AutoScalingConfiguration});
-export const UpdateServiceResponse = Schema.Struct({Service: Service, OperationId: Schema.String});
-export const UpdateVpcIngressConnectionResponse = Schema.Struct({VpcIngressConnection: VpcIngressConnection});
+export class DescribeCustomDomainsResponse extends Schema.Class<DescribeCustomDomainsResponse>("DescribeCustomDomainsResponse")({DNSTarget: Schema.String, ServiceArn: Schema.String, CustomDomains: CustomDomainList, VpcDNSTargets: VpcDNSTargetList, NextToken: Schema.optional(Schema.String)}) {}
+export class ObservabilityConfiguration extends Schema.Class<ObservabilityConfiguration>("ObservabilityConfiguration")({ObservabilityConfigurationArn: Schema.optional(Schema.String), ObservabilityConfigurationName: Schema.optional(Schema.String), TraceConfiguration: Schema.optional(TraceConfiguration), ObservabilityConfigurationRevision: Schema.optional(Schema.Number), Latest: Schema.optional(Schema.Boolean), Status: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date), DeletedAt: Schema.optional(Schema.Date)}) {}
+export class DescribeObservabilityConfigurationResponse extends Schema.Class<DescribeObservabilityConfigurationResponse>("DescribeObservabilityConfigurationResponse")({ObservabilityConfiguration: ObservabilityConfiguration}) {}
+export class AutoScalingConfigurationSummary extends Schema.Class<AutoScalingConfigurationSummary>("AutoScalingConfigurationSummary")({AutoScalingConfigurationArn: Schema.optional(Schema.String), AutoScalingConfigurationName: Schema.optional(Schema.String), AutoScalingConfigurationRevision: Schema.optional(Schema.Number), Status: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date), HasAssociatedService: Schema.optional(Schema.Boolean), IsDefault: Schema.optional(Schema.Boolean)}) {}
+export class Service extends Schema.Class<Service>("Service")({ServiceName: Schema.String, ServiceId: Schema.String, ServiceArn: Schema.String, ServiceUrl: Schema.optional(Schema.String), CreatedAt: Schema.Date, UpdatedAt: Schema.Date, DeletedAt: Schema.optional(Schema.Date), Status: Schema.String, SourceConfiguration: SourceConfiguration, InstanceConfiguration: InstanceConfiguration, EncryptionConfiguration: Schema.optional(EncryptionConfiguration), HealthCheckConfiguration: Schema.optional(HealthCheckConfiguration), AutoScalingConfigurationSummary: AutoScalingConfigurationSummary, NetworkConfiguration: NetworkConfiguration, ObservabilityConfiguration: Schema.optional(ServiceObservabilityConfiguration)}) {}
+export class DescribeServiceResponse extends Schema.Class<DescribeServiceResponse>("DescribeServiceResponse")({Service: Service}) {}
+export class DescribeVpcConnectorResponse extends Schema.Class<DescribeVpcConnectorResponse>("DescribeVpcConnectorResponse")({VpcConnector: VpcConnector}) {}
+export class VpcIngressConnection extends Schema.Class<VpcIngressConnection>("VpcIngressConnection")({VpcIngressConnectionArn: Schema.optional(Schema.String), VpcIngressConnectionName: Schema.optional(Schema.String), ServiceArn: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), AccountId: Schema.optional(Schema.String), DomainName: Schema.optional(Schema.String), IngressVpcConfiguration: Schema.optional(IngressVpcConfiguration), CreatedAt: Schema.optional(Schema.Date), DeletedAt: Schema.optional(Schema.Date)}) {}
+export class DescribeVpcIngressConnectionResponse extends Schema.Class<DescribeVpcIngressConnectionResponse>("DescribeVpcIngressConnectionResponse")({VpcIngressConnection: VpcIngressConnection}) {}
+export class DisassociateCustomDomainResponse extends Schema.Class<DisassociateCustomDomainResponse>("DisassociateCustomDomainResponse")({DNSTarget: Schema.String, ServiceArn: Schema.String, CustomDomain: CustomDomain, VpcDNSTargets: VpcDNSTargetList}) {}
+export class ListServicesForAutoScalingConfigurationResponse extends Schema.Class<ListServicesForAutoScalingConfigurationResponse>("ListServicesForAutoScalingConfigurationResponse")({ServiceArnList: ServiceArnList, NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({Tags: Schema.optional(TagList)}) {}
+export class ListVpcConnectorsResponse extends Schema.Class<ListVpcConnectorsResponse>("ListVpcConnectorsResponse")({VpcConnectors: VpcConnectors, NextToken: Schema.optional(Schema.String)}) {}
+export class ListVpcIngressConnectionsRequest extends Schema.Class<ListVpcIngressConnectionsRequest>("ListVpcIngressConnectionsRequest")({Filter: Schema.optional(ListVpcIngressConnectionsFilter), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class PauseServiceResponse extends Schema.Class<PauseServiceResponse>("PauseServiceResponse")({Service: Service, OperationId: Schema.optional(Schema.String)}) {}
+export class ResumeServiceResponse extends Schema.Class<ResumeServiceResponse>("ResumeServiceResponse")({Service: Service, OperationId: Schema.optional(Schema.String)}) {}
+export class StartDeploymentResponse extends Schema.Class<StartDeploymentResponse>("StartDeploymentResponse")({OperationId: Schema.String}) {}
+export class InternalServiceErrorException extends Schema.Class<InternalServiceErrorException>("InternalServiceErrorException")({Message: Schema.optional(Schema.String)}) {}
+export class InvalidRequestException extends Schema.Class<InvalidRequestException>("InvalidRequestException")({Message: Schema.optional(Schema.String)}) {}
+export class UpdateDefaultAutoScalingConfigurationResponse extends Schema.Class<UpdateDefaultAutoScalingConfigurationResponse>("UpdateDefaultAutoScalingConfigurationResponse")({AutoScalingConfiguration: AutoScalingConfiguration}) {}
+export class UpdateServiceResponse extends Schema.Class<UpdateServiceResponse>("UpdateServiceResponse")({Service: Service, OperationId: Schema.String}) {}
+export class UpdateVpcIngressConnectionResponse extends Schema.Class<UpdateVpcIngressConnectionResponse>("UpdateVpcIngressConnectionResponse")({VpcIngressConnection: VpcIngressConnection}) {}
 export const AutoScalingConfigurationSummaryList = Schema.Array(AutoScalingConfigurationSummary);
-export const ConnectionSummary = Schema.Struct({ConnectionName: Schema.optional(Schema.String), ConnectionArn: Schema.optional(Schema.String), ProviderType: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date)});
+export class ConnectionSummary extends Schema.Class<ConnectionSummary>("ConnectionSummary")({ConnectionName: Schema.optional(Schema.String), ConnectionArn: Schema.optional(Schema.String), ProviderType: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date)}) {}
 export const ConnectionSummaryList = Schema.Array(ConnectionSummary);
-export const ObservabilityConfigurationSummary = Schema.Struct({ObservabilityConfigurationArn: Schema.optional(Schema.String), ObservabilityConfigurationName: Schema.optional(Schema.String), ObservabilityConfigurationRevision: Schema.optional(Schema.Number)});
+export class ObservabilityConfigurationSummary extends Schema.Class<ObservabilityConfigurationSummary>("ObservabilityConfigurationSummary")({ObservabilityConfigurationArn: Schema.optional(Schema.String), ObservabilityConfigurationName: Schema.optional(Schema.String), ObservabilityConfigurationRevision: Schema.optional(Schema.Number)}) {}
 export const ObservabilityConfigurationSummaryList = Schema.Array(ObservabilityConfigurationSummary);
-export const OperationSummary = Schema.Struct({Id: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), TargetArn: Schema.optional(Schema.String), StartedAt: Schema.optional(Schema.Date), EndedAt: Schema.optional(Schema.Date), UpdatedAt: Schema.optional(Schema.Date)});
+export class OperationSummary extends Schema.Class<OperationSummary>("OperationSummary")({Id: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), TargetArn: Schema.optional(Schema.String), StartedAt: Schema.optional(Schema.Date), EndedAt: Schema.optional(Schema.Date), UpdatedAt: Schema.optional(Schema.Date)}) {}
 export const OperationSummaryList = Schema.Array(OperationSummary);
-export const ServiceSummary = Schema.Struct({ServiceName: Schema.optional(Schema.String), ServiceId: Schema.optional(Schema.String), ServiceArn: Schema.optional(Schema.String), ServiceUrl: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date), UpdatedAt: Schema.optional(Schema.Date), Status: Schema.optional(Schema.String)});
+export class ServiceSummary extends Schema.Class<ServiceSummary>("ServiceSummary")({ServiceName: Schema.optional(Schema.String), ServiceId: Schema.optional(Schema.String), ServiceArn: Schema.optional(Schema.String), ServiceUrl: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date), UpdatedAt: Schema.optional(Schema.Date), Status: Schema.optional(Schema.String)}) {}
 export const ServiceSummaryList = Schema.Array(ServiceSummary);
-export const CreateAutoScalingConfigurationResponse = Schema.Struct({AutoScalingConfiguration: AutoScalingConfiguration});
-export const CreateConnectionResponse = Schema.Struct({Connection: Connection});
-export const CreateObservabilityConfigurationResponse = Schema.Struct({ObservabilityConfiguration: ObservabilityConfiguration});
-export const CreateVpcConnectorResponse = Schema.Struct({VpcConnector: VpcConnector});
-export const CreateVpcIngressConnectionResponse = Schema.Struct({VpcIngressConnection: VpcIngressConnection});
-export const DeleteAutoScalingConfigurationResponse = Schema.Struct({AutoScalingConfiguration: AutoScalingConfiguration});
-export const ResourceNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DeleteObservabilityConfigurationResponse = Schema.Struct({ObservabilityConfiguration: ObservabilityConfiguration});
-export const DeleteServiceResponse = Schema.Struct({Service: Service, OperationId: Schema.String});
-export const DeleteVpcIngressConnectionResponse = Schema.Struct({VpcIngressConnection: VpcIngressConnection});
-export const InvalidStateException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ListAutoScalingConfigurationsResponse = Schema.Struct({AutoScalingConfigurationSummaryList: AutoScalingConfigurationSummaryList, NextToken: Schema.optional(Schema.String)});
-export const ListConnectionsResponse = Schema.Struct({ConnectionSummaryList: ConnectionSummaryList, NextToken: Schema.optional(Schema.String)});
-export const ListObservabilityConfigurationsResponse = Schema.Struct({ObservabilityConfigurationSummaryList: ObservabilityConfigurationSummaryList, NextToken: Schema.optional(Schema.String)});
-export const ListOperationsResponse = Schema.Struct({OperationSummaryList: Schema.optional(OperationSummaryList), NextToken: Schema.optional(Schema.String)});
-export const ListServicesResponse = Schema.Struct({ServiceSummaryList: ServiceSummaryList, NextToken: Schema.optional(Schema.String)});
-export const VpcIngressConnectionSummary = Schema.Struct({VpcIngressConnectionArn: Schema.optional(Schema.String), ServiceArn: Schema.optional(Schema.String)});
+export class CreateAutoScalingConfigurationResponse extends Schema.Class<CreateAutoScalingConfigurationResponse>("CreateAutoScalingConfigurationResponse")({AutoScalingConfiguration: AutoScalingConfiguration}) {}
+export class CreateConnectionResponse extends Schema.Class<CreateConnectionResponse>("CreateConnectionResponse")({Connection: Connection}) {}
+export class CreateObservabilityConfigurationResponse extends Schema.Class<CreateObservabilityConfigurationResponse>("CreateObservabilityConfigurationResponse")({ObservabilityConfiguration: ObservabilityConfiguration}) {}
+export class CreateVpcConnectorResponse extends Schema.Class<CreateVpcConnectorResponse>("CreateVpcConnectorResponse")({VpcConnector: VpcConnector}) {}
+export class CreateVpcIngressConnectionResponse extends Schema.Class<CreateVpcIngressConnectionResponse>("CreateVpcIngressConnectionResponse")({VpcIngressConnection: VpcIngressConnection}) {}
+export class DeleteAutoScalingConfigurationResponse extends Schema.Class<DeleteAutoScalingConfigurationResponse>("DeleteAutoScalingConfigurationResponse")({AutoScalingConfiguration: AutoScalingConfiguration}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class DeleteObservabilityConfigurationResponse extends Schema.Class<DeleteObservabilityConfigurationResponse>("DeleteObservabilityConfigurationResponse")({ObservabilityConfiguration: ObservabilityConfiguration}) {}
+export class DeleteServiceResponse extends Schema.Class<DeleteServiceResponse>("DeleteServiceResponse")({Service: Service, OperationId: Schema.String}) {}
+export class DeleteVpcIngressConnectionResponse extends Schema.Class<DeleteVpcIngressConnectionResponse>("DeleteVpcIngressConnectionResponse")({VpcIngressConnection: VpcIngressConnection}) {}
+export class InvalidStateException extends Schema.Class<InvalidStateException>("InvalidStateException")({Message: Schema.optional(Schema.String)}) {}
+export class ListAutoScalingConfigurationsResponse extends Schema.Class<ListAutoScalingConfigurationsResponse>("ListAutoScalingConfigurationsResponse")({AutoScalingConfigurationSummaryList: AutoScalingConfigurationSummaryList, NextToken: Schema.optional(Schema.String)}) {}
+export class ListConnectionsResponse extends Schema.Class<ListConnectionsResponse>("ListConnectionsResponse")({ConnectionSummaryList: ConnectionSummaryList, NextToken: Schema.optional(Schema.String)}) {}
+export class ListObservabilityConfigurationsResponse extends Schema.Class<ListObservabilityConfigurationsResponse>("ListObservabilityConfigurationsResponse")({ObservabilityConfigurationSummaryList: ObservabilityConfigurationSummaryList, NextToken: Schema.optional(Schema.String)}) {}
+export class ListOperationsResponse extends Schema.Class<ListOperationsResponse>("ListOperationsResponse")({OperationSummaryList: Schema.optional(OperationSummaryList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListServicesResponse extends Schema.Class<ListServicesResponse>("ListServicesResponse")({ServiceSummaryList: ServiceSummaryList, NextToken: Schema.optional(Schema.String)}) {}
+export class VpcIngressConnectionSummary extends Schema.Class<VpcIngressConnectionSummary>("VpcIngressConnectionSummary")({VpcIngressConnectionArn: Schema.optional(Schema.String), ServiceArn: Schema.optional(Schema.String)}) {}
 export const VpcIngressConnectionSummaryList = Schema.Array(VpcIngressConnectionSummary);
-export const AssociateCustomDomainResponse = Schema.Struct({DNSTarget: Schema.String, ServiceArn: Schema.String, CustomDomain: CustomDomain, VpcDNSTargets: VpcDNSTargetList});
-export const ServiceQuotaExceededException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ListVpcIngressConnectionsResponse = Schema.Struct({VpcIngressConnectionSummaryList: VpcIngressConnectionSummaryList, NextToken: Schema.optional(Schema.String)});
-export const CreateServiceRequest = Schema.Struct({ServiceName: Schema.String, SourceConfiguration: SourceConfiguration, InstanceConfiguration: Schema.optional(InstanceConfiguration), Tags: Schema.optional(TagList), EncryptionConfiguration: Schema.optional(EncryptionConfiguration), HealthCheckConfiguration: Schema.optional(HealthCheckConfiguration), AutoScalingConfigurationArn: Schema.optional(Schema.String), NetworkConfiguration: Schema.optional(NetworkConfiguration), ObservabilityConfiguration: Schema.optional(ServiceObservabilityConfiguration)});
-export const CreateServiceResponse = Schema.Struct({Service: Service, OperationId: Schema.String});
+export class AssociateCustomDomainResponse extends Schema.Class<AssociateCustomDomainResponse>("AssociateCustomDomainResponse")({DNSTarget: Schema.String, ServiceArn: Schema.String, CustomDomain: CustomDomain, VpcDNSTargets: VpcDNSTargetList}) {}
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({Message: Schema.optional(Schema.String)}) {}
+export class ListVpcIngressConnectionsResponse extends Schema.Class<ListVpcIngressConnectionsResponse>("ListVpcIngressConnectionsResponse")({VpcIngressConnectionSummaryList: VpcIngressConnectionSummaryList, NextToken: Schema.optional(Schema.String)}) {}
+export class CreateServiceRequest extends Schema.Class<CreateServiceRequest>("CreateServiceRequest")({ServiceName: Schema.String, SourceConfiguration: SourceConfiguration, InstanceConfiguration: Schema.optional(InstanceConfiguration), Tags: Schema.optional(TagList), EncryptionConfiguration: Schema.optional(EncryptionConfiguration), HealthCheckConfiguration: Schema.optional(HealthCheckConfiguration), AutoScalingConfigurationArn: Schema.optional(Schema.String), NetworkConfiguration: Schema.optional(NetworkConfiguration), ObservabilityConfiguration: Schema.optional(ServiceObservabilityConfiguration)}) {}
+export class CreateServiceResponse extends Schema.Class<CreateServiceResponse>("CreateServiceResponse")({Service: Service, OperationId: Schema.String}) {}
 
 //# Errors
-export class InternalServiceErrorExceptionError extends Schema.TaggedError<InternalServiceErrorExceptionError>()("InternalServiceErrorException", InternalServiceErrorException) {};
-export class InvalidRequestExceptionError extends Schema.TaggedError<InvalidRequestExceptionError>()("InvalidRequestException", InvalidRequestException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class InvalidStateExceptionError extends Schema.TaggedError<InvalidStateExceptionError>()("InvalidStateException", InvalidStateException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
+export class InternalServiceErrorExceptionError extends Schema.TaggedError<InternalServiceErrorExceptionError>()("InternalServiceErrorException", InternalServiceErrorException.fields) {};
+export class InvalidRequestExceptionError extends Schema.TaggedError<InvalidRequestExceptionError>()("InvalidRequestException", InvalidRequestException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class InvalidStateExceptionError extends Schema.TaggedError<InvalidStateExceptionError>()("InvalidStateException", InvalidStateException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
 
 //# Operations
 export const deleteVpcConnector = /*#__PURE__*/ makeOperation(() => Operation({ version: "2020-05-15", uri: "/", method: "POST", sdkId: "AppRunner", sigV4ServiceName: "apprunner", name: "AppRunner.DeleteVpcConnector" }, DeleteVpcConnectorRequest, DeleteVpcConnectorResponse, [InternalServiceErrorExceptionError, InvalidRequestExceptionError, ResourceNotFoundExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);

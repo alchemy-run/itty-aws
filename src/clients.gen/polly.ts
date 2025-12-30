@@ -5,78 +5,78 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 //# Schemas
 export const LexiconNameList = Schema.Array(Schema.String);
 export const SpeechMarkTypeList = Schema.Array(Schema.String);
-export const DeleteLexiconInput = Schema.Struct({Name: Schema.String});
-export const DeleteLexiconOutput = Schema.Struct({});
-export const DescribeVoicesInput = Schema.Struct({Engine: Schema.optional(Schema.String), LanguageCode: Schema.optional(Schema.String), IncludeAdditionalLanguageCodes: Schema.optional(Schema.Boolean), NextToken: Schema.optional(Schema.String)});
-export const GetLexiconInput = Schema.Struct({Name: Schema.String});
-export const GetSpeechSynthesisTaskInput = Schema.Struct({TaskId: Schema.String});
-export const ListLexiconsInput = Schema.Struct({NextToken: Schema.optional(Schema.String)});
-export const ListSpeechSynthesisTasksInput = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), Status: Schema.optional(Schema.String)});
-export const PutLexiconInput = Schema.Struct({Name: Schema.String, Content: Schema.String});
-export const PutLexiconOutput = Schema.Struct({});
-export const StartSpeechSynthesisTaskInput = Schema.Struct({Engine: Schema.optional(Schema.String), LanguageCode: Schema.optional(Schema.String), LexiconNames: Schema.optional(LexiconNameList), OutputFormat: Schema.String, OutputS3BucketName: Schema.String, OutputS3KeyPrefix: Schema.optional(Schema.String), SampleRate: Schema.optional(Schema.String), SnsTopicArn: Schema.optional(Schema.String), SpeechMarkTypes: Schema.optional(SpeechMarkTypeList), Text: Schema.String, TextType: Schema.optional(Schema.String), VoiceId: Schema.String});
-export const SynthesizeSpeechInput = Schema.Struct({Engine: Schema.optional(Schema.String), LanguageCode: Schema.optional(Schema.String), LexiconNames: Schema.optional(LexiconNameList), OutputFormat: Schema.String, SampleRate: Schema.optional(Schema.String), SpeechMarkTypes: Schema.optional(SpeechMarkTypeList), Text: Schema.String, TextType: Schema.optional(Schema.String), VoiceId: Schema.String});
-export const SynthesisTask = Schema.Struct({Engine: Schema.optional(Schema.String), TaskId: Schema.optional(Schema.String), TaskStatus: Schema.optional(Schema.String), TaskStatusReason: Schema.optional(Schema.String), OutputUri: Schema.optional(Schema.String), CreationTime: Schema.optional(Schema.Date), RequestCharacters: Schema.optional(Schema.Number), SnsTopicArn: Schema.optional(Schema.String), LexiconNames: Schema.optional(LexiconNameList), OutputFormat: Schema.optional(Schema.String), SampleRate: Schema.optional(Schema.String), SpeechMarkTypes: Schema.optional(SpeechMarkTypeList), TextType: Schema.optional(Schema.String), VoiceId: Schema.optional(Schema.String), LanguageCode: Schema.optional(Schema.String)});
+export class DeleteLexiconInput extends Schema.Class<DeleteLexiconInput>("DeleteLexiconInput")({Name: Schema.String}) {}
+export class DeleteLexiconOutput extends Schema.Class<DeleteLexiconOutput>("DeleteLexiconOutput")({}) {}
+export class DescribeVoicesInput extends Schema.Class<DescribeVoicesInput>("DescribeVoicesInput")({Engine: Schema.optional(Schema.String), LanguageCode: Schema.optional(Schema.String), IncludeAdditionalLanguageCodes: Schema.optional(Schema.Boolean), NextToken: Schema.optional(Schema.String)}) {}
+export class GetLexiconInput extends Schema.Class<GetLexiconInput>("GetLexiconInput")({Name: Schema.String}) {}
+export class GetSpeechSynthesisTaskInput extends Schema.Class<GetSpeechSynthesisTaskInput>("GetSpeechSynthesisTaskInput")({TaskId: Schema.String}) {}
+export class ListLexiconsInput extends Schema.Class<ListLexiconsInput>("ListLexiconsInput")({NextToken: Schema.optional(Schema.String)}) {}
+export class ListSpeechSynthesisTasksInput extends Schema.Class<ListSpeechSynthesisTasksInput>("ListSpeechSynthesisTasksInput")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), Status: Schema.optional(Schema.String)}) {}
+export class PutLexiconInput extends Schema.Class<PutLexiconInput>("PutLexiconInput")({Name: Schema.String, Content: Schema.String}) {}
+export class PutLexiconOutput extends Schema.Class<PutLexiconOutput>("PutLexiconOutput")({}) {}
+export class StartSpeechSynthesisTaskInput extends Schema.Class<StartSpeechSynthesisTaskInput>("StartSpeechSynthesisTaskInput")({Engine: Schema.optional(Schema.String), LanguageCode: Schema.optional(Schema.String), LexiconNames: Schema.optional(LexiconNameList), OutputFormat: Schema.String, OutputS3BucketName: Schema.String, OutputS3KeyPrefix: Schema.optional(Schema.String), SampleRate: Schema.optional(Schema.String), SnsTopicArn: Schema.optional(Schema.String), SpeechMarkTypes: Schema.optional(SpeechMarkTypeList), Text: Schema.String, TextType: Schema.optional(Schema.String), VoiceId: Schema.String}) {}
+export class SynthesizeSpeechInput extends Schema.Class<SynthesizeSpeechInput>("SynthesizeSpeechInput")({Engine: Schema.optional(Schema.String), LanguageCode: Schema.optional(Schema.String), LexiconNames: Schema.optional(LexiconNameList), OutputFormat: Schema.String, SampleRate: Schema.optional(Schema.String), SpeechMarkTypes: Schema.optional(SpeechMarkTypeList), Text: Schema.String, TextType: Schema.optional(Schema.String), VoiceId: Schema.String}) {}
+export class SynthesisTask extends Schema.Class<SynthesisTask>("SynthesisTask")({Engine: Schema.optional(Schema.String), TaskId: Schema.optional(Schema.String), TaskStatus: Schema.optional(Schema.String), TaskStatusReason: Schema.optional(Schema.String), OutputUri: Schema.optional(Schema.String), CreationTime: Schema.optional(Schema.Date), RequestCharacters: Schema.optional(Schema.Number), SnsTopicArn: Schema.optional(Schema.String), LexiconNames: Schema.optional(LexiconNameList), OutputFormat: Schema.optional(Schema.String), SampleRate: Schema.optional(Schema.String), SpeechMarkTypes: Schema.optional(SpeechMarkTypeList), TextType: Schema.optional(Schema.String), VoiceId: Schema.optional(Schema.String), LanguageCode: Schema.optional(Schema.String)}) {}
 export const SynthesisTasks = Schema.Array(SynthesisTask);
-export const LexiconNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ListSpeechSynthesisTasksOutput = Schema.Struct({NextToken: Schema.optional(Schema.String), SynthesisTasks: Schema.optional(SynthesisTasks)});
-export const InvalidLexiconException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const StartSpeechSynthesisTaskOutput = Schema.Struct({SynthesisTask: Schema.optional(SynthesisTask)});
-export const SynthesizeSpeechOutput = Schema.Struct({AudioStream: Schema.optional(Body("undefined", StreamBody())), ContentType: Schema.optional(Header("Content-Type")), RequestCharacters: Schema.optional(Header("x-amzn-RequestCharacters", Schema.Number))});
+export class LexiconNotFoundException extends Schema.Class<LexiconNotFoundException>("LexiconNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class ListSpeechSynthesisTasksOutput extends Schema.Class<ListSpeechSynthesisTasksOutput>("ListSpeechSynthesisTasksOutput")({NextToken: Schema.optional(Schema.String), SynthesisTasks: Schema.optional(SynthesisTasks)}) {}
+export class InvalidLexiconException extends Schema.Class<InvalidLexiconException>("InvalidLexiconException")({message: Schema.optional(Schema.String)}) {}
+export class StartSpeechSynthesisTaskOutput extends Schema.Class<StartSpeechSynthesisTaskOutput>("StartSpeechSynthesisTaskOutput")({SynthesisTask: Schema.optional(SynthesisTask)}) {}
+export class SynthesizeSpeechOutput extends Schema.Class<SynthesizeSpeechOutput>("SynthesizeSpeechOutput")({AudioStream: Schema.optional(Body("undefined", StreamBody())), ContentType: Schema.optional(Header("Content-Type")), RequestCharacters: Schema.optional(Header("x-amzn-RequestCharacters", Schema.Number))}) {}
 export const LanguageCodeList = Schema.Array(Schema.String);
 export const EngineList = Schema.Array(Schema.String);
-export const Voice = Schema.Struct({Gender: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), LanguageCode: Schema.optional(Schema.String), LanguageName: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), AdditionalLanguageCodes: Schema.optional(LanguageCodeList), SupportedEngines: Schema.optional(EngineList)});
+export class Voice extends Schema.Class<Voice>("Voice")({Gender: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), LanguageCode: Schema.optional(Schema.String), LanguageName: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), AdditionalLanguageCodes: Schema.optional(LanguageCodeList), SupportedEngines: Schema.optional(EngineList)}) {}
 export const VoiceList = Schema.Array(Voice);
-export const Lexicon = Schema.Struct({Content: Schema.optional(Schema.String), Name: Schema.optional(Schema.String)});
-export const LexiconAttributes = Schema.Struct({Alphabet: Schema.optional(Schema.String), LanguageCode: Schema.optional(Schema.String), LastModified: Schema.optional(Schema.Date), LexiconArn: Schema.optional(Schema.String), LexemesCount: Schema.optional(Schema.Number), Size: Schema.optional(Schema.Number)});
-export const LexiconDescription = Schema.Struct({Name: Schema.optional(Schema.String), Attributes: Schema.optional(LexiconAttributes)});
+export class Lexicon extends Schema.Class<Lexicon>("Lexicon")({Content: Schema.optional(Schema.String), Name: Schema.optional(Schema.String)}) {}
+export class LexiconAttributes extends Schema.Class<LexiconAttributes>("LexiconAttributes")({Alphabet: Schema.optional(Schema.String), LanguageCode: Schema.optional(Schema.String), LastModified: Schema.optional(Schema.Date), LexiconArn: Schema.optional(Schema.String), LexemesCount: Schema.optional(Schema.Number), Size: Schema.optional(Schema.Number)}) {}
+export class LexiconDescription extends Schema.Class<LexiconDescription>("LexiconDescription")({Name: Schema.optional(Schema.String), Attributes: Schema.optional(LexiconAttributes)}) {}
 export const LexiconDescriptionList = Schema.Array(LexiconDescription);
-export const ServiceFailureException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DescribeVoicesOutput = Schema.Struct({Voices: Schema.optional(VoiceList), NextToken: Schema.optional(Schema.String)});
-export const GetLexiconOutput = Schema.Struct({Lexicon: Schema.optional(Lexicon), LexiconAttributes: Schema.optional(LexiconAttributes)});
-export const GetSpeechSynthesisTaskOutput = Schema.Struct({SynthesisTask: Schema.optional(SynthesisTask)});
-export const ListLexiconsOutput = Schema.Struct({Lexicons: Schema.optional(LexiconDescriptionList), NextToken: Schema.optional(Schema.String)});
-export const InvalidNextTokenException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const LexiconSizeExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const EngineNotSupportedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidSampleRateException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidTaskIdException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const MaxLexemeLengthExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidS3BucketException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidSsmlException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const SynthesisTaskNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const MaxLexiconsNumberExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidS3KeyException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const LanguageNotSupportedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UnsupportedPlsAlphabetException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidSnsTopicArnException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const MarksNotSupportedForFormatException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UnsupportedPlsLanguageException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const SsmlMarksNotSupportedForTextTypeException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const TextLengthExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
+export class ServiceFailureException extends Schema.Class<ServiceFailureException>("ServiceFailureException")({message: Schema.optional(Schema.String)}) {}
+export class DescribeVoicesOutput extends Schema.Class<DescribeVoicesOutput>("DescribeVoicesOutput")({Voices: Schema.optional(VoiceList), NextToken: Schema.optional(Schema.String)}) {}
+export class GetLexiconOutput extends Schema.Class<GetLexiconOutput>("GetLexiconOutput")({Lexicon: Schema.optional(Lexicon), LexiconAttributes: Schema.optional(LexiconAttributes)}) {}
+export class GetSpeechSynthesisTaskOutput extends Schema.Class<GetSpeechSynthesisTaskOutput>("GetSpeechSynthesisTaskOutput")({SynthesisTask: Schema.optional(SynthesisTask)}) {}
+export class ListLexiconsOutput extends Schema.Class<ListLexiconsOutput>("ListLexiconsOutput")({Lexicons: Schema.optional(LexiconDescriptionList), NextToken: Schema.optional(Schema.String)}) {}
+export class InvalidNextTokenException extends Schema.Class<InvalidNextTokenException>("InvalidNextTokenException")({message: Schema.optional(Schema.String)}) {}
+export class LexiconSizeExceededException extends Schema.Class<LexiconSizeExceededException>("LexiconSizeExceededException")({message: Schema.optional(Schema.String)}) {}
+export class EngineNotSupportedException extends Schema.Class<EngineNotSupportedException>("EngineNotSupportedException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidSampleRateException extends Schema.Class<InvalidSampleRateException>("InvalidSampleRateException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidTaskIdException extends Schema.Class<InvalidTaskIdException>("InvalidTaskIdException")({message: Schema.optional(Schema.String)}) {}
+export class MaxLexemeLengthExceededException extends Schema.Class<MaxLexemeLengthExceededException>("MaxLexemeLengthExceededException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidS3BucketException extends Schema.Class<InvalidS3BucketException>("InvalidS3BucketException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidSsmlException extends Schema.Class<InvalidSsmlException>("InvalidSsmlException")({message: Schema.optional(Schema.String)}) {}
+export class SynthesisTaskNotFoundException extends Schema.Class<SynthesisTaskNotFoundException>("SynthesisTaskNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class MaxLexiconsNumberExceededException extends Schema.Class<MaxLexiconsNumberExceededException>("MaxLexiconsNumberExceededException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidS3KeyException extends Schema.Class<InvalidS3KeyException>("InvalidS3KeyException")({message: Schema.optional(Schema.String)}) {}
+export class LanguageNotSupportedException extends Schema.Class<LanguageNotSupportedException>("LanguageNotSupportedException")({message: Schema.optional(Schema.String)}) {}
+export class UnsupportedPlsAlphabetException extends Schema.Class<UnsupportedPlsAlphabetException>("UnsupportedPlsAlphabetException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidSnsTopicArnException extends Schema.Class<InvalidSnsTopicArnException>("InvalidSnsTopicArnException")({message: Schema.optional(Schema.String)}) {}
+export class MarksNotSupportedForFormatException extends Schema.Class<MarksNotSupportedForFormatException>("MarksNotSupportedForFormatException")({message: Schema.optional(Schema.String)}) {}
+export class UnsupportedPlsLanguageException extends Schema.Class<UnsupportedPlsLanguageException>("UnsupportedPlsLanguageException")({message: Schema.optional(Schema.String)}) {}
+export class SsmlMarksNotSupportedForTextTypeException extends Schema.Class<SsmlMarksNotSupportedForTextTypeException>("SsmlMarksNotSupportedForTextTypeException")({message: Schema.optional(Schema.String)}) {}
+export class TextLengthExceededException extends Schema.Class<TextLengthExceededException>("TextLengthExceededException")({message: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class LexiconNotFoundExceptionError extends Schema.TaggedError<LexiconNotFoundExceptionError>()("LexiconNotFoundException", LexiconNotFoundException) {};
-export class InvalidLexiconExceptionError extends Schema.TaggedError<InvalidLexiconExceptionError>()("InvalidLexiconException", InvalidLexiconException) {};
-export class EngineNotSupportedExceptionError extends Schema.TaggedError<EngineNotSupportedExceptionError>()("EngineNotSupportedException", EngineNotSupportedException) {};
-export class ServiceFailureExceptionError extends Schema.TaggedError<ServiceFailureExceptionError>()("ServiceFailureException", ServiceFailureException) {};
-export class InvalidNextTokenExceptionError extends Schema.TaggedError<InvalidNextTokenExceptionError>()("InvalidNextTokenException", InvalidNextTokenException) {};
-export class LexiconSizeExceededExceptionError extends Schema.TaggedError<LexiconSizeExceededExceptionError>()("LexiconSizeExceededException", LexiconSizeExceededException) {};
-export class InvalidSampleRateExceptionError extends Schema.TaggedError<InvalidSampleRateExceptionError>()("InvalidSampleRateException", InvalidSampleRateException) {};
-export class InvalidTaskIdExceptionError extends Schema.TaggedError<InvalidTaskIdExceptionError>()("InvalidTaskIdException", InvalidTaskIdException) {};
-export class MaxLexemeLengthExceededExceptionError extends Schema.TaggedError<MaxLexemeLengthExceededExceptionError>()("MaxLexemeLengthExceededException", MaxLexemeLengthExceededException) {};
-export class InvalidS3BucketExceptionError extends Schema.TaggedError<InvalidS3BucketExceptionError>()("InvalidS3BucketException", InvalidS3BucketException) {};
-export class InvalidSsmlExceptionError extends Schema.TaggedError<InvalidSsmlExceptionError>()("InvalidSsmlException", InvalidSsmlException) {};
-export class SynthesisTaskNotFoundExceptionError extends Schema.TaggedError<SynthesisTaskNotFoundExceptionError>()("SynthesisTaskNotFoundException", SynthesisTaskNotFoundException) {};
-export class MaxLexiconsNumberExceededExceptionError extends Schema.TaggedError<MaxLexiconsNumberExceededExceptionError>()("MaxLexiconsNumberExceededException", MaxLexiconsNumberExceededException) {};
-export class InvalidS3KeyExceptionError extends Schema.TaggedError<InvalidS3KeyExceptionError>()("InvalidS3KeyException", InvalidS3KeyException) {};
-export class LanguageNotSupportedExceptionError extends Schema.TaggedError<LanguageNotSupportedExceptionError>()("LanguageNotSupportedException", LanguageNotSupportedException) {};
-export class UnsupportedPlsAlphabetExceptionError extends Schema.TaggedError<UnsupportedPlsAlphabetExceptionError>()("UnsupportedPlsAlphabetException", UnsupportedPlsAlphabetException) {};
-export class InvalidSnsTopicArnExceptionError extends Schema.TaggedError<InvalidSnsTopicArnExceptionError>()("InvalidSnsTopicArnException", InvalidSnsTopicArnException) {};
-export class MarksNotSupportedForFormatExceptionError extends Schema.TaggedError<MarksNotSupportedForFormatExceptionError>()("MarksNotSupportedForFormatException", MarksNotSupportedForFormatException) {};
-export class SsmlMarksNotSupportedForTextTypeExceptionError extends Schema.TaggedError<SsmlMarksNotSupportedForTextTypeExceptionError>()("SsmlMarksNotSupportedForTextTypeException", SsmlMarksNotSupportedForTextTypeException) {};
-export class UnsupportedPlsLanguageExceptionError extends Schema.TaggedError<UnsupportedPlsLanguageExceptionError>()("UnsupportedPlsLanguageException", UnsupportedPlsLanguageException) {};
-export class TextLengthExceededExceptionError extends Schema.TaggedError<TextLengthExceededExceptionError>()("TextLengthExceededException", TextLengthExceededException) {};
+export class LexiconNotFoundExceptionError extends Schema.TaggedError<LexiconNotFoundExceptionError>()("LexiconNotFoundException", LexiconNotFoundException.fields) {};
+export class InvalidLexiconExceptionError extends Schema.TaggedError<InvalidLexiconExceptionError>()("InvalidLexiconException", InvalidLexiconException.fields) {};
+export class EngineNotSupportedExceptionError extends Schema.TaggedError<EngineNotSupportedExceptionError>()("EngineNotSupportedException", EngineNotSupportedException.fields) {};
+export class ServiceFailureExceptionError extends Schema.TaggedError<ServiceFailureExceptionError>()("ServiceFailureException", ServiceFailureException.fields) {};
+export class InvalidNextTokenExceptionError extends Schema.TaggedError<InvalidNextTokenExceptionError>()("InvalidNextTokenException", InvalidNextTokenException.fields) {};
+export class LexiconSizeExceededExceptionError extends Schema.TaggedError<LexiconSizeExceededExceptionError>()("LexiconSizeExceededException", LexiconSizeExceededException.fields) {};
+export class InvalidSampleRateExceptionError extends Schema.TaggedError<InvalidSampleRateExceptionError>()("InvalidSampleRateException", InvalidSampleRateException.fields) {};
+export class InvalidTaskIdExceptionError extends Schema.TaggedError<InvalidTaskIdExceptionError>()("InvalidTaskIdException", InvalidTaskIdException.fields) {};
+export class MaxLexemeLengthExceededExceptionError extends Schema.TaggedError<MaxLexemeLengthExceededExceptionError>()("MaxLexemeLengthExceededException", MaxLexemeLengthExceededException.fields) {};
+export class InvalidS3BucketExceptionError extends Schema.TaggedError<InvalidS3BucketExceptionError>()("InvalidS3BucketException", InvalidS3BucketException.fields) {};
+export class InvalidSsmlExceptionError extends Schema.TaggedError<InvalidSsmlExceptionError>()("InvalidSsmlException", InvalidSsmlException.fields) {};
+export class SynthesisTaskNotFoundExceptionError extends Schema.TaggedError<SynthesisTaskNotFoundExceptionError>()("SynthesisTaskNotFoundException", SynthesisTaskNotFoundException.fields) {};
+export class MaxLexiconsNumberExceededExceptionError extends Schema.TaggedError<MaxLexiconsNumberExceededExceptionError>()("MaxLexiconsNumberExceededException", MaxLexiconsNumberExceededException.fields) {};
+export class InvalidS3KeyExceptionError extends Schema.TaggedError<InvalidS3KeyExceptionError>()("InvalidS3KeyException", InvalidS3KeyException.fields) {};
+export class LanguageNotSupportedExceptionError extends Schema.TaggedError<LanguageNotSupportedExceptionError>()("LanguageNotSupportedException", LanguageNotSupportedException.fields) {};
+export class UnsupportedPlsAlphabetExceptionError extends Schema.TaggedError<UnsupportedPlsAlphabetExceptionError>()("UnsupportedPlsAlphabetException", UnsupportedPlsAlphabetException.fields) {};
+export class InvalidSnsTopicArnExceptionError extends Schema.TaggedError<InvalidSnsTopicArnExceptionError>()("InvalidSnsTopicArnException", InvalidSnsTopicArnException.fields) {};
+export class MarksNotSupportedForFormatExceptionError extends Schema.TaggedError<MarksNotSupportedForFormatExceptionError>()("MarksNotSupportedForFormatException", MarksNotSupportedForFormatException.fields) {};
+export class SsmlMarksNotSupportedForTextTypeExceptionError extends Schema.TaggedError<SsmlMarksNotSupportedForTextTypeExceptionError>()("SsmlMarksNotSupportedForTextTypeException", SsmlMarksNotSupportedForTextTypeException.fields) {};
+export class UnsupportedPlsLanguageExceptionError extends Schema.TaggedError<UnsupportedPlsLanguageExceptionError>()("UnsupportedPlsLanguageException", UnsupportedPlsLanguageException.fields) {};
+export class TextLengthExceededExceptionError extends Schema.TaggedError<TextLengthExceededExceptionError>()("TextLengthExceededException", TextLengthExceededException.fields) {};
 
 //# Operations
 export const deleteLexicon = /*#__PURE__*/ makeOperation(() => Operation({ version: "2016-06-10", uri: "/v1/lexicons/{Name}", method: "DELETE", sdkId: "Polly", sigV4ServiceName: "polly", name: "Parrot_v1.DeleteLexicon" }, DeleteLexiconInput, DeleteLexiconOutput, [LexiconNotFoundExceptionError, ServiceFailureExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

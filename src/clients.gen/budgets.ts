@@ -4,132 +4,132 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 
 //# Schemas
 export const ResourceTagKeyList = Schema.Array(Schema.String);
-export const Notification = Schema.Struct({NotificationType: Schema.String, ComparisonOperator: Schema.String, Threshold: Schema.Number, ThresholdType: Schema.optional(Schema.String), NotificationState: Schema.optional(Schema.String)});
-export const Subscriber = Schema.Struct({SubscriptionType: Schema.String, Address: Schema.String});
-export const CreateSubscriberRequest = Schema.Struct({AccountId: Schema.String, BudgetName: Schema.String, Notification: Notification, Subscriber: Subscriber});
-export const CreateSubscriberResponse = Schema.Struct({});
-export const DeleteBudgetRequest = Schema.Struct({AccountId: Schema.String, BudgetName: Schema.String});
-export const DeleteBudgetResponse = Schema.Struct({});
-export const DeleteBudgetActionRequest = Schema.Struct({AccountId: Schema.String, BudgetName: Schema.String, ActionId: Schema.String});
-export const DeleteNotificationRequest = Schema.Struct({AccountId: Schema.String, BudgetName: Schema.String, Notification: Notification});
-export const DeleteNotificationResponse = Schema.Struct({});
-export const DeleteSubscriberRequest = Schema.Struct({AccountId: Schema.String, BudgetName: Schema.String, Notification: Notification, Subscriber: Subscriber});
-export const DeleteSubscriberResponse = Schema.Struct({});
-export const DescribeBudgetRequest = Schema.Struct({AccountId: Schema.String, BudgetName: Schema.String, ShowFilterExpression: Schema.optional(Schema.Boolean)});
-export const DescribeBudgetActionRequest = Schema.Struct({AccountId: Schema.String, BudgetName: Schema.String, ActionId: Schema.String});
-export const DescribeBudgetActionsForAccountRequest = Schema.Struct({AccountId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const DescribeBudgetActionsForBudgetRequest = Schema.Struct({AccountId: Schema.String, BudgetName: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const DescribeBudgetNotificationsForAccountRequest = Schema.Struct({AccountId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const TimePeriod = Schema.Struct({Start: Schema.optional(Schema.Date), End: Schema.optional(Schema.Date)});
-export const DescribeBudgetPerformanceHistoryRequest = Schema.Struct({AccountId: Schema.String, BudgetName: Schema.String, TimePeriod: Schema.optional(TimePeriod), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const DescribeBudgetsRequest = Schema.Struct({AccountId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), ShowFilterExpression: Schema.optional(Schema.Boolean)});
-export const DescribeNotificationsForBudgetRequest = Schema.Struct({AccountId: Schema.String, BudgetName: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const DescribeSubscribersForNotificationRequest = Schema.Struct({AccountId: Schema.String, BudgetName: Schema.String, Notification: Notification, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ExecuteBudgetActionRequest = Schema.Struct({AccountId: Schema.String, BudgetName: Schema.String, ActionId: Schema.String, ExecutionType: Schema.String});
-export const ListTagsForResourceRequest = Schema.Struct({ResourceARN: Schema.String});
-export const ResourceTag = Schema.Struct({Key: Schema.String, Value: Schema.String});
+export class Notification extends Schema.Class<Notification>("Notification")({NotificationType: Schema.String, ComparisonOperator: Schema.String, Threshold: Schema.Number, ThresholdType: Schema.optional(Schema.String), NotificationState: Schema.optional(Schema.String)}) {}
+export class Subscriber extends Schema.Class<Subscriber>("Subscriber")({SubscriptionType: Schema.String, Address: Schema.String}) {}
+export class CreateSubscriberRequest extends Schema.Class<CreateSubscriberRequest>("CreateSubscriberRequest")({AccountId: Schema.String, BudgetName: Schema.String, Notification: Notification, Subscriber: Subscriber}) {}
+export class CreateSubscriberResponse extends Schema.Class<CreateSubscriberResponse>("CreateSubscriberResponse")({}) {}
+export class DeleteBudgetRequest extends Schema.Class<DeleteBudgetRequest>("DeleteBudgetRequest")({AccountId: Schema.String, BudgetName: Schema.String}) {}
+export class DeleteBudgetResponse extends Schema.Class<DeleteBudgetResponse>("DeleteBudgetResponse")({}) {}
+export class DeleteBudgetActionRequest extends Schema.Class<DeleteBudgetActionRequest>("DeleteBudgetActionRequest")({AccountId: Schema.String, BudgetName: Schema.String, ActionId: Schema.String}) {}
+export class DeleteNotificationRequest extends Schema.Class<DeleteNotificationRequest>("DeleteNotificationRequest")({AccountId: Schema.String, BudgetName: Schema.String, Notification: Notification}) {}
+export class DeleteNotificationResponse extends Schema.Class<DeleteNotificationResponse>("DeleteNotificationResponse")({}) {}
+export class DeleteSubscriberRequest extends Schema.Class<DeleteSubscriberRequest>("DeleteSubscriberRequest")({AccountId: Schema.String, BudgetName: Schema.String, Notification: Notification, Subscriber: Subscriber}) {}
+export class DeleteSubscriberResponse extends Schema.Class<DeleteSubscriberResponse>("DeleteSubscriberResponse")({}) {}
+export class DescribeBudgetRequest extends Schema.Class<DescribeBudgetRequest>("DescribeBudgetRequest")({AccountId: Schema.String, BudgetName: Schema.String, ShowFilterExpression: Schema.optional(Schema.Boolean)}) {}
+export class DescribeBudgetActionRequest extends Schema.Class<DescribeBudgetActionRequest>("DescribeBudgetActionRequest")({AccountId: Schema.String, BudgetName: Schema.String, ActionId: Schema.String}) {}
+export class DescribeBudgetActionsForAccountRequest extends Schema.Class<DescribeBudgetActionsForAccountRequest>("DescribeBudgetActionsForAccountRequest")({AccountId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class DescribeBudgetActionsForBudgetRequest extends Schema.Class<DescribeBudgetActionsForBudgetRequest>("DescribeBudgetActionsForBudgetRequest")({AccountId: Schema.String, BudgetName: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class DescribeBudgetNotificationsForAccountRequest extends Schema.Class<DescribeBudgetNotificationsForAccountRequest>("DescribeBudgetNotificationsForAccountRequest")({AccountId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class TimePeriod extends Schema.Class<TimePeriod>("TimePeriod")({Start: Schema.optional(Schema.Date), End: Schema.optional(Schema.Date)}) {}
+export class DescribeBudgetPerformanceHistoryRequest extends Schema.Class<DescribeBudgetPerformanceHistoryRequest>("DescribeBudgetPerformanceHistoryRequest")({AccountId: Schema.String, BudgetName: Schema.String, TimePeriod: Schema.optional(TimePeriod), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class DescribeBudgetsRequest extends Schema.Class<DescribeBudgetsRequest>("DescribeBudgetsRequest")({AccountId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), ShowFilterExpression: Schema.optional(Schema.Boolean)}) {}
+export class DescribeNotificationsForBudgetRequest extends Schema.Class<DescribeNotificationsForBudgetRequest>("DescribeNotificationsForBudgetRequest")({AccountId: Schema.String, BudgetName: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class DescribeSubscribersForNotificationRequest extends Schema.Class<DescribeSubscribersForNotificationRequest>("DescribeSubscribersForNotificationRequest")({AccountId: Schema.String, BudgetName: Schema.String, Notification: Notification, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ExecuteBudgetActionRequest extends Schema.Class<ExecuteBudgetActionRequest>("ExecuteBudgetActionRequest")({AccountId: Schema.String, BudgetName: Schema.String, ActionId: Schema.String, ExecutionType: Schema.String}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({ResourceARN: Schema.String}) {}
+export class ResourceTag extends Schema.Class<ResourceTag>("ResourceTag")({Key: Schema.String, Value: Schema.String}) {}
 export const ResourceTagList = Schema.Array(ResourceTag);
-export const TagResourceRequest = Schema.Struct({ResourceARN: Schema.String, ResourceTags: ResourceTagList});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({ResourceARN: Schema.String, ResourceTagKeys: ResourceTagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
-export const Spend = Schema.Struct({Amount: Schema.String, Unit: Schema.String});
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({ResourceARN: Schema.String, ResourceTags: ResourceTagList}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({ResourceARN: Schema.String, ResourceTagKeys: ResourceTagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class Spend extends Schema.Class<Spend>("Spend")({Amount: Schema.String, Unit: Schema.String}) {}
 export const PlannedBudgetLimits = Schema.Record({key: Schema.String, value: Spend});
 export const DimensionValues = Schema.Array(Schema.String);
 export const CostFilters = Schema.Record({key: Schema.String, value: DimensionValues});
-export const CostTypes = Schema.Struct({IncludeTax: Schema.optional(Schema.Boolean), IncludeSubscription: Schema.optional(Schema.Boolean), UseBlended: Schema.optional(Schema.Boolean), IncludeRefund: Schema.optional(Schema.Boolean), IncludeCredit: Schema.optional(Schema.Boolean), IncludeUpfront: Schema.optional(Schema.Boolean), IncludeRecurring: Schema.optional(Schema.Boolean), IncludeOtherSubscription: Schema.optional(Schema.Boolean), IncludeSupport: Schema.optional(Schema.Boolean), IncludeDiscount: Schema.optional(Schema.Boolean), UseAmortized: Schema.optional(Schema.Boolean)});
-export const CalculatedSpend = Schema.Struct({ActualSpend: Spend, ForecastedSpend: Schema.optional(Spend)});
-export const HistoricalOptions = Schema.Struct({BudgetAdjustmentPeriod: Schema.Number, LookBackAvailablePeriods: Schema.optional(Schema.Number)});
-export const AutoAdjustData = Schema.Struct({AutoAdjustType: Schema.String, HistoricalOptions: Schema.optional(HistoricalOptions), LastAutoAdjustTime: Schema.optional(Schema.Date)});
-export const Expressions = Schema.Array(Expression);
+export class CostTypes extends Schema.Class<CostTypes>("CostTypes")({IncludeTax: Schema.optional(Schema.Boolean), IncludeSubscription: Schema.optional(Schema.Boolean), UseBlended: Schema.optional(Schema.Boolean), IncludeRefund: Schema.optional(Schema.Boolean), IncludeCredit: Schema.optional(Schema.Boolean), IncludeUpfront: Schema.optional(Schema.Boolean), IncludeRecurring: Schema.optional(Schema.Boolean), IncludeOtherSubscription: Schema.optional(Schema.Boolean), IncludeSupport: Schema.optional(Schema.Boolean), IncludeDiscount: Schema.optional(Schema.Boolean), UseAmortized: Schema.optional(Schema.Boolean)}) {}
+export class CalculatedSpend extends Schema.Class<CalculatedSpend>("CalculatedSpend")({ActualSpend: Spend, ForecastedSpend: Schema.optional(Spend)}) {}
+export class HistoricalOptions extends Schema.Class<HistoricalOptions>("HistoricalOptions")({BudgetAdjustmentPeriod: Schema.Number, LookBackAvailablePeriods: Schema.optional(Schema.Number)}) {}
+export class AutoAdjustData extends Schema.Class<AutoAdjustData>("AutoAdjustData")({AutoAdjustType: Schema.String, HistoricalOptions: Schema.optional(HistoricalOptions), LastAutoAdjustTime: Schema.optional(Schema.Date)}) {}
 export const Values = Schema.Array(Schema.String);
 export const MatchOptions = Schema.Array(Schema.String);
-export const ExpressionDimensionValues = Schema.Struct({Key: Schema.String, Values: Values, MatchOptions: Schema.optional(MatchOptions)});
-export const TagValues = Schema.Struct({Key: Schema.optional(Schema.String), Values: Schema.optional(Values), MatchOptions: Schema.optional(MatchOptions)});
-export const CostCategoryValues = Schema.Struct({Key: Schema.optional(Schema.String), Values: Schema.optional(Values), MatchOptions: Schema.optional(MatchOptions)});
-export const Expression = Schema.Struct({Or: Schema.optional(Expressions), And: Schema.optional(Expressions), Not: Schema.optional(Expression), Dimensions: Schema.optional(ExpressionDimensionValues), Tags: Schema.optional(TagValues), CostCategories: Schema.optional(CostCategoryValues)});
+export class ExpressionDimensionValues extends Schema.Class<ExpressionDimensionValues>("ExpressionDimensionValues")({Key: Schema.String, Values: Values, MatchOptions: Schema.optional(MatchOptions)}) {}
+export class TagValues extends Schema.Class<TagValues>("TagValues")({Key: Schema.optional(Schema.String), Values: Schema.optional(Values), MatchOptions: Schema.optional(MatchOptions)}) {}
+export class CostCategoryValues extends Schema.Class<CostCategoryValues>("CostCategoryValues")({Key: Schema.optional(Schema.String), Values: Schema.optional(Values), MatchOptions: Schema.optional(MatchOptions)}) {}
+export class Expression extends Schema.Class<Expression>("Expression")({Or: Schema.optional(Schema.suspend(() => Expressions)), And: Schema.optional(Schema.suspend(() => Expressions)), Not: Schema.optional(Schema.suspend((): Schema.Schema<Expression> => Expression)), Dimensions: Schema.optional(ExpressionDimensionValues), Tags: Schema.optional(TagValues), CostCategories: Schema.optional(CostCategoryValues)}) {}
 export const Metrics = Schema.Array(Schema.String);
-export const HealthStatus = Schema.Struct({Status: Schema.optional(Schema.String), StatusReason: Schema.optional(Schema.String), LastUpdatedTime: Schema.optional(Schema.Date)});
-export const Budget = Schema.Struct({BudgetName: Schema.String, BudgetLimit: Schema.optional(Spend), PlannedBudgetLimits: Schema.optional(PlannedBudgetLimits), CostFilters: Schema.optional(CostFilters), CostTypes: Schema.optional(CostTypes), TimeUnit: Schema.String, TimePeriod: Schema.optional(TimePeriod), CalculatedSpend: Schema.optional(CalculatedSpend), BudgetType: Schema.String, LastUpdatedTime: Schema.optional(Schema.Date), AutoAdjustData: Schema.optional(AutoAdjustData), FilterExpression: Schema.optional(Expression), Metrics: Schema.optional(Metrics), BillingViewArn: Schema.optional(Schema.String), HealthStatus: Schema.optional(HealthStatus)});
-export const UpdateBudgetRequest = Schema.Struct({AccountId: Schema.String, NewBudget: Budget});
-export const UpdateBudgetResponse = Schema.Struct({});
-export const ActionThreshold = Schema.Struct({ActionThresholdValue: Schema.Number, ActionThresholdType: Schema.String});
+export class HealthStatus extends Schema.Class<HealthStatus>("HealthStatus")({Status: Schema.optional(Schema.String), StatusReason: Schema.optional(Schema.String), LastUpdatedTime: Schema.optional(Schema.Date)}) {}
+export class Budget extends Schema.Class<Budget>("Budget")({BudgetName: Schema.String, BudgetLimit: Schema.optional(Spend), PlannedBudgetLimits: Schema.optional(PlannedBudgetLimits), CostFilters: Schema.optional(CostFilters), CostTypes: Schema.optional(CostTypes), TimeUnit: Schema.String, TimePeriod: Schema.optional(TimePeriod), CalculatedSpend: Schema.optional(CalculatedSpend), BudgetType: Schema.String, LastUpdatedTime: Schema.optional(Schema.Date), AutoAdjustData: Schema.optional(AutoAdjustData), FilterExpression: Schema.optional(Expression), Metrics: Schema.optional(Metrics), BillingViewArn: Schema.optional(Schema.String), HealthStatus: Schema.optional(HealthStatus)}) {}
+export class UpdateBudgetRequest extends Schema.Class<UpdateBudgetRequest>("UpdateBudgetRequest")({AccountId: Schema.String, NewBudget: Budget}) {}
+export class UpdateBudgetResponse extends Schema.Class<UpdateBudgetResponse>("UpdateBudgetResponse")({}) {}
+export class ActionThreshold extends Schema.Class<ActionThreshold>("ActionThreshold")({ActionThresholdValue: Schema.Number, ActionThresholdType: Schema.String}) {}
 export const Roles = Schema.Array(Schema.String);
 export const Groups = Schema.Array(Schema.String);
 export const Users = Schema.Array(Schema.String);
-export const IamActionDefinition = Schema.Struct({PolicyArn: Schema.String, Roles: Schema.optional(Roles), Groups: Schema.optional(Groups), Users: Schema.optional(Users)});
+export class IamActionDefinition extends Schema.Class<IamActionDefinition>("IamActionDefinition")({PolicyArn: Schema.String, Roles: Schema.optional(Roles), Groups: Schema.optional(Groups), Users: Schema.optional(Users)}) {}
 export const TargetIds = Schema.Array(Schema.String);
-export const ScpActionDefinition = Schema.Struct({PolicyId: Schema.String, TargetIds: TargetIds});
+export class ScpActionDefinition extends Schema.Class<ScpActionDefinition>("ScpActionDefinition")({PolicyId: Schema.String, TargetIds: TargetIds}) {}
 export const InstanceIds = Schema.Array(Schema.String);
-export const SsmActionDefinition = Schema.Struct({ActionSubType: Schema.String, Region: Schema.String, InstanceIds: InstanceIds});
-export const Definition = Schema.Struct({IamActionDefinition: Schema.optional(IamActionDefinition), ScpActionDefinition: Schema.optional(ScpActionDefinition), SsmActionDefinition: Schema.optional(SsmActionDefinition)});
+export class SsmActionDefinition extends Schema.Class<SsmActionDefinition>("SsmActionDefinition")({ActionSubType: Schema.String, Region: Schema.String, InstanceIds: InstanceIds}) {}
+export class Definition extends Schema.Class<Definition>("Definition")({IamActionDefinition: Schema.optional(IamActionDefinition), ScpActionDefinition: Schema.optional(ScpActionDefinition), SsmActionDefinition: Schema.optional(SsmActionDefinition)}) {}
 export const Subscribers = Schema.Array(Subscriber);
-export const UpdateBudgetActionRequest = Schema.Struct({AccountId: Schema.String, BudgetName: Schema.String, ActionId: Schema.String, NotificationType: Schema.optional(Schema.String), ActionThreshold: Schema.optional(ActionThreshold), Definition: Schema.optional(Definition), ExecutionRoleArn: Schema.optional(Schema.String), ApprovalModel: Schema.optional(Schema.String), Subscribers: Schema.optional(Subscribers)});
-export const UpdateNotificationRequest = Schema.Struct({AccountId: Schema.String, BudgetName: Schema.String, OldNotification: Notification, NewNotification: Notification});
-export const UpdateNotificationResponse = Schema.Struct({});
-export const UpdateSubscriberRequest = Schema.Struct({AccountId: Schema.String, BudgetName: Schema.String, Notification: Notification, OldSubscriber: Subscriber, NewSubscriber: Subscriber});
-export const UpdateSubscriberResponse = Schema.Struct({});
-export const NotificationWithSubscribers = Schema.Struct({Notification: Notification, Subscribers: Subscribers});
+export class UpdateBudgetActionRequest extends Schema.Class<UpdateBudgetActionRequest>("UpdateBudgetActionRequest")({AccountId: Schema.String, BudgetName: Schema.String, ActionId: Schema.String, NotificationType: Schema.optional(Schema.String), ActionThreshold: Schema.optional(ActionThreshold), Definition: Schema.optional(Definition), ExecutionRoleArn: Schema.optional(Schema.String), ApprovalModel: Schema.optional(Schema.String), Subscribers: Schema.optional(Subscribers)}) {}
+export class UpdateNotificationRequest extends Schema.Class<UpdateNotificationRequest>("UpdateNotificationRequest")({AccountId: Schema.String, BudgetName: Schema.String, OldNotification: Notification, NewNotification: Notification}) {}
+export class UpdateNotificationResponse extends Schema.Class<UpdateNotificationResponse>("UpdateNotificationResponse")({}) {}
+export class UpdateSubscriberRequest extends Schema.Class<UpdateSubscriberRequest>("UpdateSubscriberRequest")({AccountId: Schema.String, BudgetName: Schema.String, Notification: Notification, OldSubscriber: Subscriber, NewSubscriber: Subscriber}) {}
+export class UpdateSubscriberResponse extends Schema.Class<UpdateSubscriberResponse>("UpdateSubscriberResponse")({}) {}
+export class NotificationWithSubscribers extends Schema.Class<NotificationWithSubscribers>("NotificationWithSubscribers")({Notification: Notification, Subscribers: Subscribers}) {}
 export const NotificationWithSubscribersList = Schema.Array(NotificationWithSubscribers);
-export const Action = Schema.Struct({ActionId: Schema.String, BudgetName: Schema.String, NotificationType: Schema.String, ActionType: Schema.String, ActionThreshold: ActionThreshold, Definition: Definition, ExecutionRoleArn: Schema.String, ApprovalModel: Schema.String, Status: Schema.String, Subscribers: Subscribers});
+export class Action extends Schema.Class<Action>("Action")({ActionId: Schema.String, BudgetName: Schema.String, NotificationType: Schema.String, ActionType: Schema.String, ActionThreshold: ActionThreshold, Definition: Definition, ExecutionRoleArn: Schema.String, ApprovalModel: Schema.String, Status: Schema.String, Subscribers: Subscribers}) {}
 export const Actions = Schema.Array(Action);
 export const Budgets = Schema.Array(Budget);
 export const Notifications = Schema.Array(Notification);
-export const CreateNotificationRequest = Schema.Struct({AccountId: Schema.String, BudgetName: Schema.String, Notification: Notification, Subscribers: Subscribers});
-export const CreateNotificationResponse = Schema.Struct({});
-export const AccessDeniedException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const InternalErrorException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const InvalidParameterException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const NotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DescribeBudgetResponse = Schema.Struct({Budget: Schema.optional(Budget)});
-export const DescribeBudgetActionResponse = Schema.Struct({AccountId: Schema.String, BudgetName: Schema.String, Action: Action});
-export const DescribeBudgetActionHistoriesRequest = Schema.Struct({AccountId: Schema.String, BudgetName: Schema.String, ActionId: Schema.String, TimePeriod: Schema.optional(TimePeriod), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const DescribeBudgetActionsForAccountResponse = Schema.Struct({Actions: Actions, NextToken: Schema.optional(Schema.String)});
-export const DescribeBudgetActionsForBudgetResponse = Schema.Struct({Actions: Actions, NextToken: Schema.optional(Schema.String)});
-export const DescribeBudgetsResponse = Schema.Struct({Budgets: Schema.optional(Budgets), NextToken: Schema.optional(Schema.String)});
-export const DescribeNotificationsForBudgetResponse = Schema.Struct({Notifications: Schema.optional(Notifications), NextToken: Schema.optional(Schema.String)});
-export const DescribeSubscribersForNotificationResponse = Schema.Struct({Subscribers: Schema.optional(Subscribers), NextToken: Schema.optional(Schema.String)});
-export const ExecuteBudgetActionResponse = Schema.Struct({AccountId: Schema.String, BudgetName: Schema.String, ActionId: Schema.String, ExecutionType: Schema.String});
-export const ListTagsForResourceResponse = Schema.Struct({ResourceTags: Schema.optional(ResourceTagList)});
-export const ServiceQuotaExceededException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ThrottlingException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const BillingViewHealthStatusException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const UpdateBudgetActionResponse = Schema.Struct({AccountId: Schema.String, BudgetName: Schema.String, OldAction: Action, NewAction: Action});
-export const DuplicateRecordException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const BudgetNotificationsForAccount = Schema.Struct({Notifications: Schema.optional(Notifications), BudgetName: Schema.optional(Schema.String)});
+export const Expressions = Schema.Array(Schema.suspend((): Schema.Schema<Expression> => Expression));
+export class CreateNotificationRequest extends Schema.Class<CreateNotificationRequest>("CreateNotificationRequest")({AccountId: Schema.String, BudgetName: Schema.String, Notification: Notification, Subscribers: Subscribers}) {}
+export class CreateNotificationResponse extends Schema.Class<CreateNotificationResponse>("CreateNotificationResponse")({}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({Message: Schema.optional(Schema.String)}) {}
+export class InternalErrorException extends Schema.Class<InternalErrorException>("InternalErrorException")({Message: Schema.optional(Schema.String)}) {}
+export class InvalidParameterException extends Schema.Class<InvalidParameterException>("InvalidParameterException")({Message: Schema.optional(Schema.String)}) {}
+export class NotFoundException extends Schema.Class<NotFoundException>("NotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class DescribeBudgetResponse extends Schema.Class<DescribeBudgetResponse>("DescribeBudgetResponse")({Budget: Schema.optional(Budget)}) {}
+export class DescribeBudgetActionResponse extends Schema.Class<DescribeBudgetActionResponse>("DescribeBudgetActionResponse")({AccountId: Schema.String, BudgetName: Schema.String, Action: Action}) {}
+export class DescribeBudgetActionHistoriesRequest extends Schema.Class<DescribeBudgetActionHistoriesRequest>("DescribeBudgetActionHistoriesRequest")({AccountId: Schema.String, BudgetName: Schema.String, ActionId: Schema.String, TimePeriod: Schema.optional(TimePeriod), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class DescribeBudgetActionsForAccountResponse extends Schema.Class<DescribeBudgetActionsForAccountResponse>("DescribeBudgetActionsForAccountResponse")({Actions: Actions, NextToken: Schema.optional(Schema.String)}) {}
+export class DescribeBudgetActionsForBudgetResponse extends Schema.Class<DescribeBudgetActionsForBudgetResponse>("DescribeBudgetActionsForBudgetResponse")({Actions: Actions, NextToken: Schema.optional(Schema.String)}) {}
+export class DescribeBudgetsResponse extends Schema.Class<DescribeBudgetsResponse>("DescribeBudgetsResponse")({Budgets: Schema.optional(Budgets), NextToken: Schema.optional(Schema.String)}) {}
+export class DescribeNotificationsForBudgetResponse extends Schema.Class<DescribeNotificationsForBudgetResponse>("DescribeNotificationsForBudgetResponse")({Notifications: Schema.optional(Notifications), NextToken: Schema.optional(Schema.String)}) {}
+export class DescribeSubscribersForNotificationResponse extends Schema.Class<DescribeSubscribersForNotificationResponse>("DescribeSubscribersForNotificationResponse")({Subscribers: Schema.optional(Subscribers), NextToken: Schema.optional(Schema.String)}) {}
+export class ExecuteBudgetActionResponse extends Schema.Class<ExecuteBudgetActionResponse>("ExecuteBudgetActionResponse")({AccountId: Schema.String, BudgetName: Schema.String, ActionId: Schema.String, ExecutionType: Schema.String}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({ResourceTags: Schema.optional(ResourceTagList)}) {}
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({Message: Schema.optional(Schema.String)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({Message: Schema.optional(Schema.String)}) {}
+export class BillingViewHealthStatusException extends Schema.Class<BillingViewHealthStatusException>("BillingViewHealthStatusException")({Message: Schema.optional(Schema.String)}) {}
+export class UpdateBudgetActionResponse extends Schema.Class<UpdateBudgetActionResponse>("UpdateBudgetActionResponse")({AccountId: Schema.String, BudgetName: Schema.String, OldAction: Action, NewAction: Action}) {}
+export class DuplicateRecordException extends Schema.Class<DuplicateRecordException>("DuplicateRecordException")({Message: Schema.optional(Schema.String)}) {}
+export class BudgetNotificationsForAccount extends Schema.Class<BudgetNotificationsForAccount>("BudgetNotificationsForAccount")({Notifications: Schema.optional(Notifications), BudgetName: Schema.optional(Schema.String)}) {}
 export const BudgetNotificationsForAccountList = Schema.Array(BudgetNotificationsForAccount);
-export const CreateBudgetActionRequest = Schema.Struct({AccountId: Schema.String, BudgetName: Schema.String, NotificationType: Schema.String, ActionType: Schema.String, ActionThreshold: ActionThreshold, Definition: Definition, ExecutionRoleArn: Schema.String, ApprovalModel: Schema.String, Subscribers: Subscribers, ResourceTags: Schema.optional(ResourceTagList)});
-export const CreationLimitExceededException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DeleteBudgetActionResponse = Schema.Struct({AccountId: Schema.String, BudgetName: Schema.String, Action: Action});
-export const InvalidNextTokenException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DescribeBudgetNotificationsForAccountResponse = Schema.Struct({BudgetNotificationsForAccount: Schema.optional(BudgetNotificationsForAccountList), NextToken: Schema.optional(Schema.String)});
-export const ExpiredNextTokenException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ResourceLockedException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const BudgetedAndActualAmounts = Schema.Struct({BudgetedAmount: Schema.optional(Spend), ActualAmount: Schema.optional(Spend), TimePeriod: Schema.optional(TimePeriod)});
+export class CreateBudgetActionRequest extends Schema.Class<CreateBudgetActionRequest>("CreateBudgetActionRequest")({AccountId: Schema.String, BudgetName: Schema.String, NotificationType: Schema.String, ActionType: Schema.String, ActionThreshold: ActionThreshold, Definition: Definition, ExecutionRoleArn: Schema.String, ApprovalModel: Schema.String, Subscribers: Subscribers, ResourceTags: Schema.optional(ResourceTagList)}) {}
+export class CreationLimitExceededException extends Schema.Class<CreationLimitExceededException>("CreationLimitExceededException")({Message: Schema.optional(Schema.String)}) {}
+export class DeleteBudgetActionResponse extends Schema.Class<DeleteBudgetActionResponse>("DeleteBudgetActionResponse")({AccountId: Schema.String, BudgetName: Schema.String, Action: Action}) {}
+export class InvalidNextTokenException extends Schema.Class<InvalidNextTokenException>("InvalidNextTokenException")({Message: Schema.optional(Schema.String)}) {}
+export class DescribeBudgetNotificationsForAccountResponse extends Schema.Class<DescribeBudgetNotificationsForAccountResponse>("DescribeBudgetNotificationsForAccountResponse")({BudgetNotificationsForAccount: Schema.optional(BudgetNotificationsForAccountList), NextToken: Schema.optional(Schema.String)}) {}
+export class ExpiredNextTokenException extends Schema.Class<ExpiredNextTokenException>("ExpiredNextTokenException")({Message: Schema.optional(Schema.String)}) {}
+export class ResourceLockedException extends Schema.Class<ResourceLockedException>("ResourceLockedException")({Message: Schema.optional(Schema.String)}) {}
+export class BudgetedAndActualAmounts extends Schema.Class<BudgetedAndActualAmounts>("BudgetedAndActualAmounts")({BudgetedAmount: Schema.optional(Spend), ActualAmount: Schema.optional(Spend), TimePeriod: Schema.optional(TimePeriod)}) {}
 export const BudgetedAndActualAmountsList = Schema.Array(BudgetedAndActualAmounts);
-export const BudgetPerformanceHistory = Schema.Struct({BudgetName: Schema.optional(Schema.String), BudgetType: Schema.optional(Schema.String), CostFilters: Schema.optional(CostFilters), CostTypes: Schema.optional(CostTypes), TimeUnit: Schema.optional(Schema.String), BillingViewArn: Schema.optional(Schema.String), BudgetedAndActualAmountsList: Schema.optional(BudgetedAndActualAmountsList)});
-export const CreateBudgetRequest = Schema.Struct({AccountId: Schema.String, Budget: Budget, NotificationsWithSubscribers: Schema.optional(NotificationWithSubscribersList), ResourceTags: Schema.optional(ResourceTagList)});
-export const CreateBudgetResponse = Schema.Struct({});
-export const CreateBudgetActionResponse = Schema.Struct({AccountId: Schema.String, BudgetName: Schema.String, ActionId: Schema.String});
-export const DescribeBudgetPerformanceHistoryResponse = Schema.Struct({BudgetPerformanceHistory: Schema.optional(BudgetPerformanceHistory), NextToken: Schema.optional(Schema.String)});
-export const ActionHistoryDetails = Schema.Struct({Message: Schema.String, Action: Action});
-export const ActionHistory = Schema.Struct({Timestamp: Schema.Date, Status: Schema.String, EventType: Schema.String, ActionHistoryDetails: ActionHistoryDetails});
+export class BudgetPerformanceHistory extends Schema.Class<BudgetPerformanceHistory>("BudgetPerformanceHistory")({BudgetName: Schema.optional(Schema.String), BudgetType: Schema.optional(Schema.String), CostFilters: Schema.optional(CostFilters), CostTypes: Schema.optional(CostTypes), TimeUnit: Schema.optional(Schema.String), BillingViewArn: Schema.optional(Schema.String), BudgetedAndActualAmountsList: Schema.optional(BudgetedAndActualAmountsList)}) {}
+export class CreateBudgetRequest extends Schema.Class<CreateBudgetRequest>("CreateBudgetRequest")({AccountId: Schema.String, Budget: Budget, NotificationsWithSubscribers: Schema.optional(NotificationWithSubscribersList), ResourceTags: Schema.optional(ResourceTagList)}) {}
+export class CreateBudgetResponse extends Schema.Class<CreateBudgetResponse>("CreateBudgetResponse")({}) {}
+export class CreateBudgetActionResponse extends Schema.Class<CreateBudgetActionResponse>("CreateBudgetActionResponse")({AccountId: Schema.String, BudgetName: Schema.String, ActionId: Schema.String}) {}
+export class DescribeBudgetPerformanceHistoryResponse extends Schema.Class<DescribeBudgetPerformanceHistoryResponse>("DescribeBudgetPerformanceHistoryResponse")({BudgetPerformanceHistory: Schema.optional(BudgetPerformanceHistory), NextToken: Schema.optional(Schema.String)}) {}
+export class ActionHistoryDetails extends Schema.Class<ActionHistoryDetails>("ActionHistoryDetails")({Message: Schema.String, Action: Action}) {}
+export class ActionHistory extends Schema.Class<ActionHistory>("ActionHistory")({Timestamp: Schema.Date, Status: Schema.String, EventType: Schema.String, ActionHistoryDetails: ActionHistoryDetails}) {}
 export const ActionHistories = Schema.Array(ActionHistory);
-export const DescribeBudgetActionHistoriesResponse = Schema.Struct({ActionHistories: ActionHistories, NextToken: Schema.optional(Schema.String)});
+export class DescribeBudgetActionHistoriesResponse extends Schema.Class<DescribeBudgetActionHistoriesResponse>("DescribeBudgetActionHistoriesResponse")({ActionHistories: ActionHistories, NextToken: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class InternalErrorExceptionError extends Schema.TaggedError<InternalErrorExceptionError>()("InternalErrorException", InternalErrorException) {};
-export class InvalidParameterExceptionError extends Schema.TaggedError<InvalidParameterExceptionError>()("InvalidParameterException", InvalidParameterException) {};
-export class NotFoundExceptionError extends Schema.TaggedError<NotFoundExceptionError>()("NotFoundException", NotFoundException) {};
-export class DuplicateRecordExceptionError extends Schema.TaggedError<DuplicateRecordExceptionError>()("DuplicateRecordException", DuplicateRecordException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class CreationLimitExceededExceptionError extends Schema.TaggedError<CreationLimitExceededExceptionError>()("CreationLimitExceededException", CreationLimitExceededException) {};
-export class InvalidNextTokenExceptionError extends Schema.TaggedError<InvalidNextTokenExceptionError>()("InvalidNextTokenException", InvalidNextTokenException) {};
-export class ExpiredNextTokenExceptionError extends Schema.TaggedError<ExpiredNextTokenExceptionError>()("ExpiredNextTokenException", ExpiredNextTokenException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
-export class BillingViewHealthStatusExceptionError extends Schema.TaggedError<BillingViewHealthStatusExceptionError>()("BillingViewHealthStatusException", BillingViewHealthStatusException) {};
-export class ResourceLockedExceptionError extends Schema.TaggedError<ResourceLockedExceptionError>()("ResourceLockedException", ResourceLockedException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class InternalErrorExceptionError extends Schema.TaggedError<InternalErrorExceptionError>()("InternalErrorException", InternalErrorException.fields) {};
+export class InvalidParameterExceptionError extends Schema.TaggedError<InvalidParameterExceptionError>()("InvalidParameterException", InvalidParameterException.fields) {};
+export class NotFoundExceptionError extends Schema.TaggedError<NotFoundExceptionError>()("NotFoundException", NotFoundException.fields) {};
+export class DuplicateRecordExceptionError extends Schema.TaggedError<DuplicateRecordExceptionError>()("DuplicateRecordException", DuplicateRecordException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class CreationLimitExceededExceptionError extends Schema.TaggedError<CreationLimitExceededExceptionError>()("CreationLimitExceededException", CreationLimitExceededException.fields) {};
+export class InvalidNextTokenExceptionError extends Schema.TaggedError<InvalidNextTokenExceptionError>()("InvalidNextTokenException", InvalidNextTokenException.fields) {};
+export class ExpiredNextTokenExceptionError extends Schema.TaggedError<ExpiredNextTokenExceptionError>()("ExpiredNextTokenException", ExpiredNextTokenException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
+export class BillingViewHealthStatusExceptionError extends Schema.TaggedError<BillingViewHealthStatusExceptionError>()("BillingViewHealthStatusException", BillingViewHealthStatusException.fields) {};
+export class ResourceLockedExceptionError extends Schema.TaggedError<ResourceLockedExceptionError>()("ResourceLockedException", ResourceLockedException.fields) {};
 
 //# Operations
 export const updateSubscriber = /*#__PURE__*/ makeOperation(() => Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.UpdateSubscriber" }, UpdateSubscriberRequest, UpdateSubscriberResponse, [AccessDeniedExceptionError, DuplicateRecordExceptionError, InternalErrorExceptionError, InvalidParameterExceptionError, NotFoundExceptionError, ThrottlingExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -145,7 +145,7 @@ export const describeSubscribersForNotification = /*#__PURE__*/ makeOperation(()
 export const listTagsForResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [AccessDeniedExceptionError, InternalErrorExceptionError, InvalidParameterExceptionError, NotFoundExceptionError, ThrottlingExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const tagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.TagResource" }, TagResourceRequest, TagResourceResponse, [AccessDeniedExceptionError, InternalErrorExceptionError, InvalidParameterExceptionError, NotFoundExceptionError, ServiceQuotaExceededExceptionError, ThrottlingExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const untagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [AccessDeniedExceptionError, InternalErrorExceptionError, InvalidParameterExceptionError, NotFoundExceptionError, ThrottlingExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateBudget = /*#__PURE__*/ makeOperation(() => Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.UpdateBudget" }, UpdateBudgetRequest, UpdateBudgetResponse, [AccessDeniedExceptionError, BillingViewHealthStatusExceptionError, InternalErrorExceptionError, InvalidParameterExceptionError, NotFoundExceptionError, ThrottlingExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const updateBudget = /*#__PURE__*/ makeOperation(() => Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.UpdateBudget" }, UpdateBudgetRequest, UpdateBudgetResponse, [AccessDeniedExceptionError, BillingViewHealthStatusExceptionError, InternalErrorExceptionError, InvalidParameterExceptionError, NotFoundExceptionError, ServiceQuotaExceededExceptionError, ThrottlingExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const updateBudgetAction = /*#__PURE__*/ makeOperation(() => Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.UpdateBudgetAction" }, UpdateBudgetActionRequest, UpdateBudgetActionResponse, [AccessDeniedExceptionError, InternalErrorExceptionError, InvalidParameterExceptionError, NotFoundExceptionError, ResourceLockedExceptionError, ThrottlingExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const updateNotification = /*#__PURE__*/ makeOperation(() => Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.UpdateNotification" }, UpdateNotificationRequest, UpdateNotificationResponse, [AccessDeniedExceptionError, DuplicateRecordExceptionError, InternalErrorExceptionError, InvalidParameterExceptionError, NotFoundExceptionError, ThrottlingExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const createNotification = /*#__PURE__*/ makeOperation(() => Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.CreateNotification" }, CreateNotificationRequest, CreateNotificationResponse, [AccessDeniedExceptionError, CreationLimitExceededExceptionError, DuplicateRecordExceptionError, InternalErrorExceptionError, InvalidParameterExceptionError, NotFoundExceptionError, ThrottlingExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -156,5 +156,5 @@ export const describeBudgets = /*#__PURE__*/ makeOperation(() => Operation({ ver
 export const executeBudgetAction = /*#__PURE__*/ makeOperation(() => Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.ExecuteBudgetAction" }, ExecuteBudgetActionRequest, ExecuteBudgetActionResponse, [AccessDeniedExceptionError, InternalErrorExceptionError, InvalidParameterExceptionError, NotFoundExceptionError, ResourceLockedExceptionError, ThrottlingExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const createBudget = /*#__PURE__*/ makeOperation(() => Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.CreateBudget" }, CreateBudgetRequest, CreateBudgetResponse, [AccessDeniedExceptionError, BillingViewHealthStatusExceptionError, CreationLimitExceededExceptionError, DuplicateRecordExceptionError, InternalErrorExceptionError, InvalidParameterExceptionError, NotFoundExceptionError, ServiceQuotaExceededExceptionError, ThrottlingExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const createBudgetAction = /*#__PURE__*/ makeOperation(() => Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.CreateBudgetAction" }, CreateBudgetActionRequest, CreateBudgetActionResponse, [AccessDeniedExceptionError, CreationLimitExceededExceptionError, DuplicateRecordExceptionError, InternalErrorExceptionError, InvalidParameterExceptionError, NotFoundExceptionError, ServiceQuotaExceededExceptionError, ThrottlingExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeBudgetPerformanceHistory = /*#__PURE__*/ makeOperation(() => Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.DescribeBudgetPerformanceHistory" }, DescribeBudgetPerformanceHistoryRequest, DescribeBudgetPerformanceHistoryResponse, [AccessDeniedExceptionError, ExpiredNextTokenExceptionError, InternalErrorExceptionError, InvalidNextTokenExceptionError, InvalidParameterExceptionError, NotFoundExceptionError, ThrottlingExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const describeBudgetPerformanceHistory = /*#__PURE__*/ makeOperation(() => Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.DescribeBudgetPerformanceHistory" }, DescribeBudgetPerformanceHistoryRequest, DescribeBudgetPerformanceHistoryResponse, [AccessDeniedExceptionError, BillingViewHealthStatusExceptionError, ExpiredNextTokenExceptionError, InternalErrorExceptionError, InvalidNextTokenExceptionError, InvalidParameterExceptionError, NotFoundExceptionError, ThrottlingExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const describeBudgetActionHistories = /*#__PURE__*/ makeOperation(() => Operation({ version: "2016-10-20", uri: "/", method: "POST", sdkId: "Budgets", sigV4ServiceName: "budgets", name: "AWSBudgetServiceGateway.DescribeBudgetActionHistories" }, DescribeBudgetActionHistoriesRequest, DescribeBudgetActionHistoriesResponse, [AccessDeniedExceptionError, InternalErrorExceptionError, InvalidNextTokenExceptionError, InvalidParameterExceptionError, NotFoundExceptionError, ThrottlingExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

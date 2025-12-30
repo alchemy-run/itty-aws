@@ -3,71 +3,71 @@ import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperat
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const GetTransactionInput = Schema.Struct({transactionHash: Schema.optional(Schema.String), transactionId: Schema.optional(Schema.String), network: Schema.String});
-export const ListTransactionEventsInput = Schema.Struct({transactionHash: Schema.optional(Schema.String), transactionId: Schema.optional(Schema.String), network: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
+export class GetTransactionInput extends Schema.Class<GetTransactionInput>("GetTransactionInput")({transactionHash: Schema.optional(Schema.String), transactionId: Schema.optional(Schema.String), network: Schema.String}) {}
+export class ListTransactionEventsInput extends Schema.Class<ListTransactionEventsInput>("ListTransactionEventsInput")({transactionHash: Schema.optional(Schema.String), transactionId: Schema.optional(Schema.String), network: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
 export const ChainAddresses = Schema.Array(Schema.String);
 export const ConfirmationStatusIncludeList = Schema.Array(Schema.String);
-export const TokenIdentifier = Schema.Struct({network: Schema.String, contractAddress: Schema.optional(Schema.String), tokenId: Schema.optional(Schema.String)});
-export const OwnerIdentifier = Schema.Struct({address: Schema.String});
-export const BlockchainInstant = Schema.Struct({time: Schema.optional(Schema.Date)});
-export const BatchGetTokenBalanceInputItem = Schema.Struct({tokenIdentifier: TokenIdentifier, ownerIdentifier: OwnerIdentifier, atBlockchainInstant: Schema.optional(BlockchainInstant)});
+export class TokenIdentifier extends Schema.Class<TokenIdentifier>("TokenIdentifier")({network: Schema.String, contractAddress: Schema.optional(Schema.String), tokenId: Schema.optional(Schema.String)}) {}
+export class OwnerIdentifier extends Schema.Class<OwnerIdentifier>("OwnerIdentifier")({address: Schema.String}) {}
+export class BlockchainInstant extends Schema.Class<BlockchainInstant>("BlockchainInstant")({time: Schema.optional(Schema.Date)}) {}
+export class BatchGetTokenBalanceInputItem extends Schema.Class<BatchGetTokenBalanceInputItem>("BatchGetTokenBalanceInputItem")({tokenIdentifier: TokenIdentifier, ownerIdentifier: OwnerIdentifier, atBlockchainInstant: Schema.optional(BlockchainInstant)}) {}
 export const GetTokenBalanceInputList = Schema.Array(BatchGetTokenBalanceInputItem);
-export const ContractIdentifier = Schema.Struct({network: Schema.String, contractAddress: Schema.String});
-export const ContractFilter = Schema.Struct({network: Schema.String, tokenStandard: Schema.String, deployerAddress: Schema.String});
-export const AddressIdentifierFilter = Schema.Struct({transactionEventToAddress: ChainAddresses});
-export const TimeFilter = Schema.Struct({from: Schema.optional(BlockchainInstant), to: Schema.optional(BlockchainInstant)});
-export const VoutFilter = Schema.Struct({voutSpent: Schema.Boolean});
-export const ConfirmationStatusFilter = Schema.Struct({include: ConfirmationStatusIncludeList});
-export const ListFilteredTransactionEventsSort = Schema.Struct({sortBy: Schema.optional(Schema.String), sortOrder: Schema.optional(Schema.String)});
-export const OwnerFilter = Schema.Struct({address: Schema.String});
-export const TokenFilter = Schema.Struct({network: Schema.String, contractAddress: Schema.optional(Schema.String), tokenId: Schema.optional(Schema.String)});
-export const ListTransactionsSort = Schema.Struct({sortBy: Schema.optional(Schema.String), sortOrder: Schema.optional(Schema.String)});
-export const BatchGetTokenBalanceInput = Schema.Struct({getTokenBalanceInputs: Schema.optional(GetTokenBalanceInputList)});
-export const GetAssetContractInput = Schema.Struct({contractIdentifier: ContractIdentifier});
-export const GetTokenBalanceInput = Schema.Struct({tokenIdentifier: TokenIdentifier, ownerIdentifier: OwnerIdentifier, atBlockchainInstant: Schema.optional(BlockchainInstant)});
-export const ListAssetContractsInput = Schema.Struct({contractFilter: ContractFilter, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListFilteredTransactionEventsInput = Schema.Struct({network: Schema.String, addressIdentifierFilter: AddressIdentifierFilter, timeFilter: Schema.optional(TimeFilter), voutFilter: Schema.optional(VoutFilter), confirmationStatusFilter: Schema.optional(ConfirmationStatusFilter), sort: Schema.optional(ListFilteredTransactionEventsSort), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListTokenBalancesInput = Schema.Struct({ownerFilter: Schema.optional(OwnerFilter), tokenFilter: TokenFilter, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListTransactionsInput = Schema.Struct({address: Schema.String, network: Schema.String, fromBlockchainInstant: Schema.optional(BlockchainInstant), toBlockchainInstant: Schema.optional(BlockchainInstant), sort: Schema.optional(ListTransactionsSort), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), confirmationStatusFilter: Schema.optional(ConfirmationStatusFilter)});
-export const Transaction = Schema.Struct({network: Schema.String, blockHash: Schema.optional(Schema.String), transactionHash: Schema.String, blockNumber: Schema.optional(Schema.String), transactionTimestamp: Schema.Date, transactionIndex: Schema.Number, numberOfTransactions: Schema.Number, to: Schema.String, from: Schema.optional(Schema.String), contractAddress: Schema.optional(Schema.String), gasUsed: Schema.optional(Schema.String), cumulativeGasUsed: Schema.optional(Schema.String), effectiveGasPrice: Schema.optional(Schema.String), signatureV: Schema.optional(Schema.Number), signatureR: Schema.optional(Schema.String), signatureS: Schema.optional(Schema.String), transactionFee: Schema.optional(Schema.String), transactionId: Schema.optional(Schema.String), confirmationStatus: Schema.optional(Schema.String), executionStatus: Schema.optional(Schema.String)});
-export const TransactionEvent = Schema.Struct({network: Schema.String, transactionHash: Schema.String, eventType: Schema.String, from: Schema.optional(Schema.String), to: Schema.optional(Schema.String), value: Schema.optional(Schema.String), contractAddress: Schema.optional(Schema.String), tokenId: Schema.optional(Schema.String), transactionId: Schema.optional(Schema.String), voutIndex: Schema.optional(Schema.Number), voutSpent: Schema.optional(Schema.Boolean), spentVoutTransactionId: Schema.optional(Schema.String), spentVoutTransactionHash: Schema.optional(Schema.String), spentVoutIndex: Schema.optional(Schema.Number), blockchainInstant: Schema.optional(BlockchainInstant), confirmationStatus: Schema.optional(Schema.String)});
+export class ContractIdentifier extends Schema.Class<ContractIdentifier>("ContractIdentifier")({network: Schema.String, contractAddress: Schema.String}) {}
+export class ContractFilter extends Schema.Class<ContractFilter>("ContractFilter")({network: Schema.String, tokenStandard: Schema.String, deployerAddress: Schema.String}) {}
+export class AddressIdentifierFilter extends Schema.Class<AddressIdentifierFilter>("AddressIdentifierFilter")({transactionEventToAddress: ChainAddresses}) {}
+export class TimeFilter extends Schema.Class<TimeFilter>("TimeFilter")({from: Schema.optional(BlockchainInstant), to: Schema.optional(BlockchainInstant)}) {}
+export class VoutFilter extends Schema.Class<VoutFilter>("VoutFilter")({voutSpent: Schema.Boolean}) {}
+export class ConfirmationStatusFilter extends Schema.Class<ConfirmationStatusFilter>("ConfirmationStatusFilter")({include: ConfirmationStatusIncludeList}) {}
+export class ListFilteredTransactionEventsSort extends Schema.Class<ListFilteredTransactionEventsSort>("ListFilteredTransactionEventsSort")({sortBy: Schema.optional(Schema.String), sortOrder: Schema.optional(Schema.String)}) {}
+export class OwnerFilter extends Schema.Class<OwnerFilter>("OwnerFilter")({address: Schema.String}) {}
+export class TokenFilter extends Schema.Class<TokenFilter>("TokenFilter")({network: Schema.String, contractAddress: Schema.optional(Schema.String), tokenId: Schema.optional(Schema.String)}) {}
+export class ListTransactionsSort extends Schema.Class<ListTransactionsSort>("ListTransactionsSort")({sortBy: Schema.optional(Schema.String), sortOrder: Schema.optional(Schema.String)}) {}
+export class BatchGetTokenBalanceInput extends Schema.Class<BatchGetTokenBalanceInput>("BatchGetTokenBalanceInput")({getTokenBalanceInputs: Schema.optional(GetTokenBalanceInputList)}) {}
+export class GetAssetContractInput extends Schema.Class<GetAssetContractInput>("GetAssetContractInput")({contractIdentifier: ContractIdentifier}) {}
+export class GetTokenBalanceInput extends Schema.Class<GetTokenBalanceInput>("GetTokenBalanceInput")({tokenIdentifier: TokenIdentifier, ownerIdentifier: OwnerIdentifier, atBlockchainInstant: Schema.optional(BlockchainInstant)}) {}
+export class ListAssetContractsInput extends Schema.Class<ListAssetContractsInput>("ListAssetContractsInput")({contractFilter: ContractFilter, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListFilteredTransactionEventsInput extends Schema.Class<ListFilteredTransactionEventsInput>("ListFilteredTransactionEventsInput")({network: Schema.String, addressIdentifierFilter: AddressIdentifierFilter, timeFilter: Schema.optional(TimeFilter), voutFilter: Schema.optional(VoutFilter), confirmationStatusFilter: Schema.optional(ConfirmationStatusFilter), sort: Schema.optional(ListFilteredTransactionEventsSort), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListTokenBalancesInput extends Schema.Class<ListTokenBalancesInput>("ListTokenBalancesInput")({ownerFilter: Schema.optional(OwnerFilter), tokenFilter: TokenFilter, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListTransactionsInput extends Schema.Class<ListTransactionsInput>("ListTransactionsInput")({address: Schema.String, network: Schema.String, fromBlockchainInstant: Schema.optional(BlockchainInstant), toBlockchainInstant: Schema.optional(BlockchainInstant), sort: Schema.optional(ListTransactionsSort), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), confirmationStatusFilter: Schema.optional(ConfirmationStatusFilter)}) {}
+export class Transaction extends Schema.Class<Transaction>("Transaction")({network: Schema.String, blockHash: Schema.optional(Schema.String), transactionHash: Schema.String, blockNumber: Schema.optional(Schema.String), transactionTimestamp: Schema.Date, transactionIndex: Schema.Number, numberOfTransactions: Schema.Number, to: Schema.String, from: Schema.optional(Schema.String), contractAddress: Schema.optional(Schema.String), gasUsed: Schema.optional(Schema.String), cumulativeGasUsed: Schema.optional(Schema.String), effectiveGasPrice: Schema.optional(Schema.String), signatureV: Schema.optional(Schema.Number), signatureR: Schema.optional(Schema.String), signatureS: Schema.optional(Schema.String), transactionFee: Schema.optional(Schema.String), transactionId: Schema.optional(Schema.String), confirmationStatus: Schema.optional(Schema.String), executionStatus: Schema.optional(Schema.String)}) {}
+export class TransactionEvent extends Schema.Class<TransactionEvent>("TransactionEvent")({network: Schema.String, transactionHash: Schema.String, eventType: Schema.String, from: Schema.optional(Schema.String), to: Schema.optional(Schema.String), value: Schema.optional(Schema.String), contractAddress: Schema.optional(Schema.String), tokenId: Schema.optional(Schema.String), transactionId: Schema.optional(Schema.String), voutIndex: Schema.optional(Schema.Number), voutSpent: Schema.optional(Schema.Boolean), spentVoutTransactionId: Schema.optional(Schema.String), spentVoutTransactionHash: Schema.optional(Schema.String), spentVoutIndex: Schema.optional(Schema.Number), blockchainInstant: Schema.optional(BlockchainInstant), confirmationStatus: Schema.optional(Schema.String)}) {}
 export const TransactionEventList = Schema.Array(TransactionEvent);
-export const GetTokenBalanceOutput = Schema.Struct({ownerIdentifier: Schema.optional(OwnerIdentifier), tokenIdentifier: Schema.optional(TokenIdentifier), balance: Schema.String, atBlockchainInstant: BlockchainInstant, lastUpdatedTime: Schema.optional(BlockchainInstant)});
-export const GetTransactionOutput = Schema.Struct({transaction: Transaction});
-export const ListFilteredTransactionEventsOutput = Schema.Struct({events: TransactionEventList, nextToken: Schema.optional(Schema.String)});
-export const ListTransactionEventsOutput = Schema.Struct({events: TransactionEventList, nextToken: Schema.optional(Schema.String)});
-export const BatchGetTokenBalanceOutputItem = Schema.Struct({ownerIdentifier: Schema.optional(OwnerIdentifier), tokenIdentifier: Schema.optional(TokenIdentifier), balance: Schema.String, atBlockchainInstant: BlockchainInstant, lastUpdatedTime: Schema.optional(BlockchainInstant)});
+export class GetTokenBalanceOutput extends Schema.Class<GetTokenBalanceOutput>("GetTokenBalanceOutput")({ownerIdentifier: Schema.optional(OwnerIdentifier), tokenIdentifier: Schema.optional(TokenIdentifier), balance: Schema.String, atBlockchainInstant: BlockchainInstant, lastUpdatedTime: Schema.optional(BlockchainInstant)}) {}
+export class GetTransactionOutput extends Schema.Class<GetTransactionOutput>("GetTransactionOutput")({transaction: Transaction}) {}
+export class ListFilteredTransactionEventsOutput extends Schema.Class<ListFilteredTransactionEventsOutput>("ListFilteredTransactionEventsOutput")({events: TransactionEventList, nextToken: Schema.optional(Schema.String)}) {}
+export class ListTransactionEventsOutput extends Schema.Class<ListTransactionEventsOutput>("ListTransactionEventsOutput")({events: TransactionEventList, nextToken: Schema.optional(Schema.String)}) {}
+export class BatchGetTokenBalanceOutputItem extends Schema.Class<BatchGetTokenBalanceOutputItem>("BatchGetTokenBalanceOutputItem")({ownerIdentifier: Schema.optional(OwnerIdentifier), tokenIdentifier: Schema.optional(TokenIdentifier), balance: Schema.String, atBlockchainInstant: BlockchainInstant, lastUpdatedTime: Schema.optional(BlockchainInstant)}) {}
 export const BatchGetTokenBalanceOutputList = Schema.Array(BatchGetTokenBalanceOutputItem);
-export const BatchGetTokenBalanceErrorItem = Schema.Struct({tokenIdentifier: Schema.optional(TokenIdentifier), ownerIdentifier: Schema.optional(OwnerIdentifier), atBlockchainInstant: Schema.optional(BlockchainInstant), errorCode: Schema.String, errorMessage: Schema.String, errorType: Schema.String});
+export class BatchGetTokenBalanceErrorItem extends Schema.Class<BatchGetTokenBalanceErrorItem>("BatchGetTokenBalanceErrorItem")({tokenIdentifier: Schema.optional(TokenIdentifier), ownerIdentifier: Schema.optional(OwnerIdentifier), atBlockchainInstant: Schema.optional(BlockchainInstant), errorCode: Schema.String, errorMessage: Schema.String, errorType: Schema.String}) {}
 export const BatchGetTokenBalanceErrors = Schema.Array(BatchGetTokenBalanceErrorItem);
-export const ContractMetadata = Schema.Struct({name: Schema.optional(Schema.String), symbol: Schema.optional(Schema.String), decimals: Schema.optional(Schema.Number)});
-export const AssetContract = Schema.Struct({contractIdentifier: ContractIdentifier, tokenStandard: Schema.String, deployerAddress: Schema.String});
+export class ContractMetadata extends Schema.Class<ContractMetadata>("ContractMetadata")({name: Schema.optional(Schema.String), symbol: Schema.optional(Schema.String), decimals: Schema.optional(Schema.Number)}) {}
+export class AssetContract extends Schema.Class<AssetContract>("AssetContract")({contractIdentifier: ContractIdentifier, tokenStandard: Schema.String, deployerAddress: Schema.String}) {}
 export const AssetContractList = Schema.Array(AssetContract);
-export const TokenBalance = Schema.Struct({ownerIdentifier: Schema.optional(OwnerIdentifier), tokenIdentifier: Schema.optional(TokenIdentifier), balance: Schema.String, atBlockchainInstant: BlockchainInstant, lastUpdatedTime: Schema.optional(BlockchainInstant)});
+export class TokenBalance extends Schema.Class<TokenBalance>("TokenBalance")({ownerIdentifier: Schema.optional(OwnerIdentifier), tokenIdentifier: Schema.optional(TokenIdentifier), balance: Schema.String, atBlockchainInstant: BlockchainInstant, lastUpdatedTime: Schema.optional(BlockchainInstant)}) {}
 export const TokenBalanceList = Schema.Array(TokenBalance);
-export const TransactionOutputItem = Schema.Struct({transactionHash: Schema.String, transactionId: Schema.optional(Schema.String), network: Schema.String, transactionTimestamp: Schema.Date, confirmationStatus: Schema.optional(Schema.String)});
+export class TransactionOutputItem extends Schema.Class<TransactionOutputItem>("TransactionOutputItem")({transactionHash: Schema.String, transactionId: Schema.optional(Schema.String), network: Schema.String, transactionTimestamp: Schema.Date, confirmationStatus: Schema.optional(Schema.String)}) {}
 export const TransactionOutputList = Schema.Array(TransactionOutputItem);
-export const BatchGetTokenBalanceOutput = Schema.Struct({tokenBalances: BatchGetTokenBalanceOutputList, errors: BatchGetTokenBalanceErrors});
-export const GetAssetContractOutput = Schema.Struct({contractIdentifier: ContractIdentifier, tokenStandard: Schema.String, deployerAddress: Schema.String, metadata: Schema.optional(ContractMetadata)});
-export const AccessDeniedException = Schema.Struct({message: Schema.String});
-export const InternalServerException = Schema.Struct({message: Schema.String, retryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))});
-export const ListAssetContractsOutput = Schema.Struct({contracts: AssetContractList, nextToken: Schema.optional(Schema.String)});
-export const ServiceQuotaExceededException = Schema.Struct({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String, serviceCode: Schema.String, quotaCode: Schema.String});
-export const ListTokenBalancesOutput = Schema.Struct({tokenBalances: TokenBalanceList, nextToken: Schema.optional(Schema.String)});
-export const ThrottlingException = Schema.Struct({message: Schema.String, serviceCode: Schema.String, quotaCode: Schema.String, retryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))});
-export const ListTransactionsOutput = Schema.Struct({transactions: TransactionOutputList, nextToken: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String});
-export const ValidationExceptionField = Schema.Struct({name: Schema.String, message: Schema.String});
+export class BatchGetTokenBalanceOutput extends Schema.Class<BatchGetTokenBalanceOutput>("BatchGetTokenBalanceOutput")({tokenBalances: BatchGetTokenBalanceOutputList, errors: BatchGetTokenBalanceErrors}) {}
+export class GetAssetContractOutput extends Schema.Class<GetAssetContractOutput>("GetAssetContractOutput")({contractIdentifier: ContractIdentifier, tokenStandard: Schema.String, deployerAddress: Schema.String, metadata: Schema.optional(ContractMetadata)}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({message: Schema.String}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({message: Schema.String, retryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))}) {}
+export class ListAssetContractsOutput extends Schema.Class<ListAssetContractsOutput>("ListAssetContractsOutput")({contracts: AssetContractList, nextToken: Schema.optional(Schema.String)}) {}
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String, serviceCode: Schema.String, quotaCode: Schema.String}) {}
+export class ListTokenBalancesOutput extends Schema.Class<ListTokenBalancesOutput>("ListTokenBalancesOutput")({tokenBalances: TokenBalanceList, nextToken: Schema.optional(Schema.String)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({message: Schema.String, serviceCode: Schema.String, quotaCode: Schema.String, retryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))}) {}
+export class ListTransactionsOutput extends Schema.Class<ListTransactionsOutput>("ListTransactionsOutput")({transactions: TransactionOutputList, nextToken: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String}) {}
+export class ValidationExceptionField extends Schema.Class<ValidationExceptionField>("ValidationExceptionField")({name: Schema.String, message: Schema.String}) {}
 export const ValidationExceptionFieldList = Schema.Array(ValidationExceptionField);
-export const ValidationException = Schema.Struct({message: Schema.String, reason: Schema.String, fieldList: Schema.optional(ValidationExceptionFieldList)});
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({message: Schema.String, reason: Schema.String, fieldList: Schema.optional(ValidationExceptionFieldList)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
 
 //# Operations
 export const getTokenBalance = /*#__PURE__*/ makeOperation(() => Operation({ version: "2023-05-04", uri: "/get-token-balance", method: "POST", sdkId: "ManagedBlockchain Query", sigV4ServiceName: "managedblockchain-query", name: "TietonChainQueryService.GetTokenBalance" }, GetTokenBalanceInput, GetTokenBalanceOutput, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ServiceQuotaExceededExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

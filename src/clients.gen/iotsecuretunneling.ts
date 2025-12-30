@@ -4,37 +4,37 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 
 //# Schemas
 export const TagKeyList = Schema.Array(Schema.String);
-export const CloseTunnelRequest = Schema.Struct({tunnelId: Schema.String, delete: Schema.optional(Schema.Boolean)});
-export const CloseTunnelResponse = Schema.Struct({});
-export const DescribeTunnelRequest = Schema.Struct({tunnelId: Schema.String});
-export const ListTagsForResourceRequest = Schema.Struct({resourceArn: Schema.String});
-export const ListTunnelsRequest = Schema.Struct({thingName: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
+export class CloseTunnelRequest extends Schema.Class<CloseTunnelRequest>("CloseTunnelRequest")({tunnelId: Schema.String, delete: Schema.optional(Schema.Boolean)}) {}
+export class CloseTunnelResponse extends Schema.Class<CloseTunnelResponse>("CloseTunnelResponse")({}) {}
+export class DescribeTunnelRequest extends Schema.Class<DescribeTunnelRequest>("DescribeTunnelRequest")({tunnelId: Schema.String}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({resourceArn: Schema.String}) {}
+export class ListTunnelsRequest extends Schema.Class<ListTunnelsRequest>("ListTunnelsRequest")({thingName: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
 export const ServiceList = Schema.Array(Schema.String);
-export const DestinationConfig = Schema.Struct({thingName: Schema.optional(Schema.String), services: ServiceList});
-export const RotateTunnelAccessTokenRequest = Schema.Struct({tunnelId: Schema.String, clientMode: Schema.String, destinationConfig: Schema.optional(DestinationConfig)});
-export const Tag = Schema.Struct({key: Schema.String, value: Schema.String});
+export class DestinationConfig extends Schema.Class<DestinationConfig>("DestinationConfig")({thingName: Schema.optional(Schema.String), services: ServiceList}) {}
+export class RotateTunnelAccessTokenRequest extends Schema.Class<RotateTunnelAccessTokenRequest>("RotateTunnelAccessTokenRequest")({tunnelId: Schema.String, clientMode: Schema.String, destinationConfig: Schema.optional(DestinationConfig)}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({key: Schema.String, value: Schema.String}) {}
 export const TagList = Schema.Array(Tag);
-export const TagResourceRequest = Schema.Struct({resourceArn: Schema.String, tags: TagList});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({resourceArn: Schema.String, tagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
-export const TimeoutConfig = Schema.Struct({maxLifetimeTimeoutMinutes: Schema.optional(Schema.Number)});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ListTagsForResourceResponse = Schema.Struct({tags: Schema.optional(TagList)});
-export const OpenTunnelRequest = Schema.Struct({description: Schema.optional(Schema.String), tags: Schema.optional(TagList), destinationConfig: Schema.optional(DestinationConfig), timeoutConfig: Schema.optional(TimeoutConfig)});
-export const RotateTunnelAccessTokenResponse = Schema.Struct({tunnelArn: Schema.optional(Schema.String), sourceAccessToken: Schema.optional(Schema.String), destinationAccessToken: Schema.optional(Schema.String)});
-export const TunnelSummary = Schema.Struct({tunnelId: Schema.optional(Schema.String), tunnelArn: Schema.optional(Schema.String), status: Schema.optional(Schema.String), description: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date), lastUpdatedAt: Schema.optional(Schema.Date)});
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({resourceArn: Schema.String, tags: TagList}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({resourceArn: Schema.String, tagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class TimeoutConfig extends Schema.Class<TimeoutConfig>("TimeoutConfig")({maxLifetimeTimeoutMinutes: Schema.optional(Schema.Number)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({tags: Schema.optional(TagList)}) {}
+export class OpenTunnelRequest extends Schema.Class<OpenTunnelRequest>("OpenTunnelRequest")({description: Schema.optional(Schema.String), tags: Schema.optional(TagList), destinationConfig: Schema.optional(DestinationConfig), timeoutConfig: Schema.optional(TimeoutConfig)}) {}
+export class RotateTunnelAccessTokenResponse extends Schema.Class<RotateTunnelAccessTokenResponse>("RotateTunnelAccessTokenResponse")({tunnelArn: Schema.optional(Schema.String), sourceAccessToken: Schema.optional(Schema.String), destinationAccessToken: Schema.optional(Schema.String)}) {}
+export class TunnelSummary extends Schema.Class<TunnelSummary>("TunnelSummary")({tunnelId: Schema.optional(Schema.String), tunnelArn: Schema.optional(Schema.String), status: Schema.optional(Schema.String), description: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date), lastUpdatedAt: Schema.optional(Schema.Date)}) {}
 export const TunnelSummaryList = Schema.Array(TunnelSummary);
-export const ListTunnelsResponse = Schema.Struct({tunnelSummaries: Schema.optional(TunnelSummaryList), nextToken: Schema.optional(Schema.String)});
-export const OpenTunnelResponse = Schema.Struct({tunnelId: Schema.optional(Schema.String), tunnelArn: Schema.optional(Schema.String), sourceAccessToken: Schema.optional(Schema.String), destinationAccessToken: Schema.optional(Schema.String)});
-export const ConnectionState = Schema.Struct({status: Schema.optional(Schema.String), lastUpdatedAt: Schema.optional(Schema.Date)});
-export const Tunnel = Schema.Struct({tunnelId: Schema.optional(Schema.String), tunnelArn: Schema.optional(Schema.String), status: Schema.optional(Schema.String), sourceConnectionState: Schema.optional(ConnectionState), destinationConnectionState: Schema.optional(ConnectionState), description: Schema.optional(Schema.String), destinationConfig: Schema.optional(DestinationConfig), timeoutConfig: Schema.optional(TimeoutConfig), tags: Schema.optional(TagList), createdAt: Schema.optional(Schema.Date), lastUpdatedAt: Schema.optional(Schema.Date)});
-export const DescribeTunnelResponse = Schema.Struct({tunnel: Schema.optional(Tunnel)});
-export const LimitExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
+export class ListTunnelsResponse extends Schema.Class<ListTunnelsResponse>("ListTunnelsResponse")({tunnelSummaries: Schema.optional(TunnelSummaryList), nextToken: Schema.optional(Schema.String)}) {}
+export class OpenTunnelResponse extends Schema.Class<OpenTunnelResponse>("OpenTunnelResponse")({tunnelId: Schema.optional(Schema.String), tunnelArn: Schema.optional(Schema.String), sourceAccessToken: Schema.optional(Schema.String), destinationAccessToken: Schema.optional(Schema.String)}) {}
+export class ConnectionState extends Schema.Class<ConnectionState>("ConnectionState")({status: Schema.optional(Schema.String), lastUpdatedAt: Schema.optional(Schema.Date)}) {}
+export class Tunnel extends Schema.Class<Tunnel>("Tunnel")({tunnelId: Schema.optional(Schema.String), tunnelArn: Schema.optional(Schema.String), status: Schema.optional(Schema.String), sourceConnectionState: Schema.optional(ConnectionState), destinationConnectionState: Schema.optional(ConnectionState), description: Schema.optional(Schema.String), destinationConfig: Schema.optional(DestinationConfig), timeoutConfig: Schema.optional(TimeoutConfig), tags: Schema.optional(TagList), createdAt: Schema.optional(Schema.Date), lastUpdatedAt: Schema.optional(Schema.Date)}) {}
+export class DescribeTunnelResponse extends Schema.Class<DescribeTunnelResponse>("DescribeTunnelResponse")({tunnel: Schema.optional(Tunnel)}) {}
+export class LimitExceededException extends Schema.Class<LimitExceededException>("LimitExceededException")({message: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException.fields) {};
 
 //# Operations
 export const tagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-10-05", uri: "/tags", method: "POST", sdkId: "IoTSecureTunneling", sigV4ServiceName: "IoTSecuredTunneling", name: "IoTSecuredTunneling.TagResource" }, TagResourceRequest, TagResourceResponse, [ResourceNotFoundExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

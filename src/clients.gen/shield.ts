@@ -3,164 +3,164 @@ import { FormatAwsJSON11Request,FormatJSONResponse,FormatAwsRestJSONError, makeO
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const CreateSubscriptionRequest = Schema.Struct({});
-export const CreateSubscriptionResponse = Schema.Struct({});
-export const DeleteSubscriptionRequest = Schema.Struct({});
-export const DeleteSubscriptionResponse = Schema.Struct({});
-export const DescribeAttackStatisticsRequest = Schema.Struct({});
-export const DescribeDRTAccessRequest = Schema.Struct({});
-export const DescribeEmergencyContactSettingsRequest = Schema.Struct({});
-export const DescribeSubscriptionRequest = Schema.Struct({});
-export const DisableProactiveEngagementRequest = Schema.Struct({});
-export const DisableProactiveEngagementResponse = Schema.Struct({});
-export const DisassociateDRTRoleRequest = Schema.Struct({});
-export const DisassociateDRTRoleResponse = Schema.Struct({});
-export const EnableProactiveEngagementRequest = Schema.Struct({});
-export const EnableProactiveEngagementResponse = Schema.Struct({});
-export const GetSubscriptionStateRequest = Schema.Struct({});
+export class CreateSubscriptionRequest extends Schema.Class<CreateSubscriptionRequest>("CreateSubscriptionRequest")({}) {}
+export class CreateSubscriptionResponse extends Schema.Class<CreateSubscriptionResponse>("CreateSubscriptionResponse")({}) {}
+export class DeleteSubscriptionRequest extends Schema.Class<DeleteSubscriptionRequest>("DeleteSubscriptionRequest")({}) {}
+export class DeleteSubscriptionResponse extends Schema.Class<DeleteSubscriptionResponse>("DeleteSubscriptionResponse")({}) {}
+export class DescribeAttackStatisticsRequest extends Schema.Class<DescribeAttackStatisticsRequest>("DescribeAttackStatisticsRequest")({}) {}
+export class DescribeDRTAccessRequest extends Schema.Class<DescribeDRTAccessRequest>("DescribeDRTAccessRequest")({}) {}
+export class DescribeEmergencyContactSettingsRequest extends Schema.Class<DescribeEmergencyContactSettingsRequest>("DescribeEmergencyContactSettingsRequest")({}) {}
+export class DescribeSubscriptionRequest extends Schema.Class<DescribeSubscriptionRequest>("DescribeSubscriptionRequest")({}) {}
+export class DisableProactiveEngagementRequest extends Schema.Class<DisableProactiveEngagementRequest>("DisableProactiveEngagementRequest")({}) {}
+export class DisableProactiveEngagementResponse extends Schema.Class<DisableProactiveEngagementResponse>("DisableProactiveEngagementResponse")({}) {}
+export class DisassociateDRTRoleRequest extends Schema.Class<DisassociateDRTRoleRequest>("DisassociateDRTRoleRequest")({}) {}
+export class DisassociateDRTRoleResponse extends Schema.Class<DisassociateDRTRoleResponse>("DisassociateDRTRoleResponse")({}) {}
+export class EnableProactiveEngagementRequest extends Schema.Class<EnableProactiveEngagementRequest>("EnableProactiveEngagementRequest")({}) {}
+export class EnableProactiveEngagementResponse extends Schema.Class<EnableProactiveEngagementResponse>("EnableProactiveEngagementResponse")({}) {}
+export class GetSubscriptionStateRequest extends Schema.Class<GetSubscriptionStateRequest>("GetSubscriptionStateRequest")({}) {}
 export const ProtectionGroupMembers = Schema.Array(Schema.String);
 export const LogBucketList = Schema.Array(Schema.String);
 export const ResourceArnFilterList = Schema.Array(Schema.String);
 export const TagKeyList = Schema.Array(Schema.String);
-export const AssociateDRTLogBucketRequest = Schema.Struct({LogBucket: Schema.String});
-export const AssociateDRTLogBucketResponse = Schema.Struct({});
-export const AssociateDRTRoleRequest = Schema.Struct({RoleArn: Schema.String});
-export const AssociateDRTRoleResponse = Schema.Struct({});
-export const AssociateHealthCheckRequest = Schema.Struct({ProtectionId: Schema.String, HealthCheckArn: Schema.String});
-export const AssociateHealthCheckResponse = Schema.Struct({});
-export const Tag = Schema.Struct({Key: Schema.optional(Schema.String), Value: Schema.optional(Schema.String)});
+export class AssociateDRTLogBucketRequest extends Schema.Class<AssociateDRTLogBucketRequest>("AssociateDRTLogBucketRequest")({LogBucket: Schema.String}) {}
+export class AssociateDRTLogBucketResponse extends Schema.Class<AssociateDRTLogBucketResponse>("AssociateDRTLogBucketResponse")({}) {}
+export class AssociateDRTRoleRequest extends Schema.Class<AssociateDRTRoleRequest>("AssociateDRTRoleRequest")({RoleArn: Schema.String}) {}
+export class AssociateDRTRoleResponse extends Schema.Class<AssociateDRTRoleResponse>("AssociateDRTRoleResponse")({}) {}
+export class AssociateHealthCheckRequest extends Schema.Class<AssociateHealthCheckRequest>("AssociateHealthCheckRequest")({ProtectionId: Schema.String, HealthCheckArn: Schema.String}) {}
+export class AssociateHealthCheckResponse extends Schema.Class<AssociateHealthCheckResponse>("AssociateHealthCheckResponse")({}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.optional(Schema.String), Value: Schema.optional(Schema.String)}) {}
 export const TagList = Schema.Array(Tag);
-export const CreateProtectionGroupRequest = Schema.Struct({ProtectionGroupId: Schema.String, Aggregation: Schema.String, Pattern: Schema.String, ResourceType: Schema.optional(Schema.String), Members: Schema.optional(ProtectionGroupMembers), Tags: Schema.optional(TagList)});
-export const CreateProtectionGroupResponse = Schema.Struct({});
-export const InternalErrorException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DeleteProtectionRequest = Schema.Struct({ProtectionId: Schema.String});
-export const DeleteProtectionResponse = Schema.Struct({});
-export const DeleteProtectionGroupRequest = Schema.Struct({ProtectionGroupId: Schema.String});
-export const DeleteProtectionGroupResponse = Schema.Struct({});
-export const LockedSubscriptionException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DescribeAttackRequest = Schema.Struct({AttackId: Schema.String});
-export const DescribeDRTAccessResponse = Schema.Struct({RoleArn: Schema.optional(Schema.String), LogBucketList: Schema.optional(LogBucketList)});
-export const EmergencyContact = Schema.Struct({EmailAddress: Schema.String, PhoneNumber: Schema.optional(Schema.String), ContactNotes: Schema.optional(Schema.String)});
+export class CreateProtectionGroupRequest extends Schema.Class<CreateProtectionGroupRequest>("CreateProtectionGroupRequest")({ProtectionGroupId: Schema.String, Aggregation: Schema.String, Pattern: Schema.String, ResourceType: Schema.optional(Schema.String), Members: Schema.optional(ProtectionGroupMembers), Tags: Schema.optional(TagList)}) {}
+export class CreateProtectionGroupResponse extends Schema.Class<CreateProtectionGroupResponse>("CreateProtectionGroupResponse")({}) {}
+export class InternalErrorException extends Schema.Class<InternalErrorException>("InternalErrorException")({message: Schema.optional(Schema.String)}) {}
+export class DeleteProtectionRequest extends Schema.Class<DeleteProtectionRequest>("DeleteProtectionRequest")({ProtectionId: Schema.String}) {}
+export class DeleteProtectionResponse extends Schema.Class<DeleteProtectionResponse>("DeleteProtectionResponse")({}) {}
+export class DeleteProtectionGroupRequest extends Schema.Class<DeleteProtectionGroupRequest>("DeleteProtectionGroupRequest")({ProtectionGroupId: Schema.String}) {}
+export class DeleteProtectionGroupResponse extends Schema.Class<DeleteProtectionGroupResponse>("DeleteProtectionGroupResponse")({}) {}
+export class LockedSubscriptionException extends Schema.Class<LockedSubscriptionException>("LockedSubscriptionException")({message: Schema.optional(Schema.String)}) {}
+export class DescribeAttackRequest extends Schema.Class<DescribeAttackRequest>("DescribeAttackRequest")({AttackId: Schema.String}) {}
+export class DescribeDRTAccessResponse extends Schema.Class<DescribeDRTAccessResponse>("DescribeDRTAccessResponse")({RoleArn: Schema.optional(Schema.String), LogBucketList: Schema.optional(LogBucketList)}) {}
+export class EmergencyContact extends Schema.Class<EmergencyContact>("EmergencyContact")({EmailAddress: Schema.String, PhoneNumber: Schema.optional(Schema.String), ContactNotes: Schema.optional(Schema.String)}) {}
 export const EmergencyContactList = Schema.Array(EmergencyContact);
-export const DescribeEmergencyContactSettingsResponse = Schema.Struct({EmergencyContactList: Schema.optional(EmergencyContactList)});
-export const DescribeProtectionRequest = Schema.Struct({ProtectionId: Schema.optional(Schema.String), ResourceArn: Schema.optional(Schema.String)});
-export const DescribeProtectionGroupRequest = Schema.Struct({ProtectionGroupId: Schema.String});
-export const DisableApplicationLayerAutomaticResponseRequest = Schema.Struct({ResourceArn: Schema.String});
-export const DisableApplicationLayerAutomaticResponseResponse = Schema.Struct({});
-export const InvalidOperationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DisassociateDRTLogBucketRequest = Schema.Struct({LogBucket: Schema.String});
-export const DisassociateDRTLogBucketResponse = Schema.Struct({});
-export const OptimisticLockException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DisassociateHealthCheckRequest = Schema.Struct({ProtectionId: Schema.String, HealthCheckArn: Schema.String});
-export const DisassociateHealthCheckResponse = Schema.Struct({});
-export const GetSubscriptionStateResponse = Schema.Struct({SubscriptionState: Schema.String});
-export const TimeRange = Schema.Struct({FromInclusive: Schema.optional(Schema.Date), ToExclusive: Schema.optional(Schema.Date)});
-export const ListAttacksRequest = Schema.Struct({ResourceArns: Schema.optional(ResourceArnFilterList), StartTime: Schema.optional(TimeRange), EndTime: Schema.optional(TimeRange), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListResourcesInProtectionGroupRequest = Schema.Struct({ProtectionGroupId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListTagsForResourceRequest = Schema.Struct({ResourceARN: Schema.String});
-export const TagResourceRequest = Schema.Struct({ResourceARN: Schema.String, Tags: TagList});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({ResourceARN: Schema.String, TagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
-export const BlockAction = Schema.Struct({});
-export const CountAction = Schema.Struct({});
-export const ResponseAction = Schema.Struct({Block: Schema.optional(BlockAction), Count: Schema.optional(CountAction)});
-export const UpdateApplicationLayerAutomaticResponseRequest = Schema.Struct({ResourceArn: Schema.String, Action: ResponseAction});
-export const UpdateApplicationLayerAutomaticResponseResponse = Schema.Struct({});
-export const UpdateEmergencyContactSettingsRequest = Schema.Struct({EmergencyContactList: Schema.optional(EmergencyContactList)});
-export const UpdateEmergencyContactSettingsResponse = Schema.Struct({});
-export const UpdateProtectionGroupRequest = Schema.Struct({ProtectionGroupId: Schema.String, Aggregation: Schema.String, Pattern: Schema.String, ResourceType: Schema.optional(Schema.String), Members: Schema.optional(ProtectionGroupMembers)});
-export const UpdateProtectionGroupResponse = Schema.Struct({});
-export const UpdateSubscriptionRequest = Schema.Struct({AutoRenew: Schema.optional(Schema.String)});
-export const UpdateSubscriptionResponse = Schema.Struct({});
+export class DescribeEmergencyContactSettingsResponse extends Schema.Class<DescribeEmergencyContactSettingsResponse>("DescribeEmergencyContactSettingsResponse")({EmergencyContactList: Schema.optional(EmergencyContactList)}) {}
+export class DescribeProtectionRequest extends Schema.Class<DescribeProtectionRequest>("DescribeProtectionRequest")({ProtectionId: Schema.optional(Schema.String), ResourceArn: Schema.optional(Schema.String)}) {}
+export class DescribeProtectionGroupRequest extends Schema.Class<DescribeProtectionGroupRequest>("DescribeProtectionGroupRequest")({ProtectionGroupId: Schema.String}) {}
+export class DisableApplicationLayerAutomaticResponseRequest extends Schema.Class<DisableApplicationLayerAutomaticResponseRequest>("DisableApplicationLayerAutomaticResponseRequest")({ResourceArn: Schema.String}) {}
+export class DisableApplicationLayerAutomaticResponseResponse extends Schema.Class<DisableApplicationLayerAutomaticResponseResponse>("DisableApplicationLayerAutomaticResponseResponse")({}) {}
+export class InvalidOperationException extends Schema.Class<InvalidOperationException>("InvalidOperationException")({message: Schema.optional(Schema.String)}) {}
+export class DisassociateDRTLogBucketRequest extends Schema.Class<DisassociateDRTLogBucketRequest>("DisassociateDRTLogBucketRequest")({LogBucket: Schema.String}) {}
+export class DisassociateDRTLogBucketResponse extends Schema.Class<DisassociateDRTLogBucketResponse>("DisassociateDRTLogBucketResponse")({}) {}
+export class OptimisticLockException extends Schema.Class<OptimisticLockException>("OptimisticLockException")({message: Schema.optional(Schema.String)}) {}
+export class DisassociateHealthCheckRequest extends Schema.Class<DisassociateHealthCheckRequest>("DisassociateHealthCheckRequest")({ProtectionId: Schema.String, HealthCheckArn: Schema.String}) {}
+export class DisassociateHealthCheckResponse extends Schema.Class<DisassociateHealthCheckResponse>("DisassociateHealthCheckResponse")({}) {}
+export class GetSubscriptionStateResponse extends Schema.Class<GetSubscriptionStateResponse>("GetSubscriptionStateResponse")({SubscriptionState: Schema.String}) {}
+export class TimeRange extends Schema.Class<TimeRange>("TimeRange")({FromInclusive: Schema.optional(Schema.Date), ToExclusive: Schema.optional(Schema.Date)}) {}
+export class ListAttacksRequest extends Schema.Class<ListAttacksRequest>("ListAttacksRequest")({ResourceArns: Schema.optional(ResourceArnFilterList), StartTime: Schema.optional(TimeRange), EndTime: Schema.optional(TimeRange), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListResourcesInProtectionGroupRequest extends Schema.Class<ListResourcesInProtectionGroupRequest>("ListResourcesInProtectionGroupRequest")({ProtectionGroupId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({ResourceARN: Schema.String}) {}
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({ResourceARN: Schema.String, Tags: TagList}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({ResourceARN: Schema.String, TagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class BlockAction extends Schema.Class<BlockAction>("BlockAction")({}) {}
+export class CountAction extends Schema.Class<CountAction>("CountAction")({}) {}
+export class ResponseAction extends Schema.Class<ResponseAction>("ResponseAction")({Block: Schema.optional(BlockAction), Count: Schema.optional(CountAction)}) {}
+export class UpdateApplicationLayerAutomaticResponseRequest extends Schema.Class<UpdateApplicationLayerAutomaticResponseRequest>("UpdateApplicationLayerAutomaticResponseRequest")({ResourceArn: Schema.String, Action: ResponseAction}) {}
+export class UpdateApplicationLayerAutomaticResponseResponse extends Schema.Class<UpdateApplicationLayerAutomaticResponseResponse>("UpdateApplicationLayerAutomaticResponseResponse")({}) {}
+export class UpdateEmergencyContactSettingsRequest extends Schema.Class<UpdateEmergencyContactSettingsRequest>("UpdateEmergencyContactSettingsRequest")({EmergencyContactList: Schema.optional(EmergencyContactList)}) {}
+export class UpdateEmergencyContactSettingsResponse extends Schema.Class<UpdateEmergencyContactSettingsResponse>("UpdateEmergencyContactSettingsResponse")({}) {}
+export class UpdateProtectionGroupRequest extends Schema.Class<UpdateProtectionGroupRequest>("UpdateProtectionGroupRequest")({ProtectionGroupId: Schema.String, Aggregation: Schema.String, Pattern: Schema.String, ResourceType: Schema.optional(Schema.String), Members: Schema.optional(ProtectionGroupMembers)}) {}
+export class UpdateProtectionGroupResponse extends Schema.Class<UpdateProtectionGroupResponse>("UpdateProtectionGroupResponse")({}) {}
+export class UpdateSubscriptionRequest extends Schema.Class<UpdateSubscriptionRequest>("UpdateSubscriptionRequest")({AutoRenew: Schema.optional(Schema.String)}) {}
+export class UpdateSubscriptionResponse extends Schema.Class<UpdateSubscriptionResponse>("UpdateSubscriptionResponse")({}) {}
 export const ProtectionGroupIdFilters = Schema.Array(Schema.String);
 export const ProtectionGroupPatternFilters = Schema.Array(Schema.String);
 export const ProtectedResourceTypeFilters = Schema.Array(Schema.String);
 export const ProtectionGroupAggregationFilters = Schema.Array(Schema.String);
 export const ResourceArnFilters = Schema.Array(Schema.String);
 export const ProtectionNameFilters = Schema.Array(Schema.String);
-export const ValidationExceptionField = Schema.Struct({name: Schema.String, message: Schema.String});
+export class ValidationExceptionField extends Schema.Class<ValidationExceptionField>("ValidationExceptionField")({name: Schema.String, message: Schema.String}) {}
 export const ValidationExceptionFieldList = Schema.Array(ValidationExceptionField);
-export const InclusionProtectionGroupFilters = Schema.Struct({ProtectionGroupIds: Schema.optional(ProtectionGroupIdFilters), Patterns: Schema.optional(ProtectionGroupPatternFilters), ResourceTypes: Schema.optional(ProtectedResourceTypeFilters), Aggregations: Schema.optional(ProtectionGroupAggregationFilters)});
-export const InclusionProtectionFilters = Schema.Struct({ResourceArns: Schema.optional(ResourceArnFilters), ProtectionNames: Schema.optional(ProtectionNameFilters), ResourceTypes: Schema.optional(ProtectedResourceTypeFilters)});
+export class InclusionProtectionGroupFilters extends Schema.Class<InclusionProtectionGroupFilters>("InclusionProtectionGroupFilters")({ProtectionGroupIds: Schema.optional(ProtectionGroupIdFilters), Patterns: Schema.optional(ProtectionGroupPatternFilters), ResourceTypes: Schema.optional(ProtectedResourceTypeFilters), Aggregations: Schema.optional(ProtectionGroupAggregationFilters)}) {}
+export class InclusionProtectionFilters extends Schema.Class<InclusionProtectionFilters>("InclusionProtectionFilters")({ResourceArns: Schema.optional(ResourceArnFilters), ProtectionNames: Schema.optional(ProtectionNameFilters), ResourceTypes: Schema.optional(ProtectedResourceTypeFilters)}) {}
 export const ResourceArnList = Schema.Array(Schema.String);
-export const AccessDeniedForDependencyException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.optional(Schema.String), resourceType: Schema.optional(Schema.String)});
-export const InvalidResourceException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const AssociateProactiveEngagementDetailsRequest = Schema.Struct({EmergencyContactList: EmergencyContactList});
-export const AssociateProactiveEngagementDetailsResponse = Schema.Struct({});
-export const CreateProtectionRequest = Schema.Struct({Name: Schema.String, ResourceArn: Schema.String, Tags: Schema.optional(TagList)});
-export const LimitsExceededException = Schema.Struct({message: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)});
-export const ResourceAlreadyExistsException = Schema.Struct({message: Schema.optional(Schema.String), resourceType: Schema.optional(Schema.String)});
-export const NoAssociatedRoleException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const EnableApplicationLayerAutomaticResponseRequest = Schema.Struct({ResourceArn: Schema.String, Action: ResponseAction});
-export const EnableApplicationLayerAutomaticResponseResponse = Schema.Struct({});
-export const InvalidParameterException = Schema.Struct({message: Schema.optional(Schema.String), reason: Schema.optional(Schema.String), fields: Schema.optional(ValidationExceptionFieldList)});
-export const ListProtectionGroupsRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), InclusionFilters: Schema.optional(InclusionProtectionGroupFilters)});
-export const ListProtectionsRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), InclusionFilters: Schema.optional(InclusionProtectionFilters)});
-export const ListResourcesInProtectionGroupResponse = Schema.Struct({ResourceArns: ResourceArnList, NextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceResponse = Schema.Struct({Tags: Schema.optional(TagList)});
+export class AccessDeniedForDependencyException extends Schema.Class<AccessDeniedForDependencyException>("AccessDeniedForDependencyException")({message: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.optional(Schema.String), resourceType: Schema.optional(Schema.String)}) {}
+export class InvalidResourceException extends Schema.Class<InvalidResourceException>("InvalidResourceException")({message: Schema.optional(Schema.String)}) {}
+export class AssociateProactiveEngagementDetailsRequest extends Schema.Class<AssociateProactiveEngagementDetailsRequest>("AssociateProactiveEngagementDetailsRequest")({EmergencyContactList: EmergencyContactList}) {}
+export class AssociateProactiveEngagementDetailsResponse extends Schema.Class<AssociateProactiveEngagementDetailsResponse>("AssociateProactiveEngagementDetailsResponse")({}) {}
+export class CreateProtectionRequest extends Schema.Class<CreateProtectionRequest>("CreateProtectionRequest")({Name: Schema.String, ResourceArn: Schema.String, Tags: Schema.optional(TagList)}) {}
+export class LimitsExceededException extends Schema.Class<LimitsExceededException>("LimitsExceededException")({message: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)}) {}
+export class ResourceAlreadyExistsException extends Schema.Class<ResourceAlreadyExistsException>("ResourceAlreadyExistsException")({message: Schema.optional(Schema.String), resourceType: Schema.optional(Schema.String)}) {}
+export class NoAssociatedRoleException extends Schema.Class<NoAssociatedRoleException>("NoAssociatedRoleException")({message: Schema.optional(Schema.String)}) {}
+export class EnableApplicationLayerAutomaticResponseRequest extends Schema.Class<EnableApplicationLayerAutomaticResponseRequest>("EnableApplicationLayerAutomaticResponseRequest")({ResourceArn: Schema.String, Action: ResponseAction}) {}
+export class EnableApplicationLayerAutomaticResponseResponse extends Schema.Class<EnableApplicationLayerAutomaticResponseResponse>("EnableApplicationLayerAutomaticResponseResponse")({}) {}
+export class InvalidParameterException extends Schema.Class<InvalidParameterException>("InvalidParameterException")({message: Schema.optional(Schema.String), reason: Schema.optional(Schema.String), fields: Schema.optional(ValidationExceptionFieldList)}) {}
+export class ListProtectionGroupsRequest extends Schema.Class<ListProtectionGroupsRequest>("ListProtectionGroupsRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), InclusionFilters: Schema.optional(InclusionProtectionGroupFilters)}) {}
+export class ListProtectionsRequest extends Schema.Class<ListProtectionsRequest>("ListProtectionsRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), InclusionFilters: Schema.optional(InclusionProtectionFilters)}) {}
+export class ListResourcesInProtectionGroupResponse extends Schema.Class<ListResourcesInProtectionGroupResponse>("ListResourcesInProtectionGroupResponse")({ResourceArns: ResourceArnList, NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({Tags: Schema.optional(TagList)}) {}
 export const HealthCheckIds = Schema.Array(Schema.String);
-export const Limit = Schema.Struct({Type: Schema.optional(Schema.String), Max: Schema.optional(Schema.Number)});
+export class Limit extends Schema.Class<Limit>("Limit")({Type: Schema.optional(Schema.String), Max: Schema.optional(Schema.Number)}) {}
 export const Limits = Schema.Array(Limit);
-export const ProtectionGroup = Schema.Struct({ProtectionGroupId: Schema.String, Aggregation: Schema.String, Pattern: Schema.String, ResourceType: Schema.optional(Schema.String), Members: ProtectionGroupMembers, ProtectionGroupArn: Schema.optional(Schema.String)});
+export class ProtectionGroup extends Schema.Class<ProtectionGroup>("ProtectionGroup")({ProtectionGroupId: Schema.String, Aggregation: Schema.String, Pattern: Schema.String, ResourceType: Schema.optional(Schema.String), Members: ProtectionGroupMembers, ProtectionGroupArn: Schema.optional(Schema.String)}) {}
 export const ProtectionGroups = Schema.Array(ProtectionGroup);
-export const ApplicationLayerAutomaticResponseConfiguration = Schema.Struct({Status: Schema.String, Action: ResponseAction});
-export const Protection = Schema.Struct({Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), ResourceArn: Schema.optional(Schema.String), HealthCheckIds: Schema.optional(HealthCheckIds), ProtectionArn: Schema.optional(Schema.String), ApplicationLayerAutomaticResponseConfiguration: Schema.optional(ApplicationLayerAutomaticResponseConfiguration)});
+export class ApplicationLayerAutomaticResponseConfiguration extends Schema.Class<ApplicationLayerAutomaticResponseConfiguration>("ApplicationLayerAutomaticResponseConfiguration")({Status: Schema.String, Action: ResponseAction}) {}
+export class Protection extends Schema.Class<Protection>("Protection")({Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), ResourceArn: Schema.optional(Schema.String), HealthCheckIds: Schema.optional(HealthCheckIds), ProtectionArn: Schema.optional(Schema.String), ApplicationLayerAutomaticResponseConfiguration: Schema.optional(ApplicationLayerAutomaticResponseConfiguration)}) {}
 export const Protections = Schema.Array(Protection);
-export const AttackVolumeStatistics = Schema.Struct({Max: Schema.Number});
-export const ProtectionLimits = Schema.Struct({ProtectedResourceTypeLimits: Limits});
-export const CreateProtectionResponse = Schema.Struct({ProtectionId: Schema.optional(Schema.String)});
-export const DescribeProtectionGroupResponse = Schema.Struct({ProtectionGroup: ProtectionGroup});
-export const ListProtectionGroupsResponse = Schema.Struct({ProtectionGroups: ProtectionGroups, NextToken: Schema.optional(Schema.String)});
-export const ListProtectionsResponse = Schema.Struct({Protections: Schema.optional(Protections), NextToken: Schema.optional(Schema.String)});
-export const InvalidPaginationTokenException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const SummarizedCounter = Schema.Struct({Name: Schema.optional(Schema.String), Max: Schema.optional(Schema.Number), Average: Schema.optional(Schema.Number), Sum: Schema.optional(Schema.Number), N: Schema.optional(Schema.Number), Unit: Schema.optional(Schema.String)});
+export class AttackVolumeStatistics extends Schema.Class<AttackVolumeStatistics>("AttackVolumeStatistics")({Max: Schema.Number}) {}
+export class ProtectionLimits extends Schema.Class<ProtectionLimits>("ProtectionLimits")({ProtectedResourceTypeLimits: Limits}) {}
+export class CreateProtectionResponse extends Schema.Class<CreateProtectionResponse>("CreateProtectionResponse")({ProtectionId: Schema.optional(Schema.String)}) {}
+export class DescribeProtectionGroupResponse extends Schema.Class<DescribeProtectionGroupResponse>("DescribeProtectionGroupResponse")({ProtectionGroup: ProtectionGroup}) {}
+export class ListProtectionGroupsResponse extends Schema.Class<ListProtectionGroupsResponse>("ListProtectionGroupsResponse")({ProtectionGroups: ProtectionGroups, NextToken: Schema.optional(Schema.String)}) {}
+export class ListProtectionsResponse extends Schema.Class<ListProtectionsResponse>("ListProtectionsResponse")({Protections: Schema.optional(Protections), NextToken: Schema.optional(Schema.String)}) {}
+export class InvalidPaginationTokenException extends Schema.Class<InvalidPaginationTokenException>("InvalidPaginationTokenException")({message: Schema.optional(Schema.String)}) {}
+export class SummarizedCounter extends Schema.Class<SummarizedCounter>("SummarizedCounter")({Name: Schema.optional(Schema.String), Max: Schema.optional(Schema.Number), Average: Schema.optional(Schema.Number), Sum: Schema.optional(Schema.Number), N: Schema.optional(Schema.Number), Unit: Schema.optional(Schema.String)}) {}
 export const SummarizedCounterList = Schema.Array(SummarizedCounter);
-export const Mitigation = Schema.Struct({MitigationName: Schema.optional(Schema.String)});
+export class Mitigation extends Schema.Class<Mitigation>("Mitigation")({MitigationName: Schema.optional(Schema.String)}) {}
 export const MitigationList = Schema.Array(Mitigation);
-export const AttackVolume = Schema.Struct({BitsPerSecond: Schema.optional(AttackVolumeStatistics), PacketsPerSecond: Schema.optional(AttackVolumeStatistics), RequestsPerSecond: Schema.optional(AttackVolumeStatistics)});
-export const AttackVectorDescription = Schema.Struct({VectorType: Schema.String});
+export class AttackVolume extends Schema.Class<AttackVolume>("AttackVolume")({BitsPerSecond: Schema.optional(AttackVolumeStatistics), PacketsPerSecond: Schema.optional(AttackVolumeStatistics), RequestsPerSecond: Schema.optional(AttackVolumeStatistics)}) {}
+export class AttackVectorDescription extends Schema.Class<AttackVectorDescription>("AttackVectorDescription")({VectorType: Schema.String}) {}
 export const AttackVectorDescriptionList = Schema.Array(AttackVectorDescription);
-export const AttackStatisticsDataItem = Schema.Struct({AttackVolume: Schema.optional(AttackVolume), AttackCount: Schema.Number});
+export class AttackStatisticsDataItem extends Schema.Class<AttackStatisticsDataItem>("AttackStatisticsDataItem")({AttackVolume: Schema.optional(AttackVolume), AttackCount: Schema.Number}) {}
 export const AttackStatisticsDataList = Schema.Array(AttackStatisticsDataItem);
-export const AttackSummary = Schema.Struct({AttackId: Schema.optional(Schema.String), ResourceArn: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date), AttackVectors: Schema.optional(AttackVectorDescriptionList)});
+export class AttackSummary extends Schema.Class<AttackSummary>("AttackSummary")({AttackId: Schema.optional(Schema.String), ResourceArn: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date), AttackVectors: Schema.optional(AttackVectorDescriptionList)}) {}
 export const AttackSummaries = Schema.Array(AttackSummary);
-export const SummarizedAttackVector = Schema.Struct({VectorType: Schema.String, VectorCounters: Schema.optional(SummarizedCounterList)});
+export class SummarizedAttackVector extends Schema.Class<SummarizedAttackVector>("SummarizedAttackVector")({VectorType: Schema.String, VectorCounters: Schema.optional(SummarizedCounterList)}) {}
 export const SummarizedAttackVectorList = Schema.Array(SummarizedAttackVector);
-export const Contributor = Schema.Struct({Name: Schema.optional(Schema.String), Value: Schema.optional(Schema.Number)});
+export class Contributor extends Schema.Class<Contributor>("Contributor")({Name: Schema.optional(Schema.String), Value: Schema.optional(Schema.Number)}) {}
 export const TopContributors = Schema.Array(Contributor);
-export const DescribeAttackStatisticsResponse = Schema.Struct({TimeRange: TimeRange, DataItems: AttackStatisticsDataList});
-export const DescribeProtectionResponse = Schema.Struct({Protection: Schema.optional(Protection)});
-export const ProtectionGroupArbitraryPatternLimits = Schema.Struct({MaxMembers: Schema.Number});
-export const ListAttacksResponse = Schema.Struct({AttackSummaries: Schema.optional(AttackSummaries), NextToken: Schema.optional(Schema.String)});
-export const SubResourceSummary = Schema.Struct({Type: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), AttackVectors: Schema.optional(SummarizedAttackVectorList), Counters: Schema.optional(SummarizedCounterList)});
+export class DescribeAttackStatisticsResponse extends Schema.Class<DescribeAttackStatisticsResponse>("DescribeAttackStatisticsResponse")({TimeRange: TimeRange, DataItems: AttackStatisticsDataList}) {}
+export class DescribeProtectionResponse extends Schema.Class<DescribeProtectionResponse>("DescribeProtectionResponse")({Protection: Schema.optional(Protection)}) {}
+export class ProtectionGroupArbitraryPatternLimits extends Schema.Class<ProtectionGroupArbitraryPatternLimits>("ProtectionGroupArbitraryPatternLimits")({MaxMembers: Schema.Number}) {}
+export class ListAttacksResponse extends Schema.Class<ListAttacksResponse>("ListAttacksResponse")({AttackSummaries: Schema.optional(AttackSummaries), NextToken: Schema.optional(Schema.String)}) {}
+export class SubResourceSummary extends Schema.Class<SubResourceSummary>("SubResourceSummary")({Type: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), AttackVectors: Schema.optional(SummarizedAttackVectorList), Counters: Schema.optional(SummarizedCounterList)}) {}
 export const SubResourceSummaryList = Schema.Array(SubResourceSummary);
-export const AttackProperty = Schema.Struct({AttackLayer: Schema.optional(Schema.String), AttackPropertyIdentifier: Schema.optional(Schema.String), TopContributors: Schema.optional(TopContributors), Unit: Schema.optional(Schema.String), Total: Schema.optional(Schema.Number)});
+export class AttackProperty extends Schema.Class<AttackProperty>("AttackProperty")({AttackLayer: Schema.optional(Schema.String), AttackPropertyIdentifier: Schema.optional(Schema.String), TopContributors: Schema.optional(TopContributors), Unit: Schema.optional(Schema.String), Total: Schema.optional(Schema.Number)}) {}
 export const AttackProperties = Schema.Array(AttackProperty);
-export const ProtectionGroupPatternTypeLimits = Schema.Struct({ArbitraryPatternLimits: ProtectionGroupArbitraryPatternLimits});
-export const AttackDetail = Schema.Struct({AttackId: Schema.optional(Schema.String), ResourceArn: Schema.optional(Schema.String), SubResources: Schema.optional(SubResourceSummaryList), StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date), AttackCounters: Schema.optional(SummarizedCounterList), AttackProperties: Schema.optional(AttackProperties), Mitigations: Schema.optional(MitigationList)});
-export const ProtectionGroupLimits = Schema.Struct({MaxProtectionGroups: Schema.Number, PatternTypeLimits: ProtectionGroupPatternTypeLimits});
-export const DescribeAttackResponse = Schema.Struct({Attack: Schema.optional(AttackDetail)});
-export const SubscriptionLimits = Schema.Struct({ProtectionLimits: ProtectionLimits, ProtectionGroupLimits: ProtectionGroupLimits});
-export const Subscription = Schema.Struct({StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date), TimeCommitmentInSeconds: Schema.optional(Schema.Number), AutoRenew: Schema.optional(Schema.String), Limits: Schema.optional(Limits), ProactiveEngagementStatus: Schema.optional(Schema.String), SubscriptionLimits: SubscriptionLimits, SubscriptionArn: Schema.optional(Schema.String)});
-export const AccessDeniedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DescribeSubscriptionResponse = Schema.Struct({Subscription: Schema.optional(Subscription)});
+export class ProtectionGroupPatternTypeLimits extends Schema.Class<ProtectionGroupPatternTypeLimits>("ProtectionGroupPatternTypeLimits")({ArbitraryPatternLimits: ProtectionGroupArbitraryPatternLimits}) {}
+export class AttackDetail extends Schema.Class<AttackDetail>("AttackDetail")({AttackId: Schema.optional(Schema.String), ResourceArn: Schema.optional(Schema.String), SubResources: Schema.optional(SubResourceSummaryList), StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date), AttackCounters: Schema.optional(SummarizedCounterList), AttackProperties: Schema.optional(AttackProperties), Mitigations: Schema.optional(MitigationList)}) {}
+export class ProtectionGroupLimits extends Schema.Class<ProtectionGroupLimits>("ProtectionGroupLimits")({MaxProtectionGroups: Schema.Number, PatternTypeLimits: ProtectionGroupPatternTypeLimits}) {}
+export class DescribeAttackResponse extends Schema.Class<DescribeAttackResponse>("DescribeAttackResponse")({Attack: Schema.optional(AttackDetail)}) {}
+export class SubscriptionLimits extends Schema.Class<SubscriptionLimits>("SubscriptionLimits")({ProtectionLimits: ProtectionLimits, ProtectionGroupLimits: ProtectionGroupLimits}) {}
+export class Subscription extends Schema.Class<Subscription>("Subscription")({StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date), TimeCommitmentInSeconds: Schema.optional(Schema.Number), AutoRenew: Schema.optional(Schema.String), Limits: Schema.optional(Limits), ProactiveEngagementStatus: Schema.optional(Schema.String), SubscriptionLimits: SubscriptionLimits, SubscriptionArn: Schema.optional(Schema.String)}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({message: Schema.optional(Schema.String)}) {}
+export class DescribeSubscriptionResponse extends Schema.Class<DescribeSubscriptionResponse>("DescribeSubscriptionResponse")({Subscription: Schema.optional(Subscription)}) {}
 
 //# Errors
-export class InternalErrorExceptionError extends Schema.TaggedError<InternalErrorExceptionError>()("InternalErrorException", InternalErrorException) {};
-export class InvalidOperationExceptionError extends Schema.TaggedError<InvalidOperationExceptionError>()("InvalidOperationException", InvalidOperationException) {};
-export class AccessDeniedForDependencyExceptionError extends Schema.TaggedError<AccessDeniedForDependencyExceptionError>()("AccessDeniedForDependencyException", AccessDeniedForDependencyException) {};
-export class InvalidParameterExceptionError extends Schema.TaggedError<InvalidParameterExceptionError>()("InvalidParameterException", InvalidParameterException) {};
-export class OptimisticLockExceptionError extends Schema.TaggedError<OptimisticLockExceptionError>()("OptimisticLockException", OptimisticLockException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class LockedSubscriptionExceptionError extends Schema.TaggedError<LockedSubscriptionExceptionError>()("LockedSubscriptionException", LockedSubscriptionException) {};
-export class InvalidResourceExceptionError extends Schema.TaggedError<InvalidResourceExceptionError>()("InvalidResourceException", InvalidResourceException) {};
-export class LimitsExceededExceptionError extends Schema.TaggedError<LimitsExceededExceptionError>()("LimitsExceededException", LimitsExceededException) {};
-export class NoAssociatedRoleExceptionError extends Schema.TaggedError<NoAssociatedRoleExceptionError>()("NoAssociatedRoleException", NoAssociatedRoleException) {};
-export class ResourceAlreadyExistsExceptionError extends Schema.TaggedError<ResourceAlreadyExistsExceptionError>()("ResourceAlreadyExistsException", ResourceAlreadyExistsException) {};
-export class InvalidPaginationTokenExceptionError extends Schema.TaggedError<InvalidPaginationTokenExceptionError>()("InvalidPaginationTokenException", InvalidPaginationTokenException) {};
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
+export class InternalErrorExceptionError extends Schema.TaggedError<InternalErrorExceptionError>()("InternalErrorException", InternalErrorException.fields) {};
+export class InvalidOperationExceptionError extends Schema.TaggedError<InvalidOperationExceptionError>()("InvalidOperationException", InvalidOperationException.fields) {};
+export class AccessDeniedForDependencyExceptionError extends Schema.TaggedError<AccessDeniedForDependencyExceptionError>()("AccessDeniedForDependencyException", AccessDeniedForDependencyException.fields) {};
+export class InvalidParameterExceptionError extends Schema.TaggedError<InvalidParameterExceptionError>()("InvalidParameterException", InvalidParameterException.fields) {};
+export class OptimisticLockExceptionError extends Schema.TaggedError<OptimisticLockExceptionError>()("OptimisticLockException", OptimisticLockException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class LockedSubscriptionExceptionError extends Schema.TaggedError<LockedSubscriptionExceptionError>()("LockedSubscriptionException", LockedSubscriptionException.fields) {};
+export class InvalidResourceExceptionError extends Schema.TaggedError<InvalidResourceExceptionError>()("InvalidResourceException", InvalidResourceException.fields) {};
+export class LimitsExceededExceptionError extends Schema.TaggedError<LimitsExceededExceptionError>()("LimitsExceededException", LimitsExceededException.fields) {};
+export class NoAssociatedRoleExceptionError extends Schema.TaggedError<NoAssociatedRoleExceptionError>()("NoAssociatedRoleException", NoAssociatedRoleException.fields) {};
+export class ResourceAlreadyExistsExceptionError extends Schema.TaggedError<ResourceAlreadyExistsExceptionError>()("ResourceAlreadyExistsException", ResourceAlreadyExistsException.fields) {};
+export class InvalidPaginationTokenExceptionError extends Schema.TaggedError<InvalidPaginationTokenExceptionError>()("InvalidPaginationTokenException", InvalidPaginationTokenException.fields) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
 
 //# Operations
 export const deleteProtection = /*#__PURE__*/ makeOperation(() => Operation({ version: "2016-06-02", uri: "/", method: "POST", sdkId: "Shield", sigV4ServiceName: "shield", name: "AWSShield_20160616.DeleteProtection" }, DeleteProtectionRequest, DeleteProtectionResponse, [InternalErrorExceptionError, OptimisticLockExceptionError, ResourceNotFoundExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

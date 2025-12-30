@@ -5,107 +5,107 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 //# Schemas
 export const ResourceArnList = Schema.Array(Schema.String);
 export const TagKeyList = Schema.Array(Schema.String);
-export const CancelTagSyncTaskInput = Schema.Struct({TaskArn: Schema.String});
-export const DeleteGroupInput = Schema.Struct({GroupName: Schema.optional(Schema.String), Group: Schema.optional(Schema.String)});
-export const GetGroupInput = Schema.Struct({GroupName: Schema.optional(Schema.String), Group: Schema.optional(Schema.String)});
-export const GetGroupConfigurationInput = Schema.Struct({Group: Schema.optional(Schema.String)});
-export const GetGroupQueryInput = Schema.Struct({GroupName: Schema.optional(Schema.String), Group: Schema.optional(Schema.String)});
-export const GetTagsInput = Schema.Struct({Arn: Schema.String});
-export const GetTagSyncTaskInput = Schema.Struct({TaskArn: Schema.String});
-export const GroupResourcesInput = Schema.Struct({Group: Schema.String, ResourceArns: ResourceArnList});
+export class CancelTagSyncTaskInput extends Schema.Class<CancelTagSyncTaskInput>("CancelTagSyncTaskInput")({TaskArn: Schema.String}) {}
+export class DeleteGroupInput extends Schema.Class<DeleteGroupInput>("DeleteGroupInput")({GroupName: Schema.optional(Schema.String), Group: Schema.optional(Schema.String)}) {}
+export class GetGroupInput extends Schema.Class<GetGroupInput>("GetGroupInput")({GroupName: Schema.optional(Schema.String), Group: Schema.optional(Schema.String)}) {}
+export class GetGroupConfigurationInput extends Schema.Class<GetGroupConfigurationInput>("GetGroupConfigurationInput")({Group: Schema.optional(Schema.String)}) {}
+export class GetGroupQueryInput extends Schema.Class<GetGroupQueryInput>("GetGroupQueryInput")({GroupName: Schema.optional(Schema.String), Group: Schema.optional(Schema.String)}) {}
+export class GetTagsInput extends Schema.Class<GetTagsInput>("GetTagsInput")({Arn: Schema.String}) {}
+export class GetTagSyncTaskInput extends Schema.Class<GetTagSyncTaskInput>("GetTagSyncTaskInput")({TaskArn: Schema.String}) {}
+export class GroupResourcesInput extends Schema.Class<GroupResourcesInput>("GroupResourcesInput")({Group: Schema.String, ResourceArns: ResourceArnList}) {}
 export const GroupConfigurationParameterValueList = Schema.Array(Schema.String);
-export const GroupConfigurationParameter = Schema.Struct({Name: Schema.String, Values: Schema.optional(GroupConfigurationParameterValueList)});
+export class GroupConfigurationParameter extends Schema.Class<GroupConfigurationParameter>("GroupConfigurationParameter")({Name: Schema.String, Values: Schema.optional(GroupConfigurationParameterValueList)}) {}
 export const GroupParameterList = Schema.Array(GroupConfigurationParameter);
-export const GroupConfigurationItem = Schema.Struct({Type: Schema.String, Parameters: Schema.optional(GroupParameterList)});
+export class GroupConfigurationItem extends Schema.Class<GroupConfigurationItem>("GroupConfigurationItem")({Type: Schema.String, Parameters: Schema.optional(GroupParameterList)}) {}
 export const GroupConfigurationList = Schema.Array(GroupConfigurationItem);
-export const PutGroupConfigurationInput = Schema.Struct({Group: Schema.optional(Schema.String), Configuration: Schema.optional(GroupConfigurationList)});
-export const PutGroupConfigurationOutput = Schema.Struct({});
-export const ResourceQuery = Schema.Struct({Type: Schema.String, Query: Schema.String});
-export const SearchResourcesInput = Schema.Struct({ResourceQuery: ResourceQuery, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const StartTagSyncTaskInput = Schema.Struct({Group: Schema.String, TagKey: Schema.optional(Schema.String), TagValue: Schema.optional(Schema.String), ResourceQuery: Schema.optional(ResourceQuery), RoleArn: Schema.String});
+export class PutGroupConfigurationInput extends Schema.Class<PutGroupConfigurationInput>("PutGroupConfigurationInput")({Group: Schema.optional(Schema.String), Configuration: Schema.optional(GroupConfigurationList)}) {}
+export class PutGroupConfigurationOutput extends Schema.Class<PutGroupConfigurationOutput>("PutGroupConfigurationOutput")({}) {}
+export class ResourceQuery extends Schema.Class<ResourceQuery>("ResourceQuery")({Type: Schema.String, Query: Schema.String}) {}
+export class SearchResourcesInput extends Schema.Class<SearchResourcesInput>("SearchResourcesInput")({ResourceQuery: ResourceQuery, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class StartTagSyncTaskInput extends Schema.Class<StartTagSyncTaskInput>("StartTagSyncTaskInput")({Group: Schema.String, TagKey: Schema.optional(Schema.String), TagValue: Schema.optional(Schema.String), ResourceQuery: Schema.optional(ResourceQuery), RoleArn: Schema.String}) {}
 export const Tags = Schema.Record({key: Schema.String, value: Schema.String});
-export const TagInput = Schema.Struct({Arn: Schema.String, Tags: Tags});
-export const UngroupResourcesInput = Schema.Struct({Group: Schema.String, ResourceArns: ResourceArnList});
-export const UntagInput = Schema.Struct({Arn: Schema.String, Keys: TagKeyList});
-export const UpdateAccountSettingsInput = Schema.Struct({GroupLifecycleEventsDesiredStatus: Schema.optional(Schema.String)});
-export const UpdateGroupInput = Schema.Struct({GroupName: Schema.optional(Schema.String), Group: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Criticality: Schema.optional(Schema.Number), Owner: Schema.optional(Schema.String), DisplayName: Schema.optional(Schema.String)});
-export const UpdateGroupQueryInput = Schema.Struct({GroupName: Schema.optional(Schema.String), Group: Schema.optional(Schema.String), ResourceQuery: ResourceQuery});
+export class TagInput extends Schema.Class<TagInput>("TagInput")({Arn: Schema.String, Tags: Tags}) {}
+export class UngroupResourcesInput extends Schema.Class<UngroupResourcesInput>("UngroupResourcesInput")({Group: Schema.String, ResourceArns: ResourceArnList}) {}
+export class UntagInput extends Schema.Class<UntagInput>("UntagInput")({Arn: Schema.String, Keys: TagKeyList}) {}
+export class UpdateAccountSettingsInput extends Schema.Class<UpdateAccountSettingsInput>("UpdateAccountSettingsInput")({GroupLifecycleEventsDesiredStatus: Schema.optional(Schema.String)}) {}
+export class UpdateGroupInput extends Schema.Class<UpdateGroupInput>("UpdateGroupInput")({GroupName: Schema.optional(Schema.String), Group: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Criticality: Schema.optional(Schema.Number), Owner: Schema.optional(Schema.String), DisplayName: Schema.optional(Schema.String)}) {}
+export class UpdateGroupQueryInput extends Schema.Class<UpdateGroupQueryInput>("UpdateGroupQueryInput")({GroupName: Schema.optional(Schema.String), Group: Schema.optional(Schema.String), ResourceQuery: ResourceQuery}) {}
 export const ListGroupingStatusesFilterValues = Schema.Array(Schema.String);
 export const ResourceFilterValues = Schema.Array(Schema.String);
 export const GroupFilterValues = Schema.Array(Schema.String);
-export const AccountSettings = Schema.Struct({GroupLifecycleEventsDesiredStatus: Schema.optional(Schema.String), GroupLifecycleEventsStatus: Schema.optional(Schema.String), GroupLifecycleEventsStatusMessage: Schema.optional(Schema.String)});
-export const ListGroupingStatusesFilter = Schema.Struct({Name: Schema.String, Values: ListGroupingStatusesFilterValues});
+export class AccountSettings extends Schema.Class<AccountSettings>("AccountSettings")({GroupLifecycleEventsDesiredStatus: Schema.optional(Schema.String), GroupLifecycleEventsStatus: Schema.optional(Schema.String), GroupLifecycleEventsStatusMessage: Schema.optional(Schema.String)}) {}
+export class ListGroupingStatusesFilter extends Schema.Class<ListGroupingStatusesFilter>("ListGroupingStatusesFilter")({Name: Schema.String, Values: ListGroupingStatusesFilterValues}) {}
 export const ListGroupingStatusesFilterList = Schema.Array(ListGroupingStatusesFilter);
-export const ResourceFilter = Schema.Struct({Name: Schema.String, Values: ResourceFilterValues});
+export class ResourceFilter extends Schema.Class<ResourceFilter>("ResourceFilter")({Name: Schema.String, Values: ResourceFilterValues}) {}
 export const ResourceFilterList = Schema.Array(ResourceFilter);
-export const GroupFilter = Schema.Struct({Name: Schema.String, Values: GroupFilterValues});
+export class GroupFilter extends Schema.Class<GroupFilter>("GroupFilter")({Name: Schema.String, Values: GroupFilterValues}) {}
 export const GroupFilterList = Schema.Array(GroupFilter);
-export const ListTagSyncTasksFilter = Schema.Struct({GroupArn: Schema.optional(Schema.String), GroupName: Schema.optional(Schema.String)});
+export class ListTagSyncTasksFilter extends Schema.Class<ListTagSyncTasksFilter>("ListTagSyncTasksFilter")({GroupArn: Schema.optional(Schema.String), GroupName: Schema.optional(Schema.String)}) {}
 export const ListTagSyncTasksFilterList = Schema.Array(ListTagSyncTasksFilter);
-export const BadRequestException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const GetAccountSettingsOutput = Schema.Struct({AccountSettings: Schema.optional(AccountSettings)});
+export class BadRequestException extends Schema.Class<BadRequestException>("BadRequestException")({Message: Schema.optional(Schema.String)}) {}
+export class GetAccountSettingsOutput extends Schema.Class<GetAccountSettingsOutput>("GetAccountSettingsOutput")({AccountSettings: Schema.optional(AccountSettings)}) {}
 export const ApplicationTag = Schema.Record({key: Schema.String, value: Schema.String});
-export const Group = Schema.Struct({GroupArn: Schema.String, Name: Schema.String, Description: Schema.optional(Schema.String), Criticality: Schema.optional(Schema.Number), Owner: Schema.optional(Schema.String), DisplayName: Schema.optional(Schema.String), ApplicationTag: Schema.optional(ApplicationTag)});
-export const GetGroupOutput = Schema.Struct({Group: Schema.optional(Group)});
-export const GetTagsOutput = Schema.Struct({Arn: Schema.optional(Schema.String), Tags: Schema.optional(Tags)});
-export const GetTagSyncTaskOutput = Schema.Struct({GroupArn: Schema.optional(Schema.String), GroupName: Schema.optional(Schema.String), TaskArn: Schema.optional(Schema.String), TagKey: Schema.optional(Schema.String), TagValue: Schema.optional(Schema.String), ResourceQuery: Schema.optional(ResourceQuery), RoleArn: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date)});
-export const ListGroupingStatusesInput = Schema.Struct({Group: Schema.String, MaxResults: Schema.optional(Schema.Number), Filters: Schema.optional(ListGroupingStatusesFilterList), NextToken: Schema.optional(Schema.String)});
-export const ListGroupResourcesInput = Schema.Struct({GroupName: Schema.optional(Schema.String), Group: Schema.optional(Schema.String), Filters: Schema.optional(ResourceFilterList), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListGroupsInput = Schema.Struct({Filters: Schema.optional(GroupFilterList), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListTagSyncTasksInput = Schema.Struct({Filters: Schema.optional(ListTagSyncTasksFilterList), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ForbiddenException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const StartTagSyncTaskOutput = Schema.Struct({GroupArn: Schema.optional(Schema.String), GroupName: Schema.optional(Schema.String), TaskArn: Schema.optional(Schema.String), TagKey: Schema.optional(Schema.String), TagValue: Schema.optional(Schema.String), ResourceQuery: Schema.optional(ResourceQuery), RoleArn: Schema.optional(Schema.String)});
-export const TagOutput = Schema.Struct({Arn: Schema.optional(Schema.String), Tags: Schema.optional(Tags)});
-export const FailedResource = Schema.Struct({ResourceArn: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String), ErrorCode: Schema.optional(Schema.String)});
+export class Group extends Schema.Class<Group>("Group")({GroupArn: Schema.String, Name: Schema.String, Description: Schema.optional(Schema.String), Criticality: Schema.optional(Schema.Number), Owner: Schema.optional(Schema.String), DisplayName: Schema.optional(Schema.String), ApplicationTag: Schema.optional(ApplicationTag)}) {}
+export class GetGroupOutput extends Schema.Class<GetGroupOutput>("GetGroupOutput")({Group: Schema.optional(Group)}) {}
+export class GetTagsOutput extends Schema.Class<GetTagsOutput>("GetTagsOutput")({Arn: Schema.optional(Schema.String), Tags: Schema.optional(Tags)}) {}
+export class GetTagSyncTaskOutput extends Schema.Class<GetTagSyncTaskOutput>("GetTagSyncTaskOutput")({GroupArn: Schema.optional(Schema.String), GroupName: Schema.optional(Schema.String), TaskArn: Schema.optional(Schema.String), TagKey: Schema.optional(Schema.String), TagValue: Schema.optional(Schema.String), ResourceQuery: Schema.optional(ResourceQuery), RoleArn: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date)}) {}
+export class ListGroupingStatusesInput extends Schema.Class<ListGroupingStatusesInput>("ListGroupingStatusesInput")({Group: Schema.String, MaxResults: Schema.optional(Schema.Number), Filters: Schema.optional(ListGroupingStatusesFilterList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListGroupResourcesInput extends Schema.Class<ListGroupResourcesInput>("ListGroupResourcesInput")({GroupName: Schema.optional(Schema.String), Group: Schema.optional(Schema.String), Filters: Schema.optional(ResourceFilterList), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListGroupsInput extends Schema.Class<ListGroupsInput>("ListGroupsInput")({Filters: Schema.optional(GroupFilterList), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagSyncTasksInput extends Schema.Class<ListTagSyncTasksInput>("ListTagSyncTasksInput")({Filters: Schema.optional(ListTagSyncTasksFilterList), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ForbiddenException extends Schema.Class<ForbiddenException>("ForbiddenException")({Message: Schema.optional(Schema.String)}) {}
+export class StartTagSyncTaskOutput extends Schema.Class<StartTagSyncTaskOutput>("StartTagSyncTaskOutput")({GroupArn: Schema.optional(Schema.String), GroupName: Schema.optional(Schema.String), TaskArn: Schema.optional(Schema.String), TagKey: Schema.optional(Schema.String), TagValue: Schema.optional(Schema.String), ResourceQuery: Schema.optional(ResourceQuery), RoleArn: Schema.optional(Schema.String)}) {}
+export class TagOutput extends Schema.Class<TagOutput>("TagOutput")({Arn: Schema.optional(Schema.String), Tags: Schema.optional(Tags)}) {}
+export class FailedResource extends Schema.Class<FailedResource>("FailedResource")({ResourceArn: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String), ErrorCode: Schema.optional(Schema.String)}) {}
 export const FailedResourceList = Schema.Array(FailedResource);
-export const PendingResource = Schema.Struct({ResourceArn: Schema.optional(Schema.String)});
+export class PendingResource extends Schema.Class<PendingResource>("PendingResource")({ResourceArn: Schema.optional(Schema.String)}) {}
 export const PendingResourceList = Schema.Array(PendingResource);
-export const UngroupResourcesOutput = Schema.Struct({Succeeded: Schema.optional(ResourceArnList), Failed: Schema.optional(FailedResourceList), Pending: Schema.optional(PendingResourceList)});
-export const UntagOutput = Schema.Struct({Arn: Schema.optional(Schema.String), Keys: Schema.optional(TagKeyList)});
-export const UpdateAccountSettingsOutput = Schema.Struct({AccountSettings: Schema.optional(AccountSettings)});
-export const UpdateGroupOutput = Schema.Struct({Group: Schema.optional(Group)});
-export const GroupQuery = Schema.Struct({GroupName: Schema.String, ResourceQuery: ResourceQuery});
-export const UpdateGroupQueryOutput = Schema.Struct({GroupQuery: Schema.optional(GroupQuery)});
-export const GroupConfiguration = Schema.Struct({Configuration: Schema.optional(GroupConfigurationList), ProposedConfiguration: Schema.optional(GroupConfigurationList), Status: Schema.optional(Schema.String), FailureReason: Schema.optional(Schema.String)});
+export class UngroupResourcesOutput extends Schema.Class<UngroupResourcesOutput>("UngroupResourcesOutput")({Succeeded: Schema.optional(ResourceArnList), Failed: Schema.optional(FailedResourceList), Pending: Schema.optional(PendingResourceList)}) {}
+export class UntagOutput extends Schema.Class<UntagOutput>("UntagOutput")({Arn: Schema.optional(Schema.String), Keys: Schema.optional(TagKeyList)}) {}
+export class UpdateAccountSettingsOutput extends Schema.Class<UpdateAccountSettingsOutput>("UpdateAccountSettingsOutput")({AccountSettings: Schema.optional(AccountSettings)}) {}
+export class UpdateGroupOutput extends Schema.Class<UpdateGroupOutput>("UpdateGroupOutput")({Group: Schema.optional(Group)}) {}
+export class GroupQuery extends Schema.Class<GroupQuery>("GroupQuery")({GroupName: Schema.String, ResourceQuery: ResourceQuery}) {}
+export class UpdateGroupQueryOutput extends Schema.Class<UpdateGroupQueryOutput>("UpdateGroupQueryOutput")({GroupQuery: Schema.optional(GroupQuery)}) {}
+export class GroupConfiguration extends Schema.Class<GroupConfiguration>("GroupConfiguration")({Configuration: Schema.optional(GroupConfigurationList), ProposedConfiguration: Schema.optional(GroupConfigurationList), Status: Schema.optional(Schema.String), FailureReason: Schema.optional(Schema.String)}) {}
 export const GroupList = Schema.Array(Group);
-export const ResourceIdentifier = Schema.Struct({ResourceArn: Schema.optional(Schema.String), ResourceType: Schema.optional(Schema.String)});
+export class ResourceIdentifier extends Schema.Class<ResourceIdentifier>("ResourceIdentifier")({ResourceArn: Schema.optional(Schema.String), ResourceType: Schema.optional(Schema.String)}) {}
 export const ResourceIdentifierList = Schema.Array(ResourceIdentifier);
-export const QueryError = Schema.Struct({ErrorCode: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
+export class QueryError extends Schema.Class<QueryError>("QueryError")({ErrorCode: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
 export const QueryErrorList = Schema.Array(QueryError);
-export const InternalServerErrorException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const CreateGroupInput = Schema.Struct({Name: Schema.String, Description: Schema.optional(Schema.String), ResourceQuery: Schema.optional(ResourceQuery), Tags: Schema.optional(Tags), Configuration: Schema.optional(GroupConfigurationList), Criticality: Schema.optional(Schema.Number), Owner: Schema.optional(Schema.String), DisplayName: Schema.optional(Schema.String)});
-export const MethodNotAllowedException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const NotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const GetGroupConfigurationOutput = Schema.Struct({GroupConfiguration: Schema.optional(GroupConfiguration)});
-export const GetGroupQueryOutput = Schema.Struct({GroupQuery: Schema.optional(GroupQuery)});
-export const TooManyRequestsException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const UnauthorizedException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const GroupResourcesOutput = Schema.Struct({Succeeded: Schema.optional(ResourceArnList), Failed: Schema.optional(FailedResourceList), Pending: Schema.optional(PendingResourceList)});
-export const SearchResourcesOutput = Schema.Struct({ResourceIdentifiers: Schema.optional(ResourceIdentifierList), NextToken: Schema.optional(Schema.String), QueryErrors: Schema.optional(QueryErrorList)});
-export const GroupingStatusesItem = Schema.Struct({ResourceArn: Schema.optional(Schema.String), Action: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String), ErrorCode: Schema.optional(Schema.String), UpdatedAt: Schema.optional(Schema.Date)});
+export class InternalServerErrorException extends Schema.Class<InternalServerErrorException>("InternalServerErrorException")({Message: Schema.optional(Schema.String)}) {}
+export class CreateGroupInput extends Schema.Class<CreateGroupInput>("CreateGroupInput")({Name: Schema.String, Description: Schema.optional(Schema.String), ResourceQuery: Schema.optional(ResourceQuery), Tags: Schema.optional(Tags), Configuration: Schema.optional(GroupConfigurationList), Criticality: Schema.optional(Schema.Number), Owner: Schema.optional(Schema.String), DisplayName: Schema.optional(Schema.String)}) {}
+export class MethodNotAllowedException extends Schema.Class<MethodNotAllowedException>("MethodNotAllowedException")({Message: Schema.optional(Schema.String)}) {}
+export class NotFoundException extends Schema.Class<NotFoundException>("NotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class GetGroupConfigurationOutput extends Schema.Class<GetGroupConfigurationOutput>("GetGroupConfigurationOutput")({GroupConfiguration: Schema.optional(GroupConfiguration)}) {}
+export class GetGroupQueryOutput extends Schema.Class<GetGroupQueryOutput>("GetGroupQueryOutput")({GroupQuery: Schema.optional(GroupQuery)}) {}
+export class TooManyRequestsException extends Schema.Class<TooManyRequestsException>("TooManyRequestsException")({Message: Schema.optional(Schema.String)}) {}
+export class UnauthorizedException extends Schema.Class<UnauthorizedException>("UnauthorizedException")({Message: Schema.optional(Schema.String)}) {}
+export class GroupResourcesOutput extends Schema.Class<GroupResourcesOutput>("GroupResourcesOutput")({Succeeded: Schema.optional(ResourceArnList), Failed: Schema.optional(FailedResourceList), Pending: Schema.optional(PendingResourceList)}) {}
+export class SearchResourcesOutput extends Schema.Class<SearchResourcesOutput>("SearchResourcesOutput")({ResourceIdentifiers: Schema.optional(ResourceIdentifierList), NextToken: Schema.optional(Schema.String), QueryErrors: Schema.optional(QueryErrorList)}) {}
+export class GroupingStatusesItem extends Schema.Class<GroupingStatusesItem>("GroupingStatusesItem")({ResourceArn: Schema.optional(Schema.String), Action: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String), ErrorCode: Schema.optional(Schema.String), UpdatedAt: Schema.optional(Schema.Date)}) {}
 export const GroupingStatusesList = Schema.Array(GroupingStatusesItem);
-export const GroupIdentifier = Schema.Struct({GroupName: Schema.optional(Schema.String), GroupArn: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Criticality: Schema.optional(Schema.Number), Owner: Schema.optional(Schema.String), DisplayName: Schema.optional(Schema.String)});
+export class GroupIdentifier extends Schema.Class<GroupIdentifier>("GroupIdentifier")({GroupName: Schema.optional(Schema.String), GroupArn: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Criticality: Schema.optional(Schema.Number), Owner: Schema.optional(Schema.String), DisplayName: Schema.optional(Schema.String)}) {}
 export const GroupIdentifierList = Schema.Array(GroupIdentifier);
-export const TagSyncTaskItem = Schema.Struct({GroupArn: Schema.optional(Schema.String), GroupName: Schema.optional(Schema.String), TaskArn: Schema.optional(Schema.String), TagKey: Schema.optional(Schema.String), TagValue: Schema.optional(Schema.String), ResourceQuery: Schema.optional(ResourceQuery), RoleArn: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date)});
+export class TagSyncTaskItem extends Schema.Class<TagSyncTaskItem>("TagSyncTaskItem")({GroupArn: Schema.optional(Schema.String), GroupName: Schema.optional(Schema.String), TaskArn: Schema.optional(Schema.String), TagKey: Schema.optional(Schema.String), TagValue: Schema.optional(Schema.String), ResourceQuery: Schema.optional(ResourceQuery), RoleArn: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date)}) {}
 export const TagSyncTaskList = Schema.Array(TagSyncTaskItem);
-export const CreateGroupOutput = Schema.Struct({Group: Schema.optional(Group), ResourceQuery: Schema.optional(ResourceQuery), Tags: Schema.optional(Tags), GroupConfiguration: Schema.optional(GroupConfiguration)});
-export const DeleteGroupOutput = Schema.Struct({Group: Schema.optional(Group)});
-export const ListGroupingStatusesOutput = Schema.Struct({Group: Schema.optional(Schema.String), GroupingStatuses: Schema.optional(GroupingStatusesList), NextToken: Schema.optional(Schema.String)});
-export const ListGroupsOutput = Schema.Struct({GroupIdentifiers: Schema.optional(GroupIdentifierList), Groups: Schema.optional(GroupList), NextToken: Schema.optional(Schema.String)});
-export const ListTagSyncTasksOutput = Schema.Struct({TagSyncTasks: Schema.optional(TagSyncTaskList), NextToken: Schema.optional(Schema.String)});
-export const ResourceStatus = Schema.Struct({Name: Schema.optional(Schema.String)});
-export const ListGroupResourcesItem = Schema.Struct({Identifier: Schema.optional(ResourceIdentifier), Status: Schema.optional(ResourceStatus)});
+export class CreateGroupOutput extends Schema.Class<CreateGroupOutput>("CreateGroupOutput")({Group: Schema.optional(Group), ResourceQuery: Schema.optional(ResourceQuery), Tags: Schema.optional(Tags), GroupConfiguration: Schema.optional(GroupConfiguration)}) {}
+export class DeleteGroupOutput extends Schema.Class<DeleteGroupOutput>("DeleteGroupOutput")({Group: Schema.optional(Group)}) {}
+export class ListGroupingStatusesOutput extends Schema.Class<ListGroupingStatusesOutput>("ListGroupingStatusesOutput")({Group: Schema.optional(Schema.String), GroupingStatuses: Schema.optional(GroupingStatusesList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListGroupsOutput extends Schema.Class<ListGroupsOutput>("ListGroupsOutput")({GroupIdentifiers: Schema.optional(GroupIdentifierList), Groups: Schema.optional(GroupList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagSyncTasksOutput extends Schema.Class<ListTagSyncTasksOutput>("ListTagSyncTasksOutput")({TagSyncTasks: Schema.optional(TagSyncTaskList), NextToken: Schema.optional(Schema.String)}) {}
+export class ResourceStatus extends Schema.Class<ResourceStatus>("ResourceStatus")({Name: Schema.optional(Schema.String)}) {}
+export class ListGroupResourcesItem extends Schema.Class<ListGroupResourcesItem>("ListGroupResourcesItem")({Identifier: Schema.optional(ResourceIdentifier), Status: Schema.optional(ResourceStatus)}) {}
 export const ListGroupResourcesItemList = Schema.Array(ListGroupResourcesItem);
-export const ListGroupResourcesOutput = Schema.Struct({Resources: Schema.optional(ListGroupResourcesItemList), ResourceIdentifiers: Schema.optional(ResourceIdentifierList), NextToken: Schema.optional(Schema.String), QueryErrors: Schema.optional(QueryErrorList)});
+export class ListGroupResourcesOutput extends Schema.Class<ListGroupResourcesOutput>("ListGroupResourcesOutput")({Resources: Schema.optional(ListGroupResourcesItemList), ResourceIdentifiers: Schema.optional(ResourceIdentifierList), NextToken: Schema.optional(Schema.String), QueryErrors: Schema.optional(QueryErrorList)}) {}
 
 //# Errors
-export class BadRequestExceptionError extends Schema.TaggedError<BadRequestExceptionError>()("BadRequestException", BadRequestException) {};
-export class ForbiddenExceptionError extends Schema.TaggedError<ForbiddenExceptionError>()("ForbiddenException", ForbiddenException) {};
-export class InternalServerErrorExceptionError extends Schema.TaggedError<InternalServerErrorExceptionError>()("InternalServerErrorException", InternalServerErrorException) {};
-export class MethodNotAllowedExceptionError extends Schema.TaggedError<MethodNotAllowedExceptionError>()("MethodNotAllowedException", MethodNotAllowedException) {};
-export class NotFoundExceptionError extends Schema.TaggedError<NotFoundExceptionError>()("NotFoundException", NotFoundException) {};
-export class TooManyRequestsExceptionError extends Schema.TaggedError<TooManyRequestsExceptionError>()("TooManyRequestsException", TooManyRequestsException) {};
-export class UnauthorizedExceptionError extends Schema.TaggedError<UnauthorizedExceptionError>()("UnauthorizedException", UnauthorizedException) {};
+export class BadRequestExceptionError extends Schema.TaggedError<BadRequestExceptionError>()("BadRequestException", BadRequestException.fields) {};
+export class ForbiddenExceptionError extends Schema.TaggedError<ForbiddenExceptionError>()("ForbiddenException", ForbiddenException.fields) {};
+export class InternalServerErrorExceptionError extends Schema.TaggedError<InternalServerErrorExceptionError>()("InternalServerErrorException", InternalServerErrorException.fields) {};
+export class MethodNotAllowedExceptionError extends Schema.TaggedError<MethodNotAllowedExceptionError>()("MethodNotAllowedException", MethodNotAllowedException.fields) {};
+export class NotFoundExceptionError extends Schema.TaggedError<NotFoundExceptionError>()("NotFoundException", NotFoundException.fields) {};
+export class TooManyRequestsExceptionError extends Schema.TaggedError<TooManyRequestsExceptionError>()("TooManyRequestsException", TooManyRequestsException.fields) {};
+export class UnauthorizedExceptionError extends Schema.TaggedError<UnauthorizedExceptionError>()("UnauthorizedException", UnauthorizedException.fields) {};
 
 //# Operations
 export const putGroupConfiguration = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-11-27", uri: "/put-group-configuration", method: "POST", sdkId: "Resource Groups", sigV4ServiceName: "resource-groups", name: "Ardi.PutGroupConfiguration" }, PutGroupConfigurationInput, PutGroupConfigurationOutput, [BadRequestExceptionError, ForbiddenExceptionError, InternalServerErrorExceptionError, MethodNotAllowedExceptionError, NotFoundExceptionError, TooManyRequestsExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

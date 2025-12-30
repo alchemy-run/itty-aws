@@ -3,34 +3,34 @@ import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperat
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const InitializeServiceRequest = Schema.Struct({});
-export const InitializeServiceResponse = Schema.Struct({});
+export class InitializeServiceRequest extends Schema.Class<InitializeServiceRequest>("InitializeServiceRequest")({}) {}
+export class InitializeServiceResponse extends Schema.Class<InitializeServiceResponse>("InitializeServiceResponse")({}) {}
 export const TagKeys = Schema.Array(Schema.String);
-export const AccessDeniedException = Schema.Struct({message: Schema.optional(Schema.String), code: Schema.optional(Schema.String)});
-export const ListManagedAccountsRequest = Schema.Struct({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceRequest = Schema.Struct({resourceArn: Schema.String});
-export const UntagResourceRequest = Schema.Struct({resourceArn: Schema.String, tagKeys: TagKeys});
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({message: Schema.optional(Schema.String), code: Schema.optional(Schema.String)}) {}
+export class ListManagedAccountsRequest extends Schema.Class<ListManagedAccountsRequest>("ListManagedAccountsRequest")({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({resourceArn: Schema.String}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({resourceArn: Schema.String, tagKeys: TagKeys}) {}
 export const TagsMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const ListTagsForResourceResponse = Schema.Struct({tags: Schema.optional(TagsMap)});
-export const TagResourceRequest = Schema.Struct({resourceArn: Schema.String, tags: TagsMap});
-export const InternalServerException = Schema.Struct({message: Schema.String, retryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))});
-export const ValidationExceptionField = Schema.Struct({name: Schema.optional(Schema.String), message: Schema.optional(Schema.String)});
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({tags: Schema.optional(TagsMap)}) {}
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({resourceArn: Schema.String, tags: TagsMap}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({message: Schema.String, retryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))}) {}
+export class ValidationExceptionField extends Schema.Class<ValidationExceptionField>("ValidationExceptionField")({name: Schema.optional(Schema.String), message: Schema.optional(Schema.String)}) {}
 export const ValidationExceptionFieldList = Schema.Array(ValidationExceptionField);
-export const ManagedAccount = Schema.Struct({accountId: Schema.optional(Schema.String)});
+export class ManagedAccount extends Schema.Class<ManagedAccount>("ManagedAccount")({accountId: Schema.optional(Schema.String)}) {}
 export const ManagedAccounts = Schema.Array(ManagedAccount);
-export const ValidationException = Schema.Struct({message: Schema.optional(Schema.String), code: Schema.optional(Schema.String), reason: Schema.optional(Schema.String), fieldList: Schema.optional(ValidationExceptionFieldList)});
-export const ListManagedAccountsResponse = Schema.Struct({items: ManagedAccounts, nextToken: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.optional(Schema.String), code: Schema.optional(Schema.String), resourceId: Schema.optional(Schema.String), resourceType: Schema.optional(Schema.String)});
-export const ThrottlingException = Schema.Struct({message: Schema.String, serviceCode: Schema.optional(Schema.String), quotaCode: Schema.optional(Schema.String), retryAfterSeconds: Schema.optional(Header("Retry-After"))});
-export const UninitializedAccountException = Schema.Struct({message: Schema.optional(Schema.String), code: Schema.optional(Schema.String)});
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({message: Schema.optional(Schema.String), code: Schema.optional(Schema.String), reason: Schema.optional(Schema.String), fieldList: Schema.optional(ValidationExceptionFieldList)}) {}
+export class ListManagedAccountsResponse extends Schema.Class<ListManagedAccountsResponse>("ListManagedAccountsResponse")({items: ManagedAccounts, nextToken: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.optional(Schema.String), code: Schema.optional(Schema.String), resourceId: Schema.optional(Schema.String), resourceType: Schema.optional(Schema.String)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({message: Schema.String, serviceCode: Schema.optional(Schema.String), quotaCode: Schema.optional(Schema.String), retryAfterSeconds: Schema.optional(Header("Retry-After"))}) {}
+export class UninitializedAccountException extends Schema.Class<UninitializedAccountException>("UninitializedAccountException")({message: Schema.optional(Schema.String), code: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class UninitializedAccountExceptionError extends Schema.TaggedError<UninitializedAccountExceptionError>()("UninitializedAccountException", UninitializedAccountException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class UninitializedAccountExceptionError extends Schema.TaggedError<UninitializedAccountExceptionError>()("UninitializedAccountException", UninitializedAccountException.fields) {};
 
 //# Operations
 export const untagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2020-02-26", uri: "/tags/{resourceArn}", method: "DELETE", sdkId: "mgn", sigV4ServiceName: "mgn", name: "ApplicationMigrationService.UntagResource" }, UntagResourceRequest, Schema.Struct({}), [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

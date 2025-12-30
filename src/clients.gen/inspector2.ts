@@ -3,10 +3,10 @@ import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperat
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const DescribeOrganizationConfigurationRequest = Schema.Struct({});
-export const GetConfigurationRequest = Schema.Struct({});
-export const GetDelegatedAdminAccountRequest = Schema.Struct({});
-export const GetEc2DeepInspectionConfigurationRequest = Schema.Struct({});
+export class DescribeOrganizationConfigurationRequest extends Schema.Class<DescribeOrganizationConfigurationRequest>("DescribeOrganizationConfigurationRequest")({}) {}
+export class GetConfigurationRequest extends Schema.Class<GetConfigurationRequest>("GetConfigurationRequest")({}) {}
+export class GetDelegatedAdminAccountRequest extends Schema.Class<GetDelegatedAdminAccountRequest>("GetDelegatedAdminAccountRequest")({}) {}
+export class GetEc2DeepInspectionConfigurationRequest extends Schema.Class<GetEc2DeepInspectionConfigurationRequest>("GetEc2DeepInspectionConfigurationRequest")({}) {}
 export const AccountIdSet = Schema.Array(Schema.String);
 export const FindingArns = Schema.Array(Schema.String);
 export const FindingArnList = Schema.Array(Schema.String);
@@ -18,91 +18,91 @@ export const PathList = Schema.Array(Schema.String);
 export const FilterArnList = Schema.Array(Schema.String);
 export const UsageAccountIdList = Schema.Array(Schema.String);
 export const TagKeyList = Schema.Array(Schema.String);
-export const AssociateMemberRequest = Schema.Struct({accountId: Schema.String});
-export const BatchGetAccountStatusRequest = Schema.Struct({accountIds: Schema.optional(AccountIdSet)});
-export const BatchGetCodeSnippetRequest = Schema.Struct({findingArns: FindingArns});
-export const BatchGetFindingDetailsRequest = Schema.Struct({findingArns: FindingArnList});
-export const BatchGetFreeTrialInfoRequest = Schema.Struct({accountIds: MeteringAccountIdList});
-export const BatchGetMemberEc2DeepInspectionStatusRequest = Schema.Struct({accountIds: Schema.optional(AccountIdSet)});
-export const CancelFindingsReportRequest = Schema.Struct({reportId: Schema.String});
-export const CancelSbomExportRequest = Schema.Struct({reportId: Schema.String});
-export const DeleteCisScanConfigurationRequest = Schema.Struct({scanConfigurationArn: Schema.String});
-export const DeleteCodeSecurityIntegrationRequest = Schema.Struct({integrationArn: Schema.String});
-export const DeleteCodeSecurityScanConfigurationRequest = Schema.Struct({scanConfigurationArn: Schema.String});
-export const DeleteFilterRequest = Schema.Struct({arn: Schema.String});
-export const DisableRequest = Schema.Struct({accountIds: Schema.optional(AccountIdSet), resourceTypes: Schema.optional(DisableResourceTypeList)});
-export const DisableDelegatedAdminAccountRequest = Schema.Struct({delegatedAdminAccountId: Schema.String});
-export const DisassociateMemberRequest = Schema.Struct({accountId: Schema.String});
-export const EnableRequest = Schema.Struct({accountIds: Schema.optional(AccountIdSet), resourceTypes: EnableResourceTypeList, clientToken: Schema.optional(Schema.String)});
-export const EnableDelegatedAdminAccountRequest = Schema.Struct({delegatedAdminAccountId: Schema.String, clientToken: Schema.optional(Schema.String)});
-export const GetCisScanReportRequest = Schema.Struct({scanArn: Schema.String, targetAccounts: Schema.optional(ReportTargetAccounts), reportFormat: Schema.optional(Schema.String)});
+export class AssociateMemberRequest extends Schema.Class<AssociateMemberRequest>("AssociateMemberRequest")({accountId: Schema.String}) {}
+export class BatchGetAccountStatusRequest extends Schema.Class<BatchGetAccountStatusRequest>("BatchGetAccountStatusRequest")({accountIds: Schema.optional(AccountIdSet)}) {}
+export class BatchGetCodeSnippetRequest extends Schema.Class<BatchGetCodeSnippetRequest>("BatchGetCodeSnippetRequest")({findingArns: FindingArns}) {}
+export class BatchGetFindingDetailsRequest extends Schema.Class<BatchGetFindingDetailsRequest>("BatchGetFindingDetailsRequest")({findingArns: FindingArnList}) {}
+export class BatchGetFreeTrialInfoRequest extends Schema.Class<BatchGetFreeTrialInfoRequest>("BatchGetFreeTrialInfoRequest")({accountIds: MeteringAccountIdList}) {}
+export class BatchGetMemberEc2DeepInspectionStatusRequest extends Schema.Class<BatchGetMemberEc2DeepInspectionStatusRequest>("BatchGetMemberEc2DeepInspectionStatusRequest")({accountIds: Schema.optional(AccountIdSet)}) {}
+export class CancelFindingsReportRequest extends Schema.Class<CancelFindingsReportRequest>("CancelFindingsReportRequest")({reportId: Schema.String}) {}
+export class CancelSbomExportRequest extends Schema.Class<CancelSbomExportRequest>("CancelSbomExportRequest")({reportId: Schema.String}) {}
+export class DeleteCisScanConfigurationRequest extends Schema.Class<DeleteCisScanConfigurationRequest>("DeleteCisScanConfigurationRequest")({scanConfigurationArn: Schema.String}) {}
+export class DeleteCodeSecurityIntegrationRequest extends Schema.Class<DeleteCodeSecurityIntegrationRequest>("DeleteCodeSecurityIntegrationRequest")({integrationArn: Schema.String}) {}
+export class DeleteCodeSecurityScanConfigurationRequest extends Schema.Class<DeleteCodeSecurityScanConfigurationRequest>("DeleteCodeSecurityScanConfigurationRequest")({scanConfigurationArn: Schema.String}) {}
+export class DeleteFilterRequest extends Schema.Class<DeleteFilterRequest>("DeleteFilterRequest")({arn: Schema.String}) {}
+export class DisableRequest extends Schema.Class<DisableRequest>("DisableRequest")({accountIds: Schema.optional(AccountIdSet), resourceTypes: Schema.optional(DisableResourceTypeList)}) {}
+export class DisableDelegatedAdminAccountRequest extends Schema.Class<DisableDelegatedAdminAccountRequest>("DisableDelegatedAdminAccountRequest")({delegatedAdminAccountId: Schema.String}) {}
+export class DisassociateMemberRequest extends Schema.Class<DisassociateMemberRequest>("DisassociateMemberRequest")({accountId: Schema.String}) {}
+export class EnableRequest extends Schema.Class<EnableRequest>("EnableRequest")({accountIds: Schema.optional(AccountIdSet), resourceTypes: EnableResourceTypeList, clientToken: Schema.optional(Schema.String)}) {}
+export class EnableDelegatedAdminAccountRequest extends Schema.Class<EnableDelegatedAdminAccountRequest>("EnableDelegatedAdminAccountRequest")({delegatedAdminAccountId: Schema.String, clientToken: Schema.optional(Schema.String)}) {}
+export class GetCisScanReportRequest extends Schema.Class<GetCisScanReportRequest>("GetCisScanReportRequest")({scanArn: Schema.String, targetAccounts: Schema.optional(ReportTargetAccounts), reportFormat: Schema.optional(Schema.String)}) {}
 export const TagMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const GetCodeSecurityIntegrationRequest = Schema.Struct({integrationArn: Schema.String, tags: Schema.optional(TagMap)});
-export const GetCodeSecurityScanConfigurationRequest = Schema.Struct({scanConfigurationArn: Schema.String});
-export const GetEc2DeepInspectionConfigurationResponse = Schema.Struct({packagePaths: Schema.optional(PathList), orgPackagePaths: Schema.optional(PathList), status: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String)});
-export const GetEncryptionKeyRequest = Schema.Struct({scanType: Schema.String, resourceType: Schema.String});
-export const GetFindingsReportStatusRequest = Schema.Struct({reportId: Schema.optional(Schema.String)});
-export const GetMemberRequest = Schema.Struct({accountId: Schema.String});
-export const GetSbomExportRequest = Schema.Struct({reportId: Schema.String});
-export const ListAccountPermissionsRequest = Schema.Struct({service: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListCodeSecurityIntegrationsRequest = Schema.Struct({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListCodeSecurityScanConfigurationAssociationsRequest = Schema.Struct({scanConfigurationArn: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListCodeSecurityScanConfigurationsRequest = Schema.Struct({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const CoverageStringFilter = Schema.Struct({comparison: Schema.String, value: Schema.String});
+export class GetCodeSecurityIntegrationRequest extends Schema.Class<GetCodeSecurityIntegrationRequest>("GetCodeSecurityIntegrationRequest")({integrationArn: Schema.String, tags: Schema.optional(TagMap)}) {}
+export class GetCodeSecurityScanConfigurationRequest extends Schema.Class<GetCodeSecurityScanConfigurationRequest>("GetCodeSecurityScanConfigurationRequest")({scanConfigurationArn: Schema.String}) {}
+export class GetEc2DeepInspectionConfigurationResponse extends Schema.Class<GetEc2DeepInspectionConfigurationResponse>("GetEc2DeepInspectionConfigurationResponse")({packagePaths: Schema.optional(PathList), orgPackagePaths: Schema.optional(PathList), status: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String)}) {}
+export class GetEncryptionKeyRequest extends Schema.Class<GetEncryptionKeyRequest>("GetEncryptionKeyRequest")({scanType: Schema.String, resourceType: Schema.String}) {}
+export class GetFindingsReportStatusRequest extends Schema.Class<GetFindingsReportStatusRequest>("GetFindingsReportStatusRequest")({reportId: Schema.optional(Schema.String)}) {}
+export class GetMemberRequest extends Schema.Class<GetMemberRequest>("GetMemberRequest")({accountId: Schema.String}) {}
+export class GetSbomExportRequest extends Schema.Class<GetSbomExportRequest>("GetSbomExportRequest")({reportId: Schema.String}) {}
+export class ListAccountPermissionsRequest extends Schema.Class<ListAccountPermissionsRequest>("ListAccountPermissionsRequest")({service: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListCodeSecurityIntegrationsRequest extends Schema.Class<ListCodeSecurityIntegrationsRequest>("ListCodeSecurityIntegrationsRequest")({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListCodeSecurityScanConfigurationAssociationsRequest extends Schema.Class<ListCodeSecurityScanConfigurationAssociationsRequest>("ListCodeSecurityScanConfigurationAssociationsRequest")({scanConfigurationArn: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListCodeSecurityScanConfigurationsRequest extends Schema.Class<ListCodeSecurityScanConfigurationsRequest>("ListCodeSecurityScanConfigurationsRequest")({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class CoverageStringFilter extends Schema.Class<CoverageStringFilter>("CoverageStringFilter")({comparison: Schema.String, value: Schema.String}) {}
 export const CoverageStringFilterList = Schema.Array(CoverageStringFilter);
-export const CoverageMapFilter = Schema.Struct({comparison: Schema.String, key: Schema.String, value: Schema.optional(Schema.String)});
+export class CoverageMapFilter extends Schema.Class<CoverageMapFilter>("CoverageMapFilter")({comparison: Schema.String, key: Schema.String, value: Schema.optional(Schema.String)}) {}
 export const CoverageMapFilterList = Schema.Array(CoverageMapFilter);
-export const CoverageDateFilter = Schema.Struct({startInclusive: Schema.optional(Schema.Date), endInclusive: Schema.optional(Schema.Date)});
+export class CoverageDateFilter extends Schema.Class<CoverageDateFilter>("CoverageDateFilter")({startInclusive: Schema.optional(Schema.Date), endInclusive: Schema.optional(Schema.Date)}) {}
 export const CoverageDateFilterList = Schema.Array(CoverageDateFilter);
-export const CoverageNumberFilter = Schema.Struct({upperInclusive: Schema.optional(Schema.Number), lowerInclusive: Schema.optional(Schema.Number)});
+export class CoverageNumberFilter extends Schema.Class<CoverageNumberFilter>("CoverageNumberFilter")({upperInclusive: Schema.optional(Schema.Number), lowerInclusive: Schema.optional(Schema.Number)}) {}
 export const CoverageNumberFilterList = Schema.Array(CoverageNumberFilter);
-export const CoverageFilterCriteria = Schema.Struct({scanStatusCode: Schema.optional(CoverageStringFilterList), scanStatusReason: Schema.optional(CoverageStringFilterList), accountId: Schema.optional(CoverageStringFilterList), resourceId: Schema.optional(CoverageStringFilterList), resourceType: Schema.optional(CoverageStringFilterList), scanType: Schema.optional(CoverageStringFilterList), ecrRepositoryName: Schema.optional(CoverageStringFilterList), ecrImageTags: Schema.optional(CoverageStringFilterList), ec2InstanceTags: Schema.optional(CoverageMapFilterList), lambdaFunctionName: Schema.optional(CoverageStringFilterList), lambdaFunctionTags: Schema.optional(CoverageMapFilterList), lambdaFunctionRuntime: Schema.optional(CoverageStringFilterList), lastScannedAt: Schema.optional(CoverageDateFilterList), scanMode: Schema.optional(CoverageStringFilterList), imagePulledAt: Schema.optional(CoverageDateFilterList), ecrImageLastInUseAt: Schema.optional(CoverageDateFilterList), ecrImageInUseCount: Schema.optional(CoverageNumberFilterList), codeRepositoryProjectName: Schema.optional(CoverageStringFilterList), codeRepositoryProviderType: Schema.optional(CoverageStringFilterList), codeRepositoryProviderTypeVisibility: Schema.optional(CoverageStringFilterList), lastScannedCommitId: Schema.optional(CoverageStringFilterList)});
-export const ListCoverageStatisticsRequest = Schema.Struct({filterCriteria: Schema.optional(CoverageFilterCriteria), groupBy: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String)});
-export const ListDelegatedAdminAccountsRequest = Schema.Struct({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListFiltersRequest = Schema.Struct({arns: Schema.optional(FilterArnList), action: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListMembersRequest = Schema.Struct({onlyAssociated: Schema.optional(Schema.Boolean), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceRequest = Schema.Struct({resourceArn: Schema.String});
-export const ListUsageTotalsRequest = Schema.Struct({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String), accountIds: Schema.optional(UsageAccountIdList)});
-export const ResetEncryptionKeyRequest = Schema.Struct({scanType: Schema.String, resourceType: Schema.String});
-export const ResetEncryptionKeyResponse = Schema.Struct({});
-export const SendCisSessionHealthRequest = Schema.Struct({scanJobId: Schema.String, sessionToken: Schema.String});
-export const SendCisSessionHealthResponse = Schema.Struct({});
+export class CoverageFilterCriteria extends Schema.Class<CoverageFilterCriteria>("CoverageFilterCriteria")({scanStatusCode: Schema.optional(CoverageStringFilterList), scanStatusReason: Schema.optional(CoverageStringFilterList), accountId: Schema.optional(CoverageStringFilterList), resourceId: Schema.optional(CoverageStringFilterList), resourceType: Schema.optional(CoverageStringFilterList), scanType: Schema.optional(CoverageStringFilterList), ecrRepositoryName: Schema.optional(CoverageStringFilterList), ecrImageTags: Schema.optional(CoverageStringFilterList), ec2InstanceTags: Schema.optional(CoverageMapFilterList), lambdaFunctionName: Schema.optional(CoverageStringFilterList), lambdaFunctionTags: Schema.optional(CoverageMapFilterList), lambdaFunctionRuntime: Schema.optional(CoverageStringFilterList), lastScannedAt: Schema.optional(CoverageDateFilterList), scanMode: Schema.optional(CoverageStringFilterList), imagePulledAt: Schema.optional(CoverageDateFilterList), ecrImageLastInUseAt: Schema.optional(CoverageDateFilterList), ecrImageInUseCount: Schema.optional(CoverageNumberFilterList), codeRepositoryProjectName: Schema.optional(CoverageStringFilterList), codeRepositoryProviderType: Schema.optional(CoverageStringFilterList), codeRepositoryProviderTypeVisibility: Schema.optional(CoverageStringFilterList), lastScannedCommitId: Schema.optional(CoverageStringFilterList)}) {}
+export class ListCoverageStatisticsRequest extends Schema.Class<ListCoverageStatisticsRequest>("ListCoverageStatisticsRequest")({filterCriteria: Schema.optional(CoverageFilterCriteria), groupBy: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String)}) {}
+export class ListDelegatedAdminAccountsRequest extends Schema.Class<ListDelegatedAdminAccountsRequest>("ListDelegatedAdminAccountsRequest")({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListFiltersRequest extends Schema.Class<ListFiltersRequest>("ListFiltersRequest")({arns: Schema.optional(FilterArnList), action: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListMembersRequest extends Schema.Class<ListMembersRequest>("ListMembersRequest")({onlyAssociated: Schema.optional(Schema.Boolean), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({resourceArn: Schema.String}) {}
+export class ListUsageTotalsRequest extends Schema.Class<ListUsageTotalsRequest>("ListUsageTotalsRequest")({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String), accountIds: Schema.optional(UsageAccountIdList)}) {}
+export class ResetEncryptionKeyRequest extends Schema.Class<ResetEncryptionKeyRequest>("ResetEncryptionKeyRequest")({scanType: Schema.String, resourceType: Schema.String}) {}
+export class ResetEncryptionKeyResponse extends Schema.Class<ResetEncryptionKeyResponse>("ResetEncryptionKeyResponse")({}) {}
+export class SendCisSessionHealthRequest extends Schema.Class<SendCisSessionHealthRequest>("SendCisSessionHealthRequest")({scanJobId: Schema.String, sessionToken: Schema.String}) {}
+export class SendCisSessionHealthResponse extends Schema.Class<SendCisSessionHealthResponse>("SendCisSessionHealthResponse")({}) {}
 export const CodeSecurityResource = Schema.Union(Schema.String);
-export const StartCodeSecurityScanRequest = Schema.Struct({clientToken: Schema.optional(Schema.String), resource: CodeSecurityResource});
-export const TagResourceRequest = Schema.Struct({resourceArn: Schema.String, tags: TagMap});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({resourceArn: Schema.String, tagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
-export const PeriodicScanConfiguration = Schema.Struct({frequency: Schema.optional(Schema.String), frequencyExpression: Schema.optional(Schema.String)});
+export class StartCodeSecurityScanRequest extends Schema.Class<StartCodeSecurityScanRequest>("StartCodeSecurityScanRequest")({clientToken: Schema.optional(Schema.String), resource: CodeSecurityResource}) {}
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({resourceArn: Schema.String, tags: TagMap}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({resourceArn: Schema.String, tagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class PeriodicScanConfiguration extends Schema.Class<PeriodicScanConfiguration>("PeriodicScanConfiguration")({frequency: Schema.optional(Schema.String), frequencyExpression: Schema.optional(Schema.String)}) {}
 export const ContinuousIntegrationScanSupportedEvents = Schema.Array(Schema.String);
-export const ContinuousIntegrationScanConfiguration = Schema.Struct({supportedEvents: ContinuousIntegrationScanSupportedEvents});
+export class ContinuousIntegrationScanConfiguration extends Schema.Class<ContinuousIntegrationScanConfiguration>("ContinuousIntegrationScanConfiguration")({supportedEvents: ContinuousIntegrationScanSupportedEvents}) {}
 export const RuleSetCategories = Schema.Array(Schema.String);
-export const CodeSecurityScanConfiguration = Schema.Struct({periodicScanConfiguration: Schema.optional(PeriodicScanConfiguration), continuousIntegrationScanConfiguration: Schema.optional(ContinuousIntegrationScanConfiguration), ruleSetCategories: RuleSetCategories});
-export const UpdateCodeSecurityScanConfigurationRequest = Schema.Struct({scanConfigurationArn: Schema.String, configuration: CodeSecurityScanConfiguration});
-export const UpdateEc2DeepInspectionConfigurationRequest = Schema.Struct({activateDeepInspection: Schema.optional(Schema.Boolean), packagePaths: Schema.optional(PathList)});
-export const UpdateEncryptionKeyRequest = Schema.Struct({kmsKeyId: Schema.String, scanType: Schema.String, resourceType: Schema.String});
-export const UpdateEncryptionKeyResponse = Schema.Struct({});
-export const StringFilter = Schema.Struct({comparison: Schema.String, value: Schema.String});
+export class CodeSecurityScanConfiguration extends Schema.Class<CodeSecurityScanConfiguration>("CodeSecurityScanConfiguration")({periodicScanConfiguration: Schema.optional(PeriodicScanConfiguration), continuousIntegrationScanConfiguration: Schema.optional(ContinuousIntegrationScanConfiguration), ruleSetCategories: RuleSetCategories}) {}
+export class UpdateCodeSecurityScanConfigurationRequest extends Schema.Class<UpdateCodeSecurityScanConfigurationRequest>("UpdateCodeSecurityScanConfigurationRequest")({scanConfigurationArn: Schema.String, configuration: CodeSecurityScanConfiguration}) {}
+export class UpdateEc2DeepInspectionConfigurationRequest extends Schema.Class<UpdateEc2DeepInspectionConfigurationRequest>("UpdateEc2DeepInspectionConfigurationRequest")({activateDeepInspection: Schema.optional(Schema.Boolean), packagePaths: Schema.optional(PathList)}) {}
+export class UpdateEncryptionKeyRequest extends Schema.Class<UpdateEncryptionKeyRequest>("UpdateEncryptionKeyRequest")({kmsKeyId: Schema.String, scanType: Schema.String, resourceType: Schema.String}) {}
+export class UpdateEncryptionKeyResponse extends Schema.Class<UpdateEncryptionKeyResponse>("UpdateEncryptionKeyResponse")({}) {}
+export class StringFilter extends Schema.Class<StringFilter>("StringFilter")({comparison: Schema.String, value: Schema.String}) {}
 export const StringFilterList = Schema.Array(StringFilter);
-export const DateFilter = Schema.Struct({startInclusive: Schema.optional(Schema.Date), endInclusive: Schema.optional(Schema.Date)});
+export class DateFilter extends Schema.Class<DateFilter>("DateFilter")({startInclusive: Schema.optional(Schema.Date), endInclusive: Schema.optional(Schema.Date)}) {}
 export const DateFilterList = Schema.Array(DateFilter);
-export const NumberFilter = Schema.Struct({upperInclusive: Schema.optional(Schema.Number), lowerInclusive: Schema.optional(Schema.Number)});
+export class NumberFilter extends Schema.Class<NumberFilter>("NumberFilter")({upperInclusive: Schema.optional(Schema.Number), lowerInclusive: Schema.optional(Schema.Number)}) {}
 export const NumberFilterList = Schema.Array(NumberFilter);
-export const MapFilter = Schema.Struct({comparison: Schema.String, key: Schema.String, value: Schema.optional(Schema.String)});
+export class MapFilter extends Schema.Class<MapFilter>("MapFilter")({comparison: Schema.String, key: Schema.String, value: Schema.optional(Schema.String)}) {}
 export const MapFilterList = Schema.Array(MapFilter);
-export const PortRangeFilter = Schema.Struct({beginInclusive: Schema.optional(Schema.Number), endInclusive: Schema.optional(Schema.Number)});
+export class PortRangeFilter extends Schema.Class<PortRangeFilter>("PortRangeFilter")({beginInclusive: Schema.optional(Schema.Number), endInclusive: Schema.optional(Schema.Number)}) {}
 export const PortRangeFilterList = Schema.Array(PortRangeFilter);
-export const PackageFilter = Schema.Struct({name: Schema.optional(StringFilter), version: Schema.optional(StringFilter), epoch: Schema.optional(NumberFilter), release: Schema.optional(StringFilter), architecture: Schema.optional(StringFilter), sourceLayerHash: Schema.optional(StringFilter), sourceLambdaLayerArn: Schema.optional(StringFilter), filePath: Schema.optional(StringFilter)});
+export class PackageFilter extends Schema.Class<PackageFilter>("PackageFilter")({name: Schema.optional(StringFilter), version: Schema.optional(StringFilter), epoch: Schema.optional(NumberFilter), release: Schema.optional(StringFilter), architecture: Schema.optional(StringFilter), sourceLayerHash: Schema.optional(StringFilter), sourceLambdaLayerArn: Schema.optional(StringFilter), filePath: Schema.optional(StringFilter)}) {}
 export const PackageFilterList = Schema.Array(PackageFilter);
-export const FilterCriteria = Schema.Struct({findingArn: Schema.optional(StringFilterList), awsAccountId: Schema.optional(StringFilterList), findingType: Schema.optional(StringFilterList), severity: Schema.optional(StringFilterList), firstObservedAt: Schema.optional(DateFilterList), lastObservedAt: Schema.optional(DateFilterList), updatedAt: Schema.optional(DateFilterList), findingStatus: Schema.optional(StringFilterList), title: Schema.optional(StringFilterList), inspectorScore: Schema.optional(NumberFilterList), resourceType: Schema.optional(StringFilterList), resourceId: Schema.optional(StringFilterList), resourceTags: Schema.optional(MapFilterList), ec2InstanceImageId: Schema.optional(StringFilterList), ec2InstanceVpcId: Schema.optional(StringFilterList), ec2InstanceSubnetId: Schema.optional(StringFilterList), ecrImagePushedAt: Schema.optional(DateFilterList), ecrImageArchitecture: Schema.optional(StringFilterList), ecrImageRegistry: Schema.optional(StringFilterList), ecrImageRepositoryName: Schema.optional(StringFilterList), ecrImageTags: Schema.optional(StringFilterList), ecrImageHash: Schema.optional(StringFilterList), ecrImageLastInUseAt: Schema.optional(DateFilterList), ecrImageInUseCount: Schema.optional(NumberFilterList), portRange: Schema.optional(PortRangeFilterList), networkProtocol: Schema.optional(StringFilterList), componentId: Schema.optional(StringFilterList), componentType: Schema.optional(StringFilterList), vulnerabilityId: Schema.optional(StringFilterList), vulnerabilitySource: Schema.optional(StringFilterList), vendorSeverity: Schema.optional(StringFilterList), vulnerablePackages: Schema.optional(PackageFilterList), relatedVulnerabilities: Schema.optional(StringFilterList), fixAvailable: Schema.optional(StringFilterList), lambdaFunctionName: Schema.optional(StringFilterList), lambdaFunctionLayers: Schema.optional(StringFilterList), lambdaFunctionRuntime: Schema.optional(StringFilterList), lambdaFunctionLastModifiedAt: Schema.optional(DateFilterList), lambdaFunctionExecutionRoleArn: Schema.optional(StringFilterList), exploitAvailable: Schema.optional(StringFilterList), codeVulnerabilityDetectorName: Schema.optional(StringFilterList), codeVulnerabilityDetectorTags: Schema.optional(StringFilterList), codeVulnerabilityFilePath: Schema.optional(StringFilterList), epssScore: Schema.optional(NumberFilterList), codeRepositoryProjectName: Schema.optional(StringFilterList), codeRepositoryProviderType: Schema.optional(StringFilterList)});
-export const UpdateFilterRequest = Schema.Struct({action: Schema.optional(Schema.String), description: Schema.optional(Schema.String), filterCriteria: Schema.optional(FilterCriteria), name: Schema.optional(Schema.String), filterArn: Schema.String, reason: Schema.optional(Schema.String)});
-export const AutoEnable = Schema.Struct({ec2: Schema.Boolean, ecr: Schema.Boolean, lambda: Schema.optional(Schema.Boolean), lambdaCode: Schema.optional(Schema.Boolean), codeRepository: Schema.optional(Schema.Boolean)});
-export const UpdateOrganizationConfigurationRequest = Schema.Struct({autoEnable: AutoEnable});
-export const UpdateOrgEc2DeepInspectionConfigurationRequest = Schema.Struct({orgPackagePaths: PathList});
-export const UpdateOrgEc2DeepInspectionConfigurationResponse = Schema.Struct({});
-export const OneTimeSchedule = Schema.Struct({});
+export class FilterCriteria extends Schema.Class<FilterCriteria>("FilterCriteria")({findingArn: Schema.optional(StringFilterList), awsAccountId: Schema.optional(StringFilterList), findingType: Schema.optional(StringFilterList), severity: Schema.optional(StringFilterList), firstObservedAt: Schema.optional(DateFilterList), lastObservedAt: Schema.optional(DateFilterList), updatedAt: Schema.optional(DateFilterList), findingStatus: Schema.optional(StringFilterList), title: Schema.optional(StringFilterList), inspectorScore: Schema.optional(NumberFilterList), resourceType: Schema.optional(StringFilterList), resourceId: Schema.optional(StringFilterList), resourceTags: Schema.optional(MapFilterList), ec2InstanceImageId: Schema.optional(StringFilterList), ec2InstanceVpcId: Schema.optional(StringFilterList), ec2InstanceSubnetId: Schema.optional(StringFilterList), ecrImagePushedAt: Schema.optional(DateFilterList), ecrImageArchitecture: Schema.optional(StringFilterList), ecrImageRegistry: Schema.optional(StringFilterList), ecrImageRepositoryName: Schema.optional(StringFilterList), ecrImageTags: Schema.optional(StringFilterList), ecrImageHash: Schema.optional(StringFilterList), ecrImageLastInUseAt: Schema.optional(DateFilterList), ecrImageInUseCount: Schema.optional(NumberFilterList), portRange: Schema.optional(PortRangeFilterList), networkProtocol: Schema.optional(StringFilterList), componentId: Schema.optional(StringFilterList), componentType: Schema.optional(StringFilterList), vulnerabilityId: Schema.optional(StringFilterList), vulnerabilitySource: Schema.optional(StringFilterList), vendorSeverity: Schema.optional(StringFilterList), vulnerablePackages: Schema.optional(PackageFilterList), relatedVulnerabilities: Schema.optional(StringFilterList), fixAvailable: Schema.optional(StringFilterList), lambdaFunctionName: Schema.optional(StringFilterList), lambdaFunctionLayers: Schema.optional(StringFilterList), lambdaFunctionRuntime: Schema.optional(StringFilterList), lambdaFunctionLastModifiedAt: Schema.optional(DateFilterList), lambdaFunctionExecutionRoleArn: Schema.optional(StringFilterList), exploitAvailable: Schema.optional(StringFilterList), codeVulnerabilityDetectorName: Schema.optional(StringFilterList), codeVulnerabilityDetectorTags: Schema.optional(StringFilterList), codeVulnerabilityFilePath: Schema.optional(StringFilterList), epssScore: Schema.optional(NumberFilterList), codeRepositoryProjectName: Schema.optional(StringFilterList), codeRepositoryProviderType: Schema.optional(StringFilterList)}) {}
+export class UpdateFilterRequest extends Schema.Class<UpdateFilterRequest>("UpdateFilterRequest")({action: Schema.optional(Schema.String), description: Schema.optional(Schema.String), filterCriteria: Schema.optional(FilterCriteria), name: Schema.optional(Schema.String), filterArn: Schema.String, reason: Schema.optional(Schema.String)}) {}
+export class AutoEnable extends Schema.Class<AutoEnable>("AutoEnable")({ec2: Schema.Boolean, ecr: Schema.Boolean, lambda: Schema.optional(Schema.Boolean), lambdaCode: Schema.optional(Schema.Boolean), codeRepository: Schema.optional(Schema.Boolean)}) {}
+export class UpdateOrganizationConfigurationRequest extends Schema.Class<UpdateOrganizationConfigurationRequest>("UpdateOrganizationConfigurationRequest")({autoEnable: AutoEnable}) {}
+export class UpdateOrgEc2DeepInspectionConfigurationRequest extends Schema.Class<UpdateOrgEc2DeepInspectionConfigurationRequest>("UpdateOrgEc2DeepInspectionConfigurationRequest")({orgPackagePaths: PathList}) {}
+export class UpdateOrgEc2DeepInspectionConfigurationResponse extends Schema.Class<UpdateOrgEc2DeepInspectionConfigurationResponse>("UpdateOrgEc2DeepInspectionConfigurationResponse")({}) {}
+export class OneTimeSchedule extends Schema.Class<OneTimeSchedule>("OneTimeSchedule")({}) {}
 export const TargetAccountList = Schema.Array(Schema.String);
-export const CisStringFilter = Schema.Struct({comparison: Schema.String, value: Schema.String});
+export class CisStringFilter extends Schema.Class<CisStringFilter>("CisStringFilter")({comparison: Schema.String, value: Schema.String}) {}
 export const TitleFilterList = Schema.Array(CisStringFilter);
 export const CisFindingArnFilterList = Schema.Array(CisStringFilter);
 export const CisScanNameFilterList = Schema.Array(CisStringFilter);
@@ -114,233 +114,233 @@ export const ResourceIdFilterList = Schema.Array(CisStringFilter);
 export const CisScanArnFilterList = Schema.Array(CisStringFilter);
 export const CisScheduledByFilterList = Schema.Array(CisStringFilter);
 export const VulnIdList = Schema.Array(Schema.String);
-export const AssociateConfigurationRequest = Schema.Struct({scanConfigurationArn: Schema.String, resource: CodeSecurityResource});
+export class AssociateConfigurationRequest extends Schema.Class<AssociateConfigurationRequest>("AssociateConfigurationRequest")({scanConfigurationArn: Schema.String, resource: CodeSecurityResource}) {}
 export const AssociateConfigurationRequestList = Schema.Array(AssociateConfigurationRequest);
-export const DisassociateConfigurationRequest = Schema.Struct({scanConfigurationArn: Schema.String, resource: CodeSecurityResource});
+export class DisassociateConfigurationRequest extends Schema.Class<DisassociateConfigurationRequest>("DisassociateConfigurationRequest")({scanConfigurationArn: Schema.String, resource: CodeSecurityResource}) {}
 export const DisassociateConfigurationRequestList = Schema.Array(DisassociateConfigurationRequest);
-export const MemberAccountEc2DeepInspectionStatus = Schema.Struct({accountId: Schema.String, activateDeepInspection: Schema.Boolean});
+export class MemberAccountEc2DeepInspectionStatus extends Schema.Class<MemberAccountEc2DeepInspectionStatus>("MemberAccountEc2DeepInspectionStatus")({accountId: Schema.String, activateDeepInspection: Schema.Boolean}) {}
 export const MemberAccountEc2DeepInspectionStatusList = Schema.Array(MemberAccountEc2DeepInspectionStatus);
 export const CisTagMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const ScopeSettings = Schema.Struct({projectSelectionScope: Schema.optional(Schema.String)});
-export const Destination = Schema.Struct({bucketName: Schema.String, keyPrefix: Schema.optional(Schema.String), kmsKeyArn: Schema.String});
-export const ClusterForImageFilterCriteria = Schema.Struct({resourceId: Schema.String});
-export const DelegatedAdmin = Schema.Struct({accountId: Schema.optional(Schema.String), relationshipStatus: Schema.optional(Schema.String)});
-export const SortCriteria = Schema.Struct({field: Schema.String, sortOrder: Schema.String});
-export const Member = Schema.Struct({accountId: Schema.optional(Schema.String), relationshipStatus: Schema.optional(Schema.String), delegatedAdminAccountId: Schema.optional(Schema.String), updatedAt: Schema.optional(Schema.Date)});
+export class ScopeSettings extends Schema.Class<ScopeSettings>("ScopeSettings")({projectSelectionScope: Schema.optional(Schema.String)}) {}
+export class Destination extends Schema.Class<Destination>("Destination")({bucketName: Schema.String, keyPrefix: Schema.optional(Schema.String), kmsKeyArn: Schema.String}) {}
+export class ClusterForImageFilterCriteria extends Schema.Class<ClusterForImageFilterCriteria>("ClusterForImageFilterCriteria")({resourceId: Schema.String}) {}
+export class DelegatedAdmin extends Schema.Class<DelegatedAdmin>("DelegatedAdmin")({accountId: Schema.optional(Schema.String), relationshipStatus: Schema.optional(Schema.String)}) {}
+export class SortCriteria extends Schema.Class<SortCriteria>("SortCriteria")({field: Schema.String, sortOrder: Schema.String}) {}
+export class Member extends Schema.Class<Member>("Member")({accountId: Schema.optional(Schema.String), relationshipStatus: Schema.optional(Schema.String), delegatedAdminAccountId: Schema.optional(Schema.String), updatedAt: Schema.optional(Schema.Date)}) {}
 export const MemberList = Schema.Array(Member);
-export const SearchVulnerabilitiesFilterCriteria = Schema.Struct({vulnerabilityIds: VulnIdList});
-export const CisSessionMessage = Schema.Struct({ruleId: Schema.String, status: Schema.String, cisRuleDetails: StreamBody()});
+export class SearchVulnerabilitiesFilterCriteria extends Schema.Class<SearchVulnerabilitiesFilterCriteria>("SearchVulnerabilitiesFilterCriteria")({vulnerabilityIds: VulnIdList}) {}
+export class CisSessionMessage extends Schema.Class<CisSessionMessage>("CisSessionMessage")({ruleId: Schema.String, status: Schema.String, cisRuleDetails: StreamBody()}) {}
 export const CisSessionMessages = Schema.Array(CisSessionMessage);
-export const StartCisSessionMessage = Schema.Struct({sessionToken: Schema.String});
+export class StartCisSessionMessage extends Schema.Class<StartCisSessionMessage>("StartCisSessionMessage")({sessionToken: Schema.String}) {}
 export const TagValueList = Schema.Array(Schema.String);
 export const TargetResourceTags = Schema.Record({key: Schema.String, value: TagValueList});
-export const UpdateCisTargets = Schema.Struct({accountIds: Schema.optional(TargetAccountList), targetResourceTags: Schema.optional(TargetResourceTags)});
-export const EcrConfiguration = Schema.Struct({rescanDuration: Schema.String, pullDateRescanDuration: Schema.optional(Schema.String), pullDateRescanMode: Schema.optional(Schema.String)});
-export const Ec2Configuration = Schema.Struct({scanMode: Schema.String});
+export class UpdateCisTargets extends Schema.Class<UpdateCisTargets>("UpdateCisTargets")({accountIds: Schema.optional(TargetAccountList), targetResourceTags: Schema.optional(TargetResourceTags)}) {}
+export class EcrConfiguration extends Schema.Class<EcrConfiguration>("EcrConfiguration")({rescanDuration: Schema.String, pullDateRescanDuration: Schema.optional(Schema.String), pullDateRescanMode: Schema.optional(Schema.String)}) {}
+export class Ec2Configuration extends Schema.Class<Ec2Configuration>("Ec2Configuration")({scanMode: Schema.String}) {}
 export const DaysList = Schema.Array(Schema.String);
-export const AssociateMemberResponse = Schema.Struct({accountId: Schema.String});
-export const BatchAssociateCodeSecurityScanConfigurationRequest = Schema.Struct({associateConfigurationRequests: AssociateConfigurationRequestList});
-export const BatchDisassociateCodeSecurityScanConfigurationRequest = Schema.Struct({disassociateConfigurationRequests: DisassociateConfigurationRequestList});
-export const BatchUpdateMemberEc2DeepInspectionStatusRequest = Schema.Struct({accountIds: MemberAccountEc2DeepInspectionStatusList});
-export const CancelFindingsReportResponse = Schema.Struct({reportId: Schema.String});
-export const CancelSbomExportResponse = Schema.Struct({reportId: Schema.optional(Schema.String)});
-export const CreateFindingsReportRequest = Schema.Struct({filterCriteria: Schema.optional(FilterCriteria), reportFormat: Schema.String, s3Destination: Destination});
-export const DeleteCisScanConfigurationResponse = Schema.Struct({scanConfigurationArn: Schema.String});
-export const DeleteCodeSecurityIntegrationResponse = Schema.Struct({integrationArn: Schema.optional(Schema.String)});
-export const DeleteCodeSecurityScanConfigurationResponse = Schema.Struct({scanConfigurationArn: Schema.optional(Schema.String)});
-export const DeleteFilterResponse = Schema.Struct({arn: Schema.String});
-export const DescribeOrganizationConfigurationResponse = Schema.Struct({autoEnable: Schema.optional(AutoEnable), maxAccountLimitReached: Schema.optional(Schema.Boolean)});
-export const DisableDelegatedAdminAccountResponse = Schema.Struct({delegatedAdminAccountId: Schema.String});
-export const DisassociateMemberResponse = Schema.Struct({accountId: Schema.String});
-export const ResourceStatus = Schema.Struct({ec2: Schema.String, ecr: Schema.String, lambda: Schema.optional(Schema.String), lambdaCode: Schema.optional(Schema.String), codeRepository: Schema.optional(Schema.String)});
-export const Account = Schema.Struct({accountId: Schema.String, status: Schema.String, resourceStatus: ResourceStatus});
+export class AssociateMemberResponse extends Schema.Class<AssociateMemberResponse>("AssociateMemberResponse")({accountId: Schema.String}) {}
+export class BatchAssociateCodeSecurityScanConfigurationRequest extends Schema.Class<BatchAssociateCodeSecurityScanConfigurationRequest>("BatchAssociateCodeSecurityScanConfigurationRequest")({associateConfigurationRequests: AssociateConfigurationRequestList}) {}
+export class BatchDisassociateCodeSecurityScanConfigurationRequest extends Schema.Class<BatchDisassociateCodeSecurityScanConfigurationRequest>("BatchDisassociateCodeSecurityScanConfigurationRequest")({disassociateConfigurationRequests: DisassociateConfigurationRequestList}) {}
+export class BatchUpdateMemberEc2DeepInspectionStatusRequest extends Schema.Class<BatchUpdateMemberEc2DeepInspectionStatusRequest>("BatchUpdateMemberEc2DeepInspectionStatusRequest")({accountIds: MemberAccountEc2DeepInspectionStatusList}) {}
+export class CancelFindingsReportResponse extends Schema.Class<CancelFindingsReportResponse>("CancelFindingsReportResponse")({reportId: Schema.String}) {}
+export class CancelSbomExportResponse extends Schema.Class<CancelSbomExportResponse>("CancelSbomExportResponse")({reportId: Schema.optional(Schema.String)}) {}
+export class CreateFindingsReportRequest extends Schema.Class<CreateFindingsReportRequest>("CreateFindingsReportRequest")({filterCriteria: Schema.optional(FilterCriteria), reportFormat: Schema.String, s3Destination: Destination}) {}
+export class DeleteCisScanConfigurationResponse extends Schema.Class<DeleteCisScanConfigurationResponse>("DeleteCisScanConfigurationResponse")({scanConfigurationArn: Schema.String}) {}
+export class DeleteCodeSecurityIntegrationResponse extends Schema.Class<DeleteCodeSecurityIntegrationResponse>("DeleteCodeSecurityIntegrationResponse")({integrationArn: Schema.optional(Schema.String)}) {}
+export class DeleteCodeSecurityScanConfigurationResponse extends Schema.Class<DeleteCodeSecurityScanConfigurationResponse>("DeleteCodeSecurityScanConfigurationResponse")({scanConfigurationArn: Schema.optional(Schema.String)}) {}
+export class DeleteFilterResponse extends Schema.Class<DeleteFilterResponse>("DeleteFilterResponse")({arn: Schema.String}) {}
+export class DescribeOrganizationConfigurationResponse extends Schema.Class<DescribeOrganizationConfigurationResponse>("DescribeOrganizationConfigurationResponse")({autoEnable: Schema.optional(AutoEnable), maxAccountLimitReached: Schema.optional(Schema.Boolean)}) {}
+export class DisableDelegatedAdminAccountResponse extends Schema.Class<DisableDelegatedAdminAccountResponse>("DisableDelegatedAdminAccountResponse")({delegatedAdminAccountId: Schema.String}) {}
+export class DisassociateMemberResponse extends Schema.Class<DisassociateMemberResponse>("DisassociateMemberResponse")({accountId: Schema.String}) {}
+export class ResourceStatus extends Schema.Class<ResourceStatus>("ResourceStatus")({ec2: Schema.String, ecr: Schema.String, lambda: Schema.optional(Schema.String), lambdaCode: Schema.optional(Schema.String), codeRepository: Schema.optional(Schema.String)}) {}
+export class Account extends Schema.Class<Account>("Account")({accountId: Schema.String, status: Schema.String, resourceStatus: ResourceStatus}) {}
 export const AccountList = Schema.Array(Account);
-export const FailedAccount = Schema.Struct({accountId: Schema.String, status: Schema.optional(Schema.String), resourceStatus: Schema.optional(ResourceStatus), errorCode: Schema.String, errorMessage: Schema.String});
+export class FailedAccount extends Schema.Class<FailedAccount>("FailedAccount")({accountId: Schema.String, status: Schema.optional(Schema.String), resourceStatus: Schema.optional(ResourceStatus), errorCode: Schema.String, errorMessage: Schema.String}) {}
 export const FailedAccountList = Schema.Array(FailedAccount);
-export const EnableResponse = Schema.Struct({accounts: AccountList, failedAccounts: Schema.optional(FailedAccountList)});
-export const EnableDelegatedAdminAccountResponse = Schema.Struct({delegatedAdminAccountId: Schema.String});
-export const GetCisScanReportResponse = Schema.Struct({url: Schema.optional(Schema.String), status: Schema.optional(Schema.String)});
-export const GetClustersForImageRequest = Schema.Struct({filter: ClusterForImageFilterCriteria, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const GetCodeSecurityIntegrationResponse = Schema.Struct({integrationArn: Schema.String, name: Schema.String, type: Schema.String, status: Schema.String, statusReason: Schema.String, createdOn: Schema.Date, lastUpdateOn: Schema.Date, tags: Schema.optional(TagMap), authorizationUrl: Schema.optional(Schema.String)});
-export const GetCodeSecurityScanRequest = Schema.Struct({resource: CodeSecurityResource, scanId: Schema.String});
-export const GetCodeSecurityScanConfigurationResponse = Schema.Struct({scanConfigurationArn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), configuration: Schema.optional(CodeSecurityScanConfiguration), level: Schema.optional(Schema.String), scopeSettings: Schema.optional(ScopeSettings), createdAt: Schema.optional(Schema.Date), lastUpdatedAt: Schema.optional(Schema.Date), tags: Schema.optional(TagMap)});
-export const GetDelegatedAdminAccountResponse = Schema.Struct({delegatedAdmin: Schema.optional(DelegatedAdmin)});
-export const AccessDeniedException = Schema.Struct({message: Schema.String});
-export const GetEncryptionKeyResponse = Schema.Struct({kmsKeyId: Schema.String});
-export const GetFindingsReportStatusResponse = Schema.Struct({reportId: Schema.optional(Schema.String), status: Schema.optional(Schema.String), errorCode: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String), destination: Schema.optional(Destination), filterCriteria: Schema.optional(FilterCriteria)});
-export const ResourceStringFilter = Schema.Struct({comparison: Schema.String, value: Schema.String});
+export class EnableResponse extends Schema.Class<EnableResponse>("EnableResponse")({accounts: AccountList, failedAccounts: Schema.optional(FailedAccountList)}) {}
+export class EnableDelegatedAdminAccountResponse extends Schema.Class<EnableDelegatedAdminAccountResponse>("EnableDelegatedAdminAccountResponse")({delegatedAdminAccountId: Schema.String}) {}
+export class GetCisScanReportResponse extends Schema.Class<GetCisScanReportResponse>("GetCisScanReportResponse")({url: Schema.optional(Schema.String), status: Schema.optional(Schema.String)}) {}
+export class GetClustersForImageRequest extends Schema.Class<GetClustersForImageRequest>("GetClustersForImageRequest")({filter: ClusterForImageFilterCriteria, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class GetCodeSecurityIntegrationResponse extends Schema.Class<GetCodeSecurityIntegrationResponse>("GetCodeSecurityIntegrationResponse")({integrationArn: Schema.String, name: Schema.String, type: Schema.String, status: Schema.String, statusReason: Schema.String, createdOn: Schema.Date, lastUpdateOn: Schema.Date, tags: Schema.optional(TagMap), authorizationUrl: Schema.optional(Schema.String)}) {}
+export class GetCodeSecurityScanRequest extends Schema.Class<GetCodeSecurityScanRequest>("GetCodeSecurityScanRequest")({resource: CodeSecurityResource, scanId: Schema.String}) {}
+export class GetCodeSecurityScanConfigurationResponse extends Schema.Class<GetCodeSecurityScanConfigurationResponse>("GetCodeSecurityScanConfigurationResponse")({scanConfigurationArn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), configuration: Schema.optional(CodeSecurityScanConfiguration), level: Schema.optional(Schema.String), scopeSettings: Schema.optional(ScopeSettings), createdAt: Schema.optional(Schema.Date), lastUpdatedAt: Schema.optional(Schema.Date), tags: Schema.optional(TagMap)}) {}
+export class GetDelegatedAdminAccountResponse extends Schema.Class<GetDelegatedAdminAccountResponse>("GetDelegatedAdminAccountResponse")({delegatedAdmin: Schema.optional(DelegatedAdmin)}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({message: Schema.String}) {}
+export class GetEncryptionKeyResponse extends Schema.Class<GetEncryptionKeyResponse>("GetEncryptionKeyResponse")({kmsKeyId: Schema.String}) {}
+export class GetFindingsReportStatusResponse extends Schema.Class<GetFindingsReportStatusResponse>("GetFindingsReportStatusResponse")({reportId: Schema.optional(Schema.String), status: Schema.optional(Schema.String), errorCode: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String), destination: Schema.optional(Destination), filterCriteria: Schema.optional(FilterCriteria)}) {}
+export class ResourceStringFilter extends Schema.Class<ResourceStringFilter>("ResourceStringFilter")({comparison: Schema.String, value: Schema.String}) {}
 export const ResourceStringFilterList = Schema.Array(ResourceStringFilter);
-export const ResourceMapFilter = Schema.Struct({comparison: Schema.String, key: Schema.String, value: Schema.optional(Schema.String)});
+export class ResourceMapFilter extends Schema.Class<ResourceMapFilter>("ResourceMapFilter")({comparison: Schema.String, key: Schema.String, value: Schema.optional(Schema.String)}) {}
 export const ResourceMapFilterList = Schema.Array(ResourceMapFilter);
-export const ResourceFilterCriteria = Schema.Struct({accountId: Schema.optional(ResourceStringFilterList), resourceId: Schema.optional(ResourceStringFilterList), resourceType: Schema.optional(ResourceStringFilterList), ecrRepositoryName: Schema.optional(ResourceStringFilterList), lambdaFunctionName: Schema.optional(ResourceStringFilterList), ecrImageTags: Schema.optional(ResourceStringFilterList), ec2InstanceTags: Schema.optional(ResourceMapFilterList), lambdaFunctionTags: Schema.optional(ResourceMapFilterList)});
-export const GetSbomExportResponse = Schema.Struct({reportId: Schema.optional(Schema.String), format: Schema.optional(Schema.String), status: Schema.optional(Schema.String), errorCode: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String), s3Destination: Schema.optional(Destination), filterCriteria: Schema.optional(ResourceFilterCriteria)});
-export const ListFindingsRequest = Schema.Struct({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String), filterCriteria: Schema.optional(FilterCriteria), sortCriteria: Schema.optional(SortCriteria)});
-export const ListMembersResponse = Schema.Struct({members: Schema.optional(MemberList), nextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceResponse = Schema.Struct({tags: Schema.optional(TagMap)});
-export const InternalServerException = Schema.Struct({message: Schema.String, retryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))});
-export const SearchVulnerabilitiesRequest = Schema.Struct({filterCriteria: SearchVulnerabilitiesFilterCriteria, nextToken: Schema.optional(Schema.String)});
-export const ConflictException = Schema.Struct({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String});
-export const SendCisSessionTelemetryRequest = Schema.Struct({scanJobId: Schema.String, sessionToken: Schema.String, messages: CisSessionMessages});
-export const SendCisSessionTelemetryResponse = Schema.Struct({});
-export const StartCisSessionRequest = Schema.Struct({scanJobId: Schema.String, message: StartCisSessionMessage});
-export const StartCisSessionResponse = Schema.Struct({});
-export const StartCodeSecurityScanResponse = Schema.Struct({scanId: Schema.optional(Schema.String), status: Schema.optional(Schema.String)});
-export const BadRequestException = Schema.Struct({message: Schema.String});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.String});
-export const Time = Schema.Struct({timeOfDay: Schema.String, timezone: Schema.String});
-export const DailySchedule = Schema.Struct({startTime: Time});
-export const WeeklySchedule = Schema.Struct({startTime: Time, days: DaysList});
-export const MonthlySchedule = Schema.Struct({startTime: Time, day: Schema.String});
+export class ResourceFilterCriteria extends Schema.Class<ResourceFilterCriteria>("ResourceFilterCriteria")({accountId: Schema.optional(ResourceStringFilterList), resourceId: Schema.optional(ResourceStringFilterList), resourceType: Schema.optional(ResourceStringFilterList), ecrRepositoryName: Schema.optional(ResourceStringFilterList), lambdaFunctionName: Schema.optional(ResourceStringFilterList), ecrImageTags: Schema.optional(ResourceStringFilterList), ec2InstanceTags: Schema.optional(ResourceMapFilterList), lambdaFunctionTags: Schema.optional(ResourceMapFilterList)}) {}
+export class GetSbomExportResponse extends Schema.Class<GetSbomExportResponse>("GetSbomExportResponse")({reportId: Schema.optional(Schema.String), format: Schema.optional(Schema.String), status: Schema.optional(Schema.String), errorCode: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String), s3Destination: Schema.optional(Destination), filterCriteria: Schema.optional(ResourceFilterCriteria)}) {}
+export class ListFindingsRequest extends Schema.Class<ListFindingsRequest>("ListFindingsRequest")({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String), filterCriteria: Schema.optional(FilterCriteria), sortCriteria: Schema.optional(SortCriteria)}) {}
+export class ListMembersResponse extends Schema.Class<ListMembersResponse>("ListMembersResponse")({members: Schema.optional(MemberList), nextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({tags: Schema.optional(TagMap)}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({message: Schema.String, retryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))}) {}
+export class SearchVulnerabilitiesRequest extends Schema.Class<SearchVulnerabilitiesRequest>("SearchVulnerabilitiesRequest")({filterCriteria: SearchVulnerabilitiesFilterCriteria, nextToken: Schema.optional(Schema.String)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String}) {}
+export class SendCisSessionTelemetryRequest extends Schema.Class<SendCisSessionTelemetryRequest>("SendCisSessionTelemetryRequest")({scanJobId: Schema.String, sessionToken: Schema.String, messages: CisSessionMessages}) {}
+export class SendCisSessionTelemetryResponse extends Schema.Class<SendCisSessionTelemetryResponse>("SendCisSessionTelemetryResponse")({}) {}
+export class StartCisSessionRequest extends Schema.Class<StartCisSessionRequest>("StartCisSessionRequest")({scanJobId: Schema.String, message: StartCisSessionMessage}) {}
+export class StartCisSessionResponse extends Schema.Class<StartCisSessionResponse>("StartCisSessionResponse")({}) {}
+export class StartCodeSecurityScanResponse extends Schema.Class<StartCodeSecurityScanResponse>("StartCodeSecurityScanResponse")({scanId: Schema.optional(Schema.String), status: Schema.optional(Schema.String)}) {}
+export class BadRequestException extends Schema.Class<BadRequestException>("BadRequestException")({message: Schema.String}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.String}) {}
+export class Time extends Schema.Class<Time>("Time")({timeOfDay: Schema.String, timezone: Schema.String}) {}
+export class DailySchedule extends Schema.Class<DailySchedule>("DailySchedule")({startTime: Time}) {}
+export class WeeklySchedule extends Schema.Class<WeeklySchedule>("WeeklySchedule")({startTime: Time, days: DaysList}) {}
+export class MonthlySchedule extends Schema.Class<MonthlySchedule>("MonthlySchedule")({startTime: Time, day: Schema.String}) {}
 export const Schedule = Schema.Union(OneTimeSchedule, DailySchedule, WeeklySchedule, MonthlySchedule);
-export const UpdateCisScanConfigurationRequest = Schema.Struct({scanConfigurationArn: Schema.String, scanName: Schema.optional(Schema.String), securityLevel: Schema.optional(Schema.String), schedule: Schema.optional(Schedule), targets: Schema.optional(UpdateCisTargets)});
-export const UpdateCodeSecurityScanConfigurationResponse = Schema.Struct({scanConfigurationArn: Schema.optional(Schema.String)});
-export const UpdateConfigurationRequest = Schema.Struct({ecrConfiguration: Schema.optional(EcrConfiguration), ec2Configuration: Schema.optional(Ec2Configuration)});
-export const UpdateConfigurationResponse = Schema.Struct({});
-export const UpdateEc2DeepInspectionConfigurationResponse = Schema.Struct({packagePaths: Schema.optional(PathList), orgPackagePaths: Schema.optional(PathList), status: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String)});
-export const ThrottlingException = Schema.Struct({message: Schema.String, retryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))});
-export const UpdateFilterResponse = Schema.Struct({arn: Schema.String});
-export const UpdateOrganizationConfigurationResponse = Schema.Struct({autoEnable: AutoEnable});
+export class UpdateCisScanConfigurationRequest extends Schema.Class<UpdateCisScanConfigurationRequest>("UpdateCisScanConfigurationRequest")({scanConfigurationArn: Schema.String, scanName: Schema.optional(Schema.String), securityLevel: Schema.optional(Schema.String), schedule: Schema.optional(Schedule), targets: Schema.optional(UpdateCisTargets)}) {}
+export class UpdateCodeSecurityScanConfigurationResponse extends Schema.Class<UpdateCodeSecurityScanConfigurationResponse>("UpdateCodeSecurityScanConfigurationResponse")({scanConfigurationArn: Schema.optional(Schema.String)}) {}
+export class UpdateConfigurationRequest extends Schema.Class<UpdateConfigurationRequest>("UpdateConfigurationRequest")({ecrConfiguration: Schema.optional(EcrConfiguration), ec2Configuration: Schema.optional(Ec2Configuration)}) {}
+export class UpdateConfigurationResponse extends Schema.Class<UpdateConfigurationResponse>("UpdateConfigurationResponse")({}) {}
+export class UpdateEc2DeepInspectionConfigurationResponse extends Schema.Class<UpdateEc2DeepInspectionConfigurationResponse>("UpdateEc2DeepInspectionConfigurationResponse")({packagePaths: Schema.optional(PathList), orgPackagePaths: Schema.optional(PathList), status: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({message: Schema.String, retryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))}) {}
+export class UpdateFilterResponse extends Schema.Class<UpdateFilterResponse>("UpdateFilterResponse")({arn: Schema.String}) {}
+export class UpdateOrganizationConfigurationResponse extends Schema.Class<UpdateOrganizationConfigurationResponse>("UpdateOrganizationConfigurationResponse")({autoEnable: AutoEnable}) {}
 export const Ttps = Schema.Array(Schema.String);
 export const Tools = Schema.Array(Schema.String);
 export const VulnerabilityReferenceUrls = Schema.Array(Schema.String);
 export const Cwes = Schema.Array(Schema.String);
-export const CreateGitLabSelfManagedIntegrationDetail = Schema.Struct({instanceUrl: Schema.String, accessToken: Schema.String});
-export const CisFindingStatusFilter = Schema.Struct({comparison: Schema.String, value: Schema.String});
+export class CreateGitLabSelfManagedIntegrationDetail extends Schema.Class<CreateGitLabSelfManagedIntegrationDetail>("CreateGitLabSelfManagedIntegrationDetail")({instanceUrl: Schema.String, accessToken: Schema.String}) {}
+export class CisFindingStatusFilter extends Schema.Class<CisFindingStatusFilter>("CisFindingStatusFilter")({comparison: Schema.String, value: Schema.String}) {}
 export const CisFindingStatusFilterList = Schema.Array(CisFindingStatusFilter);
 export const CheckIdFilterList = Schema.Array(CisStringFilter);
-export const CisSecurityLevelFilter = Schema.Struct({comparison: Schema.String, value: Schema.String});
+export class CisSecurityLevelFilter extends Schema.Class<CisSecurityLevelFilter>("CisSecurityLevelFilter")({comparison: Schema.String, value: Schema.String}) {}
 export const CisSecurityLevelFilterList = Schema.Array(CisSecurityLevelFilter);
-export const EcrRescanDurationState = Schema.Struct({rescanDuration: Schema.optional(Schema.String), status: Schema.optional(Schema.String), updatedAt: Schema.optional(Schema.Date), pullDateRescanDuration: Schema.optional(Schema.String), pullDateRescanMode: Schema.optional(Schema.String)});
-export const Ec2ScanModeState = Schema.Struct({scanMode: Schema.optional(Schema.String), scanModeStatus: Schema.optional(Schema.String)});
-export const TagFilter = Schema.Struct({comparison: Schema.String, key: Schema.String, value: Schema.String});
+export class EcrRescanDurationState extends Schema.Class<EcrRescanDurationState>("EcrRescanDurationState")({rescanDuration: Schema.optional(Schema.String), status: Schema.optional(Schema.String), updatedAt: Schema.optional(Schema.Date), pullDateRescanDuration: Schema.optional(Schema.String), pullDateRescanMode: Schema.optional(Schema.String)}) {}
+export class Ec2ScanModeState extends Schema.Class<Ec2ScanModeState>("Ec2ScanModeState")({scanMode: Schema.optional(Schema.String), scanModeStatus: Schema.optional(Schema.String)}) {}
+export class TagFilter extends Schema.Class<TagFilter>("TagFilter")({comparison: Schema.String, key: Schema.String, value: Schema.String}) {}
 export const ResourceTagFilterList = Schema.Array(TagFilter);
-export const CisNumberFilter = Schema.Struct({upperInclusive: Schema.optional(Schema.Number), lowerInclusive: Schema.optional(Schema.Number)});
+export class CisNumberFilter extends Schema.Class<CisNumberFilter>("CisNumberFilter")({upperInclusive: Schema.optional(Schema.Number), lowerInclusive: Schema.optional(Schema.Number)}) {}
 export const CisNumberFilterList = Schema.Array(CisNumberFilter);
-export const CisResultStatusFilter = Schema.Struct({comparison: Schema.String, value: Schema.String});
+export class CisResultStatusFilter extends Schema.Class<CisResultStatusFilter>("CisResultStatusFilter")({comparison: Schema.String, value: Schema.String}) {}
 export const CisResultStatusFilterList = Schema.Array(CisResultStatusFilter);
-export const CisTargetStatusFilter = Schema.Struct({comparison: Schema.String, value: Schema.String});
+export class CisTargetStatusFilter extends Schema.Class<CisTargetStatusFilter>("CisTargetStatusFilter")({comparison: Schema.String, value: Schema.String}) {}
 export const TargetStatusFilterList = Schema.Array(CisTargetStatusFilter);
-export const CisTargetStatusReasonFilter = Schema.Struct({comparison: Schema.String, value: Schema.String});
+export class CisTargetStatusReasonFilter extends Schema.Class<CisTargetStatusReasonFilter>("CisTargetStatusReasonFilter")({comparison: Schema.String, value: Schema.String}) {}
 export const TargetStatusReasonFilterList = Schema.Array(CisTargetStatusReasonFilter);
-export const CisScanStatusFilter = Schema.Struct({comparison: Schema.String, value: Schema.String});
+export class CisScanStatusFilter extends Schema.Class<CisScanStatusFilter>("CisScanStatusFilter")({comparison: Schema.String, value: Schema.String}) {}
 export const CisScanStatusFilterList = Schema.Array(CisScanStatusFilter);
-export const CisDateFilter = Schema.Struct({earliestScanStartTime: Schema.optional(Schema.Date), latestScanStartTime: Schema.optional(Schema.Date)});
+export class CisDateFilter extends Schema.Class<CisDateFilter>("CisDateFilter")({earliestScanStartTime: Schema.optional(Schema.Date), latestScanStartTime: Schema.optional(Schema.Date)}) {}
 export const CisScanDateFilterList = Schema.Array(CisDateFilter);
-export const AccountAggregation = Schema.Struct({findingType: Schema.optional(Schema.String), resourceType: Schema.optional(Schema.String), sortOrder: Schema.optional(Schema.String), sortBy: Schema.optional(Schema.String)});
-export const AmiAggregation = Schema.Struct({amis: Schema.optional(StringFilterList), sortOrder: Schema.optional(Schema.String), sortBy: Schema.optional(Schema.String)});
-export const AwsEcrContainerAggregation = Schema.Struct({resourceIds: Schema.optional(StringFilterList), imageShas: Schema.optional(StringFilterList), repositories: Schema.optional(StringFilterList), architectures: Schema.optional(StringFilterList), imageTags: Schema.optional(StringFilterList), sortOrder: Schema.optional(Schema.String), sortBy: Schema.optional(Schema.String), lastInUseAt: Schema.optional(DateFilterList), inUseCount: Schema.optional(NumberFilterList)});
-export const Ec2InstanceAggregation = Schema.Struct({amis: Schema.optional(StringFilterList), operatingSystems: Schema.optional(StringFilterList), instanceIds: Schema.optional(StringFilterList), instanceTags: Schema.optional(MapFilterList), sortOrder: Schema.optional(Schema.String), sortBy: Schema.optional(Schema.String)});
-export const FindingTypeAggregation = Schema.Struct({findingType: Schema.optional(Schema.String), resourceType: Schema.optional(Schema.String), sortOrder: Schema.optional(Schema.String), sortBy: Schema.optional(Schema.String)});
-export const ImageLayerAggregation = Schema.Struct({repositories: Schema.optional(StringFilterList), resourceIds: Schema.optional(StringFilterList), layerHashes: Schema.optional(StringFilterList), sortOrder: Schema.optional(Schema.String), sortBy: Schema.optional(Schema.String)});
-export const PackageAggregation = Schema.Struct({packageNames: Schema.optional(StringFilterList), sortOrder: Schema.optional(Schema.String), sortBy: Schema.optional(Schema.String)});
-export const RepositoryAggregation = Schema.Struct({repositories: Schema.optional(StringFilterList), sortOrder: Schema.optional(Schema.String), sortBy: Schema.optional(Schema.String)});
-export const TitleAggregation = Schema.Struct({titles: Schema.optional(StringFilterList), vulnerabilityIds: Schema.optional(StringFilterList), resourceType: Schema.optional(Schema.String), sortOrder: Schema.optional(Schema.String), sortBy: Schema.optional(Schema.String), findingType: Schema.optional(Schema.String)});
-export const LambdaLayerAggregation = Schema.Struct({functionNames: Schema.optional(StringFilterList), resourceIds: Schema.optional(StringFilterList), layerArns: Schema.optional(StringFilterList), sortOrder: Schema.optional(Schema.String), sortBy: Schema.optional(Schema.String)});
-export const LambdaFunctionAggregation = Schema.Struct({resourceIds: Schema.optional(StringFilterList), functionNames: Schema.optional(StringFilterList), runtimes: Schema.optional(StringFilterList), functionTags: Schema.optional(MapFilterList), sortOrder: Schema.optional(Schema.String), sortBy: Schema.optional(Schema.String)});
-export const CodeRepositoryAggregation = Schema.Struct({projectNames: Schema.optional(StringFilterList), providerTypes: Schema.optional(StringFilterList), sortOrder: Schema.optional(Schema.String), sortBy: Schema.optional(Schema.String), resourceIds: Schema.optional(StringFilterList)});
-export const StopCisMessageProgress = Schema.Struct({totalChecks: Schema.optional(Schema.Number), successfulChecks: Schema.optional(Schema.Number), failedChecks: Schema.optional(Schema.Number), notEvaluatedChecks: Schema.optional(Schema.Number), unknownChecks: Schema.optional(Schema.Number), notApplicableChecks: Schema.optional(Schema.Number), informationalChecks: Schema.optional(Schema.Number), errorChecks: Schema.optional(Schema.Number)});
-export const ComputePlatform = Schema.Struct({vendor: Schema.optional(Schema.String), product: Schema.optional(Schema.String), version: Schema.optional(Schema.String)});
-export const UpdateGitLabSelfManagedIntegrationDetail = Schema.Struct({authCode: Schema.String});
-export const UpdateGitHubIntegrationDetail = Schema.Struct({code: Schema.String, installationId: Schema.String});
-export const CodeSnippetError = Schema.Struct({findingArn: Schema.String, errorCode: Schema.String, errorMessage: Schema.String});
+export class AccountAggregation extends Schema.Class<AccountAggregation>("AccountAggregation")({findingType: Schema.optional(Schema.String), resourceType: Schema.optional(Schema.String), sortOrder: Schema.optional(Schema.String), sortBy: Schema.optional(Schema.String)}) {}
+export class AmiAggregation extends Schema.Class<AmiAggregation>("AmiAggregation")({amis: Schema.optional(StringFilterList), sortOrder: Schema.optional(Schema.String), sortBy: Schema.optional(Schema.String)}) {}
+export class AwsEcrContainerAggregation extends Schema.Class<AwsEcrContainerAggregation>("AwsEcrContainerAggregation")({resourceIds: Schema.optional(StringFilterList), imageShas: Schema.optional(StringFilterList), repositories: Schema.optional(StringFilterList), architectures: Schema.optional(StringFilterList), imageTags: Schema.optional(StringFilterList), sortOrder: Schema.optional(Schema.String), sortBy: Schema.optional(Schema.String), lastInUseAt: Schema.optional(DateFilterList), inUseCount: Schema.optional(NumberFilterList)}) {}
+export class Ec2InstanceAggregation extends Schema.Class<Ec2InstanceAggregation>("Ec2InstanceAggregation")({amis: Schema.optional(StringFilterList), operatingSystems: Schema.optional(StringFilterList), instanceIds: Schema.optional(StringFilterList), instanceTags: Schema.optional(MapFilterList), sortOrder: Schema.optional(Schema.String), sortBy: Schema.optional(Schema.String)}) {}
+export class FindingTypeAggregation extends Schema.Class<FindingTypeAggregation>("FindingTypeAggregation")({findingType: Schema.optional(Schema.String), resourceType: Schema.optional(Schema.String), sortOrder: Schema.optional(Schema.String), sortBy: Schema.optional(Schema.String)}) {}
+export class ImageLayerAggregation extends Schema.Class<ImageLayerAggregation>("ImageLayerAggregation")({repositories: Schema.optional(StringFilterList), resourceIds: Schema.optional(StringFilterList), layerHashes: Schema.optional(StringFilterList), sortOrder: Schema.optional(Schema.String), sortBy: Schema.optional(Schema.String)}) {}
+export class PackageAggregation extends Schema.Class<PackageAggregation>("PackageAggregation")({packageNames: Schema.optional(StringFilterList), sortOrder: Schema.optional(Schema.String), sortBy: Schema.optional(Schema.String)}) {}
+export class RepositoryAggregation extends Schema.Class<RepositoryAggregation>("RepositoryAggregation")({repositories: Schema.optional(StringFilterList), sortOrder: Schema.optional(Schema.String), sortBy: Schema.optional(Schema.String)}) {}
+export class TitleAggregation extends Schema.Class<TitleAggregation>("TitleAggregation")({titles: Schema.optional(StringFilterList), vulnerabilityIds: Schema.optional(StringFilterList), resourceType: Schema.optional(Schema.String), sortOrder: Schema.optional(Schema.String), sortBy: Schema.optional(Schema.String), findingType: Schema.optional(Schema.String)}) {}
+export class LambdaLayerAggregation extends Schema.Class<LambdaLayerAggregation>("LambdaLayerAggregation")({functionNames: Schema.optional(StringFilterList), resourceIds: Schema.optional(StringFilterList), layerArns: Schema.optional(StringFilterList), sortOrder: Schema.optional(Schema.String), sortBy: Schema.optional(Schema.String)}) {}
+export class LambdaFunctionAggregation extends Schema.Class<LambdaFunctionAggregation>("LambdaFunctionAggregation")({resourceIds: Schema.optional(StringFilterList), functionNames: Schema.optional(StringFilterList), runtimes: Schema.optional(StringFilterList), functionTags: Schema.optional(MapFilterList), sortOrder: Schema.optional(Schema.String), sortBy: Schema.optional(Schema.String)}) {}
+export class CodeRepositoryAggregation extends Schema.Class<CodeRepositoryAggregation>("CodeRepositoryAggregation")({projectNames: Schema.optional(StringFilterList), providerTypes: Schema.optional(StringFilterList), sortOrder: Schema.optional(Schema.String), sortBy: Schema.optional(Schema.String), resourceIds: Schema.optional(StringFilterList)}) {}
+export class StopCisMessageProgress extends Schema.Class<StopCisMessageProgress>("StopCisMessageProgress")({totalChecks: Schema.optional(Schema.Number), successfulChecks: Schema.optional(Schema.Number), failedChecks: Schema.optional(Schema.Number), notEvaluatedChecks: Schema.optional(Schema.Number), unknownChecks: Schema.optional(Schema.Number), notApplicableChecks: Schema.optional(Schema.Number), informationalChecks: Schema.optional(Schema.Number), errorChecks: Schema.optional(Schema.Number)}) {}
+export class ComputePlatform extends Schema.Class<ComputePlatform>("ComputePlatform")({vendor: Schema.optional(Schema.String), product: Schema.optional(Schema.String), version: Schema.optional(Schema.String)}) {}
+export class UpdateGitLabSelfManagedIntegrationDetail extends Schema.Class<UpdateGitLabSelfManagedIntegrationDetail>("UpdateGitLabSelfManagedIntegrationDetail")({authCode: Schema.String}) {}
+export class UpdateGitHubIntegrationDetail extends Schema.Class<UpdateGitHubIntegrationDetail>("UpdateGitHubIntegrationDetail")({code: Schema.String, installationId: Schema.String}) {}
+export class CodeSnippetError extends Schema.Class<CodeSnippetError>("CodeSnippetError")({findingArn: Schema.String, errorCode: Schema.String, errorMessage: Schema.String}) {}
 export const CodeSnippetErrorList = Schema.Array(CodeSnippetError);
-export const FindingDetailsError = Schema.Struct({findingArn: Schema.String, errorCode: Schema.String, errorMessage: Schema.String});
+export class FindingDetailsError extends Schema.Class<FindingDetailsError>("FindingDetailsError")({findingArn: Schema.String, errorCode: Schema.String, errorMessage: Schema.String}) {}
 export const FindingDetailsErrorList = Schema.Array(FindingDetailsError);
-export const FreeTrialInfoError = Schema.Struct({accountId: Schema.String, code: Schema.String, message: Schema.String});
+export class FreeTrialInfoError extends Schema.Class<FreeTrialInfoError>("FreeTrialInfoError")({accountId: Schema.String, code: Schema.String, message: Schema.String}) {}
 export const FreeTrialInfoErrorList = Schema.Array(FreeTrialInfoError);
-export const MemberAccountEc2DeepInspectionStatusState = Schema.Struct({accountId: Schema.String, status: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String)});
+export class MemberAccountEc2DeepInspectionStatusState extends Schema.Class<MemberAccountEc2DeepInspectionStatusState>("MemberAccountEc2DeepInspectionStatusState")({accountId: Schema.String, status: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String)}) {}
 export const MemberAccountEc2DeepInspectionStatusStateList = Schema.Array(MemberAccountEc2DeepInspectionStatusState);
-export const FailedMemberAccountEc2DeepInspectionStatusState = Schema.Struct({accountId: Schema.String, ec2ScanStatus: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String)});
+export class FailedMemberAccountEc2DeepInspectionStatusState extends Schema.Class<FailedMemberAccountEc2DeepInspectionStatusState>("FailedMemberAccountEc2DeepInspectionStatusState")({accountId: Schema.String, ec2ScanStatus: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String)}) {}
 export const FailedMemberAccountEc2DeepInspectionStatusStateList = Schema.Array(FailedMemberAccountEc2DeepInspectionStatusState);
-export const CreateCisTargets = Schema.Struct({accountIds: TargetAccountList, targetResourceTags: TargetResourceTags});
+export class CreateCisTargets extends Schema.Class<CreateCisTargets>("CreateCisTargets")({accountIds: TargetAccountList, targetResourceTags: TargetResourceTags}) {}
 export const CreateIntegrationDetail = Schema.Union(CreateGitLabSelfManagedIntegrationDetail);
-export const CisScanResultDetailsFilterCriteria = Schema.Struct({findingStatusFilters: Schema.optional(CisFindingStatusFilterList), checkIdFilters: Schema.optional(CheckIdFilterList), titleFilters: Schema.optional(TitleFilterList), securityLevelFilters: Schema.optional(CisSecurityLevelFilterList), findingArnFilters: Schema.optional(CisFindingArnFilterList)});
-export const EcrConfigurationState = Schema.Struct({rescanDurationState: Schema.optional(EcrRescanDurationState)});
-export const Ec2ConfigurationState = Schema.Struct({scanModeState: Schema.optional(Ec2ScanModeState)});
-export const Permission = Schema.Struct({service: Schema.String, operation: Schema.String});
+export class CisScanResultDetailsFilterCriteria extends Schema.Class<CisScanResultDetailsFilterCriteria>("CisScanResultDetailsFilterCriteria")({findingStatusFilters: Schema.optional(CisFindingStatusFilterList), checkIdFilters: Schema.optional(CheckIdFilterList), titleFilters: Schema.optional(TitleFilterList), securityLevelFilters: Schema.optional(CisSecurityLevelFilterList), findingArnFilters: Schema.optional(CisFindingArnFilterList)}) {}
+export class EcrConfigurationState extends Schema.Class<EcrConfigurationState>("EcrConfigurationState")({rescanDurationState: Schema.optional(EcrRescanDurationState)}) {}
+export class Ec2ConfigurationState extends Schema.Class<Ec2ConfigurationState>("Ec2ConfigurationState")({scanModeState: Schema.optional(Ec2ScanModeState)}) {}
+export class Permission extends Schema.Class<Permission>("Permission")({service: Schema.String, operation: Schema.String}) {}
 export const Permissions = Schema.Array(Permission);
-export const ListCisScanConfigurationsFilterCriteria = Schema.Struct({scanNameFilters: Schema.optional(CisScanNameFilterList), targetResourceTagFilters: Schema.optional(ResourceTagFilterList), scanConfigurationArnFilters: Schema.optional(CisScanConfigurationArnFilterList)});
-export const CisScanResultsAggregatedByChecksFilterCriteria = Schema.Struct({accountIdFilters: Schema.optional(OneAccountIdFilterList), checkIdFilters: Schema.optional(CheckIdFilterList), titleFilters: Schema.optional(TitleFilterList), platformFilters: Schema.optional(PlatformFilterList), failedResourcesFilters: Schema.optional(CisNumberFilterList), securityLevelFilters: Schema.optional(CisSecurityLevelFilterList)});
-export const CisScanResultsAggregatedByTargetResourceFilterCriteria = Schema.Struct({accountIdFilters: Schema.optional(AccountIdFilterList), statusFilters: Schema.optional(CisResultStatusFilterList), checkIdFilters: Schema.optional(CheckIdFilterList), targetResourceIdFilters: Schema.optional(ResourceIdFilterList), targetResourceTagFilters: Schema.optional(ResourceTagFilterList), platformFilters: Schema.optional(PlatformFilterList), targetStatusFilters: Schema.optional(TargetStatusFilterList), targetStatusReasonFilters: Schema.optional(TargetStatusReasonFilterList), failedChecksFilters: Schema.optional(CisNumberFilterList)});
-export const ListCisScansFilterCriteria = Schema.Struct({scanNameFilters: Schema.optional(CisScanNameFilterList), targetResourceTagFilters: Schema.optional(ResourceTagFilterList), targetResourceIdFilters: Schema.optional(ResourceIdFilterList), scanStatusFilters: Schema.optional(CisScanStatusFilterList), scanAtFilters: Schema.optional(CisScanDateFilterList), scanConfigurationArnFilters: Schema.optional(CisScanConfigurationArnFilterList), scanArnFilters: Schema.optional(CisScanArnFilterList), scheduledByFilters: Schema.optional(CisScheduledByFilterList), failedChecksFilters: Schema.optional(CisNumberFilterList), targetAccountIdFilters: Schema.optional(AccountIdFilterList)});
-export const CodeSecurityIntegrationSummary = Schema.Struct({integrationArn: Schema.String, name: Schema.String, type: Schema.String, status: Schema.String, statusReason: Schema.String, createdOn: Schema.Date, lastUpdateOn: Schema.Date, tags: Schema.optional(TagMap)});
+export class ListCisScanConfigurationsFilterCriteria extends Schema.Class<ListCisScanConfigurationsFilterCriteria>("ListCisScanConfigurationsFilterCriteria")({scanNameFilters: Schema.optional(CisScanNameFilterList), targetResourceTagFilters: Schema.optional(ResourceTagFilterList), scanConfigurationArnFilters: Schema.optional(CisScanConfigurationArnFilterList)}) {}
+export class CisScanResultsAggregatedByChecksFilterCriteria extends Schema.Class<CisScanResultsAggregatedByChecksFilterCriteria>("CisScanResultsAggregatedByChecksFilterCriteria")({accountIdFilters: Schema.optional(OneAccountIdFilterList), checkIdFilters: Schema.optional(CheckIdFilterList), titleFilters: Schema.optional(TitleFilterList), platformFilters: Schema.optional(PlatformFilterList), failedResourcesFilters: Schema.optional(CisNumberFilterList), securityLevelFilters: Schema.optional(CisSecurityLevelFilterList)}) {}
+export class CisScanResultsAggregatedByTargetResourceFilterCriteria extends Schema.Class<CisScanResultsAggregatedByTargetResourceFilterCriteria>("CisScanResultsAggregatedByTargetResourceFilterCriteria")({accountIdFilters: Schema.optional(AccountIdFilterList), statusFilters: Schema.optional(CisResultStatusFilterList), checkIdFilters: Schema.optional(CheckIdFilterList), targetResourceIdFilters: Schema.optional(ResourceIdFilterList), targetResourceTagFilters: Schema.optional(ResourceTagFilterList), platformFilters: Schema.optional(PlatformFilterList), targetStatusFilters: Schema.optional(TargetStatusFilterList), targetStatusReasonFilters: Schema.optional(TargetStatusReasonFilterList), failedChecksFilters: Schema.optional(CisNumberFilterList)}) {}
+export class ListCisScansFilterCriteria extends Schema.Class<ListCisScansFilterCriteria>("ListCisScansFilterCriteria")({scanNameFilters: Schema.optional(CisScanNameFilterList), targetResourceTagFilters: Schema.optional(ResourceTagFilterList), targetResourceIdFilters: Schema.optional(ResourceIdFilterList), scanStatusFilters: Schema.optional(CisScanStatusFilterList), scanAtFilters: Schema.optional(CisScanDateFilterList), scanConfigurationArnFilters: Schema.optional(CisScanConfigurationArnFilterList), scanArnFilters: Schema.optional(CisScanArnFilterList), scheduledByFilters: Schema.optional(CisScheduledByFilterList), failedChecksFilters: Schema.optional(CisNumberFilterList), targetAccountIdFilters: Schema.optional(AccountIdFilterList)}) {}
+export class CodeSecurityIntegrationSummary extends Schema.Class<CodeSecurityIntegrationSummary>("CodeSecurityIntegrationSummary")({integrationArn: Schema.String, name: Schema.String, type: Schema.String, status: Schema.String, statusReason: Schema.String, createdOn: Schema.Date, lastUpdateOn: Schema.Date, tags: Schema.optional(TagMap)}) {}
 export const IntegrationSummaries = Schema.Array(CodeSecurityIntegrationSummary);
-export const CodeSecurityScanConfigurationAssociationSummary = Schema.Struct({resource: Schema.optional(CodeSecurityResource)});
+export class CodeSecurityScanConfigurationAssociationSummary extends Schema.Class<CodeSecurityScanConfigurationAssociationSummary>("CodeSecurityScanConfigurationAssociationSummary")({resource: Schema.optional(CodeSecurityResource)}) {}
 export const CodeSecurityScanConfigurationAssociationSummaries = Schema.Array(CodeSecurityScanConfigurationAssociationSummary);
-export const CodeSecurityScanConfigurationSummary = Schema.Struct({scanConfigurationArn: Schema.String, name: Schema.String, ownerAccountId: Schema.String, periodicScanFrequency: Schema.optional(Schema.String), frequencyExpression: Schema.optional(Schema.String), continuousIntegrationScanSupportedEvents: Schema.optional(ContinuousIntegrationScanSupportedEvents), ruleSetCategories: RuleSetCategories, scopeSettings: Schema.optional(ScopeSettings), tags: Schema.optional(TagMap)});
+export class CodeSecurityScanConfigurationSummary extends Schema.Class<CodeSecurityScanConfigurationSummary>("CodeSecurityScanConfigurationSummary")({scanConfigurationArn: Schema.String, name: Schema.String, ownerAccountId: Schema.String, periodicScanFrequency: Schema.optional(Schema.String), frequencyExpression: Schema.optional(Schema.String), continuousIntegrationScanSupportedEvents: Schema.optional(ContinuousIntegrationScanSupportedEvents), ruleSetCategories: RuleSetCategories, scopeSettings: Schema.optional(ScopeSettings), tags: Schema.optional(TagMap)}) {}
 export const CodeSecurityScanConfigurationSummaries = Schema.Array(CodeSecurityScanConfigurationSummary);
-export const Counts = Schema.Struct({count: Schema.optional(Schema.Number), groupKey: Schema.optional(Schema.String)});
+export class Counts extends Schema.Class<Counts>("Counts")({count: Schema.optional(Schema.Number), groupKey: Schema.optional(Schema.String)}) {}
 export const CountsList = Schema.Array(Counts);
-export const DelegatedAdminAccount = Schema.Struct({accountId: Schema.optional(Schema.String), status: Schema.optional(Schema.String)});
+export class DelegatedAdminAccount extends Schema.Class<DelegatedAdminAccount>("DelegatedAdminAccount")({accountId: Schema.optional(Schema.String), status: Schema.optional(Schema.String)}) {}
 export const DelegatedAdminAccountList = Schema.Array(DelegatedAdminAccount);
-export const Filter = Schema.Struct({arn: Schema.String, ownerId: Schema.String, name: Schema.String, criteria: FilterCriteria, action: Schema.String, createdAt: Schema.Date, updatedAt: Schema.Date, description: Schema.optional(Schema.String), reason: Schema.optional(Schema.String), tags: Schema.optional(TagMap)});
+export class Filter extends Schema.Class<Filter>("Filter")({arn: Schema.String, ownerId: Schema.String, name: Schema.String, criteria: FilterCriteria, action: Schema.String, createdAt: Schema.Date, updatedAt: Schema.Date, description: Schema.optional(Schema.String), reason: Schema.optional(Schema.String), tags: Schema.optional(TagMap)}) {}
 export const FilterList = Schema.Array(Filter);
 export const AggregationRequest = Schema.Union(AccountAggregation, AmiAggregation, AwsEcrContainerAggregation, Ec2InstanceAggregation, FindingTypeAggregation, ImageLayerAggregation, PackageAggregation, RepositoryAggregation, TitleAggregation, LambdaLayerAggregation, LambdaFunctionAggregation, CodeRepositoryAggregation);
-export const StopCisSessionMessage = Schema.Struct({status: Schema.String, reason: Schema.optional(Schema.String), progress: StopCisMessageProgress, computePlatform: Schema.optional(ComputePlatform), benchmarkVersion: Schema.optional(Schema.String), benchmarkProfile: Schema.optional(Schema.String)});
+export class StopCisSessionMessage extends Schema.Class<StopCisSessionMessage>("StopCisSessionMessage")({status: Schema.String, reason: Schema.optional(Schema.String), progress: StopCisMessageProgress, computePlatform: Schema.optional(ComputePlatform), benchmarkVersion: Schema.optional(Schema.String), benchmarkProfile: Schema.optional(Schema.String)}) {}
 export const UpdateIntegrationDetails = Schema.Union(UpdateGitLabSelfManagedIntegrationDetail, UpdateGitHubIntegrationDetail);
-export const ValidationExceptionField = Schema.Struct({name: Schema.String, message: Schema.String});
+export class ValidationExceptionField extends Schema.Class<ValidationExceptionField>("ValidationExceptionField")({name: Schema.String, message: Schema.String}) {}
 export const ValidationExceptionFields = Schema.Array(ValidationExceptionField);
-export const ServiceQuotaExceededException = Schema.Struct({message: Schema.String, resourceId: Schema.String});
-export const FailedAssociationResult = Schema.Struct({scanConfigurationArn: Schema.optional(Schema.String), resource: Schema.optional(CodeSecurityResource), statusCode: Schema.optional(Schema.String), statusMessage: Schema.optional(Schema.String)});
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({message: Schema.String, resourceId: Schema.String}) {}
+export class FailedAssociationResult extends Schema.Class<FailedAssociationResult>("FailedAssociationResult")({scanConfigurationArn: Schema.optional(Schema.String), resource: Schema.optional(CodeSecurityResource), statusCode: Schema.optional(Schema.String), statusMessage: Schema.optional(Schema.String)}) {}
 export const FailedAssociationResultList = Schema.Array(FailedAssociationResult);
-export const SuccessfulAssociationResult = Schema.Struct({scanConfigurationArn: Schema.optional(Schema.String), resource: Schema.optional(CodeSecurityResource)});
+export class SuccessfulAssociationResult extends Schema.Class<SuccessfulAssociationResult>("SuccessfulAssociationResult")({scanConfigurationArn: Schema.optional(Schema.String), resource: Schema.optional(CodeSecurityResource)}) {}
 export const SuccessfulAssociationResultList = Schema.Array(SuccessfulAssociationResult);
-export const BatchDisassociateCodeSecurityScanConfigurationResponse = Schema.Struct({failedAssociations: Schema.optional(FailedAssociationResultList), successfulAssociations: Schema.optional(SuccessfulAssociationResultList)});
-export const BatchGetMemberEc2DeepInspectionStatusResponse = Schema.Struct({accountIds: Schema.optional(MemberAccountEc2DeepInspectionStatusStateList), failedAccountIds: Schema.optional(FailedMemberAccountEc2DeepInspectionStatusStateList)});
-export const BatchUpdateMemberEc2DeepInspectionStatusResponse = Schema.Struct({accountIds: Schema.optional(MemberAccountEc2DeepInspectionStatusStateList), failedAccountIds: Schema.optional(FailedMemberAccountEc2DeepInspectionStatusStateList)});
-export const CreateCodeSecurityIntegrationRequest = Schema.Struct({name: Schema.String, type: Schema.String, details: Schema.optional(CreateIntegrationDetail), tags: Schema.optional(TagMap)});
-export const CreateCodeSecurityScanConfigurationRequest = Schema.Struct({name: Schema.String, level: Schema.String, configuration: CodeSecurityScanConfiguration, scopeSettings: Schema.optional(ScopeSettings), tags: Schema.optional(TagMap)});
-export const CreateFilterRequest = Schema.Struct({action: Schema.String, description: Schema.optional(Schema.String), filterCriteria: FilterCriteria, name: Schema.String, tags: Schema.optional(TagMap), reason: Schema.optional(Schema.String)});
-export const CreateFindingsReportResponse = Schema.Struct({reportId: Schema.optional(Schema.String)});
-export const CreateSbomExportRequest = Schema.Struct({resourceFilterCriteria: Schema.optional(ResourceFilterCriteria), reportFormat: Schema.String, s3Destination: Destination});
-export const DisableResponse = Schema.Struct({accounts: AccountList, failedAccounts: Schema.optional(FailedAccountList)});
-export const GetCisScanResultDetailsRequest = Schema.Struct({scanArn: Schema.String, targetResourceId: Schema.String, accountId: Schema.String, filterCriteria: Schema.optional(CisScanResultDetailsFilterCriteria), sortBy: Schema.optional(Schema.String), sortOrder: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const GetCodeSecurityScanResponse = Schema.Struct({scanId: Schema.optional(Schema.String), resource: Schema.optional(CodeSecurityResource), accountId: Schema.optional(Schema.String), status: Schema.optional(Schema.String), statusReason: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date), updatedAt: Schema.optional(Schema.Date), lastCommitId: Schema.optional(Schema.String)});
-export const GetConfigurationResponse = Schema.Struct({ecrConfiguration: Schema.optional(EcrConfigurationState), ec2Configuration: Schema.optional(Ec2ConfigurationState)});
-export const GetMemberResponse = Schema.Struct({member: Schema.optional(Member)});
-export const ListAccountPermissionsResponse = Schema.Struct({permissions: Permissions, nextToken: Schema.optional(Schema.String)});
-export const ListCisScanConfigurationsRequest = Schema.Struct({filterCriteria: Schema.optional(ListCisScanConfigurationsFilterCriteria), sortBy: Schema.optional(Schema.String), sortOrder: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListCisScanResultsAggregatedByChecksRequest = Schema.Struct({scanArn: Schema.String, filterCriteria: Schema.optional(CisScanResultsAggregatedByChecksFilterCriteria), sortBy: Schema.optional(Schema.String), sortOrder: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListCisScanResultsAggregatedByTargetResourceRequest = Schema.Struct({scanArn: Schema.String, filterCriteria: Schema.optional(CisScanResultsAggregatedByTargetResourceFilterCriteria), sortBy: Schema.optional(Schema.String), sortOrder: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListCisScansRequest = Schema.Struct({filterCriteria: Schema.optional(ListCisScansFilterCriteria), detailLevel: Schema.optional(Schema.String), sortBy: Schema.optional(Schema.String), sortOrder: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListCodeSecurityIntegrationsResponse = Schema.Struct({integrations: Schema.optional(IntegrationSummaries), nextToken: Schema.optional(Schema.String)});
-export const ListCodeSecurityScanConfigurationAssociationsResponse = Schema.Struct({associations: Schema.optional(CodeSecurityScanConfigurationAssociationSummaries), nextToken: Schema.optional(Schema.String)});
-export const ListCodeSecurityScanConfigurationsResponse = Schema.Struct({configurations: Schema.optional(CodeSecurityScanConfigurationSummaries), nextToken: Schema.optional(Schema.String)});
-export const ListCoverageRequest = Schema.Struct({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String), filterCriteria: Schema.optional(CoverageFilterCriteria)});
-export const ListCoverageStatisticsResponse = Schema.Struct({countsByGroup: Schema.optional(CountsList), totalCounts: Schema.Number, nextToken: Schema.optional(Schema.String)});
-export const ListDelegatedAdminAccountsResponse = Schema.Struct({delegatedAdminAccounts: Schema.optional(DelegatedAdminAccountList), nextToken: Schema.optional(Schema.String)});
-export const ListFiltersResponse = Schema.Struct({filters: FilterList, nextToken: Schema.optional(Schema.String)});
-export const ListFindingAggregationsRequest = Schema.Struct({aggregationType: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), accountIds: Schema.optional(StringFilterList), aggregationRequest: Schema.optional(AggregationRequest)});
-export const StopCisSessionRequest = Schema.Struct({scanJobId: Schema.String, sessionToken: Schema.String, message: StopCisSessionMessage});
-export const StopCisSessionResponse = Schema.Struct({});
-export const UpdateCisScanConfigurationResponse = Schema.Struct({scanConfigurationArn: Schema.String});
-export const UpdateCodeSecurityIntegrationRequest = Schema.Struct({integrationArn: Schema.String, details: UpdateIntegrationDetails});
-export const ValidationException = Schema.Struct({message: Schema.String, reason: Schema.String, fields: Schema.optional(ValidationExceptionFields)});
-export const State = Schema.Struct({status: Schema.String, errorCode: Schema.String, errorMessage: Schema.String});
-export const ResourceState = Schema.Struct({ec2: State, ecr: State, lambda: Schema.optional(State), lambdaCode: Schema.optional(State), codeRepository: Schema.optional(State)});
-export const CodeLine = Schema.Struct({content: Schema.String, lineNumber: Schema.Number});
+export class BatchDisassociateCodeSecurityScanConfigurationResponse extends Schema.Class<BatchDisassociateCodeSecurityScanConfigurationResponse>("BatchDisassociateCodeSecurityScanConfigurationResponse")({failedAssociations: Schema.optional(FailedAssociationResultList), successfulAssociations: Schema.optional(SuccessfulAssociationResultList)}) {}
+export class BatchGetMemberEc2DeepInspectionStatusResponse extends Schema.Class<BatchGetMemberEc2DeepInspectionStatusResponse>("BatchGetMemberEc2DeepInspectionStatusResponse")({accountIds: Schema.optional(MemberAccountEc2DeepInspectionStatusStateList), failedAccountIds: Schema.optional(FailedMemberAccountEc2DeepInspectionStatusStateList)}) {}
+export class BatchUpdateMemberEc2DeepInspectionStatusResponse extends Schema.Class<BatchUpdateMemberEc2DeepInspectionStatusResponse>("BatchUpdateMemberEc2DeepInspectionStatusResponse")({accountIds: Schema.optional(MemberAccountEc2DeepInspectionStatusStateList), failedAccountIds: Schema.optional(FailedMemberAccountEc2DeepInspectionStatusStateList)}) {}
+export class CreateCodeSecurityIntegrationRequest extends Schema.Class<CreateCodeSecurityIntegrationRequest>("CreateCodeSecurityIntegrationRequest")({name: Schema.String, type: Schema.String, details: Schema.optional(CreateIntegrationDetail), tags: Schema.optional(TagMap)}) {}
+export class CreateCodeSecurityScanConfigurationRequest extends Schema.Class<CreateCodeSecurityScanConfigurationRequest>("CreateCodeSecurityScanConfigurationRequest")({name: Schema.String, level: Schema.String, configuration: CodeSecurityScanConfiguration, scopeSettings: Schema.optional(ScopeSettings), tags: Schema.optional(TagMap)}) {}
+export class CreateFilterRequest extends Schema.Class<CreateFilterRequest>("CreateFilterRequest")({action: Schema.String, description: Schema.optional(Schema.String), filterCriteria: FilterCriteria, name: Schema.String, tags: Schema.optional(TagMap), reason: Schema.optional(Schema.String)}) {}
+export class CreateFindingsReportResponse extends Schema.Class<CreateFindingsReportResponse>("CreateFindingsReportResponse")({reportId: Schema.optional(Schema.String)}) {}
+export class CreateSbomExportRequest extends Schema.Class<CreateSbomExportRequest>("CreateSbomExportRequest")({resourceFilterCriteria: Schema.optional(ResourceFilterCriteria), reportFormat: Schema.String, s3Destination: Destination}) {}
+export class DisableResponse extends Schema.Class<DisableResponse>("DisableResponse")({accounts: AccountList, failedAccounts: Schema.optional(FailedAccountList)}) {}
+export class GetCisScanResultDetailsRequest extends Schema.Class<GetCisScanResultDetailsRequest>("GetCisScanResultDetailsRequest")({scanArn: Schema.String, targetResourceId: Schema.String, accountId: Schema.String, filterCriteria: Schema.optional(CisScanResultDetailsFilterCriteria), sortBy: Schema.optional(Schema.String), sortOrder: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class GetCodeSecurityScanResponse extends Schema.Class<GetCodeSecurityScanResponse>("GetCodeSecurityScanResponse")({scanId: Schema.optional(Schema.String), resource: Schema.optional(CodeSecurityResource), accountId: Schema.optional(Schema.String), status: Schema.optional(Schema.String), statusReason: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date), updatedAt: Schema.optional(Schema.Date), lastCommitId: Schema.optional(Schema.String)}) {}
+export class GetConfigurationResponse extends Schema.Class<GetConfigurationResponse>("GetConfigurationResponse")({ecrConfiguration: Schema.optional(EcrConfigurationState), ec2Configuration: Schema.optional(Ec2ConfigurationState)}) {}
+export class GetMemberResponse extends Schema.Class<GetMemberResponse>("GetMemberResponse")({member: Schema.optional(Member)}) {}
+export class ListAccountPermissionsResponse extends Schema.Class<ListAccountPermissionsResponse>("ListAccountPermissionsResponse")({permissions: Permissions, nextToken: Schema.optional(Schema.String)}) {}
+export class ListCisScanConfigurationsRequest extends Schema.Class<ListCisScanConfigurationsRequest>("ListCisScanConfigurationsRequest")({filterCriteria: Schema.optional(ListCisScanConfigurationsFilterCriteria), sortBy: Schema.optional(Schema.String), sortOrder: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListCisScanResultsAggregatedByChecksRequest extends Schema.Class<ListCisScanResultsAggregatedByChecksRequest>("ListCisScanResultsAggregatedByChecksRequest")({scanArn: Schema.String, filterCriteria: Schema.optional(CisScanResultsAggregatedByChecksFilterCriteria), sortBy: Schema.optional(Schema.String), sortOrder: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListCisScanResultsAggregatedByTargetResourceRequest extends Schema.Class<ListCisScanResultsAggregatedByTargetResourceRequest>("ListCisScanResultsAggregatedByTargetResourceRequest")({scanArn: Schema.String, filterCriteria: Schema.optional(CisScanResultsAggregatedByTargetResourceFilterCriteria), sortBy: Schema.optional(Schema.String), sortOrder: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListCisScansRequest extends Schema.Class<ListCisScansRequest>("ListCisScansRequest")({filterCriteria: Schema.optional(ListCisScansFilterCriteria), detailLevel: Schema.optional(Schema.String), sortBy: Schema.optional(Schema.String), sortOrder: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListCodeSecurityIntegrationsResponse extends Schema.Class<ListCodeSecurityIntegrationsResponse>("ListCodeSecurityIntegrationsResponse")({integrations: Schema.optional(IntegrationSummaries), nextToken: Schema.optional(Schema.String)}) {}
+export class ListCodeSecurityScanConfigurationAssociationsResponse extends Schema.Class<ListCodeSecurityScanConfigurationAssociationsResponse>("ListCodeSecurityScanConfigurationAssociationsResponse")({associations: Schema.optional(CodeSecurityScanConfigurationAssociationSummaries), nextToken: Schema.optional(Schema.String)}) {}
+export class ListCodeSecurityScanConfigurationsResponse extends Schema.Class<ListCodeSecurityScanConfigurationsResponse>("ListCodeSecurityScanConfigurationsResponse")({configurations: Schema.optional(CodeSecurityScanConfigurationSummaries), nextToken: Schema.optional(Schema.String)}) {}
+export class ListCoverageRequest extends Schema.Class<ListCoverageRequest>("ListCoverageRequest")({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String), filterCriteria: Schema.optional(CoverageFilterCriteria)}) {}
+export class ListCoverageStatisticsResponse extends Schema.Class<ListCoverageStatisticsResponse>("ListCoverageStatisticsResponse")({countsByGroup: Schema.optional(CountsList), totalCounts: Schema.Number, nextToken: Schema.optional(Schema.String)}) {}
+export class ListDelegatedAdminAccountsResponse extends Schema.Class<ListDelegatedAdminAccountsResponse>("ListDelegatedAdminAccountsResponse")({delegatedAdminAccounts: Schema.optional(DelegatedAdminAccountList), nextToken: Schema.optional(Schema.String)}) {}
+export class ListFiltersResponse extends Schema.Class<ListFiltersResponse>("ListFiltersResponse")({filters: FilterList, nextToken: Schema.optional(Schema.String)}) {}
+export class ListFindingAggregationsRequest extends Schema.Class<ListFindingAggregationsRequest>("ListFindingAggregationsRequest")({aggregationType: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), accountIds: Schema.optional(StringFilterList), aggregationRequest: Schema.optional(AggregationRequest)}) {}
+export class StopCisSessionRequest extends Schema.Class<StopCisSessionRequest>("StopCisSessionRequest")({scanJobId: Schema.String, sessionToken: Schema.String, message: StopCisSessionMessage}) {}
+export class StopCisSessionResponse extends Schema.Class<StopCisSessionResponse>("StopCisSessionResponse")({}) {}
+export class UpdateCisScanConfigurationResponse extends Schema.Class<UpdateCisScanConfigurationResponse>("UpdateCisScanConfigurationResponse")({scanConfigurationArn: Schema.String}) {}
+export class UpdateCodeSecurityIntegrationRequest extends Schema.Class<UpdateCodeSecurityIntegrationRequest>("UpdateCodeSecurityIntegrationRequest")({integrationArn: Schema.String, details: UpdateIntegrationDetails}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({message: Schema.String, reason: Schema.String, fields: Schema.optional(ValidationExceptionFields)}) {}
+export class State extends Schema.Class<State>("State")({status: Schema.String, errorCode: Schema.String, errorMessage: Schema.String}) {}
+export class ResourceState extends Schema.Class<ResourceState>("ResourceState")({ec2: State, ecr: State, lambda: Schema.optional(State), lambdaCode: Schema.optional(State), codeRepository: Schema.optional(State)}) {}
+export class CodeLine extends Schema.Class<CodeLine>("CodeLine")({content: Schema.String, lineNumber: Schema.Number}) {}
 export const CodeLineList = Schema.Array(CodeLine);
-export const SuggestedFix = Schema.Struct({description: Schema.optional(Schema.String), code: Schema.optional(Schema.String)});
+export class SuggestedFix extends Schema.Class<SuggestedFix>("SuggestedFix")({description: Schema.optional(Schema.String), code: Schema.optional(Schema.String)}) {}
 export const SuggestedFixes = Schema.Array(SuggestedFix);
-export const CisaData = Schema.Struct({dateAdded: Schema.optional(Schema.Date), dateDue: Schema.optional(Schema.Date), action: Schema.optional(Schema.String)});
-export const Evidence = Schema.Struct({evidenceRule: Schema.optional(Schema.String), evidenceDetail: Schema.optional(Schema.String), severity: Schema.optional(Schema.String)});
+export class CisaData extends Schema.Class<CisaData>("CisaData")({dateAdded: Schema.optional(Schema.Date), dateDue: Schema.optional(Schema.Date), action: Schema.optional(Schema.String)}) {}
+export class Evidence extends Schema.Class<Evidence>("Evidence")({evidenceRule: Schema.optional(Schema.String), evidenceDetail: Schema.optional(Schema.String), severity: Schema.optional(Schema.String)}) {}
 export const EvidenceList = Schema.Array(Evidence);
-export const ExploitObserved = Schema.Struct({lastSeen: Schema.optional(Schema.Date), firstSeen: Schema.optional(Schema.Date)});
-export const FreeTrialInfo = Schema.Struct({type: Schema.String, start: Schema.Date, end: Schema.Date, status: Schema.String});
+export class ExploitObserved extends Schema.Class<ExploitObserved>("ExploitObserved")({lastSeen: Schema.optional(Schema.Date), firstSeen: Schema.optional(Schema.Date)}) {}
+export class FreeTrialInfo extends Schema.Class<FreeTrialInfo>("FreeTrialInfo")({type: Schema.String, start: Schema.Date, end: Schema.Date, status: Schema.String}) {}
 export const FreeTrialInfoList = Schema.Array(FreeTrialInfo);
-export const Usage = Schema.Struct({type: Schema.optional(Schema.String), total: Schema.optional(Schema.Number), estimatedMonthlyCost: Schema.optional(Schema.Number), currency: Schema.optional(Schema.String)});
+export class Usage extends Schema.Class<Usage>("Usage")({type: Schema.optional(Schema.String), total: Schema.optional(Schema.Number), estimatedMonthlyCost: Schema.optional(Schema.Number), currency: Schema.optional(Schema.String)}) {}
 export const UsageList = Schema.Array(Usage);
 export const RelatedVulnerabilities = Schema.Array(Schema.String);
 export const DetectionPlatforms = Schema.Array(Schema.String);
-export const AccountState = Schema.Struct({accountId: Schema.String, state: State, resourceState: ResourceState});
+export class AccountState extends Schema.Class<AccountState>("AccountState")({accountId: Schema.String, state: State, resourceState: ResourceState}) {}
 export const AccountStateList = Schema.Array(AccountState);
-export const CodeSnippetResult = Schema.Struct({findingArn: Schema.optional(Schema.String), startLine: Schema.optional(Schema.Number), endLine: Schema.optional(Schema.Number), codeSnippet: Schema.optional(CodeLineList), suggestedFixes: Schema.optional(SuggestedFixes)});
+export class CodeSnippetResult extends Schema.Class<CodeSnippetResult>("CodeSnippetResult")({findingArn: Schema.optional(Schema.String), startLine: Schema.optional(Schema.Number), endLine: Schema.optional(Schema.Number), codeSnippet: Schema.optional(CodeLineList), suggestedFixes: Schema.optional(SuggestedFixes)}) {}
 export const CodeSnippetResultList = Schema.Array(CodeSnippetResult);
-export const FindingDetail = Schema.Struct({findingArn: Schema.optional(Schema.String), cisaData: Schema.optional(CisaData), riskScore: Schema.optional(Schema.Number), evidences: Schema.optional(EvidenceList), ttps: Schema.optional(Ttps), tools: Schema.optional(Tools), exploitObserved: Schema.optional(ExploitObserved), referenceUrls: Schema.optional(VulnerabilityReferenceUrls), cwes: Schema.optional(Cwes), epssScore: Schema.optional(Schema.Number)});
+export class FindingDetail extends Schema.Class<FindingDetail>("FindingDetail")({findingArn: Schema.optional(Schema.String), cisaData: Schema.optional(CisaData), riskScore: Schema.optional(Schema.Number), evidences: Schema.optional(EvidenceList), ttps: Schema.optional(Ttps), tools: Schema.optional(Tools), exploitObserved: Schema.optional(ExploitObserved), referenceUrls: Schema.optional(VulnerabilityReferenceUrls), cwes: Schema.optional(Cwes), epssScore: Schema.optional(Schema.Number)}) {}
 export const FindingDetails = Schema.Array(FindingDetail);
-export const FreeTrialAccountInfo = Schema.Struct({accountId: Schema.String, freeTrialInfo: FreeTrialInfoList});
+export class FreeTrialAccountInfo extends Schema.Class<FreeTrialAccountInfo>("FreeTrialAccountInfo")({accountId: Schema.String, freeTrialInfo: FreeTrialInfoList}) {}
 export const FreeTrialAccountInfoList = Schema.Array(FreeTrialAccountInfo);
-export const UsageTotal = Schema.Struct({accountId: Schema.optional(Schema.String), usage: Schema.optional(UsageList)});
+export class UsageTotal extends Schema.Class<UsageTotal>("UsageTotal")({accountId: Schema.optional(Schema.String), usage: Schema.optional(UsageList)}) {}
 export const UsageTotalList = Schema.Array(UsageTotal);
 export const VulnerabilityIdList = Schema.Array(Schema.String);
 export const NonEmptyStringList = Schema.Array(Schema.String);
@@ -348,138 +348,138 @@ export const DetectorTagList = Schema.Array(Schema.String);
 export const ReferenceUrls = Schema.Array(Schema.String);
 export const CweList = Schema.Array(Schema.String);
 export const Targets = Schema.Array(Schema.String);
-export const BatchAssociateCodeSecurityScanConfigurationResponse = Schema.Struct({failedAssociations: Schema.optional(FailedAssociationResultList), successfulAssociations: Schema.optional(SuccessfulAssociationResultList)});
-export const BatchGetAccountStatusResponse = Schema.Struct({accounts: AccountStateList, failedAccounts: Schema.optional(FailedAccountList)});
-export const BatchGetCodeSnippetResponse = Schema.Struct({codeSnippetResults: Schema.optional(CodeSnippetResultList), errors: Schema.optional(CodeSnippetErrorList)});
-export const BatchGetFindingDetailsResponse = Schema.Struct({findingDetails: Schema.optional(FindingDetails), errors: Schema.optional(FindingDetailsErrorList)});
-export const BatchGetFreeTrialInfoResponse = Schema.Struct({accounts: FreeTrialAccountInfoList, failedAccounts: FreeTrialInfoErrorList});
-export const CreateCisScanConfigurationRequest = Schema.Struct({scanName: Schema.String, securityLevel: Schema.String, schedule: Schedule, targets: CreateCisTargets, tags: Schema.optional(CisTagMap)});
-export const CreateCodeSecurityIntegrationResponse = Schema.Struct({integrationArn: Schema.String, status: Schema.String, authorizationUrl: Schema.optional(Schema.String)});
-export const CreateCodeSecurityScanConfigurationResponse = Schema.Struct({scanConfigurationArn: Schema.String});
-export const CreateFilterResponse = Schema.Struct({arn: Schema.String});
-export const CreateSbomExportResponse = Schema.Struct({reportId: Schema.optional(Schema.String)});
-export const ListUsageTotalsResponse = Schema.Struct({nextToken: Schema.optional(Schema.String), totals: Schema.optional(UsageTotalList)});
-export const UpdateCodeSecurityIntegrationResponse = Schema.Struct({integrationArn: Schema.String, status: Schema.String});
-export const ExploitabilityDetails = Schema.Struct({lastKnownExploitAt: Schema.optional(Schema.Date)});
-export const EpssDetails = Schema.Struct({score: Schema.optional(Schema.Number)});
-export const AtigData = Schema.Struct({firstSeen: Schema.optional(Schema.Date), lastSeen: Schema.optional(Schema.Date), targets: Schema.optional(Targets), ttps: Schema.optional(Ttps)});
-export const Cvss4 = Schema.Struct({baseScore: Schema.optional(Schema.Number), scoringVector: Schema.optional(Schema.String)});
-export const Cvss3 = Schema.Struct({baseScore: Schema.optional(Schema.Number), scoringVector: Schema.optional(Schema.String)});
-export const Cvss2 = Schema.Struct({baseScore: Schema.optional(Schema.Number), scoringVector: Schema.optional(Schema.String)});
-export const Epss = Schema.Struct({score: Schema.optional(Schema.Number)});
-export const CisScanResultDetails = Schema.Struct({scanArn: Schema.String, accountId: Schema.optional(Schema.String), targetResourceId: Schema.optional(Schema.String), platform: Schema.optional(Schema.String), status: Schema.optional(Schema.String), statusReason: Schema.optional(Schema.String), checkId: Schema.optional(Schema.String), title: Schema.optional(Schema.String), checkDescription: Schema.optional(Schema.String), remediation: Schema.optional(Schema.String), level: Schema.optional(Schema.String), findingArn: Schema.optional(Schema.String)});
+export class BatchAssociateCodeSecurityScanConfigurationResponse extends Schema.Class<BatchAssociateCodeSecurityScanConfigurationResponse>("BatchAssociateCodeSecurityScanConfigurationResponse")({failedAssociations: Schema.optional(FailedAssociationResultList), successfulAssociations: Schema.optional(SuccessfulAssociationResultList)}) {}
+export class BatchGetAccountStatusResponse extends Schema.Class<BatchGetAccountStatusResponse>("BatchGetAccountStatusResponse")({accounts: AccountStateList, failedAccounts: Schema.optional(FailedAccountList)}) {}
+export class BatchGetCodeSnippetResponse extends Schema.Class<BatchGetCodeSnippetResponse>("BatchGetCodeSnippetResponse")({codeSnippetResults: Schema.optional(CodeSnippetResultList), errors: Schema.optional(CodeSnippetErrorList)}) {}
+export class BatchGetFindingDetailsResponse extends Schema.Class<BatchGetFindingDetailsResponse>("BatchGetFindingDetailsResponse")({findingDetails: Schema.optional(FindingDetails), errors: Schema.optional(FindingDetailsErrorList)}) {}
+export class BatchGetFreeTrialInfoResponse extends Schema.Class<BatchGetFreeTrialInfoResponse>("BatchGetFreeTrialInfoResponse")({accounts: FreeTrialAccountInfoList, failedAccounts: FreeTrialInfoErrorList}) {}
+export class CreateCisScanConfigurationRequest extends Schema.Class<CreateCisScanConfigurationRequest>("CreateCisScanConfigurationRequest")({scanName: Schema.String, securityLevel: Schema.String, schedule: Schedule, targets: CreateCisTargets, tags: Schema.optional(CisTagMap)}) {}
+export class CreateCodeSecurityIntegrationResponse extends Schema.Class<CreateCodeSecurityIntegrationResponse>("CreateCodeSecurityIntegrationResponse")({integrationArn: Schema.String, status: Schema.String, authorizationUrl: Schema.optional(Schema.String)}) {}
+export class CreateCodeSecurityScanConfigurationResponse extends Schema.Class<CreateCodeSecurityScanConfigurationResponse>("CreateCodeSecurityScanConfigurationResponse")({scanConfigurationArn: Schema.String}) {}
+export class CreateFilterResponse extends Schema.Class<CreateFilterResponse>("CreateFilterResponse")({arn: Schema.String}) {}
+export class CreateSbomExportResponse extends Schema.Class<CreateSbomExportResponse>("CreateSbomExportResponse")({reportId: Schema.optional(Schema.String)}) {}
+export class ListUsageTotalsResponse extends Schema.Class<ListUsageTotalsResponse>("ListUsageTotalsResponse")({nextToken: Schema.optional(Schema.String), totals: Schema.optional(UsageTotalList)}) {}
+export class UpdateCodeSecurityIntegrationResponse extends Schema.Class<UpdateCodeSecurityIntegrationResponse>("UpdateCodeSecurityIntegrationResponse")({integrationArn: Schema.String, status: Schema.String}) {}
+export class ExploitabilityDetails extends Schema.Class<ExploitabilityDetails>("ExploitabilityDetails")({lastKnownExploitAt: Schema.optional(Schema.Date)}) {}
+export class EpssDetails extends Schema.Class<EpssDetails>("EpssDetails")({score: Schema.optional(Schema.Number)}) {}
+export class AtigData extends Schema.Class<AtigData>("AtigData")({firstSeen: Schema.optional(Schema.Date), lastSeen: Schema.optional(Schema.Date), targets: Schema.optional(Targets), ttps: Schema.optional(Ttps)}) {}
+export class Cvss4 extends Schema.Class<Cvss4>("Cvss4")({baseScore: Schema.optional(Schema.Number), scoringVector: Schema.optional(Schema.String)}) {}
+export class Cvss3 extends Schema.Class<Cvss3>("Cvss3")({baseScore: Schema.optional(Schema.Number), scoringVector: Schema.optional(Schema.String)}) {}
+export class Cvss2 extends Schema.Class<Cvss2>("Cvss2")({baseScore: Schema.optional(Schema.Number), scoringVector: Schema.optional(Schema.String)}) {}
+export class Epss extends Schema.Class<Epss>("Epss")({score: Schema.optional(Schema.Number)}) {}
+export class CisScanResultDetails extends Schema.Class<CisScanResultDetails>("CisScanResultDetails")({scanArn: Schema.String, accountId: Schema.optional(Schema.String), targetResourceId: Schema.optional(Schema.String), platform: Schema.optional(Schema.String), status: Schema.optional(Schema.String), statusReason: Schema.optional(Schema.String), checkId: Schema.optional(Schema.String), title: Schema.optional(Schema.String), checkDescription: Schema.optional(Schema.String), remediation: Schema.optional(Schema.String), level: Schema.optional(Schema.String), findingArn: Schema.optional(Schema.String)}) {}
 export const CisScanResultDetailsList = Schema.Array(CisScanResultDetails);
-export const StatusCounts = Schema.Struct({failed: Schema.optional(Schema.Number), skipped: Schema.optional(Schema.Number), passed: Schema.optional(Schema.Number)});
-export const CisTargetResourceAggregation = Schema.Struct({scanArn: Schema.String, targetResourceId: Schema.optional(Schema.String), accountId: Schema.optional(Schema.String), targetResourceTags: Schema.optional(TargetResourceTags), statusCounts: Schema.optional(StatusCounts), platform: Schema.optional(Schema.String), targetStatus: Schema.optional(Schema.String), targetStatusReason: Schema.optional(Schema.String)});
+export class StatusCounts extends Schema.Class<StatusCounts>("StatusCounts")({failed: Schema.optional(Schema.Number), skipped: Schema.optional(Schema.Number), passed: Schema.optional(Schema.Number)}) {}
+export class CisTargetResourceAggregation extends Schema.Class<CisTargetResourceAggregation>("CisTargetResourceAggregation")({scanArn: Schema.String, targetResourceId: Schema.optional(Schema.String), accountId: Schema.optional(Schema.String), targetResourceTags: Schema.optional(TargetResourceTags), statusCounts: Schema.optional(StatusCounts), platform: Schema.optional(Schema.String), targetStatus: Schema.optional(Schema.String), targetStatusReason: Schema.optional(Schema.String)}) {}
 export const CisTargetResourceAggregationList = Schema.Array(CisTargetResourceAggregation);
 export const CisAccountIdList = Schema.Array(Schema.String);
-export const CisTargets = Schema.Struct({accountIds: Schema.optional(CisAccountIdList), targetResourceTags: Schema.optional(TargetResourceTags)});
-export const CisScan = Schema.Struct({scanArn: Schema.String, scanConfigurationArn: Schema.String, status: Schema.optional(Schema.String), scanName: Schema.optional(Schema.String), scanDate: Schema.optional(Schema.Date), failedChecks: Schema.optional(Schema.Number), totalChecks: Schema.optional(Schema.Number), targets: Schema.optional(CisTargets), scheduledBy: Schema.optional(Schema.String), securityLevel: Schema.optional(Schema.String)});
+export class CisTargets extends Schema.Class<CisTargets>("CisTargets")({accountIds: Schema.optional(CisAccountIdList), targetResourceTags: Schema.optional(TargetResourceTags)}) {}
+export class CisScan extends Schema.Class<CisScan>("CisScan")({scanArn: Schema.String, scanConfigurationArn: Schema.String, status: Schema.optional(Schema.String), scanName: Schema.optional(Schema.String), scanDate: Schema.optional(Schema.Date), failedChecks: Schema.optional(Schema.Number), totalChecks: Schema.optional(Schema.Number), targets: Schema.optional(CisTargets), scheduledBy: Schema.optional(Schema.String), securityLevel: Schema.optional(Schema.String)}) {}
 export const CisScanList = Schema.Array(CisScan);
-export const Vulnerability = Schema.Struct({id: Schema.String, cwes: Schema.optional(Cwes), cisaData: Schema.optional(CisaData), source: Schema.optional(Schema.String), description: Schema.optional(Schema.String), atigData: Schema.optional(AtigData), vendorSeverity: Schema.optional(Schema.String), cvss4: Schema.optional(Cvss4), cvss3: Schema.optional(Cvss3), relatedVulnerabilities: Schema.optional(RelatedVulnerabilities), cvss2: Schema.optional(Cvss2), vendorCreatedAt: Schema.optional(Schema.Date), vendorUpdatedAt: Schema.optional(Schema.Date), sourceUrl: Schema.optional(Schema.String), referenceUrls: Schema.optional(VulnerabilityReferenceUrls), exploitObserved: Schema.optional(ExploitObserved), detectionPlatforms: Schema.optional(DetectionPlatforms), epss: Schema.optional(Epss)});
+export class Vulnerability extends Schema.Class<Vulnerability>("Vulnerability")({id: Schema.String, cwes: Schema.optional(Cwes), cisaData: Schema.optional(CisaData), source: Schema.optional(Schema.String), description: Schema.optional(Schema.String), atigData: Schema.optional(AtigData), vendorSeverity: Schema.optional(Schema.String), cvss4: Schema.optional(Cvss4), cvss3: Schema.optional(Cvss3), relatedVulnerabilities: Schema.optional(RelatedVulnerabilities), cvss2: Schema.optional(Cvss2), vendorCreatedAt: Schema.optional(Schema.Date), vendorUpdatedAt: Schema.optional(Schema.Date), sourceUrl: Schema.optional(Schema.String), referenceUrls: Schema.optional(VulnerabilityReferenceUrls), exploitObserved: Schema.optional(ExploitObserved), detectionPlatforms: Schema.optional(DetectionPlatforms), epss: Schema.optional(Epss)}) {}
 export const Vulnerabilities = Schema.Array(Vulnerability);
 export const StringList = Schema.Array(Schema.String);
-export const Recommendation = Schema.Struct({text: Schema.optional(Schema.String), Url: Schema.optional(Schema.String)});
-export const PortRange = Schema.Struct({begin: Schema.Number, end: Schema.Number});
-export const VulnerablePackage = Schema.Struct({name: Schema.String, version: Schema.String, sourceLayerHash: Schema.optional(Schema.String), epoch: Schema.optional(Schema.Number), release: Schema.optional(Schema.String), arch: Schema.optional(Schema.String), packageManager: Schema.optional(Schema.String), filePath: Schema.optional(Schema.String), fixedInVersion: Schema.optional(Schema.String), remediation: Schema.optional(Schema.String), sourceLambdaLayerArn: Schema.optional(Schema.String)});
+export class Recommendation extends Schema.Class<Recommendation>("Recommendation")({text: Schema.optional(Schema.String), Url: Schema.optional(Schema.String)}) {}
+export class PortRange extends Schema.Class<PortRange>("PortRange")({begin: Schema.Number, end: Schema.Number}) {}
+export class VulnerablePackage extends Schema.Class<VulnerablePackage>("VulnerablePackage")({name: Schema.String, version: Schema.String, sourceLayerHash: Schema.optional(Schema.String), epoch: Schema.optional(Schema.Number), release: Schema.optional(Schema.String), arch: Schema.optional(Schema.String), packageManager: Schema.optional(Schema.String), filePath: Schema.optional(Schema.String), fixedInVersion: Schema.optional(Schema.String), remediation: Schema.optional(Schema.String), sourceLambdaLayerArn: Schema.optional(Schema.String)}) {}
 export const VulnerablePackageList = Schema.Array(VulnerablePackage);
-export const CvssScore = Schema.Struct({baseScore: Schema.Number, scoringVector: Schema.String, version: Schema.String, source: Schema.String});
+export class CvssScore extends Schema.Class<CvssScore>("CvssScore")({baseScore: Schema.Number, scoringVector: Schema.String, version: Schema.String, source: Schema.String}) {}
 export const CvssScoreList = Schema.Array(CvssScore);
-export const CodeFilePath = Schema.Struct({fileName: Schema.String, filePath: Schema.String, startLine: Schema.Number, endLine: Schema.Number});
-export const CreateCisScanConfigurationResponse = Schema.Struct({scanConfigurationArn: Schema.optional(Schema.String)});
-export const GetCisScanResultDetailsResponse = Schema.Struct({scanResultDetails: Schema.optional(CisScanResultDetailsList), nextToken: Schema.optional(Schema.String)});
-export const ListCisScanResultsAggregatedByTargetResourceResponse = Schema.Struct({targetResourceAggregations: Schema.optional(CisTargetResourceAggregationList), nextToken: Schema.optional(Schema.String)});
-export const ListCisScansResponse = Schema.Struct({scans: Schema.optional(CisScanList), nextToken: Schema.optional(Schema.String)});
+export class CodeFilePath extends Schema.Class<CodeFilePath>("CodeFilePath")({fileName: Schema.String, filePath: Schema.String, startLine: Schema.Number, endLine: Schema.Number}) {}
+export class CreateCisScanConfigurationResponse extends Schema.Class<CreateCisScanConfigurationResponse>("CreateCisScanConfigurationResponse")({scanConfigurationArn: Schema.optional(Schema.String)}) {}
+export class GetCisScanResultDetailsResponse extends Schema.Class<GetCisScanResultDetailsResponse>("GetCisScanResultDetailsResponse")({scanResultDetails: Schema.optional(CisScanResultDetailsList), nextToken: Schema.optional(Schema.String)}) {}
+export class ListCisScanResultsAggregatedByTargetResourceResponse extends Schema.Class<ListCisScanResultsAggregatedByTargetResourceResponse>("ListCisScanResultsAggregatedByTargetResourceResponse")({targetResourceAggregations: Schema.optional(CisTargetResourceAggregationList), nextToken: Schema.optional(Schema.String)}) {}
+export class ListCisScansResponse extends Schema.Class<ListCisScansResponse>("ListCisScansResponse")({scans: Schema.optional(CisScanList), nextToken: Schema.optional(Schema.String)}) {}
 export const IpV4AddressList = Schema.Array(Schema.String);
 export const IpV6AddressList = Schema.Array(Schema.String);
 export const ImageTagList = Schema.Array(Schema.String);
 export const LayerList = Schema.Array(Schema.String);
 export const ArchitectureList = Schema.Array(Schema.String);
-export const SearchVulnerabilitiesResponse = Schema.Struct({vulnerabilities: Vulnerabilities, nextToken: Schema.optional(Schema.String)});
-export const ScanStatus = Schema.Struct({statusCode: Schema.String, reason: Schema.String});
-export const SeverityCounts = Schema.Struct({all: Schema.optional(Schema.Number), medium: Schema.optional(Schema.Number), high: Schema.optional(Schema.Number), critical: Schema.optional(Schema.Number)});
-export const AmiAggregationResponse = Schema.Struct({ami: Schema.String, accountId: Schema.optional(Schema.String), severityCounts: Schema.optional(SeverityCounts), affectedInstances: Schema.optional(Schema.Number)});
-export const AwsEcrContainerAggregationResponse = Schema.Struct({resourceId: Schema.String, imageSha: Schema.optional(Schema.String), repository: Schema.optional(Schema.String), architecture: Schema.optional(Schema.String), imageTags: Schema.optional(StringList), accountId: Schema.optional(Schema.String), severityCounts: Schema.optional(SeverityCounts), lastInUseAt: Schema.optional(Schema.Date), inUseCount: Schema.optional(Schema.Number)});
-export const Ec2InstanceAggregationResponse = Schema.Struct({instanceId: Schema.String, ami: Schema.optional(Schema.String), operatingSystem: Schema.optional(Schema.String), instanceTags: Schema.optional(TagMap), accountId: Schema.optional(Schema.String), severityCounts: Schema.optional(SeverityCounts), networkFindings: Schema.optional(Schema.Number)});
-export const FindingTypeAggregationResponse = Schema.Struct({accountId: Schema.optional(Schema.String), severityCounts: Schema.optional(SeverityCounts), exploitAvailableCount: Schema.optional(Schema.Number), fixAvailableCount: Schema.optional(Schema.Number)});
-export const ImageLayerAggregationResponse = Schema.Struct({repository: Schema.String, resourceId: Schema.String, layerHash: Schema.String, accountId: Schema.String, severityCounts: Schema.optional(SeverityCounts)});
-export const PackageAggregationResponse = Schema.Struct({packageName: Schema.String, accountId: Schema.optional(Schema.String), severityCounts: Schema.optional(SeverityCounts)});
-export const RepositoryAggregationResponse = Schema.Struct({repository: Schema.String, accountId: Schema.optional(Schema.String), severityCounts: Schema.optional(SeverityCounts), affectedImages: Schema.optional(Schema.Number)});
-export const TitleAggregationResponse = Schema.Struct({title: Schema.String, vulnerabilityId: Schema.optional(Schema.String), accountId: Schema.optional(Schema.String), severityCounts: Schema.optional(SeverityCounts)});
-export const LambdaLayerAggregationResponse = Schema.Struct({functionName: Schema.String, resourceId: Schema.String, layerArn: Schema.String, accountId: Schema.String, severityCounts: Schema.optional(SeverityCounts)});
-export const LambdaFunctionAggregationResponse = Schema.Struct({resourceId: Schema.String, functionName: Schema.optional(Schema.String), runtime: Schema.optional(Schema.String), lambdaTags: Schema.optional(TagMap), accountId: Schema.optional(Schema.String), severityCounts: Schema.optional(SeverityCounts), lastModifiedAt: Schema.optional(Schema.Date)});
-export const CodeRepositoryAggregationResponse = Schema.Struct({projectNames: Schema.String, providerType: Schema.optional(Schema.String), severityCounts: Schema.optional(SeverityCounts), exploitAvailableActiveFindingsCount: Schema.optional(Schema.Number), fixAvailableActiveFindingsCount: Schema.optional(Schema.Number), accountId: Schema.optional(Schema.String), resourceId: Schema.optional(Schema.String)});
-export const Remediation = Schema.Struct({recommendation: Schema.optional(Recommendation)});
-export const PackageVulnerabilityDetails = Schema.Struct({vulnerabilityId: Schema.String, vulnerablePackages: Schema.optional(VulnerablePackageList), source: Schema.String, cvss: Schema.optional(CvssScoreList), relatedVulnerabilities: Schema.optional(VulnerabilityIdList), sourceUrl: Schema.optional(Schema.String), vendorSeverity: Schema.optional(Schema.String), vendorCreatedAt: Schema.optional(Schema.Date), vendorUpdatedAt: Schema.optional(Schema.Date), referenceUrls: Schema.optional(NonEmptyStringList)});
-export const CodeVulnerabilityDetails = Schema.Struct({filePath: CodeFilePath, detectorTags: Schema.optional(DetectorTagList), referenceUrls: Schema.optional(ReferenceUrls), ruleId: Schema.optional(Schema.String), sourceLambdaLayerArn: Schema.optional(Schema.String), detectorId: Schema.String, detectorName: Schema.String, cwes: CweList});
-export const AwsEcsMetadataDetails = Schema.Struct({detailsGroup: Schema.String, taskDefinitionArn: Schema.String});
+export class SearchVulnerabilitiesResponse extends Schema.Class<SearchVulnerabilitiesResponse>("SearchVulnerabilitiesResponse")({vulnerabilities: Vulnerabilities, nextToken: Schema.optional(Schema.String)}) {}
+export class ScanStatus extends Schema.Class<ScanStatus>("ScanStatus")({statusCode: Schema.String, reason: Schema.String}) {}
+export class SeverityCounts extends Schema.Class<SeverityCounts>("SeverityCounts")({all: Schema.optional(Schema.Number), medium: Schema.optional(Schema.Number), high: Schema.optional(Schema.Number), critical: Schema.optional(Schema.Number)}) {}
+export class AmiAggregationResponse extends Schema.Class<AmiAggregationResponse>("AmiAggregationResponse")({ami: Schema.String, accountId: Schema.optional(Schema.String), severityCounts: Schema.optional(SeverityCounts), affectedInstances: Schema.optional(Schema.Number)}) {}
+export class AwsEcrContainerAggregationResponse extends Schema.Class<AwsEcrContainerAggregationResponse>("AwsEcrContainerAggregationResponse")({resourceId: Schema.String, imageSha: Schema.optional(Schema.String), repository: Schema.optional(Schema.String), architecture: Schema.optional(Schema.String), imageTags: Schema.optional(StringList), accountId: Schema.optional(Schema.String), severityCounts: Schema.optional(SeverityCounts), lastInUseAt: Schema.optional(Schema.Date), inUseCount: Schema.optional(Schema.Number)}) {}
+export class Ec2InstanceAggregationResponse extends Schema.Class<Ec2InstanceAggregationResponse>("Ec2InstanceAggregationResponse")({instanceId: Schema.String, ami: Schema.optional(Schema.String), operatingSystem: Schema.optional(Schema.String), instanceTags: Schema.optional(TagMap), accountId: Schema.optional(Schema.String), severityCounts: Schema.optional(SeverityCounts), networkFindings: Schema.optional(Schema.Number)}) {}
+export class FindingTypeAggregationResponse extends Schema.Class<FindingTypeAggregationResponse>("FindingTypeAggregationResponse")({accountId: Schema.optional(Schema.String), severityCounts: Schema.optional(SeverityCounts), exploitAvailableCount: Schema.optional(Schema.Number), fixAvailableCount: Schema.optional(Schema.Number)}) {}
+export class ImageLayerAggregationResponse extends Schema.Class<ImageLayerAggregationResponse>("ImageLayerAggregationResponse")({repository: Schema.String, resourceId: Schema.String, layerHash: Schema.String, accountId: Schema.String, severityCounts: Schema.optional(SeverityCounts)}) {}
+export class PackageAggregationResponse extends Schema.Class<PackageAggregationResponse>("PackageAggregationResponse")({packageName: Schema.String, accountId: Schema.optional(Schema.String), severityCounts: Schema.optional(SeverityCounts)}) {}
+export class RepositoryAggregationResponse extends Schema.Class<RepositoryAggregationResponse>("RepositoryAggregationResponse")({repository: Schema.String, accountId: Schema.optional(Schema.String), severityCounts: Schema.optional(SeverityCounts), affectedImages: Schema.optional(Schema.Number)}) {}
+export class TitleAggregationResponse extends Schema.Class<TitleAggregationResponse>("TitleAggregationResponse")({title: Schema.String, vulnerabilityId: Schema.optional(Schema.String), accountId: Schema.optional(Schema.String), severityCounts: Schema.optional(SeverityCounts)}) {}
+export class LambdaLayerAggregationResponse extends Schema.Class<LambdaLayerAggregationResponse>("LambdaLayerAggregationResponse")({functionName: Schema.String, resourceId: Schema.String, layerArn: Schema.String, accountId: Schema.String, severityCounts: Schema.optional(SeverityCounts)}) {}
+export class LambdaFunctionAggregationResponse extends Schema.Class<LambdaFunctionAggregationResponse>("LambdaFunctionAggregationResponse")({resourceId: Schema.String, functionName: Schema.optional(Schema.String), runtime: Schema.optional(Schema.String), lambdaTags: Schema.optional(TagMap), accountId: Schema.optional(Schema.String), severityCounts: Schema.optional(SeverityCounts), lastModifiedAt: Schema.optional(Schema.Date)}) {}
+export class CodeRepositoryAggregationResponse extends Schema.Class<CodeRepositoryAggregationResponse>("CodeRepositoryAggregationResponse")({projectNames: Schema.String, providerType: Schema.optional(Schema.String), severityCounts: Schema.optional(SeverityCounts), exploitAvailableActiveFindingsCount: Schema.optional(Schema.Number), fixAvailableActiveFindingsCount: Schema.optional(Schema.Number), accountId: Schema.optional(Schema.String), resourceId: Schema.optional(Schema.String)}) {}
+export class Remediation extends Schema.Class<Remediation>("Remediation")({recommendation: Schema.optional(Recommendation)}) {}
+export class PackageVulnerabilityDetails extends Schema.Class<PackageVulnerabilityDetails>("PackageVulnerabilityDetails")({vulnerabilityId: Schema.String, vulnerablePackages: Schema.optional(VulnerablePackageList), source: Schema.String, cvss: Schema.optional(CvssScoreList), relatedVulnerabilities: Schema.optional(VulnerabilityIdList), sourceUrl: Schema.optional(Schema.String), vendorSeverity: Schema.optional(Schema.String), vendorCreatedAt: Schema.optional(Schema.Date), vendorUpdatedAt: Schema.optional(Schema.Date), referenceUrls: Schema.optional(NonEmptyStringList)}) {}
+export class CodeVulnerabilityDetails extends Schema.Class<CodeVulnerabilityDetails>("CodeVulnerabilityDetails")({filePath: CodeFilePath, detectorTags: Schema.optional(DetectorTagList), referenceUrls: Schema.optional(ReferenceUrls), ruleId: Schema.optional(Schema.String), sourceLambdaLayerArn: Schema.optional(Schema.String), detectorId: Schema.String, detectorName: Schema.String, cwes: CweList}) {}
+export class AwsEcsMetadataDetails extends Schema.Class<AwsEcsMetadataDetails>("AwsEcsMetadataDetails")({detailsGroup: Schema.String, taskDefinitionArn: Schema.String}) {}
 export const TagList = Schema.Array(Schema.String);
 export const LambdaLayerList = Schema.Array(Schema.String);
-export const AwsEc2InstanceDetails = Schema.Struct({type: Schema.optional(Schema.String), imageId: Schema.optional(Schema.String), ipV4Addresses: Schema.optional(IpV4AddressList), ipV6Addresses: Schema.optional(IpV6AddressList), keyName: Schema.optional(Schema.String), iamInstanceProfileArn: Schema.optional(Schema.String), vpcId: Schema.optional(Schema.String), subnetId: Schema.optional(Schema.String), launchedAt: Schema.optional(Schema.Date), platform: Schema.optional(Schema.String)});
-export const AwsEcrContainerImageDetails = Schema.Struct({repositoryName: Schema.String, imageTags: Schema.optional(ImageTagList), pushedAt: Schema.optional(Schema.Date), author: Schema.optional(Schema.String), architecture: Schema.optional(Schema.String), imageHash: Schema.String, registry: Schema.String, platform: Schema.optional(Schema.String), lastInUseAt: Schema.optional(Schema.Date), inUseCount: Schema.optional(Schema.Number)});
-export const CodeRepositoryDetails = Schema.Struct({projectName: Schema.optional(Schema.String), integrationArn: Schema.optional(Schema.String), providerType: Schema.optional(Schema.String)});
-export const CvssScoreAdjustment = Schema.Struct({metric: Schema.String, reason: Schema.String});
+export class AwsEc2InstanceDetails extends Schema.Class<AwsEc2InstanceDetails>("AwsEc2InstanceDetails")({type: Schema.optional(Schema.String), imageId: Schema.optional(Schema.String), ipV4Addresses: Schema.optional(IpV4AddressList), ipV6Addresses: Schema.optional(IpV6AddressList), keyName: Schema.optional(Schema.String), iamInstanceProfileArn: Schema.optional(Schema.String), vpcId: Schema.optional(Schema.String), subnetId: Schema.optional(Schema.String), launchedAt: Schema.optional(Schema.Date), platform: Schema.optional(Schema.String)}) {}
+export class AwsEcrContainerImageDetails extends Schema.Class<AwsEcrContainerImageDetails>("AwsEcrContainerImageDetails")({repositoryName: Schema.String, imageTags: Schema.optional(ImageTagList), pushedAt: Schema.optional(Schema.Date), author: Schema.optional(Schema.String), architecture: Schema.optional(Schema.String), imageHash: Schema.String, registry: Schema.String, platform: Schema.optional(Schema.String), lastInUseAt: Schema.optional(Schema.Date), inUseCount: Schema.optional(Schema.Number)}) {}
+export class CodeRepositoryDetails extends Schema.Class<CodeRepositoryDetails>("CodeRepositoryDetails")({projectName: Schema.optional(Schema.String), integrationArn: Schema.optional(Schema.String), providerType: Schema.optional(Schema.String)}) {}
+export class CvssScoreAdjustment extends Schema.Class<CvssScoreAdjustment>("CvssScoreAdjustment")({metric: Schema.String, reason: Schema.String}) {}
 export const CvssScoreAdjustmentList = Schema.Array(CvssScoreAdjustment);
-export const Step = Schema.Struct({componentId: Schema.String, componentType: Schema.String, componentArn: Schema.optional(Schema.String)});
+export class Step extends Schema.Class<Step>("Step")({componentId: Schema.String, componentType: Schema.String, componentArn: Schema.optional(Schema.String)}) {}
 export const StepList = Schema.Array(Step);
-export const CisScanConfiguration = Schema.Struct({scanConfigurationArn: Schema.String, ownerId: Schema.optional(Schema.String), scanName: Schema.optional(Schema.String), securityLevel: Schema.optional(Schema.String), schedule: Schema.optional(Schedule), targets: Schema.optional(CisTargets), tags: Schema.optional(CisTagMap)});
+export class CisScanConfiguration extends Schema.Class<CisScanConfiguration>("CisScanConfiguration")({scanConfigurationArn: Schema.String, ownerId: Schema.optional(Schema.String), scanName: Schema.optional(Schema.String), securityLevel: Schema.optional(Schema.String), schedule: Schema.optional(Schedule), targets: Schema.optional(CisTargets), tags: Schema.optional(CisTagMap)}) {}
 export const CisScanConfigurationList = Schema.Array(CisScanConfiguration);
-export const CisCheckAggregation = Schema.Struct({scanArn: Schema.String, checkId: Schema.optional(Schema.String), title: Schema.optional(Schema.String), checkDescription: Schema.optional(Schema.String), level: Schema.optional(Schema.String), accountId: Schema.optional(Schema.String), statusCounts: Schema.optional(StatusCounts), platform: Schema.optional(Schema.String)});
+export class CisCheckAggregation extends Schema.Class<CisCheckAggregation>("CisCheckAggregation")({scanArn: Schema.String, checkId: Schema.optional(Schema.String), title: Schema.optional(Schema.String), checkDescription: Schema.optional(Schema.String), level: Schema.optional(Schema.String), accountId: Schema.optional(Schema.String), statusCounts: Schema.optional(StatusCounts), platform: Schema.optional(Schema.String)}) {}
 export const CisCheckAggregationList = Schema.Array(CisCheckAggregation);
 export const SubnetIdList = Schema.Array(Schema.String);
 export const SecurityGroupIdList = Schema.Array(Schema.String);
-export const EcrRepositoryMetadata = Schema.Struct({name: Schema.optional(Schema.String), scanFrequency: Schema.optional(Schema.String)});
-export const EcrContainerImageMetadata = Schema.Struct({tags: Schema.optional(TagList), imagePulledAt: Schema.optional(Schema.Date), lastInUseAt: Schema.optional(Schema.Date), inUseCount: Schema.optional(Schema.Number)});
-export const Ec2Metadata = Schema.Struct({tags: Schema.optional(TagMap), amiId: Schema.optional(Schema.String), platform: Schema.optional(Schema.String)});
-export const LambdaFunctionMetadata = Schema.Struct({functionTags: Schema.optional(TagMap), layers: Schema.optional(LambdaLayerList), functionName: Schema.optional(Schema.String), runtime: Schema.optional(Schema.String)});
-export const CvssScoreDetails = Schema.Struct({scoreSource: Schema.String, cvssSource: Schema.optional(Schema.String), version: Schema.String, score: Schema.Number, scoringVector: Schema.String, adjustments: Schema.optional(CvssScoreAdjustmentList)});
-export const NetworkPath = Schema.Struct({steps: Schema.optional(StepList)});
-export const AwsEksWorkloadInfo = Schema.Struct({name: Schema.String, type: Schema.String});
+export class EcrRepositoryMetadata extends Schema.Class<EcrRepositoryMetadata>("EcrRepositoryMetadata")({name: Schema.optional(Schema.String), scanFrequency: Schema.optional(Schema.String)}) {}
+export class EcrContainerImageMetadata extends Schema.Class<EcrContainerImageMetadata>("EcrContainerImageMetadata")({tags: Schema.optional(TagList), imagePulledAt: Schema.optional(Schema.Date), lastInUseAt: Schema.optional(Schema.Date), inUseCount: Schema.optional(Schema.Number)}) {}
+export class Ec2Metadata extends Schema.Class<Ec2Metadata>("Ec2Metadata")({tags: Schema.optional(TagMap), amiId: Schema.optional(Schema.String), platform: Schema.optional(Schema.String)}) {}
+export class LambdaFunctionMetadata extends Schema.Class<LambdaFunctionMetadata>("LambdaFunctionMetadata")({functionTags: Schema.optional(TagMap), layers: Schema.optional(LambdaLayerList), functionName: Schema.optional(Schema.String), runtime: Schema.optional(Schema.String)}) {}
+export class CvssScoreDetails extends Schema.Class<CvssScoreDetails>("CvssScoreDetails")({scoreSource: Schema.String, cvssSource: Schema.optional(Schema.String), version: Schema.String, score: Schema.Number, scoringVector: Schema.String, adjustments: Schema.optional(CvssScoreAdjustmentList)}) {}
+export class NetworkPath extends Schema.Class<NetworkPath>("NetworkPath")({steps: Schema.optional(StepList)}) {}
+export class AwsEksWorkloadInfo extends Schema.Class<AwsEksWorkloadInfo>("AwsEksWorkloadInfo")({name: Schema.String, type: Schema.String}) {}
 export const AwsEksWorkloadInfoList = Schema.Array(AwsEksWorkloadInfo);
-export const ListCisScanConfigurationsResponse = Schema.Struct({scanConfigurations: Schema.optional(CisScanConfigurationList), nextToken: Schema.optional(Schema.String)});
-export const ListCisScanResultsAggregatedByChecksResponse = Schema.Struct({checkAggregations: Schema.optional(CisCheckAggregationList), nextToken: Schema.optional(Schema.String)});
-export const LambdaVpcConfig = Schema.Struct({subnetIds: Schema.optional(SubnetIdList), securityGroupIds: Schema.optional(SecurityGroupIdList), vpcId: Schema.optional(Schema.String)});
-export const AccountAggregationResponse = Schema.Struct({accountId: Schema.optional(Schema.String), severityCounts: Schema.optional(SeverityCounts), exploitAvailableCount: Schema.optional(Schema.Number), fixAvailableCount: Schema.optional(Schema.Number)});
-export const InspectorScoreDetails = Schema.Struct({adjustedCvss: Schema.optional(CvssScoreDetails)});
-export const NetworkReachabilityDetails = Schema.Struct({openPortRange: PortRange, protocol: Schema.String, networkPath: NetworkPath});
-export const AwsEksMetadataDetails = Schema.Struct({namespace: Schema.optional(Schema.String), workloadInfoList: Schema.optional(AwsEksWorkloadInfoList)});
-export const CodeRepositoryOnDemandScan = Schema.Struct({lastScannedCommitId: Schema.optional(Schema.String), lastScanAt: Schema.optional(Schema.Date), scanStatus: Schema.optional(ScanStatus)});
-export const AwsLambdaFunctionDetails = Schema.Struct({functionName: Schema.String, runtime: Schema.String, codeSha256: Schema.String, version: Schema.String, executionRoleArn: Schema.String, layers: Schema.optional(LayerList), vpcConfig: Schema.optional(LambdaVpcConfig), packageType: Schema.optional(Schema.String), architectures: Schema.optional(ArchitectureList), lastModifiedAt: Schema.optional(Schema.Date)});
+export class ListCisScanConfigurationsResponse extends Schema.Class<ListCisScanConfigurationsResponse>("ListCisScanConfigurationsResponse")({scanConfigurations: Schema.optional(CisScanConfigurationList), nextToken: Schema.optional(Schema.String)}) {}
+export class ListCisScanResultsAggregatedByChecksResponse extends Schema.Class<ListCisScanResultsAggregatedByChecksResponse>("ListCisScanResultsAggregatedByChecksResponse")({checkAggregations: Schema.optional(CisCheckAggregationList), nextToken: Schema.optional(Schema.String)}) {}
+export class LambdaVpcConfig extends Schema.Class<LambdaVpcConfig>("LambdaVpcConfig")({subnetIds: Schema.optional(SubnetIdList), securityGroupIds: Schema.optional(SecurityGroupIdList), vpcId: Schema.optional(Schema.String)}) {}
+export class AccountAggregationResponse extends Schema.Class<AccountAggregationResponse>("AccountAggregationResponse")({accountId: Schema.optional(Schema.String), severityCounts: Schema.optional(SeverityCounts), exploitAvailableCount: Schema.optional(Schema.Number), fixAvailableCount: Schema.optional(Schema.Number)}) {}
+export class InspectorScoreDetails extends Schema.Class<InspectorScoreDetails>("InspectorScoreDetails")({adjustedCvss: Schema.optional(CvssScoreDetails)}) {}
+export class NetworkReachabilityDetails extends Schema.Class<NetworkReachabilityDetails>("NetworkReachabilityDetails")({openPortRange: PortRange, protocol: Schema.String, networkPath: NetworkPath}) {}
+export class AwsEksMetadataDetails extends Schema.Class<AwsEksMetadataDetails>("AwsEksMetadataDetails")({namespace: Schema.optional(Schema.String), workloadInfoList: Schema.optional(AwsEksWorkloadInfoList)}) {}
+export class CodeRepositoryOnDemandScan extends Schema.Class<CodeRepositoryOnDemandScan>("CodeRepositoryOnDemandScan")({lastScannedCommitId: Schema.optional(Schema.String), lastScanAt: Schema.optional(Schema.Date), scanStatus: Schema.optional(ScanStatus)}) {}
+export class AwsLambdaFunctionDetails extends Schema.Class<AwsLambdaFunctionDetails>("AwsLambdaFunctionDetails")({functionName: Schema.String, runtime: Schema.String, codeSha256: Schema.String, version: Schema.String, executionRoleArn: Schema.String, layers: Schema.optional(LayerList), vpcConfig: Schema.optional(LambdaVpcConfig), packageType: Schema.optional(Schema.String), architectures: Schema.optional(ArchitectureList), lastModifiedAt: Schema.optional(Schema.Date)}) {}
 export const AggregationResponse = Schema.Union(AccountAggregationResponse, AmiAggregationResponse, AwsEcrContainerAggregationResponse, Ec2InstanceAggregationResponse, FindingTypeAggregationResponse, ImageLayerAggregationResponse, PackageAggregationResponse, RepositoryAggregationResponse, TitleAggregationResponse, LambdaLayerAggregationResponse, LambdaFunctionAggregationResponse, CodeRepositoryAggregationResponse);
 export const AggregationResponseList = Schema.Array(AggregationResponse);
 export const ClusterMetadata = Schema.Union(AwsEcsMetadataDetails, AwsEksMetadataDetails);
-export const ResourceDetails = Schema.Struct({awsEc2Instance: Schema.optional(AwsEc2InstanceDetails), awsEcrContainerImage: Schema.optional(AwsEcrContainerImageDetails), awsLambdaFunction: Schema.optional(AwsLambdaFunctionDetails), codeRepository: Schema.optional(CodeRepositoryDetails)});
-export const ProjectPeriodicScanConfiguration = Schema.Struct({frequencyExpression: Schema.optional(Schema.String), ruleSetCategories: Schema.optional(RuleSetCategories)});
+export class ResourceDetails extends Schema.Class<ResourceDetails>("ResourceDetails")({awsEc2Instance: Schema.optional(AwsEc2InstanceDetails), awsEcrContainerImage: Schema.optional(AwsEcrContainerImageDetails), awsLambdaFunction: Schema.optional(AwsLambdaFunctionDetails), codeRepository: Schema.optional(CodeRepositoryDetails)}) {}
+export class ProjectPeriodicScanConfiguration extends Schema.Class<ProjectPeriodicScanConfiguration>("ProjectPeriodicScanConfiguration")({frequencyExpression: Schema.optional(Schema.String), ruleSetCategories: Schema.optional(RuleSetCategories)}) {}
 export const ProjectPeriodicScanConfigurationList = Schema.Array(ProjectPeriodicScanConfiguration);
-export const ProjectContinuousIntegrationScanConfiguration = Schema.Struct({supportedEvent: Schema.optional(Schema.String), ruleSetCategories: Schema.optional(RuleSetCategories)});
+export class ProjectContinuousIntegrationScanConfiguration extends Schema.Class<ProjectContinuousIntegrationScanConfiguration>("ProjectContinuousIntegrationScanConfiguration")({supportedEvent: Schema.optional(Schema.String), ruleSetCategories: Schema.optional(RuleSetCategories)}) {}
 export const ProjectContinuousIntegrationScanConfigurationList = Schema.Array(ProjectContinuousIntegrationScanConfiguration);
-export const ListFindingAggregationsResponse = Schema.Struct({aggregationType: Schema.String, responses: Schema.optional(AggregationResponseList), nextToken: Schema.optional(Schema.String)});
-export const ClusterDetails = Schema.Struct({lastInUse: Schema.Date, runningUnitCount: Schema.optional(Schema.Number), stoppedUnitCount: Schema.optional(Schema.Number), clusterMetadata: ClusterMetadata});
+export class ListFindingAggregationsResponse extends Schema.Class<ListFindingAggregationsResponse>("ListFindingAggregationsResponse")({aggregationType: Schema.String, responses: Schema.optional(AggregationResponseList), nextToken: Schema.optional(Schema.String)}) {}
+export class ClusterDetails extends Schema.Class<ClusterDetails>("ClusterDetails")({lastInUse: Schema.Date, runningUnitCount: Schema.optional(Schema.Number), stoppedUnitCount: Schema.optional(Schema.Number), clusterMetadata: ClusterMetadata}) {}
 export const ClusterDetailsList = Schema.Array(ClusterDetails);
-export const Resource = Schema.Struct({type: Schema.String, id: Schema.String, partition: Schema.optional(Schema.String), region: Schema.optional(Schema.String), tags: Schema.optional(TagMap), details: Schema.optional(ResourceDetails)});
+export class Resource extends Schema.Class<Resource>("Resource")({type: Schema.String, id: Schema.String, partition: Schema.optional(Schema.String), region: Schema.optional(Schema.String), tags: Schema.optional(TagMap), details: Schema.optional(ResourceDetails)}) {}
 export const ResourceList = Schema.Array(Resource);
-export const ProjectCodeSecurityScanConfiguration = Schema.Struct({periodicScanConfigurations: Schema.optional(ProjectPeriodicScanConfigurationList), continuousIntegrationScanConfigurations: Schema.optional(ProjectContinuousIntegrationScanConfigurationList)});
-export const ClusterInformation = Schema.Struct({clusterArn: Schema.String, clusterDetails: Schema.optional(ClusterDetailsList)});
+export class ProjectCodeSecurityScanConfiguration extends Schema.Class<ProjectCodeSecurityScanConfiguration>("ProjectCodeSecurityScanConfiguration")({periodicScanConfigurations: Schema.optional(ProjectPeriodicScanConfigurationList), continuousIntegrationScanConfigurations: Schema.optional(ProjectContinuousIntegrationScanConfigurationList)}) {}
+export class ClusterInformation extends Schema.Class<ClusterInformation>("ClusterInformation")({clusterArn: Schema.String, clusterDetails: Schema.optional(ClusterDetailsList)}) {}
 export const ClusterInformationList = Schema.Array(ClusterInformation);
-export const Finding = Schema.Struct({findingArn: Schema.String, awsAccountId: Schema.String, type: Schema.String, description: Schema.String, title: Schema.optional(Schema.String), remediation: Remediation, severity: Schema.String, firstObservedAt: Schema.Date, lastObservedAt: Schema.Date, updatedAt: Schema.optional(Schema.Date), status: Schema.String, resources: ResourceList, inspectorScore: Schema.optional(Schema.Number), inspectorScoreDetails: Schema.optional(InspectorScoreDetails), networkReachabilityDetails: Schema.optional(NetworkReachabilityDetails), packageVulnerabilityDetails: Schema.optional(PackageVulnerabilityDetails), fixAvailable: Schema.optional(Schema.String), exploitAvailable: Schema.optional(Schema.String), exploitabilityDetails: Schema.optional(ExploitabilityDetails), codeVulnerabilityDetails: Schema.optional(CodeVulnerabilityDetails), epss: Schema.optional(EpssDetails)});
+export class Finding extends Schema.Class<Finding>("Finding")({findingArn: Schema.String, awsAccountId: Schema.String, type: Schema.String, description: Schema.String, title: Schema.optional(Schema.String), remediation: Remediation, severity: Schema.String, firstObservedAt: Schema.Date, lastObservedAt: Schema.Date, updatedAt: Schema.optional(Schema.Date), status: Schema.String, resources: ResourceList, inspectorScore: Schema.optional(Schema.Number), inspectorScoreDetails: Schema.optional(InspectorScoreDetails), networkReachabilityDetails: Schema.optional(NetworkReachabilityDetails), packageVulnerabilityDetails: Schema.optional(PackageVulnerabilityDetails), fixAvailable: Schema.optional(Schema.String), exploitAvailable: Schema.optional(Schema.String), exploitabilityDetails: Schema.optional(ExploitabilityDetails), codeVulnerabilityDetails: Schema.optional(CodeVulnerabilityDetails), epss: Schema.optional(EpssDetails)}) {}
 export const FindingList = Schema.Array(Finding);
-export const CodeRepositoryMetadata = Schema.Struct({projectName: Schema.String, integrationArn: Schema.optional(Schema.String), providerType: Schema.String, providerTypeVisibility: Schema.String, lastScannedCommitId: Schema.optional(Schema.String), scanConfiguration: Schema.optional(ProjectCodeSecurityScanConfiguration), onDemandScan: Schema.optional(CodeRepositoryOnDemandScan)});
-export const GetClustersForImageResponse = Schema.Struct({cluster: ClusterInformationList, nextToken: Schema.optional(Schema.String)});
-export const ListFindingsResponse = Schema.Struct({nextToken: Schema.optional(Schema.String), findings: Schema.optional(FindingList)});
-export const ResourceScanMetadata = Schema.Struct({ecrRepository: Schema.optional(EcrRepositoryMetadata), ecrImage: Schema.optional(EcrContainerImageMetadata), ec2: Schema.optional(Ec2Metadata), lambdaFunction: Schema.optional(LambdaFunctionMetadata), codeRepository: Schema.optional(CodeRepositoryMetadata)});
-export const CoveredResource = Schema.Struct({resourceType: Schema.String, resourceId: Schema.String, accountId: Schema.String, scanType: Schema.String, scanStatus: Schema.optional(ScanStatus), resourceMetadata: Schema.optional(ResourceScanMetadata), lastScannedAt: Schema.optional(Schema.Date), scanMode: Schema.optional(Schema.String)});
+export class CodeRepositoryMetadata extends Schema.Class<CodeRepositoryMetadata>("CodeRepositoryMetadata")({projectName: Schema.String, integrationArn: Schema.optional(Schema.String), providerType: Schema.String, providerTypeVisibility: Schema.String, lastScannedCommitId: Schema.optional(Schema.String), scanConfiguration: Schema.optional(ProjectCodeSecurityScanConfiguration), onDemandScan: Schema.optional(CodeRepositoryOnDemandScan)}) {}
+export class GetClustersForImageResponse extends Schema.Class<GetClustersForImageResponse>("GetClustersForImageResponse")({cluster: ClusterInformationList, nextToken: Schema.optional(Schema.String)}) {}
+export class ListFindingsResponse extends Schema.Class<ListFindingsResponse>("ListFindingsResponse")({nextToken: Schema.optional(Schema.String), findings: Schema.optional(FindingList)}) {}
+export class ResourceScanMetadata extends Schema.Class<ResourceScanMetadata>("ResourceScanMetadata")({ecrRepository: Schema.optional(EcrRepositoryMetadata), ecrImage: Schema.optional(EcrContainerImageMetadata), ec2: Schema.optional(Ec2Metadata), lambdaFunction: Schema.optional(LambdaFunctionMetadata), codeRepository: Schema.optional(CodeRepositoryMetadata)}) {}
+export class CoveredResource extends Schema.Class<CoveredResource>("CoveredResource")({resourceType: Schema.String, resourceId: Schema.String, accountId: Schema.String, scanType: Schema.String, scanStatus: Schema.optional(ScanStatus), resourceMetadata: Schema.optional(ResourceScanMetadata), lastScannedAt: Schema.optional(Schema.Date), scanMode: Schema.optional(Schema.String)}) {}
 export const CoveredResources = Schema.Array(CoveredResource);
-export const ListCoverageResponse = Schema.Struct({nextToken: Schema.optional(Schema.String), coveredResources: Schema.optional(CoveredResources)});
+export class ListCoverageResponse extends Schema.Class<ListCoverageResponse>("ListCoverageResponse")({nextToken: Schema.optional(Schema.String), coveredResources: Schema.optional(CoveredResources)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class BadRequestExceptionError extends Schema.TaggedError<BadRequestExceptionError>()("BadRequestException", BadRequestException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class BadRequestExceptionError extends Schema.TaggedError<BadRequestExceptionError>()("BadRequestException", BadRequestException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
 
 //# Operations
 export const cancelFindingsReport = /*#__PURE__*/ makeOperation(() => Operation({ version: "2020-06-08", uri: "/reporting/cancel", method: "POST", sdkId: "Inspector2", sigV4ServiceName: "inspector2", name: "Inspector2.CancelFindingsReport" }, CancelFindingsReportRequest, CancelFindingsReportResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

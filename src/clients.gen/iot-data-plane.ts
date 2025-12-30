@@ -3,47 +3,47 @@ import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperat
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const DeleteConnectionRequest = Schema.Struct({clientId: Schema.String, cleanSession: Schema.optional(Schema.Boolean), preventWillMessage: Schema.optional(Schema.Boolean)});
-export const DeleteThingShadowRequest = Schema.Struct({thingName: Schema.String, shadowName: Schema.optional(Schema.String)});
-export const GetRetainedMessageRequest = Schema.Struct({topic: Schema.String});
-export const GetThingShadowRequest = Schema.Struct({thingName: Schema.String, shadowName: Schema.optional(Schema.String)});
-export const ListNamedShadowsForThingRequest = Schema.Struct({thingName: Schema.String, nextToken: Schema.optional(Schema.String), pageSize: Schema.optional(Schema.Number)});
-export const ListRetainedMessagesRequest = Schema.Struct({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const PublishRequest = Schema.Struct({topic: Schema.String, qos: Schema.optional(Schema.Number), retain: Schema.optional(Schema.Boolean), payload: Schema.optional(Body("undefined", StreamBody())), userProperties: Schema.optional(Header("x-amz-mqtt5-user-properties")), payloadFormatIndicator: Schema.optional(Header("x-amz-mqtt5-payload-format-indicator")), contentType: Schema.optional(Schema.String), responseTopic: Schema.optional(Schema.String), correlationData: Schema.optional(Header("x-amz-mqtt5-correlation-data")), messageExpiry: Schema.optional(Schema.Number)});
-export const UpdateThingShadowRequest = Schema.Struct({thingName: Schema.String, shadowName: Schema.optional(Schema.String), payload: Body("undefined", StreamBody())});
+export class DeleteConnectionRequest extends Schema.Class<DeleteConnectionRequest>("DeleteConnectionRequest")({clientId: Schema.String, cleanSession: Schema.optional(Schema.Boolean), preventWillMessage: Schema.optional(Schema.Boolean)}) {}
+export class DeleteThingShadowRequest extends Schema.Class<DeleteThingShadowRequest>("DeleteThingShadowRequest")({thingName: Schema.String, shadowName: Schema.optional(Schema.String)}) {}
+export class GetRetainedMessageRequest extends Schema.Class<GetRetainedMessageRequest>("GetRetainedMessageRequest")({topic: Schema.String}) {}
+export class GetThingShadowRequest extends Schema.Class<GetThingShadowRequest>("GetThingShadowRequest")({thingName: Schema.String, shadowName: Schema.optional(Schema.String)}) {}
+export class ListNamedShadowsForThingRequest extends Schema.Class<ListNamedShadowsForThingRequest>("ListNamedShadowsForThingRequest")({thingName: Schema.String, nextToken: Schema.optional(Schema.String), pageSize: Schema.optional(Schema.Number)}) {}
+export class ListRetainedMessagesRequest extends Schema.Class<ListRetainedMessagesRequest>("ListRetainedMessagesRequest")({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class PublishRequest extends Schema.Class<PublishRequest>("PublishRequest")({topic: Schema.String, qos: Schema.optional(Schema.Number), retain: Schema.optional(Schema.Boolean), payload: Schema.optional(Body("undefined", StreamBody())), userProperties: Schema.optional(Header("x-amz-mqtt5-user-properties")), payloadFormatIndicator: Schema.optional(Header("x-amz-mqtt5-payload-format-indicator")), contentType: Schema.optional(Schema.String), responseTopic: Schema.optional(Schema.String), correlationData: Schema.optional(Header("x-amz-mqtt5-correlation-data")), messageExpiry: Schema.optional(Schema.Number)}) {}
+export class UpdateThingShadowRequest extends Schema.Class<UpdateThingShadowRequest>("UpdateThingShadowRequest")({thingName: Schema.String, shadowName: Schema.optional(Schema.String), payload: Body("undefined", StreamBody())}) {}
 export const NamedShadowList = Schema.Array(Schema.String);
-export const ForbiddenException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DeleteThingShadowResponse = Schema.Struct({payload: Body("undefined", StreamBody())});
-export const GetRetainedMessageResponse = Schema.Struct({topic: Schema.optional(Schema.String), payload: Schema.optional(StreamBody()), qos: Schema.optional(Schema.Number), lastModifiedTime: Schema.optional(Schema.Number), userProperties: Schema.optional(StreamBody())});
-export const GetThingShadowResponse = Schema.Struct({payload: Schema.optional(Body("undefined", StreamBody()))});
-export const ListNamedShadowsForThingResponse = Schema.Struct({results: Schema.optional(NamedShadowList), nextToken: Schema.optional(Schema.String), timestamp: Schema.optional(Schema.Number)});
-export const InternalFailureException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UpdateThingShadowResponse = Schema.Struct({payload: Schema.optional(Body("undefined", StreamBody()))});
-export const RetainedMessageSummary = Schema.Struct({topic: Schema.optional(Schema.String), payloadSize: Schema.optional(Schema.Number), qos: Schema.optional(Schema.Number), lastModifiedTime: Schema.optional(Schema.Number)});
+export class ForbiddenException extends Schema.Class<ForbiddenException>("ForbiddenException")({message: Schema.optional(Schema.String)}) {}
+export class DeleteThingShadowResponse extends Schema.Class<DeleteThingShadowResponse>("DeleteThingShadowResponse")({payload: Body("undefined", StreamBody())}) {}
+export class GetRetainedMessageResponse extends Schema.Class<GetRetainedMessageResponse>("GetRetainedMessageResponse")({topic: Schema.optional(Schema.String), payload: Schema.optional(StreamBody()), qos: Schema.optional(Schema.Number), lastModifiedTime: Schema.optional(Schema.Number), userProperties: Schema.optional(StreamBody())}) {}
+export class GetThingShadowResponse extends Schema.Class<GetThingShadowResponse>("GetThingShadowResponse")({payload: Schema.optional(Body("undefined", StreamBody()))}) {}
+export class ListNamedShadowsForThingResponse extends Schema.Class<ListNamedShadowsForThingResponse>("ListNamedShadowsForThingResponse")({results: Schema.optional(NamedShadowList), nextToken: Schema.optional(Schema.String), timestamp: Schema.optional(Schema.Number)}) {}
+export class InternalFailureException extends Schema.Class<InternalFailureException>("InternalFailureException")({message: Schema.optional(Schema.String)}) {}
+export class UpdateThingShadowResponse extends Schema.Class<UpdateThingShadowResponse>("UpdateThingShadowResponse")({payload: Schema.optional(Body("undefined", StreamBody()))}) {}
+export class RetainedMessageSummary extends Schema.Class<RetainedMessageSummary>("RetainedMessageSummary")({topic: Schema.optional(Schema.String), payloadSize: Schema.optional(Schema.Number), qos: Schema.optional(Schema.Number), lastModifiedTime: Schema.optional(Schema.Number)}) {}
 export const RetainedMessageList = Schema.Array(RetainedMessageSummary);
-export const InvalidRequestException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const MethodNotAllowedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ServiceUnavailableException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ThrottlingException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ListRetainedMessagesResponse = Schema.Struct({retainedTopics: Schema.optional(RetainedMessageList), nextToken: Schema.optional(Schema.String)});
-export const UnauthorizedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ConflictException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UnsupportedDocumentEncodingException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const RequestEntityTooLargeException = Schema.Struct({message: Schema.optional(Schema.String)});
+export class InvalidRequestException extends Schema.Class<InvalidRequestException>("InvalidRequestException")({message: Schema.optional(Schema.String)}) {}
+export class MethodNotAllowedException extends Schema.Class<MethodNotAllowedException>("MethodNotAllowedException")({message: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class ServiceUnavailableException extends Schema.Class<ServiceUnavailableException>("ServiceUnavailableException")({message: Schema.optional(Schema.String)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({message: Schema.optional(Schema.String)}) {}
+export class ListRetainedMessagesResponse extends Schema.Class<ListRetainedMessagesResponse>("ListRetainedMessagesResponse")({retainedTopics: Schema.optional(RetainedMessageList), nextToken: Schema.optional(Schema.String)}) {}
+export class UnauthorizedException extends Schema.Class<UnauthorizedException>("UnauthorizedException")({message: Schema.optional(Schema.String)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({message: Schema.optional(Schema.String)}) {}
+export class UnsupportedDocumentEncodingException extends Schema.Class<UnsupportedDocumentEncodingException>("UnsupportedDocumentEncodingException")({message: Schema.optional(Schema.String)}) {}
+export class RequestEntityTooLargeException extends Schema.Class<RequestEntityTooLargeException>("RequestEntityTooLargeException")({message: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class ForbiddenExceptionError extends Schema.TaggedError<ForbiddenExceptionError>()("ForbiddenException", ForbiddenException) {};
-export class InternalFailureExceptionError extends Schema.TaggedError<InternalFailureExceptionError>()("InternalFailureException", InternalFailureException) {};
-export class InvalidRequestExceptionError extends Schema.TaggedError<InvalidRequestExceptionError>()("InvalidRequestException", InvalidRequestException) {};
-export class MethodNotAllowedExceptionError extends Schema.TaggedError<MethodNotAllowedExceptionError>()("MethodNotAllowedException", MethodNotAllowedException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ServiceUnavailableExceptionError extends Schema.TaggedError<ServiceUnavailableExceptionError>()("ServiceUnavailableException", ServiceUnavailableException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class UnauthorizedExceptionError extends Schema.TaggedError<UnauthorizedExceptionError>()("UnauthorizedException", UnauthorizedException) {};
-export class UnsupportedDocumentEncodingExceptionError extends Schema.TaggedError<UnsupportedDocumentEncodingExceptionError>()("UnsupportedDocumentEncodingException", UnsupportedDocumentEncodingException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class RequestEntityTooLargeExceptionError extends Schema.TaggedError<RequestEntityTooLargeExceptionError>()("RequestEntityTooLargeException", RequestEntityTooLargeException) {};
+export class ForbiddenExceptionError extends Schema.TaggedError<ForbiddenExceptionError>()("ForbiddenException", ForbiddenException.fields) {};
+export class InternalFailureExceptionError extends Schema.TaggedError<InternalFailureExceptionError>()("InternalFailureException", InternalFailureException.fields) {};
+export class InvalidRequestExceptionError extends Schema.TaggedError<InvalidRequestExceptionError>()("InvalidRequestException", InvalidRequestException.fields) {};
+export class MethodNotAllowedExceptionError extends Schema.TaggedError<MethodNotAllowedExceptionError>()("MethodNotAllowedException", MethodNotAllowedException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ServiceUnavailableExceptionError extends Schema.TaggedError<ServiceUnavailableExceptionError>()("ServiceUnavailableException", ServiceUnavailableException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class UnauthorizedExceptionError extends Schema.TaggedError<UnauthorizedExceptionError>()("UnauthorizedException", UnauthorizedException.fields) {};
+export class UnsupportedDocumentEncodingExceptionError extends Schema.TaggedError<UnsupportedDocumentEncodingExceptionError>()("UnsupportedDocumentEncodingException", UnsupportedDocumentEncodingException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class RequestEntityTooLargeExceptionError extends Schema.TaggedError<RequestEntityTooLargeExceptionError>()("RequestEntityTooLargeException", RequestEntityTooLargeException.fields) {};
 
 //# Operations
 export const deleteConnection = /*#__PURE__*/ makeOperation(() => Operation({ version: "2015-05-28", uri: "/connections/{clientId}", method: "DELETE", sdkId: "IoT Data Plane", sigV4ServiceName: "iotdata", name: "IotMoonrakerService.DeleteConnection" }, DeleteConnectionRequest, Schema.Struct({}), [ForbiddenExceptionError, InternalFailureExceptionError, InvalidRequestExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

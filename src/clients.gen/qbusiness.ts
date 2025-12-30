@@ -7,277 +7,277 @@ export const QIamActions = Schema.Array(Schema.String);
 export const UserGroups = Schema.Array(Schema.String);
 export const DataSourceIds = Schema.Array(Schema.String);
 export const TagKeys = Schema.Array(Schema.String);
-export const CancelSubscriptionRequest = Schema.Struct({applicationId: Schema.String, subscriptionId: Schema.String});
-export const CheckDocumentAccessRequest = Schema.Struct({applicationId: Schema.String, indexId: Schema.String, userId: Schema.String, documentId: Schema.String, dataSourceId: Schema.optional(Schema.String)});
-export const CreateAnonymousWebExperienceUrlRequest = Schema.Struct({applicationId: Schema.String, webExperienceId: Schema.String, sessionDurationInMinutes: Schema.optional(Schema.Number)});
-export const DeleteAttachmentRequest = Schema.Struct({applicationId: Schema.String, conversationId: Schema.String, attachmentId: Schema.String, userId: Schema.optional(Schema.String)});
-export const DeleteAttachmentResponse = Schema.Struct({});
-export const DeleteChatControlsConfigurationRequest = Schema.Struct({applicationId: Schema.String});
-export const DeleteChatControlsConfigurationResponse = Schema.Struct({});
-export const DeleteChatResponseConfigurationRequest = Schema.Struct({applicationId: Schema.String, chatResponseConfigurationId: Schema.String});
-export const DeleteChatResponseConfigurationResponse = Schema.Struct({});
-export const DeleteConversationRequest = Schema.Struct({conversationId: Schema.String, applicationId: Schema.String, userId: Schema.optional(Schema.String)});
-export const DeleteConversationResponse = Schema.Struct({});
-export const DeleteGroupRequest = Schema.Struct({applicationId: Schema.String, indexId: Schema.String, groupName: Schema.String, dataSourceId: Schema.optional(Schema.String)});
-export const DeleteGroupResponse = Schema.Struct({});
-export const DeleteUserRequest = Schema.Struct({applicationId: Schema.String, userId: Schema.String});
-export const DeleteUserResponse = Schema.Struct({});
-export const DisassociatePermissionRequest = Schema.Struct({applicationId: Schema.String, statementId: Schema.String});
-export const DisassociatePermissionResponse = Schema.Struct({});
-export const GetChatControlsConfigurationRequest = Schema.Struct({applicationId: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const GetChatResponseConfigurationRequest = Schema.Struct({applicationId: Schema.String, chatResponseConfigurationId: Schema.String});
-export const GetDocumentContentRequest = Schema.Struct({applicationId: Schema.String, indexId: Schema.String, dataSourceId: Schema.optional(Schema.String), documentId: Schema.String, outputFormat: Schema.optional(Schema.String)});
-export const GetGroupRequest = Schema.Struct({applicationId: Schema.String, indexId: Schema.String, groupName: Schema.String, dataSourceId: Schema.optional(Schema.String)});
-export const GetMediaRequest = Schema.Struct({applicationId: Schema.String, conversationId: Schema.String, messageId: Schema.String, mediaId: Schema.String});
-export const GetPolicyRequest = Schema.Struct({applicationId: Schema.String});
-export const GetUserRequest = Schema.Struct({applicationId: Schema.String, userId: Schema.String});
-export const ListAttachmentsRequest = Schema.Struct({applicationId: Schema.String, conversationId: Schema.optional(Schema.String), userId: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListChatResponseConfigurationsRequest = Schema.Struct({applicationId: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListConversationsRequest = Schema.Struct({applicationId: Schema.String, userId: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListDataSourceSyncJobsRequest = Schema.Struct({dataSourceId: Schema.String, applicationId: Schema.String, indexId: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), startTime: Schema.optional(Schema.Date), endTime: Schema.optional(Schema.Date), statusFilter: Schema.optional(Schema.String)});
-export const ListDocumentsRequest = Schema.Struct({applicationId: Schema.String, indexId: Schema.String, dataSourceIds: Schema.optional(DataSourceIds), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListGroupsRequest = Schema.Struct({applicationId: Schema.String, indexId: Schema.String, updatedEarlierThan: Schema.Date, dataSourceId: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListMessagesRequest = Schema.Struct({conversationId: Schema.String, applicationId: Schema.String, userId: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListPluginActionsRequest = Schema.Struct({applicationId: Schema.String, pluginId: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListPluginTypeActionsRequest = Schema.Struct({pluginType: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListPluginTypeMetadataRequest = Schema.Struct({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListSubscriptionsRequest = Schema.Struct({applicationId: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListTagsForResourceRequest = Schema.Struct({resourceARN: Schema.String});
-export const StartDataSourceSyncJobRequest = Schema.Struct({dataSourceId: Schema.String, applicationId: Schema.String, indexId: Schema.String});
-export const StopDataSourceSyncJobRequest = Schema.Struct({dataSourceId: Schema.String, applicationId: Schema.String, indexId: Schema.String});
-export const StopDataSourceSyncJobResponse = Schema.Struct({});
-export const Tag = Schema.Struct({key: Schema.String, value: Schema.String});
+export class CancelSubscriptionRequest extends Schema.Class<CancelSubscriptionRequest>("CancelSubscriptionRequest")({applicationId: Schema.String, subscriptionId: Schema.String}) {}
+export class CheckDocumentAccessRequest extends Schema.Class<CheckDocumentAccessRequest>("CheckDocumentAccessRequest")({applicationId: Schema.String, indexId: Schema.String, userId: Schema.String, documentId: Schema.String, dataSourceId: Schema.optional(Schema.String)}) {}
+export class CreateAnonymousWebExperienceUrlRequest extends Schema.Class<CreateAnonymousWebExperienceUrlRequest>("CreateAnonymousWebExperienceUrlRequest")({applicationId: Schema.String, webExperienceId: Schema.String, sessionDurationInMinutes: Schema.optional(Schema.Number)}) {}
+export class DeleteAttachmentRequest extends Schema.Class<DeleteAttachmentRequest>("DeleteAttachmentRequest")({applicationId: Schema.String, conversationId: Schema.String, attachmentId: Schema.String, userId: Schema.optional(Schema.String)}) {}
+export class DeleteAttachmentResponse extends Schema.Class<DeleteAttachmentResponse>("DeleteAttachmentResponse")({}) {}
+export class DeleteChatControlsConfigurationRequest extends Schema.Class<DeleteChatControlsConfigurationRequest>("DeleteChatControlsConfigurationRequest")({applicationId: Schema.String}) {}
+export class DeleteChatControlsConfigurationResponse extends Schema.Class<DeleteChatControlsConfigurationResponse>("DeleteChatControlsConfigurationResponse")({}) {}
+export class DeleteChatResponseConfigurationRequest extends Schema.Class<DeleteChatResponseConfigurationRequest>("DeleteChatResponseConfigurationRequest")({applicationId: Schema.String, chatResponseConfigurationId: Schema.String}) {}
+export class DeleteChatResponseConfigurationResponse extends Schema.Class<DeleteChatResponseConfigurationResponse>("DeleteChatResponseConfigurationResponse")({}) {}
+export class DeleteConversationRequest extends Schema.Class<DeleteConversationRequest>("DeleteConversationRequest")({conversationId: Schema.String, applicationId: Schema.String, userId: Schema.optional(Schema.String)}) {}
+export class DeleteConversationResponse extends Schema.Class<DeleteConversationResponse>("DeleteConversationResponse")({}) {}
+export class DeleteGroupRequest extends Schema.Class<DeleteGroupRequest>("DeleteGroupRequest")({applicationId: Schema.String, indexId: Schema.String, groupName: Schema.String, dataSourceId: Schema.optional(Schema.String)}) {}
+export class DeleteGroupResponse extends Schema.Class<DeleteGroupResponse>("DeleteGroupResponse")({}) {}
+export class DeleteUserRequest extends Schema.Class<DeleteUserRequest>("DeleteUserRequest")({applicationId: Schema.String, userId: Schema.String}) {}
+export class DeleteUserResponse extends Schema.Class<DeleteUserResponse>("DeleteUserResponse")({}) {}
+export class DisassociatePermissionRequest extends Schema.Class<DisassociatePermissionRequest>("DisassociatePermissionRequest")({applicationId: Schema.String, statementId: Schema.String}) {}
+export class DisassociatePermissionResponse extends Schema.Class<DisassociatePermissionResponse>("DisassociatePermissionResponse")({}) {}
+export class GetChatControlsConfigurationRequest extends Schema.Class<GetChatControlsConfigurationRequest>("GetChatControlsConfigurationRequest")({applicationId: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class GetChatResponseConfigurationRequest extends Schema.Class<GetChatResponseConfigurationRequest>("GetChatResponseConfigurationRequest")({applicationId: Schema.String, chatResponseConfigurationId: Schema.String}) {}
+export class GetDocumentContentRequest extends Schema.Class<GetDocumentContentRequest>("GetDocumentContentRequest")({applicationId: Schema.String, indexId: Schema.String, dataSourceId: Schema.optional(Schema.String), documentId: Schema.String, outputFormat: Schema.optional(Schema.String)}) {}
+export class GetGroupRequest extends Schema.Class<GetGroupRequest>("GetGroupRequest")({applicationId: Schema.String, indexId: Schema.String, groupName: Schema.String, dataSourceId: Schema.optional(Schema.String)}) {}
+export class GetMediaRequest extends Schema.Class<GetMediaRequest>("GetMediaRequest")({applicationId: Schema.String, conversationId: Schema.String, messageId: Schema.String, mediaId: Schema.String}) {}
+export class GetPolicyRequest extends Schema.Class<GetPolicyRequest>("GetPolicyRequest")({applicationId: Schema.String}) {}
+export class GetUserRequest extends Schema.Class<GetUserRequest>("GetUserRequest")({applicationId: Schema.String, userId: Schema.String}) {}
+export class ListAttachmentsRequest extends Schema.Class<ListAttachmentsRequest>("ListAttachmentsRequest")({applicationId: Schema.String, conversationId: Schema.optional(Schema.String), userId: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListChatResponseConfigurationsRequest extends Schema.Class<ListChatResponseConfigurationsRequest>("ListChatResponseConfigurationsRequest")({applicationId: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListConversationsRequest extends Schema.Class<ListConversationsRequest>("ListConversationsRequest")({applicationId: Schema.String, userId: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListDataSourceSyncJobsRequest extends Schema.Class<ListDataSourceSyncJobsRequest>("ListDataSourceSyncJobsRequest")({dataSourceId: Schema.String, applicationId: Schema.String, indexId: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), startTime: Schema.optional(Schema.Date), endTime: Schema.optional(Schema.Date), statusFilter: Schema.optional(Schema.String)}) {}
+export class ListDocumentsRequest extends Schema.Class<ListDocumentsRequest>("ListDocumentsRequest")({applicationId: Schema.String, indexId: Schema.String, dataSourceIds: Schema.optional(DataSourceIds), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListGroupsRequest extends Schema.Class<ListGroupsRequest>("ListGroupsRequest")({applicationId: Schema.String, indexId: Schema.String, updatedEarlierThan: Schema.Date, dataSourceId: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListMessagesRequest extends Schema.Class<ListMessagesRequest>("ListMessagesRequest")({conversationId: Schema.String, applicationId: Schema.String, userId: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListPluginActionsRequest extends Schema.Class<ListPluginActionsRequest>("ListPluginActionsRequest")({applicationId: Schema.String, pluginId: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListPluginTypeActionsRequest extends Schema.Class<ListPluginTypeActionsRequest>("ListPluginTypeActionsRequest")({pluginType: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListPluginTypeMetadataRequest extends Schema.Class<ListPluginTypeMetadataRequest>("ListPluginTypeMetadataRequest")({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListSubscriptionsRequest extends Schema.Class<ListSubscriptionsRequest>("ListSubscriptionsRequest")({applicationId: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({resourceARN: Schema.String}) {}
+export class StartDataSourceSyncJobRequest extends Schema.Class<StartDataSourceSyncJobRequest>("StartDataSourceSyncJobRequest")({dataSourceId: Schema.String, applicationId: Schema.String, indexId: Schema.String}) {}
+export class StopDataSourceSyncJobRequest extends Schema.Class<StopDataSourceSyncJobRequest>("StopDataSourceSyncJobRequest")({dataSourceId: Schema.String, applicationId: Schema.String, indexId: Schema.String}) {}
+export class StopDataSourceSyncJobResponse extends Schema.Class<StopDataSourceSyncJobResponse>("StopDataSourceSyncJobResponse")({}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({key: Schema.String, value: Schema.String}) {}
 export const Tags = Schema.Array(Tag);
-export const TagResourceRequest = Schema.Struct({resourceARN: Schema.String, tags: Tags});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({resourceARN: Schema.String, tagKeys: TagKeys});
-export const UntagResourceResponse = Schema.Struct({});
-export const InstructionCollection = Schema.Struct({responseLength: Schema.optional(Schema.String), targetAudience: Schema.optional(Schema.String), perspective: Schema.optional(Schema.String), outputStyle: Schema.optional(Schema.String), identity: Schema.optional(Schema.String), tone: Schema.optional(Schema.String), customInstructions: Schema.optional(Schema.String), examples: Schema.optional(Schema.String)});
-export const ResponseConfiguration = Schema.Struct({instructionCollection: Schema.optional(InstructionCollection)});
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({resourceARN: Schema.String, tags: Tags}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({resourceARN: Schema.String, tagKeys: TagKeys}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class InstructionCollection extends Schema.Class<InstructionCollection>("InstructionCollection")({responseLength: Schema.optional(Schema.String), targetAudience: Schema.optional(Schema.String), perspective: Schema.optional(Schema.String), outputStyle: Schema.optional(Schema.String), identity: Schema.optional(Schema.String), tone: Schema.optional(Schema.String), customInstructions: Schema.optional(Schema.String), examples: Schema.optional(Schema.String)}) {}
+export class ResponseConfiguration extends Schema.Class<ResponseConfiguration>("ResponseConfiguration")({instructionCollection: Schema.optional(InstructionCollection)}) {}
 export const ResponseConfigurations = Schema.Record({key: Schema.String, value: ResponseConfiguration});
-export const UpdateChatResponseConfigurationRequest = Schema.Struct({applicationId: Schema.String, chatResponseConfigurationId: Schema.String, displayName: Schema.optional(Schema.String), responseConfigurations: ResponseConfigurations, clientToken: Schema.optional(Schema.String)});
-export const UpdateChatResponseConfigurationResponse = Schema.Struct({});
-export const UpdateSubscriptionRequest = Schema.Struct({applicationId: Schema.String, subscriptionId: Schema.String, type: Schema.String});
-export const UserAlias = Schema.Struct({indexId: Schema.optional(Schema.String), dataSourceId: Schema.optional(Schema.String), userId: Schema.String});
+export class UpdateChatResponseConfigurationRequest extends Schema.Class<UpdateChatResponseConfigurationRequest>("UpdateChatResponseConfigurationRequest")({applicationId: Schema.String, chatResponseConfigurationId: Schema.String, displayName: Schema.optional(Schema.String), responseConfigurations: ResponseConfigurations, clientToken: Schema.optional(Schema.String)}) {}
+export class UpdateChatResponseConfigurationResponse extends Schema.Class<UpdateChatResponseConfigurationResponse>("UpdateChatResponseConfigurationResponse")({}) {}
+export class UpdateSubscriptionRequest extends Schema.Class<UpdateSubscriptionRequest>("UpdateSubscriptionRequest")({applicationId: Schema.String, subscriptionId: Schema.String, type: Schema.String}) {}
+export class UserAlias extends Schema.Class<UserAlias>("UserAlias")({indexId: Schema.optional(Schema.String), dataSourceId: Schema.optional(Schema.String), userId: Schema.String}) {}
 export const UserAliases = Schema.Array(UserAlias);
-export const UpdateUserRequest = Schema.Struct({applicationId: Schema.String, userId: Schema.String, userAliasesToUpdate: Schema.optional(UserAliases), userAliasesToDelete: Schema.optional(UserAliases)});
+export class UpdateUserRequest extends Schema.Class<UpdateUserRequest>("UpdateUserRequest")({applicationId: Schema.String, userId: Schema.String, userAliasesToUpdate: Schema.optional(UserAliases), userAliasesToDelete: Schema.optional(UserAliases)}) {}
 export const PermissionConditionValues = Schema.Array(Schema.String);
-export const EndOfInputEvent = Schema.Struct({});
-export const DocumentAttributeStringListValue = Schema.Array(Schema.String);
-export const DocumentAttributeValue = Schema.Union(Schema.String, DocumentAttributeStringListValue, Schema.Number, Schema.Date);
-export const DocumentAttribute = Schema.Struct({name: Schema.String, value: DocumentAttributeValue});
-export const AttributeFilter = Schema.Struct({andAllFilters: Schema.optional(AttributeFilters), orAllFilters: Schema.optional(AttributeFilters), notFilter: Schema.optional(AttributeFilter), equalsTo: Schema.optional(DocumentAttribute), containsAll: Schema.optional(DocumentAttribute), containsAny: Schema.optional(DocumentAttribute), greaterThan: Schema.optional(DocumentAttribute), greaterThanOrEquals: Schema.optional(DocumentAttribute), lessThan: Schema.optional(DocumentAttribute), lessThanOrEquals: Schema.optional(DocumentAttribute)});
-export const AttributeFilters = Schema.Array(AttributeFilter);
+export class EndOfInputEvent extends Schema.Class<EndOfInputEvent>("EndOfInputEvent")({}) {}
+export const AttributeFilters = Schema.Array(Schema.suspend((): Schema.Schema<AttributeFilter> => AttributeFilter));
 export const BlockedPhrases = Schema.Array(Schema.String);
 export const ExampleChatMessages = Schema.Array(Schema.String);
-export const PermissionCondition = Schema.Struct({conditionOperator: Schema.String, conditionKey: Schema.String, conditionValues: PermissionConditionValues});
+export class PermissionCondition extends Schema.Class<PermissionCondition>("PermissionCondition")({conditionOperator: Schema.String, conditionKey: Schema.String, conditionValues: PermissionConditionValues}) {}
 export const PermissionConditions = Schema.Array(PermissionCondition);
-export const DeleteDocument = Schema.Struct({documentId: Schema.String});
+export class DeleteDocument extends Schema.Class<DeleteDocument>("DeleteDocument")({documentId: Schema.String}) {}
 export const DeleteDocuments = Schema.Array(DeleteDocument);
+export const DocumentAttributeStringListValue = Schema.Array(Schema.String);
+export const DocumentAttributeValue = Schema.Union(Schema.String, DocumentAttributeStringListValue, Schema.Number, Schema.Date);
+export class DocumentAttribute extends Schema.Class<DocumentAttribute>("DocumentAttribute")({name: Schema.String, value: DocumentAttributeValue}) {}
+export class AttributeFilter extends Schema.Class<AttributeFilter>("AttributeFilter")({andAllFilters: Schema.optional(Schema.suspend(() => AttributeFilters)), orAllFilters: Schema.optional(Schema.suspend(() => AttributeFilters)), notFilter: Schema.optional(Schema.suspend((): Schema.Schema<AttributeFilter> => AttributeFilter)), equalsTo: Schema.optional(DocumentAttribute), containsAll: Schema.optional(DocumentAttribute), containsAny: Schema.optional(DocumentAttribute), greaterThan: Schema.optional(DocumentAttribute), greaterThanOrEquals: Schema.optional(DocumentAttribute), lessThan: Schema.optional(DocumentAttribute), lessThanOrEquals: Schema.optional(DocumentAttribute)}) {}
 export const SubscriptionPrincipal = Schema.Union(Schema.String, Schema.String);
-export const ErrorDetail = Schema.Struct({errorMessage: Schema.optional(Schema.String), errorCode: Schema.optional(Schema.String)});
-export const GroupStatusDetail = Schema.Struct({status: Schema.optional(Schema.String), lastUpdatedAt: Schema.optional(Schema.Date), errorDetail: Schema.optional(ErrorDetail)});
+export class ErrorDetail extends Schema.Class<ErrorDetail>("ErrorDetail")({errorMessage: Schema.optional(Schema.String), errorCode: Schema.optional(Schema.String)}) {}
+export class GroupStatusDetail extends Schema.Class<GroupStatusDetail>("GroupStatusDetail")({status: Schema.optional(Schema.String), lastUpdatedAt: Schema.optional(Schema.Date), errorDetail: Schema.optional(ErrorDetail)}) {}
 export const GroupStatusDetails = Schema.Array(GroupStatusDetail);
-export const MessageUsefulnessFeedback = Schema.Struct({usefulness: Schema.String, reason: Schema.optional(Schema.String), comment: Schema.optional(Schema.String), submittedAt: Schema.Date});
-export const OrchestrationConfiguration = Schema.Struct({control: Schema.String});
-export const BlockedPhrasesConfigurationUpdate = Schema.Struct({blockedPhrasesToCreateOrUpdate: Schema.optional(BlockedPhrases), blockedPhrasesToDelete: Schema.optional(BlockedPhrases), systemMessageOverride: Schema.optional(Schema.String)});
-export const CreatorModeConfiguration = Schema.Struct({creatorModeControl: Schema.String});
-export const HallucinationReductionConfiguration = Schema.Struct({hallucinationReductionControl: Schema.optional(Schema.String)});
-export const AssociatePermissionRequest = Schema.Struct({applicationId: Schema.String, statementId: Schema.String, actions: QIamActions, conditions: Schema.optional(PermissionConditions), principal: Schema.String});
-export const BatchDeleteDocumentRequest = Schema.Struct({applicationId: Schema.String, indexId: Schema.String, documents: DeleteDocuments, dataSourceSyncId: Schema.optional(Schema.String)});
-export const CreateAnonymousWebExperienceUrlResponse = Schema.Struct({anonymousUrl: Schema.optional(Schema.String)});
-export const CreateSubscriptionRequest = Schema.Struct({applicationId: Schema.String, principal: SubscriptionPrincipal, type: Schema.String, clientToken: Schema.optional(Schema.String)});
-export const CreateUserRequest = Schema.Struct({applicationId: Schema.String, userId: Schema.String, userAliases: Schema.optional(UserAliases), clientToken: Schema.optional(Schema.String)});
-export const CreateUserResponse = Schema.Struct({});
-export const AccessDeniedException = Schema.Struct({message: Schema.String});
-export const InternalServerException = Schema.Struct({message: Schema.String});
-export const ConflictException = Schema.Struct({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String});
-export const LicenseNotFoundException = Schema.Struct({message: Schema.String});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String});
-export const ThrottlingException = Schema.Struct({message: Schema.String});
-export const GetDocumentContentResponse = Schema.Struct({presignedUrl: Schema.String, mimeType: Schema.String});
-export const GetMediaResponse = Schema.Struct({mediaBytes: Schema.optional(StreamBody()), mediaMimeType: Schema.optional(Schema.String)});
-export const GetPolicyResponse = Schema.Struct({policy: Schema.optional(Schema.String)});
-export const GetUserResponse = Schema.Struct({userAliases: Schema.optional(UserAliases)});
-export const ActionSummary = Schema.Struct({actionIdentifier: Schema.optional(Schema.String), displayName: Schema.optional(Schema.String), instructionExample: Schema.optional(Schema.String), description: Schema.optional(Schema.String)});
+export class MessageUsefulnessFeedback extends Schema.Class<MessageUsefulnessFeedback>("MessageUsefulnessFeedback")({usefulness: Schema.String, reason: Schema.optional(Schema.String), comment: Schema.optional(Schema.String), submittedAt: Schema.Date}) {}
+export class OrchestrationConfiguration extends Schema.Class<OrchestrationConfiguration>("OrchestrationConfiguration")({control: Schema.String}) {}
+export class BlockedPhrasesConfigurationUpdate extends Schema.Class<BlockedPhrasesConfigurationUpdate>("BlockedPhrasesConfigurationUpdate")({blockedPhrasesToCreateOrUpdate: Schema.optional(BlockedPhrases), blockedPhrasesToDelete: Schema.optional(BlockedPhrases), systemMessageOverride: Schema.optional(Schema.String)}) {}
+export class CreatorModeConfiguration extends Schema.Class<CreatorModeConfiguration>("CreatorModeConfiguration")({creatorModeControl: Schema.String}) {}
+export class HallucinationReductionConfiguration extends Schema.Class<HallucinationReductionConfiguration>("HallucinationReductionConfiguration")({hallucinationReductionControl: Schema.optional(Schema.String)}) {}
+export class AssociatePermissionRequest extends Schema.Class<AssociatePermissionRequest>("AssociatePermissionRequest")({applicationId: Schema.String, statementId: Schema.String, actions: QIamActions, conditions: Schema.optional(PermissionConditions), principal: Schema.String}) {}
+export class BatchDeleteDocumentRequest extends Schema.Class<BatchDeleteDocumentRequest>("BatchDeleteDocumentRequest")({applicationId: Schema.String, indexId: Schema.String, documents: DeleteDocuments, dataSourceSyncId: Schema.optional(Schema.String)}) {}
+export class CreateAnonymousWebExperienceUrlResponse extends Schema.Class<CreateAnonymousWebExperienceUrlResponse>("CreateAnonymousWebExperienceUrlResponse")({anonymousUrl: Schema.optional(Schema.String)}) {}
+export class CreateSubscriptionRequest extends Schema.Class<CreateSubscriptionRequest>("CreateSubscriptionRequest")({applicationId: Schema.String, principal: SubscriptionPrincipal, type: Schema.String, clientToken: Schema.optional(Schema.String)}) {}
+export class CreateUserRequest extends Schema.Class<CreateUserRequest>("CreateUserRequest")({applicationId: Schema.String, userId: Schema.String, userAliases: Schema.optional(UserAliases), clientToken: Schema.optional(Schema.String)}) {}
+export class CreateUserResponse extends Schema.Class<CreateUserResponse>("CreateUserResponse")({}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({message: Schema.String}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({message: Schema.String}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String}) {}
+export class LicenseNotFoundException extends Schema.Class<LicenseNotFoundException>("LicenseNotFoundException")({message: Schema.String}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({message: Schema.String}) {}
+export class GetDocumentContentResponse extends Schema.Class<GetDocumentContentResponse>("GetDocumentContentResponse")({presignedUrl: Schema.String, mimeType: Schema.String}) {}
+export class GetMediaResponse extends Schema.Class<GetMediaResponse>("GetMediaResponse")({mediaBytes: Schema.optional(StreamBody()), mediaMimeType: Schema.optional(Schema.String)}) {}
+export class GetPolicyResponse extends Schema.Class<GetPolicyResponse>("GetPolicyResponse")({policy: Schema.optional(Schema.String)}) {}
+export class GetUserResponse extends Schema.Class<GetUserResponse>("GetUserResponse")({userAliases: Schema.optional(UserAliases)}) {}
+export class ActionSummary extends Schema.Class<ActionSummary>("ActionSummary")({actionIdentifier: Schema.optional(Schema.String), displayName: Schema.optional(Schema.String), instructionExample: Schema.optional(Schema.String), description: Schema.optional(Schema.String)}) {}
 export const Actions = Schema.Array(ActionSummary);
-export const ListPluginTypeActionsResponse = Schema.Struct({nextToken: Schema.optional(Schema.String), items: Schema.optional(Actions)});
-export const ListTagsForResourceResponse = Schema.Struct({tags: Schema.optional(Tags)});
-export const PutFeedbackRequest = Schema.Struct({applicationId: Schema.String, userId: Schema.optional(Schema.String), conversationId: Schema.String, messageId: Schema.String, messageCopiedAt: Schema.optional(Schema.Date), messageUsefulness: Schema.optional(MessageUsefulnessFeedback)});
-export const StartDataSourceSyncJobResponse = Schema.Struct({executionId: Schema.optional(Schema.String)});
-export const SubscriptionDetails = Schema.Struct({type: Schema.optional(Schema.String)});
-export const UpdateSubscriptionResponse = Schema.Struct({subscriptionArn: Schema.optional(Schema.String), currentSubscription: Schema.optional(SubscriptionDetails), nextSubscription: Schema.optional(SubscriptionDetails)});
-export const UpdateUserResponse = Schema.Struct({userAliasesAdded: Schema.optional(UserAliases), userAliasesUpdated: Schema.optional(UserAliases), userAliasesDeleted: Schema.optional(UserAliases)});
-export const S3 = Schema.Struct({bucket: Schema.String, key: Schema.String});
+export class ListPluginTypeActionsResponse extends Schema.Class<ListPluginTypeActionsResponse>("ListPluginTypeActionsResponse")({nextToken: Schema.optional(Schema.String), items: Schema.optional(Actions)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({tags: Schema.optional(Tags)}) {}
+export class PutFeedbackRequest extends Schema.Class<PutFeedbackRequest>("PutFeedbackRequest")({applicationId: Schema.String, userId: Schema.optional(Schema.String), conversationId: Schema.String, messageId: Schema.String, messageCopiedAt: Schema.optional(Schema.Date), messageUsefulness: Schema.optional(MessageUsefulnessFeedback)}) {}
+export class StartDataSourceSyncJobResponse extends Schema.Class<StartDataSourceSyncJobResponse>("StartDataSourceSyncJobResponse")({executionId: Schema.optional(Schema.String)}) {}
+export class SubscriptionDetails extends Schema.Class<SubscriptionDetails>("SubscriptionDetails")({type: Schema.optional(Schema.String)}) {}
+export class UpdateSubscriptionResponse extends Schema.Class<UpdateSubscriptionResponse>("UpdateSubscriptionResponse")({subscriptionArn: Schema.optional(Schema.String), currentSubscription: Schema.optional(SubscriptionDetails), nextSubscription: Schema.optional(SubscriptionDetails)}) {}
+export class UpdateUserResponse extends Schema.Class<UpdateUserResponse>("UpdateUserResponse")({userAliasesAdded: Schema.optional(UserAliases), userAliasesUpdated: Schema.optional(UserAliases), userAliasesDeleted: Schema.optional(UserAliases)}) {}
+export class S3 extends Schema.Class<S3>("S3")({bucket: Schema.String, key: Schema.String}) {}
 export const DocumentContent = Schema.Union(StreamBody(), S3);
-export const PluginConfiguration = Schema.Struct({pluginId: Schema.String});
+export class PluginConfiguration extends Schema.Class<PluginConfiguration>("PluginConfiguration")({pluginId: Schema.String}) {}
 export const ChatModeConfiguration = Schema.Union(PluginConfiguration);
-export const ConfigurationEvent = Schema.Struct({chatMode: Schema.optional(Schema.String), chatModeConfiguration: Schema.optional(ChatModeConfiguration), attributeFilter: Schema.optional(AttributeFilter)});
-export const TextInputEvent = Schema.Struct({userMessage: Schema.String});
-export const ConversationSource = Schema.Struct({conversationId: Schema.String, attachmentId: Schema.String});
+export class ConfigurationEvent extends Schema.Class<ConfigurationEvent>("ConfigurationEvent")({chatMode: Schema.optional(Schema.String), chatModeConfiguration: Schema.optional(ChatModeConfiguration), attributeFilter: Schema.optional(AttributeFilter)}) {}
+export class TextInputEvent extends Schema.Class<TextInputEvent>("TextInputEvent")({userMessage: Schema.String}) {}
+export class ConversationSource extends Schema.Class<ConversationSource>("ConversationSource")({conversationId: Schema.String, attachmentId: Schema.String}) {}
 export const CopyFromSource = Schema.Union(ConversationSource);
-export const AttachmentInput = Schema.Struct({data: Schema.optional(StreamBody()), name: Schema.optional(Schema.String), copyFrom: Schema.optional(CopyFromSource)});
-export const AttachmentInputEvent = Schema.Struct({attachment: Schema.optional(AttachmentInput)});
-export const ActionExecutionPayloadField = Schema.Struct({value: Schema.JsonValue});
+export class AttachmentInput extends Schema.Class<AttachmentInput>("AttachmentInput")({data: Schema.optional(StreamBody()), name: Schema.optional(Schema.String), copyFrom: Schema.optional(CopyFromSource)}) {}
+export class AttachmentInputEvent extends Schema.Class<AttachmentInputEvent>("AttachmentInputEvent")({attachment: Schema.optional(AttachmentInput)}) {}
+export class ActionExecutionPayloadField extends Schema.Class<ActionExecutionPayloadField>("ActionExecutionPayloadField")({value: Schema.JsonValue}) {}
 export const ActionExecutionPayload = Schema.Record({key: Schema.String, value: ActionExecutionPayloadField});
-export const ActionExecutionEvent = Schema.Struct({pluginId: Schema.String, payload: ActionExecutionPayload, payloadFieldNameSeparator: Schema.String});
+export class ActionExecutionEvent extends Schema.Class<ActionExecutionEvent>("ActionExecutionEvent")({pluginId: Schema.String, payload: ActionExecutionPayload, payloadFieldNameSeparator: Schema.String}) {}
 export const AuthorizationResponseMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const AuthChallengeResponseEvent = Schema.Struct({responseMap: AuthorizationResponseMap});
-export const MemberGroup = Schema.Struct({groupName: Schema.String, type: Schema.optional(Schema.String)});
+export class AuthChallengeResponseEvent extends Schema.Class<AuthChallengeResponseEvent>("AuthChallengeResponseEvent")({responseMap: AuthorizationResponseMap}) {}
+export class MemberGroup extends Schema.Class<MemberGroup>("MemberGroup")({groupName: Schema.String, type: Schema.optional(Schema.String)}) {}
 export const MemberGroups = Schema.Array(MemberGroup);
-export const MemberUser = Schema.Struct({userId: Schema.String, type: Schema.optional(Schema.String)});
+export class MemberUser extends Schema.Class<MemberUser>("MemberUser")({userId: Schema.String, type: Schema.optional(Schema.String)}) {}
 export const MemberUsers = Schema.Array(MemberUser);
-export const RetrieverContentSource = Schema.Struct({retrieverId: Schema.String});
+export class RetrieverContentSource extends Schema.Class<RetrieverContentSource>("RetrieverContentSource")({retrieverId: Schema.String}) {}
 export const UserIds = Schema.Array(Schema.String);
 export const ChatInputStream = Schema.Union(ConfigurationEvent, TextInputEvent, AttachmentInputEvent, ActionExecutionEvent, EndOfInputEvent, AuthChallengeResponseEvent);
-export const AuthChallengeResponse = Schema.Struct({responseMap: AuthorizationResponseMap});
-export const AssociatedGroup = Schema.Struct({name: Schema.optional(Schema.String), type: Schema.optional(Schema.String)});
+export class AuthChallengeResponse extends Schema.Class<AuthChallengeResponse>("AuthChallengeResponse")({responseMap: AuthorizationResponseMap}) {}
+export class AssociatedGroup extends Schema.Class<AssociatedGroup>("AssociatedGroup")({name: Schema.optional(Schema.String), type: Schema.optional(Schema.String)}) {}
 export const AssociatedGroups = Schema.Array(AssociatedGroup);
-export const AssociatedUser = Schema.Struct({id: Schema.optional(Schema.String), type: Schema.optional(Schema.String)});
+export class AssociatedUser extends Schema.Class<AssociatedUser>("AssociatedUser")({id: Schema.optional(Schema.String), type: Schema.optional(Schema.String)}) {}
 export const AssociatedUsers = Schema.Array(AssociatedUser);
-export const ValidationExceptionField = Schema.Struct({name: Schema.String, message: Schema.String});
+export class ValidationExceptionField extends Schema.Class<ValidationExceptionField>("ValidationExceptionField")({name: Schema.String, message: Schema.String}) {}
 export const ValidationExceptionFields = Schema.Array(ValidationExceptionField);
-export const AppliedOrchestrationConfiguration = Schema.Struct({control: Schema.String});
-export const BlockedPhrasesConfiguration = Schema.Struct({blockedPhrases: Schema.optional(BlockedPhrases), systemMessageOverride: Schema.optional(Schema.String)});
-export const AppliedCreatorModeConfiguration = Schema.Struct({creatorModeControl: Schema.String});
-export const Attachment = Schema.Struct({attachmentId: Schema.optional(Schema.String), conversationId: Schema.optional(Schema.String), name: Schema.optional(Schema.String), copyFrom: Schema.optional(CopyFromSource), fileType: Schema.optional(Schema.String), fileSize: Schema.optional(Schema.Number), md5chksum: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date), status: Schema.optional(Schema.String), error: Schema.optional(ErrorDetail)});
+export class AppliedOrchestrationConfiguration extends Schema.Class<AppliedOrchestrationConfiguration>("AppliedOrchestrationConfiguration")({control: Schema.String}) {}
+export class BlockedPhrasesConfiguration extends Schema.Class<BlockedPhrasesConfiguration>("BlockedPhrasesConfiguration")({blockedPhrases: Schema.optional(BlockedPhrases), systemMessageOverride: Schema.optional(Schema.String)}) {}
+export class AppliedCreatorModeConfiguration extends Schema.Class<AppliedCreatorModeConfiguration>("AppliedCreatorModeConfiguration")({creatorModeControl: Schema.String}) {}
+export class Attachment extends Schema.Class<Attachment>("Attachment")({attachmentId: Schema.optional(Schema.String), conversationId: Schema.optional(Schema.String), name: Schema.optional(Schema.String), copyFrom: Schema.optional(CopyFromSource), fileType: Schema.optional(Schema.String), fileSize: Schema.optional(Schema.Number), md5chksum: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date), status: Schema.optional(Schema.String), error: Schema.optional(ErrorDetail)}) {}
 export const AttachmentList = Schema.Array(Attachment);
-export const ChatResponseConfiguration = Schema.Struct({chatResponseConfigurationId: Schema.String, chatResponseConfigurationArn: Schema.String, displayName: Schema.String, responseConfigurationSummary: Schema.optional(Schema.String), status: Schema.String, createdAt: Schema.optional(Schema.Date), updatedAt: Schema.optional(Schema.Date)});
+export class ChatResponseConfiguration extends Schema.Class<ChatResponseConfiguration>("ChatResponseConfiguration")({chatResponseConfigurationId: Schema.String, chatResponseConfigurationArn: Schema.String, displayName: Schema.String, responseConfigurationSummary: Schema.optional(Schema.String), status: Schema.String, createdAt: Schema.optional(Schema.Date), updatedAt: Schema.optional(Schema.Date)}) {}
 export const ChatResponseConfigurations = Schema.Array(ChatResponseConfiguration);
-export const Conversation = Schema.Struct({conversationId: Schema.optional(Schema.String), title: Schema.optional(Schema.String), startTime: Schema.optional(Schema.Date)});
+export class Conversation extends Schema.Class<Conversation>("Conversation")({conversationId: Schema.optional(Schema.String), title: Schema.optional(Schema.String), startTime: Schema.optional(Schema.Date)}) {}
 export const Conversations = Schema.Array(Conversation);
-export const DocumentDetails = Schema.Struct({documentId: Schema.optional(Schema.String), status: Schema.optional(Schema.String), error: Schema.optional(ErrorDetail), createdAt: Schema.optional(Schema.Date), updatedAt: Schema.optional(Schema.Date)});
+export class DocumentDetails extends Schema.Class<DocumentDetails>("DocumentDetails")({documentId: Schema.optional(Schema.String), status: Schema.optional(Schema.String), error: Schema.optional(ErrorDetail), createdAt: Schema.optional(Schema.Date), updatedAt: Schema.optional(Schema.Date)}) {}
 export const DocumentDetailList = Schema.Array(DocumentDetails);
-export const GroupSummary = Schema.Struct({groupName: Schema.optional(Schema.String)});
+export class GroupSummary extends Schema.Class<GroupSummary>("GroupSummary")({groupName: Schema.optional(Schema.String)}) {}
 export const GroupSummaryList = Schema.Array(GroupSummary);
-export const PluginTypeMetadataSummary = Schema.Struct({type: Schema.optional(Schema.String), category: Schema.optional(Schema.String), description: Schema.optional(Schema.String)});
+export class PluginTypeMetadataSummary extends Schema.Class<PluginTypeMetadataSummary>("PluginTypeMetadataSummary")({type: Schema.optional(Schema.String), category: Schema.optional(Schema.String), description: Schema.optional(Schema.String)}) {}
 export const ListPluginTypeMetadataSummaries = Schema.Array(PluginTypeMetadataSummary);
-export const Subscription = Schema.Struct({subscriptionId: Schema.optional(Schema.String), subscriptionArn: Schema.optional(Schema.String), principal: Schema.optional(SubscriptionPrincipal), currentSubscription: Schema.optional(SubscriptionDetails), nextSubscription: Schema.optional(SubscriptionDetails)});
+export class Subscription extends Schema.Class<Subscription>("Subscription")({subscriptionId: Schema.optional(Schema.String), subscriptionArn: Schema.optional(Schema.String), principal: Schema.optional(SubscriptionPrincipal), currentSubscription: Schema.optional(SubscriptionDetails), nextSubscription: Schema.optional(SubscriptionDetails)}) {}
 export const Subscriptions = Schema.Array(Subscription);
-export const GroupMembers = Schema.Struct({memberGroups: Schema.optional(MemberGroups), memberUsers: Schema.optional(MemberUsers), s3PathForGroupMembers: Schema.optional(S3)});
+export class GroupMembers extends Schema.Class<GroupMembers>("GroupMembers")({memberGroups: Schema.optional(MemberGroups), memberUsers: Schema.optional(MemberUsers), s3PathForGroupMembers: Schema.optional(S3)}) {}
 export const ContentSource = Schema.Union(RetrieverContentSource);
-export const DocumentAttributeCondition = Schema.Struct({key: Schema.String, operator: Schema.String, value: Schema.optional(DocumentAttributeValue)});
-export const HookConfiguration = Schema.Struct({invocationCondition: Schema.optional(DocumentAttributeCondition), lambdaArn: Schema.optional(Schema.String), s3BucketName: Schema.optional(Schema.String), roleArn: Schema.optional(Schema.String)});
-export const ImageExtractionConfiguration = Schema.Struct({imageExtractionStatus: Schema.String});
-export const AudioExtractionConfiguration = Schema.Struct({audioExtractionStatus: Schema.String});
-export const VideoExtractionConfiguration = Schema.Struct({videoExtractionStatus: Schema.String});
-export const UsersAndGroups = Schema.Struct({userIds: Schema.optional(UserIds), userGroups: Schema.optional(UserGroups)});
-export const AssociatePermissionResponse = Schema.Struct({statement: Schema.optional(Schema.String)});
-export const CancelSubscriptionResponse = Schema.Struct({subscriptionArn: Schema.optional(Schema.String), currentSubscription: Schema.optional(SubscriptionDetails), nextSubscription: Schema.optional(SubscriptionDetails)});
-export const ChatInput = Schema.Struct({applicationId: Schema.String, userId: Schema.optional(Schema.String), userGroups: Schema.optional(UserGroups), conversationId: Schema.optional(Schema.String), parentMessageId: Schema.optional(Schema.String), clientToken: Schema.optional(Schema.String), inputStream: Schema.optional(Body("undefined", ChatInputStream))});
-export const ServiceQuotaExceededException = Schema.Struct({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String});
-export const CreateSubscriptionResponse = Schema.Struct({subscriptionId: Schema.optional(Schema.String), subscriptionArn: Schema.optional(Schema.String), currentSubscription: Schema.optional(SubscriptionDetails), nextSubscription: Schema.optional(SubscriptionDetails)});
-export const ValidationException = Schema.Struct({message: Schema.String, reason: Schema.String, fields: Schema.optional(ValidationExceptionFields)});
-export const ContentBlockerRule = Schema.Struct({systemMessageOverride: Schema.optional(Schema.String)});
-export const EligibleDataSource = Schema.Struct({indexId: Schema.optional(Schema.String), dataSourceId: Schema.optional(Schema.String)});
+export class DocumentAttributeCondition extends Schema.Class<DocumentAttributeCondition>("DocumentAttributeCondition")({key: Schema.String, operator: Schema.String, value: Schema.optional(DocumentAttributeValue)}) {}
+export class HookConfiguration extends Schema.Class<HookConfiguration>("HookConfiguration")({invocationCondition: Schema.optional(DocumentAttributeCondition), lambdaArn: Schema.optional(Schema.String), s3BucketName: Schema.optional(Schema.String), roleArn: Schema.optional(Schema.String)}) {}
+export class ImageExtractionConfiguration extends Schema.Class<ImageExtractionConfiguration>("ImageExtractionConfiguration")({imageExtractionStatus: Schema.String}) {}
+export class AudioExtractionConfiguration extends Schema.Class<AudioExtractionConfiguration>("AudioExtractionConfiguration")({audioExtractionStatus: Schema.String}) {}
+export class VideoExtractionConfiguration extends Schema.Class<VideoExtractionConfiguration>("VideoExtractionConfiguration")({videoExtractionStatus: Schema.String}) {}
+export class UsersAndGroups extends Schema.Class<UsersAndGroups>("UsersAndGroups")({userIds: Schema.optional(UserIds), userGroups: Schema.optional(UserGroups)}) {}
+export class AssociatePermissionResponse extends Schema.Class<AssociatePermissionResponse>("AssociatePermissionResponse")({statement: Schema.optional(Schema.String)}) {}
+export class CancelSubscriptionResponse extends Schema.Class<CancelSubscriptionResponse>("CancelSubscriptionResponse")({subscriptionArn: Schema.optional(Schema.String), currentSubscription: Schema.optional(SubscriptionDetails), nextSubscription: Schema.optional(SubscriptionDetails)}) {}
+export class ChatInput extends Schema.Class<ChatInput>("ChatInput")({applicationId: Schema.String, userId: Schema.optional(Schema.String), userGroups: Schema.optional(UserGroups), conversationId: Schema.optional(Schema.String), parentMessageId: Schema.optional(Schema.String), clientToken: Schema.optional(Schema.String), inputStream: Schema.optional(Body("undefined", ChatInputStream))}) {}
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String}) {}
+export class CreateSubscriptionResponse extends Schema.Class<CreateSubscriptionResponse>("CreateSubscriptionResponse")({subscriptionId: Schema.optional(Schema.String), subscriptionArn: Schema.optional(Schema.String), currentSubscription: Schema.optional(SubscriptionDetails), nextSubscription: Schema.optional(SubscriptionDetails)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({message: Schema.String, reason: Schema.String, fields: Schema.optional(ValidationExceptionFields)}) {}
+export class ContentBlockerRule extends Schema.Class<ContentBlockerRule>("ContentBlockerRule")({systemMessageOverride: Schema.optional(Schema.String)}) {}
+export class EligibleDataSource extends Schema.Class<EligibleDataSource>("EligibleDataSource")({indexId: Schema.optional(Schema.String), dataSourceId: Schema.optional(Schema.String)}) {}
 export const EligibleDataSources = Schema.Array(EligibleDataSource);
-export const ContentRetrievalRule = Schema.Struct({eligibleDataSources: Schema.optional(EligibleDataSources)});
+export class ContentRetrievalRule extends Schema.Class<ContentRetrievalRule>("ContentRetrievalRule")({eligibleDataSources: Schema.optional(EligibleDataSources)}) {}
 export const RuleConfiguration = Schema.Union(ContentBlockerRule, ContentRetrievalRule);
-export const Rule = Schema.Struct({includedUsersAndGroups: Schema.optional(UsersAndGroups), excludedUsersAndGroups: Schema.optional(UsersAndGroups), ruleType: Schema.String, ruleConfiguration: Schema.optional(RuleConfiguration)});
+export class Rule extends Schema.Class<Rule>("Rule")({includedUsersAndGroups: Schema.optional(UsersAndGroups), excludedUsersAndGroups: Schema.optional(UsersAndGroups), ruleType: Schema.String, ruleConfiguration: Schema.optional(RuleConfiguration)}) {}
 export const Rules = Schema.Array(Rule);
-export const TopicConfiguration = Schema.Struct({name: Schema.String, description: Schema.optional(Schema.String), exampleChatMessages: Schema.optional(ExampleChatMessages), rules: Rules});
+export class TopicConfiguration extends Schema.Class<TopicConfiguration>("TopicConfiguration")({name: Schema.String, description: Schema.optional(Schema.String), exampleChatMessages: Schema.optional(ExampleChatMessages), rules: Rules}) {}
 export const TopicConfigurations = Schema.Array(TopicConfiguration);
-export const GetChatControlsConfigurationResponse = Schema.Struct({responseScope: Schema.optional(Schema.String), orchestrationConfiguration: Schema.optional(AppliedOrchestrationConfiguration), blockedPhrases: Schema.optional(BlockedPhrasesConfiguration), topicConfigurations: Schema.optional(TopicConfigurations), creatorModeConfiguration: Schema.optional(AppliedCreatorModeConfiguration), nextToken: Schema.optional(Schema.String), hallucinationReductionConfiguration: Schema.optional(HallucinationReductionConfiguration)});
-export const GetGroupResponse = Schema.Struct({status: Schema.optional(GroupStatusDetail), statusHistory: Schema.optional(GroupStatusDetails)});
-export const MediaTooLargeException = Schema.Struct({message: Schema.String});
-export const ListAttachmentsResponse = Schema.Struct({attachments: Schema.optional(AttachmentList), nextToken: Schema.optional(Schema.String)});
-export const ListChatResponseConfigurationsResponse = Schema.Struct({chatResponseConfigurations: Schema.optional(ChatResponseConfigurations), nextToken: Schema.optional(Schema.String)});
-export const ListConversationsResponse = Schema.Struct({nextToken: Schema.optional(Schema.String), conversations: Schema.optional(Conversations)});
-export const ListDocumentsResponse = Schema.Struct({documentDetailList: Schema.optional(DocumentDetailList), nextToken: Schema.optional(Schema.String)});
-export const ListGroupsResponse = Schema.Struct({nextToken: Schema.optional(Schema.String), items: Schema.optional(GroupSummaryList)});
-export const ListPluginActionsResponse = Schema.Struct({nextToken: Schema.optional(Schema.String), items: Schema.optional(Actions)});
-export const ListPluginTypeMetadataResponse = Schema.Struct({nextToken: Schema.optional(Schema.String), items: Schema.optional(ListPluginTypeMetadataSummaries)});
-export const ListSubscriptionsResponse = Schema.Struct({nextToken: Schema.optional(Schema.String), subscriptions: Schema.optional(Subscriptions)});
-export const PutGroupRequest = Schema.Struct({applicationId: Schema.String, indexId: Schema.String, groupName: Schema.String, dataSourceId: Schema.optional(Schema.String), type: Schema.String, groupMembers: GroupMembers, roleArn: Schema.optional(Schema.String)});
-export const PutGroupResponse = Schema.Struct({});
-export const SearchRelevantContentRequest = Schema.Struct({applicationId: Schema.String, queryText: Schema.String, contentSource: ContentSource, attributeFilter: Schema.optional(AttributeFilter), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
+export class GetChatControlsConfigurationResponse extends Schema.Class<GetChatControlsConfigurationResponse>("GetChatControlsConfigurationResponse")({responseScope: Schema.optional(Schema.String), orchestrationConfiguration: Schema.optional(AppliedOrchestrationConfiguration), blockedPhrases: Schema.optional(BlockedPhrasesConfiguration), topicConfigurations: Schema.optional(TopicConfigurations), creatorModeConfiguration: Schema.optional(AppliedCreatorModeConfiguration), nextToken: Schema.optional(Schema.String), hallucinationReductionConfiguration: Schema.optional(HallucinationReductionConfiguration)}) {}
+export class GetGroupResponse extends Schema.Class<GetGroupResponse>("GetGroupResponse")({status: Schema.optional(GroupStatusDetail), statusHistory: Schema.optional(GroupStatusDetails)}) {}
+export class MediaTooLargeException extends Schema.Class<MediaTooLargeException>("MediaTooLargeException")({message: Schema.String}) {}
+export class ListAttachmentsResponse extends Schema.Class<ListAttachmentsResponse>("ListAttachmentsResponse")({attachments: Schema.optional(AttachmentList), nextToken: Schema.optional(Schema.String)}) {}
+export class ListChatResponseConfigurationsResponse extends Schema.Class<ListChatResponseConfigurationsResponse>("ListChatResponseConfigurationsResponse")({chatResponseConfigurations: Schema.optional(ChatResponseConfigurations), nextToken: Schema.optional(Schema.String)}) {}
+export class ListConversationsResponse extends Schema.Class<ListConversationsResponse>("ListConversationsResponse")({nextToken: Schema.optional(Schema.String), conversations: Schema.optional(Conversations)}) {}
+export class ListDocumentsResponse extends Schema.Class<ListDocumentsResponse>("ListDocumentsResponse")({documentDetailList: Schema.optional(DocumentDetailList), nextToken: Schema.optional(Schema.String)}) {}
+export class ListGroupsResponse extends Schema.Class<ListGroupsResponse>("ListGroupsResponse")({nextToken: Schema.optional(Schema.String), items: Schema.optional(GroupSummaryList)}) {}
+export class ListPluginActionsResponse extends Schema.Class<ListPluginActionsResponse>("ListPluginActionsResponse")({nextToken: Schema.optional(Schema.String), items: Schema.optional(Actions)}) {}
+export class ListPluginTypeMetadataResponse extends Schema.Class<ListPluginTypeMetadataResponse>("ListPluginTypeMetadataResponse")({nextToken: Schema.optional(Schema.String), items: Schema.optional(ListPluginTypeMetadataSummaries)}) {}
+export class ListSubscriptionsResponse extends Schema.Class<ListSubscriptionsResponse>("ListSubscriptionsResponse")({nextToken: Schema.optional(Schema.String), subscriptions: Schema.optional(Subscriptions)}) {}
+export class PutGroupRequest extends Schema.Class<PutGroupRequest>("PutGroupRequest")({applicationId: Schema.String, indexId: Schema.String, groupName: Schema.String, dataSourceId: Schema.optional(Schema.String), type: Schema.String, groupMembers: GroupMembers, roleArn: Schema.optional(Schema.String)}) {}
+export class PutGroupResponse extends Schema.Class<PutGroupResponse>("PutGroupResponse")({}) {}
+export class SearchRelevantContentRequest extends Schema.Class<SearchRelevantContentRequest>("SearchRelevantContentRequest")({applicationId: Schema.String, queryText: Schema.String, contentSource: ContentSource, attributeFilter: Schema.optional(AttributeFilter), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
 export const DocumentAttributes = Schema.Array(DocumentAttribute);
-export const MediaExtractionConfiguration = Schema.Struct({imageExtractionConfiguration: Schema.optional(ImageExtractionConfiguration), audioExtractionConfiguration: Schema.optional(AudioExtractionConfiguration), videoExtractionConfiguration: Schema.optional(VideoExtractionConfiguration)});
-export const DataSourceSyncJobMetrics = Schema.Struct({documentsAdded: Schema.optional(Schema.String), documentsModified: Schema.optional(Schema.String), documentsDeleted: Schema.optional(Schema.String), documentsFailed: Schema.optional(Schema.String), documentsScanned: Schema.optional(Schema.String)});
-export const AttachmentOutput = Schema.Struct({name: Schema.optional(Schema.String), status: Schema.optional(Schema.String), error: Schema.optional(ErrorDetail), attachmentId: Schema.optional(Schema.String), conversationId: Schema.optional(Schema.String)});
+export class MediaExtractionConfiguration extends Schema.Class<MediaExtractionConfiguration>("MediaExtractionConfiguration")({imageExtractionConfiguration: Schema.optional(ImageExtractionConfiguration), audioExtractionConfiguration: Schema.optional(AudioExtractionConfiguration), videoExtractionConfiguration: Schema.optional(VideoExtractionConfiguration)}) {}
+export class DataSourceSyncJobMetrics extends Schema.Class<DataSourceSyncJobMetrics>("DataSourceSyncJobMetrics")({documentsAdded: Schema.optional(Schema.String), documentsModified: Schema.optional(Schema.String), documentsDeleted: Schema.optional(Schema.String), documentsFailed: Schema.optional(Schema.String), documentsScanned: Schema.optional(Schema.String)}) {}
+export class AttachmentOutput extends Schema.Class<AttachmentOutput>("AttachmentOutput")({name: Schema.optional(Schema.String), status: Schema.optional(Schema.String), error: Schema.optional(ErrorDetail), attachmentId: Schema.optional(Schema.String), conversationId: Schema.optional(Schema.String)}) {}
 export const AttachmentsOutput = Schema.Array(AttachmentOutput);
-export const DocumentAttributeTarget = Schema.Struct({key: Schema.String, value: Schema.optional(DocumentAttributeValue), attributeValueOperator: Schema.optional(Schema.String)});
-export const FailedDocument = Schema.Struct({id: Schema.optional(Schema.String), error: Schema.optional(ErrorDetail), dataSourceId: Schema.optional(Schema.String)});
+export class DocumentAttributeTarget extends Schema.Class<DocumentAttributeTarget>("DocumentAttributeTarget")({key: Schema.String, value: Schema.optional(DocumentAttributeValue), attributeValueOperator: Schema.optional(Schema.String)}) {}
+export class FailedDocument extends Schema.Class<FailedDocument>("FailedDocument")({id: Schema.optional(Schema.String), error: Schema.optional(ErrorDetail), dataSourceId: Schema.optional(Schema.String)}) {}
 export const FailedDocuments = Schema.Array(FailedDocument);
 export const AttachmentsInput = Schema.Array(AttachmentInput);
-export const ActionExecution = Schema.Struct({pluginId: Schema.String, payload: ActionExecutionPayload, payloadFieldNameSeparator: Schema.String});
-export const ChatResponseConfigurationDetail = Schema.Struct({responseConfigurations: Schema.optional(ResponseConfigurations), responseConfigurationSummary: Schema.optional(Schema.String), status: Schema.optional(Schema.String), error: Schema.optional(ErrorDetail), updatedAt: Schema.optional(Schema.Date)});
-export const DataSourceSyncJob = Schema.Struct({executionId: Schema.optional(Schema.String), startTime: Schema.optional(Schema.Date), endTime: Schema.optional(Schema.Date), status: Schema.optional(Schema.String), error: Schema.optional(ErrorDetail), dataSourceErrorCode: Schema.optional(Schema.String), metrics: Schema.optional(DataSourceSyncJobMetrics)});
+export class ActionExecution extends Schema.Class<ActionExecution>("ActionExecution")({pluginId: Schema.String, payload: ActionExecutionPayload, payloadFieldNameSeparator: Schema.String}) {}
+export class ChatResponseConfigurationDetail extends Schema.Class<ChatResponseConfigurationDetail>("ChatResponseConfigurationDetail")({responseConfigurations: Schema.optional(ResponseConfigurations), responseConfigurationSummary: Schema.optional(Schema.String), status: Schema.optional(Schema.String), error: Schema.optional(ErrorDetail), updatedAt: Schema.optional(Schema.Date)}) {}
+export class DataSourceSyncJob extends Schema.Class<DataSourceSyncJob>("DataSourceSyncJob")({executionId: Schema.optional(Schema.String), startTime: Schema.optional(Schema.Date), endTime: Schema.optional(Schema.Date), status: Schema.optional(Schema.String), error: Schema.optional(ErrorDetail), dataSourceErrorCode: Schema.optional(Schema.String), metrics: Schema.optional(DataSourceSyncJobMetrics)}) {}
 export const DataSourceSyncJobs = Schema.Array(DataSourceSyncJob);
-export const InlineDocumentEnrichmentConfiguration = Schema.Struct({condition: Schema.optional(DocumentAttributeCondition), target: Schema.optional(DocumentAttributeTarget), documentContentOperator: Schema.optional(Schema.String)});
+export class InlineDocumentEnrichmentConfiguration extends Schema.Class<InlineDocumentEnrichmentConfiguration>("InlineDocumentEnrichmentConfiguration")({condition: Schema.optional(DocumentAttributeCondition), target: Schema.optional(DocumentAttributeTarget), documentContentOperator: Schema.optional(Schema.String)}) {}
 export const InlineDocumentEnrichmentConfigurations = Schema.Array(InlineDocumentEnrichmentConfiguration);
-export const BatchDeleteDocumentResponse = Schema.Struct({failedDocuments: Schema.optional(FailedDocuments)});
-export const PrincipalUser = Schema.Struct({id: Schema.optional(Schema.String), access: Schema.String, membershipType: Schema.optional(Schema.String)});
-export const PrincipalGroup = Schema.Struct({name: Schema.optional(Schema.String), access: Schema.String, membershipType: Schema.optional(Schema.String)});
-export const ChatSyncInput = Schema.Struct({applicationId: Schema.String, userId: Schema.optional(Schema.String), userGroups: Schema.optional(UserGroups), userMessage: Schema.optional(Schema.String), attachments: Schema.optional(AttachmentsInput), actionExecution: Schema.optional(ActionExecution), authChallengeResponse: Schema.optional(AuthChallengeResponse), conversationId: Schema.optional(Schema.String), parentMessageId: Schema.optional(Schema.String), attributeFilter: Schema.optional(AttributeFilter), chatMode: Schema.optional(Schema.String), chatModeConfiguration: Schema.optional(ChatModeConfiguration), clientToken: Schema.optional(Schema.String)});
-export const CreateChatResponseConfigurationRequest = Schema.Struct({applicationId: Schema.String, displayName: Schema.String, clientToken: Schema.optional(Schema.String), responseConfigurations: ResponseConfigurations, tags: Schema.optional(Tags)});
-export const GetChatResponseConfigurationResponse = Schema.Struct({chatResponseConfigurationId: Schema.optional(Schema.String), chatResponseConfigurationArn: Schema.optional(Schema.String), displayName: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date), inUseConfiguration: Schema.optional(ChatResponseConfigurationDetail), lastUpdateConfiguration: Schema.optional(ChatResponseConfigurationDetail)});
-export const ListDataSourceSyncJobsResponse = Schema.Struct({history: Schema.optional(DataSourceSyncJobs), nextToken: Schema.optional(Schema.String)});
-export const DocumentEnrichmentConfiguration = Schema.Struct({inlineConfigurations: Schema.optional(InlineDocumentEnrichmentConfigurations), preExtractionHookConfiguration: Schema.optional(HookConfiguration), postExtractionHookConfiguration: Schema.optional(HookConfiguration)});
+export class BatchDeleteDocumentResponse extends Schema.Class<BatchDeleteDocumentResponse>("BatchDeleteDocumentResponse")({failedDocuments: Schema.optional(FailedDocuments)}) {}
+export class PrincipalUser extends Schema.Class<PrincipalUser>("PrincipalUser")({id: Schema.optional(Schema.String), access: Schema.String, membershipType: Schema.optional(Schema.String)}) {}
+export class PrincipalGroup extends Schema.Class<PrincipalGroup>("PrincipalGroup")({name: Schema.optional(Schema.String), access: Schema.String, membershipType: Schema.optional(Schema.String)}) {}
+export class ChatSyncInput extends Schema.Class<ChatSyncInput>("ChatSyncInput")({applicationId: Schema.String, userId: Schema.optional(Schema.String), userGroups: Schema.optional(UserGroups), userMessage: Schema.optional(Schema.String), attachments: Schema.optional(AttachmentsInput), actionExecution: Schema.optional(ActionExecution), authChallengeResponse: Schema.optional(AuthChallengeResponse), conversationId: Schema.optional(Schema.String), parentMessageId: Schema.optional(Schema.String), attributeFilter: Schema.optional(AttributeFilter), chatMode: Schema.optional(Schema.String), chatModeConfiguration: Schema.optional(ChatModeConfiguration), clientToken: Schema.optional(Schema.String)}) {}
+export class CreateChatResponseConfigurationRequest extends Schema.Class<CreateChatResponseConfigurationRequest>("CreateChatResponseConfigurationRequest")({applicationId: Schema.String, displayName: Schema.String, clientToken: Schema.optional(Schema.String), responseConfigurations: ResponseConfigurations, tags: Schema.optional(Tags)}) {}
+export class GetChatResponseConfigurationResponse extends Schema.Class<GetChatResponseConfigurationResponse>("GetChatResponseConfigurationResponse")({chatResponseConfigurationId: Schema.optional(Schema.String), chatResponseConfigurationArn: Schema.optional(Schema.String), displayName: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date), inUseConfiguration: Schema.optional(ChatResponseConfigurationDetail), lastUpdateConfiguration: Schema.optional(ChatResponseConfigurationDetail)}) {}
+export class ListDataSourceSyncJobsResponse extends Schema.Class<ListDataSourceSyncJobsResponse>("ListDataSourceSyncJobsResponse")({history: Schema.optional(DataSourceSyncJobs), nextToken: Schema.optional(Schema.String)}) {}
+export class DocumentEnrichmentConfiguration extends Schema.Class<DocumentEnrichmentConfiguration>("DocumentEnrichmentConfiguration")({inlineConfigurations: Schema.optional(InlineDocumentEnrichmentConfigurations), preExtractionHookConfiguration: Schema.optional(HookConfiguration), postExtractionHookConfiguration: Schema.optional(HookConfiguration)}) {}
 export const Principal = Schema.Union(PrincipalUser, PrincipalGroup);
 export const Principals = Schema.Array(Principal);
-export const DocumentAclUser = Schema.Struct({id: Schema.optional(Schema.String), type: Schema.optional(Schema.String)});
+export class DocumentAclUser extends Schema.Class<DocumentAclUser>("DocumentAclUser")({id: Schema.optional(Schema.String), type: Schema.optional(Schema.String)}) {}
 export const DocumentAclUsers = Schema.Array(DocumentAclUser);
-export const DocumentAclGroup = Schema.Struct({name: Schema.optional(Schema.String), type: Schema.optional(Schema.String)});
+export class DocumentAclGroup extends Schema.Class<DocumentAclGroup>("DocumentAclGroup")({name: Schema.optional(Schema.String), type: Schema.optional(Schema.String)}) {}
 export const DocumentAclGroups = Schema.Array(DocumentAclGroup);
-export const SnippetExcerpt = Schema.Struct({text: Schema.optional(Schema.String)});
-export const AccessControl = Schema.Struct({principals: Principals, memberRelation: Schema.optional(Schema.String)});
+export class SnippetExcerpt extends Schema.Class<SnippetExcerpt>("SnippetExcerpt")({text: Schema.optional(Schema.String)}) {}
+export class AccessControl extends Schema.Class<AccessControl>("AccessControl")({principals: Principals, memberRelation: Schema.optional(Schema.String)}) {}
 export const AccessControls = Schema.Array(AccessControl);
-export const DocumentAclCondition = Schema.Struct({memberRelation: Schema.optional(Schema.String), users: Schema.optional(DocumentAclUsers), groups: Schema.optional(DocumentAclGroups)});
+export class DocumentAclCondition extends Schema.Class<DocumentAclCondition>("DocumentAclCondition")({memberRelation: Schema.optional(Schema.String), users: Schema.optional(DocumentAclUsers), groups: Schema.optional(DocumentAclGroups)}) {}
 export const DocumentAclConditions = Schema.Array(DocumentAclCondition);
-export const CreateChatResponseConfigurationResponse = Schema.Struct({chatResponseConfigurationId: Schema.String, chatResponseConfigurationArn: Schema.String});
-export const ImageSourceDetails = Schema.Struct({mediaId: Schema.optional(Schema.String), mediaMimeType: Schema.optional(Schema.String)});
-export const AudioSourceDetails = Schema.Struct({mediaId: Schema.optional(Schema.String), mediaMimeType: Schema.optional(Schema.String), startTimeMilliseconds: Schema.optional(Schema.Number), endTimeMilliseconds: Schema.optional(Schema.Number), audioExtractionType: Schema.optional(Schema.String)});
-export const VideoSourceDetails = Schema.Struct({mediaId: Schema.optional(Schema.String), mediaMimeType: Schema.optional(Schema.String), startTimeMilliseconds: Schema.optional(Schema.Number), endTimeMilliseconds: Schema.optional(Schema.Number), videoExtractionType: Schema.optional(Schema.String)});
-export const ActionReviewPayloadFieldAllowedValue = Schema.Struct({value: Schema.optional(Schema.JsonValue), displayValue: Schema.optional(Schema.JsonValue)});
+export class CreateChatResponseConfigurationResponse extends Schema.Class<CreateChatResponseConfigurationResponse>("CreateChatResponseConfigurationResponse")({chatResponseConfigurationId: Schema.String, chatResponseConfigurationArn: Schema.String}) {}
+export class ImageSourceDetails extends Schema.Class<ImageSourceDetails>("ImageSourceDetails")({mediaId: Schema.optional(Schema.String), mediaMimeType: Schema.optional(Schema.String)}) {}
+export class AudioSourceDetails extends Schema.Class<AudioSourceDetails>("AudioSourceDetails")({mediaId: Schema.optional(Schema.String), mediaMimeType: Schema.optional(Schema.String), startTimeMilliseconds: Schema.optional(Schema.Number), endTimeMilliseconds: Schema.optional(Schema.Number), audioExtractionType: Schema.optional(Schema.String)}) {}
+export class VideoSourceDetails extends Schema.Class<VideoSourceDetails>("VideoSourceDetails")({mediaId: Schema.optional(Schema.String), mediaMimeType: Schema.optional(Schema.String), startTimeMilliseconds: Schema.optional(Schema.Number), endTimeMilliseconds: Schema.optional(Schema.Number), videoExtractionType: Schema.optional(Schema.String)}) {}
+export class ActionReviewPayloadFieldAllowedValue extends Schema.Class<ActionReviewPayloadFieldAllowedValue>("ActionReviewPayloadFieldAllowedValue")({value: Schema.optional(Schema.JsonValue), displayValue: Schema.optional(Schema.JsonValue)}) {}
 export const ActionReviewPayloadFieldAllowedValues = Schema.Array(ActionReviewPayloadFieldAllowedValue);
-export const AccessConfiguration = Schema.Struct({accessControls: AccessControls, memberRelation: Schema.optional(Schema.String)});
-export const TextOutputEvent = Schema.Struct({systemMessageType: Schema.optional(Schema.String), conversationId: Schema.optional(Schema.String), userMessageId: Schema.optional(Schema.String), systemMessageId: Schema.optional(Schema.String), systemMessage: Schema.optional(Schema.String)});
+export class AccessConfiguration extends Schema.Class<AccessConfiguration>("AccessConfiguration")({accessControls: AccessControls, memberRelation: Schema.optional(Schema.String)}) {}
+export class TextOutputEvent extends Schema.Class<TextOutputEvent>("TextOutputEvent")({systemMessageType: Schema.optional(Schema.String), conversationId: Schema.optional(Schema.String), userMessageId: Schema.optional(Schema.String), systemMessageId: Schema.optional(Schema.String), systemMessage: Schema.optional(Schema.String)}) {}
 export const SourceDetails = Schema.Union(ImageSourceDetails, AudioSourceDetails, VideoSourceDetails);
-export const TextSegment = Schema.Struct({beginOffset: Schema.optional(Schema.Number), endOffset: Schema.optional(Schema.Number), snippetExcerpt: Schema.optional(SnippetExcerpt), mediaId: Schema.optional(Schema.String), mediaMimeType: Schema.optional(Schema.String), sourceDetails: Schema.optional(SourceDetails)});
+export class TextSegment extends Schema.Class<TextSegment>("TextSegment")({beginOffset: Schema.optional(Schema.Number), endOffset: Schema.optional(Schema.Number), snippetExcerpt: Schema.optional(SnippetExcerpt), mediaId: Schema.optional(Schema.String), mediaMimeType: Schema.optional(Schema.String), sourceDetails: Schema.optional(SourceDetails)}) {}
 export const TextSegmentList = Schema.Array(TextSegment);
-export const SourceAttribution = Schema.Struct({title: Schema.optional(Schema.String), snippet: Schema.optional(Schema.String), url: Schema.optional(Schema.String), citationNumber: Schema.optional(Schema.Number), updatedAt: Schema.optional(Schema.Date), textMessageSegments: Schema.optional(TextSegmentList), documentId: Schema.optional(Schema.String), indexId: Schema.optional(Schema.String), datasourceId: Schema.optional(Schema.String)});
+export class SourceAttribution extends Schema.Class<SourceAttribution>("SourceAttribution")({title: Schema.optional(Schema.String), snippet: Schema.optional(Schema.String), url: Schema.optional(Schema.String), citationNumber: Schema.optional(Schema.Number), updatedAt: Schema.optional(Schema.Date), textMessageSegments: Schema.optional(TextSegmentList), documentId: Schema.optional(Schema.String), indexId: Schema.optional(Schema.String), datasourceId: Schema.optional(Schema.String)}) {}
 export const SourceAttributions = Schema.Array(SourceAttribution);
-export const MetadataEvent = Schema.Struct({conversationId: Schema.optional(Schema.String), userMessageId: Schema.optional(Schema.String), systemMessageId: Schema.optional(Schema.String), sourceAttributions: Schema.optional(SourceAttributions), finalTextMessage: Schema.optional(Schema.String)});
-export const ActionReviewPayloadField = Schema.Struct({displayName: Schema.optional(Schema.String), displayOrder: Schema.optional(Schema.Number), displayDescription: Schema.optional(Schema.String), type: Schema.optional(Schema.String), value: Schema.optional(Schema.JsonValue), allowedValues: Schema.optional(ActionReviewPayloadFieldAllowedValues), allowedFormat: Schema.optional(Schema.String), arrayItemJsonSchema: Schema.optional(Schema.JsonValue), required: Schema.optional(Schema.Boolean)});
+export class MetadataEvent extends Schema.Class<MetadataEvent>("MetadataEvent")({conversationId: Schema.optional(Schema.String), userMessageId: Schema.optional(Schema.String), systemMessageId: Schema.optional(Schema.String), sourceAttributions: Schema.optional(SourceAttributions), finalTextMessage: Schema.optional(Schema.String)}) {}
+export class ActionReviewPayloadField extends Schema.Class<ActionReviewPayloadField>("ActionReviewPayloadField")({displayName: Schema.optional(Schema.String), displayOrder: Schema.optional(Schema.Number), displayDescription: Schema.optional(Schema.String), type: Schema.optional(Schema.String), value: Schema.optional(Schema.JsonValue), allowedValues: Schema.optional(ActionReviewPayloadFieldAllowedValues), allowedFormat: Schema.optional(Schema.String), arrayItemJsonSchema: Schema.optional(Schema.JsonValue), required: Schema.optional(Schema.Boolean)}) {}
 export const ActionReviewPayload = Schema.Record({key: Schema.String, value: ActionReviewPayloadField});
-export const ActionReviewEvent = Schema.Struct({conversationId: Schema.optional(Schema.String), userMessageId: Schema.optional(Schema.String), systemMessageId: Schema.optional(Schema.String), pluginId: Schema.optional(Schema.String), pluginType: Schema.optional(Schema.String), payload: Schema.optional(ActionReviewPayload), payloadFieldNameSeparator: Schema.optional(Schema.String)});
-export const FailedAttachmentEvent = Schema.Struct({conversationId: Schema.optional(Schema.String), userMessageId: Schema.optional(Schema.String), systemMessageId: Schema.optional(Schema.String), attachment: Schema.optional(AttachmentOutput)});
-export const AuthChallengeRequestEvent = Schema.Struct({authorizationUrl: Schema.String});
-export const DocumentAclMembership = Schema.Struct({memberRelation: Schema.optional(Schema.String), conditions: Schema.optional(DocumentAclConditions)});
-export const ScoreAttributes = Schema.Struct({scoreConfidence: Schema.optional(Schema.String)});
-export const Document = Schema.Struct({id: Schema.String, attributes: Schema.optional(DocumentAttributes), content: Schema.optional(DocumentContent), contentType: Schema.optional(Schema.String), title: Schema.optional(Schema.String), accessConfiguration: Schema.optional(AccessConfiguration), documentEnrichmentConfiguration: Schema.optional(DocumentEnrichmentConfiguration), mediaExtractionConfiguration: Schema.optional(MediaExtractionConfiguration)});
+export class ActionReviewEvent extends Schema.Class<ActionReviewEvent>("ActionReviewEvent")({conversationId: Schema.optional(Schema.String), userMessageId: Schema.optional(Schema.String), systemMessageId: Schema.optional(Schema.String), pluginId: Schema.optional(Schema.String), pluginType: Schema.optional(Schema.String), payload: Schema.optional(ActionReviewPayload), payloadFieldNameSeparator: Schema.optional(Schema.String)}) {}
+export class FailedAttachmentEvent extends Schema.Class<FailedAttachmentEvent>("FailedAttachmentEvent")({conversationId: Schema.optional(Schema.String), userMessageId: Schema.optional(Schema.String), systemMessageId: Schema.optional(Schema.String), attachment: Schema.optional(AttachmentOutput)}) {}
+export class AuthChallengeRequestEvent extends Schema.Class<AuthChallengeRequestEvent>("AuthChallengeRequestEvent")({authorizationUrl: Schema.String}) {}
+export class DocumentAclMembership extends Schema.Class<DocumentAclMembership>("DocumentAclMembership")({memberRelation: Schema.optional(Schema.String), conditions: Schema.optional(DocumentAclConditions)}) {}
+export class ScoreAttributes extends Schema.Class<ScoreAttributes>("ScoreAttributes")({scoreConfidence: Schema.optional(Schema.String)}) {}
+export class Document extends Schema.Class<Document>("Document")({id: Schema.String, attributes: Schema.optional(DocumentAttributes), content: Schema.optional(DocumentContent), contentType: Schema.optional(Schema.String), title: Schema.optional(Schema.String), accessConfiguration: Schema.optional(AccessConfiguration), documentEnrichmentConfiguration: Schema.optional(DocumentEnrichmentConfiguration), mediaExtractionConfiguration: Schema.optional(MediaExtractionConfiguration)}) {}
 export const Documents = Schema.Array(Document);
 export const ChatOutputStream = Schema.Union(TextOutputEvent, MetadataEvent, ActionReviewEvent, FailedAttachmentEvent, AuthChallengeRequestEvent);
-export const AuthChallengeRequest = Schema.Struct({authorizationUrl: Schema.String});
-export const DocumentAcl = Schema.Struct({allowlist: Schema.optional(DocumentAclMembership), denyList: Schema.optional(DocumentAclMembership)});
-export const RelevantContent = Schema.Struct({content: Schema.optional(Schema.String), documentId: Schema.optional(Schema.String), documentTitle: Schema.optional(Schema.String), documentUri: Schema.optional(Schema.String), documentAttributes: Schema.optional(DocumentAttributes), scoreAttributes: Schema.optional(ScoreAttributes)});
+export class AuthChallengeRequest extends Schema.Class<AuthChallengeRequest>("AuthChallengeRequest")({authorizationUrl: Schema.String}) {}
+export class DocumentAcl extends Schema.Class<DocumentAcl>("DocumentAcl")({allowlist: Schema.optional(DocumentAclMembership), denyList: Schema.optional(DocumentAclMembership)}) {}
+export class RelevantContent extends Schema.Class<RelevantContent>("RelevantContent")({content: Schema.optional(Schema.String), documentId: Schema.optional(Schema.String), documentTitle: Schema.optional(Schema.String), documentUri: Schema.optional(Schema.String), documentAttributes: Schema.optional(DocumentAttributes), scoreAttributes: Schema.optional(ScoreAttributes)}) {}
 export const RelevantContentList = Schema.Array(RelevantContent);
-export const BatchPutDocumentRequest = Schema.Struct({applicationId: Schema.String, indexId: Schema.String, documents: Documents, roleArn: Schema.optional(Schema.String), dataSourceSyncId: Schema.optional(Schema.String)});
-export const ChatOutput = Schema.Struct({outputStream: Schema.optional(Body("undefined", ChatOutputStream))});
-export const ActionReview = Schema.Struct({pluginId: Schema.optional(Schema.String), pluginType: Schema.optional(Schema.String), payload: Schema.optional(ActionReviewPayload), payloadFieldNameSeparator: Schema.optional(Schema.String)});
-export const ChatSyncOutput = Schema.Struct({conversationId: Schema.optional(Schema.String), systemMessage: Schema.optional(Schema.String), systemMessageId: Schema.optional(Schema.String), userMessageId: Schema.optional(Schema.String), actionReview: Schema.optional(ActionReview), authChallengeRequest: Schema.optional(AuthChallengeRequest), sourceAttributions: Schema.optional(SourceAttributions), failedAttachments: Schema.optional(AttachmentsOutput)});
-export const CheckDocumentAccessResponse = Schema.Struct({userGroups: Schema.optional(AssociatedGroups), userAliases: Schema.optional(AssociatedUsers), hasAccess: Schema.optional(Schema.Boolean), documentAcl: Schema.optional(DocumentAcl)});
-export const SearchRelevantContentResponse = Schema.Struct({relevantContent: Schema.optional(RelevantContentList), nextToken: Schema.optional(Schema.String)});
-export const UpdateChatControlsConfigurationRequest = Schema.Struct({applicationId: Schema.String, clientToken: Schema.optional(Schema.String), responseScope: Schema.optional(Schema.String), orchestrationConfiguration: Schema.optional(OrchestrationConfiguration), blockedPhrasesConfigurationUpdate: Schema.optional(BlockedPhrasesConfigurationUpdate), topicConfigurationsToCreateOrUpdate: Schema.optional(TopicConfigurations), topicConfigurationsToDelete: Schema.optional(TopicConfigurations), creatorModeConfiguration: Schema.optional(CreatorModeConfiguration), hallucinationReductionConfiguration: Schema.optional(HallucinationReductionConfiguration)});
-export const UpdateChatControlsConfigurationResponse = Schema.Struct({});
-export const Message = Schema.Struct({messageId: Schema.optional(Schema.String), body: Schema.optional(Schema.String), time: Schema.optional(Schema.Date), type: Schema.optional(Schema.String), attachments: Schema.optional(AttachmentsOutput), sourceAttribution: Schema.optional(SourceAttributions), actionReview: Schema.optional(ActionReview), actionExecution: Schema.optional(ActionExecution)});
+export class BatchPutDocumentRequest extends Schema.Class<BatchPutDocumentRequest>("BatchPutDocumentRequest")({applicationId: Schema.String, indexId: Schema.String, documents: Documents, roleArn: Schema.optional(Schema.String), dataSourceSyncId: Schema.optional(Schema.String)}) {}
+export class ChatOutput extends Schema.Class<ChatOutput>("ChatOutput")({outputStream: Schema.optional(Body("undefined", ChatOutputStream))}) {}
+export class ActionReview extends Schema.Class<ActionReview>("ActionReview")({pluginId: Schema.optional(Schema.String), pluginType: Schema.optional(Schema.String), payload: Schema.optional(ActionReviewPayload), payloadFieldNameSeparator: Schema.optional(Schema.String)}) {}
+export class ChatSyncOutput extends Schema.Class<ChatSyncOutput>("ChatSyncOutput")({conversationId: Schema.optional(Schema.String), systemMessage: Schema.optional(Schema.String), systemMessageId: Schema.optional(Schema.String), userMessageId: Schema.optional(Schema.String), actionReview: Schema.optional(ActionReview), authChallengeRequest: Schema.optional(AuthChallengeRequest), sourceAttributions: Schema.optional(SourceAttributions), failedAttachments: Schema.optional(AttachmentsOutput)}) {}
+export class CheckDocumentAccessResponse extends Schema.Class<CheckDocumentAccessResponse>("CheckDocumentAccessResponse")({userGroups: Schema.optional(AssociatedGroups), userAliases: Schema.optional(AssociatedUsers), hasAccess: Schema.optional(Schema.Boolean), documentAcl: Schema.optional(DocumentAcl)}) {}
+export class SearchRelevantContentResponse extends Schema.Class<SearchRelevantContentResponse>("SearchRelevantContentResponse")({relevantContent: Schema.optional(RelevantContentList), nextToken: Schema.optional(Schema.String)}) {}
+export class UpdateChatControlsConfigurationRequest extends Schema.Class<UpdateChatControlsConfigurationRequest>("UpdateChatControlsConfigurationRequest")({applicationId: Schema.String, clientToken: Schema.optional(Schema.String), responseScope: Schema.optional(Schema.String), orchestrationConfiguration: Schema.optional(OrchestrationConfiguration), blockedPhrasesConfigurationUpdate: Schema.optional(BlockedPhrasesConfigurationUpdate), topicConfigurationsToCreateOrUpdate: Schema.optional(TopicConfigurations), topicConfigurationsToDelete: Schema.optional(TopicConfigurations), creatorModeConfiguration: Schema.optional(CreatorModeConfiguration), hallucinationReductionConfiguration: Schema.optional(HallucinationReductionConfiguration)}) {}
+export class UpdateChatControlsConfigurationResponse extends Schema.Class<UpdateChatControlsConfigurationResponse>("UpdateChatControlsConfigurationResponse")({}) {}
+export class Message extends Schema.Class<Message>("Message")({messageId: Schema.optional(Schema.String), body: Schema.optional(Schema.String), time: Schema.optional(Schema.Date), type: Schema.optional(Schema.String), attachments: Schema.optional(AttachmentsOutput), sourceAttribution: Schema.optional(SourceAttributions), actionReview: Schema.optional(ActionReview), actionExecution: Schema.optional(ActionExecution)}) {}
 export const Messages = Schema.Array(Message);
-export const BatchPutDocumentResponse = Schema.Struct({failedDocuments: Schema.optional(FailedDocuments)});
-export const ExternalResourceException = Schema.Struct({message: Schema.String});
-export const ListMessagesResponse = Schema.Struct({messages: Schema.optional(Messages), nextToken: Schema.optional(Schema.String)});
+export class BatchPutDocumentResponse extends Schema.Class<BatchPutDocumentResponse>("BatchPutDocumentResponse")({failedDocuments: Schema.optional(FailedDocuments)}) {}
+export class ExternalResourceException extends Schema.Class<ExternalResourceException>("ExternalResourceException")({message: Schema.String}) {}
+export class ListMessagesResponse extends Schema.Class<ListMessagesResponse>("ListMessagesResponse")({messages: Schema.optional(Messages), nextToken: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
-export class LicenseNotFoundExceptionError extends Schema.TaggedError<LicenseNotFoundExceptionError>()("LicenseNotFoundException", LicenseNotFoundException) {};
-export class MediaTooLargeExceptionError extends Schema.TaggedError<MediaTooLargeExceptionError>()("MediaTooLargeException", MediaTooLargeException) {};
-export class ExternalResourceExceptionError extends Schema.TaggedError<ExternalResourceExceptionError>()("ExternalResourceException", ExternalResourceException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
+export class LicenseNotFoundExceptionError extends Schema.TaggedError<LicenseNotFoundExceptionError>()("LicenseNotFoundException", LicenseNotFoundException.fields) {};
+export class MediaTooLargeExceptionError extends Schema.TaggedError<MediaTooLargeExceptionError>()("MediaTooLargeException", MediaTooLargeException.fields) {};
+export class ExternalResourceExceptionError extends Schema.TaggedError<ExternalResourceExceptionError>()("ExternalResourceException", ExternalResourceException.fields) {};
 
 //# Operations
 export const stopDataSourceSyncJob = /*#__PURE__*/ makeOperation(() => Operation({ version: "2023-11-27", uri: "/applications/{applicationId}/indices/{indexId}/datasources/{dataSourceId}/stopsync", method: "POST", sdkId: "QBusiness", sigV4ServiceName: "qbusiness", name: "ExpertQ.StopDataSourceSyncJob" }, StopDataSourceSyncJobRequest, StopDataSourceSyncJobResponse, [AccessDeniedExceptionError, ConflictExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

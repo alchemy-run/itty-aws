@@ -3,101 +3,101 @@ import { FormatAwsJSON10Request,FormatJSONResponse,FormatAwsRestJSONError, makeO
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const DeleteKeyspaceRequest = Schema.Struct({keyspaceName: Schema.String});
-export const DeleteKeyspaceResponse = Schema.Struct({});
-export const DeleteTableRequest = Schema.Struct({keyspaceName: Schema.String, tableName: Schema.String});
-export const DeleteTableResponse = Schema.Struct({});
-export const DeleteTypeRequest = Schema.Struct({keyspaceName: Schema.String, typeName: Schema.String});
-export const GetKeyspaceRequest = Schema.Struct({keyspaceName: Schema.String});
-export const GetTableRequest = Schema.Struct({keyspaceName: Schema.String, tableName: Schema.String});
-export const GetTableAutoScalingSettingsRequest = Schema.Struct({keyspaceName: Schema.String, tableName: Schema.String});
-export const GetTypeRequest = Schema.Struct({keyspaceName: Schema.String, typeName: Schema.String});
-export const ListKeyspacesRequest = Schema.Struct({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListTablesRequest = Schema.Struct({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), keyspaceName: Schema.String});
-export const ListTagsForResourceRequest = Schema.Struct({resourceArn: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListTypesRequest = Schema.Struct({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), keyspaceName: Schema.String});
-export const CapacitySpecification = Schema.Struct({throughputMode: Schema.String, readCapacityUnits: Schema.optional(Schema.Number), writeCapacityUnits: Schema.optional(Schema.Number)});
-export const EncryptionSpecification = Schema.Struct({type: Schema.String, kmsKeyIdentifier: Schema.optional(Schema.String)});
-export const PointInTimeRecovery = Schema.Struct({status: Schema.String});
-export const Tag = Schema.Struct({key: Schema.String, value: Schema.String});
+export class DeleteKeyspaceRequest extends Schema.Class<DeleteKeyspaceRequest>("DeleteKeyspaceRequest")({keyspaceName: Schema.String}) {}
+export class DeleteKeyspaceResponse extends Schema.Class<DeleteKeyspaceResponse>("DeleteKeyspaceResponse")({}) {}
+export class DeleteTableRequest extends Schema.Class<DeleteTableRequest>("DeleteTableRequest")({keyspaceName: Schema.String, tableName: Schema.String}) {}
+export class DeleteTableResponse extends Schema.Class<DeleteTableResponse>("DeleteTableResponse")({}) {}
+export class DeleteTypeRequest extends Schema.Class<DeleteTypeRequest>("DeleteTypeRequest")({keyspaceName: Schema.String, typeName: Schema.String}) {}
+export class GetKeyspaceRequest extends Schema.Class<GetKeyspaceRequest>("GetKeyspaceRequest")({keyspaceName: Schema.String}) {}
+export class GetTableRequest extends Schema.Class<GetTableRequest>("GetTableRequest")({keyspaceName: Schema.String, tableName: Schema.String}) {}
+export class GetTableAutoScalingSettingsRequest extends Schema.Class<GetTableAutoScalingSettingsRequest>("GetTableAutoScalingSettingsRequest")({keyspaceName: Schema.String, tableName: Schema.String}) {}
+export class GetTypeRequest extends Schema.Class<GetTypeRequest>("GetTypeRequest")({keyspaceName: Schema.String, typeName: Schema.String}) {}
+export class ListKeyspacesRequest extends Schema.Class<ListKeyspacesRequest>("ListKeyspacesRequest")({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListTablesRequest extends Schema.Class<ListTablesRequest>("ListTablesRequest")({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), keyspaceName: Schema.String}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({resourceArn: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListTypesRequest extends Schema.Class<ListTypesRequest>("ListTypesRequest")({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), keyspaceName: Schema.String}) {}
+export class CapacitySpecification extends Schema.Class<CapacitySpecification>("CapacitySpecification")({throughputMode: Schema.String, readCapacityUnits: Schema.optional(Schema.Number), writeCapacityUnits: Schema.optional(Schema.Number)}) {}
+export class EncryptionSpecification extends Schema.Class<EncryptionSpecification>("EncryptionSpecification")({type: Schema.String, kmsKeyIdentifier: Schema.optional(Schema.String)}) {}
+export class PointInTimeRecovery extends Schema.Class<PointInTimeRecovery>("PointInTimeRecovery")({status: Schema.String}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({key: Schema.String, value: Schema.String}) {}
 export const TagList = Schema.Array(Tag);
-export const TargetTrackingScalingPolicyConfiguration = Schema.Struct({disableScaleIn: Schema.optional(Schema.Boolean), scaleInCooldown: Schema.optional(Schema.Number), scaleOutCooldown: Schema.optional(Schema.Number), targetValue: Schema.Number});
-export const AutoScalingPolicy = Schema.Struct({targetTrackingScalingPolicyConfiguration: Schema.optional(TargetTrackingScalingPolicyConfiguration)});
-export const AutoScalingSettings = Schema.Struct({autoScalingDisabled: Schema.optional(Schema.Boolean), minimumUnits: Schema.optional(Schema.Number), maximumUnits: Schema.optional(Schema.Number), scalingPolicy: Schema.optional(AutoScalingPolicy)});
-export const AutoScalingSpecification = Schema.Struct({writeCapacityAutoScaling: Schema.optional(AutoScalingSettings), readCapacityAutoScaling: Schema.optional(AutoScalingSettings)});
-export const ReplicaSpecification = Schema.Struct({region: Schema.String, readCapacityUnits: Schema.optional(Schema.Number), readCapacityAutoScaling: Schema.optional(AutoScalingSettings)});
+export class TargetTrackingScalingPolicyConfiguration extends Schema.Class<TargetTrackingScalingPolicyConfiguration>("TargetTrackingScalingPolicyConfiguration")({disableScaleIn: Schema.optional(Schema.Boolean), scaleInCooldown: Schema.optional(Schema.Number), scaleOutCooldown: Schema.optional(Schema.Number), targetValue: Schema.Number}) {}
+export class AutoScalingPolicy extends Schema.Class<AutoScalingPolicy>("AutoScalingPolicy")({targetTrackingScalingPolicyConfiguration: Schema.optional(TargetTrackingScalingPolicyConfiguration)}) {}
+export class AutoScalingSettings extends Schema.Class<AutoScalingSettings>("AutoScalingSettings")({autoScalingDisabled: Schema.optional(Schema.Boolean), minimumUnits: Schema.optional(Schema.Number), maximumUnits: Schema.optional(Schema.Number), scalingPolicy: Schema.optional(AutoScalingPolicy)}) {}
+export class AutoScalingSpecification extends Schema.Class<AutoScalingSpecification>("AutoScalingSpecification")({writeCapacityAutoScaling: Schema.optional(AutoScalingSettings), readCapacityAutoScaling: Schema.optional(AutoScalingSettings)}) {}
+export class ReplicaSpecification extends Schema.Class<ReplicaSpecification>("ReplicaSpecification")({region: Schema.String, readCapacityUnits: Schema.optional(Schema.Number), readCapacityAutoScaling: Schema.optional(AutoScalingSettings)}) {}
 export const ReplicaSpecificationList = Schema.Array(ReplicaSpecification);
-export const RestoreTableRequest = Schema.Struct({sourceKeyspaceName: Schema.String, sourceTableName: Schema.String, targetKeyspaceName: Schema.String, targetTableName: Schema.String, restoreTimestamp: Schema.optional(Schema.Date), capacitySpecificationOverride: Schema.optional(CapacitySpecification), encryptionSpecificationOverride: Schema.optional(EncryptionSpecification), pointInTimeRecoveryOverride: Schema.optional(PointInTimeRecovery), tagsOverride: Schema.optional(TagList), autoScalingSpecification: Schema.optional(AutoScalingSpecification), replicaSpecifications: Schema.optional(ReplicaSpecificationList)});
-export const TagResourceRequest = Schema.Struct({resourceArn: Schema.String, tags: TagList});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({resourceArn: Schema.String, tags: TagList});
-export const UntagResourceResponse = Schema.Struct({});
+export class RestoreTableRequest extends Schema.Class<RestoreTableRequest>("RestoreTableRequest")({sourceKeyspaceName: Schema.String, sourceTableName: Schema.String, targetKeyspaceName: Schema.String, targetTableName: Schema.String, restoreTimestamp: Schema.optional(Schema.Date), capacitySpecificationOverride: Schema.optional(CapacitySpecification), encryptionSpecificationOverride: Schema.optional(EncryptionSpecification), pointInTimeRecoveryOverride: Schema.optional(PointInTimeRecovery), tagsOverride: Schema.optional(TagList), autoScalingSpecification: Schema.optional(AutoScalingSpecification), replicaSpecifications: Schema.optional(ReplicaSpecificationList)}) {}
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({resourceArn: Schema.String, tags: TagList}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({resourceArn: Schema.String, tags: TagList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
 export const RegionList = Schema.Array(Schema.String);
-export const ReplicationSpecification = Schema.Struct({replicationStrategy: Schema.String, regionList: Schema.optional(RegionList)});
-export const ClientSideTimestamps = Schema.Struct({status: Schema.String});
-export const UpdateKeyspaceRequest = Schema.Struct({keyspaceName: Schema.String, replicationSpecification: ReplicationSpecification, clientSideTimestamps: Schema.optional(ClientSideTimestamps)});
-export const Comment = Schema.Struct({message: Schema.String});
-export const TimeToLive = Schema.Struct({status: Schema.String});
-export const CdcSpecification = Schema.Struct({status: Schema.String, viewType: Schema.optional(Schema.String), tags: Schema.optional(TagList), propagateTags: Schema.optional(Schema.String)});
-export const FieldDefinition = Schema.Struct({name: Schema.String, type: Schema.String});
+export class ReplicationSpecification extends Schema.Class<ReplicationSpecification>("ReplicationSpecification")({replicationStrategy: Schema.String, regionList: Schema.optional(RegionList)}) {}
+export class ClientSideTimestamps extends Schema.Class<ClientSideTimestamps>("ClientSideTimestamps")({status: Schema.String}) {}
+export class UpdateKeyspaceRequest extends Schema.Class<UpdateKeyspaceRequest>("UpdateKeyspaceRequest")({keyspaceName: Schema.String, replicationSpecification: ReplicationSpecification, clientSideTimestamps: Schema.optional(ClientSideTimestamps)}) {}
+export class Comment extends Schema.Class<Comment>("Comment")({message: Schema.String}) {}
+export class TimeToLive extends Schema.Class<TimeToLive>("TimeToLive")({status: Schema.String}) {}
+export class CdcSpecification extends Schema.Class<CdcSpecification>("CdcSpecification")({status: Schema.String, viewType: Schema.optional(Schema.String), tags: Schema.optional(TagList), propagateTags: Schema.optional(Schema.String)}) {}
+export class FieldDefinition extends Schema.Class<FieldDefinition>("FieldDefinition")({name: Schema.String, type: Schema.String}) {}
 export const FieldList = Schema.Array(FieldDefinition);
 export const TableNameList = Schema.Array(Schema.String);
 export const TypeNameList = Schema.Array(Schema.String);
-export const ColumnDefinition = Schema.Struct({name: Schema.String, type: Schema.String});
+export class ColumnDefinition extends Schema.Class<ColumnDefinition>("ColumnDefinition")({name: Schema.String, type: Schema.String}) {}
 export const ColumnDefinitionList = Schema.Array(ColumnDefinition);
-export const CreateKeyspaceRequest = Schema.Struct({keyspaceName: Schema.String, tags: Schema.optional(TagList), replicationSpecification: Schema.optional(ReplicationSpecification)});
-export const CreateTypeRequest = Schema.Struct({keyspaceName: Schema.String, typeName: Schema.String, fieldDefinitions: FieldList});
-export const AccessDeniedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ConflictException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DeleteTypeResponse = Schema.Struct({keyspaceArn: Schema.String, typeName: Schema.String});
-export const GetTypeResponse = Schema.Struct({keyspaceName: Schema.String, typeName: Schema.String, fieldDefinitions: Schema.optional(FieldList), lastModifiedTimestamp: Schema.optional(Schema.Date), status: Schema.optional(Schema.String), directReferringTables: Schema.optional(TableNameList), directParentTypes: Schema.optional(TypeNameList), maxNestingDepth: Schema.optional(Schema.Number), keyspaceArn: Schema.String});
-export const ListTagsForResourceResponse = Schema.Struct({nextToken: Schema.optional(Schema.String), tags: Schema.optional(TagList)});
-export const ListTypesResponse = Schema.Struct({nextToken: Schema.optional(Schema.String), types: TypeNameList});
-export const RestoreTableResponse = Schema.Struct({restoredTableARN: Schema.String});
-export const InternalServerException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.optional(Schema.String), resourceArn: Schema.optional(Schema.String)});
-export const UpdateKeyspaceResponse = Schema.Struct({resourceArn: Schema.String});
-export const UpdateTableRequest = Schema.Struct({keyspaceName: Schema.String, tableName: Schema.String, addColumns: Schema.optional(ColumnDefinitionList), capacitySpecification: Schema.optional(CapacitySpecification), encryptionSpecification: Schema.optional(EncryptionSpecification), pointInTimeRecovery: Schema.optional(PointInTimeRecovery), ttl: Schema.optional(TimeToLive), defaultTimeToLive: Schema.optional(Schema.Number), clientSideTimestamps: Schema.optional(ClientSideTimestamps), autoScalingSpecification: Schema.optional(AutoScalingSpecification), replicaSpecifications: Schema.optional(ReplicaSpecificationList), cdcSpecification: Schema.optional(CdcSpecification)});
-export const PartitionKey = Schema.Struct({name: Schema.String});
+export class CreateKeyspaceRequest extends Schema.Class<CreateKeyspaceRequest>("CreateKeyspaceRequest")({keyspaceName: Schema.String, tags: Schema.optional(TagList), replicationSpecification: Schema.optional(ReplicationSpecification)}) {}
+export class CreateTypeRequest extends Schema.Class<CreateTypeRequest>("CreateTypeRequest")({keyspaceName: Schema.String, typeName: Schema.String, fieldDefinitions: FieldList}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({message: Schema.optional(Schema.String)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({message: Schema.optional(Schema.String)}) {}
+export class DeleteTypeResponse extends Schema.Class<DeleteTypeResponse>("DeleteTypeResponse")({keyspaceArn: Schema.String, typeName: Schema.String}) {}
+export class GetTypeResponse extends Schema.Class<GetTypeResponse>("GetTypeResponse")({keyspaceName: Schema.String, typeName: Schema.String, fieldDefinitions: Schema.optional(FieldList), lastModifiedTimestamp: Schema.optional(Schema.Date), status: Schema.optional(Schema.String), directReferringTables: Schema.optional(TableNameList), directParentTypes: Schema.optional(TypeNameList), maxNestingDepth: Schema.optional(Schema.Number), keyspaceArn: Schema.String}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({nextToken: Schema.optional(Schema.String), tags: Schema.optional(TagList)}) {}
+export class ListTypesResponse extends Schema.Class<ListTypesResponse>("ListTypesResponse")({nextToken: Schema.optional(Schema.String), types: TypeNameList}) {}
+export class RestoreTableResponse extends Schema.Class<RestoreTableResponse>("RestoreTableResponse")({restoredTableARN: Schema.String}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({message: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.optional(Schema.String), resourceArn: Schema.optional(Schema.String)}) {}
+export class UpdateKeyspaceResponse extends Schema.Class<UpdateKeyspaceResponse>("UpdateKeyspaceResponse")({resourceArn: Schema.String}) {}
+export class UpdateTableRequest extends Schema.Class<UpdateTableRequest>("UpdateTableRequest")({keyspaceName: Schema.String, tableName: Schema.String, addColumns: Schema.optional(ColumnDefinitionList), capacitySpecification: Schema.optional(CapacitySpecification), encryptionSpecification: Schema.optional(EncryptionSpecification), pointInTimeRecovery: Schema.optional(PointInTimeRecovery), ttl: Schema.optional(TimeToLive), defaultTimeToLive: Schema.optional(Schema.Number), clientSideTimestamps: Schema.optional(ClientSideTimestamps), autoScalingSpecification: Schema.optional(AutoScalingSpecification), replicaSpecifications: Schema.optional(ReplicaSpecificationList), cdcSpecification: Schema.optional(CdcSpecification)}) {}
+export class PartitionKey extends Schema.Class<PartitionKey>("PartitionKey")({name: Schema.String}) {}
 export const PartitionKeyList = Schema.Array(PartitionKey);
-export const ClusteringKey = Schema.Struct({name: Schema.String, orderBy: Schema.String});
+export class ClusteringKey extends Schema.Class<ClusteringKey>("ClusteringKey")({name: Schema.String, orderBy: Schema.String}) {}
 export const ClusteringKeyList = Schema.Array(ClusteringKey);
-export const StaticColumn = Schema.Struct({name: Schema.String});
+export class StaticColumn extends Schema.Class<StaticColumn>("StaticColumn")({name: Schema.String}) {}
 export const StaticColumnList = Schema.Array(StaticColumn);
-export const SchemaDefinition = Schema.Struct({allColumns: ColumnDefinitionList, partitionKeys: PartitionKeyList, clusteringKeys: Schema.optional(ClusteringKeyList), staticColumns: Schema.optional(StaticColumnList)});
-export const ReplicationGroupStatus = Schema.Struct({region: Schema.String, keyspaceStatus: Schema.String, tablesReplicationProgress: Schema.optional(Schema.String)});
+export class SchemaDefinition extends Schema.Class<SchemaDefinition>("SchemaDefinition")({allColumns: ColumnDefinitionList, partitionKeys: PartitionKeyList, clusteringKeys: Schema.optional(ClusteringKeyList), staticColumns: Schema.optional(StaticColumnList)}) {}
+export class ReplicationGroupStatus extends Schema.Class<ReplicationGroupStatus>("ReplicationGroupStatus")({region: Schema.String, keyspaceStatus: Schema.String, tablesReplicationProgress: Schema.optional(Schema.String)}) {}
 export const ReplicationGroupStatusList = Schema.Array(ReplicationGroupStatus);
-export const CapacitySpecificationSummary = Schema.Struct({throughputMode: Schema.String, readCapacityUnits: Schema.optional(Schema.Number), writeCapacityUnits: Schema.optional(Schema.Number), lastUpdateToPayPerRequestTimestamp: Schema.optional(Schema.Date)});
-export const PointInTimeRecoverySummary = Schema.Struct({status: Schema.String, earliestRestorableTimestamp: Schema.optional(Schema.Date)});
-export const ReplicaSpecificationSummary = Schema.Struct({region: Schema.optional(Schema.String), status: Schema.optional(Schema.String), capacitySpecification: Schema.optional(CapacitySpecificationSummary)});
+export class CapacitySpecificationSummary extends Schema.Class<CapacitySpecificationSummary>("CapacitySpecificationSummary")({throughputMode: Schema.String, readCapacityUnits: Schema.optional(Schema.Number), writeCapacityUnits: Schema.optional(Schema.Number), lastUpdateToPayPerRequestTimestamp: Schema.optional(Schema.Date)}) {}
+export class PointInTimeRecoverySummary extends Schema.Class<PointInTimeRecoverySummary>("PointInTimeRecoverySummary")({status: Schema.String, earliestRestorableTimestamp: Schema.optional(Schema.Date)}) {}
+export class ReplicaSpecificationSummary extends Schema.Class<ReplicaSpecificationSummary>("ReplicaSpecificationSummary")({region: Schema.optional(Schema.String), status: Schema.optional(Schema.String), capacitySpecification: Schema.optional(CapacitySpecificationSummary)}) {}
 export const ReplicaSpecificationSummaryList = Schema.Array(ReplicaSpecificationSummary);
-export const CdcSpecificationSummary = Schema.Struct({status: Schema.String, viewType: Schema.optional(Schema.String)});
-export const ReplicaAutoScalingSpecification = Schema.Struct({region: Schema.optional(Schema.String), autoScalingSpecification: Schema.optional(AutoScalingSpecification)});
+export class CdcSpecificationSummary extends Schema.Class<CdcSpecificationSummary>("CdcSpecificationSummary")({status: Schema.String, viewType: Schema.optional(Schema.String)}) {}
+export class ReplicaAutoScalingSpecification extends Schema.Class<ReplicaAutoScalingSpecification>("ReplicaAutoScalingSpecification")({region: Schema.optional(Schema.String), autoScalingSpecification: Schema.optional(AutoScalingSpecification)}) {}
 export const ReplicaAutoScalingSpecificationList = Schema.Array(ReplicaAutoScalingSpecification);
-export const KeyspaceSummary = Schema.Struct({keyspaceName: Schema.String, resourceArn: Schema.String, replicationStrategy: Schema.String, replicationRegions: Schema.optional(RegionList)});
+export class KeyspaceSummary extends Schema.Class<KeyspaceSummary>("KeyspaceSummary")({keyspaceName: Schema.String, resourceArn: Schema.String, replicationStrategy: Schema.String, replicationRegions: Schema.optional(RegionList)}) {}
 export const KeyspaceSummaryList = Schema.Array(KeyspaceSummary);
-export const TableSummary = Schema.Struct({keyspaceName: Schema.String, tableName: Schema.String, resourceArn: Schema.String});
+export class TableSummary extends Schema.Class<TableSummary>("TableSummary")({keyspaceName: Schema.String, tableName: Schema.String, resourceArn: Schema.String}) {}
 export const TableSummaryList = Schema.Array(TableSummary);
-export const CreateKeyspaceResponse = Schema.Struct({resourceArn: Schema.String});
-export const CreateTypeResponse = Schema.Struct({keyspaceArn: Schema.String, typeName: Schema.String});
-export const ServiceQuotaExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ValidationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const GetKeyspaceResponse = Schema.Struct({keyspaceName: Schema.String, resourceArn: Schema.String, replicationStrategy: Schema.String, replicationRegions: Schema.optional(RegionList), replicationGroupStatuses: Schema.optional(ReplicationGroupStatusList)});
-export const GetTableResponse = Schema.Struct({keyspaceName: Schema.String, tableName: Schema.String, resourceArn: Schema.String, creationTimestamp: Schema.optional(Schema.Date), status: Schema.optional(Schema.String), schemaDefinition: Schema.optional(SchemaDefinition), capacitySpecification: Schema.optional(CapacitySpecificationSummary), encryptionSpecification: Schema.optional(EncryptionSpecification), pointInTimeRecovery: Schema.optional(PointInTimeRecoverySummary), ttl: Schema.optional(TimeToLive), defaultTimeToLive: Schema.optional(Schema.Number), comment: Schema.optional(Comment), clientSideTimestamps: Schema.optional(ClientSideTimestamps), replicaSpecifications: Schema.optional(ReplicaSpecificationSummaryList), latestStreamArn: Schema.optional(Schema.String), cdcSpecification: Schema.optional(CdcSpecificationSummary)});
-export const GetTableAutoScalingSettingsResponse = Schema.Struct({keyspaceName: Schema.String, tableName: Schema.String, resourceArn: Schema.String, autoScalingSpecification: Schema.optional(AutoScalingSpecification), replicaSpecifications: Schema.optional(ReplicaAutoScalingSpecificationList)});
-export const ListKeyspacesResponse = Schema.Struct({nextToken: Schema.optional(Schema.String), keyspaces: KeyspaceSummaryList});
-export const ListTablesResponse = Schema.Struct({nextToken: Schema.optional(Schema.String), tables: Schema.optional(TableSummaryList)});
-export const UpdateTableResponse = Schema.Struct({resourceArn: Schema.String});
-export const CreateTableRequest = Schema.Struct({keyspaceName: Schema.String, tableName: Schema.String, schemaDefinition: SchemaDefinition, comment: Schema.optional(Comment), capacitySpecification: Schema.optional(CapacitySpecification), encryptionSpecification: Schema.optional(EncryptionSpecification), pointInTimeRecovery: Schema.optional(PointInTimeRecovery), ttl: Schema.optional(TimeToLive), defaultTimeToLive: Schema.optional(Schema.Number), tags: Schema.optional(TagList), clientSideTimestamps: Schema.optional(ClientSideTimestamps), autoScalingSpecification: Schema.optional(AutoScalingSpecification), replicaSpecifications: Schema.optional(ReplicaSpecificationList), cdcSpecification: Schema.optional(CdcSpecification)});
-export const CreateTableResponse = Schema.Struct({resourceArn: Schema.String});
+export class CreateKeyspaceResponse extends Schema.Class<CreateKeyspaceResponse>("CreateKeyspaceResponse")({resourceArn: Schema.String}) {}
+export class CreateTypeResponse extends Schema.Class<CreateTypeResponse>("CreateTypeResponse")({keyspaceArn: Schema.String, typeName: Schema.String}) {}
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({message: Schema.optional(Schema.String)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({message: Schema.optional(Schema.String)}) {}
+export class GetKeyspaceResponse extends Schema.Class<GetKeyspaceResponse>("GetKeyspaceResponse")({keyspaceName: Schema.String, resourceArn: Schema.String, replicationStrategy: Schema.String, replicationRegions: Schema.optional(RegionList), replicationGroupStatuses: Schema.optional(ReplicationGroupStatusList)}) {}
+export class GetTableResponse extends Schema.Class<GetTableResponse>("GetTableResponse")({keyspaceName: Schema.String, tableName: Schema.String, resourceArn: Schema.String, creationTimestamp: Schema.optional(Schema.Date), status: Schema.optional(Schema.String), schemaDefinition: Schema.optional(SchemaDefinition), capacitySpecification: Schema.optional(CapacitySpecificationSummary), encryptionSpecification: Schema.optional(EncryptionSpecification), pointInTimeRecovery: Schema.optional(PointInTimeRecoverySummary), ttl: Schema.optional(TimeToLive), defaultTimeToLive: Schema.optional(Schema.Number), comment: Schema.optional(Comment), clientSideTimestamps: Schema.optional(ClientSideTimestamps), replicaSpecifications: Schema.optional(ReplicaSpecificationSummaryList), latestStreamArn: Schema.optional(Schema.String), cdcSpecification: Schema.optional(CdcSpecificationSummary)}) {}
+export class GetTableAutoScalingSettingsResponse extends Schema.Class<GetTableAutoScalingSettingsResponse>("GetTableAutoScalingSettingsResponse")({keyspaceName: Schema.String, tableName: Schema.String, resourceArn: Schema.String, autoScalingSpecification: Schema.optional(AutoScalingSpecification), replicaSpecifications: Schema.optional(ReplicaAutoScalingSpecificationList)}) {}
+export class ListKeyspacesResponse extends Schema.Class<ListKeyspacesResponse>("ListKeyspacesResponse")({nextToken: Schema.optional(Schema.String), keyspaces: KeyspaceSummaryList}) {}
+export class ListTablesResponse extends Schema.Class<ListTablesResponse>("ListTablesResponse")({nextToken: Schema.optional(Schema.String), tables: Schema.optional(TableSummaryList)}) {}
+export class UpdateTableResponse extends Schema.Class<UpdateTableResponse>("UpdateTableResponse")({resourceArn: Schema.String}) {}
+export class CreateTableRequest extends Schema.Class<CreateTableRequest>("CreateTableRequest")({keyspaceName: Schema.String, tableName: Schema.String, schemaDefinition: SchemaDefinition, comment: Schema.optional(Comment), capacitySpecification: Schema.optional(CapacitySpecification), encryptionSpecification: Schema.optional(EncryptionSpecification), pointInTimeRecovery: Schema.optional(PointInTimeRecovery), ttl: Schema.optional(TimeToLive), defaultTimeToLive: Schema.optional(Schema.Number), tags: Schema.optional(TagList), clientSideTimestamps: Schema.optional(ClientSideTimestamps), autoScalingSpecification: Schema.optional(AutoScalingSpecification), replicaSpecifications: Schema.optional(ReplicaSpecificationList), cdcSpecification: Schema.optional(CdcSpecification)}) {}
+export class CreateTableResponse extends Schema.Class<CreateTableResponse>("CreateTableResponse")({resourceArn: Schema.String}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
 
 //# Operations
 export const deleteType = /*#__PURE__*/ makeOperation(() => Operation({ version: "2022-02-10", uri: "/", method: "POST", sdkId: "Keyspaces", sigV4ServiceName: "cassandra", name: "KeyspacesService.DeleteType" }, DeleteTypeRequest, DeleteTypeResponse, [AccessDeniedExceptionError, ConflictExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ServiceQuotaExceededExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);

@@ -3,308 +3,308 @@ import { FormatAwsJSON11Request,FormatJSONResponse,FormatAwsRestJSONError, makeO
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const GetChangeTokenRequest = Schema.Struct({});
+export class GetChangeTokenRequest extends Schema.Class<GetChangeTokenRequest>("GetChangeTokenRequest")({}) {}
 export const TagKeyList = Schema.Array(Schema.String);
-export const AssociateWebACLRequest = Schema.Struct({WebACLId: Schema.String, ResourceArn: Schema.String});
-export const AssociateWebACLResponse = Schema.Struct({});
-export const CreateByteMatchSetRequest = Schema.Struct({Name: Schema.String, ChangeToken: Schema.String});
-export const CreateGeoMatchSetRequest = Schema.Struct({Name: Schema.String, ChangeToken: Schema.String});
-export const CreateIPSetRequest = Schema.Struct({Name: Schema.String, ChangeToken: Schema.String});
-export const CreateRegexMatchSetRequest = Schema.Struct({Name: Schema.String, ChangeToken: Schema.String});
-export const CreateRegexPatternSetRequest = Schema.Struct({Name: Schema.String, ChangeToken: Schema.String});
-export const Tag = Schema.Struct({Key: Schema.String, Value: Schema.String});
+export class AssociateWebACLRequest extends Schema.Class<AssociateWebACLRequest>("AssociateWebACLRequest")({WebACLId: Schema.String, ResourceArn: Schema.String}) {}
+export class AssociateWebACLResponse extends Schema.Class<AssociateWebACLResponse>("AssociateWebACLResponse")({}) {}
+export class CreateByteMatchSetRequest extends Schema.Class<CreateByteMatchSetRequest>("CreateByteMatchSetRequest")({Name: Schema.String, ChangeToken: Schema.String}) {}
+export class CreateGeoMatchSetRequest extends Schema.Class<CreateGeoMatchSetRequest>("CreateGeoMatchSetRequest")({Name: Schema.String, ChangeToken: Schema.String}) {}
+export class CreateIPSetRequest extends Schema.Class<CreateIPSetRequest>("CreateIPSetRequest")({Name: Schema.String, ChangeToken: Schema.String}) {}
+export class CreateRegexMatchSetRequest extends Schema.Class<CreateRegexMatchSetRequest>("CreateRegexMatchSetRequest")({Name: Schema.String, ChangeToken: Schema.String}) {}
+export class CreateRegexPatternSetRequest extends Schema.Class<CreateRegexPatternSetRequest>("CreateRegexPatternSetRequest")({Name: Schema.String, ChangeToken: Schema.String}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.String, Value: Schema.String}) {}
 export const TagList = Schema.Array(Tag);
-export const CreateRuleRequest = Schema.Struct({Name: Schema.String, MetricName: Schema.String, ChangeToken: Schema.String, Tags: Schema.optional(TagList)});
-export const CreateRuleGroupRequest = Schema.Struct({Name: Schema.String, MetricName: Schema.String, ChangeToken: Schema.String, Tags: Schema.optional(TagList)});
-export const CreateSizeConstraintSetRequest = Schema.Struct({Name: Schema.String, ChangeToken: Schema.String});
-export const CreateSqlInjectionMatchSetRequest = Schema.Struct({Name: Schema.String, ChangeToken: Schema.String});
-export const CreateWebACLMigrationStackRequest = Schema.Struct({WebACLId: Schema.String, S3BucketName: Schema.String, IgnoreUnsupportedType: Schema.Boolean});
-export const CreateXssMatchSetRequest = Schema.Struct({Name: Schema.String, ChangeToken: Schema.String});
-export const DeleteByteMatchSetRequest = Schema.Struct({ByteMatchSetId: Schema.String, ChangeToken: Schema.String});
-export const DeleteGeoMatchSetRequest = Schema.Struct({GeoMatchSetId: Schema.String, ChangeToken: Schema.String});
-export const DeleteIPSetRequest = Schema.Struct({IPSetId: Schema.String, ChangeToken: Schema.String});
-export const DeleteLoggingConfigurationRequest = Schema.Struct({ResourceArn: Schema.String});
-export const DeleteLoggingConfigurationResponse = Schema.Struct({});
-export const DeletePermissionPolicyRequest = Schema.Struct({ResourceArn: Schema.String});
-export const DeletePermissionPolicyResponse = Schema.Struct({});
-export const DeleteRateBasedRuleRequest = Schema.Struct({RuleId: Schema.String, ChangeToken: Schema.String});
-export const DeleteRegexMatchSetRequest = Schema.Struct({RegexMatchSetId: Schema.String, ChangeToken: Schema.String});
-export const DeleteRegexPatternSetRequest = Schema.Struct({RegexPatternSetId: Schema.String, ChangeToken: Schema.String});
-export const DeleteRuleRequest = Schema.Struct({RuleId: Schema.String, ChangeToken: Schema.String});
-export const DeleteRuleGroupRequest = Schema.Struct({RuleGroupId: Schema.String, ChangeToken: Schema.String});
-export const DeleteSizeConstraintSetRequest = Schema.Struct({SizeConstraintSetId: Schema.String, ChangeToken: Schema.String});
-export const DeleteSqlInjectionMatchSetRequest = Schema.Struct({SqlInjectionMatchSetId: Schema.String, ChangeToken: Schema.String});
-export const DeleteWebACLRequest = Schema.Struct({WebACLId: Schema.String, ChangeToken: Schema.String});
-export const DeleteXssMatchSetRequest = Schema.Struct({XssMatchSetId: Schema.String, ChangeToken: Schema.String});
-export const DisassociateWebACLRequest = Schema.Struct({ResourceArn: Schema.String});
-export const DisassociateWebACLResponse = Schema.Struct({});
-export const WAFInvalidAccountException = Schema.Struct({});
-export const GetByteMatchSetRequest = Schema.Struct({ByteMatchSetId: Schema.String});
-export const GetChangeTokenResponse = Schema.Struct({ChangeToken: Schema.optional(Schema.String)});
-export const GetChangeTokenStatusRequest = Schema.Struct({ChangeToken: Schema.String});
-export const GetGeoMatchSetRequest = Schema.Struct({GeoMatchSetId: Schema.String});
-export const GetIPSetRequest = Schema.Struct({IPSetId: Schema.String});
-export const GetLoggingConfigurationRequest = Schema.Struct({ResourceArn: Schema.String});
-export const GetPermissionPolicyRequest = Schema.Struct({ResourceArn: Schema.String});
-export const GetRateBasedRuleRequest = Schema.Struct({RuleId: Schema.String});
-export const GetRateBasedRuleManagedKeysRequest = Schema.Struct({RuleId: Schema.String, NextMarker: Schema.optional(Schema.String)});
-export const GetRegexMatchSetRequest = Schema.Struct({RegexMatchSetId: Schema.String});
-export const GetRegexPatternSetRequest = Schema.Struct({RegexPatternSetId: Schema.String});
-export const GetRuleRequest = Schema.Struct({RuleId: Schema.String});
-export const GetRuleGroupRequest = Schema.Struct({RuleGroupId: Schema.String});
-export const GetSizeConstraintSetRequest = Schema.Struct({SizeConstraintSetId: Schema.String});
-export const GetSqlInjectionMatchSetRequest = Schema.Struct({SqlInjectionMatchSetId: Schema.String});
-export const GetWebACLRequest = Schema.Struct({WebACLId: Schema.String});
-export const GetWebACLForResourceRequest = Schema.Struct({ResourceArn: Schema.String});
-export const GetXssMatchSetRequest = Schema.Struct({XssMatchSetId: Schema.String});
-export const ListActivatedRulesInRuleGroupRequest = Schema.Struct({RuleGroupId: Schema.optional(Schema.String), NextMarker: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)});
-export const ListByteMatchSetsRequest = Schema.Struct({NextMarker: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)});
-export const ListGeoMatchSetsRequest = Schema.Struct({NextMarker: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)});
-export const ListIPSetsRequest = Schema.Struct({NextMarker: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)});
-export const ListLoggingConfigurationsRequest = Schema.Struct({NextMarker: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)});
-export const ListRateBasedRulesRequest = Schema.Struct({NextMarker: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)});
-export const ListRegexMatchSetsRequest = Schema.Struct({NextMarker: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)});
-export const ListRegexPatternSetsRequest = Schema.Struct({NextMarker: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)});
-export const ListResourcesForWebACLRequest = Schema.Struct({WebACLId: Schema.String, ResourceType: Schema.optional(Schema.String)});
-export const ListRuleGroupsRequest = Schema.Struct({NextMarker: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)});
-export const ListRulesRequest = Schema.Struct({NextMarker: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)});
-export const ListSizeConstraintSetsRequest = Schema.Struct({NextMarker: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)});
-export const ListSqlInjectionMatchSetsRequest = Schema.Struct({NextMarker: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)});
-export const ListSubscribedRuleGroupsRequest = Schema.Struct({NextMarker: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)});
-export const ListTagsForResourceRequest = Schema.Struct({NextMarker: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number), ResourceARN: Schema.String});
-export const ListWebACLsRequest = Schema.Struct({NextMarker: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)});
-export const ListXssMatchSetsRequest = Schema.Struct({NextMarker: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)});
-export const PutPermissionPolicyRequest = Schema.Struct({ResourceArn: Schema.String, Policy: Schema.String});
-export const PutPermissionPolicyResponse = Schema.Struct({});
-export const TagResourceRequest = Schema.Struct({ResourceARN: Schema.String, Tags: TagList});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({ResourceARN: Schema.String, TagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
-export const Predicate = Schema.Struct({Negated: Schema.Boolean, Type: Schema.String, DataId: Schema.String});
-export const RuleUpdate = Schema.Struct({Action: Schema.String, Predicate: Predicate});
+export class CreateRuleRequest extends Schema.Class<CreateRuleRequest>("CreateRuleRequest")({Name: Schema.String, MetricName: Schema.String, ChangeToken: Schema.String, Tags: Schema.optional(TagList)}) {}
+export class CreateRuleGroupRequest extends Schema.Class<CreateRuleGroupRequest>("CreateRuleGroupRequest")({Name: Schema.String, MetricName: Schema.String, ChangeToken: Schema.String, Tags: Schema.optional(TagList)}) {}
+export class CreateSizeConstraintSetRequest extends Schema.Class<CreateSizeConstraintSetRequest>("CreateSizeConstraintSetRequest")({Name: Schema.String, ChangeToken: Schema.String}) {}
+export class CreateSqlInjectionMatchSetRequest extends Schema.Class<CreateSqlInjectionMatchSetRequest>("CreateSqlInjectionMatchSetRequest")({Name: Schema.String, ChangeToken: Schema.String}) {}
+export class CreateWebACLMigrationStackRequest extends Schema.Class<CreateWebACLMigrationStackRequest>("CreateWebACLMigrationStackRequest")({WebACLId: Schema.String, S3BucketName: Schema.String, IgnoreUnsupportedType: Schema.Boolean}) {}
+export class CreateXssMatchSetRequest extends Schema.Class<CreateXssMatchSetRequest>("CreateXssMatchSetRequest")({Name: Schema.String, ChangeToken: Schema.String}) {}
+export class DeleteByteMatchSetRequest extends Schema.Class<DeleteByteMatchSetRequest>("DeleteByteMatchSetRequest")({ByteMatchSetId: Schema.String, ChangeToken: Schema.String}) {}
+export class DeleteGeoMatchSetRequest extends Schema.Class<DeleteGeoMatchSetRequest>("DeleteGeoMatchSetRequest")({GeoMatchSetId: Schema.String, ChangeToken: Schema.String}) {}
+export class DeleteIPSetRequest extends Schema.Class<DeleteIPSetRequest>("DeleteIPSetRequest")({IPSetId: Schema.String, ChangeToken: Schema.String}) {}
+export class DeleteLoggingConfigurationRequest extends Schema.Class<DeleteLoggingConfigurationRequest>("DeleteLoggingConfigurationRequest")({ResourceArn: Schema.String}) {}
+export class DeleteLoggingConfigurationResponse extends Schema.Class<DeleteLoggingConfigurationResponse>("DeleteLoggingConfigurationResponse")({}) {}
+export class DeletePermissionPolicyRequest extends Schema.Class<DeletePermissionPolicyRequest>("DeletePermissionPolicyRequest")({ResourceArn: Schema.String}) {}
+export class DeletePermissionPolicyResponse extends Schema.Class<DeletePermissionPolicyResponse>("DeletePermissionPolicyResponse")({}) {}
+export class DeleteRateBasedRuleRequest extends Schema.Class<DeleteRateBasedRuleRequest>("DeleteRateBasedRuleRequest")({RuleId: Schema.String, ChangeToken: Schema.String}) {}
+export class DeleteRegexMatchSetRequest extends Schema.Class<DeleteRegexMatchSetRequest>("DeleteRegexMatchSetRequest")({RegexMatchSetId: Schema.String, ChangeToken: Schema.String}) {}
+export class DeleteRegexPatternSetRequest extends Schema.Class<DeleteRegexPatternSetRequest>("DeleteRegexPatternSetRequest")({RegexPatternSetId: Schema.String, ChangeToken: Schema.String}) {}
+export class DeleteRuleRequest extends Schema.Class<DeleteRuleRequest>("DeleteRuleRequest")({RuleId: Schema.String, ChangeToken: Schema.String}) {}
+export class DeleteRuleGroupRequest extends Schema.Class<DeleteRuleGroupRequest>("DeleteRuleGroupRequest")({RuleGroupId: Schema.String, ChangeToken: Schema.String}) {}
+export class DeleteSizeConstraintSetRequest extends Schema.Class<DeleteSizeConstraintSetRequest>("DeleteSizeConstraintSetRequest")({SizeConstraintSetId: Schema.String, ChangeToken: Schema.String}) {}
+export class DeleteSqlInjectionMatchSetRequest extends Schema.Class<DeleteSqlInjectionMatchSetRequest>("DeleteSqlInjectionMatchSetRequest")({SqlInjectionMatchSetId: Schema.String, ChangeToken: Schema.String}) {}
+export class DeleteWebACLRequest extends Schema.Class<DeleteWebACLRequest>("DeleteWebACLRequest")({WebACLId: Schema.String, ChangeToken: Schema.String}) {}
+export class DeleteXssMatchSetRequest extends Schema.Class<DeleteXssMatchSetRequest>("DeleteXssMatchSetRequest")({XssMatchSetId: Schema.String, ChangeToken: Schema.String}) {}
+export class DisassociateWebACLRequest extends Schema.Class<DisassociateWebACLRequest>("DisassociateWebACLRequest")({ResourceArn: Schema.String}) {}
+export class DisassociateWebACLResponse extends Schema.Class<DisassociateWebACLResponse>("DisassociateWebACLResponse")({}) {}
+export class WAFInvalidAccountException extends Schema.Class<WAFInvalidAccountException>("WAFInvalidAccountException")({}) {}
+export class GetByteMatchSetRequest extends Schema.Class<GetByteMatchSetRequest>("GetByteMatchSetRequest")({ByteMatchSetId: Schema.String}) {}
+export class GetChangeTokenResponse extends Schema.Class<GetChangeTokenResponse>("GetChangeTokenResponse")({ChangeToken: Schema.optional(Schema.String)}) {}
+export class GetChangeTokenStatusRequest extends Schema.Class<GetChangeTokenStatusRequest>("GetChangeTokenStatusRequest")({ChangeToken: Schema.String}) {}
+export class GetGeoMatchSetRequest extends Schema.Class<GetGeoMatchSetRequest>("GetGeoMatchSetRequest")({GeoMatchSetId: Schema.String}) {}
+export class GetIPSetRequest extends Schema.Class<GetIPSetRequest>("GetIPSetRequest")({IPSetId: Schema.String}) {}
+export class GetLoggingConfigurationRequest extends Schema.Class<GetLoggingConfigurationRequest>("GetLoggingConfigurationRequest")({ResourceArn: Schema.String}) {}
+export class GetPermissionPolicyRequest extends Schema.Class<GetPermissionPolicyRequest>("GetPermissionPolicyRequest")({ResourceArn: Schema.String}) {}
+export class GetRateBasedRuleRequest extends Schema.Class<GetRateBasedRuleRequest>("GetRateBasedRuleRequest")({RuleId: Schema.String}) {}
+export class GetRateBasedRuleManagedKeysRequest extends Schema.Class<GetRateBasedRuleManagedKeysRequest>("GetRateBasedRuleManagedKeysRequest")({RuleId: Schema.String, NextMarker: Schema.optional(Schema.String)}) {}
+export class GetRegexMatchSetRequest extends Schema.Class<GetRegexMatchSetRequest>("GetRegexMatchSetRequest")({RegexMatchSetId: Schema.String}) {}
+export class GetRegexPatternSetRequest extends Schema.Class<GetRegexPatternSetRequest>("GetRegexPatternSetRequest")({RegexPatternSetId: Schema.String}) {}
+export class GetRuleRequest extends Schema.Class<GetRuleRequest>("GetRuleRequest")({RuleId: Schema.String}) {}
+export class GetRuleGroupRequest extends Schema.Class<GetRuleGroupRequest>("GetRuleGroupRequest")({RuleGroupId: Schema.String}) {}
+export class GetSizeConstraintSetRequest extends Schema.Class<GetSizeConstraintSetRequest>("GetSizeConstraintSetRequest")({SizeConstraintSetId: Schema.String}) {}
+export class GetSqlInjectionMatchSetRequest extends Schema.Class<GetSqlInjectionMatchSetRequest>("GetSqlInjectionMatchSetRequest")({SqlInjectionMatchSetId: Schema.String}) {}
+export class GetWebACLRequest extends Schema.Class<GetWebACLRequest>("GetWebACLRequest")({WebACLId: Schema.String}) {}
+export class GetWebACLForResourceRequest extends Schema.Class<GetWebACLForResourceRequest>("GetWebACLForResourceRequest")({ResourceArn: Schema.String}) {}
+export class GetXssMatchSetRequest extends Schema.Class<GetXssMatchSetRequest>("GetXssMatchSetRequest")({XssMatchSetId: Schema.String}) {}
+export class ListActivatedRulesInRuleGroupRequest extends Schema.Class<ListActivatedRulesInRuleGroupRequest>("ListActivatedRulesInRuleGroupRequest")({RuleGroupId: Schema.optional(Schema.String), NextMarker: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)}) {}
+export class ListByteMatchSetsRequest extends Schema.Class<ListByteMatchSetsRequest>("ListByteMatchSetsRequest")({NextMarker: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)}) {}
+export class ListGeoMatchSetsRequest extends Schema.Class<ListGeoMatchSetsRequest>("ListGeoMatchSetsRequest")({NextMarker: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)}) {}
+export class ListIPSetsRequest extends Schema.Class<ListIPSetsRequest>("ListIPSetsRequest")({NextMarker: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)}) {}
+export class ListLoggingConfigurationsRequest extends Schema.Class<ListLoggingConfigurationsRequest>("ListLoggingConfigurationsRequest")({NextMarker: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)}) {}
+export class ListRateBasedRulesRequest extends Schema.Class<ListRateBasedRulesRequest>("ListRateBasedRulesRequest")({NextMarker: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)}) {}
+export class ListRegexMatchSetsRequest extends Schema.Class<ListRegexMatchSetsRequest>("ListRegexMatchSetsRequest")({NextMarker: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)}) {}
+export class ListRegexPatternSetsRequest extends Schema.Class<ListRegexPatternSetsRequest>("ListRegexPatternSetsRequest")({NextMarker: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)}) {}
+export class ListResourcesForWebACLRequest extends Schema.Class<ListResourcesForWebACLRequest>("ListResourcesForWebACLRequest")({WebACLId: Schema.String, ResourceType: Schema.optional(Schema.String)}) {}
+export class ListRuleGroupsRequest extends Schema.Class<ListRuleGroupsRequest>("ListRuleGroupsRequest")({NextMarker: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)}) {}
+export class ListRulesRequest extends Schema.Class<ListRulesRequest>("ListRulesRequest")({NextMarker: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)}) {}
+export class ListSizeConstraintSetsRequest extends Schema.Class<ListSizeConstraintSetsRequest>("ListSizeConstraintSetsRequest")({NextMarker: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)}) {}
+export class ListSqlInjectionMatchSetsRequest extends Schema.Class<ListSqlInjectionMatchSetsRequest>("ListSqlInjectionMatchSetsRequest")({NextMarker: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)}) {}
+export class ListSubscribedRuleGroupsRequest extends Schema.Class<ListSubscribedRuleGroupsRequest>("ListSubscribedRuleGroupsRequest")({NextMarker: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({NextMarker: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number), ResourceARN: Schema.String}) {}
+export class ListWebACLsRequest extends Schema.Class<ListWebACLsRequest>("ListWebACLsRequest")({NextMarker: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)}) {}
+export class ListXssMatchSetsRequest extends Schema.Class<ListXssMatchSetsRequest>("ListXssMatchSetsRequest")({NextMarker: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)}) {}
+export class PutPermissionPolicyRequest extends Schema.Class<PutPermissionPolicyRequest>("PutPermissionPolicyRequest")({ResourceArn: Schema.String, Policy: Schema.String}) {}
+export class PutPermissionPolicyResponse extends Schema.Class<PutPermissionPolicyResponse>("PutPermissionPolicyResponse")({}) {}
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({ResourceARN: Schema.String, Tags: TagList}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({ResourceARN: Schema.String, TagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class Predicate extends Schema.Class<Predicate>("Predicate")({Negated: Schema.Boolean, Type: Schema.String, DataId: Schema.String}) {}
+export class RuleUpdate extends Schema.Class<RuleUpdate>("RuleUpdate")({Action: Schema.String, Predicate: Predicate}) {}
 export const RuleUpdates = Schema.Array(RuleUpdate);
-export const UpdateRuleRequest = Schema.Struct({RuleId: Schema.String, ChangeToken: Schema.String, Updates: RuleUpdates});
+export class UpdateRuleRequest extends Schema.Class<UpdateRuleRequest>("UpdateRuleRequest")({RuleId: Schema.String, ChangeToken: Schema.String, Updates: RuleUpdates}) {}
 export const LogDestinationConfigs = Schema.Array(Schema.String);
-export const WafAction = Schema.Struct({Type: Schema.String});
+export class WafAction extends Schema.Class<WafAction>("WafAction")({Type: Schema.String}) {}
 export const ManagedKeys = Schema.Array(Schema.String);
-export const TimeWindow = Schema.Struct({StartTime: Schema.Date, EndTime: Schema.Date});
-export const WafOverrideAction = Schema.Struct({Type: Schema.String});
-export const ExcludedRule = Schema.Struct({RuleId: Schema.String});
+export class TimeWindow extends Schema.Class<TimeWindow>("TimeWindow")({StartTime: Schema.Date, EndTime: Schema.Date}) {}
+export class WafOverrideAction extends Schema.Class<WafOverrideAction>("WafOverrideAction")({Type: Schema.String}) {}
+export class ExcludedRule extends Schema.Class<ExcludedRule>("ExcludedRule")({RuleId: Schema.String}) {}
 export const ExcludedRules = Schema.Array(ExcludedRule);
-export const ActivatedRule = Schema.Struct({Priority: Schema.Number, RuleId: Schema.String, Action: Schema.optional(WafAction), OverrideAction: Schema.optional(WafOverrideAction), Type: Schema.optional(Schema.String), ExcludedRules: Schema.optional(ExcludedRules)});
+export class ActivatedRule extends Schema.Class<ActivatedRule>("ActivatedRule")({Priority: Schema.Number, RuleId: Schema.String, Action: Schema.optional(WafAction), OverrideAction: Schema.optional(WafOverrideAction), Type: Schema.optional(Schema.String), ExcludedRules: Schema.optional(ExcludedRules)}) {}
 export const ActivatedRules = Schema.Array(ActivatedRule);
-export const FieldToMatch = Schema.Struct({Type: Schema.String, Data: Schema.optional(Schema.String)});
+export class FieldToMatch extends Schema.Class<FieldToMatch>("FieldToMatch")({Type: Schema.String, Data: Schema.optional(Schema.String)}) {}
 export const RedactedFields = Schema.Array(FieldToMatch);
-export const LoggingConfiguration = Schema.Struct({ResourceArn: Schema.String, LogDestinationConfigs: LogDestinationConfigs, RedactedFields: Schema.optional(RedactedFields)});
+export class LoggingConfiguration extends Schema.Class<LoggingConfiguration>("LoggingConfiguration")({ResourceArn: Schema.String, LogDestinationConfigs: LogDestinationConfigs, RedactedFields: Schema.optional(RedactedFields)}) {}
 export const LoggingConfigurations = Schema.Array(LoggingConfiguration);
 export const ResourceArns = Schema.Array(Schema.String);
-export const WebACLSummary = Schema.Struct({WebACLId: Schema.String, Name: Schema.String});
+export class WebACLSummary extends Schema.Class<WebACLSummary>("WebACLSummary")({WebACLId: Schema.String, Name: Schema.String}) {}
 export const WebACLSummaries = Schema.Array(WebACLSummary);
-export const RegexPatternSetUpdate = Schema.Struct({Action: Schema.String, RegexPatternString: Schema.String});
+export class RegexPatternSetUpdate extends Schema.Class<RegexPatternSetUpdate>("RegexPatternSetUpdate")({Action: Schema.String, RegexPatternString: Schema.String}) {}
 export const RegexPatternSetUpdates = Schema.Array(RegexPatternSetUpdate);
-export const WebACLUpdate = Schema.Struct({Action: Schema.String, ActivatedRule: ActivatedRule});
+export class WebACLUpdate extends Schema.Class<WebACLUpdate>("WebACLUpdate")({Action: Schema.String, ActivatedRule: ActivatedRule}) {}
 export const WebACLUpdates = Schema.Array(WebACLUpdate);
-export const WAFInternalErrorException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CreateRateBasedRuleRequest = Schema.Struct({Name: Schema.String, MetricName: Schema.String, RateKey: Schema.String, RateLimit: Schema.Number, ChangeToken: Schema.String, Tags: Schema.optional(TagList)});
-export const CreateWebACLRequest = Schema.Struct({Name: Schema.String, MetricName: Schema.String, DefaultAction: WafAction, ChangeToken: Schema.String, Tags: Schema.optional(TagList)});
-export const CreateWebACLMigrationStackResponse = Schema.Struct({S3ObjectUrl: Schema.String});
-export const DeleteByteMatchSetResponse = Schema.Struct({ChangeToken: Schema.optional(Schema.String)});
-export const DeleteGeoMatchSetResponse = Schema.Struct({ChangeToken: Schema.optional(Schema.String)});
-export const DeleteIPSetResponse = Schema.Struct({ChangeToken: Schema.optional(Schema.String)});
-export const WAFNonexistentItemException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const WAFStaleDataException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DeleteRateBasedRuleResponse = Schema.Struct({ChangeToken: Schema.optional(Schema.String)});
-export const DeleteRegexMatchSetResponse = Schema.Struct({ChangeToken: Schema.optional(Schema.String)});
-export const DeleteRegexPatternSetResponse = Schema.Struct({ChangeToken: Schema.optional(Schema.String)});
-export const DeleteRuleResponse = Schema.Struct({ChangeToken: Schema.optional(Schema.String)});
-export const DeleteRuleGroupResponse = Schema.Struct({ChangeToken: Schema.optional(Schema.String)});
-export const DeleteSizeConstraintSetResponse = Schema.Struct({ChangeToken: Schema.optional(Schema.String)});
-export const DeleteSqlInjectionMatchSetResponse = Schema.Struct({ChangeToken: Schema.optional(Schema.String)});
-export const DeleteWebACLResponse = Schema.Struct({ChangeToken: Schema.optional(Schema.String)});
-export const DeleteXssMatchSetResponse = Schema.Struct({ChangeToken: Schema.optional(Schema.String)});
-export const WAFInvalidParameterException = Schema.Struct({field: Schema.optional(Schema.String), parameter: Schema.optional(Schema.String), reason: Schema.optional(Schema.String)});
-export const ByteMatchTuple = Schema.Struct({FieldToMatch: FieldToMatch, TargetString: StreamBody(), TextTransformation: Schema.String, PositionalConstraint: Schema.String});
+export class WAFInternalErrorException extends Schema.Class<WAFInternalErrorException>("WAFInternalErrorException")({message: Schema.optional(Schema.String)}) {}
+export class CreateRateBasedRuleRequest extends Schema.Class<CreateRateBasedRuleRequest>("CreateRateBasedRuleRequest")({Name: Schema.String, MetricName: Schema.String, RateKey: Schema.String, RateLimit: Schema.Number, ChangeToken: Schema.String, Tags: Schema.optional(TagList)}) {}
+export class CreateWebACLRequest extends Schema.Class<CreateWebACLRequest>("CreateWebACLRequest")({Name: Schema.String, MetricName: Schema.String, DefaultAction: WafAction, ChangeToken: Schema.String, Tags: Schema.optional(TagList)}) {}
+export class CreateWebACLMigrationStackResponse extends Schema.Class<CreateWebACLMigrationStackResponse>("CreateWebACLMigrationStackResponse")({S3ObjectUrl: Schema.String}) {}
+export class DeleteByteMatchSetResponse extends Schema.Class<DeleteByteMatchSetResponse>("DeleteByteMatchSetResponse")({ChangeToken: Schema.optional(Schema.String)}) {}
+export class DeleteGeoMatchSetResponse extends Schema.Class<DeleteGeoMatchSetResponse>("DeleteGeoMatchSetResponse")({ChangeToken: Schema.optional(Schema.String)}) {}
+export class DeleteIPSetResponse extends Schema.Class<DeleteIPSetResponse>("DeleteIPSetResponse")({ChangeToken: Schema.optional(Schema.String)}) {}
+export class WAFNonexistentItemException extends Schema.Class<WAFNonexistentItemException>("WAFNonexistentItemException")({message: Schema.optional(Schema.String)}) {}
+export class WAFStaleDataException extends Schema.Class<WAFStaleDataException>("WAFStaleDataException")({message: Schema.optional(Schema.String)}) {}
+export class DeleteRateBasedRuleResponse extends Schema.Class<DeleteRateBasedRuleResponse>("DeleteRateBasedRuleResponse")({ChangeToken: Schema.optional(Schema.String)}) {}
+export class DeleteRegexMatchSetResponse extends Schema.Class<DeleteRegexMatchSetResponse>("DeleteRegexMatchSetResponse")({ChangeToken: Schema.optional(Schema.String)}) {}
+export class DeleteRegexPatternSetResponse extends Schema.Class<DeleteRegexPatternSetResponse>("DeleteRegexPatternSetResponse")({ChangeToken: Schema.optional(Schema.String)}) {}
+export class DeleteRuleResponse extends Schema.Class<DeleteRuleResponse>("DeleteRuleResponse")({ChangeToken: Schema.optional(Schema.String)}) {}
+export class DeleteRuleGroupResponse extends Schema.Class<DeleteRuleGroupResponse>("DeleteRuleGroupResponse")({ChangeToken: Schema.optional(Schema.String)}) {}
+export class DeleteSizeConstraintSetResponse extends Schema.Class<DeleteSizeConstraintSetResponse>("DeleteSizeConstraintSetResponse")({ChangeToken: Schema.optional(Schema.String)}) {}
+export class DeleteSqlInjectionMatchSetResponse extends Schema.Class<DeleteSqlInjectionMatchSetResponse>("DeleteSqlInjectionMatchSetResponse")({ChangeToken: Schema.optional(Schema.String)}) {}
+export class DeleteWebACLResponse extends Schema.Class<DeleteWebACLResponse>("DeleteWebACLResponse")({ChangeToken: Schema.optional(Schema.String)}) {}
+export class DeleteXssMatchSetResponse extends Schema.Class<DeleteXssMatchSetResponse>("DeleteXssMatchSetResponse")({ChangeToken: Schema.optional(Schema.String)}) {}
+export class WAFInvalidParameterException extends Schema.Class<WAFInvalidParameterException>("WAFInvalidParameterException")({field: Schema.optional(Schema.String), parameter: Schema.optional(Schema.String), reason: Schema.optional(Schema.String)}) {}
+export class ByteMatchTuple extends Schema.Class<ByteMatchTuple>("ByteMatchTuple")({FieldToMatch: FieldToMatch, TargetString: StreamBody(), TextTransformation: Schema.String, PositionalConstraint: Schema.String}) {}
 export const ByteMatchTuples = Schema.Array(ByteMatchTuple);
-export const ByteMatchSet = Schema.Struct({ByteMatchSetId: Schema.String, Name: Schema.optional(Schema.String), ByteMatchTuples: ByteMatchTuples});
-export const GetByteMatchSetResponse = Schema.Struct({ByteMatchSet: Schema.optional(ByteMatchSet)});
-export const GetChangeTokenStatusResponse = Schema.Struct({ChangeTokenStatus: Schema.optional(Schema.String)});
-export const GeoMatchConstraint = Schema.Struct({Type: Schema.String, Value: Schema.String});
+export class ByteMatchSet extends Schema.Class<ByteMatchSet>("ByteMatchSet")({ByteMatchSetId: Schema.String, Name: Schema.optional(Schema.String), ByteMatchTuples: ByteMatchTuples}) {}
+export class GetByteMatchSetResponse extends Schema.Class<GetByteMatchSetResponse>("GetByteMatchSetResponse")({ByteMatchSet: Schema.optional(ByteMatchSet)}) {}
+export class GetChangeTokenStatusResponse extends Schema.Class<GetChangeTokenStatusResponse>("GetChangeTokenStatusResponse")({ChangeTokenStatus: Schema.optional(Schema.String)}) {}
+export class GeoMatchConstraint extends Schema.Class<GeoMatchConstraint>("GeoMatchConstraint")({Type: Schema.String, Value: Schema.String}) {}
 export const GeoMatchConstraints = Schema.Array(GeoMatchConstraint);
-export const GeoMatchSet = Schema.Struct({GeoMatchSetId: Schema.String, Name: Schema.optional(Schema.String), GeoMatchConstraints: GeoMatchConstraints});
-export const GetGeoMatchSetResponse = Schema.Struct({GeoMatchSet: Schema.optional(GeoMatchSet)});
-export const IPSetDescriptor = Schema.Struct({Type: Schema.String, Value: Schema.String});
+export class GeoMatchSet extends Schema.Class<GeoMatchSet>("GeoMatchSet")({GeoMatchSetId: Schema.String, Name: Schema.optional(Schema.String), GeoMatchConstraints: GeoMatchConstraints}) {}
+export class GetGeoMatchSetResponse extends Schema.Class<GetGeoMatchSetResponse>("GetGeoMatchSetResponse")({GeoMatchSet: Schema.optional(GeoMatchSet)}) {}
+export class IPSetDescriptor extends Schema.Class<IPSetDescriptor>("IPSetDescriptor")({Type: Schema.String, Value: Schema.String}) {}
 export const IPSetDescriptors = Schema.Array(IPSetDescriptor);
-export const IPSet = Schema.Struct({IPSetId: Schema.String, Name: Schema.optional(Schema.String), IPSetDescriptors: IPSetDescriptors});
-export const GetIPSetResponse = Schema.Struct({IPSet: Schema.optional(IPSet)});
-export const GetLoggingConfigurationResponse = Schema.Struct({LoggingConfiguration: Schema.optional(LoggingConfiguration)});
-export const GetPermissionPolicyResponse = Schema.Struct({Policy: Schema.optional(Schema.String)});
-export const GetRateBasedRuleManagedKeysResponse = Schema.Struct({ManagedKeys: Schema.optional(ManagedKeys), NextMarker: Schema.optional(Schema.String)});
-export const RegexMatchTuple = Schema.Struct({FieldToMatch: FieldToMatch, TextTransformation: Schema.String, RegexPatternSetId: Schema.String});
+export class IPSet extends Schema.Class<IPSet>("IPSet")({IPSetId: Schema.String, Name: Schema.optional(Schema.String), IPSetDescriptors: IPSetDescriptors}) {}
+export class GetIPSetResponse extends Schema.Class<GetIPSetResponse>("GetIPSetResponse")({IPSet: Schema.optional(IPSet)}) {}
+export class GetLoggingConfigurationResponse extends Schema.Class<GetLoggingConfigurationResponse>("GetLoggingConfigurationResponse")({LoggingConfiguration: Schema.optional(LoggingConfiguration)}) {}
+export class GetPermissionPolicyResponse extends Schema.Class<GetPermissionPolicyResponse>("GetPermissionPolicyResponse")({Policy: Schema.optional(Schema.String)}) {}
+export class GetRateBasedRuleManagedKeysResponse extends Schema.Class<GetRateBasedRuleManagedKeysResponse>("GetRateBasedRuleManagedKeysResponse")({ManagedKeys: Schema.optional(ManagedKeys), NextMarker: Schema.optional(Schema.String)}) {}
+export class RegexMatchTuple extends Schema.Class<RegexMatchTuple>("RegexMatchTuple")({FieldToMatch: FieldToMatch, TextTransformation: Schema.String, RegexPatternSetId: Schema.String}) {}
 export const RegexMatchTuples = Schema.Array(RegexMatchTuple);
-export const RegexMatchSet = Schema.Struct({RegexMatchSetId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), RegexMatchTuples: Schema.optional(RegexMatchTuples)});
-export const GetRegexMatchSetResponse = Schema.Struct({RegexMatchSet: Schema.optional(RegexMatchSet)});
+export class RegexMatchSet extends Schema.Class<RegexMatchSet>("RegexMatchSet")({RegexMatchSetId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), RegexMatchTuples: Schema.optional(RegexMatchTuples)}) {}
+export class GetRegexMatchSetResponse extends Schema.Class<GetRegexMatchSetResponse>("GetRegexMatchSetResponse")({RegexMatchSet: Schema.optional(RegexMatchSet)}) {}
 export const RegexPatternStrings = Schema.Array(Schema.String);
-export const RegexPatternSet = Schema.Struct({RegexPatternSetId: Schema.String, Name: Schema.optional(Schema.String), RegexPatternStrings: RegexPatternStrings});
-export const GetRegexPatternSetResponse = Schema.Struct({RegexPatternSet: Schema.optional(RegexPatternSet)});
+export class RegexPatternSet extends Schema.Class<RegexPatternSet>("RegexPatternSet")({RegexPatternSetId: Schema.String, Name: Schema.optional(Schema.String), RegexPatternStrings: RegexPatternStrings}) {}
+export class GetRegexPatternSetResponse extends Schema.Class<GetRegexPatternSetResponse>("GetRegexPatternSetResponse")({RegexPatternSet: Schema.optional(RegexPatternSet)}) {}
 export const Predicates = Schema.Array(Predicate);
-export const Rule = Schema.Struct({RuleId: Schema.String, Name: Schema.optional(Schema.String), MetricName: Schema.optional(Schema.String), Predicates: Predicates});
-export const GetRuleResponse = Schema.Struct({Rule: Schema.optional(Rule)});
-export const RuleGroup = Schema.Struct({RuleGroupId: Schema.String, Name: Schema.optional(Schema.String), MetricName: Schema.optional(Schema.String)});
-export const GetRuleGroupResponse = Schema.Struct({RuleGroup: Schema.optional(RuleGroup)});
-export const GetSampledRequestsRequest = Schema.Struct({WebAclId: Schema.String, RuleId: Schema.String, TimeWindow: TimeWindow, MaxItems: Schema.Number});
-export const SizeConstraint = Schema.Struct({FieldToMatch: FieldToMatch, TextTransformation: Schema.String, ComparisonOperator: Schema.String, Size: Schema.Number});
+export class Rule extends Schema.Class<Rule>("Rule")({RuleId: Schema.String, Name: Schema.optional(Schema.String), MetricName: Schema.optional(Schema.String), Predicates: Predicates}) {}
+export class GetRuleResponse extends Schema.Class<GetRuleResponse>("GetRuleResponse")({Rule: Schema.optional(Rule)}) {}
+export class RuleGroup extends Schema.Class<RuleGroup>("RuleGroup")({RuleGroupId: Schema.String, Name: Schema.optional(Schema.String), MetricName: Schema.optional(Schema.String)}) {}
+export class GetRuleGroupResponse extends Schema.Class<GetRuleGroupResponse>("GetRuleGroupResponse")({RuleGroup: Schema.optional(RuleGroup)}) {}
+export class GetSampledRequestsRequest extends Schema.Class<GetSampledRequestsRequest>("GetSampledRequestsRequest")({WebAclId: Schema.String, RuleId: Schema.String, TimeWindow: TimeWindow, MaxItems: Schema.Number}) {}
+export class SizeConstraint extends Schema.Class<SizeConstraint>("SizeConstraint")({FieldToMatch: FieldToMatch, TextTransformation: Schema.String, ComparisonOperator: Schema.String, Size: Schema.Number}) {}
 export const SizeConstraints = Schema.Array(SizeConstraint);
-export const SizeConstraintSet = Schema.Struct({SizeConstraintSetId: Schema.String, Name: Schema.optional(Schema.String), SizeConstraints: SizeConstraints});
-export const GetSizeConstraintSetResponse = Schema.Struct({SizeConstraintSet: Schema.optional(SizeConstraintSet)});
-export const SqlInjectionMatchTuple = Schema.Struct({FieldToMatch: FieldToMatch, TextTransformation: Schema.String});
+export class SizeConstraintSet extends Schema.Class<SizeConstraintSet>("SizeConstraintSet")({SizeConstraintSetId: Schema.String, Name: Schema.optional(Schema.String), SizeConstraints: SizeConstraints}) {}
+export class GetSizeConstraintSetResponse extends Schema.Class<GetSizeConstraintSetResponse>("GetSizeConstraintSetResponse")({SizeConstraintSet: Schema.optional(SizeConstraintSet)}) {}
+export class SqlInjectionMatchTuple extends Schema.Class<SqlInjectionMatchTuple>("SqlInjectionMatchTuple")({FieldToMatch: FieldToMatch, TextTransformation: Schema.String}) {}
 export const SqlInjectionMatchTuples = Schema.Array(SqlInjectionMatchTuple);
-export const SqlInjectionMatchSet = Schema.Struct({SqlInjectionMatchSetId: Schema.String, Name: Schema.optional(Schema.String), SqlInjectionMatchTuples: SqlInjectionMatchTuples});
-export const GetSqlInjectionMatchSetResponse = Schema.Struct({SqlInjectionMatchSet: Schema.optional(SqlInjectionMatchSet)});
-export const XssMatchTuple = Schema.Struct({FieldToMatch: FieldToMatch, TextTransformation: Schema.String});
+export class SqlInjectionMatchSet extends Schema.Class<SqlInjectionMatchSet>("SqlInjectionMatchSet")({SqlInjectionMatchSetId: Schema.String, Name: Schema.optional(Schema.String), SqlInjectionMatchTuples: SqlInjectionMatchTuples}) {}
+export class GetSqlInjectionMatchSetResponse extends Schema.Class<GetSqlInjectionMatchSetResponse>("GetSqlInjectionMatchSetResponse")({SqlInjectionMatchSet: Schema.optional(SqlInjectionMatchSet)}) {}
+export class XssMatchTuple extends Schema.Class<XssMatchTuple>("XssMatchTuple")({FieldToMatch: FieldToMatch, TextTransformation: Schema.String}) {}
 export const XssMatchTuples = Schema.Array(XssMatchTuple);
-export const XssMatchSet = Schema.Struct({XssMatchSetId: Schema.String, Name: Schema.optional(Schema.String), XssMatchTuples: XssMatchTuples});
-export const GetXssMatchSetResponse = Schema.Struct({XssMatchSet: Schema.optional(XssMatchSet)});
-export const ListActivatedRulesInRuleGroupResponse = Schema.Struct({NextMarker: Schema.optional(Schema.String), ActivatedRules: Schema.optional(ActivatedRules)});
-export const ListLoggingConfigurationsResponse = Schema.Struct({LoggingConfigurations: Schema.optional(LoggingConfigurations), NextMarker: Schema.optional(Schema.String)});
-export const ListResourcesForWebACLResponse = Schema.Struct({ResourceArns: Schema.optional(ResourceArns)});
-export const RuleSummary = Schema.Struct({RuleId: Schema.String, Name: Schema.String});
+export class XssMatchSet extends Schema.Class<XssMatchSet>("XssMatchSet")({XssMatchSetId: Schema.String, Name: Schema.optional(Schema.String), XssMatchTuples: XssMatchTuples}) {}
+export class GetXssMatchSetResponse extends Schema.Class<GetXssMatchSetResponse>("GetXssMatchSetResponse")({XssMatchSet: Schema.optional(XssMatchSet)}) {}
+export class ListActivatedRulesInRuleGroupResponse extends Schema.Class<ListActivatedRulesInRuleGroupResponse>("ListActivatedRulesInRuleGroupResponse")({NextMarker: Schema.optional(Schema.String), ActivatedRules: Schema.optional(ActivatedRules)}) {}
+export class ListLoggingConfigurationsResponse extends Schema.Class<ListLoggingConfigurationsResponse>("ListLoggingConfigurationsResponse")({LoggingConfigurations: Schema.optional(LoggingConfigurations), NextMarker: Schema.optional(Schema.String)}) {}
+export class ListResourcesForWebACLResponse extends Schema.Class<ListResourcesForWebACLResponse>("ListResourcesForWebACLResponse")({ResourceArns: Schema.optional(ResourceArns)}) {}
+export class RuleSummary extends Schema.Class<RuleSummary>("RuleSummary")({RuleId: Schema.String, Name: Schema.String}) {}
 export const RuleSummaries = Schema.Array(RuleSummary);
-export const ListRulesResponse = Schema.Struct({NextMarker: Schema.optional(Schema.String), Rules: Schema.optional(RuleSummaries)});
-export const ListWebACLsResponse = Schema.Struct({NextMarker: Schema.optional(Schema.String), WebACLs: Schema.optional(WebACLSummaries)});
-export const WAFInvalidPermissionPolicyException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const WAFBadRequestException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const WAFTagOperationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UpdateRegexPatternSetRequest = Schema.Struct({RegexPatternSetId: Schema.String, Updates: RegexPatternSetUpdates, ChangeToken: Schema.String});
-export const UpdateRuleResponse = Schema.Struct({ChangeToken: Schema.optional(Schema.String)});
-export const UpdateWebACLRequest = Schema.Struct({WebACLId: Schema.String, ChangeToken: Schema.String, Updates: Schema.optional(WebACLUpdates), DefaultAction: Schema.optional(WafAction)});
-export const RateBasedRule = Schema.Struct({RuleId: Schema.String, Name: Schema.optional(Schema.String), MetricName: Schema.optional(Schema.String), MatchPredicates: Predicates, RateKey: Schema.String, RateLimit: Schema.Number});
-export const WebACL = Schema.Struct({WebACLId: Schema.String, Name: Schema.optional(Schema.String), MetricName: Schema.optional(Schema.String), DefaultAction: WafAction, Rules: ActivatedRules, WebACLArn: Schema.optional(Schema.String)});
-export const ByteMatchSetSummary = Schema.Struct({ByteMatchSetId: Schema.String, Name: Schema.String});
+export class ListRulesResponse extends Schema.Class<ListRulesResponse>("ListRulesResponse")({NextMarker: Schema.optional(Schema.String), Rules: Schema.optional(RuleSummaries)}) {}
+export class ListWebACLsResponse extends Schema.Class<ListWebACLsResponse>("ListWebACLsResponse")({NextMarker: Schema.optional(Schema.String), WebACLs: Schema.optional(WebACLSummaries)}) {}
+export class WAFInvalidPermissionPolicyException extends Schema.Class<WAFInvalidPermissionPolicyException>("WAFInvalidPermissionPolicyException")({message: Schema.optional(Schema.String)}) {}
+export class WAFBadRequestException extends Schema.Class<WAFBadRequestException>("WAFBadRequestException")({message: Schema.optional(Schema.String)}) {}
+export class WAFTagOperationException extends Schema.Class<WAFTagOperationException>("WAFTagOperationException")({message: Schema.optional(Schema.String)}) {}
+export class UpdateRegexPatternSetRequest extends Schema.Class<UpdateRegexPatternSetRequest>("UpdateRegexPatternSetRequest")({RegexPatternSetId: Schema.String, Updates: RegexPatternSetUpdates, ChangeToken: Schema.String}) {}
+export class UpdateRuleResponse extends Schema.Class<UpdateRuleResponse>("UpdateRuleResponse")({ChangeToken: Schema.optional(Schema.String)}) {}
+export class UpdateWebACLRequest extends Schema.Class<UpdateWebACLRequest>("UpdateWebACLRequest")({WebACLId: Schema.String, ChangeToken: Schema.String, Updates: Schema.optional(WebACLUpdates), DefaultAction: Schema.optional(WafAction)}) {}
+export class RateBasedRule extends Schema.Class<RateBasedRule>("RateBasedRule")({RuleId: Schema.String, Name: Schema.optional(Schema.String), MetricName: Schema.optional(Schema.String), MatchPredicates: Predicates, RateKey: Schema.String, RateLimit: Schema.Number}) {}
+export class WebACL extends Schema.Class<WebACL>("WebACL")({WebACLId: Schema.String, Name: Schema.optional(Schema.String), MetricName: Schema.optional(Schema.String), DefaultAction: WafAction, Rules: ActivatedRules, WebACLArn: Schema.optional(Schema.String)}) {}
+export class ByteMatchSetSummary extends Schema.Class<ByteMatchSetSummary>("ByteMatchSetSummary")({ByteMatchSetId: Schema.String, Name: Schema.String}) {}
 export const ByteMatchSetSummaries = Schema.Array(ByteMatchSetSummary);
-export const GeoMatchSetSummary = Schema.Struct({GeoMatchSetId: Schema.String, Name: Schema.String});
+export class GeoMatchSetSummary extends Schema.Class<GeoMatchSetSummary>("GeoMatchSetSummary")({GeoMatchSetId: Schema.String, Name: Schema.String}) {}
 export const GeoMatchSetSummaries = Schema.Array(GeoMatchSetSummary);
-export const IPSetSummary = Schema.Struct({IPSetId: Schema.String, Name: Schema.String});
+export class IPSetSummary extends Schema.Class<IPSetSummary>("IPSetSummary")({IPSetId: Schema.String, Name: Schema.String}) {}
 export const IPSetSummaries = Schema.Array(IPSetSummary);
-export const RegexMatchSetSummary = Schema.Struct({RegexMatchSetId: Schema.String, Name: Schema.String});
+export class RegexMatchSetSummary extends Schema.Class<RegexMatchSetSummary>("RegexMatchSetSummary")({RegexMatchSetId: Schema.String, Name: Schema.String}) {}
 export const RegexMatchSetSummaries = Schema.Array(RegexMatchSetSummary);
-export const RegexPatternSetSummary = Schema.Struct({RegexPatternSetId: Schema.String, Name: Schema.String});
+export class RegexPatternSetSummary extends Schema.Class<RegexPatternSetSummary>("RegexPatternSetSummary")({RegexPatternSetId: Schema.String, Name: Schema.String}) {}
 export const RegexPatternSetSummaries = Schema.Array(RegexPatternSetSummary);
-export const RuleGroupSummary = Schema.Struct({RuleGroupId: Schema.String, Name: Schema.String});
+export class RuleGroupSummary extends Schema.Class<RuleGroupSummary>("RuleGroupSummary")({RuleGroupId: Schema.String, Name: Schema.String}) {}
 export const RuleGroupSummaries = Schema.Array(RuleGroupSummary);
-export const SizeConstraintSetSummary = Schema.Struct({SizeConstraintSetId: Schema.String, Name: Schema.String});
+export class SizeConstraintSetSummary extends Schema.Class<SizeConstraintSetSummary>("SizeConstraintSetSummary")({SizeConstraintSetId: Schema.String, Name: Schema.String}) {}
 export const SizeConstraintSetSummaries = Schema.Array(SizeConstraintSetSummary);
-export const SqlInjectionMatchSetSummary = Schema.Struct({SqlInjectionMatchSetId: Schema.String, Name: Schema.String});
+export class SqlInjectionMatchSetSummary extends Schema.Class<SqlInjectionMatchSetSummary>("SqlInjectionMatchSetSummary")({SqlInjectionMatchSetId: Schema.String, Name: Schema.String}) {}
 export const SqlInjectionMatchSetSummaries = Schema.Array(SqlInjectionMatchSetSummary);
-export const SubscribedRuleGroupSummary = Schema.Struct({RuleGroupId: Schema.String, Name: Schema.String, MetricName: Schema.String});
+export class SubscribedRuleGroupSummary extends Schema.Class<SubscribedRuleGroupSummary>("SubscribedRuleGroupSummary")({RuleGroupId: Schema.String, Name: Schema.String, MetricName: Schema.String}) {}
 export const SubscribedRuleGroupSummaries = Schema.Array(SubscribedRuleGroupSummary);
-export const TagInfoForResource = Schema.Struct({ResourceARN: Schema.optional(Schema.String), TagList: Schema.optional(TagList)});
-export const XssMatchSetSummary = Schema.Struct({XssMatchSetId: Schema.String, Name: Schema.String});
+export class TagInfoForResource extends Schema.Class<TagInfoForResource>("TagInfoForResource")({ResourceARN: Schema.optional(Schema.String), TagList: Schema.optional(TagList)}) {}
+export class XssMatchSetSummary extends Schema.Class<XssMatchSetSummary>("XssMatchSetSummary")({XssMatchSetId: Schema.String, Name: Schema.String}) {}
 export const XssMatchSetSummaries = Schema.Array(XssMatchSetSummary);
-export const ByteMatchSetUpdate = Schema.Struct({Action: Schema.String, ByteMatchTuple: ByteMatchTuple});
+export class ByteMatchSetUpdate extends Schema.Class<ByteMatchSetUpdate>("ByteMatchSetUpdate")({Action: Schema.String, ByteMatchTuple: ByteMatchTuple}) {}
 export const ByteMatchSetUpdates = Schema.Array(ByteMatchSetUpdate);
-export const GeoMatchSetUpdate = Schema.Struct({Action: Schema.String, GeoMatchConstraint: GeoMatchConstraint});
+export class GeoMatchSetUpdate extends Schema.Class<GeoMatchSetUpdate>("GeoMatchSetUpdate")({Action: Schema.String, GeoMatchConstraint: GeoMatchConstraint}) {}
 export const GeoMatchSetUpdates = Schema.Array(GeoMatchSetUpdate);
-export const IPSetUpdate = Schema.Struct({Action: Schema.String, IPSetDescriptor: IPSetDescriptor});
+export class IPSetUpdate extends Schema.Class<IPSetUpdate>("IPSetUpdate")({Action: Schema.String, IPSetDescriptor: IPSetDescriptor}) {}
 export const IPSetUpdates = Schema.Array(IPSetUpdate);
-export const RegexMatchSetUpdate = Schema.Struct({Action: Schema.String, RegexMatchTuple: RegexMatchTuple});
+export class RegexMatchSetUpdate extends Schema.Class<RegexMatchSetUpdate>("RegexMatchSetUpdate")({Action: Schema.String, RegexMatchTuple: RegexMatchTuple}) {}
 export const RegexMatchSetUpdates = Schema.Array(RegexMatchSetUpdate);
-export const SizeConstraintSetUpdate = Schema.Struct({Action: Schema.String, SizeConstraint: SizeConstraint});
+export class SizeConstraintSetUpdate extends Schema.Class<SizeConstraintSetUpdate>("SizeConstraintSetUpdate")({Action: Schema.String, SizeConstraint: SizeConstraint}) {}
 export const SizeConstraintSetUpdates = Schema.Array(SizeConstraintSetUpdate);
-export const SqlInjectionMatchSetUpdate = Schema.Struct({Action: Schema.String, SqlInjectionMatchTuple: SqlInjectionMatchTuple});
+export class SqlInjectionMatchSetUpdate extends Schema.Class<SqlInjectionMatchSetUpdate>("SqlInjectionMatchSetUpdate")({Action: Schema.String, SqlInjectionMatchTuple: SqlInjectionMatchTuple}) {}
 export const SqlInjectionMatchSetUpdates = Schema.Array(SqlInjectionMatchSetUpdate);
-export const XssMatchSetUpdate = Schema.Struct({Action: Schema.String, XssMatchTuple: XssMatchTuple});
+export class XssMatchSetUpdate extends Schema.Class<XssMatchSetUpdate>("XssMatchSetUpdate")({Action: Schema.String, XssMatchTuple: XssMatchTuple}) {}
 export const XssMatchSetUpdates = Schema.Array(XssMatchSetUpdate);
-export const WAFUnavailableEntityException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CreateByteMatchSetResponse = Schema.Struct({ByteMatchSet: Schema.optional(ByteMatchSet), ChangeToken: Schema.optional(Schema.String)});
-export const CreateGeoMatchSetResponse = Schema.Struct({GeoMatchSet: Schema.optional(GeoMatchSet), ChangeToken: Schema.optional(Schema.String)});
-export const CreateIPSetResponse = Schema.Struct({IPSet: Schema.optional(IPSet), ChangeToken: Schema.optional(Schema.String)});
-export const CreateRateBasedRuleResponse = Schema.Struct({Rule: Schema.optional(RateBasedRule), ChangeToken: Schema.optional(Schema.String)});
-export const CreateRegexMatchSetResponse = Schema.Struct({RegexMatchSet: Schema.optional(RegexMatchSet), ChangeToken: Schema.optional(Schema.String)});
-export const CreateRegexPatternSetResponse = Schema.Struct({RegexPatternSet: Schema.optional(RegexPatternSet), ChangeToken: Schema.optional(Schema.String)});
-export const CreateRuleResponse = Schema.Struct({Rule: Schema.optional(Rule), ChangeToken: Schema.optional(Schema.String)});
-export const CreateRuleGroupResponse = Schema.Struct({RuleGroup: Schema.optional(RuleGroup), ChangeToken: Schema.optional(Schema.String)});
-export const CreateSizeConstraintSetResponse = Schema.Struct({SizeConstraintSet: Schema.optional(SizeConstraintSet), ChangeToken: Schema.optional(Schema.String)});
-export const CreateSqlInjectionMatchSetResponse = Schema.Struct({SqlInjectionMatchSet: Schema.optional(SqlInjectionMatchSet), ChangeToken: Schema.optional(Schema.String)});
-export const CreateWebACLResponse = Schema.Struct({WebACL: Schema.optional(WebACL), ChangeToken: Schema.optional(Schema.String)});
-export const WAFEntityMigrationException = Schema.Struct({message: Schema.optional(Schema.String), MigrationErrorType: Schema.optional(Schema.String), MigrationErrorReason: Schema.optional(Schema.String)});
-export const CreateXssMatchSetResponse = Schema.Struct({XssMatchSet: Schema.optional(XssMatchSet), ChangeToken: Schema.optional(Schema.String)});
-export const WAFNonEmptyEntityException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const WAFReferencedItemException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const WAFTagOperationInternalErrorException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const WAFInvalidOperationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const GetRateBasedRuleResponse = Schema.Struct({Rule: Schema.optional(RateBasedRule)});
-export const GetWebACLResponse = Schema.Struct({WebACL: Schema.optional(WebACL)});
-export const GetWebACLForResourceResponse = Schema.Struct({WebACLSummary: Schema.optional(WebACLSummary)});
-export const ListByteMatchSetsResponse = Schema.Struct({NextMarker: Schema.optional(Schema.String), ByteMatchSets: Schema.optional(ByteMatchSetSummaries)});
-export const ListGeoMatchSetsResponse = Schema.Struct({NextMarker: Schema.optional(Schema.String), GeoMatchSets: Schema.optional(GeoMatchSetSummaries)});
-export const ListIPSetsResponse = Schema.Struct({NextMarker: Schema.optional(Schema.String), IPSets: Schema.optional(IPSetSummaries)});
-export const ListRateBasedRulesResponse = Schema.Struct({NextMarker: Schema.optional(Schema.String), Rules: Schema.optional(RuleSummaries)});
-export const ListRegexMatchSetsResponse = Schema.Struct({NextMarker: Schema.optional(Schema.String), RegexMatchSets: Schema.optional(RegexMatchSetSummaries)});
-export const ListRegexPatternSetsResponse = Schema.Struct({NextMarker: Schema.optional(Schema.String), RegexPatternSets: Schema.optional(RegexPatternSetSummaries)});
-export const ListRuleGroupsResponse = Schema.Struct({NextMarker: Schema.optional(Schema.String), RuleGroups: Schema.optional(RuleGroupSummaries)});
-export const ListSizeConstraintSetsResponse = Schema.Struct({NextMarker: Schema.optional(Schema.String), SizeConstraintSets: Schema.optional(SizeConstraintSetSummaries)});
-export const ListSqlInjectionMatchSetsResponse = Schema.Struct({NextMarker: Schema.optional(Schema.String), SqlInjectionMatchSets: Schema.optional(SqlInjectionMatchSetSummaries)});
-export const ListSubscribedRuleGroupsResponse = Schema.Struct({NextMarker: Schema.optional(Schema.String), RuleGroups: Schema.optional(SubscribedRuleGroupSummaries)});
-export const ListTagsForResourceResponse = Schema.Struct({NextMarker: Schema.optional(Schema.String), TagInfoForResource: Schema.optional(TagInfoForResource)});
-export const ListXssMatchSetsResponse = Schema.Struct({NextMarker: Schema.optional(Schema.String), XssMatchSets: Schema.optional(XssMatchSetSummaries)});
-export const PutLoggingConfigurationRequest = Schema.Struct({LoggingConfiguration: LoggingConfiguration});
-export const WAFLimitsExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UpdateByteMatchSetRequest = Schema.Struct({ByteMatchSetId: Schema.String, ChangeToken: Schema.String, Updates: ByteMatchSetUpdates});
-export const UpdateGeoMatchSetRequest = Schema.Struct({GeoMatchSetId: Schema.String, ChangeToken: Schema.String, Updates: GeoMatchSetUpdates});
-export const UpdateIPSetRequest = Schema.Struct({IPSetId: Schema.String, ChangeToken: Schema.String, Updates: IPSetUpdates});
-export const UpdateRateBasedRuleRequest = Schema.Struct({RuleId: Schema.String, ChangeToken: Schema.String, Updates: RuleUpdates, RateLimit: Schema.Number});
-export const UpdateRegexMatchSetRequest = Schema.Struct({RegexMatchSetId: Schema.String, Updates: RegexMatchSetUpdates, ChangeToken: Schema.String});
-export const UpdateRegexPatternSetResponse = Schema.Struct({ChangeToken: Schema.optional(Schema.String)});
-export const WAFNonexistentContainerException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UpdateSizeConstraintSetRequest = Schema.Struct({SizeConstraintSetId: Schema.String, ChangeToken: Schema.String, Updates: SizeConstraintSetUpdates});
-export const UpdateSqlInjectionMatchSetRequest = Schema.Struct({SqlInjectionMatchSetId: Schema.String, ChangeToken: Schema.String, Updates: SqlInjectionMatchSetUpdates});
-export const UpdateWebACLResponse = Schema.Struct({ChangeToken: Schema.optional(Schema.String)});
-export const UpdateXssMatchSetRequest = Schema.Struct({XssMatchSetId: Schema.String, ChangeToken: Schema.String, Updates: XssMatchSetUpdates});
-export const RuleGroupUpdate = Schema.Struct({Action: Schema.String, ActivatedRule: ActivatedRule});
+export class WAFUnavailableEntityException extends Schema.Class<WAFUnavailableEntityException>("WAFUnavailableEntityException")({message: Schema.optional(Schema.String)}) {}
+export class CreateByteMatchSetResponse extends Schema.Class<CreateByteMatchSetResponse>("CreateByteMatchSetResponse")({ByteMatchSet: Schema.optional(ByteMatchSet), ChangeToken: Schema.optional(Schema.String)}) {}
+export class CreateGeoMatchSetResponse extends Schema.Class<CreateGeoMatchSetResponse>("CreateGeoMatchSetResponse")({GeoMatchSet: Schema.optional(GeoMatchSet), ChangeToken: Schema.optional(Schema.String)}) {}
+export class CreateIPSetResponse extends Schema.Class<CreateIPSetResponse>("CreateIPSetResponse")({IPSet: Schema.optional(IPSet), ChangeToken: Schema.optional(Schema.String)}) {}
+export class CreateRateBasedRuleResponse extends Schema.Class<CreateRateBasedRuleResponse>("CreateRateBasedRuleResponse")({Rule: Schema.optional(RateBasedRule), ChangeToken: Schema.optional(Schema.String)}) {}
+export class CreateRegexMatchSetResponse extends Schema.Class<CreateRegexMatchSetResponse>("CreateRegexMatchSetResponse")({RegexMatchSet: Schema.optional(RegexMatchSet), ChangeToken: Schema.optional(Schema.String)}) {}
+export class CreateRegexPatternSetResponse extends Schema.Class<CreateRegexPatternSetResponse>("CreateRegexPatternSetResponse")({RegexPatternSet: Schema.optional(RegexPatternSet), ChangeToken: Schema.optional(Schema.String)}) {}
+export class CreateRuleResponse extends Schema.Class<CreateRuleResponse>("CreateRuleResponse")({Rule: Schema.optional(Rule), ChangeToken: Schema.optional(Schema.String)}) {}
+export class CreateRuleGroupResponse extends Schema.Class<CreateRuleGroupResponse>("CreateRuleGroupResponse")({RuleGroup: Schema.optional(RuleGroup), ChangeToken: Schema.optional(Schema.String)}) {}
+export class CreateSizeConstraintSetResponse extends Schema.Class<CreateSizeConstraintSetResponse>("CreateSizeConstraintSetResponse")({SizeConstraintSet: Schema.optional(SizeConstraintSet), ChangeToken: Schema.optional(Schema.String)}) {}
+export class CreateSqlInjectionMatchSetResponse extends Schema.Class<CreateSqlInjectionMatchSetResponse>("CreateSqlInjectionMatchSetResponse")({SqlInjectionMatchSet: Schema.optional(SqlInjectionMatchSet), ChangeToken: Schema.optional(Schema.String)}) {}
+export class CreateWebACLResponse extends Schema.Class<CreateWebACLResponse>("CreateWebACLResponse")({WebACL: Schema.optional(WebACL), ChangeToken: Schema.optional(Schema.String)}) {}
+export class WAFEntityMigrationException extends Schema.Class<WAFEntityMigrationException>("WAFEntityMigrationException")({message: Schema.optional(Schema.String), MigrationErrorType: Schema.optional(Schema.String), MigrationErrorReason: Schema.optional(Schema.String)}) {}
+export class CreateXssMatchSetResponse extends Schema.Class<CreateXssMatchSetResponse>("CreateXssMatchSetResponse")({XssMatchSet: Schema.optional(XssMatchSet), ChangeToken: Schema.optional(Schema.String)}) {}
+export class WAFNonEmptyEntityException extends Schema.Class<WAFNonEmptyEntityException>("WAFNonEmptyEntityException")({message: Schema.optional(Schema.String)}) {}
+export class WAFReferencedItemException extends Schema.Class<WAFReferencedItemException>("WAFReferencedItemException")({message: Schema.optional(Schema.String)}) {}
+export class WAFTagOperationInternalErrorException extends Schema.Class<WAFTagOperationInternalErrorException>("WAFTagOperationInternalErrorException")({message: Schema.optional(Schema.String)}) {}
+export class WAFInvalidOperationException extends Schema.Class<WAFInvalidOperationException>("WAFInvalidOperationException")({message: Schema.optional(Schema.String)}) {}
+export class GetRateBasedRuleResponse extends Schema.Class<GetRateBasedRuleResponse>("GetRateBasedRuleResponse")({Rule: Schema.optional(RateBasedRule)}) {}
+export class GetWebACLResponse extends Schema.Class<GetWebACLResponse>("GetWebACLResponse")({WebACL: Schema.optional(WebACL)}) {}
+export class GetWebACLForResourceResponse extends Schema.Class<GetWebACLForResourceResponse>("GetWebACLForResourceResponse")({WebACLSummary: Schema.optional(WebACLSummary)}) {}
+export class ListByteMatchSetsResponse extends Schema.Class<ListByteMatchSetsResponse>("ListByteMatchSetsResponse")({NextMarker: Schema.optional(Schema.String), ByteMatchSets: Schema.optional(ByteMatchSetSummaries)}) {}
+export class ListGeoMatchSetsResponse extends Schema.Class<ListGeoMatchSetsResponse>("ListGeoMatchSetsResponse")({NextMarker: Schema.optional(Schema.String), GeoMatchSets: Schema.optional(GeoMatchSetSummaries)}) {}
+export class ListIPSetsResponse extends Schema.Class<ListIPSetsResponse>("ListIPSetsResponse")({NextMarker: Schema.optional(Schema.String), IPSets: Schema.optional(IPSetSummaries)}) {}
+export class ListRateBasedRulesResponse extends Schema.Class<ListRateBasedRulesResponse>("ListRateBasedRulesResponse")({NextMarker: Schema.optional(Schema.String), Rules: Schema.optional(RuleSummaries)}) {}
+export class ListRegexMatchSetsResponse extends Schema.Class<ListRegexMatchSetsResponse>("ListRegexMatchSetsResponse")({NextMarker: Schema.optional(Schema.String), RegexMatchSets: Schema.optional(RegexMatchSetSummaries)}) {}
+export class ListRegexPatternSetsResponse extends Schema.Class<ListRegexPatternSetsResponse>("ListRegexPatternSetsResponse")({NextMarker: Schema.optional(Schema.String), RegexPatternSets: Schema.optional(RegexPatternSetSummaries)}) {}
+export class ListRuleGroupsResponse extends Schema.Class<ListRuleGroupsResponse>("ListRuleGroupsResponse")({NextMarker: Schema.optional(Schema.String), RuleGroups: Schema.optional(RuleGroupSummaries)}) {}
+export class ListSizeConstraintSetsResponse extends Schema.Class<ListSizeConstraintSetsResponse>("ListSizeConstraintSetsResponse")({NextMarker: Schema.optional(Schema.String), SizeConstraintSets: Schema.optional(SizeConstraintSetSummaries)}) {}
+export class ListSqlInjectionMatchSetsResponse extends Schema.Class<ListSqlInjectionMatchSetsResponse>("ListSqlInjectionMatchSetsResponse")({NextMarker: Schema.optional(Schema.String), SqlInjectionMatchSets: Schema.optional(SqlInjectionMatchSetSummaries)}) {}
+export class ListSubscribedRuleGroupsResponse extends Schema.Class<ListSubscribedRuleGroupsResponse>("ListSubscribedRuleGroupsResponse")({NextMarker: Schema.optional(Schema.String), RuleGroups: Schema.optional(SubscribedRuleGroupSummaries)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({NextMarker: Schema.optional(Schema.String), TagInfoForResource: Schema.optional(TagInfoForResource)}) {}
+export class ListXssMatchSetsResponse extends Schema.Class<ListXssMatchSetsResponse>("ListXssMatchSetsResponse")({NextMarker: Schema.optional(Schema.String), XssMatchSets: Schema.optional(XssMatchSetSummaries)}) {}
+export class PutLoggingConfigurationRequest extends Schema.Class<PutLoggingConfigurationRequest>("PutLoggingConfigurationRequest")({LoggingConfiguration: LoggingConfiguration}) {}
+export class WAFLimitsExceededException extends Schema.Class<WAFLimitsExceededException>("WAFLimitsExceededException")({message: Schema.optional(Schema.String)}) {}
+export class UpdateByteMatchSetRequest extends Schema.Class<UpdateByteMatchSetRequest>("UpdateByteMatchSetRequest")({ByteMatchSetId: Schema.String, ChangeToken: Schema.String, Updates: ByteMatchSetUpdates}) {}
+export class UpdateGeoMatchSetRequest extends Schema.Class<UpdateGeoMatchSetRequest>("UpdateGeoMatchSetRequest")({GeoMatchSetId: Schema.String, ChangeToken: Schema.String, Updates: GeoMatchSetUpdates}) {}
+export class UpdateIPSetRequest extends Schema.Class<UpdateIPSetRequest>("UpdateIPSetRequest")({IPSetId: Schema.String, ChangeToken: Schema.String, Updates: IPSetUpdates}) {}
+export class UpdateRateBasedRuleRequest extends Schema.Class<UpdateRateBasedRuleRequest>("UpdateRateBasedRuleRequest")({RuleId: Schema.String, ChangeToken: Schema.String, Updates: RuleUpdates, RateLimit: Schema.Number}) {}
+export class UpdateRegexMatchSetRequest extends Schema.Class<UpdateRegexMatchSetRequest>("UpdateRegexMatchSetRequest")({RegexMatchSetId: Schema.String, Updates: RegexMatchSetUpdates, ChangeToken: Schema.String}) {}
+export class UpdateRegexPatternSetResponse extends Schema.Class<UpdateRegexPatternSetResponse>("UpdateRegexPatternSetResponse")({ChangeToken: Schema.optional(Schema.String)}) {}
+export class WAFNonexistentContainerException extends Schema.Class<WAFNonexistentContainerException>("WAFNonexistentContainerException")({message: Schema.optional(Schema.String)}) {}
+export class UpdateSizeConstraintSetRequest extends Schema.Class<UpdateSizeConstraintSetRequest>("UpdateSizeConstraintSetRequest")({SizeConstraintSetId: Schema.String, ChangeToken: Schema.String, Updates: SizeConstraintSetUpdates}) {}
+export class UpdateSqlInjectionMatchSetRequest extends Schema.Class<UpdateSqlInjectionMatchSetRequest>("UpdateSqlInjectionMatchSetRequest")({SqlInjectionMatchSetId: Schema.String, ChangeToken: Schema.String, Updates: SqlInjectionMatchSetUpdates}) {}
+export class UpdateWebACLResponse extends Schema.Class<UpdateWebACLResponse>("UpdateWebACLResponse")({ChangeToken: Schema.optional(Schema.String)}) {}
+export class UpdateXssMatchSetRequest extends Schema.Class<UpdateXssMatchSetRequest>("UpdateXssMatchSetRequest")({XssMatchSetId: Schema.String, ChangeToken: Schema.String, Updates: XssMatchSetUpdates}) {}
+export class RuleGroupUpdate extends Schema.Class<RuleGroupUpdate>("RuleGroupUpdate")({Action: Schema.String, ActivatedRule: ActivatedRule}) {}
 export const RuleGroupUpdates = Schema.Array(RuleGroupUpdate);
-export const WAFDisallowedNameException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const PutLoggingConfigurationResponse = Schema.Struct({LoggingConfiguration: Schema.optional(LoggingConfiguration)});
-export const UpdateByteMatchSetResponse = Schema.Struct({ChangeToken: Schema.optional(Schema.String)});
-export const UpdateGeoMatchSetResponse = Schema.Struct({ChangeToken: Schema.optional(Schema.String)});
-export const UpdateIPSetResponse = Schema.Struct({ChangeToken: Schema.optional(Schema.String)});
-export const UpdateRateBasedRuleResponse = Schema.Struct({ChangeToken: Schema.optional(Schema.String)});
-export const UpdateRegexMatchSetResponse = Schema.Struct({ChangeToken: Schema.optional(Schema.String)});
-export const WAFInvalidRegexPatternException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UpdateRuleGroupRequest = Schema.Struct({RuleGroupId: Schema.String, Updates: RuleGroupUpdates, ChangeToken: Schema.String});
-export const UpdateSizeConstraintSetResponse = Schema.Struct({ChangeToken: Schema.optional(Schema.String)});
-export const UpdateSqlInjectionMatchSetResponse = Schema.Struct({ChangeToken: Schema.optional(Schema.String)});
-export const WAFSubscriptionNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UpdateXssMatchSetResponse = Schema.Struct({ChangeToken: Schema.optional(Schema.String)});
-export const HTTPHeader = Schema.Struct({Name: Schema.optional(Schema.String), Value: Schema.optional(Schema.String)});
+export class WAFDisallowedNameException extends Schema.Class<WAFDisallowedNameException>("WAFDisallowedNameException")({message: Schema.optional(Schema.String)}) {}
+export class PutLoggingConfigurationResponse extends Schema.Class<PutLoggingConfigurationResponse>("PutLoggingConfigurationResponse")({LoggingConfiguration: Schema.optional(LoggingConfiguration)}) {}
+export class UpdateByteMatchSetResponse extends Schema.Class<UpdateByteMatchSetResponse>("UpdateByteMatchSetResponse")({ChangeToken: Schema.optional(Schema.String)}) {}
+export class UpdateGeoMatchSetResponse extends Schema.Class<UpdateGeoMatchSetResponse>("UpdateGeoMatchSetResponse")({ChangeToken: Schema.optional(Schema.String)}) {}
+export class UpdateIPSetResponse extends Schema.Class<UpdateIPSetResponse>("UpdateIPSetResponse")({ChangeToken: Schema.optional(Schema.String)}) {}
+export class UpdateRateBasedRuleResponse extends Schema.Class<UpdateRateBasedRuleResponse>("UpdateRateBasedRuleResponse")({ChangeToken: Schema.optional(Schema.String)}) {}
+export class UpdateRegexMatchSetResponse extends Schema.Class<UpdateRegexMatchSetResponse>("UpdateRegexMatchSetResponse")({ChangeToken: Schema.optional(Schema.String)}) {}
+export class WAFInvalidRegexPatternException extends Schema.Class<WAFInvalidRegexPatternException>("WAFInvalidRegexPatternException")({message: Schema.optional(Schema.String)}) {}
+export class UpdateRuleGroupRequest extends Schema.Class<UpdateRuleGroupRequest>("UpdateRuleGroupRequest")({RuleGroupId: Schema.String, Updates: RuleGroupUpdates, ChangeToken: Schema.String}) {}
+export class UpdateSizeConstraintSetResponse extends Schema.Class<UpdateSizeConstraintSetResponse>("UpdateSizeConstraintSetResponse")({ChangeToken: Schema.optional(Schema.String)}) {}
+export class UpdateSqlInjectionMatchSetResponse extends Schema.Class<UpdateSqlInjectionMatchSetResponse>("UpdateSqlInjectionMatchSetResponse")({ChangeToken: Schema.optional(Schema.String)}) {}
+export class WAFSubscriptionNotFoundException extends Schema.Class<WAFSubscriptionNotFoundException>("WAFSubscriptionNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class UpdateXssMatchSetResponse extends Schema.Class<UpdateXssMatchSetResponse>("UpdateXssMatchSetResponse")({ChangeToken: Schema.optional(Schema.String)}) {}
+export class HTTPHeader extends Schema.Class<HTTPHeader>("HTTPHeader")({Name: Schema.optional(Schema.String), Value: Schema.optional(Schema.String)}) {}
 export const HTTPHeaders = Schema.Array(HTTPHeader);
-export const WAFServiceLinkedRoleErrorException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UpdateRuleGroupResponse = Schema.Struct({ChangeToken: Schema.optional(Schema.String)});
-export const HTTPRequest = Schema.Struct({ClientIP: Schema.optional(Schema.String), Country: Schema.optional(Schema.String), URI: Schema.optional(Schema.String), Method: Schema.optional(Schema.String), HTTPVersion: Schema.optional(Schema.String), Headers: Schema.optional(HTTPHeaders)});
-export const SampledHTTPRequest = Schema.Struct({Request: HTTPRequest, Weight: Schema.Number, Timestamp: Schema.optional(Schema.Date), Action: Schema.optional(Schema.String), RuleWithinRuleGroup: Schema.optional(Schema.String)});
+export class WAFServiceLinkedRoleErrorException extends Schema.Class<WAFServiceLinkedRoleErrorException>("WAFServiceLinkedRoleErrorException")({message: Schema.optional(Schema.String)}) {}
+export class UpdateRuleGroupResponse extends Schema.Class<UpdateRuleGroupResponse>("UpdateRuleGroupResponse")({ChangeToken: Schema.optional(Schema.String)}) {}
+export class HTTPRequest extends Schema.Class<HTTPRequest>("HTTPRequest")({ClientIP: Schema.optional(Schema.String), Country: Schema.optional(Schema.String), URI: Schema.optional(Schema.String), Method: Schema.optional(Schema.String), HTTPVersion: Schema.optional(Schema.String), Headers: Schema.optional(HTTPHeaders)}) {}
+export class SampledHTTPRequest extends Schema.Class<SampledHTTPRequest>("SampledHTTPRequest")({Request: HTTPRequest, Weight: Schema.Number, Timestamp: Schema.optional(Schema.Date), Action: Schema.optional(Schema.String), RuleWithinRuleGroup: Schema.optional(Schema.String)}) {}
 export const SampledHTTPRequests = Schema.Array(SampledHTTPRequest);
-export const GetSampledRequestsResponse = Schema.Struct({SampledRequests: Schema.optional(SampledHTTPRequests), PopulationSize: Schema.optional(Schema.Number), TimeWindow: Schema.optional(TimeWindow)});
+export class GetSampledRequestsResponse extends Schema.Class<GetSampledRequestsResponse>("GetSampledRequestsResponse")({SampledRequests: Schema.optional(SampledHTTPRequests), PopulationSize: Schema.optional(Schema.Number), TimeWindow: Schema.optional(TimeWindow)}) {}
 
 //# Errors
-export class WAFInternalErrorExceptionError extends Schema.TaggedError<WAFInternalErrorExceptionError>()("WAFInternalErrorException", WAFInternalErrorException) {};
-export class WAFNonexistentItemExceptionError extends Schema.TaggedError<WAFNonexistentItemExceptionError>()("WAFNonexistentItemException", WAFNonexistentItemException) {};
-export class WAFInvalidAccountExceptionError extends Schema.TaggedError<WAFInvalidAccountExceptionError>()("WAFInvalidAccountException", WAFInvalidAccountException) {};
-export class WAFBadRequestExceptionError extends Schema.TaggedError<WAFBadRequestExceptionError>()("WAFBadRequestException", WAFBadRequestException) {};
-export class WAFInvalidParameterExceptionError extends Schema.TaggedError<WAFInvalidParameterExceptionError>()("WAFInvalidParameterException", WAFInvalidParameterException) {};
-export class WAFNonEmptyEntityExceptionError extends Schema.TaggedError<WAFNonEmptyEntityExceptionError>()("WAFNonEmptyEntityException", WAFNonEmptyEntityException) {};
-export class WAFReferencedItemExceptionError extends Schema.TaggedError<WAFReferencedItemExceptionError>()("WAFReferencedItemException", WAFReferencedItemException) {};
-export class WAFStaleDataExceptionError extends Schema.TaggedError<WAFStaleDataExceptionError>()("WAFStaleDataException", WAFStaleDataException) {};
-export class WAFTagOperationExceptionError extends Schema.TaggedError<WAFTagOperationExceptionError>()("WAFTagOperationException", WAFTagOperationException) {};
-export class WAFTagOperationInternalErrorExceptionError extends Schema.TaggedError<WAFTagOperationInternalErrorExceptionError>()("WAFTagOperationInternalErrorException", WAFTagOperationInternalErrorException) {};
-export class WAFInvalidPermissionPolicyExceptionError extends Schema.TaggedError<WAFInvalidPermissionPolicyExceptionError>()("WAFInvalidPermissionPolicyException", WAFInvalidPermissionPolicyException) {};
-export class WAFInvalidOperationExceptionError extends Schema.TaggedError<WAFInvalidOperationExceptionError>()("WAFInvalidOperationException", WAFInvalidOperationException) {};
-export class WAFLimitsExceededExceptionError extends Schema.TaggedError<WAFLimitsExceededExceptionError>()("WAFLimitsExceededException", WAFLimitsExceededException) {};
-export class WAFUnavailableEntityExceptionError extends Schema.TaggedError<WAFUnavailableEntityExceptionError>()("WAFUnavailableEntityException", WAFUnavailableEntityException) {};
-export class WAFDisallowedNameExceptionError extends Schema.TaggedError<WAFDisallowedNameExceptionError>()("WAFDisallowedNameException", WAFDisallowedNameException) {};
-export class WAFEntityMigrationExceptionError extends Schema.TaggedError<WAFEntityMigrationExceptionError>()("WAFEntityMigrationException", WAFEntityMigrationException) {};
-export class WAFNonexistentContainerExceptionError extends Schema.TaggedError<WAFNonexistentContainerExceptionError>()("WAFNonexistentContainerException", WAFNonexistentContainerException) {};
-export class WAFInvalidRegexPatternExceptionError extends Schema.TaggedError<WAFInvalidRegexPatternExceptionError>()("WAFInvalidRegexPatternException", WAFInvalidRegexPatternException) {};
-export class WAFSubscriptionNotFoundExceptionError extends Schema.TaggedError<WAFSubscriptionNotFoundExceptionError>()("WAFSubscriptionNotFoundException", WAFSubscriptionNotFoundException) {};
-export class WAFServiceLinkedRoleErrorExceptionError extends Schema.TaggedError<WAFServiceLinkedRoleErrorExceptionError>()("WAFServiceLinkedRoleErrorException", WAFServiceLinkedRoleErrorException) {};
+export class WAFInternalErrorExceptionError extends Schema.TaggedError<WAFInternalErrorExceptionError>()("WAFInternalErrorException", WAFInternalErrorException.fields) {};
+export class WAFNonexistentItemExceptionError extends Schema.TaggedError<WAFNonexistentItemExceptionError>()("WAFNonexistentItemException", WAFNonexistentItemException.fields) {};
+export class WAFInvalidAccountExceptionError extends Schema.TaggedError<WAFInvalidAccountExceptionError>()("WAFInvalidAccountException", WAFInvalidAccountException.fields) {};
+export class WAFBadRequestExceptionError extends Schema.TaggedError<WAFBadRequestExceptionError>()("WAFBadRequestException", WAFBadRequestException.fields) {};
+export class WAFInvalidParameterExceptionError extends Schema.TaggedError<WAFInvalidParameterExceptionError>()("WAFInvalidParameterException", WAFInvalidParameterException.fields) {};
+export class WAFNonEmptyEntityExceptionError extends Schema.TaggedError<WAFNonEmptyEntityExceptionError>()("WAFNonEmptyEntityException", WAFNonEmptyEntityException.fields) {};
+export class WAFReferencedItemExceptionError extends Schema.TaggedError<WAFReferencedItemExceptionError>()("WAFReferencedItemException", WAFReferencedItemException.fields) {};
+export class WAFStaleDataExceptionError extends Schema.TaggedError<WAFStaleDataExceptionError>()("WAFStaleDataException", WAFStaleDataException.fields) {};
+export class WAFTagOperationExceptionError extends Schema.TaggedError<WAFTagOperationExceptionError>()("WAFTagOperationException", WAFTagOperationException.fields) {};
+export class WAFTagOperationInternalErrorExceptionError extends Schema.TaggedError<WAFTagOperationInternalErrorExceptionError>()("WAFTagOperationInternalErrorException", WAFTagOperationInternalErrorException.fields) {};
+export class WAFInvalidPermissionPolicyExceptionError extends Schema.TaggedError<WAFInvalidPermissionPolicyExceptionError>()("WAFInvalidPermissionPolicyException", WAFInvalidPermissionPolicyException.fields) {};
+export class WAFInvalidOperationExceptionError extends Schema.TaggedError<WAFInvalidOperationExceptionError>()("WAFInvalidOperationException", WAFInvalidOperationException.fields) {};
+export class WAFLimitsExceededExceptionError extends Schema.TaggedError<WAFLimitsExceededExceptionError>()("WAFLimitsExceededException", WAFLimitsExceededException.fields) {};
+export class WAFUnavailableEntityExceptionError extends Schema.TaggedError<WAFUnavailableEntityExceptionError>()("WAFUnavailableEntityException", WAFUnavailableEntityException.fields) {};
+export class WAFDisallowedNameExceptionError extends Schema.TaggedError<WAFDisallowedNameExceptionError>()("WAFDisallowedNameException", WAFDisallowedNameException.fields) {};
+export class WAFEntityMigrationExceptionError extends Schema.TaggedError<WAFEntityMigrationExceptionError>()("WAFEntityMigrationException", WAFEntityMigrationException.fields) {};
+export class WAFNonexistentContainerExceptionError extends Schema.TaggedError<WAFNonexistentContainerExceptionError>()("WAFNonexistentContainerException", WAFNonexistentContainerException.fields) {};
+export class WAFInvalidRegexPatternExceptionError extends Schema.TaggedError<WAFInvalidRegexPatternExceptionError>()("WAFInvalidRegexPatternException", WAFInvalidRegexPatternException.fields) {};
+export class WAFSubscriptionNotFoundExceptionError extends Schema.TaggedError<WAFSubscriptionNotFoundExceptionError>()("WAFSubscriptionNotFoundException", WAFSubscriptionNotFoundException.fields) {};
+export class WAFServiceLinkedRoleErrorExceptionError extends Schema.TaggedError<WAFServiceLinkedRoleErrorExceptionError>()("WAFServiceLinkedRoleErrorException", WAFServiceLinkedRoleErrorException.fields) {};
 
 //# Operations
 export const getChangeToken = /*#__PURE__*/ makeOperation(() => Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "WAF Regional", sigV4ServiceName: "waf-regional", name: "AWSWAF_Regional_20161128.GetChangeToken" }, GetChangeTokenRequest, GetChangeTokenResponse, [WAFInternalErrorExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

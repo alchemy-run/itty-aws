@@ -6,222 +6,222 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 export const GrantOperationList = Schema.Array(Schema.String);
 export const GrantTokenList = Schema.Array(Schema.String);
 export const TagKeyList = Schema.Array(Schema.String);
-export const CancelKeyDeletionRequest = Schema.Struct({KeyId: Schema.String});
-export const ConnectCustomKeyStoreRequest = Schema.Struct({CustomKeyStoreId: Schema.String});
-export const ConnectCustomKeyStoreResponse = Schema.Struct({});
-export const CreateAliasRequest = Schema.Struct({AliasName: Schema.String, TargetKeyId: Schema.String});
-export const DeleteAliasRequest = Schema.Struct({AliasName: Schema.String});
-export const DeleteCustomKeyStoreRequest = Schema.Struct({CustomKeyStoreId: Schema.String});
-export const DeleteCustomKeyStoreResponse = Schema.Struct({});
-export const DeleteImportedKeyMaterialRequest = Schema.Struct({KeyId: Schema.String, KeyMaterialId: Schema.optional(Schema.String)});
-export const RecipientInfo = Schema.Struct({KeyEncryptionAlgorithm: Schema.optional(Schema.String), AttestationDocument: Schema.optional(StreamBody())});
-export const DeriveSharedSecretRequest = Schema.Struct({KeyId: Schema.String, KeyAgreementAlgorithm: Schema.String, PublicKey: StreamBody(), GrantTokens: Schema.optional(GrantTokenList), DryRun: Schema.optional(Schema.Boolean), Recipient: Schema.optional(RecipientInfo)});
-export const DescribeCustomKeyStoresRequest = Schema.Struct({CustomKeyStoreId: Schema.optional(Schema.String), CustomKeyStoreName: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number), Marker: Schema.optional(Schema.String)});
-export const DescribeKeyRequest = Schema.Struct({KeyId: Schema.String, GrantTokens: Schema.optional(GrantTokenList)});
-export const DisableKeyRequest = Schema.Struct({KeyId: Schema.String});
-export const DisableKeyRotationRequest = Schema.Struct({KeyId: Schema.String});
-export const DisconnectCustomKeyStoreRequest = Schema.Struct({CustomKeyStoreId: Schema.String});
-export const DisconnectCustomKeyStoreResponse = Schema.Struct({});
-export const EnableKeyRequest = Schema.Struct({KeyId: Schema.String});
-export const EnableKeyRotationRequest = Schema.Struct({KeyId: Schema.String, RotationPeriodInDays: Schema.optional(Schema.Number)});
+export class CancelKeyDeletionRequest extends Schema.Class<CancelKeyDeletionRequest>("CancelKeyDeletionRequest")({KeyId: Schema.String}) {}
+export class ConnectCustomKeyStoreRequest extends Schema.Class<ConnectCustomKeyStoreRequest>("ConnectCustomKeyStoreRequest")({CustomKeyStoreId: Schema.String}) {}
+export class ConnectCustomKeyStoreResponse extends Schema.Class<ConnectCustomKeyStoreResponse>("ConnectCustomKeyStoreResponse")({}) {}
+export class CreateAliasRequest extends Schema.Class<CreateAliasRequest>("CreateAliasRequest")({AliasName: Schema.String, TargetKeyId: Schema.String}) {}
+export class DeleteAliasRequest extends Schema.Class<DeleteAliasRequest>("DeleteAliasRequest")({AliasName: Schema.String}) {}
+export class DeleteCustomKeyStoreRequest extends Schema.Class<DeleteCustomKeyStoreRequest>("DeleteCustomKeyStoreRequest")({CustomKeyStoreId: Schema.String}) {}
+export class DeleteCustomKeyStoreResponse extends Schema.Class<DeleteCustomKeyStoreResponse>("DeleteCustomKeyStoreResponse")({}) {}
+export class DeleteImportedKeyMaterialRequest extends Schema.Class<DeleteImportedKeyMaterialRequest>("DeleteImportedKeyMaterialRequest")({KeyId: Schema.String, KeyMaterialId: Schema.optional(Schema.String)}) {}
+export class RecipientInfo extends Schema.Class<RecipientInfo>("RecipientInfo")({KeyEncryptionAlgorithm: Schema.optional(Schema.String), AttestationDocument: Schema.optional(StreamBody())}) {}
+export class DeriveSharedSecretRequest extends Schema.Class<DeriveSharedSecretRequest>("DeriveSharedSecretRequest")({KeyId: Schema.String, KeyAgreementAlgorithm: Schema.String, PublicKey: StreamBody(), GrantTokens: Schema.optional(GrantTokenList), DryRun: Schema.optional(Schema.Boolean), Recipient: Schema.optional(RecipientInfo)}) {}
+export class DescribeCustomKeyStoresRequest extends Schema.Class<DescribeCustomKeyStoresRequest>("DescribeCustomKeyStoresRequest")({CustomKeyStoreId: Schema.optional(Schema.String), CustomKeyStoreName: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number), Marker: Schema.optional(Schema.String)}) {}
+export class DescribeKeyRequest extends Schema.Class<DescribeKeyRequest>("DescribeKeyRequest")({KeyId: Schema.String, GrantTokens: Schema.optional(GrantTokenList)}) {}
+export class DisableKeyRequest extends Schema.Class<DisableKeyRequest>("DisableKeyRequest")({KeyId: Schema.String}) {}
+export class DisableKeyRotationRequest extends Schema.Class<DisableKeyRotationRequest>("DisableKeyRotationRequest")({KeyId: Schema.String}) {}
+export class DisconnectCustomKeyStoreRequest extends Schema.Class<DisconnectCustomKeyStoreRequest>("DisconnectCustomKeyStoreRequest")({CustomKeyStoreId: Schema.String}) {}
+export class DisconnectCustomKeyStoreResponse extends Schema.Class<DisconnectCustomKeyStoreResponse>("DisconnectCustomKeyStoreResponse")({}) {}
+export class EnableKeyRequest extends Schema.Class<EnableKeyRequest>("EnableKeyRequest")({KeyId: Schema.String}) {}
+export class EnableKeyRotationRequest extends Schema.Class<EnableKeyRotationRequest>("EnableKeyRotationRequest")({KeyId: Schema.String, RotationPeriodInDays: Schema.optional(Schema.Number)}) {}
 export const EncryptionContextType = Schema.Record({key: Schema.String, value: Schema.String});
-export const EncryptRequest = Schema.Struct({KeyId: Schema.String, Plaintext: StreamBody(), EncryptionContext: Schema.optional(EncryptionContextType), GrantTokens: Schema.optional(GrantTokenList), EncryptionAlgorithm: Schema.optional(Schema.String), DryRun: Schema.optional(Schema.Boolean)});
-export const GenerateDataKeyRequest = Schema.Struct({KeyId: Schema.String, EncryptionContext: Schema.optional(EncryptionContextType), NumberOfBytes: Schema.optional(Schema.Number), KeySpec: Schema.optional(Schema.String), GrantTokens: Schema.optional(GrantTokenList), Recipient: Schema.optional(RecipientInfo), DryRun: Schema.optional(Schema.Boolean)});
-export const GenerateDataKeyPairRequest = Schema.Struct({EncryptionContext: Schema.optional(EncryptionContextType), KeyId: Schema.String, KeyPairSpec: Schema.String, GrantTokens: Schema.optional(GrantTokenList), Recipient: Schema.optional(RecipientInfo), DryRun: Schema.optional(Schema.Boolean)});
-export const GenerateDataKeyPairWithoutPlaintextRequest = Schema.Struct({EncryptionContext: Schema.optional(EncryptionContextType), KeyId: Schema.String, KeyPairSpec: Schema.String, GrantTokens: Schema.optional(GrantTokenList), DryRun: Schema.optional(Schema.Boolean)});
-export const GenerateDataKeyWithoutPlaintextRequest = Schema.Struct({KeyId: Schema.String, EncryptionContext: Schema.optional(EncryptionContextType), KeySpec: Schema.optional(Schema.String), NumberOfBytes: Schema.optional(Schema.Number), GrantTokens: Schema.optional(GrantTokenList), DryRun: Schema.optional(Schema.Boolean)});
-export const GenerateMacRequest = Schema.Struct({Message: StreamBody(), KeyId: Schema.String, MacAlgorithm: Schema.String, GrantTokens: Schema.optional(GrantTokenList), DryRun: Schema.optional(Schema.Boolean)});
-export const GenerateRandomRequest = Schema.Struct({NumberOfBytes: Schema.optional(Schema.Number), CustomKeyStoreId: Schema.optional(Schema.String), Recipient: Schema.optional(RecipientInfo)});
-export const GetKeyPolicyRequest = Schema.Struct({KeyId: Schema.String, PolicyName: Schema.optional(Schema.String)});
-export const GetKeyRotationStatusRequest = Schema.Struct({KeyId: Schema.String});
-export const GetParametersForImportRequest = Schema.Struct({KeyId: Schema.String, WrappingAlgorithm: Schema.String, WrappingKeySpec: Schema.String});
-export const GetPublicKeyRequest = Schema.Struct({KeyId: Schema.String, GrantTokens: Schema.optional(GrantTokenList)});
-export const ImportKeyMaterialRequest = Schema.Struct({KeyId: Schema.String, ImportToken: StreamBody(), EncryptedKeyMaterial: StreamBody(), ValidTo: Schema.optional(Schema.Date), ExpirationModel: Schema.optional(Schema.String), ImportType: Schema.optional(Schema.String), KeyMaterialDescription: Schema.optional(Schema.String), KeyMaterialId: Schema.optional(Schema.String)});
-export const ListAliasesRequest = Schema.Struct({KeyId: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number), Marker: Schema.optional(Schema.String)});
-export const ListGrantsRequest = Schema.Struct({Limit: Schema.optional(Schema.Number), Marker: Schema.optional(Schema.String), KeyId: Schema.String, GrantId: Schema.optional(Schema.String), GranteePrincipal: Schema.optional(Schema.String)});
-export const ListKeyPoliciesRequest = Schema.Struct({KeyId: Schema.String, Limit: Schema.optional(Schema.Number), Marker: Schema.optional(Schema.String)});
-export const ListKeyRotationsRequest = Schema.Struct({KeyId: Schema.String, IncludeKeyMaterial: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number), Marker: Schema.optional(Schema.String)});
-export const ListKeysRequest = Schema.Struct({Limit: Schema.optional(Schema.Number), Marker: Schema.optional(Schema.String)});
-export const ListResourceTagsRequest = Schema.Struct({KeyId: Schema.String, Limit: Schema.optional(Schema.Number), Marker: Schema.optional(Schema.String)});
-export const ListRetirableGrantsRequest = Schema.Struct({Limit: Schema.optional(Schema.Number), Marker: Schema.optional(Schema.String), RetiringPrincipal: Schema.String});
-export const PutKeyPolicyRequest = Schema.Struct({KeyId: Schema.String, PolicyName: Schema.optional(Schema.String), Policy: Schema.String, BypassPolicyLockoutSafetyCheck: Schema.optional(Schema.Boolean)});
-export const ReEncryptRequest = Schema.Struct({CiphertextBlob: StreamBody(), SourceEncryptionContext: Schema.optional(EncryptionContextType), SourceKeyId: Schema.optional(Schema.String), DestinationKeyId: Schema.String, DestinationEncryptionContext: Schema.optional(EncryptionContextType), SourceEncryptionAlgorithm: Schema.optional(Schema.String), DestinationEncryptionAlgorithm: Schema.optional(Schema.String), GrantTokens: Schema.optional(GrantTokenList), DryRun: Schema.optional(Schema.Boolean)});
-export const Tag = Schema.Struct({TagKey: Schema.String, TagValue: Schema.String});
+export class EncryptRequest extends Schema.Class<EncryptRequest>("EncryptRequest")({KeyId: Schema.String, Plaintext: StreamBody(), EncryptionContext: Schema.optional(EncryptionContextType), GrantTokens: Schema.optional(GrantTokenList), EncryptionAlgorithm: Schema.optional(Schema.String), DryRun: Schema.optional(Schema.Boolean)}) {}
+export class GenerateDataKeyRequest extends Schema.Class<GenerateDataKeyRequest>("GenerateDataKeyRequest")({KeyId: Schema.String, EncryptionContext: Schema.optional(EncryptionContextType), NumberOfBytes: Schema.optional(Schema.Number), KeySpec: Schema.optional(Schema.String), GrantTokens: Schema.optional(GrantTokenList), Recipient: Schema.optional(RecipientInfo), DryRun: Schema.optional(Schema.Boolean)}) {}
+export class GenerateDataKeyPairRequest extends Schema.Class<GenerateDataKeyPairRequest>("GenerateDataKeyPairRequest")({EncryptionContext: Schema.optional(EncryptionContextType), KeyId: Schema.String, KeyPairSpec: Schema.String, GrantTokens: Schema.optional(GrantTokenList), Recipient: Schema.optional(RecipientInfo), DryRun: Schema.optional(Schema.Boolean)}) {}
+export class GenerateDataKeyPairWithoutPlaintextRequest extends Schema.Class<GenerateDataKeyPairWithoutPlaintextRequest>("GenerateDataKeyPairWithoutPlaintextRequest")({EncryptionContext: Schema.optional(EncryptionContextType), KeyId: Schema.String, KeyPairSpec: Schema.String, GrantTokens: Schema.optional(GrantTokenList), DryRun: Schema.optional(Schema.Boolean)}) {}
+export class GenerateDataKeyWithoutPlaintextRequest extends Schema.Class<GenerateDataKeyWithoutPlaintextRequest>("GenerateDataKeyWithoutPlaintextRequest")({KeyId: Schema.String, EncryptionContext: Schema.optional(EncryptionContextType), KeySpec: Schema.optional(Schema.String), NumberOfBytes: Schema.optional(Schema.Number), GrantTokens: Schema.optional(GrantTokenList), DryRun: Schema.optional(Schema.Boolean)}) {}
+export class GenerateMacRequest extends Schema.Class<GenerateMacRequest>("GenerateMacRequest")({Message: StreamBody(), KeyId: Schema.String, MacAlgorithm: Schema.String, GrantTokens: Schema.optional(GrantTokenList), DryRun: Schema.optional(Schema.Boolean)}) {}
+export class GenerateRandomRequest extends Schema.Class<GenerateRandomRequest>("GenerateRandomRequest")({NumberOfBytes: Schema.optional(Schema.Number), CustomKeyStoreId: Schema.optional(Schema.String), Recipient: Schema.optional(RecipientInfo)}) {}
+export class GetKeyPolicyRequest extends Schema.Class<GetKeyPolicyRequest>("GetKeyPolicyRequest")({KeyId: Schema.String, PolicyName: Schema.optional(Schema.String)}) {}
+export class GetKeyRotationStatusRequest extends Schema.Class<GetKeyRotationStatusRequest>("GetKeyRotationStatusRequest")({KeyId: Schema.String}) {}
+export class GetParametersForImportRequest extends Schema.Class<GetParametersForImportRequest>("GetParametersForImportRequest")({KeyId: Schema.String, WrappingAlgorithm: Schema.String, WrappingKeySpec: Schema.String}) {}
+export class GetPublicKeyRequest extends Schema.Class<GetPublicKeyRequest>("GetPublicKeyRequest")({KeyId: Schema.String, GrantTokens: Schema.optional(GrantTokenList)}) {}
+export class ImportKeyMaterialRequest extends Schema.Class<ImportKeyMaterialRequest>("ImportKeyMaterialRequest")({KeyId: Schema.String, ImportToken: StreamBody(), EncryptedKeyMaterial: StreamBody(), ValidTo: Schema.optional(Schema.Date), ExpirationModel: Schema.optional(Schema.String), ImportType: Schema.optional(Schema.String), KeyMaterialDescription: Schema.optional(Schema.String), KeyMaterialId: Schema.optional(Schema.String)}) {}
+export class ListAliasesRequest extends Schema.Class<ListAliasesRequest>("ListAliasesRequest")({KeyId: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number), Marker: Schema.optional(Schema.String)}) {}
+export class ListGrantsRequest extends Schema.Class<ListGrantsRequest>("ListGrantsRequest")({Limit: Schema.optional(Schema.Number), Marker: Schema.optional(Schema.String), KeyId: Schema.String, GrantId: Schema.optional(Schema.String), GranteePrincipal: Schema.optional(Schema.String)}) {}
+export class ListKeyPoliciesRequest extends Schema.Class<ListKeyPoliciesRequest>("ListKeyPoliciesRequest")({KeyId: Schema.String, Limit: Schema.optional(Schema.Number), Marker: Schema.optional(Schema.String)}) {}
+export class ListKeyRotationsRequest extends Schema.Class<ListKeyRotationsRequest>("ListKeyRotationsRequest")({KeyId: Schema.String, IncludeKeyMaterial: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number), Marker: Schema.optional(Schema.String)}) {}
+export class ListKeysRequest extends Schema.Class<ListKeysRequest>("ListKeysRequest")({Limit: Schema.optional(Schema.Number), Marker: Schema.optional(Schema.String)}) {}
+export class ListResourceTagsRequest extends Schema.Class<ListResourceTagsRequest>("ListResourceTagsRequest")({KeyId: Schema.String, Limit: Schema.optional(Schema.Number), Marker: Schema.optional(Schema.String)}) {}
+export class ListRetirableGrantsRequest extends Schema.Class<ListRetirableGrantsRequest>("ListRetirableGrantsRequest")({Limit: Schema.optional(Schema.Number), Marker: Schema.optional(Schema.String), RetiringPrincipal: Schema.String}) {}
+export class PutKeyPolicyRequest extends Schema.Class<PutKeyPolicyRequest>("PutKeyPolicyRequest")({KeyId: Schema.String, PolicyName: Schema.optional(Schema.String), Policy: Schema.String, BypassPolicyLockoutSafetyCheck: Schema.optional(Schema.Boolean)}) {}
+export class ReEncryptRequest extends Schema.Class<ReEncryptRequest>("ReEncryptRequest")({CiphertextBlob: StreamBody(), SourceEncryptionContext: Schema.optional(EncryptionContextType), SourceKeyId: Schema.optional(Schema.String), DestinationKeyId: Schema.String, DestinationEncryptionContext: Schema.optional(EncryptionContextType), SourceEncryptionAlgorithm: Schema.optional(Schema.String), DestinationEncryptionAlgorithm: Schema.optional(Schema.String), GrantTokens: Schema.optional(GrantTokenList), DryRun: Schema.optional(Schema.Boolean)}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({TagKey: Schema.String, TagValue: Schema.String}) {}
 export const TagList = Schema.Array(Tag);
-export const ReplicateKeyRequest = Schema.Struct({KeyId: Schema.String, ReplicaRegion: Schema.String, Policy: Schema.optional(Schema.String), BypassPolicyLockoutSafetyCheck: Schema.optional(Schema.Boolean), Description: Schema.optional(Schema.String), Tags: Schema.optional(TagList)});
-export const RetireGrantRequest = Schema.Struct({GrantToken: Schema.optional(Schema.String), KeyId: Schema.optional(Schema.String), GrantId: Schema.optional(Schema.String), DryRun: Schema.optional(Schema.Boolean)});
-export const RevokeGrantRequest = Schema.Struct({KeyId: Schema.String, GrantId: Schema.String, DryRun: Schema.optional(Schema.Boolean)});
-export const RotateKeyOnDemandRequest = Schema.Struct({KeyId: Schema.String});
-export const ScheduleKeyDeletionRequest = Schema.Struct({KeyId: Schema.String, PendingWindowInDays: Schema.optional(Schema.Number)});
-export const SignRequest = Schema.Struct({KeyId: Schema.String, Message: StreamBody(), MessageType: Schema.optional(Schema.String), GrantTokens: Schema.optional(GrantTokenList), SigningAlgorithm: Schema.String, DryRun: Schema.optional(Schema.Boolean)});
-export const TagResourceRequest = Schema.Struct({KeyId: Schema.String, Tags: TagList});
-export const UntagResourceRequest = Schema.Struct({KeyId: Schema.String, TagKeys: TagKeyList});
-export const UpdateAliasRequest = Schema.Struct({AliasName: Schema.String, TargetKeyId: Schema.String});
-export const XksProxyAuthenticationCredentialType = Schema.Struct({AccessKeyId: Schema.String, RawSecretAccessKey: Schema.String});
-export const UpdateCustomKeyStoreRequest = Schema.Struct({CustomKeyStoreId: Schema.String, NewCustomKeyStoreName: Schema.optional(Schema.String), KeyStorePassword: Schema.optional(Schema.String), CloudHsmClusterId: Schema.optional(Schema.String), XksProxyUriEndpoint: Schema.optional(Schema.String), XksProxyUriPath: Schema.optional(Schema.String), XksProxyVpcEndpointServiceName: Schema.optional(Schema.String), XksProxyVpcEndpointServiceOwner: Schema.optional(Schema.String), XksProxyAuthenticationCredential: Schema.optional(XksProxyAuthenticationCredentialType), XksProxyConnectivity: Schema.optional(Schema.String)});
-export const UpdateCustomKeyStoreResponse = Schema.Struct({});
-export const UpdateKeyDescriptionRequest = Schema.Struct({KeyId: Schema.String, Description: Schema.String});
-export const UpdatePrimaryRegionRequest = Schema.Struct({KeyId: Schema.String, PrimaryRegion: Schema.String});
-export const VerifyRequest = Schema.Struct({KeyId: Schema.String, Message: StreamBody(), MessageType: Schema.optional(Schema.String), Signature: StreamBody(), SigningAlgorithm: Schema.String, GrantTokens: Schema.optional(GrantTokenList), DryRun: Schema.optional(Schema.Boolean)});
-export const VerifyMacRequest = Schema.Struct({Message: StreamBody(), KeyId: Schema.String, MacAlgorithm: Schema.String, Mac: StreamBody(), GrantTokens: Schema.optional(GrantTokenList), DryRun: Schema.optional(Schema.Boolean)});
-export const GrantConstraints = Schema.Struct({EncryptionContextSubset: Schema.optional(EncryptionContextType), EncryptionContextEquals: Schema.optional(EncryptionContextType)});
+export class ReplicateKeyRequest extends Schema.Class<ReplicateKeyRequest>("ReplicateKeyRequest")({KeyId: Schema.String, ReplicaRegion: Schema.String, Policy: Schema.optional(Schema.String), BypassPolicyLockoutSafetyCheck: Schema.optional(Schema.Boolean), Description: Schema.optional(Schema.String), Tags: Schema.optional(TagList)}) {}
+export class RetireGrantRequest extends Schema.Class<RetireGrantRequest>("RetireGrantRequest")({GrantToken: Schema.optional(Schema.String), KeyId: Schema.optional(Schema.String), GrantId: Schema.optional(Schema.String), DryRun: Schema.optional(Schema.Boolean)}) {}
+export class RevokeGrantRequest extends Schema.Class<RevokeGrantRequest>("RevokeGrantRequest")({KeyId: Schema.String, GrantId: Schema.String, DryRun: Schema.optional(Schema.Boolean)}) {}
+export class RotateKeyOnDemandRequest extends Schema.Class<RotateKeyOnDemandRequest>("RotateKeyOnDemandRequest")({KeyId: Schema.String}) {}
+export class ScheduleKeyDeletionRequest extends Schema.Class<ScheduleKeyDeletionRequest>("ScheduleKeyDeletionRequest")({KeyId: Schema.String, PendingWindowInDays: Schema.optional(Schema.Number)}) {}
+export class SignRequest extends Schema.Class<SignRequest>("SignRequest")({KeyId: Schema.String, Message: StreamBody(), MessageType: Schema.optional(Schema.String), GrantTokens: Schema.optional(GrantTokenList), SigningAlgorithm: Schema.String, DryRun: Schema.optional(Schema.Boolean)}) {}
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({KeyId: Schema.String, Tags: TagList}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({KeyId: Schema.String, TagKeys: TagKeyList}) {}
+export class UpdateAliasRequest extends Schema.Class<UpdateAliasRequest>("UpdateAliasRequest")({AliasName: Schema.String, TargetKeyId: Schema.String}) {}
+export class XksProxyAuthenticationCredentialType extends Schema.Class<XksProxyAuthenticationCredentialType>("XksProxyAuthenticationCredentialType")({AccessKeyId: Schema.String, RawSecretAccessKey: Schema.String}) {}
+export class UpdateCustomKeyStoreRequest extends Schema.Class<UpdateCustomKeyStoreRequest>("UpdateCustomKeyStoreRequest")({CustomKeyStoreId: Schema.String, NewCustomKeyStoreName: Schema.optional(Schema.String), KeyStorePassword: Schema.optional(Schema.String), CloudHsmClusterId: Schema.optional(Schema.String), XksProxyUriEndpoint: Schema.optional(Schema.String), XksProxyUriPath: Schema.optional(Schema.String), XksProxyVpcEndpointServiceName: Schema.optional(Schema.String), XksProxyVpcEndpointServiceOwner: Schema.optional(Schema.String), XksProxyAuthenticationCredential: Schema.optional(XksProxyAuthenticationCredentialType), XksProxyConnectivity: Schema.optional(Schema.String)}) {}
+export class UpdateCustomKeyStoreResponse extends Schema.Class<UpdateCustomKeyStoreResponse>("UpdateCustomKeyStoreResponse")({}) {}
+export class UpdateKeyDescriptionRequest extends Schema.Class<UpdateKeyDescriptionRequest>("UpdateKeyDescriptionRequest")({KeyId: Schema.String, Description: Schema.String}) {}
+export class UpdatePrimaryRegionRequest extends Schema.Class<UpdatePrimaryRegionRequest>("UpdatePrimaryRegionRequest")({KeyId: Schema.String, PrimaryRegion: Schema.String}) {}
+export class VerifyRequest extends Schema.Class<VerifyRequest>("VerifyRequest")({KeyId: Schema.String, Message: StreamBody(), MessageType: Schema.optional(Schema.String), Signature: StreamBody(), SigningAlgorithm: Schema.String, GrantTokens: Schema.optional(GrantTokenList), DryRun: Schema.optional(Schema.Boolean)}) {}
+export class VerifyMacRequest extends Schema.Class<VerifyMacRequest>("VerifyMacRequest")({Message: StreamBody(), KeyId: Schema.String, MacAlgorithm: Schema.String, Mac: StreamBody(), GrantTokens: Schema.optional(GrantTokenList), DryRun: Schema.optional(Schema.Boolean)}) {}
+export class GrantConstraints extends Schema.Class<GrantConstraints>("GrantConstraints")({EncryptionContextSubset: Schema.optional(EncryptionContextType), EncryptionContextEquals: Schema.optional(EncryptionContextType)}) {}
 export const EncryptionAlgorithmSpecList = Schema.Array(Schema.String);
 export const SigningAlgorithmSpecList = Schema.Array(Schema.String);
 export const KeyAgreementAlgorithmSpecList = Schema.Array(Schema.String);
 export const PolicyNameList = Schema.Array(Schema.String);
-export const CancelKeyDeletionResponse = Schema.Struct({KeyId: Schema.optional(Schema.String)});
-export const CloudHsmClusterInvalidConfigurationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const AlreadyExistsException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CreateCustomKeyStoreRequest = Schema.Struct({CustomKeyStoreName: Schema.String, CloudHsmClusterId: Schema.optional(Schema.String), TrustAnchorCertificate: Schema.optional(Schema.String), KeyStorePassword: Schema.optional(Schema.String), CustomKeyStoreType: Schema.optional(Schema.String), XksProxyUriEndpoint: Schema.optional(Schema.String), XksProxyUriPath: Schema.optional(Schema.String), XksProxyVpcEndpointServiceName: Schema.optional(Schema.String), XksProxyVpcEndpointServiceOwner: Schema.optional(Schema.String), XksProxyAuthenticationCredential: Schema.optional(XksProxyAuthenticationCredentialType), XksProxyConnectivity: Schema.optional(Schema.String)});
-export const CreateGrantRequest = Schema.Struct({KeyId: Schema.String, GranteePrincipal: Schema.String, RetiringPrincipal: Schema.optional(Schema.String), Operations: GrantOperationList, Constraints: Schema.optional(GrantConstraints), GrantTokens: Schema.optional(GrantTokenList), Name: Schema.optional(Schema.String), DryRun: Schema.optional(Schema.Boolean)});
-export const CreateKeyRequest = Schema.Struct({Policy: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), KeyUsage: Schema.optional(Schema.String), CustomerMasterKeySpec: Schema.optional(Schema.String), KeySpec: Schema.optional(Schema.String), Origin: Schema.optional(Schema.String), CustomKeyStoreId: Schema.optional(Schema.String), BypassPolicyLockoutSafetyCheck: Schema.optional(Schema.Boolean), Tags: Schema.optional(TagList), MultiRegion: Schema.optional(Schema.Boolean), XksKeyId: Schema.optional(Schema.String)});
-export const DecryptRequest = Schema.Struct({CiphertextBlob: StreamBody(), EncryptionContext: Schema.optional(EncryptionContextType), GrantTokens: Schema.optional(GrantTokenList), KeyId: Schema.optional(Schema.String), EncryptionAlgorithm: Schema.optional(Schema.String), Recipient: Schema.optional(RecipientInfo), DryRun: Schema.optional(Schema.Boolean)});
-export const DependencyTimeoutException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CustomKeyStoreHasCMKsException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DeleteImportedKeyMaterialResponse = Schema.Struct({KeyId: Schema.optional(Schema.String), KeyMaterialId: Schema.optional(Schema.String)});
-export const DeriveSharedSecretResponse = Schema.Struct({KeyId: Schema.optional(Schema.String), SharedSecret: Schema.optional(StreamBody()), CiphertextForRecipient: Schema.optional(StreamBody()), KeyAgreementAlgorithm: Schema.optional(Schema.String), KeyOrigin: Schema.optional(Schema.String)});
-export const InvalidArnException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DisabledException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CustomKeyStoreInvalidStateException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const KMSInternalException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const KMSInvalidStateException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const EncryptResponse = Schema.Struct({CiphertextBlob: Schema.optional(StreamBody()), KeyId: Schema.optional(Schema.String), EncryptionAlgorithm: Schema.optional(Schema.String)});
-export const GenerateDataKeyResponse = Schema.Struct({CiphertextBlob: Schema.optional(StreamBody()), Plaintext: Schema.optional(StreamBody()), KeyId: Schema.optional(Schema.String), CiphertextForRecipient: Schema.optional(StreamBody()), KeyMaterialId: Schema.optional(Schema.String)});
-export const GenerateDataKeyPairResponse = Schema.Struct({PrivateKeyCiphertextBlob: Schema.optional(StreamBody()), PrivateKeyPlaintext: Schema.optional(StreamBody()), PublicKey: Schema.optional(StreamBody()), KeyId: Schema.optional(Schema.String), KeyPairSpec: Schema.optional(Schema.String), CiphertextForRecipient: Schema.optional(StreamBody()), KeyMaterialId: Schema.optional(Schema.String)});
-export const GenerateDataKeyPairWithoutPlaintextResponse = Schema.Struct({PrivateKeyCiphertextBlob: Schema.optional(StreamBody()), PublicKey: Schema.optional(StreamBody()), KeyId: Schema.optional(Schema.String), KeyPairSpec: Schema.optional(Schema.String), KeyMaterialId: Schema.optional(Schema.String)});
-export const GenerateDataKeyWithoutPlaintextResponse = Schema.Struct({CiphertextBlob: Schema.optional(StreamBody()), KeyId: Schema.optional(Schema.String), KeyMaterialId: Schema.optional(Schema.String)});
-export const GenerateMacResponse = Schema.Struct({Mac: Schema.optional(StreamBody()), MacAlgorithm: Schema.optional(Schema.String), KeyId: Schema.optional(Schema.String)});
-export const GenerateRandomResponse = Schema.Struct({Plaintext: Schema.optional(StreamBody()), CiphertextForRecipient: Schema.optional(StreamBody())});
-export const GetKeyPolicyResponse = Schema.Struct({Policy: Schema.optional(Schema.String), PolicyName: Schema.optional(Schema.String)});
-export const GetKeyRotationStatusResponse = Schema.Struct({KeyRotationEnabled: Schema.optional(Schema.Boolean), KeyId: Schema.optional(Schema.String), RotationPeriodInDays: Schema.optional(Schema.Number), NextRotationDate: Schema.optional(Schema.Date), OnDemandRotationStartDate: Schema.optional(Schema.Date)});
-export const GetParametersForImportResponse = Schema.Struct({KeyId: Schema.optional(Schema.String), ImportToken: Schema.optional(StreamBody()), PublicKey: Schema.optional(StreamBody()), ParametersValidTo: Schema.optional(Schema.Date)});
-export const GetPublicKeyResponse = Schema.Struct({KeyId: Schema.optional(Schema.String), PublicKey: Schema.optional(StreamBody()), CustomerMasterKeySpec: Schema.optional(Schema.String), KeySpec: Schema.optional(Schema.String), KeyUsage: Schema.optional(Schema.String), EncryptionAlgorithms: Schema.optional(EncryptionAlgorithmSpecList), SigningAlgorithms: Schema.optional(SigningAlgorithmSpecList), KeyAgreementAlgorithms: Schema.optional(KeyAgreementAlgorithmSpecList)});
-export const ImportKeyMaterialResponse = Schema.Struct({KeyId: Schema.optional(Schema.String), KeyMaterialId: Schema.optional(Schema.String)});
-export const ListKeyPoliciesResponse = Schema.Struct({PolicyNames: Schema.optional(PolicyNameList), NextMarker: Schema.optional(Schema.String), Truncated: Schema.optional(Schema.Boolean)});
-export const ListResourceTagsResponse = Schema.Struct({Tags: Schema.optional(TagList), NextMarker: Schema.optional(Schema.String), Truncated: Schema.optional(Schema.Boolean)});
-export const InvalidMarkerException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const LimitExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ReEncryptResponse = Schema.Struct({CiphertextBlob: Schema.optional(StreamBody()), SourceKeyId: Schema.optional(Schema.String), KeyId: Schema.optional(Schema.String), SourceEncryptionAlgorithm: Schema.optional(Schema.String), DestinationEncryptionAlgorithm: Schema.optional(Schema.String), SourceKeyMaterialId: Schema.optional(Schema.String), DestinationKeyMaterialId: Schema.optional(Schema.String)});
-export const MultiRegionKey = Schema.Struct({Arn: Schema.optional(Schema.String), Region: Schema.optional(Schema.String)});
+export class CancelKeyDeletionResponse extends Schema.Class<CancelKeyDeletionResponse>("CancelKeyDeletionResponse")({KeyId: Schema.optional(Schema.String)}) {}
+export class CloudHsmClusterInvalidConfigurationException extends Schema.Class<CloudHsmClusterInvalidConfigurationException>("CloudHsmClusterInvalidConfigurationException")({message: Schema.optional(Schema.String)}) {}
+export class AlreadyExistsException extends Schema.Class<AlreadyExistsException>("AlreadyExistsException")({message: Schema.optional(Schema.String)}) {}
+export class CreateCustomKeyStoreRequest extends Schema.Class<CreateCustomKeyStoreRequest>("CreateCustomKeyStoreRequest")({CustomKeyStoreName: Schema.String, CloudHsmClusterId: Schema.optional(Schema.String), TrustAnchorCertificate: Schema.optional(Schema.String), KeyStorePassword: Schema.optional(Schema.String), CustomKeyStoreType: Schema.optional(Schema.String), XksProxyUriEndpoint: Schema.optional(Schema.String), XksProxyUriPath: Schema.optional(Schema.String), XksProxyVpcEndpointServiceName: Schema.optional(Schema.String), XksProxyVpcEndpointServiceOwner: Schema.optional(Schema.String), XksProxyAuthenticationCredential: Schema.optional(XksProxyAuthenticationCredentialType), XksProxyConnectivity: Schema.optional(Schema.String)}) {}
+export class CreateGrantRequest extends Schema.Class<CreateGrantRequest>("CreateGrantRequest")({KeyId: Schema.String, GranteePrincipal: Schema.String, RetiringPrincipal: Schema.optional(Schema.String), Operations: GrantOperationList, Constraints: Schema.optional(GrantConstraints), GrantTokens: Schema.optional(GrantTokenList), Name: Schema.optional(Schema.String), DryRun: Schema.optional(Schema.Boolean)}) {}
+export class CreateKeyRequest extends Schema.Class<CreateKeyRequest>("CreateKeyRequest")({Policy: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), KeyUsage: Schema.optional(Schema.String), CustomerMasterKeySpec: Schema.optional(Schema.String), KeySpec: Schema.optional(Schema.String), Origin: Schema.optional(Schema.String), CustomKeyStoreId: Schema.optional(Schema.String), BypassPolicyLockoutSafetyCheck: Schema.optional(Schema.Boolean), Tags: Schema.optional(TagList), MultiRegion: Schema.optional(Schema.Boolean), XksKeyId: Schema.optional(Schema.String)}) {}
+export class DecryptRequest extends Schema.Class<DecryptRequest>("DecryptRequest")({CiphertextBlob: StreamBody(), EncryptionContext: Schema.optional(EncryptionContextType), GrantTokens: Schema.optional(GrantTokenList), KeyId: Schema.optional(Schema.String), EncryptionAlgorithm: Schema.optional(Schema.String), Recipient: Schema.optional(RecipientInfo), DryRun: Schema.optional(Schema.Boolean)}) {}
+export class DependencyTimeoutException extends Schema.Class<DependencyTimeoutException>("DependencyTimeoutException")({message: Schema.optional(Schema.String)}) {}
+export class CustomKeyStoreHasCMKsException extends Schema.Class<CustomKeyStoreHasCMKsException>("CustomKeyStoreHasCMKsException")({message: Schema.optional(Schema.String)}) {}
+export class DeleteImportedKeyMaterialResponse extends Schema.Class<DeleteImportedKeyMaterialResponse>("DeleteImportedKeyMaterialResponse")({KeyId: Schema.optional(Schema.String), KeyMaterialId: Schema.optional(Schema.String)}) {}
+export class DeriveSharedSecretResponse extends Schema.Class<DeriveSharedSecretResponse>("DeriveSharedSecretResponse")({KeyId: Schema.optional(Schema.String), SharedSecret: Schema.optional(StreamBody()), CiphertextForRecipient: Schema.optional(StreamBody()), KeyAgreementAlgorithm: Schema.optional(Schema.String), KeyOrigin: Schema.optional(Schema.String)}) {}
+export class InvalidArnException extends Schema.Class<InvalidArnException>("InvalidArnException")({message: Schema.optional(Schema.String)}) {}
+export class DisabledException extends Schema.Class<DisabledException>("DisabledException")({message: Schema.optional(Schema.String)}) {}
+export class CustomKeyStoreInvalidStateException extends Schema.Class<CustomKeyStoreInvalidStateException>("CustomKeyStoreInvalidStateException")({message: Schema.optional(Schema.String)}) {}
+export class KMSInternalException extends Schema.Class<KMSInternalException>("KMSInternalException")({message: Schema.optional(Schema.String)}) {}
+export class KMSInvalidStateException extends Schema.Class<KMSInvalidStateException>("KMSInvalidStateException")({message: Schema.optional(Schema.String)}) {}
+export class EncryptResponse extends Schema.Class<EncryptResponse>("EncryptResponse")({CiphertextBlob: Schema.optional(StreamBody()), KeyId: Schema.optional(Schema.String), EncryptionAlgorithm: Schema.optional(Schema.String)}) {}
+export class GenerateDataKeyResponse extends Schema.Class<GenerateDataKeyResponse>("GenerateDataKeyResponse")({CiphertextBlob: Schema.optional(StreamBody()), Plaintext: Schema.optional(StreamBody()), KeyId: Schema.optional(Schema.String), CiphertextForRecipient: Schema.optional(StreamBody()), KeyMaterialId: Schema.optional(Schema.String)}) {}
+export class GenerateDataKeyPairResponse extends Schema.Class<GenerateDataKeyPairResponse>("GenerateDataKeyPairResponse")({PrivateKeyCiphertextBlob: Schema.optional(StreamBody()), PrivateKeyPlaintext: Schema.optional(StreamBody()), PublicKey: Schema.optional(StreamBody()), KeyId: Schema.optional(Schema.String), KeyPairSpec: Schema.optional(Schema.String), CiphertextForRecipient: Schema.optional(StreamBody()), KeyMaterialId: Schema.optional(Schema.String)}) {}
+export class GenerateDataKeyPairWithoutPlaintextResponse extends Schema.Class<GenerateDataKeyPairWithoutPlaintextResponse>("GenerateDataKeyPairWithoutPlaintextResponse")({PrivateKeyCiphertextBlob: Schema.optional(StreamBody()), PublicKey: Schema.optional(StreamBody()), KeyId: Schema.optional(Schema.String), KeyPairSpec: Schema.optional(Schema.String), KeyMaterialId: Schema.optional(Schema.String)}) {}
+export class GenerateDataKeyWithoutPlaintextResponse extends Schema.Class<GenerateDataKeyWithoutPlaintextResponse>("GenerateDataKeyWithoutPlaintextResponse")({CiphertextBlob: Schema.optional(StreamBody()), KeyId: Schema.optional(Schema.String), KeyMaterialId: Schema.optional(Schema.String)}) {}
+export class GenerateMacResponse extends Schema.Class<GenerateMacResponse>("GenerateMacResponse")({Mac: Schema.optional(StreamBody()), MacAlgorithm: Schema.optional(Schema.String), KeyId: Schema.optional(Schema.String)}) {}
+export class GenerateRandomResponse extends Schema.Class<GenerateRandomResponse>("GenerateRandomResponse")({Plaintext: Schema.optional(StreamBody()), CiphertextForRecipient: Schema.optional(StreamBody())}) {}
+export class GetKeyPolicyResponse extends Schema.Class<GetKeyPolicyResponse>("GetKeyPolicyResponse")({Policy: Schema.optional(Schema.String), PolicyName: Schema.optional(Schema.String)}) {}
+export class GetKeyRotationStatusResponse extends Schema.Class<GetKeyRotationStatusResponse>("GetKeyRotationStatusResponse")({KeyRotationEnabled: Schema.optional(Schema.Boolean), KeyId: Schema.optional(Schema.String), RotationPeriodInDays: Schema.optional(Schema.Number), NextRotationDate: Schema.optional(Schema.Date), OnDemandRotationStartDate: Schema.optional(Schema.Date)}) {}
+export class GetParametersForImportResponse extends Schema.Class<GetParametersForImportResponse>("GetParametersForImportResponse")({KeyId: Schema.optional(Schema.String), ImportToken: Schema.optional(StreamBody()), PublicKey: Schema.optional(StreamBody()), ParametersValidTo: Schema.optional(Schema.Date)}) {}
+export class GetPublicKeyResponse extends Schema.Class<GetPublicKeyResponse>("GetPublicKeyResponse")({KeyId: Schema.optional(Schema.String), PublicKey: Schema.optional(StreamBody()), CustomerMasterKeySpec: Schema.optional(Schema.String), KeySpec: Schema.optional(Schema.String), KeyUsage: Schema.optional(Schema.String), EncryptionAlgorithms: Schema.optional(EncryptionAlgorithmSpecList), SigningAlgorithms: Schema.optional(SigningAlgorithmSpecList), KeyAgreementAlgorithms: Schema.optional(KeyAgreementAlgorithmSpecList)}) {}
+export class ImportKeyMaterialResponse extends Schema.Class<ImportKeyMaterialResponse>("ImportKeyMaterialResponse")({KeyId: Schema.optional(Schema.String), KeyMaterialId: Schema.optional(Schema.String)}) {}
+export class ListKeyPoliciesResponse extends Schema.Class<ListKeyPoliciesResponse>("ListKeyPoliciesResponse")({PolicyNames: Schema.optional(PolicyNameList), NextMarker: Schema.optional(Schema.String), Truncated: Schema.optional(Schema.Boolean)}) {}
+export class ListResourceTagsResponse extends Schema.Class<ListResourceTagsResponse>("ListResourceTagsResponse")({Tags: Schema.optional(TagList), NextMarker: Schema.optional(Schema.String), Truncated: Schema.optional(Schema.Boolean)}) {}
+export class InvalidMarkerException extends Schema.Class<InvalidMarkerException>("InvalidMarkerException")({message: Schema.optional(Schema.String)}) {}
+export class LimitExceededException extends Schema.Class<LimitExceededException>("LimitExceededException")({message: Schema.optional(Schema.String)}) {}
+export class ReEncryptResponse extends Schema.Class<ReEncryptResponse>("ReEncryptResponse")({CiphertextBlob: Schema.optional(StreamBody()), SourceKeyId: Schema.optional(Schema.String), KeyId: Schema.optional(Schema.String), SourceEncryptionAlgorithm: Schema.optional(Schema.String), DestinationEncryptionAlgorithm: Schema.optional(Schema.String), SourceKeyMaterialId: Schema.optional(Schema.String), DestinationKeyMaterialId: Schema.optional(Schema.String)}) {}
+export class MultiRegionKey extends Schema.Class<MultiRegionKey>("MultiRegionKey")({Arn: Schema.optional(Schema.String), Region: Schema.optional(Schema.String)}) {}
 export const MultiRegionKeyList = Schema.Array(MultiRegionKey);
-export const MultiRegionConfiguration = Schema.Struct({MultiRegionKeyType: Schema.optional(Schema.String), PrimaryKey: Schema.optional(MultiRegionKey), ReplicaKeys: Schema.optional(MultiRegionKeyList)});
+export class MultiRegionConfiguration extends Schema.Class<MultiRegionConfiguration>("MultiRegionConfiguration")({MultiRegionKeyType: Schema.optional(Schema.String), PrimaryKey: Schema.optional(MultiRegionKey), ReplicaKeys: Schema.optional(MultiRegionKeyList)}) {}
 export const MacAlgorithmSpecList = Schema.Array(Schema.String);
-export const XksKeyConfigurationType = Schema.Struct({Id: Schema.optional(Schema.String)});
-export const KeyMetadata = Schema.Struct({AWSAccountId: Schema.optional(Schema.String), KeyId: Schema.String, Arn: Schema.optional(Schema.String), CreationDate: Schema.optional(Schema.Date), Enabled: Schema.optional(Schema.Boolean), Description: Schema.optional(Schema.String), KeyUsage: Schema.optional(Schema.String), KeyState: Schema.optional(Schema.String), DeletionDate: Schema.optional(Schema.Date), ValidTo: Schema.optional(Schema.Date), Origin: Schema.optional(Schema.String), CustomKeyStoreId: Schema.optional(Schema.String), CloudHsmClusterId: Schema.optional(Schema.String), ExpirationModel: Schema.optional(Schema.String), KeyManager: Schema.optional(Schema.String), CustomerMasterKeySpec: Schema.optional(Schema.String), KeySpec: Schema.optional(Schema.String), EncryptionAlgorithms: Schema.optional(EncryptionAlgorithmSpecList), SigningAlgorithms: Schema.optional(SigningAlgorithmSpecList), KeyAgreementAlgorithms: Schema.optional(KeyAgreementAlgorithmSpecList), MultiRegion: Schema.optional(Schema.Boolean), MultiRegionConfiguration: Schema.optional(MultiRegionConfiguration), PendingDeletionWindowInDays: Schema.optional(Schema.Number), MacAlgorithms: Schema.optional(MacAlgorithmSpecList), XksKeyConfiguration: Schema.optional(XksKeyConfigurationType), CurrentKeyMaterialId: Schema.optional(Schema.String)});
-export const ReplicateKeyResponse = Schema.Struct({ReplicaKeyMetadata: Schema.optional(KeyMetadata), ReplicaPolicy: Schema.optional(Schema.String), ReplicaTags: Schema.optional(TagList)});
-export const DryRunOperationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidGrantIdException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const RotateKeyOnDemandResponse = Schema.Struct({KeyId: Schema.optional(Schema.String)});
-export const ScheduleKeyDeletionResponse = Schema.Struct({KeyId: Schema.optional(Schema.String), DeletionDate: Schema.optional(Schema.Date), KeyState: Schema.optional(Schema.String), PendingWindowInDays: Schema.optional(Schema.Number)});
-export const SignResponse = Schema.Struct({KeyId: Schema.optional(Schema.String), Signature: Schema.optional(StreamBody()), SigningAlgorithm: Schema.optional(Schema.String)});
-export const NotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const TagException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CloudHsmClusterNotActiveException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UnsupportedOperationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const VerifyResponse = Schema.Struct({KeyId: Schema.optional(Schema.String), SignatureValid: Schema.optional(Schema.Boolean), SigningAlgorithm: Schema.optional(Schema.String)});
-export const VerifyMacResponse = Schema.Struct({KeyId: Schema.optional(Schema.String), MacValid: Schema.optional(Schema.Boolean), MacAlgorithm: Schema.optional(Schema.String)});
-export const AliasListEntry = Schema.Struct({AliasName: Schema.optional(Schema.String), AliasArn: Schema.optional(Schema.String), TargetKeyId: Schema.optional(Schema.String), CreationDate: Schema.optional(Schema.Date), LastUpdatedDate: Schema.optional(Schema.Date)});
+export class XksKeyConfigurationType extends Schema.Class<XksKeyConfigurationType>("XksKeyConfigurationType")({Id: Schema.optional(Schema.String)}) {}
+export class KeyMetadata extends Schema.Class<KeyMetadata>("KeyMetadata")({AWSAccountId: Schema.optional(Schema.String), KeyId: Schema.String, Arn: Schema.optional(Schema.String), CreationDate: Schema.optional(Schema.Date), Enabled: Schema.optional(Schema.Boolean), Description: Schema.optional(Schema.String), KeyUsage: Schema.optional(Schema.String), KeyState: Schema.optional(Schema.String), DeletionDate: Schema.optional(Schema.Date), ValidTo: Schema.optional(Schema.Date), Origin: Schema.optional(Schema.String), CustomKeyStoreId: Schema.optional(Schema.String), CloudHsmClusterId: Schema.optional(Schema.String), ExpirationModel: Schema.optional(Schema.String), KeyManager: Schema.optional(Schema.String), CustomerMasterKeySpec: Schema.optional(Schema.String), KeySpec: Schema.optional(Schema.String), EncryptionAlgorithms: Schema.optional(EncryptionAlgorithmSpecList), SigningAlgorithms: Schema.optional(SigningAlgorithmSpecList), KeyAgreementAlgorithms: Schema.optional(KeyAgreementAlgorithmSpecList), MultiRegion: Schema.optional(Schema.Boolean), MultiRegionConfiguration: Schema.optional(MultiRegionConfiguration), PendingDeletionWindowInDays: Schema.optional(Schema.Number), MacAlgorithms: Schema.optional(MacAlgorithmSpecList), XksKeyConfiguration: Schema.optional(XksKeyConfigurationType), CurrentKeyMaterialId: Schema.optional(Schema.String)}) {}
+export class ReplicateKeyResponse extends Schema.Class<ReplicateKeyResponse>("ReplicateKeyResponse")({ReplicaKeyMetadata: Schema.optional(KeyMetadata), ReplicaPolicy: Schema.optional(Schema.String), ReplicaTags: Schema.optional(TagList)}) {}
+export class DryRunOperationException extends Schema.Class<DryRunOperationException>("DryRunOperationException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidGrantIdException extends Schema.Class<InvalidGrantIdException>("InvalidGrantIdException")({message: Schema.optional(Schema.String)}) {}
+export class RotateKeyOnDemandResponse extends Schema.Class<RotateKeyOnDemandResponse>("RotateKeyOnDemandResponse")({KeyId: Schema.optional(Schema.String)}) {}
+export class ScheduleKeyDeletionResponse extends Schema.Class<ScheduleKeyDeletionResponse>("ScheduleKeyDeletionResponse")({KeyId: Schema.optional(Schema.String), DeletionDate: Schema.optional(Schema.Date), KeyState: Schema.optional(Schema.String), PendingWindowInDays: Schema.optional(Schema.Number)}) {}
+export class SignResponse extends Schema.Class<SignResponse>("SignResponse")({KeyId: Schema.optional(Schema.String), Signature: Schema.optional(StreamBody()), SigningAlgorithm: Schema.optional(Schema.String)}) {}
+export class NotFoundException extends Schema.Class<NotFoundException>("NotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class TagException extends Schema.Class<TagException>("TagException")({message: Schema.optional(Schema.String)}) {}
+export class CloudHsmClusterNotActiveException extends Schema.Class<CloudHsmClusterNotActiveException>("CloudHsmClusterNotActiveException")({message: Schema.optional(Schema.String)}) {}
+export class UnsupportedOperationException extends Schema.Class<UnsupportedOperationException>("UnsupportedOperationException")({message: Schema.optional(Schema.String)}) {}
+export class VerifyResponse extends Schema.Class<VerifyResponse>("VerifyResponse")({KeyId: Schema.optional(Schema.String), SignatureValid: Schema.optional(Schema.Boolean), SigningAlgorithm: Schema.optional(Schema.String)}) {}
+export class VerifyMacResponse extends Schema.Class<VerifyMacResponse>("VerifyMacResponse")({KeyId: Schema.optional(Schema.String), MacValid: Schema.optional(Schema.Boolean), MacAlgorithm: Schema.optional(Schema.String)}) {}
+export class AliasListEntry extends Schema.Class<AliasListEntry>("AliasListEntry")({AliasName: Schema.optional(Schema.String), AliasArn: Schema.optional(Schema.String), TargetKeyId: Schema.optional(Schema.String), CreationDate: Schema.optional(Schema.Date), LastUpdatedDate: Schema.optional(Schema.Date)}) {}
 export const AliasList = Schema.Array(AliasListEntry);
-export const GrantListEntry = Schema.Struct({KeyId: Schema.optional(Schema.String), GrantId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), CreationDate: Schema.optional(Schema.Date), GranteePrincipal: Schema.optional(Schema.String), RetiringPrincipal: Schema.optional(Schema.String), IssuingAccount: Schema.optional(Schema.String), Operations: Schema.optional(GrantOperationList), Constraints: Schema.optional(GrantConstraints)});
+export class GrantListEntry extends Schema.Class<GrantListEntry>("GrantListEntry")({KeyId: Schema.optional(Schema.String), GrantId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), CreationDate: Schema.optional(Schema.Date), GranteePrincipal: Schema.optional(Schema.String), RetiringPrincipal: Schema.optional(Schema.String), IssuingAccount: Schema.optional(Schema.String), Operations: Schema.optional(GrantOperationList), Constraints: Schema.optional(GrantConstraints)}) {}
 export const GrantList = Schema.Array(GrantListEntry);
-export const RotationsListEntry = Schema.Struct({KeyId: Schema.optional(Schema.String), KeyMaterialId: Schema.optional(Schema.String), KeyMaterialDescription: Schema.optional(Schema.String), ImportState: Schema.optional(Schema.String), KeyMaterialState: Schema.optional(Schema.String), ExpirationModel: Schema.optional(Schema.String), ValidTo: Schema.optional(Schema.Date), RotationDate: Schema.optional(Schema.Date), RotationType: Schema.optional(Schema.String)});
+export class RotationsListEntry extends Schema.Class<RotationsListEntry>("RotationsListEntry")({KeyId: Schema.optional(Schema.String), KeyMaterialId: Schema.optional(Schema.String), KeyMaterialDescription: Schema.optional(Schema.String), ImportState: Schema.optional(Schema.String), KeyMaterialState: Schema.optional(Schema.String), ExpirationModel: Schema.optional(Schema.String), ValidTo: Schema.optional(Schema.Date), RotationDate: Schema.optional(Schema.Date), RotationType: Schema.optional(Schema.String)}) {}
 export const RotationsList = Schema.Array(RotationsListEntry);
-export const KeyListEntry = Schema.Struct({KeyId: Schema.optional(Schema.String), KeyArn: Schema.optional(Schema.String)});
+export class KeyListEntry extends Schema.Class<KeyListEntry>("KeyListEntry")({KeyId: Schema.optional(Schema.String), KeyArn: Schema.optional(Schema.String)}) {}
 export const KeyList = Schema.Array(KeyListEntry);
-export const CustomKeyStoreNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidAliasNameException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CreateCustomKeyStoreResponse = Schema.Struct({CustomKeyStoreId: Schema.optional(Schema.String)});
-export const CreateGrantResponse = Schema.Struct({GrantToken: Schema.optional(Schema.String), GrantId: Schema.optional(Schema.String)});
-export const CreateKeyResponse = Schema.Struct({KeyMetadata: Schema.optional(KeyMetadata)});
-export const DecryptResponse = Schema.Struct({KeyId: Schema.optional(Schema.String), Plaintext: Schema.optional(StreamBody()), EncryptionAlgorithm: Schema.optional(Schema.String), CiphertextForRecipient: Schema.optional(StreamBody()), KeyMaterialId: Schema.optional(Schema.String)});
-export const InvalidGrantTokenException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidKeyUsageException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const KeyUnavailableException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ExpiredImportTokenException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ListAliasesResponse = Schema.Struct({Aliases: Schema.optional(AliasList), NextMarker: Schema.optional(Schema.String), Truncated: Schema.optional(Schema.Boolean)});
-export const ListGrantsResponse = Schema.Struct({Grants: Schema.optional(GrantList), NextMarker: Schema.optional(Schema.String), Truncated: Schema.optional(Schema.Boolean)});
-export const ListKeyRotationsResponse = Schema.Struct({Rotations: Schema.optional(RotationsList), NextMarker: Schema.optional(Schema.String), Truncated: Schema.optional(Schema.Boolean)});
-export const ListKeysResponse = Schema.Struct({Keys: Schema.optional(KeyList), NextMarker: Schema.optional(Schema.String), Truncated: Schema.optional(Schema.Boolean)});
-export const MalformedPolicyDocumentException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const IncorrectKeyException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ConflictException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CloudHsmClusterNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const KMSInvalidSignatureException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const KMSInvalidMacException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const XksProxyConfigurationType = Schema.Struct({Connectivity: Schema.optional(Schema.String), AccessKeyId: Schema.optional(Schema.String), UriEndpoint: Schema.optional(Schema.String), UriPath: Schema.optional(Schema.String), VpcEndpointServiceName: Schema.optional(Schema.String), VpcEndpointServiceOwner: Schema.optional(Schema.String)});
-export const CustomKeyStoresListEntry = Schema.Struct({CustomKeyStoreId: Schema.optional(Schema.String), CustomKeyStoreName: Schema.optional(Schema.String), CloudHsmClusterId: Schema.optional(Schema.String), TrustAnchorCertificate: Schema.optional(Schema.String), ConnectionState: Schema.optional(Schema.String), ConnectionErrorCode: Schema.optional(Schema.String), CreationDate: Schema.optional(Schema.Date), CustomKeyStoreType: Schema.optional(Schema.String), XksProxyConfiguration: Schema.optional(XksProxyConfigurationType)});
+export class CustomKeyStoreNotFoundException extends Schema.Class<CustomKeyStoreNotFoundException>("CustomKeyStoreNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidAliasNameException extends Schema.Class<InvalidAliasNameException>("InvalidAliasNameException")({message: Schema.optional(Schema.String)}) {}
+export class CreateCustomKeyStoreResponse extends Schema.Class<CreateCustomKeyStoreResponse>("CreateCustomKeyStoreResponse")({CustomKeyStoreId: Schema.optional(Schema.String)}) {}
+export class CreateGrantResponse extends Schema.Class<CreateGrantResponse>("CreateGrantResponse")({GrantToken: Schema.optional(Schema.String), GrantId: Schema.optional(Schema.String)}) {}
+export class CreateKeyResponse extends Schema.Class<CreateKeyResponse>("CreateKeyResponse")({KeyMetadata: Schema.optional(KeyMetadata)}) {}
+export class DecryptResponse extends Schema.Class<DecryptResponse>("DecryptResponse")({KeyId: Schema.optional(Schema.String), Plaintext: Schema.optional(StreamBody()), EncryptionAlgorithm: Schema.optional(Schema.String), CiphertextForRecipient: Schema.optional(StreamBody()), KeyMaterialId: Schema.optional(Schema.String)}) {}
+export class InvalidGrantTokenException extends Schema.Class<InvalidGrantTokenException>("InvalidGrantTokenException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidKeyUsageException extends Schema.Class<InvalidKeyUsageException>("InvalidKeyUsageException")({message: Schema.optional(Schema.String)}) {}
+export class KeyUnavailableException extends Schema.Class<KeyUnavailableException>("KeyUnavailableException")({message: Schema.optional(Schema.String)}) {}
+export class ExpiredImportTokenException extends Schema.Class<ExpiredImportTokenException>("ExpiredImportTokenException")({message: Schema.optional(Schema.String)}) {}
+export class ListAliasesResponse extends Schema.Class<ListAliasesResponse>("ListAliasesResponse")({Aliases: Schema.optional(AliasList), NextMarker: Schema.optional(Schema.String), Truncated: Schema.optional(Schema.Boolean)}) {}
+export class ListGrantsResponse extends Schema.Class<ListGrantsResponse>("ListGrantsResponse")({Grants: Schema.optional(GrantList), NextMarker: Schema.optional(Schema.String), Truncated: Schema.optional(Schema.Boolean)}) {}
+export class ListKeyRotationsResponse extends Schema.Class<ListKeyRotationsResponse>("ListKeyRotationsResponse")({Rotations: Schema.optional(RotationsList), NextMarker: Schema.optional(Schema.String), Truncated: Schema.optional(Schema.Boolean)}) {}
+export class ListKeysResponse extends Schema.Class<ListKeysResponse>("ListKeysResponse")({Keys: Schema.optional(KeyList), NextMarker: Schema.optional(Schema.String), Truncated: Schema.optional(Schema.Boolean)}) {}
+export class MalformedPolicyDocumentException extends Schema.Class<MalformedPolicyDocumentException>("MalformedPolicyDocumentException")({message: Schema.optional(Schema.String)}) {}
+export class IncorrectKeyException extends Schema.Class<IncorrectKeyException>("IncorrectKeyException")({message: Schema.optional(Schema.String)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({message: Schema.optional(Schema.String)}) {}
+export class CloudHsmClusterNotFoundException extends Schema.Class<CloudHsmClusterNotFoundException>("CloudHsmClusterNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class KMSInvalidSignatureException extends Schema.Class<KMSInvalidSignatureException>("KMSInvalidSignatureException")({message: Schema.optional(Schema.String)}) {}
+export class KMSInvalidMacException extends Schema.Class<KMSInvalidMacException>("KMSInvalidMacException")({message: Schema.optional(Schema.String)}) {}
+export class XksProxyConfigurationType extends Schema.Class<XksProxyConfigurationType>("XksProxyConfigurationType")({Connectivity: Schema.optional(Schema.String), AccessKeyId: Schema.optional(Schema.String), UriEndpoint: Schema.optional(Schema.String), UriPath: Schema.optional(Schema.String), VpcEndpointServiceName: Schema.optional(Schema.String), VpcEndpointServiceOwner: Schema.optional(Schema.String)}) {}
+export class CustomKeyStoresListEntry extends Schema.Class<CustomKeyStoresListEntry>("CustomKeyStoresListEntry")({CustomKeyStoreId: Schema.optional(Schema.String), CustomKeyStoreName: Schema.optional(Schema.String), CloudHsmClusterId: Schema.optional(Schema.String), TrustAnchorCertificate: Schema.optional(Schema.String), ConnectionState: Schema.optional(Schema.String), ConnectionErrorCode: Schema.optional(Schema.String), CreationDate: Schema.optional(Schema.Date), CustomKeyStoreType: Schema.optional(Schema.String), XksProxyConfiguration: Schema.optional(XksProxyConfigurationType)}) {}
 export const CustomKeyStoresList = Schema.Array(CustomKeyStoresListEntry);
-export const CloudHsmClusterInUseException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const XksKeyAlreadyInUseException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidCiphertextException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DescribeCustomKeyStoresResponse = Schema.Struct({CustomKeyStores: Schema.optional(CustomKeyStoresList), NextMarker: Schema.optional(Schema.String), Truncated: Schema.optional(Schema.Boolean)});
-export const IncorrectKeyMaterialException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CloudHsmClusterNotRelatedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CustomKeyStoreNameInUseException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const XksKeyInvalidConfigurationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DescribeKeyResponse = Schema.Struct({KeyMetadata: Schema.optional(KeyMetadata)});
-export const InvalidImportTokenException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const XksProxyIncorrectAuthenticationCredentialException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const IncorrectTrustAnchorException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const XksKeyNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const XksProxyInvalidConfigurationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const XksProxyInvalidResponseException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const XksProxyUriEndpointInUseException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const XksProxyUriInUseException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const XksProxyUriUnreachableException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const XksProxyVpcEndpointServiceInUseException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const XksProxyVpcEndpointServiceInvalidConfigurationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const XksProxyVpcEndpointServiceNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
+export class CloudHsmClusterInUseException extends Schema.Class<CloudHsmClusterInUseException>("CloudHsmClusterInUseException")({message: Schema.optional(Schema.String)}) {}
+export class XksKeyAlreadyInUseException extends Schema.Class<XksKeyAlreadyInUseException>("XksKeyAlreadyInUseException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidCiphertextException extends Schema.Class<InvalidCiphertextException>("InvalidCiphertextException")({message: Schema.optional(Schema.String)}) {}
+export class DescribeCustomKeyStoresResponse extends Schema.Class<DescribeCustomKeyStoresResponse>("DescribeCustomKeyStoresResponse")({CustomKeyStores: Schema.optional(CustomKeyStoresList), NextMarker: Schema.optional(Schema.String), Truncated: Schema.optional(Schema.Boolean)}) {}
+export class IncorrectKeyMaterialException extends Schema.Class<IncorrectKeyMaterialException>("IncorrectKeyMaterialException")({message: Schema.optional(Schema.String)}) {}
+export class CloudHsmClusterNotRelatedException extends Schema.Class<CloudHsmClusterNotRelatedException>("CloudHsmClusterNotRelatedException")({message: Schema.optional(Schema.String)}) {}
+export class CustomKeyStoreNameInUseException extends Schema.Class<CustomKeyStoreNameInUseException>("CustomKeyStoreNameInUseException")({message: Schema.optional(Schema.String)}) {}
+export class XksKeyInvalidConfigurationException extends Schema.Class<XksKeyInvalidConfigurationException>("XksKeyInvalidConfigurationException")({message: Schema.optional(Schema.String)}) {}
+export class DescribeKeyResponse extends Schema.Class<DescribeKeyResponse>("DescribeKeyResponse")({KeyMetadata: Schema.optional(KeyMetadata)}) {}
+export class InvalidImportTokenException extends Schema.Class<InvalidImportTokenException>("InvalidImportTokenException")({message: Schema.optional(Schema.String)}) {}
+export class XksProxyIncorrectAuthenticationCredentialException extends Schema.Class<XksProxyIncorrectAuthenticationCredentialException>("XksProxyIncorrectAuthenticationCredentialException")({message: Schema.optional(Schema.String)}) {}
+export class IncorrectTrustAnchorException extends Schema.Class<IncorrectTrustAnchorException>("IncorrectTrustAnchorException")({message: Schema.optional(Schema.String)}) {}
+export class XksKeyNotFoundException extends Schema.Class<XksKeyNotFoundException>("XksKeyNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class XksProxyInvalidConfigurationException extends Schema.Class<XksProxyInvalidConfigurationException>("XksProxyInvalidConfigurationException")({message: Schema.optional(Schema.String)}) {}
+export class XksProxyInvalidResponseException extends Schema.Class<XksProxyInvalidResponseException>("XksProxyInvalidResponseException")({message: Schema.optional(Schema.String)}) {}
+export class XksProxyUriEndpointInUseException extends Schema.Class<XksProxyUriEndpointInUseException>("XksProxyUriEndpointInUseException")({message: Schema.optional(Schema.String)}) {}
+export class XksProxyUriInUseException extends Schema.Class<XksProxyUriInUseException>("XksProxyUriInUseException")({message: Schema.optional(Schema.String)}) {}
+export class XksProxyUriUnreachableException extends Schema.Class<XksProxyUriUnreachableException>("XksProxyUriUnreachableException")({message: Schema.optional(Schema.String)}) {}
+export class XksProxyVpcEndpointServiceInUseException extends Schema.Class<XksProxyVpcEndpointServiceInUseException>("XksProxyVpcEndpointServiceInUseException")({message: Schema.optional(Schema.String)}) {}
+export class XksProxyVpcEndpointServiceInvalidConfigurationException extends Schema.Class<XksProxyVpcEndpointServiceInvalidConfigurationException>("XksProxyVpcEndpointServiceInvalidConfigurationException")({message: Schema.optional(Schema.String)}) {}
+export class XksProxyVpcEndpointServiceNotFoundException extends Schema.Class<XksProxyVpcEndpointServiceNotFoundException>("XksProxyVpcEndpointServiceNotFoundException")({message: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class DependencyTimeoutExceptionError extends Schema.TaggedError<DependencyTimeoutExceptionError>()("DependencyTimeoutException", DependencyTimeoutException) {};
-export class InvalidArnExceptionError extends Schema.TaggedError<InvalidArnExceptionError>()("InvalidArnException", InvalidArnException) {};
-export class DisabledExceptionError extends Schema.TaggedError<DisabledExceptionError>()("DisabledException", DisabledException) {};
-export class KMSInternalExceptionError extends Schema.TaggedError<KMSInternalExceptionError>()("KMSInternalException", KMSInternalException) {};
-export class KMSInvalidStateExceptionError extends Schema.TaggedError<KMSInvalidStateExceptionError>()("KMSInvalidStateException", KMSInvalidStateException) {};
-export class DryRunOperationExceptionError extends Schema.TaggedError<DryRunOperationExceptionError>()("DryRunOperationException", DryRunOperationException) {};
-export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException) {};
-export class NotFoundExceptionError extends Schema.TaggedError<NotFoundExceptionError>()("NotFoundException", NotFoundException) {};
-export class CloudHsmClusterInvalidConfigurationExceptionError extends Schema.TaggedError<CloudHsmClusterInvalidConfigurationExceptionError>()("CloudHsmClusterInvalidConfigurationException", CloudHsmClusterInvalidConfigurationException) {};
-export class CloudHsmClusterNotActiveExceptionError extends Schema.TaggedError<CloudHsmClusterNotActiveExceptionError>()("CloudHsmClusterNotActiveException", CloudHsmClusterNotActiveException) {};
-export class CustomKeyStoreInvalidStateExceptionError extends Schema.TaggedError<CustomKeyStoreInvalidStateExceptionError>()("CustomKeyStoreInvalidStateException", CustomKeyStoreInvalidStateException) {};
-export class AlreadyExistsExceptionError extends Schema.TaggedError<AlreadyExistsExceptionError>()("AlreadyExistsException", AlreadyExistsException) {};
-export class CustomKeyStoreHasCMKsExceptionError extends Schema.TaggedError<CustomKeyStoreHasCMKsExceptionError>()("CustomKeyStoreHasCMKsException", CustomKeyStoreHasCMKsException) {};
-export class CustomKeyStoreNotFoundExceptionError extends Schema.TaggedError<CustomKeyStoreNotFoundExceptionError>()("CustomKeyStoreNotFoundException", CustomKeyStoreNotFoundException) {};
-export class UnsupportedOperationExceptionError extends Schema.TaggedError<UnsupportedOperationExceptionError>()("UnsupportedOperationException", UnsupportedOperationException) {};
-export class InvalidGrantTokenExceptionError extends Schema.TaggedError<InvalidGrantTokenExceptionError>()("InvalidGrantTokenException", InvalidGrantTokenException) {};
-export class InvalidKeyUsageExceptionError extends Schema.TaggedError<InvalidKeyUsageExceptionError>()("InvalidKeyUsageException", InvalidKeyUsageException) {};
-export class KeyUnavailableExceptionError extends Schema.TaggedError<KeyUnavailableExceptionError>()("KeyUnavailableException", KeyUnavailableException) {};
-export class InvalidMarkerExceptionError extends Schema.TaggedError<InvalidMarkerExceptionError>()("InvalidMarkerException", InvalidMarkerException) {};
-export class MalformedPolicyDocumentExceptionError extends Schema.TaggedError<MalformedPolicyDocumentExceptionError>()("MalformedPolicyDocumentException", MalformedPolicyDocumentException) {};
-export class TagExceptionError extends Schema.TaggedError<TagExceptionError>()("TagException", TagException) {};
-export class InvalidGrantIdExceptionError extends Schema.TaggedError<InvalidGrantIdExceptionError>()("InvalidGrantIdException", InvalidGrantIdException) {};
-export class InvalidAliasNameExceptionError extends Schema.TaggedError<InvalidAliasNameExceptionError>()("InvalidAliasNameException", InvalidAliasNameException) {};
-export class IncorrectKeyExceptionError extends Schema.TaggedError<IncorrectKeyExceptionError>()("IncorrectKeyException", IncorrectKeyException) {};
-export class ExpiredImportTokenExceptionError extends Schema.TaggedError<ExpiredImportTokenExceptionError>()("ExpiredImportTokenException", ExpiredImportTokenException) {};
-export class InvalidCiphertextExceptionError extends Schema.TaggedError<InvalidCiphertextExceptionError>()("InvalidCiphertextException", InvalidCiphertextException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class CloudHsmClusterNotFoundExceptionError extends Schema.TaggedError<CloudHsmClusterNotFoundExceptionError>()("CloudHsmClusterNotFoundException", CloudHsmClusterNotFoundException) {};
-export class KMSInvalidSignatureExceptionError extends Schema.TaggedError<KMSInvalidSignatureExceptionError>()("KMSInvalidSignatureException", KMSInvalidSignatureException) {};
-export class KMSInvalidMacExceptionError extends Schema.TaggedError<KMSInvalidMacExceptionError>()("KMSInvalidMacException", KMSInvalidMacException) {};
-export class CloudHsmClusterInUseExceptionError extends Schema.TaggedError<CloudHsmClusterInUseExceptionError>()("CloudHsmClusterInUseException", CloudHsmClusterInUseException) {};
-export class XksKeyAlreadyInUseExceptionError extends Schema.TaggedError<XksKeyAlreadyInUseExceptionError>()("XksKeyAlreadyInUseException", XksKeyAlreadyInUseException) {};
-export class IncorrectKeyMaterialExceptionError extends Schema.TaggedError<IncorrectKeyMaterialExceptionError>()("IncorrectKeyMaterialException", IncorrectKeyMaterialException) {};
-export class CloudHsmClusterNotRelatedExceptionError extends Schema.TaggedError<CloudHsmClusterNotRelatedExceptionError>()("CloudHsmClusterNotRelatedException", CloudHsmClusterNotRelatedException) {};
-export class CustomKeyStoreNameInUseExceptionError extends Schema.TaggedError<CustomKeyStoreNameInUseExceptionError>()("CustomKeyStoreNameInUseException", CustomKeyStoreNameInUseException) {};
-export class XksKeyInvalidConfigurationExceptionError extends Schema.TaggedError<XksKeyInvalidConfigurationExceptionError>()("XksKeyInvalidConfigurationException", XksKeyInvalidConfigurationException) {};
-export class InvalidImportTokenExceptionError extends Schema.TaggedError<InvalidImportTokenExceptionError>()("InvalidImportTokenException", InvalidImportTokenException) {};
-export class XksProxyIncorrectAuthenticationCredentialExceptionError extends Schema.TaggedError<XksProxyIncorrectAuthenticationCredentialExceptionError>()("XksProxyIncorrectAuthenticationCredentialException", XksProxyIncorrectAuthenticationCredentialException) {};
-export class IncorrectTrustAnchorExceptionError extends Schema.TaggedError<IncorrectTrustAnchorExceptionError>()("IncorrectTrustAnchorException", IncorrectTrustAnchorException) {};
-export class XksProxyInvalidConfigurationExceptionError extends Schema.TaggedError<XksProxyInvalidConfigurationExceptionError>()("XksProxyInvalidConfigurationException", XksProxyInvalidConfigurationException) {};
-export class XksKeyNotFoundExceptionError extends Schema.TaggedError<XksKeyNotFoundExceptionError>()("XksKeyNotFoundException", XksKeyNotFoundException) {};
-export class XksProxyInvalidResponseExceptionError extends Schema.TaggedError<XksProxyInvalidResponseExceptionError>()("XksProxyInvalidResponseException", XksProxyInvalidResponseException) {};
-export class XksProxyUriEndpointInUseExceptionError extends Schema.TaggedError<XksProxyUriEndpointInUseExceptionError>()("XksProxyUriEndpointInUseException", XksProxyUriEndpointInUseException) {};
-export class XksProxyUriInUseExceptionError extends Schema.TaggedError<XksProxyUriInUseExceptionError>()("XksProxyUriInUseException", XksProxyUriInUseException) {};
-export class XksProxyUriUnreachableExceptionError extends Schema.TaggedError<XksProxyUriUnreachableExceptionError>()("XksProxyUriUnreachableException", XksProxyUriUnreachableException) {};
-export class XksProxyVpcEndpointServiceInUseExceptionError extends Schema.TaggedError<XksProxyVpcEndpointServiceInUseExceptionError>()("XksProxyVpcEndpointServiceInUseException", XksProxyVpcEndpointServiceInUseException) {};
-export class XksProxyVpcEndpointServiceInvalidConfigurationExceptionError extends Schema.TaggedError<XksProxyVpcEndpointServiceInvalidConfigurationExceptionError>()("XksProxyVpcEndpointServiceInvalidConfigurationException", XksProxyVpcEndpointServiceInvalidConfigurationException) {};
-export class XksProxyVpcEndpointServiceNotFoundExceptionError extends Schema.TaggedError<XksProxyVpcEndpointServiceNotFoundExceptionError>()("XksProxyVpcEndpointServiceNotFoundException", XksProxyVpcEndpointServiceNotFoundException) {};
+export class DependencyTimeoutExceptionError extends Schema.TaggedError<DependencyTimeoutExceptionError>()("DependencyTimeoutException", DependencyTimeoutException.fields) {};
+export class InvalidArnExceptionError extends Schema.TaggedError<InvalidArnExceptionError>()("InvalidArnException", InvalidArnException.fields) {};
+export class DisabledExceptionError extends Schema.TaggedError<DisabledExceptionError>()("DisabledException", DisabledException.fields) {};
+export class KMSInternalExceptionError extends Schema.TaggedError<KMSInternalExceptionError>()("KMSInternalException", KMSInternalException.fields) {};
+export class KMSInvalidStateExceptionError extends Schema.TaggedError<KMSInvalidStateExceptionError>()("KMSInvalidStateException", KMSInvalidStateException.fields) {};
+export class DryRunOperationExceptionError extends Schema.TaggedError<DryRunOperationExceptionError>()("DryRunOperationException", DryRunOperationException.fields) {};
+export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException.fields) {};
+export class NotFoundExceptionError extends Schema.TaggedError<NotFoundExceptionError>()("NotFoundException", NotFoundException.fields) {};
+export class CloudHsmClusterInvalidConfigurationExceptionError extends Schema.TaggedError<CloudHsmClusterInvalidConfigurationExceptionError>()("CloudHsmClusterInvalidConfigurationException", CloudHsmClusterInvalidConfigurationException.fields) {};
+export class CloudHsmClusterNotActiveExceptionError extends Schema.TaggedError<CloudHsmClusterNotActiveExceptionError>()("CloudHsmClusterNotActiveException", CloudHsmClusterNotActiveException.fields) {};
+export class CustomKeyStoreInvalidStateExceptionError extends Schema.TaggedError<CustomKeyStoreInvalidStateExceptionError>()("CustomKeyStoreInvalidStateException", CustomKeyStoreInvalidStateException.fields) {};
+export class AlreadyExistsExceptionError extends Schema.TaggedError<AlreadyExistsExceptionError>()("AlreadyExistsException", AlreadyExistsException.fields) {};
+export class CustomKeyStoreHasCMKsExceptionError extends Schema.TaggedError<CustomKeyStoreHasCMKsExceptionError>()("CustomKeyStoreHasCMKsException", CustomKeyStoreHasCMKsException.fields) {};
+export class CustomKeyStoreNotFoundExceptionError extends Schema.TaggedError<CustomKeyStoreNotFoundExceptionError>()("CustomKeyStoreNotFoundException", CustomKeyStoreNotFoundException.fields) {};
+export class UnsupportedOperationExceptionError extends Schema.TaggedError<UnsupportedOperationExceptionError>()("UnsupportedOperationException", UnsupportedOperationException.fields) {};
+export class InvalidGrantTokenExceptionError extends Schema.TaggedError<InvalidGrantTokenExceptionError>()("InvalidGrantTokenException", InvalidGrantTokenException.fields) {};
+export class InvalidKeyUsageExceptionError extends Schema.TaggedError<InvalidKeyUsageExceptionError>()("InvalidKeyUsageException", InvalidKeyUsageException.fields) {};
+export class KeyUnavailableExceptionError extends Schema.TaggedError<KeyUnavailableExceptionError>()("KeyUnavailableException", KeyUnavailableException.fields) {};
+export class InvalidMarkerExceptionError extends Schema.TaggedError<InvalidMarkerExceptionError>()("InvalidMarkerException", InvalidMarkerException.fields) {};
+export class MalformedPolicyDocumentExceptionError extends Schema.TaggedError<MalformedPolicyDocumentExceptionError>()("MalformedPolicyDocumentException", MalformedPolicyDocumentException.fields) {};
+export class TagExceptionError extends Schema.TaggedError<TagExceptionError>()("TagException", TagException.fields) {};
+export class InvalidGrantIdExceptionError extends Schema.TaggedError<InvalidGrantIdExceptionError>()("InvalidGrantIdException", InvalidGrantIdException.fields) {};
+export class InvalidAliasNameExceptionError extends Schema.TaggedError<InvalidAliasNameExceptionError>()("InvalidAliasNameException", InvalidAliasNameException.fields) {};
+export class IncorrectKeyExceptionError extends Schema.TaggedError<IncorrectKeyExceptionError>()("IncorrectKeyException", IncorrectKeyException.fields) {};
+export class ExpiredImportTokenExceptionError extends Schema.TaggedError<ExpiredImportTokenExceptionError>()("ExpiredImportTokenException", ExpiredImportTokenException.fields) {};
+export class InvalidCiphertextExceptionError extends Schema.TaggedError<InvalidCiphertextExceptionError>()("InvalidCiphertextException", InvalidCiphertextException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class CloudHsmClusterNotFoundExceptionError extends Schema.TaggedError<CloudHsmClusterNotFoundExceptionError>()("CloudHsmClusterNotFoundException", CloudHsmClusterNotFoundException.fields) {};
+export class KMSInvalidSignatureExceptionError extends Schema.TaggedError<KMSInvalidSignatureExceptionError>()("KMSInvalidSignatureException", KMSInvalidSignatureException.fields) {};
+export class KMSInvalidMacExceptionError extends Schema.TaggedError<KMSInvalidMacExceptionError>()("KMSInvalidMacException", KMSInvalidMacException.fields) {};
+export class CloudHsmClusterInUseExceptionError extends Schema.TaggedError<CloudHsmClusterInUseExceptionError>()("CloudHsmClusterInUseException", CloudHsmClusterInUseException.fields) {};
+export class XksKeyAlreadyInUseExceptionError extends Schema.TaggedError<XksKeyAlreadyInUseExceptionError>()("XksKeyAlreadyInUseException", XksKeyAlreadyInUseException.fields) {};
+export class IncorrectKeyMaterialExceptionError extends Schema.TaggedError<IncorrectKeyMaterialExceptionError>()("IncorrectKeyMaterialException", IncorrectKeyMaterialException.fields) {};
+export class CloudHsmClusterNotRelatedExceptionError extends Schema.TaggedError<CloudHsmClusterNotRelatedExceptionError>()("CloudHsmClusterNotRelatedException", CloudHsmClusterNotRelatedException.fields) {};
+export class CustomKeyStoreNameInUseExceptionError extends Schema.TaggedError<CustomKeyStoreNameInUseExceptionError>()("CustomKeyStoreNameInUseException", CustomKeyStoreNameInUseException.fields) {};
+export class XksKeyInvalidConfigurationExceptionError extends Schema.TaggedError<XksKeyInvalidConfigurationExceptionError>()("XksKeyInvalidConfigurationException", XksKeyInvalidConfigurationException.fields) {};
+export class InvalidImportTokenExceptionError extends Schema.TaggedError<InvalidImportTokenExceptionError>()("InvalidImportTokenException", InvalidImportTokenException.fields) {};
+export class XksProxyIncorrectAuthenticationCredentialExceptionError extends Schema.TaggedError<XksProxyIncorrectAuthenticationCredentialExceptionError>()("XksProxyIncorrectAuthenticationCredentialException", XksProxyIncorrectAuthenticationCredentialException.fields) {};
+export class IncorrectTrustAnchorExceptionError extends Schema.TaggedError<IncorrectTrustAnchorExceptionError>()("IncorrectTrustAnchorException", IncorrectTrustAnchorException.fields) {};
+export class XksProxyInvalidConfigurationExceptionError extends Schema.TaggedError<XksProxyInvalidConfigurationExceptionError>()("XksProxyInvalidConfigurationException", XksProxyInvalidConfigurationException.fields) {};
+export class XksKeyNotFoundExceptionError extends Schema.TaggedError<XksKeyNotFoundExceptionError>()("XksKeyNotFoundException", XksKeyNotFoundException.fields) {};
+export class XksProxyInvalidResponseExceptionError extends Schema.TaggedError<XksProxyInvalidResponseExceptionError>()("XksProxyInvalidResponseException", XksProxyInvalidResponseException.fields) {};
+export class XksProxyUriEndpointInUseExceptionError extends Schema.TaggedError<XksProxyUriEndpointInUseExceptionError>()("XksProxyUriEndpointInUseException", XksProxyUriEndpointInUseException.fields) {};
+export class XksProxyUriInUseExceptionError extends Schema.TaggedError<XksProxyUriInUseExceptionError>()("XksProxyUriInUseException", XksProxyUriInUseException.fields) {};
+export class XksProxyUriUnreachableExceptionError extends Schema.TaggedError<XksProxyUriUnreachableExceptionError>()("XksProxyUriUnreachableException", XksProxyUriUnreachableException.fields) {};
+export class XksProxyVpcEndpointServiceInUseExceptionError extends Schema.TaggedError<XksProxyVpcEndpointServiceInUseExceptionError>()("XksProxyVpcEndpointServiceInUseException", XksProxyVpcEndpointServiceInUseException.fields) {};
+export class XksProxyVpcEndpointServiceInvalidConfigurationExceptionError extends Schema.TaggedError<XksProxyVpcEndpointServiceInvalidConfigurationExceptionError>()("XksProxyVpcEndpointServiceInvalidConfigurationException", XksProxyVpcEndpointServiceInvalidConfigurationException.fields) {};
+export class XksProxyVpcEndpointServiceNotFoundExceptionError extends Schema.TaggedError<XksProxyVpcEndpointServiceNotFoundExceptionError>()("XksProxyVpcEndpointServiceNotFoundException", XksProxyVpcEndpointServiceNotFoundException.fields) {};
 
 //# Operations
 export const updateAlias = /*#__PURE__*/ makeOperation(() => Operation({ version: "2014-11-01", uri: "/", method: "POST", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.UpdateAlias" }, UpdateAliasRequest, Schema.Struct({}), [DependencyTimeoutExceptionError, KMSInternalExceptionError, KMSInvalidStateExceptionError, LimitExceededExceptionError, NotFoundExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

@@ -11,154 +11,154 @@ export const Ports = Schema.Array(Schema.Number);
 export const PolicyNames = Schema.Array(Schema.String);
 export const PolicyTypeNames = Schema.Array(Schema.String);
 export const LoadBalancerNamesMax20 = Schema.Array(Schema.String);
-export const ApplySecurityGroupsToLoadBalancerInput = Schema.Struct({LoadBalancerName: Schema.String, SecurityGroups: SecurityGroups});
-export const AttachLoadBalancerToSubnetsInput = Schema.Struct({LoadBalancerName: Schema.String, Subnets: Subnets});
-export const CreateAppCookieStickinessPolicyInput = Schema.Struct({LoadBalancerName: Schema.String, PolicyName: Schema.String, CookieName: Schema.String});
-export const CreateAppCookieStickinessPolicyOutput = Schema.Struct({});
-export const CreateLBCookieStickinessPolicyInput = Schema.Struct({LoadBalancerName: Schema.String, PolicyName: Schema.String, CookieExpirationPeriod: Schema.optional(Schema.Number)});
-export const CreateLBCookieStickinessPolicyOutput = Schema.Struct({});
-export const Listener = Schema.Struct({Protocol: Schema.String, LoadBalancerPort: Schema.Number, InstanceProtocol: Schema.optional(Schema.String), InstancePort: Schema.Number, SSLCertificateId: Schema.optional(Schema.String)});
+export class ApplySecurityGroupsToLoadBalancerInput extends Schema.Class<ApplySecurityGroupsToLoadBalancerInput>("ApplySecurityGroupsToLoadBalancerInput")({LoadBalancerName: Schema.String, SecurityGroups: SecurityGroups}) {}
+export class AttachLoadBalancerToSubnetsInput extends Schema.Class<AttachLoadBalancerToSubnetsInput>("AttachLoadBalancerToSubnetsInput")({LoadBalancerName: Schema.String, Subnets: Subnets}) {}
+export class CreateAppCookieStickinessPolicyInput extends Schema.Class<CreateAppCookieStickinessPolicyInput>("CreateAppCookieStickinessPolicyInput")({LoadBalancerName: Schema.String, PolicyName: Schema.String, CookieName: Schema.String}) {}
+export class CreateAppCookieStickinessPolicyOutput extends Schema.Class<CreateAppCookieStickinessPolicyOutput>("CreateAppCookieStickinessPolicyOutput")({}) {}
+export class CreateLBCookieStickinessPolicyInput extends Schema.Class<CreateLBCookieStickinessPolicyInput>("CreateLBCookieStickinessPolicyInput")({LoadBalancerName: Schema.String, PolicyName: Schema.String, CookieExpirationPeriod: Schema.optional(Schema.Number)}) {}
+export class CreateLBCookieStickinessPolicyOutput extends Schema.Class<CreateLBCookieStickinessPolicyOutput>("CreateLBCookieStickinessPolicyOutput")({}) {}
+export class Listener extends Schema.Class<Listener>("Listener")({Protocol: Schema.String, LoadBalancerPort: Schema.Number, InstanceProtocol: Schema.optional(Schema.String), InstancePort: Schema.Number, SSLCertificateId: Schema.optional(Schema.String)}) {}
 export const Listeners = Schema.Array(Listener);
-export const CreateLoadBalancerListenerInput = Schema.Struct({LoadBalancerName: Schema.String, Listeners: Listeners});
-export const CreateLoadBalancerListenerOutput = Schema.Struct({});
-export const DeleteAccessPointInput = Schema.Struct({LoadBalancerName: Schema.String});
-export const DeleteAccessPointOutput = Schema.Struct({});
-export const DeleteLoadBalancerListenerInput = Schema.Struct({LoadBalancerName: Schema.String, LoadBalancerPorts: Ports});
-export const DeleteLoadBalancerListenerOutput = Schema.Struct({});
-export const DeleteLoadBalancerPolicyInput = Schema.Struct({LoadBalancerName: Schema.String, PolicyName: Schema.String});
-export const DeleteLoadBalancerPolicyOutput = Schema.Struct({});
-export const DescribeAccountLimitsInput = Schema.Struct({Marker: Schema.optional(Schema.String), PageSize: Schema.optional(Schema.Number)});
-export const Instance = Schema.Struct({InstanceId: Schema.optional(Schema.String)});
+export class CreateLoadBalancerListenerInput extends Schema.Class<CreateLoadBalancerListenerInput>("CreateLoadBalancerListenerInput")({LoadBalancerName: Schema.String, Listeners: Listeners}) {}
+export class CreateLoadBalancerListenerOutput extends Schema.Class<CreateLoadBalancerListenerOutput>("CreateLoadBalancerListenerOutput")({}) {}
+export class DeleteAccessPointInput extends Schema.Class<DeleteAccessPointInput>("DeleteAccessPointInput")({LoadBalancerName: Schema.String}) {}
+export class DeleteAccessPointOutput extends Schema.Class<DeleteAccessPointOutput>("DeleteAccessPointOutput")({}) {}
+export class DeleteLoadBalancerListenerInput extends Schema.Class<DeleteLoadBalancerListenerInput>("DeleteLoadBalancerListenerInput")({LoadBalancerName: Schema.String, LoadBalancerPorts: Ports}) {}
+export class DeleteLoadBalancerListenerOutput extends Schema.Class<DeleteLoadBalancerListenerOutput>("DeleteLoadBalancerListenerOutput")({}) {}
+export class DeleteLoadBalancerPolicyInput extends Schema.Class<DeleteLoadBalancerPolicyInput>("DeleteLoadBalancerPolicyInput")({LoadBalancerName: Schema.String, PolicyName: Schema.String}) {}
+export class DeleteLoadBalancerPolicyOutput extends Schema.Class<DeleteLoadBalancerPolicyOutput>("DeleteLoadBalancerPolicyOutput")({}) {}
+export class DescribeAccountLimitsInput extends Schema.Class<DescribeAccountLimitsInput>("DescribeAccountLimitsInput")({Marker: Schema.optional(Schema.String), PageSize: Schema.optional(Schema.Number)}) {}
+export class Instance extends Schema.Class<Instance>("Instance")({InstanceId: Schema.optional(Schema.String)}) {}
 export const Instances = Schema.Array(Instance);
-export const DescribeEndPointStateInput = Schema.Struct({LoadBalancerName: Schema.String, Instances: Schema.optional(Instances)});
-export const DescribeLoadBalancerAttributesInput = Schema.Struct({LoadBalancerName: Schema.String});
-export const DescribeLoadBalancerPoliciesInput = Schema.Struct({LoadBalancerName: Schema.optional(Schema.String), PolicyNames: Schema.optional(PolicyNames)});
-export const DescribeLoadBalancerPolicyTypesInput = Schema.Struct({PolicyTypeNames: Schema.optional(PolicyTypeNames)});
-export const DescribeAccessPointsInput = Schema.Struct({LoadBalancerNames: Schema.optional(LoadBalancerNames), Marker: Schema.optional(Schema.String), PageSize: Schema.optional(Schema.Number)});
-export const DescribeTagsInput = Schema.Struct({LoadBalancerNames: LoadBalancerNamesMax20});
-export const DetachLoadBalancerFromSubnetsInput = Schema.Struct({LoadBalancerName: Schema.String, Subnets: Subnets});
-export const RemoveAvailabilityZonesInput = Schema.Struct({LoadBalancerName: Schema.String, AvailabilityZones: AvailabilityZones});
-export const AddAvailabilityZonesInput = Schema.Struct({LoadBalancerName: Schema.String, AvailabilityZones: AvailabilityZones});
-export const RegisterEndPointsInput = Schema.Struct({LoadBalancerName: Schema.String, Instances: Instances});
-export const SetLoadBalancerListenerSSLCertificateInput = Schema.Struct({LoadBalancerName: Schema.String, LoadBalancerPort: Schema.Number, SSLCertificateId: Schema.String});
-export const SetLoadBalancerListenerSSLCertificateOutput = Schema.Struct({});
-export const SetLoadBalancerPoliciesForBackendServerInput = Schema.Struct({LoadBalancerName: Schema.String, InstancePort: Schema.Number, PolicyNames: PolicyNames});
-export const SetLoadBalancerPoliciesForBackendServerOutput = Schema.Struct({});
-export const SetLoadBalancerPoliciesOfListenerInput = Schema.Struct({LoadBalancerName: Schema.String, LoadBalancerPort: Schema.Number, PolicyNames: PolicyNames});
-export const SetLoadBalancerPoliciesOfListenerOutput = Schema.Struct({});
-export const Tag = Schema.Struct({Key: Schema.String, Value: Schema.optional(Schema.String)});
+export class DescribeEndPointStateInput extends Schema.Class<DescribeEndPointStateInput>("DescribeEndPointStateInput")({LoadBalancerName: Schema.String, Instances: Schema.optional(Instances)}) {}
+export class DescribeLoadBalancerAttributesInput extends Schema.Class<DescribeLoadBalancerAttributesInput>("DescribeLoadBalancerAttributesInput")({LoadBalancerName: Schema.String}) {}
+export class DescribeLoadBalancerPoliciesInput extends Schema.Class<DescribeLoadBalancerPoliciesInput>("DescribeLoadBalancerPoliciesInput")({LoadBalancerName: Schema.optional(Schema.String), PolicyNames: Schema.optional(PolicyNames)}) {}
+export class DescribeLoadBalancerPolicyTypesInput extends Schema.Class<DescribeLoadBalancerPolicyTypesInput>("DescribeLoadBalancerPolicyTypesInput")({PolicyTypeNames: Schema.optional(PolicyTypeNames)}) {}
+export class DescribeAccessPointsInput extends Schema.Class<DescribeAccessPointsInput>("DescribeAccessPointsInput")({LoadBalancerNames: Schema.optional(LoadBalancerNames), Marker: Schema.optional(Schema.String), PageSize: Schema.optional(Schema.Number)}) {}
+export class DescribeTagsInput extends Schema.Class<DescribeTagsInput>("DescribeTagsInput")({LoadBalancerNames: LoadBalancerNamesMax20}) {}
+export class DetachLoadBalancerFromSubnetsInput extends Schema.Class<DetachLoadBalancerFromSubnetsInput>("DetachLoadBalancerFromSubnetsInput")({LoadBalancerName: Schema.String, Subnets: Subnets}) {}
+export class RemoveAvailabilityZonesInput extends Schema.Class<RemoveAvailabilityZonesInput>("RemoveAvailabilityZonesInput")({LoadBalancerName: Schema.String, AvailabilityZones: AvailabilityZones}) {}
+export class AddAvailabilityZonesInput extends Schema.Class<AddAvailabilityZonesInput>("AddAvailabilityZonesInput")({LoadBalancerName: Schema.String, AvailabilityZones: AvailabilityZones}) {}
+export class RegisterEndPointsInput extends Schema.Class<RegisterEndPointsInput>("RegisterEndPointsInput")({LoadBalancerName: Schema.String, Instances: Instances}) {}
+export class SetLoadBalancerListenerSSLCertificateInput extends Schema.Class<SetLoadBalancerListenerSSLCertificateInput>("SetLoadBalancerListenerSSLCertificateInput")({LoadBalancerName: Schema.String, LoadBalancerPort: Schema.Number, SSLCertificateId: Schema.String}) {}
+export class SetLoadBalancerListenerSSLCertificateOutput extends Schema.Class<SetLoadBalancerListenerSSLCertificateOutput>("SetLoadBalancerListenerSSLCertificateOutput")({}) {}
+export class SetLoadBalancerPoliciesForBackendServerInput extends Schema.Class<SetLoadBalancerPoliciesForBackendServerInput>("SetLoadBalancerPoliciesForBackendServerInput")({LoadBalancerName: Schema.String, InstancePort: Schema.Number, PolicyNames: PolicyNames}) {}
+export class SetLoadBalancerPoliciesForBackendServerOutput extends Schema.Class<SetLoadBalancerPoliciesForBackendServerOutput>("SetLoadBalancerPoliciesForBackendServerOutput")({}) {}
+export class SetLoadBalancerPoliciesOfListenerInput extends Schema.Class<SetLoadBalancerPoliciesOfListenerInput>("SetLoadBalancerPoliciesOfListenerInput")({LoadBalancerName: Schema.String, LoadBalancerPort: Schema.Number, PolicyNames: PolicyNames}) {}
+export class SetLoadBalancerPoliciesOfListenerOutput extends Schema.Class<SetLoadBalancerPoliciesOfListenerOutput>("SetLoadBalancerPoliciesOfListenerOutput")({}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.String, Value: Schema.optional(Schema.String)}) {}
 export const TagList = Schema.Array(Tag);
-export const HealthCheck = Schema.Struct({Target: Schema.String, Interval: Schema.Number, Timeout: Schema.Number, UnhealthyThreshold: Schema.Number, HealthyThreshold: Schema.Number});
-export const PolicyAttribute = Schema.Struct({AttributeName: Schema.optional(Schema.String), AttributeValue: Schema.optional(Schema.String)});
+export class HealthCheck extends Schema.Class<HealthCheck>("HealthCheck")({Target: Schema.String, Interval: Schema.Number, Timeout: Schema.Number, UnhealthyThreshold: Schema.Number, HealthyThreshold: Schema.Number}) {}
+export class PolicyAttribute extends Schema.Class<PolicyAttribute>("PolicyAttribute")({AttributeName: Schema.optional(Schema.String), AttributeValue: Schema.optional(Schema.String)}) {}
 export const PolicyAttributes = Schema.Array(PolicyAttribute);
-export const TagKeyOnly = Schema.Struct({Key: Schema.optional(Schema.String)});
+export class TagKeyOnly extends Schema.Class<TagKeyOnly>("TagKeyOnly")({Key: Schema.optional(Schema.String)}) {}
 export const TagKeyList = Schema.Array(TagKeyOnly);
-export const AddTagsInput = Schema.Struct({LoadBalancerNames: LoadBalancerNames, Tags: TagList});
-export const AddTagsOutput = Schema.Struct({});
-export const ApplySecurityGroupsToLoadBalancerOutput = Schema.Struct({SecurityGroups: Schema.optional(SecurityGroups)});
-export const AttachLoadBalancerToSubnetsOutput = Schema.Struct({Subnets: Schema.optional(Subnets)});
-export const ConfigureHealthCheckInput = Schema.Struct({LoadBalancerName: Schema.String, HealthCheck: HealthCheck});
-export const AccessPointNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DuplicatePolicyNameException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const CreateAccessPointInput = Schema.Struct({LoadBalancerName: Schema.String, Listeners: Listeners, AvailabilityZones: Schema.optional(AvailabilityZones), Subnets: Schema.optional(Subnets), SecurityGroups: Schema.optional(SecurityGroups), Scheme: Schema.optional(Schema.String), Tags: Schema.optional(TagList)});
-export const CertificateNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const CreateLoadBalancerPolicyInput = Schema.Struct({LoadBalancerName: Schema.String, PolicyName: Schema.String, PolicyTypeName: Schema.String, PolicyAttributes: Schema.optional(PolicyAttributes)});
-export const CreateLoadBalancerPolicyOutput = Schema.Struct({});
-export const InvalidConfigurationRequestException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DeregisterEndPointsInput = Schema.Struct({LoadBalancerName: Schema.String, Instances: Instances});
-export const CrossZoneLoadBalancing = Schema.Struct({Enabled: Schema.Boolean});
-export const AccessLog = Schema.Struct({Enabled: Schema.Boolean, S3BucketName: Schema.optional(Schema.String), EmitInterval: Schema.optional(Schema.Number), S3BucketPrefix: Schema.optional(Schema.String)});
-export const ConnectionDraining = Schema.Struct({Enabled: Schema.Boolean, Timeout: Schema.optional(Schema.Number)});
-export const ConnectionSettings = Schema.Struct({IdleTimeout: Schema.Number});
-export const AdditionalAttribute = Schema.Struct({Key: Schema.optional(Schema.String), Value: Schema.optional(Schema.String)});
+export class AddTagsInput extends Schema.Class<AddTagsInput>("AddTagsInput")({LoadBalancerNames: LoadBalancerNames, Tags: TagList}) {}
+export class AddTagsOutput extends Schema.Class<AddTagsOutput>("AddTagsOutput")({}) {}
+export class ApplySecurityGroupsToLoadBalancerOutput extends Schema.Class<ApplySecurityGroupsToLoadBalancerOutput>("ApplySecurityGroupsToLoadBalancerOutput")({SecurityGroups: Schema.optional(SecurityGroups)}) {}
+export class AttachLoadBalancerToSubnetsOutput extends Schema.Class<AttachLoadBalancerToSubnetsOutput>("AttachLoadBalancerToSubnetsOutput")({Subnets: Schema.optional(Subnets)}) {}
+export class ConfigureHealthCheckInput extends Schema.Class<ConfigureHealthCheckInput>("ConfigureHealthCheckInput")({LoadBalancerName: Schema.String, HealthCheck: HealthCheck}) {}
+export class AccessPointNotFoundException extends Schema.Class<AccessPointNotFoundException>("AccessPointNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class DuplicatePolicyNameException extends Schema.Class<DuplicatePolicyNameException>("DuplicatePolicyNameException")({Message: Schema.optional(Schema.String)}) {}
+export class CreateAccessPointInput extends Schema.Class<CreateAccessPointInput>("CreateAccessPointInput")({LoadBalancerName: Schema.String, Listeners: Listeners, AvailabilityZones: Schema.optional(AvailabilityZones), Subnets: Schema.optional(Subnets), SecurityGroups: Schema.optional(SecurityGroups), Scheme: Schema.optional(Schema.String), Tags: Schema.optional(TagList)}) {}
+export class CertificateNotFoundException extends Schema.Class<CertificateNotFoundException>("CertificateNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class CreateLoadBalancerPolicyInput extends Schema.Class<CreateLoadBalancerPolicyInput>("CreateLoadBalancerPolicyInput")({LoadBalancerName: Schema.String, PolicyName: Schema.String, PolicyTypeName: Schema.String, PolicyAttributes: Schema.optional(PolicyAttributes)}) {}
+export class CreateLoadBalancerPolicyOutput extends Schema.Class<CreateLoadBalancerPolicyOutput>("CreateLoadBalancerPolicyOutput")({}) {}
+export class InvalidConfigurationRequestException extends Schema.Class<InvalidConfigurationRequestException>("InvalidConfigurationRequestException")({Message: Schema.optional(Schema.String)}) {}
+export class DeregisterEndPointsInput extends Schema.Class<DeregisterEndPointsInput>("DeregisterEndPointsInput")({LoadBalancerName: Schema.String, Instances: Instances}) {}
+export class CrossZoneLoadBalancing extends Schema.Class<CrossZoneLoadBalancing>("CrossZoneLoadBalancing")({Enabled: Schema.Boolean}) {}
+export class AccessLog extends Schema.Class<AccessLog>("AccessLog")({Enabled: Schema.Boolean, S3BucketName: Schema.optional(Schema.String), EmitInterval: Schema.optional(Schema.Number), S3BucketPrefix: Schema.optional(Schema.String)}) {}
+export class ConnectionDraining extends Schema.Class<ConnectionDraining>("ConnectionDraining")({Enabled: Schema.Boolean, Timeout: Schema.optional(Schema.Number)}) {}
+export class ConnectionSettings extends Schema.Class<ConnectionSettings>("ConnectionSettings")({IdleTimeout: Schema.Number}) {}
+export class AdditionalAttribute extends Schema.Class<AdditionalAttribute>("AdditionalAttribute")({Key: Schema.optional(Schema.String), Value: Schema.optional(Schema.String)}) {}
 export const AdditionalAttributes = Schema.Array(AdditionalAttribute);
-export const LoadBalancerAttributes = Schema.Struct({CrossZoneLoadBalancing: Schema.optional(CrossZoneLoadBalancing), AccessLog: Schema.optional(AccessLog), ConnectionDraining: Schema.optional(ConnectionDraining), ConnectionSettings: Schema.optional(ConnectionSettings), AdditionalAttributes: Schema.optional(AdditionalAttributes)});
-export const DescribeLoadBalancerAttributesOutput = Schema.Struct({LoadBalancerAttributes: Schema.optional(LoadBalancerAttributes)});
-export const DetachLoadBalancerFromSubnetsOutput = Schema.Struct({Subnets: Schema.optional(Subnets)});
-export const RemoveAvailabilityZonesOutput = Schema.Struct({AvailabilityZones: Schema.optional(AvailabilityZones)});
-export const AddAvailabilityZonesOutput = Schema.Struct({AvailabilityZones: Schema.optional(AvailabilityZones)});
-export const RegisterEndPointsOutput = Schema.Struct({Instances: Schema.optional(Instances)});
-export const RemoveTagsInput = Schema.Struct({LoadBalancerNames: LoadBalancerNames, Tags: TagKeyList});
-export const RemoveTagsOutput = Schema.Struct({});
-export const ListenerNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const PolicyNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const Limit = Schema.Struct({Name: Schema.optional(Schema.String), Max: Schema.optional(Schema.String)});
+export class LoadBalancerAttributes extends Schema.Class<LoadBalancerAttributes>("LoadBalancerAttributes")({CrossZoneLoadBalancing: Schema.optional(CrossZoneLoadBalancing), AccessLog: Schema.optional(AccessLog), ConnectionDraining: Schema.optional(ConnectionDraining), ConnectionSettings: Schema.optional(ConnectionSettings), AdditionalAttributes: Schema.optional(AdditionalAttributes)}) {}
+export class DescribeLoadBalancerAttributesOutput extends Schema.Class<DescribeLoadBalancerAttributesOutput>("DescribeLoadBalancerAttributesOutput")({LoadBalancerAttributes: Schema.optional(LoadBalancerAttributes)}) {}
+export class DetachLoadBalancerFromSubnetsOutput extends Schema.Class<DetachLoadBalancerFromSubnetsOutput>("DetachLoadBalancerFromSubnetsOutput")({Subnets: Schema.optional(Subnets)}) {}
+export class RemoveAvailabilityZonesOutput extends Schema.Class<RemoveAvailabilityZonesOutput>("RemoveAvailabilityZonesOutput")({AvailabilityZones: Schema.optional(AvailabilityZones)}) {}
+export class AddAvailabilityZonesOutput extends Schema.Class<AddAvailabilityZonesOutput>("AddAvailabilityZonesOutput")({AvailabilityZones: Schema.optional(AvailabilityZones)}) {}
+export class RegisterEndPointsOutput extends Schema.Class<RegisterEndPointsOutput>("RegisterEndPointsOutput")({Instances: Schema.optional(Instances)}) {}
+export class RemoveTagsInput extends Schema.Class<RemoveTagsInput>("RemoveTagsInput")({LoadBalancerNames: LoadBalancerNames, Tags: TagKeyList}) {}
+export class RemoveTagsOutput extends Schema.Class<RemoveTagsOutput>("RemoveTagsOutput")({}) {}
+export class ListenerNotFoundException extends Schema.Class<ListenerNotFoundException>("ListenerNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class PolicyNotFoundException extends Schema.Class<PolicyNotFoundException>("PolicyNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class Limit extends Schema.Class<Limit>("Limit")({Name: Schema.optional(Schema.String), Max: Schema.optional(Schema.String)}) {}
 export const Limits = Schema.Array(Limit);
-export const InstanceState = Schema.Struct({InstanceId: Schema.optional(Schema.String), State: Schema.optional(Schema.String), ReasonCode: Schema.optional(Schema.String), Description: Schema.optional(Schema.String)});
+export class InstanceState extends Schema.Class<InstanceState>("InstanceState")({InstanceId: Schema.optional(Schema.String), State: Schema.optional(Schema.String), ReasonCode: Schema.optional(Schema.String), Description: Schema.optional(Schema.String)}) {}
 export const InstanceStates = Schema.Array(InstanceState);
-export const TagDescription = Schema.Struct({LoadBalancerName: Schema.optional(Schema.String), Tags: Schema.optional(TagList)});
+export class TagDescription extends Schema.Class<TagDescription>("TagDescription")({LoadBalancerName: Schema.optional(Schema.String), Tags: Schema.optional(TagList)}) {}
 export const TagDescriptions = Schema.Array(TagDescription);
-export const DuplicateTagKeysException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const InvalidSecurityGroupException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const InvalidSubnetException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ConfigureHealthCheckOutput = Schema.Struct({HealthCheck: Schema.optional(HealthCheck)});
-export const TooManyPoliciesException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const CreateAccessPointOutput = Schema.Struct({DNSName: Schema.optional(Schema.String)});
-export const DuplicateListenerException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const PolicyTypeNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DeregisterEndPointsOutput = Schema.Struct({Instances: Schema.optional(Instances)});
-export const DescribeAccountLimitsOutput = Schema.Struct({Limits: Schema.optional(Limits), NextMarker: Schema.optional(Schema.String)});
-export const DescribeEndPointStateOutput = Schema.Struct({InstanceStates: Schema.optional(InstanceStates)});
-export const LoadBalancerAttributeNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DescribeTagsOutput = Schema.Struct({TagDescriptions: Schema.optional(TagDescriptions)});
-export const ModifyLoadBalancerAttributesInput = Schema.Struct({LoadBalancerName: Schema.String, LoadBalancerAttributes: LoadBalancerAttributes});
-export const InvalidEndPointException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const UnsupportedProtocolException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const PolicyAttributeDescription = Schema.Struct({AttributeName: Schema.optional(Schema.String), AttributeValue: Schema.optional(Schema.String)});
+export class DuplicateTagKeysException extends Schema.Class<DuplicateTagKeysException>("DuplicateTagKeysException")({Message: Schema.optional(Schema.String)}) {}
+export class InvalidSecurityGroupException extends Schema.Class<InvalidSecurityGroupException>("InvalidSecurityGroupException")({Message: Schema.optional(Schema.String)}) {}
+export class InvalidSubnetException extends Schema.Class<InvalidSubnetException>("InvalidSubnetException")({Message: Schema.optional(Schema.String)}) {}
+export class ConfigureHealthCheckOutput extends Schema.Class<ConfigureHealthCheckOutput>("ConfigureHealthCheckOutput")({HealthCheck: Schema.optional(HealthCheck)}) {}
+export class TooManyPoliciesException extends Schema.Class<TooManyPoliciesException>("TooManyPoliciesException")({Message: Schema.optional(Schema.String)}) {}
+export class CreateAccessPointOutput extends Schema.Class<CreateAccessPointOutput>("CreateAccessPointOutput")({DNSName: Schema.optional(Schema.String)}) {}
+export class DuplicateListenerException extends Schema.Class<DuplicateListenerException>("DuplicateListenerException")({Message: Schema.optional(Schema.String)}) {}
+export class PolicyTypeNotFoundException extends Schema.Class<PolicyTypeNotFoundException>("PolicyTypeNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class DeregisterEndPointsOutput extends Schema.Class<DeregisterEndPointsOutput>("DeregisterEndPointsOutput")({Instances: Schema.optional(Instances)}) {}
+export class DescribeAccountLimitsOutput extends Schema.Class<DescribeAccountLimitsOutput>("DescribeAccountLimitsOutput")({Limits: Schema.optional(Limits), NextMarker: Schema.optional(Schema.String)}) {}
+export class DescribeEndPointStateOutput extends Schema.Class<DescribeEndPointStateOutput>("DescribeEndPointStateOutput")({InstanceStates: Schema.optional(InstanceStates)}) {}
+export class LoadBalancerAttributeNotFoundException extends Schema.Class<LoadBalancerAttributeNotFoundException>("LoadBalancerAttributeNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class DescribeTagsOutput extends Schema.Class<DescribeTagsOutput>("DescribeTagsOutput")({TagDescriptions: Schema.optional(TagDescriptions)}) {}
+export class ModifyLoadBalancerAttributesInput extends Schema.Class<ModifyLoadBalancerAttributesInput>("ModifyLoadBalancerAttributesInput")({LoadBalancerName: Schema.String, LoadBalancerAttributes: LoadBalancerAttributes}) {}
+export class InvalidEndPointException extends Schema.Class<InvalidEndPointException>("InvalidEndPointException")({Message: Schema.optional(Schema.String)}) {}
+export class UnsupportedProtocolException extends Schema.Class<UnsupportedProtocolException>("UnsupportedProtocolException")({Message: Schema.optional(Schema.String)}) {}
+export class PolicyAttributeDescription extends Schema.Class<PolicyAttributeDescription>("PolicyAttributeDescription")({AttributeName: Schema.optional(Schema.String), AttributeValue: Schema.optional(Schema.String)}) {}
 export const PolicyAttributeDescriptions = Schema.Array(PolicyAttributeDescription);
-export const PolicyAttributeTypeDescription = Schema.Struct({AttributeName: Schema.optional(Schema.String), AttributeType: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), DefaultValue: Schema.optional(Schema.String), Cardinality: Schema.optional(Schema.String)});
+export class PolicyAttributeTypeDescription extends Schema.Class<PolicyAttributeTypeDescription>("PolicyAttributeTypeDescription")({AttributeName: Schema.optional(Schema.String), AttributeType: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), DefaultValue: Schema.optional(Schema.String), Cardinality: Schema.optional(Schema.String)}) {}
 export const PolicyAttributeTypeDescriptions = Schema.Array(PolicyAttributeTypeDescription);
-export const ListenerDescription = Schema.Struct({Listener: Schema.optional(Listener), PolicyNames: Schema.optional(PolicyNames)});
+export class ListenerDescription extends Schema.Class<ListenerDescription>("ListenerDescription")({Listener: Schema.optional(Listener), PolicyNames: Schema.optional(PolicyNames)}) {}
 export const ListenerDescriptions = Schema.Array(ListenerDescription);
-export const BackendServerDescription = Schema.Struct({InstancePort: Schema.optional(Schema.Number), PolicyNames: Schema.optional(PolicyNames)});
+export class BackendServerDescription extends Schema.Class<BackendServerDescription>("BackendServerDescription")({InstancePort: Schema.optional(Schema.Number), PolicyNames: Schema.optional(PolicyNames)}) {}
 export const BackendServerDescriptions = Schema.Array(BackendServerDescription);
-export const SourceSecurityGroup = Schema.Struct({OwnerAlias: Schema.optional(Schema.String), GroupName: Schema.optional(Schema.String)});
-export const PolicyDescription = Schema.Struct({PolicyName: Schema.optional(Schema.String), PolicyTypeName: Schema.optional(Schema.String), PolicyAttributeDescriptions: Schema.optional(PolicyAttributeDescriptions)});
+export class SourceSecurityGroup extends Schema.Class<SourceSecurityGroup>("SourceSecurityGroup")({OwnerAlias: Schema.optional(Schema.String), GroupName: Schema.optional(Schema.String)}) {}
+export class PolicyDescription extends Schema.Class<PolicyDescription>("PolicyDescription")({PolicyName: Schema.optional(Schema.String), PolicyTypeName: Schema.optional(Schema.String), PolicyAttributeDescriptions: Schema.optional(PolicyAttributeDescriptions)}) {}
 export const PolicyDescriptions = Schema.Array(PolicyDescription);
-export const PolicyTypeDescription = Schema.Struct({PolicyTypeName: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), PolicyAttributeTypeDescriptions: Schema.optional(PolicyAttributeTypeDescriptions)});
+export class PolicyTypeDescription extends Schema.Class<PolicyTypeDescription>("PolicyTypeDescription")({PolicyTypeName: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), PolicyAttributeTypeDescriptions: Schema.optional(PolicyAttributeTypeDescriptions)}) {}
 export const PolicyTypeDescriptions = Schema.Array(PolicyTypeDescription);
-export const AppCookieStickinessPolicy = Schema.Struct({PolicyName: Schema.optional(Schema.String), CookieName: Schema.optional(Schema.String)});
+export class AppCookieStickinessPolicy extends Schema.Class<AppCookieStickinessPolicy>("AppCookieStickinessPolicy")({PolicyName: Schema.optional(Schema.String), CookieName: Schema.optional(Schema.String)}) {}
 export const AppCookieStickinessPolicies = Schema.Array(AppCookieStickinessPolicy);
-export const LBCookieStickinessPolicy = Schema.Struct({PolicyName: Schema.optional(Schema.String), CookieExpirationPeriod: Schema.optional(Schema.Number)});
+export class LBCookieStickinessPolicy extends Schema.Class<LBCookieStickinessPolicy>("LBCookieStickinessPolicy")({PolicyName: Schema.optional(Schema.String), CookieExpirationPeriod: Schema.optional(Schema.Number)}) {}
 export const LBCookieStickinessPolicies = Schema.Array(LBCookieStickinessPolicy);
-export const TooManyTagsException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const SubnetNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DuplicateAccessPointNameException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DescribeLoadBalancerPoliciesOutput = Schema.Struct({PolicyDescriptions: Schema.optional(PolicyDescriptions)});
-export const DescribeLoadBalancerPolicyTypesOutput = Schema.Struct({PolicyTypeDescriptions: Schema.optional(PolicyTypeDescriptions)});
-export const ModifyLoadBalancerAttributesOutput = Schema.Struct({LoadBalancerName: Schema.optional(Schema.String), LoadBalancerAttributes: Schema.optional(LoadBalancerAttributes)});
-export const Policies = Schema.Struct({AppCookieStickinessPolicies: Schema.optional(AppCookieStickinessPolicies), LBCookieStickinessPolicies: Schema.optional(LBCookieStickinessPolicies), OtherPolicies: Schema.optional(PolicyNames)});
-export const LoadBalancerDescription = Schema.Struct({LoadBalancerName: Schema.optional(Schema.String), DNSName: Schema.optional(Schema.String), CanonicalHostedZoneName: Schema.optional(Schema.String), CanonicalHostedZoneNameID: Schema.optional(Schema.String), ListenerDescriptions: Schema.optional(ListenerDescriptions), Policies: Schema.optional(Policies), BackendServerDescriptions: Schema.optional(BackendServerDescriptions), AvailabilityZones: Schema.optional(AvailabilityZones), Subnets: Schema.optional(Subnets), VPCId: Schema.optional(Schema.String), Instances: Schema.optional(Instances), HealthCheck: Schema.optional(HealthCheck), SourceSecurityGroup: Schema.optional(SourceSecurityGroup), SecurityGroups: Schema.optional(SecurityGroups), CreatedTime: Schema.optional(Schema.Date), Scheme: Schema.optional(Schema.String)});
+export class TooManyTagsException extends Schema.Class<TooManyTagsException>("TooManyTagsException")({Message: Schema.optional(Schema.String)}) {}
+export class SubnetNotFoundException extends Schema.Class<SubnetNotFoundException>("SubnetNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class DuplicateAccessPointNameException extends Schema.Class<DuplicateAccessPointNameException>("DuplicateAccessPointNameException")({Message: Schema.optional(Schema.String)}) {}
+export class DescribeLoadBalancerPoliciesOutput extends Schema.Class<DescribeLoadBalancerPoliciesOutput>("DescribeLoadBalancerPoliciesOutput")({PolicyDescriptions: Schema.optional(PolicyDescriptions)}) {}
+export class DescribeLoadBalancerPolicyTypesOutput extends Schema.Class<DescribeLoadBalancerPolicyTypesOutput>("DescribeLoadBalancerPolicyTypesOutput")({PolicyTypeDescriptions: Schema.optional(PolicyTypeDescriptions)}) {}
+export class ModifyLoadBalancerAttributesOutput extends Schema.Class<ModifyLoadBalancerAttributesOutput>("ModifyLoadBalancerAttributesOutput")({LoadBalancerName: Schema.optional(Schema.String), LoadBalancerAttributes: Schema.optional(LoadBalancerAttributes)}) {}
+export class Policies extends Schema.Class<Policies>("Policies")({AppCookieStickinessPolicies: Schema.optional(AppCookieStickinessPolicies), LBCookieStickinessPolicies: Schema.optional(LBCookieStickinessPolicies), OtherPolicies: Schema.optional(PolicyNames)}) {}
+export class LoadBalancerDescription extends Schema.Class<LoadBalancerDescription>("LoadBalancerDescription")({LoadBalancerName: Schema.optional(Schema.String), DNSName: Schema.optional(Schema.String), CanonicalHostedZoneName: Schema.optional(Schema.String), CanonicalHostedZoneNameID: Schema.optional(Schema.String), ListenerDescriptions: Schema.optional(ListenerDescriptions), Policies: Schema.optional(Policies), BackendServerDescriptions: Schema.optional(BackendServerDescriptions), AvailabilityZones: Schema.optional(AvailabilityZones), Subnets: Schema.optional(Subnets), VPCId: Schema.optional(Schema.String), Instances: Schema.optional(Instances), HealthCheck: Schema.optional(HealthCheck), SourceSecurityGroup: Schema.optional(SourceSecurityGroup), SecurityGroups: Schema.optional(SecurityGroups), CreatedTime: Schema.optional(Schema.Date), Scheme: Schema.optional(Schema.String)}) {}
 export const LoadBalancerDescriptions = Schema.Array(LoadBalancerDescription);
-export const InvalidSchemeException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DescribeAccessPointsOutput = Schema.Struct({LoadBalancerDescriptions: Schema.optional(LoadBalancerDescriptions), NextMarker: Schema.optional(Schema.String)});
-export const OperationNotPermittedException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DependencyThrottleException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const TooManyAccessPointsException = Schema.Struct({Message: Schema.optional(Schema.String)});
+export class InvalidSchemeException extends Schema.Class<InvalidSchemeException>("InvalidSchemeException")({Message: Schema.optional(Schema.String)}) {}
+export class DescribeAccessPointsOutput extends Schema.Class<DescribeAccessPointsOutput>("DescribeAccessPointsOutput")({LoadBalancerDescriptions: Schema.optional(LoadBalancerDescriptions), NextMarker: Schema.optional(Schema.String)}) {}
+export class OperationNotPermittedException extends Schema.Class<OperationNotPermittedException>("OperationNotPermittedException")({Message: Schema.optional(Schema.String)}) {}
+export class DependencyThrottleException extends Schema.Class<DependencyThrottleException>("DependencyThrottleException")({Message: Schema.optional(Schema.String)}) {}
+export class TooManyAccessPointsException extends Schema.Class<TooManyAccessPointsException>("TooManyAccessPointsException")({Message: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class AccessPointNotFoundExceptionError extends Schema.TaggedError<AccessPointNotFoundExceptionError>()("AccessPointNotFoundException", AccessPointNotFoundException) {};
-export class CertificateNotFoundExceptionError extends Schema.TaggedError<CertificateNotFoundExceptionError>()("CertificateNotFoundException", CertificateNotFoundException) {};
-export class InvalidConfigurationRequestExceptionError extends Schema.TaggedError<InvalidConfigurationRequestExceptionError>()("InvalidConfigurationRequestException", InvalidConfigurationRequestException) {};
-export class ListenerNotFoundExceptionError extends Schema.TaggedError<ListenerNotFoundExceptionError>()("ListenerNotFoundException", ListenerNotFoundException) {};
-export class PolicyNotFoundExceptionError extends Schema.TaggedError<PolicyNotFoundExceptionError>()("PolicyNotFoundException", PolicyNotFoundException) {};
-export class DuplicatePolicyNameExceptionError extends Schema.TaggedError<DuplicatePolicyNameExceptionError>()("DuplicatePolicyNameException", DuplicatePolicyNameException) {};
-export class TooManyPoliciesExceptionError extends Schema.TaggedError<TooManyPoliciesExceptionError>()("TooManyPoliciesException", TooManyPoliciesException) {};
-export class DuplicateTagKeysExceptionError extends Schema.TaggedError<DuplicateTagKeysExceptionError>()("DuplicateTagKeysException", DuplicateTagKeysException) {};
-export class InvalidSecurityGroupExceptionError extends Schema.TaggedError<InvalidSecurityGroupExceptionError>()("InvalidSecurityGroupException", InvalidSecurityGroupException) {};
-export class InvalidSubnetExceptionError extends Schema.TaggedError<InvalidSubnetExceptionError>()("InvalidSubnetException", InvalidSubnetException) {};
-export class DuplicateListenerExceptionError extends Schema.TaggedError<DuplicateListenerExceptionError>()("DuplicateListenerException", DuplicateListenerException) {};
-export class UnsupportedProtocolExceptionError extends Schema.TaggedError<UnsupportedProtocolExceptionError>()("UnsupportedProtocolException", UnsupportedProtocolException) {};
-export class PolicyTypeNotFoundExceptionError extends Schema.TaggedError<PolicyTypeNotFoundExceptionError>()("PolicyTypeNotFoundException", PolicyTypeNotFoundException) {};
-export class InvalidEndPointExceptionError extends Schema.TaggedError<InvalidEndPointExceptionError>()("InvalidEndPointException", InvalidEndPointException) {};
-export class LoadBalancerAttributeNotFoundExceptionError extends Schema.TaggedError<LoadBalancerAttributeNotFoundExceptionError>()("LoadBalancerAttributeNotFoundException", LoadBalancerAttributeNotFoundException) {};
-export class TooManyTagsExceptionError extends Schema.TaggedError<TooManyTagsExceptionError>()("TooManyTagsException", TooManyTagsException) {};
-export class SubnetNotFoundExceptionError extends Schema.TaggedError<SubnetNotFoundExceptionError>()("SubnetNotFoundException", SubnetNotFoundException) {};
-export class DuplicateAccessPointNameExceptionError extends Schema.TaggedError<DuplicateAccessPointNameExceptionError>()("DuplicateAccessPointNameException", DuplicateAccessPointNameException) {};
-export class InvalidSchemeExceptionError extends Schema.TaggedError<InvalidSchemeExceptionError>()("InvalidSchemeException", InvalidSchemeException) {};
-export class OperationNotPermittedExceptionError extends Schema.TaggedError<OperationNotPermittedExceptionError>()("OperationNotPermittedException", OperationNotPermittedException) {};
-export class DependencyThrottleExceptionError extends Schema.TaggedError<DependencyThrottleExceptionError>()("DependencyThrottleException", DependencyThrottleException) {};
-export class TooManyAccessPointsExceptionError extends Schema.TaggedError<TooManyAccessPointsExceptionError>()("TooManyAccessPointsException", TooManyAccessPointsException) {};
+export class AccessPointNotFoundExceptionError extends Schema.TaggedError<AccessPointNotFoundExceptionError>()("AccessPointNotFoundException", AccessPointNotFoundException.fields) {};
+export class CertificateNotFoundExceptionError extends Schema.TaggedError<CertificateNotFoundExceptionError>()("CertificateNotFoundException", CertificateNotFoundException.fields) {};
+export class InvalidConfigurationRequestExceptionError extends Schema.TaggedError<InvalidConfigurationRequestExceptionError>()("InvalidConfigurationRequestException", InvalidConfigurationRequestException.fields) {};
+export class ListenerNotFoundExceptionError extends Schema.TaggedError<ListenerNotFoundExceptionError>()("ListenerNotFoundException", ListenerNotFoundException.fields) {};
+export class PolicyNotFoundExceptionError extends Schema.TaggedError<PolicyNotFoundExceptionError>()("PolicyNotFoundException", PolicyNotFoundException.fields) {};
+export class DuplicatePolicyNameExceptionError extends Schema.TaggedError<DuplicatePolicyNameExceptionError>()("DuplicatePolicyNameException", DuplicatePolicyNameException.fields) {};
+export class TooManyPoliciesExceptionError extends Schema.TaggedError<TooManyPoliciesExceptionError>()("TooManyPoliciesException", TooManyPoliciesException.fields) {};
+export class DuplicateTagKeysExceptionError extends Schema.TaggedError<DuplicateTagKeysExceptionError>()("DuplicateTagKeysException", DuplicateTagKeysException.fields) {};
+export class InvalidSecurityGroupExceptionError extends Schema.TaggedError<InvalidSecurityGroupExceptionError>()("InvalidSecurityGroupException", InvalidSecurityGroupException.fields) {};
+export class InvalidSubnetExceptionError extends Schema.TaggedError<InvalidSubnetExceptionError>()("InvalidSubnetException", InvalidSubnetException.fields) {};
+export class DuplicateListenerExceptionError extends Schema.TaggedError<DuplicateListenerExceptionError>()("DuplicateListenerException", DuplicateListenerException.fields) {};
+export class UnsupportedProtocolExceptionError extends Schema.TaggedError<UnsupportedProtocolExceptionError>()("UnsupportedProtocolException", UnsupportedProtocolException.fields) {};
+export class PolicyTypeNotFoundExceptionError extends Schema.TaggedError<PolicyTypeNotFoundExceptionError>()("PolicyTypeNotFoundException", PolicyTypeNotFoundException.fields) {};
+export class InvalidEndPointExceptionError extends Schema.TaggedError<InvalidEndPointExceptionError>()("InvalidEndPointException", InvalidEndPointException.fields) {};
+export class LoadBalancerAttributeNotFoundExceptionError extends Schema.TaggedError<LoadBalancerAttributeNotFoundExceptionError>()("LoadBalancerAttributeNotFoundException", LoadBalancerAttributeNotFoundException.fields) {};
+export class TooManyTagsExceptionError extends Schema.TaggedError<TooManyTagsExceptionError>()("TooManyTagsException", TooManyTagsException.fields) {};
+export class SubnetNotFoundExceptionError extends Schema.TaggedError<SubnetNotFoundExceptionError>()("SubnetNotFoundException", SubnetNotFoundException.fields) {};
+export class DuplicateAccessPointNameExceptionError extends Schema.TaggedError<DuplicateAccessPointNameExceptionError>()("DuplicateAccessPointNameException", DuplicateAccessPointNameException.fields) {};
+export class InvalidSchemeExceptionError extends Schema.TaggedError<InvalidSchemeExceptionError>()("InvalidSchemeException", InvalidSchemeException.fields) {};
+export class OperationNotPermittedExceptionError extends Schema.TaggedError<OperationNotPermittedExceptionError>()("OperationNotPermittedException", OperationNotPermittedException.fields) {};
+export class DependencyThrottleExceptionError extends Schema.TaggedError<DependencyThrottleExceptionError>()("DependencyThrottleException", DependencyThrottleException.fields) {};
+export class TooManyAccessPointsExceptionError extends Schema.TaggedError<TooManyAccessPointsExceptionError>()("TooManyAccessPointsException", TooManyAccessPointsException.fields) {};
 
 //# Operations
 export const deleteLoadBalancer = /*#__PURE__*/ makeOperation(() => Operation({ version: "2012-06-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.DeleteLoadBalancer" }, DeleteAccessPointInput, DeleteAccessPointOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAWSXMLError);

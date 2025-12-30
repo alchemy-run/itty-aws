@@ -3,254 +3,259 @@ import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperat
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const GetDataLakePrincipalRequest = Schema.Struct({});
+export class GetDataLakePrincipalRequest extends Schema.Class<GetDataLakePrincipalRequest>("GetDataLakePrincipalRequest")({}) {}
 export const TagValueList = Schema.Array(Schema.String);
 export const PermissionList = Schema.Array(Schema.String);
 export const PermissionTypeList = Schema.Array(Schema.String);
-export const AssumeDecoratedRoleWithSAMLRequest = Schema.Struct({SAMLAssertion: Schema.String, RoleArn: Schema.String, PrincipalArn: Schema.String, DurationSeconds: Schema.optional(Schema.Number)});
-export const DataLakePrincipal = Schema.Struct({DataLakePrincipalIdentifier: Schema.optional(Schema.String)});
-export const CatalogResource = Schema.Struct({Id: Schema.optional(Schema.String)});
-export const DatabaseResource = Schema.Struct({CatalogId: Schema.optional(Schema.String), Name: Schema.String});
-export const TableWildcard = Schema.Struct({});
-export const TableResource = Schema.Struct({CatalogId: Schema.optional(Schema.String), DatabaseName: Schema.String, Name: Schema.optional(Schema.String), TableWildcard: Schema.optional(TableWildcard)});
+export class AssumeDecoratedRoleWithSAMLRequest extends Schema.Class<AssumeDecoratedRoleWithSAMLRequest>("AssumeDecoratedRoleWithSAMLRequest")({SAMLAssertion: Schema.String, RoleArn: Schema.String, PrincipalArn: Schema.String, DurationSeconds: Schema.optional(Schema.Number)}) {}
+export class DataLakePrincipal extends Schema.Class<DataLakePrincipal>("DataLakePrincipal")({DataLakePrincipalIdentifier: Schema.optional(Schema.String)}) {}
+export class CatalogResource extends Schema.Class<CatalogResource>("CatalogResource")({Id: Schema.optional(Schema.String)}) {}
+export class DatabaseResource extends Schema.Class<DatabaseResource>("DatabaseResource")({CatalogId: Schema.optional(Schema.String), Name: Schema.String}) {}
+export class TableWildcard extends Schema.Class<TableWildcard>("TableWildcard")({}) {}
+export class TableResource extends Schema.Class<TableResource>("TableResource")({CatalogId: Schema.optional(Schema.String), DatabaseName: Schema.String, Name: Schema.optional(Schema.String), TableWildcard: Schema.optional(TableWildcard)}) {}
 export const ColumnNames = Schema.Array(Schema.String);
-export const ColumnWildcard = Schema.Struct({ExcludedColumnNames: Schema.optional(ColumnNames)});
-export const TableWithColumnsResource = Schema.Struct({CatalogId: Schema.optional(Schema.String), DatabaseName: Schema.String, Name: Schema.String, ColumnNames: Schema.optional(ColumnNames), ColumnWildcard: Schema.optional(ColumnWildcard)});
-export const DataLocationResource = Schema.Struct({CatalogId: Schema.optional(Schema.String), ResourceArn: Schema.String});
-export const DataCellsFilterResource = Schema.Struct({TableCatalogId: Schema.optional(Schema.String), DatabaseName: Schema.optional(Schema.String), TableName: Schema.optional(Schema.String), Name: Schema.optional(Schema.String)});
-export const LFTagKeyResource = Schema.Struct({CatalogId: Schema.optional(Schema.String), TagKey: Schema.String, TagValues: TagValueList});
-export const LFTag = Schema.Struct({TagKey: Schema.String, TagValues: TagValueList});
+export class ColumnWildcard extends Schema.Class<ColumnWildcard>("ColumnWildcard")({ExcludedColumnNames: Schema.optional(ColumnNames)}) {}
+export class TableWithColumnsResource extends Schema.Class<TableWithColumnsResource>("TableWithColumnsResource")({CatalogId: Schema.optional(Schema.String), DatabaseName: Schema.String, Name: Schema.String, ColumnNames: Schema.optional(ColumnNames), ColumnWildcard: Schema.optional(ColumnWildcard)}) {}
+export class DataLocationResource extends Schema.Class<DataLocationResource>("DataLocationResource")({CatalogId: Schema.optional(Schema.String), ResourceArn: Schema.String}) {}
+export class DataCellsFilterResource extends Schema.Class<DataCellsFilterResource>("DataCellsFilterResource")({TableCatalogId: Schema.optional(Schema.String), DatabaseName: Schema.optional(Schema.String), TableName: Schema.optional(Schema.String), Name: Schema.optional(Schema.String)}) {}
+export class LFTagKeyResource extends Schema.Class<LFTagKeyResource>("LFTagKeyResource")({CatalogId: Schema.optional(Schema.String), TagKey: Schema.String, TagValues: TagValueList}) {}
+export class LFTag extends Schema.Class<LFTag>("LFTag")({TagKey: Schema.String, TagValues: TagValueList}) {}
 export const Expression = Schema.Array(LFTag);
-export const LFTagPolicyResource = Schema.Struct({CatalogId: Schema.optional(Schema.String), ResourceType: Schema.String, Expression: Schema.optional(Expression), ExpressionName: Schema.optional(Schema.String)});
-export const LFTagExpressionResource = Schema.Struct({CatalogId: Schema.optional(Schema.String), Name: Schema.String});
-export const Resource = Schema.Struct({Catalog: Schema.optional(CatalogResource), Database: Schema.optional(DatabaseResource), Table: Schema.optional(TableResource), TableWithColumns: Schema.optional(TableWithColumnsResource), DataLocation: Schema.optional(DataLocationResource), DataCellsFilter: Schema.optional(DataCellsFilterResource), LFTag: Schema.optional(LFTagKeyResource), LFTagPolicy: Schema.optional(LFTagPolicyResource), LFTagExpression: Schema.optional(LFTagExpressionResource)});
-export const Condition = Schema.Struct({Expression: Schema.optional(Schema.String)});
-export const BatchPermissionsRequestEntry = Schema.Struct({Id: Schema.String, Principal: Schema.optional(DataLakePrincipal), Resource: Schema.optional(Resource), Permissions: Schema.optional(PermissionList), Condition: Schema.optional(Condition), PermissionsWithGrantOption: Schema.optional(PermissionList)});
+export class LFTagPolicyResource extends Schema.Class<LFTagPolicyResource>("LFTagPolicyResource")({CatalogId: Schema.optional(Schema.String), ResourceType: Schema.String, Expression: Schema.optional(Expression), ExpressionName: Schema.optional(Schema.String)}) {}
+export class LFTagExpressionResource extends Schema.Class<LFTagExpressionResource>("LFTagExpressionResource")({CatalogId: Schema.optional(Schema.String), Name: Schema.String}) {}
+export class Resource extends Schema.Class<Resource>("Resource")({Catalog: Schema.optional(CatalogResource), Database: Schema.optional(DatabaseResource), Table: Schema.optional(TableResource), TableWithColumns: Schema.optional(TableWithColumnsResource), DataLocation: Schema.optional(DataLocationResource), DataCellsFilter: Schema.optional(DataCellsFilterResource), LFTag: Schema.optional(LFTagKeyResource), LFTagPolicy: Schema.optional(LFTagPolicyResource), LFTagExpression: Schema.optional(LFTagExpressionResource)}) {}
+export class Condition extends Schema.Class<Condition>("Condition")({Expression: Schema.optional(Schema.String)}) {}
+export class BatchPermissionsRequestEntry extends Schema.Class<BatchPermissionsRequestEntry>("BatchPermissionsRequestEntry")({Id: Schema.String, Principal: Schema.optional(DataLakePrincipal), Resource: Schema.optional(Resource), Permissions: Schema.optional(PermissionList), Condition: Schema.optional(Condition), PermissionsWithGrantOption: Schema.optional(PermissionList)}) {}
 export const BatchPermissionsRequestEntryList = Schema.Array(BatchPermissionsRequestEntry);
-export const BatchRevokePermissionsRequest = Schema.Struct({CatalogId: Schema.optional(Schema.String), Entries: BatchPermissionsRequestEntryList});
-export const CancelTransactionRequest = Schema.Struct({TransactionId: Schema.String});
-export const CancelTransactionResponse = Schema.Struct({});
-export const CommitTransactionRequest = Schema.Struct({TransactionId: Schema.String});
-export const CreateLFTagRequest = Schema.Struct({CatalogId: Schema.optional(Schema.String), TagKey: Schema.String, TagValues: TagValueList});
-export const CreateLFTagResponse = Schema.Struct({});
-export const DeleteDataCellsFilterRequest = Schema.Struct({TableCatalogId: Schema.optional(Schema.String), DatabaseName: Schema.optional(Schema.String), TableName: Schema.optional(Schema.String), Name: Schema.optional(Schema.String)});
-export const DeleteDataCellsFilterResponse = Schema.Struct({});
-export const DeleteLakeFormationIdentityCenterConfigurationRequest = Schema.Struct({CatalogId: Schema.optional(Schema.String)});
-export const DeleteLakeFormationIdentityCenterConfigurationResponse = Schema.Struct({});
-export const DeleteLakeFormationOptInRequest = Schema.Struct({Principal: DataLakePrincipal, Resource: Resource, Condition: Schema.optional(Condition)});
-export const DeleteLakeFormationOptInResponse = Schema.Struct({});
-export const DeleteLFTagRequest = Schema.Struct({CatalogId: Schema.optional(Schema.String), TagKey: Schema.String});
-export const DeleteLFTagResponse = Schema.Struct({});
-export const DeleteLFTagExpressionRequest = Schema.Struct({Name: Schema.String, CatalogId: Schema.optional(Schema.String)});
-export const DeleteLFTagExpressionResponse = Schema.Struct({});
-export const DeregisterResourceRequest = Schema.Struct({ResourceArn: Schema.String});
-export const DeregisterResourceResponse = Schema.Struct({});
-export const DescribeLakeFormationIdentityCenterConfigurationRequest = Schema.Struct({CatalogId: Schema.optional(Schema.String)});
-export const DescribeResourceRequest = Schema.Struct({ResourceArn: Schema.String});
-export const DescribeTransactionRequest = Schema.Struct({TransactionId: Schema.String});
-export const ExtendTransactionRequest = Schema.Struct({TransactionId: Schema.optional(Schema.String)});
-export const ExtendTransactionResponse = Schema.Struct({});
-export const GetDataCellsFilterRequest = Schema.Struct({TableCatalogId: Schema.String, DatabaseName: Schema.String, TableName: Schema.String, Name: Schema.String});
-export const GetDataLakePrincipalResponse = Schema.Struct({Identity: Schema.optional(Schema.String)});
-export const GetDataLakeSettingsRequest = Schema.Struct({CatalogId: Schema.optional(Schema.String)});
-export const GetEffectivePermissionsForPathRequest = Schema.Struct({CatalogId: Schema.optional(Schema.String), ResourceArn: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const GetLFTagRequest = Schema.Struct({CatalogId: Schema.optional(Schema.String), TagKey: Schema.String});
-export const GetLFTagExpressionRequest = Schema.Struct({Name: Schema.String, CatalogId: Schema.optional(Schema.String)});
-export const GetQueryStateRequest = Schema.Struct({QueryId: Schema.String});
-export const GetQueryStatisticsRequest = Schema.Struct({QueryId: Schema.String});
-export const GetResourceLFTagsRequest = Schema.Struct({CatalogId: Schema.optional(Schema.String), Resource: Resource, ShowAssignedLFTags: Schema.optional(Schema.Boolean)});
-export const GetTableObjectsRequest = Schema.Struct({CatalogId: Schema.optional(Schema.String), DatabaseName: Schema.String, TableName: Schema.String, TransactionId: Schema.optional(Schema.String), QueryAsOfTime: Schema.optional(Schema.Date), PartitionPredicate: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const GetWorkUnitResultsRequest = Schema.Struct({QueryId: Schema.String, WorkUnitId: Schema.Number, WorkUnitToken: Schema.String});
-export const GetWorkUnitsRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), PageSize: Schema.optional(Schema.Number), QueryId: Schema.String});
-export const GrantPermissionsRequest = Schema.Struct({CatalogId: Schema.optional(Schema.String), Principal: DataLakePrincipal, Resource: Resource, Permissions: PermissionList, Condition: Schema.optional(Condition), PermissionsWithGrantOption: Schema.optional(PermissionList)});
-export const GrantPermissionsResponse = Schema.Struct({});
-export const ListLakeFormationOptInsRequest = Schema.Struct({Principal: Schema.optional(DataLakePrincipal), Resource: Schema.optional(Resource), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListLFTagExpressionsRequest = Schema.Struct({CatalogId: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListLFTagsRequest = Schema.Struct({CatalogId: Schema.optional(Schema.String), ResourceShareType: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListPermissionsRequest = Schema.Struct({CatalogId: Schema.optional(Schema.String), Principal: Schema.optional(DataLakePrincipal), ResourceType: Schema.optional(Schema.String), Resource: Schema.optional(Resource), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), IncludeRelated: Schema.optional(Schema.String)});
-export const ListTableStorageOptimizersRequest = Schema.Struct({CatalogId: Schema.optional(Schema.String), DatabaseName: Schema.String, TableName: Schema.String, StorageOptimizerType: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListTransactionsRequest = Schema.Struct({CatalogId: Schema.optional(Schema.String), StatusFilter: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const RegisterResourceRequest = Schema.Struct({ResourceArn: Schema.String, UseServiceLinkedRole: Schema.optional(Schema.Boolean), RoleArn: Schema.optional(Schema.String), WithFederation: Schema.optional(Schema.Boolean), HybridAccessEnabled: Schema.optional(Schema.Boolean), WithPrivilegedAccess: Schema.optional(Schema.Boolean)});
-export const RegisterResourceResponse = Schema.Struct({});
-export const LFTagPair = Schema.Struct({CatalogId: Schema.optional(Schema.String), TagKey: Schema.String, TagValues: TagValueList});
+export class BatchRevokePermissionsRequest extends Schema.Class<BatchRevokePermissionsRequest>("BatchRevokePermissionsRequest")({CatalogId: Schema.optional(Schema.String), Entries: BatchPermissionsRequestEntryList}) {}
+export class CancelTransactionRequest extends Schema.Class<CancelTransactionRequest>("CancelTransactionRequest")({TransactionId: Schema.String}) {}
+export class CancelTransactionResponse extends Schema.Class<CancelTransactionResponse>("CancelTransactionResponse")({}) {}
+export class CommitTransactionRequest extends Schema.Class<CommitTransactionRequest>("CommitTransactionRequest")({TransactionId: Schema.String}) {}
+export class CreateLFTagRequest extends Schema.Class<CreateLFTagRequest>("CreateLFTagRequest")({CatalogId: Schema.optional(Schema.String), TagKey: Schema.String, TagValues: TagValueList}) {}
+export class CreateLFTagResponse extends Schema.Class<CreateLFTagResponse>("CreateLFTagResponse")({}) {}
+export class DeleteDataCellsFilterRequest extends Schema.Class<DeleteDataCellsFilterRequest>("DeleteDataCellsFilterRequest")({TableCatalogId: Schema.optional(Schema.String), DatabaseName: Schema.optional(Schema.String), TableName: Schema.optional(Schema.String), Name: Schema.optional(Schema.String)}) {}
+export class DeleteDataCellsFilterResponse extends Schema.Class<DeleteDataCellsFilterResponse>("DeleteDataCellsFilterResponse")({}) {}
+export class DeleteLakeFormationIdentityCenterConfigurationRequest extends Schema.Class<DeleteLakeFormationIdentityCenterConfigurationRequest>("DeleteLakeFormationIdentityCenterConfigurationRequest")({CatalogId: Schema.optional(Schema.String)}) {}
+export class DeleteLakeFormationIdentityCenterConfigurationResponse extends Schema.Class<DeleteLakeFormationIdentityCenterConfigurationResponse>("DeleteLakeFormationIdentityCenterConfigurationResponse")({}) {}
+export class DeleteLakeFormationOptInRequest extends Schema.Class<DeleteLakeFormationOptInRequest>("DeleteLakeFormationOptInRequest")({Principal: DataLakePrincipal, Resource: Resource, Condition: Schema.optional(Condition)}) {}
+export class DeleteLakeFormationOptInResponse extends Schema.Class<DeleteLakeFormationOptInResponse>("DeleteLakeFormationOptInResponse")({}) {}
+export class DeleteLFTagRequest extends Schema.Class<DeleteLFTagRequest>("DeleteLFTagRequest")({CatalogId: Schema.optional(Schema.String), TagKey: Schema.String}) {}
+export class DeleteLFTagResponse extends Schema.Class<DeleteLFTagResponse>("DeleteLFTagResponse")({}) {}
+export class DeleteLFTagExpressionRequest extends Schema.Class<DeleteLFTagExpressionRequest>("DeleteLFTagExpressionRequest")({Name: Schema.String, CatalogId: Schema.optional(Schema.String)}) {}
+export class DeleteLFTagExpressionResponse extends Schema.Class<DeleteLFTagExpressionResponse>("DeleteLFTagExpressionResponse")({}) {}
+export class DeregisterResourceRequest extends Schema.Class<DeregisterResourceRequest>("DeregisterResourceRequest")({ResourceArn: Schema.String}) {}
+export class DeregisterResourceResponse extends Schema.Class<DeregisterResourceResponse>("DeregisterResourceResponse")({}) {}
+export class DescribeLakeFormationIdentityCenterConfigurationRequest extends Schema.Class<DescribeLakeFormationIdentityCenterConfigurationRequest>("DescribeLakeFormationIdentityCenterConfigurationRequest")({CatalogId: Schema.optional(Schema.String)}) {}
+export class DescribeResourceRequest extends Schema.Class<DescribeResourceRequest>("DescribeResourceRequest")({ResourceArn: Schema.String}) {}
+export class DescribeTransactionRequest extends Schema.Class<DescribeTransactionRequest>("DescribeTransactionRequest")({TransactionId: Schema.String}) {}
+export class ExtendTransactionRequest extends Schema.Class<ExtendTransactionRequest>("ExtendTransactionRequest")({TransactionId: Schema.optional(Schema.String)}) {}
+export class ExtendTransactionResponse extends Schema.Class<ExtendTransactionResponse>("ExtendTransactionResponse")({}) {}
+export class GetDataCellsFilterRequest extends Schema.Class<GetDataCellsFilterRequest>("GetDataCellsFilterRequest")({TableCatalogId: Schema.String, DatabaseName: Schema.String, TableName: Schema.String, Name: Schema.String}) {}
+export class GetDataLakePrincipalResponse extends Schema.Class<GetDataLakePrincipalResponse>("GetDataLakePrincipalResponse")({Identity: Schema.optional(Schema.String)}) {}
+export class GetDataLakeSettingsRequest extends Schema.Class<GetDataLakeSettingsRequest>("GetDataLakeSettingsRequest")({CatalogId: Schema.optional(Schema.String)}) {}
+export class GetEffectivePermissionsForPathRequest extends Schema.Class<GetEffectivePermissionsForPathRequest>("GetEffectivePermissionsForPathRequest")({CatalogId: Schema.optional(Schema.String), ResourceArn: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class GetLFTagRequest extends Schema.Class<GetLFTagRequest>("GetLFTagRequest")({CatalogId: Schema.optional(Schema.String), TagKey: Schema.String}) {}
+export class GetLFTagExpressionRequest extends Schema.Class<GetLFTagExpressionRequest>("GetLFTagExpressionRequest")({Name: Schema.String, CatalogId: Schema.optional(Schema.String)}) {}
+export class GetQueryStateRequest extends Schema.Class<GetQueryStateRequest>("GetQueryStateRequest")({QueryId: Schema.String}) {}
+export class GetQueryStatisticsRequest extends Schema.Class<GetQueryStatisticsRequest>("GetQueryStatisticsRequest")({QueryId: Schema.String}) {}
+export class GetResourceLFTagsRequest extends Schema.Class<GetResourceLFTagsRequest>("GetResourceLFTagsRequest")({CatalogId: Schema.optional(Schema.String), Resource: Resource, ShowAssignedLFTags: Schema.optional(Schema.Boolean)}) {}
+export class GetTableObjectsRequest extends Schema.Class<GetTableObjectsRequest>("GetTableObjectsRequest")({CatalogId: Schema.optional(Schema.String), DatabaseName: Schema.String, TableName: Schema.String, TransactionId: Schema.optional(Schema.String), QueryAsOfTime: Schema.optional(Schema.Date), PartitionPredicate: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class GetWorkUnitResultsRequest extends Schema.Class<GetWorkUnitResultsRequest>("GetWorkUnitResultsRequest")({QueryId: Schema.String, WorkUnitId: Schema.Number, WorkUnitToken: Schema.String}) {}
+export class GetWorkUnitsRequest extends Schema.Class<GetWorkUnitsRequest>("GetWorkUnitsRequest")({NextToken: Schema.optional(Schema.String), PageSize: Schema.optional(Schema.Number), QueryId: Schema.String}) {}
+export class GrantPermissionsRequest extends Schema.Class<GrantPermissionsRequest>("GrantPermissionsRequest")({CatalogId: Schema.optional(Schema.String), Principal: DataLakePrincipal, Resource: Resource, Permissions: PermissionList, Condition: Schema.optional(Condition), PermissionsWithGrantOption: Schema.optional(PermissionList)}) {}
+export class GrantPermissionsResponse extends Schema.Class<GrantPermissionsResponse>("GrantPermissionsResponse")({}) {}
+export class ListLakeFormationOptInsRequest extends Schema.Class<ListLakeFormationOptInsRequest>("ListLakeFormationOptInsRequest")({Principal: Schema.optional(DataLakePrincipal), Resource: Schema.optional(Resource), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListLFTagExpressionsRequest extends Schema.Class<ListLFTagExpressionsRequest>("ListLFTagExpressionsRequest")({CatalogId: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListLFTagsRequest extends Schema.Class<ListLFTagsRequest>("ListLFTagsRequest")({CatalogId: Schema.optional(Schema.String), ResourceShareType: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListPermissionsRequest extends Schema.Class<ListPermissionsRequest>("ListPermissionsRequest")({CatalogId: Schema.optional(Schema.String), Principal: Schema.optional(DataLakePrincipal), ResourceType: Schema.optional(Schema.String), Resource: Schema.optional(Resource), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), IncludeRelated: Schema.optional(Schema.String)}) {}
+export class ListTableStorageOptimizersRequest extends Schema.Class<ListTableStorageOptimizersRequest>("ListTableStorageOptimizersRequest")({CatalogId: Schema.optional(Schema.String), DatabaseName: Schema.String, TableName: Schema.String, StorageOptimizerType: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTransactionsRequest extends Schema.Class<ListTransactionsRequest>("ListTransactionsRequest")({CatalogId: Schema.optional(Schema.String), StatusFilter: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class RegisterResourceRequest extends Schema.Class<RegisterResourceRequest>("RegisterResourceRequest")({ResourceArn: Schema.String, UseServiceLinkedRole: Schema.optional(Schema.Boolean), RoleArn: Schema.optional(Schema.String), WithFederation: Schema.optional(Schema.Boolean), HybridAccessEnabled: Schema.optional(Schema.Boolean), WithPrivilegedAccess: Schema.optional(Schema.Boolean)}) {}
+export class RegisterResourceResponse extends Schema.Class<RegisterResourceResponse>("RegisterResourceResponse")({}) {}
+export class LFTagPair extends Schema.Class<LFTagPair>("LFTagPair")({CatalogId: Schema.optional(Schema.String), TagKey: Schema.String, TagValues: TagValueList}) {}
 export const LFTagsList = Schema.Array(LFTagPair);
-export const RemoveLFTagsFromResourceRequest = Schema.Struct({CatalogId: Schema.optional(Schema.String), Resource: Resource, LFTags: LFTagsList});
-export const RevokePermissionsRequest = Schema.Struct({CatalogId: Schema.optional(Schema.String), Principal: DataLakePrincipal, Resource: Resource, Permissions: PermissionList, Condition: Schema.optional(Condition), PermissionsWithGrantOption: Schema.optional(PermissionList)});
-export const RevokePermissionsResponse = Schema.Struct({});
-export const SearchDatabasesByLFTagsRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), CatalogId: Schema.optional(Schema.String), Expression: Expression});
-export const SearchTablesByLFTagsRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), CatalogId: Schema.optional(Schema.String), Expression: Expression});
-export const StartTransactionRequest = Schema.Struct({TransactionType: Schema.optional(Schema.String)});
-export const AllRowsWildcard = Schema.Struct({});
-export const RowFilter = Schema.Struct({FilterExpression: Schema.optional(Schema.String), AllRowsWildcard: Schema.optional(AllRowsWildcard)});
-export const DataCellsFilter = Schema.Struct({TableCatalogId: Schema.String, DatabaseName: Schema.String, TableName: Schema.String, Name: Schema.String, RowFilter: Schema.optional(RowFilter), ColumnNames: Schema.optional(ColumnNames), ColumnWildcard: Schema.optional(ColumnWildcard), VersionId: Schema.optional(Schema.String)});
-export const UpdateDataCellsFilterRequest = Schema.Struct({TableData: DataCellsFilter});
-export const UpdateDataCellsFilterResponse = Schema.Struct({});
+export class RemoveLFTagsFromResourceRequest extends Schema.Class<RemoveLFTagsFromResourceRequest>("RemoveLFTagsFromResourceRequest")({CatalogId: Schema.optional(Schema.String), Resource: Resource, LFTags: LFTagsList}) {}
+export class RevokePermissionsRequest extends Schema.Class<RevokePermissionsRequest>("RevokePermissionsRequest")({CatalogId: Schema.optional(Schema.String), Principal: DataLakePrincipal, Resource: Resource, Permissions: PermissionList, Condition: Schema.optional(Condition), PermissionsWithGrantOption: Schema.optional(PermissionList)}) {}
+export class RevokePermissionsResponse extends Schema.Class<RevokePermissionsResponse>("RevokePermissionsResponse")({}) {}
+export class SearchDatabasesByLFTagsRequest extends Schema.Class<SearchDatabasesByLFTagsRequest>("SearchDatabasesByLFTagsRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), CatalogId: Schema.optional(Schema.String), Expression: Expression}) {}
+export class SearchTablesByLFTagsRequest extends Schema.Class<SearchTablesByLFTagsRequest>("SearchTablesByLFTagsRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), CatalogId: Schema.optional(Schema.String), Expression: Expression}) {}
+export class StartTransactionRequest extends Schema.Class<StartTransactionRequest>("StartTransactionRequest")({TransactionType: Schema.optional(Schema.String)}) {}
+export class AllRowsWildcard extends Schema.Class<AllRowsWildcard>("AllRowsWildcard")({}) {}
+export class RowFilter extends Schema.Class<RowFilter>("RowFilter")({FilterExpression: Schema.optional(Schema.String), AllRowsWildcard: Schema.optional(AllRowsWildcard)}) {}
+export class DataCellsFilter extends Schema.Class<DataCellsFilter>("DataCellsFilter")({TableCatalogId: Schema.String, DatabaseName: Schema.String, TableName: Schema.String, Name: Schema.String, RowFilter: Schema.optional(RowFilter), ColumnNames: Schema.optional(ColumnNames), ColumnWildcard: Schema.optional(ColumnWildcard), VersionId: Schema.optional(Schema.String)}) {}
+export class UpdateDataCellsFilterRequest extends Schema.Class<UpdateDataCellsFilterRequest>("UpdateDataCellsFilterRequest")({TableData: DataCellsFilter}) {}
+export class UpdateDataCellsFilterResponse extends Schema.Class<UpdateDataCellsFilterResponse>("UpdateDataCellsFilterResponse")({}) {}
 export const DataLakePrincipalList = Schema.Array(DataLakePrincipal);
+export class RedshiftConnect extends Schema.Class<RedshiftConnect>("RedshiftConnect")({Authorization: Schema.String}) {}
+export const RedshiftScopeUnion = Schema.Union(RedshiftConnect);
+export const RedshiftServiceIntegrations = Schema.Array(RedshiftScopeUnion);
+export const ServiceIntegrationUnion = Schema.Union(RedshiftServiceIntegrations);
+export const ServiceIntegrationList = Schema.Array(ServiceIntegrationUnion);
 export const ScopeTargets = Schema.Array(Schema.String);
-export const ExternalFilteringConfiguration = Schema.Struct({Status: Schema.String, AuthorizedTargets: ScopeTargets});
-export const UpdateLakeFormationIdentityCenterConfigurationRequest = Schema.Struct({CatalogId: Schema.optional(Schema.String), ShareRecipients: Schema.optional(DataLakePrincipalList), ApplicationStatus: Schema.optional(Schema.String), ExternalFiltering: Schema.optional(ExternalFilteringConfiguration)});
-export const UpdateLakeFormationIdentityCenterConfigurationResponse = Schema.Struct({});
-export const UpdateLFTagRequest = Schema.Struct({CatalogId: Schema.optional(Schema.String), TagKey: Schema.String, TagValuesToDelete: Schema.optional(TagValueList), TagValuesToAdd: Schema.optional(TagValueList)});
-export const UpdateLFTagResponse = Schema.Struct({});
-export const UpdateLFTagExpressionRequest = Schema.Struct({Name: Schema.String, Description: Schema.optional(Schema.String), CatalogId: Schema.optional(Schema.String), Expression: Expression});
-export const UpdateLFTagExpressionResponse = Schema.Struct({});
-export const UpdateResourceRequest = Schema.Struct({RoleArn: Schema.String, ResourceArn: Schema.String, WithFederation: Schema.optional(Schema.Boolean), HybridAccessEnabled: Schema.optional(Schema.Boolean)});
-export const UpdateResourceResponse = Schema.Struct({});
+export class ExternalFilteringConfiguration extends Schema.Class<ExternalFilteringConfiguration>("ExternalFilteringConfiguration")({Status: Schema.String, AuthorizedTargets: ScopeTargets}) {}
+export class UpdateLakeFormationIdentityCenterConfigurationRequest extends Schema.Class<UpdateLakeFormationIdentityCenterConfigurationRequest>("UpdateLakeFormationIdentityCenterConfigurationRequest")({CatalogId: Schema.optional(Schema.String), ShareRecipients: Schema.optional(DataLakePrincipalList), ServiceIntegrations: Schema.optional(ServiceIntegrationList), ApplicationStatus: Schema.optional(Schema.String), ExternalFiltering: Schema.optional(ExternalFilteringConfiguration)}) {}
+export class UpdateLakeFormationIdentityCenterConfigurationResponse extends Schema.Class<UpdateLakeFormationIdentityCenterConfigurationResponse>("UpdateLakeFormationIdentityCenterConfigurationResponse")({}) {}
+export class UpdateLFTagRequest extends Schema.Class<UpdateLFTagRequest>("UpdateLFTagRequest")({CatalogId: Schema.optional(Schema.String), TagKey: Schema.String, TagValuesToDelete: Schema.optional(TagValueList), TagValuesToAdd: Schema.optional(TagValueList)}) {}
+export class UpdateLFTagResponse extends Schema.Class<UpdateLFTagResponse>("UpdateLFTagResponse")({}) {}
+export class UpdateLFTagExpressionRequest extends Schema.Class<UpdateLFTagExpressionRequest>("UpdateLFTagExpressionRequest")({Name: Schema.String, Description: Schema.optional(Schema.String), CatalogId: Schema.optional(Schema.String), Expression: Expression}) {}
+export class UpdateLFTagExpressionResponse extends Schema.Class<UpdateLFTagExpressionResponse>("UpdateLFTagExpressionResponse")({}) {}
+export class UpdateResourceRequest extends Schema.Class<UpdateResourceRequest>("UpdateResourceRequest")({RoleArn: Schema.String, ResourceArn: Schema.String, WithFederation: Schema.optional(Schema.Boolean), HybridAccessEnabled: Schema.optional(Schema.Boolean)}) {}
+export class UpdateResourceResponse extends Schema.Class<UpdateResourceResponse>("UpdateResourceResponse")({}) {}
 export const ValueStringList = Schema.Array(Schema.String);
 export const StringValueList = Schema.Array(Schema.String);
 export const TrustedResourceOwners = Schema.Array(Schema.String);
 export const AuthorizedSessionTagValueList = Schema.Array(Schema.String);
-export const VirtualObject = Schema.Struct({Uri: Schema.String, ETag: Schema.optional(Schema.String)});
+export class VirtualObject extends Schema.Class<VirtualObject>("VirtualObject")({Uri: Schema.String, ETag: Schema.optional(Schema.String)}) {}
 export const VirtualObjectList = Schema.Array(VirtualObject);
-export const PartitionValueList = Schema.Struct({Values: ValueStringList});
-export const AuditContext = Schema.Struct({AdditionalAuditContext: Schema.optional(Schema.String)});
-export const FilterCondition = Schema.Struct({Field: Schema.optional(Schema.String), ComparisonOperator: Schema.optional(Schema.String), StringValueList: Schema.optional(StringValueList)});
+export class PartitionValueList extends Schema.Class<PartitionValueList>("PartitionValueList")({Values: ValueStringList}) {}
+export class AuditContext extends Schema.Class<AuditContext>("AuditContext")({AdditionalAuditContext: Schema.optional(Schema.String)}) {}
+export class FilterCondition extends Schema.Class<FilterCondition>("FilterCondition")({Field: Schema.optional(Schema.String), ComparisonOperator: Schema.optional(Schema.String), StringValueList: Schema.optional(StringValueList)}) {}
 export const FilterConditionList = Schema.Array(FilterCondition);
-export const TransactionDescription = Schema.Struct({TransactionId: Schema.optional(Schema.String), TransactionStatus: Schema.optional(Schema.String), TransactionStartTime: Schema.optional(Schema.Date), TransactionEndTime: Schema.optional(Schema.Date)});
+export class TransactionDescription extends Schema.Class<TransactionDescription>("TransactionDescription")({TransactionId: Schema.optional(Schema.String), TransactionStatus: Schema.optional(Schema.String), TransactionStartTime: Schema.optional(Schema.Date), TransactionEndTime: Schema.optional(Schema.Date)}) {}
 export const TransactionDescriptionList = Schema.Array(TransactionDescription);
 export const PartitionValuesList = Schema.Array(Schema.String);
-export const AssumeDecoratedRoleWithSAMLResponse = Schema.Struct({AccessKeyId: Schema.optional(Schema.String), SecretAccessKey: Schema.optional(Schema.String), SessionToken: Schema.optional(Schema.String), Expiration: Schema.optional(Schema.Date)});
-export const BatchGrantPermissionsRequest = Schema.Struct({CatalogId: Schema.optional(Schema.String), Entries: BatchPermissionsRequestEntryList});
-export const ConcurrentModificationException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const CommitTransactionResponse = Schema.Struct({TransactionStatus: Schema.optional(Schema.String)});
-export const CreateLakeFormationIdentityCenterConfigurationRequest = Schema.Struct({CatalogId: Schema.optional(Schema.String), InstanceArn: Schema.optional(Schema.String), ExternalFiltering: Schema.optional(ExternalFilteringConfiguration), ShareRecipients: Schema.optional(DataLakePrincipalList)});
-export const CreateLakeFormationOptInRequest = Schema.Struct({Principal: DataLakePrincipal, Resource: Resource, Condition: Schema.optional(Condition)});
-export const CreateLakeFormationOptInResponse = Schema.Struct({});
-export const AccessDeniedException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const CreateLFTagExpressionRequest = Schema.Struct({Name: Schema.String, Description: Schema.optional(Schema.String), CatalogId: Schema.optional(Schema.String), Expression: Expression});
-export const CreateLFTagExpressionResponse = Schema.Struct({});
-export const EntityNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const InternalServiceException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const InvalidInputException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const OperationTimeoutException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DeleteObjectsOnCancelRequest = Schema.Struct({CatalogId: Schema.optional(Schema.String), DatabaseName: Schema.String, TableName: Schema.String, TransactionId: Schema.String, Objects: VirtualObjectList});
-export const DeleteObjectsOnCancelResponse = Schema.Struct({});
-export const DescribeLakeFormationIdentityCenterConfigurationResponse = Schema.Struct({CatalogId: Schema.optional(Schema.String), InstanceArn: Schema.optional(Schema.String), ApplicationArn: Schema.optional(Schema.String), ExternalFiltering: Schema.optional(ExternalFilteringConfiguration), ShareRecipients: Schema.optional(DataLakePrincipalList), ResourceShare: Schema.optional(Schema.String)});
-export const TransactionCanceledException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const GetDataCellsFilterResponse = Schema.Struct({DataCellsFilter: Schema.optional(DataCellsFilter)});
-export const PrincipalPermissions = Schema.Struct({Principal: Schema.optional(DataLakePrincipal), Permissions: Schema.optional(PermissionList)});
+export class AssumeDecoratedRoleWithSAMLResponse extends Schema.Class<AssumeDecoratedRoleWithSAMLResponse>("AssumeDecoratedRoleWithSAMLResponse")({AccessKeyId: Schema.optional(Schema.String), SecretAccessKey: Schema.optional(Schema.String), SessionToken: Schema.optional(Schema.String), Expiration: Schema.optional(Schema.Date)}) {}
+export class BatchGrantPermissionsRequest extends Schema.Class<BatchGrantPermissionsRequest>("BatchGrantPermissionsRequest")({CatalogId: Schema.optional(Schema.String), Entries: BatchPermissionsRequestEntryList}) {}
+export class ConcurrentModificationException extends Schema.Class<ConcurrentModificationException>("ConcurrentModificationException")({Message: Schema.optional(Schema.String)}) {}
+export class CommitTransactionResponse extends Schema.Class<CommitTransactionResponse>("CommitTransactionResponse")({TransactionStatus: Schema.optional(Schema.String)}) {}
+export class CreateLakeFormationOptInRequest extends Schema.Class<CreateLakeFormationOptInRequest>("CreateLakeFormationOptInRequest")({Principal: DataLakePrincipal, Resource: Resource, Condition: Schema.optional(Condition)}) {}
+export class CreateLakeFormationOptInResponse extends Schema.Class<CreateLakeFormationOptInResponse>("CreateLakeFormationOptInResponse")({}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({Message: Schema.optional(Schema.String)}) {}
+export class CreateLFTagExpressionRequest extends Schema.Class<CreateLFTagExpressionRequest>("CreateLFTagExpressionRequest")({Name: Schema.String, Description: Schema.optional(Schema.String), CatalogId: Schema.optional(Schema.String), Expression: Expression}) {}
+export class CreateLFTagExpressionResponse extends Schema.Class<CreateLFTagExpressionResponse>("CreateLFTagExpressionResponse")({}) {}
+export class EntityNotFoundException extends Schema.Class<EntityNotFoundException>("EntityNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class InternalServiceException extends Schema.Class<InternalServiceException>("InternalServiceException")({Message: Schema.optional(Schema.String)}) {}
+export class InvalidInputException extends Schema.Class<InvalidInputException>("InvalidInputException")({Message: Schema.optional(Schema.String)}) {}
+export class OperationTimeoutException extends Schema.Class<OperationTimeoutException>("OperationTimeoutException")({Message: Schema.optional(Schema.String)}) {}
+export class DeleteObjectsOnCancelRequest extends Schema.Class<DeleteObjectsOnCancelRequest>("DeleteObjectsOnCancelRequest")({CatalogId: Schema.optional(Schema.String), DatabaseName: Schema.String, TableName: Schema.String, TransactionId: Schema.String, Objects: VirtualObjectList}) {}
+export class DeleteObjectsOnCancelResponse extends Schema.Class<DeleteObjectsOnCancelResponse>("DeleteObjectsOnCancelResponse")({}) {}
+export class DescribeLakeFormationIdentityCenterConfigurationResponse extends Schema.Class<DescribeLakeFormationIdentityCenterConfigurationResponse>("DescribeLakeFormationIdentityCenterConfigurationResponse")({CatalogId: Schema.optional(Schema.String), InstanceArn: Schema.optional(Schema.String), ApplicationArn: Schema.optional(Schema.String), ExternalFiltering: Schema.optional(ExternalFilteringConfiguration), ShareRecipients: Schema.optional(DataLakePrincipalList), ServiceIntegrations: Schema.optional(ServiceIntegrationList), ResourceShare: Schema.optional(Schema.String)}) {}
+export class TransactionCanceledException extends Schema.Class<TransactionCanceledException>("TransactionCanceledException")({Message: Schema.optional(Schema.String)}) {}
+export class GetDataCellsFilterResponse extends Schema.Class<GetDataCellsFilterResponse>("GetDataCellsFilterResponse")({DataCellsFilter: Schema.optional(DataCellsFilter)}) {}
+export class PrincipalPermissions extends Schema.Class<PrincipalPermissions>("PrincipalPermissions")({Principal: Schema.optional(DataLakePrincipal), Permissions: Schema.optional(PermissionList)}) {}
 export const PrincipalPermissionsList = Schema.Array(PrincipalPermissions);
 export const ParametersMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const DataLakeSettings = Schema.Struct({DataLakeAdmins: Schema.optional(DataLakePrincipalList), ReadOnlyAdmins: Schema.optional(DataLakePrincipalList), CreateDatabaseDefaultPermissions: Schema.optional(PrincipalPermissionsList), CreateTableDefaultPermissions: Schema.optional(PrincipalPermissionsList), Parameters: Schema.optional(ParametersMap), TrustedResourceOwners: Schema.optional(TrustedResourceOwners), AllowExternalDataFiltering: Schema.optional(Schema.Boolean), AllowFullTableExternalDataAccess: Schema.optional(Schema.Boolean), ExternalDataFilteringAllowList: Schema.optional(DataLakePrincipalList), AuthorizedSessionTagValueList: Schema.optional(AuthorizedSessionTagValueList)});
-export const GetDataLakeSettingsResponse = Schema.Struct({DataLakeSettings: Schema.optional(DataLakeSettings)});
-export const GetLFTagResponse = Schema.Struct({CatalogId: Schema.optional(Schema.String), TagKey: Schema.optional(Schema.String), TagValues: Schema.optional(TagValueList)});
-export const GetLFTagExpressionResponse = Schema.Struct({Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), CatalogId: Schema.optional(Schema.String), Expression: Schema.optional(Expression)});
-export const GetQueryStateResponse = Schema.Struct({Error: Schema.optional(Schema.String), State: Schema.String});
-export const GetTemporaryGluePartitionCredentialsRequest = Schema.Struct({TableArn: Schema.String, Partition: PartitionValueList, Permissions: Schema.optional(PermissionList), DurationSeconds: Schema.optional(Schema.Number), AuditContext: Schema.optional(AuditContext), SupportedPermissionTypes: Schema.optional(PermissionTypeList)});
-export const GetWorkUnitResultsResponse = Schema.Struct({ResultStream: Schema.optional(Body("undefined", StreamBody()))});
-export const ListDataCellsFilterRequest = Schema.Struct({Table: Schema.optional(TableResource), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListLFTagsResponse = Schema.Struct({LFTags: Schema.optional(LFTagsList), NextToken: Schema.optional(Schema.String)});
+export class DataLakeSettings extends Schema.Class<DataLakeSettings>("DataLakeSettings")({DataLakeAdmins: Schema.optional(DataLakePrincipalList), ReadOnlyAdmins: Schema.optional(DataLakePrincipalList), CreateDatabaseDefaultPermissions: Schema.optional(PrincipalPermissionsList), CreateTableDefaultPermissions: Schema.optional(PrincipalPermissionsList), Parameters: Schema.optional(ParametersMap), TrustedResourceOwners: Schema.optional(TrustedResourceOwners), AllowExternalDataFiltering: Schema.optional(Schema.Boolean), AllowFullTableExternalDataAccess: Schema.optional(Schema.Boolean), ExternalDataFilteringAllowList: Schema.optional(DataLakePrincipalList), AuthorizedSessionTagValueList: Schema.optional(AuthorizedSessionTagValueList)}) {}
+export class GetDataLakeSettingsResponse extends Schema.Class<GetDataLakeSettingsResponse>("GetDataLakeSettingsResponse")({DataLakeSettings: Schema.optional(DataLakeSettings)}) {}
+export class GetLFTagResponse extends Schema.Class<GetLFTagResponse>("GetLFTagResponse")({CatalogId: Schema.optional(Schema.String), TagKey: Schema.optional(Schema.String), TagValues: Schema.optional(TagValueList)}) {}
+export class GetLFTagExpressionResponse extends Schema.Class<GetLFTagExpressionResponse>("GetLFTagExpressionResponse")({Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), CatalogId: Schema.optional(Schema.String), Expression: Schema.optional(Expression)}) {}
+export class GetQueryStateResponse extends Schema.Class<GetQueryStateResponse>("GetQueryStateResponse")({Error: Schema.optional(Schema.String), State: Schema.String}) {}
+export class GetTemporaryGluePartitionCredentialsRequest extends Schema.Class<GetTemporaryGluePartitionCredentialsRequest>("GetTemporaryGluePartitionCredentialsRequest")({TableArn: Schema.String, Partition: PartitionValueList, Permissions: Schema.optional(PermissionList), DurationSeconds: Schema.optional(Schema.Number), AuditContext: Schema.optional(AuditContext), SupportedPermissionTypes: Schema.optional(PermissionTypeList)}) {}
+export class GetWorkUnitResultsResponse extends Schema.Class<GetWorkUnitResultsResponse>("GetWorkUnitResultsResponse")({ResultStream: Schema.optional(Body("undefined", StreamBody()))}) {}
+export class ListDataCellsFilterRequest extends Schema.Class<ListDataCellsFilterRequest>("ListDataCellsFilterRequest")({Table: Schema.optional(TableResource), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListLFTagsResponse extends Schema.Class<ListLFTagsResponse>("ListLFTagsResponse")({LFTags: Schema.optional(LFTagsList), NextToken: Schema.optional(Schema.String)}) {}
 export const ResourceShareList = Schema.Array(Schema.String);
-export const DetailsMap = Schema.Struct({ResourceShare: Schema.optional(ResourceShareList)});
-export const PrincipalResourcePermissions = Schema.Struct({Principal: Schema.optional(DataLakePrincipal), Resource: Schema.optional(Resource), Condition: Schema.optional(Condition), Permissions: Schema.optional(PermissionList), PermissionsWithGrantOption: Schema.optional(PermissionList), AdditionalDetails: Schema.optional(DetailsMap), LastUpdated: Schema.optional(Schema.Date), LastUpdatedBy: Schema.optional(Schema.String)});
+export class DetailsMap extends Schema.Class<DetailsMap>("DetailsMap")({ResourceShare: Schema.optional(ResourceShareList)}) {}
+export class PrincipalResourcePermissions extends Schema.Class<PrincipalResourcePermissions>("PrincipalResourcePermissions")({Principal: Schema.optional(DataLakePrincipal), Resource: Schema.optional(Resource), Condition: Schema.optional(Condition), Permissions: Schema.optional(PermissionList), PermissionsWithGrantOption: Schema.optional(PermissionList), AdditionalDetails: Schema.optional(DetailsMap), LastUpdated: Schema.optional(Schema.Date), LastUpdatedBy: Schema.optional(Schema.String)}) {}
 export const PrincipalResourcePermissionsList = Schema.Array(PrincipalResourcePermissions);
-export const ListPermissionsResponse = Schema.Struct({PrincipalResourcePermissions: Schema.optional(PrincipalResourcePermissionsList), NextToken: Schema.optional(Schema.String)});
-export const ListResourcesRequest = Schema.Struct({FilterConditionList: Schema.optional(FilterConditionList), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListTransactionsResponse = Schema.Struct({Transactions: Schema.optional(TransactionDescriptionList), NextToken: Schema.optional(Schema.String)});
-export const AlreadyExistsException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const StartTransactionResponse = Schema.Struct({TransactionId: Schema.optional(Schema.String)});
-export const ResourceNumberLimitExceededException = Schema.Struct({Message: Schema.optional(Schema.String)});
+export class ListPermissionsResponse extends Schema.Class<ListPermissionsResponse>("ListPermissionsResponse")({PrincipalResourcePermissions: Schema.optional(PrincipalResourcePermissionsList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListResourcesRequest extends Schema.Class<ListResourcesRequest>("ListResourcesRequest")({FilterConditionList: Schema.optional(FilterConditionList), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTransactionsResponse extends Schema.Class<ListTransactionsResponse>("ListTransactionsResponse")({Transactions: Schema.optional(TransactionDescriptionList), NextToken: Schema.optional(Schema.String)}) {}
+export class AlreadyExistsException extends Schema.Class<AlreadyExistsException>("AlreadyExistsException")({Message: Schema.optional(Schema.String)}) {}
+export class StartTransactionResponse extends Schema.Class<StartTransactionResponse>("StartTransactionResponse")({TransactionId: Schema.optional(Schema.String)}) {}
+export class ResourceNumberLimitExceededException extends Schema.Class<ResourceNumberLimitExceededException>("ResourceNumberLimitExceededException")({Message: Schema.optional(Schema.String)}) {}
 export const AdditionalContextMap = Schema.Record({key: Schema.String, value: Schema.String});
 export const QueryParameterMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const AddObjectInput = Schema.Struct({Uri: Schema.String, ETag: Schema.String, Size: Schema.Number, PartitionValues: Schema.optional(PartitionValuesList)});
-export const DeleteObjectInput = Schema.Struct({Uri: Schema.String, ETag: Schema.optional(Schema.String), PartitionValues: Schema.optional(PartitionValuesList)});
+export class AddObjectInput extends Schema.Class<AddObjectInput>("AddObjectInput")({Uri: Schema.String, ETag: Schema.String, Size: Schema.Number, PartitionValues: Schema.optional(PartitionValuesList)}) {}
+export class DeleteObjectInput extends Schema.Class<DeleteObjectInput>("DeleteObjectInput")({Uri: Schema.String, ETag: Schema.optional(Schema.String), PartitionValues: Schema.optional(PartitionValuesList)}) {}
 export const StorageOptimizerConfig = Schema.Record({key: Schema.String, value: Schema.String});
-export const ResourceInfo = Schema.Struct({ResourceArn: Schema.optional(Schema.String), RoleArn: Schema.optional(Schema.String), LastModified: Schema.optional(Schema.Date), WithFederation: Schema.optional(Schema.Boolean), HybridAccessEnabled: Schema.optional(Schema.Boolean), WithPrivilegedAccess: Schema.optional(Schema.Boolean)});
-export const ExecutionStatistics = Schema.Struct({AverageExecutionTimeMillis: Schema.optional(Schema.Number), DataScannedBytes: Schema.optional(Schema.Number), WorkUnitsExecutedCount: Schema.optional(Schema.Number)});
-export const PlanningStatistics = Schema.Struct({EstimatedDataToScanBytes: Schema.optional(Schema.Number), PlanningTimeMillis: Schema.optional(Schema.Number), QueueTimeMillis: Schema.optional(Schema.Number), WorkUnitsGeneratedCount: Schema.optional(Schema.Number)});
-export const ColumnLFTag = Schema.Struct({Name: Schema.optional(Schema.String), LFTags: Schema.optional(LFTagsList)});
+export class ResourceInfo extends Schema.Class<ResourceInfo>("ResourceInfo")({ResourceArn: Schema.optional(Schema.String), RoleArn: Schema.optional(Schema.String), LastModified: Schema.optional(Schema.Date), WithFederation: Schema.optional(Schema.Boolean), HybridAccessEnabled: Schema.optional(Schema.Boolean), WithPrivilegedAccess: Schema.optional(Schema.Boolean)}) {}
+export class ExecutionStatistics extends Schema.Class<ExecutionStatistics>("ExecutionStatistics")({AverageExecutionTimeMillis: Schema.optional(Schema.Number), DataScannedBytes: Schema.optional(Schema.Number), WorkUnitsExecutedCount: Schema.optional(Schema.Number)}) {}
+export class PlanningStatistics extends Schema.Class<PlanningStatistics>("PlanningStatistics")({EstimatedDataToScanBytes: Schema.optional(Schema.Number), PlanningTimeMillis: Schema.optional(Schema.Number), QueueTimeMillis: Schema.optional(Schema.Number), WorkUnitsGeneratedCount: Schema.optional(Schema.Number)}) {}
+export class ColumnLFTag extends Schema.Class<ColumnLFTag>("ColumnLFTag")({Name: Schema.optional(Schema.String), LFTags: Schema.optional(LFTagsList)}) {}
 export const ColumnLFTagsList = Schema.Array(ColumnLFTag);
-export const QuerySessionContext = Schema.Struct({QueryId: Schema.optional(Schema.String), QueryStartTime: Schema.optional(Schema.Date), ClusterId: Schema.optional(Schema.String), QueryAuthorizationId: Schema.optional(Schema.String), AdditionalContext: Schema.optional(AdditionalContextMap)});
-export const WorkUnitRange = Schema.Struct({WorkUnitIdMax: Schema.Number, WorkUnitIdMin: Schema.Number, WorkUnitToken: Schema.String});
+export class QuerySessionContext extends Schema.Class<QuerySessionContext>("QuerySessionContext")({QueryId: Schema.optional(Schema.String), QueryStartTime: Schema.optional(Schema.Date), ClusterId: Schema.optional(Schema.String), QueryAuthorizationId: Schema.optional(Schema.String), AdditionalContext: Schema.optional(AdditionalContextMap)}) {}
+export class WorkUnitRange extends Schema.Class<WorkUnitRange>("WorkUnitRange")({WorkUnitIdMax: Schema.Number, WorkUnitIdMin: Schema.Number, WorkUnitToken: Schema.String}) {}
 export const WorkUnitRangeList = Schema.Array(WorkUnitRange);
 export const DataCellsFilterList = Schema.Array(DataCellsFilter);
-export const LakeFormationOptInsInfo = Schema.Struct({Resource: Schema.optional(Resource), Principal: Schema.optional(DataLakePrincipal), Condition: Schema.optional(Condition), LastModified: Schema.optional(Schema.Date), LastUpdatedBy: Schema.optional(Schema.String)});
+export class LakeFormationOptInsInfo extends Schema.Class<LakeFormationOptInsInfo>("LakeFormationOptInsInfo")({Resource: Schema.optional(Resource), Principal: Schema.optional(DataLakePrincipal), Condition: Schema.optional(Condition), LastModified: Schema.optional(Schema.Date), LastUpdatedBy: Schema.optional(Schema.String)}) {}
 export const LakeFormationOptInsInfoList = Schema.Array(LakeFormationOptInsInfo);
-export const LFTagExpression = Schema.Struct({Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), CatalogId: Schema.optional(Schema.String), Expression: Schema.optional(Expression)});
+export class LFTagExpression extends Schema.Class<LFTagExpression>("LFTagExpression")({Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), CatalogId: Schema.optional(Schema.String), Expression: Schema.optional(Expression)}) {}
 export const LFTagExpressionsList = Schema.Array(LFTagExpression);
 export const ResourceInfoList = Schema.Array(ResourceInfo);
-export const StorageOptimizer = Schema.Struct({StorageOptimizerType: Schema.optional(Schema.String), Config: Schema.optional(StorageOptimizerConfig), ErrorMessage: Schema.optional(Schema.String), Warnings: Schema.optional(Schema.String), LastRunDetails: Schema.optional(Schema.String)});
+export class StorageOptimizer extends Schema.Class<StorageOptimizer>("StorageOptimizer")({StorageOptimizerType: Schema.optional(Schema.String), Config: Schema.optional(StorageOptimizerConfig), ErrorMessage: Schema.optional(Schema.String), Warnings: Schema.optional(Schema.String), LastRunDetails: Schema.optional(Schema.String)}) {}
 export const StorageOptimizerList = Schema.Array(StorageOptimizer);
-export const ErrorDetail = Schema.Struct({ErrorCode: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String)});
-export const LFTagError = Schema.Struct({LFTag: Schema.optional(LFTagPair), Error: Schema.optional(ErrorDetail)});
+export class ErrorDetail extends Schema.Class<ErrorDetail>("ErrorDetail")({ErrorCode: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String)}) {}
+export class LFTagError extends Schema.Class<LFTagError>("LFTagError")({LFTag: Schema.optional(LFTagPair), Error: Schema.optional(ErrorDetail)}) {}
 export const LFTagErrors = Schema.Array(LFTagError);
-export const TaggedDatabase = Schema.Struct({Database: Schema.optional(DatabaseResource), LFTags: Schema.optional(LFTagsList)});
+export class TaggedDatabase extends Schema.Class<TaggedDatabase>("TaggedDatabase")({Database: Schema.optional(DatabaseResource), LFTags: Schema.optional(LFTagsList)}) {}
 export const DatabaseLFTagsList = Schema.Array(TaggedDatabase);
-export const TaggedTable = Schema.Struct({Table: Schema.optional(TableResource), LFTagOnDatabase: Schema.optional(LFTagsList), LFTagsOnTable: Schema.optional(LFTagsList), LFTagsOnColumns: Schema.optional(ColumnLFTagsList)});
+export class TaggedTable extends Schema.Class<TaggedTable>("TaggedTable")({Table: Schema.optional(TableResource), LFTagOnDatabase: Schema.optional(LFTagsList), LFTagsOnTable: Schema.optional(LFTagsList), LFTagsOnColumns: Schema.optional(ColumnLFTagsList)}) {}
 export const TableLFTagsList = Schema.Array(TaggedTable);
-export const QueryPlanningContext = Schema.Struct({CatalogId: Schema.optional(Schema.String), DatabaseName: Schema.String, QueryAsOfTime: Schema.optional(Schema.Date), QueryParameters: Schema.optional(QueryParameterMap), TransactionId: Schema.optional(Schema.String)});
-export const WriteOperation = Schema.Struct({AddObject: Schema.optional(AddObjectInput), DeleteObject: Schema.optional(DeleteObjectInput)});
+export class QueryPlanningContext extends Schema.Class<QueryPlanningContext>("QueryPlanningContext")({CatalogId: Schema.optional(Schema.String), DatabaseName: Schema.String, QueryAsOfTime: Schema.optional(Schema.Date), QueryParameters: Schema.optional(QueryParameterMap), TransactionId: Schema.optional(Schema.String)}) {}
+export class WriteOperation extends Schema.Class<WriteOperation>("WriteOperation")({AddObject: Schema.optional(AddObjectInput), DeleteObject: Schema.optional(DeleteObjectInput)}) {}
 export const WriteOperationList = Schema.Array(WriteOperation);
 export const StorageOptimizerConfigMap = Schema.Record({key: Schema.String, value: StorageOptimizerConfig});
-export const AddLFTagsToResourceRequest = Schema.Struct({CatalogId: Schema.optional(Schema.String), Resource: Resource, LFTags: LFTagsList});
-export const BatchPermissionsFailureEntry = Schema.Struct({RequestEntry: Schema.optional(BatchPermissionsRequestEntry), Error: Schema.optional(ErrorDetail)});
+export class AddLFTagsToResourceRequest extends Schema.Class<AddLFTagsToResourceRequest>("AddLFTagsToResourceRequest")({CatalogId: Schema.optional(Schema.String), Resource: Resource, LFTags: LFTagsList}) {}
+export class BatchPermissionsFailureEntry extends Schema.Class<BatchPermissionsFailureEntry>("BatchPermissionsFailureEntry")({RequestEntry: Schema.optional(BatchPermissionsRequestEntry), Error: Schema.optional(ErrorDetail)}) {}
 export const BatchPermissionsFailureList = Schema.Array(BatchPermissionsFailureEntry);
-export const BatchGrantPermissionsResponse = Schema.Struct({Failures: Schema.optional(BatchPermissionsFailureList)});
-export const TransactionCommitInProgressException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const CreateDataCellsFilterRequest = Schema.Struct({TableData: DataCellsFilter});
-export const CreateDataCellsFilterResponse = Schema.Struct({});
-export const CreateLakeFormationIdentityCenterConfigurationResponse = Schema.Struct({ApplicationArn: Schema.optional(Schema.String)});
-export const ResourceNotReadyException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DescribeResourceResponse = Schema.Struct({ResourceInfo: Schema.optional(ResourceInfo)});
-export const DescribeTransactionResponse = Schema.Struct({TransactionDescription: Schema.optional(TransactionDescription)});
-export const TransactionCommittedException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const GetQueryStatisticsResponse = Schema.Struct({ExecutionStatistics: Schema.optional(ExecutionStatistics), PlanningStatistics: Schema.optional(PlanningStatistics), QuerySubmissionTime: Schema.optional(Schema.Date)});
-export const GetResourceLFTagsResponse = Schema.Struct({LFTagOnDatabase: Schema.optional(LFTagsList), LFTagsOnTable: Schema.optional(LFTagsList), LFTagsOnColumns: Schema.optional(ColumnLFTagsList)});
-export const GetTemporaryGluePartitionCredentialsResponse = Schema.Struct({AccessKeyId: Schema.optional(Schema.String), SecretAccessKey: Schema.optional(Schema.String), SessionToken: Schema.optional(Schema.String), Expiration: Schema.optional(Schema.Date)});
-export const GetTemporaryGlueTableCredentialsRequest = Schema.Struct({TableArn: Schema.String, Permissions: Schema.optional(PermissionList), DurationSeconds: Schema.optional(Schema.Number), AuditContext: Schema.optional(AuditContext), SupportedPermissionTypes: Schema.optional(PermissionTypeList), S3Path: Schema.optional(Schema.String), QuerySessionContext: Schema.optional(QuerySessionContext)});
-export const ExpiredException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const GetWorkUnitsResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), QueryId: Schema.String, WorkUnitRanges: WorkUnitRangeList});
-export const ListDataCellsFilterResponse = Schema.Struct({DataCellsFilters: Schema.optional(DataCellsFilterList), NextToken: Schema.optional(Schema.String)});
-export const ListLakeFormationOptInsResponse = Schema.Struct({LakeFormationOptInsInfoList: Schema.optional(LakeFormationOptInsInfoList), NextToken: Schema.optional(Schema.String)});
-export const ListLFTagExpressionsResponse = Schema.Struct({LFTagExpressions: Schema.optional(LFTagExpressionsList), NextToken: Schema.optional(Schema.String)});
-export const ListResourcesResponse = Schema.Struct({ResourceInfoList: Schema.optional(ResourceInfoList), NextToken: Schema.optional(Schema.String)});
-export const ListTableStorageOptimizersResponse = Schema.Struct({StorageOptimizerList: Schema.optional(StorageOptimizerList), NextToken: Schema.optional(Schema.String)});
-export const PutDataLakeSettingsRequest = Schema.Struct({CatalogId: Schema.optional(Schema.String), DataLakeSettings: DataLakeSettings});
-export const PutDataLakeSettingsResponse = Schema.Struct({});
-export const RemoveLFTagsFromResourceResponse = Schema.Struct({Failures: Schema.optional(LFTagErrors)});
-export const SearchDatabasesByLFTagsResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), DatabaseList: Schema.optional(DatabaseLFTagsList)});
-export const SearchTablesByLFTagsResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), TableList: Schema.optional(TableLFTagsList)});
-export const StartQueryPlanningRequest = Schema.Struct({QueryPlanningContext: QueryPlanningContext, QueryString: Schema.String});
-export const UpdateTableObjectsRequest = Schema.Struct({CatalogId: Schema.optional(Schema.String), DatabaseName: Schema.String, TableName: Schema.String, TransactionId: Schema.optional(Schema.String), WriteOperations: WriteOperationList});
-export const UpdateTableObjectsResponse = Schema.Struct({});
-export const UpdateTableStorageOptimizerRequest = Schema.Struct({CatalogId: Schema.optional(Schema.String), DatabaseName: Schema.String, TableName: Schema.String, StorageOptimizerConfig: StorageOptimizerConfigMap});
-export const TableObject = Schema.Struct({Uri: Schema.optional(Schema.String), ETag: Schema.optional(Schema.String), Size: Schema.optional(Schema.Number)});
+export class BatchGrantPermissionsResponse extends Schema.Class<BatchGrantPermissionsResponse>("BatchGrantPermissionsResponse")({Failures: Schema.optional(BatchPermissionsFailureList)}) {}
+export class TransactionCommitInProgressException extends Schema.Class<TransactionCommitInProgressException>("TransactionCommitInProgressException")({Message: Schema.optional(Schema.String)}) {}
+export class CreateDataCellsFilterRequest extends Schema.Class<CreateDataCellsFilterRequest>("CreateDataCellsFilterRequest")({TableData: DataCellsFilter}) {}
+export class CreateDataCellsFilterResponse extends Schema.Class<CreateDataCellsFilterResponse>("CreateDataCellsFilterResponse")({}) {}
+export class ResourceNotReadyException extends Schema.Class<ResourceNotReadyException>("ResourceNotReadyException")({Message: Schema.optional(Schema.String)}) {}
+export class DescribeResourceResponse extends Schema.Class<DescribeResourceResponse>("DescribeResourceResponse")({ResourceInfo: Schema.optional(ResourceInfo)}) {}
+export class DescribeTransactionResponse extends Schema.Class<DescribeTransactionResponse>("DescribeTransactionResponse")({TransactionDescription: Schema.optional(TransactionDescription)}) {}
+export class TransactionCommittedException extends Schema.Class<TransactionCommittedException>("TransactionCommittedException")({Message: Schema.optional(Schema.String)}) {}
+export class GetQueryStatisticsResponse extends Schema.Class<GetQueryStatisticsResponse>("GetQueryStatisticsResponse")({ExecutionStatistics: Schema.optional(ExecutionStatistics), PlanningStatistics: Schema.optional(PlanningStatistics), QuerySubmissionTime: Schema.optional(Schema.Date)}) {}
+export class GetResourceLFTagsResponse extends Schema.Class<GetResourceLFTagsResponse>("GetResourceLFTagsResponse")({LFTagOnDatabase: Schema.optional(LFTagsList), LFTagsOnTable: Schema.optional(LFTagsList), LFTagsOnColumns: Schema.optional(ColumnLFTagsList)}) {}
+export class GetTemporaryGluePartitionCredentialsResponse extends Schema.Class<GetTemporaryGluePartitionCredentialsResponse>("GetTemporaryGluePartitionCredentialsResponse")({AccessKeyId: Schema.optional(Schema.String), SecretAccessKey: Schema.optional(Schema.String), SessionToken: Schema.optional(Schema.String), Expiration: Schema.optional(Schema.Date)}) {}
+export class GetTemporaryGlueTableCredentialsRequest extends Schema.Class<GetTemporaryGlueTableCredentialsRequest>("GetTemporaryGlueTableCredentialsRequest")({TableArn: Schema.String, Permissions: Schema.optional(PermissionList), DurationSeconds: Schema.optional(Schema.Number), AuditContext: Schema.optional(AuditContext), SupportedPermissionTypes: Schema.optional(PermissionTypeList), S3Path: Schema.optional(Schema.String), QuerySessionContext: Schema.optional(QuerySessionContext)}) {}
+export class ExpiredException extends Schema.Class<ExpiredException>("ExpiredException")({Message: Schema.optional(Schema.String)}) {}
+export class GetWorkUnitsResponse extends Schema.Class<GetWorkUnitsResponse>("GetWorkUnitsResponse")({NextToken: Schema.optional(Schema.String), QueryId: Schema.String, WorkUnitRanges: WorkUnitRangeList}) {}
+export class ListDataCellsFilterResponse extends Schema.Class<ListDataCellsFilterResponse>("ListDataCellsFilterResponse")({DataCellsFilters: Schema.optional(DataCellsFilterList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListLakeFormationOptInsResponse extends Schema.Class<ListLakeFormationOptInsResponse>("ListLakeFormationOptInsResponse")({LakeFormationOptInsInfoList: Schema.optional(LakeFormationOptInsInfoList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListLFTagExpressionsResponse extends Schema.Class<ListLFTagExpressionsResponse>("ListLFTagExpressionsResponse")({LFTagExpressions: Schema.optional(LFTagExpressionsList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListResourcesResponse extends Schema.Class<ListResourcesResponse>("ListResourcesResponse")({ResourceInfoList: Schema.optional(ResourceInfoList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTableStorageOptimizersResponse extends Schema.Class<ListTableStorageOptimizersResponse>("ListTableStorageOptimizersResponse")({StorageOptimizerList: Schema.optional(StorageOptimizerList), NextToken: Schema.optional(Schema.String)}) {}
+export class PutDataLakeSettingsRequest extends Schema.Class<PutDataLakeSettingsRequest>("PutDataLakeSettingsRequest")({CatalogId: Schema.optional(Schema.String), DataLakeSettings: DataLakeSettings}) {}
+export class PutDataLakeSettingsResponse extends Schema.Class<PutDataLakeSettingsResponse>("PutDataLakeSettingsResponse")({}) {}
+export class RemoveLFTagsFromResourceResponse extends Schema.Class<RemoveLFTagsFromResourceResponse>("RemoveLFTagsFromResourceResponse")({Failures: Schema.optional(LFTagErrors)}) {}
+export class SearchDatabasesByLFTagsResponse extends Schema.Class<SearchDatabasesByLFTagsResponse>("SearchDatabasesByLFTagsResponse")({NextToken: Schema.optional(Schema.String), DatabaseList: Schema.optional(DatabaseLFTagsList)}) {}
+export class SearchTablesByLFTagsResponse extends Schema.Class<SearchTablesByLFTagsResponse>("SearchTablesByLFTagsResponse")({NextToken: Schema.optional(Schema.String), TableList: Schema.optional(TableLFTagsList)}) {}
+export class StartQueryPlanningRequest extends Schema.Class<StartQueryPlanningRequest>("StartQueryPlanningRequest")({QueryPlanningContext: QueryPlanningContext, QueryString: Schema.String}) {}
+export class UpdateTableObjectsRequest extends Schema.Class<UpdateTableObjectsRequest>("UpdateTableObjectsRequest")({CatalogId: Schema.optional(Schema.String), DatabaseName: Schema.String, TableName: Schema.String, TransactionId: Schema.optional(Schema.String), WriteOperations: WriteOperationList}) {}
+export class UpdateTableObjectsResponse extends Schema.Class<UpdateTableObjectsResponse>("UpdateTableObjectsResponse")({}) {}
+export class UpdateTableStorageOptimizerRequest extends Schema.Class<UpdateTableStorageOptimizerRequest>("UpdateTableStorageOptimizerRequest")({CatalogId: Schema.optional(Schema.String), DatabaseName: Schema.String, TableName: Schema.String, StorageOptimizerConfig: StorageOptimizerConfigMap}) {}
+export class TableObject extends Schema.Class<TableObject>("TableObject")({Uri: Schema.optional(Schema.String), ETag: Schema.optional(Schema.String), Size: Schema.optional(Schema.Number)}) {}
 export const TableObjectList = Schema.Array(TableObject);
-export const PartitionObjects = Schema.Struct({PartitionValues: Schema.optional(PartitionValuesList), Objects: Schema.optional(TableObjectList)});
+export class PartitionObjects extends Schema.Class<PartitionObjects>("PartitionObjects")({PartitionValues: Schema.optional(PartitionValuesList), Objects: Schema.optional(TableObjectList)}) {}
 export const PartitionedTableObjectsList = Schema.Array(PartitionObjects);
 export const PathStringList = Schema.Array(Schema.String);
-export const AddLFTagsToResourceResponse = Schema.Struct({Failures: Schema.optional(LFTagErrors)});
-export const BatchRevokePermissionsResponse = Schema.Struct({Failures: Schema.optional(BatchPermissionsFailureList)});
-export const GetEffectivePermissionsForPathResponse = Schema.Struct({Permissions: Schema.optional(PrincipalResourcePermissionsList), NextToken: Schema.optional(Schema.String)});
-export const StatisticsNotReadyYetException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const GlueEncryptionException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const GetTableObjectsResponse = Schema.Struct({Objects: Schema.optional(PartitionedTableObjectsList), NextToken: Schema.optional(Schema.String)});
-export const PermissionTypeMismatchException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const GetTemporaryGlueTableCredentialsResponse = Schema.Struct({AccessKeyId: Schema.optional(Schema.String), SecretAccessKey: Schema.optional(Schema.String), SessionToken: Schema.optional(Schema.String), Expiration: Schema.optional(Schema.Date), VendedS3Path: Schema.optional(PathStringList)});
-export const ThrottledException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const WorkUnitsNotReadyYetException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const StartQueryPlanningResponse = Schema.Struct({QueryId: Schema.String});
-export const UpdateTableStorageOptimizerResponse = Schema.Struct({Result: Schema.optional(Schema.String)});
+export class AddLFTagsToResourceResponse extends Schema.Class<AddLFTagsToResourceResponse>("AddLFTagsToResourceResponse")({Failures: Schema.optional(LFTagErrors)}) {}
+export class BatchRevokePermissionsResponse extends Schema.Class<BatchRevokePermissionsResponse>("BatchRevokePermissionsResponse")({Failures: Schema.optional(BatchPermissionsFailureList)}) {}
+export class CreateLakeFormationIdentityCenterConfigurationRequest extends Schema.Class<CreateLakeFormationIdentityCenterConfigurationRequest>("CreateLakeFormationIdentityCenterConfigurationRequest")({CatalogId: Schema.optional(Schema.String), InstanceArn: Schema.optional(Schema.String), ExternalFiltering: Schema.optional(ExternalFilteringConfiguration), ShareRecipients: Schema.optional(DataLakePrincipalList), ServiceIntegrations: Schema.optional(ServiceIntegrationList)}) {}
+export class GetEffectivePermissionsForPathResponse extends Schema.Class<GetEffectivePermissionsForPathResponse>("GetEffectivePermissionsForPathResponse")({Permissions: Schema.optional(PrincipalResourcePermissionsList), NextToken: Schema.optional(Schema.String)}) {}
+export class StatisticsNotReadyYetException extends Schema.Class<StatisticsNotReadyYetException>("StatisticsNotReadyYetException")({Message: Schema.optional(Schema.String)}) {}
+export class GlueEncryptionException extends Schema.Class<GlueEncryptionException>("GlueEncryptionException")({Message: Schema.optional(Schema.String)}) {}
+export class GetTableObjectsResponse extends Schema.Class<GetTableObjectsResponse>("GetTableObjectsResponse")({Objects: Schema.optional(PartitionedTableObjectsList), NextToken: Schema.optional(Schema.String)}) {}
+export class PermissionTypeMismatchException extends Schema.Class<PermissionTypeMismatchException>("PermissionTypeMismatchException")({Message: Schema.optional(Schema.String)}) {}
+export class GetTemporaryGlueTableCredentialsResponse extends Schema.Class<GetTemporaryGlueTableCredentialsResponse>("GetTemporaryGlueTableCredentialsResponse")({AccessKeyId: Schema.optional(Schema.String), SecretAccessKey: Schema.optional(Schema.String), SessionToken: Schema.optional(Schema.String), Expiration: Schema.optional(Schema.Date), VendedS3Path: Schema.optional(PathStringList)}) {}
+export class ThrottledException extends Schema.Class<ThrottledException>("ThrottledException")({Message: Schema.optional(Schema.String)}) {}
+export class WorkUnitsNotReadyYetException extends Schema.Class<WorkUnitsNotReadyYetException>("WorkUnitsNotReadyYetException")({Message: Schema.optional(Schema.String)}) {}
+export class StartQueryPlanningResponse extends Schema.Class<StartQueryPlanningResponse>("StartQueryPlanningResponse")({QueryId: Schema.String}) {}
+export class UpdateTableStorageOptimizerResponse extends Schema.Class<UpdateTableStorageOptimizerResponse>("UpdateTableStorageOptimizerResponse")({Result: Schema.optional(Schema.String)}) {}
+export class CreateLakeFormationIdentityCenterConfigurationResponse extends Schema.Class<CreateLakeFormationIdentityCenterConfigurationResponse>("CreateLakeFormationIdentityCenterConfigurationResponse")({ApplicationArn: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class ConcurrentModificationExceptionError extends Schema.TaggedError<ConcurrentModificationExceptionError>()("ConcurrentModificationException", ConcurrentModificationException) {};
-export class EntityNotFoundExceptionError extends Schema.TaggedError<EntityNotFoundExceptionError>()("EntityNotFoundException", EntityNotFoundException) {};
-export class InternalServiceExceptionError extends Schema.TaggedError<InternalServiceExceptionError>()("InternalServiceException", InternalServiceException) {};
-export class InvalidInputExceptionError extends Schema.TaggedError<InvalidInputExceptionError>()("InvalidInputException", InvalidInputException) {};
-export class OperationTimeoutExceptionError extends Schema.TaggedError<OperationTimeoutExceptionError>()("OperationTimeoutException", OperationTimeoutException) {};
-export class TransactionCanceledExceptionError extends Schema.TaggedError<TransactionCanceledExceptionError>()("TransactionCanceledException", TransactionCanceledException) {};
-export class ResourceNumberLimitExceededExceptionError extends Schema.TaggedError<ResourceNumberLimitExceededExceptionError>()("ResourceNumberLimitExceededException", ResourceNumberLimitExceededException) {};
-export class TransactionCommitInProgressExceptionError extends Schema.TaggedError<TransactionCommitInProgressExceptionError>()("TransactionCommitInProgressException", TransactionCommitInProgressException) {};
-export class AlreadyExistsExceptionError extends Schema.TaggedError<AlreadyExistsExceptionError>()("AlreadyExistsException", AlreadyExistsException) {};
-export class TransactionCommittedExceptionError extends Schema.TaggedError<TransactionCommittedExceptionError>()("TransactionCommittedException", TransactionCommittedException) {};
-export class ResourceNotReadyExceptionError extends Schema.TaggedError<ResourceNotReadyExceptionError>()("ResourceNotReadyException", ResourceNotReadyException) {};
-export class ExpiredExceptionError extends Schema.TaggedError<ExpiredExceptionError>()("ExpiredException", ExpiredException) {};
-export class GlueEncryptionExceptionError extends Schema.TaggedError<GlueEncryptionExceptionError>()("GlueEncryptionException", GlueEncryptionException) {};
-export class StatisticsNotReadyYetExceptionError extends Schema.TaggedError<StatisticsNotReadyYetExceptionError>()("StatisticsNotReadyYetException", StatisticsNotReadyYetException) {};
-export class ThrottledExceptionError extends Schema.TaggedError<ThrottledExceptionError>()("ThrottledException", ThrottledException) {};
-export class PermissionTypeMismatchExceptionError extends Schema.TaggedError<PermissionTypeMismatchExceptionError>()("PermissionTypeMismatchException", PermissionTypeMismatchException) {};
-export class WorkUnitsNotReadyYetExceptionError extends Schema.TaggedError<WorkUnitsNotReadyYetExceptionError>()("WorkUnitsNotReadyYetException", WorkUnitsNotReadyYetException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class ConcurrentModificationExceptionError extends Schema.TaggedError<ConcurrentModificationExceptionError>()("ConcurrentModificationException", ConcurrentModificationException.fields) {};
+export class EntityNotFoundExceptionError extends Schema.TaggedError<EntityNotFoundExceptionError>()("EntityNotFoundException", EntityNotFoundException.fields) {};
+export class InternalServiceExceptionError extends Schema.TaggedError<InternalServiceExceptionError>()("InternalServiceException", InternalServiceException.fields) {};
+export class InvalidInputExceptionError extends Schema.TaggedError<InvalidInputExceptionError>()("InvalidInputException", InvalidInputException.fields) {};
+export class OperationTimeoutExceptionError extends Schema.TaggedError<OperationTimeoutExceptionError>()("OperationTimeoutException", OperationTimeoutException.fields) {};
+export class TransactionCanceledExceptionError extends Schema.TaggedError<TransactionCanceledExceptionError>()("TransactionCanceledException", TransactionCanceledException.fields) {};
+export class ResourceNumberLimitExceededExceptionError extends Schema.TaggedError<ResourceNumberLimitExceededExceptionError>()("ResourceNumberLimitExceededException", ResourceNumberLimitExceededException.fields) {};
+export class TransactionCommitInProgressExceptionError extends Schema.TaggedError<TransactionCommitInProgressExceptionError>()("TransactionCommitInProgressException", TransactionCommitInProgressException.fields) {};
+export class AlreadyExistsExceptionError extends Schema.TaggedError<AlreadyExistsExceptionError>()("AlreadyExistsException", AlreadyExistsException.fields) {};
+export class TransactionCommittedExceptionError extends Schema.TaggedError<TransactionCommittedExceptionError>()("TransactionCommittedException", TransactionCommittedException.fields) {};
+export class ResourceNotReadyExceptionError extends Schema.TaggedError<ResourceNotReadyExceptionError>()("ResourceNotReadyException", ResourceNotReadyException.fields) {};
+export class ExpiredExceptionError extends Schema.TaggedError<ExpiredExceptionError>()("ExpiredException", ExpiredException.fields) {};
+export class GlueEncryptionExceptionError extends Schema.TaggedError<GlueEncryptionExceptionError>()("GlueEncryptionException", GlueEncryptionException.fields) {};
+export class StatisticsNotReadyYetExceptionError extends Schema.TaggedError<StatisticsNotReadyYetExceptionError>()("StatisticsNotReadyYetException", StatisticsNotReadyYetException.fields) {};
+export class ThrottledExceptionError extends Schema.TaggedError<ThrottledExceptionError>()("ThrottledException", ThrottledException.fields) {};
+export class PermissionTypeMismatchExceptionError extends Schema.TaggedError<PermissionTypeMismatchExceptionError>()("PermissionTypeMismatchException", PermissionTypeMismatchException.fields) {};
+export class WorkUnitsNotReadyYetExceptionError extends Schema.TaggedError<WorkUnitsNotReadyYetExceptionError>()("WorkUnitsNotReadyYetException", WorkUnitsNotReadyYetException.fields) {};
 
 //# Operations
 export const deleteLFTagExpression = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-03-31", uri: "/DeleteLFTagExpression", method: "POST", sdkId: "LakeFormation", sigV4ServiceName: "lakeformation", name: "AWSLakeFormation.DeleteLFTagExpression" }, DeleteLFTagExpressionRequest, DeleteLFTagExpressionResponse, [AccessDeniedExceptionError, EntityNotFoundExceptionError, InternalServiceExceptionError, InvalidInputExceptionError, OperationTimeoutExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -286,7 +291,6 @@ export const updateLFTagExpression = /*#__PURE__*/ makeOperation(() => Operation
 export const batchGrantPermissions = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-03-31", uri: "/BatchGrantPermissions", method: "POST", sdkId: "LakeFormation", sigV4ServiceName: "lakeformation", name: "AWSLakeFormation.BatchGrantPermissions" }, BatchGrantPermissionsRequest, BatchGrantPermissionsResponse, [InvalidInputExceptionError, OperationTimeoutExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 export const cancelTransaction = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-03-31", uri: "/CancelTransaction", method: "POST", sdkId: "LakeFormation", sigV4ServiceName: "lakeformation", name: "AWSLakeFormation.CancelTransaction" }, CancelTransactionRequest, CancelTransactionResponse, [ConcurrentModificationExceptionError, EntityNotFoundExceptionError, InternalServiceExceptionError, InvalidInputExceptionError, OperationTimeoutExceptionError, TransactionCommitInProgressExceptionError, TransactionCommittedExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 export const createDataCellsFilter = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-03-31", uri: "/CreateDataCellsFilter", method: "POST", sdkId: "LakeFormation", sigV4ServiceName: "lakeformation", name: "AWSLakeFormation.CreateDataCellsFilter" }, CreateDataCellsFilterRequest, CreateDataCellsFilterResponse, [AccessDeniedExceptionError, AlreadyExistsExceptionError, EntityNotFoundExceptionError, InternalServiceExceptionError, InvalidInputExceptionError, OperationTimeoutExceptionError, ResourceNumberLimitExceededExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createLakeFormationIdentityCenterConfiguration = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-03-31", uri: "/CreateLakeFormationIdentityCenterConfiguration", method: "POST", sdkId: "LakeFormation", sigV4ServiceName: "lakeformation", name: "AWSLakeFormation.CreateLakeFormationIdentityCenterConfiguration" }, CreateLakeFormationIdentityCenterConfigurationRequest, CreateLakeFormationIdentityCenterConfigurationResponse, [AccessDeniedExceptionError, AlreadyExistsExceptionError, ConcurrentModificationExceptionError, InternalServiceExceptionError, InvalidInputExceptionError, OperationTimeoutExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 export const deleteObjectsOnCancel = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-03-31", uri: "/DeleteObjectsOnCancel", method: "POST", sdkId: "LakeFormation", sigV4ServiceName: "lakeformation", name: "AWSLakeFormation.DeleteObjectsOnCancel" }, DeleteObjectsOnCancelRequest, DeleteObjectsOnCancelResponse, [ConcurrentModificationExceptionError, EntityNotFoundExceptionError, InternalServiceExceptionError, InvalidInputExceptionError, OperationTimeoutExceptionError, ResourceNotReadyExceptionError, TransactionCanceledExceptionError, TransactionCommittedExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 export const describeResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-03-31", uri: "/DescribeResource", method: "POST", sdkId: "LakeFormation", sigV4ServiceName: "lakeformation", name: "AWSLakeFormation.DescribeResource" }, DescribeResourceRequest, DescribeResourceResponse, [EntityNotFoundExceptionError, InternalServiceExceptionError, InvalidInputExceptionError, OperationTimeoutExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 export const describeTransaction = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-03-31", uri: "/DescribeTransaction", method: "POST", sdkId: "LakeFormation", sigV4ServiceName: "lakeformation", name: "AWSLakeFormation.DescribeTransaction" }, DescribeTransactionRequest, DescribeTransactionResponse, [EntityNotFoundExceptionError, InternalServiceExceptionError, InvalidInputExceptionError, OperationTimeoutExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -313,3 +317,4 @@ export const getWorkUnitResults = /*#__PURE__*/ makeOperation(() => Operation({ 
 export const getWorkUnits = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-03-31", uri: "/GetWorkUnits", method: "POST", sdkId: "LakeFormation", sigV4ServiceName: "lakeformation", name: "AWSLakeFormation.GetWorkUnits" }, GetWorkUnitsRequest, GetWorkUnitsResponse, [AccessDeniedExceptionError, ExpiredExceptionError, InternalServiceExceptionError, InvalidInputExceptionError, WorkUnitsNotReadyYetExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 export const startQueryPlanning = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-03-31", uri: "/StartQueryPlanning", method: "POST", sdkId: "LakeFormation", sigV4ServiceName: "lakeformation", name: "AWSLakeFormation.StartQueryPlanning" }, StartQueryPlanningRequest, StartQueryPlanningResponse, [AccessDeniedExceptionError, InternalServiceExceptionError, InvalidInputExceptionError, ThrottledExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 export const updateTableStorageOptimizer = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-03-31", uri: "/UpdateTableStorageOptimizer", method: "POST", sdkId: "LakeFormation", sigV4ServiceName: "lakeformation", name: "AWSLakeFormation.UpdateTableStorageOptimizer" }, UpdateTableStorageOptimizerRequest, UpdateTableStorageOptimizerResponse, [AccessDeniedExceptionError, EntityNotFoundExceptionError, InternalServiceExceptionError, InvalidInputExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const createLakeFormationIdentityCenterConfiguration = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-03-31", uri: "/CreateLakeFormationIdentityCenterConfiguration", method: "POST", sdkId: "LakeFormation", sigV4ServiceName: "lakeformation", name: "AWSLakeFormation.CreateLakeFormationIdentityCenterConfiguration" }, CreateLakeFormationIdentityCenterConfigurationRequest, CreateLakeFormationIdentityCenterConfigurationResponse, [AccessDeniedExceptionError, AlreadyExistsExceptionError, ConcurrentModificationExceptionError, InternalServiceExceptionError, InvalidInputExceptionError, OperationTimeoutExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

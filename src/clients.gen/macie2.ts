@@ -3,381 +3,381 @@ import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperat
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const DescribeOrganizationConfigurationRequest = Schema.Struct({});
-export const DisableMacieRequest = Schema.Struct({});
-export const DisableMacieResponse = Schema.Struct({});
-export const DisassociateFromAdministratorAccountRequest = Schema.Struct({});
-export const DisassociateFromAdministratorAccountResponse = Schema.Struct({});
-export const DisassociateFromMasterAccountRequest = Schema.Struct({});
-export const DisassociateFromMasterAccountResponse = Schema.Struct({});
-export const GetAdministratorAccountRequest = Schema.Struct({});
-export const GetAutomatedDiscoveryConfigurationRequest = Schema.Struct({});
-export const GetClassificationExportConfigurationRequest = Schema.Struct({});
-export const GetFindingsPublicationConfigurationRequest = Schema.Struct({});
-export const GetInvitationsCountRequest = Schema.Struct({});
-export const GetMacieSessionRequest = Schema.Struct({});
-export const GetMasterAccountRequest = Schema.Struct({});
-export const GetRevealConfigurationRequest = Schema.Struct({});
+export class DescribeOrganizationConfigurationRequest extends Schema.Class<DescribeOrganizationConfigurationRequest>("DescribeOrganizationConfigurationRequest")({}) {}
+export class DisableMacieRequest extends Schema.Class<DisableMacieRequest>("DisableMacieRequest")({}) {}
+export class DisableMacieResponse extends Schema.Class<DisableMacieResponse>("DisableMacieResponse")({}) {}
+export class DisassociateFromAdministratorAccountRequest extends Schema.Class<DisassociateFromAdministratorAccountRequest>("DisassociateFromAdministratorAccountRequest")({}) {}
+export class DisassociateFromAdministratorAccountResponse extends Schema.Class<DisassociateFromAdministratorAccountResponse>("DisassociateFromAdministratorAccountResponse")({}) {}
+export class DisassociateFromMasterAccountRequest extends Schema.Class<DisassociateFromMasterAccountRequest>("DisassociateFromMasterAccountRequest")({}) {}
+export class DisassociateFromMasterAccountResponse extends Schema.Class<DisassociateFromMasterAccountResponse>("DisassociateFromMasterAccountResponse")({}) {}
+export class GetAdministratorAccountRequest extends Schema.Class<GetAdministratorAccountRequest>("GetAdministratorAccountRequest")({}) {}
+export class GetAutomatedDiscoveryConfigurationRequest extends Schema.Class<GetAutomatedDiscoveryConfigurationRequest>("GetAutomatedDiscoveryConfigurationRequest")({}) {}
+export class GetClassificationExportConfigurationRequest extends Schema.Class<GetClassificationExportConfigurationRequest>("GetClassificationExportConfigurationRequest")({}) {}
+export class GetFindingsPublicationConfigurationRequest extends Schema.Class<GetFindingsPublicationConfigurationRequest>("GetFindingsPublicationConfigurationRequest")({}) {}
+export class GetInvitationsCountRequest extends Schema.Class<GetInvitationsCountRequest>("GetInvitationsCountRequest")({}) {}
+export class GetMacieSessionRequest extends Schema.Class<GetMacieSessionRequest>("GetMacieSessionRequest")({}) {}
+export class GetMasterAccountRequest extends Schema.Class<GetMasterAccountRequest>("GetMasterAccountRequest")({}) {}
+export class GetRevealConfigurationRequest extends Schema.Class<GetRevealConfigurationRequest>("GetRevealConfigurationRequest")({}) {}
 export const __listOf__string = Schema.Array(Schema.String);
 export const __listOfFindingType = Schema.Array(Schema.String);
-export const AcceptInvitationRequest = Schema.Struct({administratorAccountId: Schema.optional(Schema.String), invitationId: Schema.String, masterAccount: Schema.optional(Schema.String)});
-export const AcceptInvitationResponse = Schema.Struct({});
-export const BatchGetCustomDataIdentifiersRequest = Schema.Struct({ids: Schema.optional(__listOf__string)});
-export const CreateInvitationsRequest = Schema.Struct({accountIds: __listOf__string, disableEmailNotification: Schema.optional(Schema.Boolean), message: Schema.optional(Schema.String)});
-export const CreateSampleFindingsRequest = Schema.Struct({findingTypes: Schema.optional(__listOfFindingType)});
-export const CreateSampleFindingsResponse = Schema.Struct({});
-export const DeclineInvitationsRequest = Schema.Struct({accountIds: __listOf__string});
-export const DeleteAllowListRequest = Schema.Struct({id: Schema.String, ignoreJobChecks: Schema.optional(Schema.String)});
-export const DeleteAllowListResponse = Schema.Struct({});
-export const DeleteCustomDataIdentifierRequest = Schema.Struct({id: Schema.String});
-export const DeleteCustomDataIdentifierResponse = Schema.Struct({});
-export const DeleteFindingsFilterRequest = Schema.Struct({id: Schema.String});
-export const DeleteFindingsFilterResponse = Schema.Struct({});
-export const DeleteInvitationsRequest = Schema.Struct({accountIds: __listOf__string});
-export const DeleteMemberRequest = Schema.Struct({id: Schema.String});
-export const DeleteMemberResponse = Schema.Struct({});
-export const DescribeClassificationJobRequest = Schema.Struct({jobId: Schema.String});
-export const DescribeOrganizationConfigurationResponse = Schema.Struct({autoEnable: Schema.optional(Schema.Boolean), maxAccountLimitReached: Schema.optional(Schema.Boolean)});
-export const AccessDeniedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DisableOrganizationAdminAccountRequest = Schema.Struct({adminAccountId: Schema.String});
-export const DisableOrganizationAdminAccountResponse = Schema.Struct({});
-export const ConflictException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InternalServerException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DisassociateMemberRequest = Schema.Struct({id: Schema.String});
-export const DisassociateMemberResponse = Schema.Struct({});
-export const EnableMacieRequest = Schema.Struct({clientToken: Schema.optional(Schema.String), findingPublishingFrequency: Schema.optional(Schema.String), status: Schema.optional(Schema.String)});
-export const EnableMacieResponse = Schema.Struct({});
-export const EnableOrganizationAdminAccountRequest = Schema.Struct({adminAccountId: Schema.String, clientToken: Schema.optional(Schema.String)});
-export const EnableOrganizationAdminAccountResponse = Schema.Struct({});
-export const GetAllowListRequest = Schema.Struct({id: Schema.String});
-export const GetAutomatedDiscoveryConfigurationResponse = Schema.Struct({autoEnableOrganizationMembers: Schema.optional(Schema.String), classificationScopeId: Schema.optional(Schema.String), disabledAt: Schema.optional(Schema.Date), firstEnabledAt: Schema.optional(Schema.Date), lastUpdatedAt: Schema.optional(Schema.Date), sensitivityInspectionTemplateId: Schema.optional(Schema.String), status: Schema.optional(Schema.String)});
-export const GetBucketStatisticsRequest = Schema.Struct({accountId: Schema.optional(Schema.String)});
-export const GetClassificationScopeRequest = Schema.Struct({id: Schema.String});
-export const GetCustomDataIdentifierRequest = Schema.Struct({id: Schema.String});
-export const GetFindingsFilterRequest = Schema.Struct({id: Schema.String});
-export const GetInvitationsCountResponse = Schema.Struct({invitationsCount: Schema.optional(Schema.Number)});
-export const GetMacieSessionResponse = Schema.Struct({createdAt: Schema.optional(Schema.Date), findingPublishingFrequency: Schema.optional(Schema.String), serviceRole: Schema.optional(Schema.String), status: Schema.optional(Schema.String), updatedAt: Schema.optional(Schema.Date)});
-export const Invitation = Schema.Struct({accountId: Schema.optional(Schema.String), invitationId: Schema.optional(Schema.String), invitedAt: Schema.optional(Schema.Date), relationshipStatus: Schema.optional(Schema.String)});
-export const GetMasterAccountResponse = Schema.Struct({master: Schema.optional(Invitation)});
-export const GetMemberRequest = Schema.Struct({id: Schema.String});
-export const GetResourceProfileRequest = Schema.Struct({resourceArn: Schema.String});
-export const GetSensitiveDataOccurrencesRequest = Schema.Struct({findingId: Schema.String});
-export const GetSensitiveDataOccurrencesAvailabilityRequest = Schema.Struct({findingId: Schema.String});
-export const GetSensitivityInspectionTemplateRequest = Schema.Struct({id: Schema.String});
-export const GetUsageTotalsRequest = Schema.Struct({timeRange: Schema.optional(Schema.String)});
-export const ListAllowListsRequest = Schema.Struct({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListAutomatedDiscoveryAccountsRequest = Schema.Struct({accountIds: Schema.optional(__listOf__string), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListClassificationScopesRequest = Schema.Struct({name: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String)});
-export const ListCustomDataIdentifiersRequest = Schema.Struct({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const CriterionAdditionalProperties = Schema.Struct({eq: Schema.optional(__listOf__string), eqExactMatch: Schema.optional(__listOf__string), gt: Schema.optional(Schema.Number), gte: Schema.optional(Schema.Number), lt: Schema.optional(Schema.Number), lte: Schema.optional(Schema.Number), neq: Schema.optional(__listOf__string)});
+export class AcceptInvitationRequest extends Schema.Class<AcceptInvitationRequest>("AcceptInvitationRequest")({administratorAccountId: Schema.optional(Schema.String), invitationId: Schema.String, masterAccount: Schema.optional(Schema.String)}) {}
+export class AcceptInvitationResponse extends Schema.Class<AcceptInvitationResponse>("AcceptInvitationResponse")({}) {}
+export class BatchGetCustomDataIdentifiersRequest extends Schema.Class<BatchGetCustomDataIdentifiersRequest>("BatchGetCustomDataIdentifiersRequest")({ids: Schema.optional(__listOf__string)}) {}
+export class CreateInvitationsRequest extends Schema.Class<CreateInvitationsRequest>("CreateInvitationsRequest")({accountIds: __listOf__string, disableEmailNotification: Schema.optional(Schema.Boolean), message: Schema.optional(Schema.String)}) {}
+export class CreateSampleFindingsRequest extends Schema.Class<CreateSampleFindingsRequest>("CreateSampleFindingsRequest")({findingTypes: Schema.optional(__listOfFindingType)}) {}
+export class CreateSampleFindingsResponse extends Schema.Class<CreateSampleFindingsResponse>("CreateSampleFindingsResponse")({}) {}
+export class DeclineInvitationsRequest extends Schema.Class<DeclineInvitationsRequest>("DeclineInvitationsRequest")({accountIds: __listOf__string}) {}
+export class DeleteAllowListRequest extends Schema.Class<DeleteAllowListRequest>("DeleteAllowListRequest")({id: Schema.String, ignoreJobChecks: Schema.optional(Schema.String)}) {}
+export class DeleteAllowListResponse extends Schema.Class<DeleteAllowListResponse>("DeleteAllowListResponse")({}) {}
+export class DeleteCustomDataIdentifierRequest extends Schema.Class<DeleteCustomDataIdentifierRequest>("DeleteCustomDataIdentifierRequest")({id: Schema.String}) {}
+export class DeleteCustomDataIdentifierResponse extends Schema.Class<DeleteCustomDataIdentifierResponse>("DeleteCustomDataIdentifierResponse")({}) {}
+export class DeleteFindingsFilterRequest extends Schema.Class<DeleteFindingsFilterRequest>("DeleteFindingsFilterRequest")({id: Schema.String}) {}
+export class DeleteFindingsFilterResponse extends Schema.Class<DeleteFindingsFilterResponse>("DeleteFindingsFilterResponse")({}) {}
+export class DeleteInvitationsRequest extends Schema.Class<DeleteInvitationsRequest>("DeleteInvitationsRequest")({accountIds: __listOf__string}) {}
+export class DeleteMemberRequest extends Schema.Class<DeleteMemberRequest>("DeleteMemberRequest")({id: Schema.String}) {}
+export class DeleteMemberResponse extends Schema.Class<DeleteMemberResponse>("DeleteMemberResponse")({}) {}
+export class DescribeClassificationJobRequest extends Schema.Class<DescribeClassificationJobRequest>("DescribeClassificationJobRequest")({jobId: Schema.String}) {}
+export class DescribeOrganizationConfigurationResponse extends Schema.Class<DescribeOrganizationConfigurationResponse>("DescribeOrganizationConfigurationResponse")({autoEnable: Schema.optional(Schema.Boolean), maxAccountLimitReached: Schema.optional(Schema.Boolean)}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({message: Schema.optional(Schema.String)}) {}
+export class DisableOrganizationAdminAccountRequest extends Schema.Class<DisableOrganizationAdminAccountRequest>("DisableOrganizationAdminAccountRequest")({adminAccountId: Schema.String}) {}
+export class DisableOrganizationAdminAccountResponse extends Schema.Class<DisableOrganizationAdminAccountResponse>("DisableOrganizationAdminAccountResponse")({}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({message: Schema.optional(Schema.String)}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({message: Schema.optional(Schema.String)}) {}
+export class DisassociateMemberRequest extends Schema.Class<DisassociateMemberRequest>("DisassociateMemberRequest")({id: Schema.String}) {}
+export class DisassociateMemberResponse extends Schema.Class<DisassociateMemberResponse>("DisassociateMemberResponse")({}) {}
+export class EnableMacieRequest extends Schema.Class<EnableMacieRequest>("EnableMacieRequest")({clientToken: Schema.optional(Schema.String), findingPublishingFrequency: Schema.optional(Schema.String), status: Schema.optional(Schema.String)}) {}
+export class EnableMacieResponse extends Schema.Class<EnableMacieResponse>("EnableMacieResponse")({}) {}
+export class EnableOrganizationAdminAccountRequest extends Schema.Class<EnableOrganizationAdminAccountRequest>("EnableOrganizationAdminAccountRequest")({adminAccountId: Schema.String, clientToken: Schema.optional(Schema.String)}) {}
+export class EnableOrganizationAdminAccountResponse extends Schema.Class<EnableOrganizationAdminAccountResponse>("EnableOrganizationAdminAccountResponse")({}) {}
+export class GetAllowListRequest extends Schema.Class<GetAllowListRequest>("GetAllowListRequest")({id: Schema.String}) {}
+export class GetAutomatedDiscoveryConfigurationResponse extends Schema.Class<GetAutomatedDiscoveryConfigurationResponse>("GetAutomatedDiscoveryConfigurationResponse")({autoEnableOrganizationMembers: Schema.optional(Schema.String), classificationScopeId: Schema.optional(Schema.String), disabledAt: Schema.optional(Schema.Date), firstEnabledAt: Schema.optional(Schema.Date), lastUpdatedAt: Schema.optional(Schema.Date), sensitivityInspectionTemplateId: Schema.optional(Schema.String), status: Schema.optional(Schema.String)}) {}
+export class GetBucketStatisticsRequest extends Schema.Class<GetBucketStatisticsRequest>("GetBucketStatisticsRequest")({accountId: Schema.optional(Schema.String)}) {}
+export class GetClassificationScopeRequest extends Schema.Class<GetClassificationScopeRequest>("GetClassificationScopeRequest")({id: Schema.String}) {}
+export class GetCustomDataIdentifierRequest extends Schema.Class<GetCustomDataIdentifierRequest>("GetCustomDataIdentifierRequest")({id: Schema.String}) {}
+export class GetFindingsFilterRequest extends Schema.Class<GetFindingsFilterRequest>("GetFindingsFilterRequest")({id: Schema.String}) {}
+export class GetInvitationsCountResponse extends Schema.Class<GetInvitationsCountResponse>("GetInvitationsCountResponse")({invitationsCount: Schema.optional(Schema.Number)}) {}
+export class GetMacieSessionResponse extends Schema.Class<GetMacieSessionResponse>("GetMacieSessionResponse")({createdAt: Schema.optional(Schema.Date), findingPublishingFrequency: Schema.optional(Schema.String), serviceRole: Schema.optional(Schema.String), status: Schema.optional(Schema.String), updatedAt: Schema.optional(Schema.Date)}) {}
+export class Invitation extends Schema.Class<Invitation>("Invitation")({accountId: Schema.optional(Schema.String), invitationId: Schema.optional(Schema.String), invitedAt: Schema.optional(Schema.Date), relationshipStatus: Schema.optional(Schema.String)}) {}
+export class GetMasterAccountResponse extends Schema.Class<GetMasterAccountResponse>("GetMasterAccountResponse")({master: Schema.optional(Invitation)}) {}
+export class GetMemberRequest extends Schema.Class<GetMemberRequest>("GetMemberRequest")({id: Schema.String}) {}
+export class GetResourceProfileRequest extends Schema.Class<GetResourceProfileRequest>("GetResourceProfileRequest")({resourceArn: Schema.String}) {}
+export class GetSensitiveDataOccurrencesRequest extends Schema.Class<GetSensitiveDataOccurrencesRequest>("GetSensitiveDataOccurrencesRequest")({findingId: Schema.String}) {}
+export class GetSensitiveDataOccurrencesAvailabilityRequest extends Schema.Class<GetSensitiveDataOccurrencesAvailabilityRequest>("GetSensitiveDataOccurrencesAvailabilityRequest")({findingId: Schema.String}) {}
+export class GetSensitivityInspectionTemplateRequest extends Schema.Class<GetSensitivityInspectionTemplateRequest>("GetSensitivityInspectionTemplateRequest")({id: Schema.String}) {}
+export class GetUsageTotalsRequest extends Schema.Class<GetUsageTotalsRequest>("GetUsageTotalsRequest")({timeRange: Schema.optional(Schema.String)}) {}
+export class ListAllowListsRequest extends Schema.Class<ListAllowListsRequest>("ListAllowListsRequest")({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListAutomatedDiscoveryAccountsRequest extends Schema.Class<ListAutomatedDiscoveryAccountsRequest>("ListAutomatedDiscoveryAccountsRequest")({accountIds: Schema.optional(__listOf__string), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListClassificationScopesRequest extends Schema.Class<ListClassificationScopesRequest>("ListClassificationScopesRequest")({name: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String)}) {}
+export class ListCustomDataIdentifiersRequest extends Schema.Class<ListCustomDataIdentifiersRequest>("ListCustomDataIdentifiersRequest")({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class CriterionAdditionalProperties extends Schema.Class<CriterionAdditionalProperties>("CriterionAdditionalProperties")({eq: Schema.optional(__listOf__string), eqExactMatch: Schema.optional(__listOf__string), gt: Schema.optional(Schema.Number), gte: Schema.optional(Schema.Number), lt: Schema.optional(Schema.Number), lte: Schema.optional(Schema.Number), neq: Schema.optional(__listOf__string)}) {}
 export const Criterion = Schema.Record({key: Schema.String, value: CriterionAdditionalProperties});
-export const FindingCriteria = Schema.Struct({criterion: Schema.optional(Criterion)});
-export const SortCriteria = Schema.Struct({attributeName: Schema.optional(Schema.String), orderBy: Schema.optional(Schema.String)});
-export const ListFindingsRequest = Schema.Struct({findingCriteria: Schema.optional(FindingCriteria), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String), sortCriteria: Schema.optional(SortCriteria)});
-export const ListFindingsFiltersRequest = Schema.Struct({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListInvitationsRequest = Schema.Struct({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListManagedDataIdentifiersRequest = Schema.Struct({nextToken: Schema.optional(Schema.String)});
-export const ListMembersRequest = Schema.Struct({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String), onlyAssociated: Schema.optional(Schema.String)});
-export const ListOrganizationAdminAccountsRequest = Schema.Struct({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListResourceProfileArtifactsRequest = Schema.Struct({nextToken: Schema.optional(Schema.String), resourceArn: Schema.String});
-export const ListResourceProfileDetectionsRequest = Schema.Struct({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String), resourceArn: Schema.String});
-export const ListSensitivityInspectionTemplatesRequest = Schema.Struct({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceRequest = Schema.Struct({resourceArn: Schema.String});
-export const S3Destination = Schema.Struct({bucketName: Schema.String, keyPrefix: Schema.optional(Schema.String), kmsKeyArn: Schema.String});
-export const ClassificationExportConfiguration = Schema.Struct({s3Destination: Schema.optional(S3Destination)});
-export const PutClassificationExportConfigurationRequest = Schema.Struct({configuration: ClassificationExportConfiguration});
-export const SecurityHubConfiguration = Schema.Struct({publishClassificationFindings: Schema.Boolean, publishPolicyFindings: Schema.Boolean});
-export const PutFindingsPublicationConfigurationRequest = Schema.Struct({clientToken: Schema.optional(Schema.String), securityHubConfiguration: Schema.optional(SecurityHubConfiguration)});
-export const PutFindingsPublicationConfigurationResponse = Schema.Struct({});
+export class FindingCriteria extends Schema.Class<FindingCriteria>("FindingCriteria")({criterion: Schema.optional(Criterion)}) {}
+export class SortCriteria extends Schema.Class<SortCriteria>("SortCriteria")({attributeName: Schema.optional(Schema.String), orderBy: Schema.optional(Schema.String)}) {}
+export class ListFindingsRequest extends Schema.Class<ListFindingsRequest>("ListFindingsRequest")({findingCriteria: Schema.optional(FindingCriteria), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String), sortCriteria: Schema.optional(SortCriteria)}) {}
+export class ListFindingsFiltersRequest extends Schema.Class<ListFindingsFiltersRequest>("ListFindingsFiltersRequest")({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListInvitationsRequest extends Schema.Class<ListInvitationsRequest>("ListInvitationsRequest")({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListManagedDataIdentifiersRequest extends Schema.Class<ListManagedDataIdentifiersRequest>("ListManagedDataIdentifiersRequest")({nextToken: Schema.optional(Schema.String)}) {}
+export class ListMembersRequest extends Schema.Class<ListMembersRequest>("ListMembersRequest")({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String), onlyAssociated: Schema.optional(Schema.String)}) {}
+export class ListOrganizationAdminAccountsRequest extends Schema.Class<ListOrganizationAdminAccountsRequest>("ListOrganizationAdminAccountsRequest")({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListResourceProfileArtifactsRequest extends Schema.Class<ListResourceProfileArtifactsRequest>("ListResourceProfileArtifactsRequest")({nextToken: Schema.optional(Schema.String), resourceArn: Schema.String}) {}
+export class ListResourceProfileDetectionsRequest extends Schema.Class<ListResourceProfileDetectionsRequest>("ListResourceProfileDetectionsRequest")({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String), resourceArn: Schema.String}) {}
+export class ListSensitivityInspectionTemplatesRequest extends Schema.Class<ListSensitivityInspectionTemplatesRequest>("ListSensitivityInspectionTemplatesRequest")({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({resourceArn: Schema.String}) {}
+export class S3Destination extends Schema.Class<S3Destination>("S3Destination")({bucketName: Schema.String, keyPrefix: Schema.optional(Schema.String), kmsKeyArn: Schema.String}) {}
+export class ClassificationExportConfiguration extends Schema.Class<ClassificationExportConfiguration>("ClassificationExportConfiguration")({s3Destination: Schema.optional(S3Destination)}) {}
+export class PutClassificationExportConfigurationRequest extends Schema.Class<PutClassificationExportConfigurationRequest>("PutClassificationExportConfigurationRequest")({configuration: ClassificationExportConfiguration}) {}
+export class SecurityHubConfiguration extends Schema.Class<SecurityHubConfiguration>("SecurityHubConfiguration")({publishClassificationFindings: Schema.Boolean, publishPolicyFindings: Schema.Boolean}) {}
+export class PutFindingsPublicationConfigurationRequest extends Schema.Class<PutFindingsPublicationConfigurationRequest>("PutFindingsPublicationConfigurationRequest")({clientToken: Schema.optional(Schema.String), securityHubConfiguration: Schema.optional(SecurityHubConfiguration)}) {}
+export class PutFindingsPublicationConfigurationResponse extends Schema.Class<PutFindingsPublicationConfigurationResponse>("PutFindingsPublicationConfigurationResponse")({}) {}
 export const TagMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const TagResourceRequest = Schema.Struct({resourceArn: Schema.String, tags: TagMap});
-export const TagResourceResponse = Schema.Struct({});
-export const TestCustomDataIdentifierRequest = Schema.Struct({ignoreWords: Schema.optional(__listOf__string), keywords: Schema.optional(__listOf__string), maximumMatchDistance: Schema.optional(Schema.Number), regex: Schema.String, sampleText: Schema.String});
-export const UntagResourceRequest = Schema.Struct({resourceArn: Schema.String, tagKeys: __listOf__string});
-export const UntagResourceResponse = Schema.Struct({});
-export const S3WordsList = Schema.Struct({bucketName: Schema.String, objectKey: Schema.String});
-export const AllowListCriteria = Schema.Struct({regex: Schema.optional(Schema.String), s3WordsList: Schema.optional(S3WordsList)});
-export const UpdateAllowListRequest = Schema.Struct({criteria: AllowListCriteria, description: Schema.optional(Schema.String), id: Schema.String, name: Schema.String});
-export const UpdateAutomatedDiscoveryConfigurationRequest = Schema.Struct({autoEnableOrganizationMembers: Schema.optional(Schema.String), status: Schema.String});
-export const UpdateAutomatedDiscoveryConfigurationResponse = Schema.Struct({});
-export const UpdateClassificationJobRequest = Schema.Struct({jobId: Schema.String, jobStatus: Schema.String});
-export const UpdateClassificationJobResponse = Schema.Struct({});
-export const UpdateFindingsFilterRequest = Schema.Struct({action: Schema.optional(Schema.String), clientToken: Schema.optional(Schema.String), description: Schema.optional(Schema.String), findingCriteria: Schema.optional(FindingCriteria), id: Schema.String, name: Schema.optional(Schema.String), position: Schema.optional(Schema.Number)});
-export const UpdateMacieSessionRequest = Schema.Struct({findingPublishingFrequency: Schema.optional(Schema.String), status: Schema.optional(Schema.String)});
-export const UpdateMacieSessionResponse = Schema.Struct({});
-export const UpdateMemberSessionRequest = Schema.Struct({id: Schema.String, status: Schema.String});
-export const UpdateMemberSessionResponse = Schema.Struct({});
-export const UpdateOrganizationConfigurationRequest = Schema.Struct({autoEnable: Schema.Boolean});
-export const UpdateOrganizationConfigurationResponse = Schema.Struct({});
-export const UpdateResourceProfileRequest = Schema.Struct({resourceArn: Schema.String, sensitivityScoreOverride: Schema.optional(Schema.Number)});
-export const UpdateResourceProfileResponse = Schema.Struct({});
-export const DailySchedule = Schema.Struct({});
-export const AutomatedDiscoveryAccountUpdate = Schema.Struct({accountId: Schema.optional(Schema.String), status: Schema.optional(Schema.String)});
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({resourceArn: Schema.String, tags: TagMap}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class TestCustomDataIdentifierRequest extends Schema.Class<TestCustomDataIdentifierRequest>("TestCustomDataIdentifierRequest")({ignoreWords: Schema.optional(__listOf__string), keywords: Schema.optional(__listOf__string), maximumMatchDistance: Schema.optional(Schema.Number), regex: Schema.String, sampleText: Schema.String}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({resourceArn: Schema.String, tagKeys: __listOf__string}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class S3WordsList extends Schema.Class<S3WordsList>("S3WordsList")({bucketName: Schema.String, objectKey: Schema.String}) {}
+export class AllowListCriteria extends Schema.Class<AllowListCriteria>("AllowListCriteria")({regex: Schema.optional(Schema.String), s3WordsList: Schema.optional(S3WordsList)}) {}
+export class UpdateAllowListRequest extends Schema.Class<UpdateAllowListRequest>("UpdateAllowListRequest")({criteria: AllowListCriteria, description: Schema.optional(Schema.String), id: Schema.String, name: Schema.String}) {}
+export class UpdateAutomatedDiscoveryConfigurationRequest extends Schema.Class<UpdateAutomatedDiscoveryConfigurationRequest>("UpdateAutomatedDiscoveryConfigurationRequest")({autoEnableOrganizationMembers: Schema.optional(Schema.String), status: Schema.String}) {}
+export class UpdateAutomatedDiscoveryConfigurationResponse extends Schema.Class<UpdateAutomatedDiscoveryConfigurationResponse>("UpdateAutomatedDiscoveryConfigurationResponse")({}) {}
+export class UpdateClassificationJobRequest extends Schema.Class<UpdateClassificationJobRequest>("UpdateClassificationJobRequest")({jobId: Schema.String, jobStatus: Schema.String}) {}
+export class UpdateClassificationJobResponse extends Schema.Class<UpdateClassificationJobResponse>("UpdateClassificationJobResponse")({}) {}
+export class UpdateFindingsFilterRequest extends Schema.Class<UpdateFindingsFilterRequest>("UpdateFindingsFilterRequest")({action: Schema.optional(Schema.String), clientToken: Schema.optional(Schema.String), description: Schema.optional(Schema.String), findingCriteria: Schema.optional(FindingCriteria), id: Schema.String, name: Schema.optional(Schema.String), position: Schema.optional(Schema.Number)}) {}
+export class UpdateMacieSessionRequest extends Schema.Class<UpdateMacieSessionRequest>("UpdateMacieSessionRequest")({findingPublishingFrequency: Schema.optional(Schema.String), status: Schema.optional(Schema.String)}) {}
+export class UpdateMacieSessionResponse extends Schema.Class<UpdateMacieSessionResponse>("UpdateMacieSessionResponse")({}) {}
+export class UpdateMemberSessionRequest extends Schema.Class<UpdateMemberSessionRequest>("UpdateMemberSessionRequest")({id: Schema.String, status: Schema.String}) {}
+export class UpdateMemberSessionResponse extends Schema.Class<UpdateMemberSessionResponse>("UpdateMemberSessionResponse")({}) {}
+export class UpdateOrganizationConfigurationRequest extends Schema.Class<UpdateOrganizationConfigurationRequest>("UpdateOrganizationConfigurationRequest")({autoEnable: Schema.Boolean}) {}
+export class UpdateOrganizationConfigurationResponse extends Schema.Class<UpdateOrganizationConfigurationResponse>("UpdateOrganizationConfigurationResponse")({}) {}
+export class UpdateResourceProfileRequest extends Schema.Class<UpdateResourceProfileRequest>("UpdateResourceProfileRequest")({resourceArn: Schema.String, sensitivityScoreOverride: Schema.optional(Schema.Number)}) {}
+export class UpdateResourceProfileResponse extends Schema.Class<UpdateResourceProfileResponse>("UpdateResourceProfileResponse")({}) {}
+export class DailySchedule extends Schema.Class<DailySchedule>("DailySchedule")({}) {}
+export class AutomatedDiscoveryAccountUpdate extends Schema.Class<AutomatedDiscoveryAccountUpdate>("AutomatedDiscoveryAccountUpdate")({accountId: Schema.optional(Schema.String), status: Schema.optional(Schema.String)}) {}
 export const __listOfAutomatedDiscoveryAccountUpdate = Schema.Array(AutomatedDiscoveryAccountUpdate);
-export const SeverityLevel = Schema.Struct({occurrencesThreshold: Schema.Number, severity: Schema.String});
+export class SeverityLevel extends Schema.Class<SeverityLevel>("SeverityLevel")({occurrencesThreshold: Schema.Number, severity: Schema.String}) {}
 export const SeverityLevelList = Schema.Array(SeverityLevel);
-export const AccountDetail = Schema.Struct({accountId: Schema.String, email: Schema.String});
-export const BucketSortCriteria = Schema.Struct({attributeName: Schema.optional(Schema.String), orderBy: Schema.optional(Schema.String)});
-export const FindingStatisticsSortCriteria = Schema.Struct({attributeName: Schema.optional(Schema.String), orderBy: Schema.optional(Schema.String)});
-export const RevealConfiguration = Schema.Struct({kmsKeyId: Schema.optional(Schema.String), status: Schema.String});
-export const RetrievalConfiguration = Schema.Struct({externalId: Schema.optional(Schema.String), retrievalMode: Schema.String, roleName: Schema.optional(Schema.String)});
+export class AccountDetail extends Schema.Class<AccountDetail>("AccountDetail")({accountId: Schema.String, email: Schema.String}) {}
+export class BucketSortCriteria extends Schema.Class<BucketSortCriteria>("BucketSortCriteria")({attributeName: Schema.optional(Schema.String), orderBy: Schema.optional(Schema.String)}) {}
+export class FindingStatisticsSortCriteria extends Schema.Class<FindingStatisticsSortCriteria>("FindingStatisticsSortCriteria")({attributeName: Schema.optional(Schema.String), orderBy: Schema.optional(Schema.String)}) {}
+export class RevealConfiguration extends Schema.Class<RevealConfiguration>("RevealConfiguration")({kmsKeyId: Schema.optional(Schema.String), status: Schema.String}) {}
+export class RetrievalConfiguration extends Schema.Class<RetrievalConfiguration>("RetrievalConfiguration")({externalId: Schema.optional(Schema.String), retrievalMode: Schema.String, roleName: Schema.optional(Schema.String)}) {}
 export const __listOfUnavailabilityReasonCode = Schema.Array(Schema.String);
-export const UsageStatisticsFilter = Schema.Struct({comparator: Schema.optional(Schema.String), key: Schema.optional(Schema.String), values: Schema.optional(__listOf__string)});
+export class UsageStatisticsFilter extends Schema.Class<UsageStatisticsFilter>("UsageStatisticsFilter")({comparator: Schema.optional(Schema.String), key: Schema.optional(Schema.String), values: Schema.optional(__listOf__string)}) {}
 export const __listOfUsageStatisticsFilter = Schema.Array(UsageStatisticsFilter);
-export const UsageStatisticsSortBy = Schema.Struct({key: Schema.optional(Schema.String), orderBy: Schema.optional(Schema.String)});
-export const ListJobsSortCriteria = Schema.Struct({attributeName: Schema.optional(Schema.String), orderBy: Schema.optional(Schema.String)});
+export class UsageStatisticsSortBy extends Schema.Class<UsageStatisticsSortBy>("UsageStatisticsSortBy")({key: Schema.optional(Schema.String), orderBy: Schema.optional(Schema.String)}) {}
+export class ListJobsSortCriteria extends Schema.Class<ListJobsSortCriteria>("ListJobsSortCriteria")({attributeName: Schema.optional(Schema.String), orderBy: Schema.optional(Schema.String)}) {}
 export const __listOfInvitation = Schema.Array(Invitation);
-export const SearchResourcesSortCriteria = Schema.Struct({attributeName: Schema.optional(Schema.String), orderBy: Schema.optional(Schema.String)});
-export const SuppressDataIdentifier = Schema.Struct({id: Schema.optional(Schema.String), type: Schema.optional(Schema.String)});
+export class SearchResourcesSortCriteria extends Schema.Class<SearchResourcesSortCriteria>("SearchResourcesSortCriteria")({attributeName: Schema.optional(Schema.String), orderBy: Schema.optional(Schema.String)}) {}
+export class SuppressDataIdentifier extends Schema.Class<SuppressDataIdentifier>("SuppressDataIdentifier")({id: Schema.optional(Schema.String), type: Schema.optional(Schema.String)}) {}
 export const __listOfSuppressDataIdentifier = Schema.Array(SuppressDataIdentifier);
-export const UpdateRetrievalConfiguration = Schema.Struct({retrievalMode: Schema.String, roleName: Schema.optional(Schema.String)});
-export const SensitivityInspectionTemplateExcludes = Schema.Struct({managedDataIdentifierIds: Schema.optional(__listOf__string)});
-export const SensitivityInspectionTemplateIncludes = Schema.Struct({allowListIds: Schema.optional(__listOf__string), customDataIdentifierIds: Schema.optional(__listOf__string), managedDataIdentifierIds: Schema.optional(__listOf__string)});
+export class UpdateRetrievalConfiguration extends Schema.Class<UpdateRetrievalConfiguration>("UpdateRetrievalConfiguration")({retrievalMode: Schema.String, roleName: Schema.optional(Schema.String)}) {}
+export class SensitivityInspectionTemplateExcludes extends Schema.Class<SensitivityInspectionTemplateExcludes>("SensitivityInspectionTemplateExcludes")({managedDataIdentifierIds: Schema.optional(__listOf__string)}) {}
+export class SensitivityInspectionTemplateIncludes extends Schema.Class<SensitivityInspectionTemplateIncludes>("SensitivityInspectionTemplateIncludes")({allowListIds: Schema.optional(__listOf__string), customDataIdentifierIds: Schema.optional(__listOf__string), managedDataIdentifierIds: Schema.optional(__listOf__string)}) {}
 export const __listOfS3BucketName = Schema.Array(Schema.String);
-export const ResourceNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const BatchUpdateAutomatedDiscoveryAccountsRequest = Schema.Struct({accounts: Schema.optional(__listOfAutomatedDiscoveryAccountUpdate)});
-export const CreateCustomDataIdentifierRequest = Schema.Struct({clientToken: Schema.optional(Schema.String), description: Schema.optional(Schema.String), ignoreWords: Schema.optional(__listOf__string), keywords: Schema.optional(__listOf__string), maximumMatchDistance: Schema.optional(Schema.Number), name: Schema.String, regex: Schema.String, severityLevels: Schema.optional(SeverityLevelList), tags: Schema.optional(TagMap)});
-export const CreateMemberRequest = Schema.Struct({account: AccountDetail, tags: Schema.optional(TagMap)});
-export const ServiceQuotaExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UnprocessedAccount = Schema.Struct({accountId: Schema.optional(Schema.String), errorCode: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String)});
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class BatchUpdateAutomatedDiscoveryAccountsRequest extends Schema.Class<BatchUpdateAutomatedDiscoveryAccountsRequest>("BatchUpdateAutomatedDiscoveryAccountsRequest")({accounts: Schema.optional(__listOfAutomatedDiscoveryAccountUpdate)}) {}
+export class CreateCustomDataIdentifierRequest extends Schema.Class<CreateCustomDataIdentifierRequest>("CreateCustomDataIdentifierRequest")({clientToken: Schema.optional(Schema.String), description: Schema.optional(Schema.String), ignoreWords: Schema.optional(__listOf__string), keywords: Schema.optional(__listOf__string), maximumMatchDistance: Schema.optional(Schema.Number), name: Schema.String, regex: Schema.String, severityLevels: Schema.optional(SeverityLevelList), tags: Schema.optional(TagMap)}) {}
+export class CreateMemberRequest extends Schema.Class<CreateMemberRequest>("CreateMemberRequest")({account: AccountDetail, tags: Schema.optional(TagMap)}) {}
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({message: Schema.optional(Schema.String)}) {}
+export class UnprocessedAccount extends Schema.Class<UnprocessedAccount>("UnprocessedAccount")({accountId: Schema.optional(Schema.String), errorCode: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String)}) {}
 export const __listOfUnprocessedAccount = Schema.Array(UnprocessedAccount);
-export const DeclineInvitationsResponse = Schema.Struct({unprocessedAccounts: Schema.optional(__listOfUnprocessedAccount)});
-export const ThrottlingException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ValidationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DeleteInvitationsResponse = Schema.Struct({unprocessedAccounts: Schema.optional(__listOfUnprocessedAccount)});
-export const GetAdministratorAccountResponse = Schema.Struct({administrator: Schema.optional(Invitation)});
-export const GetCustomDataIdentifierResponse = Schema.Struct({arn: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date), deleted: Schema.optional(Schema.Boolean), description: Schema.optional(Schema.String), id: Schema.optional(Schema.String), ignoreWords: Schema.optional(__listOf__string), keywords: Schema.optional(__listOf__string), maximumMatchDistance: Schema.optional(Schema.Number), name: Schema.optional(Schema.String), regex: Schema.optional(Schema.String), severityLevels: Schema.optional(SeverityLevelList), tags: Schema.optional(TagMap)});
-export const GetFindingsRequest = Schema.Struct({findingIds: __listOf__string, sortCriteria: Schema.optional(SortCriteria)});
-export const GetFindingsFilterResponse = Schema.Struct({action: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), description: Schema.optional(Schema.String), findingCriteria: Schema.optional(FindingCriteria), id: Schema.optional(Schema.String), name: Schema.optional(Schema.String), position: Schema.optional(Schema.Number), tags: Schema.optional(TagMap)});
-export const GetFindingsPublicationConfigurationResponse = Schema.Struct({securityHubConfiguration: Schema.optional(SecurityHubConfiguration)});
-export const GetFindingStatisticsRequest = Schema.Struct({findingCriteria: Schema.optional(FindingCriteria), groupBy: Schema.String, size: Schema.optional(Schema.Number), sortCriteria: Schema.optional(FindingStatisticsSortCriteria)});
-export const GetMemberResponse = Schema.Struct({accountId: Schema.optional(Schema.String), administratorAccountId: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), email: Schema.optional(Schema.String), invitedAt: Schema.optional(Schema.Date), masterAccountId: Schema.optional(Schema.String), relationshipStatus: Schema.optional(Schema.String), tags: Schema.optional(TagMap), updatedAt: Schema.optional(Schema.Date)});
-export const GetRevealConfigurationResponse = Schema.Struct({configuration: Schema.optional(RevealConfiguration), retrievalConfiguration: Schema.optional(RetrievalConfiguration)});
-export const GetSensitiveDataOccurrencesAvailabilityResponse = Schema.Struct({code: Schema.optional(Schema.String), reasons: Schema.optional(__listOfUnavailabilityReasonCode)});
-export const GetSensitivityInspectionTemplateResponse = Schema.Struct({description: Schema.optional(Schema.String), excludes: Schema.optional(SensitivityInspectionTemplateExcludes), includes: Schema.optional(SensitivityInspectionTemplateIncludes), name: Schema.optional(Schema.String), sensitivityInspectionTemplateId: Schema.optional(Schema.String)});
-export const GetUsageStatisticsRequest = Schema.Struct({filterBy: Schema.optional(__listOfUsageStatisticsFilter), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String), sortBy: Schema.optional(UsageStatisticsSortBy), timeRange: Schema.optional(Schema.String)});
-export const ListFindingsResponse = Schema.Struct({findingIds: Schema.optional(__listOf__string), nextToken: Schema.optional(Schema.String)});
-export const ListInvitationsResponse = Schema.Struct({invitations: Schema.optional(__listOfInvitation), nextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceResponse = Schema.Struct({tags: Schema.optional(TagMap)});
-export const PutClassificationExportConfigurationResponse = Schema.Struct({configuration: Schema.optional(ClassificationExportConfiguration)});
-export const TestCustomDataIdentifierResponse = Schema.Struct({matchCount: Schema.optional(Schema.Number)});
-export const UpdateAllowListResponse = Schema.Struct({arn: Schema.optional(Schema.String), id: Schema.optional(Schema.String)});
-export const UpdateFindingsFilterResponse = Schema.Struct({arn: Schema.optional(Schema.String), id: Schema.optional(Schema.String)});
-export const UpdateResourceProfileDetectionsRequest = Schema.Struct({resourceArn: Schema.String, suppressDataIdentifiers: Schema.optional(__listOfSuppressDataIdentifier)});
-export const UpdateResourceProfileDetectionsResponse = Schema.Struct({});
-export const UpdateRevealConfigurationRequest = Schema.Struct({configuration: RevealConfiguration, retrievalConfiguration: Schema.optional(UpdateRetrievalConfiguration)});
-export const UpdateSensitivityInspectionTemplateRequest = Schema.Struct({description: Schema.optional(Schema.String), excludes: Schema.optional(SensitivityInspectionTemplateExcludes), id: Schema.String, includes: Schema.optional(SensitivityInspectionTemplateIncludes)});
-export const UpdateSensitivityInspectionTemplateResponse = Schema.Struct({});
-export const S3BucketDefinitionForJob = Schema.Struct({accountId: Schema.String, buckets: __listOf__string});
+export class DeclineInvitationsResponse extends Schema.Class<DeclineInvitationsResponse>("DeclineInvitationsResponse")({unprocessedAccounts: Schema.optional(__listOfUnprocessedAccount)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({message: Schema.optional(Schema.String)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({message: Schema.optional(Schema.String)}) {}
+export class DeleteInvitationsResponse extends Schema.Class<DeleteInvitationsResponse>("DeleteInvitationsResponse")({unprocessedAccounts: Schema.optional(__listOfUnprocessedAccount)}) {}
+export class GetAdministratorAccountResponse extends Schema.Class<GetAdministratorAccountResponse>("GetAdministratorAccountResponse")({administrator: Schema.optional(Invitation)}) {}
+export class GetCustomDataIdentifierResponse extends Schema.Class<GetCustomDataIdentifierResponse>("GetCustomDataIdentifierResponse")({arn: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date), deleted: Schema.optional(Schema.Boolean), description: Schema.optional(Schema.String), id: Schema.optional(Schema.String), ignoreWords: Schema.optional(__listOf__string), keywords: Schema.optional(__listOf__string), maximumMatchDistance: Schema.optional(Schema.Number), name: Schema.optional(Schema.String), regex: Schema.optional(Schema.String), severityLevels: Schema.optional(SeverityLevelList), tags: Schema.optional(TagMap)}) {}
+export class GetFindingsRequest extends Schema.Class<GetFindingsRequest>("GetFindingsRequest")({findingIds: __listOf__string, sortCriteria: Schema.optional(SortCriteria)}) {}
+export class GetFindingsFilterResponse extends Schema.Class<GetFindingsFilterResponse>("GetFindingsFilterResponse")({action: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), description: Schema.optional(Schema.String), findingCriteria: Schema.optional(FindingCriteria), id: Schema.optional(Schema.String), name: Schema.optional(Schema.String), position: Schema.optional(Schema.Number), tags: Schema.optional(TagMap)}) {}
+export class GetFindingsPublicationConfigurationResponse extends Schema.Class<GetFindingsPublicationConfigurationResponse>("GetFindingsPublicationConfigurationResponse")({securityHubConfiguration: Schema.optional(SecurityHubConfiguration)}) {}
+export class GetFindingStatisticsRequest extends Schema.Class<GetFindingStatisticsRequest>("GetFindingStatisticsRequest")({findingCriteria: Schema.optional(FindingCriteria), groupBy: Schema.String, size: Schema.optional(Schema.Number), sortCriteria: Schema.optional(FindingStatisticsSortCriteria)}) {}
+export class GetMemberResponse extends Schema.Class<GetMemberResponse>("GetMemberResponse")({accountId: Schema.optional(Schema.String), administratorAccountId: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), email: Schema.optional(Schema.String), invitedAt: Schema.optional(Schema.Date), masterAccountId: Schema.optional(Schema.String), relationshipStatus: Schema.optional(Schema.String), tags: Schema.optional(TagMap), updatedAt: Schema.optional(Schema.Date)}) {}
+export class GetRevealConfigurationResponse extends Schema.Class<GetRevealConfigurationResponse>("GetRevealConfigurationResponse")({configuration: Schema.optional(RevealConfiguration), retrievalConfiguration: Schema.optional(RetrievalConfiguration)}) {}
+export class GetSensitiveDataOccurrencesAvailabilityResponse extends Schema.Class<GetSensitiveDataOccurrencesAvailabilityResponse>("GetSensitiveDataOccurrencesAvailabilityResponse")({code: Schema.optional(Schema.String), reasons: Schema.optional(__listOfUnavailabilityReasonCode)}) {}
+export class GetSensitivityInspectionTemplateResponse extends Schema.Class<GetSensitivityInspectionTemplateResponse>("GetSensitivityInspectionTemplateResponse")({description: Schema.optional(Schema.String), excludes: Schema.optional(SensitivityInspectionTemplateExcludes), includes: Schema.optional(SensitivityInspectionTemplateIncludes), name: Schema.optional(Schema.String), sensitivityInspectionTemplateId: Schema.optional(Schema.String)}) {}
+export class GetUsageStatisticsRequest extends Schema.Class<GetUsageStatisticsRequest>("GetUsageStatisticsRequest")({filterBy: Schema.optional(__listOfUsageStatisticsFilter), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String), sortBy: Schema.optional(UsageStatisticsSortBy), timeRange: Schema.optional(Schema.String)}) {}
+export class ListFindingsResponse extends Schema.Class<ListFindingsResponse>("ListFindingsResponse")({findingIds: Schema.optional(__listOf__string), nextToken: Schema.optional(Schema.String)}) {}
+export class ListInvitationsResponse extends Schema.Class<ListInvitationsResponse>("ListInvitationsResponse")({invitations: Schema.optional(__listOfInvitation), nextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({tags: Schema.optional(TagMap)}) {}
+export class PutClassificationExportConfigurationResponse extends Schema.Class<PutClassificationExportConfigurationResponse>("PutClassificationExportConfigurationResponse")({configuration: Schema.optional(ClassificationExportConfiguration)}) {}
+export class TestCustomDataIdentifierResponse extends Schema.Class<TestCustomDataIdentifierResponse>("TestCustomDataIdentifierResponse")({matchCount: Schema.optional(Schema.Number)}) {}
+export class UpdateAllowListResponse extends Schema.Class<UpdateAllowListResponse>("UpdateAllowListResponse")({arn: Schema.optional(Schema.String), id: Schema.optional(Schema.String)}) {}
+export class UpdateFindingsFilterResponse extends Schema.Class<UpdateFindingsFilterResponse>("UpdateFindingsFilterResponse")({arn: Schema.optional(Schema.String), id: Schema.optional(Schema.String)}) {}
+export class UpdateResourceProfileDetectionsRequest extends Schema.Class<UpdateResourceProfileDetectionsRequest>("UpdateResourceProfileDetectionsRequest")({resourceArn: Schema.String, suppressDataIdentifiers: Schema.optional(__listOfSuppressDataIdentifier)}) {}
+export class UpdateResourceProfileDetectionsResponse extends Schema.Class<UpdateResourceProfileDetectionsResponse>("UpdateResourceProfileDetectionsResponse")({}) {}
+export class UpdateRevealConfigurationRequest extends Schema.Class<UpdateRevealConfigurationRequest>("UpdateRevealConfigurationRequest")({configuration: RevealConfiguration, retrievalConfiguration: Schema.optional(UpdateRetrievalConfiguration)}) {}
+export class UpdateSensitivityInspectionTemplateRequest extends Schema.Class<UpdateSensitivityInspectionTemplateRequest>("UpdateSensitivityInspectionTemplateRequest")({description: Schema.optional(Schema.String), excludes: Schema.optional(SensitivityInspectionTemplateExcludes), id: Schema.String, includes: Schema.optional(SensitivityInspectionTemplateIncludes)}) {}
+export class UpdateSensitivityInspectionTemplateResponse extends Schema.Class<UpdateSensitivityInspectionTemplateResponse>("UpdateSensitivityInspectionTemplateResponse")({}) {}
+export class S3BucketDefinitionForJob extends Schema.Class<S3BucketDefinitionForJob>("S3BucketDefinitionForJob")({accountId: Schema.String, buckets: __listOf__string}) {}
 export const __listOfS3BucketDefinitionForJob = Schema.Array(S3BucketDefinitionForJob);
-export const MonthlySchedule = Schema.Struct({dayOfMonth: Schema.optional(Schema.Number)});
-export const WeeklySchedule = Schema.Struct({dayOfWeek: Schema.optional(Schema.String)});
-export const BucketCriteriaAdditionalProperties = Schema.Struct({eq: Schema.optional(__listOf__string), gt: Schema.optional(Schema.Number), gte: Schema.optional(Schema.Number), lt: Schema.optional(Schema.Number), lte: Schema.optional(Schema.Number), neq: Schema.optional(__listOf__string), prefix: Schema.optional(Schema.String)});
-export const ListJobsFilterTerm = Schema.Struct({comparator: Schema.optional(Schema.String), key: Schema.optional(Schema.String), values: Schema.optional(__listOf__string)});
+export class MonthlySchedule extends Schema.Class<MonthlySchedule>("MonthlySchedule")({dayOfMonth: Schema.optional(Schema.Number)}) {}
+export class WeeklySchedule extends Schema.Class<WeeklySchedule>("WeeklySchedule")({dayOfWeek: Schema.optional(Schema.String)}) {}
+export class BucketCriteriaAdditionalProperties extends Schema.Class<BucketCriteriaAdditionalProperties>("BucketCriteriaAdditionalProperties")({eq: Schema.optional(__listOf__string), gt: Schema.optional(Schema.Number), gte: Schema.optional(Schema.Number), lt: Schema.optional(Schema.Number), lte: Schema.optional(Schema.Number), neq: Schema.optional(__listOf__string), prefix: Schema.optional(Schema.String)}) {}
+export class ListJobsFilterTerm extends Schema.Class<ListJobsFilterTerm>("ListJobsFilterTerm")({comparator: Schema.optional(Schema.String), key: Schema.optional(Schema.String), values: Schema.optional(__listOf__string)}) {}
 export const __listOfListJobsFilterTerm = Schema.Array(ListJobsFilterTerm);
-export const S3ClassificationScopeExclusionUpdate = Schema.Struct({bucketNames: __listOfS3BucketName, operation: Schema.String});
-export const BatchGetCustomDataIdentifierSummary = Schema.Struct({arn: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date), deleted: Schema.optional(Schema.Boolean), description: Schema.optional(Schema.String), id: Schema.optional(Schema.String), name: Schema.optional(Schema.String)});
+export class S3ClassificationScopeExclusionUpdate extends Schema.Class<S3ClassificationScopeExclusionUpdate>("S3ClassificationScopeExclusionUpdate")({bucketNames: __listOfS3BucketName, operation: Schema.String}) {}
+export class BatchGetCustomDataIdentifierSummary extends Schema.Class<BatchGetCustomDataIdentifierSummary>("BatchGetCustomDataIdentifierSummary")({arn: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date), deleted: Schema.optional(Schema.Boolean), description: Schema.optional(Schema.String), id: Schema.optional(Schema.String), name: Schema.optional(Schema.String)}) {}
 export const __listOfBatchGetCustomDataIdentifierSummary = Schema.Array(BatchGetCustomDataIdentifierSummary);
-export const JobScheduleFrequency = Schema.Struct({dailySchedule: Schema.optional(DailySchedule), monthlySchedule: Schema.optional(MonthlySchedule), weeklySchedule: Schema.optional(WeeklySchedule)});
+export class JobScheduleFrequency extends Schema.Class<JobScheduleFrequency>("JobScheduleFrequency")({dailySchedule: Schema.optional(DailySchedule), monthlySchedule: Schema.optional(MonthlySchedule), weeklySchedule: Schema.optional(WeeklySchedule)}) {}
 export const BucketCriteria = Schema.Record({key: Schema.String, value: BucketCriteriaAdditionalProperties});
-export const LastRunErrorStatus = Schema.Struct({code: Schema.optional(Schema.String)});
-export const Statistics = Schema.Struct({approximateNumberOfObjectsToProcess: Schema.optional(Schema.Number), numberOfRuns: Schema.optional(Schema.Number)});
-export const UserPausedDetails = Schema.Struct({jobExpiresAt: Schema.optional(Schema.Date), jobImminentExpirationHealthEventArn: Schema.optional(Schema.String), jobPausedAt: Schema.optional(Schema.Date)});
-export const AllowListStatus = Schema.Struct({code: Schema.String, description: Schema.optional(Schema.String)});
-export const BucketCountByEffectivePermission = Schema.Struct({publiclyAccessible: Schema.optional(Schema.Number), publiclyReadable: Schema.optional(Schema.Number), publiclyWritable: Schema.optional(Schema.Number), unknown: Schema.optional(Schema.Number)});
-export const BucketCountByEncryptionType = Schema.Struct({kmsManaged: Schema.optional(Schema.Number), s3Managed: Schema.optional(Schema.Number), unencrypted: Schema.optional(Schema.Number), unknown: Schema.optional(Schema.Number)});
-export const BucketCountPolicyAllowsUnencryptedObjectUploads = Schema.Struct({allowsUnencryptedObjectUploads: Schema.optional(Schema.Number), deniesUnencryptedObjectUploads: Schema.optional(Schema.Number), unknown: Schema.optional(Schema.Number)});
-export const BucketCountBySharedAccessType = Schema.Struct({external: Schema.optional(Schema.Number), internal: Schema.optional(Schema.Number), notShared: Schema.optional(Schema.Number), unknown: Schema.optional(Schema.Number)});
-export const ObjectLevelStatistics = Schema.Struct({fileType: Schema.optional(Schema.Number), storageClass: Schema.optional(Schema.Number), total: Schema.optional(Schema.Number)});
-export const ResourceStatistics = Schema.Struct({totalBytesClassified: Schema.optional(Schema.Number), totalDetections: Schema.optional(Schema.Number), totalDetectionsSuppressed: Schema.optional(Schema.Number), totalItemsClassified: Schema.optional(Schema.Number), totalItemsSensitive: Schema.optional(Schema.Number), totalItemsSkipped: Schema.optional(Schema.Number), totalItemsSkippedInvalidEncryption: Schema.optional(Schema.Number), totalItemsSkippedInvalidKms: Schema.optional(Schema.Number), totalItemsSkippedPermissionDenied: Schema.optional(Schema.Number)});
-export const UsageTotal = Schema.Struct({currency: Schema.optional(Schema.String), estimatedCost: Schema.optional(Schema.String), type: Schema.optional(Schema.String)});
+export class LastRunErrorStatus extends Schema.Class<LastRunErrorStatus>("LastRunErrorStatus")({code: Schema.optional(Schema.String)}) {}
+export class Statistics extends Schema.Class<Statistics>("Statistics")({approximateNumberOfObjectsToProcess: Schema.optional(Schema.Number), numberOfRuns: Schema.optional(Schema.Number)}) {}
+export class UserPausedDetails extends Schema.Class<UserPausedDetails>("UserPausedDetails")({jobExpiresAt: Schema.optional(Schema.Date), jobImminentExpirationHealthEventArn: Schema.optional(Schema.String), jobPausedAt: Schema.optional(Schema.Date)}) {}
+export class AllowListStatus extends Schema.Class<AllowListStatus>("AllowListStatus")({code: Schema.String, description: Schema.optional(Schema.String)}) {}
+export class BucketCountByEffectivePermission extends Schema.Class<BucketCountByEffectivePermission>("BucketCountByEffectivePermission")({publiclyAccessible: Schema.optional(Schema.Number), publiclyReadable: Schema.optional(Schema.Number), publiclyWritable: Schema.optional(Schema.Number), unknown: Schema.optional(Schema.Number)}) {}
+export class BucketCountByEncryptionType extends Schema.Class<BucketCountByEncryptionType>("BucketCountByEncryptionType")({kmsManaged: Schema.optional(Schema.Number), s3Managed: Schema.optional(Schema.Number), unencrypted: Schema.optional(Schema.Number), unknown: Schema.optional(Schema.Number)}) {}
+export class BucketCountPolicyAllowsUnencryptedObjectUploads extends Schema.Class<BucketCountPolicyAllowsUnencryptedObjectUploads>("BucketCountPolicyAllowsUnencryptedObjectUploads")({allowsUnencryptedObjectUploads: Schema.optional(Schema.Number), deniesUnencryptedObjectUploads: Schema.optional(Schema.Number), unknown: Schema.optional(Schema.Number)}) {}
+export class BucketCountBySharedAccessType extends Schema.Class<BucketCountBySharedAccessType>("BucketCountBySharedAccessType")({external: Schema.optional(Schema.Number), internal: Schema.optional(Schema.Number), notShared: Schema.optional(Schema.Number), unknown: Schema.optional(Schema.Number)}) {}
+export class ObjectLevelStatistics extends Schema.Class<ObjectLevelStatistics>("ObjectLevelStatistics")({fileType: Schema.optional(Schema.Number), storageClass: Schema.optional(Schema.Number), total: Schema.optional(Schema.Number)}) {}
+export class ResourceStatistics extends Schema.Class<ResourceStatistics>("ResourceStatistics")({totalBytesClassified: Schema.optional(Schema.Number), totalDetections: Schema.optional(Schema.Number), totalDetectionsSuppressed: Schema.optional(Schema.Number), totalItemsClassified: Schema.optional(Schema.Number), totalItemsSensitive: Schema.optional(Schema.Number), totalItemsSkipped: Schema.optional(Schema.Number), totalItemsSkippedInvalidEncryption: Schema.optional(Schema.Number), totalItemsSkippedInvalidKms: Schema.optional(Schema.Number), totalItemsSkippedPermissionDenied: Schema.optional(Schema.Number)}) {}
+export class UsageTotal extends Schema.Class<UsageTotal>("UsageTotal")({currency: Schema.optional(Schema.String), estimatedCost: Schema.optional(Schema.String), type: Schema.optional(Schema.String)}) {}
 export const __listOfUsageTotal = Schema.Array(UsageTotal);
-export const AllowListSummary = Schema.Struct({arn: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date), description: Schema.optional(Schema.String), id: Schema.optional(Schema.String), name: Schema.optional(Schema.String), updatedAt: Schema.optional(Schema.Date)});
+export class AllowListSummary extends Schema.Class<AllowListSummary>("AllowListSummary")({arn: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date), description: Schema.optional(Schema.String), id: Schema.optional(Schema.String), name: Schema.optional(Schema.String), updatedAt: Schema.optional(Schema.Date)}) {}
 export const __listOfAllowListSummary = Schema.Array(AllowListSummary);
-export const AutomatedDiscoveryAccount = Schema.Struct({accountId: Schema.optional(Schema.String), status: Schema.optional(Schema.String)});
+export class AutomatedDiscoveryAccount extends Schema.Class<AutomatedDiscoveryAccount>("AutomatedDiscoveryAccount")({accountId: Schema.optional(Schema.String), status: Schema.optional(Schema.String)}) {}
 export const __listOfAutomatedDiscoveryAccount = Schema.Array(AutomatedDiscoveryAccount);
-export const ListJobsFilterCriteria = Schema.Struct({excludes: Schema.optional(__listOfListJobsFilterTerm), includes: Schema.optional(__listOfListJobsFilterTerm)});
-export const ClassificationScopeSummary = Schema.Struct({id: Schema.optional(Schema.String), name: Schema.optional(Schema.String)});
+export class ListJobsFilterCriteria extends Schema.Class<ListJobsFilterCriteria>("ListJobsFilterCriteria")({excludes: Schema.optional(__listOfListJobsFilterTerm), includes: Schema.optional(__listOfListJobsFilterTerm)}) {}
+export class ClassificationScopeSummary extends Schema.Class<ClassificationScopeSummary>("ClassificationScopeSummary")({id: Schema.optional(Schema.String), name: Schema.optional(Schema.String)}) {}
 export const __listOfClassificationScopeSummary = Schema.Array(ClassificationScopeSummary);
-export const CustomDataIdentifierSummary = Schema.Struct({arn: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date), description: Schema.optional(Schema.String), id: Schema.optional(Schema.String), name: Schema.optional(Schema.String)});
+export class CustomDataIdentifierSummary extends Schema.Class<CustomDataIdentifierSummary>("CustomDataIdentifierSummary")({arn: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date), description: Schema.optional(Schema.String), id: Schema.optional(Schema.String), name: Schema.optional(Schema.String)}) {}
 export const __listOfCustomDataIdentifierSummary = Schema.Array(CustomDataIdentifierSummary);
-export const FindingsFilterListItem = Schema.Struct({action: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), id: Schema.optional(Schema.String), name: Schema.optional(Schema.String), tags: Schema.optional(TagMap)});
+export class FindingsFilterListItem extends Schema.Class<FindingsFilterListItem>("FindingsFilterListItem")({action: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), id: Schema.optional(Schema.String), name: Schema.optional(Schema.String), tags: Schema.optional(TagMap)}) {}
 export const __listOfFindingsFilterListItem = Schema.Array(FindingsFilterListItem);
-export const ManagedDataIdentifierSummary = Schema.Struct({category: Schema.optional(Schema.String), id: Schema.optional(Schema.String)});
+export class ManagedDataIdentifierSummary extends Schema.Class<ManagedDataIdentifierSummary>("ManagedDataIdentifierSummary")({category: Schema.optional(Schema.String), id: Schema.optional(Schema.String)}) {}
 export const __listOfManagedDataIdentifierSummary = Schema.Array(ManagedDataIdentifierSummary);
-export const Member = Schema.Struct({accountId: Schema.optional(Schema.String), administratorAccountId: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), email: Schema.optional(Schema.String), invitedAt: Schema.optional(Schema.Date), masterAccountId: Schema.optional(Schema.String), relationshipStatus: Schema.optional(Schema.String), tags: Schema.optional(TagMap), updatedAt: Schema.optional(Schema.Date)});
+export class Member extends Schema.Class<Member>("Member")({accountId: Schema.optional(Schema.String), administratorAccountId: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), email: Schema.optional(Schema.String), invitedAt: Schema.optional(Schema.Date), masterAccountId: Schema.optional(Schema.String), relationshipStatus: Schema.optional(Schema.String), tags: Schema.optional(TagMap), updatedAt: Schema.optional(Schema.Date)}) {}
 export const __listOfMember = Schema.Array(Member);
-export const AdminAccount = Schema.Struct({accountId: Schema.optional(Schema.String), status: Schema.optional(Schema.String)});
+export class AdminAccount extends Schema.Class<AdminAccount>("AdminAccount")({accountId: Schema.optional(Schema.String), status: Schema.optional(Schema.String)}) {}
 export const __listOfAdminAccount = Schema.Array(AdminAccount);
-export const ResourceProfileArtifact = Schema.Struct({arn: Schema.String, classificationResultStatus: Schema.String, sensitive: Schema.optional(Schema.Boolean)});
+export class ResourceProfileArtifact extends Schema.Class<ResourceProfileArtifact>("ResourceProfileArtifact")({arn: Schema.String, classificationResultStatus: Schema.String, sensitive: Schema.optional(Schema.Boolean)}) {}
 export const __listOfResourceProfileArtifact = Schema.Array(ResourceProfileArtifact);
-export const Detection = Schema.Struct({arn: Schema.optional(Schema.String), count: Schema.optional(Schema.Number), id: Schema.optional(Schema.String), name: Schema.optional(Schema.String), suppressed: Schema.optional(Schema.Boolean), type: Schema.optional(Schema.String)});
+export class Detection extends Schema.Class<Detection>("Detection")({arn: Schema.optional(Schema.String), count: Schema.optional(Schema.Number), id: Schema.optional(Schema.String), name: Schema.optional(Schema.String), suppressed: Schema.optional(Schema.Boolean), type: Schema.optional(Schema.String)}) {}
 export const __listOfDetection = Schema.Array(Detection);
-export const SensitivityInspectionTemplatesEntry = Schema.Struct({id: Schema.optional(Schema.String), name: Schema.optional(Schema.String)});
+export class SensitivityInspectionTemplatesEntry extends Schema.Class<SensitivityInspectionTemplatesEntry>("SensitivityInspectionTemplatesEntry")({id: Schema.optional(Schema.String), name: Schema.optional(Schema.String)}) {}
 export const __listOfSensitivityInspectionTemplatesEntry = Schema.Array(SensitivityInspectionTemplatesEntry);
-export const S3ClassificationScopeUpdate = Schema.Struct({excludes: S3ClassificationScopeExclusionUpdate});
-export const BatchGetCustomDataIdentifiersResponse = Schema.Struct({customDataIdentifiers: Schema.optional(__listOfBatchGetCustomDataIdentifierSummary), notFoundIdentifierIds: Schema.optional(__listOf__string)});
-export const CreateAllowListRequest = Schema.Struct({clientToken: Schema.String, criteria: AllowListCriteria, description: Schema.optional(Schema.String), name: Schema.String, tags: Schema.optional(TagMap)});
-export const CreateCustomDataIdentifierResponse = Schema.Struct({customDataIdentifierId: Schema.optional(Schema.String)});
-export const CreateInvitationsResponse = Schema.Struct({unprocessedAccounts: Schema.optional(__listOfUnprocessedAccount)});
-export const CreateMemberResponse = Schema.Struct({arn: Schema.optional(Schema.String)});
-export const DescribeBucketsRequest = Schema.Struct({criteria: Schema.optional(BucketCriteria), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String), sortCriteria: Schema.optional(BucketSortCriteria)});
-export const SimpleCriterionForJob = Schema.Struct({comparator: Schema.optional(Schema.String), key: Schema.optional(Schema.String), values: Schema.optional(__listOf__string)});
-export const TagCriterionPairForJob = Schema.Struct({key: Schema.optional(Schema.String), value: Schema.optional(Schema.String)});
+export class S3ClassificationScopeUpdate extends Schema.Class<S3ClassificationScopeUpdate>("S3ClassificationScopeUpdate")({excludes: S3ClassificationScopeExclusionUpdate}) {}
+export class BatchGetCustomDataIdentifiersResponse extends Schema.Class<BatchGetCustomDataIdentifiersResponse>("BatchGetCustomDataIdentifiersResponse")({customDataIdentifiers: Schema.optional(__listOfBatchGetCustomDataIdentifierSummary), notFoundIdentifierIds: Schema.optional(__listOf__string)}) {}
+export class CreateAllowListRequest extends Schema.Class<CreateAllowListRequest>("CreateAllowListRequest")({clientToken: Schema.String, criteria: AllowListCriteria, description: Schema.optional(Schema.String), name: Schema.String, tags: Schema.optional(TagMap)}) {}
+export class CreateCustomDataIdentifierResponse extends Schema.Class<CreateCustomDataIdentifierResponse>("CreateCustomDataIdentifierResponse")({customDataIdentifierId: Schema.optional(Schema.String)}) {}
+export class CreateInvitationsResponse extends Schema.Class<CreateInvitationsResponse>("CreateInvitationsResponse")({unprocessedAccounts: Schema.optional(__listOfUnprocessedAccount)}) {}
+export class CreateMemberResponse extends Schema.Class<CreateMemberResponse>("CreateMemberResponse")({arn: Schema.optional(Schema.String)}) {}
+export class DescribeBucketsRequest extends Schema.Class<DescribeBucketsRequest>("DescribeBucketsRequest")({criteria: Schema.optional(BucketCriteria), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String), sortCriteria: Schema.optional(BucketSortCriteria)}) {}
+export class SimpleCriterionForJob extends Schema.Class<SimpleCriterionForJob>("SimpleCriterionForJob")({comparator: Schema.optional(Schema.String), key: Schema.optional(Schema.String), values: Schema.optional(__listOf__string)}) {}
+export class TagCriterionPairForJob extends Schema.Class<TagCriterionPairForJob>("TagCriterionPairForJob")({key: Schema.optional(Schema.String), value: Schema.optional(Schema.String)}) {}
 export const __listOfTagCriterionPairForJob = Schema.Array(TagCriterionPairForJob);
-export const TagCriterionForJob = Schema.Struct({comparator: Schema.optional(Schema.String), tagValues: Schema.optional(__listOfTagCriterionPairForJob)});
-export const CriteriaForJob = Schema.Struct({simpleCriterion: Schema.optional(SimpleCriterionForJob), tagCriterion: Schema.optional(TagCriterionForJob)});
+export class TagCriterionForJob extends Schema.Class<TagCriterionForJob>("TagCriterionForJob")({comparator: Schema.optional(Schema.String), tagValues: Schema.optional(__listOfTagCriterionPairForJob)}) {}
+export class CriteriaForJob extends Schema.Class<CriteriaForJob>("CriteriaForJob")({simpleCriterion: Schema.optional(SimpleCriterionForJob), tagCriterion: Schema.optional(TagCriterionForJob)}) {}
 export const __listOfCriteriaForJob = Schema.Array(CriteriaForJob);
-export const CriteriaBlockForJob = Schema.Struct({and: Schema.optional(__listOfCriteriaForJob)});
-export const S3BucketCriteriaForJob = Schema.Struct({excludes: Schema.optional(CriteriaBlockForJob), includes: Schema.optional(CriteriaBlockForJob)});
-export const SimpleScopeTerm = Schema.Struct({comparator: Schema.optional(Schema.String), key: Schema.optional(Schema.String), values: Schema.optional(__listOf__string)});
-export const TagValuePair = Schema.Struct({key: Schema.optional(Schema.String), value: Schema.optional(Schema.String)});
+export class CriteriaBlockForJob extends Schema.Class<CriteriaBlockForJob>("CriteriaBlockForJob")({and: Schema.optional(__listOfCriteriaForJob)}) {}
+export class S3BucketCriteriaForJob extends Schema.Class<S3BucketCriteriaForJob>("S3BucketCriteriaForJob")({excludes: Schema.optional(CriteriaBlockForJob), includes: Schema.optional(CriteriaBlockForJob)}) {}
+export class SimpleScopeTerm extends Schema.Class<SimpleScopeTerm>("SimpleScopeTerm")({comparator: Schema.optional(Schema.String), key: Schema.optional(Schema.String), values: Schema.optional(__listOf__string)}) {}
+export class TagValuePair extends Schema.Class<TagValuePair>("TagValuePair")({key: Schema.optional(Schema.String), value: Schema.optional(Schema.String)}) {}
 export const __listOfTagValuePair = Schema.Array(TagValuePair);
-export const TagScopeTerm = Schema.Struct({comparator: Schema.optional(Schema.String), key: Schema.optional(Schema.String), tagValues: Schema.optional(__listOfTagValuePair), target: Schema.optional(Schema.String)});
-export const JobScopeTerm = Schema.Struct({simpleScopeTerm: Schema.optional(SimpleScopeTerm), tagScopeTerm: Schema.optional(TagScopeTerm)});
+export class TagScopeTerm extends Schema.Class<TagScopeTerm>("TagScopeTerm")({comparator: Schema.optional(Schema.String), key: Schema.optional(Schema.String), tagValues: Schema.optional(__listOfTagValuePair), target: Schema.optional(Schema.String)}) {}
+export class JobScopeTerm extends Schema.Class<JobScopeTerm>("JobScopeTerm")({simpleScopeTerm: Schema.optional(SimpleScopeTerm), tagScopeTerm: Schema.optional(TagScopeTerm)}) {}
 export const __listOfJobScopeTerm = Schema.Array(JobScopeTerm);
-export const JobScopingBlock = Schema.Struct({and: Schema.optional(__listOfJobScopeTerm)});
-export const Scoping = Schema.Struct({excludes: Schema.optional(JobScopingBlock), includes: Schema.optional(JobScopingBlock)});
-export const S3JobDefinition = Schema.Struct({bucketCriteria: Schema.optional(S3BucketCriteriaForJob), bucketDefinitions: Schema.optional(__listOfS3BucketDefinitionForJob), scoping: Schema.optional(Scoping)});
-export const DescribeClassificationJobResponse = Schema.Struct({allowListIds: Schema.optional(__listOf__string), clientToken: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date), customDataIdentifierIds: Schema.optional(__listOf__string), description: Schema.optional(Schema.String), initialRun: Schema.optional(Schema.Boolean), jobArn: Schema.optional(Schema.String), jobId: Schema.optional(Schema.String), jobStatus: Schema.optional(Schema.String), jobType: Schema.optional(Schema.String), lastRunErrorStatus: Schema.optional(LastRunErrorStatus), lastRunTime: Schema.optional(Schema.Date), managedDataIdentifierIds: Schema.optional(__listOf__string), managedDataIdentifierSelector: Schema.optional(Schema.String), name: Schema.optional(Schema.String), s3JobDefinition: Schema.optional(S3JobDefinition), samplingPercentage: Schema.optional(Schema.Number), scheduleFrequency: Schema.optional(JobScheduleFrequency), statistics: Schema.optional(Statistics), tags: Schema.optional(TagMap), userPausedDetails: Schema.optional(UserPausedDetails)});
-export const GetAllowListResponse = Schema.Struct({arn: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date), criteria: Schema.optional(AllowListCriteria), description: Schema.optional(Schema.String), id: Schema.optional(Schema.String), name: Schema.optional(Schema.String), status: Schema.optional(AllowListStatus), tags: Schema.optional(TagMap), updatedAt: Schema.optional(Schema.Date)});
-export const GetClassificationExportConfigurationResponse = Schema.Struct({configuration: Schema.optional(ClassificationExportConfiguration)});
-export const GetResourceProfileResponse = Schema.Struct({profileUpdatedAt: Schema.optional(Schema.Date), sensitivityScore: Schema.optional(Schema.Number), sensitivityScoreOverridden: Schema.optional(Schema.Boolean), statistics: Schema.optional(ResourceStatistics)});
-export const GetUsageTotalsResponse = Schema.Struct({timeRange: Schema.optional(Schema.String), usageTotals: Schema.optional(__listOfUsageTotal)});
-export const ListAllowListsResponse = Schema.Struct({allowLists: Schema.optional(__listOfAllowListSummary), nextToken: Schema.optional(Schema.String)});
-export const ListAutomatedDiscoveryAccountsResponse = Schema.Struct({items: Schema.optional(__listOfAutomatedDiscoveryAccount), nextToken: Schema.optional(Schema.String)});
-export const ListClassificationJobsRequest = Schema.Struct({filterCriteria: Schema.optional(ListJobsFilterCriteria), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String), sortCriteria: Schema.optional(ListJobsSortCriteria)});
-export const ListClassificationScopesResponse = Schema.Struct({classificationScopes: Schema.optional(__listOfClassificationScopeSummary), nextToken: Schema.optional(Schema.String)});
-export const ListCustomDataIdentifiersResponse = Schema.Struct({items: Schema.optional(__listOfCustomDataIdentifierSummary), nextToken: Schema.optional(Schema.String)});
-export const ListFindingsFiltersResponse = Schema.Struct({findingsFilterListItems: Schema.optional(__listOfFindingsFilterListItem), nextToken: Schema.optional(Schema.String)});
-export const ListManagedDataIdentifiersResponse = Schema.Struct({items: Schema.optional(__listOfManagedDataIdentifierSummary), nextToken: Schema.optional(Schema.String)});
-export const ListMembersResponse = Schema.Struct({members: Schema.optional(__listOfMember), nextToken: Schema.optional(Schema.String)});
-export const ListOrganizationAdminAccountsResponse = Schema.Struct({adminAccounts: Schema.optional(__listOfAdminAccount), nextToken: Schema.optional(Schema.String)});
-export const ListResourceProfileArtifactsResponse = Schema.Struct({artifacts: Schema.optional(__listOfResourceProfileArtifact), nextToken: Schema.optional(Schema.String)});
-export const ListResourceProfileDetectionsResponse = Schema.Struct({detections: Schema.optional(__listOfDetection), nextToken: Schema.optional(Schema.String)});
-export const ListSensitivityInspectionTemplatesResponse = Schema.Struct({nextToken: Schema.optional(Schema.String), sensitivityInspectionTemplates: Schema.optional(__listOfSensitivityInspectionTemplatesEntry)});
-export const UpdateClassificationScopeRequest = Schema.Struct({id: Schema.String, s3: Schema.optional(S3ClassificationScopeUpdate)});
-export const UpdateClassificationScopeResponse = Schema.Struct({});
-export const UpdateRevealConfigurationResponse = Schema.Struct({configuration: Schema.optional(RevealConfiguration), retrievalConfiguration: Schema.optional(RetrievalConfiguration)});
-export const SensitivityAggregations = Schema.Struct({classifiableSizeInBytes: Schema.optional(Schema.Number), publiclyAccessibleCount: Schema.optional(Schema.Number), totalCount: Schema.optional(Schema.Number), totalSizeInBytes: Schema.optional(Schema.Number)});
-export const S3ClassificationScopeExclusion = Schema.Struct({bucketNames: __listOfS3BucketName});
-export const DetectedDataDetails = Schema.Struct({value: Schema.String});
+export class JobScopingBlock extends Schema.Class<JobScopingBlock>("JobScopingBlock")({and: Schema.optional(__listOfJobScopeTerm)}) {}
+export class Scoping extends Schema.Class<Scoping>("Scoping")({excludes: Schema.optional(JobScopingBlock), includes: Schema.optional(JobScopingBlock)}) {}
+export class S3JobDefinition extends Schema.Class<S3JobDefinition>("S3JobDefinition")({bucketCriteria: Schema.optional(S3BucketCriteriaForJob), bucketDefinitions: Schema.optional(__listOfS3BucketDefinitionForJob), scoping: Schema.optional(Scoping)}) {}
+export class DescribeClassificationJobResponse extends Schema.Class<DescribeClassificationJobResponse>("DescribeClassificationJobResponse")({allowListIds: Schema.optional(__listOf__string), clientToken: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date), customDataIdentifierIds: Schema.optional(__listOf__string), description: Schema.optional(Schema.String), initialRun: Schema.optional(Schema.Boolean), jobArn: Schema.optional(Schema.String), jobId: Schema.optional(Schema.String), jobStatus: Schema.optional(Schema.String), jobType: Schema.optional(Schema.String), lastRunErrorStatus: Schema.optional(LastRunErrorStatus), lastRunTime: Schema.optional(Schema.Date), managedDataIdentifierIds: Schema.optional(__listOf__string), managedDataIdentifierSelector: Schema.optional(Schema.String), name: Schema.optional(Schema.String), s3JobDefinition: Schema.optional(S3JobDefinition), samplingPercentage: Schema.optional(Schema.Number), scheduleFrequency: Schema.optional(JobScheduleFrequency), statistics: Schema.optional(Statistics), tags: Schema.optional(TagMap), userPausedDetails: Schema.optional(UserPausedDetails)}) {}
+export class GetAllowListResponse extends Schema.Class<GetAllowListResponse>("GetAllowListResponse")({arn: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date), criteria: Schema.optional(AllowListCriteria), description: Schema.optional(Schema.String), id: Schema.optional(Schema.String), name: Schema.optional(Schema.String), status: Schema.optional(AllowListStatus), tags: Schema.optional(TagMap), updatedAt: Schema.optional(Schema.Date)}) {}
+export class GetClassificationExportConfigurationResponse extends Schema.Class<GetClassificationExportConfigurationResponse>("GetClassificationExportConfigurationResponse")({configuration: Schema.optional(ClassificationExportConfiguration)}) {}
+export class GetResourceProfileResponse extends Schema.Class<GetResourceProfileResponse>("GetResourceProfileResponse")({profileUpdatedAt: Schema.optional(Schema.Date), sensitivityScore: Schema.optional(Schema.Number), sensitivityScoreOverridden: Schema.optional(Schema.Boolean), statistics: Schema.optional(ResourceStatistics)}) {}
+export class GetUsageTotalsResponse extends Schema.Class<GetUsageTotalsResponse>("GetUsageTotalsResponse")({timeRange: Schema.optional(Schema.String), usageTotals: Schema.optional(__listOfUsageTotal)}) {}
+export class ListAllowListsResponse extends Schema.Class<ListAllowListsResponse>("ListAllowListsResponse")({allowLists: Schema.optional(__listOfAllowListSummary), nextToken: Schema.optional(Schema.String)}) {}
+export class ListAutomatedDiscoveryAccountsResponse extends Schema.Class<ListAutomatedDiscoveryAccountsResponse>("ListAutomatedDiscoveryAccountsResponse")({items: Schema.optional(__listOfAutomatedDiscoveryAccount), nextToken: Schema.optional(Schema.String)}) {}
+export class ListClassificationJobsRequest extends Schema.Class<ListClassificationJobsRequest>("ListClassificationJobsRequest")({filterCriteria: Schema.optional(ListJobsFilterCriteria), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String), sortCriteria: Schema.optional(ListJobsSortCriteria)}) {}
+export class ListClassificationScopesResponse extends Schema.Class<ListClassificationScopesResponse>("ListClassificationScopesResponse")({classificationScopes: Schema.optional(__listOfClassificationScopeSummary), nextToken: Schema.optional(Schema.String)}) {}
+export class ListCustomDataIdentifiersResponse extends Schema.Class<ListCustomDataIdentifiersResponse>("ListCustomDataIdentifiersResponse")({items: Schema.optional(__listOfCustomDataIdentifierSummary), nextToken: Schema.optional(Schema.String)}) {}
+export class ListFindingsFiltersResponse extends Schema.Class<ListFindingsFiltersResponse>("ListFindingsFiltersResponse")({findingsFilterListItems: Schema.optional(__listOfFindingsFilterListItem), nextToken: Schema.optional(Schema.String)}) {}
+export class ListManagedDataIdentifiersResponse extends Schema.Class<ListManagedDataIdentifiersResponse>("ListManagedDataIdentifiersResponse")({items: Schema.optional(__listOfManagedDataIdentifierSummary), nextToken: Schema.optional(Schema.String)}) {}
+export class ListMembersResponse extends Schema.Class<ListMembersResponse>("ListMembersResponse")({members: Schema.optional(__listOfMember), nextToken: Schema.optional(Schema.String)}) {}
+export class ListOrganizationAdminAccountsResponse extends Schema.Class<ListOrganizationAdminAccountsResponse>("ListOrganizationAdminAccountsResponse")({adminAccounts: Schema.optional(__listOfAdminAccount), nextToken: Schema.optional(Schema.String)}) {}
+export class ListResourceProfileArtifactsResponse extends Schema.Class<ListResourceProfileArtifactsResponse>("ListResourceProfileArtifactsResponse")({artifacts: Schema.optional(__listOfResourceProfileArtifact), nextToken: Schema.optional(Schema.String)}) {}
+export class ListResourceProfileDetectionsResponse extends Schema.Class<ListResourceProfileDetectionsResponse>("ListResourceProfileDetectionsResponse")({detections: Schema.optional(__listOfDetection), nextToken: Schema.optional(Schema.String)}) {}
+export class ListSensitivityInspectionTemplatesResponse extends Schema.Class<ListSensitivityInspectionTemplatesResponse>("ListSensitivityInspectionTemplatesResponse")({nextToken: Schema.optional(Schema.String), sensitivityInspectionTemplates: Schema.optional(__listOfSensitivityInspectionTemplatesEntry)}) {}
+export class UpdateClassificationScopeRequest extends Schema.Class<UpdateClassificationScopeRequest>("UpdateClassificationScopeRequest")({id: Schema.String, s3: Schema.optional(S3ClassificationScopeUpdate)}) {}
+export class UpdateClassificationScopeResponse extends Schema.Class<UpdateClassificationScopeResponse>("UpdateClassificationScopeResponse")({}) {}
+export class UpdateRevealConfigurationResponse extends Schema.Class<UpdateRevealConfigurationResponse>("UpdateRevealConfigurationResponse")({configuration: Schema.optional(RevealConfiguration), retrievalConfiguration: Schema.optional(RetrievalConfiguration)}) {}
+export class SensitivityAggregations extends Schema.Class<SensitivityAggregations>("SensitivityAggregations")({classifiableSizeInBytes: Schema.optional(Schema.Number), publiclyAccessibleCount: Schema.optional(Schema.Number), totalCount: Schema.optional(Schema.Number), totalSizeInBytes: Schema.optional(Schema.Number)}) {}
+export class S3ClassificationScopeExclusion extends Schema.Class<S3ClassificationScopeExclusion>("S3ClassificationScopeExclusion")({bucketNames: __listOfS3BucketName}) {}
+export class DetectedDataDetails extends Schema.Class<DetectedDataDetails>("DetectedDataDetails")({value: Schema.String}) {}
 export const __listOfDetectedDataDetails = Schema.Array(DetectedDataDetails);
-export const SearchResourcesSimpleCriterion = Schema.Struct({comparator: Schema.optional(Schema.String), key: Schema.optional(Schema.String), values: Schema.optional(__listOf__string)});
-export const AutomatedDiscoveryAccountUpdateError = Schema.Struct({accountId: Schema.optional(Schema.String), errorCode: Schema.optional(Schema.String)});
+export class SearchResourcesSimpleCriterion extends Schema.Class<SearchResourcesSimpleCriterion>("SearchResourcesSimpleCriterion")({comparator: Schema.optional(Schema.String), key: Schema.optional(Schema.String), values: Schema.optional(__listOf__string)}) {}
+export class AutomatedDiscoveryAccountUpdateError extends Schema.Class<AutomatedDiscoveryAccountUpdateError>("AutomatedDiscoveryAccountUpdateError")({accountId: Schema.optional(Schema.String), errorCode: Schema.optional(Schema.String)}) {}
 export const __listOfAutomatedDiscoveryAccountUpdateError = Schema.Array(AutomatedDiscoveryAccountUpdateError);
-export const BucketStatisticsBySensitivity = Schema.Struct({classificationError: Schema.optional(SensitivityAggregations), notClassified: Schema.optional(SensitivityAggregations), notSensitive: Schema.optional(SensitivityAggregations), sensitive: Schema.optional(SensitivityAggregations)});
-export const S3ClassificationScope = Schema.Struct({excludes: S3ClassificationScopeExclusion});
-export const GroupCount = Schema.Struct({count: Schema.optional(Schema.Number), groupKey: Schema.optional(Schema.String)});
+export class BucketStatisticsBySensitivity extends Schema.Class<BucketStatisticsBySensitivity>("BucketStatisticsBySensitivity")({classificationError: Schema.optional(SensitivityAggregations), notClassified: Schema.optional(SensitivityAggregations), notSensitive: Schema.optional(SensitivityAggregations), sensitive: Schema.optional(SensitivityAggregations)}) {}
+export class S3ClassificationScope extends Schema.Class<S3ClassificationScope>("S3ClassificationScope")({excludes: S3ClassificationScopeExclusion}) {}
+export class GroupCount extends Schema.Class<GroupCount>("GroupCount")({count: Schema.optional(Schema.Number), groupKey: Schema.optional(Schema.String)}) {}
 export const __listOfGroupCount = Schema.Array(GroupCount);
 export const SensitiveDataOccurrences = Schema.Record({key: Schema.String, value: __listOfDetectedDataDetails});
-export const BatchUpdateAutomatedDiscoveryAccountsResponse = Schema.Struct({errors: Schema.optional(__listOfAutomatedDiscoveryAccountUpdateError)});
-export const CreateAllowListResponse = Schema.Struct({arn: Schema.optional(Schema.String), id: Schema.optional(Schema.String)});
-export const CreateFindingsFilterRequest = Schema.Struct({action: Schema.String, clientToken: Schema.optional(Schema.String), description: Schema.optional(Schema.String), findingCriteria: FindingCriteria, name: Schema.String, position: Schema.optional(Schema.Number), tags: Schema.optional(TagMap)});
-export const GetBucketStatisticsResponse = Schema.Struct({bucketCount: Schema.optional(Schema.Number), bucketCountByEffectivePermission: Schema.optional(BucketCountByEffectivePermission), bucketCountByEncryptionType: Schema.optional(BucketCountByEncryptionType), bucketCountByObjectEncryptionRequirement: Schema.optional(BucketCountPolicyAllowsUnencryptedObjectUploads), bucketCountBySharedAccessType: Schema.optional(BucketCountBySharedAccessType), bucketStatisticsBySensitivity: Schema.optional(BucketStatisticsBySensitivity), classifiableObjectCount: Schema.optional(Schema.Number), classifiableSizeInBytes: Schema.optional(Schema.Number), lastUpdated: Schema.optional(Schema.Date), objectCount: Schema.optional(Schema.Number), sizeInBytes: Schema.optional(Schema.Number), sizeInBytesCompressed: Schema.optional(Schema.Number), unclassifiableObjectCount: Schema.optional(ObjectLevelStatistics), unclassifiableObjectSizeInBytes: Schema.optional(ObjectLevelStatistics)});
-export const GetClassificationScopeResponse = Schema.Struct({id: Schema.optional(Schema.String), name: Schema.optional(Schema.String), s3: Schema.optional(S3ClassificationScope)});
-export const GetFindingStatisticsResponse = Schema.Struct({countsByGroup: Schema.optional(__listOfGroupCount)});
-export const GetSensitiveDataOccurrencesResponse = Schema.Struct({error: Schema.optional(Schema.String), sensitiveDataOccurrences: Schema.optional(SensitiveDataOccurrences), status: Schema.optional(Schema.String)});
-export const SearchResourcesTagCriterionPair = Schema.Struct({key: Schema.optional(Schema.String), value: Schema.optional(Schema.String)});
+export class BatchUpdateAutomatedDiscoveryAccountsResponse extends Schema.Class<BatchUpdateAutomatedDiscoveryAccountsResponse>("BatchUpdateAutomatedDiscoveryAccountsResponse")({errors: Schema.optional(__listOfAutomatedDiscoveryAccountUpdateError)}) {}
+export class CreateAllowListResponse extends Schema.Class<CreateAllowListResponse>("CreateAllowListResponse")({arn: Schema.optional(Schema.String), id: Schema.optional(Schema.String)}) {}
+export class CreateFindingsFilterRequest extends Schema.Class<CreateFindingsFilterRequest>("CreateFindingsFilterRequest")({action: Schema.String, clientToken: Schema.optional(Schema.String), description: Schema.optional(Schema.String), findingCriteria: FindingCriteria, name: Schema.String, position: Schema.optional(Schema.Number), tags: Schema.optional(TagMap)}) {}
+export class GetBucketStatisticsResponse extends Schema.Class<GetBucketStatisticsResponse>("GetBucketStatisticsResponse")({bucketCount: Schema.optional(Schema.Number), bucketCountByEffectivePermission: Schema.optional(BucketCountByEffectivePermission), bucketCountByEncryptionType: Schema.optional(BucketCountByEncryptionType), bucketCountByObjectEncryptionRequirement: Schema.optional(BucketCountPolicyAllowsUnencryptedObjectUploads), bucketCountBySharedAccessType: Schema.optional(BucketCountBySharedAccessType), bucketStatisticsBySensitivity: Schema.optional(BucketStatisticsBySensitivity), classifiableObjectCount: Schema.optional(Schema.Number), classifiableSizeInBytes: Schema.optional(Schema.Number), lastUpdated: Schema.optional(Schema.Date), objectCount: Schema.optional(Schema.Number), sizeInBytes: Schema.optional(Schema.Number), sizeInBytesCompressed: Schema.optional(Schema.Number), unclassifiableObjectCount: Schema.optional(ObjectLevelStatistics), unclassifiableObjectSizeInBytes: Schema.optional(ObjectLevelStatistics)}) {}
+export class GetClassificationScopeResponse extends Schema.Class<GetClassificationScopeResponse>("GetClassificationScopeResponse")({id: Schema.optional(Schema.String), name: Schema.optional(Schema.String), s3: Schema.optional(S3ClassificationScope)}) {}
+export class GetFindingStatisticsResponse extends Schema.Class<GetFindingStatisticsResponse>("GetFindingStatisticsResponse")({countsByGroup: Schema.optional(__listOfGroupCount)}) {}
+export class GetSensitiveDataOccurrencesResponse extends Schema.Class<GetSensitiveDataOccurrencesResponse>("GetSensitiveDataOccurrencesResponse")({error: Schema.optional(Schema.String), sensitiveDataOccurrences: Schema.optional(SensitiveDataOccurrences), status: Schema.optional(Schema.String)}) {}
+export class SearchResourcesTagCriterionPair extends Schema.Class<SearchResourcesTagCriterionPair>("SearchResourcesTagCriterionPair")({key: Schema.optional(Schema.String), value: Schema.optional(Schema.String)}) {}
 export const __listOfSearchResourcesTagCriterionPair = Schema.Array(SearchResourcesTagCriterionPair);
-export const Severity = Schema.Struct({description: Schema.optional(Schema.String), score: Schema.optional(Schema.Number)});
-export const KeyValuePair = Schema.Struct({key: Schema.optional(Schema.String), value: Schema.optional(Schema.String)});
+export class Severity extends Schema.Class<Severity>("Severity")({description: Schema.optional(Schema.String), score: Schema.optional(Schema.Number)}) {}
+export class KeyValuePair extends Schema.Class<KeyValuePair>("KeyValuePair")({key: Schema.optional(Schema.String), value: Schema.optional(Schema.String)}) {}
 export const KeyValuePairList = Schema.Array(KeyValuePair);
-export const SearchResourcesTagCriterion = Schema.Struct({comparator: Schema.optional(Schema.String), tagValues: Schema.optional(__listOfSearchResourcesTagCriterionPair)});
-export const JobSummary = Schema.Struct({bucketCriteria: Schema.optional(S3BucketCriteriaForJob), bucketDefinitions: Schema.optional(__listOfS3BucketDefinitionForJob), createdAt: Schema.optional(Schema.Date), jobId: Schema.optional(Schema.String), jobStatus: Schema.optional(Schema.String), jobType: Schema.optional(Schema.String), lastRunErrorStatus: Schema.optional(LastRunErrorStatus), name: Schema.optional(Schema.String), userPausedDetails: Schema.optional(UserPausedDetails)});
+export class SearchResourcesTagCriterion extends Schema.Class<SearchResourcesTagCriterion>("SearchResourcesTagCriterion")({comparator: Schema.optional(Schema.String), tagValues: Schema.optional(__listOfSearchResourcesTagCriterionPair)}) {}
+export class JobSummary extends Schema.Class<JobSummary>("JobSummary")({bucketCriteria: Schema.optional(S3BucketCriteriaForJob), bucketDefinitions: Schema.optional(__listOfS3BucketDefinitionForJob), createdAt: Schema.optional(Schema.Date), jobId: Schema.optional(Schema.String), jobStatus: Schema.optional(Schema.String), jobType: Schema.optional(Schema.String), lastRunErrorStatus: Schema.optional(LastRunErrorStatus), name: Schema.optional(Schema.String), userPausedDetails: Schema.optional(UserPausedDetails)}) {}
 export const __listOfJobSummary = Schema.Array(JobSummary);
-export const ServerSideEncryption = Schema.Struct({encryptionType: Schema.optional(Schema.String), kmsMasterKeyId: Schema.optional(Schema.String)});
-export const S3Object = Schema.Struct({bucketArn: Schema.optional(Schema.String), eTag: Schema.optional(Schema.String), extension: Schema.optional(Schema.String), key: Schema.optional(Schema.String), lastModified: Schema.optional(Schema.Date), path: Schema.optional(Schema.String), publicAccess: Schema.optional(Schema.Boolean), serverSideEncryption: Schema.optional(ServerSideEncryption), size: Schema.optional(Schema.Number), storageClass: Schema.optional(Schema.String), tags: Schema.optional(KeyValuePairList), versionId: Schema.optional(Schema.String)});
-export const ServiceLimit = Schema.Struct({isServiceLimited: Schema.optional(Schema.Boolean), unit: Schema.optional(Schema.String), value: Schema.optional(Schema.Number)});
-export const SearchResourcesCriteria = Schema.Struct({simpleCriterion: Schema.optional(SearchResourcesSimpleCriterion), tagCriterion: Schema.optional(SearchResourcesTagCriterion)});
+export class ServerSideEncryption extends Schema.Class<ServerSideEncryption>("ServerSideEncryption")({encryptionType: Schema.optional(Schema.String), kmsMasterKeyId: Schema.optional(Schema.String)}) {}
+export class S3Object extends Schema.Class<S3Object>("S3Object")({bucketArn: Schema.optional(Schema.String), eTag: Schema.optional(Schema.String), extension: Schema.optional(Schema.String), key: Schema.optional(Schema.String), lastModified: Schema.optional(Schema.Date), path: Schema.optional(Schema.String), publicAccess: Schema.optional(Schema.Boolean), serverSideEncryption: Schema.optional(ServerSideEncryption), size: Schema.optional(Schema.Number), storageClass: Schema.optional(Schema.String), tags: Schema.optional(KeyValuePairList), versionId: Schema.optional(Schema.String)}) {}
+export class ServiceLimit extends Schema.Class<ServiceLimit>("ServiceLimit")({isServiceLimited: Schema.optional(Schema.Boolean), unit: Schema.optional(Schema.String), value: Schema.optional(Schema.Number)}) {}
+export class SearchResourcesCriteria extends Schema.Class<SearchResourcesCriteria>("SearchResourcesCriteria")({simpleCriterion: Schema.optional(SearchResourcesSimpleCriterion), tagCriterion: Schema.optional(SearchResourcesTagCriterion)}) {}
 export const __listOfSearchResourcesCriteria = Schema.Array(SearchResourcesCriteria);
-export const CreateFindingsFilterResponse = Schema.Struct({arn: Schema.optional(Schema.String), id: Schema.optional(Schema.String)});
-export const UnprocessableEntityException = Schema.Struct({message: Schema.String});
-export const ListClassificationJobsResponse = Schema.Struct({items: Schema.optional(__listOfJobSummary), nextToken: Schema.optional(Schema.String)});
-export const JobDetails = Schema.Struct({isDefinedInJob: Schema.optional(Schema.String), isMonitoredByJob: Schema.optional(Schema.String), lastJobId: Schema.optional(Schema.String), lastJobRunTime: Schema.optional(Schema.Date)});
-export const ObjectCountByEncryptionType = Schema.Struct({customerManaged: Schema.optional(Schema.Number), kmsManaged: Schema.optional(Schema.Number), s3Managed: Schema.optional(Schema.Number), unencrypted: Schema.optional(Schema.Number), unknown: Schema.optional(Schema.Number)});
-export const ReplicationDetails = Schema.Struct({replicated: Schema.optional(Schema.Boolean), replicatedExternally: Schema.optional(Schema.Boolean), replicationAccounts: Schema.optional(__listOf__string)});
-export const BucketServerSideEncryption = Schema.Struct({kmsMasterKeyId: Schema.optional(Schema.String), type: Schema.optional(Schema.String)});
+export class CreateFindingsFilterResponse extends Schema.Class<CreateFindingsFilterResponse>("CreateFindingsFilterResponse")({arn: Schema.optional(Schema.String), id: Schema.optional(Schema.String)}) {}
+export class UnprocessableEntityException extends Schema.Class<UnprocessableEntityException>("UnprocessableEntityException")({message: Schema.String}) {}
+export class ListClassificationJobsResponse extends Schema.Class<ListClassificationJobsResponse>("ListClassificationJobsResponse")({items: Schema.optional(__listOfJobSummary), nextToken: Schema.optional(Schema.String)}) {}
+export class JobDetails extends Schema.Class<JobDetails>("JobDetails")({isDefinedInJob: Schema.optional(Schema.String), isMonitoredByJob: Schema.optional(Schema.String), lastJobId: Schema.optional(Schema.String), lastJobRunTime: Schema.optional(Schema.Date)}) {}
+export class ObjectCountByEncryptionType extends Schema.Class<ObjectCountByEncryptionType>("ObjectCountByEncryptionType")({customerManaged: Schema.optional(Schema.Number), kmsManaged: Schema.optional(Schema.Number), s3Managed: Schema.optional(Schema.Number), unencrypted: Schema.optional(Schema.Number), unknown: Schema.optional(Schema.Number)}) {}
+export class ReplicationDetails extends Schema.Class<ReplicationDetails>("ReplicationDetails")({replicated: Schema.optional(Schema.Boolean), replicatedExternally: Schema.optional(Schema.Boolean), replicationAccounts: Schema.optional(__listOf__string)}) {}
+export class BucketServerSideEncryption extends Schema.Class<BucketServerSideEncryption>("BucketServerSideEncryption")({kmsMasterKeyId: Schema.optional(Schema.String), type: Schema.optional(Schema.String)}) {}
 export const __listOfKeyValuePair = Schema.Array(KeyValuePair);
-export const UsageByAccount = Schema.Struct({currency: Schema.optional(Schema.String), estimatedCost: Schema.optional(Schema.String), serviceLimit: Schema.optional(ServiceLimit), type: Schema.optional(Schema.String)});
+export class UsageByAccount extends Schema.Class<UsageByAccount>("UsageByAccount")({currency: Schema.optional(Schema.String), estimatedCost: Schema.optional(Schema.String), serviceLimit: Schema.optional(ServiceLimit), type: Schema.optional(Schema.String)}) {}
 export const __listOfUsageByAccount = Schema.Array(UsageByAccount);
-export const SearchResourcesCriteriaBlock = Schema.Struct({and: Schema.optional(__listOfSearchResourcesCriteria)});
-export const ClassificationResultStatus = Schema.Struct({code: Schema.optional(Schema.String), reason: Schema.optional(Schema.String)});
-export const ApiCallDetails = Schema.Struct({api: Schema.optional(Schema.String), apiServiceName: Schema.optional(Schema.String), firstSeen: Schema.optional(Schema.Date), lastSeen: Schema.optional(Schema.Date)});
-export const DomainDetails = Schema.Struct({domainName: Schema.optional(Schema.String)});
-export const S3BucketOwner = Schema.Struct({displayName: Schema.optional(Schema.String), id: Schema.optional(Schema.String)});
-export const UsageRecord = Schema.Struct({accountId: Schema.optional(Schema.String), automatedDiscoveryFreeTrialStartDate: Schema.optional(Schema.Date), freeTrialStartDate: Schema.optional(Schema.Date), usage: Schema.optional(__listOfUsageByAccount)});
+export class SearchResourcesCriteriaBlock extends Schema.Class<SearchResourcesCriteriaBlock>("SearchResourcesCriteriaBlock")({and: Schema.optional(__listOfSearchResourcesCriteria)}) {}
+export class ClassificationResultStatus extends Schema.Class<ClassificationResultStatus>("ClassificationResultStatus")({code: Schema.optional(Schema.String), reason: Schema.optional(Schema.String)}) {}
+export class ApiCallDetails extends Schema.Class<ApiCallDetails>("ApiCallDetails")({api: Schema.optional(Schema.String), apiServiceName: Schema.optional(Schema.String), firstSeen: Schema.optional(Schema.Date), lastSeen: Schema.optional(Schema.Date)}) {}
+export class DomainDetails extends Schema.Class<DomainDetails>("DomainDetails")({domainName: Schema.optional(Schema.String)}) {}
+export class S3BucketOwner extends Schema.Class<S3BucketOwner>("S3BucketOwner")({displayName: Schema.optional(Schema.String), id: Schema.optional(Schema.String)}) {}
+export class UsageRecord extends Schema.Class<UsageRecord>("UsageRecord")({accountId: Schema.optional(Schema.String), automatedDiscoveryFreeTrialStartDate: Schema.optional(Schema.Date), freeTrialStartDate: Schema.optional(Schema.Date), usage: Schema.optional(__listOfUsageByAccount)}) {}
 export const __listOfUsageRecord = Schema.Array(UsageRecord);
-export const SearchResourcesBucketCriteria = Schema.Struct({excludes: Schema.optional(SearchResourcesCriteriaBlock), includes: Schema.optional(SearchResourcesCriteriaBlock)});
-export const FindingAction = Schema.Struct({actionType: Schema.optional(Schema.String), apiCallDetails: Schema.optional(ApiCallDetails)});
-export const BlockPublicAccess = Schema.Struct({blockPublicAcls: Schema.optional(Schema.Boolean), blockPublicPolicy: Schema.optional(Schema.Boolean), ignorePublicAcls: Schema.optional(Schema.Boolean), restrictPublicBuckets: Schema.optional(Schema.Boolean)});
-export const AccountLevelPermissions = Schema.Struct({blockPublicAccess: Schema.optional(BlockPublicAccess)});
-export const AccessControlList = Schema.Struct({allowsPublicReadAccess: Schema.optional(Schema.Boolean), allowsPublicWriteAccess: Schema.optional(Schema.Boolean)});
-export const BucketPolicy = Schema.Struct({allowsPublicReadAccess: Schema.optional(Schema.Boolean), allowsPublicWriteAccess: Schema.optional(Schema.Boolean)});
-export const BucketLevelPermissions = Schema.Struct({accessControlList: Schema.optional(AccessControlList), blockPublicAccess: Schema.optional(BlockPublicAccess), bucketPolicy: Schema.optional(BucketPolicy)});
-export const BucketPermissionConfiguration = Schema.Struct({accountLevelPermissions: Schema.optional(AccountLevelPermissions), bucketLevelPermissions: Schema.optional(BucketLevelPermissions)});
-export const BucketPublicAccess = Schema.Struct({effectivePermission: Schema.optional(Schema.String), permissionConfiguration: Schema.optional(BucketPermissionConfiguration)});
-export const S3Bucket = Schema.Struct({allowsUnencryptedObjectUploads: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date), defaultServerSideEncryption: Schema.optional(ServerSideEncryption), name: Schema.optional(Schema.String), owner: Schema.optional(S3BucketOwner), publicAccess: Schema.optional(BucketPublicAccess), tags: Schema.optional(KeyValuePairList)});
-export const Cell = Schema.Struct({cellReference: Schema.optional(Schema.String), column: Schema.optional(Schema.Number), columnName: Schema.optional(Schema.String), row: Schema.optional(Schema.Number)});
+export class SearchResourcesBucketCriteria extends Schema.Class<SearchResourcesBucketCriteria>("SearchResourcesBucketCriteria")({excludes: Schema.optional(SearchResourcesCriteriaBlock), includes: Schema.optional(SearchResourcesCriteriaBlock)}) {}
+export class FindingAction extends Schema.Class<FindingAction>("FindingAction")({actionType: Schema.optional(Schema.String), apiCallDetails: Schema.optional(ApiCallDetails)}) {}
+export class BlockPublicAccess extends Schema.Class<BlockPublicAccess>("BlockPublicAccess")({blockPublicAcls: Schema.optional(Schema.Boolean), blockPublicPolicy: Schema.optional(Schema.Boolean), ignorePublicAcls: Schema.optional(Schema.Boolean), restrictPublicBuckets: Schema.optional(Schema.Boolean)}) {}
+export class AccountLevelPermissions extends Schema.Class<AccountLevelPermissions>("AccountLevelPermissions")({blockPublicAccess: Schema.optional(BlockPublicAccess)}) {}
+export class AccessControlList extends Schema.Class<AccessControlList>("AccessControlList")({allowsPublicReadAccess: Schema.optional(Schema.Boolean), allowsPublicWriteAccess: Schema.optional(Schema.Boolean)}) {}
+export class BucketPolicy extends Schema.Class<BucketPolicy>("BucketPolicy")({allowsPublicReadAccess: Schema.optional(Schema.Boolean), allowsPublicWriteAccess: Schema.optional(Schema.Boolean)}) {}
+export class BucketLevelPermissions extends Schema.Class<BucketLevelPermissions>("BucketLevelPermissions")({accessControlList: Schema.optional(AccessControlList), blockPublicAccess: Schema.optional(BlockPublicAccess), bucketPolicy: Schema.optional(BucketPolicy)}) {}
+export class BucketPermissionConfiguration extends Schema.Class<BucketPermissionConfiguration>("BucketPermissionConfiguration")({accountLevelPermissions: Schema.optional(AccountLevelPermissions), bucketLevelPermissions: Schema.optional(BucketLevelPermissions)}) {}
+export class BucketPublicAccess extends Schema.Class<BucketPublicAccess>("BucketPublicAccess")({effectivePermission: Schema.optional(Schema.String), permissionConfiguration: Schema.optional(BucketPermissionConfiguration)}) {}
+export class S3Bucket extends Schema.Class<S3Bucket>("S3Bucket")({allowsUnencryptedObjectUploads: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date), defaultServerSideEncryption: Schema.optional(ServerSideEncryption), name: Schema.optional(Schema.String), owner: Schema.optional(S3BucketOwner), publicAccess: Schema.optional(BucketPublicAccess), tags: Schema.optional(KeyValuePairList)}) {}
+export class Cell extends Schema.Class<Cell>("Cell")({cellReference: Schema.optional(Schema.String), column: Schema.optional(Schema.Number), columnName: Schema.optional(Schema.String), row: Schema.optional(Schema.Number)}) {}
 export const Cells = Schema.Array(Cell);
-export const Range = Schema.Struct({end: Schema.optional(Schema.Number), start: Schema.optional(Schema.Number), startColumn: Schema.optional(Schema.Number)});
+export class Range extends Schema.Class<Range>("Range")({end: Schema.optional(Schema.Number), start: Schema.optional(Schema.Number), startColumn: Schema.optional(Schema.Number)}) {}
 export const Ranges = Schema.Array(Range);
-export const Page = Schema.Struct({lineRange: Schema.optional(Range), offsetRange: Schema.optional(Range), pageNumber: Schema.optional(Schema.Number)});
+export class Page extends Schema.Class<Page>("Page")({lineRange: Schema.optional(Range), offsetRange: Schema.optional(Range), pageNumber: Schema.optional(Schema.Number)}) {}
 export const Pages = Schema.Array(Page);
-export const Record = Schema.Struct({jsonPath: Schema.optional(Schema.String), recordIndex: Schema.optional(Schema.Number)});
+export class Record extends Schema.Class<Record>("Record")({jsonPath: Schema.optional(Schema.String), recordIndex: Schema.optional(Schema.Number)}) {}
 export const Records = Schema.Array(Record);
-export const Occurrences = Schema.Struct({cells: Schema.optional(Cells), lineRanges: Schema.optional(Ranges), offsetRanges: Schema.optional(Ranges), pages: Schema.optional(Pages), records: Schema.optional(Records)});
-export const DefaultDetection = Schema.Struct({count: Schema.optional(Schema.Number), occurrences: Schema.optional(Occurrences), type: Schema.optional(Schema.String)});
+export class Occurrences extends Schema.Class<Occurrences>("Occurrences")({cells: Schema.optional(Cells), lineRanges: Schema.optional(Ranges), offsetRanges: Schema.optional(Ranges), pages: Schema.optional(Pages), records: Schema.optional(Records)}) {}
+export class DefaultDetection extends Schema.Class<DefaultDetection>("DefaultDetection")({count: Schema.optional(Schema.Number), occurrences: Schema.optional(Occurrences), type: Schema.optional(Schema.String)}) {}
 export const DefaultDetections = Schema.Array(DefaultDetection);
-export const IpCity = Schema.Struct({name: Schema.optional(Schema.String)});
-export const IpCountry = Schema.Struct({code: Schema.optional(Schema.String), name: Schema.optional(Schema.String)});
-export const IpGeoLocation = Schema.Struct({lat: Schema.optional(Schema.Number), lon: Schema.optional(Schema.Number)});
-export const IpOwner = Schema.Struct({asn: Schema.optional(Schema.String), asnOrg: Schema.optional(Schema.String), isp: Schema.optional(Schema.String), org: Schema.optional(Schema.String)});
-export const AwsAccount = Schema.Struct({accountId: Schema.optional(Schema.String), principalId: Schema.optional(Schema.String)});
-export const AwsService = Schema.Struct({invokedBy: Schema.optional(Schema.String)});
-export const SessionContextAttributes = Schema.Struct({creationDate: Schema.optional(Schema.Date), mfaAuthenticated: Schema.optional(Schema.Boolean)});
-export const SessionIssuer = Schema.Struct({accountId: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), principalId: Schema.optional(Schema.String), type: Schema.optional(Schema.String), userName: Schema.optional(Schema.String)});
-export const SessionContext = Schema.Struct({attributes: Schema.optional(SessionContextAttributes), sessionIssuer: Schema.optional(SessionIssuer)});
-export const FederatedUser = Schema.Struct({accessKeyId: Schema.optional(Schema.String), accountId: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), principalId: Schema.optional(Schema.String), sessionContext: Schema.optional(SessionContext)});
-export const IamUser = Schema.Struct({accountId: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), principalId: Schema.optional(Schema.String), userName: Schema.optional(Schema.String)});
-export const UserIdentityRoot = Schema.Struct({accountId: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), principalId: Schema.optional(Schema.String)});
-export const GetUsageStatisticsResponse = Schema.Struct({nextToken: Schema.optional(Schema.String), records: Schema.optional(__listOfUsageRecord), timeRange: Schema.optional(Schema.String)});
-export const SearchResourcesRequest = Schema.Struct({bucketCriteria: Schema.optional(SearchResourcesBucketCriteria), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String), sortCriteria: Schema.optional(SearchResourcesSortCriteria)});
-export const ResourcesAffected = Schema.Struct({s3Bucket: Schema.optional(S3Bucket), s3Object: Schema.optional(S3Object)});
-export const SensitiveDataItem = Schema.Struct({category: Schema.optional(Schema.String), detections: Schema.optional(DefaultDetections), totalCount: Schema.optional(Schema.Number)});
+export class IpCity extends Schema.Class<IpCity>("IpCity")({name: Schema.optional(Schema.String)}) {}
+export class IpCountry extends Schema.Class<IpCountry>("IpCountry")({code: Schema.optional(Schema.String), name: Schema.optional(Schema.String)}) {}
+export class IpGeoLocation extends Schema.Class<IpGeoLocation>("IpGeoLocation")({lat: Schema.optional(Schema.Number), lon: Schema.optional(Schema.Number)}) {}
+export class IpOwner extends Schema.Class<IpOwner>("IpOwner")({asn: Schema.optional(Schema.String), asnOrg: Schema.optional(Schema.String), isp: Schema.optional(Schema.String), org: Schema.optional(Schema.String)}) {}
+export class AwsAccount extends Schema.Class<AwsAccount>("AwsAccount")({accountId: Schema.optional(Schema.String), principalId: Schema.optional(Schema.String)}) {}
+export class AwsService extends Schema.Class<AwsService>("AwsService")({invokedBy: Schema.optional(Schema.String)}) {}
+export class SessionContextAttributes extends Schema.Class<SessionContextAttributes>("SessionContextAttributes")({creationDate: Schema.optional(Schema.Date), mfaAuthenticated: Schema.optional(Schema.Boolean)}) {}
+export class SessionIssuer extends Schema.Class<SessionIssuer>("SessionIssuer")({accountId: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), principalId: Schema.optional(Schema.String), type: Schema.optional(Schema.String), userName: Schema.optional(Schema.String)}) {}
+export class SessionContext extends Schema.Class<SessionContext>("SessionContext")({attributes: Schema.optional(SessionContextAttributes), sessionIssuer: Schema.optional(SessionIssuer)}) {}
+export class FederatedUser extends Schema.Class<FederatedUser>("FederatedUser")({accessKeyId: Schema.optional(Schema.String), accountId: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), principalId: Schema.optional(Schema.String), sessionContext: Schema.optional(SessionContext)}) {}
+export class IamUser extends Schema.Class<IamUser>("IamUser")({accountId: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), principalId: Schema.optional(Schema.String), userName: Schema.optional(Schema.String)}) {}
+export class UserIdentityRoot extends Schema.Class<UserIdentityRoot>("UserIdentityRoot")({accountId: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), principalId: Schema.optional(Schema.String)}) {}
+export class GetUsageStatisticsResponse extends Schema.Class<GetUsageStatisticsResponse>("GetUsageStatisticsResponse")({nextToken: Schema.optional(Schema.String), records: Schema.optional(__listOfUsageRecord), timeRange: Schema.optional(Schema.String)}) {}
+export class SearchResourcesRequest extends Schema.Class<SearchResourcesRequest>("SearchResourcesRequest")({bucketCriteria: Schema.optional(SearchResourcesBucketCriteria), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String), sortCriteria: Schema.optional(SearchResourcesSortCriteria)}) {}
+export class ResourcesAffected extends Schema.Class<ResourcesAffected>("ResourcesAffected")({s3Bucket: Schema.optional(S3Bucket), s3Object: Schema.optional(S3Object)}) {}
+export class SensitiveDataItem extends Schema.Class<SensitiveDataItem>("SensitiveDataItem")({category: Schema.optional(Schema.String), detections: Schema.optional(DefaultDetections), totalCount: Schema.optional(Schema.Number)}) {}
 export const SensitiveData = Schema.Array(SensitiveDataItem);
-export const IpAddressDetails = Schema.Struct({ipAddressV4: Schema.optional(Schema.String), ipCity: Schema.optional(IpCity), ipCountry: Schema.optional(IpCountry), ipGeoLocation: Schema.optional(IpGeoLocation), ipOwner: Schema.optional(IpOwner)});
-export const CreateClassificationJobRequest = Schema.Struct({allowListIds: Schema.optional(__listOf__string), clientToken: Schema.String, customDataIdentifierIds: Schema.optional(__listOf__string), description: Schema.optional(Schema.String), initialRun: Schema.optional(Schema.Boolean), jobType: Schema.String, managedDataIdentifierIds: Schema.optional(__listOf__string), managedDataIdentifierSelector: Schema.optional(Schema.String), name: Schema.String, s3JobDefinition: S3JobDefinition, samplingPercentage: Schema.optional(Schema.Number), scheduleFrequency: Schema.optional(JobScheduleFrequency), tags: Schema.optional(TagMap)});
-export const CreateClassificationJobResponse = Schema.Struct({jobArn: Schema.optional(Schema.String), jobId: Schema.optional(Schema.String)});
-export const CustomDetection = Schema.Struct({arn: Schema.optional(Schema.String), count: Schema.optional(Schema.Number), name: Schema.optional(Schema.String), occurrences: Schema.optional(Occurrences)});
+export class IpAddressDetails extends Schema.Class<IpAddressDetails>("IpAddressDetails")({ipAddressV4: Schema.optional(Schema.String), ipCity: Schema.optional(IpCity), ipCountry: Schema.optional(IpCountry), ipGeoLocation: Schema.optional(IpGeoLocation), ipOwner: Schema.optional(IpOwner)}) {}
+export class CreateClassificationJobRequest extends Schema.Class<CreateClassificationJobRequest>("CreateClassificationJobRequest")({allowListIds: Schema.optional(__listOf__string), clientToken: Schema.String, customDataIdentifierIds: Schema.optional(__listOf__string), description: Schema.optional(Schema.String), initialRun: Schema.optional(Schema.Boolean), jobType: Schema.String, managedDataIdentifierIds: Schema.optional(__listOf__string), managedDataIdentifierSelector: Schema.optional(Schema.String), name: Schema.String, s3JobDefinition: S3JobDefinition, samplingPercentage: Schema.optional(Schema.Number), scheduleFrequency: Schema.optional(JobScheduleFrequency), tags: Schema.optional(TagMap)}) {}
+export class CreateClassificationJobResponse extends Schema.Class<CreateClassificationJobResponse>("CreateClassificationJobResponse")({jobArn: Schema.optional(Schema.String), jobId: Schema.optional(Schema.String)}) {}
+export class CustomDetection extends Schema.Class<CustomDetection>("CustomDetection")({arn: Schema.optional(Schema.String), count: Schema.optional(Schema.Number), name: Schema.optional(Schema.String), occurrences: Schema.optional(Occurrences)}) {}
 export const CustomDetections = Schema.Array(CustomDetection);
-export const AssumedRole = Schema.Struct({accessKeyId: Schema.optional(Schema.String), accountId: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), principalId: Schema.optional(Schema.String), sessionContext: Schema.optional(SessionContext)});
-export const MatchingBucket = Schema.Struct({accountId: Schema.optional(Schema.String), automatedDiscoveryMonitoringStatus: Schema.optional(Schema.String), bucketName: Schema.optional(Schema.String), classifiableObjectCount: Schema.optional(Schema.Number), classifiableSizeInBytes: Schema.optional(Schema.Number), errorCode: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String), jobDetails: Schema.optional(JobDetails), lastAutomatedDiscoveryTime: Schema.optional(Schema.Date), objectCount: Schema.optional(Schema.Number), objectCountByEncryptionType: Schema.optional(ObjectCountByEncryptionType), sensitivityScore: Schema.optional(Schema.Number), sizeInBytes: Schema.optional(Schema.Number), sizeInBytesCompressed: Schema.optional(Schema.Number), unclassifiableObjectCount: Schema.optional(ObjectLevelStatistics), unclassifiableObjectSizeInBytes: Schema.optional(ObjectLevelStatistics)});
-export const CustomDataIdentifiers = Schema.Struct({detections: Schema.optional(CustomDetections), totalCount: Schema.optional(Schema.Number)});
-export const UserIdentity = Schema.Struct({assumedRole: Schema.optional(AssumedRole), awsAccount: Schema.optional(AwsAccount), awsService: Schema.optional(AwsService), federatedUser: Schema.optional(FederatedUser), iamUser: Schema.optional(IamUser), root: Schema.optional(UserIdentityRoot), type: Schema.optional(Schema.String)});
-export const BucketMetadata = Schema.Struct({accountId: Schema.optional(Schema.String), allowsUnencryptedObjectUploads: Schema.optional(Schema.String), automatedDiscoveryMonitoringStatus: Schema.optional(Schema.String), bucketArn: Schema.optional(Schema.String), bucketCreatedAt: Schema.optional(Schema.Date), bucketName: Schema.optional(Schema.String), classifiableObjectCount: Schema.optional(Schema.Number), classifiableSizeInBytes: Schema.optional(Schema.Number), errorCode: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String), jobDetails: Schema.optional(JobDetails), lastAutomatedDiscoveryTime: Schema.optional(Schema.Date), lastUpdated: Schema.optional(Schema.Date), objectCount: Schema.optional(Schema.Number), objectCountByEncryptionType: Schema.optional(ObjectCountByEncryptionType), publicAccess: Schema.optional(BucketPublicAccess), region: Schema.optional(Schema.String), replicationDetails: Schema.optional(ReplicationDetails), sensitivityScore: Schema.optional(Schema.Number), serverSideEncryption: Schema.optional(BucketServerSideEncryption), sharedAccess: Schema.optional(Schema.String), sizeInBytes: Schema.optional(Schema.Number), sizeInBytesCompressed: Schema.optional(Schema.Number), tags: Schema.optional(__listOfKeyValuePair), unclassifiableObjectCount: Schema.optional(ObjectLevelStatistics), unclassifiableObjectSizeInBytes: Schema.optional(ObjectLevelStatistics), versioning: Schema.optional(Schema.Boolean)});
+export class AssumedRole extends Schema.Class<AssumedRole>("AssumedRole")({accessKeyId: Schema.optional(Schema.String), accountId: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), principalId: Schema.optional(Schema.String), sessionContext: Schema.optional(SessionContext)}) {}
+export class MatchingBucket extends Schema.Class<MatchingBucket>("MatchingBucket")({accountId: Schema.optional(Schema.String), automatedDiscoveryMonitoringStatus: Schema.optional(Schema.String), bucketName: Schema.optional(Schema.String), classifiableObjectCount: Schema.optional(Schema.Number), classifiableSizeInBytes: Schema.optional(Schema.Number), errorCode: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String), jobDetails: Schema.optional(JobDetails), lastAutomatedDiscoveryTime: Schema.optional(Schema.Date), objectCount: Schema.optional(Schema.Number), objectCountByEncryptionType: Schema.optional(ObjectCountByEncryptionType), sensitivityScore: Schema.optional(Schema.Number), sizeInBytes: Schema.optional(Schema.Number), sizeInBytesCompressed: Schema.optional(Schema.Number), unclassifiableObjectCount: Schema.optional(ObjectLevelStatistics), unclassifiableObjectSizeInBytes: Schema.optional(ObjectLevelStatistics)}) {}
+export class CustomDataIdentifiers extends Schema.Class<CustomDataIdentifiers>("CustomDataIdentifiers")({detections: Schema.optional(CustomDetections), totalCount: Schema.optional(Schema.Number)}) {}
+export class UserIdentity extends Schema.Class<UserIdentity>("UserIdentity")({assumedRole: Schema.optional(AssumedRole), awsAccount: Schema.optional(AwsAccount), awsService: Schema.optional(AwsService), federatedUser: Schema.optional(FederatedUser), iamUser: Schema.optional(IamUser), root: Schema.optional(UserIdentityRoot), type: Schema.optional(Schema.String)}) {}
+export class BucketMetadata extends Schema.Class<BucketMetadata>("BucketMetadata")({accountId: Schema.optional(Schema.String), allowsUnencryptedObjectUploads: Schema.optional(Schema.String), automatedDiscoveryMonitoringStatus: Schema.optional(Schema.String), bucketArn: Schema.optional(Schema.String), bucketCreatedAt: Schema.optional(Schema.Date), bucketName: Schema.optional(Schema.String), classifiableObjectCount: Schema.optional(Schema.Number), classifiableSizeInBytes: Schema.optional(Schema.Number), errorCode: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String), jobDetails: Schema.optional(JobDetails), lastAutomatedDiscoveryTime: Schema.optional(Schema.Date), lastUpdated: Schema.optional(Schema.Date), objectCount: Schema.optional(Schema.Number), objectCountByEncryptionType: Schema.optional(ObjectCountByEncryptionType), publicAccess: Schema.optional(BucketPublicAccess), region: Schema.optional(Schema.String), replicationDetails: Schema.optional(ReplicationDetails), sensitivityScore: Schema.optional(Schema.Number), serverSideEncryption: Schema.optional(BucketServerSideEncryption), sharedAccess: Schema.optional(Schema.String), sizeInBytes: Schema.optional(Schema.Number), sizeInBytesCompressed: Schema.optional(Schema.Number), tags: Schema.optional(__listOfKeyValuePair), unclassifiableObjectCount: Schema.optional(ObjectLevelStatistics), unclassifiableObjectSizeInBytes: Schema.optional(ObjectLevelStatistics), versioning: Schema.optional(Schema.Boolean)}) {}
 export const __listOfBucketMetadata = Schema.Array(BucketMetadata);
-export const MatchingResource = Schema.Struct({matchingBucket: Schema.optional(MatchingBucket)});
+export class MatchingResource extends Schema.Class<MatchingResource>("MatchingResource")({matchingBucket: Schema.optional(MatchingBucket)}) {}
 export const __listOfMatchingResource = Schema.Array(MatchingResource);
-export const ClassificationResult = Schema.Struct({additionalOccurrences: Schema.optional(Schema.Boolean), customDataIdentifiers: Schema.optional(CustomDataIdentifiers), mimeType: Schema.optional(Schema.String), sensitiveData: Schema.optional(SensitiveData), sizeClassified: Schema.optional(Schema.Number), status: Schema.optional(ClassificationResultStatus)});
-export const FindingActor = Schema.Struct({domainDetails: Schema.optional(DomainDetails), ipAddressDetails: Schema.optional(IpAddressDetails), userIdentity: Schema.optional(UserIdentity)});
-export const DescribeBucketsResponse = Schema.Struct({buckets: Schema.optional(__listOfBucketMetadata), nextToken: Schema.optional(Schema.String)});
-export const SearchResourcesResponse = Schema.Struct({matchingResources: Schema.optional(__listOfMatchingResource), nextToken: Schema.optional(Schema.String)});
-export const ClassificationDetails = Schema.Struct({detailedResultsLocation: Schema.optional(Schema.String), jobArn: Schema.optional(Schema.String), jobId: Schema.optional(Schema.String), originType: Schema.optional(Schema.String), result: Schema.optional(ClassificationResult)});
-export const PolicyDetails = Schema.Struct({action: Schema.optional(FindingAction), actor: Schema.optional(FindingActor)});
-export const Finding = Schema.Struct({accountId: Schema.optional(Schema.String), archived: Schema.optional(Schema.Boolean), category: Schema.optional(Schema.String), classificationDetails: Schema.optional(ClassificationDetails), count: Schema.optional(Schema.Number), createdAt: Schema.optional(Schema.Date), description: Schema.optional(Schema.String), id: Schema.optional(Schema.String), partition: Schema.optional(Schema.String), policyDetails: Schema.optional(PolicyDetails), region: Schema.optional(Schema.String), resourcesAffected: Schema.optional(ResourcesAffected), sample: Schema.optional(Schema.Boolean), schemaVersion: Schema.optional(Schema.String), severity: Schema.optional(Severity), title: Schema.optional(Schema.String), type: Schema.optional(Schema.String), updatedAt: Schema.optional(Schema.Date)});
+export class ClassificationResult extends Schema.Class<ClassificationResult>("ClassificationResult")({additionalOccurrences: Schema.optional(Schema.Boolean), customDataIdentifiers: Schema.optional(CustomDataIdentifiers), mimeType: Schema.optional(Schema.String), sensitiveData: Schema.optional(SensitiveData), sizeClassified: Schema.optional(Schema.Number), status: Schema.optional(ClassificationResultStatus)}) {}
+export class FindingActor extends Schema.Class<FindingActor>("FindingActor")({domainDetails: Schema.optional(DomainDetails), ipAddressDetails: Schema.optional(IpAddressDetails), userIdentity: Schema.optional(UserIdentity)}) {}
+export class DescribeBucketsResponse extends Schema.Class<DescribeBucketsResponse>("DescribeBucketsResponse")({buckets: Schema.optional(__listOfBucketMetadata), nextToken: Schema.optional(Schema.String)}) {}
+export class SearchResourcesResponse extends Schema.Class<SearchResourcesResponse>("SearchResourcesResponse")({matchingResources: Schema.optional(__listOfMatchingResource), nextToken: Schema.optional(Schema.String)}) {}
+export class ClassificationDetails extends Schema.Class<ClassificationDetails>("ClassificationDetails")({detailedResultsLocation: Schema.optional(Schema.String), jobArn: Schema.optional(Schema.String), jobId: Schema.optional(Schema.String), originType: Schema.optional(Schema.String), result: Schema.optional(ClassificationResult)}) {}
+export class PolicyDetails extends Schema.Class<PolicyDetails>("PolicyDetails")({action: Schema.optional(FindingAction), actor: Schema.optional(FindingActor)}) {}
+export class Finding extends Schema.Class<Finding>("Finding")({accountId: Schema.optional(Schema.String), archived: Schema.optional(Schema.Boolean), category: Schema.optional(Schema.String), classificationDetails: Schema.optional(ClassificationDetails), count: Schema.optional(Schema.Number), createdAt: Schema.optional(Schema.Date), description: Schema.optional(Schema.String), id: Schema.optional(Schema.String), partition: Schema.optional(Schema.String), policyDetails: Schema.optional(PolicyDetails), region: Schema.optional(Schema.String), resourcesAffected: Schema.optional(ResourcesAffected), sample: Schema.optional(Schema.Boolean), schemaVersion: Schema.optional(Schema.String), severity: Schema.optional(Severity), title: Schema.optional(Schema.String), type: Schema.optional(Schema.String), updatedAt: Schema.optional(Schema.Date)}) {}
 export const __listOfFinding = Schema.Array(Finding);
-export const GetFindingsResponse = Schema.Struct({findings: Schema.optional(__listOfFinding)});
+export class GetFindingsResponse extends Schema.Class<GetFindingsResponse>("GetFindingsResponse")({findings: Schema.optional(__listOfFinding)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class UnprocessableEntityExceptionError extends Schema.TaggedError<UnprocessableEntityExceptionError>()("UnprocessableEntityException", UnprocessableEntityException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class UnprocessableEntityExceptionError extends Schema.TaggedError<UnprocessableEntityExceptionError>()("UnprocessableEntityException", UnprocessableEntityException.fields) {};
 
 //# Operations
 export const deleteFindingsFilter = /*#__PURE__*/ makeOperation(() => Operation({ version: "2020-01-01", uri: "/findingsfilters/{id}", method: "DELETE", sdkId: "Macie2", sigV4ServiceName: "macie2", name: "Macie2.DeleteFindingsFilter" }, DeleteFindingsFilterRequest, DeleteFindingsFilterResponse, [AccessDeniedExceptionError, ConflictExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ServiceQuotaExceededExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

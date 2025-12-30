@@ -4,182 +4,182 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 
 //# Schemas
 export const FeatureTypes = Schema.Array(Schema.String);
-export const S3Object = Schema.Struct({Bucket: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Version: Schema.optional(Schema.String)});
-export const Document = Schema.Struct({Bytes: Schema.optional(StreamBody()), S3Object: Schema.optional(S3Object)});
+export class S3Object extends Schema.Class<S3Object>("S3Object")({Bucket: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Version: Schema.optional(Schema.String)}) {}
+export class Document extends Schema.Class<Document>("Document")({Bytes: Schema.optional(StreamBody()), S3Object: Schema.optional(S3Object)}) {}
 export const DocumentPages = Schema.Array(Document);
 export const TagKeyList = Schema.Array(Schema.String);
-export const AnalyzeExpenseRequest = Schema.Struct({Document: Document});
-export const AnalyzeIDRequest = Schema.Struct({DocumentPages: DocumentPages});
-export const DeleteAdapterRequest = Schema.Struct({AdapterId: Schema.String});
-export const DeleteAdapterResponse = Schema.Struct({});
-export const DeleteAdapterVersionRequest = Schema.Struct({AdapterId: Schema.String, AdapterVersion: Schema.String});
-export const DeleteAdapterVersionResponse = Schema.Struct({});
-export const DetectDocumentTextRequest = Schema.Struct({Document: Document});
-export const GetAdapterRequest = Schema.Struct({AdapterId: Schema.String});
-export const GetAdapterVersionRequest = Schema.Struct({AdapterId: Schema.String, AdapterVersion: Schema.String});
-export const GetDocumentAnalysisRequest = Schema.Struct({JobId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const GetDocumentTextDetectionRequest = Schema.Struct({JobId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const GetExpenseAnalysisRequest = Schema.Struct({JobId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const GetLendingAnalysisRequest = Schema.Struct({JobId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const GetLendingAnalysisSummaryRequest = Schema.Struct({JobId: Schema.String});
-export const ListAdaptersRequest = Schema.Struct({AfterCreationTime: Schema.optional(Schema.Date), BeforeCreationTime: Schema.optional(Schema.Date), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListAdapterVersionsRequest = Schema.Struct({AdapterId: Schema.optional(Schema.String), AfterCreationTime: Schema.optional(Schema.Date), BeforeCreationTime: Schema.optional(Schema.Date), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceRequest = Schema.Struct({ResourceARN: Schema.String});
-export const DocumentLocation = Schema.Struct({S3Object: Schema.optional(S3Object)});
-export const NotificationChannel = Schema.Struct({SNSTopicArn: Schema.String, RoleArn: Schema.String});
-export const OutputConfig = Schema.Struct({S3Bucket: Schema.String, S3Prefix: Schema.optional(Schema.String)});
-export const StartDocumentTextDetectionRequest = Schema.Struct({DocumentLocation: DocumentLocation, ClientRequestToken: Schema.optional(Schema.String), JobTag: Schema.optional(Schema.String), NotificationChannel: Schema.optional(NotificationChannel), OutputConfig: Schema.optional(OutputConfig), KMSKeyId: Schema.optional(Schema.String)});
-export const StartExpenseAnalysisRequest = Schema.Struct({DocumentLocation: DocumentLocation, ClientRequestToken: Schema.optional(Schema.String), JobTag: Schema.optional(Schema.String), NotificationChannel: Schema.optional(NotificationChannel), OutputConfig: Schema.optional(OutputConfig), KMSKeyId: Schema.optional(Schema.String)});
-export const StartLendingAnalysisRequest = Schema.Struct({DocumentLocation: DocumentLocation, ClientRequestToken: Schema.optional(Schema.String), JobTag: Schema.optional(Schema.String), NotificationChannel: Schema.optional(NotificationChannel), OutputConfig: Schema.optional(OutputConfig), KMSKeyId: Schema.optional(Schema.String)});
+export class AnalyzeExpenseRequest extends Schema.Class<AnalyzeExpenseRequest>("AnalyzeExpenseRequest")({Document: Document}) {}
+export class AnalyzeIDRequest extends Schema.Class<AnalyzeIDRequest>("AnalyzeIDRequest")({DocumentPages: DocumentPages}) {}
+export class DeleteAdapterRequest extends Schema.Class<DeleteAdapterRequest>("DeleteAdapterRequest")({AdapterId: Schema.String}) {}
+export class DeleteAdapterResponse extends Schema.Class<DeleteAdapterResponse>("DeleteAdapterResponse")({}) {}
+export class DeleteAdapterVersionRequest extends Schema.Class<DeleteAdapterVersionRequest>("DeleteAdapterVersionRequest")({AdapterId: Schema.String, AdapterVersion: Schema.String}) {}
+export class DeleteAdapterVersionResponse extends Schema.Class<DeleteAdapterVersionResponse>("DeleteAdapterVersionResponse")({}) {}
+export class DetectDocumentTextRequest extends Schema.Class<DetectDocumentTextRequest>("DetectDocumentTextRequest")({Document: Document}) {}
+export class GetAdapterRequest extends Schema.Class<GetAdapterRequest>("GetAdapterRequest")({AdapterId: Schema.String}) {}
+export class GetAdapterVersionRequest extends Schema.Class<GetAdapterVersionRequest>("GetAdapterVersionRequest")({AdapterId: Schema.String, AdapterVersion: Schema.String}) {}
+export class GetDocumentAnalysisRequest extends Schema.Class<GetDocumentAnalysisRequest>("GetDocumentAnalysisRequest")({JobId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class GetDocumentTextDetectionRequest extends Schema.Class<GetDocumentTextDetectionRequest>("GetDocumentTextDetectionRequest")({JobId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class GetExpenseAnalysisRequest extends Schema.Class<GetExpenseAnalysisRequest>("GetExpenseAnalysisRequest")({JobId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class GetLendingAnalysisRequest extends Schema.Class<GetLendingAnalysisRequest>("GetLendingAnalysisRequest")({JobId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class GetLendingAnalysisSummaryRequest extends Schema.Class<GetLendingAnalysisSummaryRequest>("GetLendingAnalysisSummaryRequest")({JobId: Schema.String}) {}
+export class ListAdaptersRequest extends Schema.Class<ListAdaptersRequest>("ListAdaptersRequest")({AfterCreationTime: Schema.optional(Schema.Date), BeforeCreationTime: Schema.optional(Schema.Date), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListAdapterVersionsRequest extends Schema.Class<ListAdapterVersionsRequest>("ListAdapterVersionsRequest")({AdapterId: Schema.optional(Schema.String), AfterCreationTime: Schema.optional(Schema.Date), BeforeCreationTime: Schema.optional(Schema.Date), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({ResourceARN: Schema.String}) {}
+export class DocumentLocation extends Schema.Class<DocumentLocation>("DocumentLocation")({S3Object: Schema.optional(S3Object)}) {}
+export class NotificationChannel extends Schema.Class<NotificationChannel>("NotificationChannel")({SNSTopicArn: Schema.String, RoleArn: Schema.String}) {}
+export class OutputConfig extends Schema.Class<OutputConfig>("OutputConfig")({S3Bucket: Schema.String, S3Prefix: Schema.optional(Schema.String)}) {}
+export class StartDocumentTextDetectionRequest extends Schema.Class<StartDocumentTextDetectionRequest>("StartDocumentTextDetectionRequest")({DocumentLocation: DocumentLocation, ClientRequestToken: Schema.optional(Schema.String), JobTag: Schema.optional(Schema.String), NotificationChannel: Schema.optional(NotificationChannel), OutputConfig: Schema.optional(OutputConfig), KMSKeyId: Schema.optional(Schema.String)}) {}
+export class StartExpenseAnalysisRequest extends Schema.Class<StartExpenseAnalysisRequest>("StartExpenseAnalysisRequest")({DocumentLocation: DocumentLocation, ClientRequestToken: Schema.optional(Schema.String), JobTag: Schema.optional(Schema.String), NotificationChannel: Schema.optional(NotificationChannel), OutputConfig: Schema.optional(OutputConfig), KMSKeyId: Schema.optional(Schema.String)}) {}
+export class StartLendingAnalysisRequest extends Schema.Class<StartLendingAnalysisRequest>("StartLendingAnalysisRequest")({DocumentLocation: DocumentLocation, ClientRequestToken: Schema.optional(Schema.String), JobTag: Schema.optional(Schema.String), NotificationChannel: Schema.optional(NotificationChannel), OutputConfig: Schema.optional(OutputConfig), KMSKeyId: Schema.optional(Schema.String)}) {}
 export const TagMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const TagResourceRequest = Schema.Struct({ResourceARN: Schema.String, Tags: TagMap});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({ResourceARN: Schema.String, TagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
-export const UpdateAdapterRequest = Schema.Struct({AdapterId: Schema.String, Description: Schema.optional(Schema.String), AdapterName: Schema.optional(Schema.String), AutoUpdate: Schema.optional(Schema.String)});
-export const AdapterVersionDatasetConfig = Schema.Struct({ManifestS3Object: Schema.optional(S3Object)});
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({ResourceARN: Schema.String, Tags: TagMap}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({ResourceARN: Schema.String, TagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class UpdateAdapterRequest extends Schema.Class<UpdateAdapterRequest>("UpdateAdapterRequest")({AdapterId: Schema.String, Description: Schema.optional(Schema.String), AdapterName: Schema.optional(Schema.String), AutoUpdate: Schema.optional(Schema.String)}) {}
+export class AdapterVersionDatasetConfig extends Schema.Class<AdapterVersionDatasetConfig>("AdapterVersionDatasetConfig")({ManifestS3Object: Schema.optional(S3Object)}) {}
 export const ContentClassifiers = Schema.Array(Schema.String);
 export const QueryPages = Schema.Array(Schema.String);
 export const AdapterPages = Schema.Array(Schema.String);
-export const CreateAdapterRequest = Schema.Struct({AdapterName: Schema.String, ClientRequestToken: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), FeatureTypes: FeatureTypes, AutoUpdate: Schema.optional(Schema.String), Tags: Schema.optional(TagMap)});
-export const CreateAdapterVersionRequest = Schema.Struct({AdapterId: Schema.String, ClientRequestToken: Schema.optional(Schema.String), DatasetConfig: AdapterVersionDatasetConfig, KMSKeyId: Schema.optional(Schema.String), OutputConfig: OutputConfig, Tags: Schema.optional(TagMap)});
-export const AccessDeniedException = Schema.Struct({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String)});
-export const ConflictException = Schema.Struct({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String)});
-export const GetAdapterResponse = Schema.Struct({AdapterId: Schema.optional(Schema.String), AdapterName: Schema.optional(Schema.String), CreationTime: Schema.optional(Schema.Date), Description: Schema.optional(Schema.String), FeatureTypes: Schema.optional(FeatureTypes), AutoUpdate: Schema.optional(Schema.String), Tags: Schema.optional(TagMap)});
-export const DocumentMetadata = Schema.Struct({Pages: Schema.optional(Schema.Number)});
-export const BoundingBox = Schema.Struct({Width: Schema.optional(Schema.Number), Height: Schema.optional(Schema.Number), Left: Schema.optional(Schema.Number), Top: Schema.optional(Schema.Number)});
-export const Point = Schema.Struct({X: Schema.optional(Schema.Number), Y: Schema.optional(Schema.Number)});
+export class CreateAdapterRequest extends Schema.Class<CreateAdapterRequest>("CreateAdapterRequest")({AdapterName: Schema.String, ClientRequestToken: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), FeatureTypes: FeatureTypes, AutoUpdate: Schema.optional(Schema.String), Tags: Schema.optional(TagMap)}) {}
+export class CreateAdapterVersionRequest extends Schema.Class<CreateAdapterVersionRequest>("CreateAdapterVersionRequest")({AdapterId: Schema.String, ClientRequestToken: Schema.optional(Schema.String), DatasetConfig: AdapterVersionDatasetConfig, KMSKeyId: Schema.optional(Schema.String), OutputConfig: OutputConfig, Tags: Schema.optional(TagMap)}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String)}) {}
+export class GetAdapterResponse extends Schema.Class<GetAdapterResponse>("GetAdapterResponse")({AdapterId: Schema.optional(Schema.String), AdapterName: Schema.optional(Schema.String), CreationTime: Schema.optional(Schema.Date), Description: Schema.optional(Schema.String), FeatureTypes: Schema.optional(FeatureTypes), AutoUpdate: Schema.optional(Schema.String), Tags: Schema.optional(TagMap)}) {}
+export class DocumentMetadata extends Schema.Class<DocumentMetadata>("DocumentMetadata")({Pages: Schema.optional(Schema.Number)}) {}
+export class BoundingBox extends Schema.Class<BoundingBox>("BoundingBox")({Width: Schema.optional(Schema.Number), Height: Schema.optional(Schema.Number), Left: Schema.optional(Schema.Number), Top: Schema.optional(Schema.Number)}) {}
+export class Point extends Schema.Class<Point>("Point")({X: Schema.optional(Schema.Number), Y: Schema.optional(Schema.Number)}) {}
 export const Polygon = Schema.Array(Point);
-export const Geometry = Schema.Struct({BoundingBox: Schema.optional(BoundingBox), Polygon: Schema.optional(Polygon), RotationAngle: Schema.optional(Schema.Number)});
+export class Geometry extends Schema.Class<Geometry>("Geometry")({BoundingBox: Schema.optional(BoundingBox), Polygon: Schema.optional(Polygon), RotationAngle: Schema.optional(Schema.Number)}) {}
 export const IdList = Schema.Array(Schema.String);
-export const Relationship = Schema.Struct({Type: Schema.optional(Schema.String), Ids: Schema.optional(IdList)});
+export class Relationship extends Schema.Class<Relationship>("Relationship")({Type: Schema.optional(Schema.String), Ids: Schema.optional(IdList)}) {}
 export const RelationshipList = Schema.Array(Relationship);
 export const EntityTypes = Schema.Array(Schema.String);
-export const Query = Schema.Struct({Text: Schema.String, Alias: Schema.optional(Schema.String), Pages: Schema.optional(QueryPages)});
-export const Block = Schema.Struct({BlockType: Schema.optional(Schema.String), Confidence: Schema.optional(Schema.Number), Text: Schema.optional(Schema.String), TextType: Schema.optional(Schema.String), RowIndex: Schema.optional(Schema.Number), ColumnIndex: Schema.optional(Schema.Number), RowSpan: Schema.optional(Schema.Number), ColumnSpan: Schema.optional(Schema.Number), Geometry: Schema.optional(Geometry), Id: Schema.optional(Schema.String), Relationships: Schema.optional(RelationshipList), EntityTypes: Schema.optional(EntityTypes), SelectionStatus: Schema.optional(Schema.String), Page: Schema.optional(Schema.Number), Query: Schema.optional(Query)});
+export class Query extends Schema.Class<Query>("Query")({Text: Schema.String, Alias: Schema.optional(Schema.String), Pages: Schema.optional(QueryPages)}) {}
+export class Block extends Schema.Class<Block>("Block")({BlockType: Schema.optional(Schema.String), Confidence: Schema.optional(Schema.Number), Text: Schema.optional(Schema.String), TextType: Schema.optional(Schema.String), RowIndex: Schema.optional(Schema.Number), ColumnIndex: Schema.optional(Schema.Number), RowSpan: Schema.optional(Schema.Number), ColumnSpan: Schema.optional(Schema.Number), Geometry: Schema.optional(Geometry), Id: Schema.optional(Schema.String), Relationships: Schema.optional(RelationshipList), EntityTypes: Schema.optional(EntityTypes), SelectionStatus: Schema.optional(Schema.String), Page: Schema.optional(Schema.Number), Query: Schema.optional(Query)}) {}
 export const BlockList = Schema.Array(Block);
 export const Pages = Schema.Array(Schema.Number);
-export const Warning = Schema.Struct({ErrorCode: Schema.optional(Schema.String), Pages: Schema.optional(Pages)});
+export class Warning extends Schema.Class<Warning>("Warning")({ErrorCode: Schema.optional(Schema.String), Pages: Schema.optional(Pages)}) {}
 export const Warnings = Schema.Array(Warning);
-export const GetDocumentTextDetectionResponse = Schema.Struct({DocumentMetadata: Schema.optional(DocumentMetadata), JobStatus: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), Blocks: Schema.optional(BlockList), Warnings: Schema.optional(Warnings), StatusMessage: Schema.optional(Schema.String), DetectDocumentTextModelVersion: Schema.optional(Schema.String)});
-export const ExpenseType = Schema.Struct({Text: Schema.optional(Schema.String), Confidence: Schema.optional(Schema.Number)});
-export const ExpenseDetection = Schema.Struct({Text: Schema.optional(Schema.String), Geometry: Schema.optional(Geometry), Confidence: Schema.optional(Schema.Number)});
-export const ExpenseCurrency = Schema.Struct({Code: Schema.optional(Schema.String), Confidence: Schema.optional(Schema.Number)});
+export class GetDocumentTextDetectionResponse extends Schema.Class<GetDocumentTextDetectionResponse>("GetDocumentTextDetectionResponse")({DocumentMetadata: Schema.optional(DocumentMetadata), JobStatus: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), Blocks: Schema.optional(BlockList), Warnings: Schema.optional(Warnings), StatusMessage: Schema.optional(Schema.String), DetectDocumentTextModelVersion: Schema.optional(Schema.String)}) {}
+export class ExpenseType extends Schema.Class<ExpenseType>("ExpenseType")({Text: Schema.optional(Schema.String), Confidence: Schema.optional(Schema.Number)}) {}
+export class ExpenseDetection extends Schema.Class<ExpenseDetection>("ExpenseDetection")({Text: Schema.optional(Schema.String), Geometry: Schema.optional(Geometry), Confidence: Schema.optional(Schema.Number)}) {}
+export class ExpenseCurrency extends Schema.Class<ExpenseCurrency>("ExpenseCurrency")({Code: Schema.optional(Schema.String), Confidence: Schema.optional(Schema.Number)}) {}
 export const StringList = Schema.Array(Schema.String);
-export const ExpenseGroupProperty = Schema.Struct({Types: Schema.optional(StringList), Id: Schema.optional(Schema.String)});
+export class ExpenseGroupProperty extends Schema.Class<ExpenseGroupProperty>("ExpenseGroupProperty")({Types: Schema.optional(StringList), Id: Schema.optional(Schema.String)}) {}
 export const ExpenseGroupPropertyList = Schema.Array(ExpenseGroupProperty);
-export const ExpenseField = Schema.Struct({Type: Schema.optional(ExpenseType), LabelDetection: Schema.optional(ExpenseDetection), ValueDetection: Schema.optional(ExpenseDetection), PageNumber: Schema.optional(Schema.Number), Currency: Schema.optional(ExpenseCurrency), GroupProperties: Schema.optional(ExpenseGroupPropertyList)});
+export class ExpenseField extends Schema.Class<ExpenseField>("ExpenseField")({Type: Schema.optional(ExpenseType), LabelDetection: Schema.optional(ExpenseDetection), ValueDetection: Schema.optional(ExpenseDetection), PageNumber: Schema.optional(Schema.Number), Currency: Schema.optional(ExpenseCurrency), GroupProperties: Schema.optional(ExpenseGroupPropertyList)}) {}
 export const ExpenseFieldList = Schema.Array(ExpenseField);
-export const LineItemFields = Schema.Struct({LineItemExpenseFields: Schema.optional(ExpenseFieldList)});
+export class LineItemFields extends Schema.Class<LineItemFields>("LineItemFields")({LineItemExpenseFields: Schema.optional(ExpenseFieldList)}) {}
 export const LineItemList = Schema.Array(LineItemFields);
-export const LineItemGroup = Schema.Struct({LineItemGroupIndex: Schema.optional(Schema.Number), LineItems: Schema.optional(LineItemList)});
+export class LineItemGroup extends Schema.Class<LineItemGroup>("LineItemGroup")({LineItemGroupIndex: Schema.optional(Schema.Number), LineItems: Schema.optional(LineItemList)}) {}
 export const LineItemGroupList = Schema.Array(LineItemGroup);
-export const ExpenseDocument = Schema.Struct({ExpenseIndex: Schema.optional(Schema.Number), SummaryFields: Schema.optional(ExpenseFieldList), LineItemGroups: Schema.optional(LineItemGroupList), Blocks: Schema.optional(BlockList)});
+export class ExpenseDocument extends Schema.Class<ExpenseDocument>("ExpenseDocument")({ExpenseIndex: Schema.optional(Schema.Number), SummaryFields: Schema.optional(ExpenseFieldList), LineItemGroups: Schema.optional(LineItemGroupList), Blocks: Schema.optional(BlockList)}) {}
 export const ExpenseDocumentList = Schema.Array(ExpenseDocument);
-export const GetExpenseAnalysisResponse = Schema.Struct({DocumentMetadata: Schema.optional(DocumentMetadata), JobStatus: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), ExpenseDocuments: Schema.optional(ExpenseDocumentList), Warnings: Schema.optional(Warnings), StatusMessage: Schema.optional(Schema.String), AnalyzeExpenseModelVersion: Schema.optional(Schema.String)});
-export const ListTagsForResourceResponse = Schema.Struct({Tags: Schema.optional(TagMap)});
+export class GetExpenseAnalysisResponse extends Schema.Class<GetExpenseAnalysisResponse>("GetExpenseAnalysisResponse")({DocumentMetadata: Schema.optional(DocumentMetadata), JobStatus: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), ExpenseDocuments: Schema.optional(ExpenseDocumentList), Warnings: Schema.optional(Warnings), StatusMessage: Schema.optional(Schema.String), AnalyzeExpenseModelVersion: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({Tags: Schema.optional(TagMap)}) {}
 export const Queries = Schema.Array(Query);
-export const QueriesConfig = Schema.Struct({Queries: Queries});
-export const Adapter = Schema.Struct({AdapterId: Schema.String, Pages: Schema.optional(AdapterPages), Version: Schema.String});
+export class QueriesConfig extends Schema.Class<QueriesConfig>("QueriesConfig")({Queries: Queries}) {}
+export class Adapter extends Schema.Class<Adapter>("Adapter")({AdapterId: Schema.String, Pages: Schema.optional(AdapterPages), Version: Schema.String}) {}
 export const Adapters = Schema.Array(Adapter);
-export const AdaptersConfig = Schema.Struct({Adapters: Adapters});
-export const StartDocumentAnalysisRequest = Schema.Struct({DocumentLocation: DocumentLocation, FeatureTypes: FeatureTypes, ClientRequestToken: Schema.optional(Schema.String), JobTag: Schema.optional(Schema.String), NotificationChannel: Schema.optional(NotificationChannel), OutputConfig: Schema.optional(OutputConfig), KMSKeyId: Schema.optional(Schema.String), QueriesConfig: Schema.optional(QueriesConfig), AdaptersConfig: Schema.optional(AdaptersConfig)});
-export const StartDocumentTextDetectionResponse = Schema.Struct({JobId: Schema.optional(Schema.String)});
-export const StartExpenseAnalysisResponse = Schema.Struct({JobId: Schema.optional(Schema.String)});
-export const StartLendingAnalysisResponse = Schema.Struct({JobId: Schema.optional(Schema.String)});
-export const InternalServerError = Schema.Struct({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String)});
-export const InvalidParameterException = Schema.Struct({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String)});
-export const UpdateAdapterResponse = Schema.Struct({AdapterId: Schema.optional(Schema.String), AdapterName: Schema.optional(Schema.String), CreationTime: Schema.optional(Schema.Date), Description: Schema.optional(Schema.String), FeatureTypes: Schema.optional(FeatureTypes), AutoUpdate: Schema.optional(Schema.String)});
-export const HumanLoopDataAttributes = Schema.Struct({ContentClassifiers: Schema.optional(ContentClassifiers)});
+export class AdaptersConfig extends Schema.Class<AdaptersConfig>("AdaptersConfig")({Adapters: Adapters}) {}
+export class StartDocumentAnalysisRequest extends Schema.Class<StartDocumentAnalysisRequest>("StartDocumentAnalysisRequest")({DocumentLocation: DocumentLocation, FeatureTypes: FeatureTypes, ClientRequestToken: Schema.optional(Schema.String), JobTag: Schema.optional(Schema.String), NotificationChannel: Schema.optional(NotificationChannel), OutputConfig: Schema.optional(OutputConfig), KMSKeyId: Schema.optional(Schema.String), QueriesConfig: Schema.optional(QueriesConfig), AdaptersConfig: Schema.optional(AdaptersConfig)}) {}
+export class StartDocumentTextDetectionResponse extends Schema.Class<StartDocumentTextDetectionResponse>("StartDocumentTextDetectionResponse")({JobId: Schema.optional(Schema.String)}) {}
+export class StartExpenseAnalysisResponse extends Schema.Class<StartExpenseAnalysisResponse>("StartExpenseAnalysisResponse")({JobId: Schema.optional(Schema.String)}) {}
+export class StartLendingAnalysisResponse extends Schema.Class<StartLendingAnalysisResponse>("StartLendingAnalysisResponse")({JobId: Schema.optional(Schema.String)}) {}
+export class InternalServerError extends Schema.Class<InternalServerError>("InternalServerError")({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String)}) {}
+export class InvalidParameterException extends Schema.Class<InvalidParameterException>("InvalidParameterException")({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String)}) {}
+export class UpdateAdapterResponse extends Schema.Class<UpdateAdapterResponse>("UpdateAdapterResponse")({AdapterId: Schema.optional(Schema.String), AdapterName: Schema.optional(Schema.String), CreationTime: Schema.optional(Schema.Date), Description: Schema.optional(Schema.String), FeatureTypes: Schema.optional(FeatureTypes), AutoUpdate: Schema.optional(Schema.String)}) {}
+export class HumanLoopDataAttributes extends Schema.Class<HumanLoopDataAttributes>("HumanLoopDataAttributes")({ContentClassifiers: Schema.optional(ContentClassifiers)}) {}
 export const UndetectedDocumentTypeList = Schema.Array(Schema.String);
-export const HumanLoopConfig = Schema.Struct({HumanLoopName: Schema.String, FlowDefinitionArn: Schema.String, DataAttributes: Schema.optional(HumanLoopDataAttributes)});
-export const AdapterOverview = Schema.Struct({AdapterId: Schema.optional(Schema.String), AdapterName: Schema.optional(Schema.String), CreationTime: Schema.optional(Schema.Date), FeatureTypes: Schema.optional(FeatureTypes)});
+export class HumanLoopConfig extends Schema.Class<HumanLoopConfig>("HumanLoopConfig")({HumanLoopName: Schema.String, FlowDefinitionArn: Schema.String, DataAttributes: Schema.optional(HumanLoopDataAttributes)}) {}
+export class AdapterOverview extends Schema.Class<AdapterOverview>("AdapterOverview")({AdapterId: Schema.optional(Schema.String), AdapterName: Schema.optional(Schema.String), CreationTime: Schema.optional(Schema.Date), FeatureTypes: Schema.optional(FeatureTypes)}) {}
 export const AdapterList = Schema.Array(AdapterOverview);
-export const AdapterVersionOverview = Schema.Struct({AdapterId: Schema.optional(Schema.String), AdapterVersion: Schema.optional(Schema.String), CreationTime: Schema.optional(Schema.Date), FeatureTypes: Schema.optional(FeatureTypes), Status: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String)});
+export class AdapterVersionOverview extends Schema.Class<AdapterVersionOverview>("AdapterVersionOverview")({AdapterId: Schema.optional(Schema.String), AdapterVersion: Schema.optional(Schema.String), CreationTime: Schema.optional(Schema.Date), FeatureTypes: Schema.optional(FeatureTypes), Status: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String)}) {}
 export const AdapterVersionList = Schema.Array(AdapterVersionOverview);
-export const AnalyzeDocumentRequest = Schema.Struct({Document: Document, FeatureTypes: FeatureTypes, HumanLoopConfig: Schema.optional(HumanLoopConfig), QueriesConfig: Schema.optional(QueriesConfig), AdaptersConfig: Schema.optional(AdaptersConfig)});
-export const CreateAdapterResponse = Schema.Struct({AdapterId: Schema.optional(Schema.String)});
-export const CreateAdapterVersionResponse = Schema.Struct({AdapterId: Schema.optional(Schema.String), AdapterVersion: Schema.optional(Schema.String)});
-export const ProvisionedThroughputExceededException = Schema.Struct({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String)});
-export const ThrottlingException = Schema.Struct({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String)});
-export const GetDocumentAnalysisResponse = Schema.Struct({DocumentMetadata: Schema.optional(DocumentMetadata), JobStatus: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), Blocks: Schema.optional(BlockList), Warnings: Schema.optional(Warnings), StatusMessage: Schema.optional(Schema.String), AnalyzeDocumentModelVersion: Schema.optional(Schema.String)});
-export const InvalidJobIdException = Schema.Struct({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String)});
-export const InvalidKMSKeyException = Schema.Struct({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String)});
-export const ListAdaptersResponse = Schema.Struct({Adapters: Schema.optional(AdapterList), NextToken: Schema.optional(Schema.String)});
-export const ListAdapterVersionsResponse = Schema.Struct({AdapterVersions: Schema.optional(AdapterVersionList), NextToken: Schema.optional(Schema.String)});
-export const ValidationException = Schema.Struct({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String)});
-export const StartDocumentAnalysisResponse = Schema.Struct({JobId: Schema.optional(Schema.String)});
-export const BadDocumentException = Schema.Struct({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String)});
-export const DocumentTooLargeException = Schema.Struct({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String)});
-export const IdempotentParameterMismatchException = Schema.Struct({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String)});
-export const ServiceQuotaExceededException = Schema.Struct({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String)});
-export const EvaluationMetric = Schema.Struct({F1Score: Schema.optional(Schema.Number), Precision: Schema.optional(Schema.Number), Recall: Schema.optional(Schema.Number)});
+export class AnalyzeDocumentRequest extends Schema.Class<AnalyzeDocumentRequest>("AnalyzeDocumentRequest")({Document: Document, FeatureTypes: FeatureTypes, HumanLoopConfig: Schema.optional(HumanLoopConfig), QueriesConfig: Schema.optional(QueriesConfig), AdaptersConfig: Schema.optional(AdaptersConfig)}) {}
+export class CreateAdapterResponse extends Schema.Class<CreateAdapterResponse>("CreateAdapterResponse")({AdapterId: Schema.optional(Schema.String)}) {}
+export class CreateAdapterVersionResponse extends Schema.Class<CreateAdapterVersionResponse>("CreateAdapterVersionResponse")({AdapterId: Schema.optional(Schema.String), AdapterVersion: Schema.optional(Schema.String)}) {}
+export class ProvisionedThroughputExceededException extends Schema.Class<ProvisionedThroughputExceededException>("ProvisionedThroughputExceededException")({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String)}) {}
+export class GetDocumentAnalysisResponse extends Schema.Class<GetDocumentAnalysisResponse>("GetDocumentAnalysisResponse")({DocumentMetadata: Schema.optional(DocumentMetadata), JobStatus: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), Blocks: Schema.optional(BlockList), Warnings: Schema.optional(Warnings), StatusMessage: Schema.optional(Schema.String), AnalyzeDocumentModelVersion: Schema.optional(Schema.String)}) {}
+export class InvalidJobIdException extends Schema.Class<InvalidJobIdException>("InvalidJobIdException")({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String)}) {}
+export class InvalidKMSKeyException extends Schema.Class<InvalidKMSKeyException>("InvalidKMSKeyException")({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String)}) {}
+export class ListAdaptersResponse extends Schema.Class<ListAdaptersResponse>("ListAdaptersResponse")({Adapters: Schema.optional(AdapterList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListAdapterVersionsResponse extends Schema.Class<ListAdapterVersionsResponse>("ListAdapterVersionsResponse")({AdapterVersions: Schema.optional(AdapterVersionList), NextToken: Schema.optional(Schema.String)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String)}) {}
+export class StartDocumentAnalysisResponse extends Schema.Class<StartDocumentAnalysisResponse>("StartDocumentAnalysisResponse")({JobId: Schema.optional(Schema.String)}) {}
+export class BadDocumentException extends Schema.Class<BadDocumentException>("BadDocumentException")({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String)}) {}
+export class DocumentTooLargeException extends Schema.Class<DocumentTooLargeException>("DocumentTooLargeException")({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String)}) {}
+export class IdempotentParameterMismatchException extends Schema.Class<IdempotentParameterMismatchException>("IdempotentParameterMismatchException")({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String)}) {}
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String)}) {}
+export class EvaluationMetric extends Schema.Class<EvaluationMetric>("EvaluationMetric")({F1Score: Schema.optional(Schema.Number), Precision: Schema.optional(Schema.Number), Recall: Schema.optional(Schema.Number)}) {}
 export const PageList = Schema.Array(Schema.Number);
-export const AdapterVersionEvaluationMetric = Schema.Struct({Baseline: Schema.optional(EvaluationMetric), AdapterVersion: Schema.optional(EvaluationMetric), FeatureType: Schema.optional(Schema.String)});
+export class AdapterVersionEvaluationMetric extends Schema.Class<AdapterVersionEvaluationMetric>("AdapterVersionEvaluationMetric")({Baseline: Schema.optional(EvaluationMetric), AdapterVersion: Schema.optional(EvaluationMetric), FeatureType: Schema.optional(Schema.String)}) {}
 export const AdapterVersionEvaluationMetrics = Schema.Array(AdapterVersionEvaluationMetric);
-export const Prediction = Schema.Struct({Value: Schema.optional(Schema.String), Confidence: Schema.optional(Schema.Number)});
+export class Prediction extends Schema.Class<Prediction>("Prediction")({Value: Schema.optional(Schema.String), Confidence: Schema.optional(Schema.Number)}) {}
 export const PredictionList = Schema.Array(Prediction);
-export const SplitDocument = Schema.Struct({Index: Schema.optional(Schema.Number), Pages: Schema.optional(PageList)});
+export class SplitDocument extends Schema.Class<SplitDocument>("SplitDocument")({Index: Schema.optional(Schema.Number), Pages: Schema.optional(PageList)}) {}
 export const SplitDocumentList = Schema.Array(SplitDocument);
-export const DetectedSignature = Schema.Struct({Page: Schema.optional(Schema.Number)});
+export class DetectedSignature extends Schema.Class<DetectedSignature>("DetectedSignature")({Page: Schema.optional(Schema.Number)}) {}
 export const DetectedSignatureList = Schema.Array(DetectedSignature);
-export const UndetectedSignature = Schema.Struct({Page: Schema.optional(Schema.Number)});
+export class UndetectedSignature extends Schema.Class<UndetectedSignature>("UndetectedSignature")({Page: Schema.optional(Schema.Number)}) {}
 export const UndetectedSignatureList = Schema.Array(UndetectedSignature);
-export const LimitExceededException = Schema.Struct({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String)});
-export const InvalidS3ObjectException = Schema.Struct({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String)});
-export const GetAdapterVersionResponse = Schema.Struct({AdapterId: Schema.optional(Schema.String), AdapterVersion: Schema.optional(Schema.String), CreationTime: Schema.optional(Schema.Date), FeatureTypes: Schema.optional(FeatureTypes), Status: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), DatasetConfig: Schema.optional(AdapterVersionDatasetConfig), KMSKeyId: Schema.optional(Schema.String), OutputConfig: Schema.optional(OutputConfig), EvaluationMetrics: Schema.optional(AdapterVersionEvaluationMetrics), Tags: Schema.optional(TagMap)});
-export const LendingDetection = Schema.Struct({Text: Schema.optional(Schema.String), SelectionStatus: Schema.optional(Schema.String), Geometry: Schema.optional(Geometry), Confidence: Schema.optional(Schema.Number)});
+export class LimitExceededException extends Schema.Class<LimitExceededException>("LimitExceededException")({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String)}) {}
+export class InvalidS3ObjectException extends Schema.Class<InvalidS3ObjectException>("InvalidS3ObjectException")({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String)}) {}
+export class GetAdapterVersionResponse extends Schema.Class<GetAdapterVersionResponse>("GetAdapterVersionResponse")({AdapterId: Schema.optional(Schema.String), AdapterVersion: Schema.optional(Schema.String), CreationTime: Schema.optional(Schema.Date), FeatureTypes: Schema.optional(FeatureTypes), Status: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), DatasetConfig: Schema.optional(AdapterVersionDatasetConfig), KMSKeyId: Schema.optional(Schema.String), OutputConfig: Schema.optional(OutputConfig), EvaluationMetrics: Schema.optional(AdapterVersionEvaluationMetrics), Tags: Schema.optional(TagMap)}) {}
+export class LendingDetection extends Schema.Class<LendingDetection>("LendingDetection")({Text: Schema.optional(Schema.String), SelectionStatus: Schema.optional(Schema.String), Geometry: Schema.optional(Geometry), Confidence: Schema.optional(Schema.Number)}) {}
 export const LendingDetectionList = Schema.Array(LendingDetection);
-export const UnsupportedDocumentException = Schema.Struct({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String)});
+export class UnsupportedDocumentException extends Schema.Class<UnsupportedDocumentException>("UnsupportedDocumentException")({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String)}) {}
 export const HumanLoopActivationReasons = Schema.Array(Schema.String);
-export const PageClassification = Schema.Struct({PageType: PredictionList, PageNumber: PredictionList});
-export const DocumentGroup = Schema.Struct({Type: Schema.optional(Schema.String), SplitDocuments: Schema.optional(SplitDocumentList), DetectedSignatures: Schema.optional(DetectedSignatureList), UndetectedSignatures: Schema.optional(UndetectedSignatureList)});
+export class PageClassification extends Schema.Class<PageClassification>("PageClassification")({PageType: PredictionList, PageNumber: PredictionList}) {}
+export class DocumentGroup extends Schema.Class<DocumentGroup>("DocumentGroup")({Type: Schema.optional(Schema.String), SplitDocuments: Schema.optional(SplitDocumentList), DetectedSignatures: Schema.optional(DetectedSignatureList), UndetectedSignatures: Schema.optional(UndetectedSignatureList)}) {}
 export const DocumentGroupList = Schema.Array(DocumentGroup);
-export const NormalizedValue = Schema.Struct({Value: Schema.optional(Schema.String), ValueType: Schema.optional(Schema.String)});
-export const SignatureDetection = Schema.Struct({Confidence: Schema.optional(Schema.Number), Geometry: Schema.optional(Geometry)});
+export class NormalizedValue extends Schema.Class<NormalizedValue>("NormalizedValue")({Value: Schema.optional(Schema.String), ValueType: Schema.optional(Schema.String)}) {}
+export class SignatureDetection extends Schema.Class<SignatureDetection>("SignatureDetection")({Confidence: Schema.optional(Schema.Number), Geometry: Schema.optional(Geometry)}) {}
 export const SignatureDetectionList = Schema.Array(SignatureDetection);
-export const HumanLoopActivationOutput = Schema.Struct({HumanLoopArn: Schema.optional(Schema.String), HumanLoopActivationReasons: Schema.optional(HumanLoopActivationReasons), HumanLoopActivationConditionsEvaluationResults: Schema.optional(Schema.String)});
-export const LendingSummary = Schema.Struct({DocumentGroups: Schema.optional(DocumentGroupList), UndetectedDocumentTypes: Schema.optional(UndetectedDocumentTypeList)});
-export const AnalyzeIDDetections = Schema.Struct({Text: Schema.String, NormalizedValue: Schema.optional(NormalizedValue), Confidence: Schema.optional(Schema.Number)});
-export const AnalyzeDocumentResponse = Schema.Struct({DocumentMetadata: Schema.optional(DocumentMetadata), Blocks: Schema.optional(BlockList), HumanLoopActivationOutput: Schema.optional(HumanLoopActivationOutput), AnalyzeDocumentModelVersion: Schema.optional(Schema.String)});
-export const AnalyzeExpenseResponse = Schema.Struct({DocumentMetadata: Schema.optional(DocumentMetadata), ExpenseDocuments: Schema.optional(ExpenseDocumentList)});
-export const DetectDocumentTextResponse = Schema.Struct({DocumentMetadata: Schema.optional(DocumentMetadata), Blocks: Schema.optional(BlockList), DetectDocumentTextModelVersion: Schema.optional(Schema.String)});
-export const GetLendingAnalysisSummaryResponse = Schema.Struct({DocumentMetadata: Schema.optional(DocumentMetadata), JobStatus: Schema.optional(Schema.String), Summary: Schema.optional(LendingSummary), Warnings: Schema.optional(Warnings), StatusMessage: Schema.optional(Schema.String), AnalyzeLendingModelVersion: Schema.optional(Schema.String)});
-export const IdentityDocumentField = Schema.Struct({Type: Schema.optional(AnalyzeIDDetections), ValueDetection: Schema.optional(AnalyzeIDDetections)});
+export class HumanLoopActivationOutput extends Schema.Class<HumanLoopActivationOutput>("HumanLoopActivationOutput")({HumanLoopArn: Schema.optional(Schema.String), HumanLoopActivationReasons: Schema.optional(HumanLoopActivationReasons), HumanLoopActivationConditionsEvaluationResults: Schema.optional(Schema.String)}) {}
+export class LendingSummary extends Schema.Class<LendingSummary>("LendingSummary")({DocumentGroups: Schema.optional(DocumentGroupList), UndetectedDocumentTypes: Schema.optional(UndetectedDocumentTypeList)}) {}
+export class AnalyzeIDDetections extends Schema.Class<AnalyzeIDDetections>("AnalyzeIDDetections")({Text: Schema.String, NormalizedValue: Schema.optional(NormalizedValue), Confidence: Schema.optional(Schema.Number)}) {}
+export class AnalyzeDocumentResponse extends Schema.Class<AnalyzeDocumentResponse>("AnalyzeDocumentResponse")({DocumentMetadata: Schema.optional(DocumentMetadata), Blocks: Schema.optional(BlockList), HumanLoopActivationOutput: Schema.optional(HumanLoopActivationOutput), AnalyzeDocumentModelVersion: Schema.optional(Schema.String)}) {}
+export class AnalyzeExpenseResponse extends Schema.Class<AnalyzeExpenseResponse>("AnalyzeExpenseResponse")({DocumentMetadata: Schema.optional(DocumentMetadata), ExpenseDocuments: Schema.optional(ExpenseDocumentList)}) {}
+export class DetectDocumentTextResponse extends Schema.Class<DetectDocumentTextResponse>("DetectDocumentTextResponse")({DocumentMetadata: Schema.optional(DocumentMetadata), Blocks: Schema.optional(BlockList), DetectDocumentTextModelVersion: Schema.optional(Schema.String)}) {}
+export class GetLendingAnalysisSummaryResponse extends Schema.Class<GetLendingAnalysisSummaryResponse>("GetLendingAnalysisSummaryResponse")({DocumentMetadata: Schema.optional(DocumentMetadata), JobStatus: Schema.optional(Schema.String), Summary: Schema.optional(LendingSummary), Warnings: Schema.optional(Warnings), StatusMessage: Schema.optional(Schema.String), AnalyzeLendingModelVersion: Schema.optional(Schema.String)}) {}
+export class IdentityDocumentField extends Schema.Class<IdentityDocumentField>("IdentityDocumentField")({Type: Schema.optional(AnalyzeIDDetections), ValueDetection: Schema.optional(AnalyzeIDDetections)}) {}
 export const IdentityDocumentFieldList = Schema.Array(IdentityDocumentField);
-export const LendingField = Schema.Struct({Type: Schema.optional(Schema.String), KeyDetection: Schema.optional(LendingDetection), ValueDetections: Schema.optional(LendingDetectionList)});
+export class LendingField extends Schema.Class<LendingField>("LendingField")({Type: Schema.optional(Schema.String), KeyDetection: Schema.optional(LendingDetection), ValueDetections: Schema.optional(LendingDetectionList)}) {}
 export const LendingFieldList = Schema.Array(LendingField);
-export const IdentityDocument = Schema.Struct({DocumentIndex: Schema.optional(Schema.Number), IdentityDocumentFields: Schema.optional(IdentityDocumentFieldList), Blocks: Schema.optional(BlockList)});
+export class IdentityDocument extends Schema.Class<IdentityDocument>("IdentityDocument")({DocumentIndex: Schema.optional(Schema.Number), IdentityDocumentFields: Schema.optional(IdentityDocumentFieldList), Blocks: Schema.optional(BlockList)}) {}
 export const IdentityDocumentList = Schema.Array(IdentityDocument);
-export const LendingDocument = Schema.Struct({LendingFields: Schema.optional(LendingFieldList), SignatureDetections: Schema.optional(SignatureDetectionList)});
-export const HumanLoopQuotaExceededException = Schema.Struct({ResourceType: Schema.optional(Schema.String), QuotaCode: Schema.optional(Schema.String), ServiceCode: Schema.optional(Schema.String), Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String)});
-export const AnalyzeIDResponse = Schema.Struct({IdentityDocuments: Schema.optional(IdentityDocumentList), DocumentMetadata: Schema.optional(DocumentMetadata), AnalyzeIDModelVersion: Schema.optional(Schema.String)});
-export const Extraction = Schema.Struct({LendingDocument: Schema.optional(LendingDocument), ExpenseDocument: Schema.optional(ExpenseDocument), IdentityDocument: Schema.optional(IdentityDocument)});
+export class LendingDocument extends Schema.Class<LendingDocument>("LendingDocument")({LendingFields: Schema.optional(LendingFieldList), SignatureDetections: Schema.optional(SignatureDetectionList)}) {}
+export class HumanLoopQuotaExceededException extends Schema.Class<HumanLoopQuotaExceededException>("HumanLoopQuotaExceededException")({ResourceType: Schema.optional(Schema.String), QuotaCode: Schema.optional(Schema.String), ServiceCode: Schema.optional(Schema.String), Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String)}) {}
+export class AnalyzeIDResponse extends Schema.Class<AnalyzeIDResponse>("AnalyzeIDResponse")({IdentityDocuments: Schema.optional(IdentityDocumentList), DocumentMetadata: Schema.optional(DocumentMetadata), AnalyzeIDModelVersion: Schema.optional(Schema.String)}) {}
+export class Extraction extends Schema.Class<Extraction>("Extraction")({LendingDocument: Schema.optional(LendingDocument), ExpenseDocument: Schema.optional(ExpenseDocument), IdentityDocument: Schema.optional(IdentityDocument)}) {}
 export const ExtractionList = Schema.Array(Extraction);
-export const LendingResult = Schema.Struct({Page: Schema.optional(Schema.Number), PageClassification: Schema.optional(PageClassification), Extractions: Schema.optional(ExtractionList)});
+export class LendingResult extends Schema.Class<LendingResult>("LendingResult")({Page: Schema.optional(Schema.Number), PageClassification: Schema.optional(PageClassification), Extractions: Schema.optional(ExtractionList)}) {}
 export const LendingResultList = Schema.Array(LendingResult);
-export const GetLendingAnalysisResponse = Schema.Struct({DocumentMetadata: Schema.optional(DocumentMetadata), JobStatus: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), Results: Schema.optional(LendingResultList), Warnings: Schema.optional(Warnings), StatusMessage: Schema.optional(Schema.String), AnalyzeLendingModelVersion: Schema.optional(Schema.String)});
+export class GetLendingAnalysisResponse extends Schema.Class<GetLendingAnalysisResponse>("GetLendingAnalysisResponse")({DocumentMetadata: Schema.optional(DocumentMetadata), JobStatus: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), Results: Schema.optional(LendingResultList), Warnings: Schema.optional(Warnings), StatusMessage: Schema.optional(Schema.String), AnalyzeLendingModelVersion: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class InternalServerErrorError extends Schema.TaggedError<InternalServerErrorError>()("InternalServerError", InternalServerError) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class InvalidParameterExceptionError extends Schema.TaggedError<InvalidParameterExceptionError>()("InvalidParameterException", InvalidParameterException) {};
-export class ProvisionedThroughputExceededExceptionError extends Schema.TaggedError<ProvisionedThroughputExceededExceptionError>()("ProvisionedThroughputExceededException", ProvisionedThroughputExceededException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class InvalidJobIdExceptionError extends Schema.TaggedError<InvalidJobIdExceptionError>()("InvalidJobIdException", InvalidJobIdException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class BadDocumentExceptionError extends Schema.TaggedError<BadDocumentExceptionError>()("BadDocumentException", BadDocumentException) {};
-export class DocumentTooLargeExceptionError extends Schema.TaggedError<DocumentTooLargeExceptionError>()("DocumentTooLargeException", DocumentTooLargeException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class IdempotentParameterMismatchExceptionError extends Schema.TaggedError<IdempotentParameterMismatchExceptionError>()("IdempotentParameterMismatchException", IdempotentParameterMismatchException) {};
-export class InvalidKMSKeyExceptionError extends Schema.TaggedError<InvalidKMSKeyExceptionError>()("InvalidKMSKeyException", InvalidKMSKeyException) {};
-export class InvalidS3ObjectExceptionError extends Schema.TaggedError<InvalidS3ObjectExceptionError>()("InvalidS3ObjectException", InvalidS3ObjectException) {};
-export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException) {};
-export class UnsupportedDocumentExceptionError extends Schema.TaggedError<UnsupportedDocumentExceptionError>()("UnsupportedDocumentException", UnsupportedDocumentException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
-export class HumanLoopQuotaExceededExceptionError extends Schema.TaggedError<HumanLoopQuotaExceededExceptionError>()("HumanLoopQuotaExceededException", HumanLoopQuotaExceededException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class InternalServerErrorError extends Schema.TaggedError<InternalServerErrorError>()("InternalServerError", InternalServerError.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class InvalidParameterExceptionError extends Schema.TaggedError<InvalidParameterExceptionError>()("InvalidParameterException", InvalidParameterException.fields) {};
+export class ProvisionedThroughputExceededExceptionError extends Schema.TaggedError<ProvisionedThroughputExceededExceptionError>()("ProvisionedThroughputExceededException", ProvisionedThroughputExceededException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class InvalidJobIdExceptionError extends Schema.TaggedError<InvalidJobIdExceptionError>()("InvalidJobIdException", InvalidJobIdException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class BadDocumentExceptionError extends Schema.TaggedError<BadDocumentExceptionError>()("BadDocumentException", BadDocumentException.fields) {};
+export class DocumentTooLargeExceptionError extends Schema.TaggedError<DocumentTooLargeExceptionError>()("DocumentTooLargeException", DocumentTooLargeException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class IdempotentParameterMismatchExceptionError extends Schema.TaggedError<IdempotentParameterMismatchExceptionError>()("IdempotentParameterMismatchException", IdempotentParameterMismatchException.fields) {};
+export class InvalidKMSKeyExceptionError extends Schema.TaggedError<InvalidKMSKeyExceptionError>()("InvalidKMSKeyException", InvalidKMSKeyException.fields) {};
+export class InvalidS3ObjectExceptionError extends Schema.TaggedError<InvalidS3ObjectExceptionError>()("InvalidS3ObjectException", InvalidS3ObjectException.fields) {};
+export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException.fields) {};
+export class UnsupportedDocumentExceptionError extends Schema.TaggedError<UnsupportedDocumentExceptionError>()("UnsupportedDocumentException", UnsupportedDocumentException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
+export class HumanLoopQuotaExceededExceptionError extends Schema.TaggedError<HumanLoopQuotaExceededExceptionError>()("HumanLoopQuotaExceededException", HumanLoopQuotaExceededException.fields) {};
 
 //# Operations
 export const untagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-06-27", uri: "/", method: "POST", sdkId: "Textract", sigV4ServiceName: "textract", name: "Textract.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [AccessDeniedExceptionError, InternalServerErrorError, InvalidParameterExceptionError, ProvisionedThroughputExceededExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

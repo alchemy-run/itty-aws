@@ -8,106 +8,106 @@ export const FleetIds = Schema.Array(Schema.String);
 export const UsageGroupBy = Schema.Array(Schema.String);
 export const UsageStatistics = Schema.Array(Schema.String);
 export const StringList = Schema.Array(Schema.String);
-export const CreateQueueFleetAssociationRequest = Schema.Struct({farmId: Schema.String, queueId: Schema.String, fleetId: Schema.String});
-export const CreateQueueFleetAssociationResponse = Schema.Struct({});
-export const CreateQueueLimitAssociationRequest = Schema.Struct({farmId: Schema.String, queueId: Schema.String, limitId: Schema.String});
-export const CreateQueueLimitAssociationResponse = Schema.Struct({});
-export const DeleteQueueFleetAssociationRequest = Schema.Struct({farmId: Schema.String, queueId: Schema.String, fleetId: Schema.String});
-export const DeleteQueueFleetAssociationResponse = Schema.Struct({});
-export const DeleteQueueLimitAssociationRequest = Schema.Struct({farmId: Schema.String, queueId: Schema.String, limitId: Schema.String});
-export const DeleteQueueLimitAssociationResponse = Schema.Struct({});
-export const GetQueueFleetAssociationRequest = Schema.Struct({farmId: Schema.String, queueId: Schema.String, fleetId: Schema.String});
-export const GetQueueLimitAssociationRequest = Schema.Struct({farmId: Schema.String, queueId: Schema.String, limitId: Schema.String});
-export const GetSessionsStatisticsAggregationRequest = Schema.Struct({farmId: Schema.String, aggregationId: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListAvailableMeteredProductsRequest = Schema.Struct({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListQueueFleetAssociationsRequest = Schema.Struct({farmId: Schema.String, queueId: Schema.optional(Schema.String), fleetId: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListQueueLimitAssociationsRequest = Schema.Struct({farmId: Schema.String, queueId: Schema.optional(Schema.String), limitId: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListTagsForResourceRequest = Schema.Struct({resourceArn: Schema.String});
-export const DateTimeFilterExpression = Schema.Struct({name: Schema.String, operator: Schema.String, dateTime: Schema.Date});
-export const ParameterFilterExpression = Schema.Struct({name: Schema.String, operator: Schema.String, value: Schema.String});
-export const SearchTermFilterExpression = Schema.Struct({searchTerm: Schema.String, matchType: Schema.optional(Schema.String)});
-export const StringFilterExpression = Schema.Struct({name: Schema.String, operator: Schema.String, value: Schema.String});
-export const SearchFilterExpression = Schema.Union(DateTimeFilterExpression, ParameterFilterExpression, SearchTermFilterExpression, StringFilterExpression, SearchGroupedFilterExpressions);
-export const SearchFilterExpressions = Schema.Array(SearchFilterExpression);
-export const SearchGroupedFilterExpressions = Schema.Struct({filters: SearchFilterExpressions, operator: Schema.String});
-export const UserJobsFirst = Schema.Struct({userIdentityId: Schema.String});
-export const FieldSortExpression = Schema.Struct({sortOrder: Schema.String, name: Schema.String});
-export const ParameterSortExpression = Schema.Struct({sortOrder: Schema.String, name: Schema.String});
+export class CreateQueueFleetAssociationRequest extends Schema.Class<CreateQueueFleetAssociationRequest>("CreateQueueFleetAssociationRequest")({farmId: Schema.String, queueId: Schema.String, fleetId: Schema.String}) {}
+export class CreateQueueFleetAssociationResponse extends Schema.Class<CreateQueueFleetAssociationResponse>("CreateQueueFleetAssociationResponse")({}) {}
+export class CreateQueueLimitAssociationRequest extends Schema.Class<CreateQueueLimitAssociationRequest>("CreateQueueLimitAssociationRequest")({farmId: Schema.String, queueId: Schema.String, limitId: Schema.String}) {}
+export class CreateQueueLimitAssociationResponse extends Schema.Class<CreateQueueLimitAssociationResponse>("CreateQueueLimitAssociationResponse")({}) {}
+export class DeleteQueueFleetAssociationRequest extends Schema.Class<DeleteQueueFleetAssociationRequest>("DeleteQueueFleetAssociationRequest")({farmId: Schema.String, queueId: Schema.String, fleetId: Schema.String}) {}
+export class DeleteQueueFleetAssociationResponse extends Schema.Class<DeleteQueueFleetAssociationResponse>("DeleteQueueFleetAssociationResponse")({}) {}
+export class DeleteQueueLimitAssociationRequest extends Schema.Class<DeleteQueueLimitAssociationRequest>("DeleteQueueLimitAssociationRequest")({farmId: Schema.String, queueId: Schema.String, limitId: Schema.String}) {}
+export class DeleteQueueLimitAssociationResponse extends Schema.Class<DeleteQueueLimitAssociationResponse>("DeleteQueueLimitAssociationResponse")({}) {}
+export class GetQueueFleetAssociationRequest extends Schema.Class<GetQueueFleetAssociationRequest>("GetQueueFleetAssociationRequest")({farmId: Schema.String, queueId: Schema.String, fleetId: Schema.String}) {}
+export class GetQueueLimitAssociationRequest extends Schema.Class<GetQueueLimitAssociationRequest>("GetQueueLimitAssociationRequest")({farmId: Schema.String, queueId: Schema.String, limitId: Schema.String}) {}
+export class GetSessionsStatisticsAggregationRequest extends Schema.Class<GetSessionsStatisticsAggregationRequest>("GetSessionsStatisticsAggregationRequest")({farmId: Schema.String, aggregationId: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListAvailableMeteredProductsRequest extends Schema.Class<ListAvailableMeteredProductsRequest>("ListAvailableMeteredProductsRequest")({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListQueueFleetAssociationsRequest extends Schema.Class<ListQueueFleetAssociationsRequest>("ListQueueFleetAssociationsRequest")({farmId: Schema.String, queueId: Schema.optional(Schema.String), fleetId: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListQueueLimitAssociationsRequest extends Schema.Class<ListQueueLimitAssociationsRequest>("ListQueueLimitAssociationsRequest")({farmId: Schema.String, queueId: Schema.optional(Schema.String), limitId: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({resourceArn: Schema.String}) {}
+export class SearchGroupedFilterExpressions extends Schema.Class<SearchGroupedFilterExpressions>("SearchGroupedFilterExpressions")({filters: Schema.suspend(() => SearchFilterExpressions), operator: Schema.String}) {}
+export class UserJobsFirst extends Schema.Class<UserJobsFirst>("UserJobsFirst")({userIdentityId: Schema.String}) {}
+export class FieldSortExpression extends Schema.Class<FieldSortExpression>("FieldSortExpression")({sortOrder: Schema.String, name: Schema.String}) {}
+export class ParameterSortExpression extends Schema.Class<ParameterSortExpression>("ParameterSortExpression")({sortOrder: Schema.String, name: Schema.String}) {}
 export const SearchSortExpression = Schema.Union(UserJobsFirst, FieldSortExpression, ParameterSortExpression);
 export const SearchSortExpressions = Schema.Array(SearchSortExpression);
-export const SearchStepsRequest = Schema.Struct({farmId: Schema.String, queueIds: QueueIds, jobId: Schema.optional(Schema.String), filterExpressions: Schema.optional(SearchGroupedFilterExpressions), sortExpressions: Schema.optional(SearchSortExpressions), itemOffset: Schema.Number, pageSize: Schema.optional(Schema.Number)});
-export const SearchTasksRequest = Schema.Struct({farmId: Schema.String, queueIds: QueueIds, jobId: Schema.optional(Schema.String), filterExpressions: Schema.optional(SearchGroupedFilterExpressions), sortExpressions: Schema.optional(SearchSortExpressions), itemOffset: Schema.Number, pageSize: Schema.optional(Schema.Number)});
-export const SearchWorkersRequest = Schema.Struct({farmId: Schema.String, fleetIds: FleetIds, filterExpressions: Schema.optional(SearchGroupedFilterExpressions), sortExpressions: Schema.optional(SearchSortExpressions), itemOffset: Schema.Number, pageSize: Schema.optional(Schema.Number)});
-export const UntagResourceRequest = Schema.Struct({resourceArn: Schema.String, tagKeys: StringList});
-export const UntagResourceResponse = Schema.Struct({});
-export const UpdateQueueFleetAssociationRequest = Schema.Struct({farmId: Schema.String, queueId: Schema.String, fleetId: Schema.String, status: Schema.String});
-export const UpdateQueueFleetAssociationResponse = Schema.Struct({});
-export const UpdateQueueLimitAssociationRequest = Schema.Struct({farmId: Schema.String, queueId: Schema.String, limitId: Schema.String, status: Schema.String});
-export const UpdateQueueLimitAssociationResponse = Schema.Struct({});
+export class SearchStepsRequest extends Schema.Class<SearchStepsRequest>("SearchStepsRequest")({farmId: Schema.String, queueIds: QueueIds, jobId: Schema.optional(Schema.String), filterExpressions: Schema.optional(SearchGroupedFilterExpressions), sortExpressions: Schema.optional(SearchSortExpressions), itemOffset: Schema.Number, pageSize: Schema.optional(Schema.Number)}) {}
+export class SearchTasksRequest extends Schema.Class<SearchTasksRequest>("SearchTasksRequest")({farmId: Schema.String, queueIds: QueueIds, jobId: Schema.optional(Schema.String), filterExpressions: Schema.optional(SearchGroupedFilterExpressions), sortExpressions: Schema.optional(SearchSortExpressions), itemOffset: Schema.Number, pageSize: Schema.optional(Schema.Number)}) {}
+export class SearchWorkersRequest extends Schema.Class<SearchWorkersRequest>("SearchWorkersRequest")({farmId: Schema.String, fleetIds: FleetIds, filterExpressions: Schema.optional(SearchGroupedFilterExpressions), sortExpressions: Schema.optional(SearchSortExpressions), itemOffset: Schema.Number, pageSize: Schema.optional(Schema.Number)}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({resourceArn: Schema.String, tagKeys: StringList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class UpdateQueueFleetAssociationRequest extends Schema.Class<UpdateQueueFleetAssociationRequest>("UpdateQueueFleetAssociationRequest")({farmId: Schema.String, queueId: Schema.String, fleetId: Schema.String, status: Schema.String}) {}
+export class UpdateQueueFleetAssociationResponse extends Schema.Class<UpdateQueueFleetAssociationResponse>("UpdateQueueFleetAssociationResponse")({}) {}
+export class UpdateQueueLimitAssociationRequest extends Schema.Class<UpdateQueueLimitAssociationRequest>("UpdateQueueLimitAssociationRequest")({farmId: Schema.String, queueId: Schema.String, limitId: Schema.String, status: Schema.String}) {}
+export class UpdateQueueLimitAssociationResponse extends Schema.Class<UpdateQueueLimitAssociationResponse>("UpdateQueueLimitAssociationResponse")({}) {}
 export const SessionsStatisticsResources = Schema.Union(QueueIds, FleetIds);
 export const Tags = Schema.Record({key: Schema.String, value: Schema.String});
-export const InternalServerErrorException = Schema.Struct({message: Schema.String, retryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))});
+export class InternalServerErrorException extends Schema.Class<InternalServerErrorException>("InternalServerErrorException")({message: Schema.String, retryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))}) {}
 export const ExceptionContext = Schema.Record({key: Schema.String, value: Schema.String});
-export const ConflictException = Schema.Struct({message: Schema.String, reason: Schema.String, resourceId: Schema.String, resourceType: Schema.String, context: Schema.optional(ExceptionContext)});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String, context: Schema.optional(ExceptionContext)});
-export const GetQueueFleetAssociationResponse = Schema.Struct({queueId: Schema.String, fleetId: Schema.String, status: Schema.String, createdAt: Schema.Date, createdBy: Schema.String, updatedAt: Schema.optional(Schema.Date), updatedBy: Schema.optional(Schema.String)});
-export const GetQueueLimitAssociationResponse = Schema.Struct({createdAt: Schema.Date, createdBy: Schema.String, updatedAt: Schema.optional(Schema.Date), updatedBy: Schema.optional(Schema.String), queueId: Schema.String, limitId: Schema.String, status: Schema.String});
-export const ListTagsForResourceResponse = Schema.Struct({tags: Schema.optional(Tags)});
-export const StartSessionsStatisticsAggregationRequest = Schema.Struct({farmId: Schema.String, resourceIds: SessionsStatisticsResources, startTime: Schema.Date, endTime: Schema.Date, timezone: Schema.optional(Schema.String), period: Schema.optional(Schema.String), groupBy: UsageGroupBy, statistics: UsageStatistics});
-export const TagResourceRequest = Schema.Struct({resourceArn: Schema.String, tags: Schema.optional(Tags)});
-export const TagResourceResponse = Schema.Struct({});
-export const ThrottlingException = Schema.Struct({message: Schema.String, serviceCode: Schema.optional(Schema.String), quotaCode: Schema.optional(Schema.String), retryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number)), context: Schema.optional(ExceptionContext)});
-export const MeteredProductSummary = Schema.Struct({productId: Schema.String, family: Schema.String, vendor: Schema.String, port: Schema.Number});
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({message: Schema.String, reason: Schema.String, resourceId: Schema.String, resourceType: Schema.String, context: Schema.optional(ExceptionContext)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String, context: Schema.optional(ExceptionContext)}) {}
+export class GetQueueFleetAssociationResponse extends Schema.Class<GetQueueFleetAssociationResponse>("GetQueueFleetAssociationResponse")({queueId: Schema.String, fleetId: Schema.String, status: Schema.String, createdAt: Schema.Date, createdBy: Schema.String, updatedAt: Schema.optional(Schema.Date), updatedBy: Schema.optional(Schema.String)}) {}
+export class GetQueueLimitAssociationResponse extends Schema.Class<GetQueueLimitAssociationResponse>("GetQueueLimitAssociationResponse")({createdAt: Schema.Date, createdBy: Schema.String, updatedAt: Schema.optional(Schema.Date), updatedBy: Schema.optional(Schema.String), queueId: Schema.String, limitId: Schema.String, status: Schema.String}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({tags: Schema.optional(Tags)}) {}
+export class StartSessionsStatisticsAggregationRequest extends Schema.Class<StartSessionsStatisticsAggregationRequest>("StartSessionsStatisticsAggregationRequest")({farmId: Schema.String, resourceIds: SessionsStatisticsResources, startTime: Schema.Date, endTime: Schema.Date, timezone: Schema.optional(Schema.String), period: Schema.optional(Schema.String), groupBy: UsageGroupBy, statistics: UsageStatistics}) {}
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({resourceArn: Schema.String, tags: Schema.optional(Tags)}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({message: Schema.String, serviceCode: Schema.optional(Schema.String), quotaCode: Schema.optional(Schema.String), retryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number)), context: Schema.optional(ExceptionContext)}) {}
+export class MeteredProductSummary extends Schema.Class<MeteredProductSummary>("MeteredProductSummary")({productId: Schema.String, family: Schema.String, vendor: Schema.String, port: Schema.Number}) {}
 export const MeteredProductSummaryList = Schema.Array(MeteredProductSummary);
-export const QueueFleetAssociationSummary = Schema.Struct({queueId: Schema.String, fleetId: Schema.String, status: Schema.String, createdAt: Schema.Date, createdBy: Schema.String, updatedAt: Schema.optional(Schema.Date), updatedBy: Schema.optional(Schema.String)});
+export class QueueFleetAssociationSummary extends Schema.Class<QueueFleetAssociationSummary>("QueueFleetAssociationSummary")({queueId: Schema.String, fleetId: Schema.String, status: Schema.String, createdAt: Schema.Date, createdBy: Schema.String, updatedAt: Schema.optional(Schema.Date), updatedBy: Schema.optional(Schema.String)}) {}
 export const QueueFleetAssociationSummaries = Schema.Array(QueueFleetAssociationSummary);
-export const QueueLimitAssociationSummary = Schema.Struct({createdAt: Schema.Date, createdBy: Schema.String, updatedAt: Schema.optional(Schema.Date), updatedBy: Schema.optional(Schema.String), queueId: Schema.String, limitId: Schema.String, status: Schema.String});
+export class QueueLimitAssociationSummary extends Schema.Class<QueueLimitAssociationSummary>("QueueLimitAssociationSummary")({createdAt: Schema.Date, createdBy: Schema.String, updatedAt: Schema.optional(Schema.Date), updatedBy: Schema.optional(Schema.String), queueId: Schema.String, limitId: Schema.String, status: Schema.String}) {}
 export const QueueLimitAssociationSummaries = Schema.Array(QueueLimitAssociationSummary);
-export const ValidationExceptionField = Schema.Struct({name: Schema.String, message: Schema.String});
+export class ValidationExceptionField extends Schema.Class<ValidationExceptionField>("ValidationExceptionField")({name: Schema.String, message: Schema.String}) {}
 export const ValidationExceptionFieldList = Schema.Array(ValidationExceptionField);
-export const AccessDeniedException = Schema.Struct({message: Schema.String, context: Schema.optional(ExceptionContext)});
-export const ListAvailableMeteredProductsResponse = Schema.Struct({meteredProducts: MeteredProductSummaryList, nextToken: Schema.optional(Schema.String)});
-export const ListQueueFleetAssociationsResponse = Schema.Struct({queueFleetAssociations: QueueFleetAssociationSummaries, nextToken: Schema.optional(Schema.String)});
-export const ListQueueLimitAssociationsResponse = Schema.Struct({queueLimitAssociations: QueueLimitAssociationSummaries, nextToken: Schema.optional(Schema.String)});
-export const StartSessionsStatisticsAggregationResponse = Schema.Struct({aggregationId: Schema.String});
-export const ValidationException = Schema.Struct({message: Schema.String, reason: Schema.String, fieldList: Schema.optional(ValidationExceptionFieldList), context: Schema.optional(ExceptionContext)});
-export const Stats = Schema.Struct({min: Schema.optional(Schema.Number), max: Schema.optional(Schema.Number), avg: Schema.optional(Schema.Number), sum: Schema.optional(Schema.Number)});
+export class DateTimeFilterExpression extends Schema.Class<DateTimeFilterExpression>("DateTimeFilterExpression")({name: Schema.String, operator: Schema.String, dateTime: Schema.Date}) {}
+export class ParameterFilterExpression extends Schema.Class<ParameterFilterExpression>("ParameterFilterExpression")({name: Schema.String, operator: Schema.String, value: Schema.String}) {}
+export class SearchTermFilterExpression extends Schema.Class<SearchTermFilterExpression>("SearchTermFilterExpression")({searchTerm: Schema.String, matchType: Schema.optional(Schema.String)}) {}
+export class StringFilterExpression extends Schema.Class<StringFilterExpression>("StringFilterExpression")({name: Schema.String, operator: Schema.String, value: Schema.String}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({message: Schema.String, context: Schema.optional(ExceptionContext)}) {}
+export class ListAvailableMeteredProductsResponse extends Schema.Class<ListAvailableMeteredProductsResponse>("ListAvailableMeteredProductsResponse")({meteredProducts: MeteredProductSummaryList, nextToken: Schema.optional(Schema.String)}) {}
+export class ListQueueFleetAssociationsResponse extends Schema.Class<ListQueueFleetAssociationsResponse>("ListQueueFleetAssociationsResponse")({queueFleetAssociations: QueueFleetAssociationSummaries, nextToken: Schema.optional(Schema.String)}) {}
+export class ListQueueLimitAssociationsResponse extends Schema.Class<ListQueueLimitAssociationsResponse>("ListQueueLimitAssociationsResponse")({queueLimitAssociations: QueueLimitAssociationSummaries, nextToken: Schema.optional(Schema.String)}) {}
+export class StartSessionsStatisticsAggregationResponse extends Schema.Class<StartSessionsStatisticsAggregationResponse>("StartSessionsStatisticsAggregationResponse")({aggregationId: Schema.String}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({message: Schema.String, reason: Schema.String, fieldList: Schema.optional(ValidationExceptionFieldList), context: Schema.optional(ExceptionContext)}) {}
+export class Stats extends Schema.Class<Stats>("Stats")({min: Schema.optional(Schema.Number), max: Schema.optional(Schema.Number), avg: Schema.optional(Schema.Number), sum: Schema.optional(Schema.Number)}) {}
+export const SearchFilterExpression = Schema.Union(DateTimeFilterExpression, ParameterFilterExpression, SearchTermFilterExpression, StringFilterExpression, Schema.suspend((): Schema.Schema<SearchGroupedFilterExpressions> => SearchGroupedFilterExpressions));
+export const SearchFilterExpressions = Schema.Array(Schema.suspend(() => SearchFilterExpression));
 export const TaskRunStatusCounts = Schema.Record({key: Schema.String, value: Schema.Number});
 export const IpV4Addresses = Schema.Array(Schema.String);
 export const IpV6Addresses = Schema.Array(Schema.String);
-export const Statistics = Schema.Struct({queueId: Schema.optional(Schema.String), fleetId: Schema.optional(Schema.String), jobId: Schema.optional(Schema.String), jobName: Schema.optional(Schema.String), userId: Schema.optional(Schema.String), usageType: Schema.optional(Schema.String), licenseProduct: Schema.optional(Schema.String), instanceType: Schema.optional(Schema.String), count: Schema.Number, costInUsd: Stats, runtimeInSeconds: Stats, aggregationStartTime: Schema.optional(Schema.Date), aggregationEndTime: Schema.optional(Schema.Date)});
+export class Statistics extends Schema.Class<Statistics>("Statistics")({queueId: Schema.optional(Schema.String), fleetId: Schema.optional(Schema.String), jobId: Schema.optional(Schema.String), jobName: Schema.optional(Schema.String), userId: Schema.optional(Schema.String), usageType: Schema.optional(Schema.String), licenseProduct: Schema.optional(Schema.String), instanceType: Schema.optional(Schema.String), count: Schema.Number, costInUsd: Stats, runtimeInSeconds: Stats, aggregationStartTime: Schema.optional(Schema.Date), aggregationEndTime: Schema.optional(Schema.Date)}) {}
 export const StatisticsList = Schema.Array(Statistics);
-export const StepParameter = Schema.Struct({name: Schema.String, type: Schema.String});
+export class StepParameter extends Schema.Class<StepParameter>("StepParameter")({name: Schema.String, type: Schema.String}) {}
 export const StepParameterList = Schema.Array(StepParameter);
 export const TaskParameterValue = Schema.Union(Schema.String, Schema.String, Schema.String, Schema.String, Schema.String);
-export const IpAddresses = Schema.Struct({ipV4Addresses: Schema.optional(IpV4Addresses), ipV6Addresses: Schema.optional(IpV6Addresses)});
-export const GetSessionsStatisticsAggregationResponse = Schema.Struct({statistics: Schema.optional(StatisticsList), nextToken: Schema.optional(Schema.String), status: Schema.String, statusMessage: Schema.optional(Schema.String)});
-export const SearchJobsRequest = Schema.Struct({farmId: Schema.String, queueIds: QueueIds, filterExpressions: Schema.optional(SearchGroupedFilterExpressions), sortExpressions: Schema.optional(SearchSortExpressions), itemOffset: Schema.Number, pageSize: Schema.optional(Schema.Number)});
-export const ParameterSpace = Schema.Struct({parameters: StepParameterList, combination: Schema.optional(Schema.String)});
+export class IpAddresses extends Schema.Class<IpAddresses>("IpAddresses")({ipV4Addresses: Schema.optional(IpV4Addresses), ipV6Addresses: Schema.optional(IpV6Addresses)}) {}
+export class GetSessionsStatisticsAggregationResponse extends Schema.Class<GetSessionsStatisticsAggregationResponse>("GetSessionsStatisticsAggregationResponse")({statistics: Schema.optional(StatisticsList), nextToken: Schema.optional(Schema.String), status: Schema.String, statusMessage: Schema.optional(Schema.String)}) {}
+export class SearchJobsRequest extends Schema.Class<SearchJobsRequest>("SearchJobsRequest")({farmId: Schema.String, queueIds: QueueIds, filterExpressions: Schema.optional(SearchGroupedFilterExpressions), sortExpressions: Schema.optional(SearchSortExpressions), itemOffset: Schema.Number, pageSize: Schema.optional(Schema.Number)}) {}
+export class ParameterSpace extends Schema.Class<ParameterSpace>("ParameterSpace")({parameters: StepParameterList, combination: Schema.optional(Schema.String)}) {}
 export const TaskParameters = Schema.Record({key: Schema.String, value: TaskParameterValue});
-export const HostPropertiesResponse = Schema.Struct({ipAddresses: Schema.optional(IpAddresses), hostName: Schema.optional(Schema.String), ec2InstanceArn: Schema.optional(Schema.String), ec2InstanceType: Schema.optional(Schema.String)});
-export const StepSearchSummary = Schema.Struct({stepId: Schema.optional(Schema.String), jobId: Schema.optional(Schema.String), queueId: Schema.optional(Schema.String), name: Schema.optional(Schema.String), lifecycleStatus: Schema.optional(Schema.String), lifecycleStatusMessage: Schema.optional(Schema.String), taskRunStatus: Schema.optional(Schema.String), targetTaskRunStatus: Schema.optional(Schema.String), taskRunStatusCounts: Schema.optional(TaskRunStatusCounts), taskFailureRetryCount: Schema.optional(Schema.Number), createdAt: Schema.optional(Schema.Date), createdBy: Schema.optional(Schema.String), startedAt: Schema.optional(Schema.Date), endedAt: Schema.optional(Schema.Date), updatedAt: Schema.optional(Schema.Date), updatedBy: Schema.optional(Schema.String), parameterSpace: Schema.optional(ParameterSpace)});
+export class HostPropertiesResponse extends Schema.Class<HostPropertiesResponse>("HostPropertiesResponse")({ipAddresses: Schema.optional(IpAddresses), hostName: Schema.optional(Schema.String), ec2InstanceArn: Schema.optional(Schema.String), ec2InstanceType: Schema.optional(Schema.String)}) {}
+export class StepSearchSummary extends Schema.Class<StepSearchSummary>("StepSearchSummary")({stepId: Schema.optional(Schema.String), jobId: Schema.optional(Schema.String), queueId: Schema.optional(Schema.String), name: Schema.optional(Schema.String), lifecycleStatus: Schema.optional(Schema.String), lifecycleStatusMessage: Schema.optional(Schema.String), taskRunStatus: Schema.optional(Schema.String), targetTaskRunStatus: Schema.optional(Schema.String), taskRunStatusCounts: Schema.optional(TaskRunStatusCounts), taskFailureRetryCount: Schema.optional(Schema.Number), createdAt: Schema.optional(Schema.Date), createdBy: Schema.optional(Schema.String), startedAt: Schema.optional(Schema.Date), endedAt: Schema.optional(Schema.Date), updatedAt: Schema.optional(Schema.Date), updatedBy: Schema.optional(Schema.String), parameterSpace: Schema.optional(ParameterSpace)}) {}
 export const StepSearchSummaries = Schema.Array(StepSearchSummary);
-export const TaskSearchSummary = Schema.Struct({taskId: Schema.optional(Schema.String), stepId: Schema.optional(Schema.String), jobId: Schema.optional(Schema.String), queueId: Schema.optional(Schema.String), runStatus: Schema.optional(Schema.String), targetRunStatus: Schema.optional(Schema.String), parameters: Schema.optional(TaskParameters), failureRetryCount: Schema.optional(Schema.Number), startedAt: Schema.optional(Schema.Date), endedAt: Schema.optional(Schema.Date), updatedAt: Schema.optional(Schema.Date), updatedBy: Schema.optional(Schema.String)});
+export class TaskSearchSummary extends Schema.Class<TaskSearchSummary>("TaskSearchSummary")({taskId: Schema.optional(Schema.String), stepId: Schema.optional(Schema.String), jobId: Schema.optional(Schema.String), queueId: Schema.optional(Schema.String), runStatus: Schema.optional(Schema.String), targetRunStatus: Schema.optional(Schema.String), parameters: Schema.optional(TaskParameters), failureRetryCount: Schema.optional(Schema.Number), startedAt: Schema.optional(Schema.Date), endedAt: Schema.optional(Schema.Date), updatedAt: Schema.optional(Schema.Date), updatedBy: Schema.optional(Schema.String)}) {}
 export const TaskSearchSummaries = Schema.Array(TaskSearchSummary);
-export const WorkerSearchSummary = Schema.Struct({fleetId: Schema.optional(Schema.String), workerId: Schema.optional(Schema.String), status: Schema.optional(Schema.String), hostProperties: Schema.optional(HostPropertiesResponse), createdBy: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date), updatedBy: Schema.optional(Schema.String), updatedAt: Schema.optional(Schema.Date)});
+export class WorkerSearchSummary extends Schema.Class<WorkerSearchSummary>("WorkerSearchSummary")({fleetId: Schema.optional(Schema.String), workerId: Schema.optional(Schema.String), status: Schema.optional(Schema.String), hostProperties: Schema.optional(HostPropertiesResponse), createdBy: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date), updatedBy: Schema.optional(Schema.String), updatedAt: Schema.optional(Schema.Date)}) {}
 export const WorkerSearchSummaries = Schema.Array(WorkerSearchSummary);
-export const SearchStepsResponse = Schema.Struct({steps: StepSearchSummaries, nextItemOffset: Schema.optional(Schema.Number), totalResults: Schema.Number});
-export const SearchTasksResponse = Schema.Struct({tasks: TaskSearchSummaries, nextItemOffset: Schema.optional(Schema.Number), totalResults: Schema.Number});
-export const SearchWorkersResponse = Schema.Struct({workers: WorkerSearchSummaries, nextItemOffset: Schema.optional(Schema.Number), totalResults: Schema.Number});
+export class SearchStepsResponse extends Schema.Class<SearchStepsResponse>("SearchStepsResponse")({steps: StepSearchSummaries, nextItemOffset: Schema.optional(Schema.Number), totalResults: Schema.Number}) {}
+export class SearchTasksResponse extends Schema.Class<SearchTasksResponse>("SearchTasksResponse")({tasks: TaskSearchSummaries, nextItemOffset: Schema.optional(Schema.Number), totalResults: Schema.Number}) {}
+export class SearchWorkersResponse extends Schema.Class<SearchWorkersResponse>("SearchWorkersResponse")({workers: WorkerSearchSummaries, nextItemOffset: Schema.optional(Schema.Number), totalResults: Schema.Number}) {}
 export const JobParameter = Schema.Union(Schema.String, Schema.String, Schema.String, Schema.String);
 export const JobParameters = Schema.Record({key: Schema.String, value: JobParameter});
-export const JobSearchSummary = Schema.Struct({jobId: Schema.optional(Schema.String), queueId: Schema.optional(Schema.String), name: Schema.optional(Schema.String), lifecycleStatus: Schema.optional(Schema.String), lifecycleStatusMessage: Schema.optional(Schema.String), taskRunStatus: Schema.optional(Schema.String), targetTaskRunStatus: Schema.optional(Schema.String), taskRunStatusCounts: Schema.optional(TaskRunStatusCounts), taskFailureRetryCount: Schema.optional(Schema.Number), priority: Schema.optional(Schema.Number), maxFailedTasksCount: Schema.optional(Schema.Number), maxRetriesPerTask: Schema.optional(Schema.Number), createdBy: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date), endedAt: Schema.optional(Schema.Date), startedAt: Schema.optional(Schema.Date), updatedAt: Schema.optional(Schema.Date), updatedBy: Schema.optional(Schema.String), jobParameters: Schema.optional(JobParameters), maxWorkerCount: Schema.optional(Schema.Number), sourceJobId: Schema.optional(Schema.String)});
+export class JobSearchSummary extends Schema.Class<JobSearchSummary>("JobSearchSummary")({jobId: Schema.optional(Schema.String), queueId: Schema.optional(Schema.String), name: Schema.optional(Schema.String), lifecycleStatus: Schema.optional(Schema.String), lifecycleStatusMessage: Schema.optional(Schema.String), taskRunStatus: Schema.optional(Schema.String), targetTaskRunStatus: Schema.optional(Schema.String), taskRunStatusCounts: Schema.optional(TaskRunStatusCounts), taskFailureRetryCount: Schema.optional(Schema.Number), priority: Schema.optional(Schema.Number), maxFailedTasksCount: Schema.optional(Schema.Number), maxRetriesPerTask: Schema.optional(Schema.Number), createdBy: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date), endedAt: Schema.optional(Schema.Date), startedAt: Schema.optional(Schema.Date), updatedAt: Schema.optional(Schema.Date), updatedBy: Schema.optional(Schema.String), jobParameters: Schema.optional(JobParameters), maxWorkerCount: Schema.optional(Schema.Number), sourceJobId: Schema.optional(Schema.String)}) {}
 export const JobSearchSummaries = Schema.Array(JobSearchSummary);
-export const SearchJobsResponse = Schema.Struct({jobs: JobSearchSummaries, nextItemOffset: Schema.optional(Schema.Number), totalResults: Schema.Number});
+export class SearchJobsResponse extends Schema.Class<SearchJobsResponse>("SearchJobsResponse")({jobs: JobSearchSummaries, nextItemOffset: Schema.optional(Schema.Number), totalResults: Schema.Number}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class InternalServerErrorExceptionError extends Schema.TaggedError<InternalServerErrorExceptionError>()("InternalServerErrorException", InternalServerErrorException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class InternalServerErrorExceptionError extends Schema.TaggedError<InternalServerErrorExceptionError>()("InternalServerErrorException", InternalServerErrorException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
 
 //# Operations
 export const updateQueueLimitAssociation = /*#__PURE__*/ makeOperation(() => Operation({ version: "2023-10-12", uri: "/2023-10-12/farms/{farmId}/queue-limit-associations/{queueId}/{limitId}", method: "PATCH", sdkId: "deadline", sigV4ServiceName: "deadline", name: "Deadline.UpdateQueueLimitAssociation" }, UpdateQueueLimitAssociationRequest, UpdateQueueLimitAssociationResponse, [AccessDeniedExceptionError, InternalServerErrorExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

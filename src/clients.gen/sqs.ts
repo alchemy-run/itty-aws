@@ -9,129 +9,129 @@ export const AttributeNameList = Schema.Array(Schema.String);
 export const MessageSystemAttributeList = Schema.Array(Schema.String);
 export const MessageAttributeNameList = Schema.Array(Schema.String);
 export const TagKeyList = Schema.Array(Schema.String);
-export const AddPermissionRequest = Schema.Struct({QueueUrl: Schema.String, Label: Schema.String, AWSAccountIds: AWSAccountIdList, Actions: ActionNameList});
-export const CancelMessageMoveTaskRequest = Schema.Struct({TaskHandle: Schema.String});
-export const ChangeMessageVisibilityRequest = Schema.Struct({QueueUrl: Schema.String, ReceiptHandle: Schema.String, VisibilityTimeout: Schema.Number});
-export const DeleteMessageRequest = Schema.Struct({QueueUrl: Schema.String, ReceiptHandle: Schema.String});
-export const InvalidIdFormat = Schema.Struct({});
-export const DeleteQueueRequest = Schema.Struct({QueueUrl: Schema.String});
-export const GetQueueAttributesRequest = Schema.Struct({QueueUrl: Schema.String, AttributeNames: Schema.optional(AttributeNameList)});
-export const GetQueueUrlRequest = Schema.Struct({QueueName: Schema.String, QueueOwnerAWSAccountId: Schema.optional(Schema.String)});
-export const ListDeadLetterSourceQueuesRequest = Schema.Struct({QueueUrl: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListMessageMoveTasksRequest = Schema.Struct({SourceArn: Schema.String, MaxResults: Schema.optional(Schema.Number)});
-export const ListQueuesRequest = Schema.Struct({QueueNamePrefix: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListQueueTagsRequest = Schema.Struct({QueueUrl: Schema.String});
-export const PurgeQueueRequest = Schema.Struct({QueueUrl: Schema.String});
-export const ReceiveMessageRequest = Schema.Struct({QueueUrl: Schema.String, AttributeNames: Schema.optional(AttributeNameList), MessageSystemAttributeNames: Schema.optional(MessageSystemAttributeList), MessageAttributeNames: Schema.optional(MessageAttributeNameList), MaxNumberOfMessages: Schema.optional(Schema.Number), VisibilityTimeout: Schema.optional(Schema.Number), WaitTimeSeconds: Schema.optional(Schema.Number), ReceiveRequestAttemptId: Schema.optional(Schema.String)});
-export const RemovePermissionRequest = Schema.Struct({QueueUrl: Schema.String, Label: Schema.String});
+export class AddPermissionRequest extends Schema.Class<AddPermissionRequest>("AddPermissionRequest")({QueueUrl: Schema.String, Label: Schema.String, AWSAccountIds: AWSAccountIdList, Actions: ActionNameList}) {}
+export class CancelMessageMoveTaskRequest extends Schema.Class<CancelMessageMoveTaskRequest>("CancelMessageMoveTaskRequest")({TaskHandle: Schema.String}) {}
+export class ChangeMessageVisibilityRequest extends Schema.Class<ChangeMessageVisibilityRequest>("ChangeMessageVisibilityRequest")({QueueUrl: Schema.String, ReceiptHandle: Schema.String, VisibilityTimeout: Schema.Number}) {}
+export class DeleteMessageRequest extends Schema.Class<DeleteMessageRequest>("DeleteMessageRequest")({QueueUrl: Schema.String, ReceiptHandle: Schema.String}) {}
+export class InvalidIdFormat extends Schema.Class<InvalidIdFormat>("InvalidIdFormat")({}) {}
+export class DeleteQueueRequest extends Schema.Class<DeleteQueueRequest>("DeleteQueueRequest")({QueueUrl: Schema.String}) {}
+export class GetQueueAttributesRequest extends Schema.Class<GetQueueAttributesRequest>("GetQueueAttributesRequest")({QueueUrl: Schema.String, AttributeNames: Schema.optional(AttributeNameList)}) {}
+export class GetQueueUrlRequest extends Schema.Class<GetQueueUrlRequest>("GetQueueUrlRequest")({QueueName: Schema.String, QueueOwnerAWSAccountId: Schema.optional(Schema.String)}) {}
+export class ListDeadLetterSourceQueuesRequest extends Schema.Class<ListDeadLetterSourceQueuesRequest>("ListDeadLetterSourceQueuesRequest")({QueueUrl: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListMessageMoveTasksRequest extends Schema.Class<ListMessageMoveTasksRequest>("ListMessageMoveTasksRequest")({SourceArn: Schema.String, MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListQueuesRequest extends Schema.Class<ListQueuesRequest>("ListQueuesRequest")({QueueNamePrefix: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListQueueTagsRequest extends Schema.Class<ListQueueTagsRequest>("ListQueueTagsRequest")({QueueUrl: Schema.String}) {}
+export class PurgeQueueRequest extends Schema.Class<PurgeQueueRequest>("PurgeQueueRequest")({QueueUrl: Schema.String}) {}
+export class ReceiveMessageRequest extends Schema.Class<ReceiveMessageRequest>("ReceiveMessageRequest")({QueueUrl: Schema.String, AttributeNames: Schema.optional(AttributeNameList), MessageSystemAttributeNames: Schema.optional(MessageSystemAttributeList), MessageAttributeNames: Schema.optional(MessageAttributeNameList), MaxNumberOfMessages: Schema.optional(Schema.Number), VisibilityTimeout: Schema.optional(Schema.Number), WaitTimeSeconds: Schema.optional(Schema.Number), ReceiveRequestAttemptId: Schema.optional(Schema.String)}) {}
+export class RemovePermissionRequest extends Schema.Class<RemovePermissionRequest>("RemovePermissionRequest")({QueueUrl: Schema.String, Label: Schema.String}) {}
 export const QueueAttributeMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const SetQueueAttributesRequest = Schema.Struct({QueueUrl: Schema.String, Attributes: QueueAttributeMap});
-export const StartMessageMoveTaskRequest = Schema.Struct({SourceArn: Schema.String, DestinationArn: Schema.optional(Schema.String), MaxNumberOfMessagesPerSecond: Schema.optional(Schema.Number)});
+export class SetQueueAttributesRequest extends Schema.Class<SetQueueAttributesRequest>("SetQueueAttributesRequest")({QueueUrl: Schema.String, Attributes: QueueAttributeMap}) {}
+export class StartMessageMoveTaskRequest extends Schema.Class<StartMessageMoveTaskRequest>("StartMessageMoveTaskRequest")({SourceArn: Schema.String, DestinationArn: Schema.optional(Schema.String), MaxNumberOfMessagesPerSecond: Schema.optional(Schema.Number)}) {}
 export const TagMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const TagQueueRequest = Schema.Struct({QueueUrl: Schema.String, Tags: TagMap});
-export const UntagQueueRequest = Schema.Struct({QueueUrl: Schema.String, TagKeys: TagKeyList});
-export const ChangeMessageVisibilityBatchRequestEntry = Schema.Struct({Id: Schema.String, ReceiptHandle: Schema.String, VisibilityTimeout: Schema.optional(Schema.Number)});
+export class TagQueueRequest extends Schema.Class<TagQueueRequest>("TagQueueRequest")({QueueUrl: Schema.String, Tags: TagMap}) {}
+export class UntagQueueRequest extends Schema.Class<UntagQueueRequest>("UntagQueueRequest")({QueueUrl: Schema.String, TagKeys: TagKeyList}) {}
+export class ChangeMessageVisibilityBatchRequestEntry extends Schema.Class<ChangeMessageVisibilityBatchRequestEntry>("ChangeMessageVisibilityBatchRequestEntry")({Id: Schema.String, ReceiptHandle: Schema.String, VisibilityTimeout: Schema.optional(Schema.Number)}) {}
 export const ChangeMessageVisibilityBatchRequestEntryList = Schema.Array(ChangeMessageVisibilityBatchRequestEntry);
-export const DeleteMessageBatchRequestEntry = Schema.Struct({Id: Schema.String, ReceiptHandle: Schema.String});
+export class DeleteMessageBatchRequestEntry extends Schema.Class<DeleteMessageBatchRequestEntry>("DeleteMessageBatchRequestEntry")({Id: Schema.String, ReceiptHandle: Schema.String}) {}
 export const DeleteMessageBatchRequestEntryList = Schema.Array(DeleteMessageBatchRequestEntry);
 export const QueueUrlList = Schema.Array(Schema.String);
 export const StringList = Schema.Array(Schema.String);
 export const BinaryList = Schema.Array(StreamBody());
-export const MessageAttributeValue = Schema.Struct({StringValue: Schema.optional(Schema.String), BinaryValue: Schema.optional(StreamBody()), StringListValues: Schema.optional(StringList), BinaryListValues: Schema.optional(BinaryList), DataType: Schema.String});
+export class MessageAttributeValue extends Schema.Class<MessageAttributeValue>("MessageAttributeValue")({StringValue: Schema.optional(Schema.String), BinaryValue: Schema.optional(StreamBody()), StringListValues: Schema.optional(StringList), BinaryListValues: Schema.optional(BinaryList), DataType: Schema.String}) {}
 export const MessageBodyAttributeMap = Schema.Record({key: Schema.String, value: MessageAttributeValue});
-export const MessageSystemAttributeValue = Schema.Struct({StringValue: Schema.optional(Schema.String), BinaryValue: Schema.optional(StreamBody()), StringListValues: Schema.optional(StringList), BinaryListValues: Schema.optional(BinaryList), DataType: Schema.String});
+export class MessageSystemAttributeValue extends Schema.Class<MessageSystemAttributeValue>("MessageSystemAttributeValue")({StringValue: Schema.optional(Schema.String), BinaryValue: Schema.optional(StreamBody()), StringListValues: Schema.optional(StringList), BinaryListValues: Schema.optional(BinaryList), DataType: Schema.String}) {}
 export const MessageBodySystemAttributeMap = Schema.Record({key: Schema.String, value: MessageSystemAttributeValue});
-export const SendMessageBatchRequestEntry = Schema.Struct({Id: Schema.String, MessageBody: Schema.String, DelaySeconds: Schema.optional(Schema.Number), MessageAttributes: Schema.optional(MessageBodyAttributeMap), MessageSystemAttributes: Schema.optional(MessageBodySystemAttributeMap), MessageDeduplicationId: Schema.optional(Schema.String), MessageGroupId: Schema.optional(Schema.String)});
+export class SendMessageBatchRequestEntry extends Schema.Class<SendMessageBatchRequestEntry>("SendMessageBatchRequestEntry")({Id: Schema.String, MessageBody: Schema.String, DelaySeconds: Schema.optional(Schema.Number), MessageAttributes: Schema.optional(MessageBodyAttributeMap), MessageSystemAttributes: Schema.optional(MessageBodySystemAttributeMap), MessageDeduplicationId: Schema.optional(Schema.String), MessageGroupId: Schema.optional(Schema.String)}) {}
 export const SendMessageBatchRequestEntryList = Schema.Array(SendMessageBatchRequestEntry);
-export const InvalidAddress = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CancelMessageMoveTaskResult = Schema.Struct({ApproximateNumberOfMessagesMoved: Schema.optional(Schema.Number)});
-export const InvalidSecurity = Schema.Struct({message: Schema.optional(Schema.String)});
-export const MessageNotInflight = Schema.Struct({});
-export const ChangeMessageVisibilityBatchRequest = Schema.Struct({QueueUrl: Schema.String, Entries: ChangeMessageVisibilityBatchRequestEntryList});
-export const CreateQueueRequest = Schema.Struct({QueueName: Schema.String, Attributes: Schema.optional(QueueAttributeMap), tags: Schema.optional(TagMap)});
-export const QueueDoesNotExist = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DeleteMessageBatchRequest = Schema.Struct({QueueUrl: Schema.String, Entries: DeleteMessageBatchRequestEntryList});
-export const RequestThrottled = Schema.Struct({message: Schema.optional(Schema.String)});
-export const GetQueueAttributesResult = Schema.Struct({Attributes: Schema.optional(QueueAttributeMap)});
-export const GetQueueUrlResult = Schema.Struct({QueueUrl: Schema.optional(Schema.String)});
-export const ListDeadLetterSourceQueuesResult = Schema.Struct({queueUrls: QueueUrlList, NextToken: Schema.optional(Schema.String)});
-export const ListQueuesResult = Schema.Struct({QueueUrls: Schema.optional(QueueUrlList), NextToken: Schema.optional(Schema.String)});
-export const ListQueueTagsResult = Schema.Struct({Tags: Schema.optional(TagMap)});
-export const PurgeQueueInProgress = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UnsupportedOperation = Schema.Struct({message: Schema.optional(Schema.String)});
-export const SendMessageBatchRequest = Schema.Struct({QueueUrl: Schema.String, Entries: SendMessageBatchRequestEntryList});
-export const InvalidAttributeName = Schema.Struct({message: Schema.optional(Schema.String)});
-export const StartMessageMoveTaskResult = Schema.Struct({TaskHandle: Schema.optional(Schema.String)});
-export const ListMessageMoveTasksResultEntry = Schema.Struct({TaskHandle: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), SourceArn: Schema.optional(Schema.String), DestinationArn: Schema.optional(Schema.String), MaxNumberOfMessagesPerSecond: Schema.optional(Schema.Number), ApproximateNumberOfMessagesMoved: Schema.optional(Schema.Number), ApproximateNumberOfMessagesToMove: Schema.optional(Schema.Number), FailureReason: Schema.optional(Schema.String), StartedTimestamp: Schema.optional(Schema.Number)});
+export class InvalidAddress extends Schema.Class<InvalidAddress>("InvalidAddress")({message: Schema.optional(Schema.String)}) {}
+export class CancelMessageMoveTaskResult extends Schema.Class<CancelMessageMoveTaskResult>("CancelMessageMoveTaskResult")({ApproximateNumberOfMessagesMoved: Schema.optional(Schema.Number)}) {}
+export class InvalidSecurity extends Schema.Class<InvalidSecurity>("InvalidSecurity")({message: Schema.optional(Schema.String)}) {}
+export class MessageNotInflight extends Schema.Class<MessageNotInflight>("MessageNotInflight")({}) {}
+export class ChangeMessageVisibilityBatchRequest extends Schema.Class<ChangeMessageVisibilityBatchRequest>("ChangeMessageVisibilityBatchRequest")({QueueUrl: Schema.String, Entries: ChangeMessageVisibilityBatchRequestEntryList}) {}
+export class CreateQueueRequest extends Schema.Class<CreateQueueRequest>("CreateQueueRequest")({QueueName: Schema.String, Attributes: Schema.optional(QueueAttributeMap), tags: Schema.optional(TagMap)}) {}
+export class QueueDoesNotExist extends Schema.Class<QueueDoesNotExist>("QueueDoesNotExist")({message: Schema.optional(Schema.String)}) {}
+export class DeleteMessageBatchRequest extends Schema.Class<DeleteMessageBatchRequest>("DeleteMessageBatchRequest")({QueueUrl: Schema.String, Entries: DeleteMessageBatchRequestEntryList}) {}
+export class RequestThrottled extends Schema.Class<RequestThrottled>("RequestThrottled")({message: Schema.optional(Schema.String)}) {}
+export class GetQueueAttributesResult extends Schema.Class<GetQueueAttributesResult>("GetQueueAttributesResult")({Attributes: Schema.optional(QueueAttributeMap)}) {}
+export class GetQueueUrlResult extends Schema.Class<GetQueueUrlResult>("GetQueueUrlResult")({QueueUrl: Schema.optional(Schema.String)}) {}
+export class ListDeadLetterSourceQueuesResult extends Schema.Class<ListDeadLetterSourceQueuesResult>("ListDeadLetterSourceQueuesResult")({queueUrls: QueueUrlList, NextToken: Schema.optional(Schema.String)}) {}
+export class ListQueuesResult extends Schema.Class<ListQueuesResult>("ListQueuesResult")({QueueUrls: Schema.optional(QueueUrlList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListQueueTagsResult extends Schema.Class<ListQueueTagsResult>("ListQueueTagsResult")({Tags: Schema.optional(TagMap)}) {}
+export class PurgeQueueInProgress extends Schema.Class<PurgeQueueInProgress>("PurgeQueueInProgress")({message: Schema.optional(Schema.String)}) {}
+export class UnsupportedOperation extends Schema.Class<UnsupportedOperation>("UnsupportedOperation")({message: Schema.optional(Schema.String)}) {}
+export class SendMessageBatchRequest extends Schema.Class<SendMessageBatchRequest>("SendMessageBatchRequest")({QueueUrl: Schema.String, Entries: SendMessageBatchRequestEntryList}) {}
+export class InvalidAttributeName extends Schema.Class<InvalidAttributeName>("InvalidAttributeName")({message: Schema.optional(Schema.String)}) {}
+export class StartMessageMoveTaskResult extends Schema.Class<StartMessageMoveTaskResult>("StartMessageMoveTaskResult")({TaskHandle: Schema.optional(Schema.String)}) {}
+export class ListMessageMoveTasksResultEntry extends Schema.Class<ListMessageMoveTasksResultEntry>("ListMessageMoveTasksResultEntry")({TaskHandle: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), SourceArn: Schema.optional(Schema.String), DestinationArn: Schema.optional(Schema.String), MaxNumberOfMessagesPerSecond: Schema.optional(Schema.Number), ApproximateNumberOfMessagesMoved: Schema.optional(Schema.Number), ApproximateNumberOfMessagesToMove: Schema.optional(Schema.Number), FailureReason: Schema.optional(Schema.String), StartedTimestamp: Schema.optional(Schema.Number)}) {}
 export const ListMessageMoveTasksResultEntryList = Schema.Array(ListMessageMoveTasksResultEntry);
-export const OverLimit = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ReceiptHandleIsInvalid = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CreateQueueResult = Schema.Struct({QueueUrl: Schema.optional(Schema.String)});
-export const ListMessageMoveTasksResult = Schema.Struct({Results: Schema.optional(ListMessageMoveTasksResultEntryList)});
-export const SendMessageRequest = Schema.Struct({QueueUrl: Schema.String, MessageBody: Schema.String, DelaySeconds: Schema.optional(Schema.Number), MessageAttributes: Schema.optional(MessageBodyAttributeMap), MessageSystemAttributes: Schema.optional(MessageBodySystemAttributeMap), MessageDeduplicationId: Schema.optional(Schema.String), MessageGroupId: Schema.optional(Schema.String)});
-export const InvalidAttributeValue = Schema.Struct({message: Schema.optional(Schema.String)});
+export class OverLimit extends Schema.Class<OverLimit>("OverLimit")({message: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class ReceiptHandleIsInvalid extends Schema.Class<ReceiptHandleIsInvalid>("ReceiptHandleIsInvalid")({message: Schema.optional(Schema.String)}) {}
+export class CreateQueueResult extends Schema.Class<CreateQueueResult>("CreateQueueResult")({QueueUrl: Schema.optional(Schema.String)}) {}
+export class ListMessageMoveTasksResult extends Schema.Class<ListMessageMoveTasksResult>("ListMessageMoveTasksResult")({Results: Schema.optional(ListMessageMoveTasksResultEntryList)}) {}
+export class SendMessageRequest extends Schema.Class<SendMessageRequest>("SendMessageRequest")({QueueUrl: Schema.String, MessageBody: Schema.String, DelaySeconds: Schema.optional(Schema.Number), MessageAttributes: Schema.optional(MessageBodyAttributeMap), MessageSystemAttributes: Schema.optional(MessageBodySystemAttributeMap), MessageDeduplicationId: Schema.optional(Schema.String), MessageGroupId: Schema.optional(Schema.String)}) {}
+export class InvalidAttributeValue extends Schema.Class<InvalidAttributeValue>("InvalidAttributeValue")({message: Schema.optional(Schema.String)}) {}
 export const MessageSystemAttributeMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const ChangeMessageVisibilityBatchResultEntry = Schema.Struct({Id: Schema.String});
+export class ChangeMessageVisibilityBatchResultEntry extends Schema.Class<ChangeMessageVisibilityBatchResultEntry>("ChangeMessageVisibilityBatchResultEntry")({Id: Schema.String}) {}
 export const ChangeMessageVisibilityBatchResultEntryList = Schema.Array(ChangeMessageVisibilityBatchResultEntry);
-export const BatchResultErrorEntry = Schema.Struct({Id: Schema.String, SenderFault: Schema.Boolean, Code: Schema.String, Message: Schema.optional(Schema.String)});
+export class BatchResultErrorEntry extends Schema.Class<BatchResultErrorEntry>("BatchResultErrorEntry")({Id: Schema.String, SenderFault: Schema.Boolean, Code: Schema.String, Message: Schema.optional(Schema.String)}) {}
 export const BatchResultErrorEntryList = Schema.Array(BatchResultErrorEntry);
-export const DeleteMessageBatchResultEntry = Schema.Struct({Id: Schema.String});
+export class DeleteMessageBatchResultEntry extends Schema.Class<DeleteMessageBatchResultEntry>("DeleteMessageBatchResultEntry")({Id: Schema.String}) {}
 export const DeleteMessageBatchResultEntryList = Schema.Array(DeleteMessageBatchResultEntry);
-export const Message = Schema.Struct({MessageId: Schema.optional(Schema.String), ReceiptHandle: Schema.optional(Schema.String), MD5OfBody: Schema.optional(Schema.String), Body: Schema.optional(Schema.String), Attributes: Schema.optional(MessageSystemAttributeMap), MD5OfMessageAttributes: Schema.optional(Schema.String), MessageAttributes: Schema.optional(MessageBodyAttributeMap)});
+export class Message extends Schema.Class<Message>("Message")({MessageId: Schema.optional(Schema.String), ReceiptHandle: Schema.optional(Schema.String), MD5OfBody: Schema.optional(Schema.String), Body: Schema.optional(Schema.String), Attributes: Schema.optional(MessageSystemAttributeMap), MD5OfMessageAttributes: Schema.optional(Schema.String), MessageAttributes: Schema.optional(MessageBodyAttributeMap)}) {}
 export const MessageList = Schema.Array(Message);
-export const SendMessageBatchResultEntry = Schema.Struct({Id: Schema.String, MessageId: Schema.String, MD5OfMessageBody: Schema.String, MD5OfMessageAttributes: Schema.optional(Schema.String), MD5OfMessageSystemAttributes: Schema.optional(Schema.String), SequenceNumber: Schema.optional(Schema.String)});
+export class SendMessageBatchResultEntry extends Schema.Class<SendMessageBatchResultEntry>("SendMessageBatchResultEntry")({Id: Schema.String, MessageId: Schema.String, MD5OfMessageBody: Schema.String, MD5OfMessageAttributes: Schema.optional(Schema.String), MD5OfMessageSystemAttributes: Schema.optional(Schema.String), SequenceNumber: Schema.optional(Schema.String)}) {}
 export const SendMessageBatchResultEntryList = Schema.Array(SendMessageBatchResultEntry);
-export const ChangeMessageVisibilityBatchResult = Schema.Struct({Successful: ChangeMessageVisibilityBatchResultEntryList, Failed: BatchResultErrorEntryList});
-export const QueueDeletedRecently = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DeleteMessageBatchResult = Schema.Struct({Successful: DeleteMessageBatchResultEntryList, Failed: BatchResultErrorEntryList});
-export const ReceiveMessageResult = Schema.Struct({Messages: Schema.optional(MessageList)});
-export const SendMessageResult = Schema.Struct({MD5OfMessageBody: Schema.optional(Schema.String), MD5OfMessageAttributes: Schema.optional(Schema.String), MD5OfMessageSystemAttributes: Schema.optional(Schema.String), MessageId: Schema.optional(Schema.String), SequenceNumber: Schema.optional(Schema.String)});
-export const SendMessageBatchResult = Schema.Struct({Successful: SendMessageBatchResultEntryList, Failed: BatchResultErrorEntryList});
-export const BatchEntryIdsNotDistinct = Schema.Struct({message: Schema.optional(Schema.String)});
-export const QueueNameExists = Schema.Struct({message: Schema.optional(Schema.String)});
-export const EmptyBatchRequest = Schema.Struct({message: Schema.optional(Schema.String)});
-export const KmsAccessDenied = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidMessageContents = Schema.Struct({message: Schema.optional(Schema.String)});
-export const BatchRequestTooLong = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidBatchEntryId = Schema.Struct({message: Schema.optional(Schema.String)});
-export const TooManyEntriesInBatchRequest = Schema.Struct({message: Schema.optional(Schema.String)});
-export const KmsDisabled = Schema.Struct({message: Schema.optional(Schema.String)});
-export const KmsInvalidKeyUsage = Schema.Struct({message: Schema.optional(Schema.String)});
-export const KmsInvalidState = Schema.Struct({message: Schema.optional(Schema.String)});
-export const KmsNotFound = Schema.Struct({message: Schema.optional(Schema.String)});
-export const KmsOptInRequired = Schema.Struct({message: Schema.optional(Schema.String)});
-export const KmsThrottled = Schema.Struct({message: Schema.optional(Schema.String)});
+export class ChangeMessageVisibilityBatchResult extends Schema.Class<ChangeMessageVisibilityBatchResult>("ChangeMessageVisibilityBatchResult")({Successful: ChangeMessageVisibilityBatchResultEntryList, Failed: BatchResultErrorEntryList}) {}
+export class QueueDeletedRecently extends Schema.Class<QueueDeletedRecently>("QueueDeletedRecently")({message: Schema.optional(Schema.String)}) {}
+export class DeleteMessageBatchResult extends Schema.Class<DeleteMessageBatchResult>("DeleteMessageBatchResult")({Successful: DeleteMessageBatchResultEntryList, Failed: BatchResultErrorEntryList}) {}
+export class ReceiveMessageResult extends Schema.Class<ReceiveMessageResult>("ReceiveMessageResult")({Messages: Schema.optional(MessageList)}) {}
+export class SendMessageResult extends Schema.Class<SendMessageResult>("SendMessageResult")({MD5OfMessageBody: Schema.optional(Schema.String), MD5OfMessageAttributes: Schema.optional(Schema.String), MD5OfMessageSystemAttributes: Schema.optional(Schema.String), MessageId: Schema.optional(Schema.String), SequenceNumber: Schema.optional(Schema.String)}) {}
+export class SendMessageBatchResult extends Schema.Class<SendMessageBatchResult>("SendMessageBatchResult")({Successful: SendMessageBatchResultEntryList, Failed: BatchResultErrorEntryList}) {}
+export class BatchEntryIdsNotDistinct extends Schema.Class<BatchEntryIdsNotDistinct>("BatchEntryIdsNotDistinct")({message: Schema.optional(Schema.String)}) {}
+export class QueueNameExists extends Schema.Class<QueueNameExists>("QueueNameExists")({message: Schema.optional(Schema.String)}) {}
+export class EmptyBatchRequest extends Schema.Class<EmptyBatchRequest>("EmptyBatchRequest")({message: Schema.optional(Schema.String)}) {}
+export class KmsAccessDenied extends Schema.Class<KmsAccessDenied>("KmsAccessDenied")({message: Schema.optional(Schema.String)}) {}
+export class InvalidMessageContents extends Schema.Class<InvalidMessageContents>("InvalidMessageContents")({message: Schema.optional(Schema.String)}) {}
+export class BatchRequestTooLong extends Schema.Class<BatchRequestTooLong>("BatchRequestTooLong")({message: Schema.optional(Schema.String)}) {}
+export class InvalidBatchEntryId extends Schema.Class<InvalidBatchEntryId>("InvalidBatchEntryId")({message: Schema.optional(Schema.String)}) {}
+export class TooManyEntriesInBatchRequest extends Schema.Class<TooManyEntriesInBatchRequest>("TooManyEntriesInBatchRequest")({message: Schema.optional(Schema.String)}) {}
+export class KmsDisabled extends Schema.Class<KmsDisabled>("KmsDisabled")({message: Schema.optional(Schema.String)}) {}
+export class KmsInvalidKeyUsage extends Schema.Class<KmsInvalidKeyUsage>("KmsInvalidKeyUsage")({message: Schema.optional(Schema.String)}) {}
+export class KmsInvalidState extends Schema.Class<KmsInvalidState>("KmsInvalidState")({message: Schema.optional(Schema.String)}) {}
+export class KmsNotFound extends Schema.Class<KmsNotFound>("KmsNotFound")({message: Schema.optional(Schema.String)}) {}
+export class KmsOptInRequired extends Schema.Class<KmsOptInRequired>("KmsOptInRequired")({message: Schema.optional(Schema.String)}) {}
+export class KmsThrottled extends Schema.Class<KmsThrottled>("KmsThrottled")({message: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class InvalidAddressError extends Schema.TaggedError<InvalidAddressError>()("InvalidAddress", InvalidAddress) {};
-export class InvalidIdFormatError extends Schema.TaggedError<InvalidIdFormatError>()("InvalidIdFormat", InvalidIdFormat) {};
-export class InvalidSecurityError extends Schema.TaggedError<InvalidSecurityError>()("InvalidSecurity", InvalidSecurity) {};
-export class QueueDoesNotExistError extends Schema.TaggedError<QueueDoesNotExistError>()("QueueDoesNotExist", QueueDoesNotExist) {};
-export class RequestThrottledError extends Schema.TaggedError<RequestThrottledError>()("RequestThrottled", RequestThrottled) {};
-export class UnsupportedOperationError extends Schema.TaggedError<UnsupportedOperationError>()("UnsupportedOperation", UnsupportedOperation) {};
-export class MessageNotInflightError extends Schema.TaggedError<MessageNotInflightError>()("MessageNotInflight", MessageNotInflight) {};
-export class ReceiptHandleIsInvalidError extends Schema.TaggedError<ReceiptHandleIsInvalidError>()("ReceiptHandleIsInvalid", ReceiptHandleIsInvalid) {};
-export class InvalidAttributeNameError extends Schema.TaggedError<InvalidAttributeNameError>()("InvalidAttributeName", InvalidAttributeName) {};
-export class PurgeQueueInProgressError extends Schema.TaggedError<PurgeQueueInProgressError>()("PurgeQueueInProgress", PurgeQueueInProgress) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class OverLimitError extends Schema.TaggedError<OverLimitError>()("OverLimit", OverLimit) {};
-export class InvalidAttributeValueError extends Schema.TaggedError<InvalidAttributeValueError>()("InvalidAttributeValue", InvalidAttributeValue) {};
-export class QueueDeletedRecentlyError extends Schema.TaggedError<QueueDeletedRecentlyError>()("QueueDeletedRecently", QueueDeletedRecently) {};
-export class BatchEntryIdsNotDistinctError extends Schema.TaggedError<BatchEntryIdsNotDistinctError>()("BatchEntryIdsNotDistinct", BatchEntryIdsNotDistinct) {};
-export class EmptyBatchRequestError extends Schema.TaggedError<EmptyBatchRequestError>()("EmptyBatchRequest", EmptyBatchRequest) {};
-export class QueueNameExistsError extends Schema.TaggedError<QueueNameExistsError>()("QueueNameExists", QueueNameExists) {};
-export class InvalidBatchEntryIdError extends Schema.TaggedError<InvalidBatchEntryIdError>()("InvalidBatchEntryId", InvalidBatchEntryId) {};
-export class KmsAccessDeniedError extends Schema.TaggedError<KmsAccessDeniedError>()("KmsAccessDenied", KmsAccessDenied) {};
-export class InvalidMessageContentsError extends Schema.TaggedError<InvalidMessageContentsError>()("InvalidMessageContents", InvalidMessageContents) {};
-export class KmsDisabledError extends Schema.TaggedError<KmsDisabledError>()("KmsDisabled", KmsDisabled) {};
-export class BatchRequestTooLongError extends Schema.TaggedError<BatchRequestTooLongError>()("BatchRequestTooLong", BatchRequestTooLong) {};
-export class KmsInvalidKeyUsageError extends Schema.TaggedError<KmsInvalidKeyUsageError>()("KmsInvalidKeyUsage", KmsInvalidKeyUsage) {};
-export class TooManyEntriesInBatchRequestError extends Schema.TaggedError<TooManyEntriesInBatchRequestError>()("TooManyEntriesInBatchRequest", TooManyEntriesInBatchRequest) {};
-export class KmsInvalidStateError extends Schema.TaggedError<KmsInvalidStateError>()("KmsInvalidState", KmsInvalidState) {};
-export class KmsNotFoundError extends Schema.TaggedError<KmsNotFoundError>()("KmsNotFound", KmsNotFound) {};
-export class KmsOptInRequiredError extends Schema.TaggedError<KmsOptInRequiredError>()("KmsOptInRequired", KmsOptInRequired) {};
-export class KmsThrottledError extends Schema.TaggedError<KmsThrottledError>()("KmsThrottled", KmsThrottled) {};
+export class InvalidAddressError extends Schema.TaggedError<InvalidAddressError>()("InvalidAddress", InvalidAddress.fields) {};
+export class InvalidIdFormatError extends Schema.TaggedError<InvalidIdFormatError>()("InvalidIdFormat", InvalidIdFormat.fields) {};
+export class InvalidSecurityError extends Schema.TaggedError<InvalidSecurityError>()("InvalidSecurity", InvalidSecurity.fields) {};
+export class QueueDoesNotExistError extends Schema.TaggedError<QueueDoesNotExistError>()("QueueDoesNotExist", QueueDoesNotExist.fields) {};
+export class RequestThrottledError extends Schema.TaggedError<RequestThrottledError>()("RequestThrottled", RequestThrottled.fields) {};
+export class UnsupportedOperationError extends Schema.TaggedError<UnsupportedOperationError>()("UnsupportedOperation", UnsupportedOperation.fields) {};
+export class MessageNotInflightError extends Schema.TaggedError<MessageNotInflightError>()("MessageNotInflight", MessageNotInflight.fields) {};
+export class ReceiptHandleIsInvalidError extends Schema.TaggedError<ReceiptHandleIsInvalidError>()("ReceiptHandleIsInvalid", ReceiptHandleIsInvalid.fields) {};
+export class InvalidAttributeNameError extends Schema.TaggedError<InvalidAttributeNameError>()("InvalidAttributeName", InvalidAttributeName.fields) {};
+export class PurgeQueueInProgressError extends Schema.TaggedError<PurgeQueueInProgressError>()("PurgeQueueInProgress", PurgeQueueInProgress.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class OverLimitError extends Schema.TaggedError<OverLimitError>()("OverLimit", OverLimit.fields) {};
+export class InvalidAttributeValueError extends Schema.TaggedError<InvalidAttributeValueError>()("InvalidAttributeValue", InvalidAttributeValue.fields) {};
+export class QueueDeletedRecentlyError extends Schema.TaggedError<QueueDeletedRecentlyError>()("QueueDeletedRecently", QueueDeletedRecently.fields) {};
+export class BatchEntryIdsNotDistinctError extends Schema.TaggedError<BatchEntryIdsNotDistinctError>()("BatchEntryIdsNotDistinct", BatchEntryIdsNotDistinct.fields) {};
+export class EmptyBatchRequestError extends Schema.TaggedError<EmptyBatchRequestError>()("EmptyBatchRequest", EmptyBatchRequest.fields) {};
+export class QueueNameExistsError extends Schema.TaggedError<QueueNameExistsError>()("QueueNameExists", QueueNameExists.fields) {};
+export class InvalidBatchEntryIdError extends Schema.TaggedError<InvalidBatchEntryIdError>()("InvalidBatchEntryId", InvalidBatchEntryId.fields) {};
+export class KmsAccessDeniedError extends Schema.TaggedError<KmsAccessDeniedError>()("KmsAccessDenied", KmsAccessDenied.fields) {};
+export class InvalidMessageContentsError extends Schema.TaggedError<InvalidMessageContentsError>()("InvalidMessageContents", InvalidMessageContents.fields) {};
+export class KmsDisabledError extends Schema.TaggedError<KmsDisabledError>()("KmsDisabled", KmsDisabled.fields) {};
+export class BatchRequestTooLongError extends Schema.TaggedError<BatchRequestTooLongError>()("BatchRequestTooLong", BatchRequestTooLong.fields) {};
+export class KmsInvalidKeyUsageError extends Schema.TaggedError<KmsInvalidKeyUsageError>()("KmsInvalidKeyUsage", KmsInvalidKeyUsage.fields) {};
+export class TooManyEntriesInBatchRequestError extends Schema.TaggedError<TooManyEntriesInBatchRequestError>()("TooManyEntriesInBatchRequest", TooManyEntriesInBatchRequest.fields) {};
+export class KmsInvalidStateError extends Schema.TaggedError<KmsInvalidStateError>()("KmsInvalidState", KmsInvalidState.fields) {};
+export class KmsNotFoundError extends Schema.TaggedError<KmsNotFoundError>()("KmsNotFound", KmsNotFound.fields) {};
+export class KmsOptInRequiredError extends Schema.TaggedError<KmsOptInRequiredError>()("KmsOptInRequired", KmsOptInRequired.fields) {};
+export class KmsThrottledError extends Schema.TaggedError<KmsThrottledError>()("KmsThrottled", KmsThrottled.fields) {};
 
 //# Operations
 export const tagQueue = /*#__PURE__*/ makeOperation(() => Operation({ version: "2012-11-05", uri: "/", method: "POST", sdkId: "SQS", sigV4ServiceName: "sqs", name: "AmazonSQS.TagQueue" }, TagQueueRequest, Schema.Struct({}), [InvalidAddressError, InvalidSecurityError, QueueDoesNotExistError, RequestThrottledError, UnsupportedOperationError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);

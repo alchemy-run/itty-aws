@@ -6,89 +6,89 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 export const Options = Schema.Array(Schema.String);
 export const GetAssociatedResourceFilter = Schema.Array(Schema.String);
 export const TagKeys = Schema.Array(Schema.String);
-export const AssociateAttributeGroupRequest = Schema.Struct({application: Schema.String, attributeGroup: Schema.String});
-export const AssociateResourceRequest = Schema.Struct({application: Schema.String, resourceType: Schema.String, resource: Schema.String, options: Schema.optional(Options)});
+export class AssociateAttributeGroupRequest extends Schema.Class<AssociateAttributeGroupRequest>("AssociateAttributeGroupRequest")({application: Schema.String, attributeGroup: Schema.String}) {}
+export class AssociateResourceRequest extends Schema.Class<AssociateResourceRequest>("AssociateResourceRequest")({application: Schema.String, resourceType: Schema.String, resource: Schema.String, options: Schema.optional(Options)}) {}
 export const Tags = Schema.Record({key: Schema.String, value: Schema.String});
-export const CreateAttributeGroupRequest = Schema.Struct({name: Schema.String, description: Schema.optional(Schema.String), attributes: Schema.String, tags: Schema.optional(Tags), clientToken: Schema.String});
-export const DeleteApplicationRequest = Schema.Struct({application: Schema.String});
-export const DeleteAttributeGroupRequest = Schema.Struct({attributeGroup: Schema.String});
-export const DisassociateAttributeGroupRequest = Schema.Struct({application: Schema.String, attributeGroup: Schema.String});
-export const DisassociateResourceRequest = Schema.Struct({application: Schema.String, resourceType: Schema.String, resource: Schema.String});
-export const GetApplicationRequest = Schema.Struct({application: Schema.String});
-export const GetAssociatedResourceRequest = Schema.Struct({application: Schema.String, resourceType: Schema.String, resource: Schema.String, nextToken: Schema.optional(Schema.String), resourceTagStatus: Schema.optional(GetAssociatedResourceFilter), maxResults: Schema.optional(Schema.Number)});
-export const GetAttributeGroupRequest = Schema.Struct({attributeGroup: Schema.String});
-export const ListApplicationsRequest = Schema.Struct({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListAssociatedAttributeGroupsRequest = Schema.Struct({application: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListAssociatedResourcesRequest = Schema.Struct({application: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListAttributeGroupsRequest = Schema.Struct({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListAttributeGroupsForApplicationRequest = Schema.Struct({application: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListTagsForResourceRequest = Schema.Struct({resourceArn: Schema.String});
-export const TagQueryConfiguration = Schema.Struct({tagKey: Schema.optional(Schema.String)});
-export const AppRegistryConfiguration = Schema.Struct({tagQueryConfiguration: Schema.optional(TagQueryConfiguration)});
-export const PutConfigurationRequest = Schema.Struct({configuration: AppRegistryConfiguration});
-export const SyncResourceRequest = Schema.Struct({resourceType: Schema.String, resource: Schema.String});
-export const TagResourceRequest = Schema.Struct({resourceArn: Schema.String, tags: Tags});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({resourceArn: Schema.String, tagKeys: TagKeys});
-export const UntagResourceResponse = Schema.Struct({});
-export const UpdateApplicationRequest = Schema.Struct({application: Schema.String, name: Schema.optional(Schema.String), description: Schema.optional(Schema.String)});
-export const UpdateAttributeGroupRequest = Schema.Struct({attributeGroup: Schema.String, name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), attributes: Schema.optional(Schema.String)});
-export const ApplicationSummary = Schema.Struct({id: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), creationTime: Schema.optional(Schema.Date), lastUpdateTime: Schema.optional(Schema.Date)});
+export class CreateAttributeGroupRequest extends Schema.Class<CreateAttributeGroupRequest>("CreateAttributeGroupRequest")({name: Schema.String, description: Schema.optional(Schema.String), attributes: Schema.String, tags: Schema.optional(Tags), clientToken: Schema.String}) {}
+export class DeleteApplicationRequest extends Schema.Class<DeleteApplicationRequest>("DeleteApplicationRequest")({application: Schema.String}) {}
+export class DeleteAttributeGroupRequest extends Schema.Class<DeleteAttributeGroupRequest>("DeleteAttributeGroupRequest")({attributeGroup: Schema.String}) {}
+export class DisassociateAttributeGroupRequest extends Schema.Class<DisassociateAttributeGroupRequest>("DisassociateAttributeGroupRequest")({application: Schema.String, attributeGroup: Schema.String}) {}
+export class DisassociateResourceRequest extends Schema.Class<DisassociateResourceRequest>("DisassociateResourceRequest")({application: Schema.String, resourceType: Schema.String, resource: Schema.String}) {}
+export class GetApplicationRequest extends Schema.Class<GetApplicationRequest>("GetApplicationRequest")({application: Schema.String}) {}
+export class GetAssociatedResourceRequest extends Schema.Class<GetAssociatedResourceRequest>("GetAssociatedResourceRequest")({application: Schema.String, resourceType: Schema.String, resource: Schema.String, nextToken: Schema.optional(Schema.String), resourceTagStatus: Schema.optional(GetAssociatedResourceFilter), maxResults: Schema.optional(Schema.Number)}) {}
+export class GetAttributeGroupRequest extends Schema.Class<GetAttributeGroupRequest>("GetAttributeGroupRequest")({attributeGroup: Schema.String}) {}
+export class ListApplicationsRequest extends Schema.Class<ListApplicationsRequest>("ListApplicationsRequest")({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListAssociatedAttributeGroupsRequest extends Schema.Class<ListAssociatedAttributeGroupsRequest>("ListAssociatedAttributeGroupsRequest")({application: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListAssociatedResourcesRequest extends Schema.Class<ListAssociatedResourcesRequest>("ListAssociatedResourcesRequest")({application: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListAttributeGroupsRequest extends Schema.Class<ListAttributeGroupsRequest>("ListAttributeGroupsRequest")({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListAttributeGroupsForApplicationRequest extends Schema.Class<ListAttributeGroupsForApplicationRequest>("ListAttributeGroupsForApplicationRequest")({application: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({resourceArn: Schema.String}) {}
+export class TagQueryConfiguration extends Schema.Class<TagQueryConfiguration>("TagQueryConfiguration")({tagKey: Schema.optional(Schema.String)}) {}
+export class AppRegistryConfiguration extends Schema.Class<AppRegistryConfiguration>("AppRegistryConfiguration")({tagQueryConfiguration: Schema.optional(TagQueryConfiguration)}) {}
+export class PutConfigurationRequest extends Schema.Class<PutConfigurationRequest>("PutConfigurationRequest")({configuration: AppRegistryConfiguration}) {}
+export class SyncResourceRequest extends Schema.Class<SyncResourceRequest>("SyncResourceRequest")({resourceType: Schema.String, resource: Schema.String}) {}
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({resourceArn: Schema.String, tags: Tags}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({resourceArn: Schema.String, tagKeys: TagKeys}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class UpdateApplicationRequest extends Schema.Class<UpdateApplicationRequest>("UpdateApplicationRequest")({application: Schema.String, name: Schema.optional(Schema.String), description: Schema.optional(Schema.String)}) {}
+export class UpdateAttributeGroupRequest extends Schema.Class<UpdateAttributeGroupRequest>("UpdateAttributeGroupRequest")({attributeGroup: Schema.String, name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), attributes: Schema.optional(Schema.String)}) {}
+export class ApplicationSummary extends Schema.Class<ApplicationSummary>("ApplicationSummary")({id: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), creationTime: Schema.optional(Schema.Date), lastUpdateTime: Schema.optional(Schema.Date)}) {}
 export const ApplicationSummaries = Schema.Array(ApplicationSummary);
 export const AttributeGroupIds = Schema.Array(Schema.String);
-export const AttributeGroupSummary = Schema.Struct({id: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), creationTime: Schema.optional(Schema.Date), lastUpdateTime: Schema.optional(Schema.Date), createdBy: Schema.optional(Schema.String)});
+export class AttributeGroupSummary extends Schema.Class<AttributeGroupSummary>("AttributeGroupSummary")({id: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), creationTime: Schema.optional(Schema.Date), lastUpdateTime: Schema.optional(Schema.Date), createdBy: Schema.optional(Schema.String)}) {}
 export const AttributeGroupSummaries = Schema.Array(AttributeGroupSummary);
-export const AssociateAttributeGroupResponse = Schema.Struct({applicationArn: Schema.optional(Schema.String), attributeGroupArn: Schema.optional(Schema.String)});
-export const AssociateResourceResponse = Schema.Struct({applicationArn: Schema.optional(Schema.String), resourceArn: Schema.optional(Schema.String), options: Schema.optional(Options)});
-export const CreateApplicationRequest = Schema.Struct({name: Schema.String, description: Schema.optional(Schema.String), tags: Schema.optional(Tags), clientToken: Schema.String});
-export const DisassociateAttributeGroupResponse = Schema.Struct({applicationArn: Schema.optional(Schema.String), attributeGroupArn: Schema.optional(Schema.String)});
-export const DisassociateResourceResponse = Schema.Struct({applicationArn: Schema.optional(Schema.String), resourceArn: Schema.optional(Schema.String)});
-export const GetAttributeGroupResponse = Schema.Struct({id: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), attributes: Schema.optional(Schema.String), creationTime: Schema.optional(Schema.Date), lastUpdateTime: Schema.optional(Schema.Date), tags: Schema.optional(Tags), createdBy: Schema.optional(Schema.String)});
-export const ListApplicationsResponse = Schema.Struct({applications: Schema.optional(ApplicationSummaries), nextToken: Schema.optional(Schema.String)});
-export const ListAssociatedAttributeGroupsResponse = Schema.Struct({attributeGroups: Schema.optional(AttributeGroupIds), nextToken: Schema.optional(Schema.String)});
-export const ListAttributeGroupsResponse = Schema.Struct({attributeGroups: Schema.optional(AttributeGroupSummaries), nextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceResponse = Schema.Struct({tags: Schema.optional(Tags)});
-export const ConflictException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const SyncResourceResponse = Schema.Struct({applicationArn: Schema.optional(Schema.String), resourceArn: Schema.optional(Schema.String), actionTaken: Schema.optional(Schema.String)});
-export const InternalServerException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const AttributeGroup = Schema.Struct({id: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), creationTime: Schema.optional(Schema.Date), lastUpdateTime: Schema.optional(Schema.Date), tags: Schema.optional(Tags)});
-export const UpdateAttributeGroupResponse = Schema.Struct({attributeGroup: Schema.optional(AttributeGroup)});
+export class AssociateAttributeGroupResponse extends Schema.Class<AssociateAttributeGroupResponse>("AssociateAttributeGroupResponse")({applicationArn: Schema.optional(Schema.String), attributeGroupArn: Schema.optional(Schema.String)}) {}
+export class AssociateResourceResponse extends Schema.Class<AssociateResourceResponse>("AssociateResourceResponse")({applicationArn: Schema.optional(Schema.String), resourceArn: Schema.optional(Schema.String), options: Schema.optional(Options)}) {}
+export class CreateApplicationRequest extends Schema.Class<CreateApplicationRequest>("CreateApplicationRequest")({name: Schema.String, description: Schema.optional(Schema.String), tags: Schema.optional(Tags), clientToken: Schema.String}) {}
+export class DisassociateAttributeGroupResponse extends Schema.Class<DisassociateAttributeGroupResponse>("DisassociateAttributeGroupResponse")({applicationArn: Schema.optional(Schema.String), attributeGroupArn: Schema.optional(Schema.String)}) {}
+export class DisassociateResourceResponse extends Schema.Class<DisassociateResourceResponse>("DisassociateResourceResponse")({applicationArn: Schema.optional(Schema.String), resourceArn: Schema.optional(Schema.String)}) {}
+export class GetAttributeGroupResponse extends Schema.Class<GetAttributeGroupResponse>("GetAttributeGroupResponse")({id: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), attributes: Schema.optional(Schema.String), creationTime: Schema.optional(Schema.Date), lastUpdateTime: Schema.optional(Schema.Date), tags: Schema.optional(Tags), createdBy: Schema.optional(Schema.String)}) {}
+export class ListApplicationsResponse extends Schema.Class<ListApplicationsResponse>("ListApplicationsResponse")({applications: Schema.optional(ApplicationSummaries), nextToken: Schema.optional(Schema.String)}) {}
+export class ListAssociatedAttributeGroupsResponse extends Schema.Class<ListAssociatedAttributeGroupsResponse>("ListAssociatedAttributeGroupsResponse")({attributeGroups: Schema.optional(AttributeGroupIds), nextToken: Schema.optional(Schema.String)}) {}
+export class ListAttributeGroupsResponse extends Schema.Class<ListAttributeGroupsResponse>("ListAttributeGroupsResponse")({attributeGroups: Schema.optional(AttributeGroupSummaries), nextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({tags: Schema.optional(Tags)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({message: Schema.optional(Schema.String)}) {}
+export class SyncResourceResponse extends Schema.Class<SyncResourceResponse>("SyncResourceResponse")({applicationArn: Schema.optional(Schema.String), resourceArn: Schema.optional(Schema.String), actionTaken: Schema.optional(Schema.String)}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({message: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class AttributeGroup extends Schema.Class<AttributeGroup>("AttributeGroup")({id: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), creationTime: Schema.optional(Schema.Date), lastUpdateTime: Schema.optional(Schema.Date), tags: Schema.optional(Tags)}) {}
+export class UpdateAttributeGroupResponse extends Schema.Class<UpdateAttributeGroupResponse>("UpdateAttributeGroupResponse")({attributeGroup: Schema.optional(AttributeGroup)}) {}
 export const ApplicationTagDefinition = Schema.Record({key: Schema.String, value: Schema.String});
-export const AttributeGroupDetails = Schema.Struct({id: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), createdBy: Schema.optional(Schema.String)});
+export class AttributeGroupDetails extends Schema.Class<AttributeGroupDetails>("AttributeGroupDetails")({id: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), createdBy: Schema.optional(Schema.String)}) {}
 export const AttributeGroupDetailsList = Schema.Array(AttributeGroupDetails);
-export const Application = Schema.Struct({id: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), creationTime: Schema.optional(Schema.Date), lastUpdateTime: Schema.optional(Schema.Date), tags: Schema.optional(Tags), applicationTag: Schema.optional(ApplicationTagDefinition)});
-export const ServiceQuotaExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ThrottlingException = Schema.Struct({message: Schema.String, serviceCode: Schema.optional(Schema.String)});
-export const CreateApplicationResponse = Schema.Struct({application: Schema.optional(Application)});
-export const CreateAttributeGroupResponse = Schema.Struct({attributeGroup: Schema.optional(AttributeGroup)});
-export const DeleteApplicationResponse = Schema.Struct({application: Schema.optional(ApplicationSummary)});
-export const DeleteAttributeGroupResponse = Schema.Struct({attributeGroup: Schema.optional(AttributeGroupSummary)});
-export const ValidationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const GetConfigurationResponse = Schema.Struct({configuration: Schema.optional(AppRegistryConfiguration)});
-export const ListAttributeGroupsForApplicationResponse = Schema.Struct({attributeGroupsDetails: Schema.optional(AttributeGroupDetailsList), nextToken: Schema.optional(Schema.String)});
-export const UpdateApplicationResponse = Schema.Struct({application: Schema.optional(Application)});
-export const ResourceGroup = Schema.Struct({state: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String)});
-export const ResourceIntegrations = Schema.Struct({resourceGroup: Schema.optional(ResourceGroup)});
-export const ResourcesListItem = Schema.Struct({resourceArn: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String), status: Schema.optional(Schema.String), resourceType: Schema.optional(Schema.String)});
+export class Application extends Schema.Class<Application>("Application")({id: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), creationTime: Schema.optional(Schema.Date), lastUpdateTime: Schema.optional(Schema.Date), tags: Schema.optional(Tags), applicationTag: Schema.optional(ApplicationTagDefinition)}) {}
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({message: Schema.optional(Schema.String)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({message: Schema.String, serviceCode: Schema.optional(Schema.String)}) {}
+export class CreateApplicationResponse extends Schema.Class<CreateApplicationResponse>("CreateApplicationResponse")({application: Schema.optional(Application)}) {}
+export class CreateAttributeGroupResponse extends Schema.Class<CreateAttributeGroupResponse>("CreateAttributeGroupResponse")({attributeGroup: Schema.optional(AttributeGroup)}) {}
+export class DeleteApplicationResponse extends Schema.Class<DeleteApplicationResponse>("DeleteApplicationResponse")({application: Schema.optional(ApplicationSummary)}) {}
+export class DeleteAttributeGroupResponse extends Schema.Class<DeleteAttributeGroupResponse>("DeleteAttributeGroupResponse")({attributeGroup: Schema.optional(AttributeGroupSummary)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({message: Schema.optional(Schema.String)}) {}
+export class GetConfigurationResponse extends Schema.Class<GetConfigurationResponse>("GetConfigurationResponse")({configuration: Schema.optional(AppRegistryConfiguration)}) {}
+export class ListAttributeGroupsForApplicationResponse extends Schema.Class<ListAttributeGroupsForApplicationResponse>("ListAttributeGroupsForApplicationResponse")({attributeGroupsDetails: Schema.optional(AttributeGroupDetailsList), nextToken: Schema.optional(Schema.String)}) {}
+export class UpdateApplicationResponse extends Schema.Class<UpdateApplicationResponse>("UpdateApplicationResponse")({application: Schema.optional(Application)}) {}
+export class ResourceGroup extends Schema.Class<ResourceGroup>("ResourceGroup")({state: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String)}) {}
+export class ResourceIntegrations extends Schema.Class<ResourceIntegrations>("ResourceIntegrations")({resourceGroup: Schema.optional(ResourceGroup)}) {}
+export class ResourcesListItem extends Schema.Class<ResourcesListItem>("ResourcesListItem")({resourceArn: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String), status: Schema.optional(Schema.String), resourceType: Schema.optional(Schema.String)}) {}
 export const ResourcesList = Schema.Array(ResourcesListItem);
-export const ResourceDetails = Schema.Struct({tagValue: Schema.optional(Schema.String)});
-export const Integrations = Schema.Struct({resourceGroup: Schema.optional(ResourceGroup), applicationTagResourceGroup: Schema.optional(ResourceGroup)});
-export const Resource = Schema.Struct({name: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), associationTime: Schema.optional(Schema.Date), integrations: Schema.optional(ResourceIntegrations)});
-export const ApplicationTagResult = Schema.Struct({applicationTagStatus: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String), resources: Schema.optional(ResourcesList), nextToken: Schema.optional(Schema.String)});
-export const ResourceInfo = Schema.Struct({name: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), resourceType: Schema.optional(Schema.String), resourceDetails: Schema.optional(ResourceDetails), options: Schema.optional(Options)});
+export class ResourceDetails extends Schema.Class<ResourceDetails>("ResourceDetails")({tagValue: Schema.optional(Schema.String)}) {}
+export class Integrations extends Schema.Class<Integrations>("Integrations")({resourceGroup: Schema.optional(ResourceGroup), applicationTagResourceGroup: Schema.optional(ResourceGroup)}) {}
+export class Resource extends Schema.Class<Resource>("Resource")({name: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), associationTime: Schema.optional(Schema.Date), integrations: Schema.optional(ResourceIntegrations)}) {}
+export class ApplicationTagResult extends Schema.Class<ApplicationTagResult>("ApplicationTagResult")({applicationTagStatus: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String), resources: Schema.optional(ResourcesList), nextToken: Schema.optional(Schema.String)}) {}
+export class ResourceInfo extends Schema.Class<ResourceInfo>("ResourceInfo")({name: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), resourceType: Schema.optional(Schema.String), resourceDetails: Schema.optional(ResourceDetails), options: Schema.optional(Options)}) {}
 export const Resources = Schema.Array(ResourceInfo);
-export const GetApplicationResponse = Schema.Struct({id: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), creationTime: Schema.optional(Schema.Date), lastUpdateTime: Schema.optional(Schema.Date), associatedResourceCount: Schema.optional(Schema.Number), tags: Schema.optional(Tags), integrations: Schema.optional(Integrations), applicationTag: Schema.optional(ApplicationTagDefinition)});
-export const GetAssociatedResourceResponse = Schema.Struct({resource: Schema.optional(Resource), options: Schema.optional(Options), applicationTagResult: Schema.optional(ApplicationTagResult)});
-export const ListAssociatedResourcesResponse = Schema.Struct({resources: Schema.optional(Resources), nextToken: Schema.optional(Schema.String)});
+export class GetApplicationResponse extends Schema.Class<GetApplicationResponse>("GetApplicationResponse")({id: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), description: Schema.optional(Schema.String), creationTime: Schema.optional(Schema.Date), lastUpdateTime: Schema.optional(Schema.Date), associatedResourceCount: Schema.optional(Schema.Number), tags: Schema.optional(Tags), integrations: Schema.optional(Integrations), applicationTag: Schema.optional(ApplicationTagDefinition)}) {}
+export class GetAssociatedResourceResponse extends Schema.Class<GetAssociatedResourceResponse>("GetAssociatedResourceResponse")({resource: Schema.optional(Resource), options: Schema.optional(Options), applicationTagResult: Schema.optional(ApplicationTagResult)}) {}
+export class ListAssociatedResourcesResponse extends Schema.Class<ListAssociatedResourcesResponse>("ListAssociatedResourcesResponse")({resources: Schema.optional(Resources), nextToken: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
 
 //# Operations
 export const disassociateResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2020-06-24", uri: "/applications/{application}/resources/{resourceType}/{resource}", method: "DELETE", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.DisassociateResource" }, DisassociateResourceRequest, DisassociateResourceResponse, [InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

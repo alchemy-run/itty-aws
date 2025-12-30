@@ -4,58 +4,58 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 
 //# Schemas
 export const StringList = Schema.Array(Schema.String);
-export const CreateWhatsAppMessageTemplateInput = Schema.Struct({templateDefinition: StreamBody(), id: Schema.String});
-export const DeleteWhatsAppMessageTemplateInput = Schema.Struct({metaTemplateId: Schema.optional(Schema.String), deleteAllLanguages: Schema.optional(Schema.Boolean), id: Schema.String, templateName: Schema.String});
-export const DeleteWhatsAppMessageTemplateOutput = Schema.Struct({});
-export const GetWhatsAppMessageTemplateInput = Schema.Struct({metaTemplateId: Schema.String, id: Schema.String});
-export const ListTagsForResourceInput = Schema.Struct({resourceArn: Schema.String});
-export const ListWhatsAppMessageTemplatesInput = Schema.Struct({id: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const UntagResourceInput = Schema.Struct({resourceArn: Schema.String, tagKeys: StringList});
-export const UpdateWhatsAppMessageTemplateInput = Schema.Struct({id: Schema.String, metaTemplateId: Schema.String, templateCategory: Schema.optional(Schema.String), templateComponents: Schema.optional(StreamBody())});
-export const UpdateWhatsAppMessageTemplateOutput = Schema.Struct({});
-export const S3File = Schema.Struct({bucketName: Schema.String, key: Schema.String});
+export class CreateWhatsAppMessageTemplateInput extends Schema.Class<CreateWhatsAppMessageTemplateInput>("CreateWhatsAppMessageTemplateInput")({templateDefinition: StreamBody(), id: Schema.String}) {}
+export class DeleteWhatsAppMessageTemplateInput extends Schema.Class<DeleteWhatsAppMessageTemplateInput>("DeleteWhatsAppMessageTemplateInput")({metaTemplateId: Schema.optional(Schema.String), deleteAllLanguages: Schema.optional(Schema.Boolean), id: Schema.String, templateName: Schema.String}) {}
+export class DeleteWhatsAppMessageTemplateOutput extends Schema.Class<DeleteWhatsAppMessageTemplateOutput>("DeleteWhatsAppMessageTemplateOutput")({}) {}
+export class GetWhatsAppMessageTemplateInput extends Schema.Class<GetWhatsAppMessageTemplateInput>("GetWhatsAppMessageTemplateInput")({metaTemplateId: Schema.String, id: Schema.String}) {}
+export class ListTagsForResourceInput extends Schema.Class<ListTagsForResourceInput>("ListTagsForResourceInput")({resourceArn: Schema.String}) {}
+export class ListWhatsAppMessageTemplatesInput extends Schema.Class<ListWhatsAppMessageTemplatesInput>("ListWhatsAppMessageTemplatesInput")({id: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class UntagResourceInput extends Schema.Class<UntagResourceInput>("UntagResourceInput")({resourceArn: Schema.String, tagKeys: StringList}) {}
+export class UpdateWhatsAppMessageTemplateInput extends Schema.Class<UpdateWhatsAppMessageTemplateInput>("UpdateWhatsAppMessageTemplateInput")({id: Schema.String, metaTemplateId: Schema.String, templateCategory: Schema.optional(Schema.String), templateComponents: Schema.optional(StreamBody())}) {}
+export class UpdateWhatsAppMessageTemplateOutput extends Schema.Class<UpdateWhatsAppMessageTemplateOutput>("UpdateWhatsAppMessageTemplateOutput")({}) {}
+export class S3File extends Schema.Class<S3File>("S3File")({bucketName: Schema.String, key: Schema.String}) {}
 export const Filter = Schema.Record({key: Schema.String, value: Schema.String});
-export const Tag = Schema.Struct({key: Schema.String, value: Schema.optional(Schema.String)});
+export class Tag extends Schema.Class<Tag>("Tag")({key: Schema.String, value: Schema.optional(Schema.String)}) {}
 export const TagList = Schema.Array(Tag);
-export const CreateWhatsAppMessageTemplateOutput = Schema.Struct({metaTemplateId: Schema.optional(Schema.String), templateStatus: Schema.optional(Schema.String), category: Schema.optional(Schema.String)});
-export const CreateWhatsAppMessageTemplateMediaInput = Schema.Struct({id: Schema.String, sourceS3File: Schema.optional(S3File)});
-export const DependencyException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const GetWhatsAppMessageTemplateOutput = Schema.Struct({template: Schema.optional(Schema.String)});
-export const ListTagsForResourceOutput = Schema.Struct({statusCode: Schema.optional(Schema.Number), tags: Schema.optional(TagList)});
-export const ListWhatsAppTemplateLibraryInput = Schema.Struct({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), id: Schema.String, filters: Schema.optional(Filter)});
-export const TagResourceInput = Schema.Struct({resourceArn: Schema.String, tags: TagList});
-export const UntagResourceOutput = Schema.Struct({statusCode: Schema.optional(Schema.Number)});
-export const InternalServiceException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const LibraryTemplateBodyInputs = Schema.Struct({addContactNumber: Schema.optional(Schema.Boolean), addLearnMoreLink: Schema.optional(Schema.Boolean), addSecurityRecommendation: Schema.optional(Schema.Boolean), addTrackPackageLink: Schema.optional(Schema.Boolean), codeExpirationMinutes: Schema.optional(Schema.Number)});
-export const TemplateSummary = Schema.Struct({templateName: Schema.optional(Schema.String), metaTemplateId: Schema.optional(Schema.String), templateStatus: Schema.optional(Schema.String), templateQualityScore: Schema.optional(Schema.String), templateLanguage: Schema.optional(Schema.String), templateCategory: Schema.optional(Schema.String)});
+export class CreateWhatsAppMessageTemplateOutput extends Schema.Class<CreateWhatsAppMessageTemplateOutput>("CreateWhatsAppMessageTemplateOutput")({metaTemplateId: Schema.optional(Schema.String), templateStatus: Schema.optional(Schema.String), category: Schema.optional(Schema.String)}) {}
+export class CreateWhatsAppMessageTemplateMediaInput extends Schema.Class<CreateWhatsAppMessageTemplateMediaInput>("CreateWhatsAppMessageTemplateMediaInput")({id: Schema.String, sourceS3File: Schema.optional(S3File)}) {}
+export class DependencyException extends Schema.Class<DependencyException>("DependencyException")({message: Schema.optional(Schema.String)}) {}
+export class GetWhatsAppMessageTemplateOutput extends Schema.Class<GetWhatsAppMessageTemplateOutput>("GetWhatsAppMessageTemplateOutput")({template: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceOutput extends Schema.Class<ListTagsForResourceOutput>("ListTagsForResourceOutput")({statusCode: Schema.optional(Schema.Number), tags: Schema.optional(TagList)}) {}
+export class ListWhatsAppTemplateLibraryInput extends Schema.Class<ListWhatsAppTemplateLibraryInput>("ListWhatsAppTemplateLibraryInput")({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), id: Schema.String, filters: Schema.optional(Filter)}) {}
+export class TagResourceInput extends Schema.Class<TagResourceInput>("TagResourceInput")({resourceArn: Schema.String, tags: TagList}) {}
+export class UntagResourceOutput extends Schema.Class<UntagResourceOutput>("UntagResourceOutput")({statusCode: Schema.optional(Schema.Number)}) {}
+export class InternalServiceException extends Schema.Class<InternalServiceException>("InternalServiceException")({message: Schema.optional(Schema.String)}) {}
+export class LibraryTemplateBodyInputs extends Schema.Class<LibraryTemplateBodyInputs>("LibraryTemplateBodyInputs")({addContactNumber: Schema.optional(Schema.Boolean), addLearnMoreLink: Schema.optional(Schema.Boolean), addSecurityRecommendation: Schema.optional(Schema.Boolean), addTrackPackageLink: Schema.optional(Schema.Boolean), codeExpirationMinutes: Schema.optional(Schema.Number)}) {}
+export class TemplateSummary extends Schema.Class<TemplateSummary>("TemplateSummary")({templateName: Schema.optional(Schema.String), metaTemplateId: Schema.optional(Schema.String), templateStatus: Schema.optional(Schema.String), templateQualityScore: Schema.optional(Schema.String), templateLanguage: Schema.optional(Schema.String), templateCategory: Schema.optional(Schema.String)}) {}
 export const TemplateSummaryList = Schema.Array(TemplateSummary);
 export const MetaUrlWithSuffixExample = Schema.Record({key: Schema.String, value: Schema.String});
 export const SupportedApp = Schema.Record({key: Schema.String, value: Schema.String});
 export const SupportedApps = Schema.Array(SupportedApp);
-export const InvalidParametersException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CreateWhatsAppMessageTemplateMediaOutput = Schema.Struct({metaHeaderHandle: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ThrottledRequestException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ListWhatsAppMessageTemplatesOutput = Schema.Struct({templates: Schema.optional(TemplateSummaryList), nextToken: Schema.optional(Schema.String)});
-export const TagResourceOutput = Schema.Struct({statusCode: Schema.optional(Schema.Number)});
-export const LibraryTemplateButtonInput = Schema.Struct({type: Schema.optional(Schema.String), phoneNumber: Schema.optional(Schema.String), url: Schema.optional(MetaUrlWithSuffixExample), otpType: Schema.optional(Schema.String), zeroTapTermsAccepted: Schema.optional(Schema.Boolean), supportedApps: Schema.optional(SupportedApps)});
+export class InvalidParametersException extends Schema.Class<InvalidParametersException>("InvalidParametersException")({message: Schema.optional(Schema.String)}) {}
+export class CreateWhatsAppMessageTemplateMediaOutput extends Schema.Class<CreateWhatsAppMessageTemplateMediaOutput>("CreateWhatsAppMessageTemplateMediaOutput")({metaHeaderHandle: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class ThrottledRequestException extends Schema.Class<ThrottledRequestException>("ThrottledRequestException")({message: Schema.optional(Schema.String)}) {}
+export class ListWhatsAppMessageTemplatesOutput extends Schema.Class<ListWhatsAppMessageTemplatesOutput>("ListWhatsAppMessageTemplatesOutput")({templates: Schema.optional(TemplateSummaryList), nextToken: Schema.optional(Schema.String)}) {}
+export class TagResourceOutput extends Schema.Class<TagResourceOutput>("TagResourceOutput")({statusCode: Schema.optional(Schema.Number)}) {}
+export class LibraryTemplateButtonInput extends Schema.Class<LibraryTemplateButtonInput>("LibraryTemplateButtonInput")({type: Schema.optional(Schema.String), phoneNumber: Schema.optional(Schema.String), url: Schema.optional(MetaUrlWithSuffixExample), otpType: Schema.optional(Schema.String), zeroTapTermsAccepted: Schema.optional(Schema.Boolean), supportedApps: Schema.optional(SupportedApps)}) {}
 export const MetaLibraryTemplateButtonInputs = Schema.Array(LibraryTemplateButtonInput);
 export const MetaIndustries = Schema.Array(Schema.String);
-export const MetaLibraryTemplate = Schema.Struct({templateName: Schema.String, libraryTemplateName: Schema.String, templateCategory: Schema.String, templateLanguage: Schema.String, libraryTemplateButtonInputs: Schema.optional(MetaLibraryTemplateButtonInputs), libraryTemplateBodyInputs: Schema.optional(LibraryTemplateBodyInputs)});
-export const CreateWhatsAppMessageTemplateFromLibraryInput = Schema.Struct({metaLibraryTemplate: MetaLibraryTemplate, id: Schema.String});
-export const LibraryTemplateButtonList = Schema.Struct({type: Schema.optional(Schema.String), text: Schema.optional(Schema.String), phoneNumber: Schema.optional(Schema.String), url: Schema.optional(Schema.String), otpType: Schema.optional(Schema.String), zeroTapTermsAccepted: Schema.optional(Schema.Boolean), supportedApps: Schema.optional(SupportedApps)});
+export class MetaLibraryTemplate extends Schema.Class<MetaLibraryTemplate>("MetaLibraryTemplate")({templateName: Schema.String, libraryTemplateName: Schema.String, templateCategory: Schema.String, templateLanguage: Schema.String, libraryTemplateButtonInputs: Schema.optional(MetaLibraryTemplateButtonInputs), libraryTemplateBodyInputs: Schema.optional(LibraryTemplateBodyInputs)}) {}
+export class CreateWhatsAppMessageTemplateFromLibraryInput extends Schema.Class<CreateWhatsAppMessageTemplateFromLibraryInput>("CreateWhatsAppMessageTemplateFromLibraryInput")({metaLibraryTemplate: MetaLibraryTemplate, id: Schema.String}) {}
+export class LibraryTemplateButtonList extends Schema.Class<LibraryTemplateButtonList>("LibraryTemplateButtonList")({type: Schema.optional(Schema.String), text: Schema.optional(Schema.String), phoneNumber: Schema.optional(Schema.String), url: Schema.optional(Schema.String), otpType: Schema.optional(Schema.String), zeroTapTermsAccepted: Schema.optional(Schema.Boolean), supportedApps: Schema.optional(SupportedApps)}) {}
 export const MetaLibraryTemplateButtonList = Schema.Array(LibraryTemplateButtonList);
-export const MetaLibraryTemplateDefinition = Schema.Struct({templateName: Schema.optional(Schema.String), templateLanguage: Schema.optional(Schema.String), templateCategory: Schema.optional(Schema.String), templateTopic: Schema.optional(Schema.String), templateUseCase: Schema.optional(Schema.String), templateIndustry: Schema.optional(MetaIndustries), templateHeader: Schema.optional(Schema.String), templateBody: Schema.optional(Schema.String), templateButtons: Schema.optional(MetaLibraryTemplateButtonList), templateId: Schema.optional(Schema.String)});
+export class MetaLibraryTemplateDefinition extends Schema.Class<MetaLibraryTemplateDefinition>("MetaLibraryTemplateDefinition")({templateName: Schema.optional(Schema.String), templateLanguage: Schema.optional(Schema.String), templateCategory: Schema.optional(Schema.String), templateTopic: Schema.optional(Schema.String), templateUseCase: Schema.optional(Schema.String), templateIndustry: Schema.optional(MetaIndustries), templateHeader: Schema.optional(Schema.String), templateBody: Schema.optional(Schema.String), templateButtons: Schema.optional(MetaLibraryTemplateButtonList), templateId: Schema.optional(Schema.String)}) {}
 export const MetaLibraryTemplatesList = Schema.Array(MetaLibraryTemplateDefinition);
-export const CreateWhatsAppMessageTemplateFromLibraryOutput = Schema.Struct({metaTemplateId: Schema.optional(Schema.String), templateStatus: Schema.optional(Schema.String), category: Schema.optional(Schema.String)});
-export const ListWhatsAppTemplateLibraryOutput = Schema.Struct({metaLibraryTemplates: Schema.optional(MetaLibraryTemplatesList), nextToken: Schema.optional(Schema.String)});
+export class CreateWhatsAppMessageTemplateFromLibraryOutput extends Schema.Class<CreateWhatsAppMessageTemplateFromLibraryOutput>("CreateWhatsAppMessageTemplateFromLibraryOutput")({metaTemplateId: Schema.optional(Schema.String), templateStatus: Schema.optional(Schema.String), category: Schema.optional(Schema.String)}) {}
+export class ListWhatsAppTemplateLibraryOutput extends Schema.Class<ListWhatsAppTemplateLibraryOutput>("ListWhatsAppTemplateLibraryOutput")({metaLibraryTemplates: Schema.optional(MetaLibraryTemplatesList), nextToken: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class DependencyExceptionError extends Schema.TaggedError<DependencyExceptionError>()("DependencyException", DependencyException) {};
-export class InternalServiceExceptionError extends Schema.TaggedError<InternalServiceExceptionError>()("InternalServiceException", InternalServiceException) {};
-export class InvalidParametersExceptionError extends Schema.TaggedError<InvalidParametersExceptionError>()("InvalidParametersException", InvalidParametersException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ThrottledRequestExceptionError extends Schema.TaggedError<ThrottledRequestExceptionError>()("ThrottledRequestException", ThrottledRequestException) {};
+export class DependencyExceptionError extends Schema.TaggedError<DependencyExceptionError>()("DependencyException", DependencyException.fields) {};
+export class InternalServiceExceptionError extends Schema.TaggedError<InternalServiceExceptionError>()("InternalServiceException", InternalServiceException.fields) {};
+export class InvalidParametersExceptionError extends Schema.TaggedError<InvalidParametersExceptionError>()("InvalidParametersException", InvalidParametersException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ThrottledRequestExceptionError extends Schema.TaggedError<ThrottledRequestExceptionError>()("ThrottledRequestException", ThrottledRequestException.fields) {};
 
 //# Operations
 export const listTagsForResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2024-01-01", uri: "/v1/tags/list", method: "GET", sdkId: "SocialMessaging", sigV4ServiceName: "social-messaging", name: "SocialMessaging.ListTagsForResource" }, ListTagsForResourceInput, ListTagsForResourceOutput, [InternalServiceExceptionError, InvalidParametersExceptionError, ThrottledRequestExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

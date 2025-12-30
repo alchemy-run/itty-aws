@@ -4,18 +4,18 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 
 //# Schemas
 export const TagKeys = Schema.Array(Schema.String);
-export const ListTagsForResourceInput = Schema.Struct({ResourceArn: Schema.String});
-export const UntagResourceInput = Schema.Struct({ResourceARN: Schema.String, TagKeys: TagKeys});
-export const Tag = Schema.Struct({Key: Schema.String, Value: Schema.String});
+export class ListTagsForResourceInput extends Schema.Class<ListTagsForResourceInput>("ListTagsForResourceInput")({ResourceArn: Schema.String}) {}
+export class UntagResourceInput extends Schema.Class<UntagResourceInput>("UntagResourceInput")({ResourceARN: Schema.String, TagKeys: TagKeys}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.String, Value: Schema.String}) {}
 export const Tags = Schema.Array(Tag);
-export const ListTagsForResourceOutput = Schema.Struct({ResourceArn: Schema.optional(Schema.String), Tags: Schema.optional(Tags)});
-export const TagResourceInput = Schema.Struct({ResourceARN: Schema.String, Tags: Tags});
-export const UntagResourceOutput = Schema.Struct({ResourceARN: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({ErrorCode: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
-export const TagResourceOutput = Schema.Struct({ResourceARN: Schema.optional(Schema.String)});
+export class ListTagsForResourceOutput extends Schema.Class<ListTagsForResourceOutput>("ListTagsForResourceOutput")({ResourceArn: Schema.optional(Schema.String), Tags: Schema.optional(Tags)}) {}
+export class TagResourceInput extends Schema.Class<TagResourceInput>("TagResourceInput")({ResourceARN: Schema.String, Tags: Tags}) {}
+export class UntagResourceOutput extends Schema.Class<UntagResourceOutput>("UntagResourceOutput")({ResourceARN: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({ErrorCode: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
+export class TagResourceOutput extends Schema.Class<TagResourceOutput>("TagResourceOutput")({ResourceARN: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
 
 //# Operations
 export const untagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2021-01-01", uri: "/", method: "POST", sdkId: "Backup Gateway", sigV4ServiceName: "backup-gateway", name: "BackupOnPremises_v20210101.UntagResource" }, UntagResourceInput, UntagResourceOutput, [ResourceNotFoundExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);

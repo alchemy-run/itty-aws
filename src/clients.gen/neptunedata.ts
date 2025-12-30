@@ -4,202 +4,202 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 
 //# Schemas
 export const StringList = Schema.Array(Schema.String);
-export const CancelGremlinQueryInput = Schema.Struct({queryId: Schema.String});
-export const CancelLoaderJobInput = Schema.Struct({loadId: Schema.String});
-export const CancelMLDataProcessingJobInput = Schema.Struct({id: Schema.String, neptuneIamRoleArn: Schema.optional(Schema.String), clean: Schema.optional(Schema.Boolean)});
-export const CancelMLModelTrainingJobInput = Schema.Struct({id: Schema.String, neptuneIamRoleArn: Schema.optional(Schema.String), clean: Schema.optional(Schema.Boolean)});
-export const CancelMLModelTransformJobInput = Schema.Struct({id: Schema.String, neptuneIamRoleArn: Schema.optional(Schema.String), clean: Schema.optional(Schema.Boolean)});
-export const CancelOpenCypherQueryInput = Schema.Struct({queryId: Schema.String, silent: Schema.optional(Schema.Boolean)});
-export const CreateMLEndpointInput = Schema.Struct({id: Schema.optional(Schema.String), mlModelTrainingJobId: Schema.optional(Schema.String), mlModelTransformJobId: Schema.optional(Schema.String), update: Schema.optional(Schema.Boolean), neptuneIamRoleArn: Schema.optional(Schema.String), modelName: Schema.optional(Schema.String), instanceType: Schema.optional(Schema.String), instanceCount: Schema.optional(Schema.Number), volumeEncryptionKMSKey: Schema.optional(Schema.String)});
-export const DeleteMLEndpointInput = Schema.Struct({id: Schema.String, neptuneIamRoleArn: Schema.optional(Schema.String), clean: Schema.optional(Schema.Boolean)});
-export const DeleteStatisticsValueMap = Schema.Struct({active: Schema.optional(Schema.Boolean), statisticsId: Schema.optional(Schema.String)});
-export const DeleteSparqlStatisticsOutput = Schema.Struct({statusCode: Schema.optional(Schema.Number), status: Schema.optional(Schema.String), payload: Schema.optional(DeleteStatisticsValueMap)});
-export const ExecuteFastResetInput = Schema.Struct({action: Schema.String, token: Schema.optional(Schema.String)});
-export const ExecuteGremlinExplainQueryInput = Schema.Struct({gremlinQuery: Schema.String});
-export const ExecuteGremlinProfileQueryInput = Schema.Struct({gremlinQuery: Schema.String, results: Schema.optional(Schema.Boolean), chop: Schema.optional(Schema.Number), serializer: Schema.optional(Schema.String), indexOps: Schema.optional(Schema.Boolean)});
-export const ExecuteGremlinQueryInput = Schema.Struct({gremlinQuery: Schema.String, serializer: Schema.optional(Header("accept"))});
-export const ExecuteOpenCypherExplainQueryInput = Schema.Struct({openCypherQuery: Schema.String, parameters: Schema.optional(Schema.String), explainMode: Schema.String});
-export const ExecuteOpenCypherQueryInput = Schema.Struct({openCypherQuery: Schema.String, parameters: Schema.optional(Schema.String)});
-export const GetGremlinQueryStatusInput = Schema.Struct({queryId: Schema.String});
-export const GetLoaderJobStatusInput = Schema.Struct({loadId: Schema.String, details: Schema.optional(Schema.Boolean), errors: Schema.optional(Schema.Boolean), page: Schema.optional(Schema.Number), errorsPerPage: Schema.optional(Schema.Number)});
-export const GetMLDataProcessingJobInput = Schema.Struct({id: Schema.String, neptuneIamRoleArn: Schema.optional(Schema.String)});
-export const GetMLEndpointInput = Schema.Struct({id: Schema.String, neptuneIamRoleArn: Schema.optional(Schema.String)});
-export const GetMLModelTrainingJobInput = Schema.Struct({id: Schema.String, neptuneIamRoleArn: Schema.optional(Schema.String)});
-export const GetMLModelTransformJobInput = Schema.Struct({id: Schema.String, neptuneIamRoleArn: Schema.optional(Schema.String)});
-export const GetOpenCypherQueryStatusInput = Schema.Struct({queryId: Schema.String});
-export const GetPropertygraphStreamInput = Schema.Struct({limit: Schema.optional(Schema.Number), iteratorType: Schema.optional(Schema.String), commitNum: Schema.optional(Schema.Number), opNum: Schema.optional(Schema.Number), encoding: Schema.optional(Header("Accept-Encoding"))});
-export const GetPropertygraphSummaryInput = Schema.Struct({mode: Schema.optional(Schema.String)});
-export const GetRDFGraphSummaryInput = Schema.Struct({mode: Schema.optional(Schema.String)});
-export const StatisticsSummary = Schema.Struct({signatureCount: Schema.optional(Schema.Number), instanceCount: Schema.optional(Schema.Number), predicateCount: Schema.optional(Schema.Number)});
-export const Statistics = Schema.Struct({autoCompute: Schema.optional(Schema.Boolean), active: Schema.optional(Schema.Boolean), statisticsId: Schema.optional(Schema.String), date: Schema.optional(Schema.Date), note: Schema.optional(Schema.String), signatureInfo: Schema.optional(StatisticsSummary)});
-export const GetSparqlStatisticsOutput = Schema.Struct({status: Schema.String, payload: Statistics});
-export const GetSparqlStreamInput = Schema.Struct({limit: Schema.optional(Schema.Number), iteratorType: Schema.optional(Schema.String), commitNum: Schema.optional(Schema.Number), opNum: Schema.optional(Schema.Number), encoding: Schema.optional(Header("Accept-Encoding"))});
-export const ListGremlinQueriesInput = Schema.Struct({includeWaiting: Schema.optional(Schema.Boolean)});
-export const ListLoaderJobsInput = Schema.Struct({limit: Schema.optional(Schema.Number), includeQueuedLoads: Schema.optional(Schema.Boolean)});
-export const ListMLDataProcessingJobsInput = Schema.Struct({maxItems: Schema.optional(Schema.Number), neptuneIamRoleArn: Schema.optional(Schema.String)});
-export const ListMLEndpointsInput = Schema.Struct({maxItems: Schema.optional(Schema.Number), neptuneIamRoleArn: Schema.optional(Schema.String)});
-export const ListMLModelTrainingJobsInput = Schema.Struct({maxItems: Schema.optional(Schema.Number), neptuneIamRoleArn: Schema.optional(Schema.String)});
-export const ListMLModelTransformJobsInput = Schema.Struct({maxItems: Schema.optional(Schema.Number), neptuneIamRoleArn: Schema.optional(Schema.String)});
-export const ListOpenCypherQueriesInput = Schema.Struct({includeWaiting: Schema.optional(Schema.Boolean)});
-export const ManagePropertygraphStatisticsInput = Schema.Struct({mode: Schema.optional(Schema.String)});
-export const ManageSparqlStatisticsInput = Schema.Struct({mode: Schema.optional(Schema.String)});
+export class CancelGremlinQueryInput extends Schema.Class<CancelGremlinQueryInput>("CancelGremlinQueryInput")({queryId: Schema.String}) {}
+export class CancelLoaderJobInput extends Schema.Class<CancelLoaderJobInput>("CancelLoaderJobInput")({loadId: Schema.String}) {}
+export class CancelMLDataProcessingJobInput extends Schema.Class<CancelMLDataProcessingJobInput>("CancelMLDataProcessingJobInput")({id: Schema.String, neptuneIamRoleArn: Schema.optional(Schema.String), clean: Schema.optional(Schema.Boolean)}) {}
+export class CancelMLModelTrainingJobInput extends Schema.Class<CancelMLModelTrainingJobInput>("CancelMLModelTrainingJobInput")({id: Schema.String, neptuneIamRoleArn: Schema.optional(Schema.String), clean: Schema.optional(Schema.Boolean)}) {}
+export class CancelMLModelTransformJobInput extends Schema.Class<CancelMLModelTransformJobInput>("CancelMLModelTransformJobInput")({id: Schema.String, neptuneIamRoleArn: Schema.optional(Schema.String), clean: Schema.optional(Schema.Boolean)}) {}
+export class CancelOpenCypherQueryInput extends Schema.Class<CancelOpenCypherQueryInput>("CancelOpenCypherQueryInput")({queryId: Schema.String, silent: Schema.optional(Schema.Boolean)}) {}
+export class CreateMLEndpointInput extends Schema.Class<CreateMLEndpointInput>("CreateMLEndpointInput")({id: Schema.optional(Schema.String), mlModelTrainingJobId: Schema.optional(Schema.String), mlModelTransformJobId: Schema.optional(Schema.String), update: Schema.optional(Schema.Boolean), neptuneIamRoleArn: Schema.optional(Schema.String), modelName: Schema.optional(Schema.String), instanceType: Schema.optional(Schema.String), instanceCount: Schema.optional(Schema.Number), volumeEncryptionKMSKey: Schema.optional(Schema.String)}) {}
+export class DeleteMLEndpointInput extends Schema.Class<DeleteMLEndpointInput>("DeleteMLEndpointInput")({id: Schema.String, neptuneIamRoleArn: Schema.optional(Schema.String), clean: Schema.optional(Schema.Boolean)}) {}
+export class DeleteStatisticsValueMap extends Schema.Class<DeleteStatisticsValueMap>("DeleteStatisticsValueMap")({active: Schema.optional(Schema.Boolean), statisticsId: Schema.optional(Schema.String)}) {}
+export class DeleteSparqlStatisticsOutput extends Schema.Class<DeleteSparqlStatisticsOutput>("DeleteSparqlStatisticsOutput")({statusCode: Schema.optional(Schema.Number), status: Schema.optional(Schema.String), payload: Schema.optional(DeleteStatisticsValueMap)}) {}
+export class ExecuteFastResetInput extends Schema.Class<ExecuteFastResetInput>("ExecuteFastResetInput")({action: Schema.String, token: Schema.optional(Schema.String)}) {}
+export class ExecuteGremlinExplainQueryInput extends Schema.Class<ExecuteGremlinExplainQueryInput>("ExecuteGremlinExplainQueryInput")({gremlinQuery: Schema.String}) {}
+export class ExecuteGremlinProfileQueryInput extends Schema.Class<ExecuteGremlinProfileQueryInput>("ExecuteGremlinProfileQueryInput")({gremlinQuery: Schema.String, results: Schema.optional(Schema.Boolean), chop: Schema.optional(Schema.Number), serializer: Schema.optional(Schema.String), indexOps: Schema.optional(Schema.Boolean)}) {}
+export class ExecuteGremlinQueryInput extends Schema.Class<ExecuteGremlinQueryInput>("ExecuteGremlinQueryInput")({gremlinQuery: Schema.String, serializer: Schema.optional(Header("accept"))}) {}
+export class ExecuteOpenCypherExplainQueryInput extends Schema.Class<ExecuteOpenCypherExplainQueryInput>("ExecuteOpenCypherExplainQueryInput")({openCypherQuery: Schema.String, parameters: Schema.optional(Schema.String), explainMode: Schema.String}) {}
+export class ExecuteOpenCypherQueryInput extends Schema.Class<ExecuteOpenCypherQueryInput>("ExecuteOpenCypherQueryInput")({openCypherQuery: Schema.String, parameters: Schema.optional(Schema.String)}) {}
+export class GetGremlinQueryStatusInput extends Schema.Class<GetGremlinQueryStatusInput>("GetGremlinQueryStatusInput")({queryId: Schema.String}) {}
+export class GetLoaderJobStatusInput extends Schema.Class<GetLoaderJobStatusInput>("GetLoaderJobStatusInput")({loadId: Schema.String, details: Schema.optional(Schema.Boolean), errors: Schema.optional(Schema.Boolean), page: Schema.optional(Schema.Number), errorsPerPage: Schema.optional(Schema.Number)}) {}
+export class GetMLDataProcessingJobInput extends Schema.Class<GetMLDataProcessingJobInput>("GetMLDataProcessingJobInput")({id: Schema.String, neptuneIamRoleArn: Schema.optional(Schema.String)}) {}
+export class GetMLEndpointInput extends Schema.Class<GetMLEndpointInput>("GetMLEndpointInput")({id: Schema.String, neptuneIamRoleArn: Schema.optional(Schema.String)}) {}
+export class GetMLModelTrainingJobInput extends Schema.Class<GetMLModelTrainingJobInput>("GetMLModelTrainingJobInput")({id: Schema.String, neptuneIamRoleArn: Schema.optional(Schema.String)}) {}
+export class GetMLModelTransformJobInput extends Schema.Class<GetMLModelTransformJobInput>("GetMLModelTransformJobInput")({id: Schema.String, neptuneIamRoleArn: Schema.optional(Schema.String)}) {}
+export class GetOpenCypherQueryStatusInput extends Schema.Class<GetOpenCypherQueryStatusInput>("GetOpenCypherQueryStatusInput")({queryId: Schema.String}) {}
+export class GetPropertygraphStreamInput extends Schema.Class<GetPropertygraphStreamInput>("GetPropertygraphStreamInput")({limit: Schema.optional(Schema.Number), iteratorType: Schema.optional(Schema.String), commitNum: Schema.optional(Schema.Number), opNum: Schema.optional(Schema.Number), encoding: Schema.optional(Header("Accept-Encoding"))}) {}
+export class GetPropertygraphSummaryInput extends Schema.Class<GetPropertygraphSummaryInput>("GetPropertygraphSummaryInput")({mode: Schema.optional(Schema.String)}) {}
+export class GetRDFGraphSummaryInput extends Schema.Class<GetRDFGraphSummaryInput>("GetRDFGraphSummaryInput")({mode: Schema.optional(Schema.String)}) {}
+export class StatisticsSummary extends Schema.Class<StatisticsSummary>("StatisticsSummary")({signatureCount: Schema.optional(Schema.Number), instanceCount: Schema.optional(Schema.Number), predicateCount: Schema.optional(Schema.Number)}) {}
+export class Statistics extends Schema.Class<Statistics>("Statistics")({autoCompute: Schema.optional(Schema.Boolean), active: Schema.optional(Schema.Boolean), statisticsId: Schema.optional(Schema.String), date: Schema.optional(Schema.Date), note: Schema.optional(Schema.String), signatureInfo: Schema.optional(StatisticsSummary)}) {}
+export class GetSparqlStatisticsOutput extends Schema.Class<GetSparqlStatisticsOutput>("GetSparqlStatisticsOutput")({status: Schema.String, payload: Statistics}) {}
+export class GetSparqlStreamInput extends Schema.Class<GetSparqlStreamInput>("GetSparqlStreamInput")({limit: Schema.optional(Schema.Number), iteratorType: Schema.optional(Schema.String), commitNum: Schema.optional(Schema.Number), opNum: Schema.optional(Schema.Number), encoding: Schema.optional(Header("Accept-Encoding"))}) {}
+export class ListGremlinQueriesInput extends Schema.Class<ListGremlinQueriesInput>("ListGremlinQueriesInput")({includeWaiting: Schema.optional(Schema.Boolean)}) {}
+export class ListLoaderJobsInput extends Schema.Class<ListLoaderJobsInput>("ListLoaderJobsInput")({limit: Schema.optional(Schema.Number), includeQueuedLoads: Schema.optional(Schema.Boolean)}) {}
+export class ListMLDataProcessingJobsInput extends Schema.Class<ListMLDataProcessingJobsInput>("ListMLDataProcessingJobsInput")({maxItems: Schema.optional(Schema.Number), neptuneIamRoleArn: Schema.optional(Schema.String)}) {}
+export class ListMLEndpointsInput extends Schema.Class<ListMLEndpointsInput>("ListMLEndpointsInput")({maxItems: Schema.optional(Schema.Number), neptuneIamRoleArn: Schema.optional(Schema.String)}) {}
+export class ListMLModelTrainingJobsInput extends Schema.Class<ListMLModelTrainingJobsInput>("ListMLModelTrainingJobsInput")({maxItems: Schema.optional(Schema.Number), neptuneIamRoleArn: Schema.optional(Schema.String)}) {}
+export class ListMLModelTransformJobsInput extends Schema.Class<ListMLModelTransformJobsInput>("ListMLModelTransformJobsInput")({maxItems: Schema.optional(Schema.Number), neptuneIamRoleArn: Schema.optional(Schema.String)}) {}
+export class ListOpenCypherQueriesInput extends Schema.Class<ListOpenCypherQueriesInput>("ListOpenCypherQueriesInput")({includeWaiting: Schema.optional(Schema.Boolean)}) {}
+export class ManagePropertygraphStatisticsInput extends Schema.Class<ManagePropertygraphStatisticsInput>("ManagePropertygraphStatisticsInput")({mode: Schema.optional(Schema.String)}) {}
+export class ManageSparqlStatisticsInput extends Schema.Class<ManageSparqlStatisticsInput>("ManageSparqlStatisticsInput")({mode: Schema.optional(Schema.String)}) {}
 export const StringValuedMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const StartLoaderJobInput = Schema.Struct({source: Schema.String, format: Schema.String, s3BucketRegion: Schema.String, iamRoleArn: Schema.String, mode: Schema.optional(Schema.String), failOnError: Schema.optional(Schema.Boolean), parallelism: Schema.optional(Schema.String), parserConfiguration: Schema.optional(StringValuedMap), updateSingleCardinalityProperties: Schema.optional(Schema.Boolean), queueRequest: Schema.optional(Schema.Boolean), dependencies: Schema.optional(StringList), userProvidedEdgeIds: Schema.optional(Schema.Boolean)});
-export const StartMLDataProcessingJobInput = Schema.Struct({id: Schema.optional(Schema.String), previousDataProcessingJobId: Schema.optional(Schema.String), inputDataS3Location: Schema.String, processedDataS3Location: Schema.String, sagemakerIamRoleArn: Schema.optional(Schema.String), neptuneIamRoleArn: Schema.optional(Schema.String), processingInstanceType: Schema.optional(Schema.String), processingInstanceVolumeSizeInGB: Schema.optional(Schema.Number), processingTimeOutInSeconds: Schema.optional(Schema.Number), modelType: Schema.optional(Schema.String), configFileName: Schema.optional(Schema.String), subnets: Schema.optional(StringList), securityGroupIds: Schema.optional(StringList), volumeEncryptionKMSKey: Schema.optional(Schema.String), s3OutputEncryptionKMSKey: Schema.optional(Schema.String)});
-export const QueryLanguageVersion = Schema.Struct({version: Schema.String});
+export class StartLoaderJobInput extends Schema.Class<StartLoaderJobInput>("StartLoaderJobInput")({source: Schema.String, format: Schema.String, s3BucketRegion: Schema.String, iamRoleArn: Schema.String, mode: Schema.optional(Schema.String), failOnError: Schema.optional(Schema.Boolean), parallelism: Schema.optional(Schema.String), parserConfiguration: Schema.optional(StringValuedMap), updateSingleCardinalityProperties: Schema.optional(Schema.Boolean), queueRequest: Schema.optional(Schema.Boolean), dependencies: Schema.optional(StringList), userProvidedEdgeIds: Schema.optional(Schema.Boolean)}) {}
+export class StartMLDataProcessingJobInput extends Schema.Class<StartMLDataProcessingJobInput>("StartMLDataProcessingJobInput")({id: Schema.optional(Schema.String), previousDataProcessingJobId: Schema.optional(Schema.String), inputDataS3Location: Schema.String, processedDataS3Location: Schema.String, sagemakerIamRoleArn: Schema.optional(Schema.String), neptuneIamRoleArn: Schema.optional(Schema.String), processingInstanceType: Schema.optional(Schema.String), processingInstanceVolumeSizeInGB: Schema.optional(Schema.Number), processingTimeOutInSeconds: Schema.optional(Schema.Number), modelType: Schema.optional(Schema.String), configFileName: Schema.optional(Schema.String), subnets: Schema.optional(StringList), securityGroupIds: Schema.optional(StringList), volumeEncryptionKMSKey: Schema.optional(Schema.String), s3OutputEncryptionKMSKey: Schema.optional(Schema.String)}) {}
+export class QueryLanguageVersion extends Schema.Class<QueryLanguageVersion>("QueryLanguageVersion")({version: Schema.String}) {}
 export const DocumentValuedMap = Schema.Record({key: Schema.String, value: Schema.JsonValue});
-export const MlConfigDefinition = Schema.Struct({name: Schema.optional(Schema.String), arn: Schema.optional(Schema.String)});
+export class MlConfigDefinition extends Schema.Class<MlConfigDefinition>("MlConfigDefinition")({name: Schema.optional(Schema.String), arn: Schema.optional(Schema.String)}) {}
 export const MlModels = Schema.Array(MlConfigDefinition);
 export const Models = Schema.Array(MlConfigDefinition);
-export const QueryEvalStats = Schema.Struct({waited: Schema.optional(Schema.Number), elapsed: Schema.optional(Schema.Number), cancelled: Schema.optional(Schema.Boolean), subqueries: Schema.optional(Schema.JsonValue)});
-export const GremlinQueryStatus = Schema.Struct({queryId: Schema.optional(Schema.String), queryString: Schema.optional(Schema.String), queryEvalStats: Schema.optional(QueryEvalStats)});
+export class QueryEvalStats extends Schema.Class<QueryEvalStats>("QueryEvalStats")({waited: Schema.optional(Schema.Number), elapsed: Schema.optional(Schema.Number), cancelled: Schema.optional(Schema.Boolean), subqueries: Schema.optional(Schema.JsonValue)}) {}
+export class GremlinQueryStatus extends Schema.Class<GremlinQueryStatus>("GremlinQueryStatus")({queryId: Schema.optional(Schema.String), queryString: Schema.optional(Schema.String), queryEvalStats: Schema.optional(QueryEvalStats)}) {}
 export const OpenCypherQueries = Schema.Array(GremlinQueryStatus);
-export const CustomModelTrainingParameters = Schema.Struct({sourceS3DirectoryPath: Schema.String, trainingEntryPointScript: Schema.optional(Schema.String), transformEntryPointScript: Schema.optional(Schema.String)});
-export const CustomModelTransformParameters = Schema.Struct({sourceS3DirectoryPath: Schema.String, transformEntryPointScript: Schema.optional(Schema.String)});
-export const CancelGremlinQueryOutput = Schema.Struct({status: Schema.optional(Schema.String)});
-export const CancelLoaderJobOutput = Schema.Struct({status: Schema.optional(Schema.String)});
-export const CancelMLDataProcessingJobOutput = Schema.Struct({status: Schema.optional(Schema.String)});
-export const CancelMLModelTrainingJobOutput = Schema.Struct({status: Schema.optional(Schema.String)});
-export const CancelMLModelTransformJobOutput = Schema.Struct({status: Schema.optional(Schema.String)});
-export const CancelOpenCypherQueryOutput = Schema.Struct({status: Schema.optional(Schema.String), payload: Schema.optional(Schema.Boolean)});
-export const CreateMLEndpointOutput = Schema.Struct({id: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), creationTimeInMillis: Schema.optional(Schema.Number)});
-export const DeleteMLEndpointOutput = Schema.Struct({status: Schema.optional(Schema.String)});
-export const DeletePropertygraphStatisticsOutput = Schema.Struct({statusCode: Schema.optional(Schema.Number), status: Schema.optional(Schema.String), payload: Schema.optional(DeleteStatisticsValueMap)});
-export const AccessDeniedException = Schema.Struct({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String});
-export const ExecuteGremlinExplainQueryOutput = Schema.Struct({output: Schema.optional(Body("undefined", StreamBody()))});
-export const ExecuteGremlinProfileQueryOutput = Schema.Struct({output: Schema.optional(Body("undefined", StreamBody()))});
-export const ExecuteOpenCypherExplainQueryOutput = Schema.Struct({results: Body("undefined", StreamBody())});
-export const ExecuteOpenCypherQueryOutput = Schema.Struct({results: Schema.JsonValue});
-export const GetEngineStatusOutput = Schema.Struct({status: Schema.optional(Schema.String), startTime: Schema.optional(Schema.String), dbEngineVersion: Schema.optional(Schema.String), role: Schema.optional(Schema.String), dfeQueryEngine: Schema.optional(Schema.String), gremlin: Schema.optional(QueryLanguageVersion), sparql: Schema.optional(QueryLanguageVersion), opencypher: Schema.optional(QueryLanguageVersion), labMode: Schema.optional(StringValuedMap), rollingBackTrxCount: Schema.optional(Schema.Number), rollingBackTrxEarliestStartTime: Schema.optional(Schema.String), features: Schema.optional(DocumentValuedMap), settings: Schema.optional(StringValuedMap)});
-export const GetLoaderJobStatusOutput = Schema.Struct({status: Schema.String, payload: Schema.JsonValue});
-export const MlResourceDefinition = Schema.Struct({name: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), status: Schema.optional(Schema.String), outputLocation: Schema.optional(Schema.String), failureReason: Schema.optional(Schema.String), cloudwatchLogUrl: Schema.optional(Schema.String)});
-export const GetMLModelTrainingJobOutput = Schema.Struct({status: Schema.optional(Schema.String), id: Schema.optional(Schema.String), processingJob: Schema.optional(MlResourceDefinition), hpoJob: Schema.optional(MlResourceDefinition), modelTransformJob: Schema.optional(MlResourceDefinition), mlModels: Schema.optional(MlModels)});
-export const GetMLModelTransformJobOutput = Schema.Struct({status: Schema.optional(Schema.String), id: Schema.optional(Schema.String), baseProcessingJob: Schema.optional(MlResourceDefinition), remoteModelTransformJob: Schema.optional(MlResourceDefinition), models: Schema.optional(Models)});
-export const GetOpenCypherQueryStatusOutput = Schema.Struct({queryId: Schema.optional(Schema.String), queryString: Schema.optional(Schema.String), queryEvalStats: Schema.optional(QueryEvalStats)});
-export const BadRequestException = Schema.Struct({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String});
-export const ListMLDataProcessingJobsOutput = Schema.Struct({ids: Schema.optional(StringList)});
-export const ListMLEndpointsOutput = Schema.Struct({ids: Schema.optional(StringList)});
-export const ListMLModelTrainingJobsOutput = Schema.Struct({ids: Schema.optional(StringList)});
-export const ListMLModelTransformJobsOutput = Schema.Struct({ids: Schema.optional(StringList)});
-export const ListOpenCypherQueriesOutput = Schema.Struct({acceptedQueryCount: Schema.optional(Schema.Number), runningQueryCount: Schema.optional(Schema.Number), queries: Schema.optional(OpenCypherQueries)});
-export const RefreshStatisticsIdMap = Schema.Struct({statisticsId: Schema.optional(Schema.String)});
-export const ManageSparqlStatisticsOutput = Schema.Struct({status: Schema.String, payload: Schema.optional(RefreshStatisticsIdMap)});
-export const StartLoaderJobOutput = Schema.Struct({status: Schema.String, payload: StringValuedMap});
-export const StartMLDataProcessingJobOutput = Schema.Struct({id: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), creationTimeInMillis: Schema.optional(Schema.Number)});
-export const StartMLModelTrainingJobInput = Schema.Struct({id: Schema.optional(Schema.String), previousModelTrainingJobId: Schema.optional(Schema.String), dataProcessingJobId: Schema.String, trainModelS3Location: Schema.String, sagemakerIamRoleArn: Schema.optional(Schema.String), neptuneIamRoleArn: Schema.optional(Schema.String), baseProcessingInstanceType: Schema.optional(Schema.String), trainingInstanceType: Schema.optional(Schema.String), trainingInstanceVolumeSizeInGB: Schema.optional(Schema.Number), trainingTimeOutInSeconds: Schema.optional(Schema.Number), maxHPONumberOfTrainingJobs: Schema.optional(Schema.Number), maxHPOParallelTrainingJobs: Schema.optional(Schema.Number), subnets: Schema.optional(StringList), securityGroupIds: Schema.optional(StringList), volumeEncryptionKMSKey: Schema.optional(Schema.String), s3OutputEncryptionKMSKey: Schema.optional(Schema.String), enableManagedSpotTraining: Schema.optional(Schema.Boolean), customModelTrainingParameters: Schema.optional(CustomModelTrainingParameters)});
-export const StartMLModelTransformJobInput = Schema.Struct({id: Schema.optional(Schema.String), dataProcessingJobId: Schema.optional(Schema.String), mlModelTrainingJobId: Schema.optional(Schema.String), trainingJobName: Schema.optional(Schema.String), modelTransformOutputS3Location: Schema.String, sagemakerIamRoleArn: Schema.optional(Schema.String), neptuneIamRoleArn: Schema.optional(Schema.String), customModelTransformParameters: Schema.optional(CustomModelTransformParameters), baseProcessingInstanceType: Schema.optional(Schema.String), baseProcessingInstanceVolumeSizeInGB: Schema.optional(Schema.Number), subnets: Schema.optional(StringList), securityGroupIds: Schema.optional(StringList), volumeEncryptionKMSKey: Schema.optional(Schema.String), s3OutputEncryptionKMSKey: Schema.optional(Schema.String)});
-export const FastResetToken = Schema.Struct({token: Schema.optional(Schema.String)});
-export const GremlinQueryStatusAttributes = Schema.Struct({message: Schema.optional(Schema.String), code: Schema.optional(Schema.Number), attributes: Schema.optional(Schema.JsonValue)});
+export class CustomModelTrainingParameters extends Schema.Class<CustomModelTrainingParameters>("CustomModelTrainingParameters")({sourceS3DirectoryPath: Schema.String, trainingEntryPointScript: Schema.optional(Schema.String), transformEntryPointScript: Schema.optional(Schema.String)}) {}
+export class CustomModelTransformParameters extends Schema.Class<CustomModelTransformParameters>("CustomModelTransformParameters")({sourceS3DirectoryPath: Schema.String, transformEntryPointScript: Schema.optional(Schema.String)}) {}
+export class CancelGremlinQueryOutput extends Schema.Class<CancelGremlinQueryOutput>("CancelGremlinQueryOutput")({status: Schema.optional(Schema.String)}) {}
+export class CancelLoaderJobOutput extends Schema.Class<CancelLoaderJobOutput>("CancelLoaderJobOutput")({status: Schema.optional(Schema.String)}) {}
+export class CancelMLDataProcessingJobOutput extends Schema.Class<CancelMLDataProcessingJobOutput>("CancelMLDataProcessingJobOutput")({status: Schema.optional(Schema.String)}) {}
+export class CancelMLModelTrainingJobOutput extends Schema.Class<CancelMLModelTrainingJobOutput>("CancelMLModelTrainingJobOutput")({status: Schema.optional(Schema.String)}) {}
+export class CancelMLModelTransformJobOutput extends Schema.Class<CancelMLModelTransformJobOutput>("CancelMLModelTransformJobOutput")({status: Schema.optional(Schema.String)}) {}
+export class CancelOpenCypherQueryOutput extends Schema.Class<CancelOpenCypherQueryOutput>("CancelOpenCypherQueryOutput")({status: Schema.optional(Schema.String), payload: Schema.optional(Schema.Boolean)}) {}
+export class CreateMLEndpointOutput extends Schema.Class<CreateMLEndpointOutput>("CreateMLEndpointOutput")({id: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), creationTimeInMillis: Schema.optional(Schema.Number)}) {}
+export class DeleteMLEndpointOutput extends Schema.Class<DeleteMLEndpointOutput>("DeleteMLEndpointOutput")({status: Schema.optional(Schema.String)}) {}
+export class DeletePropertygraphStatisticsOutput extends Schema.Class<DeletePropertygraphStatisticsOutput>("DeletePropertygraphStatisticsOutput")({statusCode: Schema.optional(Schema.Number), status: Schema.optional(Schema.String), payload: Schema.optional(DeleteStatisticsValueMap)}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String}) {}
+export class ExecuteGremlinExplainQueryOutput extends Schema.Class<ExecuteGremlinExplainQueryOutput>("ExecuteGremlinExplainQueryOutput")({output: Schema.optional(Body("undefined", StreamBody()))}) {}
+export class ExecuteGremlinProfileQueryOutput extends Schema.Class<ExecuteGremlinProfileQueryOutput>("ExecuteGremlinProfileQueryOutput")({output: Schema.optional(Body("undefined", StreamBody()))}) {}
+export class ExecuteOpenCypherExplainQueryOutput extends Schema.Class<ExecuteOpenCypherExplainQueryOutput>("ExecuteOpenCypherExplainQueryOutput")({results: Body("undefined", StreamBody())}) {}
+export class ExecuteOpenCypherQueryOutput extends Schema.Class<ExecuteOpenCypherQueryOutput>("ExecuteOpenCypherQueryOutput")({results: Schema.JsonValue}) {}
+export class GetEngineStatusOutput extends Schema.Class<GetEngineStatusOutput>("GetEngineStatusOutput")({status: Schema.optional(Schema.String), startTime: Schema.optional(Schema.String), dbEngineVersion: Schema.optional(Schema.String), role: Schema.optional(Schema.String), dfeQueryEngine: Schema.optional(Schema.String), gremlin: Schema.optional(QueryLanguageVersion), sparql: Schema.optional(QueryLanguageVersion), opencypher: Schema.optional(QueryLanguageVersion), labMode: Schema.optional(StringValuedMap), rollingBackTrxCount: Schema.optional(Schema.Number), rollingBackTrxEarliestStartTime: Schema.optional(Schema.String), features: Schema.optional(DocumentValuedMap), settings: Schema.optional(StringValuedMap)}) {}
+export class GetLoaderJobStatusOutput extends Schema.Class<GetLoaderJobStatusOutput>("GetLoaderJobStatusOutput")({status: Schema.String, payload: Schema.JsonValue}) {}
+export class MlResourceDefinition extends Schema.Class<MlResourceDefinition>("MlResourceDefinition")({name: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), status: Schema.optional(Schema.String), outputLocation: Schema.optional(Schema.String), failureReason: Schema.optional(Schema.String), cloudwatchLogUrl: Schema.optional(Schema.String)}) {}
+export class GetMLModelTrainingJobOutput extends Schema.Class<GetMLModelTrainingJobOutput>("GetMLModelTrainingJobOutput")({status: Schema.optional(Schema.String), id: Schema.optional(Schema.String), processingJob: Schema.optional(MlResourceDefinition), hpoJob: Schema.optional(MlResourceDefinition), modelTransformJob: Schema.optional(MlResourceDefinition), mlModels: Schema.optional(MlModels)}) {}
+export class GetMLModelTransformJobOutput extends Schema.Class<GetMLModelTransformJobOutput>("GetMLModelTransformJobOutput")({status: Schema.optional(Schema.String), id: Schema.optional(Schema.String), baseProcessingJob: Schema.optional(MlResourceDefinition), remoteModelTransformJob: Schema.optional(MlResourceDefinition), models: Schema.optional(Models)}) {}
+export class GetOpenCypherQueryStatusOutput extends Schema.Class<GetOpenCypherQueryStatusOutput>("GetOpenCypherQueryStatusOutput")({queryId: Schema.optional(Schema.String), queryString: Schema.optional(Schema.String), queryEvalStats: Schema.optional(QueryEvalStats)}) {}
+export class BadRequestException extends Schema.Class<BadRequestException>("BadRequestException")({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String}) {}
+export class ListMLDataProcessingJobsOutput extends Schema.Class<ListMLDataProcessingJobsOutput>("ListMLDataProcessingJobsOutput")({ids: Schema.optional(StringList)}) {}
+export class ListMLEndpointsOutput extends Schema.Class<ListMLEndpointsOutput>("ListMLEndpointsOutput")({ids: Schema.optional(StringList)}) {}
+export class ListMLModelTrainingJobsOutput extends Schema.Class<ListMLModelTrainingJobsOutput>("ListMLModelTrainingJobsOutput")({ids: Schema.optional(StringList)}) {}
+export class ListMLModelTransformJobsOutput extends Schema.Class<ListMLModelTransformJobsOutput>("ListMLModelTransformJobsOutput")({ids: Schema.optional(StringList)}) {}
+export class ListOpenCypherQueriesOutput extends Schema.Class<ListOpenCypherQueriesOutput>("ListOpenCypherQueriesOutput")({acceptedQueryCount: Schema.optional(Schema.Number), runningQueryCount: Schema.optional(Schema.Number), queries: Schema.optional(OpenCypherQueries)}) {}
+export class RefreshStatisticsIdMap extends Schema.Class<RefreshStatisticsIdMap>("RefreshStatisticsIdMap")({statisticsId: Schema.optional(Schema.String)}) {}
+export class ManageSparqlStatisticsOutput extends Schema.Class<ManageSparqlStatisticsOutput>("ManageSparqlStatisticsOutput")({status: Schema.String, payload: Schema.optional(RefreshStatisticsIdMap)}) {}
+export class StartLoaderJobOutput extends Schema.Class<StartLoaderJobOutput>("StartLoaderJobOutput")({status: Schema.String, payload: StringValuedMap}) {}
+export class StartMLDataProcessingJobOutput extends Schema.Class<StartMLDataProcessingJobOutput>("StartMLDataProcessingJobOutput")({id: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), creationTimeInMillis: Schema.optional(Schema.Number)}) {}
+export class StartMLModelTrainingJobInput extends Schema.Class<StartMLModelTrainingJobInput>("StartMLModelTrainingJobInput")({id: Schema.optional(Schema.String), previousModelTrainingJobId: Schema.optional(Schema.String), dataProcessingJobId: Schema.String, trainModelS3Location: Schema.String, sagemakerIamRoleArn: Schema.optional(Schema.String), neptuneIamRoleArn: Schema.optional(Schema.String), baseProcessingInstanceType: Schema.optional(Schema.String), trainingInstanceType: Schema.optional(Schema.String), trainingInstanceVolumeSizeInGB: Schema.optional(Schema.Number), trainingTimeOutInSeconds: Schema.optional(Schema.Number), maxHPONumberOfTrainingJobs: Schema.optional(Schema.Number), maxHPOParallelTrainingJobs: Schema.optional(Schema.Number), subnets: Schema.optional(StringList), securityGroupIds: Schema.optional(StringList), volumeEncryptionKMSKey: Schema.optional(Schema.String), s3OutputEncryptionKMSKey: Schema.optional(Schema.String), enableManagedSpotTraining: Schema.optional(Schema.Boolean), customModelTrainingParameters: Schema.optional(CustomModelTrainingParameters)}) {}
+export class StartMLModelTransformJobInput extends Schema.Class<StartMLModelTransformJobInput>("StartMLModelTransformJobInput")({id: Schema.optional(Schema.String), dataProcessingJobId: Schema.optional(Schema.String), mlModelTrainingJobId: Schema.optional(Schema.String), trainingJobName: Schema.optional(Schema.String), modelTransformOutputS3Location: Schema.String, sagemakerIamRoleArn: Schema.optional(Schema.String), neptuneIamRoleArn: Schema.optional(Schema.String), customModelTransformParameters: Schema.optional(CustomModelTransformParameters), baseProcessingInstanceType: Schema.optional(Schema.String), baseProcessingInstanceVolumeSizeInGB: Schema.optional(Schema.Number), subnets: Schema.optional(StringList), securityGroupIds: Schema.optional(StringList), volumeEncryptionKMSKey: Schema.optional(Schema.String), s3OutputEncryptionKMSKey: Schema.optional(Schema.String)}) {}
+export class FastResetToken extends Schema.Class<FastResetToken>("FastResetToken")({token: Schema.optional(Schema.String)}) {}
+export class GremlinQueryStatusAttributes extends Schema.Class<GremlinQueryStatusAttributes>("GremlinQueryStatusAttributes")({message: Schema.optional(Schema.String), code: Schema.optional(Schema.Number), attributes: Schema.optional(Schema.JsonValue)}) {}
 export const GremlinQueries = Schema.Array(GremlinQueryStatus);
-export const LoaderIdResult = Schema.Struct({loadIds: Schema.optional(StringList)});
+export class LoaderIdResult extends Schema.Class<LoaderIdResult>("LoaderIdResult")({loadIds: Schema.optional(StringList)}) {}
 export const NodeLabels = Schema.Array(Schema.String);
 export const EdgeLabels = Schema.Array(Schema.String);
 export const Classes = Schema.Array(Schema.String);
-export const ClientTimeoutException = Schema.Struct({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String});
-export const BulkLoadIdNotFoundException = Schema.Struct({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String});
-export const ConstraintViolationException = Schema.Struct({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String});
-export const IllegalArgumentException = Schema.Struct({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String});
-export const InvalidArgumentException = Schema.Struct({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String});
-export const ConcurrentModificationException = Schema.Struct({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String});
-export const InvalidParameterException = Schema.Struct({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String});
-export const MissingParameterException = Schema.Struct({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String});
-export const PreconditionsFailedException = Schema.Struct({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String});
-export const ReadOnlyViolationException = Schema.Struct({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String});
-export const ExecuteFastResetOutput = Schema.Struct({status: Schema.String, payload: Schema.optional(FastResetToken)});
-export const CancelledByUserException = Schema.Struct({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String});
-export const FailureByQueryException = Schema.Struct({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String});
-export const ExecuteGremlinQueryOutput = Schema.Struct({requestId: Schema.optional(Schema.String), status: Schema.optional(GremlinQueryStatusAttributes), result: Schema.optional(Schema.JsonValue), meta: Schema.optional(Schema.JsonValue)});
-export const InvalidNumericDataException = Schema.Struct({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String});
-export const MalformedQueryException = Schema.Struct({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String});
-export const InternalFailureException = Schema.Struct({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String});
-export const GetGremlinQueryStatusOutput = Schema.Struct({queryId: Schema.optional(Schema.String), queryString: Schema.optional(Schema.String), queryEvalStats: Schema.optional(QueryEvalStats)});
-export const LoadUrlAccessDeniedException = Schema.Struct({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String});
-export const GetMLDataProcessingJobOutput = Schema.Struct({status: Schema.optional(Schema.String), id: Schema.optional(Schema.String), processingJob: Schema.optional(MlResourceDefinition)});
-export const GetMLEndpointOutput = Schema.Struct({status: Schema.optional(Schema.String), id: Schema.optional(Schema.String), endpoint: Schema.optional(MlResourceDefinition), endpointConfig: Schema.optional(MlConfigDefinition)});
-export const MLResourceNotFoundException = Schema.Struct({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String});
-export const TooManyRequestsException = Schema.Struct({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String});
-export const ParsingException = Schema.Struct({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String});
-export const GetPropertygraphStatisticsOutput = Schema.Struct({status: Schema.String, payload: Statistics});
-export const StatisticsNotAvailableException = Schema.Struct({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String});
-export const ListGremlinQueriesOutput = Schema.Struct({acceptedQueryCount: Schema.optional(Schema.Number), runningQueryCount: Schema.optional(Schema.Number), queries: Schema.optional(GremlinQueries)});
-export const ListLoaderJobsOutput = Schema.Struct({status: Schema.String, payload: LoaderIdResult});
-export const UnsupportedOperationException = Schema.Struct({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String});
-export const TimeLimitExceededException = Schema.Struct({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String});
-export const ManagePropertygraphStatisticsOutput = Schema.Struct({status: Schema.String, payload: Schema.optional(RefreshStatisticsIdMap)});
-export const S3Exception = Schema.Struct({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String});
-export const StartMLModelTrainingJobOutput = Schema.Struct({id: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), creationTimeInMillis: Schema.optional(Schema.Number)});
-export const StartMLModelTransformJobOutput = Schema.Struct({id: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), creationTimeInMillis: Schema.optional(Schema.Number)});
-export const PropertygraphData = Schema.Struct({id: Schema.String, type: Schema.String, key: Schema.String, value: Schema.JsonValue, from: Schema.optional(Schema.String), to: Schema.optional(Schema.String)});
-export const SparqlData = Schema.Struct({stmt: Schema.String});
+export class ClientTimeoutException extends Schema.Class<ClientTimeoutException>("ClientTimeoutException")({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String}) {}
+export class BulkLoadIdNotFoundException extends Schema.Class<BulkLoadIdNotFoundException>("BulkLoadIdNotFoundException")({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String}) {}
+export class ConstraintViolationException extends Schema.Class<ConstraintViolationException>("ConstraintViolationException")({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String}) {}
+export class IllegalArgumentException extends Schema.Class<IllegalArgumentException>("IllegalArgumentException")({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String}) {}
+export class InvalidArgumentException extends Schema.Class<InvalidArgumentException>("InvalidArgumentException")({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String}) {}
+export class ConcurrentModificationException extends Schema.Class<ConcurrentModificationException>("ConcurrentModificationException")({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String}) {}
+export class InvalidParameterException extends Schema.Class<InvalidParameterException>("InvalidParameterException")({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String}) {}
+export class MissingParameterException extends Schema.Class<MissingParameterException>("MissingParameterException")({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String}) {}
+export class PreconditionsFailedException extends Schema.Class<PreconditionsFailedException>("PreconditionsFailedException")({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String}) {}
+export class ReadOnlyViolationException extends Schema.Class<ReadOnlyViolationException>("ReadOnlyViolationException")({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String}) {}
+export class ExecuteFastResetOutput extends Schema.Class<ExecuteFastResetOutput>("ExecuteFastResetOutput")({status: Schema.String, payload: Schema.optional(FastResetToken)}) {}
+export class CancelledByUserException extends Schema.Class<CancelledByUserException>("CancelledByUserException")({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String}) {}
+export class FailureByQueryException extends Schema.Class<FailureByQueryException>("FailureByQueryException")({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String}) {}
+export class ExecuteGremlinQueryOutput extends Schema.Class<ExecuteGremlinQueryOutput>("ExecuteGremlinQueryOutput")({requestId: Schema.optional(Schema.String), status: Schema.optional(GremlinQueryStatusAttributes), result: Schema.optional(Schema.JsonValue), meta: Schema.optional(Schema.JsonValue)}) {}
+export class InvalidNumericDataException extends Schema.Class<InvalidNumericDataException>("InvalidNumericDataException")({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String}) {}
+export class MalformedQueryException extends Schema.Class<MalformedQueryException>("MalformedQueryException")({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String}) {}
+export class InternalFailureException extends Schema.Class<InternalFailureException>("InternalFailureException")({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String}) {}
+export class GetGremlinQueryStatusOutput extends Schema.Class<GetGremlinQueryStatusOutput>("GetGremlinQueryStatusOutput")({queryId: Schema.optional(Schema.String), queryString: Schema.optional(Schema.String), queryEvalStats: Schema.optional(QueryEvalStats)}) {}
+export class LoadUrlAccessDeniedException extends Schema.Class<LoadUrlAccessDeniedException>("LoadUrlAccessDeniedException")({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String}) {}
+export class GetMLDataProcessingJobOutput extends Schema.Class<GetMLDataProcessingJobOutput>("GetMLDataProcessingJobOutput")({status: Schema.optional(Schema.String), id: Schema.optional(Schema.String), processingJob: Schema.optional(MlResourceDefinition)}) {}
+export class GetMLEndpointOutput extends Schema.Class<GetMLEndpointOutput>("GetMLEndpointOutput")({status: Schema.optional(Schema.String), id: Schema.optional(Schema.String), endpoint: Schema.optional(MlResourceDefinition), endpointConfig: Schema.optional(MlConfigDefinition)}) {}
+export class MLResourceNotFoundException extends Schema.Class<MLResourceNotFoundException>("MLResourceNotFoundException")({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String}) {}
+export class TooManyRequestsException extends Schema.Class<TooManyRequestsException>("TooManyRequestsException")({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String}) {}
+export class ParsingException extends Schema.Class<ParsingException>("ParsingException")({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String}) {}
+export class GetPropertygraphStatisticsOutput extends Schema.Class<GetPropertygraphStatisticsOutput>("GetPropertygraphStatisticsOutput")({status: Schema.String, payload: Statistics}) {}
+export class StatisticsNotAvailableException extends Schema.Class<StatisticsNotAvailableException>("StatisticsNotAvailableException")({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String}) {}
+export class ListGremlinQueriesOutput extends Schema.Class<ListGremlinQueriesOutput>("ListGremlinQueriesOutput")({acceptedQueryCount: Schema.optional(Schema.Number), runningQueryCount: Schema.optional(Schema.Number), queries: Schema.optional(GremlinQueries)}) {}
+export class ListLoaderJobsOutput extends Schema.Class<ListLoaderJobsOutput>("ListLoaderJobsOutput")({status: Schema.String, payload: LoaderIdResult}) {}
+export class UnsupportedOperationException extends Schema.Class<UnsupportedOperationException>("UnsupportedOperationException")({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String}) {}
+export class TimeLimitExceededException extends Schema.Class<TimeLimitExceededException>("TimeLimitExceededException")({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String}) {}
+export class ManagePropertygraphStatisticsOutput extends Schema.Class<ManagePropertygraphStatisticsOutput>("ManagePropertygraphStatisticsOutput")({status: Schema.String, payload: Schema.optional(RefreshStatisticsIdMap)}) {}
+export class S3Exception extends Schema.Class<S3Exception>("S3Exception")({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String}) {}
+export class StartMLModelTrainingJobOutput extends Schema.Class<StartMLModelTrainingJobOutput>("StartMLModelTrainingJobOutput")({id: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), creationTimeInMillis: Schema.optional(Schema.Number)}) {}
+export class StartMLModelTransformJobOutput extends Schema.Class<StartMLModelTransformJobOutput>("StartMLModelTransformJobOutput")({id: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), creationTimeInMillis: Schema.optional(Schema.Number)}) {}
+export class PropertygraphData extends Schema.Class<PropertygraphData>("PropertygraphData")({id: Schema.String, type: Schema.String, key: Schema.String, value: Schema.JsonValue, from: Schema.optional(Schema.String), to: Schema.optional(Schema.String)}) {}
+export class SparqlData extends Schema.Class<SparqlData>("SparqlData")({stmt: Schema.String}) {}
 export const NodeProperties = Schema.Array(Schema.String);
 export const OutgoingEdgeLabels = Schema.Array(Schema.String);
 export const EdgeProperties = Schema.Array(Schema.String);
 export const Predicates = Schema.Array(Schema.String);
-export const PropertygraphRecord = Schema.Struct({commitTimestampInMillis: Schema.Number, eventId: StringValuedMap, data: PropertygraphData, op: Schema.String, isLastOp: Schema.optional(Schema.Boolean)});
+export class PropertygraphRecord extends Schema.Class<PropertygraphRecord>("PropertygraphRecord")({commitTimestampInMillis: Schema.Number, eventId: StringValuedMap, data: PropertygraphData, op: Schema.String, isLastOp: Schema.optional(Schema.Boolean)}) {}
 export const PropertygraphRecordsList = Schema.Array(PropertygraphRecord);
-export const SparqlRecord = Schema.Struct({commitTimestampInMillis: Schema.Number, eventId: StringValuedMap, data: SparqlData, op: Schema.String, isLastOp: Schema.optional(Schema.Boolean)});
+export class SparqlRecord extends Schema.Class<SparqlRecord>("SparqlRecord")({commitTimestampInMillis: Schema.Number, eventId: StringValuedMap, data: SparqlData, op: Schema.String, isLastOp: Schema.optional(Schema.Boolean)}) {}
 export const SparqlRecordsList = Schema.Array(SparqlRecord);
 export const LongValuedMap = Schema.Record({key: Schema.String, value: Schema.Number});
 export const LongValuedMapList = Schema.Array(LongValuedMap);
-export const NodeStructure = Schema.Struct({count: Schema.optional(Schema.Number), nodeProperties: Schema.optional(NodeProperties), distinctOutgoingEdgeLabels: Schema.optional(OutgoingEdgeLabels)});
+export class NodeStructure extends Schema.Class<NodeStructure>("NodeStructure")({count: Schema.optional(Schema.Number), nodeProperties: Schema.optional(NodeProperties), distinctOutgoingEdgeLabels: Schema.optional(OutgoingEdgeLabels)}) {}
 export const NodeStructures = Schema.Array(NodeStructure);
-export const EdgeStructure = Schema.Struct({count: Schema.optional(Schema.Number), edgeProperties: Schema.optional(EdgeProperties)});
+export class EdgeStructure extends Schema.Class<EdgeStructure>("EdgeStructure")({count: Schema.optional(Schema.Number), edgeProperties: Schema.optional(EdgeProperties)}) {}
 export const EdgeStructures = Schema.Array(EdgeStructure);
-export const SubjectStructure = Schema.Struct({count: Schema.optional(Schema.Number), predicates: Schema.optional(Predicates)});
+export class SubjectStructure extends Schema.Class<SubjectStructure>("SubjectStructure")({count: Schema.optional(Schema.Number), predicates: Schema.optional(Predicates)}) {}
 export const SubjectStructures = Schema.Array(SubjectStructure);
-export const MethodNotAllowedException = Schema.Struct({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String});
-export const MemoryLimitExceededException = Schema.Struct({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String});
-export const QueryLimitExceededException = Schema.Struct({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String});
-export const QueryLimitException = Schema.Struct({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String});
-export const QueryTooLargeException = Schema.Struct({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String});
-export const GetPropertygraphStreamOutput = Schema.Struct({lastEventId: StringValuedMap, lastTrxTimestampInMillis: Schema.Number, format: Schema.String, records: PropertygraphRecordsList, totalRecords: Schema.Number});
-export const GetSparqlStreamOutput = Schema.Struct({lastEventId: StringValuedMap, lastTrxTimestampInMillis: Schema.Number, format: Schema.String, records: SparqlRecordsList, totalRecords: Schema.Number});
-export const PropertygraphSummary = Schema.Struct({numNodes: Schema.optional(Schema.Number), numEdges: Schema.optional(Schema.Number), numNodeLabels: Schema.optional(Schema.Number), numEdgeLabels: Schema.optional(Schema.Number), nodeLabels: Schema.optional(NodeLabels), edgeLabels: Schema.optional(EdgeLabels), numNodeProperties: Schema.optional(Schema.Number), numEdgeProperties: Schema.optional(Schema.Number), nodeProperties: Schema.optional(LongValuedMapList), edgeProperties: Schema.optional(LongValuedMapList), totalNodePropertyValues: Schema.optional(Schema.Number), totalEdgePropertyValues: Schema.optional(Schema.Number), nodeStructures: Schema.optional(NodeStructures), edgeStructures: Schema.optional(EdgeStructures)});
-export const RDFGraphSummary = Schema.Struct({numDistinctSubjects: Schema.optional(Schema.Number), numDistinctPredicates: Schema.optional(Schema.Number), numQuads: Schema.optional(Schema.Number), numClasses: Schema.optional(Schema.Number), classes: Schema.optional(Classes), predicates: Schema.optional(LongValuedMapList), subjectStructures: Schema.optional(SubjectStructures)});
-export const PropertygraphSummaryValueMap = Schema.Struct({version: Schema.optional(Schema.String), lastStatisticsComputationTime: Schema.optional(Schema.Date), graphSummary: Schema.optional(PropertygraphSummary)});
-export const RDFGraphSummaryValueMap = Schema.Struct({version: Schema.optional(Schema.String), lastStatisticsComputationTime: Schema.optional(Schema.Date), graphSummary: Schema.optional(RDFGraphSummary)});
-export const ServerShutdownException = Schema.Struct({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String});
-export const ExpiredStreamException = Schema.Struct({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String});
-export const GetPropertygraphSummaryOutput = Schema.Struct({statusCode: Schema.optional(Schema.Number), payload: Schema.optional(PropertygraphSummaryValueMap)});
-export const GetRDFGraphSummaryOutput = Schema.Struct({statusCode: Schema.optional(Schema.Number), payload: Schema.optional(RDFGraphSummaryValueMap)});
-export const StreamRecordsNotFoundException = Schema.Struct({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String});
-export const ThrottlingException = Schema.Struct({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String});
+export class MethodNotAllowedException extends Schema.Class<MethodNotAllowedException>("MethodNotAllowedException")({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String}) {}
+export class MemoryLimitExceededException extends Schema.Class<MemoryLimitExceededException>("MemoryLimitExceededException")({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String}) {}
+export class QueryLimitExceededException extends Schema.Class<QueryLimitExceededException>("QueryLimitExceededException")({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String}) {}
+export class QueryLimitException extends Schema.Class<QueryLimitException>("QueryLimitException")({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String}) {}
+export class QueryTooLargeException extends Schema.Class<QueryTooLargeException>("QueryTooLargeException")({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String}) {}
+export class GetPropertygraphStreamOutput extends Schema.Class<GetPropertygraphStreamOutput>("GetPropertygraphStreamOutput")({lastEventId: StringValuedMap, lastTrxTimestampInMillis: Schema.Number, format: Schema.String, records: PropertygraphRecordsList, totalRecords: Schema.Number}) {}
+export class GetSparqlStreamOutput extends Schema.Class<GetSparqlStreamOutput>("GetSparqlStreamOutput")({lastEventId: StringValuedMap, lastTrxTimestampInMillis: Schema.Number, format: Schema.String, records: SparqlRecordsList, totalRecords: Schema.Number}) {}
+export class PropertygraphSummary extends Schema.Class<PropertygraphSummary>("PropertygraphSummary")({numNodes: Schema.optional(Schema.Number), numEdges: Schema.optional(Schema.Number), numNodeLabels: Schema.optional(Schema.Number), numEdgeLabels: Schema.optional(Schema.Number), nodeLabels: Schema.optional(NodeLabels), edgeLabels: Schema.optional(EdgeLabels), numNodeProperties: Schema.optional(Schema.Number), numEdgeProperties: Schema.optional(Schema.Number), nodeProperties: Schema.optional(LongValuedMapList), edgeProperties: Schema.optional(LongValuedMapList), totalNodePropertyValues: Schema.optional(Schema.Number), totalEdgePropertyValues: Schema.optional(Schema.Number), nodeStructures: Schema.optional(NodeStructures), edgeStructures: Schema.optional(EdgeStructures)}) {}
+export class RDFGraphSummary extends Schema.Class<RDFGraphSummary>("RDFGraphSummary")({numDistinctSubjects: Schema.optional(Schema.Number), numDistinctPredicates: Schema.optional(Schema.Number), numQuads: Schema.optional(Schema.Number), numClasses: Schema.optional(Schema.Number), classes: Schema.optional(Classes), predicates: Schema.optional(LongValuedMapList), subjectStructures: Schema.optional(SubjectStructures)}) {}
+export class PropertygraphSummaryValueMap extends Schema.Class<PropertygraphSummaryValueMap>("PropertygraphSummaryValueMap")({version: Schema.optional(Schema.String), lastStatisticsComputationTime: Schema.optional(Schema.Date), graphSummary: Schema.optional(PropertygraphSummary)}) {}
+export class RDFGraphSummaryValueMap extends Schema.Class<RDFGraphSummaryValueMap>("RDFGraphSummaryValueMap")({version: Schema.optional(Schema.String), lastStatisticsComputationTime: Schema.optional(Schema.Date), graphSummary: Schema.optional(RDFGraphSummary)}) {}
+export class ServerShutdownException extends Schema.Class<ServerShutdownException>("ServerShutdownException")({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String}) {}
+export class ExpiredStreamException extends Schema.Class<ExpiredStreamException>("ExpiredStreamException")({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String}) {}
+export class GetPropertygraphSummaryOutput extends Schema.Class<GetPropertygraphSummaryOutput>("GetPropertygraphSummaryOutput")({statusCode: Schema.optional(Schema.Number), payload: Schema.optional(PropertygraphSummaryValueMap)}) {}
+export class GetRDFGraphSummaryOutput extends Schema.Class<GetRDFGraphSummaryOutput>("GetRDFGraphSummaryOutput")({statusCode: Schema.optional(Schema.Number), payload: Schema.optional(RDFGraphSummaryValueMap)}) {}
+export class StreamRecordsNotFoundException extends Schema.Class<StreamRecordsNotFoundException>("StreamRecordsNotFoundException")({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({detailedMessage: Schema.String, requestId: Schema.String, code: Schema.String}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class BadRequestExceptionError extends Schema.TaggedError<BadRequestExceptionError>()("BadRequestException", BadRequestException) {};
-export class ClientTimeoutExceptionError extends Schema.TaggedError<ClientTimeoutExceptionError>()("ClientTimeoutException", ClientTimeoutException) {};
-export class ConstraintViolationExceptionError extends Schema.TaggedError<ConstraintViolationExceptionError>()("ConstraintViolationException", ConstraintViolationException) {};
-export class IllegalArgumentExceptionError extends Schema.TaggedError<IllegalArgumentExceptionError>()("IllegalArgumentException", IllegalArgumentException) {};
-export class InvalidArgumentExceptionError extends Schema.TaggedError<InvalidArgumentExceptionError>()("InvalidArgumentException", InvalidArgumentException) {};
-export class InvalidParameterExceptionError extends Schema.TaggedError<InvalidParameterExceptionError>()("InvalidParameterException", InvalidParameterException) {};
-export class MissingParameterExceptionError extends Schema.TaggedError<MissingParameterExceptionError>()("MissingParameterException", MissingParameterException) {};
-export class PreconditionsFailedExceptionError extends Schema.TaggedError<PreconditionsFailedExceptionError>()("PreconditionsFailedException", PreconditionsFailedException) {};
-export class CancelledByUserExceptionError extends Schema.TaggedError<CancelledByUserExceptionError>()("CancelledByUserException", CancelledByUserException) {};
-export class ConcurrentModificationExceptionError extends Schema.TaggedError<ConcurrentModificationExceptionError>()("ConcurrentModificationException", ConcurrentModificationException) {};
-export class FailureByQueryExceptionError extends Schema.TaggedError<FailureByQueryExceptionError>()("FailureByQueryException", FailureByQueryException) {};
-export class InvalidNumericDataExceptionError extends Schema.TaggedError<InvalidNumericDataExceptionError>()("InvalidNumericDataException", InvalidNumericDataException) {};
-export class BulkLoadIdNotFoundExceptionError extends Schema.TaggedError<BulkLoadIdNotFoundExceptionError>()("BulkLoadIdNotFoundException", BulkLoadIdNotFoundException) {};
-export class InternalFailureExceptionError extends Schema.TaggedError<InternalFailureExceptionError>()("InternalFailureException", InternalFailureException) {};
-export class MLResourceNotFoundExceptionError extends Schema.TaggedError<MLResourceNotFoundExceptionError>()("MLResourceNotFoundException", MLResourceNotFoundException) {};
-export class ReadOnlyViolationExceptionError extends Schema.TaggedError<ReadOnlyViolationExceptionError>()("ReadOnlyViolationException", ReadOnlyViolationException) {};
-export class TooManyRequestsExceptionError extends Schema.TaggedError<TooManyRequestsExceptionError>()("TooManyRequestsException", TooManyRequestsException) {};
-export class UnsupportedOperationExceptionError extends Schema.TaggedError<UnsupportedOperationExceptionError>()("UnsupportedOperationException", UnsupportedOperationException) {};
-export class ParsingExceptionError extends Schema.TaggedError<ParsingExceptionError>()("ParsingException", ParsingException) {};
-export class StatisticsNotAvailableExceptionError extends Schema.TaggedError<StatisticsNotAvailableExceptionError>()("StatisticsNotAvailableException", StatisticsNotAvailableException) {};
-export class LoadUrlAccessDeniedExceptionError extends Schema.TaggedError<LoadUrlAccessDeniedExceptionError>()("LoadUrlAccessDeniedException", LoadUrlAccessDeniedException) {};
-export class TimeLimitExceededExceptionError extends Schema.TaggedError<TimeLimitExceededExceptionError>()("TimeLimitExceededException", TimeLimitExceededException) {};
-export class MalformedQueryExceptionError extends Schema.TaggedError<MalformedQueryExceptionError>()("MalformedQueryException", MalformedQueryException) {};
-export class MemoryLimitExceededExceptionError extends Schema.TaggedError<MemoryLimitExceededExceptionError>()("MemoryLimitExceededException", MemoryLimitExceededException) {};
-export class QueryLimitExceededExceptionError extends Schema.TaggedError<QueryLimitExceededExceptionError>()("QueryLimitExceededException", QueryLimitExceededException) {};
-export class QueryLimitExceptionError extends Schema.TaggedError<QueryLimitExceptionError>()("QueryLimitException", QueryLimitException) {};
-export class QueryTooLargeExceptionError extends Schema.TaggedError<QueryTooLargeExceptionError>()("QueryTooLargeException", QueryTooLargeException) {};
-export class S3ExceptionError extends Schema.TaggedError<S3ExceptionError>()("S3Exception", S3Exception) {};
-export class MethodNotAllowedExceptionError extends Schema.TaggedError<MethodNotAllowedExceptionError>()("MethodNotAllowedException", MethodNotAllowedException) {};
-export class ExpiredStreamExceptionError extends Schema.TaggedError<ExpiredStreamExceptionError>()("ExpiredStreamException", ExpiredStreamException) {};
-export class ServerShutdownExceptionError extends Schema.TaggedError<ServerShutdownExceptionError>()("ServerShutdownException", ServerShutdownException) {};
-export class StreamRecordsNotFoundExceptionError extends Schema.TaggedError<StreamRecordsNotFoundExceptionError>()("StreamRecordsNotFoundException", StreamRecordsNotFoundException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class BadRequestExceptionError extends Schema.TaggedError<BadRequestExceptionError>()("BadRequestException", BadRequestException.fields) {};
+export class ClientTimeoutExceptionError extends Schema.TaggedError<ClientTimeoutExceptionError>()("ClientTimeoutException", ClientTimeoutException.fields) {};
+export class ConstraintViolationExceptionError extends Schema.TaggedError<ConstraintViolationExceptionError>()("ConstraintViolationException", ConstraintViolationException.fields) {};
+export class IllegalArgumentExceptionError extends Schema.TaggedError<IllegalArgumentExceptionError>()("IllegalArgumentException", IllegalArgumentException.fields) {};
+export class InvalidArgumentExceptionError extends Schema.TaggedError<InvalidArgumentExceptionError>()("InvalidArgumentException", InvalidArgumentException.fields) {};
+export class InvalidParameterExceptionError extends Schema.TaggedError<InvalidParameterExceptionError>()("InvalidParameterException", InvalidParameterException.fields) {};
+export class MissingParameterExceptionError extends Schema.TaggedError<MissingParameterExceptionError>()("MissingParameterException", MissingParameterException.fields) {};
+export class PreconditionsFailedExceptionError extends Schema.TaggedError<PreconditionsFailedExceptionError>()("PreconditionsFailedException", PreconditionsFailedException.fields) {};
+export class CancelledByUserExceptionError extends Schema.TaggedError<CancelledByUserExceptionError>()("CancelledByUserException", CancelledByUserException.fields) {};
+export class ConcurrentModificationExceptionError extends Schema.TaggedError<ConcurrentModificationExceptionError>()("ConcurrentModificationException", ConcurrentModificationException.fields) {};
+export class FailureByQueryExceptionError extends Schema.TaggedError<FailureByQueryExceptionError>()("FailureByQueryException", FailureByQueryException.fields) {};
+export class InvalidNumericDataExceptionError extends Schema.TaggedError<InvalidNumericDataExceptionError>()("InvalidNumericDataException", InvalidNumericDataException.fields) {};
+export class BulkLoadIdNotFoundExceptionError extends Schema.TaggedError<BulkLoadIdNotFoundExceptionError>()("BulkLoadIdNotFoundException", BulkLoadIdNotFoundException.fields) {};
+export class InternalFailureExceptionError extends Schema.TaggedError<InternalFailureExceptionError>()("InternalFailureException", InternalFailureException.fields) {};
+export class MLResourceNotFoundExceptionError extends Schema.TaggedError<MLResourceNotFoundExceptionError>()("MLResourceNotFoundException", MLResourceNotFoundException.fields) {};
+export class ReadOnlyViolationExceptionError extends Schema.TaggedError<ReadOnlyViolationExceptionError>()("ReadOnlyViolationException", ReadOnlyViolationException.fields) {};
+export class TooManyRequestsExceptionError extends Schema.TaggedError<TooManyRequestsExceptionError>()("TooManyRequestsException", TooManyRequestsException.fields) {};
+export class UnsupportedOperationExceptionError extends Schema.TaggedError<UnsupportedOperationExceptionError>()("UnsupportedOperationException", UnsupportedOperationException.fields) {};
+export class ParsingExceptionError extends Schema.TaggedError<ParsingExceptionError>()("ParsingException", ParsingException.fields) {};
+export class StatisticsNotAvailableExceptionError extends Schema.TaggedError<StatisticsNotAvailableExceptionError>()("StatisticsNotAvailableException", StatisticsNotAvailableException.fields) {};
+export class LoadUrlAccessDeniedExceptionError extends Schema.TaggedError<LoadUrlAccessDeniedExceptionError>()("LoadUrlAccessDeniedException", LoadUrlAccessDeniedException.fields) {};
+export class TimeLimitExceededExceptionError extends Schema.TaggedError<TimeLimitExceededExceptionError>()("TimeLimitExceededException", TimeLimitExceededException.fields) {};
+export class MalformedQueryExceptionError extends Schema.TaggedError<MalformedQueryExceptionError>()("MalformedQueryException", MalformedQueryException.fields) {};
+export class MemoryLimitExceededExceptionError extends Schema.TaggedError<MemoryLimitExceededExceptionError>()("MemoryLimitExceededException", MemoryLimitExceededException.fields) {};
+export class QueryLimitExceededExceptionError extends Schema.TaggedError<QueryLimitExceededExceptionError>()("QueryLimitExceededException", QueryLimitExceededException.fields) {};
+export class QueryLimitExceptionError extends Schema.TaggedError<QueryLimitExceptionError>()("QueryLimitException", QueryLimitException.fields) {};
+export class QueryTooLargeExceptionError extends Schema.TaggedError<QueryTooLargeExceptionError>()("QueryTooLargeException", QueryTooLargeException.fields) {};
+export class S3ExceptionError extends Schema.TaggedError<S3ExceptionError>()("S3Exception", S3Exception.fields) {};
+export class MethodNotAllowedExceptionError extends Schema.TaggedError<MethodNotAllowedExceptionError>()("MethodNotAllowedException", MethodNotAllowedException.fields) {};
+export class ExpiredStreamExceptionError extends Schema.TaggedError<ExpiredStreamExceptionError>()("ExpiredStreamException", ExpiredStreamException.fields) {};
+export class ServerShutdownExceptionError extends Schema.TaggedError<ServerShutdownExceptionError>()("ServerShutdownException", ServerShutdownException.fields) {};
+export class StreamRecordsNotFoundExceptionError extends Schema.TaggedError<StreamRecordsNotFoundExceptionError>()("StreamRecordsNotFoundException", StreamRecordsNotFoundException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
 
 //# Operations
 export const listMLEndpoints = /*#__PURE__*/ makeOperation(() => Operation({ version: "2023-08-01", uri: "/ml/endpoints", method: "GET", sdkId: "neptunedata", sigV4ServiceName: "neptune-db", name: "AmazonNeptuneDataplane.ListMLEndpoints" }, ListMLEndpointsInput, ListMLEndpointsOutput, [BadRequestExceptionError, ClientTimeoutExceptionError, ConstraintViolationExceptionError, IllegalArgumentExceptionError, InvalidArgumentExceptionError, InvalidParameterExceptionError, MissingParameterExceptionError, MLResourceNotFoundExceptionError, PreconditionsFailedExceptionError, TooManyRequestsExceptionError, UnsupportedOperationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

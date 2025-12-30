@@ -3,63 +3,63 @@ import { FormatAwsJSON11Request,FormatJSONResponse,FormatAwsRestJSONError, makeO
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const ListAvailableZonesRequest = Schema.Struct({});
+export class ListAvailableZonesRequest extends Schema.Class<ListAvailableZonesRequest>("ListAvailableZonesRequest")({}) {}
 export const HapgList = Schema.Array(Schema.String);
 export const AZList = Schema.Array(Schema.String);
 export const PartitionSerialList = Schema.Array(Schema.String);
 export const TagKeyList = Schema.Array(Schema.String);
-export const CreateHapgRequest = Schema.Struct({Label: Schema.String});
-export const CreateHsmRequest = Schema.Struct({SubnetId: Schema.String, SshKey: Schema.String, EniIp: Schema.optional(Schema.String), IamRoleArn: Schema.String, ExternalId: Schema.optional(Schema.String), SubscriptionType: Schema.String, ClientToken: Schema.optional(Schema.String), SyslogIp: Schema.optional(Schema.String)});
-export const CreateLunaClientRequest = Schema.Struct({Label: Schema.optional(Schema.String), Certificate: Schema.String});
-export const DeleteHapgRequest = Schema.Struct({HapgArn: Schema.String});
-export const DeleteHsmRequest = Schema.Struct({HsmArn: Schema.String});
-export const DeleteLunaClientRequest = Schema.Struct({ClientArn: Schema.String});
-export const DescribeHapgRequest = Schema.Struct({HapgArn: Schema.String});
-export const DescribeHsmRequest = Schema.Struct({HsmArn: Schema.optional(Schema.String), HsmSerialNumber: Schema.optional(Schema.String)});
-export const DescribeLunaClientRequest = Schema.Struct({ClientArn: Schema.optional(Schema.String), CertificateFingerprint: Schema.optional(Schema.String)});
-export const GetConfigRequest = Schema.Struct({ClientArn: Schema.String, ClientVersion: Schema.String, HapgList: HapgList});
-export const ListAvailableZonesResponse = Schema.Struct({AZList: Schema.optional(AZList)});
-export const ListHapgsRequest = Schema.Struct({NextToken: Schema.optional(Schema.String)});
-export const ListHsmsRequest = Schema.Struct({NextToken: Schema.optional(Schema.String)});
-export const ListLunaClientsRequest = Schema.Struct({NextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceRequest = Schema.Struct({ResourceArn: Schema.String});
-export const ModifyHapgRequest = Schema.Struct({HapgArn: Schema.String, Label: Schema.optional(Schema.String), PartitionSerialList: Schema.optional(PartitionSerialList)});
-export const ModifyHsmRequest = Schema.Struct({HsmArn: Schema.String, SubnetId: Schema.optional(Schema.String), EniIp: Schema.optional(Schema.String), IamRoleArn: Schema.optional(Schema.String), ExternalId: Schema.optional(Schema.String), SyslogIp: Schema.optional(Schema.String)});
-export const ModifyLunaClientRequest = Schema.Struct({ClientArn: Schema.String, Certificate: Schema.String});
-export const RemoveTagsFromResourceRequest = Schema.Struct({ResourceArn: Schema.String, TagKeyList: TagKeyList});
-export const Tag = Schema.Struct({Key: Schema.String, Value: Schema.String});
+export class CreateHapgRequest extends Schema.Class<CreateHapgRequest>("CreateHapgRequest")({Label: Schema.String}) {}
+export class CreateHsmRequest extends Schema.Class<CreateHsmRequest>("CreateHsmRequest")({SubnetId: Schema.String, SshKey: Schema.String, EniIp: Schema.optional(Schema.String), IamRoleArn: Schema.String, ExternalId: Schema.optional(Schema.String), SubscriptionType: Schema.String, ClientToken: Schema.optional(Schema.String), SyslogIp: Schema.optional(Schema.String)}) {}
+export class CreateLunaClientRequest extends Schema.Class<CreateLunaClientRequest>("CreateLunaClientRequest")({Label: Schema.optional(Schema.String), Certificate: Schema.String}) {}
+export class DeleteHapgRequest extends Schema.Class<DeleteHapgRequest>("DeleteHapgRequest")({HapgArn: Schema.String}) {}
+export class DeleteHsmRequest extends Schema.Class<DeleteHsmRequest>("DeleteHsmRequest")({HsmArn: Schema.String}) {}
+export class DeleteLunaClientRequest extends Schema.Class<DeleteLunaClientRequest>("DeleteLunaClientRequest")({ClientArn: Schema.String}) {}
+export class DescribeHapgRequest extends Schema.Class<DescribeHapgRequest>("DescribeHapgRequest")({HapgArn: Schema.String}) {}
+export class DescribeHsmRequest extends Schema.Class<DescribeHsmRequest>("DescribeHsmRequest")({HsmArn: Schema.optional(Schema.String), HsmSerialNumber: Schema.optional(Schema.String)}) {}
+export class DescribeLunaClientRequest extends Schema.Class<DescribeLunaClientRequest>("DescribeLunaClientRequest")({ClientArn: Schema.optional(Schema.String), CertificateFingerprint: Schema.optional(Schema.String)}) {}
+export class GetConfigRequest extends Schema.Class<GetConfigRequest>("GetConfigRequest")({ClientArn: Schema.String, ClientVersion: Schema.String, HapgList: HapgList}) {}
+export class ListAvailableZonesResponse extends Schema.Class<ListAvailableZonesResponse>("ListAvailableZonesResponse")({AZList: Schema.optional(AZList)}) {}
+export class ListHapgsRequest extends Schema.Class<ListHapgsRequest>("ListHapgsRequest")({NextToken: Schema.optional(Schema.String)}) {}
+export class ListHsmsRequest extends Schema.Class<ListHsmsRequest>("ListHsmsRequest")({NextToken: Schema.optional(Schema.String)}) {}
+export class ListLunaClientsRequest extends Schema.Class<ListLunaClientsRequest>("ListLunaClientsRequest")({NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({ResourceArn: Schema.String}) {}
+export class ModifyHapgRequest extends Schema.Class<ModifyHapgRequest>("ModifyHapgRequest")({HapgArn: Schema.String, Label: Schema.optional(Schema.String), PartitionSerialList: Schema.optional(PartitionSerialList)}) {}
+export class ModifyHsmRequest extends Schema.Class<ModifyHsmRequest>("ModifyHsmRequest")({HsmArn: Schema.String, SubnetId: Schema.optional(Schema.String), EniIp: Schema.optional(Schema.String), IamRoleArn: Schema.optional(Schema.String), ExternalId: Schema.optional(Schema.String), SyslogIp: Schema.optional(Schema.String)}) {}
+export class ModifyLunaClientRequest extends Schema.Class<ModifyLunaClientRequest>("ModifyLunaClientRequest")({ClientArn: Schema.String, Certificate: Schema.String}) {}
+export class RemoveTagsFromResourceRequest extends Schema.Class<RemoveTagsFromResourceRequest>("RemoveTagsFromResourceRequest")({ResourceArn: Schema.String, TagKeyList: TagKeyList}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.String, Value: Schema.String}) {}
 export const TagList = Schema.Array(Tag);
 export const HsmList = Schema.Array(Schema.String);
 export const PartitionList = Schema.Array(Schema.String);
 export const ClientList = Schema.Array(Schema.String);
-export const AddTagsToResourceRequest = Schema.Struct({ResourceArn: Schema.String, TagList: TagList});
-export const CreateHapgResponse = Schema.Struct({HapgArn: Schema.optional(Schema.String)});
-export const CreateHsmResponse = Schema.Struct({HsmArn: Schema.optional(Schema.String)});
-export const CreateLunaClientResponse = Schema.Struct({ClientArn: Schema.optional(Schema.String)});
-export const DeleteHapgResponse = Schema.Struct({Status: Schema.String});
-export const DeleteHsmResponse = Schema.Struct({Status: Schema.String});
-export const DeleteLunaClientResponse = Schema.Struct({Status: Schema.String});
-export const DescribeHapgResponse = Schema.Struct({HapgArn: Schema.optional(Schema.String), HapgSerial: Schema.optional(Schema.String), HsmsLastActionFailed: Schema.optional(HsmList), HsmsPendingDeletion: Schema.optional(HsmList), HsmsPendingRegistration: Schema.optional(HsmList), Label: Schema.optional(Schema.String), LastModifiedTimestamp: Schema.optional(Schema.String), PartitionSerialList: Schema.optional(PartitionSerialList), State: Schema.optional(Schema.String)});
-export const DescribeHsmResponse = Schema.Struct({HsmArn: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), StatusDetails: Schema.optional(Schema.String), AvailabilityZone: Schema.optional(Schema.String), EniId: Schema.optional(Schema.String), EniIp: Schema.optional(Schema.String), SubscriptionType: Schema.optional(Schema.String), SubscriptionStartDate: Schema.optional(Schema.String), SubscriptionEndDate: Schema.optional(Schema.String), VpcId: Schema.optional(Schema.String), SubnetId: Schema.optional(Schema.String), IamRoleArn: Schema.optional(Schema.String), SerialNumber: Schema.optional(Schema.String), VendorName: Schema.optional(Schema.String), HsmType: Schema.optional(Schema.String), SoftwareVersion: Schema.optional(Schema.String), SshPublicKey: Schema.optional(Schema.String), SshKeyLastUpdated: Schema.optional(Schema.String), ServerCertUri: Schema.optional(Schema.String), ServerCertLastUpdated: Schema.optional(Schema.String), Partitions: Schema.optional(PartitionList)});
-export const DescribeLunaClientResponse = Schema.Struct({ClientArn: Schema.optional(Schema.String), Certificate: Schema.optional(Schema.String), CertificateFingerprint: Schema.optional(Schema.String), LastModifiedTimestamp: Schema.optional(Schema.String), Label: Schema.optional(Schema.String)});
-export const GetConfigResponse = Schema.Struct({ConfigType: Schema.optional(Schema.String), ConfigFile: Schema.optional(Schema.String), ConfigCred: Schema.optional(Schema.String)});
-export const CloudHsmInternalException = Schema.Struct({message: Schema.optional(Schema.String), retryable: Schema.optional(Schema.Boolean)});
-export const ListHapgsResponse = Schema.Struct({HapgList: HapgList, NextToken: Schema.optional(Schema.String)});
-export const ListHsmsResponse = Schema.Struct({HsmList: Schema.optional(HsmList), NextToken: Schema.optional(Schema.String)});
-export const ListLunaClientsResponse = Schema.Struct({ClientList: ClientList, NextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceResponse = Schema.Struct({TagList: TagList});
-export const ModifyHapgResponse = Schema.Struct({HapgArn: Schema.optional(Schema.String)});
-export const ModifyHsmResponse = Schema.Struct({HsmArn: Schema.optional(Schema.String)});
-export const ModifyLunaClientResponse = Schema.Struct({ClientArn: Schema.optional(Schema.String)});
-export const RemoveTagsFromResourceResponse = Schema.Struct({Status: Schema.String});
-export const AddTagsToResourceResponse = Schema.Struct({Status: Schema.String});
-export const CloudHsmServiceException = Schema.Struct({message: Schema.optional(Schema.String), retryable: Schema.optional(Schema.Boolean)});
-export const InvalidRequestException = Schema.Struct({message: Schema.optional(Schema.String), retryable: Schema.optional(Schema.Boolean)});
+export class AddTagsToResourceRequest extends Schema.Class<AddTagsToResourceRequest>("AddTagsToResourceRequest")({ResourceArn: Schema.String, TagList: TagList}) {}
+export class CreateHapgResponse extends Schema.Class<CreateHapgResponse>("CreateHapgResponse")({HapgArn: Schema.optional(Schema.String)}) {}
+export class CreateHsmResponse extends Schema.Class<CreateHsmResponse>("CreateHsmResponse")({HsmArn: Schema.optional(Schema.String)}) {}
+export class CreateLunaClientResponse extends Schema.Class<CreateLunaClientResponse>("CreateLunaClientResponse")({ClientArn: Schema.optional(Schema.String)}) {}
+export class DeleteHapgResponse extends Schema.Class<DeleteHapgResponse>("DeleteHapgResponse")({Status: Schema.String}) {}
+export class DeleteHsmResponse extends Schema.Class<DeleteHsmResponse>("DeleteHsmResponse")({Status: Schema.String}) {}
+export class DeleteLunaClientResponse extends Schema.Class<DeleteLunaClientResponse>("DeleteLunaClientResponse")({Status: Schema.String}) {}
+export class DescribeHapgResponse extends Schema.Class<DescribeHapgResponse>("DescribeHapgResponse")({HapgArn: Schema.optional(Schema.String), HapgSerial: Schema.optional(Schema.String), HsmsLastActionFailed: Schema.optional(HsmList), HsmsPendingDeletion: Schema.optional(HsmList), HsmsPendingRegistration: Schema.optional(HsmList), Label: Schema.optional(Schema.String), LastModifiedTimestamp: Schema.optional(Schema.String), PartitionSerialList: Schema.optional(PartitionSerialList), State: Schema.optional(Schema.String)}) {}
+export class DescribeHsmResponse extends Schema.Class<DescribeHsmResponse>("DescribeHsmResponse")({HsmArn: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), StatusDetails: Schema.optional(Schema.String), AvailabilityZone: Schema.optional(Schema.String), EniId: Schema.optional(Schema.String), EniIp: Schema.optional(Schema.String), SubscriptionType: Schema.optional(Schema.String), SubscriptionStartDate: Schema.optional(Schema.String), SubscriptionEndDate: Schema.optional(Schema.String), VpcId: Schema.optional(Schema.String), SubnetId: Schema.optional(Schema.String), IamRoleArn: Schema.optional(Schema.String), SerialNumber: Schema.optional(Schema.String), VendorName: Schema.optional(Schema.String), HsmType: Schema.optional(Schema.String), SoftwareVersion: Schema.optional(Schema.String), SshPublicKey: Schema.optional(Schema.String), SshKeyLastUpdated: Schema.optional(Schema.String), ServerCertUri: Schema.optional(Schema.String), ServerCertLastUpdated: Schema.optional(Schema.String), Partitions: Schema.optional(PartitionList)}) {}
+export class DescribeLunaClientResponse extends Schema.Class<DescribeLunaClientResponse>("DescribeLunaClientResponse")({ClientArn: Schema.optional(Schema.String), Certificate: Schema.optional(Schema.String), CertificateFingerprint: Schema.optional(Schema.String), LastModifiedTimestamp: Schema.optional(Schema.String), Label: Schema.optional(Schema.String)}) {}
+export class GetConfigResponse extends Schema.Class<GetConfigResponse>("GetConfigResponse")({ConfigType: Schema.optional(Schema.String), ConfigFile: Schema.optional(Schema.String), ConfigCred: Schema.optional(Schema.String)}) {}
+export class CloudHsmInternalException extends Schema.Class<CloudHsmInternalException>("CloudHsmInternalException")({message: Schema.optional(Schema.String), retryable: Schema.optional(Schema.Boolean)}) {}
+export class ListHapgsResponse extends Schema.Class<ListHapgsResponse>("ListHapgsResponse")({HapgList: HapgList, NextToken: Schema.optional(Schema.String)}) {}
+export class ListHsmsResponse extends Schema.Class<ListHsmsResponse>("ListHsmsResponse")({HsmList: Schema.optional(HsmList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListLunaClientsResponse extends Schema.Class<ListLunaClientsResponse>("ListLunaClientsResponse")({ClientList: ClientList, NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({TagList: TagList}) {}
+export class ModifyHapgResponse extends Schema.Class<ModifyHapgResponse>("ModifyHapgResponse")({HapgArn: Schema.optional(Schema.String)}) {}
+export class ModifyHsmResponse extends Schema.Class<ModifyHsmResponse>("ModifyHsmResponse")({HsmArn: Schema.optional(Schema.String)}) {}
+export class ModifyLunaClientResponse extends Schema.Class<ModifyLunaClientResponse>("ModifyLunaClientResponse")({ClientArn: Schema.optional(Schema.String)}) {}
+export class RemoveTagsFromResourceResponse extends Schema.Class<RemoveTagsFromResourceResponse>("RemoveTagsFromResourceResponse")({Status: Schema.String}) {}
+export class AddTagsToResourceResponse extends Schema.Class<AddTagsToResourceResponse>("AddTagsToResourceResponse")({Status: Schema.String}) {}
+export class CloudHsmServiceException extends Schema.Class<CloudHsmServiceException>("CloudHsmServiceException")({message: Schema.optional(Schema.String), retryable: Schema.optional(Schema.Boolean)}) {}
+export class InvalidRequestException extends Schema.Class<InvalidRequestException>("InvalidRequestException")({message: Schema.optional(Schema.String), retryable: Schema.optional(Schema.Boolean)}) {}
 
 //# Errors
-export class CloudHsmInternalExceptionError extends Schema.TaggedError<CloudHsmInternalExceptionError>()("CloudHsmInternalException", CloudHsmInternalException) {};
-export class CloudHsmServiceExceptionError extends Schema.TaggedError<CloudHsmServiceExceptionError>()("CloudHsmServiceException", CloudHsmServiceException) {};
-export class InvalidRequestExceptionError extends Schema.TaggedError<InvalidRequestExceptionError>()("InvalidRequestException", InvalidRequestException) {};
+export class CloudHsmInternalExceptionError extends Schema.TaggedError<CloudHsmInternalExceptionError>()("CloudHsmInternalException", CloudHsmInternalException.fields) {};
+export class CloudHsmServiceExceptionError extends Schema.TaggedError<CloudHsmServiceExceptionError>()("CloudHsmServiceException", CloudHsmServiceException.fields) {};
+export class InvalidRequestExceptionError extends Schema.TaggedError<InvalidRequestExceptionError>()("InvalidRequestException", InvalidRequestException.fields) {};
 
 //# Operations
 export const createLunaClient = /*#__PURE__*/ makeOperation(() => Operation({ version: "2014-05-30", uri: "/", method: "POST", sdkId: "CloudHSM", sigV4ServiceName: "cloudhsm", name: "CloudHsmFrontendService.CreateLunaClient" }, CreateLunaClientRequest, CreateLunaClientResponse, [CloudHsmInternalExceptionError, CloudHsmServiceExceptionError, InvalidRequestExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

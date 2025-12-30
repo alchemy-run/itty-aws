@@ -4,202 +4,202 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 
 //# Schemas
 export const TagKeyList = Schema.Array(Schema.String);
-export const AttachManagedPolicyToPermissionSetRequest = Schema.Struct({InstanceArn: Schema.String, PermissionSetArn: Schema.String, ManagedPolicyArn: Schema.String});
-export const AttachManagedPolicyToPermissionSetResponse = Schema.Struct({});
-export const CreateAccountAssignmentRequest = Schema.Struct({InstanceArn: Schema.String, TargetId: Schema.String, TargetType: Schema.String, PermissionSetArn: Schema.String, PrincipalType: Schema.String, PrincipalId: Schema.String});
-export const CreateApplicationAssignmentRequest = Schema.Struct({ApplicationArn: Schema.String, PrincipalId: Schema.String, PrincipalType: Schema.String});
-export const CreateApplicationAssignmentResponse = Schema.Struct({});
-export const Tag = Schema.Struct({Key: Schema.String, Value: Schema.String});
+export class AttachManagedPolicyToPermissionSetRequest extends Schema.Class<AttachManagedPolicyToPermissionSetRequest>("AttachManagedPolicyToPermissionSetRequest")({InstanceArn: Schema.String, PermissionSetArn: Schema.String, ManagedPolicyArn: Schema.String}) {}
+export class AttachManagedPolicyToPermissionSetResponse extends Schema.Class<AttachManagedPolicyToPermissionSetResponse>("AttachManagedPolicyToPermissionSetResponse")({}) {}
+export class CreateAccountAssignmentRequest extends Schema.Class<CreateAccountAssignmentRequest>("CreateAccountAssignmentRequest")({InstanceArn: Schema.String, TargetId: Schema.String, TargetType: Schema.String, PermissionSetArn: Schema.String, PrincipalType: Schema.String, PrincipalId: Schema.String}) {}
+export class CreateApplicationAssignmentRequest extends Schema.Class<CreateApplicationAssignmentRequest>("CreateApplicationAssignmentRequest")({ApplicationArn: Schema.String, PrincipalId: Schema.String, PrincipalType: Schema.String}) {}
+export class CreateApplicationAssignmentResponse extends Schema.Class<CreateApplicationAssignmentResponse>("CreateApplicationAssignmentResponse")({}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.String, Value: Schema.String}) {}
 export const TagList = Schema.Array(Tag);
-export const CreateInstanceRequest = Schema.Struct({Name: Schema.optional(Schema.String), ClientToken: Schema.optional(Schema.String), Tags: Schema.optional(TagList)});
-export const CreatePermissionSetRequest = Schema.Struct({Name: Schema.String, Description: Schema.optional(Schema.String), InstanceArn: Schema.String, SessionDuration: Schema.optional(Schema.String), RelayState: Schema.optional(Schema.String), Tags: Schema.optional(TagList)});
-export const DeleteAccountAssignmentRequest = Schema.Struct({InstanceArn: Schema.String, TargetId: Schema.String, TargetType: Schema.String, PermissionSetArn: Schema.String, PrincipalType: Schema.String, PrincipalId: Schema.String});
-export const DeleteApplicationRequest = Schema.Struct({ApplicationArn: Schema.String});
-export const DeleteApplicationResponse = Schema.Struct({});
-export const DeleteApplicationAssignmentRequest = Schema.Struct({ApplicationArn: Schema.String, PrincipalId: Schema.String, PrincipalType: Schema.String});
-export const DeleteApplicationAssignmentResponse = Schema.Struct({});
-export const DeleteInlinePolicyFromPermissionSetRequest = Schema.Struct({InstanceArn: Schema.String, PermissionSetArn: Schema.String});
-export const DeleteInlinePolicyFromPermissionSetResponse = Schema.Struct({});
-export const DeleteInstanceRequest = Schema.Struct({InstanceArn: Schema.String});
-export const DeleteInstanceResponse = Schema.Struct({});
-export const DeleteInstanceAccessControlAttributeConfigurationRequest = Schema.Struct({InstanceArn: Schema.String});
-export const DeleteInstanceAccessControlAttributeConfigurationResponse = Schema.Struct({});
-export const DeletePermissionsBoundaryFromPermissionSetRequest = Schema.Struct({InstanceArn: Schema.String, PermissionSetArn: Schema.String});
-export const DeletePermissionsBoundaryFromPermissionSetResponse = Schema.Struct({});
-export const DeletePermissionSetRequest = Schema.Struct({InstanceArn: Schema.String, PermissionSetArn: Schema.String});
-export const DeletePermissionSetResponse = Schema.Struct({});
-export const DeleteTrustedTokenIssuerRequest = Schema.Struct({TrustedTokenIssuerArn: Schema.String});
-export const DeleteTrustedTokenIssuerResponse = Schema.Struct({});
-export const DescribeAccountAssignmentCreationStatusRequest = Schema.Struct({InstanceArn: Schema.String, AccountAssignmentCreationRequestId: Schema.String});
-export const DescribeAccountAssignmentDeletionStatusRequest = Schema.Struct({InstanceArn: Schema.String, AccountAssignmentDeletionRequestId: Schema.String});
-export const DescribeApplicationRequest = Schema.Struct({ApplicationArn: Schema.String});
-export const DescribeApplicationAssignmentRequest = Schema.Struct({ApplicationArn: Schema.String, PrincipalId: Schema.String, PrincipalType: Schema.String});
-export const DescribeApplicationProviderRequest = Schema.Struct({ApplicationProviderArn: Schema.String});
-export const DescribeInstanceRequest = Schema.Struct({InstanceArn: Schema.String});
-export const DescribeInstanceAccessControlAttributeConfigurationRequest = Schema.Struct({InstanceArn: Schema.String});
-export const DescribePermissionSetRequest = Schema.Struct({InstanceArn: Schema.String, PermissionSetArn: Schema.String});
-export const DescribePermissionSetProvisioningStatusRequest = Schema.Struct({InstanceArn: Schema.String, ProvisionPermissionSetRequestId: Schema.String});
-export const DescribeTrustedTokenIssuerRequest = Schema.Struct({TrustedTokenIssuerArn: Schema.String});
-export const CustomerManagedPolicyReference = Schema.Struct({Name: Schema.String, Path: Schema.optional(Schema.String)});
-export const DetachCustomerManagedPolicyReferenceFromPermissionSetRequest = Schema.Struct({InstanceArn: Schema.String, PermissionSetArn: Schema.String, CustomerManagedPolicyReference: CustomerManagedPolicyReference});
-export const DetachCustomerManagedPolicyReferenceFromPermissionSetResponse = Schema.Struct({});
-export const DetachManagedPolicyFromPermissionSetRequest = Schema.Struct({InstanceArn: Schema.String, PermissionSetArn: Schema.String, ManagedPolicyArn: Schema.String});
-export const DetachManagedPolicyFromPermissionSetResponse = Schema.Struct({});
-export const GetApplicationAssignmentConfigurationRequest = Schema.Struct({ApplicationArn: Schema.String});
-export const GetApplicationSessionConfigurationRequest = Schema.Struct({ApplicationArn: Schema.String});
-export const GetInlinePolicyForPermissionSetRequest = Schema.Struct({InstanceArn: Schema.String, PermissionSetArn: Schema.String});
-export const GetPermissionsBoundaryForPermissionSetRequest = Schema.Struct({InstanceArn: Schema.String, PermissionSetArn: Schema.String});
-export const OperationStatusFilter = Schema.Struct({Status: Schema.optional(Schema.String)});
-export const ListAccountAssignmentDeletionStatusRequest = Schema.Struct({InstanceArn: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), Filter: Schema.optional(OperationStatusFilter)});
-export const ListAccountAssignmentsRequest = Schema.Struct({InstanceArn: Schema.String, AccountId: Schema.String, PermissionSetArn: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListAccountsForProvisionedPermissionSetRequest = Schema.Struct({InstanceArn: Schema.String, PermissionSetArn: Schema.String, ProvisioningStatus: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListApplicationAssignmentsRequest = Schema.Struct({ApplicationArn: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListApplicationProvidersRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListCustomerManagedPolicyReferencesInPermissionSetRequest = Schema.Struct({InstanceArn: Schema.String, PermissionSetArn: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListInstancesRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListManagedPoliciesInPermissionSetRequest = Schema.Struct({InstanceArn: Schema.String, PermissionSetArn: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListPermissionSetProvisioningStatusRequest = Schema.Struct({InstanceArn: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), Filter: Schema.optional(OperationStatusFilter)});
-export const ListPermissionSetsRequest = Schema.Struct({InstanceArn: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListPermissionSetsProvisionedToAccountRequest = Schema.Struct({InstanceArn: Schema.String, AccountId: Schema.String, ProvisioningStatus: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceRequest = Schema.Struct({InstanceArn: Schema.optional(Schema.String), ResourceArn: Schema.String, NextToken: Schema.optional(Schema.String)});
-export const ListTrustedTokenIssuersRequest = Schema.Struct({InstanceArn: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ProvisionPermissionSetRequest = Schema.Struct({InstanceArn: Schema.String, PermissionSetArn: Schema.String, TargetId: Schema.optional(Schema.String), TargetType: Schema.String});
-export const PutApplicationAssignmentConfigurationRequest = Schema.Struct({ApplicationArn: Schema.String, AssignmentRequired: Schema.Boolean});
-export const PutApplicationAssignmentConfigurationResponse = Schema.Struct({});
-export const PutApplicationSessionConfigurationRequest = Schema.Struct({ApplicationArn: Schema.String, UserBackgroundSessionApplicationStatus: Schema.optional(Schema.String)});
-export const PutApplicationSessionConfigurationResponse = Schema.Struct({});
-export const PutInlinePolicyToPermissionSetRequest = Schema.Struct({InstanceArn: Schema.String, PermissionSetArn: Schema.String, InlinePolicy: Schema.String});
-export const PutInlinePolicyToPermissionSetResponse = Schema.Struct({});
-export const TagResourceRequest = Schema.Struct({InstanceArn: Schema.optional(Schema.String), ResourceArn: Schema.String, Tags: TagList});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({InstanceArn: Schema.optional(Schema.String), ResourceArn: Schema.String, TagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
+export class CreateInstanceRequest extends Schema.Class<CreateInstanceRequest>("CreateInstanceRequest")({Name: Schema.optional(Schema.String), ClientToken: Schema.optional(Schema.String), Tags: Schema.optional(TagList)}) {}
+export class CreatePermissionSetRequest extends Schema.Class<CreatePermissionSetRequest>("CreatePermissionSetRequest")({Name: Schema.String, Description: Schema.optional(Schema.String), InstanceArn: Schema.String, SessionDuration: Schema.optional(Schema.String), RelayState: Schema.optional(Schema.String), Tags: Schema.optional(TagList)}) {}
+export class DeleteAccountAssignmentRequest extends Schema.Class<DeleteAccountAssignmentRequest>("DeleteAccountAssignmentRequest")({InstanceArn: Schema.String, TargetId: Schema.String, TargetType: Schema.String, PermissionSetArn: Schema.String, PrincipalType: Schema.String, PrincipalId: Schema.String}) {}
+export class DeleteApplicationRequest extends Schema.Class<DeleteApplicationRequest>("DeleteApplicationRequest")({ApplicationArn: Schema.String}) {}
+export class DeleteApplicationResponse extends Schema.Class<DeleteApplicationResponse>("DeleteApplicationResponse")({}) {}
+export class DeleteApplicationAssignmentRequest extends Schema.Class<DeleteApplicationAssignmentRequest>("DeleteApplicationAssignmentRequest")({ApplicationArn: Schema.String, PrincipalId: Schema.String, PrincipalType: Schema.String}) {}
+export class DeleteApplicationAssignmentResponse extends Schema.Class<DeleteApplicationAssignmentResponse>("DeleteApplicationAssignmentResponse")({}) {}
+export class DeleteInlinePolicyFromPermissionSetRequest extends Schema.Class<DeleteInlinePolicyFromPermissionSetRequest>("DeleteInlinePolicyFromPermissionSetRequest")({InstanceArn: Schema.String, PermissionSetArn: Schema.String}) {}
+export class DeleteInlinePolicyFromPermissionSetResponse extends Schema.Class<DeleteInlinePolicyFromPermissionSetResponse>("DeleteInlinePolicyFromPermissionSetResponse")({}) {}
+export class DeleteInstanceRequest extends Schema.Class<DeleteInstanceRequest>("DeleteInstanceRequest")({InstanceArn: Schema.String}) {}
+export class DeleteInstanceResponse extends Schema.Class<DeleteInstanceResponse>("DeleteInstanceResponse")({}) {}
+export class DeleteInstanceAccessControlAttributeConfigurationRequest extends Schema.Class<DeleteInstanceAccessControlAttributeConfigurationRequest>("DeleteInstanceAccessControlAttributeConfigurationRequest")({InstanceArn: Schema.String}) {}
+export class DeleteInstanceAccessControlAttributeConfigurationResponse extends Schema.Class<DeleteInstanceAccessControlAttributeConfigurationResponse>("DeleteInstanceAccessControlAttributeConfigurationResponse")({}) {}
+export class DeletePermissionsBoundaryFromPermissionSetRequest extends Schema.Class<DeletePermissionsBoundaryFromPermissionSetRequest>("DeletePermissionsBoundaryFromPermissionSetRequest")({InstanceArn: Schema.String, PermissionSetArn: Schema.String}) {}
+export class DeletePermissionsBoundaryFromPermissionSetResponse extends Schema.Class<DeletePermissionsBoundaryFromPermissionSetResponse>("DeletePermissionsBoundaryFromPermissionSetResponse")({}) {}
+export class DeletePermissionSetRequest extends Schema.Class<DeletePermissionSetRequest>("DeletePermissionSetRequest")({InstanceArn: Schema.String, PermissionSetArn: Schema.String}) {}
+export class DeletePermissionSetResponse extends Schema.Class<DeletePermissionSetResponse>("DeletePermissionSetResponse")({}) {}
+export class DeleteTrustedTokenIssuerRequest extends Schema.Class<DeleteTrustedTokenIssuerRequest>("DeleteTrustedTokenIssuerRequest")({TrustedTokenIssuerArn: Schema.String}) {}
+export class DeleteTrustedTokenIssuerResponse extends Schema.Class<DeleteTrustedTokenIssuerResponse>("DeleteTrustedTokenIssuerResponse")({}) {}
+export class DescribeAccountAssignmentCreationStatusRequest extends Schema.Class<DescribeAccountAssignmentCreationStatusRequest>("DescribeAccountAssignmentCreationStatusRequest")({InstanceArn: Schema.String, AccountAssignmentCreationRequestId: Schema.String}) {}
+export class DescribeAccountAssignmentDeletionStatusRequest extends Schema.Class<DescribeAccountAssignmentDeletionStatusRequest>("DescribeAccountAssignmentDeletionStatusRequest")({InstanceArn: Schema.String, AccountAssignmentDeletionRequestId: Schema.String}) {}
+export class DescribeApplicationRequest extends Schema.Class<DescribeApplicationRequest>("DescribeApplicationRequest")({ApplicationArn: Schema.String}) {}
+export class DescribeApplicationAssignmentRequest extends Schema.Class<DescribeApplicationAssignmentRequest>("DescribeApplicationAssignmentRequest")({ApplicationArn: Schema.String, PrincipalId: Schema.String, PrincipalType: Schema.String}) {}
+export class DescribeApplicationProviderRequest extends Schema.Class<DescribeApplicationProviderRequest>("DescribeApplicationProviderRequest")({ApplicationProviderArn: Schema.String}) {}
+export class DescribeInstanceRequest extends Schema.Class<DescribeInstanceRequest>("DescribeInstanceRequest")({InstanceArn: Schema.String}) {}
+export class DescribeInstanceAccessControlAttributeConfigurationRequest extends Schema.Class<DescribeInstanceAccessControlAttributeConfigurationRequest>("DescribeInstanceAccessControlAttributeConfigurationRequest")({InstanceArn: Schema.String}) {}
+export class DescribePermissionSetRequest extends Schema.Class<DescribePermissionSetRequest>("DescribePermissionSetRequest")({InstanceArn: Schema.String, PermissionSetArn: Schema.String}) {}
+export class DescribePermissionSetProvisioningStatusRequest extends Schema.Class<DescribePermissionSetProvisioningStatusRequest>("DescribePermissionSetProvisioningStatusRequest")({InstanceArn: Schema.String, ProvisionPermissionSetRequestId: Schema.String}) {}
+export class DescribeTrustedTokenIssuerRequest extends Schema.Class<DescribeTrustedTokenIssuerRequest>("DescribeTrustedTokenIssuerRequest")({TrustedTokenIssuerArn: Schema.String}) {}
+export class CustomerManagedPolicyReference extends Schema.Class<CustomerManagedPolicyReference>("CustomerManagedPolicyReference")({Name: Schema.String, Path: Schema.optional(Schema.String)}) {}
+export class DetachCustomerManagedPolicyReferenceFromPermissionSetRequest extends Schema.Class<DetachCustomerManagedPolicyReferenceFromPermissionSetRequest>("DetachCustomerManagedPolicyReferenceFromPermissionSetRequest")({InstanceArn: Schema.String, PermissionSetArn: Schema.String, CustomerManagedPolicyReference: CustomerManagedPolicyReference}) {}
+export class DetachCustomerManagedPolicyReferenceFromPermissionSetResponse extends Schema.Class<DetachCustomerManagedPolicyReferenceFromPermissionSetResponse>("DetachCustomerManagedPolicyReferenceFromPermissionSetResponse")({}) {}
+export class DetachManagedPolicyFromPermissionSetRequest extends Schema.Class<DetachManagedPolicyFromPermissionSetRequest>("DetachManagedPolicyFromPermissionSetRequest")({InstanceArn: Schema.String, PermissionSetArn: Schema.String, ManagedPolicyArn: Schema.String}) {}
+export class DetachManagedPolicyFromPermissionSetResponse extends Schema.Class<DetachManagedPolicyFromPermissionSetResponse>("DetachManagedPolicyFromPermissionSetResponse")({}) {}
+export class GetApplicationAssignmentConfigurationRequest extends Schema.Class<GetApplicationAssignmentConfigurationRequest>("GetApplicationAssignmentConfigurationRequest")({ApplicationArn: Schema.String}) {}
+export class GetApplicationSessionConfigurationRequest extends Schema.Class<GetApplicationSessionConfigurationRequest>("GetApplicationSessionConfigurationRequest")({ApplicationArn: Schema.String}) {}
+export class GetInlinePolicyForPermissionSetRequest extends Schema.Class<GetInlinePolicyForPermissionSetRequest>("GetInlinePolicyForPermissionSetRequest")({InstanceArn: Schema.String, PermissionSetArn: Schema.String}) {}
+export class GetPermissionsBoundaryForPermissionSetRequest extends Schema.Class<GetPermissionsBoundaryForPermissionSetRequest>("GetPermissionsBoundaryForPermissionSetRequest")({InstanceArn: Schema.String, PermissionSetArn: Schema.String}) {}
+export class OperationStatusFilter extends Schema.Class<OperationStatusFilter>("OperationStatusFilter")({Status: Schema.optional(Schema.String)}) {}
+export class ListAccountAssignmentDeletionStatusRequest extends Schema.Class<ListAccountAssignmentDeletionStatusRequest>("ListAccountAssignmentDeletionStatusRequest")({InstanceArn: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), Filter: Schema.optional(OperationStatusFilter)}) {}
+export class ListAccountAssignmentsRequest extends Schema.Class<ListAccountAssignmentsRequest>("ListAccountAssignmentsRequest")({InstanceArn: Schema.String, AccountId: Schema.String, PermissionSetArn: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListAccountsForProvisionedPermissionSetRequest extends Schema.Class<ListAccountsForProvisionedPermissionSetRequest>("ListAccountsForProvisionedPermissionSetRequest")({InstanceArn: Schema.String, PermissionSetArn: Schema.String, ProvisioningStatus: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListApplicationAssignmentsRequest extends Schema.Class<ListApplicationAssignmentsRequest>("ListApplicationAssignmentsRequest")({ApplicationArn: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListApplicationProvidersRequest extends Schema.Class<ListApplicationProvidersRequest>("ListApplicationProvidersRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListCustomerManagedPolicyReferencesInPermissionSetRequest extends Schema.Class<ListCustomerManagedPolicyReferencesInPermissionSetRequest>("ListCustomerManagedPolicyReferencesInPermissionSetRequest")({InstanceArn: Schema.String, PermissionSetArn: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListInstancesRequest extends Schema.Class<ListInstancesRequest>("ListInstancesRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListManagedPoliciesInPermissionSetRequest extends Schema.Class<ListManagedPoliciesInPermissionSetRequest>("ListManagedPoliciesInPermissionSetRequest")({InstanceArn: Schema.String, PermissionSetArn: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListPermissionSetProvisioningStatusRequest extends Schema.Class<ListPermissionSetProvisioningStatusRequest>("ListPermissionSetProvisioningStatusRequest")({InstanceArn: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), Filter: Schema.optional(OperationStatusFilter)}) {}
+export class ListPermissionSetsRequest extends Schema.Class<ListPermissionSetsRequest>("ListPermissionSetsRequest")({InstanceArn: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListPermissionSetsProvisionedToAccountRequest extends Schema.Class<ListPermissionSetsProvisionedToAccountRequest>("ListPermissionSetsProvisionedToAccountRequest")({InstanceArn: Schema.String, AccountId: Schema.String, ProvisioningStatus: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({InstanceArn: Schema.optional(Schema.String), ResourceArn: Schema.String, NextToken: Schema.optional(Schema.String)}) {}
+export class ListTrustedTokenIssuersRequest extends Schema.Class<ListTrustedTokenIssuersRequest>("ListTrustedTokenIssuersRequest")({InstanceArn: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ProvisionPermissionSetRequest extends Schema.Class<ProvisionPermissionSetRequest>("ProvisionPermissionSetRequest")({InstanceArn: Schema.String, PermissionSetArn: Schema.String, TargetId: Schema.optional(Schema.String), TargetType: Schema.String}) {}
+export class PutApplicationAssignmentConfigurationRequest extends Schema.Class<PutApplicationAssignmentConfigurationRequest>("PutApplicationAssignmentConfigurationRequest")({ApplicationArn: Schema.String, AssignmentRequired: Schema.Boolean}) {}
+export class PutApplicationAssignmentConfigurationResponse extends Schema.Class<PutApplicationAssignmentConfigurationResponse>("PutApplicationAssignmentConfigurationResponse")({}) {}
+export class PutApplicationSessionConfigurationRequest extends Schema.Class<PutApplicationSessionConfigurationRequest>("PutApplicationSessionConfigurationRequest")({ApplicationArn: Schema.String, UserBackgroundSessionApplicationStatus: Schema.optional(Schema.String)}) {}
+export class PutApplicationSessionConfigurationResponse extends Schema.Class<PutApplicationSessionConfigurationResponse>("PutApplicationSessionConfigurationResponse")({}) {}
+export class PutInlinePolicyToPermissionSetRequest extends Schema.Class<PutInlinePolicyToPermissionSetRequest>("PutInlinePolicyToPermissionSetRequest")({InstanceArn: Schema.String, PermissionSetArn: Schema.String, InlinePolicy: Schema.String}) {}
+export class PutInlinePolicyToPermissionSetResponse extends Schema.Class<PutInlinePolicyToPermissionSetResponse>("PutInlinePolicyToPermissionSetResponse")({}) {}
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({InstanceArn: Schema.optional(Schema.String), ResourceArn: Schema.String, Tags: TagList}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({InstanceArn: Schema.optional(Schema.String), ResourceArn: Schema.String, TagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
 export const AccessControlAttributeValueSourceList = Schema.Array(Schema.String);
-export const AccessControlAttributeValue = Schema.Struct({Source: AccessControlAttributeValueSourceList});
-export const AccessControlAttribute = Schema.Struct({Key: Schema.String, Value: AccessControlAttributeValue});
+export class AccessControlAttributeValue extends Schema.Class<AccessControlAttributeValue>("AccessControlAttributeValue")({Source: AccessControlAttributeValueSourceList}) {}
+export class AccessControlAttribute extends Schema.Class<AccessControlAttribute>("AccessControlAttribute")({Key: Schema.String, Value: AccessControlAttributeValue}) {}
 export const AccessControlAttributeList = Schema.Array(AccessControlAttribute);
-export const InstanceAccessControlAttributeConfiguration = Schema.Struct({AccessControlAttributes: AccessControlAttributeList});
-export const UpdateInstanceAccessControlAttributeConfigurationRequest = Schema.Struct({InstanceArn: Schema.String, InstanceAccessControlAttributeConfiguration: InstanceAccessControlAttributeConfiguration});
-export const UpdateInstanceAccessControlAttributeConfigurationResponse = Schema.Struct({});
-export const UpdatePermissionSetRequest = Schema.Struct({InstanceArn: Schema.String, PermissionSetArn: Schema.String, Description: Schema.optional(Schema.String), SessionDuration: Schema.optional(Schema.String), RelayState: Schema.optional(Schema.String)});
-export const UpdatePermissionSetResponse = Schema.Struct({});
-export const ListAccountAssignmentsFilter = Schema.Struct({AccountId: Schema.optional(Schema.String)});
+export class InstanceAccessControlAttributeConfiguration extends Schema.Class<InstanceAccessControlAttributeConfiguration>("InstanceAccessControlAttributeConfiguration")({AccessControlAttributes: AccessControlAttributeList}) {}
+export class UpdateInstanceAccessControlAttributeConfigurationRequest extends Schema.Class<UpdateInstanceAccessControlAttributeConfigurationRequest>("UpdateInstanceAccessControlAttributeConfigurationRequest")({InstanceArn: Schema.String, InstanceAccessControlAttributeConfiguration: InstanceAccessControlAttributeConfiguration}) {}
+export class UpdateInstanceAccessControlAttributeConfigurationResponse extends Schema.Class<UpdateInstanceAccessControlAttributeConfigurationResponse>("UpdateInstanceAccessControlAttributeConfigurationResponse")({}) {}
+export class UpdatePermissionSetRequest extends Schema.Class<UpdatePermissionSetRequest>("UpdatePermissionSetRequest")({InstanceArn: Schema.String, PermissionSetArn: Schema.String, Description: Schema.optional(Schema.String), SessionDuration: Schema.optional(Schema.String), RelayState: Schema.optional(Schema.String)}) {}
+export class UpdatePermissionSetResponse extends Schema.Class<UpdatePermissionSetResponse>("UpdatePermissionSetResponse")({}) {}
+export class ListAccountAssignmentsFilter extends Schema.Class<ListAccountAssignmentsFilter>("ListAccountAssignmentsFilter")({AccountId: Schema.optional(Schema.String)}) {}
 export const AccountList = Schema.Array(Schema.String);
-export const ListApplicationAssignmentsFilter = Schema.Struct({ApplicationArn: Schema.optional(Schema.String)});
-export const ListApplicationsFilter = Schema.Struct({ApplicationAccount: Schema.optional(Schema.String), ApplicationProvider: Schema.optional(Schema.String)});
+export class ListApplicationAssignmentsFilter extends Schema.Class<ListApplicationAssignmentsFilter>("ListApplicationAssignmentsFilter")({ApplicationArn: Schema.optional(Schema.String)}) {}
+export class ListApplicationsFilter extends Schema.Class<ListApplicationsFilter>("ListApplicationsFilter")({ApplicationAccount: Schema.optional(Schema.String), ApplicationProvider: Schema.optional(Schema.String)}) {}
 export const CustomerManagedPolicyReferenceList = Schema.Array(CustomerManagedPolicyReference);
 export const PermissionSetList = Schema.Array(Schema.String);
-export const PermissionsBoundary = Schema.Struct({CustomerManagedPolicyReference: Schema.optional(CustomerManagedPolicyReference), ManagedPolicyArn: Schema.optional(Schema.String)});
-export const SignInOptions = Schema.Struct({Origin: Schema.String, ApplicationUrl: Schema.optional(Schema.String)});
-export const UpdateApplicationPortalOptions = Schema.Struct({SignInOptions: Schema.optional(SignInOptions)});
-export const EncryptionConfiguration = Schema.Struct({KeyType: Schema.String, KmsKeyArn: Schema.optional(Schema.String)});
-export const AttachCustomerManagedPolicyReferenceToPermissionSetRequest = Schema.Struct({InstanceArn: Schema.String, PermissionSetArn: Schema.String, CustomerManagedPolicyReference: CustomerManagedPolicyReference});
-export const AttachCustomerManagedPolicyReferenceToPermissionSetResponse = Schema.Struct({});
-export const AccessDeniedException = Schema.Struct({Message: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String)});
-export const ConflictException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const CreateInstanceResponse = Schema.Struct({InstanceArn: Schema.optional(Schema.String)});
-export const AccountAssignmentOperationStatus = Schema.Struct({Status: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String), FailureReason: Schema.optional(Schema.String), TargetId: Schema.optional(Schema.String), TargetType: Schema.optional(Schema.String), PermissionSetArn: Schema.optional(Schema.String), PrincipalType: Schema.optional(Schema.String), PrincipalId: Schema.optional(Schema.String), CreatedDate: Schema.optional(Schema.Date)});
-export const DeleteAccountAssignmentResponse = Schema.Struct({AccountAssignmentDeletionStatus: Schema.optional(AccountAssignmentOperationStatus)});
-export const InternalServerException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String)});
-export const ThrottlingException = Schema.Struct({Message: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String)});
-export const ValidationException = Schema.Struct({Message: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String)});
-export const DescribeAccountAssignmentCreationStatusResponse = Schema.Struct({AccountAssignmentCreationStatus: Schema.optional(AccountAssignmentOperationStatus)});
-export const DescribeAccountAssignmentDeletionStatusResponse = Schema.Struct({AccountAssignmentDeletionStatus: Schema.optional(AccountAssignmentOperationStatus)});
-export const PortalOptions = Schema.Struct({SignInOptions: Schema.optional(SignInOptions), Visibility: Schema.optional(Schema.String)});
-export const DescribeApplicationResponse = Schema.Struct({ApplicationArn: Schema.optional(Schema.String), ApplicationProviderArn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), ApplicationAccount: Schema.optional(Schema.String), InstanceArn: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), PortalOptions: Schema.optional(PortalOptions), Description: Schema.optional(Schema.String), CreatedDate: Schema.optional(Schema.Date)});
-export const DescribeApplicationAssignmentResponse = Schema.Struct({PrincipalType: Schema.optional(Schema.String), PrincipalId: Schema.optional(Schema.String), ApplicationArn: Schema.optional(Schema.String)});
-export const DescribeInstanceAccessControlAttributeConfigurationResponse = Schema.Struct({Status: Schema.optional(Schema.String), StatusReason: Schema.optional(Schema.String), InstanceAccessControlAttributeConfiguration: Schema.optional(InstanceAccessControlAttributeConfiguration)});
-export const PermissionSet = Schema.Struct({Name: Schema.optional(Schema.String), PermissionSetArn: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), CreatedDate: Schema.optional(Schema.Date), SessionDuration: Schema.optional(Schema.String), RelayState: Schema.optional(Schema.String)});
-export const DescribePermissionSetResponse = Schema.Struct({PermissionSet: Schema.optional(PermissionSet)});
-export const OidcJwtConfiguration = Schema.Struct({IssuerUrl: Schema.String, ClaimAttributePath: Schema.String, IdentityStoreAttributePath: Schema.String, JwksRetrievalOption: Schema.String});
+export class PermissionsBoundary extends Schema.Class<PermissionsBoundary>("PermissionsBoundary")({CustomerManagedPolicyReference: Schema.optional(CustomerManagedPolicyReference), ManagedPolicyArn: Schema.optional(Schema.String)}) {}
+export class SignInOptions extends Schema.Class<SignInOptions>("SignInOptions")({Origin: Schema.String, ApplicationUrl: Schema.optional(Schema.String)}) {}
+export class UpdateApplicationPortalOptions extends Schema.Class<UpdateApplicationPortalOptions>("UpdateApplicationPortalOptions")({SignInOptions: Schema.optional(SignInOptions)}) {}
+export class EncryptionConfiguration extends Schema.Class<EncryptionConfiguration>("EncryptionConfiguration")({KeyType: Schema.String, KmsKeyArn: Schema.optional(Schema.String)}) {}
+export class AttachCustomerManagedPolicyReferenceToPermissionSetRequest extends Schema.Class<AttachCustomerManagedPolicyReferenceToPermissionSetRequest>("AttachCustomerManagedPolicyReferenceToPermissionSetRequest")({InstanceArn: Schema.String, PermissionSetArn: Schema.String, CustomerManagedPolicyReference: CustomerManagedPolicyReference}) {}
+export class AttachCustomerManagedPolicyReferenceToPermissionSetResponse extends Schema.Class<AttachCustomerManagedPolicyReferenceToPermissionSetResponse>("AttachCustomerManagedPolicyReferenceToPermissionSetResponse")({}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({Message: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({Message: Schema.optional(Schema.String)}) {}
+export class CreateInstanceResponse extends Schema.Class<CreateInstanceResponse>("CreateInstanceResponse")({InstanceArn: Schema.optional(Schema.String)}) {}
+export class AccountAssignmentOperationStatus extends Schema.Class<AccountAssignmentOperationStatus>("AccountAssignmentOperationStatus")({Status: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String), FailureReason: Schema.optional(Schema.String), TargetId: Schema.optional(Schema.String), TargetType: Schema.optional(Schema.String), PermissionSetArn: Schema.optional(Schema.String), PrincipalType: Schema.optional(Schema.String), PrincipalId: Schema.optional(Schema.String), CreatedDate: Schema.optional(Schema.Date)}) {}
+export class DeleteAccountAssignmentResponse extends Schema.Class<DeleteAccountAssignmentResponse>("DeleteAccountAssignmentResponse")({AccountAssignmentDeletionStatus: Schema.optional(AccountAssignmentOperationStatus)}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({Message: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({Message: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({Message: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({Message: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String)}) {}
+export class DescribeAccountAssignmentCreationStatusResponse extends Schema.Class<DescribeAccountAssignmentCreationStatusResponse>("DescribeAccountAssignmentCreationStatusResponse")({AccountAssignmentCreationStatus: Schema.optional(AccountAssignmentOperationStatus)}) {}
+export class DescribeAccountAssignmentDeletionStatusResponse extends Schema.Class<DescribeAccountAssignmentDeletionStatusResponse>("DescribeAccountAssignmentDeletionStatusResponse")({AccountAssignmentDeletionStatus: Schema.optional(AccountAssignmentOperationStatus)}) {}
+export class PortalOptions extends Schema.Class<PortalOptions>("PortalOptions")({SignInOptions: Schema.optional(SignInOptions), Visibility: Schema.optional(Schema.String)}) {}
+export class DescribeApplicationResponse extends Schema.Class<DescribeApplicationResponse>("DescribeApplicationResponse")({ApplicationArn: Schema.optional(Schema.String), ApplicationProviderArn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), ApplicationAccount: Schema.optional(Schema.String), InstanceArn: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), PortalOptions: Schema.optional(PortalOptions), Description: Schema.optional(Schema.String), CreatedDate: Schema.optional(Schema.Date)}) {}
+export class DescribeApplicationAssignmentResponse extends Schema.Class<DescribeApplicationAssignmentResponse>("DescribeApplicationAssignmentResponse")({PrincipalType: Schema.optional(Schema.String), PrincipalId: Schema.optional(Schema.String), ApplicationArn: Schema.optional(Schema.String)}) {}
+export class DescribeInstanceAccessControlAttributeConfigurationResponse extends Schema.Class<DescribeInstanceAccessControlAttributeConfigurationResponse>("DescribeInstanceAccessControlAttributeConfigurationResponse")({Status: Schema.optional(Schema.String), StatusReason: Schema.optional(Schema.String), InstanceAccessControlAttributeConfiguration: Schema.optional(InstanceAccessControlAttributeConfiguration)}) {}
+export class PermissionSet extends Schema.Class<PermissionSet>("PermissionSet")({Name: Schema.optional(Schema.String), PermissionSetArn: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), CreatedDate: Schema.optional(Schema.Date), SessionDuration: Schema.optional(Schema.String), RelayState: Schema.optional(Schema.String)}) {}
+export class DescribePermissionSetResponse extends Schema.Class<DescribePermissionSetResponse>("DescribePermissionSetResponse")({PermissionSet: Schema.optional(PermissionSet)}) {}
+export class OidcJwtConfiguration extends Schema.Class<OidcJwtConfiguration>("OidcJwtConfiguration")({IssuerUrl: Schema.String, ClaimAttributePath: Schema.String, IdentityStoreAttributePath: Schema.String, JwksRetrievalOption: Schema.String}) {}
 export const TrustedTokenIssuerConfiguration = Schema.Union(OidcJwtConfiguration);
-export const DescribeTrustedTokenIssuerResponse = Schema.Struct({TrustedTokenIssuerArn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), TrustedTokenIssuerType: Schema.optional(Schema.String), TrustedTokenIssuerConfiguration: Schema.optional(TrustedTokenIssuerConfiguration)});
-export const GetApplicationAssignmentConfigurationResponse = Schema.Struct({AssignmentRequired: Schema.Boolean});
-export const GetApplicationSessionConfigurationResponse = Schema.Struct({UserBackgroundSessionApplicationStatus: Schema.optional(Schema.String)});
-export const GetInlinePolicyForPermissionSetResponse = Schema.Struct({InlinePolicy: Schema.optional(Schema.String)});
-export const GetPermissionsBoundaryForPermissionSetResponse = Schema.Struct({PermissionsBoundary: Schema.optional(PermissionsBoundary)});
-export const ListAccountAssignmentCreationStatusRequest = Schema.Struct({InstanceArn: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), Filter: Schema.optional(OperationStatusFilter)});
-export const ListAccountAssignmentsForPrincipalRequest = Schema.Struct({InstanceArn: Schema.String, PrincipalId: Schema.String, PrincipalType: Schema.String, Filter: Schema.optional(ListAccountAssignmentsFilter), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListAccountsForProvisionedPermissionSetResponse = Schema.Struct({AccountIds: Schema.optional(AccountList), NextToken: Schema.optional(Schema.String)});
-export const ListApplicationAssignmentsForPrincipalRequest = Schema.Struct({InstanceArn: Schema.String, PrincipalId: Schema.String, PrincipalType: Schema.String, Filter: Schema.optional(ListApplicationAssignmentsFilter), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListApplicationsRequest = Schema.Struct({InstanceArn: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), Filter: Schema.optional(ListApplicationsFilter)});
-export const ListCustomerManagedPolicyReferencesInPermissionSetResponse = Schema.Struct({CustomerManagedPolicyReferences: Schema.optional(CustomerManagedPolicyReferenceList), NextToken: Schema.optional(Schema.String)});
-export const ListPermissionSetsResponse = Schema.Struct({PermissionSets: Schema.optional(PermissionSetList), NextToken: Schema.optional(Schema.String)});
-export const ListPermissionSetsProvisionedToAccountResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), PermissionSets: Schema.optional(PermissionSetList)});
-export const ListTagsForResourceResponse = Schema.Struct({Tags: Schema.optional(TagList), NextToken: Schema.optional(Schema.String)});
-export const PermissionSetProvisioningStatus = Schema.Struct({Status: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String), AccountId: Schema.optional(Schema.String), PermissionSetArn: Schema.optional(Schema.String), FailureReason: Schema.optional(Schema.String), CreatedDate: Schema.optional(Schema.Date)});
-export const ProvisionPermissionSetResponse = Schema.Struct({PermissionSetProvisioningStatus: Schema.optional(PermissionSetProvisioningStatus)});
-export const ServiceQuotaExceededException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const PutPermissionsBoundaryToPermissionSetRequest = Schema.Struct({InstanceArn: Schema.String, PermissionSetArn: Schema.String, PermissionsBoundary: PermissionsBoundary});
-export const PutPermissionsBoundaryToPermissionSetResponse = Schema.Struct({});
-export const UpdateApplicationRequest = Schema.Struct({ApplicationArn: Schema.String, Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), PortalOptions: Schema.optional(UpdateApplicationPortalOptions)});
-export const UpdateApplicationResponse = Schema.Struct({});
-export const UpdateInstanceRequest = Schema.Struct({Name: Schema.optional(Schema.String), InstanceArn: Schema.String, EncryptionConfiguration: Schema.optional(EncryptionConfiguration)});
-export const UpdateInstanceResponse = Schema.Struct({});
-export const OidcJwtUpdateConfiguration = Schema.Struct({ClaimAttributePath: Schema.optional(Schema.String), IdentityStoreAttributePath: Schema.optional(Schema.String), JwksRetrievalOption: Schema.optional(Schema.String)});
-export const DisplayData = Schema.Struct({DisplayName: Schema.optional(Schema.String), IconUrl: Schema.optional(Schema.String), Description: Schema.optional(Schema.String)});
-export const EncryptionConfigurationDetails = Schema.Struct({KeyType: Schema.optional(Schema.String), KmsKeyArn: Schema.optional(Schema.String), EncryptionStatus: Schema.optional(Schema.String), EncryptionStatusReason: Schema.optional(Schema.String)});
-export const AccountAssignmentOperationStatusMetadata = Schema.Struct({Status: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String), CreatedDate: Schema.optional(Schema.Date)});
+export class DescribeTrustedTokenIssuerResponse extends Schema.Class<DescribeTrustedTokenIssuerResponse>("DescribeTrustedTokenIssuerResponse")({TrustedTokenIssuerArn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), TrustedTokenIssuerType: Schema.optional(Schema.String), TrustedTokenIssuerConfiguration: Schema.optional(TrustedTokenIssuerConfiguration)}) {}
+export class GetApplicationAssignmentConfigurationResponse extends Schema.Class<GetApplicationAssignmentConfigurationResponse>("GetApplicationAssignmentConfigurationResponse")({AssignmentRequired: Schema.Boolean}) {}
+export class GetApplicationSessionConfigurationResponse extends Schema.Class<GetApplicationSessionConfigurationResponse>("GetApplicationSessionConfigurationResponse")({UserBackgroundSessionApplicationStatus: Schema.optional(Schema.String)}) {}
+export class GetInlinePolicyForPermissionSetResponse extends Schema.Class<GetInlinePolicyForPermissionSetResponse>("GetInlinePolicyForPermissionSetResponse")({InlinePolicy: Schema.optional(Schema.String)}) {}
+export class GetPermissionsBoundaryForPermissionSetResponse extends Schema.Class<GetPermissionsBoundaryForPermissionSetResponse>("GetPermissionsBoundaryForPermissionSetResponse")({PermissionsBoundary: Schema.optional(PermissionsBoundary)}) {}
+export class ListAccountAssignmentCreationStatusRequest extends Schema.Class<ListAccountAssignmentCreationStatusRequest>("ListAccountAssignmentCreationStatusRequest")({InstanceArn: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), Filter: Schema.optional(OperationStatusFilter)}) {}
+export class ListAccountAssignmentsForPrincipalRequest extends Schema.Class<ListAccountAssignmentsForPrincipalRequest>("ListAccountAssignmentsForPrincipalRequest")({InstanceArn: Schema.String, PrincipalId: Schema.String, PrincipalType: Schema.String, Filter: Schema.optional(ListAccountAssignmentsFilter), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListAccountsForProvisionedPermissionSetResponse extends Schema.Class<ListAccountsForProvisionedPermissionSetResponse>("ListAccountsForProvisionedPermissionSetResponse")({AccountIds: Schema.optional(AccountList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListApplicationAssignmentsForPrincipalRequest extends Schema.Class<ListApplicationAssignmentsForPrincipalRequest>("ListApplicationAssignmentsForPrincipalRequest")({InstanceArn: Schema.String, PrincipalId: Schema.String, PrincipalType: Schema.String, Filter: Schema.optional(ListApplicationAssignmentsFilter), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListApplicationsRequest extends Schema.Class<ListApplicationsRequest>("ListApplicationsRequest")({InstanceArn: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), Filter: Schema.optional(ListApplicationsFilter)}) {}
+export class ListCustomerManagedPolicyReferencesInPermissionSetResponse extends Schema.Class<ListCustomerManagedPolicyReferencesInPermissionSetResponse>("ListCustomerManagedPolicyReferencesInPermissionSetResponse")({CustomerManagedPolicyReferences: Schema.optional(CustomerManagedPolicyReferenceList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListPermissionSetsResponse extends Schema.Class<ListPermissionSetsResponse>("ListPermissionSetsResponse")({PermissionSets: Schema.optional(PermissionSetList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListPermissionSetsProvisionedToAccountResponse extends Schema.Class<ListPermissionSetsProvisionedToAccountResponse>("ListPermissionSetsProvisionedToAccountResponse")({NextToken: Schema.optional(Schema.String), PermissionSets: Schema.optional(PermissionSetList)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({Tags: Schema.optional(TagList), NextToken: Schema.optional(Schema.String)}) {}
+export class PermissionSetProvisioningStatus extends Schema.Class<PermissionSetProvisioningStatus>("PermissionSetProvisioningStatus")({Status: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String), AccountId: Schema.optional(Schema.String), PermissionSetArn: Schema.optional(Schema.String), FailureReason: Schema.optional(Schema.String), CreatedDate: Schema.optional(Schema.Date)}) {}
+export class ProvisionPermissionSetResponse extends Schema.Class<ProvisionPermissionSetResponse>("ProvisionPermissionSetResponse")({PermissionSetProvisioningStatus: Schema.optional(PermissionSetProvisioningStatus)}) {}
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({Message: Schema.optional(Schema.String)}) {}
+export class PutPermissionsBoundaryToPermissionSetRequest extends Schema.Class<PutPermissionsBoundaryToPermissionSetRequest>("PutPermissionsBoundaryToPermissionSetRequest")({InstanceArn: Schema.String, PermissionSetArn: Schema.String, PermissionsBoundary: PermissionsBoundary}) {}
+export class PutPermissionsBoundaryToPermissionSetResponse extends Schema.Class<PutPermissionsBoundaryToPermissionSetResponse>("PutPermissionsBoundaryToPermissionSetResponse")({}) {}
+export class UpdateApplicationRequest extends Schema.Class<UpdateApplicationRequest>("UpdateApplicationRequest")({ApplicationArn: Schema.String, Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), PortalOptions: Schema.optional(UpdateApplicationPortalOptions)}) {}
+export class UpdateApplicationResponse extends Schema.Class<UpdateApplicationResponse>("UpdateApplicationResponse")({}) {}
+export class UpdateInstanceRequest extends Schema.Class<UpdateInstanceRequest>("UpdateInstanceRequest")({Name: Schema.optional(Schema.String), InstanceArn: Schema.String, EncryptionConfiguration: Schema.optional(EncryptionConfiguration)}) {}
+export class UpdateInstanceResponse extends Schema.Class<UpdateInstanceResponse>("UpdateInstanceResponse")({}) {}
+export class OidcJwtUpdateConfiguration extends Schema.Class<OidcJwtUpdateConfiguration>("OidcJwtUpdateConfiguration")({ClaimAttributePath: Schema.optional(Schema.String), IdentityStoreAttributePath: Schema.optional(Schema.String), JwksRetrievalOption: Schema.optional(Schema.String)}) {}
+export class DisplayData extends Schema.Class<DisplayData>("DisplayData")({DisplayName: Schema.optional(Schema.String), IconUrl: Schema.optional(Schema.String), Description: Schema.optional(Schema.String)}) {}
+export class EncryptionConfigurationDetails extends Schema.Class<EncryptionConfigurationDetails>("EncryptionConfigurationDetails")({KeyType: Schema.optional(Schema.String), KmsKeyArn: Schema.optional(Schema.String), EncryptionStatus: Schema.optional(Schema.String), EncryptionStatusReason: Schema.optional(Schema.String)}) {}
+export class AccountAssignmentOperationStatusMetadata extends Schema.Class<AccountAssignmentOperationStatusMetadata>("AccountAssignmentOperationStatusMetadata")({Status: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String), CreatedDate: Schema.optional(Schema.Date)}) {}
 export const AccountAssignmentOperationStatusList = Schema.Array(AccountAssignmentOperationStatusMetadata);
-export const AccountAssignment = Schema.Struct({AccountId: Schema.optional(Schema.String), PermissionSetArn: Schema.optional(Schema.String), PrincipalType: Schema.optional(Schema.String), PrincipalId: Schema.optional(Schema.String)});
+export class AccountAssignment extends Schema.Class<AccountAssignment>("AccountAssignment")({AccountId: Schema.optional(Schema.String), PermissionSetArn: Schema.optional(Schema.String), PrincipalType: Schema.optional(Schema.String), PrincipalId: Schema.optional(Schema.String)}) {}
 export const AccountAssignmentList = Schema.Array(AccountAssignment);
-export const ApplicationAssignment = Schema.Struct({ApplicationArn: Schema.String, PrincipalId: Schema.String, PrincipalType: Schema.String});
+export class ApplicationAssignment extends Schema.Class<ApplicationAssignment>("ApplicationAssignment")({ApplicationArn: Schema.String, PrincipalId: Schema.String, PrincipalType: Schema.String}) {}
 export const ApplicationAssignmentsList = Schema.Array(ApplicationAssignment);
-export const ResourceServerScopeDetails = Schema.Struct({LongDescription: Schema.optional(Schema.String), DetailedTitle: Schema.optional(Schema.String)});
+export class ResourceServerScopeDetails extends Schema.Class<ResourceServerScopeDetails>("ResourceServerScopeDetails")({LongDescription: Schema.optional(Schema.String), DetailedTitle: Schema.optional(Schema.String)}) {}
 export const ResourceServerScopes = Schema.Record({key: Schema.String, value: ResourceServerScopeDetails});
-export const ResourceServerConfig = Schema.Struct({Scopes: Schema.optional(ResourceServerScopes)});
-export const ApplicationProvider = Schema.Struct({ApplicationProviderArn: Schema.String, FederationProtocol: Schema.optional(Schema.String), DisplayData: Schema.optional(DisplayData), ResourceServerConfig: Schema.optional(ResourceServerConfig)});
+export class ResourceServerConfig extends Schema.Class<ResourceServerConfig>("ResourceServerConfig")({Scopes: Schema.optional(ResourceServerScopes)}) {}
+export class ApplicationProvider extends Schema.Class<ApplicationProvider>("ApplicationProvider")({ApplicationProviderArn: Schema.String, FederationProtocol: Schema.optional(Schema.String), DisplayData: Schema.optional(DisplayData), ResourceServerConfig: Schema.optional(ResourceServerConfig)}) {}
 export const ApplicationProviderList = Schema.Array(ApplicationProvider);
-export const InstanceMetadata = Schema.Struct({InstanceArn: Schema.optional(Schema.String), IdentityStoreId: Schema.optional(Schema.String), OwnerAccountId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), CreatedDate: Schema.optional(Schema.Date), Status: Schema.optional(Schema.String), StatusReason: Schema.optional(Schema.String)});
+export class InstanceMetadata extends Schema.Class<InstanceMetadata>("InstanceMetadata")({InstanceArn: Schema.optional(Schema.String), IdentityStoreId: Schema.optional(Schema.String), OwnerAccountId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), CreatedDate: Schema.optional(Schema.Date), Status: Schema.optional(Schema.String), StatusReason: Schema.optional(Schema.String)}) {}
 export const InstanceList = Schema.Array(InstanceMetadata);
-export const AttachedManagedPolicy = Schema.Struct({Name: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String)});
+export class AttachedManagedPolicy extends Schema.Class<AttachedManagedPolicy>("AttachedManagedPolicy")({Name: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String)}) {}
 export const AttachedManagedPolicyList = Schema.Array(AttachedManagedPolicy);
-export const PermissionSetProvisioningStatusMetadata = Schema.Struct({Status: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String), CreatedDate: Schema.optional(Schema.Date)});
+export class PermissionSetProvisioningStatusMetadata extends Schema.Class<PermissionSetProvisioningStatusMetadata>("PermissionSetProvisioningStatusMetadata")({Status: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String), CreatedDate: Schema.optional(Schema.Date)}) {}
 export const PermissionSetProvisioningStatusList = Schema.Array(PermissionSetProvisioningStatusMetadata);
-export const TrustedTokenIssuerMetadata = Schema.Struct({TrustedTokenIssuerArn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), TrustedTokenIssuerType: Schema.optional(Schema.String)});
+export class TrustedTokenIssuerMetadata extends Schema.Class<TrustedTokenIssuerMetadata>("TrustedTokenIssuerMetadata")({TrustedTokenIssuerArn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), TrustedTokenIssuerType: Schema.optional(Schema.String)}) {}
 export const TrustedTokenIssuerList = Schema.Array(TrustedTokenIssuerMetadata);
 export const TrustedTokenIssuerUpdateConfiguration = Schema.Union(OidcJwtUpdateConfiguration);
-export const CreateAccountAssignmentResponse = Schema.Struct({AccountAssignmentCreationStatus: Schema.optional(AccountAssignmentOperationStatus)});
-export const CreateApplicationRequest = Schema.Struct({InstanceArn: Schema.String, ApplicationProviderArn: Schema.String, Name: Schema.String, Description: Schema.optional(Schema.String), PortalOptions: Schema.optional(PortalOptions), Tags: Schema.optional(TagList), Status: Schema.optional(Schema.String), ClientToken: Schema.optional(Schema.String)});
-export const CreatePermissionSetResponse = Schema.Struct({PermissionSet: Schema.optional(PermissionSet)});
-export const CreateTrustedTokenIssuerRequest = Schema.Struct({InstanceArn: Schema.String, Name: Schema.String, TrustedTokenIssuerType: Schema.String, TrustedTokenIssuerConfiguration: TrustedTokenIssuerConfiguration, ClientToken: Schema.optional(Schema.String), Tags: Schema.optional(TagList)});
-export const DescribeInstanceResponse = Schema.Struct({InstanceArn: Schema.optional(Schema.String), IdentityStoreId: Schema.optional(Schema.String), OwnerAccountId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), CreatedDate: Schema.optional(Schema.Date), Status: Schema.optional(Schema.String), StatusReason: Schema.optional(Schema.String), EncryptionConfigurationDetails: Schema.optional(EncryptionConfigurationDetails)});
-export const DescribePermissionSetProvisioningStatusResponse = Schema.Struct({PermissionSetProvisioningStatus: Schema.optional(PermissionSetProvisioningStatus)});
-export const ListAccountAssignmentCreationStatusResponse = Schema.Struct({AccountAssignmentsCreationStatus: Schema.optional(AccountAssignmentOperationStatusList), NextToken: Schema.optional(Schema.String)});
-export const ListAccountAssignmentDeletionStatusResponse = Schema.Struct({AccountAssignmentsDeletionStatus: Schema.optional(AccountAssignmentOperationStatusList), NextToken: Schema.optional(Schema.String)});
-export const ListAccountAssignmentsResponse = Schema.Struct({AccountAssignments: Schema.optional(AccountAssignmentList), NextToken: Schema.optional(Schema.String)});
-export const ListApplicationAssignmentsResponse = Schema.Struct({ApplicationAssignments: Schema.optional(ApplicationAssignmentsList), NextToken: Schema.optional(Schema.String)});
-export const ListApplicationProvidersResponse = Schema.Struct({ApplicationProviders: Schema.optional(ApplicationProviderList), NextToken: Schema.optional(Schema.String)});
-export const ListInstancesResponse = Schema.Struct({Instances: Schema.optional(InstanceList), NextToken: Schema.optional(Schema.String)});
-export const ListManagedPoliciesInPermissionSetResponse = Schema.Struct({AttachedManagedPolicies: Schema.optional(AttachedManagedPolicyList), NextToken: Schema.optional(Schema.String)});
-export const ListPermissionSetProvisioningStatusResponse = Schema.Struct({PermissionSetsProvisioningStatus: Schema.optional(PermissionSetProvisioningStatusList), NextToken: Schema.optional(Schema.String)});
-export const ListTrustedTokenIssuersResponse = Schema.Struct({TrustedTokenIssuers: Schema.optional(TrustedTokenIssuerList), NextToken: Schema.optional(Schema.String)});
-export const UpdateTrustedTokenIssuerRequest = Schema.Struct({TrustedTokenIssuerArn: Schema.String, Name: Schema.optional(Schema.String), TrustedTokenIssuerConfiguration: Schema.optional(TrustedTokenIssuerUpdateConfiguration)});
-export const UpdateTrustedTokenIssuerResponse = Schema.Struct({});
-export const AccountAssignmentForPrincipal = Schema.Struct({AccountId: Schema.optional(Schema.String), PermissionSetArn: Schema.optional(Schema.String), PrincipalId: Schema.optional(Schema.String), PrincipalType: Schema.optional(Schema.String)});
+export class CreateAccountAssignmentResponse extends Schema.Class<CreateAccountAssignmentResponse>("CreateAccountAssignmentResponse")({AccountAssignmentCreationStatus: Schema.optional(AccountAssignmentOperationStatus)}) {}
+export class CreateApplicationRequest extends Schema.Class<CreateApplicationRequest>("CreateApplicationRequest")({InstanceArn: Schema.String, ApplicationProviderArn: Schema.String, Name: Schema.String, Description: Schema.optional(Schema.String), PortalOptions: Schema.optional(PortalOptions), Tags: Schema.optional(TagList), Status: Schema.optional(Schema.String), ClientToken: Schema.optional(Schema.String)}) {}
+export class CreatePermissionSetResponse extends Schema.Class<CreatePermissionSetResponse>("CreatePermissionSetResponse")({PermissionSet: Schema.optional(PermissionSet)}) {}
+export class CreateTrustedTokenIssuerRequest extends Schema.Class<CreateTrustedTokenIssuerRequest>("CreateTrustedTokenIssuerRequest")({InstanceArn: Schema.String, Name: Schema.String, TrustedTokenIssuerType: Schema.String, TrustedTokenIssuerConfiguration: TrustedTokenIssuerConfiguration, ClientToken: Schema.optional(Schema.String), Tags: Schema.optional(TagList)}) {}
+export class DescribeInstanceResponse extends Schema.Class<DescribeInstanceResponse>("DescribeInstanceResponse")({InstanceArn: Schema.optional(Schema.String), IdentityStoreId: Schema.optional(Schema.String), OwnerAccountId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), CreatedDate: Schema.optional(Schema.Date), Status: Schema.optional(Schema.String), StatusReason: Schema.optional(Schema.String), EncryptionConfigurationDetails: Schema.optional(EncryptionConfigurationDetails)}) {}
+export class DescribePermissionSetProvisioningStatusResponse extends Schema.Class<DescribePermissionSetProvisioningStatusResponse>("DescribePermissionSetProvisioningStatusResponse")({PermissionSetProvisioningStatus: Schema.optional(PermissionSetProvisioningStatus)}) {}
+export class ListAccountAssignmentCreationStatusResponse extends Schema.Class<ListAccountAssignmentCreationStatusResponse>("ListAccountAssignmentCreationStatusResponse")({AccountAssignmentsCreationStatus: Schema.optional(AccountAssignmentOperationStatusList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListAccountAssignmentDeletionStatusResponse extends Schema.Class<ListAccountAssignmentDeletionStatusResponse>("ListAccountAssignmentDeletionStatusResponse")({AccountAssignmentsDeletionStatus: Schema.optional(AccountAssignmentOperationStatusList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListAccountAssignmentsResponse extends Schema.Class<ListAccountAssignmentsResponse>("ListAccountAssignmentsResponse")({AccountAssignments: Schema.optional(AccountAssignmentList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListApplicationAssignmentsResponse extends Schema.Class<ListApplicationAssignmentsResponse>("ListApplicationAssignmentsResponse")({ApplicationAssignments: Schema.optional(ApplicationAssignmentsList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListApplicationProvidersResponse extends Schema.Class<ListApplicationProvidersResponse>("ListApplicationProvidersResponse")({ApplicationProviders: Schema.optional(ApplicationProviderList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListInstancesResponse extends Schema.Class<ListInstancesResponse>("ListInstancesResponse")({Instances: Schema.optional(InstanceList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListManagedPoliciesInPermissionSetResponse extends Schema.Class<ListManagedPoliciesInPermissionSetResponse>("ListManagedPoliciesInPermissionSetResponse")({AttachedManagedPolicies: Schema.optional(AttachedManagedPolicyList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListPermissionSetProvisioningStatusResponse extends Schema.Class<ListPermissionSetProvisioningStatusResponse>("ListPermissionSetProvisioningStatusResponse")({PermissionSetsProvisioningStatus: Schema.optional(PermissionSetProvisioningStatusList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTrustedTokenIssuersResponse extends Schema.Class<ListTrustedTokenIssuersResponse>("ListTrustedTokenIssuersResponse")({TrustedTokenIssuers: Schema.optional(TrustedTokenIssuerList), NextToken: Schema.optional(Schema.String)}) {}
+export class UpdateTrustedTokenIssuerRequest extends Schema.Class<UpdateTrustedTokenIssuerRequest>("UpdateTrustedTokenIssuerRequest")({TrustedTokenIssuerArn: Schema.String, Name: Schema.optional(Schema.String), TrustedTokenIssuerConfiguration: Schema.optional(TrustedTokenIssuerUpdateConfiguration)}) {}
+export class UpdateTrustedTokenIssuerResponse extends Schema.Class<UpdateTrustedTokenIssuerResponse>("UpdateTrustedTokenIssuerResponse")({}) {}
+export class AccountAssignmentForPrincipal extends Schema.Class<AccountAssignmentForPrincipal>("AccountAssignmentForPrincipal")({AccountId: Schema.optional(Schema.String), PermissionSetArn: Schema.optional(Schema.String), PrincipalId: Schema.optional(Schema.String), PrincipalType: Schema.optional(Schema.String)}) {}
 export const AccountAssignmentListForPrincipal = Schema.Array(AccountAssignmentForPrincipal);
-export const ApplicationAssignmentForPrincipal = Schema.Struct({ApplicationArn: Schema.optional(Schema.String), PrincipalId: Schema.optional(Schema.String), PrincipalType: Schema.optional(Schema.String)});
+export class ApplicationAssignmentForPrincipal extends Schema.Class<ApplicationAssignmentForPrincipal>("ApplicationAssignmentForPrincipal")({ApplicationArn: Schema.optional(Schema.String), PrincipalId: Schema.optional(Schema.String), PrincipalType: Schema.optional(Schema.String)}) {}
 export const ApplicationAssignmentListForPrincipal = Schema.Array(ApplicationAssignmentForPrincipal);
-export const Application = Schema.Struct({ApplicationArn: Schema.optional(Schema.String), ApplicationProviderArn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), ApplicationAccount: Schema.optional(Schema.String), InstanceArn: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), PortalOptions: Schema.optional(PortalOptions), Description: Schema.optional(Schema.String), CreatedDate: Schema.optional(Schema.Date)});
+export class Application extends Schema.Class<Application>("Application")({ApplicationArn: Schema.optional(Schema.String), ApplicationProviderArn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), ApplicationAccount: Schema.optional(Schema.String), InstanceArn: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), PortalOptions: Schema.optional(PortalOptions), Description: Schema.optional(Schema.String), CreatedDate: Schema.optional(Schema.Date)}) {}
 export const ApplicationList = Schema.Array(Application);
-export const CreateApplicationResponse = Schema.Struct({ApplicationArn: Schema.optional(Schema.String)});
-export const CreateInstanceAccessControlAttributeConfigurationRequest = Schema.Struct({InstanceArn: Schema.String, InstanceAccessControlAttributeConfiguration: InstanceAccessControlAttributeConfiguration});
-export const CreateInstanceAccessControlAttributeConfigurationResponse = Schema.Struct({});
-export const CreateTrustedTokenIssuerResponse = Schema.Struct({TrustedTokenIssuerArn: Schema.optional(Schema.String)});
-export const ListAccountAssignmentsForPrincipalResponse = Schema.Struct({AccountAssignments: Schema.optional(AccountAssignmentListForPrincipal), NextToken: Schema.optional(Schema.String)});
-export const ListApplicationAssignmentsForPrincipalResponse = Schema.Struct({ApplicationAssignments: Schema.optional(ApplicationAssignmentListForPrincipal), NextToken: Schema.optional(Schema.String)});
-export const ListApplicationsResponse = Schema.Struct({Applications: Schema.optional(ApplicationList), NextToken: Schema.optional(Schema.String)});
-export const DescribeApplicationProviderResponse = Schema.Struct({ApplicationProviderArn: Schema.String, FederationProtocol: Schema.optional(Schema.String), DisplayData: Schema.optional(DisplayData), ResourceServerConfig: Schema.optional(ResourceServerConfig)});
+export class CreateApplicationResponse extends Schema.Class<CreateApplicationResponse>("CreateApplicationResponse")({ApplicationArn: Schema.optional(Schema.String)}) {}
+export class CreateInstanceAccessControlAttributeConfigurationRequest extends Schema.Class<CreateInstanceAccessControlAttributeConfigurationRequest>("CreateInstanceAccessControlAttributeConfigurationRequest")({InstanceArn: Schema.String, InstanceAccessControlAttributeConfiguration: InstanceAccessControlAttributeConfiguration}) {}
+export class CreateInstanceAccessControlAttributeConfigurationResponse extends Schema.Class<CreateInstanceAccessControlAttributeConfigurationResponse>("CreateInstanceAccessControlAttributeConfigurationResponse")({}) {}
+export class CreateTrustedTokenIssuerResponse extends Schema.Class<CreateTrustedTokenIssuerResponse>("CreateTrustedTokenIssuerResponse")({TrustedTokenIssuerArn: Schema.optional(Schema.String)}) {}
+export class ListAccountAssignmentsForPrincipalResponse extends Schema.Class<ListAccountAssignmentsForPrincipalResponse>("ListAccountAssignmentsForPrincipalResponse")({AccountAssignments: Schema.optional(AccountAssignmentListForPrincipal), NextToken: Schema.optional(Schema.String)}) {}
+export class ListApplicationAssignmentsForPrincipalResponse extends Schema.Class<ListApplicationAssignmentsForPrincipalResponse>("ListApplicationAssignmentsForPrincipalResponse")({ApplicationAssignments: Schema.optional(ApplicationAssignmentListForPrincipal), NextToken: Schema.optional(Schema.String)}) {}
+export class ListApplicationsResponse extends Schema.Class<ListApplicationsResponse>("ListApplicationsResponse")({Applications: Schema.optional(ApplicationList), NextToken: Schema.optional(Schema.String)}) {}
+export class DescribeApplicationProviderResponse extends Schema.Class<DescribeApplicationProviderResponse>("DescribeApplicationProviderResponse")({ApplicationProviderArn: Schema.String, FederationProtocol: Schema.optional(Schema.String), DisplayData: Schema.optional(DisplayData), ResourceServerConfig: Schema.optional(ResourceServerConfig)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
 
 //# Operations
 export const deleteInstanceAccessControlAttributeConfiguration = /*#__PURE__*/ makeOperation(() => Operation({ version: "2020-07-20", uri: "/", method: "POST", sdkId: "SSO Admin", sigV4ServiceName: "sso", name: "SWBExternalService.DeleteInstanceAccessControlAttributeConfiguration" }, DeleteInstanceAccessControlAttributeConfigurationRequest, DeleteInstanceAccessControlAttributeConfigurationResponse, [AccessDeniedExceptionError, ConflictExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

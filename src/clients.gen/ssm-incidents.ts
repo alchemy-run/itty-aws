@@ -6,150 +6,150 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 export const FindingIdList = Schema.Array(Schema.String);
 export const EngagementSet = Schema.Array(Schema.String);
 export const TagKeyList = Schema.Array(Schema.String);
-export const BatchGetIncidentFindingsInput = Schema.Struct({incidentRecordArn: Schema.String, findingIds: FindingIdList});
-export const DeleteIncidentRecordInput = Schema.Struct({arn: Schema.String});
-export const DeleteIncidentRecordOutput = Schema.Struct({});
-export const DeleteReplicationSetInput = Schema.Struct({arn: Schema.String});
-export const DeleteReplicationSetOutput = Schema.Struct({});
-export const DeleteResourcePolicyInput = Schema.Struct({resourceArn: Schema.String, policyId: Schema.String});
-export const DeleteResourcePolicyOutput = Schema.Struct({});
-export const DeleteResponsePlanInput = Schema.Struct({arn: Schema.String});
-export const DeleteResponsePlanOutput = Schema.Struct({});
-export const DeleteTimelineEventInput = Schema.Struct({incidentRecordArn: Schema.String, eventId: Schema.String});
-export const DeleteTimelineEventOutput = Schema.Struct({});
-export const GetIncidentRecordInput = Schema.Struct({arn: Schema.String});
-export const GetReplicationSetInput = Schema.Struct({arn: Schema.String});
-export const GetResourcePoliciesInput = Schema.Struct({resourceArn: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const GetResponsePlanInput = Schema.Struct({arn: Schema.String});
-export const GetTimelineEventInput = Schema.Struct({incidentRecordArn: Schema.String, eventId: Schema.String});
-export const ListIncidentFindingsInput = Schema.Struct({incidentRecordArn: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListRelatedItemsInput = Schema.Struct({incidentRecordArn: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListReplicationSetsInput = Schema.Struct({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListResponsePlansInput = Schema.Struct({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceRequest = Schema.Struct({resourceArn: Schema.String});
+export class BatchGetIncidentFindingsInput extends Schema.Class<BatchGetIncidentFindingsInput>("BatchGetIncidentFindingsInput")({incidentRecordArn: Schema.String, findingIds: FindingIdList}) {}
+export class DeleteIncidentRecordInput extends Schema.Class<DeleteIncidentRecordInput>("DeleteIncidentRecordInput")({arn: Schema.String}) {}
+export class DeleteIncidentRecordOutput extends Schema.Class<DeleteIncidentRecordOutput>("DeleteIncidentRecordOutput")({}) {}
+export class DeleteReplicationSetInput extends Schema.Class<DeleteReplicationSetInput>("DeleteReplicationSetInput")({arn: Schema.String}) {}
+export class DeleteReplicationSetOutput extends Schema.Class<DeleteReplicationSetOutput>("DeleteReplicationSetOutput")({}) {}
+export class DeleteResourcePolicyInput extends Schema.Class<DeleteResourcePolicyInput>("DeleteResourcePolicyInput")({resourceArn: Schema.String, policyId: Schema.String}) {}
+export class DeleteResourcePolicyOutput extends Schema.Class<DeleteResourcePolicyOutput>("DeleteResourcePolicyOutput")({}) {}
+export class DeleteResponsePlanInput extends Schema.Class<DeleteResponsePlanInput>("DeleteResponsePlanInput")({arn: Schema.String}) {}
+export class DeleteResponsePlanOutput extends Schema.Class<DeleteResponsePlanOutput>("DeleteResponsePlanOutput")({}) {}
+export class DeleteTimelineEventInput extends Schema.Class<DeleteTimelineEventInput>("DeleteTimelineEventInput")({incidentRecordArn: Schema.String, eventId: Schema.String}) {}
+export class DeleteTimelineEventOutput extends Schema.Class<DeleteTimelineEventOutput>("DeleteTimelineEventOutput")({}) {}
+export class GetIncidentRecordInput extends Schema.Class<GetIncidentRecordInput>("GetIncidentRecordInput")({arn: Schema.String}) {}
+export class GetReplicationSetInput extends Schema.Class<GetReplicationSetInput>("GetReplicationSetInput")({arn: Schema.String}) {}
+export class GetResourcePoliciesInput extends Schema.Class<GetResourcePoliciesInput>("GetResourcePoliciesInput")({resourceArn: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class GetResponsePlanInput extends Schema.Class<GetResponsePlanInput>("GetResponsePlanInput")({arn: Schema.String}) {}
+export class GetTimelineEventInput extends Schema.Class<GetTimelineEventInput>("GetTimelineEventInput")({incidentRecordArn: Schema.String, eventId: Schema.String}) {}
+export class ListIncidentFindingsInput extends Schema.Class<ListIncidentFindingsInput>("ListIncidentFindingsInput")({incidentRecordArn: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListRelatedItemsInput extends Schema.Class<ListRelatedItemsInput>("ListRelatedItemsInput")({incidentRecordArn: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListReplicationSetsInput extends Schema.Class<ListReplicationSetsInput>("ListReplicationSetsInput")({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListResponsePlansInput extends Schema.Class<ListResponsePlansInput>("ListResponsePlansInput")({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({resourceArn: Schema.String}) {}
 export const StringList = Schema.Array(Schema.String);
 export const IntegerList = Schema.Array(Schema.Number);
 export const AttributeValueList = Schema.Union(StringList, IntegerList);
 export const Condition = Schema.Union(Schema.Date, Schema.Date, AttributeValueList);
-export const Filter = Schema.Struct({key: Schema.String, condition: Condition});
+export class Filter extends Schema.Class<Filter>("Filter")({key: Schema.String, condition: Condition}) {}
 export const FilterList = Schema.Array(Filter);
-export const ListTimelineEventsInput = Schema.Struct({incidentRecordArn: Schema.String, filters: Schema.optional(FilterList), sortBy: Schema.optional(Schema.String), sortOrder: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const PutResourcePolicyInput = Schema.Struct({resourceArn: Schema.String, policy: Schema.String});
+export class ListTimelineEventsInput extends Schema.Class<ListTimelineEventsInput>("ListTimelineEventsInput")({incidentRecordArn: Schema.String, filters: Schema.optional(FilterList), sortBy: Schema.optional(Schema.String), sortOrder: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class PutResourcePolicyInput extends Schema.Class<PutResourcePolicyInput>("PutResourcePolicyInput")({resourceArn: Schema.String, policy: Schema.String}) {}
 export const TagMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const TagResourceRequest = Schema.Struct({resourceArn: Schema.String, tags: TagMap});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({resourceArn: Schema.String, tagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
-export const UpdateDeletionProtectionInput = Schema.Struct({arn: Schema.String, deletionProtected: Schema.Boolean, clientToken: Schema.optional(Schema.String)});
-export const UpdateDeletionProtectionOutput = Schema.Struct({});
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({resourceArn: Schema.String, tags: TagMap}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({resourceArn: Schema.String, tagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class UpdateDeletionProtectionInput extends Schema.Class<UpdateDeletionProtectionInput>("UpdateDeletionProtectionInput")({arn: Schema.String, deletionProtected: Schema.Boolean, clientToken: Schema.optional(Schema.String)}) {}
+export class UpdateDeletionProtectionOutput extends Schema.Class<UpdateDeletionProtectionOutput>("UpdateDeletionProtectionOutput")({}) {}
 export const EventReference = Schema.Union(Schema.String, Schema.String);
 export const EventReferenceList = Schema.Array(EventReference);
-export const UpdateTimelineEventInput = Schema.Struct({clientToken: Schema.optional(Schema.String), incidentRecordArn: Schema.String, eventId: Schema.String, eventTime: Schema.optional(Schema.Date), eventType: Schema.optional(Schema.String), eventData: Schema.optional(Schema.String), eventReferences: Schema.optional(EventReferenceList)});
-export const UpdateTimelineEventOutput = Schema.Struct({});
-export const EmptyChatChannel = Schema.Struct({});
+export class UpdateTimelineEventInput extends Schema.Class<UpdateTimelineEventInput>("UpdateTimelineEventInput")({clientToken: Schema.optional(Schema.String), incidentRecordArn: Schema.String, eventId: Schema.String, eventTime: Schema.optional(Schema.Date), eventType: Schema.optional(Schema.String), eventData: Schema.optional(Schema.String), eventReferences: Schema.optional(EventReferenceList)}) {}
+export class UpdateTimelineEventOutput extends Schema.Class<UpdateTimelineEventOutput>("UpdateTimelineEventOutput")({}) {}
+export class EmptyChatChannel extends Schema.Class<EmptyChatChannel>("EmptyChatChannel")({}) {}
 export const ChatbotSnsConfigurationSet = Schema.Array(Schema.String);
 export const NotificationTargetItem = Schema.Union(Schema.String);
 export const NotificationTargetSet = Schema.Array(NotificationTargetItem);
-export const IncidentTemplate = Schema.Struct({title: Schema.String, impact: Schema.Number, summary: Schema.optional(Schema.String), dedupeString: Schema.optional(Schema.String), notificationTargets: Schema.optional(NotificationTargetSet), incidentTags: Schema.optional(TagMap)});
+export class IncidentTemplate extends Schema.Class<IncidentTemplate>("IncidentTemplate")({title: Schema.String, impact: Schema.Number, summary: Schema.optional(Schema.String), dedupeString: Schema.optional(Schema.String), notificationTargets: Schema.optional(NotificationTargetSet), incidentTags: Schema.optional(TagMap)}) {}
 export const ChatChannel = Schema.Union(EmptyChatChannel, ChatbotSnsConfigurationSet);
 export const ReplicationSetArnList = Schema.Array(Schema.String);
-export const TriggerDetails = Schema.Struct({source: Schema.String, triggerArn: Schema.optional(Schema.String), timestamp: Schema.Date, rawData: Schema.optional(Schema.String)});
-export const PagerDutyIncidentDetail = Schema.Struct({id: Schema.String, autoResolve: Schema.optional(Schema.Boolean), secretId: Schema.optional(Schema.String)});
+export class TriggerDetails extends Schema.Class<TriggerDetails>("TriggerDetails")({source: Schema.String, triggerArn: Schema.optional(Schema.String), timestamp: Schema.Date, rawData: Schema.optional(Schema.String)}) {}
+export class PagerDutyIncidentDetail extends Schema.Class<PagerDutyIncidentDetail>("PagerDutyIncidentDetail")({id: Schema.String, autoResolve: Schema.optional(Schema.Boolean), secretId: Schema.optional(Schema.String)}) {}
 export const ItemValue = Schema.Union(Schema.String, Schema.String, Schema.String, PagerDutyIncidentDetail);
-export const ItemIdentifier = Schema.Struct({value: ItemValue, type: Schema.String});
-export const RelatedItem = Schema.Struct({identifier: ItemIdentifier, title: Schema.optional(Schema.String), generatedId: Schema.optional(Schema.String)});
+export class ItemIdentifier extends Schema.Class<ItemIdentifier>("ItemIdentifier")({value: ItemValue, type: Schema.String}) {}
+export class RelatedItem extends Schema.Class<RelatedItem>("RelatedItem")({identifier: ItemIdentifier, title: Schema.optional(Schema.String), generatedId: Schema.optional(Schema.String)}) {}
 export const RelatedItemsUpdate = Schema.Union(RelatedItem, ItemIdentifier);
 export const TagMapUpdate = Schema.Record({key: Schema.String, value: Schema.String});
-export const CreateTimelineEventInput = Schema.Struct({clientToken: Schema.optional(Schema.String), incidentRecordArn: Schema.String, eventTime: Schema.Date, eventType: Schema.String, eventData: Schema.String, eventReferences: Schema.optional(EventReferenceList)});
-export const AccessDeniedException = Schema.Struct({message: Schema.String});
-export const InternalServerException = Schema.Struct({message: Schema.String});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.String, resourceIdentifier: Schema.optional(Schema.String), resourceType: Schema.optional(Schema.String)});
-export const ThrottlingException = Schema.Struct({message: Schema.String, serviceCode: Schema.String, quotaCode: Schema.String});
-export const ValidationException = Schema.Struct({message: Schema.String});
+export class CreateTimelineEventInput extends Schema.Class<CreateTimelineEventInput>("CreateTimelineEventInput")({clientToken: Schema.optional(Schema.String), incidentRecordArn: Schema.String, eventTime: Schema.Date, eventType: Schema.String, eventData: Schema.String, eventReferences: Schema.optional(EventReferenceList)}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({message: Schema.String}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({message: Schema.String}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.String, resourceIdentifier: Schema.optional(Schema.String), resourceType: Schema.optional(Schema.String)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({message: Schema.String, serviceCode: Schema.String, quotaCode: Schema.String}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({message: Schema.String}) {}
 export const SsmParameterValues = Schema.Array(Schema.String);
 export const SsmParameters = Schema.Record({key: Schema.String, value: SsmParameterValues});
 export const DynamicSsmParameterValue = Schema.Union(Schema.String);
 export const DynamicSsmParameters = Schema.Record({key: Schema.String, value: DynamicSsmParameterValue});
-export const SsmAutomation = Schema.Struct({roleArn: Schema.String, documentName: Schema.String, documentVersion: Schema.optional(Schema.String), targetAccount: Schema.optional(Schema.String), parameters: Schema.optional(SsmParameters), dynamicParameters: Schema.optional(DynamicSsmParameters)});
+export class SsmAutomation extends Schema.Class<SsmAutomation>("SsmAutomation")({roleArn: Schema.String, documentName: Schema.String, documentVersion: Schema.optional(Schema.String), targetAccount: Schema.optional(Schema.String), parameters: Schema.optional(SsmParameters), dynamicParameters: Schema.optional(DynamicSsmParameters)}) {}
 export const Action = Schema.Union(SsmAutomation);
 export const ActionsList = Schema.Array(Action);
-export const PagerDutyIncidentConfiguration = Schema.Struct({serviceId: Schema.String});
-export const PagerDutyConfiguration = Schema.Struct({name: Schema.String, secretId: Schema.String, pagerDutyIncidentConfiguration: PagerDutyIncidentConfiguration});
+export class PagerDutyIncidentConfiguration extends Schema.Class<PagerDutyIncidentConfiguration>("PagerDutyIncidentConfiguration")({serviceId: Schema.String}) {}
+export class PagerDutyConfiguration extends Schema.Class<PagerDutyConfiguration>("PagerDutyConfiguration")({name: Schema.String, secretId: Schema.String, pagerDutyIncidentConfiguration: PagerDutyIncidentConfiguration}) {}
 export const Integration = Schema.Union(PagerDutyConfiguration);
 export const Integrations = Schema.Array(Integration);
-export const GetResponsePlanOutput = Schema.Struct({arn: Schema.String, name: Schema.String, displayName: Schema.optional(Schema.String), incidentTemplate: IncidentTemplate, chatChannel: Schema.optional(ChatChannel), engagements: Schema.optional(EngagementSet), actions: Schema.optional(ActionsList), integrations: Schema.optional(Integrations)});
+export class GetResponsePlanOutput extends Schema.Class<GetResponsePlanOutput>("GetResponsePlanOutput")({arn: Schema.String, name: Schema.String, displayName: Schema.optional(Schema.String), incidentTemplate: IncidentTemplate, chatChannel: Schema.optional(ChatChannel), engagements: Schema.optional(EngagementSet), actions: Schema.optional(ActionsList), integrations: Schema.optional(Integrations)}) {}
 export const RelatedItemList = Schema.Array(RelatedItem);
-export const ListRelatedItemsOutput = Schema.Struct({relatedItems: RelatedItemList, nextToken: Schema.optional(Schema.String)});
-export const ListReplicationSetsOutput = Schema.Struct({replicationSetArns: ReplicationSetArnList, nextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceResponse = Schema.Struct({tags: TagMap});
-export const PutResourcePolicyOutput = Schema.Struct({policyId: Schema.String});
-export const ConflictException = Schema.Struct({message: Schema.String, resourceIdentifier: Schema.optional(Schema.String), resourceType: Schema.optional(Schema.String), retryAfter: Schema.optional(Schema.Date)});
-export const UpdateIncidentRecordInput = Schema.Struct({clientToken: Schema.optional(Schema.String), arn: Schema.String, title: Schema.optional(Schema.String), summary: Schema.optional(Schema.String), impact: Schema.optional(Schema.Number), status: Schema.optional(Schema.String), chatChannel: Schema.optional(ChatChannel), notificationTargets: Schema.optional(NotificationTargetSet)});
-export const UpdateIncidentRecordOutput = Schema.Struct({});
-export const UpdateRelatedItemsInput = Schema.Struct({clientToken: Schema.optional(Schema.String), incidentRecordArn: Schema.String, relatedItemsUpdate: RelatedItemsUpdate});
-export const UpdateRelatedItemsOutput = Schema.Struct({});
-export const UpdateResponsePlanInput = Schema.Struct({clientToken: Schema.optional(Schema.String), arn: Schema.String, displayName: Schema.optional(Schema.String), incidentTemplateTitle: Schema.optional(Schema.String), incidentTemplateImpact: Schema.optional(Schema.Number), incidentTemplateSummary: Schema.optional(Schema.String), incidentTemplateDedupeString: Schema.optional(Schema.String), incidentTemplateNotificationTargets: Schema.optional(NotificationTargetSet), chatChannel: Schema.optional(ChatChannel), engagements: Schema.optional(EngagementSet), actions: Schema.optional(ActionsList), incidentTemplateTags: Schema.optional(TagMapUpdate), integrations: Schema.optional(Integrations)});
-export const UpdateResponsePlanOutput = Schema.Struct({});
-export const RegionMapInputValue = Schema.Struct({sseKmsKeyId: Schema.optional(Schema.String)});
-export const AddRegionAction = Schema.Struct({regionName: Schema.String, sseKmsKeyId: Schema.optional(Schema.String)});
-export const DeleteRegionAction = Schema.Struct({regionName: Schema.String});
-export const BatchGetIncidentFindingsError = Schema.Struct({findingId: Schema.String, code: Schema.String, message: Schema.String});
+export class ListRelatedItemsOutput extends Schema.Class<ListRelatedItemsOutput>("ListRelatedItemsOutput")({relatedItems: RelatedItemList, nextToken: Schema.optional(Schema.String)}) {}
+export class ListReplicationSetsOutput extends Schema.Class<ListReplicationSetsOutput>("ListReplicationSetsOutput")({replicationSetArns: ReplicationSetArnList, nextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({tags: TagMap}) {}
+export class PutResourcePolicyOutput extends Schema.Class<PutResourcePolicyOutput>("PutResourcePolicyOutput")({policyId: Schema.String}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({message: Schema.String, resourceIdentifier: Schema.optional(Schema.String), resourceType: Schema.optional(Schema.String), retryAfter: Schema.optional(Schema.Date)}) {}
+export class UpdateIncidentRecordInput extends Schema.Class<UpdateIncidentRecordInput>("UpdateIncidentRecordInput")({clientToken: Schema.optional(Schema.String), arn: Schema.String, title: Schema.optional(Schema.String), summary: Schema.optional(Schema.String), impact: Schema.optional(Schema.Number), status: Schema.optional(Schema.String), chatChannel: Schema.optional(ChatChannel), notificationTargets: Schema.optional(NotificationTargetSet)}) {}
+export class UpdateIncidentRecordOutput extends Schema.Class<UpdateIncidentRecordOutput>("UpdateIncidentRecordOutput")({}) {}
+export class UpdateRelatedItemsInput extends Schema.Class<UpdateRelatedItemsInput>("UpdateRelatedItemsInput")({clientToken: Schema.optional(Schema.String), incidentRecordArn: Schema.String, relatedItemsUpdate: RelatedItemsUpdate}) {}
+export class UpdateRelatedItemsOutput extends Schema.Class<UpdateRelatedItemsOutput>("UpdateRelatedItemsOutput")({}) {}
+export class UpdateResponsePlanInput extends Schema.Class<UpdateResponsePlanInput>("UpdateResponsePlanInput")({clientToken: Schema.optional(Schema.String), arn: Schema.String, displayName: Schema.optional(Schema.String), incidentTemplateTitle: Schema.optional(Schema.String), incidentTemplateImpact: Schema.optional(Schema.Number), incidentTemplateSummary: Schema.optional(Schema.String), incidentTemplateDedupeString: Schema.optional(Schema.String), incidentTemplateNotificationTargets: Schema.optional(NotificationTargetSet), chatChannel: Schema.optional(ChatChannel), engagements: Schema.optional(EngagementSet), actions: Schema.optional(ActionsList), incidentTemplateTags: Schema.optional(TagMapUpdate), integrations: Schema.optional(Integrations)}) {}
+export class UpdateResponsePlanOutput extends Schema.Class<UpdateResponsePlanOutput>("UpdateResponsePlanOutput")({}) {}
+export class RegionMapInputValue extends Schema.Class<RegionMapInputValue>("RegionMapInputValue")({sseKmsKeyId: Schema.optional(Schema.String)}) {}
+export class AddRegionAction extends Schema.Class<AddRegionAction>("AddRegionAction")({regionName: Schema.String, sseKmsKeyId: Schema.optional(Schema.String)}) {}
+export class DeleteRegionAction extends Schema.Class<DeleteRegionAction>("DeleteRegionAction")({regionName: Schema.String}) {}
+export class BatchGetIncidentFindingsError extends Schema.Class<BatchGetIncidentFindingsError>("BatchGetIncidentFindingsError")({findingId: Schema.String, code: Schema.String, message: Schema.String}) {}
 export const BatchGetIncidentFindingsErrorList = Schema.Array(BatchGetIncidentFindingsError);
 export const RegionMapInput = Schema.Record({key: Schema.String, value: RegionMapInputValue});
-export const ResourcePolicy = Schema.Struct({policyDocument: Schema.String, policyId: Schema.String, ramResourceShareRegion: Schema.String});
+export class ResourcePolicy extends Schema.Class<ResourcePolicy>("ResourcePolicy")({policyDocument: Schema.String, policyId: Schema.String, ramResourceShareRegion: Schema.String}) {}
 export const ResourcePolicyList = Schema.Array(ResourcePolicy);
-export const TimelineEvent = Schema.Struct({incidentRecordArn: Schema.String, eventId: Schema.String, eventTime: Schema.Date, eventUpdatedTime: Schema.Date, eventType: Schema.String, eventData: Schema.String, eventReferences: Schema.optional(EventReferenceList)});
-export const FindingSummary = Schema.Struct({id: Schema.String, lastModifiedTime: Schema.Date});
+export class TimelineEvent extends Schema.Class<TimelineEvent>("TimelineEvent")({incidentRecordArn: Schema.String, eventId: Schema.String, eventTime: Schema.Date, eventUpdatedTime: Schema.Date, eventType: Schema.String, eventData: Schema.String, eventReferences: Schema.optional(EventReferenceList)}) {}
+export class FindingSummary extends Schema.Class<FindingSummary>("FindingSummary")({id: Schema.String, lastModifiedTime: Schema.Date}) {}
 export const FindingSummaryList = Schema.Array(FindingSummary);
-export const ResponsePlanSummary = Schema.Struct({arn: Schema.String, name: Schema.String, displayName: Schema.optional(Schema.String)});
+export class ResponsePlanSummary extends Schema.Class<ResponsePlanSummary>("ResponsePlanSummary")({arn: Schema.String, name: Schema.String, displayName: Schema.optional(Schema.String)}) {}
 export const ResponsePlanSummaryList = Schema.Array(ResponsePlanSummary);
-export const EventSummary = Schema.Struct({incidentRecordArn: Schema.String, eventId: Schema.String, eventTime: Schema.Date, eventUpdatedTime: Schema.Date, eventType: Schema.String, eventReferences: Schema.optional(EventReferenceList)});
+export class EventSummary extends Schema.Class<EventSummary>("EventSummary")({incidentRecordArn: Schema.String, eventId: Schema.String, eventTime: Schema.Date, eventUpdatedTime: Schema.Date, eventType: Schema.String, eventReferences: Schema.optional(EventReferenceList)}) {}
 export const EventSummaryList = Schema.Array(EventSummary);
 export const UpdateReplicationSetAction = Schema.Union(AddRegionAction, DeleteRegionAction);
 export const UpdateActionList = Schema.Array(UpdateReplicationSetAction);
-export const CreateReplicationSetInput = Schema.Struct({regions: RegionMapInput, clientToken: Schema.optional(Schema.String), tags: Schema.optional(TagMap)});
-export const CreateTimelineEventOutput = Schema.Struct({incidentRecordArn: Schema.String, eventId: Schema.String});
-export const GetResourcePoliciesOutput = Schema.Struct({resourcePolicies: ResourcePolicyList, nextToken: Schema.optional(Schema.String)});
-export const GetTimelineEventOutput = Schema.Struct({event: TimelineEvent});
-export const ListIncidentFindingsOutput = Schema.Struct({findings: FindingSummaryList, nextToken: Schema.optional(Schema.String)});
-export const ListResponsePlansOutput = Schema.Struct({responsePlanSummaries: ResponsePlanSummaryList, nextToken: Schema.optional(Schema.String)});
-export const ListTimelineEventsOutput = Schema.Struct({eventSummaries: EventSummaryList, nextToken: Schema.optional(Schema.String)});
-export const ServiceQuotaExceededException = Schema.Struct({message: Schema.String, resourceIdentifier: Schema.optional(Schema.String), resourceType: Schema.optional(Schema.String), serviceCode: Schema.String, quotaCode: Schema.String});
-export const UpdateReplicationSetInput = Schema.Struct({arn: Schema.String, actions: UpdateActionList, clientToken: Schema.optional(Schema.String)});
-export const UpdateReplicationSetOutput = Schema.Struct({});
+export class CreateReplicationSetInput extends Schema.Class<CreateReplicationSetInput>("CreateReplicationSetInput")({regions: RegionMapInput, clientToken: Schema.optional(Schema.String), tags: Schema.optional(TagMap)}) {}
+export class CreateTimelineEventOutput extends Schema.Class<CreateTimelineEventOutput>("CreateTimelineEventOutput")({incidentRecordArn: Schema.String, eventId: Schema.String}) {}
+export class GetResourcePoliciesOutput extends Schema.Class<GetResourcePoliciesOutput>("GetResourcePoliciesOutput")({resourcePolicies: ResourcePolicyList, nextToken: Schema.optional(Schema.String)}) {}
+export class GetTimelineEventOutput extends Schema.Class<GetTimelineEventOutput>("GetTimelineEventOutput")({event: TimelineEvent}) {}
+export class ListIncidentFindingsOutput extends Schema.Class<ListIncidentFindingsOutput>("ListIncidentFindingsOutput")({findings: FindingSummaryList, nextToken: Schema.optional(Schema.String)}) {}
+export class ListResponsePlansOutput extends Schema.Class<ListResponsePlansOutput>("ListResponsePlansOutput")({responsePlanSummaries: ResponsePlanSummaryList, nextToken: Schema.optional(Schema.String)}) {}
+export class ListTimelineEventsOutput extends Schema.Class<ListTimelineEventsOutput>("ListTimelineEventsOutput")({eventSummaries: EventSummaryList, nextToken: Schema.optional(Schema.String)}) {}
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({message: Schema.String, resourceIdentifier: Schema.optional(Schema.String), resourceType: Schema.optional(Schema.String), serviceCode: Schema.String, quotaCode: Schema.String}) {}
+export class UpdateReplicationSetInput extends Schema.Class<UpdateReplicationSetInput>("UpdateReplicationSetInput")({arn: Schema.String, actions: UpdateActionList, clientToken: Schema.optional(Schema.String)}) {}
+export class UpdateReplicationSetOutput extends Schema.Class<UpdateReplicationSetOutput>("UpdateReplicationSetOutput")({}) {}
 export const AutomationExecution = Schema.Union(Schema.String);
 export const AutomationExecutionSet = Schema.Array(AutomationExecution);
-export const IncidentRecordSource = Schema.Struct({createdBy: Schema.String, invokedBy: Schema.optional(Schema.String), resourceArn: Schema.optional(Schema.String), source: Schema.String});
-export const IncidentRecord = Schema.Struct({arn: Schema.String, title: Schema.String, summary: Schema.optional(Schema.String), status: Schema.String, impact: Schema.Number, creationTime: Schema.Date, resolvedTime: Schema.optional(Schema.Date), lastModifiedTime: Schema.Date, lastModifiedBy: Schema.String, automationExecutions: Schema.optional(AutomationExecutionSet), incidentRecordSource: IncidentRecordSource, dedupeString: Schema.String, chatChannel: Schema.optional(ChatChannel), notificationTargets: Schema.optional(NotificationTargetSet)});
-export const CodeDeployDeployment = Schema.Struct({startTime: Schema.Date, endTime: Schema.optional(Schema.Date), deploymentGroupArn: Schema.String, deploymentId: Schema.String});
-export const CloudFormationStackUpdate = Schema.Struct({startTime: Schema.Date, endTime: Schema.optional(Schema.Date), stackArn: Schema.String});
-export const RegionInfo = Schema.Struct({sseKmsKeyId: Schema.optional(Schema.String), status: Schema.String, statusMessage: Schema.optional(Schema.String), statusUpdateDateTime: Schema.Date});
-export const CreateReplicationSetOutput = Schema.Struct({arn: Schema.String});
-export const GetIncidentRecordOutput = Schema.Struct({incidentRecord: IncidentRecord});
-export const ListIncidentRecordsInput = Schema.Struct({filters: Schema.optional(FilterList), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
+export class IncidentRecordSource extends Schema.Class<IncidentRecordSource>("IncidentRecordSource")({createdBy: Schema.String, invokedBy: Schema.optional(Schema.String), resourceArn: Schema.optional(Schema.String), source: Schema.String}) {}
+export class IncidentRecord extends Schema.Class<IncidentRecord>("IncidentRecord")({arn: Schema.String, title: Schema.String, summary: Schema.optional(Schema.String), status: Schema.String, impact: Schema.Number, creationTime: Schema.Date, resolvedTime: Schema.optional(Schema.Date), lastModifiedTime: Schema.Date, lastModifiedBy: Schema.String, automationExecutions: Schema.optional(AutomationExecutionSet), incidentRecordSource: IncidentRecordSource, dedupeString: Schema.String, chatChannel: Schema.optional(ChatChannel), notificationTargets: Schema.optional(NotificationTargetSet)}) {}
+export class CodeDeployDeployment extends Schema.Class<CodeDeployDeployment>("CodeDeployDeployment")({startTime: Schema.Date, endTime: Schema.optional(Schema.Date), deploymentGroupArn: Schema.String, deploymentId: Schema.String}) {}
+export class CloudFormationStackUpdate extends Schema.Class<CloudFormationStackUpdate>("CloudFormationStackUpdate")({startTime: Schema.Date, endTime: Schema.optional(Schema.Date), stackArn: Schema.String}) {}
+export class RegionInfo extends Schema.Class<RegionInfo>("RegionInfo")({sseKmsKeyId: Schema.optional(Schema.String), status: Schema.String, statusMessage: Schema.optional(Schema.String), statusUpdateDateTime: Schema.Date}) {}
+export class CreateReplicationSetOutput extends Schema.Class<CreateReplicationSetOutput>("CreateReplicationSetOutput")({arn: Schema.String}) {}
+export class GetIncidentRecordOutput extends Schema.Class<GetIncidentRecordOutput>("GetIncidentRecordOutput")({incidentRecord: IncidentRecord}) {}
+export class ListIncidentRecordsInput extends Schema.Class<ListIncidentRecordsInput>("ListIncidentRecordsInput")({filters: Schema.optional(FilterList), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
 export const FindingDetails = Schema.Union(CodeDeployDeployment, CloudFormationStackUpdate);
 export const RegionInfoMap = Schema.Record({key: Schema.String, value: RegionInfo});
-export const Finding = Schema.Struct({id: Schema.String, creationTime: Schema.Date, lastModifiedTime: Schema.Date, details: Schema.optional(FindingDetails)});
+export class Finding extends Schema.Class<Finding>("Finding")({id: Schema.String, creationTime: Schema.Date, lastModifiedTime: Schema.Date, details: Schema.optional(FindingDetails)}) {}
 export const FindingList = Schema.Array(Finding);
-export const ReplicationSet = Schema.Struct({arn: Schema.optional(Schema.String), regionMap: RegionInfoMap, status: Schema.String, deletionProtected: Schema.Boolean, createdTime: Schema.Date, createdBy: Schema.String, lastModifiedTime: Schema.Date, lastModifiedBy: Schema.String});
-export const BatchGetIncidentFindingsOutput = Schema.Struct({findings: FindingList, errors: BatchGetIncidentFindingsErrorList});
-export const CreateResponsePlanInput = Schema.Struct({clientToken: Schema.optional(Schema.String), name: Schema.String, displayName: Schema.optional(Schema.String), incidentTemplate: IncidentTemplate, chatChannel: Schema.optional(ChatChannel), engagements: Schema.optional(EngagementSet), actions: Schema.optional(ActionsList), tags: Schema.optional(TagMap), integrations: Schema.optional(Integrations)});
-export const GetReplicationSetOutput = Schema.Struct({replicationSet: ReplicationSet});
-export const StartIncidentInput = Schema.Struct({clientToken: Schema.optional(Schema.String), responsePlanArn: Schema.String, title: Schema.optional(Schema.String), impact: Schema.optional(Schema.Number), triggerDetails: Schema.optional(TriggerDetails), relatedItems: Schema.optional(RelatedItemList)});
-export const IncidentRecordSummary = Schema.Struct({arn: Schema.String, title: Schema.String, status: Schema.String, impact: Schema.Number, creationTime: Schema.Date, resolvedTime: Schema.optional(Schema.Date), incidentRecordSource: IncidentRecordSource});
+export class ReplicationSet extends Schema.Class<ReplicationSet>("ReplicationSet")({arn: Schema.optional(Schema.String), regionMap: RegionInfoMap, status: Schema.String, deletionProtected: Schema.Boolean, createdTime: Schema.Date, createdBy: Schema.String, lastModifiedTime: Schema.Date, lastModifiedBy: Schema.String}) {}
+export class BatchGetIncidentFindingsOutput extends Schema.Class<BatchGetIncidentFindingsOutput>("BatchGetIncidentFindingsOutput")({findings: FindingList, errors: BatchGetIncidentFindingsErrorList}) {}
+export class CreateResponsePlanInput extends Schema.Class<CreateResponsePlanInput>("CreateResponsePlanInput")({clientToken: Schema.optional(Schema.String), name: Schema.String, displayName: Schema.optional(Schema.String), incidentTemplate: IncidentTemplate, chatChannel: Schema.optional(ChatChannel), engagements: Schema.optional(EngagementSet), actions: Schema.optional(ActionsList), tags: Schema.optional(TagMap), integrations: Schema.optional(Integrations)}) {}
+export class GetReplicationSetOutput extends Schema.Class<GetReplicationSetOutput>("GetReplicationSetOutput")({replicationSet: ReplicationSet}) {}
+export class StartIncidentInput extends Schema.Class<StartIncidentInput>("StartIncidentInput")({clientToken: Schema.optional(Schema.String), responsePlanArn: Schema.String, title: Schema.optional(Schema.String), impact: Schema.optional(Schema.Number), triggerDetails: Schema.optional(TriggerDetails), relatedItems: Schema.optional(RelatedItemList)}) {}
+export class IncidentRecordSummary extends Schema.Class<IncidentRecordSummary>("IncidentRecordSummary")({arn: Schema.String, title: Schema.String, status: Schema.String, impact: Schema.Number, creationTime: Schema.Date, resolvedTime: Schema.optional(Schema.Date), incidentRecordSource: IncidentRecordSource}) {}
 export const IncidentRecordSummaryList = Schema.Array(IncidentRecordSummary);
-export const CreateResponsePlanOutput = Schema.Struct({arn: Schema.String});
-export const ListIncidentRecordsOutput = Schema.Struct({incidentRecordSummaries: IncidentRecordSummaryList, nextToken: Schema.optional(Schema.String)});
-export const StartIncidentOutput = Schema.Struct({incidentRecordArn: Schema.String});
+export class CreateResponsePlanOutput extends Schema.Class<CreateResponsePlanOutput>("CreateResponsePlanOutput")({arn: Schema.String}) {}
+export class ListIncidentRecordsOutput extends Schema.Class<ListIncidentRecordsOutput>("ListIncidentRecordsOutput")({incidentRecordSummaries: IncidentRecordSummaryList, nextToken: Schema.optional(Schema.String)}) {}
+export class StartIncidentOutput extends Schema.Class<StartIncidentOutput>("StartIncidentOutput")({incidentRecordArn: Schema.String}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
 
 //# Operations
 export const untagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-05-10", uri: "/tags/{resourceArn}", method: "DELETE", sdkId: "SSM Incidents", sigV4ServiceName: "ssm-incidents", name: "SSMIncidents.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [AccessDeniedExceptionError, ConflictExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

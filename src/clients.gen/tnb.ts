@@ -4,128 +4,128 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 
 //# Schemas
 export const TagKeys = Schema.Array(Schema.String);
-export const CancelSolNetworkOperationInput = Schema.Struct({nsLcmOpOccId: Schema.String});
+export class CancelSolNetworkOperationInput extends Schema.Class<CancelSolNetworkOperationInput>("CancelSolNetworkOperationInput")({nsLcmOpOccId: Schema.String}) {}
 export const TagMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const CreateSolNetworkInstanceInput = Schema.Struct({nsdInfoId: Schema.String, nsName: Schema.String, nsDescription: Schema.optional(Schema.String), tags: Schema.optional(TagMap)});
-export const CreateSolNetworkPackageInput = Schema.Struct({tags: Schema.optional(TagMap)});
-export const DeleteSolFunctionPackageInput = Schema.Struct({vnfPkgId: Schema.String});
-export const DeleteSolNetworkInstanceInput = Schema.Struct({nsInstanceId: Schema.String});
-export const DeleteSolNetworkPackageInput = Schema.Struct({nsdInfoId: Schema.String});
-export const GetSolFunctionInstanceInput = Schema.Struct({vnfInstanceId: Schema.String});
-export const GetSolFunctionPackageInput = Schema.Struct({vnfPkgId: Schema.String});
-export const GetSolFunctionPackageContentInput = Schema.Struct({vnfPkgId: Schema.String, accept: Header("Accept")});
-export const GetSolFunctionPackageDescriptorInput = Schema.Struct({vnfPkgId: Schema.String, accept: Header("Accept")});
-export const GetSolNetworkInstanceInput = Schema.Struct({nsInstanceId: Schema.String});
-export const GetSolNetworkOperationInput = Schema.Struct({nsLcmOpOccId: Schema.String});
-export const GetSolNetworkPackageInput = Schema.Struct({nsdInfoId: Schema.String});
-export const GetSolNetworkPackageContentInput = Schema.Struct({nsdInfoId: Schema.String, accept: Header("Accept")});
-export const GetSolNetworkPackageDescriptorInput = Schema.Struct({nsdInfoId: Schema.String});
-export const InstantiateSolNetworkInstanceInput = Schema.Struct({nsInstanceId: Schema.String, dryRun: Schema.optional(Schema.Boolean), additionalParamsForNs: Schema.optional(Schema.JsonValue), tags: Schema.optional(TagMap)});
-export const ListSolFunctionInstancesInput = Schema.Struct({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListSolFunctionPackagesInput = Schema.Struct({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListSolNetworkInstancesInput = Schema.Struct({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListSolNetworkOperationsInput = Schema.Struct({nsInstanceId: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListSolNetworkPackagesInput = Schema.Struct({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceInput = Schema.Struct({resourceArn: Schema.String});
-export const PutSolFunctionPackageContentInput = Schema.Struct({vnfPkgId: Schema.String, contentType: Schema.optional(Header("Content-Type")), file: Body("undefined", StreamBody())});
-export const PutSolNetworkPackageContentInput = Schema.Struct({nsdInfoId: Schema.String, contentType: Schema.optional(Header("Content-Type")), file: Body("undefined", StreamBody())});
-export const TagResourceInput = Schema.Struct({resourceArn: Schema.String, tags: TagMap});
-export const TagResourceOutput = Schema.Struct({});
-export const TerminateSolNetworkInstanceInput = Schema.Struct({nsInstanceId: Schema.String, tags: Schema.optional(TagMap)});
-export const UntagResourceInput = Schema.Struct({resourceArn: Schema.String, tagKeys: TagKeys});
-export const UntagResourceOutput = Schema.Struct({});
-export const UpdateSolFunctionPackageInput = Schema.Struct({vnfPkgId: Schema.String, operationalState: Schema.String});
-export const UpdateSolNetworkPackageInput = Schema.Struct({nsdInfoId: Schema.String, nsdOperationalState: Schema.String});
-export const ValidateSolFunctionPackageContentInput = Schema.Struct({vnfPkgId: Schema.String, contentType: Schema.optional(Header("Content-Type")), file: Body("undefined", StreamBody())});
-export const ValidateSolNetworkPackageContentInput = Schema.Struct({nsdInfoId: Schema.String, contentType: Schema.optional(Header("Content-Type")), file: Body("undefined", StreamBody())});
+export class CreateSolNetworkInstanceInput extends Schema.Class<CreateSolNetworkInstanceInput>("CreateSolNetworkInstanceInput")({nsdInfoId: Schema.String, nsName: Schema.String, nsDescription: Schema.optional(Schema.String), tags: Schema.optional(TagMap)}) {}
+export class CreateSolNetworkPackageInput extends Schema.Class<CreateSolNetworkPackageInput>("CreateSolNetworkPackageInput")({tags: Schema.optional(TagMap)}) {}
+export class DeleteSolFunctionPackageInput extends Schema.Class<DeleteSolFunctionPackageInput>("DeleteSolFunctionPackageInput")({vnfPkgId: Schema.String}) {}
+export class DeleteSolNetworkInstanceInput extends Schema.Class<DeleteSolNetworkInstanceInput>("DeleteSolNetworkInstanceInput")({nsInstanceId: Schema.String}) {}
+export class DeleteSolNetworkPackageInput extends Schema.Class<DeleteSolNetworkPackageInput>("DeleteSolNetworkPackageInput")({nsdInfoId: Schema.String}) {}
+export class GetSolFunctionInstanceInput extends Schema.Class<GetSolFunctionInstanceInput>("GetSolFunctionInstanceInput")({vnfInstanceId: Schema.String}) {}
+export class GetSolFunctionPackageInput extends Schema.Class<GetSolFunctionPackageInput>("GetSolFunctionPackageInput")({vnfPkgId: Schema.String}) {}
+export class GetSolFunctionPackageContentInput extends Schema.Class<GetSolFunctionPackageContentInput>("GetSolFunctionPackageContentInput")({vnfPkgId: Schema.String, accept: Header("Accept")}) {}
+export class GetSolFunctionPackageDescriptorInput extends Schema.Class<GetSolFunctionPackageDescriptorInput>("GetSolFunctionPackageDescriptorInput")({vnfPkgId: Schema.String, accept: Header("Accept")}) {}
+export class GetSolNetworkInstanceInput extends Schema.Class<GetSolNetworkInstanceInput>("GetSolNetworkInstanceInput")({nsInstanceId: Schema.String}) {}
+export class GetSolNetworkOperationInput extends Schema.Class<GetSolNetworkOperationInput>("GetSolNetworkOperationInput")({nsLcmOpOccId: Schema.String}) {}
+export class GetSolNetworkPackageInput extends Schema.Class<GetSolNetworkPackageInput>("GetSolNetworkPackageInput")({nsdInfoId: Schema.String}) {}
+export class GetSolNetworkPackageContentInput extends Schema.Class<GetSolNetworkPackageContentInput>("GetSolNetworkPackageContentInput")({nsdInfoId: Schema.String, accept: Header("Accept")}) {}
+export class GetSolNetworkPackageDescriptorInput extends Schema.Class<GetSolNetworkPackageDescriptorInput>("GetSolNetworkPackageDescriptorInput")({nsdInfoId: Schema.String}) {}
+export class InstantiateSolNetworkInstanceInput extends Schema.Class<InstantiateSolNetworkInstanceInput>("InstantiateSolNetworkInstanceInput")({nsInstanceId: Schema.String, dryRun: Schema.optional(Schema.Boolean), additionalParamsForNs: Schema.optional(Schema.JsonValue), tags: Schema.optional(TagMap)}) {}
+export class ListSolFunctionInstancesInput extends Schema.Class<ListSolFunctionInstancesInput>("ListSolFunctionInstancesInput")({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListSolFunctionPackagesInput extends Schema.Class<ListSolFunctionPackagesInput>("ListSolFunctionPackagesInput")({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListSolNetworkInstancesInput extends Schema.Class<ListSolNetworkInstancesInput>("ListSolNetworkInstancesInput")({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListSolNetworkOperationsInput extends Schema.Class<ListSolNetworkOperationsInput>("ListSolNetworkOperationsInput")({nsInstanceId: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListSolNetworkPackagesInput extends Schema.Class<ListSolNetworkPackagesInput>("ListSolNetworkPackagesInput")({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceInput extends Schema.Class<ListTagsForResourceInput>("ListTagsForResourceInput")({resourceArn: Schema.String}) {}
+export class PutSolFunctionPackageContentInput extends Schema.Class<PutSolFunctionPackageContentInput>("PutSolFunctionPackageContentInput")({vnfPkgId: Schema.String, contentType: Schema.optional(Header("Content-Type")), file: Body("undefined", StreamBody())}) {}
+export class PutSolNetworkPackageContentInput extends Schema.Class<PutSolNetworkPackageContentInput>("PutSolNetworkPackageContentInput")({nsdInfoId: Schema.String, contentType: Schema.optional(Header("Content-Type")), file: Body("undefined", StreamBody())}) {}
+export class TagResourceInput extends Schema.Class<TagResourceInput>("TagResourceInput")({resourceArn: Schema.String, tags: TagMap}) {}
+export class TagResourceOutput extends Schema.Class<TagResourceOutput>("TagResourceOutput")({}) {}
+export class TerminateSolNetworkInstanceInput extends Schema.Class<TerminateSolNetworkInstanceInput>("TerminateSolNetworkInstanceInput")({nsInstanceId: Schema.String, tags: Schema.optional(TagMap)}) {}
+export class UntagResourceInput extends Schema.Class<UntagResourceInput>("UntagResourceInput")({resourceArn: Schema.String, tagKeys: TagKeys}) {}
+export class UntagResourceOutput extends Schema.Class<UntagResourceOutput>("UntagResourceOutput")({}) {}
+export class UpdateSolFunctionPackageInput extends Schema.Class<UpdateSolFunctionPackageInput>("UpdateSolFunctionPackageInput")({vnfPkgId: Schema.String, operationalState: Schema.String}) {}
+export class UpdateSolNetworkPackageInput extends Schema.Class<UpdateSolNetworkPackageInput>("UpdateSolNetworkPackageInput")({nsdInfoId: Schema.String, nsdOperationalState: Schema.String}) {}
+export class ValidateSolFunctionPackageContentInput extends Schema.Class<ValidateSolFunctionPackageContentInput>("ValidateSolFunctionPackageContentInput")({vnfPkgId: Schema.String, contentType: Schema.optional(Header("Content-Type")), file: Body("undefined", StreamBody())}) {}
+export class ValidateSolNetworkPackageContentInput extends Schema.Class<ValidateSolNetworkPackageContentInput>("ValidateSolNetworkPackageContentInput")({nsdInfoId: Schema.String, contentType: Schema.optional(Header("Content-Type")), file: Body("undefined", StreamBody())}) {}
 export const VnfPkgIdList = Schema.Array(Schema.String);
-export const UpdateSolNetworkModify = Schema.Struct({vnfInstanceId: Schema.String, vnfConfigurableProperties: Schema.JsonValue});
-export const UpdateSolNetworkServiceData = Schema.Struct({nsdInfoId: Schema.String, additionalParamsForNs: Schema.optional(Schema.JsonValue)});
-export const AccessDeniedException = Schema.Struct({message: Schema.String});
-export const CreateSolFunctionPackageInput = Schema.Struct({tags: Schema.optional(TagMap)});
-export const CreateSolNetworkInstanceOutput = Schema.Struct({id: Schema.String, arn: Schema.String, nsdInfoId: Schema.String, nsInstanceName: Schema.String, tags: Schema.optional(TagMap)});
-export const CreateSolNetworkPackageOutput = Schema.Struct({id: Schema.String, arn: Schema.String, nsdOnboardingState: Schema.String, nsdOperationalState: Schema.String, nsdUsageState: Schema.String, tags: Schema.optional(TagMap)});
-export const InternalServerException = Schema.Struct({message: Schema.String});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.String});
-export const ThrottlingException = Schema.Struct({message: Schema.String});
-export const GetSolFunctionPackageContentOutput = Schema.Struct({contentType: Schema.optional(Header("Content-Type")), packageContent: Schema.optional(Body("undefined", StreamBody()))});
-export const GetSolFunctionPackageDescriptorOutput = Schema.Struct({contentType: Schema.optional(Header("Content-Type")), vnfd: Schema.optional(Body("undefined", StreamBody()))});
-export const GetSolNetworkPackageContentOutput = Schema.Struct({contentType: Schema.optional(Header("Content-Type")), nsdContent: Schema.optional(Body("undefined", StreamBody()))});
-export const GetSolNetworkPackageDescriptorOutput = Schema.Struct({contentType: Schema.optional(Header("Content-Type")), nsd: Schema.optional(Body("undefined", StreamBody()))});
-export const InstantiateSolNetworkInstanceOutput = Schema.Struct({nsLcmOpOccId: Schema.String, tags: Schema.optional(TagMap)});
-export const ListTagsForResourceOutput = Schema.Struct({tags: TagMap});
-export const ValidationException = Schema.Struct({message: Schema.String});
-export const TerminateSolNetworkInstanceOutput = Schema.Struct({nsLcmOpOccId: Schema.optional(Schema.String), tags: Schema.optional(TagMap)});
-export const UpdateSolFunctionPackageOutput = Schema.Struct({operationalState: Schema.String});
-export const UpdateSolNetworkInstanceInput = Schema.Struct({nsInstanceId: Schema.String, updateType: Schema.String, modifyVnfInfoData: Schema.optional(UpdateSolNetworkModify), updateNs: Schema.optional(UpdateSolNetworkServiceData), tags: Schema.optional(TagMap)});
-export const UpdateSolNetworkPackageOutput = Schema.Struct({nsdOperationalState: Schema.String});
-export const GetSolFunctionInstanceMetadata = Schema.Struct({createdAt: Schema.Date, lastModified: Schema.Date});
-export const LcmOperationInfo = Schema.Struct({nsLcmOpOccId: Schema.String});
-export const GetSolNetworkInstanceMetadata = Schema.Struct({createdAt: Schema.Date, lastModified: Schema.Date});
-export const ProblemDetails = Schema.Struct({detail: Schema.String, title: Schema.optional(Schema.String)});
-export const ToscaOverride = Schema.Struct({name: Schema.optional(Schema.String), defaultValue: Schema.optional(Schema.String)});
+export class UpdateSolNetworkModify extends Schema.Class<UpdateSolNetworkModify>("UpdateSolNetworkModify")({vnfInstanceId: Schema.String, vnfConfigurableProperties: Schema.JsonValue}) {}
+export class UpdateSolNetworkServiceData extends Schema.Class<UpdateSolNetworkServiceData>("UpdateSolNetworkServiceData")({nsdInfoId: Schema.String, additionalParamsForNs: Schema.optional(Schema.JsonValue)}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({message: Schema.String}) {}
+export class CreateSolFunctionPackageInput extends Schema.Class<CreateSolFunctionPackageInput>("CreateSolFunctionPackageInput")({tags: Schema.optional(TagMap)}) {}
+export class CreateSolNetworkInstanceOutput extends Schema.Class<CreateSolNetworkInstanceOutput>("CreateSolNetworkInstanceOutput")({id: Schema.String, arn: Schema.String, nsdInfoId: Schema.String, nsInstanceName: Schema.String, tags: Schema.optional(TagMap)}) {}
+export class CreateSolNetworkPackageOutput extends Schema.Class<CreateSolNetworkPackageOutput>("CreateSolNetworkPackageOutput")({id: Schema.String, arn: Schema.String, nsdOnboardingState: Schema.String, nsdOperationalState: Schema.String, nsdUsageState: Schema.String, tags: Schema.optional(TagMap)}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({message: Schema.String}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.String}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({message: Schema.String}) {}
+export class GetSolFunctionPackageContentOutput extends Schema.Class<GetSolFunctionPackageContentOutput>("GetSolFunctionPackageContentOutput")({contentType: Schema.optional(Header("Content-Type")), packageContent: Schema.optional(Body("undefined", StreamBody()))}) {}
+export class GetSolFunctionPackageDescriptorOutput extends Schema.Class<GetSolFunctionPackageDescriptorOutput>("GetSolFunctionPackageDescriptorOutput")({contentType: Schema.optional(Header("Content-Type")), vnfd: Schema.optional(Body("undefined", StreamBody()))}) {}
+export class GetSolNetworkPackageContentOutput extends Schema.Class<GetSolNetworkPackageContentOutput>("GetSolNetworkPackageContentOutput")({contentType: Schema.optional(Header("Content-Type")), nsdContent: Schema.optional(Body("undefined", StreamBody()))}) {}
+export class GetSolNetworkPackageDescriptorOutput extends Schema.Class<GetSolNetworkPackageDescriptorOutput>("GetSolNetworkPackageDescriptorOutput")({contentType: Schema.optional(Header("Content-Type")), nsd: Schema.optional(Body("undefined", StreamBody()))}) {}
+export class InstantiateSolNetworkInstanceOutput extends Schema.Class<InstantiateSolNetworkInstanceOutput>("InstantiateSolNetworkInstanceOutput")({nsLcmOpOccId: Schema.String, tags: Schema.optional(TagMap)}) {}
+export class ListTagsForResourceOutput extends Schema.Class<ListTagsForResourceOutput>("ListTagsForResourceOutput")({tags: TagMap}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({message: Schema.String}) {}
+export class TerminateSolNetworkInstanceOutput extends Schema.Class<TerminateSolNetworkInstanceOutput>("TerminateSolNetworkInstanceOutput")({nsLcmOpOccId: Schema.optional(Schema.String), tags: Schema.optional(TagMap)}) {}
+export class UpdateSolFunctionPackageOutput extends Schema.Class<UpdateSolFunctionPackageOutput>("UpdateSolFunctionPackageOutput")({operationalState: Schema.String}) {}
+export class UpdateSolNetworkInstanceInput extends Schema.Class<UpdateSolNetworkInstanceInput>("UpdateSolNetworkInstanceInput")({nsInstanceId: Schema.String, updateType: Schema.String, modifyVnfInfoData: Schema.optional(UpdateSolNetworkModify), updateNs: Schema.optional(UpdateSolNetworkServiceData), tags: Schema.optional(TagMap)}) {}
+export class UpdateSolNetworkPackageOutput extends Schema.Class<UpdateSolNetworkPackageOutput>("UpdateSolNetworkPackageOutput")({nsdOperationalState: Schema.String}) {}
+export class GetSolFunctionInstanceMetadata extends Schema.Class<GetSolFunctionInstanceMetadata>("GetSolFunctionInstanceMetadata")({createdAt: Schema.Date, lastModified: Schema.Date}) {}
+export class LcmOperationInfo extends Schema.Class<LcmOperationInfo>("LcmOperationInfo")({nsLcmOpOccId: Schema.String}) {}
+export class GetSolNetworkInstanceMetadata extends Schema.Class<GetSolNetworkInstanceMetadata>("GetSolNetworkInstanceMetadata")({createdAt: Schema.Date, lastModified: Schema.Date}) {}
+export class ProblemDetails extends Schema.Class<ProblemDetails>("ProblemDetails")({detail: Schema.String, title: Schema.optional(Schema.String)}) {}
+export class ToscaOverride extends Schema.Class<ToscaOverride>("ToscaOverride")({name: Schema.optional(Schema.String), defaultValue: Schema.optional(Schema.String)}) {}
 export const OverrideList = Schema.Array(ToscaOverride);
-export const FunctionArtifactMeta = Schema.Struct({overrides: Schema.optional(OverrideList)});
-export const PutSolFunctionPackageContentMetadata = Schema.Struct({vnfd: Schema.optional(FunctionArtifactMeta)});
-export const NetworkArtifactMeta = Schema.Struct({overrides: Schema.optional(OverrideList)});
-export const PutSolNetworkPackageContentMetadata = Schema.Struct({nsd: Schema.optional(NetworkArtifactMeta)});
-export const ValidateSolFunctionPackageContentMetadata = Schema.Struct({vnfd: Schema.optional(FunctionArtifactMeta)});
-export const ValidateSolNetworkPackageContentMetadata = Schema.Struct({nsd: Schema.optional(NetworkArtifactMeta)});
-export const CreateSolFunctionPackageOutput = Schema.Struct({id: Schema.String, arn: Schema.String, onboardingState: Schema.String, operationalState: Schema.String, usageState: Schema.String, tags: Schema.optional(TagMap)});
-export const ServiceQuotaExceededException = Schema.Struct({message: Schema.String});
-export const GetSolNetworkInstanceOutput = Schema.Struct({id: Schema.String, arn: Schema.String, nsInstanceName: Schema.String, nsInstanceDescription: Schema.String, nsdId: Schema.String, nsdInfoId: Schema.String, nsState: Schema.optional(Schema.String), lcmOpInfo: Schema.optional(LcmOperationInfo), metadata: GetSolNetworkInstanceMetadata, tags: Schema.optional(TagMap)});
-export const PutSolFunctionPackageContentOutput = Schema.Struct({id: Schema.String, vnfdId: Schema.String, vnfProductName: Schema.String, vnfProvider: Schema.String, vnfdVersion: Schema.String, metadata: PutSolFunctionPackageContentMetadata});
-export const PutSolNetworkPackageContentOutput = Schema.Struct({id: Schema.String, arn: Schema.String, nsdId: Schema.String, nsdName: Schema.String, nsdVersion: Schema.String, vnfPkgIds: VnfPkgIdList, metadata: PutSolNetworkPackageContentMetadata});
-export const UpdateSolNetworkInstanceOutput = Schema.Struct({nsLcmOpOccId: Schema.optional(Schema.String), tags: Schema.optional(TagMap)});
-export const ValidateSolFunctionPackageContentOutput = Schema.Struct({id: Schema.String, vnfdId: Schema.String, vnfProductName: Schema.String, vnfProvider: Schema.String, vnfdVersion: Schema.String, metadata: ValidateSolFunctionPackageContentMetadata});
-export const ValidateSolNetworkPackageContentOutput = Schema.Struct({id: Schema.String, arn: Schema.String, nsdId: Schema.String, nsdName: Schema.String, nsdVersion: Schema.String, vnfPkgIds: VnfPkgIdList, metadata: ValidateSolNetworkPackageContentMetadata});
-export const UpdateNsMetadata = Schema.Struct({nsdInfoId: Schema.String, additionalParamsForNs: Schema.optional(Schema.JsonValue)});
-export const ModifyVnfInfoMetadata = Schema.Struct({vnfInstanceId: Schema.String, vnfConfigurableProperties: Schema.JsonValue});
-export const InstantiateMetadata = Schema.Struct({nsdInfoId: Schema.String, additionalParamsForNs: Schema.optional(Schema.JsonValue)});
+export class FunctionArtifactMeta extends Schema.Class<FunctionArtifactMeta>("FunctionArtifactMeta")({overrides: Schema.optional(OverrideList)}) {}
+export class PutSolFunctionPackageContentMetadata extends Schema.Class<PutSolFunctionPackageContentMetadata>("PutSolFunctionPackageContentMetadata")({vnfd: Schema.optional(FunctionArtifactMeta)}) {}
+export class NetworkArtifactMeta extends Schema.Class<NetworkArtifactMeta>("NetworkArtifactMeta")({overrides: Schema.optional(OverrideList)}) {}
+export class PutSolNetworkPackageContentMetadata extends Schema.Class<PutSolNetworkPackageContentMetadata>("PutSolNetworkPackageContentMetadata")({nsd: Schema.optional(NetworkArtifactMeta)}) {}
+export class ValidateSolFunctionPackageContentMetadata extends Schema.Class<ValidateSolFunctionPackageContentMetadata>("ValidateSolFunctionPackageContentMetadata")({vnfd: Schema.optional(FunctionArtifactMeta)}) {}
+export class ValidateSolNetworkPackageContentMetadata extends Schema.Class<ValidateSolNetworkPackageContentMetadata>("ValidateSolNetworkPackageContentMetadata")({nsd: Schema.optional(NetworkArtifactMeta)}) {}
+export class CreateSolFunctionPackageOutput extends Schema.Class<CreateSolFunctionPackageOutput>("CreateSolFunctionPackageOutput")({id: Schema.String, arn: Schema.String, onboardingState: Schema.String, operationalState: Schema.String, usageState: Schema.String, tags: Schema.optional(TagMap)}) {}
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({message: Schema.String}) {}
+export class GetSolNetworkInstanceOutput extends Schema.Class<GetSolNetworkInstanceOutput>("GetSolNetworkInstanceOutput")({id: Schema.String, arn: Schema.String, nsInstanceName: Schema.String, nsInstanceDescription: Schema.String, nsdId: Schema.String, nsdInfoId: Schema.String, nsState: Schema.optional(Schema.String), lcmOpInfo: Schema.optional(LcmOperationInfo), metadata: GetSolNetworkInstanceMetadata, tags: Schema.optional(TagMap)}) {}
+export class PutSolFunctionPackageContentOutput extends Schema.Class<PutSolFunctionPackageContentOutput>("PutSolFunctionPackageContentOutput")({id: Schema.String, vnfdId: Schema.String, vnfProductName: Schema.String, vnfProvider: Schema.String, vnfdVersion: Schema.String, metadata: PutSolFunctionPackageContentMetadata}) {}
+export class PutSolNetworkPackageContentOutput extends Schema.Class<PutSolNetworkPackageContentOutput>("PutSolNetworkPackageContentOutput")({id: Schema.String, arn: Schema.String, nsdId: Schema.String, nsdName: Schema.String, nsdVersion: Schema.String, vnfPkgIds: VnfPkgIdList, metadata: PutSolNetworkPackageContentMetadata}) {}
+export class UpdateSolNetworkInstanceOutput extends Schema.Class<UpdateSolNetworkInstanceOutput>("UpdateSolNetworkInstanceOutput")({nsLcmOpOccId: Schema.optional(Schema.String), tags: Schema.optional(TagMap)}) {}
+export class ValidateSolFunctionPackageContentOutput extends Schema.Class<ValidateSolFunctionPackageContentOutput>("ValidateSolFunctionPackageContentOutput")({id: Schema.String, vnfdId: Schema.String, vnfProductName: Schema.String, vnfProvider: Schema.String, vnfdVersion: Schema.String, metadata: ValidateSolFunctionPackageContentMetadata}) {}
+export class ValidateSolNetworkPackageContentOutput extends Schema.Class<ValidateSolNetworkPackageContentOutput>("ValidateSolNetworkPackageContentOutput")({id: Schema.String, arn: Schema.String, nsdId: Schema.String, nsdName: Schema.String, nsdVersion: Schema.String, vnfPkgIds: VnfPkgIdList, metadata: ValidateSolNetworkPackageContentMetadata}) {}
+export class UpdateNsMetadata extends Schema.Class<UpdateNsMetadata>("UpdateNsMetadata")({nsdInfoId: Schema.String, additionalParamsForNs: Schema.optional(Schema.JsonValue)}) {}
+export class ModifyVnfInfoMetadata extends Schema.Class<ModifyVnfInfoMetadata>("ModifyVnfInfoMetadata")({vnfInstanceId: Schema.String, vnfConfigurableProperties: Schema.JsonValue}) {}
+export class InstantiateMetadata extends Schema.Class<InstantiateMetadata>("InstantiateMetadata")({nsdInfoId: Schema.String, additionalParamsForNs: Schema.optional(Schema.JsonValue)}) {}
 export const StringMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const ErrorInfo = Schema.Struct({cause: Schema.optional(Schema.String), details: Schema.optional(Schema.String)});
-export const GetSolInstantiatedVnfInfo = Schema.Struct({vnfState: Schema.optional(Schema.String)});
-export const ListSolFunctionInstanceMetadata = Schema.Struct({createdAt: Schema.Date, lastModified: Schema.Date});
-export const ListSolFunctionPackageMetadata = Schema.Struct({createdAt: Schema.Date, lastModified: Schema.Date});
-export const ListSolNetworkInstanceMetadata = Schema.Struct({createdAt: Schema.Date, lastModified: Schema.Date});
-export const ListSolNetworkOperationsMetadata = Schema.Struct({nsdInfoId: Schema.optional(Schema.String), vnfInstanceId: Schema.optional(Schema.String), createdAt: Schema.Date, lastModified: Schema.Date});
-export const ListSolNetworkPackageMetadata = Schema.Struct({createdAt: Schema.Date, lastModified: Schema.Date});
-export const GetSolNetworkOperationMetadata = Schema.Struct({updateNsMetadata: Schema.optional(UpdateNsMetadata), modifyVnfInfoMetadata: Schema.optional(ModifyVnfInfoMetadata), instantiateMetadata: Schema.optional(InstantiateMetadata), createdAt: Schema.Date, lastModified: Schema.Date});
-export const GetSolNetworkOperationTaskDetails = Schema.Struct({taskName: Schema.optional(Schema.String), taskContext: Schema.optional(StringMap), taskErrorDetails: Schema.optional(ErrorInfo), taskStatus: Schema.optional(Schema.String), taskStartTime: Schema.optional(Schema.Date), taskEndTime: Schema.optional(Schema.Date)});
+export class ErrorInfo extends Schema.Class<ErrorInfo>("ErrorInfo")({cause: Schema.optional(Schema.String), details: Schema.optional(Schema.String)}) {}
+export class GetSolInstantiatedVnfInfo extends Schema.Class<GetSolInstantiatedVnfInfo>("GetSolInstantiatedVnfInfo")({vnfState: Schema.optional(Schema.String)}) {}
+export class ListSolFunctionInstanceMetadata extends Schema.Class<ListSolFunctionInstanceMetadata>("ListSolFunctionInstanceMetadata")({createdAt: Schema.Date, lastModified: Schema.Date}) {}
+export class ListSolFunctionPackageMetadata extends Schema.Class<ListSolFunctionPackageMetadata>("ListSolFunctionPackageMetadata")({createdAt: Schema.Date, lastModified: Schema.Date}) {}
+export class ListSolNetworkInstanceMetadata extends Schema.Class<ListSolNetworkInstanceMetadata>("ListSolNetworkInstanceMetadata")({createdAt: Schema.Date, lastModified: Schema.Date}) {}
+export class ListSolNetworkOperationsMetadata extends Schema.Class<ListSolNetworkOperationsMetadata>("ListSolNetworkOperationsMetadata")({nsdInfoId: Schema.optional(Schema.String), vnfInstanceId: Schema.optional(Schema.String), createdAt: Schema.Date, lastModified: Schema.Date}) {}
+export class ListSolNetworkPackageMetadata extends Schema.Class<ListSolNetworkPackageMetadata>("ListSolNetworkPackageMetadata")({createdAt: Schema.Date, lastModified: Schema.Date}) {}
+export class GetSolNetworkOperationMetadata extends Schema.Class<GetSolNetworkOperationMetadata>("GetSolNetworkOperationMetadata")({updateNsMetadata: Schema.optional(UpdateNsMetadata), modifyVnfInfoMetadata: Schema.optional(ModifyVnfInfoMetadata), instantiateMetadata: Schema.optional(InstantiateMetadata), createdAt: Schema.Date, lastModified: Schema.Date}) {}
+export class GetSolNetworkOperationTaskDetails extends Schema.Class<GetSolNetworkOperationTaskDetails>("GetSolNetworkOperationTaskDetails")({taskName: Schema.optional(Schema.String), taskContext: Schema.optional(StringMap), taskErrorDetails: Schema.optional(ErrorInfo), taskStatus: Schema.optional(Schema.String), taskStartTime: Schema.optional(Schema.Date), taskEndTime: Schema.optional(Schema.Date)}) {}
 export const GetSolNetworkOperationTasksList = Schema.Array(GetSolNetworkOperationTaskDetails);
-export const GetSolNetworkPackageMetadata = Schema.Struct({nsd: Schema.optional(NetworkArtifactMeta), createdAt: Schema.Date, lastModified: Schema.Date});
-export const ListSolFunctionInstanceInfo = Schema.Struct({id: Schema.String, arn: Schema.String, nsInstanceId: Schema.String, vnfPkgId: Schema.String, vnfPkgName: Schema.optional(Schema.String), instantiationState: Schema.String, instantiatedVnfInfo: Schema.optional(GetSolInstantiatedVnfInfo), metadata: ListSolFunctionInstanceMetadata});
+export class GetSolNetworkPackageMetadata extends Schema.Class<GetSolNetworkPackageMetadata>("GetSolNetworkPackageMetadata")({nsd: Schema.optional(NetworkArtifactMeta), createdAt: Schema.Date, lastModified: Schema.Date}) {}
+export class ListSolFunctionInstanceInfo extends Schema.Class<ListSolFunctionInstanceInfo>("ListSolFunctionInstanceInfo")({id: Schema.String, arn: Schema.String, nsInstanceId: Schema.String, vnfPkgId: Schema.String, vnfPkgName: Schema.optional(Schema.String), instantiationState: Schema.String, instantiatedVnfInfo: Schema.optional(GetSolInstantiatedVnfInfo), metadata: ListSolFunctionInstanceMetadata}) {}
 export const ListSolFunctionInstanceResources = Schema.Array(ListSolFunctionInstanceInfo);
-export const ListSolFunctionPackageInfo = Schema.Struct({id: Schema.String, arn: Schema.String, onboardingState: Schema.String, operationalState: Schema.String, usageState: Schema.String, vnfdId: Schema.optional(Schema.String), vnfProvider: Schema.optional(Schema.String), vnfProductName: Schema.optional(Schema.String), vnfdVersion: Schema.optional(Schema.String), metadata: Schema.optional(ListSolFunctionPackageMetadata)});
+export class ListSolFunctionPackageInfo extends Schema.Class<ListSolFunctionPackageInfo>("ListSolFunctionPackageInfo")({id: Schema.String, arn: Schema.String, onboardingState: Schema.String, operationalState: Schema.String, usageState: Schema.String, vnfdId: Schema.optional(Schema.String), vnfProvider: Schema.optional(Schema.String), vnfProductName: Schema.optional(Schema.String), vnfdVersion: Schema.optional(Schema.String), metadata: Schema.optional(ListSolFunctionPackageMetadata)}) {}
 export const ListSolFunctionPackageResources = Schema.Array(ListSolFunctionPackageInfo);
-export const ListSolNetworkInstanceInfo = Schema.Struct({id: Schema.String, arn: Schema.String, nsInstanceName: Schema.String, nsInstanceDescription: Schema.String, nsdId: Schema.String, nsdInfoId: Schema.String, nsState: Schema.String, metadata: ListSolNetworkInstanceMetadata});
+export class ListSolNetworkInstanceInfo extends Schema.Class<ListSolNetworkInstanceInfo>("ListSolNetworkInstanceInfo")({id: Schema.String, arn: Schema.String, nsInstanceName: Schema.String, nsInstanceDescription: Schema.String, nsdId: Schema.String, nsdInfoId: Schema.String, nsState: Schema.String, metadata: ListSolNetworkInstanceMetadata}) {}
 export const ListSolNetworkInstanceResources = Schema.Array(ListSolNetworkInstanceInfo);
-export const ListSolNetworkOperationsInfo = Schema.Struct({id: Schema.String, arn: Schema.String, operationState: Schema.String, nsInstanceId: Schema.String, lcmOperationType: Schema.String, updateType: Schema.optional(Schema.String), error: Schema.optional(ProblemDetails), metadata: Schema.optional(ListSolNetworkOperationsMetadata)});
+export class ListSolNetworkOperationsInfo extends Schema.Class<ListSolNetworkOperationsInfo>("ListSolNetworkOperationsInfo")({id: Schema.String, arn: Schema.String, operationState: Schema.String, nsInstanceId: Schema.String, lcmOperationType: Schema.String, updateType: Schema.optional(Schema.String), error: Schema.optional(ProblemDetails), metadata: Schema.optional(ListSolNetworkOperationsMetadata)}) {}
 export const ListSolNetworkOperationsResources = Schema.Array(ListSolNetworkOperationsInfo);
-export const ListSolNetworkPackageInfo = Schema.Struct({id: Schema.String, arn: Schema.String, nsdOnboardingState: Schema.String, nsdOperationalState: Schema.String, nsdUsageState: Schema.String, nsdId: Schema.optional(Schema.String), nsdName: Schema.optional(Schema.String), nsdVersion: Schema.optional(Schema.String), nsdDesigner: Schema.optional(Schema.String), nsdInvariantId: Schema.optional(Schema.String), vnfPkgIds: Schema.optional(VnfPkgIdList), metadata: ListSolNetworkPackageMetadata});
+export class ListSolNetworkPackageInfo extends Schema.Class<ListSolNetworkPackageInfo>("ListSolNetworkPackageInfo")({id: Schema.String, arn: Schema.String, nsdOnboardingState: Schema.String, nsdOperationalState: Schema.String, nsdUsageState: Schema.String, nsdId: Schema.optional(Schema.String), nsdName: Schema.optional(Schema.String), nsdVersion: Schema.optional(Schema.String), nsdDesigner: Schema.optional(Schema.String), nsdInvariantId: Schema.optional(Schema.String), vnfPkgIds: Schema.optional(VnfPkgIdList), metadata: ListSolNetworkPackageMetadata}) {}
 export const ListSolNetworkPackageResources = Schema.Array(ListSolNetworkPackageInfo);
-export const GetSolVnfcResourceInfoMetadata = Schema.Struct({nodeGroup: Schema.optional(Schema.String), cluster: Schema.optional(Schema.String), helmChart: Schema.optional(Schema.String)});
-export const GetSolNetworkOperationOutput = Schema.Struct({id: Schema.optional(Schema.String), arn: Schema.String, operationState: Schema.optional(Schema.String), nsInstanceId: Schema.optional(Schema.String), lcmOperationType: Schema.optional(Schema.String), updateType: Schema.optional(Schema.String), error: Schema.optional(ProblemDetails), metadata: Schema.optional(GetSolNetworkOperationMetadata), tasks: Schema.optional(GetSolNetworkOperationTasksList), tags: Schema.optional(TagMap)});
-export const GetSolNetworkPackageOutput = Schema.Struct({id: Schema.String, arn: Schema.String, nsdOnboardingState: Schema.String, nsdOperationalState: Schema.String, nsdUsageState: Schema.String, nsdId: Schema.String, nsdName: Schema.String, nsdVersion: Schema.String, vnfPkgIds: VnfPkgIdList, metadata: GetSolNetworkPackageMetadata, tags: Schema.optional(TagMap)});
-export const ListSolFunctionInstancesOutput = Schema.Struct({nextToken: Schema.optional(Schema.String), functionInstances: Schema.optional(ListSolFunctionInstanceResources)});
-export const ListSolFunctionPackagesOutput = Schema.Struct({nextToken: Schema.optional(Schema.String), functionPackages: ListSolFunctionPackageResources});
-export const ListSolNetworkInstancesOutput = Schema.Struct({nextToken: Schema.optional(Schema.String), networkInstances: Schema.optional(ListSolNetworkInstanceResources)});
-export const ListSolNetworkOperationsOutput = Schema.Struct({nextToken: Schema.optional(Schema.String), networkOperations: Schema.optional(ListSolNetworkOperationsResources)});
-export const ListSolNetworkPackagesOutput = Schema.Struct({nextToken: Schema.optional(Schema.String), networkPackages: ListSolNetworkPackageResources});
-export const GetSolVnfcResourceInfo = Schema.Struct({metadata: Schema.optional(GetSolVnfcResourceInfoMetadata)});
+export class GetSolVnfcResourceInfoMetadata extends Schema.Class<GetSolVnfcResourceInfoMetadata>("GetSolVnfcResourceInfoMetadata")({nodeGroup: Schema.optional(Schema.String), cluster: Schema.optional(Schema.String), helmChart: Schema.optional(Schema.String)}) {}
+export class GetSolNetworkOperationOutput extends Schema.Class<GetSolNetworkOperationOutput>("GetSolNetworkOperationOutput")({id: Schema.optional(Schema.String), arn: Schema.String, operationState: Schema.optional(Schema.String), nsInstanceId: Schema.optional(Schema.String), lcmOperationType: Schema.optional(Schema.String), updateType: Schema.optional(Schema.String), error: Schema.optional(ProblemDetails), metadata: Schema.optional(GetSolNetworkOperationMetadata), tasks: Schema.optional(GetSolNetworkOperationTasksList), tags: Schema.optional(TagMap)}) {}
+export class GetSolNetworkPackageOutput extends Schema.Class<GetSolNetworkPackageOutput>("GetSolNetworkPackageOutput")({id: Schema.String, arn: Schema.String, nsdOnboardingState: Schema.String, nsdOperationalState: Schema.String, nsdUsageState: Schema.String, nsdId: Schema.String, nsdName: Schema.String, nsdVersion: Schema.String, vnfPkgIds: VnfPkgIdList, metadata: GetSolNetworkPackageMetadata, tags: Schema.optional(TagMap)}) {}
+export class ListSolFunctionInstancesOutput extends Schema.Class<ListSolFunctionInstancesOutput>("ListSolFunctionInstancesOutput")({nextToken: Schema.optional(Schema.String), functionInstances: Schema.optional(ListSolFunctionInstanceResources)}) {}
+export class ListSolFunctionPackagesOutput extends Schema.Class<ListSolFunctionPackagesOutput>("ListSolFunctionPackagesOutput")({nextToken: Schema.optional(Schema.String), functionPackages: ListSolFunctionPackageResources}) {}
+export class ListSolNetworkInstancesOutput extends Schema.Class<ListSolNetworkInstancesOutput>("ListSolNetworkInstancesOutput")({nextToken: Schema.optional(Schema.String), networkInstances: Schema.optional(ListSolNetworkInstanceResources)}) {}
+export class ListSolNetworkOperationsOutput extends Schema.Class<ListSolNetworkOperationsOutput>("ListSolNetworkOperationsOutput")({nextToken: Schema.optional(Schema.String), networkOperations: Schema.optional(ListSolNetworkOperationsResources)}) {}
+export class ListSolNetworkPackagesOutput extends Schema.Class<ListSolNetworkPackagesOutput>("ListSolNetworkPackagesOutput")({nextToken: Schema.optional(Schema.String), networkPackages: ListSolNetworkPackageResources}) {}
+export class GetSolVnfcResourceInfo extends Schema.Class<GetSolVnfcResourceInfo>("GetSolVnfcResourceInfo")({metadata: Schema.optional(GetSolVnfcResourceInfoMetadata)}) {}
 export const GetSolVnfcResourceInfoList = Schema.Array(GetSolVnfcResourceInfo);
-export const GetSolVnfInfo = Schema.Struct({vnfState: Schema.optional(Schema.String), vnfcResourceInfo: Schema.optional(GetSolVnfcResourceInfoList)});
-export const GetSolFunctionPackageMetadata = Schema.Struct({vnfd: Schema.optional(FunctionArtifactMeta), createdAt: Schema.Date, lastModified: Schema.Date});
-export const GetSolFunctionInstanceOutput = Schema.Struct({id: Schema.String, arn: Schema.String, nsInstanceId: Schema.String, vnfPkgId: Schema.String, vnfdId: Schema.String, vnfProvider: Schema.optional(Schema.String), vnfProductName: Schema.optional(Schema.String), vnfdVersion: Schema.optional(Schema.String), instantiationState: Schema.String, instantiatedVnfInfo: Schema.optional(GetSolVnfInfo), metadata: GetSolFunctionInstanceMetadata, tags: Schema.optional(TagMap)});
-export const GetSolFunctionPackageOutput = Schema.Struct({id: Schema.String, arn: Schema.String, onboardingState: Schema.String, operationalState: Schema.String, usageState: Schema.String, vnfdId: Schema.optional(Schema.String), vnfProvider: Schema.optional(Schema.String), vnfProductName: Schema.optional(Schema.String), vnfdVersion: Schema.optional(Schema.String), metadata: Schema.optional(GetSolFunctionPackageMetadata), tags: Schema.optional(TagMap)});
+export class GetSolVnfInfo extends Schema.Class<GetSolVnfInfo>("GetSolVnfInfo")({vnfState: Schema.optional(Schema.String), vnfcResourceInfo: Schema.optional(GetSolVnfcResourceInfoList)}) {}
+export class GetSolFunctionPackageMetadata extends Schema.Class<GetSolFunctionPackageMetadata>("GetSolFunctionPackageMetadata")({vnfd: Schema.optional(FunctionArtifactMeta), createdAt: Schema.Date, lastModified: Schema.Date}) {}
+export class GetSolFunctionInstanceOutput extends Schema.Class<GetSolFunctionInstanceOutput>("GetSolFunctionInstanceOutput")({id: Schema.String, arn: Schema.String, nsInstanceId: Schema.String, vnfPkgId: Schema.String, vnfdId: Schema.String, vnfProvider: Schema.optional(Schema.String), vnfProductName: Schema.optional(Schema.String), vnfdVersion: Schema.optional(Schema.String), instantiationState: Schema.String, instantiatedVnfInfo: Schema.optional(GetSolVnfInfo), metadata: GetSolFunctionInstanceMetadata, tags: Schema.optional(TagMap)}) {}
+export class GetSolFunctionPackageOutput extends Schema.Class<GetSolFunctionPackageOutput>("GetSolFunctionPackageOutput")({id: Schema.String, arn: Schema.String, onboardingState: Schema.String, operationalState: Schema.String, usageState: Schema.String, vnfdId: Schema.optional(Schema.String), vnfProvider: Schema.optional(Schema.String), vnfProductName: Schema.optional(Schema.String), vnfdVersion: Schema.optional(Schema.String), metadata: Schema.optional(GetSolFunctionPackageMetadata), tags: Schema.optional(TagMap)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
 
 //# Operations
 export const untagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2008-10-21", uri: "/tags/{resourceArn}", method: "DELETE", sdkId: "tnb", sigV4ServiceName: "tnb", name: "TNB.UntagResource" }, UntagResourceInput, UntagResourceOutput, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

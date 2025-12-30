@@ -7,95 +7,95 @@ export const CcEmailAddressList = Schema.Array(Schema.String);
 export const CaseIdList = Schema.Array(Schema.String);
 export const ServiceCodeList = Schema.Array(Schema.String);
 export const StringList = Schema.Array(Schema.String);
-export const AddCommunicationToCaseRequest = Schema.Struct({caseId: Schema.optional(Schema.String), communicationBody: Schema.String, ccEmailAddresses: Schema.optional(CcEmailAddressList), attachmentSetId: Schema.optional(Schema.String)});
-export const CreateCaseRequest = Schema.Struct({subject: Schema.String, serviceCode: Schema.optional(Schema.String), severityCode: Schema.optional(Schema.String), categoryCode: Schema.optional(Schema.String), communicationBody: Schema.String, ccEmailAddresses: Schema.optional(CcEmailAddressList), language: Schema.optional(Schema.String), issueType: Schema.optional(Schema.String), attachmentSetId: Schema.optional(Schema.String)});
-export const DescribeAttachmentRequest = Schema.Struct({attachmentId: Schema.String});
-export const DescribeCasesRequest = Schema.Struct({caseIdList: Schema.optional(CaseIdList), displayId: Schema.optional(Schema.String), afterTime: Schema.optional(Schema.String), beforeTime: Schema.optional(Schema.String), includeResolvedCases: Schema.optional(Schema.Boolean), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), language: Schema.optional(Schema.String), includeCommunications: Schema.optional(Schema.Boolean)});
-export const DescribeCommunicationsRequest = Schema.Struct({caseId: Schema.String, beforeTime: Schema.optional(Schema.String), afterTime: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const DescribeCreateCaseOptionsRequest = Schema.Struct({issueType: Schema.String, serviceCode: Schema.String, language: Schema.String, categoryCode: Schema.String});
-export const DescribeServicesRequest = Schema.Struct({serviceCodeList: Schema.optional(ServiceCodeList), language: Schema.optional(Schema.String)});
-export const DescribeSeverityLevelsRequest = Schema.Struct({language: Schema.optional(Schema.String)});
-export const DescribeSupportedLanguagesRequest = Schema.Struct({issueType: Schema.String, serviceCode: Schema.String, categoryCode: Schema.String});
-export const DescribeTrustedAdvisorCheckRefreshStatusesRequest = Schema.Struct({checkIds: StringList});
-export const DescribeTrustedAdvisorCheckResultRequest = Schema.Struct({checkId: Schema.String, language: Schema.optional(Schema.String)});
-export const DescribeTrustedAdvisorChecksRequest = Schema.Struct({language: Schema.String});
-export const DescribeTrustedAdvisorCheckSummariesRequest = Schema.Struct({checkIds: StringList});
-export const RefreshTrustedAdvisorCheckRequest = Schema.Struct({checkId: Schema.String});
-export const ResolveCaseRequest = Schema.Struct({caseId: Schema.optional(Schema.String)});
-export const Attachment = Schema.Struct({fileName: Schema.optional(Schema.String), data: Schema.optional(StreamBody())});
+export class AddCommunicationToCaseRequest extends Schema.Class<AddCommunicationToCaseRequest>("AddCommunicationToCaseRequest")({caseId: Schema.optional(Schema.String), communicationBody: Schema.String, ccEmailAddresses: Schema.optional(CcEmailAddressList), attachmentSetId: Schema.optional(Schema.String)}) {}
+export class CreateCaseRequest extends Schema.Class<CreateCaseRequest>("CreateCaseRequest")({subject: Schema.String, serviceCode: Schema.optional(Schema.String), severityCode: Schema.optional(Schema.String), categoryCode: Schema.optional(Schema.String), communicationBody: Schema.String, ccEmailAddresses: Schema.optional(CcEmailAddressList), language: Schema.optional(Schema.String), issueType: Schema.optional(Schema.String), attachmentSetId: Schema.optional(Schema.String)}) {}
+export class DescribeAttachmentRequest extends Schema.Class<DescribeAttachmentRequest>("DescribeAttachmentRequest")({attachmentId: Schema.String}) {}
+export class DescribeCasesRequest extends Schema.Class<DescribeCasesRequest>("DescribeCasesRequest")({caseIdList: Schema.optional(CaseIdList), displayId: Schema.optional(Schema.String), afterTime: Schema.optional(Schema.String), beforeTime: Schema.optional(Schema.String), includeResolvedCases: Schema.optional(Schema.Boolean), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), language: Schema.optional(Schema.String), includeCommunications: Schema.optional(Schema.Boolean)}) {}
+export class DescribeCommunicationsRequest extends Schema.Class<DescribeCommunicationsRequest>("DescribeCommunicationsRequest")({caseId: Schema.String, beforeTime: Schema.optional(Schema.String), afterTime: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class DescribeCreateCaseOptionsRequest extends Schema.Class<DescribeCreateCaseOptionsRequest>("DescribeCreateCaseOptionsRequest")({issueType: Schema.String, serviceCode: Schema.String, language: Schema.String, categoryCode: Schema.String}) {}
+export class DescribeServicesRequest extends Schema.Class<DescribeServicesRequest>("DescribeServicesRequest")({serviceCodeList: Schema.optional(ServiceCodeList), language: Schema.optional(Schema.String)}) {}
+export class DescribeSeverityLevelsRequest extends Schema.Class<DescribeSeverityLevelsRequest>("DescribeSeverityLevelsRequest")({language: Schema.optional(Schema.String)}) {}
+export class DescribeSupportedLanguagesRequest extends Schema.Class<DescribeSupportedLanguagesRequest>("DescribeSupportedLanguagesRequest")({issueType: Schema.String, serviceCode: Schema.String, categoryCode: Schema.String}) {}
+export class DescribeTrustedAdvisorCheckRefreshStatusesRequest extends Schema.Class<DescribeTrustedAdvisorCheckRefreshStatusesRequest>("DescribeTrustedAdvisorCheckRefreshStatusesRequest")({checkIds: StringList}) {}
+export class DescribeTrustedAdvisorCheckResultRequest extends Schema.Class<DescribeTrustedAdvisorCheckResultRequest>("DescribeTrustedAdvisorCheckResultRequest")({checkId: Schema.String, language: Schema.optional(Schema.String)}) {}
+export class DescribeTrustedAdvisorChecksRequest extends Schema.Class<DescribeTrustedAdvisorChecksRequest>("DescribeTrustedAdvisorChecksRequest")({language: Schema.String}) {}
+export class DescribeTrustedAdvisorCheckSummariesRequest extends Schema.Class<DescribeTrustedAdvisorCheckSummariesRequest>("DescribeTrustedAdvisorCheckSummariesRequest")({checkIds: StringList}) {}
+export class RefreshTrustedAdvisorCheckRequest extends Schema.Class<RefreshTrustedAdvisorCheckRequest>("RefreshTrustedAdvisorCheckRequest")({checkId: Schema.String}) {}
+export class ResolveCaseRequest extends Schema.Class<ResolveCaseRequest>("ResolveCaseRequest")({caseId: Schema.optional(Schema.String)}) {}
+export class Attachment extends Schema.Class<Attachment>("Attachment")({fileName: Schema.optional(Schema.String), data: Schema.optional(StreamBody())}) {}
 export const Attachments = Schema.Array(Attachment);
-export const AddAttachmentsToSetRequest = Schema.Struct({attachmentSetId: Schema.optional(Schema.String), attachments: Attachments});
-export const AddCommunicationToCaseResponse = Schema.Struct({result: Schema.optional(Schema.Boolean)});
-export const CreateCaseResponse = Schema.Struct({caseId: Schema.optional(Schema.String)});
-export const DescribeAttachmentResponse = Schema.Struct({attachment: Schema.optional(Attachment)});
-export const TrustedAdvisorCheckRefreshStatus = Schema.Struct({checkId: Schema.String, status: Schema.String, millisUntilNextRefreshable: Schema.Number});
-export const RefreshTrustedAdvisorCheckResponse = Schema.Struct({status: TrustedAdvisorCheckRefreshStatus});
-export const ResolveCaseResponse = Schema.Struct({initialCaseStatus: Schema.optional(Schema.String), finalCaseStatus: Schema.optional(Schema.String)});
-export const SeverityLevel = Schema.Struct({code: Schema.optional(Schema.String), name: Schema.optional(Schema.String)});
+export class AddAttachmentsToSetRequest extends Schema.Class<AddAttachmentsToSetRequest>("AddAttachmentsToSetRequest")({attachmentSetId: Schema.optional(Schema.String), attachments: Attachments}) {}
+export class AddCommunicationToCaseResponse extends Schema.Class<AddCommunicationToCaseResponse>("AddCommunicationToCaseResponse")({result: Schema.optional(Schema.Boolean)}) {}
+export class CreateCaseResponse extends Schema.Class<CreateCaseResponse>("CreateCaseResponse")({caseId: Schema.optional(Schema.String)}) {}
+export class DescribeAttachmentResponse extends Schema.Class<DescribeAttachmentResponse>("DescribeAttachmentResponse")({attachment: Schema.optional(Attachment)}) {}
+export class TrustedAdvisorCheckRefreshStatus extends Schema.Class<TrustedAdvisorCheckRefreshStatus>("TrustedAdvisorCheckRefreshStatus")({checkId: Schema.String, status: Schema.String, millisUntilNextRefreshable: Schema.Number}) {}
+export class RefreshTrustedAdvisorCheckResponse extends Schema.Class<RefreshTrustedAdvisorCheckResponse>("RefreshTrustedAdvisorCheckResponse")({status: TrustedAdvisorCheckRefreshStatus}) {}
+export class ResolveCaseResponse extends Schema.Class<ResolveCaseResponse>("ResolveCaseResponse")({initialCaseStatus: Schema.optional(Schema.String), finalCaseStatus: Schema.optional(Schema.String)}) {}
+export class SeverityLevel extends Schema.Class<SeverityLevel>("SeverityLevel")({code: Schema.optional(Schema.String), name: Schema.optional(Schema.String)}) {}
 export const SeverityLevelsList = Schema.Array(SeverityLevel);
-export const SupportedLanguage = Schema.Struct({code: Schema.optional(Schema.String), language: Schema.optional(Schema.String), display: Schema.optional(Schema.String)});
+export class SupportedLanguage extends Schema.Class<SupportedLanguage>("SupportedLanguage")({code: Schema.optional(Schema.String), language: Schema.optional(Schema.String), display: Schema.optional(Schema.String)}) {}
 export const SupportedLanguagesList = Schema.Array(SupportedLanguage);
 export const TrustedAdvisorCheckRefreshStatusList = Schema.Array(TrustedAdvisorCheckRefreshStatus);
-export const TrustedAdvisorCheckDescription = Schema.Struct({id: Schema.String, name: Schema.String, description: Schema.String, category: Schema.String, metadata: StringList});
+export class TrustedAdvisorCheckDescription extends Schema.Class<TrustedAdvisorCheckDescription>("TrustedAdvisorCheckDescription")({id: Schema.String, name: Schema.String, description: Schema.String, category: Schema.String, metadata: StringList}) {}
 export const TrustedAdvisorCheckList = Schema.Array(TrustedAdvisorCheckDescription);
-export const TrustedAdvisorResourcesSummary = Schema.Struct({resourcesProcessed: Schema.Number, resourcesFlagged: Schema.Number, resourcesIgnored: Schema.Number, resourcesSuppressed: Schema.Number});
-export const TrustedAdvisorCostOptimizingSummary = Schema.Struct({estimatedMonthlySavings: Schema.Number, estimatedPercentMonthlySavings: Schema.Number});
-export const TrustedAdvisorCategorySpecificSummary = Schema.Struct({costOptimizing: Schema.optional(TrustedAdvisorCostOptimizingSummary)});
-export const TrustedAdvisorCheckSummary = Schema.Struct({checkId: Schema.String, timestamp: Schema.String, status: Schema.String, hasFlaggedResources: Schema.optional(Schema.Boolean), resourcesSummary: TrustedAdvisorResourcesSummary, categorySpecificSummary: TrustedAdvisorCategorySpecificSummary});
+export class TrustedAdvisorResourcesSummary extends Schema.Class<TrustedAdvisorResourcesSummary>("TrustedAdvisorResourcesSummary")({resourcesProcessed: Schema.Number, resourcesFlagged: Schema.Number, resourcesIgnored: Schema.Number, resourcesSuppressed: Schema.Number}) {}
+export class TrustedAdvisorCostOptimizingSummary extends Schema.Class<TrustedAdvisorCostOptimizingSummary>("TrustedAdvisorCostOptimizingSummary")({estimatedMonthlySavings: Schema.Number, estimatedPercentMonthlySavings: Schema.Number}) {}
+export class TrustedAdvisorCategorySpecificSummary extends Schema.Class<TrustedAdvisorCategorySpecificSummary>("TrustedAdvisorCategorySpecificSummary")({costOptimizing: Schema.optional(TrustedAdvisorCostOptimizingSummary)}) {}
+export class TrustedAdvisorCheckSummary extends Schema.Class<TrustedAdvisorCheckSummary>("TrustedAdvisorCheckSummary")({checkId: Schema.String, timestamp: Schema.String, status: Schema.String, hasFlaggedResources: Schema.optional(Schema.Boolean), resourcesSummary: TrustedAdvisorResourcesSummary, categorySpecificSummary: TrustedAdvisorCategorySpecificSummary}) {}
 export const TrustedAdvisorCheckSummaryList = Schema.Array(TrustedAdvisorCheckSummary);
-export const AddAttachmentsToSetResponse = Schema.Struct({attachmentSetId: Schema.optional(Schema.String), expiryTime: Schema.optional(Schema.String)});
-export const AttachmentSetExpired = Schema.Struct({message: Schema.optional(Schema.String)});
-export const AttachmentSetIdNotFound = Schema.Struct({message: Schema.optional(Schema.String)});
-export const AttachmentIdNotFound = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DescribeSeverityLevelsResponse = Schema.Struct({severityLevels: Schema.optional(SeverityLevelsList)});
-export const DescribeSupportedLanguagesResponse = Schema.Struct({supportedLanguages: Schema.optional(SupportedLanguagesList)});
-export const DescribeTrustedAdvisorCheckRefreshStatusesResponse = Schema.Struct({statuses: TrustedAdvisorCheckRefreshStatusList});
-export const DescribeTrustedAdvisorChecksResponse = Schema.Struct({checks: TrustedAdvisorCheckList});
-export const DescribeTrustedAdvisorCheckSummariesResponse = Schema.Struct({summaries: TrustedAdvisorCheckSummaryList});
-export const InternalServerError = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CaseIdNotFound = Schema.Struct({message: Schema.optional(Schema.String)});
-export const AttachmentDetails = Schema.Struct({attachmentId: Schema.optional(Schema.String), fileName: Schema.optional(Schema.String)});
+export class AddAttachmentsToSetResponse extends Schema.Class<AddAttachmentsToSetResponse>("AddAttachmentsToSetResponse")({attachmentSetId: Schema.optional(Schema.String), expiryTime: Schema.optional(Schema.String)}) {}
+export class AttachmentSetExpired extends Schema.Class<AttachmentSetExpired>("AttachmentSetExpired")({message: Schema.optional(Schema.String)}) {}
+export class AttachmentSetIdNotFound extends Schema.Class<AttachmentSetIdNotFound>("AttachmentSetIdNotFound")({message: Schema.optional(Schema.String)}) {}
+export class AttachmentIdNotFound extends Schema.Class<AttachmentIdNotFound>("AttachmentIdNotFound")({message: Schema.optional(Schema.String)}) {}
+export class DescribeSeverityLevelsResponse extends Schema.Class<DescribeSeverityLevelsResponse>("DescribeSeverityLevelsResponse")({severityLevels: Schema.optional(SeverityLevelsList)}) {}
+export class DescribeSupportedLanguagesResponse extends Schema.Class<DescribeSupportedLanguagesResponse>("DescribeSupportedLanguagesResponse")({supportedLanguages: Schema.optional(SupportedLanguagesList)}) {}
+export class DescribeTrustedAdvisorCheckRefreshStatusesResponse extends Schema.Class<DescribeTrustedAdvisorCheckRefreshStatusesResponse>("DescribeTrustedAdvisorCheckRefreshStatusesResponse")({statuses: TrustedAdvisorCheckRefreshStatusList}) {}
+export class DescribeTrustedAdvisorChecksResponse extends Schema.Class<DescribeTrustedAdvisorChecksResponse>("DescribeTrustedAdvisorChecksResponse")({checks: TrustedAdvisorCheckList}) {}
+export class DescribeTrustedAdvisorCheckSummariesResponse extends Schema.Class<DescribeTrustedAdvisorCheckSummariesResponse>("DescribeTrustedAdvisorCheckSummariesResponse")({summaries: TrustedAdvisorCheckSummaryList}) {}
+export class InternalServerError extends Schema.Class<InternalServerError>("InternalServerError")({message: Schema.optional(Schema.String)}) {}
+export class CaseIdNotFound extends Schema.Class<CaseIdNotFound>("CaseIdNotFound")({message: Schema.optional(Schema.String)}) {}
+export class AttachmentDetails extends Schema.Class<AttachmentDetails>("AttachmentDetails")({attachmentId: Schema.optional(Schema.String), fileName: Schema.optional(Schema.String)}) {}
 export const AttachmentSet = Schema.Array(AttachmentDetails);
-export const Communication = Schema.Struct({caseId: Schema.optional(Schema.String), body: Schema.optional(Schema.String), submittedBy: Schema.optional(Schema.String), timeCreated: Schema.optional(Schema.String), attachmentSet: Schema.optional(AttachmentSet)});
+export class Communication extends Schema.Class<Communication>("Communication")({caseId: Schema.optional(Schema.String), body: Schema.optional(Schema.String), submittedBy: Schema.optional(Schema.String), timeCreated: Schema.optional(Schema.String), attachmentSet: Schema.optional(AttachmentSet)}) {}
 export const CommunicationList = Schema.Array(Communication);
-export const RecentCaseCommunications = Schema.Struct({communications: Schema.optional(CommunicationList), nextToken: Schema.optional(Schema.String)});
-export const SupportedHour = Schema.Struct({startTime: Schema.optional(Schema.String), endTime: Schema.optional(Schema.String)});
+export class RecentCaseCommunications extends Schema.Class<RecentCaseCommunications>("RecentCaseCommunications")({communications: Schema.optional(CommunicationList), nextToken: Schema.optional(Schema.String)}) {}
+export class SupportedHour extends Schema.Class<SupportedHour>("SupportedHour")({startTime: Schema.optional(Schema.String), endTime: Schema.optional(Schema.String)}) {}
 export const SupportedHoursList = Schema.Array(SupportedHour);
-export const DateInterval = Schema.Struct({startDateTime: Schema.optional(Schema.String), endDateTime: Schema.optional(Schema.String)});
+export class DateInterval extends Schema.Class<DateInterval>("DateInterval")({startDateTime: Schema.optional(Schema.String), endDateTime: Schema.optional(Schema.String)}) {}
 export const DatesWithoutSupportList = Schema.Array(DateInterval);
-export const Category = Schema.Struct({code: Schema.optional(Schema.String), name: Schema.optional(Schema.String)});
+export class Category extends Schema.Class<Category>("Category")({code: Schema.optional(Schema.String), name: Schema.optional(Schema.String)}) {}
 export const CategoryList = Schema.Array(Category);
-export const TrustedAdvisorResourceDetail = Schema.Struct({status: Schema.String, region: Schema.optional(Schema.String), resourceId: Schema.String, isSuppressed: Schema.optional(Schema.Boolean), metadata: StringList});
+export class TrustedAdvisorResourceDetail extends Schema.Class<TrustedAdvisorResourceDetail>("TrustedAdvisorResourceDetail")({status: Schema.String, region: Schema.optional(Schema.String), resourceId: Schema.String, isSuppressed: Schema.optional(Schema.Boolean), metadata: StringList}) {}
 export const TrustedAdvisorResourceDetailList = Schema.Array(TrustedAdvisorResourceDetail);
-export const CaseDetails = Schema.Struct({caseId: Schema.optional(Schema.String), displayId: Schema.optional(Schema.String), subject: Schema.optional(Schema.String), status: Schema.optional(Schema.String), serviceCode: Schema.optional(Schema.String), categoryCode: Schema.optional(Schema.String), severityCode: Schema.optional(Schema.String), submittedBy: Schema.optional(Schema.String), timeCreated: Schema.optional(Schema.String), recentCommunications: Schema.optional(RecentCaseCommunications), ccEmailAddresses: Schema.optional(CcEmailAddressList), language: Schema.optional(Schema.String)});
+export class CaseDetails extends Schema.Class<CaseDetails>("CaseDetails")({caseId: Schema.optional(Schema.String), displayId: Schema.optional(Schema.String), subject: Schema.optional(Schema.String), status: Schema.optional(Schema.String), serviceCode: Schema.optional(Schema.String), categoryCode: Schema.optional(Schema.String), severityCode: Schema.optional(Schema.String), submittedBy: Schema.optional(Schema.String), timeCreated: Schema.optional(Schema.String), recentCommunications: Schema.optional(RecentCaseCommunications), ccEmailAddresses: Schema.optional(CcEmailAddressList), language: Schema.optional(Schema.String)}) {}
 export const CaseList = Schema.Array(CaseDetails);
-export const CommunicationTypeOptions = Schema.Struct({type: Schema.optional(Schema.String), supportedHours: Schema.optional(SupportedHoursList), datesWithoutSupport: Schema.optional(DatesWithoutSupportList)});
+export class CommunicationTypeOptions extends Schema.Class<CommunicationTypeOptions>("CommunicationTypeOptions")({type: Schema.optional(Schema.String), supportedHours: Schema.optional(SupportedHoursList), datesWithoutSupport: Schema.optional(DatesWithoutSupportList)}) {}
 export const CommunicationTypeOptionsList = Schema.Array(CommunicationTypeOptions);
-export const Service = Schema.Struct({code: Schema.optional(Schema.String), name: Schema.optional(Schema.String), categories: Schema.optional(CategoryList)});
+export class Service extends Schema.Class<Service>("Service")({code: Schema.optional(Schema.String), name: Schema.optional(Schema.String), categories: Schema.optional(CategoryList)}) {}
 export const ServiceList = Schema.Array(Service);
-export const AttachmentLimitExceeded = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CaseCreationLimitExceeded = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DescribeAttachmentLimitExceeded = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DescribeCasesResponse = Schema.Struct({cases: Schema.optional(CaseList), nextToken: Schema.optional(Schema.String)});
-export const DescribeCommunicationsResponse = Schema.Struct({communications: Schema.optional(CommunicationList), nextToken: Schema.optional(Schema.String)});
-export const DescribeCreateCaseOptionsResponse = Schema.Struct({languageAvailability: Schema.optional(Schema.String), communicationTypes: Schema.optional(CommunicationTypeOptionsList)});
-export const DescribeServicesResponse = Schema.Struct({services: Schema.optional(ServiceList)});
-export const ThrottlingException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const TrustedAdvisorCheckResult = Schema.Struct({checkId: Schema.String, timestamp: Schema.String, status: Schema.String, resourcesSummary: TrustedAdvisorResourcesSummary, categorySpecificSummary: TrustedAdvisorCategorySpecificSummary, flaggedResources: TrustedAdvisorResourceDetailList});
-export const AttachmentSetSizeLimitExceeded = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DescribeTrustedAdvisorCheckResultResponse = Schema.Struct({result: Schema.optional(TrustedAdvisorCheckResult)});
+export class AttachmentLimitExceeded extends Schema.Class<AttachmentLimitExceeded>("AttachmentLimitExceeded")({message: Schema.optional(Schema.String)}) {}
+export class CaseCreationLimitExceeded extends Schema.Class<CaseCreationLimitExceeded>("CaseCreationLimitExceeded")({message: Schema.optional(Schema.String)}) {}
+export class DescribeAttachmentLimitExceeded extends Schema.Class<DescribeAttachmentLimitExceeded>("DescribeAttachmentLimitExceeded")({message: Schema.optional(Schema.String)}) {}
+export class DescribeCasesResponse extends Schema.Class<DescribeCasesResponse>("DescribeCasesResponse")({cases: Schema.optional(CaseList), nextToken: Schema.optional(Schema.String)}) {}
+export class DescribeCommunicationsResponse extends Schema.Class<DescribeCommunicationsResponse>("DescribeCommunicationsResponse")({communications: Schema.optional(CommunicationList), nextToken: Schema.optional(Schema.String)}) {}
+export class DescribeCreateCaseOptionsResponse extends Schema.Class<DescribeCreateCaseOptionsResponse>("DescribeCreateCaseOptionsResponse")({languageAvailability: Schema.optional(Schema.String), communicationTypes: Schema.optional(CommunicationTypeOptionsList)}) {}
+export class DescribeServicesResponse extends Schema.Class<DescribeServicesResponse>("DescribeServicesResponse")({services: Schema.optional(ServiceList)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({message: Schema.optional(Schema.String)}) {}
+export class TrustedAdvisorCheckResult extends Schema.Class<TrustedAdvisorCheckResult>("TrustedAdvisorCheckResult")({checkId: Schema.String, timestamp: Schema.String, status: Schema.String, resourcesSummary: TrustedAdvisorResourcesSummary, categorySpecificSummary: TrustedAdvisorCategorySpecificSummary, flaggedResources: TrustedAdvisorResourceDetailList}) {}
+export class AttachmentSetSizeLimitExceeded extends Schema.Class<AttachmentSetSizeLimitExceeded>("AttachmentSetSizeLimitExceeded")({message: Schema.optional(Schema.String)}) {}
+export class DescribeTrustedAdvisorCheckResultResponse extends Schema.Class<DescribeTrustedAdvisorCheckResultResponse>("DescribeTrustedAdvisorCheckResultResponse")({result: Schema.optional(TrustedAdvisorCheckResult)}) {}
 
 //# Errors
-export class AttachmentSetExpiredError extends Schema.TaggedError<AttachmentSetExpiredError>()("AttachmentSetExpired", AttachmentSetExpired) {};
-export class AttachmentSetIdNotFoundError extends Schema.TaggedError<AttachmentSetIdNotFoundError>()("AttachmentSetIdNotFound", AttachmentSetIdNotFound) {};
-export class CaseIdNotFoundError extends Schema.TaggedError<CaseIdNotFoundError>()("CaseIdNotFound", CaseIdNotFound) {};
-export class InternalServerErrorError extends Schema.TaggedError<InternalServerErrorError>()("InternalServerError", InternalServerError) {};
-export class AttachmentIdNotFoundError extends Schema.TaggedError<AttachmentIdNotFoundError>()("AttachmentIdNotFound", AttachmentIdNotFound) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class AttachmentLimitExceededError extends Schema.TaggedError<AttachmentLimitExceededError>()("AttachmentLimitExceeded", AttachmentLimitExceeded) {};
-export class CaseCreationLimitExceededError extends Schema.TaggedError<CaseCreationLimitExceededError>()("CaseCreationLimitExceeded", CaseCreationLimitExceeded) {};
-export class DescribeAttachmentLimitExceededError extends Schema.TaggedError<DescribeAttachmentLimitExceededError>()("DescribeAttachmentLimitExceeded", DescribeAttachmentLimitExceeded) {};
-export class AttachmentSetSizeLimitExceededError extends Schema.TaggedError<AttachmentSetSizeLimitExceededError>()("AttachmentSetSizeLimitExceeded", AttachmentSetSizeLimitExceeded) {};
+export class AttachmentSetExpiredError extends Schema.TaggedError<AttachmentSetExpiredError>()("AttachmentSetExpired", AttachmentSetExpired.fields) {};
+export class AttachmentSetIdNotFoundError extends Schema.TaggedError<AttachmentSetIdNotFoundError>()("AttachmentSetIdNotFound", AttachmentSetIdNotFound.fields) {};
+export class CaseIdNotFoundError extends Schema.TaggedError<CaseIdNotFoundError>()("CaseIdNotFound", CaseIdNotFound.fields) {};
+export class InternalServerErrorError extends Schema.TaggedError<InternalServerErrorError>()("InternalServerError", InternalServerError.fields) {};
+export class AttachmentIdNotFoundError extends Schema.TaggedError<AttachmentIdNotFoundError>()("AttachmentIdNotFound", AttachmentIdNotFound.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class AttachmentLimitExceededError extends Schema.TaggedError<AttachmentLimitExceededError>()("AttachmentLimitExceeded", AttachmentLimitExceeded.fields) {};
+export class CaseCreationLimitExceededError extends Schema.TaggedError<CaseCreationLimitExceededError>()("CaseCreationLimitExceeded", CaseCreationLimitExceeded.fields) {};
+export class DescribeAttachmentLimitExceededError extends Schema.TaggedError<DescribeAttachmentLimitExceededError>()("DescribeAttachmentLimitExceeded", DescribeAttachmentLimitExceeded.fields) {};
+export class AttachmentSetSizeLimitExceededError extends Schema.TaggedError<AttachmentSetSizeLimitExceededError>()("AttachmentSetSizeLimitExceeded", AttachmentSetSizeLimitExceeded.fields) {};
 
 //# Operations
 export const addCommunicationToCase = /*#__PURE__*/ makeOperation(() => Operation({ version: "2013-04-15", uri: "/", method: "POST", sdkId: "Support", sigV4ServiceName: "support", name: "AWSSupport_20130415.AddCommunicationToCase" }, AddCommunicationToCaseRequest, AddCommunicationToCaseResponse, [AttachmentSetExpiredError, AttachmentSetIdNotFoundError, CaseIdNotFoundError, InternalServerErrorError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

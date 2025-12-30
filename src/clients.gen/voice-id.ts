@@ -4,102 +4,102 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 
 //# Schemas
 export const TagKeyList = Schema.Array(Schema.String);
-export const AssociateFraudsterRequest = Schema.Struct({DomainId: Schema.String, WatchlistId: Schema.String, FraudsterId: Schema.String});
-export const CreateWatchlistRequest = Schema.Struct({DomainId: Schema.String, Name: Schema.String, Description: Schema.optional(Schema.String), ClientToken: Schema.optional(Schema.String)});
-export const DeleteFraudsterRequest = Schema.Struct({DomainId: Schema.String, FraudsterId: Schema.String});
-export const DeleteSpeakerRequest = Schema.Struct({DomainId: Schema.String, SpeakerId: Schema.String});
-export const DeleteWatchlistRequest = Schema.Struct({DomainId: Schema.String, WatchlistId: Schema.String});
-export const DescribeFraudsterRequest = Schema.Struct({DomainId: Schema.String, FraudsterId: Schema.String});
-export const DescribeFraudsterRegistrationJobRequest = Schema.Struct({DomainId: Schema.String, JobId: Schema.String});
-export const DescribeSpeakerRequest = Schema.Struct({DomainId: Schema.String, SpeakerId: Schema.String});
-export const DescribeSpeakerEnrollmentJobRequest = Schema.Struct({DomainId: Schema.String, JobId: Schema.String});
-export const DescribeWatchlistRequest = Schema.Struct({DomainId: Schema.String, WatchlistId: Schema.String});
-export const DisassociateFraudsterRequest = Schema.Struct({DomainId: Schema.String, WatchlistId: Schema.String, FraudsterId: Schema.String});
-export const EvaluateSessionRequest = Schema.Struct({DomainId: Schema.String, SessionNameOrId: Schema.String});
-export const ListFraudsterRegistrationJobsRequest = Schema.Struct({DomainId: Schema.String, JobStatus: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListFraudstersRequest = Schema.Struct({DomainId: Schema.String, WatchlistId: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListSpeakerEnrollmentJobsRequest = Schema.Struct({DomainId: Schema.String, JobStatus: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListSpeakersRequest = Schema.Struct({DomainId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceRequest = Schema.Struct({ResourceArn: Schema.String});
-export const ListWatchlistsRequest = Schema.Struct({DomainId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const OptOutSpeakerRequest = Schema.Struct({DomainId: Schema.String, SpeakerId: Schema.String});
-export const UntagResourceRequest = Schema.Struct({ResourceArn: Schema.String, TagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
-export const UpdateWatchlistRequest = Schema.Struct({DomainId: Schema.String, WatchlistId: Schema.String, Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String)});
+export class AssociateFraudsterRequest extends Schema.Class<AssociateFraudsterRequest>("AssociateFraudsterRequest")({DomainId: Schema.String, WatchlistId: Schema.String, FraudsterId: Schema.String}) {}
+export class CreateWatchlistRequest extends Schema.Class<CreateWatchlistRequest>("CreateWatchlistRequest")({DomainId: Schema.String, Name: Schema.String, Description: Schema.optional(Schema.String), ClientToken: Schema.optional(Schema.String)}) {}
+export class DeleteFraudsterRequest extends Schema.Class<DeleteFraudsterRequest>("DeleteFraudsterRequest")({DomainId: Schema.String, FraudsterId: Schema.String}) {}
+export class DeleteSpeakerRequest extends Schema.Class<DeleteSpeakerRequest>("DeleteSpeakerRequest")({DomainId: Schema.String, SpeakerId: Schema.String}) {}
+export class DeleteWatchlistRequest extends Schema.Class<DeleteWatchlistRequest>("DeleteWatchlistRequest")({DomainId: Schema.String, WatchlistId: Schema.String}) {}
+export class DescribeFraudsterRequest extends Schema.Class<DescribeFraudsterRequest>("DescribeFraudsterRequest")({DomainId: Schema.String, FraudsterId: Schema.String}) {}
+export class DescribeFraudsterRegistrationJobRequest extends Schema.Class<DescribeFraudsterRegistrationJobRequest>("DescribeFraudsterRegistrationJobRequest")({DomainId: Schema.String, JobId: Schema.String}) {}
+export class DescribeSpeakerRequest extends Schema.Class<DescribeSpeakerRequest>("DescribeSpeakerRequest")({DomainId: Schema.String, SpeakerId: Schema.String}) {}
+export class DescribeSpeakerEnrollmentJobRequest extends Schema.Class<DescribeSpeakerEnrollmentJobRequest>("DescribeSpeakerEnrollmentJobRequest")({DomainId: Schema.String, JobId: Schema.String}) {}
+export class DescribeWatchlistRequest extends Schema.Class<DescribeWatchlistRequest>("DescribeWatchlistRequest")({DomainId: Schema.String, WatchlistId: Schema.String}) {}
+export class DisassociateFraudsterRequest extends Schema.Class<DisassociateFraudsterRequest>("DisassociateFraudsterRequest")({DomainId: Schema.String, WatchlistId: Schema.String, FraudsterId: Schema.String}) {}
+export class EvaluateSessionRequest extends Schema.Class<EvaluateSessionRequest>("EvaluateSessionRequest")({DomainId: Schema.String, SessionNameOrId: Schema.String}) {}
+export class ListFraudsterRegistrationJobsRequest extends Schema.Class<ListFraudsterRegistrationJobsRequest>("ListFraudsterRegistrationJobsRequest")({DomainId: Schema.String, JobStatus: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListFraudstersRequest extends Schema.Class<ListFraudstersRequest>("ListFraudstersRequest")({DomainId: Schema.String, WatchlistId: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListSpeakerEnrollmentJobsRequest extends Schema.Class<ListSpeakerEnrollmentJobsRequest>("ListSpeakerEnrollmentJobsRequest")({DomainId: Schema.String, JobStatus: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListSpeakersRequest extends Schema.Class<ListSpeakersRequest>("ListSpeakersRequest")({DomainId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({ResourceArn: Schema.String}) {}
+export class ListWatchlistsRequest extends Schema.Class<ListWatchlistsRequest>("ListWatchlistsRequest")({DomainId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class OptOutSpeakerRequest extends Schema.Class<OptOutSpeakerRequest>("OptOutSpeakerRequest")({DomainId: Schema.String, SpeakerId: Schema.String}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({ResourceArn: Schema.String, TagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class UpdateWatchlistRequest extends Schema.Class<UpdateWatchlistRequest>("UpdateWatchlistRequest")({DomainId: Schema.String, WatchlistId: Schema.String, Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String)}) {}
 export const RegistrationConfigWatchlistIds = Schema.Array(Schema.String);
-export const RegistrationConfig = Schema.Struct({DuplicateRegistrationAction: Schema.optional(Schema.String), FraudsterSimilarityThreshold: Schema.optional(Schema.Number), WatchlistIds: Schema.optional(RegistrationConfigWatchlistIds)});
-export const InputDataConfig = Schema.Struct({S3Uri: Schema.String});
-export const OutputDataConfig = Schema.Struct({S3Uri: Schema.String, KmsKeyId: Schema.optional(Schema.String)});
-export const Tag = Schema.Struct({Key: Schema.String, Value: Schema.String});
+export class RegistrationConfig extends Schema.Class<RegistrationConfig>("RegistrationConfig")({DuplicateRegistrationAction: Schema.optional(Schema.String), FraudsterSimilarityThreshold: Schema.optional(Schema.Number), WatchlistIds: Schema.optional(RegistrationConfigWatchlistIds)}) {}
+export class InputDataConfig extends Schema.Class<InputDataConfig>("InputDataConfig")({S3Uri: Schema.String}) {}
+export class OutputDataConfig extends Schema.Class<OutputDataConfig>("OutputDataConfig")({S3Uri: Schema.String, KmsKeyId: Schema.optional(Schema.String)}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.String, Value: Schema.String}) {}
 export const TagList = Schema.Array(Tag);
 export const EnrollmentJobFraudDetectionConfigWatchlistIds = Schema.Array(Schema.String);
-export const AccessDeniedException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ConflictException = Schema.Struct({Message: Schema.optional(Schema.String), ConflictType: Schema.optional(Schema.String)});
-export const InternalServerException = Schema.Struct({Message: Schema.optional(Schema.String)});
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({Message: Schema.optional(Schema.String)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({Message: Schema.optional(Schema.String), ConflictType: Schema.optional(Schema.String)}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({Message: Schema.optional(Schema.String)}) {}
 export const ResponseWatchlistIds = Schema.Array(Schema.String);
-export const Fraudster = Schema.Struct({DomainId: Schema.optional(Schema.String), GeneratedFraudsterId: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date), WatchlistIds: Schema.optional(ResponseWatchlistIds)});
-export const DescribeFraudsterResponse = Schema.Struct({Fraudster: Schema.optional(Fraudster)});
-export const Watchlist = Schema.Struct({DomainId: Schema.optional(Schema.String), WatchlistId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), DefaultWatchlist: Schema.optional(Schema.Boolean), CreatedAt: Schema.optional(Schema.Date), UpdatedAt: Schema.optional(Schema.Date)});
-export const DescribeWatchlistResponse = Schema.Struct({Watchlist: Schema.optional(Watchlist)});
-export const DisassociateFraudsterResponse = Schema.Struct({Fraudster: Schema.optional(Fraudster)});
-export const ListTagsForResourceResponse = Schema.Struct({Tags: Schema.optional(TagList)});
-export const Speaker = Schema.Struct({DomainId: Schema.optional(Schema.String), CustomerSpeakerId: Schema.optional(Schema.String), GeneratedSpeakerId: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date), UpdatedAt: Schema.optional(Schema.Date), LastAccessedAt: Schema.optional(Schema.Date)});
-export const OptOutSpeakerResponse = Schema.Struct({Speaker: Schema.optional(Speaker)});
-export const StartFraudsterRegistrationJobRequest = Schema.Struct({ClientToken: Schema.optional(Schema.String), JobName: Schema.optional(Schema.String), DomainId: Schema.String, DataAccessRoleArn: Schema.String, RegistrationConfig: Schema.optional(RegistrationConfig), InputDataConfig: InputDataConfig, OutputDataConfig: OutputDataConfig});
-export const TagResourceRequest = Schema.Struct({ResourceArn: Schema.String, Tags: TagList});
-export const TagResourceResponse = Schema.Struct({});
-export const ResourceNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String), ResourceType: Schema.optional(Schema.String)});
-export const UpdateWatchlistResponse = Schema.Struct({Watchlist: Schema.optional(Watchlist)});
+export class Fraudster extends Schema.Class<Fraudster>("Fraudster")({DomainId: Schema.optional(Schema.String), GeneratedFraudsterId: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date), WatchlistIds: Schema.optional(ResponseWatchlistIds)}) {}
+export class DescribeFraudsterResponse extends Schema.Class<DescribeFraudsterResponse>("DescribeFraudsterResponse")({Fraudster: Schema.optional(Fraudster)}) {}
+export class Watchlist extends Schema.Class<Watchlist>("Watchlist")({DomainId: Schema.optional(Schema.String), WatchlistId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), DefaultWatchlist: Schema.optional(Schema.Boolean), CreatedAt: Schema.optional(Schema.Date), UpdatedAt: Schema.optional(Schema.Date)}) {}
+export class DescribeWatchlistResponse extends Schema.Class<DescribeWatchlistResponse>("DescribeWatchlistResponse")({Watchlist: Schema.optional(Watchlist)}) {}
+export class DisassociateFraudsterResponse extends Schema.Class<DisassociateFraudsterResponse>("DisassociateFraudsterResponse")({Fraudster: Schema.optional(Fraudster)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({Tags: Schema.optional(TagList)}) {}
+export class Speaker extends Schema.Class<Speaker>("Speaker")({DomainId: Schema.optional(Schema.String), CustomerSpeakerId: Schema.optional(Schema.String), GeneratedSpeakerId: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date), UpdatedAt: Schema.optional(Schema.Date), LastAccessedAt: Schema.optional(Schema.Date)}) {}
+export class OptOutSpeakerResponse extends Schema.Class<OptOutSpeakerResponse>("OptOutSpeakerResponse")({Speaker: Schema.optional(Speaker)}) {}
+export class StartFraudsterRegistrationJobRequest extends Schema.Class<StartFraudsterRegistrationJobRequest>("StartFraudsterRegistrationJobRequest")({ClientToken: Schema.optional(Schema.String), JobName: Schema.optional(Schema.String), DomainId: Schema.String, DataAccessRoleArn: Schema.String, RegistrationConfig: Schema.optional(RegistrationConfig), InputDataConfig: InputDataConfig, OutputDataConfig: OutputDataConfig}) {}
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({ResourceArn: Schema.String, Tags: TagList}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({Message: Schema.optional(Schema.String), ResourceType: Schema.optional(Schema.String)}) {}
+export class UpdateWatchlistResponse extends Schema.Class<UpdateWatchlistResponse>("UpdateWatchlistResponse")({Watchlist: Schema.optional(Watchlist)}) {}
 export const FraudDetectionReasons = Schema.Array(Schema.String);
-export const EnrollmentJobFraudDetectionConfig = Schema.Struct({FraudDetectionAction: Schema.optional(Schema.String), RiskThreshold: Schema.optional(Schema.Number), WatchlistIds: Schema.optional(EnrollmentJobFraudDetectionConfigWatchlistIds)});
-export const EnrollmentConfig = Schema.Struct({ExistingEnrollmentAction: Schema.optional(Schema.String), FraudDetectionConfig: Schema.optional(EnrollmentJobFraudDetectionConfig)});
-export const FailureDetails = Schema.Struct({StatusCode: Schema.optional(Schema.Number), Message: Schema.optional(Schema.String)});
-export const JobProgress = Schema.Struct({PercentComplete: Schema.optional(Schema.Number)});
-export const SpeakerEnrollmentJob = Schema.Struct({JobName: Schema.optional(Schema.String), JobId: Schema.optional(Schema.String), JobStatus: Schema.optional(Schema.String), DomainId: Schema.optional(Schema.String), DataAccessRoleArn: Schema.optional(Schema.String), EnrollmentConfig: Schema.optional(EnrollmentConfig), InputDataConfig: Schema.optional(InputDataConfig), OutputDataConfig: Schema.optional(OutputDataConfig), CreatedAt: Schema.optional(Schema.Date), EndedAt: Schema.optional(Schema.Date), FailureDetails: Schema.optional(FailureDetails), JobProgress: Schema.optional(JobProgress)});
-export const FraudsterRegistrationJobSummary = Schema.Struct({JobName: Schema.optional(Schema.String), JobId: Schema.optional(Schema.String), JobStatus: Schema.optional(Schema.String), DomainId: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date), EndedAt: Schema.optional(Schema.Date), FailureDetails: Schema.optional(FailureDetails), JobProgress: Schema.optional(JobProgress)});
+export class EnrollmentJobFraudDetectionConfig extends Schema.Class<EnrollmentJobFraudDetectionConfig>("EnrollmentJobFraudDetectionConfig")({FraudDetectionAction: Schema.optional(Schema.String), RiskThreshold: Schema.optional(Schema.Number), WatchlistIds: Schema.optional(EnrollmentJobFraudDetectionConfigWatchlistIds)}) {}
+export class EnrollmentConfig extends Schema.Class<EnrollmentConfig>("EnrollmentConfig")({ExistingEnrollmentAction: Schema.optional(Schema.String), FraudDetectionConfig: Schema.optional(EnrollmentJobFraudDetectionConfig)}) {}
+export class FailureDetails extends Schema.Class<FailureDetails>("FailureDetails")({StatusCode: Schema.optional(Schema.Number), Message: Schema.optional(Schema.String)}) {}
+export class JobProgress extends Schema.Class<JobProgress>("JobProgress")({PercentComplete: Schema.optional(Schema.Number)}) {}
+export class SpeakerEnrollmentJob extends Schema.Class<SpeakerEnrollmentJob>("SpeakerEnrollmentJob")({JobName: Schema.optional(Schema.String), JobId: Schema.optional(Schema.String), JobStatus: Schema.optional(Schema.String), DomainId: Schema.optional(Schema.String), DataAccessRoleArn: Schema.optional(Schema.String), EnrollmentConfig: Schema.optional(EnrollmentConfig), InputDataConfig: Schema.optional(InputDataConfig), OutputDataConfig: Schema.optional(OutputDataConfig), CreatedAt: Schema.optional(Schema.Date), EndedAt: Schema.optional(Schema.Date), FailureDetails: Schema.optional(FailureDetails), JobProgress: Schema.optional(JobProgress)}) {}
+export class FraudsterRegistrationJobSummary extends Schema.Class<FraudsterRegistrationJobSummary>("FraudsterRegistrationJobSummary")({JobName: Schema.optional(Schema.String), JobId: Schema.optional(Schema.String), JobStatus: Schema.optional(Schema.String), DomainId: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date), EndedAt: Schema.optional(Schema.Date), FailureDetails: Schema.optional(FailureDetails), JobProgress: Schema.optional(JobProgress)}) {}
 export const FraudsterRegistrationJobSummaries = Schema.Array(FraudsterRegistrationJobSummary);
-export const FraudsterSummary = Schema.Struct({DomainId: Schema.optional(Schema.String), GeneratedFraudsterId: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date), WatchlistIds: Schema.optional(ResponseWatchlistIds)});
+export class FraudsterSummary extends Schema.Class<FraudsterSummary>("FraudsterSummary")({DomainId: Schema.optional(Schema.String), GeneratedFraudsterId: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date), WatchlistIds: Schema.optional(ResponseWatchlistIds)}) {}
 export const FraudsterSummaries = Schema.Array(FraudsterSummary);
-export const SpeakerEnrollmentJobSummary = Schema.Struct({JobName: Schema.optional(Schema.String), JobId: Schema.optional(Schema.String), JobStatus: Schema.optional(Schema.String), DomainId: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date), EndedAt: Schema.optional(Schema.Date), FailureDetails: Schema.optional(FailureDetails), JobProgress: Schema.optional(JobProgress)});
+export class SpeakerEnrollmentJobSummary extends Schema.Class<SpeakerEnrollmentJobSummary>("SpeakerEnrollmentJobSummary")({JobName: Schema.optional(Schema.String), JobId: Schema.optional(Schema.String), JobStatus: Schema.optional(Schema.String), DomainId: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date), EndedAt: Schema.optional(Schema.Date), FailureDetails: Schema.optional(FailureDetails), JobProgress: Schema.optional(JobProgress)}) {}
 export const SpeakerEnrollmentJobSummaries = Schema.Array(SpeakerEnrollmentJobSummary);
-export const SpeakerSummary = Schema.Struct({DomainId: Schema.optional(Schema.String), CustomerSpeakerId: Schema.optional(Schema.String), GeneratedSpeakerId: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date), UpdatedAt: Schema.optional(Schema.Date), LastAccessedAt: Schema.optional(Schema.Date)});
+export class SpeakerSummary extends Schema.Class<SpeakerSummary>("SpeakerSummary")({DomainId: Schema.optional(Schema.String), CustomerSpeakerId: Schema.optional(Schema.String), GeneratedSpeakerId: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date), UpdatedAt: Schema.optional(Schema.Date), LastAccessedAt: Schema.optional(Schema.Date)}) {}
 export const SpeakerSummaries = Schema.Array(SpeakerSummary);
-export const WatchlistSummary = Schema.Struct({DomainId: Schema.optional(Schema.String), WatchlistId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), DefaultWatchlist: Schema.optional(Schema.Boolean), CreatedAt: Schema.optional(Schema.Date), UpdatedAt: Schema.optional(Schema.Date)});
+export class WatchlistSummary extends Schema.Class<WatchlistSummary>("WatchlistSummary")({DomainId: Schema.optional(Schema.String), WatchlistId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), DefaultWatchlist: Schema.optional(Schema.Boolean), CreatedAt: Schema.optional(Schema.Date), UpdatedAt: Schema.optional(Schema.Date)}) {}
 export const WatchlistSummaries = Schema.Array(WatchlistSummary);
-export const AssociateFraudsterResponse = Schema.Struct({Fraudster: Schema.optional(Fraudster)});
-export const CreateWatchlistResponse = Schema.Struct({Watchlist: Schema.optional(Watchlist)});
-export const ThrottlingException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ValidationException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DescribeSpeakerResponse = Schema.Struct({Speaker: Schema.optional(Speaker)});
-export const DescribeSpeakerEnrollmentJobResponse = Schema.Struct({Job: Schema.optional(SpeakerEnrollmentJob)});
-export const ListFraudsterRegistrationJobsResponse = Schema.Struct({JobSummaries: Schema.optional(FraudsterRegistrationJobSummaries), NextToken: Schema.optional(Schema.String)});
-export const ListFraudstersResponse = Schema.Struct({FraudsterSummaries: Schema.optional(FraudsterSummaries), NextToken: Schema.optional(Schema.String)});
-export const ListSpeakerEnrollmentJobsResponse = Schema.Struct({JobSummaries: Schema.optional(SpeakerEnrollmentJobSummaries), NextToken: Schema.optional(Schema.String)});
-export const ListSpeakersResponse = Schema.Struct({SpeakerSummaries: Schema.optional(SpeakerSummaries), NextToken: Schema.optional(Schema.String)});
-export const ListWatchlistsResponse = Schema.Struct({WatchlistSummaries: Schema.optional(WatchlistSummaries), NextToken: Schema.optional(Schema.String)});
-export const ServiceQuotaExceededException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const FraudsterRegistrationJob = Schema.Struct({JobName: Schema.optional(Schema.String), JobId: Schema.optional(Schema.String), JobStatus: Schema.optional(Schema.String), DomainId: Schema.optional(Schema.String), DataAccessRoleArn: Schema.optional(Schema.String), RegistrationConfig: Schema.optional(RegistrationConfig), InputDataConfig: Schema.optional(InputDataConfig), OutputDataConfig: Schema.optional(OutputDataConfig), CreatedAt: Schema.optional(Schema.Date), EndedAt: Schema.optional(Schema.Date), FailureDetails: Schema.optional(FailureDetails), JobProgress: Schema.optional(JobProgress)});
-export const StartFraudsterRegistrationJobResponse = Schema.Struct({Job: Schema.optional(FraudsterRegistrationJob)});
-export const StartSpeakerEnrollmentJobRequest = Schema.Struct({ClientToken: Schema.optional(Schema.String), JobName: Schema.optional(Schema.String), DomainId: Schema.String, DataAccessRoleArn: Schema.String, EnrollmentConfig: Schema.optional(EnrollmentConfig), InputDataConfig: InputDataConfig, OutputDataConfig: OutputDataConfig});
-export const AuthenticationConfiguration = Schema.Struct({AcceptanceThreshold: Schema.Number});
-export const FraudDetectionConfiguration = Schema.Struct({RiskThreshold: Schema.optional(Schema.Number), WatchlistId: Schema.optional(Schema.String)});
-export const AuthenticationResult = Schema.Struct({AuthenticationResultId: Schema.optional(Schema.String), AudioAggregationStartedAt: Schema.optional(Schema.Date), AudioAggregationEndedAt: Schema.optional(Schema.Date), CustomerSpeakerId: Schema.optional(Schema.String), GeneratedSpeakerId: Schema.optional(Schema.String), Decision: Schema.optional(Schema.String), Score: Schema.optional(Schema.Number), Configuration: Schema.optional(AuthenticationConfiguration)});
-export const KnownFraudsterRisk = Schema.Struct({RiskScore: Schema.Number, GeneratedFraudsterId: Schema.optional(Schema.String)});
-export const VoiceSpoofingRisk = Schema.Struct({RiskScore: Schema.Number});
-export const DescribeFraudsterRegistrationJobResponse = Schema.Struct({Job: Schema.optional(FraudsterRegistrationJob)});
-export const StartSpeakerEnrollmentJobResponse = Schema.Struct({Job: Schema.optional(SpeakerEnrollmentJob)});
-export const FraudRiskDetails = Schema.Struct({KnownFraudsterRisk: KnownFraudsterRisk, VoiceSpoofingRisk: VoiceSpoofingRisk});
-export const FraudDetectionResult = Schema.Struct({FraudDetectionResultId: Schema.optional(Schema.String), AudioAggregationStartedAt: Schema.optional(Schema.Date), AudioAggregationEndedAt: Schema.optional(Schema.Date), Configuration: Schema.optional(FraudDetectionConfiguration), Decision: Schema.optional(Schema.String), Reasons: Schema.optional(FraudDetectionReasons), RiskDetails: Schema.optional(FraudRiskDetails)});
-export const EvaluateSessionResponse = Schema.Struct({DomainId: Schema.optional(Schema.String), SessionId: Schema.optional(Schema.String), SessionName: Schema.optional(Schema.String), StreamingStatus: Schema.optional(Schema.String), AuthenticationResult: Schema.optional(AuthenticationResult), FraudDetectionResult: Schema.optional(FraudDetectionResult)});
+export class AssociateFraudsterResponse extends Schema.Class<AssociateFraudsterResponse>("AssociateFraudsterResponse")({Fraudster: Schema.optional(Fraudster)}) {}
+export class CreateWatchlistResponse extends Schema.Class<CreateWatchlistResponse>("CreateWatchlistResponse")({Watchlist: Schema.optional(Watchlist)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({Message: Schema.optional(Schema.String)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({Message: Schema.optional(Schema.String)}) {}
+export class DescribeSpeakerResponse extends Schema.Class<DescribeSpeakerResponse>("DescribeSpeakerResponse")({Speaker: Schema.optional(Speaker)}) {}
+export class DescribeSpeakerEnrollmentJobResponse extends Schema.Class<DescribeSpeakerEnrollmentJobResponse>("DescribeSpeakerEnrollmentJobResponse")({Job: Schema.optional(SpeakerEnrollmentJob)}) {}
+export class ListFraudsterRegistrationJobsResponse extends Schema.Class<ListFraudsterRegistrationJobsResponse>("ListFraudsterRegistrationJobsResponse")({JobSummaries: Schema.optional(FraudsterRegistrationJobSummaries), NextToken: Schema.optional(Schema.String)}) {}
+export class ListFraudstersResponse extends Schema.Class<ListFraudstersResponse>("ListFraudstersResponse")({FraudsterSummaries: Schema.optional(FraudsterSummaries), NextToken: Schema.optional(Schema.String)}) {}
+export class ListSpeakerEnrollmentJobsResponse extends Schema.Class<ListSpeakerEnrollmentJobsResponse>("ListSpeakerEnrollmentJobsResponse")({JobSummaries: Schema.optional(SpeakerEnrollmentJobSummaries), NextToken: Schema.optional(Schema.String)}) {}
+export class ListSpeakersResponse extends Schema.Class<ListSpeakersResponse>("ListSpeakersResponse")({SpeakerSummaries: Schema.optional(SpeakerSummaries), NextToken: Schema.optional(Schema.String)}) {}
+export class ListWatchlistsResponse extends Schema.Class<ListWatchlistsResponse>("ListWatchlistsResponse")({WatchlistSummaries: Schema.optional(WatchlistSummaries), NextToken: Schema.optional(Schema.String)}) {}
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({Message: Schema.optional(Schema.String)}) {}
+export class FraudsterRegistrationJob extends Schema.Class<FraudsterRegistrationJob>("FraudsterRegistrationJob")({JobName: Schema.optional(Schema.String), JobId: Schema.optional(Schema.String), JobStatus: Schema.optional(Schema.String), DomainId: Schema.optional(Schema.String), DataAccessRoleArn: Schema.optional(Schema.String), RegistrationConfig: Schema.optional(RegistrationConfig), InputDataConfig: Schema.optional(InputDataConfig), OutputDataConfig: Schema.optional(OutputDataConfig), CreatedAt: Schema.optional(Schema.Date), EndedAt: Schema.optional(Schema.Date), FailureDetails: Schema.optional(FailureDetails), JobProgress: Schema.optional(JobProgress)}) {}
+export class StartFraudsterRegistrationJobResponse extends Schema.Class<StartFraudsterRegistrationJobResponse>("StartFraudsterRegistrationJobResponse")({Job: Schema.optional(FraudsterRegistrationJob)}) {}
+export class StartSpeakerEnrollmentJobRequest extends Schema.Class<StartSpeakerEnrollmentJobRequest>("StartSpeakerEnrollmentJobRequest")({ClientToken: Schema.optional(Schema.String), JobName: Schema.optional(Schema.String), DomainId: Schema.String, DataAccessRoleArn: Schema.String, EnrollmentConfig: Schema.optional(EnrollmentConfig), InputDataConfig: InputDataConfig, OutputDataConfig: OutputDataConfig}) {}
+export class AuthenticationConfiguration extends Schema.Class<AuthenticationConfiguration>("AuthenticationConfiguration")({AcceptanceThreshold: Schema.Number}) {}
+export class FraudDetectionConfiguration extends Schema.Class<FraudDetectionConfiguration>("FraudDetectionConfiguration")({RiskThreshold: Schema.optional(Schema.Number), WatchlistId: Schema.optional(Schema.String)}) {}
+export class AuthenticationResult extends Schema.Class<AuthenticationResult>("AuthenticationResult")({AuthenticationResultId: Schema.optional(Schema.String), AudioAggregationStartedAt: Schema.optional(Schema.Date), AudioAggregationEndedAt: Schema.optional(Schema.Date), CustomerSpeakerId: Schema.optional(Schema.String), GeneratedSpeakerId: Schema.optional(Schema.String), Decision: Schema.optional(Schema.String), Score: Schema.optional(Schema.Number), Configuration: Schema.optional(AuthenticationConfiguration)}) {}
+export class KnownFraudsterRisk extends Schema.Class<KnownFraudsterRisk>("KnownFraudsterRisk")({RiskScore: Schema.Number, GeneratedFraudsterId: Schema.optional(Schema.String)}) {}
+export class VoiceSpoofingRisk extends Schema.Class<VoiceSpoofingRisk>("VoiceSpoofingRisk")({RiskScore: Schema.Number}) {}
+export class DescribeFraudsterRegistrationJobResponse extends Schema.Class<DescribeFraudsterRegistrationJobResponse>("DescribeFraudsterRegistrationJobResponse")({Job: Schema.optional(FraudsterRegistrationJob)}) {}
+export class StartSpeakerEnrollmentJobResponse extends Schema.Class<StartSpeakerEnrollmentJobResponse>("StartSpeakerEnrollmentJobResponse")({Job: Schema.optional(SpeakerEnrollmentJob)}) {}
+export class FraudRiskDetails extends Schema.Class<FraudRiskDetails>("FraudRiskDetails")({KnownFraudsterRisk: KnownFraudsterRisk, VoiceSpoofingRisk: VoiceSpoofingRisk}) {}
+export class FraudDetectionResult extends Schema.Class<FraudDetectionResult>("FraudDetectionResult")({FraudDetectionResultId: Schema.optional(Schema.String), AudioAggregationStartedAt: Schema.optional(Schema.Date), AudioAggregationEndedAt: Schema.optional(Schema.Date), Configuration: Schema.optional(FraudDetectionConfiguration), Decision: Schema.optional(Schema.String), Reasons: Schema.optional(FraudDetectionReasons), RiskDetails: Schema.optional(FraudRiskDetails)}) {}
+export class EvaluateSessionResponse extends Schema.Class<EvaluateSessionResponse>("EvaluateSessionResponse")({DomainId: Schema.optional(Schema.String), SessionId: Schema.optional(Schema.String), SessionName: Schema.optional(Schema.String), StreamingStatus: Schema.optional(Schema.String), AuthenticationResult: Schema.optional(AuthenticationResult), FraudDetectionResult: Schema.optional(FraudDetectionResult)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
 
 //# Operations
 export const deleteWatchlist = /*#__PURE__*/ makeOperation(() => Operation({ version: "2021-09-27", uri: "/", method: "POST", sdkId: "Voice ID", sigV4ServiceName: "voiceid", name: "VoiceID.DeleteWatchlist" }, DeleteWatchlistRequest, Schema.Struct({}), [AccessDeniedExceptionError, ConflictExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);

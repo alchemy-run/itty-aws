@@ -5,107 +5,107 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 //# Schemas
 export const TaskIdList = Schema.Array(Schema.String);
 export const TagKeyList = Schema.Array(Schema.String);
-export const BatchGetUserAccessTasksRequest = Schema.Struct({appBundleIdentifier: Schema.String, taskIdList: TaskIdList});
-export const Tag = Schema.Struct({key: Schema.String, value: Schema.String});
+export class BatchGetUserAccessTasksRequest extends Schema.Class<BatchGetUserAccessTasksRequest>("BatchGetUserAccessTasksRequest")({appBundleIdentifier: Schema.String, taskIdList: TaskIdList}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({key: Schema.String, value: Schema.String}) {}
 export const TagList = Schema.Array(Tag);
-export const CreateAppBundleRequest = Schema.Struct({clientToken: Schema.optional(Schema.String), customerManagedKeyIdentifier: Schema.optional(Schema.String), tags: Schema.optional(TagList)});
-export const CreateIngestionRequest = Schema.Struct({appBundleIdentifier: Schema.String, app: Schema.String, tenantId: Schema.String, ingestionType: Schema.String, clientToken: Schema.optional(Schema.String), tags: Schema.optional(TagList)});
-export const DeleteAppAuthorizationRequest = Schema.Struct({appBundleIdentifier: Schema.String, appAuthorizationIdentifier: Schema.String});
-export const DeleteAppAuthorizationResponse = Schema.Struct({});
-export const DeleteAppBundleRequest = Schema.Struct({appBundleIdentifier: Schema.String});
-export const DeleteAppBundleResponse = Schema.Struct({});
-export const DeleteIngestionRequest = Schema.Struct({appBundleIdentifier: Schema.String, ingestionIdentifier: Schema.String});
-export const DeleteIngestionResponse = Schema.Struct({});
-export const DeleteIngestionDestinationRequest = Schema.Struct({appBundleIdentifier: Schema.String, ingestionIdentifier: Schema.String, ingestionDestinationIdentifier: Schema.String});
-export const DeleteIngestionDestinationResponse = Schema.Struct({});
-export const GetAppAuthorizationRequest = Schema.Struct({appBundleIdentifier: Schema.String, appAuthorizationIdentifier: Schema.String});
-export const GetAppBundleRequest = Schema.Struct({appBundleIdentifier: Schema.String});
-export const GetIngestionRequest = Schema.Struct({appBundleIdentifier: Schema.String, ingestionIdentifier: Schema.String});
-export const GetIngestionDestinationRequest = Schema.Struct({appBundleIdentifier: Schema.String, ingestionIdentifier: Schema.String, ingestionDestinationIdentifier: Schema.String});
-export const ListAppAuthorizationsRequest = Schema.Struct({appBundleIdentifier: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListAppBundlesRequest = Schema.Struct({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListIngestionDestinationsRequest = Schema.Struct({appBundleIdentifier: Schema.String, ingestionIdentifier: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListIngestionsRequest = Schema.Struct({appBundleIdentifier: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceRequest = Schema.Struct({resourceArn: Schema.String});
-export const StartIngestionRequest = Schema.Struct({ingestionIdentifier: Schema.String, appBundleIdentifier: Schema.String});
-export const StartIngestionResponse = Schema.Struct({});
-export const StartUserAccessTasksRequest = Schema.Struct({appBundleIdentifier: Schema.String, email: Schema.String});
-export const StopIngestionRequest = Schema.Struct({ingestionIdentifier: Schema.String, appBundleIdentifier: Schema.String});
-export const StopIngestionResponse = Schema.Struct({});
-export const TagResourceRequest = Schema.Struct({resourceArn: Schema.String, tags: TagList});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({resourceArn: Schema.String, tagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
-export const Oauth2Credential = Schema.Struct({clientId: Schema.String, clientSecret: Schema.String});
-export const ApiKeyCredential = Schema.Struct({apiKey: Schema.String});
+export class CreateAppBundleRequest extends Schema.Class<CreateAppBundleRequest>("CreateAppBundleRequest")({clientToken: Schema.optional(Schema.String), customerManagedKeyIdentifier: Schema.optional(Schema.String), tags: Schema.optional(TagList)}) {}
+export class CreateIngestionRequest extends Schema.Class<CreateIngestionRequest>("CreateIngestionRequest")({appBundleIdentifier: Schema.String, app: Schema.String, tenantId: Schema.String, ingestionType: Schema.String, clientToken: Schema.optional(Schema.String), tags: Schema.optional(TagList)}) {}
+export class DeleteAppAuthorizationRequest extends Schema.Class<DeleteAppAuthorizationRequest>("DeleteAppAuthorizationRequest")({appBundleIdentifier: Schema.String, appAuthorizationIdentifier: Schema.String}) {}
+export class DeleteAppAuthorizationResponse extends Schema.Class<DeleteAppAuthorizationResponse>("DeleteAppAuthorizationResponse")({}) {}
+export class DeleteAppBundleRequest extends Schema.Class<DeleteAppBundleRequest>("DeleteAppBundleRequest")({appBundleIdentifier: Schema.String}) {}
+export class DeleteAppBundleResponse extends Schema.Class<DeleteAppBundleResponse>("DeleteAppBundleResponse")({}) {}
+export class DeleteIngestionRequest extends Schema.Class<DeleteIngestionRequest>("DeleteIngestionRequest")({appBundleIdentifier: Schema.String, ingestionIdentifier: Schema.String}) {}
+export class DeleteIngestionResponse extends Schema.Class<DeleteIngestionResponse>("DeleteIngestionResponse")({}) {}
+export class DeleteIngestionDestinationRequest extends Schema.Class<DeleteIngestionDestinationRequest>("DeleteIngestionDestinationRequest")({appBundleIdentifier: Schema.String, ingestionIdentifier: Schema.String, ingestionDestinationIdentifier: Schema.String}) {}
+export class DeleteIngestionDestinationResponse extends Schema.Class<DeleteIngestionDestinationResponse>("DeleteIngestionDestinationResponse")({}) {}
+export class GetAppAuthorizationRequest extends Schema.Class<GetAppAuthorizationRequest>("GetAppAuthorizationRequest")({appBundleIdentifier: Schema.String, appAuthorizationIdentifier: Schema.String}) {}
+export class GetAppBundleRequest extends Schema.Class<GetAppBundleRequest>("GetAppBundleRequest")({appBundleIdentifier: Schema.String}) {}
+export class GetIngestionRequest extends Schema.Class<GetIngestionRequest>("GetIngestionRequest")({appBundleIdentifier: Schema.String, ingestionIdentifier: Schema.String}) {}
+export class GetIngestionDestinationRequest extends Schema.Class<GetIngestionDestinationRequest>("GetIngestionDestinationRequest")({appBundleIdentifier: Schema.String, ingestionIdentifier: Schema.String, ingestionDestinationIdentifier: Schema.String}) {}
+export class ListAppAuthorizationsRequest extends Schema.Class<ListAppAuthorizationsRequest>("ListAppAuthorizationsRequest")({appBundleIdentifier: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListAppBundlesRequest extends Schema.Class<ListAppBundlesRequest>("ListAppBundlesRequest")({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListIngestionDestinationsRequest extends Schema.Class<ListIngestionDestinationsRequest>("ListIngestionDestinationsRequest")({appBundleIdentifier: Schema.String, ingestionIdentifier: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListIngestionsRequest extends Schema.Class<ListIngestionsRequest>("ListIngestionsRequest")({appBundleIdentifier: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({resourceArn: Schema.String}) {}
+export class StartIngestionRequest extends Schema.Class<StartIngestionRequest>("StartIngestionRequest")({ingestionIdentifier: Schema.String, appBundleIdentifier: Schema.String}) {}
+export class StartIngestionResponse extends Schema.Class<StartIngestionResponse>("StartIngestionResponse")({}) {}
+export class StartUserAccessTasksRequest extends Schema.Class<StartUserAccessTasksRequest>("StartUserAccessTasksRequest")({appBundleIdentifier: Schema.String, email: Schema.String}) {}
+export class StopIngestionRequest extends Schema.Class<StopIngestionRequest>("StopIngestionRequest")({ingestionIdentifier: Schema.String, appBundleIdentifier: Schema.String}) {}
+export class StopIngestionResponse extends Schema.Class<StopIngestionResponse>("StopIngestionResponse")({}) {}
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({resourceArn: Schema.String, tags: TagList}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({resourceArn: Schema.String, tagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class Oauth2Credential extends Schema.Class<Oauth2Credential>("Oauth2Credential")({clientId: Schema.String, clientSecret: Schema.String}) {}
+export class ApiKeyCredential extends Schema.Class<ApiKeyCredential>("ApiKeyCredential")({apiKey: Schema.String}) {}
 export const Credential = Schema.Union(Oauth2Credential, ApiKeyCredential);
-export const Tenant = Schema.Struct({tenantIdentifier: Schema.String, tenantDisplayName: Schema.String});
-export const UpdateAppAuthorizationRequest = Schema.Struct({appBundleIdentifier: Schema.String, appAuthorizationIdentifier: Schema.String, credential: Schema.optional(Credential), tenant: Schema.optional(Tenant)});
-export const S3Bucket = Schema.Struct({bucketName: Schema.String, prefix: Schema.optional(Schema.String)});
-export const FirehoseStream = Schema.Struct({streamName: Schema.String});
+export class Tenant extends Schema.Class<Tenant>("Tenant")({tenantIdentifier: Schema.String, tenantDisplayName: Schema.String}) {}
+export class UpdateAppAuthorizationRequest extends Schema.Class<UpdateAppAuthorizationRequest>("UpdateAppAuthorizationRequest")({appBundleIdentifier: Schema.String, appAuthorizationIdentifier: Schema.String, credential: Schema.optional(Credential), tenant: Schema.optional(Tenant)}) {}
+export class S3Bucket extends Schema.Class<S3Bucket>("S3Bucket")({bucketName: Schema.String, prefix: Schema.optional(Schema.String)}) {}
+export class FirehoseStream extends Schema.Class<FirehoseStream>("FirehoseStream")({streamName: Schema.String}) {}
 export const Destination = Schema.Union(S3Bucket, FirehoseStream);
-export const AuditLogDestinationConfiguration = Schema.Struct({destination: Destination});
+export class AuditLogDestinationConfiguration extends Schema.Class<AuditLogDestinationConfiguration>("AuditLogDestinationConfiguration")({destination: Destination}) {}
 export const DestinationConfiguration = Schema.Union(AuditLogDestinationConfiguration);
-export const UpdateIngestionDestinationRequest = Schema.Struct({appBundleIdentifier: Schema.String, ingestionIdentifier: Schema.String, ingestionDestinationIdentifier: Schema.String, destinationConfiguration: DestinationConfiguration});
-export const AuthRequest = Schema.Struct({redirectUri: Schema.String, code: Schema.String});
-export const ConnectAppAuthorizationRequest = Schema.Struct({appBundleIdentifier: Schema.String, appAuthorizationIdentifier: Schema.String, authRequest: Schema.optional(AuthRequest)});
-export const AccessDeniedException = Schema.Struct({message: Schema.String});
-export const ConflictException = Schema.Struct({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String});
-export const InternalServerException = Schema.Struct({message: Schema.String, retryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String});
-export const AppBundle = Schema.Struct({arn: Schema.String, customerManagedKeyArn: Schema.optional(Schema.String)});
-export const GetAppBundleResponse = Schema.Struct({appBundle: AppBundle});
-export const Ingestion = Schema.Struct({arn: Schema.String, appBundleArn: Schema.String, app: Schema.String, tenantId: Schema.String, createdAt: Schema.Date, updatedAt: Schema.Date, state: Schema.String, ingestionType: Schema.String});
-export const GetIngestionResponse = Schema.Struct({ingestion: Ingestion});
-export const ListTagsForResourceResponse = Schema.Struct({tags: Schema.optional(TagList)});
-export const ThrottlingException = Schema.Struct({message: Schema.String, serviceCode: Schema.optional(Schema.String), quotaCode: Schema.optional(Schema.String), retryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))});
-export const AppAuthorization = Schema.Struct({appAuthorizationArn: Schema.String, appBundleArn: Schema.String, app: Schema.String, tenant: Tenant, authType: Schema.String, status: Schema.String, createdAt: Schema.Date, updatedAt: Schema.Date, persona: Schema.optional(Schema.String), authUrl: Schema.optional(Schema.String)});
-export const UpdateAppAuthorizationResponse = Schema.Struct({appAuthorization: AppAuthorization});
-export const AuditLogProcessingConfiguration = Schema.Struct({schema: Schema.String, format: Schema.String});
+export class UpdateIngestionDestinationRequest extends Schema.Class<UpdateIngestionDestinationRequest>("UpdateIngestionDestinationRequest")({appBundleIdentifier: Schema.String, ingestionIdentifier: Schema.String, ingestionDestinationIdentifier: Schema.String, destinationConfiguration: DestinationConfiguration}) {}
+export class AuthRequest extends Schema.Class<AuthRequest>("AuthRequest")({redirectUri: Schema.String, code: Schema.String}) {}
+export class ConnectAppAuthorizationRequest extends Schema.Class<ConnectAppAuthorizationRequest>("ConnectAppAuthorizationRequest")({appBundleIdentifier: Schema.String, appAuthorizationIdentifier: Schema.String, authRequest: Schema.optional(AuthRequest)}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({message: Schema.String}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({message: Schema.String, retryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String}) {}
+export class AppBundle extends Schema.Class<AppBundle>("AppBundle")({arn: Schema.String, customerManagedKeyArn: Schema.optional(Schema.String)}) {}
+export class GetAppBundleResponse extends Schema.Class<GetAppBundleResponse>("GetAppBundleResponse")({appBundle: AppBundle}) {}
+export class Ingestion extends Schema.Class<Ingestion>("Ingestion")({arn: Schema.String, appBundleArn: Schema.String, app: Schema.String, tenantId: Schema.String, createdAt: Schema.Date, updatedAt: Schema.Date, state: Schema.String, ingestionType: Schema.String}) {}
+export class GetIngestionResponse extends Schema.Class<GetIngestionResponse>("GetIngestionResponse")({ingestion: Ingestion}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({tags: Schema.optional(TagList)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({message: Schema.String, serviceCode: Schema.optional(Schema.String), quotaCode: Schema.optional(Schema.String), retryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))}) {}
+export class AppAuthorization extends Schema.Class<AppAuthorization>("AppAuthorization")({appAuthorizationArn: Schema.String, appBundleArn: Schema.String, app: Schema.String, tenant: Tenant, authType: Schema.String, status: Schema.String, createdAt: Schema.Date, updatedAt: Schema.Date, persona: Schema.optional(Schema.String), authUrl: Schema.optional(Schema.String)}) {}
+export class UpdateAppAuthorizationResponse extends Schema.Class<UpdateAppAuthorizationResponse>("UpdateAppAuthorizationResponse")({appAuthorization: AppAuthorization}) {}
+export class AuditLogProcessingConfiguration extends Schema.Class<AuditLogProcessingConfiguration>("AuditLogProcessingConfiguration")({schema: Schema.String, format: Schema.String}) {}
 export const ProcessingConfiguration = Schema.Union(AuditLogProcessingConfiguration);
-export const IngestionDestination = Schema.Struct({arn: Schema.String, ingestionArn: Schema.String, processingConfiguration: ProcessingConfiguration, destinationConfiguration: DestinationConfiguration, status: Schema.optional(Schema.String), statusReason: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date), updatedAt: Schema.optional(Schema.Date)});
-export const UpdateIngestionDestinationResponse = Schema.Struct({ingestionDestination: IngestionDestination});
-export const AppAuthorizationSummary = Schema.Struct({appAuthorizationArn: Schema.String, appBundleArn: Schema.String, app: Schema.String, tenant: Tenant, status: Schema.String, updatedAt: Schema.Date});
+export class IngestionDestination extends Schema.Class<IngestionDestination>("IngestionDestination")({arn: Schema.String, ingestionArn: Schema.String, processingConfiguration: ProcessingConfiguration, destinationConfiguration: DestinationConfiguration, status: Schema.optional(Schema.String), statusReason: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date), updatedAt: Schema.optional(Schema.Date)}) {}
+export class UpdateIngestionDestinationResponse extends Schema.Class<UpdateIngestionDestinationResponse>("UpdateIngestionDestinationResponse")({ingestionDestination: IngestionDestination}) {}
+export class AppAuthorizationSummary extends Schema.Class<AppAuthorizationSummary>("AppAuthorizationSummary")({appAuthorizationArn: Schema.String, appBundleArn: Schema.String, app: Schema.String, tenant: Tenant, status: Schema.String, updatedAt: Schema.Date}) {}
 export const AppAuthorizationSummaryList = Schema.Array(AppAuthorizationSummary);
-export const AppBundleSummary = Schema.Struct({arn: Schema.String});
+export class AppBundleSummary extends Schema.Class<AppBundleSummary>("AppBundleSummary")({arn: Schema.String}) {}
 export const AppBundleSummaryList = Schema.Array(AppBundleSummary);
-export const IngestionDestinationSummary = Schema.Struct({arn: Schema.String});
+export class IngestionDestinationSummary extends Schema.Class<IngestionDestinationSummary>("IngestionDestinationSummary")({arn: Schema.String}) {}
 export const IngestionDestinationList = Schema.Array(IngestionDestinationSummary);
-export const IngestionSummary = Schema.Struct({arn: Schema.String, app: Schema.String, tenantId: Schema.String, state: Schema.String});
+export class IngestionSummary extends Schema.Class<IngestionSummary>("IngestionSummary")({arn: Schema.String, app: Schema.String, tenantId: Schema.String, state: Schema.String}) {}
 export const IngestionList = Schema.Array(IngestionSummary);
-export const TaskError = Schema.Struct({errorCode: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String)});
-export const UserAccessTaskItem = Schema.Struct({app: Schema.String, tenantId: Schema.String, taskId: Schema.optional(Schema.String), error: Schema.optional(TaskError)});
+export class TaskError extends Schema.Class<TaskError>("TaskError")({errorCode: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String)}) {}
+export class UserAccessTaskItem extends Schema.Class<UserAccessTaskItem>("UserAccessTaskItem")({app: Schema.String, tenantId: Schema.String, taskId: Schema.optional(Schema.String), error: Schema.optional(TaskError)}) {}
 export const UserAccessTasksList = Schema.Array(UserAccessTaskItem);
-export const ValidationExceptionField = Schema.Struct({name: Schema.String, message: Schema.String});
+export class ValidationExceptionField extends Schema.Class<ValidationExceptionField>("ValidationExceptionField")({name: Schema.String, message: Schema.String}) {}
 export const ValidationExceptionFieldList = Schema.Array(ValidationExceptionField);
-export const ConnectAppAuthorizationResponse = Schema.Struct({appAuthorizationSummary: AppAuthorizationSummary});
-export const CreateAppAuthorizationRequest = Schema.Struct({appBundleIdentifier: Schema.String, app: Schema.String, credential: Credential, tenant: Tenant, authType: Schema.String, clientToken: Schema.optional(Schema.String), tags: Schema.optional(TagList)});
-export const CreateAppBundleResponse = Schema.Struct({appBundle: AppBundle});
-export const CreateIngestionResponse = Schema.Struct({ingestion: Ingestion});
-export const GetAppAuthorizationResponse = Schema.Struct({appAuthorization: AppAuthorization});
-export const GetIngestionDestinationResponse = Schema.Struct({ingestionDestination: IngestionDestination});
-export const ListAppAuthorizationsResponse = Schema.Struct({appAuthorizationSummaryList: AppAuthorizationSummaryList, nextToken: Schema.optional(Schema.String)});
-export const ListAppBundlesResponse = Schema.Struct({appBundleSummaryList: AppBundleSummaryList, nextToken: Schema.optional(Schema.String)});
-export const ListIngestionDestinationsResponse = Schema.Struct({ingestionDestinations: IngestionDestinationList, nextToken: Schema.optional(Schema.String)});
-export const ListIngestionsResponse = Schema.Struct({ingestions: IngestionList, nextToken: Schema.optional(Schema.String)});
-export const StartUserAccessTasksResponse = Schema.Struct({userAccessTasksList: Schema.optional(UserAccessTasksList)});
-export const ValidationException = Schema.Struct({message: Schema.String, reason: Schema.String, fieldList: Schema.optional(ValidationExceptionFieldList)});
-export const ServiceQuotaExceededException = Schema.Struct({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String, serviceCode: Schema.String, quotaCode: Schema.String});
-export const UserAccessResultItem = Schema.Struct({app: Schema.optional(Schema.String), tenantId: Schema.optional(Schema.String), tenantDisplayName: Schema.optional(Schema.String), taskId: Schema.optional(Schema.String), resultStatus: Schema.optional(Schema.String), email: Schema.optional(Schema.String), userId: Schema.optional(Schema.String), userFullName: Schema.optional(Schema.String), userFirstName: Schema.optional(Schema.String), userLastName: Schema.optional(Schema.String), userStatus: Schema.optional(Schema.String), taskError: Schema.optional(TaskError)});
+export class ConnectAppAuthorizationResponse extends Schema.Class<ConnectAppAuthorizationResponse>("ConnectAppAuthorizationResponse")({appAuthorizationSummary: AppAuthorizationSummary}) {}
+export class CreateAppAuthorizationRequest extends Schema.Class<CreateAppAuthorizationRequest>("CreateAppAuthorizationRequest")({appBundleIdentifier: Schema.String, app: Schema.String, credential: Credential, tenant: Tenant, authType: Schema.String, clientToken: Schema.optional(Schema.String), tags: Schema.optional(TagList)}) {}
+export class CreateAppBundleResponse extends Schema.Class<CreateAppBundleResponse>("CreateAppBundleResponse")({appBundle: AppBundle}) {}
+export class CreateIngestionResponse extends Schema.Class<CreateIngestionResponse>("CreateIngestionResponse")({ingestion: Ingestion}) {}
+export class GetAppAuthorizationResponse extends Schema.Class<GetAppAuthorizationResponse>("GetAppAuthorizationResponse")({appAuthorization: AppAuthorization}) {}
+export class GetIngestionDestinationResponse extends Schema.Class<GetIngestionDestinationResponse>("GetIngestionDestinationResponse")({ingestionDestination: IngestionDestination}) {}
+export class ListAppAuthorizationsResponse extends Schema.Class<ListAppAuthorizationsResponse>("ListAppAuthorizationsResponse")({appAuthorizationSummaryList: AppAuthorizationSummaryList, nextToken: Schema.optional(Schema.String)}) {}
+export class ListAppBundlesResponse extends Schema.Class<ListAppBundlesResponse>("ListAppBundlesResponse")({appBundleSummaryList: AppBundleSummaryList, nextToken: Schema.optional(Schema.String)}) {}
+export class ListIngestionDestinationsResponse extends Schema.Class<ListIngestionDestinationsResponse>("ListIngestionDestinationsResponse")({ingestionDestinations: IngestionDestinationList, nextToken: Schema.optional(Schema.String)}) {}
+export class ListIngestionsResponse extends Schema.Class<ListIngestionsResponse>("ListIngestionsResponse")({ingestions: IngestionList, nextToken: Schema.optional(Schema.String)}) {}
+export class StartUserAccessTasksResponse extends Schema.Class<StartUserAccessTasksResponse>("StartUserAccessTasksResponse")({userAccessTasksList: Schema.optional(UserAccessTasksList)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({message: Schema.String, reason: Schema.String, fieldList: Schema.optional(ValidationExceptionFieldList)}) {}
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String, serviceCode: Schema.String, quotaCode: Schema.String}) {}
+export class UserAccessResultItem extends Schema.Class<UserAccessResultItem>("UserAccessResultItem")({app: Schema.optional(Schema.String), tenantId: Schema.optional(Schema.String), tenantDisplayName: Schema.optional(Schema.String), taskId: Schema.optional(Schema.String), resultStatus: Schema.optional(Schema.String), email: Schema.optional(Schema.String), userId: Schema.optional(Schema.String), userFullName: Schema.optional(Schema.String), userFirstName: Schema.optional(Schema.String), userLastName: Schema.optional(Schema.String), userStatus: Schema.optional(Schema.String), taskError: Schema.optional(TaskError)}) {}
 export const UserAccessResultsList = Schema.Array(UserAccessResultItem);
-export const BatchGetUserAccessTasksResponse = Schema.Struct({userAccessResultsList: Schema.optional(UserAccessResultsList)});
-export const CreateAppAuthorizationResponse = Schema.Struct({appAuthorization: AppAuthorization});
-export const CreateIngestionDestinationRequest = Schema.Struct({appBundleIdentifier: Schema.String, ingestionIdentifier: Schema.String, processingConfiguration: ProcessingConfiguration, destinationConfiguration: DestinationConfiguration, clientToken: Schema.optional(Schema.String), tags: Schema.optional(TagList)});
-export const CreateIngestionDestinationResponse = Schema.Struct({ingestionDestination: IngestionDestination});
+export class BatchGetUserAccessTasksResponse extends Schema.Class<BatchGetUserAccessTasksResponse>("BatchGetUserAccessTasksResponse")({userAccessResultsList: Schema.optional(UserAccessResultsList)}) {}
+export class CreateAppAuthorizationResponse extends Schema.Class<CreateAppAuthorizationResponse>("CreateAppAuthorizationResponse")({appAuthorization: AppAuthorization}) {}
+export class CreateIngestionDestinationRequest extends Schema.Class<CreateIngestionDestinationRequest>("CreateIngestionDestinationRequest")({appBundleIdentifier: Schema.String, ingestionIdentifier: Schema.String, processingConfiguration: ProcessingConfiguration, destinationConfiguration: DestinationConfiguration, clientToken: Schema.optional(Schema.String), tags: Schema.optional(TagList)}) {}
+export class CreateIngestionDestinationResponse extends Schema.Class<CreateIngestionDestinationResponse>("CreateIngestionDestinationResponse")({ingestionDestination: IngestionDestination}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
 
 //# Operations
 export const tagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2023-05-19", uri: "/tags/{resourceArn}", method: "POST", sdkId: "AppFabric", sigV4ServiceName: "appfabric", name: "FabricFrontEndService.TagResource" }, TagResourceRequest, TagResourceResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

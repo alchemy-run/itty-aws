@@ -8,140 +8,140 @@ export const StreamKeyArnList = Schema.Array(Schema.String);
 export const PlaybackRestrictionPolicyAllowedCountryList = Schema.Array(Schema.String);
 export const PlaybackRestrictionPolicyAllowedOriginList = Schema.Array(Schema.String);
 export const TagKeyList = Schema.Array(Schema.String);
-export const BatchGetChannelRequest = Schema.Struct({arns: ChannelArnList});
-export const BatchGetStreamKeyRequest = Schema.Struct({arns: StreamKeyArnList});
+export class BatchGetChannelRequest extends Schema.Class<BatchGetChannelRequest>("BatchGetChannelRequest")({arns: ChannelArnList}) {}
+export class BatchGetStreamKeyRequest extends Schema.Class<BatchGetStreamKeyRequest>("BatchGetStreamKeyRequest")({arns: StreamKeyArnList}) {}
 export const Tags = Schema.Record({key: Schema.String, value: Schema.String});
-export const CreatePlaybackRestrictionPolicyRequest = Schema.Struct({allowedCountries: Schema.optional(PlaybackRestrictionPolicyAllowedCountryList), allowedOrigins: Schema.optional(PlaybackRestrictionPolicyAllowedOriginList), enableStrictOriginEnforcement: Schema.optional(Schema.Boolean), name: Schema.optional(Schema.String), tags: Schema.optional(Tags)});
-export const CreateStreamKeyRequest = Schema.Struct({channelArn: Schema.String, tags: Schema.optional(Tags)});
-export const DeleteChannelRequest = Schema.Struct({arn: Schema.String});
-export const DeletePlaybackKeyPairRequest = Schema.Struct({arn: Schema.String});
-export const DeletePlaybackKeyPairResponse = Schema.Struct({});
-export const DeletePlaybackRestrictionPolicyRequest = Schema.Struct({arn: Schema.String});
-export const DeleteRecordingConfigurationRequest = Schema.Struct({arn: Schema.String});
-export const DeleteStreamKeyRequest = Schema.Struct({arn: Schema.String});
-export const GetChannelRequest = Schema.Struct({arn: Schema.String});
-export const GetPlaybackKeyPairRequest = Schema.Struct({arn: Schema.String});
-export const GetPlaybackRestrictionPolicyRequest = Schema.Struct({arn: Schema.String});
-export const GetRecordingConfigurationRequest = Schema.Struct({arn: Schema.String});
-export const GetStreamRequest = Schema.Struct({channelArn: Schema.String});
-export const GetStreamKeyRequest = Schema.Struct({arn: Schema.String});
-export const GetStreamSessionRequest = Schema.Struct({channelArn: Schema.String, streamId: Schema.optional(Schema.String)});
-export const ImportPlaybackKeyPairRequest = Schema.Struct({publicKeyMaterial: Schema.String, name: Schema.optional(Schema.String), tags: Schema.optional(Tags)});
-export const ListChannelsRequest = Schema.Struct({filterByName: Schema.optional(Schema.String), filterByRecordingConfigurationArn: Schema.optional(Schema.String), filterByPlaybackRestrictionPolicyArn: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListPlaybackKeyPairsRequest = Schema.Struct({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListPlaybackRestrictionPoliciesRequest = Schema.Struct({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListRecordingConfigurationsRequest = Schema.Struct({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListStreamKeysRequest = Schema.Struct({channelArn: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListStreamSessionsRequest = Schema.Struct({channelArn: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListTagsForResourceRequest = Schema.Struct({resourceArn: Schema.String});
-export const PutMetadataRequest = Schema.Struct({channelArn: Schema.String, metadata: Schema.String});
-export const StartViewerSessionRevocationRequest = Schema.Struct({channelArn: Schema.String, viewerId: Schema.String, viewerSessionVersionsLessThanOrEqualTo: Schema.optional(Schema.Number)});
-export const StartViewerSessionRevocationResponse = Schema.Struct({});
-export const StopStreamRequest = Schema.Struct({channelArn: Schema.String});
-export const StopStreamResponse = Schema.Struct({});
-export const TagResourceRequest = Schema.Struct({resourceArn: Schema.String, tags: Tags});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({resourceArn: Schema.String, tagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
-export const MultitrackInputConfiguration = Schema.Struct({enabled: Schema.optional(Schema.Boolean), policy: Schema.optional(Schema.String), maximumResolution: Schema.optional(Schema.String)});
-export const UpdateChannelRequest = Schema.Struct({arn: Schema.String, name: Schema.optional(Schema.String), latencyMode: Schema.optional(Schema.String), type: Schema.optional(Schema.String), authorized: Schema.optional(Schema.Boolean), recordingConfigurationArn: Schema.optional(Schema.String), insecureIngest: Schema.optional(Schema.Boolean), preset: Schema.optional(Schema.String), playbackRestrictionPolicyArn: Schema.optional(Schema.String), multitrackInputConfiguration: Schema.optional(MultitrackInputConfiguration), containerFormat: Schema.optional(Schema.String)});
-export const UpdatePlaybackRestrictionPolicyRequest = Schema.Struct({arn: Schema.String, allowedCountries: Schema.optional(PlaybackRestrictionPolicyAllowedCountryList), allowedOrigins: Schema.optional(PlaybackRestrictionPolicyAllowedOriginList), enableStrictOriginEnforcement: Schema.optional(Schema.Boolean), name: Schema.optional(Schema.String)});
+export class CreatePlaybackRestrictionPolicyRequest extends Schema.Class<CreatePlaybackRestrictionPolicyRequest>("CreatePlaybackRestrictionPolicyRequest")({allowedCountries: Schema.optional(PlaybackRestrictionPolicyAllowedCountryList), allowedOrigins: Schema.optional(PlaybackRestrictionPolicyAllowedOriginList), enableStrictOriginEnforcement: Schema.optional(Schema.Boolean), name: Schema.optional(Schema.String), tags: Schema.optional(Tags)}) {}
+export class CreateStreamKeyRequest extends Schema.Class<CreateStreamKeyRequest>("CreateStreamKeyRequest")({channelArn: Schema.String, tags: Schema.optional(Tags)}) {}
+export class DeleteChannelRequest extends Schema.Class<DeleteChannelRequest>("DeleteChannelRequest")({arn: Schema.String}) {}
+export class DeletePlaybackKeyPairRequest extends Schema.Class<DeletePlaybackKeyPairRequest>("DeletePlaybackKeyPairRequest")({arn: Schema.String}) {}
+export class DeletePlaybackKeyPairResponse extends Schema.Class<DeletePlaybackKeyPairResponse>("DeletePlaybackKeyPairResponse")({}) {}
+export class DeletePlaybackRestrictionPolicyRequest extends Schema.Class<DeletePlaybackRestrictionPolicyRequest>("DeletePlaybackRestrictionPolicyRequest")({arn: Schema.String}) {}
+export class DeleteRecordingConfigurationRequest extends Schema.Class<DeleteRecordingConfigurationRequest>("DeleteRecordingConfigurationRequest")({arn: Schema.String}) {}
+export class DeleteStreamKeyRequest extends Schema.Class<DeleteStreamKeyRequest>("DeleteStreamKeyRequest")({arn: Schema.String}) {}
+export class GetChannelRequest extends Schema.Class<GetChannelRequest>("GetChannelRequest")({arn: Schema.String}) {}
+export class GetPlaybackKeyPairRequest extends Schema.Class<GetPlaybackKeyPairRequest>("GetPlaybackKeyPairRequest")({arn: Schema.String}) {}
+export class GetPlaybackRestrictionPolicyRequest extends Schema.Class<GetPlaybackRestrictionPolicyRequest>("GetPlaybackRestrictionPolicyRequest")({arn: Schema.String}) {}
+export class GetRecordingConfigurationRequest extends Schema.Class<GetRecordingConfigurationRequest>("GetRecordingConfigurationRequest")({arn: Schema.String}) {}
+export class GetStreamRequest extends Schema.Class<GetStreamRequest>("GetStreamRequest")({channelArn: Schema.String}) {}
+export class GetStreamKeyRequest extends Schema.Class<GetStreamKeyRequest>("GetStreamKeyRequest")({arn: Schema.String}) {}
+export class GetStreamSessionRequest extends Schema.Class<GetStreamSessionRequest>("GetStreamSessionRequest")({channelArn: Schema.String, streamId: Schema.optional(Schema.String)}) {}
+export class ImportPlaybackKeyPairRequest extends Schema.Class<ImportPlaybackKeyPairRequest>("ImportPlaybackKeyPairRequest")({publicKeyMaterial: Schema.String, name: Schema.optional(Schema.String), tags: Schema.optional(Tags)}) {}
+export class ListChannelsRequest extends Schema.Class<ListChannelsRequest>("ListChannelsRequest")({filterByName: Schema.optional(Schema.String), filterByRecordingConfigurationArn: Schema.optional(Schema.String), filterByPlaybackRestrictionPolicyArn: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListPlaybackKeyPairsRequest extends Schema.Class<ListPlaybackKeyPairsRequest>("ListPlaybackKeyPairsRequest")({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListPlaybackRestrictionPoliciesRequest extends Schema.Class<ListPlaybackRestrictionPoliciesRequest>("ListPlaybackRestrictionPoliciesRequest")({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListRecordingConfigurationsRequest extends Schema.Class<ListRecordingConfigurationsRequest>("ListRecordingConfigurationsRequest")({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListStreamKeysRequest extends Schema.Class<ListStreamKeysRequest>("ListStreamKeysRequest")({channelArn: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListStreamSessionsRequest extends Schema.Class<ListStreamSessionsRequest>("ListStreamSessionsRequest")({channelArn: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({resourceArn: Schema.String}) {}
+export class PutMetadataRequest extends Schema.Class<PutMetadataRequest>("PutMetadataRequest")({channelArn: Schema.String, metadata: Schema.String}) {}
+export class StartViewerSessionRevocationRequest extends Schema.Class<StartViewerSessionRevocationRequest>("StartViewerSessionRevocationRequest")({channelArn: Schema.String, viewerId: Schema.String, viewerSessionVersionsLessThanOrEqualTo: Schema.optional(Schema.Number)}) {}
+export class StartViewerSessionRevocationResponse extends Schema.Class<StartViewerSessionRevocationResponse>("StartViewerSessionRevocationResponse")({}) {}
+export class StopStreamRequest extends Schema.Class<StopStreamRequest>("StopStreamRequest")({channelArn: Schema.String}) {}
+export class StopStreamResponse extends Schema.Class<StopStreamResponse>("StopStreamResponse")({}) {}
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({resourceArn: Schema.String, tags: Tags}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({resourceArn: Schema.String, tagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class MultitrackInputConfiguration extends Schema.Class<MultitrackInputConfiguration>("MultitrackInputConfiguration")({enabled: Schema.optional(Schema.Boolean), policy: Schema.optional(Schema.String), maximumResolution: Schema.optional(Schema.String)}) {}
+export class UpdateChannelRequest extends Schema.Class<UpdateChannelRequest>("UpdateChannelRequest")({arn: Schema.String, name: Schema.optional(Schema.String), latencyMode: Schema.optional(Schema.String), type: Schema.optional(Schema.String), authorized: Schema.optional(Schema.Boolean), recordingConfigurationArn: Schema.optional(Schema.String), insecureIngest: Schema.optional(Schema.Boolean), preset: Schema.optional(Schema.String), playbackRestrictionPolicyArn: Schema.optional(Schema.String), multitrackInputConfiguration: Schema.optional(MultitrackInputConfiguration), containerFormat: Schema.optional(Schema.String)}) {}
+export class UpdatePlaybackRestrictionPolicyRequest extends Schema.Class<UpdatePlaybackRestrictionPolicyRequest>("UpdatePlaybackRestrictionPolicyRequest")({arn: Schema.String, allowedCountries: Schema.optional(PlaybackRestrictionPolicyAllowedCountryList), allowedOrigins: Schema.optional(PlaybackRestrictionPolicyAllowedOriginList), enableStrictOriginEnforcement: Schema.optional(Schema.Boolean), name: Schema.optional(Schema.String)}) {}
 export const ThumbnailConfigurationStorageList = Schema.Array(Schema.String);
 export const RenditionConfigurationRenditionList = Schema.Array(Schema.String);
-export const BatchStartViewerSessionRevocationViewerSession = Schema.Struct({channelArn: Schema.String, viewerId: Schema.String, viewerSessionVersionsLessThanOrEqualTo: Schema.optional(Schema.Number)});
+export class BatchStartViewerSessionRevocationViewerSession extends Schema.Class<BatchStartViewerSessionRevocationViewerSession>("BatchStartViewerSessionRevocationViewerSession")({channelArn: Schema.String, viewerId: Schema.String, viewerSessionVersionsLessThanOrEqualTo: Schema.optional(Schema.Number)}) {}
 export const BatchStartViewerSessionRevocationViewerSessionList = Schema.Array(BatchStartViewerSessionRevocationViewerSession);
-export const ThumbnailConfiguration = Schema.Struct({recordingMode: Schema.optional(Schema.String), targetIntervalSeconds: Schema.optional(Schema.Number), resolution: Schema.optional(Schema.String), storage: Schema.optional(ThumbnailConfigurationStorageList)});
-export const RenditionConfiguration = Schema.Struct({renditionSelection: Schema.optional(Schema.String), renditions: Schema.optional(RenditionConfigurationRenditionList)});
-export const StreamFilters = Schema.Struct({health: Schema.optional(Schema.String)});
-export const BatchStartViewerSessionRevocationRequest = Schema.Struct({viewerSessions: BatchStartViewerSessionRevocationViewerSessionList});
-export const CreateChannelRequest = Schema.Struct({name: Schema.optional(Schema.String), latencyMode: Schema.optional(Schema.String), type: Schema.optional(Schema.String), authorized: Schema.optional(Schema.Boolean), recordingConfigurationArn: Schema.optional(Schema.String), tags: Schema.optional(Tags), insecureIngest: Schema.optional(Schema.Boolean), preset: Schema.optional(Schema.String), playbackRestrictionPolicyArn: Schema.optional(Schema.String), multitrackInputConfiguration: Schema.optional(MultitrackInputConfiguration), containerFormat: Schema.optional(Schema.String)});
-export const StreamKey = Schema.Struct({arn: Schema.optional(Schema.String), value: Schema.optional(Schema.String), channelArn: Schema.optional(Schema.String), tags: Schema.optional(Tags)});
-export const CreateStreamKeyResponse = Schema.Struct({streamKey: Schema.optional(StreamKey)});
-export const AccessDeniedException = Schema.Struct({exceptionMessage: Schema.optional(Schema.String)});
-export const PendingVerification = Schema.Struct({exceptionMessage: Schema.optional(Schema.String)});
-export const ConflictException = Schema.Struct({exceptionMessage: Schema.optional(Schema.String)});
-export const InternalServerException = Schema.Struct({exceptionMessage: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({exceptionMessage: Schema.optional(Schema.String)});
-export const Srt = Schema.Struct({endpoint: Schema.optional(Schema.String), passphrase: Schema.optional(Schema.String)});
-export const Channel = Schema.Struct({arn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), latencyMode: Schema.optional(Schema.String), type: Schema.optional(Schema.String), recordingConfigurationArn: Schema.optional(Schema.String), ingestEndpoint: Schema.optional(Schema.String), playbackUrl: Schema.optional(Schema.String), authorized: Schema.optional(Schema.Boolean), tags: Schema.optional(Tags), insecureIngest: Schema.optional(Schema.Boolean), preset: Schema.optional(Schema.String), srt: Schema.optional(Srt), playbackRestrictionPolicyArn: Schema.optional(Schema.String), multitrackInputConfiguration: Schema.optional(MultitrackInputConfiguration), containerFormat: Schema.optional(Schema.String)});
-export const GetChannelResponse = Schema.Struct({channel: Schema.optional(Channel)});
-export const PlaybackRestrictionPolicy = Schema.Struct({arn: Schema.String, allowedCountries: PlaybackRestrictionPolicyAllowedCountryList, allowedOrigins: PlaybackRestrictionPolicyAllowedOriginList, enableStrictOriginEnforcement: Schema.optional(Schema.Boolean), name: Schema.optional(Schema.String), tags: Schema.optional(Tags)});
-export const GetPlaybackRestrictionPolicyResponse = Schema.Struct({playbackRestrictionPolicy: Schema.optional(PlaybackRestrictionPolicy)});
-export const GetStreamKeyResponse = Schema.Struct({streamKey: Schema.optional(StreamKey)});
-export const PlaybackKeyPair = Schema.Struct({arn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), fingerprint: Schema.optional(Schema.String), tags: Schema.optional(Tags)});
-export const ImportPlaybackKeyPairResponse = Schema.Struct({keyPair: Schema.optional(PlaybackKeyPair)});
-export const ListStreamsRequest = Schema.Struct({filterBy: Schema.optional(StreamFilters), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListTagsForResourceResponse = Schema.Struct({tags: Tags});
-export const ChannelNotBroadcasting = Schema.Struct({exceptionMessage: Schema.optional(Schema.String)});
-export const ThrottlingException = Schema.Struct({exceptionMessage: Schema.optional(Schema.String)});
-export const StreamUnavailable = Schema.Struct({exceptionMessage: Schema.optional(Schema.String)});
-export const ValidationException = Schema.Struct({exceptionMessage: Schema.optional(Schema.String)});
-export const UpdateChannelResponse = Schema.Struct({channel: Schema.optional(Channel)});
-export const UpdatePlaybackRestrictionPolicyResponse = Schema.Struct({playbackRestrictionPolicy: Schema.optional(PlaybackRestrictionPolicy)});
-export const S3DestinationConfiguration = Schema.Struct({bucketName: Schema.String});
-export const BatchError = Schema.Struct({arn: Schema.optional(Schema.String), code: Schema.optional(Schema.String), message: Schema.optional(Schema.String)});
+export class ThumbnailConfiguration extends Schema.Class<ThumbnailConfiguration>("ThumbnailConfiguration")({recordingMode: Schema.optional(Schema.String), targetIntervalSeconds: Schema.optional(Schema.Number), resolution: Schema.optional(Schema.String), storage: Schema.optional(ThumbnailConfigurationStorageList)}) {}
+export class RenditionConfiguration extends Schema.Class<RenditionConfiguration>("RenditionConfiguration")({renditionSelection: Schema.optional(Schema.String), renditions: Schema.optional(RenditionConfigurationRenditionList)}) {}
+export class StreamFilters extends Schema.Class<StreamFilters>("StreamFilters")({health: Schema.optional(Schema.String)}) {}
+export class BatchStartViewerSessionRevocationRequest extends Schema.Class<BatchStartViewerSessionRevocationRequest>("BatchStartViewerSessionRevocationRequest")({viewerSessions: BatchStartViewerSessionRevocationViewerSessionList}) {}
+export class CreateChannelRequest extends Schema.Class<CreateChannelRequest>("CreateChannelRequest")({name: Schema.optional(Schema.String), latencyMode: Schema.optional(Schema.String), type: Schema.optional(Schema.String), authorized: Schema.optional(Schema.Boolean), recordingConfigurationArn: Schema.optional(Schema.String), tags: Schema.optional(Tags), insecureIngest: Schema.optional(Schema.Boolean), preset: Schema.optional(Schema.String), playbackRestrictionPolicyArn: Schema.optional(Schema.String), multitrackInputConfiguration: Schema.optional(MultitrackInputConfiguration), containerFormat: Schema.optional(Schema.String)}) {}
+export class StreamKey extends Schema.Class<StreamKey>("StreamKey")({arn: Schema.optional(Schema.String), value: Schema.optional(Schema.String), channelArn: Schema.optional(Schema.String), tags: Schema.optional(Tags)}) {}
+export class CreateStreamKeyResponse extends Schema.Class<CreateStreamKeyResponse>("CreateStreamKeyResponse")({streamKey: Schema.optional(StreamKey)}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({exceptionMessage: Schema.optional(Schema.String)}) {}
+export class PendingVerification extends Schema.Class<PendingVerification>("PendingVerification")({exceptionMessage: Schema.optional(Schema.String)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({exceptionMessage: Schema.optional(Schema.String)}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({exceptionMessage: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({exceptionMessage: Schema.optional(Schema.String)}) {}
+export class Srt extends Schema.Class<Srt>("Srt")({endpoint: Schema.optional(Schema.String), passphrase: Schema.optional(Schema.String)}) {}
+export class Channel extends Schema.Class<Channel>("Channel")({arn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), latencyMode: Schema.optional(Schema.String), type: Schema.optional(Schema.String), recordingConfigurationArn: Schema.optional(Schema.String), ingestEndpoint: Schema.optional(Schema.String), playbackUrl: Schema.optional(Schema.String), authorized: Schema.optional(Schema.Boolean), tags: Schema.optional(Tags), insecureIngest: Schema.optional(Schema.Boolean), preset: Schema.optional(Schema.String), srt: Schema.optional(Srt), playbackRestrictionPolicyArn: Schema.optional(Schema.String), multitrackInputConfiguration: Schema.optional(MultitrackInputConfiguration), containerFormat: Schema.optional(Schema.String)}) {}
+export class GetChannelResponse extends Schema.Class<GetChannelResponse>("GetChannelResponse")({channel: Schema.optional(Channel)}) {}
+export class PlaybackRestrictionPolicy extends Schema.Class<PlaybackRestrictionPolicy>("PlaybackRestrictionPolicy")({arn: Schema.String, allowedCountries: PlaybackRestrictionPolicyAllowedCountryList, allowedOrigins: PlaybackRestrictionPolicyAllowedOriginList, enableStrictOriginEnforcement: Schema.optional(Schema.Boolean), name: Schema.optional(Schema.String), tags: Schema.optional(Tags)}) {}
+export class GetPlaybackRestrictionPolicyResponse extends Schema.Class<GetPlaybackRestrictionPolicyResponse>("GetPlaybackRestrictionPolicyResponse")({playbackRestrictionPolicy: Schema.optional(PlaybackRestrictionPolicy)}) {}
+export class GetStreamKeyResponse extends Schema.Class<GetStreamKeyResponse>("GetStreamKeyResponse")({streamKey: Schema.optional(StreamKey)}) {}
+export class PlaybackKeyPair extends Schema.Class<PlaybackKeyPair>("PlaybackKeyPair")({arn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), fingerprint: Schema.optional(Schema.String), tags: Schema.optional(Tags)}) {}
+export class ImportPlaybackKeyPairResponse extends Schema.Class<ImportPlaybackKeyPairResponse>("ImportPlaybackKeyPairResponse")({keyPair: Schema.optional(PlaybackKeyPair)}) {}
+export class ListStreamsRequest extends Schema.Class<ListStreamsRequest>("ListStreamsRequest")({filterBy: Schema.optional(StreamFilters), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({tags: Tags}) {}
+export class ChannelNotBroadcasting extends Schema.Class<ChannelNotBroadcasting>("ChannelNotBroadcasting")({exceptionMessage: Schema.optional(Schema.String)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({exceptionMessage: Schema.optional(Schema.String)}) {}
+export class StreamUnavailable extends Schema.Class<StreamUnavailable>("StreamUnavailable")({exceptionMessage: Schema.optional(Schema.String)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({exceptionMessage: Schema.optional(Schema.String)}) {}
+export class UpdateChannelResponse extends Schema.Class<UpdateChannelResponse>("UpdateChannelResponse")({channel: Schema.optional(Channel)}) {}
+export class UpdatePlaybackRestrictionPolicyResponse extends Schema.Class<UpdatePlaybackRestrictionPolicyResponse>("UpdatePlaybackRestrictionPolicyResponse")({playbackRestrictionPolicy: Schema.optional(PlaybackRestrictionPolicy)}) {}
+export class S3DestinationConfiguration extends Schema.Class<S3DestinationConfiguration>("S3DestinationConfiguration")({bucketName: Schema.String}) {}
+export class BatchError extends Schema.Class<BatchError>("BatchError")({arn: Schema.optional(Schema.String), code: Schema.optional(Schema.String), message: Schema.optional(Schema.String)}) {}
 export const BatchErrors = Schema.Array(BatchError);
 export const StreamKeys = Schema.Array(StreamKey);
-export const DestinationConfiguration = Schema.Struct({s3: Schema.optional(S3DestinationConfiguration)});
-export const RecordingConfiguration = Schema.Struct({arn: Schema.String, name: Schema.optional(Schema.String), destinationConfiguration: DestinationConfiguration, state: Schema.String, tags: Schema.optional(Tags), thumbnailConfiguration: Schema.optional(ThumbnailConfiguration), recordingReconnectWindowSeconds: Schema.optional(Schema.Number), renditionConfiguration: Schema.optional(RenditionConfiguration)});
-export const Stream = Schema.Struct({channelArn: Schema.optional(Schema.String), streamId: Schema.optional(Schema.String), playbackUrl: Schema.optional(Schema.String), startTime: Schema.optional(Schema.Date), state: Schema.optional(Schema.String), health: Schema.optional(Schema.String), viewerCount: Schema.optional(Schema.Number)});
-export const ChannelSummary = Schema.Struct({arn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), latencyMode: Schema.optional(Schema.String), authorized: Schema.optional(Schema.Boolean), recordingConfigurationArn: Schema.optional(Schema.String), tags: Schema.optional(Tags), insecureIngest: Schema.optional(Schema.Boolean), type: Schema.optional(Schema.String), preset: Schema.optional(Schema.String), playbackRestrictionPolicyArn: Schema.optional(Schema.String)});
+export class DestinationConfiguration extends Schema.Class<DestinationConfiguration>("DestinationConfiguration")({s3: Schema.optional(S3DestinationConfiguration)}) {}
+export class RecordingConfiguration extends Schema.Class<RecordingConfiguration>("RecordingConfiguration")({arn: Schema.String, name: Schema.optional(Schema.String), destinationConfiguration: DestinationConfiguration, state: Schema.String, tags: Schema.optional(Tags), thumbnailConfiguration: Schema.optional(ThumbnailConfiguration), recordingReconnectWindowSeconds: Schema.optional(Schema.Number), renditionConfiguration: Schema.optional(RenditionConfiguration)}) {}
+export class Stream extends Schema.Class<Stream>("Stream")({channelArn: Schema.optional(Schema.String), streamId: Schema.optional(Schema.String), playbackUrl: Schema.optional(Schema.String), startTime: Schema.optional(Schema.Date), state: Schema.optional(Schema.String), health: Schema.optional(Schema.String), viewerCount: Schema.optional(Schema.Number)}) {}
+export class ChannelSummary extends Schema.Class<ChannelSummary>("ChannelSummary")({arn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), latencyMode: Schema.optional(Schema.String), authorized: Schema.optional(Schema.Boolean), recordingConfigurationArn: Schema.optional(Schema.String), tags: Schema.optional(Tags), insecureIngest: Schema.optional(Schema.Boolean), type: Schema.optional(Schema.String), preset: Schema.optional(Schema.String), playbackRestrictionPolicyArn: Schema.optional(Schema.String)}) {}
 export const ChannelList = Schema.Array(ChannelSummary);
-export const PlaybackKeyPairSummary = Schema.Struct({arn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), tags: Schema.optional(Tags)});
+export class PlaybackKeyPairSummary extends Schema.Class<PlaybackKeyPairSummary>("PlaybackKeyPairSummary")({arn: Schema.optional(Schema.String), name: Schema.optional(Schema.String), tags: Schema.optional(Tags)}) {}
 export const PlaybackKeyPairList = Schema.Array(PlaybackKeyPairSummary);
-export const PlaybackRestrictionPolicySummary = Schema.Struct({arn: Schema.String, allowedCountries: PlaybackRestrictionPolicyAllowedCountryList, allowedOrigins: PlaybackRestrictionPolicyAllowedOriginList, enableStrictOriginEnforcement: Schema.optional(Schema.Boolean), name: Schema.optional(Schema.String), tags: Schema.optional(Tags)});
+export class PlaybackRestrictionPolicySummary extends Schema.Class<PlaybackRestrictionPolicySummary>("PlaybackRestrictionPolicySummary")({arn: Schema.String, allowedCountries: PlaybackRestrictionPolicyAllowedCountryList, allowedOrigins: PlaybackRestrictionPolicyAllowedOriginList, enableStrictOriginEnforcement: Schema.optional(Schema.Boolean), name: Schema.optional(Schema.String), tags: Schema.optional(Tags)}) {}
 export const PlaybackRestrictionPolicyList = Schema.Array(PlaybackRestrictionPolicySummary);
-export const RecordingConfigurationSummary = Schema.Struct({arn: Schema.String, name: Schema.optional(Schema.String), destinationConfiguration: DestinationConfiguration, state: Schema.String, tags: Schema.optional(Tags)});
+export class RecordingConfigurationSummary extends Schema.Class<RecordingConfigurationSummary>("RecordingConfigurationSummary")({arn: Schema.String, name: Schema.optional(Schema.String), destinationConfiguration: DestinationConfiguration, state: Schema.String, tags: Schema.optional(Tags)}) {}
 export const RecordingConfigurationList = Schema.Array(RecordingConfigurationSummary);
-export const StreamKeySummary = Schema.Struct({arn: Schema.optional(Schema.String), channelArn: Schema.optional(Schema.String), tags: Schema.optional(Tags)});
+export class StreamKeySummary extends Schema.Class<StreamKeySummary>("StreamKeySummary")({arn: Schema.optional(Schema.String), channelArn: Schema.optional(Schema.String), tags: Schema.optional(Tags)}) {}
 export const StreamKeyList = Schema.Array(StreamKeySummary);
-export const StreamSessionSummary = Schema.Struct({streamId: Schema.optional(Schema.String), startTime: Schema.optional(Schema.Date), endTime: Schema.optional(Schema.Date), hasErrorEvent: Schema.optional(Schema.Boolean)});
+export class StreamSessionSummary extends Schema.Class<StreamSessionSummary>("StreamSessionSummary")({streamId: Schema.optional(Schema.String), startTime: Schema.optional(Schema.Date), endTime: Schema.optional(Schema.Date), hasErrorEvent: Schema.optional(Schema.Boolean)}) {}
 export const StreamSessionList = Schema.Array(StreamSessionSummary);
-export const VideoConfiguration = Schema.Struct({avcProfile: Schema.optional(Schema.String), avcLevel: Schema.optional(Schema.String), codec: Schema.optional(Schema.String), encoder: Schema.optional(Schema.String), targetBitrate: Schema.optional(Schema.Number), targetFramerate: Schema.optional(Schema.Number), videoHeight: Schema.optional(Schema.Number), videoWidth: Schema.optional(Schema.Number), level: Schema.optional(Schema.String), track: Schema.optional(Schema.String), profile: Schema.optional(Schema.String)});
+export class VideoConfiguration extends Schema.Class<VideoConfiguration>("VideoConfiguration")({avcProfile: Schema.optional(Schema.String), avcLevel: Schema.optional(Schema.String), codec: Schema.optional(Schema.String), encoder: Schema.optional(Schema.String), targetBitrate: Schema.optional(Schema.Number), targetFramerate: Schema.optional(Schema.Number), videoHeight: Schema.optional(Schema.Number), videoWidth: Schema.optional(Schema.Number), level: Schema.optional(Schema.String), track: Schema.optional(Schema.String), profile: Schema.optional(Schema.String)}) {}
 export const VideoConfigurationList = Schema.Array(VideoConfiguration);
-export const AudioConfiguration = Schema.Struct({codec: Schema.optional(Schema.String), targetBitrate: Schema.optional(Schema.Number), sampleRate: Schema.optional(Schema.Number), channels: Schema.optional(Schema.Number), track: Schema.optional(Schema.String)});
+export class AudioConfiguration extends Schema.Class<AudioConfiguration>("AudioConfiguration")({codec: Schema.optional(Schema.String), targetBitrate: Schema.optional(Schema.Number), sampleRate: Schema.optional(Schema.Number), channels: Schema.optional(Schema.Number), track: Schema.optional(Schema.String)}) {}
 export const AudioConfigurationList = Schema.Array(AudioConfiguration);
-export const BatchGetStreamKeyResponse = Schema.Struct({streamKeys: Schema.optional(StreamKeys), errors: Schema.optional(BatchErrors)});
-export const CreateChannelResponse = Schema.Struct({channel: Schema.optional(Channel), streamKey: Schema.optional(StreamKey)});
-export const CreatePlaybackRestrictionPolicyResponse = Schema.Struct({playbackRestrictionPolicy: Schema.optional(PlaybackRestrictionPolicy)});
-export const CreateRecordingConfigurationRequest = Schema.Struct({name: Schema.optional(Schema.String), destinationConfiguration: DestinationConfiguration, tags: Schema.optional(Tags), thumbnailConfiguration: Schema.optional(ThumbnailConfiguration), recordingReconnectWindowSeconds: Schema.optional(Schema.Number), renditionConfiguration: Schema.optional(RenditionConfiguration)});
-export const ServiceQuotaExceededException = Schema.Struct({exceptionMessage: Schema.optional(Schema.String)});
-export const GetPlaybackKeyPairResponse = Schema.Struct({keyPair: Schema.optional(PlaybackKeyPair)});
-export const GetRecordingConfigurationResponse = Schema.Struct({recordingConfiguration: Schema.optional(RecordingConfiguration)});
-export const GetStreamResponse = Schema.Struct({stream: Schema.optional(Stream)});
-export const ListChannelsResponse = Schema.Struct({channels: ChannelList, nextToken: Schema.optional(Schema.String)});
-export const ListPlaybackKeyPairsResponse = Schema.Struct({keyPairs: PlaybackKeyPairList, nextToken: Schema.optional(Schema.String)});
-export const ListPlaybackRestrictionPoliciesResponse = Schema.Struct({playbackRestrictionPolicies: PlaybackRestrictionPolicyList, nextToken: Schema.optional(Schema.String)});
-export const ListRecordingConfigurationsResponse = Schema.Struct({recordingConfigurations: RecordingConfigurationList, nextToken: Schema.optional(Schema.String)});
-export const ListStreamKeysResponse = Schema.Struct({streamKeys: StreamKeyList, nextToken: Schema.optional(Schema.String)});
-export const ListStreamSessionsResponse = Schema.Struct({streamSessions: StreamSessionList, nextToken: Schema.optional(Schema.String)});
-export const IngestConfigurations = Schema.Struct({videoConfigurations: VideoConfigurationList, audioConfigurations: AudioConfigurationList});
-export const StreamEvent = Schema.Struct({name: Schema.optional(Schema.String), type: Schema.optional(Schema.String), eventTime: Schema.optional(Schema.Date), code: Schema.optional(Schema.String)});
+export class BatchGetStreamKeyResponse extends Schema.Class<BatchGetStreamKeyResponse>("BatchGetStreamKeyResponse")({streamKeys: Schema.optional(StreamKeys), errors: Schema.optional(BatchErrors)}) {}
+export class CreateChannelResponse extends Schema.Class<CreateChannelResponse>("CreateChannelResponse")({channel: Schema.optional(Channel), streamKey: Schema.optional(StreamKey)}) {}
+export class CreatePlaybackRestrictionPolicyResponse extends Schema.Class<CreatePlaybackRestrictionPolicyResponse>("CreatePlaybackRestrictionPolicyResponse")({playbackRestrictionPolicy: Schema.optional(PlaybackRestrictionPolicy)}) {}
+export class CreateRecordingConfigurationRequest extends Schema.Class<CreateRecordingConfigurationRequest>("CreateRecordingConfigurationRequest")({name: Schema.optional(Schema.String), destinationConfiguration: DestinationConfiguration, tags: Schema.optional(Tags), thumbnailConfiguration: Schema.optional(ThumbnailConfiguration), recordingReconnectWindowSeconds: Schema.optional(Schema.Number), renditionConfiguration: Schema.optional(RenditionConfiguration)}) {}
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({exceptionMessage: Schema.optional(Schema.String)}) {}
+export class GetPlaybackKeyPairResponse extends Schema.Class<GetPlaybackKeyPairResponse>("GetPlaybackKeyPairResponse")({keyPair: Schema.optional(PlaybackKeyPair)}) {}
+export class GetRecordingConfigurationResponse extends Schema.Class<GetRecordingConfigurationResponse>("GetRecordingConfigurationResponse")({recordingConfiguration: Schema.optional(RecordingConfiguration)}) {}
+export class GetStreamResponse extends Schema.Class<GetStreamResponse>("GetStreamResponse")({stream: Schema.optional(Stream)}) {}
+export class ListChannelsResponse extends Schema.Class<ListChannelsResponse>("ListChannelsResponse")({channels: ChannelList, nextToken: Schema.optional(Schema.String)}) {}
+export class ListPlaybackKeyPairsResponse extends Schema.Class<ListPlaybackKeyPairsResponse>("ListPlaybackKeyPairsResponse")({keyPairs: PlaybackKeyPairList, nextToken: Schema.optional(Schema.String)}) {}
+export class ListPlaybackRestrictionPoliciesResponse extends Schema.Class<ListPlaybackRestrictionPoliciesResponse>("ListPlaybackRestrictionPoliciesResponse")({playbackRestrictionPolicies: PlaybackRestrictionPolicyList, nextToken: Schema.optional(Schema.String)}) {}
+export class ListRecordingConfigurationsResponse extends Schema.Class<ListRecordingConfigurationsResponse>("ListRecordingConfigurationsResponse")({recordingConfigurations: RecordingConfigurationList, nextToken: Schema.optional(Schema.String)}) {}
+export class ListStreamKeysResponse extends Schema.Class<ListStreamKeysResponse>("ListStreamKeysResponse")({streamKeys: StreamKeyList, nextToken: Schema.optional(Schema.String)}) {}
+export class ListStreamSessionsResponse extends Schema.Class<ListStreamSessionsResponse>("ListStreamSessionsResponse")({streamSessions: StreamSessionList, nextToken: Schema.optional(Schema.String)}) {}
+export class IngestConfigurations extends Schema.Class<IngestConfigurations>("IngestConfigurations")({videoConfigurations: VideoConfigurationList, audioConfigurations: AudioConfigurationList}) {}
+export class StreamEvent extends Schema.Class<StreamEvent>("StreamEvent")({name: Schema.optional(Schema.String), type: Schema.optional(Schema.String), eventTime: Schema.optional(Schema.Date), code: Schema.optional(Schema.String)}) {}
 export const StreamEvents = Schema.Array(StreamEvent);
 export const Channels = Schema.Array(Channel);
-export const BatchStartViewerSessionRevocationError = Schema.Struct({channelArn: Schema.String, viewerId: Schema.String, code: Schema.optional(Schema.String), message: Schema.optional(Schema.String)});
+export class BatchStartViewerSessionRevocationError extends Schema.Class<BatchStartViewerSessionRevocationError>("BatchStartViewerSessionRevocationError")({channelArn: Schema.String, viewerId: Schema.String, code: Schema.optional(Schema.String), message: Schema.optional(Schema.String)}) {}
 export const BatchStartViewerSessionRevocationErrors = Schema.Array(BatchStartViewerSessionRevocationError);
-export const StreamSummary = Schema.Struct({channelArn: Schema.optional(Schema.String), streamId: Schema.optional(Schema.String), state: Schema.optional(Schema.String), health: Schema.optional(Schema.String), viewerCount: Schema.optional(Schema.Number), startTime: Schema.optional(Schema.Date)});
+export class StreamSummary extends Schema.Class<StreamSummary>("StreamSummary")({channelArn: Schema.optional(Schema.String), streamId: Schema.optional(Schema.String), state: Schema.optional(Schema.String), health: Schema.optional(Schema.String), viewerCount: Schema.optional(Schema.Number), startTime: Schema.optional(Schema.Date)}) {}
 export const StreamList = Schema.Array(StreamSummary);
-export const BatchGetChannelResponse = Schema.Struct({channels: Schema.optional(Channels), errors: Schema.optional(BatchErrors)});
-export const BatchStartViewerSessionRevocationResponse = Schema.Struct({errors: Schema.optional(BatchStartViewerSessionRevocationErrors)});
-export const CreateRecordingConfigurationResponse = Schema.Struct({recordingConfiguration: Schema.optional(RecordingConfiguration)});
-export const ListStreamsResponse = Schema.Struct({streams: StreamList, nextToken: Schema.optional(Schema.String)});
-export const IngestConfiguration = Schema.Struct({video: Schema.optional(VideoConfiguration), audio: Schema.optional(AudioConfiguration)});
-export const StreamSession = Schema.Struct({streamId: Schema.optional(Schema.String), startTime: Schema.optional(Schema.Date), endTime: Schema.optional(Schema.Date), channel: Schema.optional(Channel), ingestConfiguration: Schema.optional(IngestConfiguration), ingestConfigurations: Schema.optional(IngestConfigurations), recordingConfiguration: Schema.optional(RecordingConfiguration), truncatedEvents: Schema.optional(StreamEvents)});
-export const GetStreamSessionResponse = Schema.Struct({streamSession: Schema.optional(StreamSession)});
+export class BatchGetChannelResponse extends Schema.Class<BatchGetChannelResponse>("BatchGetChannelResponse")({channels: Schema.optional(Channels), errors: Schema.optional(BatchErrors)}) {}
+export class BatchStartViewerSessionRevocationResponse extends Schema.Class<BatchStartViewerSessionRevocationResponse>("BatchStartViewerSessionRevocationResponse")({errors: Schema.optional(BatchStartViewerSessionRevocationErrors)}) {}
+export class CreateRecordingConfigurationResponse extends Schema.Class<CreateRecordingConfigurationResponse>("CreateRecordingConfigurationResponse")({recordingConfiguration: Schema.optional(RecordingConfiguration)}) {}
+export class ListStreamsResponse extends Schema.Class<ListStreamsResponse>("ListStreamsResponse")({streams: StreamList, nextToken: Schema.optional(Schema.String)}) {}
+export class IngestConfiguration extends Schema.Class<IngestConfiguration>("IngestConfiguration")({video: Schema.optional(VideoConfiguration), audio: Schema.optional(AudioConfiguration)}) {}
+export class StreamSession extends Schema.Class<StreamSession>("StreamSession")({streamId: Schema.optional(Schema.String), startTime: Schema.optional(Schema.Date), endTime: Schema.optional(Schema.Date), channel: Schema.optional(Channel), ingestConfiguration: Schema.optional(IngestConfiguration), ingestConfigurations: Schema.optional(IngestConfigurations), recordingConfiguration: Schema.optional(RecordingConfiguration), truncatedEvents: Schema.optional(StreamEvents)}) {}
+export class GetStreamSessionResponse extends Schema.Class<GetStreamSessionResponse>("GetStreamSessionResponse")({streamSession: Schema.optional(StreamSession)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class PendingVerificationError extends Schema.TaggedError<PendingVerificationError>()("PendingVerification", PendingVerification) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ChannelNotBroadcastingError extends Schema.TaggedError<ChannelNotBroadcastingError>()("ChannelNotBroadcasting", ChannelNotBroadcasting) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class StreamUnavailableError extends Schema.TaggedError<StreamUnavailableError>()("StreamUnavailable", StreamUnavailable) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class PendingVerificationError extends Schema.TaggedError<PendingVerificationError>()("PendingVerification", PendingVerification.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ChannelNotBroadcastingError extends Schema.TaggedError<ChannelNotBroadcastingError>()("ChannelNotBroadcasting", ChannelNotBroadcasting.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class StreamUnavailableError extends Schema.TaggedError<StreamUnavailableError>()("StreamUnavailable", StreamUnavailable.fields) {};
 
 //# Operations
 export const untagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2020-07-14", uri: "/tags/{resourceArn}", method: "DELETE", sdkId: "ivs", sigV4ServiceName: "ivs", name: "AmazonInteractiveVideoService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InternalServerExceptionError, ResourceNotFoundExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

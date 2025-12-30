@@ -5,101 +5,101 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 //# Schemas
 export const ProvisionStates = Schema.Array(Schema.String);
 export const TagKeyList = Schema.Array(Schema.String);
-export const AssociateVolumeRequest = Schema.Struct({WorkspaceInstanceId: Schema.String, VolumeId: Schema.String, Device: Schema.String});
-export const AssociateVolumeResponse = Schema.Struct({});
-export const DeleteVolumeRequest = Schema.Struct({VolumeId: Schema.String});
-export const DeleteVolumeResponse = Schema.Struct({});
-export const DeleteWorkspaceInstanceRequest = Schema.Struct({WorkspaceInstanceId: Schema.String});
-export const DeleteWorkspaceInstanceResponse = Schema.Struct({});
-export const DisassociateVolumeRequest = Schema.Struct({WorkspaceInstanceId: Schema.String, VolumeId: Schema.String, Device: Schema.optional(Schema.String), DisassociateMode: Schema.optional(Schema.String)});
-export const DisassociateVolumeResponse = Schema.Struct({});
-export const GetWorkspaceInstanceRequest = Schema.Struct({WorkspaceInstanceId: Schema.String});
-export const ListInstanceTypesRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListRegionsRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceRequest = Schema.Struct({WorkspaceInstanceId: Schema.String});
-export const ListWorkspaceInstancesRequest = Schema.Struct({ProvisionStates: Schema.optional(ProvisionStates), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const Tag = Schema.Struct({Key: Schema.optional(Schema.String), Value: Schema.optional(Schema.String)});
+export class AssociateVolumeRequest extends Schema.Class<AssociateVolumeRequest>("AssociateVolumeRequest")({WorkspaceInstanceId: Schema.String, VolumeId: Schema.String, Device: Schema.String}) {}
+export class AssociateVolumeResponse extends Schema.Class<AssociateVolumeResponse>("AssociateVolumeResponse")({}) {}
+export class DeleteVolumeRequest extends Schema.Class<DeleteVolumeRequest>("DeleteVolumeRequest")({VolumeId: Schema.String}) {}
+export class DeleteVolumeResponse extends Schema.Class<DeleteVolumeResponse>("DeleteVolumeResponse")({}) {}
+export class DeleteWorkspaceInstanceRequest extends Schema.Class<DeleteWorkspaceInstanceRequest>("DeleteWorkspaceInstanceRequest")({WorkspaceInstanceId: Schema.String}) {}
+export class DeleteWorkspaceInstanceResponse extends Schema.Class<DeleteWorkspaceInstanceResponse>("DeleteWorkspaceInstanceResponse")({}) {}
+export class DisassociateVolumeRequest extends Schema.Class<DisassociateVolumeRequest>("DisassociateVolumeRequest")({WorkspaceInstanceId: Schema.String, VolumeId: Schema.String, Device: Schema.optional(Schema.String), DisassociateMode: Schema.optional(Schema.String)}) {}
+export class DisassociateVolumeResponse extends Schema.Class<DisassociateVolumeResponse>("DisassociateVolumeResponse")({}) {}
+export class GetWorkspaceInstanceRequest extends Schema.Class<GetWorkspaceInstanceRequest>("GetWorkspaceInstanceRequest")({WorkspaceInstanceId: Schema.String}) {}
+export class ListInstanceTypesRequest extends Schema.Class<ListInstanceTypesRequest>("ListInstanceTypesRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListRegionsRequest extends Schema.Class<ListRegionsRequest>("ListRegionsRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({WorkspaceInstanceId: Schema.String}) {}
+export class ListWorkspaceInstancesRequest extends Schema.Class<ListWorkspaceInstancesRequest>("ListWorkspaceInstancesRequest")({ProvisionStates: Schema.optional(ProvisionStates), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.optional(Schema.String), Value: Schema.optional(Schema.String)}) {}
 export const TagList = Schema.Array(Tag);
-export const TagResourceRequest = Schema.Struct({WorkspaceInstanceId: Schema.String, Tags: TagList});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({WorkspaceInstanceId: Schema.String, TagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({WorkspaceInstanceId: Schema.String, Tags: TagList}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({WorkspaceInstanceId: Schema.String, TagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
 export const SecurityGroupIds = Schema.Array(Schema.String);
 export const SecurityGroupNames = Schema.Array(Schema.String);
-export const TagSpecification = Schema.Struct({ResourceType: Schema.optional(Schema.String), Tags: Schema.optional(TagList)});
+export class TagSpecification extends Schema.Class<TagSpecification>("TagSpecification")({ResourceType: Schema.optional(Schema.String), Tags: Schema.optional(TagList)}) {}
 export const TagSpecifications = Schema.Array(TagSpecification);
-export const AccessDeniedException = Schema.Struct({Message: Schema.String});
-export const CreateVolumeRequest = Schema.Struct({AvailabilityZone: Schema.String, ClientToken: Schema.optional(Schema.String), Encrypted: Schema.optional(Schema.Boolean), Iops: Schema.optional(Schema.Number), KmsKeyId: Schema.optional(Schema.String), SizeInGB: Schema.optional(Schema.Number), SnapshotId: Schema.optional(Schema.String), TagSpecifications: Schema.optional(TagSpecifications), Throughput: Schema.optional(Schema.Number), VolumeType: Schema.optional(Schema.String)});
-export const ConflictException = Schema.Struct({Message: Schema.String, ResourceId: Schema.String, ResourceType: Schema.String});
-export const InternalServerException = Schema.Struct({Message: Schema.String, RetryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))});
-export const ResourceNotFoundException = Schema.Struct({Message: Schema.String, ResourceId: Schema.String, ResourceType: Schema.String});
-export const ListTagsForResourceResponse = Schema.Struct({Tags: Schema.optional(TagList)});
-export const ThrottlingException = Schema.Struct({Message: Schema.String, ServiceCode: Schema.optional(Schema.String), QuotaCode: Schema.optional(Schema.String), RetryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))});
-export const CpuOptionsRequest = Schema.Struct({AmdSevSnp: Schema.optional(Schema.String), CoreCount: Schema.optional(Schema.Number), ThreadsPerCore: Schema.optional(Schema.Number)});
-export const CreditSpecificationRequest = Schema.Struct({CpuCredits: Schema.optional(Schema.String)});
-export const EnclaveOptionsRequest = Schema.Struct({Enabled: Schema.optional(Schema.Boolean)});
-export const HibernationOptionsRequest = Schema.Struct({Configured: Schema.optional(Schema.Boolean)});
-export const IamInstanceProfileSpecification = Schema.Struct({Arn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String)});
-export const InstanceIpv6Address = Schema.Struct({Ipv6Address: Schema.optional(Schema.String), IsPrimaryIpv6: Schema.optional(Schema.Boolean)});
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({Message: Schema.String}) {}
+export class CreateVolumeRequest extends Schema.Class<CreateVolumeRequest>("CreateVolumeRequest")({AvailabilityZone: Schema.String, ClientToken: Schema.optional(Schema.String), Encrypted: Schema.optional(Schema.Boolean), Iops: Schema.optional(Schema.Number), KmsKeyId: Schema.optional(Schema.String), SizeInGB: Schema.optional(Schema.Number), SnapshotId: Schema.optional(Schema.String), TagSpecifications: Schema.optional(TagSpecifications), Throughput: Schema.optional(Schema.Number), VolumeType: Schema.optional(Schema.String)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({Message: Schema.String, ResourceId: Schema.String, ResourceType: Schema.String}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({Message: Schema.String, RetryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({Message: Schema.String, ResourceId: Schema.String, ResourceType: Schema.String}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({Tags: Schema.optional(TagList)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({Message: Schema.String, ServiceCode: Schema.optional(Schema.String), QuotaCode: Schema.optional(Schema.String), RetryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))}) {}
+export class CpuOptionsRequest extends Schema.Class<CpuOptionsRequest>("CpuOptionsRequest")({AmdSevSnp: Schema.optional(Schema.String), CoreCount: Schema.optional(Schema.Number), ThreadsPerCore: Schema.optional(Schema.Number)}) {}
+export class CreditSpecificationRequest extends Schema.Class<CreditSpecificationRequest>("CreditSpecificationRequest")({CpuCredits: Schema.optional(Schema.String)}) {}
+export class EnclaveOptionsRequest extends Schema.Class<EnclaveOptionsRequest>("EnclaveOptionsRequest")({Enabled: Schema.optional(Schema.Boolean)}) {}
+export class HibernationOptionsRequest extends Schema.Class<HibernationOptionsRequest>("HibernationOptionsRequest")({Configured: Schema.optional(Schema.Boolean)}) {}
+export class IamInstanceProfileSpecification extends Schema.Class<IamInstanceProfileSpecification>("IamInstanceProfileSpecification")({Arn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String)}) {}
+export class InstanceIpv6Address extends Schema.Class<InstanceIpv6Address>("InstanceIpv6Address")({Ipv6Address: Schema.optional(Schema.String), IsPrimaryIpv6: Schema.optional(Schema.Boolean)}) {}
 export const Ipv6Addresses = Schema.Array(InstanceIpv6Address);
-export const LicenseConfigurationRequest = Schema.Struct({LicenseConfigurationArn: Schema.optional(Schema.String)});
+export class LicenseConfigurationRequest extends Schema.Class<LicenseConfigurationRequest>("LicenseConfigurationRequest")({LicenseConfigurationArn: Schema.optional(Schema.String)}) {}
 export const LicenseSpecifications = Schema.Array(LicenseConfigurationRequest);
-export const InstanceMaintenanceOptionsRequest = Schema.Struct({AutoRecovery: Schema.optional(Schema.String)});
-export const InstanceMetadataOptionsRequest = Schema.Struct({HttpEndpoint: Schema.optional(Schema.String), HttpProtocolIpv6: Schema.optional(Schema.String), HttpPutResponseHopLimit: Schema.optional(Schema.Number), HttpTokens: Schema.optional(Schema.String), InstanceMetadataTags: Schema.optional(Schema.String)});
-export const RunInstancesMonitoringEnabled = Schema.Struct({Enabled: Schema.optional(Schema.Boolean)});
-export const InstanceNetworkPerformanceOptionsRequest = Schema.Struct({BandwidthWeighting: Schema.optional(Schema.String)});
-export const Placement = Schema.Struct({Affinity: Schema.optional(Schema.String), AvailabilityZone: Schema.optional(Schema.String), GroupId: Schema.optional(Schema.String), GroupName: Schema.optional(Schema.String), HostId: Schema.optional(Schema.String), HostResourceGroupArn: Schema.optional(Schema.String), PartitionNumber: Schema.optional(Schema.Number), Tenancy: Schema.optional(Schema.String)});
-export const PrivateDnsNameOptionsRequest = Schema.Struct({HostnameType: Schema.optional(Schema.String), EnableResourceNameDnsARecord: Schema.optional(Schema.Boolean), EnableResourceNameDnsAAAARecord: Schema.optional(Schema.Boolean)});
-export const WorkspaceInstanceError = Schema.Struct({ErrorCode: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String)});
+export class InstanceMaintenanceOptionsRequest extends Schema.Class<InstanceMaintenanceOptionsRequest>("InstanceMaintenanceOptionsRequest")({AutoRecovery: Schema.optional(Schema.String)}) {}
+export class InstanceMetadataOptionsRequest extends Schema.Class<InstanceMetadataOptionsRequest>("InstanceMetadataOptionsRequest")({HttpEndpoint: Schema.optional(Schema.String), HttpProtocolIpv6: Schema.optional(Schema.String), HttpPutResponseHopLimit: Schema.optional(Schema.Number), HttpTokens: Schema.optional(Schema.String), InstanceMetadataTags: Schema.optional(Schema.String)}) {}
+export class RunInstancesMonitoringEnabled extends Schema.Class<RunInstancesMonitoringEnabled>("RunInstancesMonitoringEnabled")({Enabled: Schema.optional(Schema.Boolean)}) {}
+export class InstanceNetworkPerformanceOptionsRequest extends Schema.Class<InstanceNetworkPerformanceOptionsRequest>("InstanceNetworkPerformanceOptionsRequest")({BandwidthWeighting: Schema.optional(Schema.String)}) {}
+export class Placement extends Schema.Class<Placement>("Placement")({Affinity: Schema.optional(Schema.String), AvailabilityZone: Schema.optional(Schema.String), GroupId: Schema.optional(Schema.String), GroupName: Schema.optional(Schema.String), HostId: Schema.optional(Schema.String), HostResourceGroupArn: Schema.optional(Schema.String), PartitionNumber: Schema.optional(Schema.Number), Tenancy: Schema.optional(Schema.String)}) {}
+export class PrivateDnsNameOptionsRequest extends Schema.Class<PrivateDnsNameOptionsRequest>("PrivateDnsNameOptionsRequest")({HostnameType: Schema.optional(Schema.String), EnableResourceNameDnsARecord: Schema.optional(Schema.Boolean), EnableResourceNameDnsAAAARecord: Schema.optional(Schema.Boolean)}) {}
+export class WorkspaceInstanceError extends Schema.Class<WorkspaceInstanceError>("WorkspaceInstanceError")({ErrorCode: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String)}) {}
 export const WorkspaceInstanceErrors = Schema.Array(WorkspaceInstanceError);
-export const EC2InstanceError = Schema.Struct({EC2ErrorCode: Schema.optional(Schema.String), EC2ExceptionType: Schema.optional(Schema.String), EC2ErrorMessage: Schema.optional(Schema.String)});
+export class EC2InstanceError extends Schema.Class<EC2InstanceError>("EC2InstanceError")({EC2ErrorCode: Schema.optional(Schema.String), EC2ExceptionType: Schema.optional(Schema.String), EC2ErrorMessage: Schema.optional(Schema.String)}) {}
 export const EC2InstanceErrors = Schema.Array(EC2InstanceError);
-export const EC2ManagedInstance = Schema.Struct({InstanceId: Schema.optional(Schema.String)});
-export const InstanceTypeInfo = Schema.Struct({InstanceType: Schema.optional(Schema.String)});
+export class EC2ManagedInstance extends Schema.Class<EC2ManagedInstance>("EC2ManagedInstance")({InstanceId: Schema.optional(Schema.String)}) {}
+export class InstanceTypeInfo extends Schema.Class<InstanceTypeInfo>("InstanceTypeInfo")({InstanceType: Schema.optional(Schema.String)}) {}
 export const InstanceTypes = Schema.Array(InstanceTypeInfo);
-export const Region = Schema.Struct({RegionName: Schema.optional(Schema.String)});
+export class Region extends Schema.Class<Region>("Region")({RegionName: Schema.optional(Schema.String)}) {}
 export const RegionList = Schema.Array(Region);
-export const WorkspaceInstance = Schema.Struct({ProvisionState: Schema.optional(Schema.String), WorkspaceInstanceId: Schema.optional(Schema.String), EC2ManagedInstance: Schema.optional(EC2ManagedInstance)});
+export class WorkspaceInstance extends Schema.Class<WorkspaceInstance>("WorkspaceInstance")({ProvisionState: Schema.optional(Schema.String), WorkspaceInstanceId: Schema.optional(Schema.String), EC2ManagedInstance: Schema.optional(EC2ManagedInstance)}) {}
 export const WorkspaceInstances = Schema.Array(WorkspaceInstance);
-export const ValidationExceptionField = Schema.Struct({Name: Schema.String, Reason: Schema.String, Message: Schema.String});
+export class ValidationExceptionField extends Schema.Class<ValidationExceptionField>("ValidationExceptionField")({Name: Schema.String, Reason: Schema.String, Message: Schema.String}) {}
 export const ValidationExceptionFieldList = Schema.Array(ValidationExceptionField);
-export const EbsBlockDevice = Schema.Struct({VolumeType: Schema.optional(Schema.String), Encrypted: Schema.optional(Schema.Boolean), KmsKeyId: Schema.optional(Schema.String), Iops: Schema.optional(Schema.Number), Throughput: Schema.optional(Schema.Number), VolumeSize: Schema.optional(Schema.Number)});
-export const CapacityReservationTarget = Schema.Struct({CapacityReservationId: Schema.optional(Schema.String), CapacityReservationResourceGroupArn: Schema.optional(Schema.String)});
-export const SpotMarketOptions = Schema.Struct({BlockDurationMinutes: Schema.optional(Schema.Number), InstanceInterruptionBehavior: Schema.optional(Schema.String), MaxPrice: Schema.optional(Schema.String), SpotInstanceType: Schema.optional(Schema.String), ValidUntilUtc: Schema.optional(Schema.Date)});
-export const ConnectionTrackingSpecificationRequest = Schema.Struct({TcpEstablishedTimeout: Schema.optional(Schema.Number), UdpStreamTimeout: Schema.optional(Schema.Number), UdpTimeout: Schema.optional(Schema.Number)});
-export const Ipv4PrefixSpecificationRequest = Schema.Struct({Ipv4Prefix: Schema.optional(Schema.String)});
+export class EbsBlockDevice extends Schema.Class<EbsBlockDevice>("EbsBlockDevice")({VolumeType: Schema.optional(Schema.String), Encrypted: Schema.optional(Schema.Boolean), KmsKeyId: Schema.optional(Schema.String), Iops: Schema.optional(Schema.Number), Throughput: Schema.optional(Schema.Number), VolumeSize: Schema.optional(Schema.Number)}) {}
+export class CapacityReservationTarget extends Schema.Class<CapacityReservationTarget>("CapacityReservationTarget")({CapacityReservationId: Schema.optional(Schema.String), CapacityReservationResourceGroupArn: Schema.optional(Schema.String)}) {}
+export class SpotMarketOptions extends Schema.Class<SpotMarketOptions>("SpotMarketOptions")({BlockDurationMinutes: Schema.optional(Schema.Number), InstanceInterruptionBehavior: Schema.optional(Schema.String), MaxPrice: Schema.optional(Schema.String), SpotInstanceType: Schema.optional(Schema.String), ValidUntilUtc: Schema.optional(Schema.Date)}) {}
+export class ConnectionTrackingSpecificationRequest extends Schema.Class<ConnectionTrackingSpecificationRequest>("ConnectionTrackingSpecificationRequest")({TcpEstablishedTimeout: Schema.optional(Schema.Number), UdpStreamTimeout: Schema.optional(Schema.Number), UdpTimeout: Schema.optional(Schema.Number)}) {}
+export class Ipv4PrefixSpecificationRequest extends Schema.Class<Ipv4PrefixSpecificationRequest>("Ipv4PrefixSpecificationRequest")({Ipv4Prefix: Schema.optional(Schema.String)}) {}
 export const Ipv4Prefixes = Schema.Array(Ipv4PrefixSpecificationRequest);
-export const Ipv6PrefixSpecificationRequest = Schema.Struct({Ipv6Prefix: Schema.optional(Schema.String)});
+export class Ipv6PrefixSpecificationRequest extends Schema.Class<Ipv6PrefixSpecificationRequest>("Ipv6PrefixSpecificationRequest")({Ipv6Prefix: Schema.optional(Schema.String)}) {}
 export const Ipv6Prefixes = Schema.Array(Ipv6PrefixSpecificationRequest);
-export const PrivateIpAddressSpecification = Schema.Struct({Primary: Schema.optional(Schema.Boolean), PrivateIpAddress: Schema.optional(Schema.String)});
+export class PrivateIpAddressSpecification extends Schema.Class<PrivateIpAddressSpecification>("PrivateIpAddressSpecification")({Primary: Schema.optional(Schema.Boolean), PrivateIpAddress: Schema.optional(Schema.String)}) {}
 export const PrivateIpAddresses = Schema.Array(PrivateIpAddressSpecification);
-export const CreateVolumeResponse = Schema.Struct({VolumeId: Schema.optional(Schema.String)});
-export const GetWorkspaceInstanceResponse = Schema.Struct({WorkspaceInstanceErrors: Schema.optional(WorkspaceInstanceErrors), EC2InstanceErrors: Schema.optional(EC2InstanceErrors), ProvisionState: Schema.optional(Schema.String), WorkspaceInstanceId: Schema.optional(Schema.String), EC2ManagedInstance: Schema.optional(EC2ManagedInstance)});
-export const ListInstanceTypesResponse = Schema.Struct({InstanceTypes: InstanceTypes, NextToken: Schema.optional(Schema.String)});
-export const ListRegionsResponse = Schema.Struct({Regions: RegionList, NextToken: Schema.optional(Schema.String)});
-export const ListWorkspaceInstancesResponse = Schema.Struct({WorkspaceInstances: WorkspaceInstances, NextToken: Schema.optional(Schema.String)});
-export const ValidationException = Schema.Struct({Message: Schema.String, Reason: Schema.String, FieldList: Schema.optional(ValidationExceptionFieldList)});
-export const BlockDeviceMappingRequest = Schema.Struct({DeviceName: Schema.optional(Schema.String), Ebs: Schema.optional(EbsBlockDevice), NoDevice: Schema.optional(Schema.String), VirtualName: Schema.optional(Schema.String)});
+export class CreateVolumeResponse extends Schema.Class<CreateVolumeResponse>("CreateVolumeResponse")({VolumeId: Schema.optional(Schema.String)}) {}
+export class GetWorkspaceInstanceResponse extends Schema.Class<GetWorkspaceInstanceResponse>("GetWorkspaceInstanceResponse")({WorkspaceInstanceErrors: Schema.optional(WorkspaceInstanceErrors), EC2InstanceErrors: Schema.optional(EC2InstanceErrors), ProvisionState: Schema.optional(Schema.String), WorkspaceInstanceId: Schema.optional(Schema.String), EC2ManagedInstance: Schema.optional(EC2ManagedInstance)}) {}
+export class ListInstanceTypesResponse extends Schema.Class<ListInstanceTypesResponse>("ListInstanceTypesResponse")({InstanceTypes: InstanceTypes, NextToken: Schema.optional(Schema.String)}) {}
+export class ListRegionsResponse extends Schema.Class<ListRegionsResponse>("ListRegionsResponse")({Regions: RegionList, NextToken: Schema.optional(Schema.String)}) {}
+export class ListWorkspaceInstancesResponse extends Schema.Class<ListWorkspaceInstancesResponse>("ListWorkspaceInstancesResponse")({WorkspaceInstances: WorkspaceInstances, NextToken: Schema.optional(Schema.String)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({Message: Schema.String, Reason: Schema.String, FieldList: Schema.optional(ValidationExceptionFieldList)}) {}
+export class BlockDeviceMappingRequest extends Schema.Class<BlockDeviceMappingRequest>("BlockDeviceMappingRequest")({DeviceName: Schema.optional(Schema.String), Ebs: Schema.optional(EbsBlockDevice), NoDevice: Schema.optional(Schema.String), VirtualName: Schema.optional(Schema.String)}) {}
 export const BlockDeviceMappings = Schema.Array(BlockDeviceMappingRequest);
-export const CapacityReservationSpecification = Schema.Struct({CapacityReservationPreference: Schema.optional(Schema.String), CapacityReservationTarget: Schema.optional(CapacityReservationTarget)});
-export const InstanceMarketOptionsRequest = Schema.Struct({MarketType: Schema.optional(Schema.String), SpotOptions: Schema.optional(SpotMarketOptions)});
-export const EnaSrdUdpSpecificationRequest = Schema.Struct({EnaSrdUdpEnabled: Schema.optional(Schema.Boolean)});
-export const EnaSrdSpecificationRequest = Schema.Struct({EnaSrdEnabled: Schema.optional(Schema.Boolean), EnaSrdUdpSpecification: Schema.optional(EnaSrdUdpSpecificationRequest)});
-export const ServiceQuotaExceededException = Schema.Struct({Message: Schema.String, ResourceId: Schema.String, ResourceType: Schema.String, ServiceCode: Schema.String, QuotaCode: Schema.String});
-export const InstanceNetworkInterfaceSpecification = Schema.Struct({AssociateCarrierIpAddress: Schema.optional(Schema.Boolean), AssociatePublicIpAddress: Schema.optional(Schema.Boolean), ConnectionTrackingSpecification: Schema.optional(ConnectionTrackingSpecificationRequest), Description: Schema.optional(Schema.String), DeviceIndex: Schema.optional(Schema.Number), EnaSrdSpecification: Schema.optional(EnaSrdSpecificationRequest), InterfaceType: Schema.optional(Schema.String), Ipv4Prefixes: Schema.optional(Ipv4Prefixes), Ipv4PrefixCount: Schema.optional(Schema.Number), Ipv6AddressCount: Schema.optional(Schema.Number), Ipv6Addresses: Schema.optional(Ipv6Addresses), Ipv6Prefixes: Schema.optional(Ipv6Prefixes), Ipv6PrefixCount: Schema.optional(Schema.Number), NetworkCardIndex: Schema.optional(Schema.Number), NetworkInterfaceId: Schema.optional(Schema.String), PrimaryIpv6: Schema.optional(Schema.Boolean), PrivateIpAddress: Schema.optional(Schema.String), PrivateIpAddresses: Schema.optional(PrivateIpAddresses), SecondaryPrivateIpAddressCount: Schema.optional(Schema.Number), Groups: Schema.optional(SecurityGroupIds), SubnetId: Schema.optional(Schema.String)});
+export class CapacityReservationSpecification extends Schema.Class<CapacityReservationSpecification>("CapacityReservationSpecification")({CapacityReservationPreference: Schema.optional(Schema.String), CapacityReservationTarget: Schema.optional(CapacityReservationTarget)}) {}
+export class InstanceMarketOptionsRequest extends Schema.Class<InstanceMarketOptionsRequest>("InstanceMarketOptionsRequest")({MarketType: Schema.optional(Schema.String), SpotOptions: Schema.optional(SpotMarketOptions)}) {}
+export class EnaSrdUdpSpecificationRequest extends Schema.Class<EnaSrdUdpSpecificationRequest>("EnaSrdUdpSpecificationRequest")({EnaSrdUdpEnabled: Schema.optional(Schema.Boolean)}) {}
+export class EnaSrdSpecificationRequest extends Schema.Class<EnaSrdSpecificationRequest>("EnaSrdSpecificationRequest")({EnaSrdEnabled: Schema.optional(Schema.Boolean), EnaSrdUdpSpecification: Schema.optional(EnaSrdUdpSpecificationRequest)}) {}
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({Message: Schema.String, ResourceId: Schema.String, ResourceType: Schema.String, ServiceCode: Schema.String, QuotaCode: Schema.String}) {}
+export class InstanceNetworkInterfaceSpecification extends Schema.Class<InstanceNetworkInterfaceSpecification>("InstanceNetworkInterfaceSpecification")({AssociateCarrierIpAddress: Schema.optional(Schema.Boolean), AssociatePublicIpAddress: Schema.optional(Schema.Boolean), ConnectionTrackingSpecification: Schema.optional(ConnectionTrackingSpecificationRequest), Description: Schema.optional(Schema.String), DeviceIndex: Schema.optional(Schema.Number), EnaSrdSpecification: Schema.optional(EnaSrdSpecificationRequest), InterfaceType: Schema.optional(Schema.String), Ipv4Prefixes: Schema.optional(Ipv4Prefixes), Ipv4PrefixCount: Schema.optional(Schema.Number), Ipv6AddressCount: Schema.optional(Schema.Number), Ipv6Addresses: Schema.optional(Ipv6Addresses), Ipv6Prefixes: Schema.optional(Ipv6Prefixes), Ipv6PrefixCount: Schema.optional(Schema.Number), NetworkCardIndex: Schema.optional(Schema.Number), NetworkInterfaceId: Schema.optional(Schema.String), PrimaryIpv6: Schema.optional(Schema.Boolean), PrivateIpAddress: Schema.optional(Schema.String), PrivateIpAddresses: Schema.optional(PrivateIpAddresses), SecondaryPrivateIpAddressCount: Schema.optional(Schema.Number), Groups: Schema.optional(SecurityGroupIds), SubnetId: Schema.optional(Schema.String)}) {}
 export const NetworkInterfaces = Schema.Array(InstanceNetworkInterfaceSpecification);
-export const ManagedInstanceRequest = Schema.Struct({BlockDeviceMappings: Schema.optional(BlockDeviceMappings), CapacityReservationSpecification: Schema.optional(CapacityReservationSpecification), CpuOptions: Schema.optional(CpuOptionsRequest), CreditSpecification: Schema.optional(CreditSpecificationRequest), DisableApiStop: Schema.optional(Schema.Boolean), EbsOptimized: Schema.optional(Schema.Boolean), EnablePrimaryIpv6: Schema.optional(Schema.Boolean), EnclaveOptions: Schema.optional(EnclaveOptionsRequest), HibernationOptions: Schema.optional(HibernationOptionsRequest), IamInstanceProfile: Schema.optional(IamInstanceProfileSpecification), ImageId: Schema.optional(Schema.String), InstanceMarketOptions: Schema.optional(InstanceMarketOptionsRequest), InstanceType: Schema.optional(Schema.String), Ipv6Addresses: Schema.optional(Ipv6Addresses), Ipv6AddressCount: Schema.optional(Schema.Number), KernelId: Schema.optional(Schema.String), KeyName: Schema.optional(Schema.String), LicenseSpecifications: Schema.optional(LicenseSpecifications), MaintenanceOptions: Schema.optional(InstanceMaintenanceOptionsRequest), MetadataOptions: Schema.optional(InstanceMetadataOptionsRequest), Monitoring: Schema.optional(RunInstancesMonitoringEnabled), NetworkInterfaces: Schema.optional(NetworkInterfaces), NetworkPerformanceOptions: Schema.optional(InstanceNetworkPerformanceOptionsRequest), Placement: Schema.optional(Placement), PrivateDnsNameOptions: Schema.optional(PrivateDnsNameOptionsRequest), PrivateIpAddress: Schema.optional(Schema.String), RamdiskId: Schema.optional(Schema.String), SecurityGroupIds: Schema.optional(SecurityGroupIds), SecurityGroups: Schema.optional(SecurityGroupNames), SubnetId: Schema.optional(Schema.String), TagSpecifications: Schema.optional(TagSpecifications), UserData: Schema.optional(Schema.String)});
-export const CreateWorkspaceInstanceRequest = Schema.Struct({ClientToken: Schema.optional(Schema.String), Tags: Schema.optional(TagList), ManagedInstance: ManagedInstanceRequest});
-export const CreateWorkspaceInstanceResponse = Schema.Struct({WorkspaceInstanceId: Schema.optional(Schema.String)});
+export class ManagedInstanceRequest extends Schema.Class<ManagedInstanceRequest>("ManagedInstanceRequest")({BlockDeviceMappings: Schema.optional(BlockDeviceMappings), CapacityReservationSpecification: Schema.optional(CapacityReservationSpecification), CpuOptions: Schema.optional(CpuOptionsRequest), CreditSpecification: Schema.optional(CreditSpecificationRequest), DisableApiStop: Schema.optional(Schema.Boolean), EbsOptimized: Schema.optional(Schema.Boolean), EnablePrimaryIpv6: Schema.optional(Schema.Boolean), EnclaveOptions: Schema.optional(EnclaveOptionsRequest), HibernationOptions: Schema.optional(HibernationOptionsRequest), IamInstanceProfile: Schema.optional(IamInstanceProfileSpecification), ImageId: Schema.optional(Schema.String), InstanceMarketOptions: Schema.optional(InstanceMarketOptionsRequest), InstanceType: Schema.optional(Schema.String), Ipv6Addresses: Schema.optional(Ipv6Addresses), Ipv6AddressCount: Schema.optional(Schema.Number), KernelId: Schema.optional(Schema.String), KeyName: Schema.optional(Schema.String), LicenseSpecifications: Schema.optional(LicenseSpecifications), MaintenanceOptions: Schema.optional(InstanceMaintenanceOptionsRequest), MetadataOptions: Schema.optional(InstanceMetadataOptionsRequest), Monitoring: Schema.optional(RunInstancesMonitoringEnabled), NetworkInterfaces: Schema.optional(NetworkInterfaces), NetworkPerformanceOptions: Schema.optional(InstanceNetworkPerformanceOptionsRequest), Placement: Schema.optional(Placement), PrivateDnsNameOptions: Schema.optional(PrivateDnsNameOptionsRequest), PrivateIpAddress: Schema.optional(Schema.String), RamdiskId: Schema.optional(Schema.String), SecurityGroupIds: Schema.optional(SecurityGroupIds), SecurityGroups: Schema.optional(SecurityGroupNames), SubnetId: Schema.optional(Schema.String), TagSpecifications: Schema.optional(TagSpecifications), UserData: Schema.optional(Schema.String)}) {}
+export class CreateWorkspaceInstanceRequest extends Schema.Class<CreateWorkspaceInstanceRequest>("CreateWorkspaceInstanceRequest")({ClientToken: Schema.optional(Schema.String), Tags: Schema.optional(TagList), ManagedInstance: ManagedInstanceRequest}) {}
+export class CreateWorkspaceInstanceResponse extends Schema.Class<CreateWorkspaceInstanceResponse>("CreateWorkspaceInstanceResponse")({WorkspaceInstanceId: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
 
 //# Operations
 export const associateVolume = /*#__PURE__*/ makeOperation(() => Operation({ version: "2022-07-26", uri: "/", method: "POST", sdkId: "Workspaces Instances", sigV4ServiceName: "workspaces-instances", name: "EUCMIFrontendAPIService.AssociateVolume" }, AssociateVolumeRequest, AssociateVolumeResponse, [AccessDeniedExceptionError, ConflictExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);

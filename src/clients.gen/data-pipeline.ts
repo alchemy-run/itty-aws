@@ -5,82 +5,82 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 //# Schemas
 export const idList = Schema.Array(Schema.String);
 export const stringList = Schema.Array(Schema.String);
-export const Tag = Schema.Struct({key: Schema.String, value: Schema.String});
+export class Tag extends Schema.Class<Tag>("Tag")({key: Schema.String, value: Schema.String}) {}
 export const tagList = Schema.Array(Tag);
-export const CreatePipelineInput = Schema.Struct({name: Schema.String, uniqueId: Schema.String, description: Schema.optional(Schema.String), tags: Schema.optional(tagList)});
-export const DeactivatePipelineInput = Schema.Struct({pipelineId: Schema.String, cancelActive: Schema.optional(Schema.Boolean)});
-export const DeactivatePipelineOutput = Schema.Struct({});
-export const DeletePipelineInput = Schema.Struct({pipelineId: Schema.String});
-export const DescribeObjectsInput = Schema.Struct({pipelineId: Schema.String, objectIds: idList, evaluateExpressions: Schema.optional(Schema.Boolean), marker: Schema.optional(Schema.String)});
-export const DescribePipelinesInput = Schema.Struct({pipelineIds: idList});
-export const EvaluateExpressionInput = Schema.Struct({pipelineId: Schema.String, objectId: Schema.String, expression: Schema.String});
-export const GetPipelineDefinitionInput = Schema.Struct({pipelineId: Schema.String, version: Schema.optional(Schema.String)});
-export const ListPipelinesInput = Schema.Struct({marker: Schema.optional(Schema.String)});
-export const RemoveTagsInput = Schema.Struct({pipelineId: Schema.String, tagKeys: stringList});
-export const RemoveTagsOutput = Schema.Struct({});
-export const ReportTaskRunnerHeartbeatInput = Schema.Struct({taskrunnerId: Schema.String, workerGroup: Schema.optional(Schema.String), hostname: Schema.optional(Schema.String)});
-export const SetStatusInput = Schema.Struct({pipelineId: Schema.String, objectIds: idList, status: Schema.String});
-export const SetTaskStatusInput = Schema.Struct({taskId: Schema.String, taskStatus: Schema.String, errorId: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String), errorStackTrace: Schema.optional(Schema.String)});
-export const SetTaskStatusOutput = Schema.Struct({});
-export const Field = Schema.Struct({key: Schema.String, stringValue: Schema.optional(Schema.String), refValue: Schema.optional(Schema.String)});
+export class CreatePipelineInput extends Schema.Class<CreatePipelineInput>("CreatePipelineInput")({name: Schema.String, uniqueId: Schema.String, description: Schema.optional(Schema.String), tags: Schema.optional(tagList)}) {}
+export class DeactivatePipelineInput extends Schema.Class<DeactivatePipelineInput>("DeactivatePipelineInput")({pipelineId: Schema.String, cancelActive: Schema.optional(Schema.Boolean)}) {}
+export class DeactivatePipelineOutput extends Schema.Class<DeactivatePipelineOutput>("DeactivatePipelineOutput")({}) {}
+export class DeletePipelineInput extends Schema.Class<DeletePipelineInput>("DeletePipelineInput")({pipelineId: Schema.String}) {}
+export class DescribeObjectsInput extends Schema.Class<DescribeObjectsInput>("DescribeObjectsInput")({pipelineId: Schema.String, objectIds: idList, evaluateExpressions: Schema.optional(Schema.Boolean), marker: Schema.optional(Schema.String)}) {}
+export class DescribePipelinesInput extends Schema.Class<DescribePipelinesInput>("DescribePipelinesInput")({pipelineIds: idList}) {}
+export class EvaluateExpressionInput extends Schema.Class<EvaluateExpressionInput>("EvaluateExpressionInput")({pipelineId: Schema.String, objectId: Schema.String, expression: Schema.String}) {}
+export class GetPipelineDefinitionInput extends Schema.Class<GetPipelineDefinitionInput>("GetPipelineDefinitionInput")({pipelineId: Schema.String, version: Schema.optional(Schema.String)}) {}
+export class ListPipelinesInput extends Schema.Class<ListPipelinesInput>("ListPipelinesInput")({marker: Schema.optional(Schema.String)}) {}
+export class RemoveTagsInput extends Schema.Class<RemoveTagsInput>("RemoveTagsInput")({pipelineId: Schema.String, tagKeys: stringList}) {}
+export class RemoveTagsOutput extends Schema.Class<RemoveTagsOutput>("RemoveTagsOutput")({}) {}
+export class ReportTaskRunnerHeartbeatInput extends Schema.Class<ReportTaskRunnerHeartbeatInput>("ReportTaskRunnerHeartbeatInput")({taskrunnerId: Schema.String, workerGroup: Schema.optional(Schema.String), hostname: Schema.optional(Schema.String)}) {}
+export class SetStatusInput extends Schema.Class<SetStatusInput>("SetStatusInput")({pipelineId: Schema.String, objectIds: idList, status: Schema.String}) {}
+export class SetTaskStatusInput extends Schema.Class<SetTaskStatusInput>("SetTaskStatusInput")({taskId: Schema.String, taskStatus: Schema.String, errorId: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String), errorStackTrace: Schema.optional(Schema.String)}) {}
+export class SetTaskStatusOutput extends Schema.Class<SetTaskStatusOutput>("SetTaskStatusOutput")({}) {}
+export class Field extends Schema.Class<Field>("Field")({key: Schema.String, stringValue: Schema.optional(Schema.String), refValue: Schema.optional(Schema.String)}) {}
 export const fieldList = Schema.Array(Field);
-export const PipelineObject = Schema.Struct({id: Schema.String, name: Schema.String, fields: fieldList});
+export class PipelineObject extends Schema.Class<PipelineObject>("PipelineObject")({id: Schema.String, name: Schema.String, fields: fieldList}) {}
 export const PipelineObjectList = Schema.Array(PipelineObject);
-export const ParameterAttribute = Schema.Struct({key: Schema.String, stringValue: Schema.String});
+export class ParameterAttribute extends Schema.Class<ParameterAttribute>("ParameterAttribute")({key: Schema.String, stringValue: Schema.String}) {}
 export const ParameterAttributeList = Schema.Array(ParameterAttribute);
-export const ParameterObject = Schema.Struct({id: Schema.String, attributes: ParameterAttributeList});
+export class ParameterObject extends Schema.Class<ParameterObject>("ParameterObject")({id: Schema.String, attributes: ParameterAttributeList}) {}
 export const ParameterObjectList = Schema.Array(ParameterObject);
-export const ParameterValue = Schema.Struct({id: Schema.String, stringValue: Schema.String});
+export class ParameterValue extends Schema.Class<ParameterValue>("ParameterValue")({id: Schema.String, stringValue: Schema.String}) {}
 export const ParameterValueList = Schema.Array(ParameterValue);
-export const ValidatePipelineDefinitionInput = Schema.Struct({pipelineId: Schema.String, pipelineObjects: PipelineObjectList, parameterObjects: Schema.optional(ParameterObjectList), parameterValues: Schema.optional(ParameterValueList)});
-export const InstanceIdentity = Schema.Struct({document: Schema.optional(Schema.String), signature: Schema.optional(Schema.String)});
-export const ActivatePipelineInput = Schema.Struct({pipelineId: Schema.String, parameterValues: Schema.optional(ParameterValueList), startTimestamp: Schema.optional(Schema.Date)});
-export const ActivatePipelineOutput = Schema.Struct({});
-export const AddTagsInput = Schema.Struct({pipelineId: Schema.String, tags: tagList});
-export const AddTagsOutput = Schema.Struct({});
-export const CreatePipelineOutput = Schema.Struct({pipelineId: Schema.String});
-export const InternalServiceError = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidRequestException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DescribeObjectsOutput = Schema.Struct({pipelineObjects: PipelineObjectList, marker: Schema.optional(Schema.String), hasMoreResults: Schema.optional(Schema.Boolean)});
-export const EvaluateExpressionOutput = Schema.Struct({evaluatedExpression: Schema.String});
-export const GetPipelineDefinitionOutput = Schema.Struct({pipelineObjects: Schema.optional(PipelineObjectList), parameterObjects: Schema.optional(ParameterObjectList), parameterValues: Schema.optional(ParameterValueList)});
-export const PollForTaskInput = Schema.Struct({workerGroup: Schema.String, hostname: Schema.optional(Schema.String), instanceIdentity: Schema.optional(InstanceIdentity)});
-export const PipelineDeletedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ReportTaskProgressInput = Schema.Struct({taskId: Schema.String, fields: Schema.optional(fieldList)});
-export const ReportTaskRunnerHeartbeatOutput = Schema.Struct({terminate: Schema.Boolean});
-export const PipelineNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const TaskNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
+export class ValidatePipelineDefinitionInput extends Schema.Class<ValidatePipelineDefinitionInput>("ValidatePipelineDefinitionInput")({pipelineId: Schema.String, pipelineObjects: PipelineObjectList, parameterObjects: Schema.optional(ParameterObjectList), parameterValues: Schema.optional(ParameterValueList)}) {}
+export class InstanceIdentity extends Schema.Class<InstanceIdentity>("InstanceIdentity")({document: Schema.optional(Schema.String), signature: Schema.optional(Schema.String)}) {}
+export class ActivatePipelineInput extends Schema.Class<ActivatePipelineInput>("ActivatePipelineInput")({pipelineId: Schema.String, parameterValues: Schema.optional(ParameterValueList), startTimestamp: Schema.optional(Schema.Date)}) {}
+export class ActivatePipelineOutput extends Schema.Class<ActivatePipelineOutput>("ActivatePipelineOutput")({}) {}
+export class AddTagsInput extends Schema.Class<AddTagsInput>("AddTagsInput")({pipelineId: Schema.String, tags: tagList}) {}
+export class AddTagsOutput extends Schema.Class<AddTagsOutput>("AddTagsOutput")({}) {}
+export class CreatePipelineOutput extends Schema.Class<CreatePipelineOutput>("CreatePipelineOutput")({pipelineId: Schema.String}) {}
+export class InternalServiceError extends Schema.Class<InternalServiceError>("InternalServiceError")({message: Schema.optional(Schema.String)}) {}
+export class InvalidRequestException extends Schema.Class<InvalidRequestException>("InvalidRequestException")({message: Schema.optional(Schema.String)}) {}
+export class DescribeObjectsOutput extends Schema.Class<DescribeObjectsOutput>("DescribeObjectsOutput")({pipelineObjects: PipelineObjectList, marker: Schema.optional(Schema.String), hasMoreResults: Schema.optional(Schema.Boolean)}) {}
+export class EvaluateExpressionOutput extends Schema.Class<EvaluateExpressionOutput>("EvaluateExpressionOutput")({evaluatedExpression: Schema.String}) {}
+export class GetPipelineDefinitionOutput extends Schema.Class<GetPipelineDefinitionOutput>("GetPipelineDefinitionOutput")({pipelineObjects: Schema.optional(PipelineObjectList), parameterObjects: Schema.optional(ParameterObjectList), parameterValues: Schema.optional(ParameterValueList)}) {}
+export class PollForTaskInput extends Schema.Class<PollForTaskInput>("PollForTaskInput")({workerGroup: Schema.String, hostname: Schema.optional(Schema.String), instanceIdentity: Schema.optional(InstanceIdentity)}) {}
+export class PipelineDeletedException extends Schema.Class<PipelineDeletedException>("PipelineDeletedException")({message: Schema.optional(Schema.String)}) {}
+export class ReportTaskProgressInput extends Schema.Class<ReportTaskProgressInput>("ReportTaskProgressInput")({taskId: Schema.String, fields: Schema.optional(fieldList)}) {}
+export class ReportTaskRunnerHeartbeatOutput extends Schema.Class<ReportTaskRunnerHeartbeatOutput>("ReportTaskRunnerHeartbeatOutput")({terminate: Schema.Boolean}) {}
+export class PipelineNotFoundException extends Schema.Class<PipelineNotFoundException>("PipelineNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class TaskNotFoundException extends Schema.Class<TaskNotFoundException>("TaskNotFoundException")({message: Schema.optional(Schema.String)}) {}
 export const validationMessages = Schema.Array(Schema.String);
-export const PipelineDescription = Schema.Struct({pipelineId: Schema.String, name: Schema.String, fields: fieldList, description: Schema.optional(Schema.String), tags: Schema.optional(tagList)});
+export class PipelineDescription extends Schema.Class<PipelineDescription>("PipelineDescription")({pipelineId: Schema.String, name: Schema.String, fields: fieldList, description: Schema.optional(Schema.String), tags: Schema.optional(tagList)}) {}
 export const PipelineDescriptionList = Schema.Array(PipelineDescription);
-export const PipelineIdName = Schema.Struct({id: Schema.optional(Schema.String), name: Schema.optional(Schema.String)});
+export class PipelineIdName extends Schema.Class<PipelineIdName>("PipelineIdName")({id: Schema.optional(Schema.String), name: Schema.optional(Schema.String)}) {}
 export const pipelineList = Schema.Array(PipelineIdName);
-export const ValidationError = Schema.Struct({id: Schema.optional(Schema.String), errors: Schema.optional(validationMessages)});
+export class ValidationError extends Schema.Class<ValidationError>("ValidationError")({id: Schema.optional(Schema.String), errors: Schema.optional(validationMessages)}) {}
 export const ValidationErrors = Schema.Array(ValidationError);
-export const ValidationWarning = Schema.Struct({id: Schema.optional(Schema.String), warnings: Schema.optional(validationMessages)});
+export class ValidationWarning extends Schema.Class<ValidationWarning>("ValidationWarning")({id: Schema.optional(Schema.String), warnings: Schema.optional(validationMessages)}) {}
 export const ValidationWarnings = Schema.Array(ValidationWarning);
-export const Operator = Schema.Struct({type: Schema.optional(Schema.String), values: Schema.optional(stringList)});
-export const DescribePipelinesOutput = Schema.Struct({pipelineDescriptionList: PipelineDescriptionList});
-export const ListPipelinesOutput = Schema.Struct({pipelineIdList: pipelineList, marker: Schema.optional(Schema.String), hasMoreResults: Schema.optional(Schema.Boolean)});
-export const PutPipelineDefinitionInput = Schema.Struct({pipelineId: Schema.String, pipelineObjects: PipelineObjectList, parameterObjects: Schema.optional(ParameterObjectList), parameterValues: Schema.optional(ParameterValueList)});
-export const ReportTaskProgressOutput = Schema.Struct({canceled: Schema.Boolean});
-export const ValidatePipelineDefinitionOutput = Schema.Struct({validationErrors: Schema.optional(ValidationErrors), validationWarnings: Schema.optional(ValidationWarnings), errored: Schema.Boolean});
-export const Selector = Schema.Struct({fieldName: Schema.optional(Schema.String), operator: Schema.optional(Operator)});
+export class Operator extends Schema.Class<Operator>("Operator")({type: Schema.optional(Schema.String), values: Schema.optional(stringList)}) {}
+export class DescribePipelinesOutput extends Schema.Class<DescribePipelinesOutput>("DescribePipelinesOutput")({pipelineDescriptionList: PipelineDescriptionList}) {}
+export class ListPipelinesOutput extends Schema.Class<ListPipelinesOutput>("ListPipelinesOutput")({pipelineIdList: pipelineList, marker: Schema.optional(Schema.String), hasMoreResults: Schema.optional(Schema.Boolean)}) {}
+export class PutPipelineDefinitionInput extends Schema.Class<PutPipelineDefinitionInput>("PutPipelineDefinitionInput")({pipelineId: Schema.String, pipelineObjects: PipelineObjectList, parameterObjects: Schema.optional(ParameterObjectList), parameterValues: Schema.optional(ParameterValueList)}) {}
+export class ReportTaskProgressOutput extends Schema.Class<ReportTaskProgressOutput>("ReportTaskProgressOutput")({canceled: Schema.Boolean}) {}
+export class ValidatePipelineDefinitionOutput extends Schema.Class<ValidatePipelineDefinitionOutput>("ValidatePipelineDefinitionOutput")({validationErrors: Schema.optional(ValidationErrors), validationWarnings: Schema.optional(ValidationWarnings), errored: Schema.Boolean}) {}
+export class Selector extends Schema.Class<Selector>("Selector")({fieldName: Schema.optional(Schema.String), operator: Schema.optional(Operator)}) {}
 export const SelectorList = Schema.Array(Selector);
-export const Query = Schema.Struct({selectors: Schema.optional(SelectorList)});
-export const PutPipelineDefinitionOutput = Schema.Struct({validationErrors: Schema.optional(ValidationErrors), validationWarnings: Schema.optional(ValidationWarnings), errored: Schema.Boolean});
-export const QueryObjectsInput = Schema.Struct({pipelineId: Schema.String, query: Schema.optional(Query), sphere: Schema.String, marker: Schema.optional(Schema.String), limit: Schema.optional(Schema.Number)});
+export class Query extends Schema.Class<Query>("Query")({selectors: Schema.optional(SelectorList)}) {}
+export class PutPipelineDefinitionOutput extends Schema.Class<PutPipelineDefinitionOutput>("PutPipelineDefinitionOutput")({validationErrors: Schema.optional(ValidationErrors), validationWarnings: Schema.optional(ValidationWarnings), errored: Schema.Boolean}) {}
+export class QueryObjectsInput extends Schema.Class<QueryObjectsInput>("QueryObjectsInput")({pipelineId: Schema.String, query: Schema.optional(Query), sphere: Schema.String, marker: Schema.optional(Schema.String), limit: Schema.optional(Schema.Number)}) {}
 export const PipelineObjectMap = Schema.Record({key: Schema.String, value: PipelineObject});
-export const TaskObject = Schema.Struct({taskId: Schema.optional(Schema.String), pipelineId: Schema.optional(Schema.String), attemptId: Schema.optional(Schema.String), objects: Schema.optional(PipelineObjectMap)});
-export const PollForTaskOutput = Schema.Struct({taskObject: Schema.optional(TaskObject)});
-export const QueryObjectsOutput = Schema.Struct({ids: Schema.optional(idList), marker: Schema.optional(Schema.String), hasMoreResults: Schema.optional(Schema.Boolean)});
+export class TaskObject extends Schema.Class<TaskObject>("TaskObject")({taskId: Schema.optional(Schema.String), pipelineId: Schema.optional(Schema.String), attemptId: Schema.optional(Schema.String), objects: Schema.optional(PipelineObjectMap)}) {}
+export class PollForTaskOutput extends Schema.Class<PollForTaskOutput>("PollForTaskOutput")({taskObject: Schema.optional(TaskObject)}) {}
+export class QueryObjectsOutput extends Schema.Class<QueryObjectsOutput>("QueryObjectsOutput")({ids: Schema.optional(idList), marker: Schema.optional(Schema.String), hasMoreResults: Schema.optional(Schema.Boolean)}) {}
 
 //# Errors
-export class InternalServiceErrorError extends Schema.TaggedError<InternalServiceErrorError>()("InternalServiceError", InternalServiceError) {};
-export class InvalidRequestExceptionError extends Schema.TaggedError<InvalidRequestExceptionError>()("InvalidRequestException", InvalidRequestException) {};
-export class PipelineDeletedExceptionError extends Schema.TaggedError<PipelineDeletedExceptionError>()("PipelineDeletedException", PipelineDeletedException) {};
-export class PipelineNotFoundExceptionError extends Schema.TaggedError<PipelineNotFoundExceptionError>()("PipelineNotFoundException", PipelineNotFoundException) {};
-export class TaskNotFoundExceptionError extends Schema.TaggedError<TaskNotFoundExceptionError>()("TaskNotFoundException", TaskNotFoundException) {};
+export class InternalServiceErrorError extends Schema.TaggedError<InternalServiceErrorError>()("InternalServiceError", InternalServiceError.fields) {};
+export class InvalidRequestExceptionError extends Schema.TaggedError<InvalidRequestExceptionError>()("InvalidRequestException", InvalidRequestException.fields) {};
+export class PipelineDeletedExceptionError extends Schema.TaggedError<PipelineDeletedExceptionError>()("PipelineDeletedException", PipelineDeletedException.fields) {};
+export class PipelineNotFoundExceptionError extends Schema.TaggedError<PipelineNotFoundExceptionError>()("PipelineNotFoundException", PipelineNotFoundException.fields) {};
+export class TaskNotFoundExceptionError extends Schema.TaggedError<TaskNotFoundExceptionError>()("TaskNotFoundException", TaskNotFoundException.fields) {};
 
 //# Operations
 export const activatePipeline = /*#__PURE__*/ makeOperation(() => Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.ActivatePipeline" }, ActivatePipelineInput, ActivatePipelineOutput, [InternalServiceErrorError, InvalidRequestExceptionError, PipelineDeletedExceptionError, PipelineNotFoundExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

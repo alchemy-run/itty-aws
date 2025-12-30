@@ -7,639 +7,639 @@ export const RepositoryNameList = Schema.Array(Schema.String);
 export const FilePaths = Schema.Array(Schema.String);
 export const CommitIdsInputList = Schema.Array(Schema.String);
 export const TagKeysList = Schema.Array(Schema.String);
-export const AssociateApprovalRuleTemplateWithRepositoryInput = Schema.Struct({approvalRuleTemplateName: Schema.String, repositoryName: Schema.String});
-export const BatchAssociateApprovalRuleTemplateWithRepositoriesInput = Schema.Struct({approvalRuleTemplateName: Schema.String, repositoryNames: RepositoryNameList});
-export const BatchDescribeMergeConflictsInput = Schema.Struct({repositoryName: Schema.String, destinationCommitSpecifier: Schema.String, sourceCommitSpecifier: Schema.String, mergeOption: Schema.String, maxMergeHunks: Schema.optional(Schema.Number), maxConflictFiles: Schema.optional(Schema.Number), filePaths: Schema.optional(FilePaths), conflictDetailLevel: Schema.optional(Schema.String), conflictResolutionStrategy: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String)});
-export const BatchDisassociateApprovalRuleTemplateFromRepositoriesInput = Schema.Struct({approvalRuleTemplateName: Schema.String, repositoryNames: RepositoryNameList});
-export const BatchGetCommitsInput = Schema.Struct({commitIds: CommitIdsInputList, repositoryName: Schema.String});
-export const BatchGetRepositoriesInput = Schema.Struct({repositoryNames: RepositoryNameList});
-export const CreateApprovalRuleTemplateInput = Schema.Struct({approvalRuleTemplateName: Schema.String, approvalRuleTemplateContent: Schema.String, approvalRuleTemplateDescription: Schema.optional(Schema.String)});
-export const CreateBranchInput = Schema.Struct({repositoryName: Schema.String, branchName: Schema.String, commitId: Schema.String});
-export const CreatePullRequestApprovalRuleInput = Schema.Struct({pullRequestId: Schema.String, approvalRuleName: Schema.String, approvalRuleContent: Schema.String});
-export const DeleteApprovalRuleTemplateInput = Schema.Struct({approvalRuleTemplateName: Schema.String});
-export const DeleteBranchInput = Schema.Struct({repositoryName: Schema.String, branchName: Schema.String});
-export const DeleteCommentContentInput = Schema.Struct({commentId: Schema.String});
-export const DeleteFileInput = Schema.Struct({repositoryName: Schema.String, branchName: Schema.String, filePath: Schema.String, parentCommitId: Schema.String, keepEmptyFolders: Schema.optional(Schema.Boolean), commitMessage: Schema.optional(Schema.String), name: Schema.optional(Schema.String), email: Schema.optional(Schema.String)});
-export const DeletePullRequestApprovalRuleInput = Schema.Struct({pullRequestId: Schema.String, approvalRuleName: Schema.String});
-export const DeleteRepositoryInput = Schema.Struct({repositoryName: Schema.String});
-export const DescribeMergeConflictsInput = Schema.Struct({repositoryName: Schema.String, destinationCommitSpecifier: Schema.String, sourceCommitSpecifier: Schema.String, mergeOption: Schema.String, maxMergeHunks: Schema.optional(Schema.Number), filePath: Schema.String, conflictDetailLevel: Schema.optional(Schema.String), conflictResolutionStrategy: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String)});
-export const DescribePullRequestEventsInput = Schema.Struct({pullRequestId: Schema.String, pullRequestEventType: Schema.optional(Schema.String), actorArn: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const DisassociateApprovalRuleTemplateFromRepositoryInput = Schema.Struct({approvalRuleTemplateName: Schema.String, repositoryName: Schema.String});
-export const EvaluatePullRequestApprovalRulesInput = Schema.Struct({pullRequestId: Schema.String, revisionId: Schema.String});
-export const GetApprovalRuleTemplateInput = Schema.Struct({approvalRuleTemplateName: Schema.String});
-export const GetBlobInput = Schema.Struct({repositoryName: Schema.String, blobId: Schema.String});
-export const GetBranchInput = Schema.Struct({repositoryName: Schema.optional(Schema.String), branchName: Schema.optional(Schema.String)});
-export const GetCommentInput = Schema.Struct({commentId: Schema.String});
-export const GetCommentReactionsInput = Schema.Struct({commentId: Schema.String, reactionUserArn: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const GetCommentsForComparedCommitInput = Schema.Struct({repositoryName: Schema.String, beforeCommitId: Schema.optional(Schema.String), afterCommitId: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const GetCommentsForPullRequestInput = Schema.Struct({pullRequestId: Schema.String, repositoryName: Schema.optional(Schema.String), beforeCommitId: Schema.optional(Schema.String), afterCommitId: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const GetCommitInput = Schema.Struct({repositoryName: Schema.String, commitId: Schema.String});
-export const GetDifferencesInput = Schema.Struct({repositoryName: Schema.String, beforeCommitSpecifier: Schema.optional(Schema.String), afterCommitSpecifier: Schema.String, beforePath: Schema.optional(Schema.String), afterPath: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const GetFileInput = Schema.Struct({repositoryName: Schema.String, commitSpecifier: Schema.optional(Schema.String), filePath: Schema.String});
-export const GetFolderInput = Schema.Struct({repositoryName: Schema.String, commitSpecifier: Schema.optional(Schema.String), folderPath: Schema.String});
-export const GetMergeCommitInput = Schema.Struct({repositoryName: Schema.String, sourceCommitSpecifier: Schema.String, destinationCommitSpecifier: Schema.String, conflictDetailLevel: Schema.optional(Schema.String), conflictResolutionStrategy: Schema.optional(Schema.String)});
-export const GetMergeConflictsInput = Schema.Struct({repositoryName: Schema.String, destinationCommitSpecifier: Schema.String, sourceCommitSpecifier: Schema.String, mergeOption: Schema.String, conflictDetailLevel: Schema.optional(Schema.String), maxConflictFiles: Schema.optional(Schema.Number), conflictResolutionStrategy: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String)});
-export const GetMergeOptionsInput = Schema.Struct({repositoryName: Schema.String, sourceCommitSpecifier: Schema.String, destinationCommitSpecifier: Schema.String, conflictDetailLevel: Schema.optional(Schema.String), conflictResolutionStrategy: Schema.optional(Schema.String)});
-export const GetPullRequestInput = Schema.Struct({pullRequestId: Schema.String});
-export const GetPullRequestApprovalStatesInput = Schema.Struct({pullRequestId: Schema.String, revisionId: Schema.String});
-export const GetPullRequestOverrideStateInput = Schema.Struct({pullRequestId: Schema.String, revisionId: Schema.String});
-export const GetRepositoryInput = Schema.Struct({repositoryName: Schema.String});
-export const GetRepositoryTriggersInput = Schema.Struct({repositoryName: Schema.String});
-export const ListApprovalRuleTemplatesInput = Schema.Struct({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListAssociatedApprovalRuleTemplatesForRepositoryInput = Schema.Struct({repositoryName: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListBranchesInput = Schema.Struct({repositoryName: Schema.String, nextToken: Schema.optional(Schema.String)});
-export const ListFileCommitHistoryRequest = Schema.Struct({repositoryName: Schema.String, commitSpecifier: Schema.optional(Schema.String), filePath: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListPullRequestsInput = Schema.Struct({repositoryName: Schema.String, authorArn: Schema.optional(Schema.String), pullRequestStatus: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListRepositoriesInput = Schema.Struct({nextToken: Schema.optional(Schema.String), sortBy: Schema.optional(Schema.String), order: Schema.optional(Schema.String)});
-export const ListRepositoriesForApprovalRuleTemplateInput = Schema.Struct({approvalRuleTemplateName: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListTagsForResourceInput = Schema.Struct({resourceArn: Schema.String, nextToken: Schema.optional(Schema.String)});
-export const MergeBranchesByFastForwardInput = Schema.Struct({repositoryName: Schema.String, sourceCommitSpecifier: Schema.String, destinationCommitSpecifier: Schema.String, targetBranch: Schema.optional(Schema.String)});
-export const ReplaceContentEntry = Schema.Struct({filePath: Schema.String, replacementType: Schema.String, content: Schema.optional(StreamBody()), fileMode: Schema.optional(Schema.String)});
+export class AssociateApprovalRuleTemplateWithRepositoryInput extends Schema.Class<AssociateApprovalRuleTemplateWithRepositoryInput>("AssociateApprovalRuleTemplateWithRepositoryInput")({approvalRuleTemplateName: Schema.String, repositoryName: Schema.String}) {}
+export class BatchAssociateApprovalRuleTemplateWithRepositoriesInput extends Schema.Class<BatchAssociateApprovalRuleTemplateWithRepositoriesInput>("BatchAssociateApprovalRuleTemplateWithRepositoriesInput")({approvalRuleTemplateName: Schema.String, repositoryNames: RepositoryNameList}) {}
+export class BatchDescribeMergeConflictsInput extends Schema.Class<BatchDescribeMergeConflictsInput>("BatchDescribeMergeConflictsInput")({repositoryName: Schema.String, destinationCommitSpecifier: Schema.String, sourceCommitSpecifier: Schema.String, mergeOption: Schema.String, maxMergeHunks: Schema.optional(Schema.Number), maxConflictFiles: Schema.optional(Schema.Number), filePaths: Schema.optional(FilePaths), conflictDetailLevel: Schema.optional(Schema.String), conflictResolutionStrategy: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String)}) {}
+export class BatchDisassociateApprovalRuleTemplateFromRepositoriesInput extends Schema.Class<BatchDisassociateApprovalRuleTemplateFromRepositoriesInput>("BatchDisassociateApprovalRuleTemplateFromRepositoriesInput")({approvalRuleTemplateName: Schema.String, repositoryNames: RepositoryNameList}) {}
+export class BatchGetCommitsInput extends Schema.Class<BatchGetCommitsInput>("BatchGetCommitsInput")({commitIds: CommitIdsInputList, repositoryName: Schema.String}) {}
+export class BatchGetRepositoriesInput extends Schema.Class<BatchGetRepositoriesInput>("BatchGetRepositoriesInput")({repositoryNames: RepositoryNameList}) {}
+export class CreateApprovalRuleTemplateInput extends Schema.Class<CreateApprovalRuleTemplateInput>("CreateApprovalRuleTemplateInput")({approvalRuleTemplateName: Schema.String, approvalRuleTemplateContent: Schema.String, approvalRuleTemplateDescription: Schema.optional(Schema.String)}) {}
+export class CreateBranchInput extends Schema.Class<CreateBranchInput>("CreateBranchInput")({repositoryName: Schema.String, branchName: Schema.String, commitId: Schema.String}) {}
+export class CreatePullRequestApprovalRuleInput extends Schema.Class<CreatePullRequestApprovalRuleInput>("CreatePullRequestApprovalRuleInput")({pullRequestId: Schema.String, approvalRuleName: Schema.String, approvalRuleContent: Schema.String}) {}
+export class DeleteApprovalRuleTemplateInput extends Schema.Class<DeleteApprovalRuleTemplateInput>("DeleteApprovalRuleTemplateInput")({approvalRuleTemplateName: Schema.String}) {}
+export class DeleteBranchInput extends Schema.Class<DeleteBranchInput>("DeleteBranchInput")({repositoryName: Schema.String, branchName: Schema.String}) {}
+export class DeleteCommentContentInput extends Schema.Class<DeleteCommentContentInput>("DeleteCommentContentInput")({commentId: Schema.String}) {}
+export class DeleteFileInput extends Schema.Class<DeleteFileInput>("DeleteFileInput")({repositoryName: Schema.String, branchName: Schema.String, filePath: Schema.String, parentCommitId: Schema.String, keepEmptyFolders: Schema.optional(Schema.Boolean), commitMessage: Schema.optional(Schema.String), name: Schema.optional(Schema.String), email: Schema.optional(Schema.String)}) {}
+export class DeletePullRequestApprovalRuleInput extends Schema.Class<DeletePullRequestApprovalRuleInput>("DeletePullRequestApprovalRuleInput")({pullRequestId: Schema.String, approvalRuleName: Schema.String}) {}
+export class DeleteRepositoryInput extends Schema.Class<DeleteRepositoryInput>("DeleteRepositoryInput")({repositoryName: Schema.String}) {}
+export class DescribeMergeConflictsInput extends Schema.Class<DescribeMergeConflictsInput>("DescribeMergeConflictsInput")({repositoryName: Schema.String, destinationCommitSpecifier: Schema.String, sourceCommitSpecifier: Schema.String, mergeOption: Schema.String, maxMergeHunks: Schema.optional(Schema.Number), filePath: Schema.String, conflictDetailLevel: Schema.optional(Schema.String), conflictResolutionStrategy: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String)}) {}
+export class DescribePullRequestEventsInput extends Schema.Class<DescribePullRequestEventsInput>("DescribePullRequestEventsInput")({pullRequestId: Schema.String, pullRequestEventType: Schema.optional(Schema.String), actorArn: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class DisassociateApprovalRuleTemplateFromRepositoryInput extends Schema.Class<DisassociateApprovalRuleTemplateFromRepositoryInput>("DisassociateApprovalRuleTemplateFromRepositoryInput")({approvalRuleTemplateName: Schema.String, repositoryName: Schema.String}) {}
+export class EvaluatePullRequestApprovalRulesInput extends Schema.Class<EvaluatePullRequestApprovalRulesInput>("EvaluatePullRequestApprovalRulesInput")({pullRequestId: Schema.String, revisionId: Schema.String}) {}
+export class GetApprovalRuleTemplateInput extends Schema.Class<GetApprovalRuleTemplateInput>("GetApprovalRuleTemplateInput")({approvalRuleTemplateName: Schema.String}) {}
+export class GetBlobInput extends Schema.Class<GetBlobInput>("GetBlobInput")({repositoryName: Schema.String, blobId: Schema.String}) {}
+export class GetBranchInput extends Schema.Class<GetBranchInput>("GetBranchInput")({repositoryName: Schema.optional(Schema.String), branchName: Schema.optional(Schema.String)}) {}
+export class GetCommentInput extends Schema.Class<GetCommentInput>("GetCommentInput")({commentId: Schema.String}) {}
+export class GetCommentReactionsInput extends Schema.Class<GetCommentReactionsInput>("GetCommentReactionsInput")({commentId: Schema.String, reactionUserArn: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class GetCommentsForComparedCommitInput extends Schema.Class<GetCommentsForComparedCommitInput>("GetCommentsForComparedCommitInput")({repositoryName: Schema.String, beforeCommitId: Schema.optional(Schema.String), afterCommitId: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class GetCommentsForPullRequestInput extends Schema.Class<GetCommentsForPullRequestInput>("GetCommentsForPullRequestInput")({pullRequestId: Schema.String, repositoryName: Schema.optional(Schema.String), beforeCommitId: Schema.optional(Schema.String), afterCommitId: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class GetCommitInput extends Schema.Class<GetCommitInput>("GetCommitInput")({repositoryName: Schema.String, commitId: Schema.String}) {}
+export class GetDifferencesInput extends Schema.Class<GetDifferencesInput>("GetDifferencesInput")({repositoryName: Schema.String, beforeCommitSpecifier: Schema.optional(Schema.String), afterCommitSpecifier: Schema.String, beforePath: Schema.optional(Schema.String), afterPath: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class GetFileInput extends Schema.Class<GetFileInput>("GetFileInput")({repositoryName: Schema.String, commitSpecifier: Schema.optional(Schema.String), filePath: Schema.String}) {}
+export class GetFolderInput extends Schema.Class<GetFolderInput>("GetFolderInput")({repositoryName: Schema.String, commitSpecifier: Schema.optional(Schema.String), folderPath: Schema.String}) {}
+export class GetMergeCommitInput extends Schema.Class<GetMergeCommitInput>("GetMergeCommitInput")({repositoryName: Schema.String, sourceCommitSpecifier: Schema.String, destinationCommitSpecifier: Schema.String, conflictDetailLevel: Schema.optional(Schema.String), conflictResolutionStrategy: Schema.optional(Schema.String)}) {}
+export class GetMergeConflictsInput extends Schema.Class<GetMergeConflictsInput>("GetMergeConflictsInput")({repositoryName: Schema.String, destinationCommitSpecifier: Schema.String, sourceCommitSpecifier: Schema.String, mergeOption: Schema.String, conflictDetailLevel: Schema.optional(Schema.String), maxConflictFiles: Schema.optional(Schema.Number), conflictResolutionStrategy: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String)}) {}
+export class GetMergeOptionsInput extends Schema.Class<GetMergeOptionsInput>("GetMergeOptionsInput")({repositoryName: Schema.String, sourceCommitSpecifier: Schema.String, destinationCommitSpecifier: Schema.String, conflictDetailLevel: Schema.optional(Schema.String), conflictResolutionStrategy: Schema.optional(Schema.String)}) {}
+export class GetPullRequestInput extends Schema.Class<GetPullRequestInput>("GetPullRequestInput")({pullRequestId: Schema.String}) {}
+export class GetPullRequestApprovalStatesInput extends Schema.Class<GetPullRequestApprovalStatesInput>("GetPullRequestApprovalStatesInput")({pullRequestId: Schema.String, revisionId: Schema.String}) {}
+export class GetPullRequestOverrideStateInput extends Schema.Class<GetPullRequestOverrideStateInput>("GetPullRequestOverrideStateInput")({pullRequestId: Schema.String, revisionId: Schema.String}) {}
+export class GetRepositoryInput extends Schema.Class<GetRepositoryInput>("GetRepositoryInput")({repositoryName: Schema.String}) {}
+export class GetRepositoryTriggersInput extends Schema.Class<GetRepositoryTriggersInput>("GetRepositoryTriggersInput")({repositoryName: Schema.String}) {}
+export class ListApprovalRuleTemplatesInput extends Schema.Class<ListApprovalRuleTemplatesInput>("ListApprovalRuleTemplatesInput")({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListAssociatedApprovalRuleTemplatesForRepositoryInput extends Schema.Class<ListAssociatedApprovalRuleTemplatesForRepositoryInput>("ListAssociatedApprovalRuleTemplatesForRepositoryInput")({repositoryName: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListBranchesInput extends Schema.Class<ListBranchesInput>("ListBranchesInput")({repositoryName: Schema.String, nextToken: Schema.optional(Schema.String)}) {}
+export class ListFileCommitHistoryRequest extends Schema.Class<ListFileCommitHistoryRequest>("ListFileCommitHistoryRequest")({repositoryName: Schema.String, commitSpecifier: Schema.optional(Schema.String), filePath: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListPullRequestsInput extends Schema.Class<ListPullRequestsInput>("ListPullRequestsInput")({repositoryName: Schema.String, authorArn: Schema.optional(Schema.String), pullRequestStatus: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListRepositoriesInput extends Schema.Class<ListRepositoriesInput>("ListRepositoriesInput")({nextToken: Schema.optional(Schema.String), sortBy: Schema.optional(Schema.String), order: Schema.optional(Schema.String)}) {}
+export class ListRepositoriesForApprovalRuleTemplateInput extends Schema.Class<ListRepositoriesForApprovalRuleTemplateInput>("ListRepositoriesForApprovalRuleTemplateInput")({approvalRuleTemplateName: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListTagsForResourceInput extends Schema.Class<ListTagsForResourceInput>("ListTagsForResourceInput")({resourceArn: Schema.String, nextToken: Schema.optional(Schema.String)}) {}
+export class MergeBranchesByFastForwardInput extends Schema.Class<MergeBranchesByFastForwardInput>("MergeBranchesByFastForwardInput")({repositoryName: Schema.String, sourceCommitSpecifier: Schema.String, destinationCommitSpecifier: Schema.String, targetBranch: Schema.optional(Schema.String)}) {}
+export class ReplaceContentEntry extends Schema.Class<ReplaceContentEntry>("ReplaceContentEntry")({filePath: Schema.String, replacementType: Schema.String, content: Schema.optional(StreamBody()), fileMode: Schema.optional(Schema.String)}) {}
 export const ReplaceContentEntries = Schema.Array(ReplaceContentEntry);
-export const DeleteFileEntry = Schema.Struct({filePath: Schema.String});
+export class DeleteFileEntry extends Schema.Class<DeleteFileEntry>("DeleteFileEntry")({filePath: Schema.String}) {}
 export const DeleteFileEntries = Schema.Array(DeleteFileEntry);
-export const SetFileModeEntry = Schema.Struct({filePath: Schema.String, fileMode: Schema.String});
+export class SetFileModeEntry extends Schema.Class<SetFileModeEntry>("SetFileModeEntry")({filePath: Schema.String, fileMode: Schema.String}) {}
 export const SetFileModeEntries = Schema.Array(SetFileModeEntry);
-export const ConflictResolution = Schema.Struct({replaceContents: Schema.optional(ReplaceContentEntries), deleteFiles: Schema.optional(DeleteFileEntries), setFileModes: Schema.optional(SetFileModeEntries)});
-export const MergeBranchesBySquashInput = Schema.Struct({repositoryName: Schema.String, sourceCommitSpecifier: Schema.String, destinationCommitSpecifier: Schema.String, targetBranch: Schema.optional(Schema.String), conflictDetailLevel: Schema.optional(Schema.String), conflictResolutionStrategy: Schema.optional(Schema.String), authorName: Schema.optional(Schema.String), email: Schema.optional(Schema.String), commitMessage: Schema.optional(Schema.String), keepEmptyFolders: Schema.optional(Schema.Boolean), conflictResolution: Schema.optional(ConflictResolution)});
-export const MergeBranchesByThreeWayInput = Schema.Struct({repositoryName: Schema.String, sourceCommitSpecifier: Schema.String, destinationCommitSpecifier: Schema.String, targetBranch: Schema.optional(Schema.String), conflictDetailLevel: Schema.optional(Schema.String), conflictResolutionStrategy: Schema.optional(Schema.String), authorName: Schema.optional(Schema.String), email: Schema.optional(Schema.String), commitMessage: Schema.optional(Schema.String), keepEmptyFolders: Schema.optional(Schema.Boolean), conflictResolution: Schema.optional(ConflictResolution)});
-export const MergePullRequestByFastForwardInput = Schema.Struct({pullRequestId: Schema.String, repositoryName: Schema.String, sourceCommitId: Schema.optional(Schema.String)});
-export const MergePullRequestBySquashInput = Schema.Struct({pullRequestId: Schema.String, repositoryName: Schema.String, sourceCommitId: Schema.optional(Schema.String), conflictDetailLevel: Schema.optional(Schema.String), conflictResolutionStrategy: Schema.optional(Schema.String), commitMessage: Schema.optional(Schema.String), authorName: Schema.optional(Schema.String), email: Schema.optional(Schema.String), keepEmptyFolders: Schema.optional(Schema.Boolean), conflictResolution: Schema.optional(ConflictResolution)});
-export const MergePullRequestByThreeWayInput = Schema.Struct({pullRequestId: Schema.String, repositoryName: Schema.String, sourceCommitId: Schema.optional(Schema.String), conflictDetailLevel: Schema.optional(Schema.String), conflictResolutionStrategy: Schema.optional(Schema.String), commitMessage: Schema.optional(Schema.String), authorName: Schema.optional(Schema.String), email: Schema.optional(Schema.String), keepEmptyFolders: Schema.optional(Schema.Boolean), conflictResolution: Schema.optional(ConflictResolution)});
-export const OverridePullRequestApprovalRulesInput = Schema.Struct({pullRequestId: Schema.String, revisionId: Schema.String, overrideStatus: Schema.String});
-export const Location = Schema.Struct({filePath: Schema.optional(Schema.String), filePosition: Schema.optional(Schema.Number), relativeFileVersion: Schema.optional(Schema.String)});
-export const PostCommentForPullRequestInput = Schema.Struct({pullRequestId: Schema.String, repositoryName: Schema.String, beforeCommitId: Schema.String, afterCommitId: Schema.String, location: Schema.optional(Location), content: Schema.String, clientRequestToken: Schema.optional(Schema.String)});
-export const PostCommentReplyInput = Schema.Struct({inReplyTo: Schema.String, clientRequestToken: Schema.optional(Schema.String), content: Schema.String});
-export const PutCommentReactionInput = Schema.Struct({commentId: Schema.String, reactionValue: Schema.String});
-export const PutFileInput = Schema.Struct({repositoryName: Schema.String, branchName: Schema.String, fileContent: StreamBody(), filePath: Schema.String, fileMode: Schema.optional(Schema.String), parentCommitId: Schema.optional(Schema.String), commitMessage: Schema.optional(Schema.String), name: Schema.optional(Schema.String), email: Schema.optional(Schema.String)});
+export class ConflictResolution extends Schema.Class<ConflictResolution>("ConflictResolution")({replaceContents: Schema.optional(ReplaceContentEntries), deleteFiles: Schema.optional(DeleteFileEntries), setFileModes: Schema.optional(SetFileModeEntries)}) {}
+export class MergeBranchesBySquashInput extends Schema.Class<MergeBranchesBySquashInput>("MergeBranchesBySquashInput")({repositoryName: Schema.String, sourceCommitSpecifier: Schema.String, destinationCommitSpecifier: Schema.String, targetBranch: Schema.optional(Schema.String), conflictDetailLevel: Schema.optional(Schema.String), conflictResolutionStrategy: Schema.optional(Schema.String), authorName: Schema.optional(Schema.String), email: Schema.optional(Schema.String), commitMessage: Schema.optional(Schema.String), keepEmptyFolders: Schema.optional(Schema.Boolean), conflictResolution: Schema.optional(ConflictResolution)}) {}
+export class MergeBranchesByThreeWayInput extends Schema.Class<MergeBranchesByThreeWayInput>("MergeBranchesByThreeWayInput")({repositoryName: Schema.String, sourceCommitSpecifier: Schema.String, destinationCommitSpecifier: Schema.String, targetBranch: Schema.optional(Schema.String), conflictDetailLevel: Schema.optional(Schema.String), conflictResolutionStrategy: Schema.optional(Schema.String), authorName: Schema.optional(Schema.String), email: Schema.optional(Schema.String), commitMessage: Schema.optional(Schema.String), keepEmptyFolders: Schema.optional(Schema.Boolean), conflictResolution: Schema.optional(ConflictResolution)}) {}
+export class MergePullRequestByFastForwardInput extends Schema.Class<MergePullRequestByFastForwardInput>("MergePullRequestByFastForwardInput")({pullRequestId: Schema.String, repositoryName: Schema.String, sourceCommitId: Schema.optional(Schema.String)}) {}
+export class MergePullRequestBySquashInput extends Schema.Class<MergePullRequestBySquashInput>("MergePullRequestBySquashInput")({pullRequestId: Schema.String, repositoryName: Schema.String, sourceCommitId: Schema.optional(Schema.String), conflictDetailLevel: Schema.optional(Schema.String), conflictResolutionStrategy: Schema.optional(Schema.String), commitMessage: Schema.optional(Schema.String), authorName: Schema.optional(Schema.String), email: Schema.optional(Schema.String), keepEmptyFolders: Schema.optional(Schema.Boolean), conflictResolution: Schema.optional(ConflictResolution)}) {}
+export class MergePullRequestByThreeWayInput extends Schema.Class<MergePullRequestByThreeWayInput>("MergePullRequestByThreeWayInput")({pullRequestId: Schema.String, repositoryName: Schema.String, sourceCommitId: Schema.optional(Schema.String), conflictDetailLevel: Schema.optional(Schema.String), conflictResolutionStrategy: Schema.optional(Schema.String), commitMessage: Schema.optional(Schema.String), authorName: Schema.optional(Schema.String), email: Schema.optional(Schema.String), keepEmptyFolders: Schema.optional(Schema.Boolean), conflictResolution: Schema.optional(ConflictResolution)}) {}
+export class OverridePullRequestApprovalRulesInput extends Schema.Class<OverridePullRequestApprovalRulesInput>("OverridePullRequestApprovalRulesInput")({pullRequestId: Schema.String, revisionId: Schema.String, overrideStatus: Schema.String}) {}
+export class Location extends Schema.Class<Location>("Location")({filePath: Schema.optional(Schema.String), filePosition: Schema.optional(Schema.Number), relativeFileVersion: Schema.optional(Schema.String)}) {}
+export class PostCommentForPullRequestInput extends Schema.Class<PostCommentForPullRequestInput>("PostCommentForPullRequestInput")({pullRequestId: Schema.String, repositoryName: Schema.String, beforeCommitId: Schema.String, afterCommitId: Schema.String, location: Schema.optional(Location), content: Schema.String, clientRequestToken: Schema.optional(Schema.String)}) {}
+export class PostCommentReplyInput extends Schema.Class<PostCommentReplyInput>("PostCommentReplyInput")({inReplyTo: Schema.String, clientRequestToken: Schema.optional(Schema.String), content: Schema.String}) {}
+export class PutCommentReactionInput extends Schema.Class<PutCommentReactionInput>("PutCommentReactionInput")({commentId: Schema.String, reactionValue: Schema.String}) {}
+export class PutFileInput extends Schema.Class<PutFileInput>("PutFileInput")({repositoryName: Schema.String, branchName: Schema.String, fileContent: StreamBody(), filePath: Schema.String, fileMode: Schema.optional(Schema.String), parentCommitId: Schema.optional(Schema.String), commitMessage: Schema.optional(Schema.String), name: Schema.optional(Schema.String), email: Schema.optional(Schema.String)}) {}
 export const TagsMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const TagResourceInput = Schema.Struct({resourceArn: Schema.String, tags: TagsMap});
+export class TagResourceInput extends Schema.Class<TagResourceInput>("TagResourceInput")({resourceArn: Schema.String, tags: TagsMap}) {}
 export const BranchNameList = Schema.Array(Schema.String);
 export const RepositoryTriggerEventList = Schema.Array(Schema.String);
-export const RepositoryTrigger = Schema.Struct({name: Schema.String, destinationArn: Schema.String, customData: Schema.optional(Schema.String), branches: Schema.optional(BranchNameList), events: RepositoryTriggerEventList});
+export class RepositoryTrigger extends Schema.Class<RepositoryTrigger>("RepositoryTrigger")({name: Schema.String, destinationArn: Schema.String, customData: Schema.optional(Schema.String), branches: Schema.optional(BranchNameList), events: RepositoryTriggerEventList}) {}
 export const RepositoryTriggersList = Schema.Array(RepositoryTrigger);
-export const TestRepositoryTriggersInput = Schema.Struct({repositoryName: Schema.String, triggers: RepositoryTriggersList});
-export const UntagResourceInput = Schema.Struct({resourceArn: Schema.String, tagKeys: TagKeysList});
-export const UpdateApprovalRuleTemplateContentInput = Schema.Struct({approvalRuleTemplateName: Schema.String, newRuleContent: Schema.String, existingRuleContentSha256: Schema.optional(Schema.String)});
-export const UpdateApprovalRuleTemplateDescriptionInput = Schema.Struct({approvalRuleTemplateName: Schema.String, approvalRuleTemplateDescription: Schema.String});
-export const UpdateApprovalRuleTemplateNameInput = Schema.Struct({oldApprovalRuleTemplateName: Schema.String, newApprovalRuleTemplateName: Schema.String});
-export const UpdateCommentInput = Schema.Struct({commentId: Schema.String, content: Schema.String});
-export const UpdateDefaultBranchInput = Schema.Struct({repositoryName: Schema.String, defaultBranchName: Schema.String});
-export const UpdatePullRequestApprovalRuleContentInput = Schema.Struct({pullRequestId: Schema.String, approvalRuleName: Schema.String, existingRuleContentSha256: Schema.optional(Schema.String), newRuleContent: Schema.String});
-export const UpdatePullRequestApprovalStateInput = Schema.Struct({pullRequestId: Schema.String, revisionId: Schema.String, approvalState: Schema.String});
-export const UpdatePullRequestDescriptionInput = Schema.Struct({pullRequestId: Schema.String, description: Schema.String});
-export const UpdatePullRequestStatusInput = Schema.Struct({pullRequestId: Schema.String, pullRequestStatus: Schema.String});
-export const UpdatePullRequestTitleInput = Schema.Struct({pullRequestId: Schema.String, title: Schema.String});
-export const UpdateRepositoryDescriptionInput = Schema.Struct({repositoryName: Schema.String, repositoryDescription: Schema.optional(Schema.String)});
-export const UpdateRepositoryEncryptionKeyInput = Schema.Struct({repositoryName: Schema.String, kmsKeyId: Schema.String});
-export const UpdateRepositoryNameInput = Schema.Struct({oldName: Schema.String, newName: Schema.String});
+export class TestRepositoryTriggersInput extends Schema.Class<TestRepositoryTriggersInput>("TestRepositoryTriggersInput")({repositoryName: Schema.String, triggers: RepositoryTriggersList}) {}
+export class UntagResourceInput extends Schema.Class<UntagResourceInput>("UntagResourceInput")({resourceArn: Schema.String, tagKeys: TagKeysList}) {}
+export class UpdateApprovalRuleTemplateContentInput extends Schema.Class<UpdateApprovalRuleTemplateContentInput>("UpdateApprovalRuleTemplateContentInput")({approvalRuleTemplateName: Schema.String, newRuleContent: Schema.String, existingRuleContentSha256: Schema.optional(Schema.String)}) {}
+export class UpdateApprovalRuleTemplateDescriptionInput extends Schema.Class<UpdateApprovalRuleTemplateDescriptionInput>("UpdateApprovalRuleTemplateDescriptionInput")({approvalRuleTemplateName: Schema.String, approvalRuleTemplateDescription: Schema.String}) {}
+export class UpdateApprovalRuleTemplateNameInput extends Schema.Class<UpdateApprovalRuleTemplateNameInput>("UpdateApprovalRuleTemplateNameInput")({oldApprovalRuleTemplateName: Schema.String, newApprovalRuleTemplateName: Schema.String}) {}
+export class UpdateCommentInput extends Schema.Class<UpdateCommentInput>("UpdateCommentInput")({commentId: Schema.String, content: Schema.String}) {}
+export class UpdateDefaultBranchInput extends Schema.Class<UpdateDefaultBranchInput>("UpdateDefaultBranchInput")({repositoryName: Schema.String, defaultBranchName: Schema.String}) {}
+export class UpdatePullRequestApprovalRuleContentInput extends Schema.Class<UpdatePullRequestApprovalRuleContentInput>("UpdatePullRequestApprovalRuleContentInput")({pullRequestId: Schema.String, approvalRuleName: Schema.String, existingRuleContentSha256: Schema.optional(Schema.String), newRuleContent: Schema.String}) {}
+export class UpdatePullRequestApprovalStateInput extends Schema.Class<UpdatePullRequestApprovalStateInput>("UpdatePullRequestApprovalStateInput")({pullRequestId: Schema.String, revisionId: Schema.String, approvalState: Schema.String}) {}
+export class UpdatePullRequestDescriptionInput extends Schema.Class<UpdatePullRequestDescriptionInput>("UpdatePullRequestDescriptionInput")({pullRequestId: Schema.String, description: Schema.String}) {}
+export class UpdatePullRequestStatusInput extends Schema.Class<UpdatePullRequestStatusInput>("UpdatePullRequestStatusInput")({pullRequestId: Schema.String, pullRequestStatus: Schema.String}) {}
+export class UpdatePullRequestTitleInput extends Schema.Class<UpdatePullRequestTitleInput>("UpdatePullRequestTitleInput")({pullRequestId: Schema.String, title: Schema.String}) {}
+export class UpdateRepositoryDescriptionInput extends Schema.Class<UpdateRepositoryDescriptionInput>("UpdateRepositoryDescriptionInput")({repositoryName: Schema.String, repositoryDescription: Schema.optional(Schema.String)}) {}
+export class UpdateRepositoryEncryptionKeyInput extends Schema.Class<UpdateRepositoryEncryptionKeyInput>("UpdateRepositoryEncryptionKeyInput")({repositoryName: Schema.String, kmsKeyId: Schema.String}) {}
+export class UpdateRepositoryNameInput extends Schema.Class<UpdateRepositoryNameInput>("UpdateRepositoryNameInput")({oldName: Schema.String, newName: Schema.String}) {}
 export const RepositoryNotFoundList = Schema.Array(Schema.String);
-export const Target = Schema.Struct({repositoryName: Schema.String, sourceReference: Schema.String, destinationReference: Schema.optional(Schema.String)});
+export class Target extends Schema.Class<Target>("Target")({repositoryName: Schema.String, sourceReference: Schema.String, destinationReference: Schema.optional(Schema.String)}) {}
 export const TargetList = Schema.Array(Target);
-export const FileSizes = Schema.Struct({source: Schema.optional(Schema.Number), destination: Schema.optional(Schema.Number), base: Schema.optional(Schema.Number)});
-export const FileModes = Schema.Struct({source: Schema.optional(Schema.String), destination: Schema.optional(Schema.String), base: Schema.optional(Schema.String)});
-export const ObjectTypes = Schema.Struct({source: Schema.optional(Schema.String), destination: Schema.optional(Schema.String), base: Schema.optional(Schema.String)});
-export const IsBinaryFile = Schema.Struct({source: Schema.optional(Schema.Boolean), destination: Schema.optional(Schema.Boolean), base: Schema.optional(Schema.Boolean)});
-export const MergeOperations = Schema.Struct({source: Schema.optional(Schema.String), destination: Schema.optional(Schema.String)});
-export const ConflictMetadata = Schema.Struct({filePath: Schema.optional(Schema.String), fileSizes: Schema.optional(FileSizes), fileModes: Schema.optional(FileModes), objectTypes: Schema.optional(ObjectTypes), numberOfConflicts: Schema.optional(Schema.Number), isBinaryFile: Schema.optional(IsBinaryFile), contentConflict: Schema.optional(Schema.Boolean), fileModeConflict: Schema.optional(Schema.Boolean), objectTypeConflict: Schema.optional(Schema.Boolean), mergeOperations: Schema.optional(MergeOperations)});
+export class FileSizes extends Schema.Class<FileSizes>("FileSizes")({source: Schema.optional(Schema.Number), destination: Schema.optional(Schema.Number), base: Schema.optional(Schema.Number)}) {}
+export class FileModes extends Schema.Class<FileModes>("FileModes")({source: Schema.optional(Schema.String), destination: Schema.optional(Schema.String), base: Schema.optional(Schema.String)}) {}
+export class ObjectTypes extends Schema.Class<ObjectTypes>("ObjectTypes")({source: Schema.optional(Schema.String), destination: Schema.optional(Schema.String), base: Schema.optional(Schema.String)}) {}
+export class IsBinaryFile extends Schema.Class<IsBinaryFile>("IsBinaryFile")({source: Schema.optional(Schema.Boolean), destination: Schema.optional(Schema.Boolean), base: Schema.optional(Schema.Boolean)}) {}
+export class MergeOperations extends Schema.Class<MergeOperations>("MergeOperations")({source: Schema.optional(Schema.String), destination: Schema.optional(Schema.String)}) {}
+export class ConflictMetadata extends Schema.Class<ConflictMetadata>("ConflictMetadata")({filePath: Schema.optional(Schema.String), fileSizes: Schema.optional(FileSizes), fileModes: Schema.optional(FileModes), objectTypes: Schema.optional(ObjectTypes), numberOfConflicts: Schema.optional(Schema.Number), isBinaryFile: Schema.optional(IsBinaryFile), contentConflict: Schema.optional(Schema.Boolean), fileModeConflict: Schema.optional(Schema.Boolean), objectTypeConflict: Schema.optional(Schema.Boolean), mergeOperations: Schema.optional(MergeOperations)}) {}
 export const ConflictMetadataList = Schema.Array(ConflictMetadata);
 export const MergeOptions = Schema.Array(Schema.String);
 export const ApprovalRuleTemplateNameList = Schema.Array(Schema.String);
 export const PullRequestIdList = Schema.Array(Schema.String);
 export const RepositoryTriggerNameList = Schema.Array(Schema.String);
-export const ApprovalRuleTemplateDoesNotExistException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const BranchNameExistsException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CreatePullRequestInput = Schema.Struct({title: Schema.String, description: Schema.optional(Schema.String), targets: TargetList, clientRequestToken: Schema.optional(Schema.String)});
-export const CreateRepositoryInput = Schema.Struct({repositoryName: Schema.String, repositoryDescription: Schema.optional(Schema.String), tags: Schema.optional(TagsMap), kmsKeyId: Schema.optional(Schema.String)});
-export const DeleteApprovalRuleTemplateOutput = Schema.Struct({approvalRuleTemplateId: Schema.String});
-export const DeleteFileOutput = Schema.Struct({commitId: Schema.String, blobId: Schema.String, treeId: Schema.String, filePath: Schema.String});
-export const DeletePullRequestApprovalRuleOutput = Schema.Struct({approvalRuleId: Schema.String});
-export const DeleteRepositoryOutput = Schema.Struct({repositoryId: Schema.optional(Schema.String)});
-export const ApprovalRuleTemplateNameRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ApprovalRuleTemplate = Schema.Struct({approvalRuleTemplateId: Schema.optional(Schema.String), approvalRuleTemplateName: Schema.optional(Schema.String), approvalRuleTemplateDescription: Schema.optional(Schema.String), approvalRuleTemplateContent: Schema.optional(Schema.String), ruleContentSha256: Schema.optional(Schema.String), lastModifiedDate: Schema.optional(Schema.Date), creationDate: Schema.optional(Schema.Date), lastModifiedUser: Schema.optional(Schema.String)});
-export const GetApprovalRuleTemplateOutput = Schema.Struct({approvalRuleTemplate: ApprovalRuleTemplate});
-export const GetBlobOutput = Schema.Struct({content: StreamBody()});
-export const BranchInfo = Schema.Struct({branchName: Schema.optional(Schema.String), commitId: Schema.optional(Schema.String)});
-export const GetBranchOutput = Schema.Struct({branch: Schema.optional(BranchInfo)});
+export class ApprovalRuleTemplateDoesNotExistException extends Schema.Class<ApprovalRuleTemplateDoesNotExistException>("ApprovalRuleTemplateDoesNotExistException")({message: Schema.optional(Schema.String)}) {}
+export class BranchNameExistsException extends Schema.Class<BranchNameExistsException>("BranchNameExistsException")({message: Schema.optional(Schema.String)}) {}
+export class CreatePullRequestInput extends Schema.Class<CreatePullRequestInput>("CreatePullRequestInput")({title: Schema.String, description: Schema.optional(Schema.String), targets: TargetList, clientRequestToken: Schema.optional(Schema.String)}) {}
+export class CreateRepositoryInput extends Schema.Class<CreateRepositoryInput>("CreateRepositoryInput")({repositoryName: Schema.String, repositoryDescription: Schema.optional(Schema.String), tags: Schema.optional(TagsMap), kmsKeyId: Schema.optional(Schema.String)}) {}
+export class DeleteApprovalRuleTemplateOutput extends Schema.Class<DeleteApprovalRuleTemplateOutput>("DeleteApprovalRuleTemplateOutput")({approvalRuleTemplateId: Schema.String}) {}
+export class DeleteFileOutput extends Schema.Class<DeleteFileOutput>("DeleteFileOutput")({commitId: Schema.String, blobId: Schema.String, treeId: Schema.String, filePath: Schema.String}) {}
+export class DeletePullRequestApprovalRuleOutput extends Schema.Class<DeletePullRequestApprovalRuleOutput>("DeletePullRequestApprovalRuleOutput")({approvalRuleId: Schema.String}) {}
+export class DeleteRepositoryOutput extends Schema.Class<DeleteRepositoryOutput>("DeleteRepositoryOutput")({repositoryId: Schema.optional(Schema.String)}) {}
+export class ApprovalRuleTemplateNameRequiredException extends Schema.Class<ApprovalRuleTemplateNameRequiredException>("ApprovalRuleTemplateNameRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class ApprovalRuleTemplate extends Schema.Class<ApprovalRuleTemplate>("ApprovalRuleTemplate")({approvalRuleTemplateId: Schema.optional(Schema.String), approvalRuleTemplateName: Schema.optional(Schema.String), approvalRuleTemplateDescription: Schema.optional(Schema.String), approvalRuleTemplateContent: Schema.optional(Schema.String), ruleContentSha256: Schema.optional(Schema.String), lastModifiedDate: Schema.optional(Schema.Date), creationDate: Schema.optional(Schema.Date), lastModifiedUser: Schema.optional(Schema.String)}) {}
+export class GetApprovalRuleTemplateOutput extends Schema.Class<GetApprovalRuleTemplateOutput>("GetApprovalRuleTemplateOutput")({approvalRuleTemplate: ApprovalRuleTemplate}) {}
+export class GetBlobOutput extends Schema.Class<GetBlobOutput>("GetBlobOutput")({content: StreamBody()}) {}
+export class BranchInfo extends Schema.Class<BranchInfo>("BranchInfo")({branchName: Schema.optional(Schema.String), commitId: Schema.optional(Schema.String)}) {}
+export class GetBranchOutput extends Schema.Class<GetBranchOutput>("GetBranchOutput")({branch: Schema.optional(BranchInfo)}) {}
 export const CallerReactions = Schema.Array(Schema.String);
 export const ReactionCountsMap = Schema.Record({key: Schema.String, value: Schema.Number});
-export const Comment = Schema.Struct({commentId: Schema.optional(Schema.String), content: Schema.optional(Schema.String), inReplyTo: Schema.optional(Schema.String), creationDate: Schema.optional(Schema.Date), lastModifiedDate: Schema.optional(Schema.Date), authorArn: Schema.optional(Schema.String), deleted: Schema.optional(Schema.Boolean), clientRequestToken: Schema.optional(Schema.String), callerReactions: Schema.optional(CallerReactions), reactionCounts: Schema.optional(ReactionCountsMap)});
-export const GetCommentOutput = Schema.Struct({comment: Schema.optional(Comment)});
+export class Comment extends Schema.Class<Comment>("Comment")({commentId: Schema.optional(Schema.String), content: Schema.optional(Schema.String), inReplyTo: Schema.optional(Schema.String), creationDate: Schema.optional(Schema.Date), lastModifiedDate: Schema.optional(Schema.Date), authorArn: Schema.optional(Schema.String), deleted: Schema.optional(Schema.Boolean), clientRequestToken: Schema.optional(Schema.String), callerReactions: Schema.optional(CallerReactions), reactionCounts: Schema.optional(ReactionCountsMap)}) {}
+export class GetCommentOutput extends Schema.Class<GetCommentOutput>("GetCommentOutput")({comment: Schema.optional(Comment)}) {}
 export const ParentList = Schema.Array(Schema.String);
-export const UserInfo = Schema.Struct({name: Schema.optional(Schema.String), email: Schema.optional(Schema.String), date: Schema.optional(Schema.String)});
-export const Commit = Schema.Struct({commitId: Schema.optional(Schema.String), treeId: Schema.optional(Schema.String), parents: Schema.optional(ParentList), message: Schema.optional(Schema.String), author: Schema.optional(UserInfo), committer: Schema.optional(UserInfo), additionalData: Schema.optional(Schema.String)});
-export const GetCommitOutput = Schema.Struct({commit: Commit});
-export const GetFileOutput = Schema.Struct({commitId: Schema.String, blobId: Schema.String, filePath: Schema.String, fileMode: Schema.String, fileSize: Schema.Number, fileContent: StreamBody()});
-export const GetMergeCommitOutput = Schema.Struct({sourceCommitId: Schema.optional(Schema.String), destinationCommitId: Schema.optional(Schema.String), baseCommitId: Schema.optional(Schema.String), mergedCommitId: Schema.optional(Schema.String)});
-export const GetMergeConflictsOutput = Schema.Struct({mergeable: Schema.Boolean, destinationCommitId: Schema.String, sourceCommitId: Schema.String, baseCommitId: Schema.optional(Schema.String), conflictMetadataList: ConflictMetadataList, nextToken: Schema.optional(Schema.String)});
-export const GetMergeOptionsOutput = Schema.Struct({mergeOptions: MergeOptions, sourceCommitId: Schema.String, destinationCommitId: Schema.String, baseCommitId: Schema.String});
-export const GetPullRequestOverrideStateOutput = Schema.Struct({overridden: Schema.optional(Schema.Boolean), overrider: Schema.optional(Schema.String)});
-export const RepositoryMetadata = Schema.Struct({accountId: Schema.optional(Schema.String), repositoryId: Schema.optional(Schema.String), repositoryName: Schema.optional(Schema.String), repositoryDescription: Schema.optional(Schema.String), defaultBranch: Schema.optional(Schema.String), lastModifiedDate: Schema.optional(Schema.Date), creationDate: Schema.optional(Schema.Date), cloneUrlHttp: Schema.optional(Schema.String), cloneUrlSsh: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String), kmsKeyId: Schema.optional(Schema.String)});
-export const GetRepositoryOutput = Schema.Struct({repositoryMetadata: Schema.optional(RepositoryMetadata)});
-export const GetRepositoryTriggersOutput = Schema.Struct({configurationId: Schema.optional(Schema.String), triggers: Schema.optional(RepositoryTriggersList)});
-export const ListApprovalRuleTemplatesOutput = Schema.Struct({approvalRuleTemplateNames: Schema.optional(ApprovalRuleTemplateNameList), nextToken: Schema.optional(Schema.String)});
-export const ListAssociatedApprovalRuleTemplatesForRepositoryOutput = Schema.Struct({approvalRuleTemplateNames: Schema.optional(ApprovalRuleTemplateNameList), nextToken: Schema.optional(Schema.String)});
-export const ListBranchesOutput = Schema.Struct({branches: Schema.optional(BranchNameList), nextToken: Schema.optional(Schema.String)});
-export const ListPullRequestsOutput = Schema.Struct({pullRequestIds: PullRequestIdList, nextToken: Schema.optional(Schema.String)});
-export const ListRepositoriesForApprovalRuleTemplateOutput = Schema.Struct({repositoryNames: Schema.optional(RepositoryNameList), nextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceOutput = Schema.Struct({tags: Schema.optional(TagsMap), nextToken: Schema.optional(Schema.String)});
-export const MergeBranchesByFastForwardOutput = Schema.Struct({commitId: Schema.optional(Schema.String), treeId: Schema.optional(Schema.String)});
-export const MergeBranchesBySquashOutput = Schema.Struct({commitId: Schema.optional(Schema.String), treeId: Schema.optional(Schema.String)});
-export const MergeBranchesByThreeWayOutput = Schema.Struct({commitId: Schema.optional(Schema.String), treeId: Schema.optional(Schema.String)});
-export const MergeMetadata = Schema.Struct({isMerged: Schema.optional(Schema.Boolean), mergedBy: Schema.optional(Schema.String), mergeCommitId: Schema.optional(Schema.String), mergeOption: Schema.optional(Schema.String)});
-export const PullRequestTarget = Schema.Struct({repositoryName: Schema.optional(Schema.String), sourceReference: Schema.optional(Schema.String), destinationReference: Schema.optional(Schema.String), destinationCommit: Schema.optional(Schema.String), sourceCommit: Schema.optional(Schema.String), mergeBase: Schema.optional(Schema.String), mergeMetadata: Schema.optional(MergeMetadata)});
+export class UserInfo extends Schema.Class<UserInfo>("UserInfo")({name: Schema.optional(Schema.String), email: Schema.optional(Schema.String), date: Schema.optional(Schema.String)}) {}
+export class Commit extends Schema.Class<Commit>("Commit")({commitId: Schema.optional(Schema.String), treeId: Schema.optional(Schema.String), parents: Schema.optional(ParentList), message: Schema.optional(Schema.String), author: Schema.optional(UserInfo), committer: Schema.optional(UserInfo), additionalData: Schema.optional(Schema.String)}) {}
+export class GetCommitOutput extends Schema.Class<GetCommitOutput>("GetCommitOutput")({commit: Commit}) {}
+export class GetFileOutput extends Schema.Class<GetFileOutput>("GetFileOutput")({commitId: Schema.String, blobId: Schema.String, filePath: Schema.String, fileMode: Schema.String, fileSize: Schema.Number, fileContent: StreamBody()}) {}
+export class GetMergeCommitOutput extends Schema.Class<GetMergeCommitOutput>("GetMergeCommitOutput")({sourceCommitId: Schema.optional(Schema.String), destinationCommitId: Schema.optional(Schema.String), baseCommitId: Schema.optional(Schema.String), mergedCommitId: Schema.optional(Schema.String)}) {}
+export class GetMergeConflictsOutput extends Schema.Class<GetMergeConflictsOutput>("GetMergeConflictsOutput")({mergeable: Schema.Boolean, destinationCommitId: Schema.String, sourceCommitId: Schema.String, baseCommitId: Schema.optional(Schema.String), conflictMetadataList: ConflictMetadataList, nextToken: Schema.optional(Schema.String)}) {}
+export class GetMergeOptionsOutput extends Schema.Class<GetMergeOptionsOutput>("GetMergeOptionsOutput")({mergeOptions: MergeOptions, sourceCommitId: Schema.String, destinationCommitId: Schema.String, baseCommitId: Schema.String}) {}
+export class GetPullRequestOverrideStateOutput extends Schema.Class<GetPullRequestOverrideStateOutput>("GetPullRequestOverrideStateOutput")({overridden: Schema.optional(Schema.Boolean), overrider: Schema.optional(Schema.String)}) {}
+export class RepositoryMetadata extends Schema.Class<RepositoryMetadata>("RepositoryMetadata")({accountId: Schema.optional(Schema.String), repositoryId: Schema.optional(Schema.String), repositoryName: Schema.optional(Schema.String), repositoryDescription: Schema.optional(Schema.String), defaultBranch: Schema.optional(Schema.String), lastModifiedDate: Schema.optional(Schema.Date), creationDate: Schema.optional(Schema.Date), cloneUrlHttp: Schema.optional(Schema.String), cloneUrlSsh: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String), kmsKeyId: Schema.optional(Schema.String)}) {}
+export class GetRepositoryOutput extends Schema.Class<GetRepositoryOutput>("GetRepositoryOutput")({repositoryMetadata: Schema.optional(RepositoryMetadata)}) {}
+export class GetRepositoryTriggersOutput extends Schema.Class<GetRepositoryTriggersOutput>("GetRepositoryTriggersOutput")({configurationId: Schema.optional(Schema.String), triggers: Schema.optional(RepositoryTriggersList)}) {}
+export class ListApprovalRuleTemplatesOutput extends Schema.Class<ListApprovalRuleTemplatesOutput>("ListApprovalRuleTemplatesOutput")({approvalRuleTemplateNames: Schema.optional(ApprovalRuleTemplateNameList), nextToken: Schema.optional(Schema.String)}) {}
+export class ListAssociatedApprovalRuleTemplatesForRepositoryOutput extends Schema.Class<ListAssociatedApprovalRuleTemplatesForRepositoryOutput>("ListAssociatedApprovalRuleTemplatesForRepositoryOutput")({approvalRuleTemplateNames: Schema.optional(ApprovalRuleTemplateNameList), nextToken: Schema.optional(Schema.String)}) {}
+export class ListBranchesOutput extends Schema.Class<ListBranchesOutput>("ListBranchesOutput")({branches: Schema.optional(BranchNameList), nextToken: Schema.optional(Schema.String)}) {}
+export class ListPullRequestsOutput extends Schema.Class<ListPullRequestsOutput>("ListPullRequestsOutput")({pullRequestIds: PullRequestIdList, nextToken: Schema.optional(Schema.String)}) {}
+export class ListRepositoriesForApprovalRuleTemplateOutput extends Schema.Class<ListRepositoriesForApprovalRuleTemplateOutput>("ListRepositoriesForApprovalRuleTemplateOutput")({repositoryNames: Schema.optional(RepositoryNameList), nextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceOutput extends Schema.Class<ListTagsForResourceOutput>("ListTagsForResourceOutput")({tags: Schema.optional(TagsMap), nextToken: Schema.optional(Schema.String)}) {}
+export class MergeBranchesByFastForwardOutput extends Schema.Class<MergeBranchesByFastForwardOutput>("MergeBranchesByFastForwardOutput")({commitId: Schema.optional(Schema.String), treeId: Schema.optional(Schema.String)}) {}
+export class MergeBranchesBySquashOutput extends Schema.Class<MergeBranchesBySquashOutput>("MergeBranchesBySquashOutput")({commitId: Schema.optional(Schema.String), treeId: Schema.optional(Schema.String)}) {}
+export class MergeBranchesByThreeWayOutput extends Schema.Class<MergeBranchesByThreeWayOutput>("MergeBranchesByThreeWayOutput")({commitId: Schema.optional(Schema.String), treeId: Schema.optional(Schema.String)}) {}
+export class MergeMetadata extends Schema.Class<MergeMetadata>("MergeMetadata")({isMerged: Schema.optional(Schema.Boolean), mergedBy: Schema.optional(Schema.String), mergeCommitId: Schema.optional(Schema.String), mergeOption: Schema.optional(Schema.String)}) {}
+export class PullRequestTarget extends Schema.Class<PullRequestTarget>("PullRequestTarget")({repositoryName: Schema.optional(Schema.String), sourceReference: Schema.optional(Schema.String), destinationReference: Schema.optional(Schema.String), destinationCommit: Schema.optional(Schema.String), sourceCommit: Schema.optional(Schema.String), mergeBase: Schema.optional(Schema.String), mergeMetadata: Schema.optional(MergeMetadata)}) {}
 export const PullRequestTargetList = Schema.Array(PullRequestTarget);
-export const OriginApprovalRuleTemplate = Schema.Struct({approvalRuleTemplateId: Schema.optional(Schema.String), approvalRuleTemplateName: Schema.optional(Schema.String)});
-export const ApprovalRule = Schema.Struct({approvalRuleId: Schema.optional(Schema.String), approvalRuleName: Schema.optional(Schema.String), approvalRuleContent: Schema.optional(Schema.String), ruleContentSha256: Schema.optional(Schema.String), lastModifiedDate: Schema.optional(Schema.Date), creationDate: Schema.optional(Schema.Date), lastModifiedUser: Schema.optional(Schema.String), originApprovalRuleTemplate: Schema.optional(OriginApprovalRuleTemplate)});
+export class OriginApprovalRuleTemplate extends Schema.Class<OriginApprovalRuleTemplate>("OriginApprovalRuleTemplate")({approvalRuleTemplateId: Schema.optional(Schema.String), approvalRuleTemplateName: Schema.optional(Schema.String)}) {}
+export class ApprovalRule extends Schema.Class<ApprovalRule>("ApprovalRule")({approvalRuleId: Schema.optional(Schema.String), approvalRuleName: Schema.optional(Schema.String), approvalRuleContent: Schema.optional(Schema.String), ruleContentSha256: Schema.optional(Schema.String), lastModifiedDate: Schema.optional(Schema.Date), creationDate: Schema.optional(Schema.Date), lastModifiedUser: Schema.optional(Schema.String), originApprovalRuleTemplate: Schema.optional(OriginApprovalRuleTemplate)}) {}
 export const ApprovalRulesList = Schema.Array(ApprovalRule);
-export const PullRequest = Schema.Struct({pullRequestId: Schema.optional(Schema.String), title: Schema.optional(Schema.String), description: Schema.optional(Schema.String), lastActivityDate: Schema.optional(Schema.Date), creationDate: Schema.optional(Schema.Date), pullRequestStatus: Schema.optional(Schema.String), authorArn: Schema.optional(Schema.String), pullRequestTargets: Schema.optional(PullRequestTargetList), clientRequestToken: Schema.optional(Schema.String), revisionId: Schema.optional(Schema.String), approvalRules: Schema.optional(ApprovalRulesList)});
-export const MergePullRequestByFastForwardOutput = Schema.Struct({pullRequest: Schema.optional(PullRequest)});
-export const MergePullRequestBySquashOutput = Schema.Struct({pullRequest: Schema.optional(PullRequest)});
-export const MergePullRequestByThreeWayOutput = Schema.Struct({pullRequest: Schema.optional(PullRequest)});
-export const EncryptionIntegrityChecksFailedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const PostCommentForComparedCommitInput = Schema.Struct({repositoryName: Schema.String, beforeCommitId: Schema.optional(Schema.String), afterCommitId: Schema.String, location: Schema.optional(Location), content: Schema.String, clientRequestToken: Schema.optional(Schema.String)});
-export const PostCommentForPullRequestOutput = Schema.Struct({repositoryName: Schema.optional(Schema.String), pullRequestId: Schema.optional(Schema.String), beforeCommitId: Schema.optional(Schema.String), afterCommitId: Schema.optional(Schema.String), beforeBlobId: Schema.optional(Schema.String), afterBlobId: Schema.optional(Schema.String), location: Schema.optional(Location), comment: Schema.optional(Comment)});
-export const PostCommentReplyOutput = Schema.Struct({comment: Schema.optional(Comment)});
-export const CommentDeletedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const PutFileOutput = Schema.Struct({commitId: Schema.String, blobId: Schema.String, treeId: Schema.String});
-export const PutRepositoryTriggersInput = Schema.Struct({repositoryName: Schema.String, triggers: RepositoryTriggersList});
-export const InvalidRepositoryNameException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidResourceArnException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UpdateApprovalRuleTemplateContentOutput = Schema.Struct({approvalRuleTemplate: ApprovalRuleTemplate});
-export const UpdateApprovalRuleTemplateDescriptionOutput = Schema.Struct({approvalRuleTemplate: ApprovalRuleTemplate});
-export const UpdateApprovalRuleTemplateNameOutput = Schema.Struct({approvalRuleTemplate: ApprovalRuleTemplate});
-export const UpdateCommentOutput = Schema.Struct({comment: Schema.optional(Comment)});
-export const BranchDoesNotExistException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UpdatePullRequestApprovalRuleContentOutput = Schema.Struct({approvalRule: ApprovalRule});
-export const ApprovalStateRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UpdatePullRequestDescriptionOutput = Schema.Struct({pullRequest: PullRequest});
-export const UpdatePullRequestStatusOutput = Schema.Struct({pullRequest: PullRequest});
-export const UpdatePullRequestTitleOutput = Schema.Struct({pullRequest: PullRequest});
-export const EncryptionKeyAccessDeniedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UpdateRepositoryEncryptionKeyOutput = Schema.Struct({repositoryId: Schema.optional(Schema.String), kmsKeyId: Schema.optional(Schema.String), originalKmsKeyId: Schema.optional(Schema.String)});
-export const RepositoryDoesNotExistException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const SourceFileSpecifier = Schema.Struct({filePath: Schema.String, isMove: Schema.optional(Schema.Boolean)});
+export class PullRequest extends Schema.Class<PullRequest>("PullRequest")({pullRequestId: Schema.optional(Schema.String), title: Schema.optional(Schema.String), description: Schema.optional(Schema.String), lastActivityDate: Schema.optional(Schema.Date), creationDate: Schema.optional(Schema.Date), pullRequestStatus: Schema.optional(Schema.String), authorArn: Schema.optional(Schema.String), pullRequestTargets: Schema.optional(PullRequestTargetList), clientRequestToken: Schema.optional(Schema.String), revisionId: Schema.optional(Schema.String), approvalRules: Schema.optional(ApprovalRulesList)}) {}
+export class MergePullRequestByFastForwardOutput extends Schema.Class<MergePullRequestByFastForwardOutput>("MergePullRequestByFastForwardOutput")({pullRequest: Schema.optional(PullRequest)}) {}
+export class MergePullRequestBySquashOutput extends Schema.Class<MergePullRequestBySquashOutput>("MergePullRequestBySquashOutput")({pullRequest: Schema.optional(PullRequest)}) {}
+export class MergePullRequestByThreeWayOutput extends Schema.Class<MergePullRequestByThreeWayOutput>("MergePullRequestByThreeWayOutput")({pullRequest: Schema.optional(PullRequest)}) {}
+export class EncryptionIntegrityChecksFailedException extends Schema.Class<EncryptionIntegrityChecksFailedException>("EncryptionIntegrityChecksFailedException")({message: Schema.optional(Schema.String)}) {}
+export class PostCommentForComparedCommitInput extends Schema.Class<PostCommentForComparedCommitInput>("PostCommentForComparedCommitInput")({repositoryName: Schema.String, beforeCommitId: Schema.optional(Schema.String), afterCommitId: Schema.String, location: Schema.optional(Location), content: Schema.String, clientRequestToken: Schema.optional(Schema.String)}) {}
+export class PostCommentForPullRequestOutput extends Schema.Class<PostCommentForPullRequestOutput>("PostCommentForPullRequestOutput")({repositoryName: Schema.optional(Schema.String), pullRequestId: Schema.optional(Schema.String), beforeCommitId: Schema.optional(Schema.String), afterCommitId: Schema.optional(Schema.String), beforeBlobId: Schema.optional(Schema.String), afterBlobId: Schema.optional(Schema.String), location: Schema.optional(Location), comment: Schema.optional(Comment)}) {}
+export class PostCommentReplyOutput extends Schema.Class<PostCommentReplyOutput>("PostCommentReplyOutput")({comment: Schema.optional(Comment)}) {}
+export class CommentDeletedException extends Schema.Class<CommentDeletedException>("CommentDeletedException")({message: Schema.optional(Schema.String)}) {}
+export class PutFileOutput extends Schema.Class<PutFileOutput>("PutFileOutput")({commitId: Schema.String, blobId: Schema.String, treeId: Schema.String}) {}
+export class PutRepositoryTriggersInput extends Schema.Class<PutRepositoryTriggersInput>("PutRepositoryTriggersInput")({repositoryName: Schema.String, triggers: RepositoryTriggersList}) {}
+export class InvalidRepositoryNameException extends Schema.Class<InvalidRepositoryNameException>("InvalidRepositoryNameException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidResourceArnException extends Schema.Class<InvalidResourceArnException>("InvalidResourceArnException")({message: Schema.optional(Schema.String)}) {}
+export class UpdateApprovalRuleTemplateContentOutput extends Schema.Class<UpdateApprovalRuleTemplateContentOutput>("UpdateApprovalRuleTemplateContentOutput")({approvalRuleTemplate: ApprovalRuleTemplate}) {}
+export class UpdateApprovalRuleTemplateDescriptionOutput extends Schema.Class<UpdateApprovalRuleTemplateDescriptionOutput>("UpdateApprovalRuleTemplateDescriptionOutput")({approvalRuleTemplate: ApprovalRuleTemplate}) {}
+export class UpdateApprovalRuleTemplateNameOutput extends Schema.Class<UpdateApprovalRuleTemplateNameOutput>("UpdateApprovalRuleTemplateNameOutput")({approvalRuleTemplate: ApprovalRuleTemplate}) {}
+export class UpdateCommentOutput extends Schema.Class<UpdateCommentOutput>("UpdateCommentOutput")({comment: Schema.optional(Comment)}) {}
+export class BranchDoesNotExistException extends Schema.Class<BranchDoesNotExistException>("BranchDoesNotExistException")({message: Schema.optional(Schema.String)}) {}
+export class UpdatePullRequestApprovalRuleContentOutput extends Schema.Class<UpdatePullRequestApprovalRuleContentOutput>("UpdatePullRequestApprovalRuleContentOutput")({approvalRule: ApprovalRule}) {}
+export class ApprovalStateRequiredException extends Schema.Class<ApprovalStateRequiredException>("ApprovalStateRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class UpdatePullRequestDescriptionOutput extends Schema.Class<UpdatePullRequestDescriptionOutput>("UpdatePullRequestDescriptionOutput")({pullRequest: PullRequest}) {}
+export class UpdatePullRequestStatusOutput extends Schema.Class<UpdatePullRequestStatusOutput>("UpdatePullRequestStatusOutput")({pullRequest: PullRequest}) {}
+export class UpdatePullRequestTitleOutput extends Schema.Class<UpdatePullRequestTitleOutput>("UpdatePullRequestTitleOutput")({pullRequest: PullRequest}) {}
+export class EncryptionKeyAccessDeniedException extends Schema.Class<EncryptionKeyAccessDeniedException>("EncryptionKeyAccessDeniedException")({message: Schema.optional(Schema.String)}) {}
+export class UpdateRepositoryEncryptionKeyOutput extends Schema.Class<UpdateRepositoryEncryptionKeyOutput>("UpdateRepositoryEncryptionKeyOutput")({repositoryId: Schema.optional(Schema.String), kmsKeyId: Schema.optional(Schema.String), originalKmsKeyId: Schema.optional(Schema.String)}) {}
+export class RepositoryDoesNotExistException extends Schema.Class<RepositoryDoesNotExistException>("RepositoryDoesNotExistException")({message: Schema.optional(Schema.String)}) {}
+export class SourceFileSpecifier extends Schema.Class<SourceFileSpecifier>("SourceFileSpecifier")({filePath: Schema.String, isMove: Schema.optional(Schema.Boolean)}) {}
 export const ApprovalRulesSatisfiedList = Schema.Array(Schema.String);
 export const ApprovalRulesNotSatisfiedList = Schema.Array(Schema.String);
 export const ReactionUsersList = Schema.Array(Schema.String);
 export const Comments = Schema.Array(Comment);
 export const RevisionChildren = Schema.Array(Schema.String);
-export const BatchAssociateApprovalRuleTemplateWithRepositoriesError = Schema.Struct({repositoryName: Schema.optional(Schema.String), errorCode: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String)});
+export class BatchAssociateApprovalRuleTemplateWithRepositoriesError extends Schema.Class<BatchAssociateApprovalRuleTemplateWithRepositoriesError>("BatchAssociateApprovalRuleTemplateWithRepositoriesError")({repositoryName: Schema.optional(Schema.String), errorCode: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String)}) {}
 export const BatchAssociateApprovalRuleTemplateWithRepositoriesErrorsList = Schema.Array(BatchAssociateApprovalRuleTemplateWithRepositoriesError);
-export const MergeHunkDetail = Schema.Struct({startLine: Schema.optional(Schema.Number), endLine: Schema.optional(Schema.Number), hunkContent: Schema.optional(Schema.String)});
-export const MergeHunk = Schema.Struct({isConflict: Schema.optional(Schema.Boolean), source: Schema.optional(MergeHunkDetail), destination: Schema.optional(MergeHunkDetail), base: Schema.optional(MergeHunkDetail)});
+export class MergeHunkDetail extends Schema.Class<MergeHunkDetail>("MergeHunkDetail")({startLine: Schema.optional(Schema.Number), endLine: Schema.optional(Schema.Number), hunkContent: Schema.optional(Schema.String)}) {}
+export class MergeHunk extends Schema.Class<MergeHunk>("MergeHunk")({isConflict: Schema.optional(Schema.Boolean), source: Schema.optional(MergeHunkDetail), destination: Schema.optional(MergeHunkDetail), base: Schema.optional(MergeHunkDetail)}) {}
 export const MergeHunks = Schema.Array(MergeHunk);
-export const Conflict = Schema.Struct({conflictMetadata: Schema.optional(ConflictMetadata), mergeHunks: Schema.optional(MergeHunks)});
+export class Conflict extends Schema.Class<Conflict>("Conflict")({conflictMetadata: Schema.optional(ConflictMetadata), mergeHunks: Schema.optional(MergeHunks)}) {}
 export const Conflicts = Schema.Array(Conflict);
-export const BatchDescribeMergeConflictsError = Schema.Struct({filePath: Schema.String, exceptionName: Schema.String, message: Schema.String});
+export class BatchDescribeMergeConflictsError extends Schema.Class<BatchDescribeMergeConflictsError>("BatchDescribeMergeConflictsError")({filePath: Schema.String, exceptionName: Schema.String, message: Schema.String}) {}
 export const BatchDescribeMergeConflictsErrors = Schema.Array(BatchDescribeMergeConflictsError);
-export const BatchDisassociateApprovalRuleTemplateFromRepositoriesError = Schema.Struct({repositoryName: Schema.optional(Schema.String), errorCode: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String)});
+export class BatchDisassociateApprovalRuleTemplateFromRepositoriesError extends Schema.Class<BatchDisassociateApprovalRuleTemplateFromRepositoriesError>("BatchDisassociateApprovalRuleTemplateFromRepositoriesError")({repositoryName: Schema.optional(Schema.String), errorCode: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String)}) {}
 export const BatchDisassociateApprovalRuleTemplateFromRepositoriesErrorsList = Schema.Array(BatchDisassociateApprovalRuleTemplateFromRepositoriesError);
-export const BatchGetCommitsError = Schema.Struct({commitId: Schema.optional(Schema.String), errorCode: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String)});
+export class BatchGetCommitsError extends Schema.Class<BatchGetCommitsError>("BatchGetCommitsError")({commitId: Schema.optional(Schema.String), errorCode: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String)}) {}
 export const BatchGetCommitsErrorsList = Schema.Array(BatchGetCommitsError);
 export const RepositoryMetadataList = Schema.Array(RepositoryMetadata);
-export const BatchGetRepositoriesError = Schema.Struct({repositoryId: Schema.optional(Schema.String), repositoryName: Schema.optional(Schema.String), errorCode: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String)});
+export class BatchGetRepositoriesError extends Schema.Class<BatchGetRepositoriesError>("BatchGetRepositoriesError")({repositoryId: Schema.optional(Schema.String), repositoryName: Schema.optional(Schema.String), errorCode: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String)}) {}
 export const BatchGetRepositoriesErrorsList = Schema.Array(BatchGetRepositoriesError);
-export const PutFileEntry = Schema.Struct({filePath: Schema.String, fileMode: Schema.optional(Schema.String), fileContent: Schema.optional(StreamBody()), sourceFile: Schema.optional(SourceFileSpecifier)});
+export class PutFileEntry extends Schema.Class<PutFileEntry>("PutFileEntry")({filePath: Schema.String, fileMode: Schema.optional(Schema.String), fileContent: Schema.optional(StreamBody()), sourceFile: Schema.optional(SourceFileSpecifier)}) {}
 export const PutFileEntries = Schema.Array(PutFileEntry);
-export const Evaluation = Schema.Struct({approved: Schema.optional(Schema.Boolean), overridden: Schema.optional(Schema.Boolean), approvalRulesSatisfied: Schema.optional(ApprovalRulesSatisfiedList), approvalRulesNotSatisfied: Schema.optional(ApprovalRulesNotSatisfiedList)});
-export const CommentsForComparedCommit = Schema.Struct({repositoryName: Schema.optional(Schema.String), beforeCommitId: Schema.optional(Schema.String), afterCommitId: Schema.optional(Schema.String), beforeBlobId: Schema.optional(Schema.String), afterBlobId: Schema.optional(Schema.String), location: Schema.optional(Location), comments: Schema.optional(Comments)});
+export class Evaluation extends Schema.Class<Evaluation>("Evaluation")({approved: Schema.optional(Schema.Boolean), overridden: Schema.optional(Schema.Boolean), approvalRulesSatisfied: Schema.optional(ApprovalRulesSatisfiedList), approvalRulesNotSatisfied: Schema.optional(ApprovalRulesNotSatisfiedList)}) {}
+export class CommentsForComparedCommit extends Schema.Class<CommentsForComparedCommit>("CommentsForComparedCommit")({repositoryName: Schema.optional(Schema.String), beforeCommitId: Schema.optional(Schema.String), afterCommitId: Schema.optional(Schema.String), beforeBlobId: Schema.optional(Schema.String), afterBlobId: Schema.optional(Schema.String), location: Schema.optional(Location), comments: Schema.optional(Comments)}) {}
 export const CommentsForComparedCommitData = Schema.Array(CommentsForComparedCommit);
-export const CommentsForPullRequest = Schema.Struct({pullRequestId: Schema.optional(Schema.String), repositoryName: Schema.optional(Schema.String), beforeCommitId: Schema.optional(Schema.String), afterCommitId: Schema.optional(Schema.String), beforeBlobId: Schema.optional(Schema.String), afterBlobId: Schema.optional(Schema.String), location: Schema.optional(Location), comments: Schema.optional(Comments)});
+export class CommentsForPullRequest extends Schema.Class<CommentsForPullRequest>("CommentsForPullRequest")({pullRequestId: Schema.optional(Schema.String), repositoryName: Schema.optional(Schema.String), beforeCommitId: Schema.optional(Schema.String), afterCommitId: Schema.optional(Schema.String), beforeBlobId: Schema.optional(Schema.String), afterBlobId: Schema.optional(Schema.String), location: Schema.optional(Location), comments: Schema.optional(Comments)}) {}
 export const CommentsForPullRequestData = Schema.Array(CommentsForPullRequest);
-export const Folder = Schema.Struct({treeId: Schema.optional(Schema.String), absolutePath: Schema.optional(Schema.String), relativePath: Schema.optional(Schema.String)});
+export class Folder extends Schema.Class<Folder>("Folder")({treeId: Schema.optional(Schema.String), absolutePath: Schema.optional(Schema.String), relativePath: Schema.optional(Schema.String)}) {}
 export const FolderList = Schema.Array(Folder);
-export const File = Schema.Struct({blobId: Schema.optional(Schema.String), absolutePath: Schema.optional(Schema.String), relativePath: Schema.optional(Schema.String), fileMode: Schema.optional(Schema.String)});
+export class File extends Schema.Class<File>("File")({blobId: Schema.optional(Schema.String), absolutePath: Schema.optional(Schema.String), relativePath: Schema.optional(Schema.String), fileMode: Schema.optional(Schema.String)}) {}
 export const FileList = Schema.Array(File);
-export const SymbolicLink = Schema.Struct({blobId: Schema.optional(Schema.String), absolutePath: Schema.optional(Schema.String), relativePath: Schema.optional(Schema.String), fileMode: Schema.optional(Schema.String)});
+export class SymbolicLink extends Schema.Class<SymbolicLink>("SymbolicLink")({blobId: Schema.optional(Schema.String), absolutePath: Schema.optional(Schema.String), relativePath: Schema.optional(Schema.String), fileMode: Schema.optional(Schema.String)}) {}
 export const SymbolicLinkList = Schema.Array(SymbolicLink);
-export const SubModule = Schema.Struct({commitId: Schema.optional(Schema.String), absolutePath: Schema.optional(Schema.String), relativePath: Schema.optional(Schema.String)});
+export class SubModule extends Schema.Class<SubModule>("SubModule")({commitId: Schema.optional(Schema.String), absolutePath: Schema.optional(Schema.String), relativePath: Schema.optional(Schema.String)}) {}
 export const SubModuleList = Schema.Array(SubModule);
-export const Approval = Schema.Struct({userArn: Schema.optional(Schema.String), approvalState: Schema.optional(Schema.String)});
+export class Approval extends Schema.Class<Approval>("Approval")({userArn: Schema.optional(Schema.String), approvalState: Schema.optional(Schema.String)}) {}
 export const ApprovalList = Schema.Array(Approval);
-export const FileVersion = Schema.Struct({commit: Schema.optional(Commit), blobId: Schema.optional(Schema.String), path: Schema.optional(Schema.String), revisionChildren: Schema.optional(RevisionChildren)});
+export class FileVersion extends Schema.Class<FileVersion>("FileVersion")({commit: Schema.optional(Commit), blobId: Schema.optional(Schema.String), path: Schema.optional(Schema.String), revisionChildren: Schema.optional(RevisionChildren)}) {}
 export const RevisionDag = Schema.Array(FileVersion);
-export const RepositoryNameIdPair = Schema.Struct({repositoryName: Schema.optional(Schema.String), repositoryId: Schema.optional(Schema.String)});
+export class RepositoryNameIdPair extends Schema.Class<RepositoryNameIdPair>("RepositoryNameIdPair")({repositoryName: Schema.optional(Schema.String), repositoryId: Schema.optional(Schema.String)}) {}
 export const RepositoryNameIdPairList = Schema.Array(RepositoryNameIdPair);
-export const RepositoryTriggerExecutionFailure = Schema.Struct({trigger: Schema.optional(Schema.String), failureMessage: Schema.optional(Schema.String)});
+export class RepositoryTriggerExecutionFailure extends Schema.Class<RepositoryTriggerExecutionFailure>("RepositoryTriggerExecutionFailure")({trigger: Schema.optional(Schema.String), failureMessage: Schema.optional(Schema.String)}) {}
 export const RepositoryTriggerExecutionFailureList = Schema.Array(RepositoryTriggerExecutionFailure);
-export const EncryptionKeyDisabledException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const BatchAssociateApprovalRuleTemplateWithRepositoriesOutput = Schema.Struct({associatedRepositoryNames: RepositoryNameList, errors: BatchAssociateApprovalRuleTemplateWithRepositoriesErrorsList});
-export const BatchDescribeMergeConflictsOutput = Schema.Struct({conflicts: Conflicts, nextToken: Schema.optional(Schema.String), errors: Schema.optional(BatchDescribeMergeConflictsErrors), destinationCommitId: Schema.String, sourceCommitId: Schema.String, baseCommitId: Schema.optional(Schema.String)});
-export const BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput = Schema.Struct({disassociatedRepositoryNames: RepositoryNameList, errors: BatchDisassociateApprovalRuleTemplateFromRepositoriesErrorsList});
-export const BatchGetRepositoriesOutput = Schema.Struct({repositories: Schema.optional(RepositoryMetadataList), repositoriesNotFound: Schema.optional(RepositoryNotFoundList), errors: Schema.optional(BatchGetRepositoriesErrorsList)});
-export const CreateApprovalRuleTemplateOutput = Schema.Struct({approvalRuleTemplate: ApprovalRuleTemplate});
-export const BranchNameRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CreateCommitInput = Schema.Struct({repositoryName: Schema.String, branchName: Schema.String, parentCommitId: Schema.optional(Schema.String), authorName: Schema.optional(Schema.String), email: Schema.optional(Schema.String), commitMessage: Schema.optional(Schema.String), keepEmptyFolders: Schema.optional(Schema.Boolean), putFiles: Schema.optional(PutFileEntries), deleteFiles: Schema.optional(DeleteFileEntries), setFileModes: Schema.optional(SetFileModeEntries)});
-export const CreatePullRequestOutput = Schema.Struct({pullRequest: PullRequest});
-export const CreateRepositoryOutput = Schema.Struct({repositoryMetadata: Schema.optional(RepositoryMetadata)});
-export const CreateUnreferencedMergeCommitInput = Schema.Struct({repositoryName: Schema.String, sourceCommitSpecifier: Schema.String, destinationCommitSpecifier: Schema.String, mergeOption: Schema.String, conflictDetailLevel: Schema.optional(Schema.String), conflictResolutionStrategy: Schema.optional(Schema.String), authorName: Schema.optional(Schema.String), email: Schema.optional(Schema.String), commitMessage: Schema.optional(Schema.String), keepEmptyFolders: Schema.optional(Schema.Boolean), conflictResolution: Schema.optional(ConflictResolution)});
-export const ApprovalRuleTemplateInUseException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DeleteBranchOutput = Schema.Struct({deletedBranch: Schema.optional(BranchInfo)});
-export const BranchNameIsTagNameException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ApprovalRuleNameRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const EncryptionKeyNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const EncryptionKeyUnavailableException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const EvaluatePullRequestApprovalRulesOutput = Schema.Struct({evaluation: Evaluation});
-export const InvalidApprovalRuleTemplateNameException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const BlobIdDoesNotExistException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidBranchNameException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CommentDoesNotExistException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const GetCommentsForComparedCommitOutput = Schema.Struct({commentsForComparedCommitData: Schema.optional(CommentsForComparedCommitData), nextToken: Schema.optional(Schema.String)});
-export const GetCommentsForPullRequestOutput = Schema.Struct({commentsForPullRequestData: Schema.optional(CommentsForPullRequestData), nextToken: Schema.optional(Schema.String)});
-export const CommitIdDoesNotExistException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CommitDoesNotExistException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const GetFolderOutput = Schema.Struct({commitId: Schema.String, folderPath: Schema.String, treeId: Schema.optional(Schema.String), subFolders: Schema.optional(FolderList), files: Schema.optional(FileList), symbolicLinks: Schema.optional(SymbolicLinkList), subModules: Schema.optional(SubModuleList)});
-export const CommitRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidCommitException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidConflictDetailLevelException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const GetPullRequestApprovalStatesOutput = Schema.Struct({approvals: Schema.optional(ApprovalList)});
-export const InvalidPullRequestIdException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const RepositoryNameRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidContinuationTokenException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidMaxResultsException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ListFileCommitHistoryResponse = Schema.Struct({revisionDag: RevisionDag, nextToken: Schema.optional(Schema.String)});
-export const AuthorDoesNotExistException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ListRepositoriesOutput = Schema.Struct({repositories: Schema.optional(RepositoryNameIdPairList), nextToken: Schema.optional(Schema.String)});
-export const ResourceArnRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ConcurrentReferenceUpdateException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CommitMessageLengthExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const FileContentSizeLimitExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidCommitIdException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const FolderContentSizeLimitExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidConflictResolutionException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidOverrideStatusException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const PostCommentForComparedCommitOutput = Schema.Struct({repositoryName: Schema.optional(Schema.String), beforeCommitId: Schema.optional(Schema.String), afterCommitId: Schema.optional(Schema.String), beforeBlobId: Schema.optional(Schema.String), afterBlobId: Schema.optional(Schema.String), location: Schema.optional(Location), comment: Schema.optional(Comment)});
-export const BeforeCommitIdAndAfterCommitIdAreSameException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ClientRequestTokenRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CommentIdRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DirectoryNameConflictsWithFileNameException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const PutRepositoryTriggersOutput = Schema.Struct({configurationId: Schema.optional(Schema.String)});
-export const InvalidSystemTagUsageException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const TestRepositoryTriggersOutput = Schema.Struct({successfulExecutions: Schema.optional(RepositoryTriggerNameList), failedExecutions: Schema.optional(RepositoryTriggerExecutionFailureList)});
-export const InvalidTagKeysListException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ApprovalRuleTemplateContentRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidApprovalRuleTemplateDescriptionException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ApprovalRuleTemplateNameAlreadyExistsException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CommentContentRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ApprovalRuleContentRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidApprovalStateException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidDescriptionException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidPullRequestStatusException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidTitleException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidRepositoryDescriptionException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const EncryptionKeyInvalidIdException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const RepositoryNameExistsException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const PullRequestCreatedEventMetadata = Schema.Struct({repositoryName: Schema.optional(Schema.String), sourceCommitId: Schema.optional(Schema.String), destinationCommitId: Schema.optional(Schema.String), mergeBase: Schema.optional(Schema.String)});
-export const PullRequestStatusChangedEventMetadata = Schema.Struct({pullRequestStatus: Schema.optional(Schema.String)});
-export const PullRequestSourceReferenceUpdatedEventMetadata = Schema.Struct({repositoryName: Schema.optional(Schema.String), beforeCommitId: Schema.optional(Schema.String), afterCommitId: Schema.optional(Schema.String), mergeBase: Schema.optional(Schema.String)});
-export const ApprovalRuleEventMetadata = Schema.Struct({approvalRuleName: Schema.optional(Schema.String), approvalRuleId: Schema.optional(Schema.String), approvalRuleContent: Schema.optional(Schema.String)});
-export const ApprovalStateChangedEventMetadata = Schema.Struct({revisionId: Schema.optional(Schema.String), approvalStatus: Schema.optional(Schema.String)});
-export const ApprovalRuleOverriddenEventMetadata = Schema.Struct({revisionId: Schema.optional(Schema.String), overrideStatus: Schema.optional(Schema.String)});
-export const ReactionValueFormats = Schema.Struct({emoji: Schema.optional(Schema.String), shortCode: Schema.optional(Schema.String), unicode: Schema.optional(Schema.String)});
-export const BlobMetadata = Schema.Struct({blobId: Schema.optional(Schema.String), path: Schema.optional(Schema.String), mode: Schema.optional(Schema.String)});
+export class EncryptionKeyDisabledException extends Schema.Class<EncryptionKeyDisabledException>("EncryptionKeyDisabledException")({message: Schema.optional(Schema.String)}) {}
+export class BatchAssociateApprovalRuleTemplateWithRepositoriesOutput extends Schema.Class<BatchAssociateApprovalRuleTemplateWithRepositoriesOutput>("BatchAssociateApprovalRuleTemplateWithRepositoriesOutput")({associatedRepositoryNames: RepositoryNameList, errors: BatchAssociateApprovalRuleTemplateWithRepositoriesErrorsList}) {}
+export class BatchDescribeMergeConflictsOutput extends Schema.Class<BatchDescribeMergeConflictsOutput>("BatchDescribeMergeConflictsOutput")({conflicts: Conflicts, nextToken: Schema.optional(Schema.String), errors: Schema.optional(BatchDescribeMergeConflictsErrors), destinationCommitId: Schema.String, sourceCommitId: Schema.String, baseCommitId: Schema.optional(Schema.String)}) {}
+export class BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput extends Schema.Class<BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput>("BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput")({disassociatedRepositoryNames: RepositoryNameList, errors: BatchDisassociateApprovalRuleTemplateFromRepositoriesErrorsList}) {}
+export class BatchGetRepositoriesOutput extends Schema.Class<BatchGetRepositoriesOutput>("BatchGetRepositoriesOutput")({repositories: Schema.optional(RepositoryMetadataList), repositoriesNotFound: Schema.optional(RepositoryNotFoundList), errors: Schema.optional(BatchGetRepositoriesErrorsList)}) {}
+export class CreateApprovalRuleTemplateOutput extends Schema.Class<CreateApprovalRuleTemplateOutput>("CreateApprovalRuleTemplateOutput")({approvalRuleTemplate: ApprovalRuleTemplate}) {}
+export class BranchNameRequiredException extends Schema.Class<BranchNameRequiredException>("BranchNameRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class CreateCommitInput extends Schema.Class<CreateCommitInput>("CreateCommitInput")({repositoryName: Schema.String, branchName: Schema.String, parentCommitId: Schema.optional(Schema.String), authorName: Schema.optional(Schema.String), email: Schema.optional(Schema.String), commitMessage: Schema.optional(Schema.String), keepEmptyFolders: Schema.optional(Schema.Boolean), putFiles: Schema.optional(PutFileEntries), deleteFiles: Schema.optional(DeleteFileEntries), setFileModes: Schema.optional(SetFileModeEntries)}) {}
+export class CreatePullRequestOutput extends Schema.Class<CreatePullRequestOutput>("CreatePullRequestOutput")({pullRequest: PullRequest}) {}
+export class CreateRepositoryOutput extends Schema.Class<CreateRepositoryOutput>("CreateRepositoryOutput")({repositoryMetadata: Schema.optional(RepositoryMetadata)}) {}
+export class CreateUnreferencedMergeCommitInput extends Schema.Class<CreateUnreferencedMergeCommitInput>("CreateUnreferencedMergeCommitInput")({repositoryName: Schema.String, sourceCommitSpecifier: Schema.String, destinationCommitSpecifier: Schema.String, mergeOption: Schema.String, conflictDetailLevel: Schema.optional(Schema.String), conflictResolutionStrategy: Schema.optional(Schema.String), authorName: Schema.optional(Schema.String), email: Schema.optional(Schema.String), commitMessage: Schema.optional(Schema.String), keepEmptyFolders: Schema.optional(Schema.Boolean), conflictResolution: Schema.optional(ConflictResolution)}) {}
+export class ApprovalRuleTemplateInUseException extends Schema.Class<ApprovalRuleTemplateInUseException>("ApprovalRuleTemplateInUseException")({message: Schema.optional(Schema.String)}) {}
+export class DeleteBranchOutput extends Schema.Class<DeleteBranchOutput>("DeleteBranchOutput")({deletedBranch: Schema.optional(BranchInfo)}) {}
+export class BranchNameIsTagNameException extends Schema.Class<BranchNameIsTagNameException>("BranchNameIsTagNameException")({message: Schema.optional(Schema.String)}) {}
+export class ApprovalRuleNameRequiredException extends Schema.Class<ApprovalRuleNameRequiredException>("ApprovalRuleNameRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class EncryptionKeyNotFoundException extends Schema.Class<EncryptionKeyNotFoundException>("EncryptionKeyNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class EncryptionKeyUnavailableException extends Schema.Class<EncryptionKeyUnavailableException>("EncryptionKeyUnavailableException")({message: Schema.optional(Schema.String)}) {}
+export class EvaluatePullRequestApprovalRulesOutput extends Schema.Class<EvaluatePullRequestApprovalRulesOutput>("EvaluatePullRequestApprovalRulesOutput")({evaluation: Evaluation}) {}
+export class InvalidApprovalRuleTemplateNameException extends Schema.Class<InvalidApprovalRuleTemplateNameException>("InvalidApprovalRuleTemplateNameException")({message: Schema.optional(Schema.String)}) {}
+export class BlobIdDoesNotExistException extends Schema.Class<BlobIdDoesNotExistException>("BlobIdDoesNotExistException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidBranchNameException extends Schema.Class<InvalidBranchNameException>("InvalidBranchNameException")({message: Schema.optional(Schema.String)}) {}
+export class CommentDoesNotExistException extends Schema.Class<CommentDoesNotExistException>("CommentDoesNotExistException")({message: Schema.optional(Schema.String)}) {}
+export class GetCommentsForComparedCommitOutput extends Schema.Class<GetCommentsForComparedCommitOutput>("GetCommentsForComparedCommitOutput")({commentsForComparedCommitData: Schema.optional(CommentsForComparedCommitData), nextToken: Schema.optional(Schema.String)}) {}
+export class GetCommentsForPullRequestOutput extends Schema.Class<GetCommentsForPullRequestOutput>("GetCommentsForPullRequestOutput")({commentsForPullRequestData: Schema.optional(CommentsForPullRequestData), nextToken: Schema.optional(Schema.String)}) {}
+export class CommitIdDoesNotExistException extends Schema.Class<CommitIdDoesNotExistException>("CommitIdDoesNotExistException")({message: Schema.optional(Schema.String)}) {}
+export class CommitDoesNotExistException extends Schema.Class<CommitDoesNotExistException>("CommitDoesNotExistException")({message: Schema.optional(Schema.String)}) {}
+export class GetFolderOutput extends Schema.Class<GetFolderOutput>("GetFolderOutput")({commitId: Schema.String, folderPath: Schema.String, treeId: Schema.optional(Schema.String), subFolders: Schema.optional(FolderList), files: Schema.optional(FileList), symbolicLinks: Schema.optional(SymbolicLinkList), subModules: Schema.optional(SubModuleList)}) {}
+export class CommitRequiredException extends Schema.Class<CommitRequiredException>("CommitRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidCommitException extends Schema.Class<InvalidCommitException>("InvalidCommitException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidConflictDetailLevelException extends Schema.Class<InvalidConflictDetailLevelException>("InvalidConflictDetailLevelException")({message: Schema.optional(Schema.String)}) {}
+export class GetPullRequestApprovalStatesOutput extends Schema.Class<GetPullRequestApprovalStatesOutput>("GetPullRequestApprovalStatesOutput")({approvals: Schema.optional(ApprovalList)}) {}
+export class InvalidPullRequestIdException extends Schema.Class<InvalidPullRequestIdException>("InvalidPullRequestIdException")({message: Schema.optional(Schema.String)}) {}
+export class RepositoryNameRequiredException extends Schema.Class<RepositoryNameRequiredException>("RepositoryNameRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidContinuationTokenException extends Schema.Class<InvalidContinuationTokenException>("InvalidContinuationTokenException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidMaxResultsException extends Schema.Class<InvalidMaxResultsException>("InvalidMaxResultsException")({message: Schema.optional(Schema.String)}) {}
+export class ListFileCommitHistoryResponse extends Schema.Class<ListFileCommitHistoryResponse>("ListFileCommitHistoryResponse")({revisionDag: RevisionDag, nextToken: Schema.optional(Schema.String)}) {}
+export class AuthorDoesNotExistException extends Schema.Class<AuthorDoesNotExistException>("AuthorDoesNotExistException")({message: Schema.optional(Schema.String)}) {}
+export class ListRepositoriesOutput extends Schema.Class<ListRepositoriesOutput>("ListRepositoriesOutput")({repositories: Schema.optional(RepositoryNameIdPairList), nextToken: Schema.optional(Schema.String)}) {}
+export class ResourceArnRequiredException extends Schema.Class<ResourceArnRequiredException>("ResourceArnRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class ConcurrentReferenceUpdateException extends Schema.Class<ConcurrentReferenceUpdateException>("ConcurrentReferenceUpdateException")({message: Schema.optional(Schema.String)}) {}
+export class CommitMessageLengthExceededException extends Schema.Class<CommitMessageLengthExceededException>("CommitMessageLengthExceededException")({message: Schema.optional(Schema.String)}) {}
+export class FileContentSizeLimitExceededException extends Schema.Class<FileContentSizeLimitExceededException>("FileContentSizeLimitExceededException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidCommitIdException extends Schema.Class<InvalidCommitIdException>("InvalidCommitIdException")({message: Schema.optional(Schema.String)}) {}
+export class FolderContentSizeLimitExceededException extends Schema.Class<FolderContentSizeLimitExceededException>("FolderContentSizeLimitExceededException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidConflictResolutionException extends Schema.Class<InvalidConflictResolutionException>("InvalidConflictResolutionException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidOverrideStatusException extends Schema.Class<InvalidOverrideStatusException>("InvalidOverrideStatusException")({message: Schema.optional(Schema.String)}) {}
+export class PostCommentForComparedCommitOutput extends Schema.Class<PostCommentForComparedCommitOutput>("PostCommentForComparedCommitOutput")({repositoryName: Schema.optional(Schema.String), beforeCommitId: Schema.optional(Schema.String), afterCommitId: Schema.optional(Schema.String), beforeBlobId: Schema.optional(Schema.String), afterBlobId: Schema.optional(Schema.String), location: Schema.optional(Location), comment: Schema.optional(Comment)}) {}
+export class BeforeCommitIdAndAfterCommitIdAreSameException extends Schema.Class<BeforeCommitIdAndAfterCommitIdAreSameException>("BeforeCommitIdAndAfterCommitIdAreSameException")({message: Schema.optional(Schema.String)}) {}
+export class ClientRequestTokenRequiredException extends Schema.Class<ClientRequestTokenRequiredException>("ClientRequestTokenRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class CommentIdRequiredException extends Schema.Class<CommentIdRequiredException>("CommentIdRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class DirectoryNameConflictsWithFileNameException extends Schema.Class<DirectoryNameConflictsWithFileNameException>("DirectoryNameConflictsWithFileNameException")({message: Schema.optional(Schema.String)}) {}
+export class PutRepositoryTriggersOutput extends Schema.Class<PutRepositoryTriggersOutput>("PutRepositoryTriggersOutput")({configurationId: Schema.optional(Schema.String)}) {}
+export class InvalidSystemTagUsageException extends Schema.Class<InvalidSystemTagUsageException>("InvalidSystemTagUsageException")({message: Schema.optional(Schema.String)}) {}
+export class TestRepositoryTriggersOutput extends Schema.Class<TestRepositoryTriggersOutput>("TestRepositoryTriggersOutput")({successfulExecutions: Schema.optional(RepositoryTriggerNameList), failedExecutions: Schema.optional(RepositoryTriggerExecutionFailureList)}) {}
+export class InvalidTagKeysListException extends Schema.Class<InvalidTagKeysListException>("InvalidTagKeysListException")({message: Schema.optional(Schema.String)}) {}
+export class ApprovalRuleTemplateContentRequiredException extends Schema.Class<ApprovalRuleTemplateContentRequiredException>("ApprovalRuleTemplateContentRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidApprovalRuleTemplateDescriptionException extends Schema.Class<InvalidApprovalRuleTemplateDescriptionException>("InvalidApprovalRuleTemplateDescriptionException")({message: Schema.optional(Schema.String)}) {}
+export class ApprovalRuleTemplateNameAlreadyExistsException extends Schema.Class<ApprovalRuleTemplateNameAlreadyExistsException>("ApprovalRuleTemplateNameAlreadyExistsException")({message: Schema.optional(Schema.String)}) {}
+export class CommentContentRequiredException extends Schema.Class<CommentContentRequiredException>("CommentContentRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class ApprovalRuleContentRequiredException extends Schema.Class<ApprovalRuleContentRequiredException>("ApprovalRuleContentRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidApprovalStateException extends Schema.Class<InvalidApprovalStateException>("InvalidApprovalStateException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidDescriptionException extends Schema.Class<InvalidDescriptionException>("InvalidDescriptionException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidPullRequestStatusException extends Schema.Class<InvalidPullRequestStatusException>("InvalidPullRequestStatusException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidTitleException extends Schema.Class<InvalidTitleException>("InvalidTitleException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidRepositoryDescriptionException extends Schema.Class<InvalidRepositoryDescriptionException>("InvalidRepositoryDescriptionException")({message: Schema.optional(Schema.String)}) {}
+export class EncryptionKeyInvalidIdException extends Schema.Class<EncryptionKeyInvalidIdException>("EncryptionKeyInvalidIdException")({message: Schema.optional(Schema.String)}) {}
+export class RepositoryNameExistsException extends Schema.Class<RepositoryNameExistsException>("RepositoryNameExistsException")({message: Schema.optional(Schema.String)}) {}
+export class PullRequestCreatedEventMetadata extends Schema.Class<PullRequestCreatedEventMetadata>("PullRequestCreatedEventMetadata")({repositoryName: Schema.optional(Schema.String), sourceCommitId: Schema.optional(Schema.String), destinationCommitId: Schema.optional(Schema.String), mergeBase: Schema.optional(Schema.String)}) {}
+export class PullRequestStatusChangedEventMetadata extends Schema.Class<PullRequestStatusChangedEventMetadata>("PullRequestStatusChangedEventMetadata")({pullRequestStatus: Schema.optional(Schema.String)}) {}
+export class PullRequestSourceReferenceUpdatedEventMetadata extends Schema.Class<PullRequestSourceReferenceUpdatedEventMetadata>("PullRequestSourceReferenceUpdatedEventMetadata")({repositoryName: Schema.optional(Schema.String), beforeCommitId: Schema.optional(Schema.String), afterCommitId: Schema.optional(Schema.String), mergeBase: Schema.optional(Schema.String)}) {}
+export class ApprovalRuleEventMetadata extends Schema.Class<ApprovalRuleEventMetadata>("ApprovalRuleEventMetadata")({approvalRuleName: Schema.optional(Schema.String), approvalRuleId: Schema.optional(Schema.String), approvalRuleContent: Schema.optional(Schema.String)}) {}
+export class ApprovalStateChangedEventMetadata extends Schema.Class<ApprovalStateChangedEventMetadata>("ApprovalStateChangedEventMetadata")({revisionId: Schema.optional(Schema.String), approvalStatus: Schema.optional(Schema.String)}) {}
+export class ApprovalRuleOverriddenEventMetadata extends Schema.Class<ApprovalRuleOverriddenEventMetadata>("ApprovalRuleOverriddenEventMetadata")({revisionId: Schema.optional(Schema.String), overrideStatus: Schema.optional(Schema.String)}) {}
+export class ReactionValueFormats extends Schema.Class<ReactionValueFormats>("ReactionValueFormats")({emoji: Schema.optional(Schema.String), shortCode: Schema.optional(Schema.String), unicode: Schema.optional(Schema.String)}) {}
+export class BlobMetadata extends Schema.Class<BlobMetadata>("BlobMetadata")({blobId: Schema.optional(Schema.String), path: Schema.optional(Schema.String), mode: Schema.optional(Schema.String)}) {}
 export const CommitObjectsList = Schema.Array(Commit);
-export const ReactionForComment = Schema.Struct({reaction: Schema.optional(ReactionValueFormats), reactionUsers: Schema.optional(ReactionUsersList), reactionsFromDeletedUsersCount: Schema.optional(Schema.Number)});
+export class ReactionForComment extends Schema.Class<ReactionForComment>("ReactionForComment")({reaction: Schema.optional(ReactionValueFormats), reactionUsers: Schema.optional(ReactionUsersList), reactionsFromDeletedUsersCount: Schema.optional(Schema.Number)}) {}
 export const ReactionsForCommentList = Schema.Array(ReactionForComment);
-export const Difference = Schema.Struct({beforeBlob: Schema.optional(BlobMetadata), afterBlob: Schema.optional(BlobMetadata), changeType: Schema.optional(Schema.String)});
+export class Difference extends Schema.Class<Difference>("Difference")({beforeBlob: Schema.optional(BlobMetadata), afterBlob: Schema.optional(BlobMetadata), changeType: Schema.optional(Schema.String)}) {}
 export const DifferenceList = Schema.Array(Difference);
-export const MaximumRuleTemplatesAssociatedWithRepositoryException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const MaximumRepositoryNamesExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidConflictResolutionStrategyException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const RepositoryNamesRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const BatchGetCommitsOutput = Schema.Struct({commits: Schema.optional(CommitObjectsList), errors: Schema.optional(BatchGetCommitsErrorsList)});
-export const InvalidApprovalRuleTemplateContentException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CommitIdRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const IdempotencyParameterMismatchException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CreatePullRequestApprovalRuleOutput = Schema.Struct({approvalRule: ApprovalRule});
-export const EncryptionKeyInvalidUsageException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CreateUnreferencedMergeCommitOutput = Schema.Struct({commitId: Schema.optional(Schema.String), treeId: Schema.optional(Schema.String)});
-export const DefaultBranchCannotBeDeletedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DeleteCommentContentOutput = Schema.Struct({comment: Schema.optional(Comment)});
-export const FileDoesNotExistException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CannotDeleteApprovalRuleFromTemplateException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DescribeMergeConflictsOutput = Schema.Struct({conflictMetadata: ConflictMetadata, mergeHunks: MergeHunks, nextToken: Schema.optional(Schema.String), destinationCommitId: Schema.String, sourceCommitId: Schema.String, baseCommitId: Schema.optional(Schema.String)});
-export const InvalidRevisionIdException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const BlobIdRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidCommentIdException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const GetCommentReactionsOutput = Schema.Struct({reactionsForComment: ReactionsForCommentList, nextToken: Schema.optional(Schema.String)});
-export const PullRequestDoesNotExistException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const GetDifferencesOutput = Schema.Struct({differences: Schema.optional(DifferenceList), NextToken: Schema.optional(Schema.String)});
-export const FileTooLargeException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const FolderDoesNotExistException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidDestinationCommitSpecifierException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const MaximumFileContentToLoadExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const GetPullRequestOutput = Schema.Struct({pullRequest: PullRequest});
-export const PullRequestIdRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const RevisionIdRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const TipsDivergenceExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidAuthorArnException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidOrderException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidTargetBranchException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const FileModeRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidEmailException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ManualMergeRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidFileModeException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidPathException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const OverrideAlreadySetException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CommentContentSizeLimitExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidClientRequestTokenException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidReactionValueException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const FileContentRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidRepositoryTriggerBranchNameException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidTagsMapException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidRepositoryTriggerCustomDataException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const TagKeysListRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidRuleContentSha256Exception = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CommentNotCreatedByCallerException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ApprovalRuleDoesNotExistException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const MaximumNumberOfApprovalsExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const PullRequestAlreadyClosedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidPullRequestStatusUpdateException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const TitleRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const EncryptionKeyRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const PullRequestMergedStateChangedEventMetadata = Schema.Struct({repositoryName: Schema.optional(Schema.String), destinationReference: Schema.optional(Schema.String), mergeMetadata: Schema.optional(MergeMetadata)});
-export const FileMetadata = Schema.Struct({absolutePath: Schema.optional(Schema.String), blobId: Schema.optional(Schema.String), fileMode: Schema.optional(Schema.String)});
+export class MaximumRuleTemplatesAssociatedWithRepositoryException extends Schema.Class<MaximumRuleTemplatesAssociatedWithRepositoryException>("MaximumRuleTemplatesAssociatedWithRepositoryException")({message: Schema.optional(Schema.String)}) {}
+export class MaximumRepositoryNamesExceededException extends Schema.Class<MaximumRepositoryNamesExceededException>("MaximumRepositoryNamesExceededException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidConflictResolutionStrategyException extends Schema.Class<InvalidConflictResolutionStrategyException>("InvalidConflictResolutionStrategyException")({message: Schema.optional(Schema.String)}) {}
+export class RepositoryNamesRequiredException extends Schema.Class<RepositoryNamesRequiredException>("RepositoryNamesRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class BatchGetCommitsOutput extends Schema.Class<BatchGetCommitsOutput>("BatchGetCommitsOutput")({commits: Schema.optional(CommitObjectsList), errors: Schema.optional(BatchGetCommitsErrorsList)}) {}
+export class InvalidApprovalRuleTemplateContentException extends Schema.Class<InvalidApprovalRuleTemplateContentException>("InvalidApprovalRuleTemplateContentException")({message: Schema.optional(Schema.String)}) {}
+export class CommitIdRequiredException extends Schema.Class<CommitIdRequiredException>("CommitIdRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class IdempotencyParameterMismatchException extends Schema.Class<IdempotencyParameterMismatchException>("IdempotencyParameterMismatchException")({message: Schema.optional(Schema.String)}) {}
+export class CreatePullRequestApprovalRuleOutput extends Schema.Class<CreatePullRequestApprovalRuleOutput>("CreatePullRequestApprovalRuleOutput")({approvalRule: ApprovalRule}) {}
+export class EncryptionKeyInvalidUsageException extends Schema.Class<EncryptionKeyInvalidUsageException>("EncryptionKeyInvalidUsageException")({message: Schema.optional(Schema.String)}) {}
+export class CreateUnreferencedMergeCommitOutput extends Schema.Class<CreateUnreferencedMergeCommitOutput>("CreateUnreferencedMergeCommitOutput")({commitId: Schema.optional(Schema.String), treeId: Schema.optional(Schema.String)}) {}
+export class DefaultBranchCannotBeDeletedException extends Schema.Class<DefaultBranchCannotBeDeletedException>("DefaultBranchCannotBeDeletedException")({message: Schema.optional(Schema.String)}) {}
+export class DeleteCommentContentOutput extends Schema.Class<DeleteCommentContentOutput>("DeleteCommentContentOutput")({comment: Schema.optional(Comment)}) {}
+export class FileDoesNotExistException extends Schema.Class<FileDoesNotExistException>("FileDoesNotExistException")({message: Schema.optional(Schema.String)}) {}
+export class CannotDeleteApprovalRuleFromTemplateException extends Schema.Class<CannotDeleteApprovalRuleFromTemplateException>("CannotDeleteApprovalRuleFromTemplateException")({message: Schema.optional(Schema.String)}) {}
+export class DescribeMergeConflictsOutput extends Schema.Class<DescribeMergeConflictsOutput>("DescribeMergeConflictsOutput")({conflictMetadata: ConflictMetadata, mergeHunks: MergeHunks, nextToken: Schema.optional(Schema.String), destinationCommitId: Schema.String, sourceCommitId: Schema.String, baseCommitId: Schema.optional(Schema.String)}) {}
+export class InvalidRevisionIdException extends Schema.Class<InvalidRevisionIdException>("InvalidRevisionIdException")({message: Schema.optional(Schema.String)}) {}
+export class BlobIdRequiredException extends Schema.Class<BlobIdRequiredException>("BlobIdRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidCommentIdException extends Schema.Class<InvalidCommentIdException>("InvalidCommentIdException")({message: Schema.optional(Schema.String)}) {}
+export class GetCommentReactionsOutput extends Schema.Class<GetCommentReactionsOutput>("GetCommentReactionsOutput")({reactionsForComment: ReactionsForCommentList, nextToken: Schema.optional(Schema.String)}) {}
+export class PullRequestDoesNotExistException extends Schema.Class<PullRequestDoesNotExistException>("PullRequestDoesNotExistException")({message: Schema.optional(Schema.String)}) {}
+export class GetDifferencesOutput extends Schema.Class<GetDifferencesOutput>("GetDifferencesOutput")({differences: Schema.optional(DifferenceList), NextToken: Schema.optional(Schema.String)}) {}
+export class FileTooLargeException extends Schema.Class<FileTooLargeException>("FileTooLargeException")({message: Schema.optional(Schema.String)}) {}
+export class FolderDoesNotExistException extends Schema.Class<FolderDoesNotExistException>("FolderDoesNotExistException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidDestinationCommitSpecifierException extends Schema.Class<InvalidDestinationCommitSpecifierException>("InvalidDestinationCommitSpecifierException")({message: Schema.optional(Schema.String)}) {}
+export class MaximumFileContentToLoadExceededException extends Schema.Class<MaximumFileContentToLoadExceededException>("MaximumFileContentToLoadExceededException")({message: Schema.optional(Schema.String)}) {}
+export class GetPullRequestOutput extends Schema.Class<GetPullRequestOutput>("GetPullRequestOutput")({pullRequest: PullRequest}) {}
+export class PullRequestIdRequiredException extends Schema.Class<PullRequestIdRequiredException>("PullRequestIdRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class RevisionIdRequiredException extends Schema.Class<RevisionIdRequiredException>("RevisionIdRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class TipsDivergenceExceededException extends Schema.Class<TipsDivergenceExceededException>("TipsDivergenceExceededException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidAuthorArnException extends Schema.Class<InvalidAuthorArnException>("InvalidAuthorArnException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidOrderException extends Schema.Class<InvalidOrderException>("InvalidOrderException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidTargetBranchException extends Schema.Class<InvalidTargetBranchException>("InvalidTargetBranchException")({message: Schema.optional(Schema.String)}) {}
+export class FileModeRequiredException extends Schema.Class<FileModeRequiredException>("FileModeRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidEmailException extends Schema.Class<InvalidEmailException>("InvalidEmailException")({message: Schema.optional(Schema.String)}) {}
+export class ManualMergeRequiredException extends Schema.Class<ManualMergeRequiredException>("ManualMergeRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidFileModeException extends Schema.Class<InvalidFileModeException>("InvalidFileModeException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidPathException extends Schema.Class<InvalidPathException>("InvalidPathException")({message: Schema.optional(Schema.String)}) {}
+export class OverrideAlreadySetException extends Schema.Class<OverrideAlreadySetException>("OverrideAlreadySetException")({message: Schema.optional(Schema.String)}) {}
+export class CommentContentSizeLimitExceededException extends Schema.Class<CommentContentSizeLimitExceededException>("CommentContentSizeLimitExceededException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidClientRequestTokenException extends Schema.Class<InvalidClientRequestTokenException>("InvalidClientRequestTokenException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidReactionValueException extends Schema.Class<InvalidReactionValueException>("InvalidReactionValueException")({message: Schema.optional(Schema.String)}) {}
+export class FileContentRequiredException extends Schema.Class<FileContentRequiredException>("FileContentRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidRepositoryTriggerBranchNameException extends Schema.Class<InvalidRepositoryTriggerBranchNameException>("InvalidRepositoryTriggerBranchNameException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidTagsMapException extends Schema.Class<InvalidTagsMapException>("InvalidTagsMapException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidRepositoryTriggerCustomDataException extends Schema.Class<InvalidRepositoryTriggerCustomDataException>("InvalidRepositoryTriggerCustomDataException")({message: Schema.optional(Schema.String)}) {}
+export class TagKeysListRequiredException extends Schema.Class<TagKeysListRequiredException>("TagKeysListRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidRuleContentSha256Exception extends Schema.Class<InvalidRuleContentSha256Exception>("InvalidRuleContentSha256Exception")({message: Schema.optional(Schema.String)}) {}
+export class CommentNotCreatedByCallerException extends Schema.Class<CommentNotCreatedByCallerException>("CommentNotCreatedByCallerException")({message: Schema.optional(Schema.String)}) {}
+export class ApprovalRuleDoesNotExistException extends Schema.Class<ApprovalRuleDoesNotExistException>("ApprovalRuleDoesNotExistException")({message: Schema.optional(Schema.String)}) {}
+export class MaximumNumberOfApprovalsExceededException extends Schema.Class<MaximumNumberOfApprovalsExceededException>("MaximumNumberOfApprovalsExceededException")({message: Schema.optional(Schema.String)}) {}
+export class PullRequestAlreadyClosedException extends Schema.Class<PullRequestAlreadyClosedException>("PullRequestAlreadyClosedException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidPullRequestStatusUpdateException extends Schema.Class<InvalidPullRequestStatusUpdateException>("InvalidPullRequestStatusUpdateException")({message: Schema.optional(Schema.String)}) {}
+export class TitleRequiredException extends Schema.Class<TitleRequiredException>("TitleRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class EncryptionKeyRequiredException extends Schema.Class<EncryptionKeyRequiredException>("EncryptionKeyRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class PullRequestMergedStateChangedEventMetadata extends Schema.Class<PullRequestMergedStateChangedEventMetadata>("PullRequestMergedStateChangedEventMetadata")({repositoryName: Schema.optional(Schema.String), destinationReference: Schema.optional(Schema.String), mergeMetadata: Schema.optional(MergeMetadata)}) {}
+export class FileMetadata extends Schema.Class<FileMetadata>("FileMetadata")({absolutePath: Schema.optional(Schema.String), blobId: Schema.optional(Schema.String), fileMode: Schema.optional(Schema.String)}) {}
 export const FilesMetadata = Schema.Array(FileMetadata);
-export const PullRequestEvent = Schema.Struct({pullRequestId: Schema.optional(Schema.String), eventDate: Schema.optional(Schema.Date), pullRequestEventType: Schema.optional(Schema.String), actorArn: Schema.optional(Schema.String), pullRequestCreatedEventMetadata: Schema.optional(PullRequestCreatedEventMetadata), pullRequestStatusChangedEventMetadata: Schema.optional(PullRequestStatusChangedEventMetadata), pullRequestSourceReferenceUpdatedEventMetadata: Schema.optional(PullRequestSourceReferenceUpdatedEventMetadata), pullRequestMergedStateChangedEventMetadata: Schema.optional(PullRequestMergedStateChangedEventMetadata), approvalRuleEventMetadata: Schema.optional(ApprovalRuleEventMetadata), approvalStateChangedEventMetadata: Schema.optional(ApprovalStateChangedEventMetadata), approvalRuleOverriddenEventMetadata: Schema.optional(ApprovalRuleOverriddenEventMetadata)});
+export class PullRequestEvent extends Schema.Class<PullRequestEvent>("PullRequestEvent")({pullRequestId: Schema.optional(Schema.String), eventDate: Schema.optional(Schema.Date), pullRequestEventType: Schema.optional(Schema.String), actorArn: Schema.optional(Schema.String), pullRequestCreatedEventMetadata: Schema.optional(PullRequestCreatedEventMetadata), pullRequestStatusChangedEventMetadata: Schema.optional(PullRequestStatusChangedEventMetadata), pullRequestSourceReferenceUpdatedEventMetadata: Schema.optional(PullRequestSourceReferenceUpdatedEventMetadata), pullRequestMergedStateChangedEventMetadata: Schema.optional(PullRequestMergedStateChangedEventMetadata), approvalRuleEventMetadata: Schema.optional(ApprovalRuleEventMetadata), approvalStateChangedEventMetadata: Schema.optional(ApprovalStateChangedEventMetadata), approvalRuleOverriddenEventMetadata: Schema.optional(ApprovalRuleOverriddenEventMetadata)}) {}
 export const PullRequestEventList = Schema.Array(PullRequestEvent);
-export const InvalidMaxConflictFilesException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CommitIdsLimitExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const NumberOfRuleTemplatesExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CreateCommitOutput = Schema.Struct({commitId: Schema.optional(Schema.String), treeId: Schema.optional(Schema.String), filesAdded: Schema.optional(FilesMetadata), filesUpdated: Schema.optional(FilesMetadata), filesDeleted: Schema.optional(FilesMetadata)});
-export const InvalidReferenceNameException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ApprovalRuleNameAlreadyExistsException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const OperationNotAllowedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidMergeOptionException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidParentCommitIdException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidApprovalRuleNameException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidMaxMergeHunksException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DescribePullRequestEventsOutput = Schema.Struct({pullRequestEvents: PullRequestEventList, nextToken: Schema.optional(Schema.String)});
-export const RevisionNotCurrentException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidBlobIdException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidReactionUserArnException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const RepositoryNotAssociatedWithPullRequestException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const PathDoesNotExistException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const PathRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidSourceCommitSpecifierException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const MaximumItemsToCompareExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidSortByException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidReplacementContentException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidReplacementTypeException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const PullRequestApprovalRulesNotSatisfiedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const MaximumConflictResolutionEntriesExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const MultipleConflictResolutionEntriesException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const OverrideStatusRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidFileLocationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidFilePositionException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ReactionLimitExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const FileNameConflictsWithDirectoryNameException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidRepositoryTriggerDestinationArnException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const TagPolicyException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidRepositoryTriggerEventsException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const TooManyTagsException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CannotModifyApprovalRuleFromTemplateException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const PullRequestCannotBeApprovedByAuthorException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const PullRequestStatusRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const MergeOptionRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CommitIdsListRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const FileContentAndSourceFileSpecifiedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidTargetException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidApprovalRuleContentException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const RepositoryLimitExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const NameLengthExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ParentCommitDoesNotExistException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ActorDoesNotExistException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ReplacementContentRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ReplacementTypeRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ReferenceDoesNotExistException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const TipOfSourceReferenceIsDifferentException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidRelativeFileVersionEnumException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ReactionValueRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const FilePathConflictsWithSubmodulePathException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidRepositoryTriggerNameException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const TagsMapRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidRepositoryTriggerRegionException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const FileEntryRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidTargetsException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const NumberOfRulesExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ParentCommitIdOutdatedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidActorArnException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidDeletionParameterException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const MaximumBranchesExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const MaximumRepositoryTriggersExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const MaximumFileEntriesExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const MaximumOpenPullRequestsExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ParentCommitIdRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidPullRequestEventTypeException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const SameFileContentException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const RepositoryTriggerBranchNameListRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const RepositoryTriggerDestinationArnRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const NoChangeException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const MultipleRepositoriesInPullRequestException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const RepositoryTriggerEventsListRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const RepositoryTriggerNameRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const PutFileEntryConflictException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ReferenceNameRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const RepositoryTriggersListRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const RestrictedSourceFileException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ReferenceTypeNotSupportedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const SamePathRequestException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const SourceAndDestinationAreSameException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const SourceFileOrContentRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const TargetRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const TargetsRequiredException = Schema.Struct({message: Schema.optional(Schema.String)});
+export class InvalidMaxConflictFilesException extends Schema.Class<InvalidMaxConflictFilesException>("InvalidMaxConflictFilesException")({message: Schema.optional(Schema.String)}) {}
+export class CommitIdsLimitExceededException extends Schema.Class<CommitIdsLimitExceededException>("CommitIdsLimitExceededException")({message: Schema.optional(Schema.String)}) {}
+export class NumberOfRuleTemplatesExceededException extends Schema.Class<NumberOfRuleTemplatesExceededException>("NumberOfRuleTemplatesExceededException")({message: Schema.optional(Schema.String)}) {}
+export class CreateCommitOutput extends Schema.Class<CreateCommitOutput>("CreateCommitOutput")({commitId: Schema.optional(Schema.String), treeId: Schema.optional(Schema.String), filesAdded: Schema.optional(FilesMetadata), filesUpdated: Schema.optional(FilesMetadata), filesDeleted: Schema.optional(FilesMetadata)}) {}
+export class InvalidReferenceNameException extends Schema.Class<InvalidReferenceNameException>("InvalidReferenceNameException")({message: Schema.optional(Schema.String)}) {}
+export class ApprovalRuleNameAlreadyExistsException extends Schema.Class<ApprovalRuleNameAlreadyExistsException>("ApprovalRuleNameAlreadyExistsException")({message: Schema.optional(Schema.String)}) {}
+export class OperationNotAllowedException extends Schema.Class<OperationNotAllowedException>("OperationNotAllowedException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidMergeOptionException extends Schema.Class<InvalidMergeOptionException>("InvalidMergeOptionException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidParentCommitIdException extends Schema.Class<InvalidParentCommitIdException>("InvalidParentCommitIdException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidApprovalRuleNameException extends Schema.Class<InvalidApprovalRuleNameException>("InvalidApprovalRuleNameException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidMaxMergeHunksException extends Schema.Class<InvalidMaxMergeHunksException>("InvalidMaxMergeHunksException")({message: Schema.optional(Schema.String)}) {}
+export class DescribePullRequestEventsOutput extends Schema.Class<DescribePullRequestEventsOutput>("DescribePullRequestEventsOutput")({pullRequestEvents: PullRequestEventList, nextToken: Schema.optional(Schema.String)}) {}
+export class RevisionNotCurrentException extends Schema.Class<RevisionNotCurrentException>("RevisionNotCurrentException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidBlobIdException extends Schema.Class<InvalidBlobIdException>("InvalidBlobIdException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidReactionUserArnException extends Schema.Class<InvalidReactionUserArnException>("InvalidReactionUserArnException")({message: Schema.optional(Schema.String)}) {}
+export class RepositoryNotAssociatedWithPullRequestException extends Schema.Class<RepositoryNotAssociatedWithPullRequestException>("RepositoryNotAssociatedWithPullRequestException")({message: Schema.optional(Schema.String)}) {}
+export class PathDoesNotExistException extends Schema.Class<PathDoesNotExistException>("PathDoesNotExistException")({message: Schema.optional(Schema.String)}) {}
+export class PathRequiredException extends Schema.Class<PathRequiredException>("PathRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidSourceCommitSpecifierException extends Schema.Class<InvalidSourceCommitSpecifierException>("InvalidSourceCommitSpecifierException")({message: Schema.optional(Schema.String)}) {}
+export class MaximumItemsToCompareExceededException extends Schema.Class<MaximumItemsToCompareExceededException>("MaximumItemsToCompareExceededException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidSortByException extends Schema.Class<InvalidSortByException>("InvalidSortByException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidReplacementContentException extends Schema.Class<InvalidReplacementContentException>("InvalidReplacementContentException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidReplacementTypeException extends Schema.Class<InvalidReplacementTypeException>("InvalidReplacementTypeException")({message: Schema.optional(Schema.String)}) {}
+export class PullRequestApprovalRulesNotSatisfiedException extends Schema.Class<PullRequestApprovalRulesNotSatisfiedException>("PullRequestApprovalRulesNotSatisfiedException")({message: Schema.optional(Schema.String)}) {}
+export class MaximumConflictResolutionEntriesExceededException extends Schema.Class<MaximumConflictResolutionEntriesExceededException>("MaximumConflictResolutionEntriesExceededException")({message: Schema.optional(Schema.String)}) {}
+export class MultipleConflictResolutionEntriesException extends Schema.Class<MultipleConflictResolutionEntriesException>("MultipleConflictResolutionEntriesException")({message: Schema.optional(Schema.String)}) {}
+export class OverrideStatusRequiredException extends Schema.Class<OverrideStatusRequiredException>("OverrideStatusRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidFileLocationException extends Schema.Class<InvalidFileLocationException>("InvalidFileLocationException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidFilePositionException extends Schema.Class<InvalidFilePositionException>("InvalidFilePositionException")({message: Schema.optional(Schema.String)}) {}
+export class ReactionLimitExceededException extends Schema.Class<ReactionLimitExceededException>("ReactionLimitExceededException")({message: Schema.optional(Schema.String)}) {}
+export class FileNameConflictsWithDirectoryNameException extends Schema.Class<FileNameConflictsWithDirectoryNameException>("FileNameConflictsWithDirectoryNameException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidRepositoryTriggerDestinationArnException extends Schema.Class<InvalidRepositoryTriggerDestinationArnException>("InvalidRepositoryTriggerDestinationArnException")({message: Schema.optional(Schema.String)}) {}
+export class TagPolicyException extends Schema.Class<TagPolicyException>("TagPolicyException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidRepositoryTriggerEventsException extends Schema.Class<InvalidRepositoryTriggerEventsException>("InvalidRepositoryTriggerEventsException")({message: Schema.optional(Schema.String)}) {}
+export class TooManyTagsException extends Schema.Class<TooManyTagsException>("TooManyTagsException")({message: Schema.optional(Schema.String)}) {}
+export class CannotModifyApprovalRuleFromTemplateException extends Schema.Class<CannotModifyApprovalRuleFromTemplateException>("CannotModifyApprovalRuleFromTemplateException")({message: Schema.optional(Schema.String)}) {}
+export class PullRequestCannotBeApprovedByAuthorException extends Schema.Class<PullRequestCannotBeApprovedByAuthorException>("PullRequestCannotBeApprovedByAuthorException")({message: Schema.optional(Schema.String)}) {}
+export class PullRequestStatusRequiredException extends Schema.Class<PullRequestStatusRequiredException>("PullRequestStatusRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class MergeOptionRequiredException extends Schema.Class<MergeOptionRequiredException>("MergeOptionRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class CommitIdsListRequiredException extends Schema.Class<CommitIdsListRequiredException>("CommitIdsListRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class FileContentAndSourceFileSpecifiedException extends Schema.Class<FileContentAndSourceFileSpecifiedException>("FileContentAndSourceFileSpecifiedException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidTargetException extends Schema.Class<InvalidTargetException>("InvalidTargetException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidApprovalRuleContentException extends Schema.Class<InvalidApprovalRuleContentException>("InvalidApprovalRuleContentException")({message: Schema.optional(Schema.String)}) {}
+export class RepositoryLimitExceededException extends Schema.Class<RepositoryLimitExceededException>("RepositoryLimitExceededException")({message: Schema.optional(Schema.String)}) {}
+export class NameLengthExceededException extends Schema.Class<NameLengthExceededException>("NameLengthExceededException")({message: Schema.optional(Schema.String)}) {}
+export class ParentCommitDoesNotExistException extends Schema.Class<ParentCommitDoesNotExistException>("ParentCommitDoesNotExistException")({message: Schema.optional(Schema.String)}) {}
+export class ActorDoesNotExistException extends Schema.Class<ActorDoesNotExistException>("ActorDoesNotExistException")({message: Schema.optional(Schema.String)}) {}
+export class ReplacementContentRequiredException extends Schema.Class<ReplacementContentRequiredException>("ReplacementContentRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class ReplacementTypeRequiredException extends Schema.Class<ReplacementTypeRequiredException>("ReplacementTypeRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class ReferenceDoesNotExistException extends Schema.Class<ReferenceDoesNotExistException>("ReferenceDoesNotExistException")({message: Schema.optional(Schema.String)}) {}
+export class TipOfSourceReferenceIsDifferentException extends Schema.Class<TipOfSourceReferenceIsDifferentException>("TipOfSourceReferenceIsDifferentException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidRelativeFileVersionEnumException extends Schema.Class<InvalidRelativeFileVersionEnumException>("InvalidRelativeFileVersionEnumException")({message: Schema.optional(Schema.String)}) {}
+export class ReactionValueRequiredException extends Schema.Class<ReactionValueRequiredException>("ReactionValueRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class FilePathConflictsWithSubmodulePathException extends Schema.Class<FilePathConflictsWithSubmodulePathException>("FilePathConflictsWithSubmodulePathException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidRepositoryTriggerNameException extends Schema.Class<InvalidRepositoryTriggerNameException>("InvalidRepositoryTriggerNameException")({message: Schema.optional(Schema.String)}) {}
+export class TagsMapRequiredException extends Schema.Class<TagsMapRequiredException>("TagsMapRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidRepositoryTriggerRegionException extends Schema.Class<InvalidRepositoryTriggerRegionException>("InvalidRepositoryTriggerRegionException")({message: Schema.optional(Schema.String)}) {}
+export class FileEntryRequiredException extends Schema.Class<FileEntryRequiredException>("FileEntryRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidTargetsException extends Schema.Class<InvalidTargetsException>("InvalidTargetsException")({message: Schema.optional(Schema.String)}) {}
+export class NumberOfRulesExceededException extends Schema.Class<NumberOfRulesExceededException>("NumberOfRulesExceededException")({message: Schema.optional(Schema.String)}) {}
+export class ParentCommitIdOutdatedException extends Schema.Class<ParentCommitIdOutdatedException>("ParentCommitIdOutdatedException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidActorArnException extends Schema.Class<InvalidActorArnException>("InvalidActorArnException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidDeletionParameterException extends Schema.Class<InvalidDeletionParameterException>("InvalidDeletionParameterException")({message: Schema.optional(Schema.String)}) {}
+export class MaximumBranchesExceededException extends Schema.Class<MaximumBranchesExceededException>("MaximumBranchesExceededException")({message: Schema.optional(Schema.String)}) {}
+export class MaximumRepositoryTriggersExceededException extends Schema.Class<MaximumRepositoryTriggersExceededException>("MaximumRepositoryTriggersExceededException")({message: Schema.optional(Schema.String)}) {}
+export class MaximumFileEntriesExceededException extends Schema.Class<MaximumFileEntriesExceededException>("MaximumFileEntriesExceededException")({message: Schema.optional(Schema.String)}) {}
+export class MaximumOpenPullRequestsExceededException extends Schema.Class<MaximumOpenPullRequestsExceededException>("MaximumOpenPullRequestsExceededException")({message: Schema.optional(Schema.String)}) {}
+export class ParentCommitIdRequiredException extends Schema.Class<ParentCommitIdRequiredException>("ParentCommitIdRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidPullRequestEventTypeException extends Schema.Class<InvalidPullRequestEventTypeException>("InvalidPullRequestEventTypeException")({message: Schema.optional(Schema.String)}) {}
+export class SameFileContentException extends Schema.Class<SameFileContentException>("SameFileContentException")({message: Schema.optional(Schema.String)}) {}
+export class RepositoryTriggerBranchNameListRequiredException extends Schema.Class<RepositoryTriggerBranchNameListRequiredException>("RepositoryTriggerBranchNameListRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class RepositoryTriggerDestinationArnRequiredException extends Schema.Class<RepositoryTriggerDestinationArnRequiredException>("RepositoryTriggerDestinationArnRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class NoChangeException extends Schema.Class<NoChangeException>("NoChangeException")({message: Schema.optional(Schema.String)}) {}
+export class MultipleRepositoriesInPullRequestException extends Schema.Class<MultipleRepositoriesInPullRequestException>("MultipleRepositoriesInPullRequestException")({message: Schema.optional(Schema.String)}) {}
+export class RepositoryTriggerEventsListRequiredException extends Schema.Class<RepositoryTriggerEventsListRequiredException>("RepositoryTriggerEventsListRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class RepositoryTriggerNameRequiredException extends Schema.Class<RepositoryTriggerNameRequiredException>("RepositoryTriggerNameRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class PutFileEntryConflictException extends Schema.Class<PutFileEntryConflictException>("PutFileEntryConflictException")({message: Schema.optional(Schema.String)}) {}
+export class ReferenceNameRequiredException extends Schema.Class<ReferenceNameRequiredException>("ReferenceNameRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class RepositoryTriggersListRequiredException extends Schema.Class<RepositoryTriggersListRequiredException>("RepositoryTriggersListRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class RestrictedSourceFileException extends Schema.Class<RestrictedSourceFileException>("RestrictedSourceFileException")({message: Schema.optional(Schema.String)}) {}
+export class ReferenceTypeNotSupportedException extends Schema.Class<ReferenceTypeNotSupportedException>("ReferenceTypeNotSupportedException")({message: Schema.optional(Schema.String)}) {}
+export class SamePathRequestException extends Schema.Class<SamePathRequestException>("SamePathRequestException")({message: Schema.optional(Schema.String)}) {}
+export class SourceAndDestinationAreSameException extends Schema.Class<SourceAndDestinationAreSameException>("SourceAndDestinationAreSameException")({message: Schema.optional(Schema.String)}) {}
+export class SourceFileOrContentRequiredException extends Schema.Class<SourceFileOrContentRequiredException>("SourceFileOrContentRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class TargetRequiredException extends Schema.Class<TargetRequiredException>("TargetRequiredException")({message: Schema.optional(Schema.String)}) {}
+export class TargetsRequiredException extends Schema.Class<TargetsRequiredException>("TargetsRequiredException")({message: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class ApprovalRuleTemplateDoesNotExistExceptionError extends Schema.TaggedError<ApprovalRuleTemplateDoesNotExistExceptionError>()("ApprovalRuleTemplateDoesNotExistException", ApprovalRuleTemplateDoesNotExistException) {};
-export class InvalidRepositoryNameExceptionError extends Schema.TaggedError<InvalidRepositoryNameExceptionError>()("InvalidRepositoryNameException", InvalidRepositoryNameException) {};
-export class EncryptionIntegrityChecksFailedExceptionError extends Schema.TaggedError<EncryptionIntegrityChecksFailedExceptionError>()("EncryptionIntegrityChecksFailedException", EncryptionIntegrityChecksFailedException) {};
-export class ApprovalRuleTemplateNameRequiredExceptionError extends Schema.TaggedError<ApprovalRuleTemplateNameRequiredExceptionError>()("ApprovalRuleTemplateNameRequiredException", ApprovalRuleTemplateNameRequiredException) {};
-export class EncryptionKeyAccessDeniedExceptionError extends Schema.TaggedError<EncryptionKeyAccessDeniedExceptionError>()("EncryptionKeyAccessDeniedException", EncryptionKeyAccessDeniedException) {};
-export class BranchNameExistsExceptionError extends Schema.TaggedError<BranchNameExistsExceptionError>()("BranchNameExistsException", BranchNameExistsException) {};
-export class BranchDoesNotExistExceptionError extends Schema.TaggedError<BranchDoesNotExistExceptionError>()("BranchDoesNotExistException", BranchDoesNotExistException) {};
-export class EncryptionKeyDisabledExceptionError extends Schema.TaggedError<EncryptionKeyDisabledExceptionError>()("EncryptionKeyDisabledException", EncryptionKeyDisabledException) {};
-export class EncryptionKeyNotFoundExceptionError extends Schema.TaggedError<EncryptionKeyNotFoundExceptionError>()("EncryptionKeyNotFoundException", EncryptionKeyNotFoundException) {};
-export class BranchNameRequiredExceptionError extends Schema.TaggedError<BranchNameRequiredExceptionError>()("BranchNameRequiredException", BranchNameRequiredException) {};
-export class EncryptionKeyUnavailableExceptionError extends Schema.TaggedError<EncryptionKeyUnavailableExceptionError>()("EncryptionKeyUnavailableException", EncryptionKeyUnavailableException) {};
-export class CommentDeletedExceptionError extends Schema.TaggedError<CommentDeletedExceptionError>()("CommentDeletedException", CommentDeletedException) {};
-export class CommitDoesNotExistExceptionError extends Schema.TaggedError<CommitDoesNotExistExceptionError>()("CommitDoesNotExistException", CommitDoesNotExistException) {};
-export class CommitRequiredExceptionError extends Schema.TaggedError<CommitRequiredExceptionError>()("CommitRequiredException", CommitRequiredException) {};
-export class InvalidCommitExceptionError extends Schema.TaggedError<InvalidCommitExceptionError>()("InvalidCommitException", InvalidCommitException) {};
-export class RepositoryDoesNotExistExceptionError extends Schema.TaggedError<RepositoryDoesNotExistExceptionError>()("RepositoryDoesNotExistException", RepositoryDoesNotExistException) {};
-export class RepositoryNameRequiredExceptionError extends Schema.TaggedError<RepositoryNameRequiredExceptionError>()("RepositoryNameRequiredException", RepositoryNameRequiredException) {};
-export class InvalidContinuationTokenExceptionError extends Schema.TaggedError<InvalidContinuationTokenExceptionError>()("InvalidContinuationTokenException", InvalidContinuationTokenException) {};
-export class InvalidApprovalRuleTemplateNameExceptionError extends Schema.TaggedError<InvalidApprovalRuleTemplateNameExceptionError>()("InvalidApprovalRuleTemplateNameException", InvalidApprovalRuleTemplateNameException) {};
-export class InvalidMaxResultsExceptionError extends Schema.TaggedError<InvalidMaxResultsExceptionError>()("InvalidMaxResultsException", InvalidMaxResultsException) {};
-export class InvalidResourceArnExceptionError extends Schema.TaggedError<InvalidResourceArnExceptionError>()("InvalidResourceArnException", InvalidResourceArnException) {};
-export class BranchNameIsTagNameExceptionError extends Schema.TaggedError<BranchNameIsTagNameExceptionError>()("BranchNameIsTagNameException", BranchNameIsTagNameException) {};
-export class CommitMessageLengthExceededExceptionError extends Schema.TaggedError<CommitMessageLengthExceededExceptionError>()("CommitMessageLengthExceededException", CommitMessageLengthExceededException) {};
-export class ConcurrentReferenceUpdateExceptionError extends Schema.TaggedError<ConcurrentReferenceUpdateExceptionError>()("ConcurrentReferenceUpdateException", ConcurrentReferenceUpdateException) {};
-export class FileContentSizeLimitExceededExceptionError extends Schema.TaggedError<FileContentSizeLimitExceededExceptionError>()("FileContentSizeLimitExceededException", FileContentSizeLimitExceededException) {};
-export class FolderContentSizeLimitExceededExceptionError extends Schema.TaggedError<FolderContentSizeLimitExceededExceptionError>()("FolderContentSizeLimitExceededException", FolderContentSizeLimitExceededException) {};
-export class InvalidCommitIdExceptionError extends Schema.TaggedError<InvalidCommitIdExceptionError>()("InvalidCommitIdException", InvalidCommitIdException) {};
-export class InvalidConflictDetailLevelExceptionError extends Schema.TaggedError<InvalidConflictDetailLevelExceptionError>()("InvalidConflictDetailLevelException", InvalidConflictDetailLevelException) {};
-export class CommentDoesNotExistExceptionError extends Schema.TaggedError<CommentDoesNotExistExceptionError>()("CommentDoesNotExistException", CommentDoesNotExistException) {};
-export class InvalidSystemTagUsageExceptionError extends Schema.TaggedError<InvalidSystemTagUsageExceptionError>()("InvalidSystemTagUsageException", InvalidSystemTagUsageException) {};
-export class InvalidBranchNameExceptionError extends Schema.TaggedError<InvalidBranchNameExceptionError>()("InvalidBranchNameException", InvalidBranchNameException) {};
-export class ApprovalStateRequiredExceptionError extends Schema.TaggedError<ApprovalStateRequiredExceptionError>()("ApprovalStateRequiredException", ApprovalStateRequiredException) {};
-export class InvalidPullRequestIdExceptionError extends Schema.TaggedError<InvalidPullRequestIdExceptionError>()("InvalidPullRequestIdException", InvalidPullRequestIdException) {};
-export class MaximumRepositoryNamesExceededExceptionError extends Schema.TaggedError<MaximumRepositoryNamesExceededExceptionError>()("MaximumRepositoryNamesExceededException", MaximumRepositoryNamesExceededException) {};
-export class RepositoryNamesRequiredExceptionError extends Schema.TaggedError<RepositoryNamesRequiredExceptionError>()("RepositoryNamesRequiredException", RepositoryNamesRequiredException) {};
-export class ApprovalRuleTemplateContentRequiredExceptionError extends Schema.TaggedError<ApprovalRuleTemplateContentRequiredExceptionError>()("ApprovalRuleTemplateContentRequiredException", ApprovalRuleTemplateContentRequiredException) {};
-export class ApprovalRuleTemplateNameAlreadyExistsExceptionError extends Schema.TaggedError<ApprovalRuleTemplateNameAlreadyExistsExceptionError>()("ApprovalRuleTemplateNameAlreadyExistsException", ApprovalRuleTemplateNameAlreadyExistsException) {};
-export class ClientRequestTokenRequiredExceptionError extends Schema.TaggedError<ClientRequestTokenRequiredExceptionError>()("ClientRequestTokenRequiredException", ClientRequestTokenRequiredException) {};
-export class EncryptionKeyInvalidIdExceptionError extends Schema.TaggedError<EncryptionKeyInvalidIdExceptionError>()("EncryptionKeyInvalidIdException", EncryptionKeyInvalidIdException) {};
-export class ApprovalRuleTemplateInUseExceptionError extends Schema.TaggedError<ApprovalRuleTemplateInUseExceptionError>()("ApprovalRuleTemplateInUseException", ApprovalRuleTemplateInUseException) {};
-export class ApprovalRuleNameRequiredExceptionError extends Schema.TaggedError<ApprovalRuleNameRequiredExceptionError>()("ApprovalRuleNameRequiredException", ApprovalRuleNameRequiredException) {};
-export class BlobIdDoesNotExistExceptionError extends Schema.TaggedError<BlobIdDoesNotExistExceptionError>()("BlobIdDoesNotExistException", BlobIdDoesNotExistException) {};
-export class CommentIdRequiredExceptionError extends Schema.TaggedError<CommentIdRequiredExceptionError>()("CommentIdRequiredException", CommentIdRequiredException) {};
-export class CommitIdRequiredExceptionError extends Schema.TaggedError<CommitIdRequiredExceptionError>()("CommitIdRequiredException", CommitIdRequiredException) {};
-export class CommitIdDoesNotExistExceptionError extends Schema.TaggedError<CommitIdDoesNotExistExceptionError>()("CommitIdDoesNotExistException", CommitIdDoesNotExistException) {};
-export class FileDoesNotExistExceptionError extends Schema.TaggedError<FileDoesNotExistExceptionError>()("FileDoesNotExistException", FileDoesNotExistException) {};
-export class InvalidConflictResolutionStrategyExceptionError extends Schema.TaggedError<InvalidConflictResolutionStrategyExceptionError>()("InvalidConflictResolutionStrategyException", InvalidConflictResolutionStrategyException) {};
-export class InvalidRevisionIdExceptionError extends Schema.TaggedError<InvalidRevisionIdExceptionError>()("InvalidRevisionIdException", InvalidRevisionIdException) {};
-export class PullRequestDoesNotExistExceptionError extends Schema.TaggedError<PullRequestDoesNotExistExceptionError>()("PullRequestDoesNotExistException", PullRequestDoesNotExistException) {};
-export class PullRequestIdRequiredExceptionError extends Schema.TaggedError<PullRequestIdRequiredExceptionError>()("PullRequestIdRequiredException", PullRequestIdRequiredException) {};
-export class AuthorDoesNotExistExceptionError extends Schema.TaggedError<AuthorDoesNotExistExceptionError>()("AuthorDoesNotExistException", AuthorDoesNotExistException) {};
-export class ResourceArnRequiredExceptionError extends Schema.TaggedError<ResourceArnRequiredExceptionError>()("ResourceArnRequiredException", ResourceArnRequiredException) {};
-export class FileModeRequiredExceptionError extends Schema.TaggedError<FileModeRequiredExceptionError>()("FileModeRequiredException", FileModeRequiredException) {};
-export class InvalidConflictResolutionExceptionError extends Schema.TaggedError<InvalidConflictResolutionExceptionError>()("InvalidConflictResolutionException", InvalidConflictResolutionException) {};
-export class InvalidEmailExceptionError extends Schema.TaggedError<InvalidEmailExceptionError>()("InvalidEmailException", InvalidEmailException) {};
-export class InvalidFileModeExceptionError extends Schema.TaggedError<InvalidFileModeExceptionError>()("InvalidFileModeException", InvalidFileModeException) {};
-export class InvalidOverrideStatusExceptionError extends Schema.TaggedError<InvalidOverrideStatusExceptionError>()("InvalidOverrideStatusException", InvalidOverrideStatusException) {};
-export class BeforeCommitIdAndAfterCommitIdAreSameExceptionError extends Schema.TaggedError<BeforeCommitIdAndAfterCommitIdAreSameExceptionError>()("BeforeCommitIdAndAfterCommitIdAreSameException", BeforeCommitIdAndAfterCommitIdAreSameException) {};
-export class CommentContentRequiredExceptionError extends Schema.TaggedError<CommentContentRequiredExceptionError>()("CommentContentRequiredException", CommentContentRequiredException) {};
-export class CommentContentSizeLimitExceededExceptionError extends Schema.TaggedError<CommentContentSizeLimitExceededExceptionError>()("CommentContentSizeLimitExceededException", CommentContentSizeLimitExceededException) {};
-export class IdempotencyParameterMismatchExceptionError extends Schema.TaggedError<IdempotencyParameterMismatchExceptionError>()("IdempotencyParameterMismatchException", IdempotencyParameterMismatchException) {};
-export class InvalidClientRequestTokenExceptionError extends Schema.TaggedError<InvalidClientRequestTokenExceptionError>()("InvalidClientRequestTokenException", InvalidClientRequestTokenException) {};
-export class InvalidCommentIdExceptionError extends Schema.TaggedError<InvalidCommentIdExceptionError>()("InvalidCommentIdException", InvalidCommentIdException) {};
-export class DirectoryNameConflictsWithFileNameExceptionError extends Schema.TaggedError<DirectoryNameConflictsWithFileNameExceptionError>()("DirectoryNameConflictsWithFileNameException", DirectoryNameConflictsWithFileNameException) {};
-export class InvalidRepositoryTriggerBranchNameExceptionError extends Schema.TaggedError<InvalidRepositoryTriggerBranchNameExceptionError>()("InvalidRepositoryTriggerBranchNameException", InvalidRepositoryTriggerBranchNameException) {};
-export class InvalidTagKeysListExceptionError extends Schema.TaggedError<InvalidTagKeysListExceptionError>()("InvalidTagKeysListException", InvalidTagKeysListException) {};
-export class InvalidApprovalRuleTemplateContentExceptionError extends Schema.TaggedError<InvalidApprovalRuleTemplateContentExceptionError>()("InvalidApprovalRuleTemplateContentException", InvalidApprovalRuleTemplateContentException) {};
-export class InvalidApprovalRuleTemplateDescriptionExceptionError extends Schema.TaggedError<InvalidApprovalRuleTemplateDescriptionExceptionError>()("InvalidApprovalRuleTemplateDescriptionException", InvalidApprovalRuleTemplateDescriptionException) {};
-export class ApprovalRuleContentRequiredExceptionError extends Schema.TaggedError<ApprovalRuleContentRequiredExceptionError>()("ApprovalRuleContentRequiredException", ApprovalRuleContentRequiredException) {};
-export class InvalidApprovalStateExceptionError extends Schema.TaggedError<InvalidApprovalStateExceptionError>()("InvalidApprovalStateException", InvalidApprovalStateException) {};
-export class InvalidDescriptionExceptionError extends Schema.TaggedError<InvalidDescriptionExceptionError>()("InvalidDescriptionException", InvalidDescriptionException) {};
-export class InvalidPullRequestStatusExceptionError extends Schema.TaggedError<InvalidPullRequestStatusExceptionError>()("InvalidPullRequestStatusException", InvalidPullRequestStatusException) {};
-export class InvalidTitleExceptionError extends Schema.TaggedError<InvalidTitleExceptionError>()("InvalidTitleException", InvalidTitleException) {};
-export class PullRequestAlreadyClosedExceptionError extends Schema.TaggedError<PullRequestAlreadyClosedExceptionError>()("PullRequestAlreadyClosedException", PullRequestAlreadyClosedException) {};
-export class InvalidRepositoryDescriptionExceptionError extends Schema.TaggedError<InvalidRepositoryDescriptionExceptionError>()("InvalidRepositoryDescriptionException", InvalidRepositoryDescriptionException) {};
-export class EncryptionKeyInvalidUsageExceptionError extends Schema.TaggedError<EncryptionKeyInvalidUsageExceptionError>()("EncryptionKeyInvalidUsageException", EncryptionKeyInvalidUsageException) {};
-export class RepositoryNameExistsExceptionError extends Schema.TaggedError<RepositoryNameExistsExceptionError>()("RepositoryNameExistsException", RepositoryNameExistsException) {};
-export class MaximumRuleTemplatesAssociatedWithRepositoryExceptionError extends Schema.TaggedError<MaximumRuleTemplatesAssociatedWithRepositoryExceptionError>()("MaximumRuleTemplatesAssociatedWithRepositoryException", MaximumRuleTemplatesAssociatedWithRepositoryException) {};
-export class InvalidTagsMapExceptionError extends Schema.TaggedError<InvalidTagsMapExceptionError>()("InvalidTagsMapException", InvalidTagsMapException) {};
-export class DefaultBranchCannotBeDeletedExceptionError extends Schema.TaggedError<DefaultBranchCannotBeDeletedExceptionError>()("DefaultBranchCannotBeDeletedException", DefaultBranchCannotBeDeletedException) {};
-export class CannotDeleteApprovalRuleFromTemplateExceptionError extends Schema.TaggedError<CannotDeleteApprovalRuleFromTemplateExceptionError>()("CannotDeleteApprovalRuleFromTemplateException", CannotDeleteApprovalRuleFromTemplateException) {};
-export class RevisionIdRequiredExceptionError extends Schema.TaggedError<RevisionIdRequiredExceptionError>()("RevisionIdRequiredException", RevisionIdRequiredException) {};
-export class BlobIdRequiredExceptionError extends Schema.TaggedError<BlobIdRequiredExceptionError>()("BlobIdRequiredException", BlobIdRequiredException) {};
-export class FileTooLargeExceptionError extends Schema.TaggedError<FileTooLargeExceptionError>()("FileTooLargeException", FileTooLargeException) {};
-export class InvalidPathExceptionError extends Schema.TaggedError<InvalidPathExceptionError>()("InvalidPathException", InvalidPathException) {};
-export class FolderDoesNotExistExceptionError extends Schema.TaggedError<FolderDoesNotExistExceptionError>()("FolderDoesNotExistException", FolderDoesNotExistException) {};
-export class PathRequiredExceptionError extends Schema.TaggedError<PathRequiredExceptionError>()("PathRequiredException", PathRequiredException) {};
-export class InvalidDestinationCommitSpecifierExceptionError extends Schema.TaggedError<InvalidDestinationCommitSpecifierExceptionError>()("InvalidDestinationCommitSpecifierException", InvalidDestinationCommitSpecifierException) {};
-export class InvalidMaxConflictFilesExceptionError extends Schema.TaggedError<InvalidMaxConflictFilesExceptionError>()("InvalidMaxConflictFilesException", InvalidMaxConflictFilesException) {};
-export class InvalidMergeOptionExceptionError extends Schema.TaggedError<InvalidMergeOptionExceptionError>()("InvalidMergeOptionException", InvalidMergeOptionException) {};
-export class MaximumFileContentToLoadExceededExceptionError extends Schema.TaggedError<MaximumFileContentToLoadExceededExceptionError>()("MaximumFileContentToLoadExceededException", MaximumFileContentToLoadExceededException) {};
-export class TipsDivergenceExceededExceptionError extends Schema.TaggedError<TipsDivergenceExceededExceptionError>()("TipsDivergenceExceededException", TipsDivergenceExceededException) {};
-export class InvalidAuthorArnExceptionError extends Schema.TaggedError<InvalidAuthorArnExceptionError>()("InvalidAuthorArnException", InvalidAuthorArnException) {};
-export class InvalidOrderExceptionError extends Schema.TaggedError<InvalidOrderExceptionError>()("InvalidOrderException", InvalidOrderException) {};
-export class InvalidTargetBranchExceptionError extends Schema.TaggedError<InvalidTargetBranchExceptionError>()("InvalidTargetBranchException", InvalidTargetBranchException) {};
-export class ManualMergeRequiredExceptionError extends Schema.TaggedError<ManualMergeRequiredExceptionError>()("ManualMergeRequiredException", ManualMergeRequiredException) {};
-export class InvalidReplacementContentExceptionError extends Schema.TaggedError<InvalidReplacementContentExceptionError>()("InvalidReplacementContentException", InvalidReplacementContentException) {};
-export class InvalidReplacementTypeExceptionError extends Schema.TaggedError<InvalidReplacementTypeExceptionError>()("InvalidReplacementTypeException", InvalidReplacementTypeException) {};
-export class MaximumConflictResolutionEntriesExceededExceptionError extends Schema.TaggedError<MaximumConflictResolutionEntriesExceededExceptionError>()("MaximumConflictResolutionEntriesExceededException", MaximumConflictResolutionEntriesExceededException) {};
-export class MaximumItemsToCompareExceededExceptionError extends Schema.TaggedError<MaximumItemsToCompareExceededExceptionError>()("MaximumItemsToCompareExceededException", MaximumItemsToCompareExceededException) {};
-export class OverrideAlreadySetExceptionError extends Schema.TaggedError<OverrideAlreadySetExceptionError>()("OverrideAlreadySetException", OverrideAlreadySetException) {};
-export class InvalidFileLocationExceptionError extends Schema.TaggedError<InvalidFileLocationExceptionError>()("InvalidFileLocationException", InvalidFileLocationException) {};
-export class InvalidReactionValueExceptionError extends Schema.TaggedError<InvalidReactionValueExceptionError>()("InvalidReactionValueException", InvalidReactionValueException) {};
-export class FileContentRequiredExceptionError extends Schema.TaggedError<FileContentRequiredExceptionError>()("FileContentRequiredException", FileContentRequiredException) {};
-export class InvalidRepositoryTriggerCustomDataExceptionError extends Schema.TaggedError<InvalidRepositoryTriggerCustomDataExceptionError>()("InvalidRepositoryTriggerCustomDataException", InvalidRepositoryTriggerCustomDataException) {};
-export class InvalidRepositoryTriggerDestinationArnExceptionError extends Schema.TaggedError<InvalidRepositoryTriggerDestinationArnExceptionError>()("InvalidRepositoryTriggerDestinationArnException", InvalidRepositoryTriggerDestinationArnException) {};
-export class TagKeysListRequiredExceptionError extends Schema.TaggedError<TagKeysListRequiredExceptionError>()("TagKeysListRequiredException", TagKeysListRequiredException) {};
-export class TagPolicyExceptionError extends Schema.TaggedError<TagPolicyExceptionError>()("TagPolicyException", TagPolicyException) {};
-export class InvalidRuleContentSha256ExceptionError extends Schema.TaggedError<InvalidRuleContentSha256ExceptionError>()("InvalidRuleContentSha256Exception", InvalidRuleContentSha256Exception) {};
-export class CommentNotCreatedByCallerExceptionError extends Schema.TaggedError<CommentNotCreatedByCallerExceptionError>()("CommentNotCreatedByCallerException", CommentNotCreatedByCallerException) {};
-export class ApprovalRuleDoesNotExistExceptionError extends Schema.TaggedError<ApprovalRuleDoesNotExistExceptionError>()("ApprovalRuleDoesNotExistException", ApprovalRuleDoesNotExistException) {};
-export class MaximumNumberOfApprovalsExceededExceptionError extends Schema.TaggedError<MaximumNumberOfApprovalsExceededExceptionError>()("MaximumNumberOfApprovalsExceededException", MaximumNumberOfApprovalsExceededException) {};
-export class InvalidPullRequestStatusUpdateExceptionError extends Schema.TaggedError<InvalidPullRequestStatusUpdateExceptionError>()("InvalidPullRequestStatusUpdateException", InvalidPullRequestStatusUpdateException) {};
-export class TitleRequiredExceptionError extends Schema.TaggedError<TitleRequiredExceptionError>()("TitleRequiredException", TitleRequiredException) {};
-export class EncryptionKeyRequiredExceptionError extends Schema.TaggedError<EncryptionKeyRequiredExceptionError>()("EncryptionKeyRequiredException", EncryptionKeyRequiredException) {};
-export class InvalidMaxMergeHunksExceptionError extends Schema.TaggedError<InvalidMaxMergeHunksExceptionError>()("InvalidMaxMergeHunksException", InvalidMaxMergeHunksException) {};
-export class CommitIdsLimitExceededExceptionError extends Schema.TaggedError<CommitIdsLimitExceededExceptionError>()("CommitIdsLimitExceededException", CommitIdsLimitExceededException) {};
-export class NumberOfRuleTemplatesExceededExceptionError extends Schema.TaggedError<NumberOfRuleTemplatesExceededExceptionError>()("NumberOfRuleTemplatesExceededException", NumberOfRuleTemplatesExceededException) {};
-export class InvalidReferenceNameExceptionError extends Schema.TaggedError<InvalidReferenceNameExceptionError>()("InvalidReferenceNameException", InvalidReferenceNameException) {};
-export class ApprovalRuleNameAlreadyExistsExceptionError extends Schema.TaggedError<ApprovalRuleNameAlreadyExistsExceptionError>()("ApprovalRuleNameAlreadyExistsException", ApprovalRuleNameAlreadyExistsException) {};
-export class OperationNotAllowedExceptionError extends Schema.TaggedError<OperationNotAllowedExceptionError>()("OperationNotAllowedException", OperationNotAllowedException) {};
-export class MergeOptionRequiredExceptionError extends Schema.TaggedError<MergeOptionRequiredExceptionError>()("MergeOptionRequiredException", MergeOptionRequiredException) {};
-export class MultipleConflictResolutionEntriesExceptionError extends Schema.TaggedError<MultipleConflictResolutionEntriesExceptionError>()("MultipleConflictResolutionEntriesException", MultipleConflictResolutionEntriesException) {};
-export class InvalidParentCommitIdExceptionError extends Schema.TaggedError<InvalidParentCommitIdExceptionError>()("InvalidParentCommitIdException", InvalidParentCommitIdException) {};
-export class NameLengthExceededExceptionError extends Schema.TaggedError<NameLengthExceededExceptionError>()("NameLengthExceededException", NameLengthExceededException) {};
-export class InvalidApprovalRuleNameExceptionError extends Schema.TaggedError<InvalidApprovalRuleNameExceptionError>()("InvalidApprovalRuleNameException", InvalidApprovalRuleNameException) {};
-export class RevisionNotCurrentExceptionError extends Schema.TaggedError<RevisionNotCurrentExceptionError>()("RevisionNotCurrentException", RevisionNotCurrentException) {};
-export class InvalidBlobIdExceptionError extends Schema.TaggedError<InvalidBlobIdExceptionError>()("InvalidBlobIdException", InvalidBlobIdException) {};
-export class InvalidReactionUserArnExceptionError extends Schema.TaggedError<InvalidReactionUserArnExceptionError>()("InvalidReactionUserArnException", InvalidReactionUserArnException) {};
-export class RepositoryNotAssociatedWithPullRequestExceptionError extends Schema.TaggedError<RepositoryNotAssociatedWithPullRequestExceptionError>()("RepositoryNotAssociatedWithPullRequestException", RepositoryNotAssociatedWithPullRequestException) {};
-export class PathDoesNotExistExceptionError extends Schema.TaggedError<PathDoesNotExistExceptionError>()("PathDoesNotExistException", PathDoesNotExistException) {};
-export class InvalidSourceCommitSpecifierExceptionError extends Schema.TaggedError<InvalidSourceCommitSpecifierExceptionError>()("InvalidSourceCommitSpecifierException", InvalidSourceCommitSpecifierException) {};
-export class InvalidSortByExceptionError extends Schema.TaggedError<InvalidSortByExceptionError>()("InvalidSortByException", InvalidSortByException) {};
-export class ReplacementContentRequiredExceptionError extends Schema.TaggedError<ReplacementContentRequiredExceptionError>()("ReplacementContentRequiredException", ReplacementContentRequiredException) {};
-export class PullRequestApprovalRulesNotSatisfiedExceptionError extends Schema.TaggedError<PullRequestApprovalRulesNotSatisfiedExceptionError>()("PullRequestApprovalRulesNotSatisfiedException", PullRequestApprovalRulesNotSatisfiedException) {};
-export class ReplacementTypeRequiredExceptionError extends Schema.TaggedError<ReplacementTypeRequiredExceptionError>()("ReplacementTypeRequiredException", ReplacementTypeRequiredException) {};
-export class TipOfSourceReferenceIsDifferentExceptionError extends Schema.TaggedError<TipOfSourceReferenceIsDifferentExceptionError>()("TipOfSourceReferenceIsDifferentException", TipOfSourceReferenceIsDifferentException) {};
-export class OverrideStatusRequiredExceptionError extends Schema.TaggedError<OverrideStatusRequiredExceptionError>()("OverrideStatusRequiredException", OverrideStatusRequiredException) {};
-export class InvalidFilePositionExceptionError extends Schema.TaggedError<InvalidFilePositionExceptionError>()("InvalidFilePositionException", InvalidFilePositionException) {};
-export class InvalidRelativeFileVersionEnumExceptionError extends Schema.TaggedError<InvalidRelativeFileVersionEnumExceptionError>()("InvalidRelativeFileVersionEnumException", InvalidRelativeFileVersionEnumException) {};
-export class ReactionLimitExceededExceptionError extends Schema.TaggedError<ReactionLimitExceededExceptionError>()("ReactionLimitExceededException", ReactionLimitExceededException) {};
-export class FileNameConflictsWithDirectoryNameExceptionError extends Schema.TaggedError<FileNameConflictsWithDirectoryNameExceptionError>()("FileNameConflictsWithDirectoryNameException", FileNameConflictsWithDirectoryNameException) {};
-export class InvalidRepositoryTriggerEventsExceptionError extends Schema.TaggedError<InvalidRepositoryTriggerEventsExceptionError>()("InvalidRepositoryTriggerEventsException", InvalidRepositoryTriggerEventsException) {};
-export class InvalidRepositoryTriggerNameExceptionError extends Schema.TaggedError<InvalidRepositoryTriggerNameExceptionError>()("InvalidRepositoryTriggerNameException", InvalidRepositoryTriggerNameException) {};
-export class TooManyTagsExceptionError extends Schema.TaggedError<TooManyTagsExceptionError>()("TooManyTagsException", TooManyTagsException) {};
-export class CannotModifyApprovalRuleFromTemplateExceptionError extends Schema.TaggedError<CannotModifyApprovalRuleFromTemplateExceptionError>()("CannotModifyApprovalRuleFromTemplateException", CannotModifyApprovalRuleFromTemplateException) {};
-export class InvalidApprovalRuleContentExceptionError extends Schema.TaggedError<InvalidApprovalRuleContentExceptionError>()("InvalidApprovalRuleContentException", InvalidApprovalRuleContentException) {};
-export class PullRequestCannotBeApprovedByAuthorExceptionError extends Schema.TaggedError<PullRequestCannotBeApprovedByAuthorExceptionError>()("PullRequestCannotBeApprovedByAuthorException", PullRequestCannotBeApprovedByAuthorException) {};
-export class PullRequestStatusRequiredExceptionError extends Schema.TaggedError<PullRequestStatusRequiredExceptionError>()("PullRequestStatusRequiredException", PullRequestStatusRequiredException) {};
-export class CommitIdsListRequiredExceptionError extends Schema.TaggedError<CommitIdsListRequiredExceptionError>()("CommitIdsListRequiredException", CommitIdsListRequiredException) {};
-export class FileContentAndSourceFileSpecifiedExceptionError extends Schema.TaggedError<FileContentAndSourceFileSpecifiedExceptionError>()("FileContentAndSourceFileSpecifiedException", FileContentAndSourceFileSpecifiedException) {};
-export class InvalidTargetExceptionError extends Schema.TaggedError<InvalidTargetExceptionError>()("InvalidTargetException", InvalidTargetException) {};
-export class RepositoryLimitExceededExceptionError extends Schema.TaggedError<RepositoryLimitExceededExceptionError>()("RepositoryLimitExceededException", RepositoryLimitExceededException) {};
-export class ParentCommitDoesNotExistExceptionError extends Schema.TaggedError<ParentCommitDoesNotExistExceptionError>()("ParentCommitDoesNotExistException", ParentCommitDoesNotExistException) {};
-export class ActorDoesNotExistExceptionError extends Schema.TaggedError<ActorDoesNotExistExceptionError>()("ActorDoesNotExistException", ActorDoesNotExistException) {};
-export class ReferenceDoesNotExistExceptionError extends Schema.TaggedError<ReferenceDoesNotExistExceptionError>()("ReferenceDoesNotExistException", ReferenceDoesNotExistException) {};
-export class ReactionValueRequiredExceptionError extends Schema.TaggedError<ReactionValueRequiredExceptionError>()("ReactionValueRequiredException", ReactionValueRequiredException) {};
-export class FilePathConflictsWithSubmodulePathExceptionError extends Schema.TaggedError<FilePathConflictsWithSubmodulePathExceptionError>()("FilePathConflictsWithSubmodulePathException", FilePathConflictsWithSubmodulePathException) {};
-export class InvalidRepositoryTriggerRegionExceptionError extends Schema.TaggedError<InvalidRepositoryTriggerRegionExceptionError>()("InvalidRepositoryTriggerRegionException", InvalidRepositoryTriggerRegionException) {};
-export class TagsMapRequiredExceptionError extends Schema.TaggedError<TagsMapRequiredExceptionError>()("TagsMapRequiredException", TagsMapRequiredException) {};
-export class MaximumBranchesExceededExceptionError extends Schema.TaggedError<MaximumBranchesExceededExceptionError>()("MaximumBranchesExceededException", MaximumBranchesExceededException) {};
-export class FileEntryRequiredExceptionError extends Schema.TaggedError<FileEntryRequiredExceptionError>()("FileEntryRequiredException", FileEntryRequiredException) {};
-export class InvalidDeletionParameterExceptionError extends Schema.TaggedError<InvalidDeletionParameterExceptionError>()("InvalidDeletionParameterException", InvalidDeletionParameterException) {};
-export class InvalidTargetsExceptionError extends Schema.TaggedError<InvalidTargetsExceptionError>()("InvalidTargetsException", InvalidTargetsException) {};
-export class NumberOfRulesExceededExceptionError extends Schema.TaggedError<NumberOfRulesExceededExceptionError>()("NumberOfRulesExceededException", NumberOfRulesExceededException) {};
-export class ParentCommitIdOutdatedExceptionError extends Schema.TaggedError<ParentCommitIdOutdatedExceptionError>()("ParentCommitIdOutdatedException", ParentCommitIdOutdatedException) {};
-export class InvalidActorArnExceptionError extends Schema.TaggedError<InvalidActorArnExceptionError>()("InvalidActorArnException", InvalidActorArnException) {};
-export class ParentCommitIdRequiredExceptionError extends Schema.TaggedError<ParentCommitIdRequiredExceptionError>()("ParentCommitIdRequiredException", ParentCommitIdRequiredException) {};
-export class MaximumRepositoryTriggersExceededExceptionError extends Schema.TaggedError<MaximumRepositoryTriggersExceededExceptionError>()("MaximumRepositoryTriggersExceededException", MaximumRepositoryTriggersExceededException) {};
-export class RepositoryTriggerBranchNameListRequiredExceptionError extends Schema.TaggedError<RepositoryTriggerBranchNameListRequiredExceptionError>()("RepositoryTriggerBranchNameListRequiredException", RepositoryTriggerBranchNameListRequiredException) {};
-export class MaximumFileEntriesExceededExceptionError extends Schema.TaggedError<MaximumFileEntriesExceededExceptionError>()("MaximumFileEntriesExceededException", MaximumFileEntriesExceededException) {};
-export class MaximumOpenPullRequestsExceededExceptionError extends Schema.TaggedError<MaximumOpenPullRequestsExceededExceptionError>()("MaximumOpenPullRequestsExceededException", MaximumOpenPullRequestsExceededException) {};
-export class InvalidPullRequestEventTypeExceptionError extends Schema.TaggedError<InvalidPullRequestEventTypeExceptionError>()("InvalidPullRequestEventTypeException", InvalidPullRequestEventTypeException) {};
-export class SameFileContentExceptionError extends Schema.TaggedError<SameFileContentExceptionError>()("SameFileContentException", SameFileContentException) {};
-export class RepositoryTriggerDestinationArnRequiredExceptionError extends Schema.TaggedError<RepositoryTriggerDestinationArnRequiredExceptionError>()("RepositoryTriggerDestinationArnRequiredException", RepositoryTriggerDestinationArnRequiredException) {};
-export class RepositoryTriggerEventsListRequiredExceptionError extends Schema.TaggedError<RepositoryTriggerEventsListRequiredExceptionError>()("RepositoryTriggerEventsListRequiredException", RepositoryTriggerEventsListRequiredException) {};
-export class NoChangeExceptionError extends Schema.TaggedError<NoChangeExceptionError>()("NoChangeException", NoChangeException) {};
-export class MultipleRepositoriesInPullRequestExceptionError extends Schema.TaggedError<MultipleRepositoriesInPullRequestExceptionError>()("MultipleRepositoriesInPullRequestException", MultipleRepositoriesInPullRequestException) {};
-export class RepositoryTriggerNameRequiredExceptionError extends Schema.TaggedError<RepositoryTriggerNameRequiredExceptionError>()("RepositoryTriggerNameRequiredException", RepositoryTriggerNameRequiredException) {};
-export class RepositoryTriggersListRequiredExceptionError extends Schema.TaggedError<RepositoryTriggersListRequiredExceptionError>()("RepositoryTriggersListRequiredException", RepositoryTriggersListRequiredException) {};
-export class PutFileEntryConflictExceptionError extends Schema.TaggedError<PutFileEntryConflictExceptionError>()("PutFileEntryConflictException", PutFileEntryConflictException) {};
-export class ReferenceNameRequiredExceptionError extends Schema.TaggedError<ReferenceNameRequiredExceptionError>()("ReferenceNameRequiredException", ReferenceNameRequiredException) {};
-export class RestrictedSourceFileExceptionError extends Schema.TaggedError<RestrictedSourceFileExceptionError>()("RestrictedSourceFileException", RestrictedSourceFileException) {};
-export class ReferenceTypeNotSupportedExceptionError extends Schema.TaggedError<ReferenceTypeNotSupportedExceptionError>()("ReferenceTypeNotSupportedException", ReferenceTypeNotSupportedException) {};
-export class SamePathRequestExceptionError extends Schema.TaggedError<SamePathRequestExceptionError>()("SamePathRequestException", SamePathRequestException) {};
-export class SourceAndDestinationAreSameExceptionError extends Schema.TaggedError<SourceAndDestinationAreSameExceptionError>()("SourceAndDestinationAreSameException", SourceAndDestinationAreSameException) {};
-export class SourceFileOrContentRequiredExceptionError extends Schema.TaggedError<SourceFileOrContentRequiredExceptionError>()("SourceFileOrContentRequiredException", SourceFileOrContentRequiredException) {};
-export class TargetRequiredExceptionError extends Schema.TaggedError<TargetRequiredExceptionError>()("TargetRequiredException", TargetRequiredException) {};
-export class TargetsRequiredExceptionError extends Schema.TaggedError<TargetsRequiredExceptionError>()("TargetsRequiredException", TargetsRequiredException) {};
+export class ApprovalRuleTemplateDoesNotExistExceptionError extends Schema.TaggedError<ApprovalRuleTemplateDoesNotExistExceptionError>()("ApprovalRuleTemplateDoesNotExistException", ApprovalRuleTemplateDoesNotExistException.fields) {};
+export class InvalidRepositoryNameExceptionError extends Schema.TaggedError<InvalidRepositoryNameExceptionError>()("InvalidRepositoryNameException", InvalidRepositoryNameException.fields) {};
+export class EncryptionIntegrityChecksFailedExceptionError extends Schema.TaggedError<EncryptionIntegrityChecksFailedExceptionError>()("EncryptionIntegrityChecksFailedException", EncryptionIntegrityChecksFailedException.fields) {};
+export class ApprovalRuleTemplateNameRequiredExceptionError extends Schema.TaggedError<ApprovalRuleTemplateNameRequiredExceptionError>()("ApprovalRuleTemplateNameRequiredException", ApprovalRuleTemplateNameRequiredException.fields) {};
+export class EncryptionKeyAccessDeniedExceptionError extends Schema.TaggedError<EncryptionKeyAccessDeniedExceptionError>()("EncryptionKeyAccessDeniedException", EncryptionKeyAccessDeniedException.fields) {};
+export class BranchNameExistsExceptionError extends Schema.TaggedError<BranchNameExistsExceptionError>()("BranchNameExistsException", BranchNameExistsException.fields) {};
+export class BranchDoesNotExistExceptionError extends Schema.TaggedError<BranchDoesNotExistExceptionError>()("BranchDoesNotExistException", BranchDoesNotExistException.fields) {};
+export class EncryptionKeyDisabledExceptionError extends Schema.TaggedError<EncryptionKeyDisabledExceptionError>()("EncryptionKeyDisabledException", EncryptionKeyDisabledException.fields) {};
+export class EncryptionKeyNotFoundExceptionError extends Schema.TaggedError<EncryptionKeyNotFoundExceptionError>()("EncryptionKeyNotFoundException", EncryptionKeyNotFoundException.fields) {};
+export class BranchNameRequiredExceptionError extends Schema.TaggedError<BranchNameRequiredExceptionError>()("BranchNameRequiredException", BranchNameRequiredException.fields) {};
+export class EncryptionKeyUnavailableExceptionError extends Schema.TaggedError<EncryptionKeyUnavailableExceptionError>()("EncryptionKeyUnavailableException", EncryptionKeyUnavailableException.fields) {};
+export class CommentDeletedExceptionError extends Schema.TaggedError<CommentDeletedExceptionError>()("CommentDeletedException", CommentDeletedException.fields) {};
+export class CommitDoesNotExistExceptionError extends Schema.TaggedError<CommitDoesNotExistExceptionError>()("CommitDoesNotExistException", CommitDoesNotExistException.fields) {};
+export class CommitRequiredExceptionError extends Schema.TaggedError<CommitRequiredExceptionError>()("CommitRequiredException", CommitRequiredException.fields) {};
+export class InvalidCommitExceptionError extends Schema.TaggedError<InvalidCommitExceptionError>()("InvalidCommitException", InvalidCommitException.fields) {};
+export class RepositoryDoesNotExistExceptionError extends Schema.TaggedError<RepositoryDoesNotExistExceptionError>()("RepositoryDoesNotExistException", RepositoryDoesNotExistException.fields) {};
+export class RepositoryNameRequiredExceptionError extends Schema.TaggedError<RepositoryNameRequiredExceptionError>()("RepositoryNameRequiredException", RepositoryNameRequiredException.fields) {};
+export class InvalidContinuationTokenExceptionError extends Schema.TaggedError<InvalidContinuationTokenExceptionError>()("InvalidContinuationTokenException", InvalidContinuationTokenException.fields) {};
+export class InvalidApprovalRuleTemplateNameExceptionError extends Schema.TaggedError<InvalidApprovalRuleTemplateNameExceptionError>()("InvalidApprovalRuleTemplateNameException", InvalidApprovalRuleTemplateNameException.fields) {};
+export class InvalidMaxResultsExceptionError extends Schema.TaggedError<InvalidMaxResultsExceptionError>()("InvalidMaxResultsException", InvalidMaxResultsException.fields) {};
+export class InvalidResourceArnExceptionError extends Schema.TaggedError<InvalidResourceArnExceptionError>()("InvalidResourceArnException", InvalidResourceArnException.fields) {};
+export class BranchNameIsTagNameExceptionError extends Schema.TaggedError<BranchNameIsTagNameExceptionError>()("BranchNameIsTagNameException", BranchNameIsTagNameException.fields) {};
+export class CommitMessageLengthExceededExceptionError extends Schema.TaggedError<CommitMessageLengthExceededExceptionError>()("CommitMessageLengthExceededException", CommitMessageLengthExceededException.fields) {};
+export class ConcurrentReferenceUpdateExceptionError extends Schema.TaggedError<ConcurrentReferenceUpdateExceptionError>()("ConcurrentReferenceUpdateException", ConcurrentReferenceUpdateException.fields) {};
+export class FileContentSizeLimitExceededExceptionError extends Schema.TaggedError<FileContentSizeLimitExceededExceptionError>()("FileContentSizeLimitExceededException", FileContentSizeLimitExceededException.fields) {};
+export class FolderContentSizeLimitExceededExceptionError extends Schema.TaggedError<FolderContentSizeLimitExceededExceptionError>()("FolderContentSizeLimitExceededException", FolderContentSizeLimitExceededException.fields) {};
+export class InvalidCommitIdExceptionError extends Schema.TaggedError<InvalidCommitIdExceptionError>()("InvalidCommitIdException", InvalidCommitIdException.fields) {};
+export class InvalidConflictDetailLevelExceptionError extends Schema.TaggedError<InvalidConflictDetailLevelExceptionError>()("InvalidConflictDetailLevelException", InvalidConflictDetailLevelException.fields) {};
+export class CommentDoesNotExistExceptionError extends Schema.TaggedError<CommentDoesNotExistExceptionError>()("CommentDoesNotExistException", CommentDoesNotExistException.fields) {};
+export class InvalidSystemTagUsageExceptionError extends Schema.TaggedError<InvalidSystemTagUsageExceptionError>()("InvalidSystemTagUsageException", InvalidSystemTagUsageException.fields) {};
+export class InvalidBranchNameExceptionError extends Schema.TaggedError<InvalidBranchNameExceptionError>()("InvalidBranchNameException", InvalidBranchNameException.fields) {};
+export class ApprovalStateRequiredExceptionError extends Schema.TaggedError<ApprovalStateRequiredExceptionError>()("ApprovalStateRequiredException", ApprovalStateRequiredException.fields) {};
+export class InvalidPullRequestIdExceptionError extends Schema.TaggedError<InvalidPullRequestIdExceptionError>()("InvalidPullRequestIdException", InvalidPullRequestIdException.fields) {};
+export class MaximumRepositoryNamesExceededExceptionError extends Schema.TaggedError<MaximumRepositoryNamesExceededExceptionError>()("MaximumRepositoryNamesExceededException", MaximumRepositoryNamesExceededException.fields) {};
+export class RepositoryNamesRequiredExceptionError extends Schema.TaggedError<RepositoryNamesRequiredExceptionError>()("RepositoryNamesRequiredException", RepositoryNamesRequiredException.fields) {};
+export class ApprovalRuleTemplateContentRequiredExceptionError extends Schema.TaggedError<ApprovalRuleTemplateContentRequiredExceptionError>()("ApprovalRuleTemplateContentRequiredException", ApprovalRuleTemplateContentRequiredException.fields) {};
+export class ApprovalRuleTemplateNameAlreadyExistsExceptionError extends Schema.TaggedError<ApprovalRuleTemplateNameAlreadyExistsExceptionError>()("ApprovalRuleTemplateNameAlreadyExistsException", ApprovalRuleTemplateNameAlreadyExistsException.fields) {};
+export class ClientRequestTokenRequiredExceptionError extends Schema.TaggedError<ClientRequestTokenRequiredExceptionError>()("ClientRequestTokenRequiredException", ClientRequestTokenRequiredException.fields) {};
+export class EncryptionKeyInvalidIdExceptionError extends Schema.TaggedError<EncryptionKeyInvalidIdExceptionError>()("EncryptionKeyInvalidIdException", EncryptionKeyInvalidIdException.fields) {};
+export class ApprovalRuleTemplateInUseExceptionError extends Schema.TaggedError<ApprovalRuleTemplateInUseExceptionError>()("ApprovalRuleTemplateInUseException", ApprovalRuleTemplateInUseException.fields) {};
+export class ApprovalRuleNameRequiredExceptionError extends Schema.TaggedError<ApprovalRuleNameRequiredExceptionError>()("ApprovalRuleNameRequiredException", ApprovalRuleNameRequiredException.fields) {};
+export class BlobIdDoesNotExistExceptionError extends Schema.TaggedError<BlobIdDoesNotExistExceptionError>()("BlobIdDoesNotExistException", BlobIdDoesNotExistException.fields) {};
+export class CommentIdRequiredExceptionError extends Schema.TaggedError<CommentIdRequiredExceptionError>()("CommentIdRequiredException", CommentIdRequiredException.fields) {};
+export class CommitIdRequiredExceptionError extends Schema.TaggedError<CommitIdRequiredExceptionError>()("CommitIdRequiredException", CommitIdRequiredException.fields) {};
+export class CommitIdDoesNotExistExceptionError extends Schema.TaggedError<CommitIdDoesNotExistExceptionError>()("CommitIdDoesNotExistException", CommitIdDoesNotExistException.fields) {};
+export class FileDoesNotExistExceptionError extends Schema.TaggedError<FileDoesNotExistExceptionError>()("FileDoesNotExistException", FileDoesNotExistException.fields) {};
+export class InvalidConflictResolutionStrategyExceptionError extends Schema.TaggedError<InvalidConflictResolutionStrategyExceptionError>()("InvalidConflictResolutionStrategyException", InvalidConflictResolutionStrategyException.fields) {};
+export class InvalidRevisionIdExceptionError extends Schema.TaggedError<InvalidRevisionIdExceptionError>()("InvalidRevisionIdException", InvalidRevisionIdException.fields) {};
+export class PullRequestDoesNotExistExceptionError extends Schema.TaggedError<PullRequestDoesNotExistExceptionError>()("PullRequestDoesNotExistException", PullRequestDoesNotExistException.fields) {};
+export class PullRequestIdRequiredExceptionError extends Schema.TaggedError<PullRequestIdRequiredExceptionError>()("PullRequestIdRequiredException", PullRequestIdRequiredException.fields) {};
+export class AuthorDoesNotExistExceptionError extends Schema.TaggedError<AuthorDoesNotExistExceptionError>()("AuthorDoesNotExistException", AuthorDoesNotExistException.fields) {};
+export class ResourceArnRequiredExceptionError extends Schema.TaggedError<ResourceArnRequiredExceptionError>()("ResourceArnRequiredException", ResourceArnRequiredException.fields) {};
+export class FileModeRequiredExceptionError extends Schema.TaggedError<FileModeRequiredExceptionError>()("FileModeRequiredException", FileModeRequiredException.fields) {};
+export class InvalidConflictResolutionExceptionError extends Schema.TaggedError<InvalidConflictResolutionExceptionError>()("InvalidConflictResolutionException", InvalidConflictResolutionException.fields) {};
+export class InvalidEmailExceptionError extends Schema.TaggedError<InvalidEmailExceptionError>()("InvalidEmailException", InvalidEmailException.fields) {};
+export class InvalidFileModeExceptionError extends Schema.TaggedError<InvalidFileModeExceptionError>()("InvalidFileModeException", InvalidFileModeException.fields) {};
+export class InvalidOverrideStatusExceptionError extends Schema.TaggedError<InvalidOverrideStatusExceptionError>()("InvalidOverrideStatusException", InvalidOverrideStatusException.fields) {};
+export class BeforeCommitIdAndAfterCommitIdAreSameExceptionError extends Schema.TaggedError<BeforeCommitIdAndAfterCommitIdAreSameExceptionError>()("BeforeCommitIdAndAfterCommitIdAreSameException", BeforeCommitIdAndAfterCommitIdAreSameException.fields) {};
+export class CommentContentRequiredExceptionError extends Schema.TaggedError<CommentContentRequiredExceptionError>()("CommentContentRequiredException", CommentContentRequiredException.fields) {};
+export class CommentContentSizeLimitExceededExceptionError extends Schema.TaggedError<CommentContentSizeLimitExceededExceptionError>()("CommentContentSizeLimitExceededException", CommentContentSizeLimitExceededException.fields) {};
+export class IdempotencyParameterMismatchExceptionError extends Schema.TaggedError<IdempotencyParameterMismatchExceptionError>()("IdempotencyParameterMismatchException", IdempotencyParameterMismatchException.fields) {};
+export class InvalidClientRequestTokenExceptionError extends Schema.TaggedError<InvalidClientRequestTokenExceptionError>()("InvalidClientRequestTokenException", InvalidClientRequestTokenException.fields) {};
+export class InvalidCommentIdExceptionError extends Schema.TaggedError<InvalidCommentIdExceptionError>()("InvalidCommentIdException", InvalidCommentIdException.fields) {};
+export class DirectoryNameConflictsWithFileNameExceptionError extends Schema.TaggedError<DirectoryNameConflictsWithFileNameExceptionError>()("DirectoryNameConflictsWithFileNameException", DirectoryNameConflictsWithFileNameException.fields) {};
+export class InvalidRepositoryTriggerBranchNameExceptionError extends Schema.TaggedError<InvalidRepositoryTriggerBranchNameExceptionError>()("InvalidRepositoryTriggerBranchNameException", InvalidRepositoryTriggerBranchNameException.fields) {};
+export class InvalidTagKeysListExceptionError extends Schema.TaggedError<InvalidTagKeysListExceptionError>()("InvalidTagKeysListException", InvalidTagKeysListException.fields) {};
+export class InvalidApprovalRuleTemplateContentExceptionError extends Schema.TaggedError<InvalidApprovalRuleTemplateContentExceptionError>()("InvalidApprovalRuleTemplateContentException", InvalidApprovalRuleTemplateContentException.fields) {};
+export class InvalidApprovalRuleTemplateDescriptionExceptionError extends Schema.TaggedError<InvalidApprovalRuleTemplateDescriptionExceptionError>()("InvalidApprovalRuleTemplateDescriptionException", InvalidApprovalRuleTemplateDescriptionException.fields) {};
+export class ApprovalRuleContentRequiredExceptionError extends Schema.TaggedError<ApprovalRuleContentRequiredExceptionError>()("ApprovalRuleContentRequiredException", ApprovalRuleContentRequiredException.fields) {};
+export class InvalidApprovalStateExceptionError extends Schema.TaggedError<InvalidApprovalStateExceptionError>()("InvalidApprovalStateException", InvalidApprovalStateException.fields) {};
+export class InvalidDescriptionExceptionError extends Schema.TaggedError<InvalidDescriptionExceptionError>()("InvalidDescriptionException", InvalidDescriptionException.fields) {};
+export class InvalidPullRequestStatusExceptionError extends Schema.TaggedError<InvalidPullRequestStatusExceptionError>()("InvalidPullRequestStatusException", InvalidPullRequestStatusException.fields) {};
+export class InvalidTitleExceptionError extends Schema.TaggedError<InvalidTitleExceptionError>()("InvalidTitleException", InvalidTitleException.fields) {};
+export class PullRequestAlreadyClosedExceptionError extends Schema.TaggedError<PullRequestAlreadyClosedExceptionError>()("PullRequestAlreadyClosedException", PullRequestAlreadyClosedException.fields) {};
+export class InvalidRepositoryDescriptionExceptionError extends Schema.TaggedError<InvalidRepositoryDescriptionExceptionError>()("InvalidRepositoryDescriptionException", InvalidRepositoryDescriptionException.fields) {};
+export class EncryptionKeyInvalidUsageExceptionError extends Schema.TaggedError<EncryptionKeyInvalidUsageExceptionError>()("EncryptionKeyInvalidUsageException", EncryptionKeyInvalidUsageException.fields) {};
+export class RepositoryNameExistsExceptionError extends Schema.TaggedError<RepositoryNameExistsExceptionError>()("RepositoryNameExistsException", RepositoryNameExistsException.fields) {};
+export class MaximumRuleTemplatesAssociatedWithRepositoryExceptionError extends Schema.TaggedError<MaximumRuleTemplatesAssociatedWithRepositoryExceptionError>()("MaximumRuleTemplatesAssociatedWithRepositoryException", MaximumRuleTemplatesAssociatedWithRepositoryException.fields) {};
+export class InvalidTagsMapExceptionError extends Schema.TaggedError<InvalidTagsMapExceptionError>()("InvalidTagsMapException", InvalidTagsMapException.fields) {};
+export class DefaultBranchCannotBeDeletedExceptionError extends Schema.TaggedError<DefaultBranchCannotBeDeletedExceptionError>()("DefaultBranchCannotBeDeletedException", DefaultBranchCannotBeDeletedException.fields) {};
+export class CannotDeleteApprovalRuleFromTemplateExceptionError extends Schema.TaggedError<CannotDeleteApprovalRuleFromTemplateExceptionError>()("CannotDeleteApprovalRuleFromTemplateException", CannotDeleteApprovalRuleFromTemplateException.fields) {};
+export class RevisionIdRequiredExceptionError extends Schema.TaggedError<RevisionIdRequiredExceptionError>()("RevisionIdRequiredException", RevisionIdRequiredException.fields) {};
+export class BlobIdRequiredExceptionError extends Schema.TaggedError<BlobIdRequiredExceptionError>()("BlobIdRequiredException", BlobIdRequiredException.fields) {};
+export class FileTooLargeExceptionError extends Schema.TaggedError<FileTooLargeExceptionError>()("FileTooLargeException", FileTooLargeException.fields) {};
+export class InvalidPathExceptionError extends Schema.TaggedError<InvalidPathExceptionError>()("InvalidPathException", InvalidPathException.fields) {};
+export class FolderDoesNotExistExceptionError extends Schema.TaggedError<FolderDoesNotExistExceptionError>()("FolderDoesNotExistException", FolderDoesNotExistException.fields) {};
+export class PathRequiredExceptionError extends Schema.TaggedError<PathRequiredExceptionError>()("PathRequiredException", PathRequiredException.fields) {};
+export class InvalidDestinationCommitSpecifierExceptionError extends Schema.TaggedError<InvalidDestinationCommitSpecifierExceptionError>()("InvalidDestinationCommitSpecifierException", InvalidDestinationCommitSpecifierException.fields) {};
+export class InvalidMaxConflictFilesExceptionError extends Schema.TaggedError<InvalidMaxConflictFilesExceptionError>()("InvalidMaxConflictFilesException", InvalidMaxConflictFilesException.fields) {};
+export class InvalidMergeOptionExceptionError extends Schema.TaggedError<InvalidMergeOptionExceptionError>()("InvalidMergeOptionException", InvalidMergeOptionException.fields) {};
+export class MaximumFileContentToLoadExceededExceptionError extends Schema.TaggedError<MaximumFileContentToLoadExceededExceptionError>()("MaximumFileContentToLoadExceededException", MaximumFileContentToLoadExceededException.fields) {};
+export class TipsDivergenceExceededExceptionError extends Schema.TaggedError<TipsDivergenceExceededExceptionError>()("TipsDivergenceExceededException", TipsDivergenceExceededException.fields) {};
+export class InvalidAuthorArnExceptionError extends Schema.TaggedError<InvalidAuthorArnExceptionError>()("InvalidAuthorArnException", InvalidAuthorArnException.fields) {};
+export class InvalidOrderExceptionError extends Schema.TaggedError<InvalidOrderExceptionError>()("InvalidOrderException", InvalidOrderException.fields) {};
+export class InvalidTargetBranchExceptionError extends Schema.TaggedError<InvalidTargetBranchExceptionError>()("InvalidTargetBranchException", InvalidTargetBranchException.fields) {};
+export class ManualMergeRequiredExceptionError extends Schema.TaggedError<ManualMergeRequiredExceptionError>()("ManualMergeRequiredException", ManualMergeRequiredException.fields) {};
+export class InvalidReplacementContentExceptionError extends Schema.TaggedError<InvalidReplacementContentExceptionError>()("InvalidReplacementContentException", InvalidReplacementContentException.fields) {};
+export class InvalidReplacementTypeExceptionError extends Schema.TaggedError<InvalidReplacementTypeExceptionError>()("InvalidReplacementTypeException", InvalidReplacementTypeException.fields) {};
+export class MaximumConflictResolutionEntriesExceededExceptionError extends Schema.TaggedError<MaximumConflictResolutionEntriesExceededExceptionError>()("MaximumConflictResolutionEntriesExceededException", MaximumConflictResolutionEntriesExceededException.fields) {};
+export class MaximumItemsToCompareExceededExceptionError extends Schema.TaggedError<MaximumItemsToCompareExceededExceptionError>()("MaximumItemsToCompareExceededException", MaximumItemsToCompareExceededException.fields) {};
+export class OverrideAlreadySetExceptionError extends Schema.TaggedError<OverrideAlreadySetExceptionError>()("OverrideAlreadySetException", OverrideAlreadySetException.fields) {};
+export class InvalidFileLocationExceptionError extends Schema.TaggedError<InvalidFileLocationExceptionError>()("InvalidFileLocationException", InvalidFileLocationException.fields) {};
+export class InvalidReactionValueExceptionError extends Schema.TaggedError<InvalidReactionValueExceptionError>()("InvalidReactionValueException", InvalidReactionValueException.fields) {};
+export class FileContentRequiredExceptionError extends Schema.TaggedError<FileContentRequiredExceptionError>()("FileContentRequiredException", FileContentRequiredException.fields) {};
+export class InvalidRepositoryTriggerCustomDataExceptionError extends Schema.TaggedError<InvalidRepositoryTriggerCustomDataExceptionError>()("InvalidRepositoryTriggerCustomDataException", InvalidRepositoryTriggerCustomDataException.fields) {};
+export class InvalidRepositoryTriggerDestinationArnExceptionError extends Schema.TaggedError<InvalidRepositoryTriggerDestinationArnExceptionError>()("InvalidRepositoryTriggerDestinationArnException", InvalidRepositoryTriggerDestinationArnException.fields) {};
+export class TagKeysListRequiredExceptionError extends Schema.TaggedError<TagKeysListRequiredExceptionError>()("TagKeysListRequiredException", TagKeysListRequiredException.fields) {};
+export class TagPolicyExceptionError extends Schema.TaggedError<TagPolicyExceptionError>()("TagPolicyException", TagPolicyException.fields) {};
+export class InvalidRuleContentSha256ExceptionError extends Schema.TaggedError<InvalidRuleContentSha256ExceptionError>()("InvalidRuleContentSha256Exception", InvalidRuleContentSha256Exception.fields) {};
+export class CommentNotCreatedByCallerExceptionError extends Schema.TaggedError<CommentNotCreatedByCallerExceptionError>()("CommentNotCreatedByCallerException", CommentNotCreatedByCallerException.fields) {};
+export class ApprovalRuleDoesNotExistExceptionError extends Schema.TaggedError<ApprovalRuleDoesNotExistExceptionError>()("ApprovalRuleDoesNotExistException", ApprovalRuleDoesNotExistException.fields) {};
+export class MaximumNumberOfApprovalsExceededExceptionError extends Schema.TaggedError<MaximumNumberOfApprovalsExceededExceptionError>()("MaximumNumberOfApprovalsExceededException", MaximumNumberOfApprovalsExceededException.fields) {};
+export class InvalidPullRequestStatusUpdateExceptionError extends Schema.TaggedError<InvalidPullRequestStatusUpdateExceptionError>()("InvalidPullRequestStatusUpdateException", InvalidPullRequestStatusUpdateException.fields) {};
+export class TitleRequiredExceptionError extends Schema.TaggedError<TitleRequiredExceptionError>()("TitleRequiredException", TitleRequiredException.fields) {};
+export class EncryptionKeyRequiredExceptionError extends Schema.TaggedError<EncryptionKeyRequiredExceptionError>()("EncryptionKeyRequiredException", EncryptionKeyRequiredException.fields) {};
+export class InvalidMaxMergeHunksExceptionError extends Schema.TaggedError<InvalidMaxMergeHunksExceptionError>()("InvalidMaxMergeHunksException", InvalidMaxMergeHunksException.fields) {};
+export class CommitIdsLimitExceededExceptionError extends Schema.TaggedError<CommitIdsLimitExceededExceptionError>()("CommitIdsLimitExceededException", CommitIdsLimitExceededException.fields) {};
+export class NumberOfRuleTemplatesExceededExceptionError extends Schema.TaggedError<NumberOfRuleTemplatesExceededExceptionError>()("NumberOfRuleTemplatesExceededException", NumberOfRuleTemplatesExceededException.fields) {};
+export class InvalidReferenceNameExceptionError extends Schema.TaggedError<InvalidReferenceNameExceptionError>()("InvalidReferenceNameException", InvalidReferenceNameException.fields) {};
+export class ApprovalRuleNameAlreadyExistsExceptionError extends Schema.TaggedError<ApprovalRuleNameAlreadyExistsExceptionError>()("ApprovalRuleNameAlreadyExistsException", ApprovalRuleNameAlreadyExistsException.fields) {};
+export class OperationNotAllowedExceptionError extends Schema.TaggedError<OperationNotAllowedExceptionError>()("OperationNotAllowedException", OperationNotAllowedException.fields) {};
+export class MergeOptionRequiredExceptionError extends Schema.TaggedError<MergeOptionRequiredExceptionError>()("MergeOptionRequiredException", MergeOptionRequiredException.fields) {};
+export class MultipleConflictResolutionEntriesExceptionError extends Schema.TaggedError<MultipleConflictResolutionEntriesExceptionError>()("MultipleConflictResolutionEntriesException", MultipleConflictResolutionEntriesException.fields) {};
+export class InvalidParentCommitIdExceptionError extends Schema.TaggedError<InvalidParentCommitIdExceptionError>()("InvalidParentCommitIdException", InvalidParentCommitIdException.fields) {};
+export class NameLengthExceededExceptionError extends Schema.TaggedError<NameLengthExceededExceptionError>()("NameLengthExceededException", NameLengthExceededException.fields) {};
+export class InvalidApprovalRuleNameExceptionError extends Schema.TaggedError<InvalidApprovalRuleNameExceptionError>()("InvalidApprovalRuleNameException", InvalidApprovalRuleNameException.fields) {};
+export class RevisionNotCurrentExceptionError extends Schema.TaggedError<RevisionNotCurrentExceptionError>()("RevisionNotCurrentException", RevisionNotCurrentException.fields) {};
+export class InvalidBlobIdExceptionError extends Schema.TaggedError<InvalidBlobIdExceptionError>()("InvalidBlobIdException", InvalidBlobIdException.fields) {};
+export class InvalidReactionUserArnExceptionError extends Schema.TaggedError<InvalidReactionUserArnExceptionError>()("InvalidReactionUserArnException", InvalidReactionUserArnException.fields) {};
+export class RepositoryNotAssociatedWithPullRequestExceptionError extends Schema.TaggedError<RepositoryNotAssociatedWithPullRequestExceptionError>()("RepositoryNotAssociatedWithPullRequestException", RepositoryNotAssociatedWithPullRequestException.fields) {};
+export class PathDoesNotExistExceptionError extends Schema.TaggedError<PathDoesNotExistExceptionError>()("PathDoesNotExistException", PathDoesNotExistException.fields) {};
+export class InvalidSourceCommitSpecifierExceptionError extends Schema.TaggedError<InvalidSourceCommitSpecifierExceptionError>()("InvalidSourceCommitSpecifierException", InvalidSourceCommitSpecifierException.fields) {};
+export class InvalidSortByExceptionError extends Schema.TaggedError<InvalidSortByExceptionError>()("InvalidSortByException", InvalidSortByException.fields) {};
+export class ReplacementContentRequiredExceptionError extends Schema.TaggedError<ReplacementContentRequiredExceptionError>()("ReplacementContentRequiredException", ReplacementContentRequiredException.fields) {};
+export class PullRequestApprovalRulesNotSatisfiedExceptionError extends Schema.TaggedError<PullRequestApprovalRulesNotSatisfiedExceptionError>()("PullRequestApprovalRulesNotSatisfiedException", PullRequestApprovalRulesNotSatisfiedException.fields) {};
+export class ReplacementTypeRequiredExceptionError extends Schema.TaggedError<ReplacementTypeRequiredExceptionError>()("ReplacementTypeRequiredException", ReplacementTypeRequiredException.fields) {};
+export class TipOfSourceReferenceIsDifferentExceptionError extends Schema.TaggedError<TipOfSourceReferenceIsDifferentExceptionError>()("TipOfSourceReferenceIsDifferentException", TipOfSourceReferenceIsDifferentException.fields) {};
+export class OverrideStatusRequiredExceptionError extends Schema.TaggedError<OverrideStatusRequiredExceptionError>()("OverrideStatusRequiredException", OverrideStatusRequiredException.fields) {};
+export class InvalidFilePositionExceptionError extends Schema.TaggedError<InvalidFilePositionExceptionError>()("InvalidFilePositionException", InvalidFilePositionException.fields) {};
+export class InvalidRelativeFileVersionEnumExceptionError extends Schema.TaggedError<InvalidRelativeFileVersionEnumExceptionError>()("InvalidRelativeFileVersionEnumException", InvalidRelativeFileVersionEnumException.fields) {};
+export class ReactionLimitExceededExceptionError extends Schema.TaggedError<ReactionLimitExceededExceptionError>()("ReactionLimitExceededException", ReactionLimitExceededException.fields) {};
+export class FileNameConflictsWithDirectoryNameExceptionError extends Schema.TaggedError<FileNameConflictsWithDirectoryNameExceptionError>()("FileNameConflictsWithDirectoryNameException", FileNameConflictsWithDirectoryNameException.fields) {};
+export class InvalidRepositoryTriggerEventsExceptionError extends Schema.TaggedError<InvalidRepositoryTriggerEventsExceptionError>()("InvalidRepositoryTriggerEventsException", InvalidRepositoryTriggerEventsException.fields) {};
+export class InvalidRepositoryTriggerNameExceptionError extends Schema.TaggedError<InvalidRepositoryTriggerNameExceptionError>()("InvalidRepositoryTriggerNameException", InvalidRepositoryTriggerNameException.fields) {};
+export class TooManyTagsExceptionError extends Schema.TaggedError<TooManyTagsExceptionError>()("TooManyTagsException", TooManyTagsException.fields) {};
+export class CannotModifyApprovalRuleFromTemplateExceptionError extends Schema.TaggedError<CannotModifyApprovalRuleFromTemplateExceptionError>()("CannotModifyApprovalRuleFromTemplateException", CannotModifyApprovalRuleFromTemplateException.fields) {};
+export class InvalidApprovalRuleContentExceptionError extends Schema.TaggedError<InvalidApprovalRuleContentExceptionError>()("InvalidApprovalRuleContentException", InvalidApprovalRuleContentException.fields) {};
+export class PullRequestCannotBeApprovedByAuthorExceptionError extends Schema.TaggedError<PullRequestCannotBeApprovedByAuthorExceptionError>()("PullRequestCannotBeApprovedByAuthorException", PullRequestCannotBeApprovedByAuthorException.fields) {};
+export class PullRequestStatusRequiredExceptionError extends Schema.TaggedError<PullRequestStatusRequiredExceptionError>()("PullRequestStatusRequiredException", PullRequestStatusRequiredException.fields) {};
+export class CommitIdsListRequiredExceptionError extends Schema.TaggedError<CommitIdsListRequiredExceptionError>()("CommitIdsListRequiredException", CommitIdsListRequiredException.fields) {};
+export class FileContentAndSourceFileSpecifiedExceptionError extends Schema.TaggedError<FileContentAndSourceFileSpecifiedExceptionError>()("FileContentAndSourceFileSpecifiedException", FileContentAndSourceFileSpecifiedException.fields) {};
+export class InvalidTargetExceptionError extends Schema.TaggedError<InvalidTargetExceptionError>()("InvalidTargetException", InvalidTargetException.fields) {};
+export class RepositoryLimitExceededExceptionError extends Schema.TaggedError<RepositoryLimitExceededExceptionError>()("RepositoryLimitExceededException", RepositoryLimitExceededException.fields) {};
+export class ParentCommitDoesNotExistExceptionError extends Schema.TaggedError<ParentCommitDoesNotExistExceptionError>()("ParentCommitDoesNotExistException", ParentCommitDoesNotExistException.fields) {};
+export class ActorDoesNotExistExceptionError extends Schema.TaggedError<ActorDoesNotExistExceptionError>()("ActorDoesNotExistException", ActorDoesNotExistException.fields) {};
+export class ReferenceDoesNotExistExceptionError extends Schema.TaggedError<ReferenceDoesNotExistExceptionError>()("ReferenceDoesNotExistException", ReferenceDoesNotExistException.fields) {};
+export class ReactionValueRequiredExceptionError extends Schema.TaggedError<ReactionValueRequiredExceptionError>()("ReactionValueRequiredException", ReactionValueRequiredException.fields) {};
+export class FilePathConflictsWithSubmodulePathExceptionError extends Schema.TaggedError<FilePathConflictsWithSubmodulePathExceptionError>()("FilePathConflictsWithSubmodulePathException", FilePathConflictsWithSubmodulePathException.fields) {};
+export class InvalidRepositoryTriggerRegionExceptionError extends Schema.TaggedError<InvalidRepositoryTriggerRegionExceptionError>()("InvalidRepositoryTriggerRegionException", InvalidRepositoryTriggerRegionException.fields) {};
+export class TagsMapRequiredExceptionError extends Schema.TaggedError<TagsMapRequiredExceptionError>()("TagsMapRequiredException", TagsMapRequiredException.fields) {};
+export class MaximumBranchesExceededExceptionError extends Schema.TaggedError<MaximumBranchesExceededExceptionError>()("MaximumBranchesExceededException", MaximumBranchesExceededException.fields) {};
+export class FileEntryRequiredExceptionError extends Schema.TaggedError<FileEntryRequiredExceptionError>()("FileEntryRequiredException", FileEntryRequiredException.fields) {};
+export class InvalidDeletionParameterExceptionError extends Schema.TaggedError<InvalidDeletionParameterExceptionError>()("InvalidDeletionParameterException", InvalidDeletionParameterException.fields) {};
+export class InvalidTargetsExceptionError extends Schema.TaggedError<InvalidTargetsExceptionError>()("InvalidTargetsException", InvalidTargetsException.fields) {};
+export class NumberOfRulesExceededExceptionError extends Schema.TaggedError<NumberOfRulesExceededExceptionError>()("NumberOfRulesExceededException", NumberOfRulesExceededException.fields) {};
+export class ParentCommitIdOutdatedExceptionError extends Schema.TaggedError<ParentCommitIdOutdatedExceptionError>()("ParentCommitIdOutdatedException", ParentCommitIdOutdatedException.fields) {};
+export class InvalidActorArnExceptionError extends Schema.TaggedError<InvalidActorArnExceptionError>()("InvalidActorArnException", InvalidActorArnException.fields) {};
+export class ParentCommitIdRequiredExceptionError extends Schema.TaggedError<ParentCommitIdRequiredExceptionError>()("ParentCommitIdRequiredException", ParentCommitIdRequiredException.fields) {};
+export class MaximumRepositoryTriggersExceededExceptionError extends Schema.TaggedError<MaximumRepositoryTriggersExceededExceptionError>()("MaximumRepositoryTriggersExceededException", MaximumRepositoryTriggersExceededException.fields) {};
+export class RepositoryTriggerBranchNameListRequiredExceptionError extends Schema.TaggedError<RepositoryTriggerBranchNameListRequiredExceptionError>()("RepositoryTriggerBranchNameListRequiredException", RepositoryTriggerBranchNameListRequiredException.fields) {};
+export class MaximumFileEntriesExceededExceptionError extends Schema.TaggedError<MaximumFileEntriesExceededExceptionError>()("MaximumFileEntriesExceededException", MaximumFileEntriesExceededException.fields) {};
+export class MaximumOpenPullRequestsExceededExceptionError extends Schema.TaggedError<MaximumOpenPullRequestsExceededExceptionError>()("MaximumOpenPullRequestsExceededException", MaximumOpenPullRequestsExceededException.fields) {};
+export class InvalidPullRequestEventTypeExceptionError extends Schema.TaggedError<InvalidPullRequestEventTypeExceptionError>()("InvalidPullRequestEventTypeException", InvalidPullRequestEventTypeException.fields) {};
+export class SameFileContentExceptionError extends Schema.TaggedError<SameFileContentExceptionError>()("SameFileContentException", SameFileContentException.fields) {};
+export class RepositoryTriggerDestinationArnRequiredExceptionError extends Schema.TaggedError<RepositoryTriggerDestinationArnRequiredExceptionError>()("RepositoryTriggerDestinationArnRequiredException", RepositoryTriggerDestinationArnRequiredException.fields) {};
+export class RepositoryTriggerEventsListRequiredExceptionError extends Schema.TaggedError<RepositoryTriggerEventsListRequiredExceptionError>()("RepositoryTriggerEventsListRequiredException", RepositoryTriggerEventsListRequiredException.fields) {};
+export class NoChangeExceptionError extends Schema.TaggedError<NoChangeExceptionError>()("NoChangeException", NoChangeException.fields) {};
+export class MultipleRepositoriesInPullRequestExceptionError extends Schema.TaggedError<MultipleRepositoriesInPullRequestExceptionError>()("MultipleRepositoriesInPullRequestException", MultipleRepositoriesInPullRequestException.fields) {};
+export class RepositoryTriggerNameRequiredExceptionError extends Schema.TaggedError<RepositoryTriggerNameRequiredExceptionError>()("RepositoryTriggerNameRequiredException", RepositoryTriggerNameRequiredException.fields) {};
+export class RepositoryTriggersListRequiredExceptionError extends Schema.TaggedError<RepositoryTriggersListRequiredExceptionError>()("RepositoryTriggersListRequiredException", RepositoryTriggersListRequiredException.fields) {};
+export class PutFileEntryConflictExceptionError extends Schema.TaggedError<PutFileEntryConflictExceptionError>()("PutFileEntryConflictException", PutFileEntryConflictException.fields) {};
+export class ReferenceNameRequiredExceptionError extends Schema.TaggedError<ReferenceNameRequiredExceptionError>()("ReferenceNameRequiredException", ReferenceNameRequiredException.fields) {};
+export class RestrictedSourceFileExceptionError extends Schema.TaggedError<RestrictedSourceFileExceptionError>()("RestrictedSourceFileException", RestrictedSourceFileException.fields) {};
+export class ReferenceTypeNotSupportedExceptionError extends Schema.TaggedError<ReferenceTypeNotSupportedExceptionError>()("ReferenceTypeNotSupportedException", ReferenceTypeNotSupportedException.fields) {};
+export class SamePathRequestExceptionError extends Schema.TaggedError<SamePathRequestExceptionError>()("SamePathRequestException", SamePathRequestException.fields) {};
+export class SourceAndDestinationAreSameExceptionError extends Schema.TaggedError<SourceAndDestinationAreSameExceptionError>()("SourceAndDestinationAreSameException", SourceAndDestinationAreSameException.fields) {};
+export class SourceFileOrContentRequiredExceptionError extends Schema.TaggedError<SourceFileOrContentRequiredExceptionError>()("SourceFileOrContentRequiredException", SourceFileOrContentRequiredException.fields) {};
+export class TargetRequiredExceptionError extends Schema.TaggedError<TargetRequiredExceptionError>()("TargetRequiredException", TargetRequiredException.fields) {};
+export class TargetsRequiredExceptionError extends Schema.TaggedError<TargetsRequiredExceptionError>()("TargetsRequiredException", TargetsRequiredException.fields) {};
 
 //# Operations
 export const getRepositoryTriggers = /*#__PURE__*/ makeOperation(() => Operation({ version: "2015-04-13", uri: "/", method: "POST", sdkId: "CodeCommit", sigV4ServiceName: "codecommit", name: "CodeCommit_20150413.GetRepositoryTriggers" }, GetRepositoryTriggersInput, GetRepositoryTriggersOutput, [EncryptionIntegrityChecksFailedExceptionError, EncryptionKeyAccessDeniedExceptionError, EncryptionKeyDisabledExceptionError, EncryptionKeyNotFoundExceptionError, EncryptionKeyUnavailableExceptionError, InvalidRepositoryNameExceptionError, RepositoryDoesNotExistExceptionError, RepositoryNameRequiredExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

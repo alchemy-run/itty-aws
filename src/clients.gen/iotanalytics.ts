@@ -3,184 +3,184 @@ import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperat
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const DescribeLoggingOptionsRequest = Schema.Struct({});
+export class DescribeLoggingOptionsRequest extends Schema.Class<DescribeLoggingOptionsRequest>("DescribeLoggingOptionsRequest")({}) {}
 export const MessagePayloads = Schema.Array(StreamBody());
 export const TagKeyList = Schema.Array(Schema.String);
-export const CancelPipelineReprocessingRequest = Schema.Struct({pipelineName: Schema.String, reprocessingId: Schema.String});
-export const CancelPipelineReprocessingResponse = Schema.Struct({});
-export const CreateDatasetContentRequest = Schema.Struct({datasetName: Schema.String, versionId: Schema.optional(Schema.String)});
-export const DeleteChannelRequest = Schema.Struct({channelName: Schema.String});
-export const DeleteDatasetRequest = Schema.Struct({datasetName: Schema.String});
-export const DeleteDatasetContentRequest = Schema.Struct({datasetName: Schema.String, versionId: Schema.optional(Schema.String)});
-export const DeleteDatastoreRequest = Schema.Struct({datastoreName: Schema.String});
-export const DeletePipelineRequest = Schema.Struct({pipelineName: Schema.String});
-export const DescribeChannelRequest = Schema.Struct({channelName: Schema.String, includeStatistics: Schema.optional(Schema.Boolean)});
-export const DescribeDatasetRequest = Schema.Struct({datasetName: Schema.String});
-export const DescribeDatastoreRequest = Schema.Struct({datastoreName: Schema.String, includeStatistics: Schema.optional(Schema.Boolean)});
-export const DescribePipelineRequest = Schema.Struct({pipelineName: Schema.String});
-export const GetDatasetContentRequest = Schema.Struct({datasetName: Schema.String, versionId: Schema.optional(Schema.String)});
-export const ListChannelsRequest = Schema.Struct({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListDatasetContentsRequest = Schema.Struct({datasetName: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), scheduledOnOrAfter: Schema.optional(Schema.Date), scheduledBefore: Schema.optional(Schema.Date)});
-export const ListDatasetsRequest = Schema.Struct({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListDatastoresRequest = Schema.Struct({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListPipelinesRequest = Schema.Struct({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListTagsForResourceRequest = Schema.Struct({resourceArn: Schema.String});
-export const LoggingOptions = Schema.Struct({roleArn: Schema.String, level: Schema.String, enabled: Schema.Boolean});
-export const PutLoggingOptionsRequest = Schema.Struct({loggingOptions: LoggingOptions});
-export const ChannelActivity = Schema.Struct({name: Schema.String, channelName: Schema.String, next: Schema.optional(Schema.String)});
-export const LambdaActivity = Schema.Struct({name: Schema.String, lambdaName: Schema.String, batchSize: Schema.Number, next: Schema.optional(Schema.String)});
-export const DatastoreActivity = Schema.Struct({name: Schema.String, datastoreName: Schema.String});
+export class CancelPipelineReprocessingRequest extends Schema.Class<CancelPipelineReprocessingRequest>("CancelPipelineReprocessingRequest")({pipelineName: Schema.String, reprocessingId: Schema.String}) {}
+export class CancelPipelineReprocessingResponse extends Schema.Class<CancelPipelineReprocessingResponse>("CancelPipelineReprocessingResponse")({}) {}
+export class CreateDatasetContentRequest extends Schema.Class<CreateDatasetContentRequest>("CreateDatasetContentRequest")({datasetName: Schema.String, versionId: Schema.optional(Schema.String)}) {}
+export class DeleteChannelRequest extends Schema.Class<DeleteChannelRequest>("DeleteChannelRequest")({channelName: Schema.String}) {}
+export class DeleteDatasetRequest extends Schema.Class<DeleteDatasetRequest>("DeleteDatasetRequest")({datasetName: Schema.String}) {}
+export class DeleteDatasetContentRequest extends Schema.Class<DeleteDatasetContentRequest>("DeleteDatasetContentRequest")({datasetName: Schema.String, versionId: Schema.optional(Schema.String)}) {}
+export class DeleteDatastoreRequest extends Schema.Class<DeleteDatastoreRequest>("DeleteDatastoreRequest")({datastoreName: Schema.String}) {}
+export class DeletePipelineRequest extends Schema.Class<DeletePipelineRequest>("DeletePipelineRequest")({pipelineName: Schema.String}) {}
+export class DescribeChannelRequest extends Schema.Class<DescribeChannelRequest>("DescribeChannelRequest")({channelName: Schema.String, includeStatistics: Schema.optional(Schema.Boolean)}) {}
+export class DescribeDatasetRequest extends Schema.Class<DescribeDatasetRequest>("DescribeDatasetRequest")({datasetName: Schema.String}) {}
+export class DescribeDatastoreRequest extends Schema.Class<DescribeDatastoreRequest>("DescribeDatastoreRequest")({datastoreName: Schema.String, includeStatistics: Schema.optional(Schema.Boolean)}) {}
+export class DescribePipelineRequest extends Schema.Class<DescribePipelineRequest>("DescribePipelineRequest")({pipelineName: Schema.String}) {}
+export class GetDatasetContentRequest extends Schema.Class<GetDatasetContentRequest>("GetDatasetContentRequest")({datasetName: Schema.String, versionId: Schema.optional(Schema.String)}) {}
+export class ListChannelsRequest extends Schema.Class<ListChannelsRequest>("ListChannelsRequest")({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListDatasetContentsRequest extends Schema.Class<ListDatasetContentsRequest>("ListDatasetContentsRequest")({datasetName: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), scheduledOnOrAfter: Schema.optional(Schema.Date), scheduledBefore: Schema.optional(Schema.Date)}) {}
+export class ListDatasetsRequest extends Schema.Class<ListDatasetsRequest>("ListDatasetsRequest")({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListDatastoresRequest extends Schema.Class<ListDatastoresRequest>("ListDatastoresRequest")({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListPipelinesRequest extends Schema.Class<ListPipelinesRequest>("ListPipelinesRequest")({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({resourceArn: Schema.String}) {}
+export class LoggingOptions extends Schema.Class<LoggingOptions>("LoggingOptions")({roleArn: Schema.String, level: Schema.String, enabled: Schema.Boolean}) {}
+export class PutLoggingOptionsRequest extends Schema.Class<PutLoggingOptionsRequest>("PutLoggingOptionsRequest")({loggingOptions: LoggingOptions}) {}
+export class ChannelActivity extends Schema.Class<ChannelActivity>("ChannelActivity")({name: Schema.String, channelName: Schema.String, next: Schema.optional(Schema.String)}) {}
+export class LambdaActivity extends Schema.Class<LambdaActivity>("LambdaActivity")({name: Schema.String, lambdaName: Schema.String, batchSize: Schema.Number, next: Schema.optional(Schema.String)}) {}
+export class DatastoreActivity extends Schema.Class<DatastoreActivity>("DatastoreActivity")({name: Schema.String, datastoreName: Schema.String}) {}
 export const AttributeNameMapping = Schema.Record({key: Schema.String, value: Schema.String});
-export const AddAttributesActivity = Schema.Struct({name: Schema.String, attributes: AttributeNameMapping, next: Schema.optional(Schema.String)});
+export class AddAttributesActivity extends Schema.Class<AddAttributesActivity>("AddAttributesActivity")({name: Schema.String, attributes: AttributeNameMapping, next: Schema.optional(Schema.String)}) {}
 export const AttributeNames = Schema.Array(Schema.String);
-export const RemoveAttributesActivity = Schema.Struct({name: Schema.String, attributes: AttributeNames, next: Schema.optional(Schema.String)});
-export const SelectAttributesActivity = Schema.Struct({name: Schema.String, attributes: AttributeNames, next: Schema.optional(Schema.String)});
-export const FilterActivity = Schema.Struct({name: Schema.String, filter: Schema.String, next: Schema.optional(Schema.String)});
-export const MathActivity = Schema.Struct({name: Schema.String, attribute: Schema.String, math: Schema.String, next: Schema.optional(Schema.String)});
-export const DeviceRegistryEnrichActivity = Schema.Struct({name: Schema.String, attribute: Schema.String, thingName: Schema.String, roleArn: Schema.String, next: Schema.optional(Schema.String)});
-export const DeviceShadowEnrichActivity = Schema.Struct({name: Schema.String, attribute: Schema.String, thingName: Schema.String, roleArn: Schema.String, next: Schema.optional(Schema.String)});
-export const PipelineActivity = Schema.Struct({channel: Schema.optional(ChannelActivity), lambda: Schema.optional(LambdaActivity), datastore: Schema.optional(DatastoreActivity), addAttributes: Schema.optional(AddAttributesActivity), removeAttributes: Schema.optional(RemoveAttributesActivity), selectAttributes: Schema.optional(SelectAttributesActivity), filter: Schema.optional(FilterActivity), math: Schema.optional(MathActivity), deviceRegistryEnrich: Schema.optional(DeviceRegistryEnrichActivity), deviceShadowEnrich: Schema.optional(DeviceShadowEnrichActivity)});
-export const RunPipelineActivityRequest = Schema.Struct({pipelineActivity: PipelineActivity, payloads: MessagePayloads});
-export const SampleChannelDataRequest = Schema.Struct({channelName: Schema.String, maxMessages: Schema.optional(Schema.Number), startTime: Schema.optional(Schema.Date), endTime: Schema.optional(Schema.Date)});
-export const Tag = Schema.Struct({key: Schema.String, value: Schema.String});
+export class RemoveAttributesActivity extends Schema.Class<RemoveAttributesActivity>("RemoveAttributesActivity")({name: Schema.String, attributes: AttributeNames, next: Schema.optional(Schema.String)}) {}
+export class SelectAttributesActivity extends Schema.Class<SelectAttributesActivity>("SelectAttributesActivity")({name: Schema.String, attributes: AttributeNames, next: Schema.optional(Schema.String)}) {}
+export class FilterActivity extends Schema.Class<FilterActivity>("FilterActivity")({name: Schema.String, filter: Schema.String, next: Schema.optional(Schema.String)}) {}
+export class MathActivity extends Schema.Class<MathActivity>("MathActivity")({name: Schema.String, attribute: Schema.String, math: Schema.String, next: Schema.optional(Schema.String)}) {}
+export class DeviceRegistryEnrichActivity extends Schema.Class<DeviceRegistryEnrichActivity>("DeviceRegistryEnrichActivity")({name: Schema.String, attribute: Schema.String, thingName: Schema.String, roleArn: Schema.String, next: Schema.optional(Schema.String)}) {}
+export class DeviceShadowEnrichActivity extends Schema.Class<DeviceShadowEnrichActivity>("DeviceShadowEnrichActivity")({name: Schema.String, attribute: Schema.String, thingName: Schema.String, roleArn: Schema.String, next: Schema.optional(Schema.String)}) {}
+export class PipelineActivity extends Schema.Class<PipelineActivity>("PipelineActivity")({channel: Schema.optional(ChannelActivity), lambda: Schema.optional(LambdaActivity), datastore: Schema.optional(DatastoreActivity), addAttributes: Schema.optional(AddAttributesActivity), removeAttributes: Schema.optional(RemoveAttributesActivity), selectAttributes: Schema.optional(SelectAttributesActivity), filter: Schema.optional(FilterActivity), math: Schema.optional(MathActivity), deviceRegistryEnrich: Schema.optional(DeviceRegistryEnrichActivity), deviceShadowEnrich: Schema.optional(DeviceShadowEnrichActivity)}) {}
+export class RunPipelineActivityRequest extends Schema.Class<RunPipelineActivityRequest>("RunPipelineActivityRequest")({pipelineActivity: PipelineActivity, payloads: MessagePayloads}) {}
+export class SampleChannelDataRequest extends Schema.Class<SampleChannelDataRequest>("SampleChannelDataRequest")({channelName: Schema.String, maxMessages: Schema.optional(Schema.Number), startTime: Schema.optional(Schema.Date), endTime: Schema.optional(Schema.Date)}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({key: Schema.String, value: Schema.String}) {}
 export const TagList = Schema.Array(Tag);
-export const TagResourceRequest = Schema.Struct({resourceArn: Schema.String, tags: TagList});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({resourceArn: Schema.String, tagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
-export const ServiceManagedChannelS3Storage = Schema.Struct({});
-export const CustomerManagedChannelS3Storage = Schema.Struct({bucket: Schema.String, keyPrefix: Schema.optional(Schema.String), roleArn: Schema.String});
-export const ChannelStorage = Schema.Struct({serviceManagedS3: Schema.optional(ServiceManagedChannelS3Storage), customerManagedS3: Schema.optional(CustomerManagedChannelS3Storage)});
-export const RetentionPeriod = Schema.Struct({unlimited: Schema.optional(Schema.Boolean), numberOfDays: Schema.optional(Schema.Number)});
-export const UpdateChannelRequest = Schema.Struct({channelName: Schema.String, channelStorage: Schema.optional(ChannelStorage), retentionPeriod: Schema.optional(RetentionPeriod)});
-export const DeltaTime = Schema.Struct({offsetSeconds: Schema.Number, timeExpression: Schema.String});
-export const QueryFilter = Schema.Struct({deltaTime: Schema.optional(DeltaTime)});
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({resourceArn: Schema.String, tags: TagList}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({resourceArn: Schema.String, tagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class ServiceManagedChannelS3Storage extends Schema.Class<ServiceManagedChannelS3Storage>("ServiceManagedChannelS3Storage")({}) {}
+export class CustomerManagedChannelS3Storage extends Schema.Class<CustomerManagedChannelS3Storage>("CustomerManagedChannelS3Storage")({bucket: Schema.String, keyPrefix: Schema.optional(Schema.String), roleArn: Schema.String}) {}
+export class ChannelStorage extends Schema.Class<ChannelStorage>("ChannelStorage")({serviceManagedS3: Schema.optional(ServiceManagedChannelS3Storage), customerManagedS3: Schema.optional(CustomerManagedChannelS3Storage)}) {}
+export class RetentionPeriod extends Schema.Class<RetentionPeriod>("RetentionPeriod")({unlimited: Schema.optional(Schema.Boolean), numberOfDays: Schema.optional(Schema.Number)}) {}
+export class UpdateChannelRequest extends Schema.Class<UpdateChannelRequest>("UpdateChannelRequest")({channelName: Schema.String, channelStorage: Schema.optional(ChannelStorage), retentionPeriod: Schema.optional(RetentionPeriod)}) {}
+export class DeltaTime extends Schema.Class<DeltaTime>("DeltaTime")({offsetSeconds: Schema.Number, timeExpression: Schema.String}) {}
+export class QueryFilter extends Schema.Class<QueryFilter>("QueryFilter")({deltaTime: Schema.optional(DeltaTime)}) {}
 export const QueryFilters = Schema.Array(QueryFilter);
-export const SqlQueryDatasetAction = Schema.Struct({sqlQuery: Schema.String, filters: Schema.optional(QueryFilters)});
-export const ResourceConfiguration = Schema.Struct({computeType: Schema.String, volumeSizeInGB: Schema.Number});
-export const DatasetContentVersionValue = Schema.Struct({datasetName: Schema.String});
-export const OutputFileUriValue = Schema.Struct({fileName: Schema.String});
-export const Variable = Schema.Struct({name: Schema.String, stringValue: Schema.optional(Schema.String), doubleValue: Schema.optional(Schema.Number), datasetContentVersionValue: Schema.optional(DatasetContentVersionValue), outputFileUriValue: Schema.optional(OutputFileUriValue)});
+export class SqlQueryDatasetAction extends Schema.Class<SqlQueryDatasetAction>("SqlQueryDatasetAction")({sqlQuery: Schema.String, filters: Schema.optional(QueryFilters)}) {}
+export class ResourceConfiguration extends Schema.Class<ResourceConfiguration>("ResourceConfiguration")({computeType: Schema.String, volumeSizeInGB: Schema.Number}) {}
+export class DatasetContentVersionValue extends Schema.Class<DatasetContentVersionValue>("DatasetContentVersionValue")({datasetName: Schema.String}) {}
+export class OutputFileUriValue extends Schema.Class<OutputFileUriValue>("OutputFileUriValue")({fileName: Schema.String}) {}
+export class Variable extends Schema.Class<Variable>("Variable")({name: Schema.String, stringValue: Schema.optional(Schema.String), doubleValue: Schema.optional(Schema.Number), datasetContentVersionValue: Schema.optional(DatasetContentVersionValue), outputFileUriValue: Schema.optional(OutputFileUriValue)}) {}
 export const Variables = Schema.Array(Variable);
-export const ContainerDatasetAction = Schema.Struct({image: Schema.String, executionRoleArn: Schema.String, resourceConfiguration: ResourceConfiguration, variables: Schema.optional(Variables)});
-export const DatasetAction = Schema.Struct({actionName: Schema.optional(Schema.String), queryAction: Schema.optional(SqlQueryDatasetAction), containerAction: Schema.optional(ContainerDatasetAction)});
+export class ContainerDatasetAction extends Schema.Class<ContainerDatasetAction>("ContainerDatasetAction")({image: Schema.String, executionRoleArn: Schema.String, resourceConfiguration: ResourceConfiguration, variables: Schema.optional(Variables)}) {}
+export class DatasetAction extends Schema.Class<DatasetAction>("DatasetAction")({actionName: Schema.optional(Schema.String), queryAction: Schema.optional(SqlQueryDatasetAction), containerAction: Schema.optional(ContainerDatasetAction)}) {}
 export const DatasetActions = Schema.Array(DatasetAction);
-export const Schedule = Schema.Struct({expression: Schema.optional(Schema.String)});
-export const TriggeringDataset = Schema.Struct({name: Schema.String});
-export const DatasetTrigger = Schema.Struct({schedule: Schema.optional(Schedule), dataset: Schema.optional(TriggeringDataset)});
+export class Schedule extends Schema.Class<Schedule>("Schedule")({expression: Schema.optional(Schema.String)}) {}
+export class TriggeringDataset extends Schema.Class<TriggeringDataset>("TriggeringDataset")({name: Schema.String}) {}
+export class DatasetTrigger extends Schema.Class<DatasetTrigger>("DatasetTrigger")({schedule: Schema.optional(Schedule), dataset: Schema.optional(TriggeringDataset)}) {}
 export const DatasetTriggers = Schema.Array(DatasetTrigger);
-export const IotEventsDestinationConfiguration = Schema.Struct({inputName: Schema.String, roleArn: Schema.String});
-export const GlueConfiguration = Schema.Struct({tableName: Schema.String, databaseName: Schema.String});
-export const S3DestinationConfiguration = Schema.Struct({bucket: Schema.String, key: Schema.String, glueConfiguration: Schema.optional(GlueConfiguration), roleArn: Schema.String});
-export const DatasetContentDeliveryDestination = Schema.Struct({iotEventsDestinationConfiguration: Schema.optional(IotEventsDestinationConfiguration), s3DestinationConfiguration: Schema.optional(S3DestinationConfiguration)});
-export const DatasetContentDeliveryRule = Schema.Struct({entryName: Schema.optional(Schema.String), destination: DatasetContentDeliveryDestination});
+export class IotEventsDestinationConfiguration extends Schema.Class<IotEventsDestinationConfiguration>("IotEventsDestinationConfiguration")({inputName: Schema.String, roleArn: Schema.String}) {}
+export class GlueConfiguration extends Schema.Class<GlueConfiguration>("GlueConfiguration")({tableName: Schema.String, databaseName: Schema.String}) {}
+export class S3DestinationConfiguration extends Schema.Class<S3DestinationConfiguration>("S3DestinationConfiguration")({bucket: Schema.String, key: Schema.String, glueConfiguration: Schema.optional(GlueConfiguration), roleArn: Schema.String}) {}
+export class DatasetContentDeliveryDestination extends Schema.Class<DatasetContentDeliveryDestination>("DatasetContentDeliveryDestination")({iotEventsDestinationConfiguration: Schema.optional(IotEventsDestinationConfiguration), s3DestinationConfiguration: Schema.optional(S3DestinationConfiguration)}) {}
+export class DatasetContentDeliveryRule extends Schema.Class<DatasetContentDeliveryRule>("DatasetContentDeliveryRule")({entryName: Schema.optional(Schema.String), destination: DatasetContentDeliveryDestination}) {}
 export const DatasetContentDeliveryRules = Schema.Array(DatasetContentDeliveryRule);
-export const VersioningConfiguration = Schema.Struct({unlimited: Schema.optional(Schema.Boolean), maxVersions: Schema.optional(Schema.Number)});
-export const DeltaTimeSessionWindowConfiguration = Schema.Struct({timeoutInMinutes: Schema.Number});
-export const LateDataRuleConfiguration = Schema.Struct({deltaTimeSessionWindowConfiguration: Schema.optional(DeltaTimeSessionWindowConfiguration)});
-export const LateDataRule = Schema.Struct({ruleName: Schema.optional(Schema.String), ruleConfiguration: LateDataRuleConfiguration});
+export class VersioningConfiguration extends Schema.Class<VersioningConfiguration>("VersioningConfiguration")({unlimited: Schema.optional(Schema.Boolean), maxVersions: Schema.optional(Schema.Number)}) {}
+export class DeltaTimeSessionWindowConfiguration extends Schema.Class<DeltaTimeSessionWindowConfiguration>("DeltaTimeSessionWindowConfiguration")({timeoutInMinutes: Schema.Number}) {}
+export class LateDataRuleConfiguration extends Schema.Class<LateDataRuleConfiguration>("LateDataRuleConfiguration")({deltaTimeSessionWindowConfiguration: Schema.optional(DeltaTimeSessionWindowConfiguration)}) {}
+export class LateDataRule extends Schema.Class<LateDataRule>("LateDataRule")({ruleName: Schema.optional(Schema.String), ruleConfiguration: LateDataRuleConfiguration}) {}
 export const LateDataRules = Schema.Array(LateDataRule);
-export const UpdateDatasetRequest = Schema.Struct({datasetName: Schema.String, actions: DatasetActions, triggers: Schema.optional(DatasetTriggers), contentDeliveryRules: Schema.optional(DatasetContentDeliveryRules), retentionPeriod: Schema.optional(RetentionPeriod), versioningConfiguration: Schema.optional(VersioningConfiguration), lateDataRules: Schema.optional(LateDataRules)});
-export const ServiceManagedDatastoreS3Storage = Schema.Struct({});
-export const CustomerManagedDatastoreS3Storage = Schema.Struct({bucket: Schema.String, keyPrefix: Schema.optional(Schema.String), roleArn: Schema.String});
-export const IotSiteWiseCustomerManagedDatastoreS3Storage = Schema.Struct({bucket: Schema.String, keyPrefix: Schema.optional(Schema.String)});
-export const DatastoreIotSiteWiseMultiLayerStorage = Schema.Struct({customerManagedS3Storage: IotSiteWiseCustomerManagedDatastoreS3Storage});
+export class UpdateDatasetRequest extends Schema.Class<UpdateDatasetRequest>("UpdateDatasetRequest")({datasetName: Schema.String, actions: DatasetActions, triggers: Schema.optional(DatasetTriggers), contentDeliveryRules: Schema.optional(DatasetContentDeliveryRules), retentionPeriod: Schema.optional(RetentionPeriod), versioningConfiguration: Schema.optional(VersioningConfiguration), lateDataRules: Schema.optional(LateDataRules)}) {}
+export class ServiceManagedDatastoreS3Storage extends Schema.Class<ServiceManagedDatastoreS3Storage>("ServiceManagedDatastoreS3Storage")({}) {}
+export class CustomerManagedDatastoreS3Storage extends Schema.Class<CustomerManagedDatastoreS3Storage>("CustomerManagedDatastoreS3Storage")({bucket: Schema.String, keyPrefix: Schema.optional(Schema.String), roleArn: Schema.String}) {}
+export class IotSiteWiseCustomerManagedDatastoreS3Storage extends Schema.Class<IotSiteWiseCustomerManagedDatastoreS3Storage>("IotSiteWiseCustomerManagedDatastoreS3Storage")({bucket: Schema.String, keyPrefix: Schema.optional(Schema.String)}) {}
+export class DatastoreIotSiteWiseMultiLayerStorage extends Schema.Class<DatastoreIotSiteWiseMultiLayerStorage>("DatastoreIotSiteWiseMultiLayerStorage")({customerManagedS3Storage: IotSiteWiseCustomerManagedDatastoreS3Storage}) {}
 export const DatastoreStorage = Schema.Union(ServiceManagedDatastoreS3Storage, CustomerManagedDatastoreS3Storage, DatastoreIotSiteWiseMultiLayerStorage);
-export const JsonConfiguration = Schema.Struct({});
-export const Column = Schema.Struct({name: Schema.String, type: Schema.String});
+export class JsonConfiguration extends Schema.Class<JsonConfiguration>("JsonConfiguration")({}) {}
+export class Column extends Schema.Class<Column>("Column")({name: Schema.String, type: Schema.String}) {}
 export const Columns = Schema.Array(Column);
-export const SchemaDefinition = Schema.Struct({columns: Schema.optional(Columns)});
-export const ParquetConfiguration = Schema.Struct({schemaDefinition: Schema.optional(SchemaDefinition)});
-export const FileFormatConfiguration = Schema.Struct({jsonConfiguration: Schema.optional(JsonConfiguration), parquetConfiguration: Schema.optional(ParquetConfiguration)});
-export const UpdateDatastoreRequest = Schema.Struct({datastoreName: Schema.String, retentionPeriod: Schema.optional(RetentionPeriod), datastoreStorage: Schema.optional(DatastoreStorage), fileFormatConfiguration: Schema.optional(FileFormatConfiguration)});
+export class SchemaDefinition extends Schema.Class<SchemaDefinition>("SchemaDefinition")({columns: Schema.optional(Columns)}) {}
+export class ParquetConfiguration extends Schema.Class<ParquetConfiguration>("ParquetConfiguration")({schemaDefinition: Schema.optional(SchemaDefinition)}) {}
+export class FileFormatConfiguration extends Schema.Class<FileFormatConfiguration>("FileFormatConfiguration")({jsonConfiguration: Schema.optional(JsonConfiguration), parquetConfiguration: Schema.optional(ParquetConfiguration)}) {}
+export class UpdateDatastoreRequest extends Schema.Class<UpdateDatastoreRequest>("UpdateDatastoreRequest")({datastoreName: Schema.String, retentionPeriod: Schema.optional(RetentionPeriod), datastoreStorage: Schema.optional(DatastoreStorage), fileFormatConfiguration: Schema.optional(FileFormatConfiguration)}) {}
 export const PipelineActivities = Schema.Array(PipelineActivity);
-export const UpdatePipelineRequest = Schema.Struct({pipelineName: Schema.String, pipelineActivities: PipelineActivities});
+export class UpdatePipelineRequest extends Schema.Class<UpdatePipelineRequest>("UpdatePipelineRequest")({pipelineName: Schema.String, pipelineActivities: PipelineActivities}) {}
 export const S3PathChannelMessages = Schema.Array(Schema.String);
-export const Message = Schema.Struct({messageId: Schema.String, payload: StreamBody()});
+export class Message extends Schema.Class<Message>("Message")({messageId: Schema.String, payload: StreamBody()}) {}
 export const Messages = Schema.Array(Message);
-export const ChannelMessages = Schema.Struct({s3Paths: Schema.optional(S3PathChannelMessages)});
-export const BatchPutMessageRequest = Schema.Struct({channelName: Schema.String, messages: Messages});
-export const InternalFailureException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CreateDatasetContentResponse = Schema.Struct({versionId: Schema.optional(Schema.String)});
-export const InvalidRequestException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ServiceUnavailableException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ThrottlingException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DescribeLoggingOptionsResponse = Schema.Struct({loggingOptions: Schema.optional(LoggingOptions)});
-export const ListTagsForResourceResponse = Schema.Struct({tags: Schema.optional(TagList)});
-export const RunPipelineActivityResponse = Schema.Struct({payloads: Schema.optional(MessagePayloads), logResult: Schema.optional(Schema.String)});
-export const SampleChannelDataResponse = Schema.Struct({payloads: Schema.optional(MessagePayloads)});
-export const StartPipelineReprocessingRequest = Schema.Struct({pipelineName: Schema.String, startTime: Schema.optional(Schema.Date), endTime: Schema.optional(Schema.Date), channelMessages: Schema.optional(ChannelMessages)});
-export const LimitExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const Channel = Schema.Struct({name: Schema.optional(Schema.String), storage: Schema.optional(ChannelStorage), arn: Schema.optional(Schema.String), status: Schema.optional(Schema.String), retentionPeriod: Schema.optional(RetentionPeriod), creationTime: Schema.optional(Schema.Date), lastUpdateTime: Schema.optional(Schema.Date), lastMessageArrivalTime: Schema.optional(Schema.Date)});
-export const Dataset = Schema.Struct({name: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), actions: Schema.optional(DatasetActions), triggers: Schema.optional(DatasetTriggers), contentDeliveryRules: Schema.optional(DatasetContentDeliveryRules), status: Schema.optional(Schema.String), creationTime: Schema.optional(Schema.Date), lastUpdateTime: Schema.optional(Schema.Date), retentionPeriod: Schema.optional(RetentionPeriod), versioningConfiguration: Schema.optional(VersioningConfiguration), lateDataRules: Schema.optional(LateDataRules)});
-export const Partition = Schema.Struct({attributeName: Schema.String});
-export const TimestampPartition = Schema.Struct({attributeName: Schema.String, timestampFormat: Schema.optional(Schema.String)});
-export const DatastorePartition = Schema.Struct({attributePartition: Schema.optional(Partition), timestampPartition: Schema.optional(TimestampPartition)});
+export class ChannelMessages extends Schema.Class<ChannelMessages>("ChannelMessages")({s3Paths: Schema.optional(S3PathChannelMessages)}) {}
+export class BatchPutMessageRequest extends Schema.Class<BatchPutMessageRequest>("BatchPutMessageRequest")({channelName: Schema.String, messages: Messages}) {}
+export class InternalFailureException extends Schema.Class<InternalFailureException>("InternalFailureException")({message: Schema.optional(Schema.String)}) {}
+export class CreateDatasetContentResponse extends Schema.Class<CreateDatasetContentResponse>("CreateDatasetContentResponse")({versionId: Schema.optional(Schema.String)}) {}
+export class InvalidRequestException extends Schema.Class<InvalidRequestException>("InvalidRequestException")({message: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class ServiceUnavailableException extends Schema.Class<ServiceUnavailableException>("ServiceUnavailableException")({message: Schema.optional(Schema.String)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({message: Schema.optional(Schema.String)}) {}
+export class DescribeLoggingOptionsResponse extends Schema.Class<DescribeLoggingOptionsResponse>("DescribeLoggingOptionsResponse")({loggingOptions: Schema.optional(LoggingOptions)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({tags: Schema.optional(TagList)}) {}
+export class RunPipelineActivityResponse extends Schema.Class<RunPipelineActivityResponse>("RunPipelineActivityResponse")({payloads: Schema.optional(MessagePayloads), logResult: Schema.optional(Schema.String)}) {}
+export class SampleChannelDataResponse extends Schema.Class<SampleChannelDataResponse>("SampleChannelDataResponse")({payloads: Schema.optional(MessagePayloads)}) {}
+export class StartPipelineReprocessingRequest extends Schema.Class<StartPipelineReprocessingRequest>("StartPipelineReprocessingRequest")({pipelineName: Schema.String, startTime: Schema.optional(Schema.Date), endTime: Schema.optional(Schema.Date), channelMessages: Schema.optional(ChannelMessages)}) {}
+export class LimitExceededException extends Schema.Class<LimitExceededException>("LimitExceededException")({message: Schema.optional(Schema.String)}) {}
+export class Channel extends Schema.Class<Channel>("Channel")({name: Schema.optional(Schema.String), storage: Schema.optional(ChannelStorage), arn: Schema.optional(Schema.String), status: Schema.optional(Schema.String), retentionPeriod: Schema.optional(RetentionPeriod), creationTime: Schema.optional(Schema.Date), lastUpdateTime: Schema.optional(Schema.Date), lastMessageArrivalTime: Schema.optional(Schema.Date)}) {}
+export class Dataset extends Schema.Class<Dataset>("Dataset")({name: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), actions: Schema.optional(DatasetActions), triggers: Schema.optional(DatasetTriggers), contentDeliveryRules: Schema.optional(DatasetContentDeliveryRules), status: Schema.optional(Schema.String), creationTime: Schema.optional(Schema.Date), lastUpdateTime: Schema.optional(Schema.Date), retentionPeriod: Schema.optional(RetentionPeriod), versioningConfiguration: Schema.optional(VersioningConfiguration), lateDataRules: Schema.optional(LateDataRules)}) {}
+export class Partition extends Schema.Class<Partition>("Partition")({attributeName: Schema.String}) {}
+export class TimestampPartition extends Schema.Class<TimestampPartition>("TimestampPartition")({attributeName: Schema.String, timestampFormat: Schema.optional(Schema.String)}) {}
+export class DatastorePartition extends Schema.Class<DatastorePartition>("DatastorePartition")({attributePartition: Schema.optional(Partition), timestampPartition: Schema.optional(TimestampPartition)}) {}
 export const Partitions = Schema.Array(DatastorePartition);
-export const DatastorePartitions = Schema.Struct({partitions: Schema.optional(Partitions)});
-export const Datastore = Schema.Struct({name: Schema.optional(Schema.String), storage: Schema.optional(DatastoreStorage), arn: Schema.optional(Schema.String), status: Schema.optional(Schema.String), retentionPeriod: Schema.optional(RetentionPeriod), creationTime: Schema.optional(Schema.Date), lastUpdateTime: Schema.optional(Schema.Date), lastMessageArrivalTime: Schema.optional(Schema.Date), fileFormatConfiguration: Schema.optional(FileFormatConfiguration), datastorePartitions: Schema.optional(DatastorePartitions)});
-export const EstimatedResourceSize = Schema.Struct({estimatedSizeInBytes: Schema.optional(Schema.Number), estimatedOn: Schema.optional(Schema.Date)});
-export const DatastoreStatistics = Schema.Struct({size: Schema.optional(EstimatedResourceSize)});
-export const DatasetEntry = Schema.Struct({entryName: Schema.optional(Schema.String), dataURI: Schema.optional(Schema.String)});
+export class DatastorePartitions extends Schema.Class<DatastorePartitions>("DatastorePartitions")({partitions: Schema.optional(Partitions)}) {}
+export class Datastore extends Schema.Class<Datastore>("Datastore")({name: Schema.optional(Schema.String), storage: Schema.optional(DatastoreStorage), arn: Schema.optional(Schema.String), status: Schema.optional(Schema.String), retentionPeriod: Schema.optional(RetentionPeriod), creationTime: Schema.optional(Schema.Date), lastUpdateTime: Schema.optional(Schema.Date), lastMessageArrivalTime: Schema.optional(Schema.Date), fileFormatConfiguration: Schema.optional(FileFormatConfiguration), datastorePartitions: Schema.optional(DatastorePartitions)}) {}
+export class EstimatedResourceSize extends Schema.Class<EstimatedResourceSize>("EstimatedResourceSize")({estimatedSizeInBytes: Schema.optional(Schema.Number), estimatedOn: Schema.optional(Schema.Date)}) {}
+export class DatastoreStatistics extends Schema.Class<DatastoreStatistics>("DatastoreStatistics")({size: Schema.optional(EstimatedResourceSize)}) {}
+export class DatasetEntry extends Schema.Class<DatasetEntry>("DatasetEntry")({entryName: Schema.optional(Schema.String), dataURI: Schema.optional(Schema.String)}) {}
 export const DatasetEntries = Schema.Array(DatasetEntry);
-export const DatasetContentStatus = Schema.Struct({state: Schema.optional(Schema.String), reason: Schema.optional(Schema.String)});
-export const DatasetContentSummary = Schema.Struct({version: Schema.optional(Schema.String), status: Schema.optional(DatasetContentStatus), creationTime: Schema.optional(Schema.Date), scheduleTime: Schema.optional(Schema.Date), completionTime: Schema.optional(Schema.Date)});
+export class DatasetContentStatus extends Schema.Class<DatasetContentStatus>("DatasetContentStatus")({state: Schema.optional(Schema.String), reason: Schema.optional(Schema.String)}) {}
+export class DatasetContentSummary extends Schema.Class<DatasetContentSummary>("DatasetContentSummary")({version: Schema.optional(Schema.String), status: Schema.optional(DatasetContentStatus), creationTime: Schema.optional(Schema.Date), scheduleTime: Schema.optional(Schema.Date), completionTime: Schema.optional(Schema.Date)}) {}
 export const DatasetContentSummaries = Schema.Array(DatasetContentSummary);
-export const ReprocessingSummary = Schema.Struct({id: Schema.optional(Schema.String), status: Schema.optional(Schema.String), creationTime: Schema.optional(Schema.Date)});
+export class ReprocessingSummary extends Schema.Class<ReprocessingSummary>("ReprocessingSummary")({id: Schema.optional(Schema.String), status: Schema.optional(Schema.String), creationTime: Schema.optional(Schema.Date)}) {}
 export const ReprocessingSummaries = Schema.Array(ReprocessingSummary);
-export const PipelineSummary = Schema.Struct({pipelineName: Schema.optional(Schema.String), reprocessingSummaries: Schema.optional(ReprocessingSummaries), creationTime: Schema.optional(Schema.Date), lastUpdateTime: Schema.optional(Schema.Date)});
+export class PipelineSummary extends Schema.Class<PipelineSummary>("PipelineSummary")({pipelineName: Schema.optional(Schema.String), reprocessingSummaries: Schema.optional(ReprocessingSummaries), creationTime: Schema.optional(Schema.Date), lastUpdateTime: Schema.optional(Schema.Date)}) {}
 export const PipelineSummaries = Schema.Array(PipelineSummary);
-export const ServiceManagedChannelS3StorageSummary = Schema.Struct({});
-export const ServiceManagedDatastoreS3StorageSummary = Schema.Struct({});
-export const CreateChannelRequest = Schema.Struct({channelName: Schema.String, channelStorage: Schema.optional(ChannelStorage), retentionPeriod: Schema.optional(RetentionPeriod), tags: Schema.optional(TagList)});
-export const DescribeDatasetResponse = Schema.Struct({dataset: Schema.optional(Dataset)});
-export const DescribeDatastoreResponse = Schema.Struct({datastore: Schema.optional(Datastore), statistics: Schema.optional(DatastoreStatistics)});
-export const GetDatasetContentResponse = Schema.Struct({entries: Schema.optional(DatasetEntries), timestamp: Schema.optional(Schema.Date), status: Schema.optional(DatasetContentStatus)});
-export const ListDatasetContentsResponse = Schema.Struct({datasetContentSummaries: Schema.optional(DatasetContentSummaries), nextToken: Schema.optional(Schema.String)});
-export const ListPipelinesResponse = Schema.Struct({pipelineSummaries: Schema.optional(PipelineSummaries), nextToken: Schema.optional(Schema.String)});
-export const StartPipelineReprocessingResponse = Schema.Struct({reprocessingId: Schema.optional(Schema.String)});
-export const DatasetActionSummary = Schema.Struct({actionName: Schema.optional(Schema.String), actionType: Schema.optional(Schema.String)});
+export class ServiceManagedChannelS3StorageSummary extends Schema.Class<ServiceManagedChannelS3StorageSummary>("ServiceManagedChannelS3StorageSummary")({}) {}
+export class ServiceManagedDatastoreS3StorageSummary extends Schema.Class<ServiceManagedDatastoreS3StorageSummary>("ServiceManagedDatastoreS3StorageSummary")({}) {}
+export class CreateChannelRequest extends Schema.Class<CreateChannelRequest>("CreateChannelRequest")({channelName: Schema.String, channelStorage: Schema.optional(ChannelStorage), retentionPeriod: Schema.optional(RetentionPeriod), tags: Schema.optional(TagList)}) {}
+export class DescribeDatasetResponse extends Schema.Class<DescribeDatasetResponse>("DescribeDatasetResponse")({dataset: Schema.optional(Dataset)}) {}
+export class DescribeDatastoreResponse extends Schema.Class<DescribeDatastoreResponse>("DescribeDatastoreResponse")({datastore: Schema.optional(Datastore), statistics: Schema.optional(DatastoreStatistics)}) {}
+export class GetDatasetContentResponse extends Schema.Class<GetDatasetContentResponse>("GetDatasetContentResponse")({entries: Schema.optional(DatasetEntries), timestamp: Schema.optional(Schema.Date), status: Schema.optional(DatasetContentStatus)}) {}
+export class ListDatasetContentsResponse extends Schema.Class<ListDatasetContentsResponse>("ListDatasetContentsResponse")({datasetContentSummaries: Schema.optional(DatasetContentSummaries), nextToken: Schema.optional(Schema.String)}) {}
+export class ListPipelinesResponse extends Schema.Class<ListPipelinesResponse>("ListPipelinesResponse")({pipelineSummaries: Schema.optional(PipelineSummaries), nextToken: Schema.optional(Schema.String)}) {}
+export class StartPipelineReprocessingResponse extends Schema.Class<StartPipelineReprocessingResponse>("StartPipelineReprocessingResponse")({reprocessingId: Schema.optional(Schema.String)}) {}
+export class DatasetActionSummary extends Schema.Class<DatasetActionSummary>("DatasetActionSummary")({actionName: Schema.optional(Schema.String), actionType: Schema.optional(Schema.String)}) {}
 export const DatasetActionSummaries = Schema.Array(DatasetActionSummary);
-export const BatchPutMessageErrorEntry = Schema.Struct({messageId: Schema.optional(Schema.String), errorCode: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String)});
+export class BatchPutMessageErrorEntry extends Schema.Class<BatchPutMessageErrorEntry>("BatchPutMessageErrorEntry")({messageId: Schema.optional(Schema.String), errorCode: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String)}) {}
 export const BatchPutMessageErrorEntries = Schema.Array(BatchPutMessageErrorEntry);
-export const ChannelStatistics = Schema.Struct({size: Schema.optional(EstimatedResourceSize)});
-export const Pipeline = Schema.Struct({name: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), activities: Schema.optional(PipelineActivities), reprocessingSummaries: Schema.optional(ReprocessingSummaries), creationTime: Schema.optional(Schema.Date), lastUpdateTime: Schema.optional(Schema.Date)});
-export const DatasetSummary = Schema.Struct({datasetName: Schema.optional(Schema.String), status: Schema.optional(Schema.String), creationTime: Schema.optional(Schema.Date), lastUpdateTime: Schema.optional(Schema.Date), triggers: Schema.optional(DatasetTriggers), actions: Schema.optional(DatasetActionSummaries)});
+export class ChannelStatistics extends Schema.Class<ChannelStatistics>("ChannelStatistics")({size: Schema.optional(EstimatedResourceSize)}) {}
+export class Pipeline extends Schema.Class<Pipeline>("Pipeline")({name: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), activities: Schema.optional(PipelineActivities), reprocessingSummaries: Schema.optional(ReprocessingSummaries), creationTime: Schema.optional(Schema.Date), lastUpdateTime: Schema.optional(Schema.Date)}) {}
+export class DatasetSummary extends Schema.Class<DatasetSummary>("DatasetSummary")({datasetName: Schema.optional(Schema.String), status: Schema.optional(Schema.String), creationTime: Schema.optional(Schema.Date), lastUpdateTime: Schema.optional(Schema.Date), triggers: Schema.optional(DatasetTriggers), actions: Schema.optional(DatasetActionSummaries)}) {}
 export const DatasetSummaries = Schema.Array(DatasetSummary);
-export const CustomerManagedChannelS3StorageSummary = Schema.Struct({bucket: Schema.optional(Schema.String), keyPrefix: Schema.optional(Schema.String), roleArn: Schema.optional(Schema.String)});
-export const CustomerManagedDatastoreS3StorageSummary = Schema.Struct({bucket: Schema.optional(Schema.String), keyPrefix: Schema.optional(Schema.String), roleArn: Schema.optional(Schema.String)});
-export const BatchPutMessageResponse = Schema.Struct({batchPutMessageErrorEntries: Schema.optional(BatchPutMessageErrorEntries)});
-export const CreateChannelResponse = Schema.Struct({channelName: Schema.optional(Schema.String), channelArn: Schema.optional(Schema.String), retentionPeriod: Schema.optional(RetentionPeriod)});
-export const CreatePipelineRequest = Schema.Struct({pipelineName: Schema.String, pipelineActivities: PipelineActivities, tags: Schema.optional(TagList)});
-export const DescribeChannelResponse = Schema.Struct({channel: Schema.optional(Channel), statistics: Schema.optional(ChannelStatistics)});
-export const DescribePipelineResponse = Schema.Struct({pipeline: Schema.optional(Pipeline)});
-export const ListDatasetsResponse = Schema.Struct({datasetSummaries: Schema.optional(DatasetSummaries), nextToken: Schema.optional(Schema.String)});
-export const ResourceAlreadyExistsException = Schema.Struct({message: Schema.optional(Schema.String), resourceId: Schema.optional(Schema.String), resourceArn: Schema.optional(Schema.String)});
-export const ChannelStorageSummary = Schema.Struct({serviceManagedS3: Schema.optional(ServiceManagedChannelS3StorageSummary), customerManagedS3: Schema.optional(CustomerManagedChannelS3StorageSummary)});
-export const IotSiteWiseCustomerManagedDatastoreS3StorageSummary = Schema.Struct({bucket: Schema.optional(Schema.String), keyPrefix: Schema.optional(Schema.String)});
-export const ChannelSummary = Schema.Struct({channelName: Schema.optional(Schema.String), channelStorage: Schema.optional(ChannelStorageSummary), status: Schema.optional(Schema.String), creationTime: Schema.optional(Schema.Date), lastUpdateTime: Schema.optional(Schema.Date), lastMessageArrivalTime: Schema.optional(Schema.Date)});
+export class CustomerManagedChannelS3StorageSummary extends Schema.Class<CustomerManagedChannelS3StorageSummary>("CustomerManagedChannelS3StorageSummary")({bucket: Schema.optional(Schema.String), keyPrefix: Schema.optional(Schema.String), roleArn: Schema.optional(Schema.String)}) {}
+export class CustomerManagedDatastoreS3StorageSummary extends Schema.Class<CustomerManagedDatastoreS3StorageSummary>("CustomerManagedDatastoreS3StorageSummary")({bucket: Schema.optional(Schema.String), keyPrefix: Schema.optional(Schema.String), roleArn: Schema.optional(Schema.String)}) {}
+export class BatchPutMessageResponse extends Schema.Class<BatchPutMessageResponse>("BatchPutMessageResponse")({batchPutMessageErrorEntries: Schema.optional(BatchPutMessageErrorEntries)}) {}
+export class CreateChannelResponse extends Schema.Class<CreateChannelResponse>("CreateChannelResponse")({channelName: Schema.optional(Schema.String), channelArn: Schema.optional(Schema.String), retentionPeriod: Schema.optional(RetentionPeriod)}) {}
+export class CreatePipelineRequest extends Schema.Class<CreatePipelineRequest>("CreatePipelineRequest")({pipelineName: Schema.String, pipelineActivities: PipelineActivities, tags: Schema.optional(TagList)}) {}
+export class DescribeChannelResponse extends Schema.Class<DescribeChannelResponse>("DescribeChannelResponse")({channel: Schema.optional(Channel), statistics: Schema.optional(ChannelStatistics)}) {}
+export class DescribePipelineResponse extends Schema.Class<DescribePipelineResponse>("DescribePipelineResponse")({pipeline: Schema.optional(Pipeline)}) {}
+export class ListDatasetsResponse extends Schema.Class<ListDatasetsResponse>("ListDatasetsResponse")({datasetSummaries: Schema.optional(DatasetSummaries), nextToken: Schema.optional(Schema.String)}) {}
+export class ResourceAlreadyExistsException extends Schema.Class<ResourceAlreadyExistsException>("ResourceAlreadyExistsException")({message: Schema.optional(Schema.String), resourceId: Schema.optional(Schema.String), resourceArn: Schema.optional(Schema.String)}) {}
+export class ChannelStorageSummary extends Schema.Class<ChannelStorageSummary>("ChannelStorageSummary")({serviceManagedS3: Schema.optional(ServiceManagedChannelS3StorageSummary), customerManagedS3: Schema.optional(CustomerManagedChannelS3StorageSummary)}) {}
+export class IotSiteWiseCustomerManagedDatastoreS3StorageSummary extends Schema.Class<IotSiteWiseCustomerManagedDatastoreS3StorageSummary>("IotSiteWiseCustomerManagedDatastoreS3StorageSummary")({bucket: Schema.optional(Schema.String), keyPrefix: Schema.optional(Schema.String)}) {}
+export class ChannelSummary extends Schema.Class<ChannelSummary>("ChannelSummary")({channelName: Schema.optional(Schema.String), channelStorage: Schema.optional(ChannelStorageSummary), status: Schema.optional(Schema.String), creationTime: Schema.optional(Schema.Date), lastUpdateTime: Schema.optional(Schema.Date), lastMessageArrivalTime: Schema.optional(Schema.Date)}) {}
 export const ChannelSummaries = Schema.Array(ChannelSummary);
-export const DatastoreIotSiteWiseMultiLayerStorageSummary = Schema.Struct({customerManagedS3Storage: Schema.optional(IotSiteWiseCustomerManagedDatastoreS3StorageSummary)});
-export const CreateDatasetRequest = Schema.Struct({datasetName: Schema.String, actions: DatasetActions, triggers: Schema.optional(DatasetTriggers), contentDeliveryRules: Schema.optional(DatasetContentDeliveryRules), retentionPeriod: Schema.optional(RetentionPeriod), versioningConfiguration: Schema.optional(VersioningConfiguration), tags: Schema.optional(TagList), lateDataRules: Schema.optional(LateDataRules)});
-export const CreateDatastoreRequest = Schema.Struct({datastoreName: Schema.String, datastoreStorage: Schema.optional(DatastoreStorage), retentionPeriod: Schema.optional(RetentionPeriod), tags: Schema.optional(TagList), fileFormatConfiguration: Schema.optional(FileFormatConfiguration), datastorePartitions: Schema.optional(DatastorePartitions)});
-export const CreatePipelineResponse = Schema.Struct({pipelineName: Schema.optional(Schema.String), pipelineArn: Schema.optional(Schema.String)});
-export const ListChannelsResponse = Schema.Struct({channelSummaries: Schema.optional(ChannelSummaries), nextToken: Schema.optional(Schema.String)});
-export const DatastoreStorageSummary = Schema.Struct({serviceManagedS3: Schema.optional(ServiceManagedDatastoreS3StorageSummary), customerManagedS3: Schema.optional(CustomerManagedDatastoreS3StorageSummary), iotSiteWiseMultiLayerStorage: Schema.optional(DatastoreIotSiteWiseMultiLayerStorageSummary)});
-export const DatastoreSummary = Schema.Struct({datastoreName: Schema.optional(Schema.String), datastoreStorage: Schema.optional(DatastoreStorageSummary), status: Schema.optional(Schema.String), creationTime: Schema.optional(Schema.Date), lastUpdateTime: Schema.optional(Schema.Date), lastMessageArrivalTime: Schema.optional(Schema.Date), fileFormatType: Schema.optional(Schema.String), datastorePartitions: Schema.optional(DatastorePartitions)});
+export class DatastoreIotSiteWiseMultiLayerStorageSummary extends Schema.Class<DatastoreIotSiteWiseMultiLayerStorageSummary>("DatastoreIotSiteWiseMultiLayerStorageSummary")({customerManagedS3Storage: Schema.optional(IotSiteWiseCustomerManagedDatastoreS3StorageSummary)}) {}
+export class CreateDatasetRequest extends Schema.Class<CreateDatasetRequest>("CreateDatasetRequest")({datasetName: Schema.String, actions: DatasetActions, triggers: Schema.optional(DatasetTriggers), contentDeliveryRules: Schema.optional(DatasetContentDeliveryRules), retentionPeriod: Schema.optional(RetentionPeriod), versioningConfiguration: Schema.optional(VersioningConfiguration), tags: Schema.optional(TagList), lateDataRules: Schema.optional(LateDataRules)}) {}
+export class CreateDatastoreRequest extends Schema.Class<CreateDatastoreRequest>("CreateDatastoreRequest")({datastoreName: Schema.String, datastoreStorage: Schema.optional(DatastoreStorage), retentionPeriod: Schema.optional(RetentionPeriod), tags: Schema.optional(TagList), fileFormatConfiguration: Schema.optional(FileFormatConfiguration), datastorePartitions: Schema.optional(DatastorePartitions)}) {}
+export class CreatePipelineResponse extends Schema.Class<CreatePipelineResponse>("CreatePipelineResponse")({pipelineName: Schema.optional(Schema.String), pipelineArn: Schema.optional(Schema.String)}) {}
+export class ListChannelsResponse extends Schema.Class<ListChannelsResponse>("ListChannelsResponse")({channelSummaries: Schema.optional(ChannelSummaries), nextToken: Schema.optional(Schema.String)}) {}
+export class DatastoreStorageSummary extends Schema.Class<DatastoreStorageSummary>("DatastoreStorageSummary")({serviceManagedS3: Schema.optional(ServiceManagedDatastoreS3StorageSummary), customerManagedS3: Schema.optional(CustomerManagedDatastoreS3StorageSummary), iotSiteWiseMultiLayerStorage: Schema.optional(DatastoreIotSiteWiseMultiLayerStorageSummary)}) {}
+export class DatastoreSummary extends Schema.Class<DatastoreSummary>("DatastoreSummary")({datastoreName: Schema.optional(Schema.String), datastoreStorage: Schema.optional(DatastoreStorageSummary), status: Schema.optional(Schema.String), creationTime: Schema.optional(Schema.Date), lastUpdateTime: Schema.optional(Schema.Date), lastMessageArrivalTime: Schema.optional(Schema.Date), fileFormatType: Schema.optional(Schema.String), datastorePartitions: Schema.optional(DatastorePartitions)}) {}
 export const DatastoreSummaries = Schema.Array(DatastoreSummary);
-export const CreateDatasetResponse = Schema.Struct({datasetName: Schema.optional(Schema.String), datasetArn: Schema.optional(Schema.String), retentionPeriod: Schema.optional(RetentionPeriod)});
-export const CreateDatastoreResponse = Schema.Struct({datastoreName: Schema.optional(Schema.String), datastoreArn: Schema.optional(Schema.String), retentionPeriod: Schema.optional(RetentionPeriod)});
-export const ListDatastoresResponse = Schema.Struct({datastoreSummaries: Schema.optional(DatastoreSummaries), nextToken: Schema.optional(Schema.String)});
+export class CreateDatasetResponse extends Schema.Class<CreateDatasetResponse>("CreateDatasetResponse")({datasetName: Schema.optional(Schema.String), datasetArn: Schema.optional(Schema.String), retentionPeriod: Schema.optional(RetentionPeriod)}) {}
+export class CreateDatastoreResponse extends Schema.Class<CreateDatastoreResponse>("CreateDatastoreResponse")({datastoreName: Schema.optional(Schema.String), datastoreArn: Schema.optional(Schema.String), retentionPeriod: Schema.optional(RetentionPeriod)}) {}
+export class ListDatastoresResponse extends Schema.Class<ListDatastoresResponse>("ListDatastoresResponse")({datastoreSummaries: Schema.optional(DatastoreSummaries), nextToken: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class InternalFailureExceptionError extends Schema.TaggedError<InternalFailureExceptionError>()("InternalFailureException", InternalFailureException) {};
-export class InvalidRequestExceptionError extends Schema.TaggedError<InvalidRequestExceptionError>()("InvalidRequestException", InvalidRequestException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ServiceUnavailableExceptionError extends Schema.TaggedError<ServiceUnavailableExceptionError>()("ServiceUnavailableException", ServiceUnavailableException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException) {};
-export class ResourceAlreadyExistsExceptionError extends Schema.TaggedError<ResourceAlreadyExistsExceptionError>()("ResourceAlreadyExistsException", ResourceAlreadyExistsException) {};
+export class InternalFailureExceptionError extends Schema.TaggedError<InternalFailureExceptionError>()("InternalFailureException", InternalFailureException.fields) {};
+export class InvalidRequestExceptionError extends Schema.TaggedError<InvalidRequestExceptionError>()("InvalidRequestException", InvalidRequestException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ServiceUnavailableExceptionError extends Schema.TaggedError<ServiceUnavailableExceptionError>()("ServiceUnavailableException", ServiceUnavailableException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException.fields) {};
+export class ResourceAlreadyExistsExceptionError extends Schema.TaggedError<ResourceAlreadyExistsExceptionError>()("ResourceAlreadyExistsException", ResourceAlreadyExistsException.fields) {};
 
 //# Operations
 export const deletePipeline = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-11-27", uri: "/pipelines/{pipelineName}", method: "DELETE", sdkId: "IoTAnalytics", sigV4ServiceName: "iotanalytics", name: "AWSIoTAnalytics.DeletePipeline" }, DeletePipelineRequest, Schema.Struct({}), [InternalFailureExceptionError, InvalidRequestExceptionError, ResourceNotFoundExceptionError, ServiceUnavailableExceptionError, ThrottlingExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

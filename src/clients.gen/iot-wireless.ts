@@ -3,12 +3,12 @@ import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperat
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const GetEventConfigurationByResourceTypesRequest = Schema.Struct({});
-export const GetLogLevelsByResourceTypesRequest = Schema.Struct({});
-export const GetMetricConfigurationRequest = Schema.Struct({});
-export const ResetAllResourceLogLevelsRequest = Schema.Struct({});
-export const ResetAllResourceLogLevelsResponse = Schema.Struct({});
-export const SidewalkCreateDeviceProfile = Schema.Struct({});
+export class GetEventConfigurationByResourceTypesRequest extends Schema.Class<GetEventConfigurationByResourceTypesRequest>("GetEventConfigurationByResourceTypesRequest")({}) {}
+export class GetLogLevelsByResourceTypesRequest extends Schema.Class<GetLogLevelsByResourceTypesRequest>("GetLogLevelsByResourceTypesRequest")({}) {}
+export class GetMetricConfigurationRequest extends Schema.Class<GetMetricConfigurationRequest>("GetMetricConfigurationRequest")({}) {}
+export class ResetAllResourceLogLevelsRequest extends Schema.Class<ResetAllResourceLogLevelsRequest>("ResetAllResourceLogLevelsRequest")({}) {}
+export class ResetAllResourceLogLevelsResponse extends Schema.Class<ResetAllResourceLogLevelsResponse>("ResetAllResourceLogLevelsResponse")({}) {}
+export class SidewalkCreateDeviceProfile extends Schema.Class<SidewalkCreateDeviceProfile>("SidewalkCreateDeviceProfile")({}) {}
 export const WirelessDeviceList = Schema.Array(Schema.String);
 export const WirelessGatewayList = Schema.Array(Schema.String);
 export const NetworkAnalyzerMulticastGroupList = Schema.Array(Schema.String);
@@ -17,420 +17,423 @@ export const PositionCoordinate = Schema.Array(Schema.Number);
 export const JoinEuiRange = Schema.Array(Schema.String);
 export const JoinEuiFilters = Schema.Array(JoinEuiRange);
 export const NetIdFilters = Schema.Array(Schema.String);
-export const AssociateMulticastGroupWithFuotaTaskRequest = Schema.Struct({Id: Schema.String, MulticastGroupId: Schema.String});
-export const AssociateMulticastGroupWithFuotaTaskResponse = Schema.Struct({});
-export const AssociateWirelessDeviceWithFuotaTaskRequest = Schema.Struct({Id: Schema.String, WirelessDeviceId: Schema.String});
-export const AssociateWirelessDeviceWithFuotaTaskResponse = Schema.Struct({});
-export const AssociateWirelessDeviceWithMulticastGroupRequest = Schema.Struct({Id: Schema.String, WirelessDeviceId: Schema.String});
-export const AssociateWirelessDeviceWithMulticastGroupResponse = Schema.Struct({});
-export const AssociateWirelessDeviceWithThingRequest = Schema.Struct({Id: Schema.String, ThingArn: Schema.String});
-export const AssociateWirelessDeviceWithThingResponse = Schema.Struct({});
-export const AssociateWirelessGatewayWithCertificateRequest = Schema.Struct({Id: Schema.String, IotCertificateId: Schema.String});
-export const AssociateWirelessGatewayWithThingRequest = Schema.Struct({Id: Schema.String, ThingArn: Schema.String});
-export const AssociateWirelessGatewayWithThingResponse = Schema.Struct({});
-export const CancelMulticastGroupSessionRequest = Schema.Struct({Id: Schema.String});
-export const CancelMulticastGroupSessionResponse = Schema.Struct({});
-export const Tag = Schema.Struct({Key: Schema.String, Value: Schema.String});
+export class AssociateMulticastGroupWithFuotaTaskRequest extends Schema.Class<AssociateMulticastGroupWithFuotaTaskRequest>("AssociateMulticastGroupWithFuotaTaskRequest")({Id: Schema.String, MulticastGroupId: Schema.String}) {}
+export class AssociateMulticastGroupWithFuotaTaskResponse extends Schema.Class<AssociateMulticastGroupWithFuotaTaskResponse>("AssociateMulticastGroupWithFuotaTaskResponse")({}) {}
+export class AssociateWirelessDeviceWithFuotaTaskRequest extends Schema.Class<AssociateWirelessDeviceWithFuotaTaskRequest>("AssociateWirelessDeviceWithFuotaTaskRequest")({Id: Schema.String, WirelessDeviceId: Schema.String}) {}
+export class AssociateWirelessDeviceWithFuotaTaskResponse extends Schema.Class<AssociateWirelessDeviceWithFuotaTaskResponse>("AssociateWirelessDeviceWithFuotaTaskResponse")({}) {}
+export class AssociateWirelessDeviceWithMulticastGroupRequest extends Schema.Class<AssociateWirelessDeviceWithMulticastGroupRequest>("AssociateWirelessDeviceWithMulticastGroupRequest")({Id: Schema.String, WirelessDeviceId: Schema.String}) {}
+export class AssociateWirelessDeviceWithMulticastGroupResponse extends Schema.Class<AssociateWirelessDeviceWithMulticastGroupResponse>("AssociateWirelessDeviceWithMulticastGroupResponse")({}) {}
+export class AssociateWirelessDeviceWithThingRequest extends Schema.Class<AssociateWirelessDeviceWithThingRequest>("AssociateWirelessDeviceWithThingRequest")({Id: Schema.String, ThingArn: Schema.String}) {}
+export class AssociateWirelessDeviceWithThingResponse extends Schema.Class<AssociateWirelessDeviceWithThingResponse>("AssociateWirelessDeviceWithThingResponse")({}) {}
+export class AssociateWirelessGatewayWithCertificateRequest extends Schema.Class<AssociateWirelessGatewayWithCertificateRequest>("AssociateWirelessGatewayWithCertificateRequest")({Id: Schema.String, IotCertificateId: Schema.String}) {}
+export class AssociateWirelessGatewayWithThingRequest extends Schema.Class<AssociateWirelessGatewayWithThingRequest>("AssociateWirelessGatewayWithThingRequest")({Id: Schema.String, ThingArn: Schema.String}) {}
+export class AssociateWirelessGatewayWithThingResponse extends Schema.Class<AssociateWirelessGatewayWithThingResponse>("AssociateWirelessGatewayWithThingResponse")({}) {}
+export class CancelMulticastGroupSessionRequest extends Schema.Class<CancelMulticastGroupSessionRequest>("CancelMulticastGroupSessionRequest")({Id: Schema.String}) {}
+export class CancelMulticastGroupSessionResponse extends Schema.Class<CancelMulticastGroupSessionResponse>("CancelMulticastGroupSessionResponse")({}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.String, Value: Schema.String}) {}
 export const TagList = Schema.Array(Tag);
-export const CreateDestinationRequest = Schema.Struct({Name: Schema.String, ExpressionType: Schema.String, Expression: Schema.String, Description: Schema.optional(Schema.String), RoleArn: Schema.String, Tags: Schema.optional(TagList), ClientRequestToken: Schema.optional(Schema.String)});
-export const CreateWirelessGatewayTaskRequest = Schema.Struct({Id: Schema.String, WirelessGatewayTaskDefinitionId: Schema.String});
-export const DeleteDestinationRequest = Schema.Struct({Name: Schema.String});
-export const DeleteDestinationResponse = Schema.Struct({});
-export const DeleteDeviceProfileRequest = Schema.Struct({Id: Schema.String});
-export const DeleteDeviceProfileResponse = Schema.Struct({});
-export const DeleteFuotaTaskRequest = Schema.Struct({Id: Schema.String});
-export const DeleteFuotaTaskResponse = Schema.Struct({});
-export const DeleteMulticastGroupRequest = Schema.Struct({Id: Schema.String});
-export const DeleteMulticastGroupResponse = Schema.Struct({});
-export const DeleteNetworkAnalyzerConfigurationRequest = Schema.Struct({ConfigurationName: Schema.String});
-export const DeleteNetworkAnalyzerConfigurationResponse = Schema.Struct({});
-export const DeleteQueuedMessagesRequest = Schema.Struct({Id: Schema.String, MessageId: Schema.String, WirelessDeviceType: Schema.optional(Schema.String)});
-export const DeleteQueuedMessagesResponse = Schema.Struct({});
-export const DeleteServiceProfileRequest = Schema.Struct({Id: Schema.String});
-export const DeleteServiceProfileResponse = Schema.Struct({});
-export const DeleteWirelessDeviceRequest = Schema.Struct({Id: Schema.String});
-export const DeleteWirelessDeviceResponse = Schema.Struct({});
-export const DeleteWirelessDeviceImportTaskRequest = Schema.Struct({Id: Schema.String});
-export const DeleteWirelessDeviceImportTaskResponse = Schema.Struct({});
-export const DeleteWirelessGatewayRequest = Schema.Struct({Id: Schema.String});
-export const DeleteWirelessGatewayResponse = Schema.Struct({});
-export const DeleteWirelessGatewayTaskRequest = Schema.Struct({Id: Schema.String});
-export const DeleteWirelessGatewayTaskResponse = Schema.Struct({});
-export const DeleteWirelessGatewayTaskDefinitionRequest = Schema.Struct({Id: Schema.String});
-export const DeleteWirelessGatewayTaskDefinitionResponse = Schema.Struct({});
-export const DeregisterWirelessDeviceRequest = Schema.Struct({Identifier: Schema.String, WirelessDeviceType: Schema.optional(Schema.String)});
-export const DeregisterWirelessDeviceResponse = Schema.Struct({});
-export const DisassociateAwsAccountFromPartnerAccountRequest = Schema.Struct({PartnerAccountId: Schema.String, PartnerType: Schema.String});
-export const DisassociateAwsAccountFromPartnerAccountResponse = Schema.Struct({});
-export const DisassociateMulticastGroupFromFuotaTaskRequest = Schema.Struct({Id: Schema.String, MulticastGroupId: Schema.String});
-export const DisassociateMulticastGroupFromFuotaTaskResponse = Schema.Struct({});
-export const DisassociateWirelessDeviceFromFuotaTaskRequest = Schema.Struct({Id: Schema.String, WirelessDeviceId: Schema.String});
-export const DisassociateWirelessDeviceFromFuotaTaskResponse = Schema.Struct({});
-export const DisassociateWirelessDeviceFromMulticastGroupRequest = Schema.Struct({Id: Schema.String, WirelessDeviceId: Schema.String});
-export const DisassociateWirelessDeviceFromMulticastGroupResponse = Schema.Struct({});
-export const DisassociateWirelessDeviceFromThingRequest = Schema.Struct({Id: Schema.String});
-export const DisassociateWirelessDeviceFromThingResponse = Schema.Struct({});
-export const DisassociateWirelessGatewayFromCertificateRequest = Schema.Struct({Id: Schema.String});
-export const DisassociateWirelessGatewayFromCertificateResponse = Schema.Struct({});
-export const DisassociateWirelessGatewayFromThingRequest = Schema.Struct({Id: Schema.String});
-export const DisassociateWirelessGatewayFromThingResponse = Schema.Struct({});
-export const GetDestinationRequest = Schema.Struct({Name: Schema.String});
-export const GetDeviceProfileRequest = Schema.Struct({Id: Schema.String});
-export const GetFuotaTaskRequest = Schema.Struct({Id: Schema.String});
-export const GetMulticastGroupRequest = Schema.Struct({Id: Schema.String});
-export const GetMulticastGroupSessionRequest = Schema.Struct({Id: Schema.String});
-export const GetNetworkAnalyzerConfigurationRequest = Schema.Struct({ConfigurationName: Schema.String});
-export const GetPartnerAccountRequest = Schema.Struct({PartnerAccountId: Schema.String, PartnerType: Schema.String});
-export const GetPositionRequest = Schema.Struct({ResourceIdentifier: Schema.String, ResourceType: Schema.String});
-export const GetPositionConfigurationRequest = Schema.Struct({ResourceIdentifier: Schema.String, ResourceType: Schema.String});
-export const GetResourceEventConfigurationRequest = Schema.Struct({Identifier: Schema.String, IdentifierType: Schema.String, PartnerType: Schema.optional(Schema.String)});
-export const GetResourceLogLevelRequest = Schema.Struct({ResourceIdentifier: Schema.String, ResourceType: Schema.String});
-export const GetResourcePositionRequest = Schema.Struct({ResourceIdentifier: Schema.String, ResourceType: Schema.String});
-export const GetServiceEndpointRequest = Schema.Struct({ServiceType: Schema.optional(Schema.String)});
-export const GetServiceProfileRequest = Schema.Struct({Id: Schema.String});
-export const GetWirelessDeviceRequest = Schema.Struct({Identifier: Schema.String, IdentifierType: Schema.String});
-export const GetWirelessDeviceImportTaskRequest = Schema.Struct({Id: Schema.String});
-export const GetWirelessDeviceStatisticsRequest = Schema.Struct({WirelessDeviceId: Schema.String});
-export const GetWirelessGatewayRequest = Schema.Struct({Identifier: Schema.String, IdentifierType: Schema.String});
-export const GetWirelessGatewayCertificateRequest = Schema.Struct({Id: Schema.String});
-export const GetWirelessGatewayFirmwareInformationRequest = Schema.Struct({Id: Schema.String});
-export const GetWirelessGatewayStatisticsRequest = Schema.Struct({WirelessGatewayId: Schema.String});
-export const GetWirelessGatewayTaskRequest = Schema.Struct({Id: Schema.String});
-export const GetWirelessGatewayTaskDefinitionRequest = Schema.Struct({Id: Schema.String});
-export const ListDestinationsRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListDeviceProfilesRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), DeviceProfileType: Schema.optional(Schema.String)});
-export const ListDevicesForWirelessDeviceImportTaskRequest = Schema.Struct({Id: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), Status: Schema.optional(Schema.String)});
-export const ListEventConfigurationsRequest = Schema.Struct({ResourceType: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListFuotaTasksRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListMulticastGroupsRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListMulticastGroupsByFuotaTaskRequest = Schema.Struct({Id: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListNetworkAnalyzerConfigurationsRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListPartnerAccountsRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListPositionConfigurationsRequest = Schema.Struct({ResourceType: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListQueuedMessagesRequest = Schema.Struct({Id: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), WirelessDeviceType: Schema.optional(Schema.String)});
-export const ListServiceProfilesRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListTagsForResourceRequest = Schema.Struct({ResourceArn: Schema.String});
-export const ListWirelessDeviceImportTasksRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListWirelessDevicesRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), DestinationName: Schema.optional(Schema.String), DeviceProfileId: Schema.optional(Schema.String), ServiceProfileId: Schema.optional(Schema.String), WirelessDeviceType: Schema.optional(Schema.String), FuotaTaskId: Schema.optional(Schema.String), MulticastGroupId: Schema.optional(Schema.String)});
-export const ListWirelessGatewaysRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListWirelessGatewayTaskDefinitionsRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), TaskDefinitionType: Schema.optional(Schema.String)});
-export const PutResourceLogLevelRequest = Schema.Struct({ResourceIdentifier: Schema.String, ResourceType: Schema.String, LogLevel: Schema.String});
-export const PutResourceLogLevelResponse = Schema.Struct({});
-export const AccessDeniedException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ResetResourceLogLevelRequest = Schema.Struct({ResourceIdentifier: Schema.String, ResourceType: Schema.String});
-export const ResetResourceLogLevelResponse = Schema.Struct({});
-export const StartBulkAssociateWirelessDeviceWithMulticastGroupRequest = Schema.Struct({Id: Schema.String, QueryString: Schema.optional(Schema.String), Tags: Schema.optional(TagList)});
-export const StartBulkAssociateWirelessDeviceWithMulticastGroupResponse = Schema.Struct({});
-export const StartBulkDisassociateWirelessDeviceFromMulticastGroupRequest = Schema.Struct({Id: Schema.String, QueryString: Schema.optional(Schema.String), Tags: Schema.optional(TagList)});
-export const StartBulkDisassociateWirelessDeviceFromMulticastGroupResponse = Schema.Struct({});
-export const TagResourceRequest = Schema.Struct({ResourceArn: Schema.String, Tags: TagList});
-export const TagResourceResponse = Schema.Struct({});
-export const TestWirelessDeviceRequest = Schema.Struct({Id: Schema.String});
-export const UntagResourceRequest = Schema.Struct({ResourceArn: Schema.String, TagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
-export const UpdateDestinationRequest = Schema.Struct({Name: Schema.String, ExpressionType: Schema.optional(Schema.String), Expression: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), RoleArn: Schema.optional(Schema.String)});
-export const UpdateDestinationResponse = Schema.Struct({});
-export const SidewalkResourceTypeEventConfiguration = Schema.Struct({WirelessDeviceEventTopic: Schema.optional(Schema.String)});
-export const DeviceRegistrationStateResourceTypeEventConfiguration = Schema.Struct({Sidewalk: Schema.optional(SidewalkResourceTypeEventConfiguration)});
-export const ProximityResourceTypeEventConfiguration = Schema.Struct({Sidewalk: Schema.optional(SidewalkResourceTypeEventConfiguration)});
-export const LoRaWANJoinResourceTypeEventConfiguration = Schema.Struct({WirelessDeviceEventTopic: Schema.optional(Schema.String)});
-export const JoinResourceTypeEventConfiguration = Schema.Struct({LoRaWAN: Schema.optional(LoRaWANJoinResourceTypeEventConfiguration)});
-export const LoRaWANConnectionStatusResourceTypeEventConfiguration = Schema.Struct({WirelessGatewayEventTopic: Schema.optional(Schema.String)});
-export const ConnectionStatusResourceTypeEventConfiguration = Schema.Struct({LoRaWAN: Schema.optional(LoRaWANConnectionStatusResourceTypeEventConfiguration)});
-export const MessageDeliveryStatusResourceTypeEventConfiguration = Schema.Struct({Sidewalk: Schema.optional(SidewalkResourceTypeEventConfiguration)});
-export const UpdateEventConfigurationByResourceTypesRequest = Schema.Struct({DeviceRegistrationState: Schema.optional(DeviceRegistrationStateResourceTypeEventConfiguration), Proximity: Schema.optional(ProximityResourceTypeEventConfiguration), Join: Schema.optional(JoinResourceTypeEventConfiguration), ConnectionStatus: Schema.optional(ConnectionStatusResourceTypeEventConfiguration), MessageDeliveryStatus: Schema.optional(MessageDeliveryStatusResourceTypeEventConfiguration)});
-export const UpdateEventConfigurationByResourceTypesResponse = Schema.Struct({});
-export const LoRaWANFuotaTask = Schema.Struct({RfRegion: Schema.optional(Schema.String)});
-export const UpdateFuotaTaskRequest = Schema.Struct({Id: Schema.String, Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), LoRaWAN: Schema.optional(LoRaWANFuotaTask), FirmwareUpdateImage: Schema.optional(Schema.String), FirmwareUpdateRole: Schema.optional(Schema.String), RedundancyPercent: Schema.optional(Schema.Number), FragmentSizeBytes: Schema.optional(Schema.Number), FragmentIntervalMS: Schema.optional(Schema.Number), Descriptor: Schema.optional(Schema.String)});
-export const UpdateFuotaTaskResponse = Schema.Struct({});
-export const FuotaTaskEventLogOption = Schema.Struct({Event: Schema.String, LogLevel: Schema.String});
+export class CreateDestinationRequest extends Schema.Class<CreateDestinationRequest>("CreateDestinationRequest")({Name: Schema.String, ExpressionType: Schema.String, Expression: Schema.String, Description: Schema.optional(Schema.String), RoleArn: Schema.String, Tags: Schema.optional(TagList), ClientRequestToken: Schema.optional(Schema.String)}) {}
+export class CreateWirelessGatewayTaskRequest extends Schema.Class<CreateWirelessGatewayTaskRequest>("CreateWirelessGatewayTaskRequest")({Id: Schema.String, WirelessGatewayTaskDefinitionId: Schema.String}) {}
+export class DeleteDestinationRequest extends Schema.Class<DeleteDestinationRequest>("DeleteDestinationRequest")({Name: Schema.String}) {}
+export class DeleteDestinationResponse extends Schema.Class<DeleteDestinationResponse>("DeleteDestinationResponse")({}) {}
+export class DeleteDeviceProfileRequest extends Schema.Class<DeleteDeviceProfileRequest>("DeleteDeviceProfileRequest")({Id: Schema.String}) {}
+export class DeleteDeviceProfileResponse extends Schema.Class<DeleteDeviceProfileResponse>("DeleteDeviceProfileResponse")({}) {}
+export class DeleteFuotaTaskRequest extends Schema.Class<DeleteFuotaTaskRequest>("DeleteFuotaTaskRequest")({Id: Schema.String}) {}
+export class DeleteFuotaTaskResponse extends Schema.Class<DeleteFuotaTaskResponse>("DeleteFuotaTaskResponse")({}) {}
+export class DeleteMulticastGroupRequest extends Schema.Class<DeleteMulticastGroupRequest>("DeleteMulticastGroupRequest")({Id: Schema.String}) {}
+export class DeleteMulticastGroupResponse extends Schema.Class<DeleteMulticastGroupResponse>("DeleteMulticastGroupResponse")({}) {}
+export class DeleteNetworkAnalyzerConfigurationRequest extends Schema.Class<DeleteNetworkAnalyzerConfigurationRequest>("DeleteNetworkAnalyzerConfigurationRequest")({ConfigurationName: Schema.String}) {}
+export class DeleteNetworkAnalyzerConfigurationResponse extends Schema.Class<DeleteNetworkAnalyzerConfigurationResponse>("DeleteNetworkAnalyzerConfigurationResponse")({}) {}
+export class DeleteQueuedMessagesRequest extends Schema.Class<DeleteQueuedMessagesRequest>("DeleteQueuedMessagesRequest")({Id: Schema.String, MessageId: Schema.String, WirelessDeviceType: Schema.optional(Schema.String)}) {}
+export class DeleteQueuedMessagesResponse extends Schema.Class<DeleteQueuedMessagesResponse>("DeleteQueuedMessagesResponse")({}) {}
+export class DeleteServiceProfileRequest extends Schema.Class<DeleteServiceProfileRequest>("DeleteServiceProfileRequest")({Id: Schema.String}) {}
+export class DeleteServiceProfileResponse extends Schema.Class<DeleteServiceProfileResponse>("DeleteServiceProfileResponse")({}) {}
+export class DeleteWirelessDeviceRequest extends Schema.Class<DeleteWirelessDeviceRequest>("DeleteWirelessDeviceRequest")({Id: Schema.String}) {}
+export class DeleteWirelessDeviceResponse extends Schema.Class<DeleteWirelessDeviceResponse>("DeleteWirelessDeviceResponse")({}) {}
+export class DeleteWirelessDeviceImportTaskRequest extends Schema.Class<DeleteWirelessDeviceImportTaskRequest>("DeleteWirelessDeviceImportTaskRequest")({Id: Schema.String}) {}
+export class DeleteWirelessDeviceImportTaskResponse extends Schema.Class<DeleteWirelessDeviceImportTaskResponse>("DeleteWirelessDeviceImportTaskResponse")({}) {}
+export class DeleteWirelessGatewayRequest extends Schema.Class<DeleteWirelessGatewayRequest>("DeleteWirelessGatewayRequest")({Id: Schema.String}) {}
+export class DeleteWirelessGatewayResponse extends Schema.Class<DeleteWirelessGatewayResponse>("DeleteWirelessGatewayResponse")({}) {}
+export class DeleteWirelessGatewayTaskRequest extends Schema.Class<DeleteWirelessGatewayTaskRequest>("DeleteWirelessGatewayTaskRequest")({Id: Schema.String}) {}
+export class DeleteWirelessGatewayTaskResponse extends Schema.Class<DeleteWirelessGatewayTaskResponse>("DeleteWirelessGatewayTaskResponse")({}) {}
+export class DeleteWirelessGatewayTaskDefinitionRequest extends Schema.Class<DeleteWirelessGatewayTaskDefinitionRequest>("DeleteWirelessGatewayTaskDefinitionRequest")({Id: Schema.String}) {}
+export class DeleteWirelessGatewayTaskDefinitionResponse extends Schema.Class<DeleteWirelessGatewayTaskDefinitionResponse>("DeleteWirelessGatewayTaskDefinitionResponse")({}) {}
+export class DeregisterWirelessDeviceRequest extends Schema.Class<DeregisterWirelessDeviceRequest>("DeregisterWirelessDeviceRequest")({Identifier: Schema.String, WirelessDeviceType: Schema.optional(Schema.String)}) {}
+export class DeregisterWirelessDeviceResponse extends Schema.Class<DeregisterWirelessDeviceResponse>("DeregisterWirelessDeviceResponse")({}) {}
+export class DisassociateAwsAccountFromPartnerAccountRequest extends Schema.Class<DisassociateAwsAccountFromPartnerAccountRequest>("DisassociateAwsAccountFromPartnerAccountRequest")({PartnerAccountId: Schema.String, PartnerType: Schema.String}) {}
+export class DisassociateAwsAccountFromPartnerAccountResponse extends Schema.Class<DisassociateAwsAccountFromPartnerAccountResponse>("DisassociateAwsAccountFromPartnerAccountResponse")({}) {}
+export class DisassociateMulticastGroupFromFuotaTaskRequest extends Schema.Class<DisassociateMulticastGroupFromFuotaTaskRequest>("DisassociateMulticastGroupFromFuotaTaskRequest")({Id: Schema.String, MulticastGroupId: Schema.String}) {}
+export class DisassociateMulticastGroupFromFuotaTaskResponse extends Schema.Class<DisassociateMulticastGroupFromFuotaTaskResponse>("DisassociateMulticastGroupFromFuotaTaskResponse")({}) {}
+export class DisassociateWirelessDeviceFromFuotaTaskRequest extends Schema.Class<DisassociateWirelessDeviceFromFuotaTaskRequest>("DisassociateWirelessDeviceFromFuotaTaskRequest")({Id: Schema.String, WirelessDeviceId: Schema.String}) {}
+export class DisassociateWirelessDeviceFromFuotaTaskResponse extends Schema.Class<DisassociateWirelessDeviceFromFuotaTaskResponse>("DisassociateWirelessDeviceFromFuotaTaskResponse")({}) {}
+export class DisassociateWirelessDeviceFromMulticastGroupRequest extends Schema.Class<DisassociateWirelessDeviceFromMulticastGroupRequest>("DisassociateWirelessDeviceFromMulticastGroupRequest")({Id: Schema.String, WirelessDeviceId: Schema.String}) {}
+export class DisassociateWirelessDeviceFromMulticastGroupResponse extends Schema.Class<DisassociateWirelessDeviceFromMulticastGroupResponse>("DisassociateWirelessDeviceFromMulticastGroupResponse")({}) {}
+export class DisassociateWirelessDeviceFromThingRequest extends Schema.Class<DisassociateWirelessDeviceFromThingRequest>("DisassociateWirelessDeviceFromThingRequest")({Id: Schema.String}) {}
+export class DisassociateWirelessDeviceFromThingResponse extends Schema.Class<DisassociateWirelessDeviceFromThingResponse>("DisassociateWirelessDeviceFromThingResponse")({}) {}
+export class DisassociateWirelessGatewayFromCertificateRequest extends Schema.Class<DisassociateWirelessGatewayFromCertificateRequest>("DisassociateWirelessGatewayFromCertificateRequest")({Id: Schema.String}) {}
+export class DisassociateWirelessGatewayFromCertificateResponse extends Schema.Class<DisassociateWirelessGatewayFromCertificateResponse>("DisassociateWirelessGatewayFromCertificateResponse")({}) {}
+export class DisassociateWirelessGatewayFromThingRequest extends Schema.Class<DisassociateWirelessGatewayFromThingRequest>("DisassociateWirelessGatewayFromThingRequest")({Id: Schema.String}) {}
+export class DisassociateWirelessGatewayFromThingResponse extends Schema.Class<DisassociateWirelessGatewayFromThingResponse>("DisassociateWirelessGatewayFromThingResponse")({}) {}
+export class GetDestinationRequest extends Schema.Class<GetDestinationRequest>("GetDestinationRequest")({Name: Schema.String}) {}
+export class GetDeviceProfileRequest extends Schema.Class<GetDeviceProfileRequest>("GetDeviceProfileRequest")({Id: Schema.String}) {}
+export class GetFuotaTaskRequest extends Schema.Class<GetFuotaTaskRequest>("GetFuotaTaskRequest")({Id: Schema.String}) {}
+export class GetMulticastGroupRequest extends Schema.Class<GetMulticastGroupRequest>("GetMulticastGroupRequest")({Id: Schema.String}) {}
+export class GetMulticastGroupSessionRequest extends Schema.Class<GetMulticastGroupSessionRequest>("GetMulticastGroupSessionRequest")({Id: Schema.String}) {}
+export class GetNetworkAnalyzerConfigurationRequest extends Schema.Class<GetNetworkAnalyzerConfigurationRequest>("GetNetworkAnalyzerConfigurationRequest")({ConfigurationName: Schema.String}) {}
+export class GetPartnerAccountRequest extends Schema.Class<GetPartnerAccountRequest>("GetPartnerAccountRequest")({PartnerAccountId: Schema.String, PartnerType: Schema.String}) {}
+export class GetPositionRequest extends Schema.Class<GetPositionRequest>("GetPositionRequest")({ResourceIdentifier: Schema.String, ResourceType: Schema.String}) {}
+export class GetPositionConfigurationRequest extends Schema.Class<GetPositionConfigurationRequest>("GetPositionConfigurationRequest")({ResourceIdentifier: Schema.String, ResourceType: Schema.String}) {}
+export class GetResourceEventConfigurationRequest extends Schema.Class<GetResourceEventConfigurationRequest>("GetResourceEventConfigurationRequest")({Identifier: Schema.String, IdentifierType: Schema.String, PartnerType: Schema.optional(Schema.String)}) {}
+export class GetResourceLogLevelRequest extends Schema.Class<GetResourceLogLevelRequest>("GetResourceLogLevelRequest")({ResourceIdentifier: Schema.String, ResourceType: Schema.String}) {}
+export class GetResourcePositionRequest extends Schema.Class<GetResourcePositionRequest>("GetResourcePositionRequest")({ResourceIdentifier: Schema.String, ResourceType: Schema.String}) {}
+export class GetServiceEndpointRequest extends Schema.Class<GetServiceEndpointRequest>("GetServiceEndpointRequest")({ServiceType: Schema.optional(Schema.String)}) {}
+export class GetServiceProfileRequest extends Schema.Class<GetServiceProfileRequest>("GetServiceProfileRequest")({Id: Schema.String}) {}
+export class GetWirelessDeviceRequest extends Schema.Class<GetWirelessDeviceRequest>("GetWirelessDeviceRequest")({Identifier: Schema.String, IdentifierType: Schema.String}) {}
+export class GetWirelessDeviceImportTaskRequest extends Schema.Class<GetWirelessDeviceImportTaskRequest>("GetWirelessDeviceImportTaskRequest")({Id: Schema.String}) {}
+export class GetWirelessDeviceStatisticsRequest extends Schema.Class<GetWirelessDeviceStatisticsRequest>("GetWirelessDeviceStatisticsRequest")({WirelessDeviceId: Schema.String}) {}
+export class GetWirelessGatewayRequest extends Schema.Class<GetWirelessGatewayRequest>("GetWirelessGatewayRequest")({Identifier: Schema.String, IdentifierType: Schema.String}) {}
+export class GetWirelessGatewayCertificateRequest extends Schema.Class<GetWirelessGatewayCertificateRequest>("GetWirelessGatewayCertificateRequest")({Id: Schema.String}) {}
+export class GetWirelessGatewayFirmwareInformationRequest extends Schema.Class<GetWirelessGatewayFirmwareInformationRequest>("GetWirelessGatewayFirmwareInformationRequest")({Id: Schema.String}) {}
+export class GetWirelessGatewayStatisticsRequest extends Schema.Class<GetWirelessGatewayStatisticsRequest>("GetWirelessGatewayStatisticsRequest")({WirelessGatewayId: Schema.String}) {}
+export class GetWirelessGatewayTaskRequest extends Schema.Class<GetWirelessGatewayTaskRequest>("GetWirelessGatewayTaskRequest")({Id: Schema.String}) {}
+export class GetWirelessGatewayTaskDefinitionRequest extends Schema.Class<GetWirelessGatewayTaskDefinitionRequest>("GetWirelessGatewayTaskDefinitionRequest")({Id: Schema.String}) {}
+export class ListDestinationsRequest extends Schema.Class<ListDestinationsRequest>("ListDestinationsRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListDeviceProfilesRequest extends Schema.Class<ListDeviceProfilesRequest>("ListDeviceProfilesRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), DeviceProfileType: Schema.optional(Schema.String)}) {}
+export class ListDevicesForWirelessDeviceImportTaskRequest extends Schema.Class<ListDevicesForWirelessDeviceImportTaskRequest>("ListDevicesForWirelessDeviceImportTaskRequest")({Id: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), Status: Schema.optional(Schema.String)}) {}
+export class ListEventConfigurationsRequest extends Schema.Class<ListEventConfigurationsRequest>("ListEventConfigurationsRequest")({ResourceType: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListFuotaTasksRequest extends Schema.Class<ListFuotaTasksRequest>("ListFuotaTasksRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListMulticastGroupsRequest extends Schema.Class<ListMulticastGroupsRequest>("ListMulticastGroupsRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListMulticastGroupsByFuotaTaskRequest extends Schema.Class<ListMulticastGroupsByFuotaTaskRequest>("ListMulticastGroupsByFuotaTaskRequest")({Id: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListNetworkAnalyzerConfigurationsRequest extends Schema.Class<ListNetworkAnalyzerConfigurationsRequest>("ListNetworkAnalyzerConfigurationsRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListPartnerAccountsRequest extends Schema.Class<ListPartnerAccountsRequest>("ListPartnerAccountsRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListPositionConfigurationsRequest extends Schema.Class<ListPositionConfigurationsRequest>("ListPositionConfigurationsRequest")({ResourceType: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListQueuedMessagesRequest extends Schema.Class<ListQueuedMessagesRequest>("ListQueuedMessagesRequest")({Id: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), WirelessDeviceType: Schema.optional(Schema.String)}) {}
+export class ListServiceProfilesRequest extends Schema.Class<ListServiceProfilesRequest>("ListServiceProfilesRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({ResourceArn: Schema.String}) {}
+export class ListWirelessDeviceImportTasksRequest extends Schema.Class<ListWirelessDeviceImportTasksRequest>("ListWirelessDeviceImportTasksRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListWirelessDevicesRequest extends Schema.Class<ListWirelessDevicesRequest>("ListWirelessDevicesRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), DestinationName: Schema.optional(Schema.String), DeviceProfileId: Schema.optional(Schema.String), ServiceProfileId: Schema.optional(Schema.String), WirelessDeviceType: Schema.optional(Schema.String), FuotaTaskId: Schema.optional(Schema.String), MulticastGroupId: Schema.optional(Schema.String)}) {}
+export class ListWirelessGatewaysRequest extends Schema.Class<ListWirelessGatewaysRequest>("ListWirelessGatewaysRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListWirelessGatewayTaskDefinitionsRequest extends Schema.Class<ListWirelessGatewayTaskDefinitionsRequest>("ListWirelessGatewayTaskDefinitionsRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), TaskDefinitionType: Schema.optional(Schema.String)}) {}
+export class PutResourceLogLevelRequest extends Schema.Class<PutResourceLogLevelRequest>("PutResourceLogLevelRequest")({ResourceIdentifier: Schema.String, ResourceType: Schema.String, LogLevel: Schema.String}) {}
+export class PutResourceLogLevelResponse extends Schema.Class<PutResourceLogLevelResponse>("PutResourceLogLevelResponse")({}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({Message: Schema.optional(Schema.String)}) {}
+export class ResetResourceLogLevelRequest extends Schema.Class<ResetResourceLogLevelRequest>("ResetResourceLogLevelRequest")({ResourceIdentifier: Schema.String, ResourceType: Schema.String}) {}
+export class ResetResourceLogLevelResponse extends Schema.Class<ResetResourceLogLevelResponse>("ResetResourceLogLevelResponse")({}) {}
+export class StartBulkAssociateWirelessDeviceWithMulticastGroupRequest extends Schema.Class<StartBulkAssociateWirelessDeviceWithMulticastGroupRequest>("StartBulkAssociateWirelessDeviceWithMulticastGroupRequest")({Id: Schema.String, QueryString: Schema.optional(Schema.String), Tags: Schema.optional(TagList)}) {}
+export class StartBulkAssociateWirelessDeviceWithMulticastGroupResponse extends Schema.Class<StartBulkAssociateWirelessDeviceWithMulticastGroupResponse>("StartBulkAssociateWirelessDeviceWithMulticastGroupResponse")({}) {}
+export class StartBulkDisassociateWirelessDeviceFromMulticastGroupRequest extends Schema.Class<StartBulkDisassociateWirelessDeviceFromMulticastGroupRequest>("StartBulkDisassociateWirelessDeviceFromMulticastGroupRequest")({Id: Schema.String, QueryString: Schema.optional(Schema.String), Tags: Schema.optional(TagList)}) {}
+export class StartBulkDisassociateWirelessDeviceFromMulticastGroupResponse extends Schema.Class<StartBulkDisassociateWirelessDeviceFromMulticastGroupResponse>("StartBulkDisassociateWirelessDeviceFromMulticastGroupResponse")({}) {}
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({ResourceArn: Schema.String, Tags: TagList}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class TestWirelessDeviceRequest extends Schema.Class<TestWirelessDeviceRequest>("TestWirelessDeviceRequest")({Id: Schema.String}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({ResourceArn: Schema.String, TagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class UpdateDestinationRequest extends Schema.Class<UpdateDestinationRequest>("UpdateDestinationRequest")({Name: Schema.String, ExpressionType: Schema.optional(Schema.String), Expression: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), RoleArn: Schema.optional(Schema.String)}) {}
+export class UpdateDestinationResponse extends Schema.Class<UpdateDestinationResponse>("UpdateDestinationResponse")({}) {}
+export class SidewalkResourceTypeEventConfiguration extends Schema.Class<SidewalkResourceTypeEventConfiguration>("SidewalkResourceTypeEventConfiguration")({WirelessDeviceEventTopic: Schema.optional(Schema.String)}) {}
+export class DeviceRegistrationStateResourceTypeEventConfiguration extends Schema.Class<DeviceRegistrationStateResourceTypeEventConfiguration>("DeviceRegistrationStateResourceTypeEventConfiguration")({Sidewalk: Schema.optional(SidewalkResourceTypeEventConfiguration)}) {}
+export class ProximityResourceTypeEventConfiguration extends Schema.Class<ProximityResourceTypeEventConfiguration>("ProximityResourceTypeEventConfiguration")({Sidewalk: Schema.optional(SidewalkResourceTypeEventConfiguration)}) {}
+export class LoRaWANJoinResourceTypeEventConfiguration extends Schema.Class<LoRaWANJoinResourceTypeEventConfiguration>("LoRaWANJoinResourceTypeEventConfiguration")({WirelessDeviceEventTopic: Schema.optional(Schema.String)}) {}
+export class JoinResourceTypeEventConfiguration extends Schema.Class<JoinResourceTypeEventConfiguration>("JoinResourceTypeEventConfiguration")({LoRaWAN: Schema.optional(LoRaWANJoinResourceTypeEventConfiguration)}) {}
+export class LoRaWANConnectionStatusResourceTypeEventConfiguration extends Schema.Class<LoRaWANConnectionStatusResourceTypeEventConfiguration>("LoRaWANConnectionStatusResourceTypeEventConfiguration")({WirelessGatewayEventTopic: Schema.optional(Schema.String)}) {}
+export class ConnectionStatusResourceTypeEventConfiguration extends Schema.Class<ConnectionStatusResourceTypeEventConfiguration>("ConnectionStatusResourceTypeEventConfiguration")({LoRaWAN: Schema.optional(LoRaWANConnectionStatusResourceTypeEventConfiguration)}) {}
+export class MessageDeliveryStatusResourceTypeEventConfiguration extends Schema.Class<MessageDeliveryStatusResourceTypeEventConfiguration>("MessageDeliveryStatusResourceTypeEventConfiguration")({Sidewalk: Schema.optional(SidewalkResourceTypeEventConfiguration)}) {}
+export class UpdateEventConfigurationByResourceTypesRequest extends Schema.Class<UpdateEventConfigurationByResourceTypesRequest>("UpdateEventConfigurationByResourceTypesRequest")({DeviceRegistrationState: Schema.optional(DeviceRegistrationStateResourceTypeEventConfiguration), Proximity: Schema.optional(ProximityResourceTypeEventConfiguration), Join: Schema.optional(JoinResourceTypeEventConfiguration), ConnectionStatus: Schema.optional(ConnectionStatusResourceTypeEventConfiguration), MessageDeliveryStatus: Schema.optional(MessageDeliveryStatusResourceTypeEventConfiguration)}) {}
+export class UpdateEventConfigurationByResourceTypesResponse extends Schema.Class<UpdateEventConfigurationByResourceTypesResponse>("UpdateEventConfigurationByResourceTypesResponse")({}) {}
+export class LoRaWANFuotaTask extends Schema.Class<LoRaWANFuotaTask>("LoRaWANFuotaTask")({RfRegion: Schema.optional(Schema.String)}) {}
+export class UpdateFuotaTaskRequest extends Schema.Class<UpdateFuotaTaskRequest>("UpdateFuotaTaskRequest")({Id: Schema.String, Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), LoRaWAN: Schema.optional(LoRaWANFuotaTask), FirmwareUpdateImage: Schema.optional(Schema.String), FirmwareUpdateRole: Schema.optional(Schema.String), RedundancyPercent: Schema.optional(Schema.Number), FragmentSizeBytes: Schema.optional(Schema.Number), FragmentIntervalMS: Schema.optional(Schema.Number), Descriptor: Schema.optional(Schema.String)}) {}
+export class UpdateFuotaTaskResponse extends Schema.Class<UpdateFuotaTaskResponse>("UpdateFuotaTaskResponse")({}) {}
+export class FuotaTaskEventLogOption extends Schema.Class<FuotaTaskEventLogOption>("FuotaTaskEventLogOption")({Event: Schema.String, LogLevel: Schema.String}) {}
 export const FuotaTaskEventLogOptionList = Schema.Array(FuotaTaskEventLogOption);
-export const FuotaTaskLogOption = Schema.Struct({Type: Schema.String, LogLevel: Schema.String, Events: Schema.optional(FuotaTaskEventLogOptionList)});
+export class FuotaTaskLogOption extends Schema.Class<FuotaTaskLogOption>("FuotaTaskLogOption")({Type: Schema.String, LogLevel: Schema.String, Events: Schema.optional(FuotaTaskEventLogOptionList)}) {}
 export const FuotaTaskLogOptionList = Schema.Array(FuotaTaskLogOption);
-export const WirelessDeviceEventLogOption = Schema.Struct({Event: Schema.String, LogLevel: Schema.String});
+export class WirelessDeviceEventLogOption extends Schema.Class<WirelessDeviceEventLogOption>("WirelessDeviceEventLogOption")({Event: Schema.String, LogLevel: Schema.String}) {}
 export const WirelessDeviceEventLogOptionList = Schema.Array(WirelessDeviceEventLogOption);
-export const WirelessDeviceLogOption = Schema.Struct({Type: Schema.String, LogLevel: Schema.String, Events: Schema.optional(WirelessDeviceEventLogOptionList)});
+export class WirelessDeviceLogOption extends Schema.Class<WirelessDeviceLogOption>("WirelessDeviceLogOption")({Type: Schema.String, LogLevel: Schema.String, Events: Schema.optional(WirelessDeviceEventLogOptionList)}) {}
 export const WirelessDeviceLogOptionList = Schema.Array(WirelessDeviceLogOption);
-export const WirelessGatewayEventLogOption = Schema.Struct({Event: Schema.String, LogLevel: Schema.String});
+export class WirelessGatewayEventLogOption extends Schema.Class<WirelessGatewayEventLogOption>("WirelessGatewayEventLogOption")({Event: Schema.String, LogLevel: Schema.String}) {}
 export const WirelessGatewayEventLogOptionList = Schema.Array(WirelessGatewayEventLogOption);
-export const WirelessGatewayLogOption = Schema.Struct({Type: Schema.String, LogLevel: Schema.String, Events: Schema.optional(WirelessGatewayEventLogOptionList)});
+export class WirelessGatewayLogOption extends Schema.Class<WirelessGatewayLogOption>("WirelessGatewayLogOption")({Type: Schema.String, LogLevel: Schema.String, Events: Schema.optional(WirelessGatewayEventLogOptionList)}) {}
 export const WirelessGatewayLogOptionList = Schema.Array(WirelessGatewayLogOption);
-export const UpdateLogLevelsByResourceTypesRequest = Schema.Struct({DefaultLogLevel: Schema.optional(Schema.String), FuotaTaskLogOptions: Schema.optional(FuotaTaskLogOptionList), WirelessDeviceLogOptions: Schema.optional(WirelessDeviceLogOptionList), WirelessGatewayLogOptions: Schema.optional(WirelessGatewayLogOptionList)});
-export const UpdateLogLevelsByResourceTypesResponse = Schema.Struct({});
-export const SummaryMetricConfiguration = Schema.Struct({Status: Schema.optional(Schema.String)});
-export const UpdateMetricConfigurationRequest = Schema.Struct({SummaryMetric: Schema.optional(SummaryMetricConfiguration)});
-export const UpdateMetricConfigurationResponse = Schema.Struct({});
+export class UpdateLogLevelsByResourceTypesRequest extends Schema.Class<UpdateLogLevelsByResourceTypesRequest>("UpdateLogLevelsByResourceTypesRequest")({DefaultLogLevel: Schema.optional(Schema.String), FuotaTaskLogOptions: Schema.optional(FuotaTaskLogOptionList), WirelessDeviceLogOptions: Schema.optional(WirelessDeviceLogOptionList), WirelessGatewayLogOptions: Schema.optional(WirelessGatewayLogOptionList)}) {}
+export class UpdateLogLevelsByResourceTypesResponse extends Schema.Class<UpdateLogLevelsByResourceTypesResponse>("UpdateLogLevelsByResourceTypesResponse")({}) {}
+export class SummaryMetricConfiguration extends Schema.Class<SummaryMetricConfiguration>("SummaryMetricConfiguration")({Status: Schema.optional(Schema.String)}) {}
+export class UpdateMetricConfigurationRequest extends Schema.Class<UpdateMetricConfigurationRequest>("UpdateMetricConfigurationRequest")({SummaryMetric: Schema.optional(SummaryMetricConfiguration)}) {}
+export class UpdateMetricConfigurationResponse extends Schema.Class<UpdateMetricConfigurationResponse>("UpdateMetricConfigurationResponse")({}) {}
 export const GatewayListMulticast = Schema.Array(Schema.String);
-export const ParticipatingGatewaysMulticast = Schema.Struct({GatewayList: Schema.optional(GatewayListMulticast), TransmissionInterval: Schema.optional(Schema.Number)});
-export const LoRaWANMulticast = Schema.Struct({RfRegion: Schema.optional(Schema.String), DlClass: Schema.optional(Schema.String), ParticipatingGateways: Schema.optional(ParticipatingGatewaysMulticast)});
-export const UpdateMulticastGroupRequest = Schema.Struct({Id: Schema.String, Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), LoRaWAN: Schema.optional(LoRaWANMulticast)});
-export const UpdateMulticastGroupResponse = Schema.Struct({});
-export const TraceContent = Schema.Struct({WirelessDeviceFrameInfo: Schema.optional(Schema.String), LogLevel: Schema.optional(Schema.String), MulticastFrameInfo: Schema.optional(Schema.String)});
-export const UpdateNetworkAnalyzerConfigurationRequest = Schema.Struct({ConfigurationName: Schema.String, TraceContent: Schema.optional(TraceContent), WirelessDevicesToAdd: Schema.optional(WirelessDeviceList), WirelessDevicesToRemove: Schema.optional(WirelessDeviceList), WirelessGatewaysToAdd: Schema.optional(WirelessGatewayList), WirelessGatewaysToRemove: Schema.optional(WirelessGatewayList), Description: Schema.optional(Schema.String), MulticastGroupsToAdd: Schema.optional(NetworkAnalyzerMulticastGroupList), MulticastGroupsToRemove: Schema.optional(NetworkAnalyzerMulticastGroupList)});
-export const UpdateNetworkAnalyzerConfigurationResponse = Schema.Struct({});
-export const UpdatePositionRequest = Schema.Struct({ResourceIdentifier: Schema.String, ResourceType: Schema.String, Position: PositionCoordinate});
-export const UpdatePositionResponse = Schema.Struct({});
-export const UpdateResourcePositionRequest = Schema.Struct({ResourceIdentifier: Schema.String, ResourceType: Schema.String, GeoJsonPayload: Schema.optional(Body("undefined", StreamBody()))});
-export const UpdateResourcePositionResponse = Schema.Struct({});
-export const UpdateWirelessGatewayRequest = Schema.Struct({Id: Schema.String, Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), JoinEuiFilters: Schema.optional(JoinEuiFilters), NetIdFilters: Schema.optional(NetIdFilters), MaxEirp: Schema.optional(Schema.Number)});
-export const UpdateWirelessGatewayResponse = Schema.Struct({});
+export class ParticipatingGatewaysMulticast extends Schema.Class<ParticipatingGatewaysMulticast>("ParticipatingGatewaysMulticast")({GatewayList: Schema.optional(GatewayListMulticast), TransmissionInterval: Schema.optional(Schema.Number)}) {}
+export class LoRaWANMulticast extends Schema.Class<LoRaWANMulticast>("LoRaWANMulticast")({RfRegion: Schema.optional(Schema.String), DlClass: Schema.optional(Schema.String), ParticipatingGateways: Schema.optional(ParticipatingGatewaysMulticast)}) {}
+export class UpdateMulticastGroupRequest extends Schema.Class<UpdateMulticastGroupRequest>("UpdateMulticastGroupRequest")({Id: Schema.String, Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), LoRaWAN: Schema.optional(LoRaWANMulticast)}) {}
+export class UpdateMulticastGroupResponse extends Schema.Class<UpdateMulticastGroupResponse>("UpdateMulticastGroupResponse")({}) {}
+export class TraceContent extends Schema.Class<TraceContent>("TraceContent")({WirelessDeviceFrameInfo: Schema.optional(Schema.String), LogLevel: Schema.optional(Schema.String), MulticastFrameInfo: Schema.optional(Schema.String)}) {}
+export class UpdateNetworkAnalyzerConfigurationRequest extends Schema.Class<UpdateNetworkAnalyzerConfigurationRequest>("UpdateNetworkAnalyzerConfigurationRequest")({ConfigurationName: Schema.String, TraceContent: Schema.optional(TraceContent), WirelessDevicesToAdd: Schema.optional(WirelessDeviceList), WirelessDevicesToRemove: Schema.optional(WirelessDeviceList), WirelessGatewaysToAdd: Schema.optional(WirelessGatewayList), WirelessGatewaysToRemove: Schema.optional(WirelessGatewayList), Description: Schema.optional(Schema.String), MulticastGroupsToAdd: Schema.optional(NetworkAnalyzerMulticastGroupList), MulticastGroupsToRemove: Schema.optional(NetworkAnalyzerMulticastGroupList)}) {}
+export class UpdateNetworkAnalyzerConfigurationResponse extends Schema.Class<UpdateNetworkAnalyzerConfigurationResponse>("UpdateNetworkAnalyzerConfigurationResponse")({}) {}
+export class UpdatePositionRequest extends Schema.Class<UpdatePositionRequest>("UpdatePositionRequest")({ResourceIdentifier: Schema.String, ResourceType: Schema.String, Position: PositionCoordinate}) {}
+export class UpdatePositionResponse extends Schema.Class<UpdatePositionResponse>("UpdatePositionResponse")({}) {}
+export class UpdateResourcePositionRequest extends Schema.Class<UpdateResourcePositionRequest>("UpdateResourcePositionRequest")({ResourceIdentifier: Schema.String, ResourceType: Schema.String, GeoJsonPayload: Schema.optional(Body("undefined", StreamBody()))}) {}
+export class UpdateResourcePositionResponse extends Schema.Class<UpdateResourcePositionResponse>("UpdateResourcePositionResponse")({}) {}
+export class UpdateWirelessGatewayRequest extends Schema.Class<UpdateWirelessGatewayRequest>("UpdateWirelessGatewayRequest")({Id: Schema.String, Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), JoinEuiFilters: Schema.optional(JoinEuiFilters), NetIdFilters: Schema.optional(NetIdFilters), MaxEirp: Schema.optional(Schema.Number)}) {}
+export class UpdateWirelessGatewayResponse extends Schema.Class<UpdateWirelessGatewayResponse>("UpdateWirelessGatewayResponse")({}) {}
 export const FactoryPresetFreqsList = Schema.Array(Schema.Number);
 export const SubBands = Schema.Array(Schema.Number);
 export const AssistPosition = Schema.Array(Schema.Number);
-export const SidewalkAccountInfo = Schema.Struct({AmazonId: Schema.optional(Schema.String), AppServerPrivateKey: Schema.optional(Schema.String)});
-export const LoRaWANDeviceProfile = Schema.Struct({SupportsClassB: Schema.optional(Schema.Boolean), ClassBTimeout: Schema.optional(Schema.Number), PingSlotPeriod: Schema.optional(Schema.Number), PingSlotDr: Schema.optional(Schema.Number), PingSlotFreq: Schema.optional(Schema.Number), SupportsClassC: Schema.optional(Schema.Boolean), ClassCTimeout: Schema.optional(Schema.Number), MacVersion: Schema.optional(Schema.String), RegParamsRevision: Schema.optional(Schema.String), RxDelay1: Schema.optional(Schema.Number), RxDrOffset1: Schema.optional(Schema.Number), RxDataRate2: Schema.optional(Schema.Number), RxFreq2: Schema.optional(Schema.Number), FactoryPresetFreqsList: Schema.optional(FactoryPresetFreqsList), MaxEirp: Schema.optional(Schema.Number), MaxDutyCycle: Schema.optional(Schema.Number), RfRegion: Schema.optional(Schema.String), SupportsJoin: Schema.optional(Schema.Boolean), Supports32BitFCnt: Schema.optional(Schema.Boolean)});
-export const LoRaWANServiceProfile = Schema.Struct({AddGwMetadata: Schema.optional(Schema.Boolean), DrMin: Schema.optional(Schema.Number), DrMax: Schema.optional(Schema.Number), PrAllowed: Schema.optional(Schema.Boolean), RaAllowed: Schema.optional(Schema.Boolean), TxPowerIndexMin: Schema.optional(Schema.Number), TxPowerIndexMax: Schema.optional(Schema.Number), NbTransMin: Schema.optional(Schema.Number), NbTransMax: Schema.optional(Schema.Number)});
-export const SidewalkCreateWirelessDevice = Schema.Struct({DeviceProfileId: Schema.optional(Schema.String)});
-export const WiFiAccessPoint = Schema.Struct({MacAddress: Schema.String, Rss: Schema.Number});
+export class SidewalkAccountInfo extends Schema.Class<SidewalkAccountInfo>("SidewalkAccountInfo")({AmazonId: Schema.optional(Schema.String), AppServerPrivateKey: Schema.optional(Schema.String)}) {}
+export class LoRaWANDeviceProfile extends Schema.Class<LoRaWANDeviceProfile>("LoRaWANDeviceProfile")({SupportsClassB: Schema.optional(Schema.Boolean), ClassBTimeout: Schema.optional(Schema.Number), PingSlotPeriod: Schema.optional(Schema.Number), PingSlotDr: Schema.optional(Schema.Number), PingSlotFreq: Schema.optional(Schema.Number), SupportsClassC: Schema.optional(Schema.Boolean), ClassCTimeout: Schema.optional(Schema.Number), MacVersion: Schema.optional(Schema.String), RegParamsRevision: Schema.optional(Schema.String), RxDelay1: Schema.optional(Schema.Number), RxDrOffset1: Schema.optional(Schema.Number), RxDataRate2: Schema.optional(Schema.Number), RxFreq2: Schema.optional(Schema.Number), FactoryPresetFreqsList: Schema.optional(FactoryPresetFreqsList), MaxEirp: Schema.optional(Schema.Number), MaxDutyCycle: Schema.optional(Schema.Number), RfRegion: Schema.optional(Schema.String), SupportsJoin: Schema.optional(Schema.Boolean), Supports32BitFCnt: Schema.optional(Schema.Boolean)}) {}
+export class LoRaWANServiceProfile extends Schema.Class<LoRaWANServiceProfile>("LoRaWANServiceProfile")({AddGwMetadata: Schema.optional(Schema.Boolean), DrMin: Schema.optional(Schema.Number), DrMax: Schema.optional(Schema.Number), PrAllowed: Schema.optional(Schema.Boolean), RaAllowed: Schema.optional(Schema.Boolean), TxPowerIndexMin: Schema.optional(Schema.Number), TxPowerIndexMax: Schema.optional(Schema.Number), NbTransMin: Schema.optional(Schema.Number), NbTransMax: Schema.optional(Schema.Number)}) {}
+export class WiFiAccessPoint extends Schema.Class<WiFiAccessPoint>("WiFiAccessPoint")({MacAddress: Schema.String, Rss: Schema.Number}) {}
 export const WiFiAccessPoints = Schema.Array(WiFiAccessPoint);
-export const Ip = Schema.Struct({IpAddress: Schema.String});
-export const Gnss = Schema.Struct({Payload: Schema.String, CaptureTime: Schema.optional(Schema.Number), CaptureTimeAccuracy: Schema.optional(Schema.Number), AssistPosition: Schema.optional(AssistPosition), AssistAltitude: Schema.optional(Schema.Number), Use2DSolver: Schema.optional(Schema.Boolean)});
-export const SidewalkAccountInfoWithFingerprint = Schema.Struct({AmazonId: Schema.optional(Schema.String), Fingerprint: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String)});
+export class Ip extends Schema.Class<Ip>("Ip")({IpAddress: Schema.String}) {}
+export class Gnss extends Schema.Class<Gnss>("Gnss")({Payload: Schema.String, CaptureTime: Schema.optional(Schema.Number), CaptureTimeAccuracy: Schema.optional(Schema.Number), AssistPosition: Schema.optional(AssistPosition), AssistAltitude: Schema.optional(Schema.Number), Use2DSolver: Schema.optional(Schema.Boolean)}) {}
+export class SidewalkAccountInfoWithFingerprint extends Schema.Class<SidewalkAccountInfoWithFingerprint>("SidewalkAccountInfoWithFingerprint")({AmazonId: Schema.optional(Schema.String), Fingerprint: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String)}) {}
 export const SidewalkAccountList = Schema.Array(SidewalkAccountInfoWithFingerprint);
-export const LoRaWANStartFuotaTask = Schema.Struct({StartTime: Schema.optional(Schema.Date)});
-export const LoRaWANMulticastSession = Schema.Struct({DlDr: Schema.optional(Schema.Number), DlFreq: Schema.optional(Schema.Number), SessionStartTime: Schema.optional(Schema.Date), SessionTimeout: Schema.optional(Schema.Number), PingSlotPeriod: Schema.optional(Schema.Number)});
-export const SidewalkSingleStartImportInfo = Schema.Struct({SidewalkManufacturingSn: Schema.optional(Schema.String)});
-export const SidewalkStartImportInfo = Schema.Struct({DeviceCreationFile: Schema.optional(Schema.String), Role: Schema.optional(Schema.String)});
-export const SidewalkUpdateAccount = Schema.Struct({AppServerPrivateKey: Schema.optional(Schema.String)});
-export const SidewalkEventNotificationConfigurations = Schema.Struct({AmazonIdEventTopic: Schema.optional(Schema.String)});
-export const ProximityEventConfiguration = Schema.Struct({Sidewalk: Schema.optional(SidewalkEventNotificationConfigurations), WirelessDeviceIdEventTopic: Schema.optional(Schema.String)});
-export const MessageDeliveryStatusEventConfiguration = Schema.Struct({Sidewalk: Schema.optional(SidewalkEventNotificationConfigurations), WirelessDeviceIdEventTopic: Schema.optional(Schema.String)});
-export const SidewalkUpdateImportInfo = Schema.Struct({DeviceCreationFile: Schema.optional(Schema.String)});
+export class LoRaWANStartFuotaTask extends Schema.Class<LoRaWANStartFuotaTask>("LoRaWANStartFuotaTask")({StartTime: Schema.optional(Schema.Date)}) {}
+export class LoRaWANMulticastSession extends Schema.Class<LoRaWANMulticastSession>("LoRaWANMulticastSession")({DlDr: Schema.optional(Schema.Number), DlFreq: Schema.optional(Schema.Number), SessionStartTime: Schema.optional(Schema.Date), SessionTimeout: Schema.optional(Schema.Number), PingSlotPeriod: Schema.optional(Schema.Number)}) {}
+export class SidewalkPositioning extends Schema.Class<SidewalkPositioning>("SidewalkPositioning")({DestinationName: Schema.optional(Schema.String)}) {}
+export class SidewalkSingleStartImportInfo extends Schema.Class<SidewalkSingleStartImportInfo>("SidewalkSingleStartImportInfo")({SidewalkManufacturingSn: Schema.optional(Schema.String), Positioning: Schema.optional(SidewalkPositioning)}) {}
+export class SidewalkStartImportInfo extends Schema.Class<SidewalkStartImportInfo>("SidewalkStartImportInfo")({DeviceCreationFile: Schema.optional(Schema.String), Role: Schema.optional(Schema.String), Positioning: Schema.optional(SidewalkPositioning)}) {}
+export class SidewalkUpdateAccount extends Schema.Class<SidewalkUpdateAccount>("SidewalkUpdateAccount")({AppServerPrivateKey: Schema.optional(Schema.String)}) {}
+export class SidewalkEventNotificationConfigurations extends Schema.Class<SidewalkEventNotificationConfigurations>("SidewalkEventNotificationConfigurations")({AmazonIdEventTopic: Schema.optional(Schema.String)}) {}
+export class ProximityEventConfiguration extends Schema.Class<ProximityEventConfiguration>("ProximityEventConfiguration")({Sidewalk: Schema.optional(SidewalkEventNotificationConfigurations), WirelessDeviceIdEventTopic: Schema.optional(Schema.String)}) {}
+export class MessageDeliveryStatusEventConfiguration extends Schema.Class<MessageDeliveryStatusEventConfiguration>("MessageDeliveryStatusEventConfiguration")({Sidewalk: Schema.optional(SidewalkEventNotificationConfigurations), WirelessDeviceIdEventTopic: Schema.optional(Schema.String)}) {}
+export class SidewalkUpdateWirelessDevice extends Schema.Class<SidewalkUpdateWirelessDevice>("SidewalkUpdateWirelessDevice")({Positioning: Schema.optional(SidewalkPositioning)}) {}
+export class SidewalkUpdateImportInfo extends Schema.Class<SidewalkUpdateImportInfo>("SidewalkUpdateImportInfo")({DeviceCreationFile: Schema.optional(Schema.String)}) {}
 export const BeaconingFrequencies = Schema.Array(Schema.Number);
-export const AssociateAwsAccountWithPartnerAccountRequest = Schema.Struct({Sidewalk: SidewalkAccountInfo, ClientRequestToken: Schema.optional(Schema.String), Tags: Schema.optional(TagList)});
-export const ConflictException = Schema.Struct({Message: Schema.optional(Schema.String), ResourceId: Schema.optional(Schema.String), ResourceType: Schema.optional(Schema.String)});
-export const InternalServerException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String), ResourceId: Schema.optional(Schema.String), ResourceType: Schema.optional(Schema.String)});
-export const ThrottlingException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const AssociateWirelessGatewayWithCertificateResponse = Schema.Struct({IotCertificateId: Schema.optional(Schema.String)});
-export const ValidationException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const CreateDestinationResponse = Schema.Struct({Arn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String)});
-export const CreateDeviceProfileRequest = Schema.Struct({Name: Schema.optional(Schema.String), LoRaWAN: Schema.optional(LoRaWANDeviceProfile), Tags: Schema.optional(TagList), ClientRequestToken: Schema.optional(Schema.String), Sidewalk: Schema.optional(SidewalkCreateDeviceProfile)});
-export const CreateFuotaTaskRequest = Schema.Struct({Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), ClientRequestToken: Schema.optional(Schema.String), LoRaWAN: Schema.optional(LoRaWANFuotaTask), FirmwareUpdateImage: Schema.String, FirmwareUpdateRole: Schema.String, Tags: Schema.optional(TagList), RedundancyPercent: Schema.optional(Schema.Number), FragmentSizeBytes: Schema.optional(Schema.Number), FragmentIntervalMS: Schema.optional(Schema.Number), Descriptor: Schema.optional(Schema.String)});
-export const CreateNetworkAnalyzerConfigurationRequest = Schema.Struct({Name: Schema.String, TraceContent: Schema.optional(TraceContent), WirelessDevices: Schema.optional(WirelessDeviceList), WirelessGateways: Schema.optional(WirelessGatewayList), Description: Schema.optional(Schema.String), Tags: Schema.optional(TagList), ClientRequestToken: Schema.optional(Schema.String), MulticastGroups: Schema.optional(NetworkAnalyzerMulticastGroupList)});
-export const CreateServiceProfileRequest = Schema.Struct({Name: Schema.optional(Schema.String), LoRaWAN: Schema.optional(LoRaWANServiceProfile), Tags: Schema.optional(TagList), ClientRequestToken: Schema.optional(Schema.String)});
-export const CreateWirelessGatewayTaskResponse = Schema.Struct({WirelessGatewayTaskDefinitionId: Schema.optional(Schema.String), Status: Schema.optional(Schema.String)});
-export const GetDestinationResponse = Schema.Struct({Arn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Expression: Schema.optional(Schema.String), ExpressionType: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), RoleArn: Schema.optional(Schema.String)});
-export const GetMetricConfigurationResponse = Schema.Struct({SummaryMetric: Schema.optional(SummaryMetricConfiguration)});
-export const GetMulticastGroupSessionResponse = Schema.Struct({LoRaWAN: Schema.optional(LoRaWANMulticastSession)});
-export const GetNetworkAnalyzerConfigurationResponse = Schema.Struct({TraceContent: Schema.optional(TraceContent), WirelessDevices: Schema.optional(WirelessDeviceList), WirelessGateways: Schema.optional(WirelessGatewayList), Description: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), MulticastGroups: Schema.optional(NetworkAnalyzerMulticastGroupList)});
-export const DeviceRegistrationStateEventConfiguration = Schema.Struct({Sidewalk: Schema.optional(SidewalkEventNotificationConfigurations), WirelessDeviceIdEventTopic: Schema.optional(Schema.String)});
-export const LoRaWANJoinEventNotificationConfigurations = Schema.Struct({DevEuiEventTopic: Schema.optional(Schema.String)});
-export const JoinEventConfiguration = Schema.Struct({LoRaWAN: Schema.optional(LoRaWANJoinEventNotificationConfigurations), WirelessDeviceIdEventTopic: Schema.optional(Schema.String)});
-export const LoRaWANConnectionStatusEventNotificationConfigurations = Schema.Struct({GatewayEuiEventTopic: Schema.optional(Schema.String)});
-export const ConnectionStatusEventConfiguration = Schema.Struct({LoRaWAN: Schema.optional(LoRaWANConnectionStatusEventNotificationConfigurations), WirelessGatewayIdEventTopic: Schema.optional(Schema.String)});
-export const GetResourceEventConfigurationResponse = Schema.Struct({DeviceRegistrationState: Schema.optional(DeviceRegistrationStateEventConfiguration), Proximity: Schema.optional(ProximityEventConfiguration), Join: Schema.optional(JoinEventConfiguration), ConnectionStatus: Schema.optional(ConnectionStatusEventConfiguration), MessageDeliveryStatus: Schema.optional(MessageDeliveryStatusEventConfiguration)});
-export const GetResourceLogLevelResponse = Schema.Struct({LogLevel: Schema.optional(Schema.String)});
-export const GetResourcePositionResponse = Schema.Struct({GeoJsonPayload: Schema.optional(Body("undefined", StreamBody()))});
-export const GetServiceEndpointResponse = Schema.Struct({ServiceType: Schema.optional(Schema.String), ServiceEndpoint: Schema.optional(Schema.String), ServerTrust: Schema.optional(Schema.String)});
-export const Beaconing = Schema.Struct({DataRate: Schema.optional(Schema.Number), Frequencies: Schema.optional(BeaconingFrequencies)});
-export const LoRaWANGateway = Schema.Struct({GatewayEui: Schema.optional(Schema.String), RfRegion: Schema.optional(Schema.String), JoinEuiFilters: Schema.optional(JoinEuiFilters), NetIdFilters: Schema.optional(NetIdFilters), SubBands: Schema.optional(SubBands), Beaconing: Schema.optional(Beaconing), MaxEirp: Schema.optional(Schema.Number)});
-export const GetWirelessGatewayResponse = Schema.Struct({Name: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), LoRaWAN: Schema.optional(LoRaWANGateway), Arn: Schema.optional(Schema.String), ThingName: Schema.optional(Schema.String), ThingArn: Schema.optional(Schema.String)});
-export const GetWirelessGatewayCertificateResponse = Schema.Struct({IotCertificateId: Schema.optional(Schema.String), LoRaWANNetworkServerCertificateId: Schema.optional(Schema.String)});
-export const GetWirelessGatewayStatisticsResponse = Schema.Struct({WirelessGatewayId: Schema.optional(Schema.String), LastUplinkReceivedAt: Schema.optional(Schema.String), ConnectionStatus: Schema.optional(Schema.String)});
-export const GetWirelessGatewayTaskResponse = Schema.Struct({WirelessGatewayId: Schema.optional(Schema.String), WirelessGatewayTaskDefinitionId: Schema.optional(Schema.String), LastUplinkReceivedAt: Schema.optional(Schema.String), TaskCreatedAt: Schema.optional(Schema.String), Status: Schema.optional(Schema.String)});
-export const LoRaWANGatewayVersion = Schema.Struct({PackageVersion: Schema.optional(Schema.String), Model: Schema.optional(Schema.String), Station: Schema.optional(Schema.String)});
-export const LoRaWANUpdateGatewayTaskCreate = Schema.Struct({UpdateSignature: Schema.optional(Schema.String), SigKeyCrc: Schema.optional(Schema.Number), CurrentVersion: Schema.optional(LoRaWANGatewayVersion), UpdateVersion: Schema.optional(LoRaWANGatewayVersion)});
-export const UpdateWirelessGatewayTaskCreate = Schema.Struct({UpdateDataSource: Schema.optional(Schema.String), UpdateDataRole: Schema.optional(Schema.String), LoRaWAN: Schema.optional(LoRaWANUpdateGatewayTaskCreate)});
-export const GetWirelessGatewayTaskDefinitionResponse = Schema.Struct({AutoCreateTasks: Schema.optional(Schema.Boolean), Name: Schema.optional(Schema.String), Update: Schema.optional(UpdateWirelessGatewayTaskCreate), Arn: Schema.optional(Schema.String)});
-export const ListPartnerAccountsResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), Sidewalk: Schema.optional(SidewalkAccountList)});
-export const ListTagsForResourceResponse = Schema.Struct({Tags: Schema.optional(TagList)});
-export const StartFuotaTaskRequest = Schema.Struct({Id: Schema.String, LoRaWAN: Schema.optional(LoRaWANStartFuotaTask)});
-export const StartFuotaTaskResponse = Schema.Struct({});
-export const StartMulticastGroupSessionRequest = Schema.Struct({Id: Schema.String, LoRaWAN: LoRaWANMulticastSession});
-export const StartMulticastGroupSessionResponse = Schema.Struct({});
-export const StartSingleWirelessDeviceImportTaskRequest = Schema.Struct({DestinationName: Schema.String, ClientRequestToken: Schema.optional(Schema.String), DeviceName: Schema.optional(Schema.String), Tags: Schema.optional(TagList), Sidewalk: SidewalkSingleStartImportInfo});
-export const StartWirelessDeviceImportTaskRequest = Schema.Struct({DestinationName: Schema.String, ClientRequestToken: Schema.optional(Schema.String), Tags: Schema.optional(TagList), Sidewalk: SidewalkStartImportInfo});
-export const TooManyTagsException = Schema.Struct({Message: Schema.optional(Schema.String), ResourceName: Schema.optional(Schema.String)});
-export const TestWirelessDeviceResponse = Schema.Struct({Result: Schema.optional(Schema.String)});
-export const UpdatePartnerAccountRequest = Schema.Struct({Sidewalk: SidewalkUpdateAccount, PartnerAccountId: Schema.String, PartnerType: Schema.String});
-export const UpdatePartnerAccountResponse = Schema.Struct({});
-export const UpdateWirelessDeviceImportTaskRequest = Schema.Struct({Id: Schema.String, Sidewalk: SidewalkUpdateImportInfo});
-export const UpdateWirelessDeviceImportTaskResponse = Schema.Struct({});
-export const OtaaV1_1 = Schema.Struct({AppKey: Schema.optional(Schema.String), NwkKey: Schema.optional(Schema.String), JoinEui: Schema.optional(Schema.String)});
-export const OtaaV1_0_x = Schema.Struct({AppKey: Schema.optional(Schema.String), AppEui: Schema.optional(Schema.String), JoinEui: Schema.optional(Schema.String), GenAppKey: Schema.optional(Schema.String)});
-export const Dimension = Schema.Struct({name: Schema.optional(Schema.String), value: Schema.optional(Schema.String)});
+export class AssociateAwsAccountWithPartnerAccountRequest extends Schema.Class<AssociateAwsAccountWithPartnerAccountRequest>("AssociateAwsAccountWithPartnerAccountRequest")({Sidewalk: SidewalkAccountInfo, ClientRequestToken: Schema.optional(Schema.String), Tags: Schema.optional(TagList)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({Message: Schema.optional(Schema.String), ResourceId: Schema.optional(Schema.String), ResourceType: Schema.optional(Schema.String)}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({Message: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({Message: Schema.optional(Schema.String), ResourceId: Schema.optional(Schema.String), ResourceType: Schema.optional(Schema.String)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({Message: Schema.optional(Schema.String)}) {}
+export class AssociateWirelessGatewayWithCertificateResponse extends Schema.Class<AssociateWirelessGatewayWithCertificateResponse>("AssociateWirelessGatewayWithCertificateResponse")({IotCertificateId: Schema.optional(Schema.String)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({Message: Schema.optional(Schema.String)}) {}
+export class CreateDestinationResponse extends Schema.Class<CreateDestinationResponse>("CreateDestinationResponse")({Arn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String)}) {}
+export class CreateDeviceProfileRequest extends Schema.Class<CreateDeviceProfileRequest>("CreateDeviceProfileRequest")({Name: Schema.optional(Schema.String), LoRaWAN: Schema.optional(LoRaWANDeviceProfile), Tags: Schema.optional(TagList), ClientRequestToken: Schema.optional(Schema.String), Sidewalk: Schema.optional(SidewalkCreateDeviceProfile)}) {}
+export class CreateFuotaTaskRequest extends Schema.Class<CreateFuotaTaskRequest>("CreateFuotaTaskRequest")({Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), ClientRequestToken: Schema.optional(Schema.String), LoRaWAN: Schema.optional(LoRaWANFuotaTask), FirmwareUpdateImage: Schema.String, FirmwareUpdateRole: Schema.String, Tags: Schema.optional(TagList), RedundancyPercent: Schema.optional(Schema.Number), FragmentSizeBytes: Schema.optional(Schema.Number), FragmentIntervalMS: Schema.optional(Schema.Number), Descriptor: Schema.optional(Schema.String)}) {}
+export class CreateNetworkAnalyzerConfigurationRequest extends Schema.Class<CreateNetworkAnalyzerConfigurationRequest>("CreateNetworkAnalyzerConfigurationRequest")({Name: Schema.String, TraceContent: Schema.optional(TraceContent), WirelessDevices: Schema.optional(WirelessDeviceList), WirelessGateways: Schema.optional(WirelessGatewayList), Description: Schema.optional(Schema.String), Tags: Schema.optional(TagList), ClientRequestToken: Schema.optional(Schema.String), MulticastGroups: Schema.optional(NetworkAnalyzerMulticastGroupList)}) {}
+export class CreateServiceProfileRequest extends Schema.Class<CreateServiceProfileRequest>("CreateServiceProfileRequest")({Name: Schema.optional(Schema.String), LoRaWAN: Schema.optional(LoRaWANServiceProfile), Tags: Schema.optional(TagList), ClientRequestToken: Schema.optional(Schema.String)}) {}
+export class CreateWirelessGatewayTaskResponse extends Schema.Class<CreateWirelessGatewayTaskResponse>("CreateWirelessGatewayTaskResponse")({WirelessGatewayTaskDefinitionId: Schema.optional(Schema.String), Status: Schema.optional(Schema.String)}) {}
+export class GetDestinationResponse extends Schema.Class<GetDestinationResponse>("GetDestinationResponse")({Arn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Expression: Schema.optional(Schema.String), ExpressionType: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), RoleArn: Schema.optional(Schema.String)}) {}
+export class GetMetricConfigurationResponse extends Schema.Class<GetMetricConfigurationResponse>("GetMetricConfigurationResponse")({SummaryMetric: Schema.optional(SummaryMetricConfiguration)}) {}
+export class GetMulticastGroupSessionResponse extends Schema.Class<GetMulticastGroupSessionResponse>("GetMulticastGroupSessionResponse")({LoRaWAN: Schema.optional(LoRaWANMulticastSession)}) {}
+export class GetNetworkAnalyzerConfigurationResponse extends Schema.Class<GetNetworkAnalyzerConfigurationResponse>("GetNetworkAnalyzerConfigurationResponse")({TraceContent: Schema.optional(TraceContent), WirelessDevices: Schema.optional(WirelessDeviceList), WirelessGateways: Schema.optional(WirelessGatewayList), Description: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), MulticastGroups: Schema.optional(NetworkAnalyzerMulticastGroupList)}) {}
+export class DeviceRegistrationStateEventConfiguration extends Schema.Class<DeviceRegistrationStateEventConfiguration>("DeviceRegistrationStateEventConfiguration")({Sidewalk: Schema.optional(SidewalkEventNotificationConfigurations), WirelessDeviceIdEventTopic: Schema.optional(Schema.String)}) {}
+export class LoRaWANJoinEventNotificationConfigurations extends Schema.Class<LoRaWANJoinEventNotificationConfigurations>("LoRaWANJoinEventNotificationConfigurations")({DevEuiEventTopic: Schema.optional(Schema.String)}) {}
+export class JoinEventConfiguration extends Schema.Class<JoinEventConfiguration>("JoinEventConfiguration")({LoRaWAN: Schema.optional(LoRaWANJoinEventNotificationConfigurations), WirelessDeviceIdEventTopic: Schema.optional(Schema.String)}) {}
+export class LoRaWANConnectionStatusEventNotificationConfigurations extends Schema.Class<LoRaWANConnectionStatusEventNotificationConfigurations>("LoRaWANConnectionStatusEventNotificationConfigurations")({GatewayEuiEventTopic: Schema.optional(Schema.String)}) {}
+export class ConnectionStatusEventConfiguration extends Schema.Class<ConnectionStatusEventConfiguration>("ConnectionStatusEventConfiguration")({LoRaWAN: Schema.optional(LoRaWANConnectionStatusEventNotificationConfigurations), WirelessGatewayIdEventTopic: Schema.optional(Schema.String)}) {}
+export class GetResourceEventConfigurationResponse extends Schema.Class<GetResourceEventConfigurationResponse>("GetResourceEventConfigurationResponse")({DeviceRegistrationState: Schema.optional(DeviceRegistrationStateEventConfiguration), Proximity: Schema.optional(ProximityEventConfiguration), Join: Schema.optional(JoinEventConfiguration), ConnectionStatus: Schema.optional(ConnectionStatusEventConfiguration), MessageDeliveryStatus: Schema.optional(MessageDeliveryStatusEventConfiguration)}) {}
+export class GetResourceLogLevelResponse extends Schema.Class<GetResourceLogLevelResponse>("GetResourceLogLevelResponse")({LogLevel: Schema.optional(Schema.String)}) {}
+export class GetResourcePositionResponse extends Schema.Class<GetResourcePositionResponse>("GetResourcePositionResponse")({GeoJsonPayload: Schema.optional(Body("undefined", StreamBody()))}) {}
+export class GetServiceEndpointResponse extends Schema.Class<GetServiceEndpointResponse>("GetServiceEndpointResponse")({ServiceType: Schema.optional(Schema.String), ServiceEndpoint: Schema.optional(Schema.String), ServerTrust: Schema.optional(Schema.String)}) {}
+export class Beaconing extends Schema.Class<Beaconing>("Beaconing")({DataRate: Schema.optional(Schema.Number), Frequencies: Schema.optional(BeaconingFrequencies)}) {}
+export class LoRaWANGateway extends Schema.Class<LoRaWANGateway>("LoRaWANGateway")({GatewayEui: Schema.optional(Schema.String), RfRegion: Schema.optional(Schema.String), JoinEuiFilters: Schema.optional(JoinEuiFilters), NetIdFilters: Schema.optional(NetIdFilters), SubBands: Schema.optional(SubBands), Beaconing: Schema.optional(Beaconing), MaxEirp: Schema.optional(Schema.Number)}) {}
+export class GetWirelessGatewayResponse extends Schema.Class<GetWirelessGatewayResponse>("GetWirelessGatewayResponse")({Name: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), LoRaWAN: Schema.optional(LoRaWANGateway), Arn: Schema.optional(Schema.String), ThingName: Schema.optional(Schema.String), ThingArn: Schema.optional(Schema.String)}) {}
+export class GetWirelessGatewayCertificateResponse extends Schema.Class<GetWirelessGatewayCertificateResponse>("GetWirelessGatewayCertificateResponse")({IotCertificateId: Schema.optional(Schema.String), LoRaWANNetworkServerCertificateId: Schema.optional(Schema.String)}) {}
+export class GetWirelessGatewayStatisticsResponse extends Schema.Class<GetWirelessGatewayStatisticsResponse>("GetWirelessGatewayStatisticsResponse")({WirelessGatewayId: Schema.optional(Schema.String), LastUplinkReceivedAt: Schema.optional(Schema.String), ConnectionStatus: Schema.optional(Schema.String)}) {}
+export class GetWirelessGatewayTaskResponse extends Schema.Class<GetWirelessGatewayTaskResponse>("GetWirelessGatewayTaskResponse")({WirelessGatewayId: Schema.optional(Schema.String), WirelessGatewayTaskDefinitionId: Schema.optional(Schema.String), LastUplinkReceivedAt: Schema.optional(Schema.String), TaskCreatedAt: Schema.optional(Schema.String), Status: Schema.optional(Schema.String)}) {}
+export class LoRaWANGatewayVersion extends Schema.Class<LoRaWANGatewayVersion>("LoRaWANGatewayVersion")({PackageVersion: Schema.optional(Schema.String), Model: Schema.optional(Schema.String), Station: Schema.optional(Schema.String)}) {}
+export class LoRaWANUpdateGatewayTaskCreate extends Schema.Class<LoRaWANUpdateGatewayTaskCreate>("LoRaWANUpdateGatewayTaskCreate")({UpdateSignature: Schema.optional(Schema.String), SigKeyCrc: Schema.optional(Schema.Number), CurrentVersion: Schema.optional(LoRaWANGatewayVersion), UpdateVersion: Schema.optional(LoRaWANGatewayVersion)}) {}
+export class UpdateWirelessGatewayTaskCreate extends Schema.Class<UpdateWirelessGatewayTaskCreate>("UpdateWirelessGatewayTaskCreate")({UpdateDataSource: Schema.optional(Schema.String), UpdateDataRole: Schema.optional(Schema.String), LoRaWAN: Schema.optional(LoRaWANUpdateGatewayTaskCreate)}) {}
+export class GetWirelessGatewayTaskDefinitionResponse extends Schema.Class<GetWirelessGatewayTaskDefinitionResponse>("GetWirelessGatewayTaskDefinitionResponse")({AutoCreateTasks: Schema.optional(Schema.Boolean), Name: Schema.optional(Schema.String), Update: Schema.optional(UpdateWirelessGatewayTaskCreate), Arn: Schema.optional(Schema.String)}) {}
+export class ListPartnerAccountsResponse extends Schema.Class<ListPartnerAccountsResponse>("ListPartnerAccountsResponse")({NextToken: Schema.optional(Schema.String), Sidewalk: Schema.optional(SidewalkAccountList)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({Tags: Schema.optional(TagList)}) {}
+export class StartFuotaTaskRequest extends Schema.Class<StartFuotaTaskRequest>("StartFuotaTaskRequest")({Id: Schema.String, LoRaWAN: Schema.optional(LoRaWANStartFuotaTask)}) {}
+export class StartFuotaTaskResponse extends Schema.Class<StartFuotaTaskResponse>("StartFuotaTaskResponse")({}) {}
+export class StartMulticastGroupSessionRequest extends Schema.Class<StartMulticastGroupSessionRequest>("StartMulticastGroupSessionRequest")({Id: Schema.String, LoRaWAN: LoRaWANMulticastSession}) {}
+export class StartMulticastGroupSessionResponse extends Schema.Class<StartMulticastGroupSessionResponse>("StartMulticastGroupSessionResponse")({}) {}
+export class StartSingleWirelessDeviceImportTaskRequest extends Schema.Class<StartSingleWirelessDeviceImportTaskRequest>("StartSingleWirelessDeviceImportTaskRequest")({DestinationName: Schema.String, ClientRequestToken: Schema.optional(Schema.String), DeviceName: Schema.optional(Schema.String), Tags: Schema.optional(TagList), Positioning: Schema.optional(Schema.String), Sidewalk: SidewalkSingleStartImportInfo}) {}
+export class StartWirelessDeviceImportTaskRequest extends Schema.Class<StartWirelessDeviceImportTaskRequest>("StartWirelessDeviceImportTaskRequest")({DestinationName: Schema.String, ClientRequestToken: Schema.optional(Schema.String), Tags: Schema.optional(TagList), Positioning: Schema.optional(Schema.String), Sidewalk: SidewalkStartImportInfo}) {}
+export class TooManyTagsException extends Schema.Class<TooManyTagsException>("TooManyTagsException")({Message: Schema.optional(Schema.String), ResourceName: Schema.optional(Schema.String)}) {}
+export class TestWirelessDeviceResponse extends Schema.Class<TestWirelessDeviceResponse>("TestWirelessDeviceResponse")({Result: Schema.optional(Schema.String)}) {}
+export class UpdatePartnerAccountRequest extends Schema.Class<UpdatePartnerAccountRequest>("UpdatePartnerAccountRequest")({Sidewalk: SidewalkUpdateAccount, PartnerAccountId: Schema.String, PartnerType: Schema.String}) {}
+export class UpdatePartnerAccountResponse extends Schema.Class<UpdatePartnerAccountResponse>("UpdatePartnerAccountResponse")({}) {}
+export class UpdateWirelessDeviceImportTaskRequest extends Schema.Class<UpdateWirelessDeviceImportTaskRequest>("UpdateWirelessDeviceImportTaskRequest")({Id: Schema.String, Sidewalk: SidewalkUpdateImportInfo}) {}
+export class UpdateWirelessDeviceImportTaskResponse extends Schema.Class<UpdateWirelessDeviceImportTaskResponse>("UpdateWirelessDeviceImportTaskResponse")({}) {}
+export class OtaaV1_1 extends Schema.Class<OtaaV1_1>("OtaaV1_1")({AppKey: Schema.optional(Schema.String), NwkKey: Schema.optional(Schema.String), JoinEui: Schema.optional(Schema.String)}) {}
+export class OtaaV1_0_x extends Schema.Class<OtaaV1_0_x>("OtaaV1_0_x")({AppKey: Schema.optional(Schema.String), AppEui: Schema.optional(Schema.String), JoinEui: Schema.optional(Schema.String), GenAppKey: Schema.optional(Schema.String)}) {}
+export class Dimension extends Schema.Class<Dimension>("Dimension")({name: Schema.optional(Schema.String), value: Schema.optional(Schema.String)}) {}
 export const Dimensions = Schema.Array(Dimension);
-export const CertificateList = Schema.Struct({SigningAlg: Schema.String, Value: Schema.String});
+export class CertificateList extends Schema.Class<CertificateList>("CertificateList")({SigningAlg: Schema.String, Value: Schema.String}) {}
 export const PrivateKeysList = Schema.Array(CertificateList);
 export const DeviceCreationFileList = Schema.Array(Schema.String);
-export const SemtechGnssConfiguration = Schema.Struct({Status: Schema.String, Fec: Schema.String});
-export const LoRaWANMulticastMetadata = Schema.Struct({FPort: Schema.optional(Schema.Number)});
-export const SidewalkSendDataToDevice = Schema.Struct({Seq: Schema.optional(Schema.Number), MessageType: Schema.optional(Schema.String), AckModeRetryDurationSecs: Schema.optional(Schema.Number)});
-export const UpdateAbpV1_1 = Schema.Struct({FCntStart: Schema.optional(Schema.Number)});
-export const UpdateAbpV1_0_x = Schema.Struct({FCntStart: Schema.optional(Schema.Number)});
-export const Positioning = Schema.Struct({ClockSync: Schema.optional(Schema.Number), Stream: Schema.optional(Schema.Number), Gnss: Schema.optional(Schema.Number)});
-export const ApplicationConfig = Schema.Struct({FPort: Schema.optional(Schema.Number), Type: Schema.optional(Schema.String), DestinationName: Schema.optional(Schema.String)});
+export class SemtechGnssConfiguration extends Schema.Class<SemtechGnssConfiguration>("SemtechGnssConfiguration")({Status: Schema.String, Fec: Schema.String}) {}
+export class LoRaWANMulticastMetadata extends Schema.Class<LoRaWANMulticastMetadata>("LoRaWANMulticastMetadata")({FPort: Schema.optional(Schema.Number)}) {}
+export class SidewalkSendDataToDevice extends Schema.Class<SidewalkSendDataToDevice>("SidewalkSendDataToDevice")({Seq: Schema.optional(Schema.Number), MessageType: Schema.optional(Schema.String), AckModeRetryDurationSecs: Schema.optional(Schema.Number)}) {}
+export class UpdateAbpV1_1 extends Schema.Class<UpdateAbpV1_1>("UpdateAbpV1_1")({FCntStart: Schema.optional(Schema.Number)}) {}
+export class UpdateAbpV1_0_x extends Schema.Class<UpdateAbpV1_0_x>("UpdateAbpV1_0_x")({FCntStart: Schema.optional(Schema.Number)}) {}
+export class Positioning extends Schema.Class<Positioning>("Positioning")({ClockSync: Schema.optional(Schema.Number), Stream: Schema.optional(Schema.Number), Gnss: Schema.optional(Schema.Number)}) {}
+export class ApplicationConfig extends Schema.Class<ApplicationConfig>("ApplicationConfig")({FPort: Schema.optional(Schema.Number), Type: Schema.optional(Schema.String), DestinationName: Schema.optional(Schema.String)}) {}
 export const Applications = Schema.Array(ApplicationConfig);
-export const UpdateFPorts = Schema.Struct({Positioning: Schema.optional(Positioning), Applications: Schema.optional(Applications)});
-export const LoRaWANFuotaTaskGetInfo = Schema.Struct({RfRegion: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.Date)});
-export const SummaryMetricQuery = Schema.Struct({QueryId: Schema.optional(Schema.String), MetricName: Schema.optional(Schema.String), Dimensions: Schema.optional(Dimensions), AggregationPeriod: Schema.optional(Schema.String), StartTimestamp: Schema.optional(Schema.Date), EndTimestamp: Schema.optional(Schema.Date)});
+export class UpdateFPorts extends Schema.Class<UpdateFPorts>("UpdateFPorts")({Positioning: Schema.optional(Positioning), Applications: Schema.optional(Applications)}) {}
+export class SidewalkCreateWirelessDevice extends Schema.Class<SidewalkCreateWirelessDevice>("SidewalkCreateWirelessDevice")({DeviceProfileId: Schema.optional(Schema.String), Positioning: Schema.optional(SidewalkPositioning), SidewalkManufacturingSn: Schema.optional(Schema.String)}) {}
+export class LoRaWANFuotaTaskGetInfo extends Schema.Class<LoRaWANFuotaTaskGetInfo>("LoRaWANFuotaTaskGetInfo")({RfRegion: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.Date)}) {}
+export class SummaryMetricQuery extends Schema.Class<SummaryMetricQuery>("SummaryMetricQuery")({QueryId: Schema.optional(Schema.String), MetricName: Schema.optional(Schema.String), Dimensions: Schema.optional(Dimensions), AggregationPeriod: Schema.optional(Schema.String), StartTimestamp: Schema.optional(Schema.Date), EndTimestamp: Schema.optional(Schema.Date)}) {}
 export const SummaryMetricQueries = Schema.Array(SummaryMetricQuery);
-export const LoRaWANMulticastGet = Schema.Struct({RfRegion: Schema.optional(Schema.String), DlClass: Schema.optional(Schema.String), NumberOfDevicesRequested: Schema.optional(Schema.Number), NumberOfDevicesInGroup: Schema.optional(Schema.Number), ParticipatingGateways: Schema.optional(ParticipatingGatewaysMulticast)});
-export const Accuracy = Schema.Struct({HorizontalAccuracy: Schema.optional(Schema.Number), VerticalAccuracy: Schema.optional(Schema.Number)});
-export const LoRaWANGetServiceProfileInfo = Schema.Struct({UlRate: Schema.optional(Schema.Number), UlBucketSize: Schema.optional(Schema.Number), UlRatePolicy: Schema.optional(Schema.String), DlRate: Schema.optional(Schema.Number), DlBucketSize: Schema.optional(Schema.Number), DlRatePolicy: Schema.optional(Schema.String), AddGwMetadata: Schema.optional(Schema.Boolean), DevStatusReqFreq: Schema.optional(Schema.Number), ReportDevStatusBattery: Schema.optional(Schema.Boolean), ReportDevStatusMargin: Schema.optional(Schema.Boolean), DrMin: Schema.optional(Schema.Number), DrMax: Schema.optional(Schema.Number), ChannelMask: Schema.optional(Schema.String), PrAllowed: Schema.optional(Schema.Boolean), HrAllowed: Schema.optional(Schema.Boolean), RaAllowed: Schema.optional(Schema.Boolean), NwkGeoLoc: Schema.optional(Schema.Boolean), TargetPer: Schema.optional(Schema.Number), MinGwDiversity: Schema.optional(Schema.Number), TxPowerIndexMin: Schema.optional(Schema.Number), TxPowerIndexMax: Schema.optional(Schema.Number), NbTransMin: Schema.optional(Schema.Number), NbTransMax: Schema.optional(Schema.Number)});
-export const SidewalkGetStartImportInfo = Schema.Struct({DeviceCreationFileList: Schema.optional(DeviceCreationFileList), Role: Schema.optional(Schema.String)});
-export const SidewalkDeviceMetadata = Schema.Struct({Rssi: Schema.optional(Schema.Number), BatteryLevel: Schema.optional(Schema.String), Event: Schema.optional(Schema.String), DeviceState: Schema.optional(Schema.String)});
-export const LoRaWANGatewayCurrentVersion = Schema.Struct({CurrentVersion: Schema.optional(LoRaWANGatewayVersion)});
-export const Destinations = Schema.Struct({Arn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), ExpressionType: Schema.optional(Schema.String), Expression: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), RoleArn: Schema.optional(Schema.String)});
+export class LoRaWANMulticastGet extends Schema.Class<LoRaWANMulticastGet>("LoRaWANMulticastGet")({RfRegion: Schema.optional(Schema.String), DlClass: Schema.optional(Schema.String), NumberOfDevicesRequested: Schema.optional(Schema.Number), NumberOfDevicesInGroup: Schema.optional(Schema.Number), ParticipatingGateways: Schema.optional(ParticipatingGatewaysMulticast)}) {}
+export class Accuracy extends Schema.Class<Accuracy>("Accuracy")({HorizontalAccuracy: Schema.optional(Schema.Number), VerticalAccuracy: Schema.optional(Schema.Number)}) {}
+export class LoRaWANGetServiceProfileInfo extends Schema.Class<LoRaWANGetServiceProfileInfo>("LoRaWANGetServiceProfileInfo")({UlRate: Schema.optional(Schema.Number), UlBucketSize: Schema.optional(Schema.Number), UlRatePolicy: Schema.optional(Schema.String), DlRate: Schema.optional(Schema.Number), DlBucketSize: Schema.optional(Schema.Number), DlRatePolicy: Schema.optional(Schema.String), AddGwMetadata: Schema.optional(Schema.Boolean), DevStatusReqFreq: Schema.optional(Schema.Number), ReportDevStatusBattery: Schema.optional(Schema.Boolean), ReportDevStatusMargin: Schema.optional(Schema.Boolean), DrMin: Schema.optional(Schema.Number), DrMax: Schema.optional(Schema.Number), ChannelMask: Schema.optional(Schema.String), PrAllowed: Schema.optional(Schema.Boolean), HrAllowed: Schema.optional(Schema.Boolean), RaAllowed: Schema.optional(Schema.Boolean), NwkGeoLoc: Schema.optional(Schema.Boolean), TargetPer: Schema.optional(Schema.Number), MinGwDiversity: Schema.optional(Schema.Number), TxPowerIndexMin: Schema.optional(Schema.Number), TxPowerIndexMax: Schema.optional(Schema.Number), NbTransMin: Schema.optional(Schema.Number), NbTransMax: Schema.optional(Schema.Number)}) {}
+export class SidewalkGetStartImportInfo extends Schema.Class<SidewalkGetStartImportInfo>("SidewalkGetStartImportInfo")({DeviceCreationFileList: Schema.optional(DeviceCreationFileList), Role: Schema.optional(Schema.String), Positioning: Schema.optional(SidewalkPositioning)}) {}
+export class SidewalkDeviceMetadata extends Schema.Class<SidewalkDeviceMetadata>("SidewalkDeviceMetadata")({Rssi: Schema.optional(Schema.Number), BatteryLevel: Schema.optional(Schema.String), Event: Schema.optional(Schema.String), DeviceState: Schema.optional(Schema.String)}) {}
+export class LoRaWANGatewayCurrentVersion extends Schema.Class<LoRaWANGatewayCurrentVersion>("LoRaWANGatewayCurrentVersion")({CurrentVersion: Schema.optional(LoRaWANGatewayVersion)}) {}
+export class Destinations extends Schema.Class<Destinations>("Destinations")({Arn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), ExpressionType: Schema.optional(Schema.String), Expression: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), RoleArn: Schema.optional(Schema.String)}) {}
 export const DestinationList = Schema.Array(Destinations);
-export const DeviceProfile = Schema.Struct({Arn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Id: Schema.optional(Schema.String)});
+export class DeviceProfile extends Schema.Class<DeviceProfile>("DeviceProfile")({Arn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Id: Schema.optional(Schema.String)}) {}
 export const DeviceProfileList = Schema.Array(DeviceProfile);
-export const FuotaTask = Schema.Struct({Id: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String)});
+export class SidewalkListDevicesForImportInfo extends Schema.Class<SidewalkListDevicesForImportInfo>("SidewalkListDevicesForImportInfo")({Positioning: Schema.optional(SidewalkPositioning)}) {}
+export class FuotaTask extends Schema.Class<FuotaTask>("FuotaTask")({Id: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String)}) {}
 export const FuotaTaskList = Schema.Array(FuotaTask);
-export const MulticastGroup = Schema.Struct({Id: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String)});
+export class MulticastGroup extends Schema.Class<MulticastGroup>("MulticastGroup")({Id: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String)}) {}
 export const MulticastGroupList = Schema.Array(MulticastGroup);
-export const MulticastGroupByFuotaTask = Schema.Struct({Id: Schema.optional(Schema.String)});
+export class MulticastGroupByFuotaTask extends Schema.Class<MulticastGroupByFuotaTask>("MulticastGroupByFuotaTask")({Id: Schema.optional(Schema.String)}) {}
 export const MulticastGroupListByFuotaTask = Schema.Array(MulticastGroupByFuotaTask);
-export const NetworkAnalyzerConfigurations = Schema.Struct({Arn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String)});
+export class NetworkAnalyzerConfigurations extends Schema.Class<NetworkAnalyzerConfigurations>("NetworkAnalyzerConfigurations")({Arn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String)}) {}
 export const NetworkAnalyzerConfigurationList = Schema.Array(NetworkAnalyzerConfigurations);
-export const SemtechGnssDetail = Schema.Struct({Provider: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), Fec: Schema.optional(Schema.String)});
-export const PositionSolverDetails = Schema.Struct({SemtechGnss: Schema.optional(SemtechGnssDetail)});
-export const PositionConfigurationItem = Schema.Struct({ResourceIdentifier: Schema.optional(Schema.String), ResourceType: Schema.optional(Schema.String), Solvers: Schema.optional(PositionSolverDetails), Destination: Schema.optional(Schema.String)});
+export class SemtechGnssDetail extends Schema.Class<SemtechGnssDetail>("SemtechGnssDetail")({Provider: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), Fec: Schema.optional(Schema.String)}) {}
+export class PositionSolverDetails extends Schema.Class<PositionSolverDetails>("PositionSolverDetails")({SemtechGnss: Schema.optional(SemtechGnssDetail)}) {}
+export class PositionConfigurationItem extends Schema.Class<PositionConfigurationItem>("PositionConfigurationItem")({ResourceIdentifier: Schema.optional(Schema.String), ResourceType: Schema.optional(Schema.String), Solvers: Schema.optional(PositionSolverDetails), Destination: Schema.optional(Schema.String)}) {}
 export const PositionConfigurationList = Schema.Array(PositionConfigurationItem);
-export const GatewayListItem = Schema.Struct({GatewayId: Schema.String, DownlinkFrequency: Schema.Number});
+export class GatewayListItem extends Schema.Class<GatewayListItem>("GatewayListItem")({GatewayId: Schema.String, DownlinkFrequency: Schema.Number}) {}
 export const GatewayList = Schema.Array(GatewayListItem);
-export const ParticipatingGateways = Schema.Struct({DownlinkMode: Schema.String, GatewayList: GatewayList, TransmissionInterval: Schema.Number});
-export const LoRaWANSendDataToDevice = Schema.Struct({FPort: Schema.optional(Schema.Number), ParticipatingGateways: Schema.optional(ParticipatingGateways)});
-export const DownlinkQueueMessage = Schema.Struct({MessageId: Schema.optional(Schema.String), TransmitMode: Schema.optional(Schema.Number), ReceivedAt: Schema.optional(Schema.String), LoRaWAN: Schema.optional(LoRaWANSendDataToDevice)});
+export class ParticipatingGateways extends Schema.Class<ParticipatingGateways>("ParticipatingGateways")({DownlinkMode: Schema.String, GatewayList: GatewayList, TransmissionInterval: Schema.Number}) {}
+export class LoRaWANSendDataToDevice extends Schema.Class<LoRaWANSendDataToDevice>("LoRaWANSendDataToDevice")({FPort: Schema.optional(Schema.Number), ParticipatingGateways: Schema.optional(ParticipatingGateways)}) {}
+export class DownlinkQueueMessage extends Schema.Class<DownlinkQueueMessage>("DownlinkQueueMessage")({MessageId: Schema.optional(Schema.String), TransmitMode: Schema.optional(Schema.Number), ReceivedAt: Schema.optional(Schema.String), LoRaWAN: Schema.optional(LoRaWANSendDataToDevice)}) {}
 export const DownlinkQueueMessagesList = Schema.Array(DownlinkQueueMessage);
-export const ServiceProfile = Schema.Struct({Arn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Id: Schema.optional(Schema.String)});
+export class ServiceProfile extends Schema.Class<ServiceProfile>("ServiceProfile")({Arn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Id: Schema.optional(Schema.String)}) {}
 export const ServiceProfileList = Schema.Array(ServiceProfile);
-export const WirelessDeviceImportTask = Schema.Struct({Id: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String), DestinationName: Schema.optional(Schema.String), Sidewalk: Schema.optional(SidewalkGetStartImportInfo), CreationTime: Schema.optional(Schema.Date), Status: Schema.optional(Schema.String), StatusReason: Schema.optional(Schema.String), InitializedImportedDeviceCount: Schema.optional(Schema.Number), PendingImportedDeviceCount: Schema.optional(Schema.Number), OnboardedImportedDeviceCount: Schema.optional(Schema.Number), FailedImportedDeviceCount: Schema.optional(Schema.Number)});
+export class WirelessDeviceImportTask extends Schema.Class<WirelessDeviceImportTask>("WirelessDeviceImportTask")({Id: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String), DestinationName: Schema.optional(Schema.String), Positioning: Schema.optional(Schema.String), Sidewalk: Schema.optional(SidewalkGetStartImportInfo), CreationTime: Schema.optional(Schema.Date), Status: Schema.optional(Schema.String), StatusReason: Schema.optional(Schema.String), InitializedImportedDeviceCount: Schema.optional(Schema.Number), PendingImportedDeviceCount: Schema.optional(Schema.Number), OnboardedImportedDeviceCount: Schema.optional(Schema.Number), FailedImportedDeviceCount: Schema.optional(Schema.Number)}) {}
 export const WirelessDeviceImportTaskList = Schema.Array(WirelessDeviceImportTask);
-export const WirelessGatewayStatistics = Schema.Struct({Arn: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), LoRaWAN: Schema.optional(LoRaWANGateway), LastUplinkReceivedAt: Schema.optional(Schema.String)});
+export class WirelessGatewayStatistics extends Schema.Class<WirelessGatewayStatistics>("WirelessGatewayStatistics")({Arn: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), LoRaWAN: Schema.optional(LoRaWANGateway), LastUplinkReceivedAt: Schema.optional(Schema.String)}) {}
 export const WirelessGatewayStatisticsList = Schema.Array(WirelessGatewayStatistics);
-export const PositionSolverConfigurations = Schema.Struct({SemtechGnss: Schema.optional(SemtechGnssConfiguration)});
-export const MulticastWirelessMetadata = Schema.Struct({LoRaWAN: Schema.optional(LoRaWANMulticastMetadata)});
-export const LoRaWANUpdateDevice = Schema.Struct({DeviceProfileId: Schema.optional(Schema.String), ServiceProfileId: Schema.optional(Schema.String), AbpV1_1: Schema.optional(UpdateAbpV1_1), AbpV1_0_x: Schema.optional(UpdateAbpV1_0_x), FPorts: Schema.optional(UpdateFPorts)});
-export const SessionKeysAbpV1_1 = Schema.Struct({FNwkSIntKey: Schema.optional(Schema.String), SNwkSIntKey: Schema.optional(Schema.String), NwkSEncKey: Schema.optional(Schema.String), AppSKey: Schema.optional(Schema.String)});
-export const SessionKeysAbpV1_0_x = Schema.Struct({NwkSKey: Schema.optional(Schema.String), AppSKey: Schema.optional(Schema.String)});
-export const GsmLocalId = Schema.Struct({Bsic: Schema.Number, Bcch: Schema.Number});
-export const WcdmaLocalId = Schema.Struct({Uarfcndl: Schema.Number, Psc: Schema.Number});
-export const WcdmaNmrObj = Schema.Struct({Uarfcndl: Schema.Number, Psc: Schema.Number, UtranCid: Schema.Number, Rscp: Schema.optional(Schema.Number), PathLoss: Schema.optional(Schema.Number)});
+export class PositionSolverConfigurations extends Schema.Class<PositionSolverConfigurations>("PositionSolverConfigurations")({SemtechGnss: Schema.optional(SemtechGnssConfiguration)}) {}
+export class MulticastWirelessMetadata extends Schema.Class<MulticastWirelessMetadata>("MulticastWirelessMetadata")({LoRaWAN: Schema.optional(LoRaWANMulticastMetadata)}) {}
+export class LoRaWANUpdateDevice extends Schema.Class<LoRaWANUpdateDevice>("LoRaWANUpdateDevice")({DeviceProfileId: Schema.optional(Schema.String), ServiceProfileId: Schema.optional(Schema.String), AbpV1_1: Schema.optional(UpdateAbpV1_1), AbpV1_0_x: Schema.optional(UpdateAbpV1_0_x), FPorts: Schema.optional(UpdateFPorts)}) {}
+export class SessionKeysAbpV1_1 extends Schema.Class<SessionKeysAbpV1_1>("SessionKeysAbpV1_1")({FNwkSIntKey: Schema.optional(Schema.String), SNwkSIntKey: Schema.optional(Schema.String), NwkSEncKey: Schema.optional(Schema.String), AppSKey: Schema.optional(Schema.String)}) {}
+export class SessionKeysAbpV1_0_x extends Schema.Class<SessionKeysAbpV1_0_x>("SessionKeysAbpV1_0_x")({NwkSKey: Schema.optional(Schema.String), AppSKey: Schema.optional(Schema.String)}) {}
+export class GsmLocalId extends Schema.Class<GsmLocalId>("GsmLocalId")({Bsic: Schema.Number, Bcch: Schema.Number}) {}
+export class WcdmaLocalId extends Schema.Class<WcdmaLocalId>("WcdmaLocalId")({Uarfcndl: Schema.Number, Psc: Schema.Number}) {}
+export class WcdmaNmrObj extends Schema.Class<WcdmaNmrObj>("WcdmaNmrObj")({Uarfcndl: Schema.Number, Psc: Schema.Number, UtranCid: Schema.Number, Rscp: Schema.optional(Schema.Number), PathLoss: Schema.optional(Schema.Number)}) {}
 export const WcdmaNmrList = Schema.Array(WcdmaNmrObj);
-export const TdscdmaLocalId = Schema.Struct({Uarfcn: Schema.Number, CellParams: Schema.Number});
-export const TdscdmaNmrObj = Schema.Struct({Uarfcn: Schema.Number, CellParams: Schema.Number, UtranCid: Schema.optional(Schema.Number), Rscp: Schema.optional(Schema.Number), PathLoss: Schema.optional(Schema.Number)});
+export class TdscdmaLocalId extends Schema.Class<TdscdmaLocalId>("TdscdmaLocalId")({Uarfcn: Schema.Number, CellParams: Schema.Number}) {}
+export class TdscdmaNmrObj extends Schema.Class<TdscdmaNmrObj>("TdscdmaNmrObj")({Uarfcn: Schema.Number, CellParams: Schema.Number, UtranCid: Schema.optional(Schema.Number), Rscp: Schema.optional(Schema.Number), PathLoss: Schema.optional(Schema.Number)}) {}
 export const TdscdmaNmrList = Schema.Array(TdscdmaNmrObj);
-export const LteLocalId = Schema.Struct({Pci: Schema.Number, Earfcn: Schema.Number});
-export const LteNmrObj = Schema.Struct({Pci: Schema.Number, Earfcn: Schema.Number, EutranCid: Schema.optional(Schema.Number), Rsrp: Schema.optional(Schema.Number), Rsrq: Schema.optional(Schema.Number)});
+export class LteLocalId extends Schema.Class<LteLocalId>("LteLocalId")({Pci: Schema.Number, Earfcn: Schema.Number}) {}
+export class LteNmrObj extends Schema.Class<LteNmrObj>("LteNmrObj")({Pci: Schema.Number, Earfcn: Schema.Number, EutranCid: Schema.optional(Schema.Number), Rsrp: Schema.optional(Schema.Number), Rsrq: Schema.optional(Schema.Number)}) {}
 export const LteNmrList = Schema.Array(LteNmrObj);
-export const CdmaLocalId = Schema.Struct({PnOffset: Schema.Number, CdmaChannel: Schema.Number});
-export const CdmaNmrObj = Schema.Struct({PnOffset: Schema.Number, CdmaChannel: Schema.Number, PilotPower: Schema.optional(Schema.Number), BaseStationId: Schema.optional(Schema.Number)});
+export class CdmaLocalId extends Schema.Class<CdmaLocalId>("CdmaLocalId")({PnOffset: Schema.Number, CdmaChannel: Schema.Number}) {}
+export class CdmaNmrObj extends Schema.Class<CdmaNmrObj>("CdmaNmrObj")({PnOffset: Schema.Number, CdmaChannel: Schema.Number, PilotPower: Schema.optional(Schema.Number), BaseStationId: Schema.optional(Schema.Number)}) {}
 export const CdmaNmrList = Schema.Array(CdmaNmrObj);
-export const AssociateAwsAccountWithPartnerAccountResponse = Schema.Struct({Sidewalk: Schema.optional(SidewalkAccountInfo), Arn: Schema.optional(Schema.String)});
-export const CreateDeviceProfileResponse = Schema.Struct({Arn: Schema.optional(Schema.String), Id: Schema.optional(Schema.String)});
-export const CreateFuotaTaskResponse = Schema.Struct({Arn: Schema.optional(Schema.String), Id: Schema.optional(Schema.String)});
-export const CreateMulticastGroupRequest = Schema.Struct({Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), ClientRequestToken: Schema.optional(Schema.String), LoRaWAN: LoRaWANMulticast, Tags: Schema.optional(TagList)});
-export const CreateNetworkAnalyzerConfigurationResponse = Schema.Struct({Arn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String)});
-export const CreateServiceProfileResponse = Schema.Struct({Arn: Schema.optional(Schema.String), Id: Schema.optional(Schema.String)});
-export const CreateWirelessGatewayRequest = Schema.Struct({Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), LoRaWAN: LoRaWANGateway, Tags: Schema.optional(TagList), ClientRequestToken: Schema.optional(Schema.String)});
-export const GetEventConfigurationByResourceTypesResponse = Schema.Struct({DeviceRegistrationState: Schema.optional(DeviceRegistrationStateResourceTypeEventConfiguration), Proximity: Schema.optional(ProximityResourceTypeEventConfiguration), Join: Schema.optional(JoinResourceTypeEventConfiguration), ConnectionStatus: Schema.optional(ConnectionStatusResourceTypeEventConfiguration), MessageDeliveryStatus: Schema.optional(MessageDeliveryStatusResourceTypeEventConfiguration)});
-export const GetFuotaTaskResponse = Schema.Struct({Arn: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), LoRaWAN: Schema.optional(LoRaWANFuotaTaskGetInfo), FirmwareUpdateImage: Schema.optional(Schema.String), FirmwareUpdateRole: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date), RedundancyPercent: Schema.optional(Schema.Number), FragmentSizeBytes: Schema.optional(Schema.Number), FragmentIntervalMS: Schema.optional(Schema.Number), Descriptor: Schema.optional(Schema.String)});
-export const GetLogLevelsByResourceTypesResponse = Schema.Struct({DefaultLogLevel: Schema.optional(Schema.String), WirelessGatewayLogOptions: Schema.optional(WirelessGatewayLogOptionList), WirelessDeviceLogOptions: Schema.optional(WirelessDeviceLogOptionList), FuotaTaskLogOptions: Schema.optional(FuotaTaskLogOptionList)});
-export const GetMetricsRequest = Schema.Struct({SummaryMetricQueries: Schema.optional(SummaryMetricQueries)});
-export const GetMulticastGroupResponse = Schema.Struct({Arn: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), LoRaWAN: Schema.optional(LoRaWANMulticastGet), CreatedAt: Schema.optional(Schema.Date)});
-export const GetPartnerAccountResponse = Schema.Struct({Sidewalk: Schema.optional(SidewalkAccountInfoWithFingerprint), AccountLinked: Schema.optional(Schema.Boolean)});
-export const GetPositionResponse = Schema.Struct({Position: Schema.optional(PositionCoordinate), Accuracy: Schema.optional(Accuracy), SolverType: Schema.optional(Schema.String), SolverProvider: Schema.optional(Schema.String), SolverVersion: Schema.optional(Schema.String), Timestamp: Schema.optional(Schema.String)});
-export const GetServiceProfileResponse = Schema.Struct({Arn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), LoRaWAN: Schema.optional(LoRaWANGetServiceProfileInfo)});
-export const GetWirelessDeviceImportTaskResponse = Schema.Struct({Id: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String), DestinationName: Schema.optional(Schema.String), Sidewalk: Schema.optional(SidewalkGetStartImportInfo), CreationTime: Schema.optional(Schema.Date), Status: Schema.optional(Schema.String), StatusReason: Schema.optional(Schema.String), InitializedImportedDeviceCount: Schema.optional(Schema.Number), PendingImportedDeviceCount: Schema.optional(Schema.Number), OnboardedImportedDeviceCount: Schema.optional(Schema.Number), FailedImportedDeviceCount: Schema.optional(Schema.Number)});
-export const GetWirelessGatewayFirmwareInformationResponse = Schema.Struct({LoRaWAN: Schema.optional(LoRaWANGatewayCurrentVersion)});
-export const ListDestinationsResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), DestinationList: Schema.optional(DestinationList)});
-export const ListDeviceProfilesResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), DeviceProfileList: Schema.optional(DeviceProfileList)});
-export const ListFuotaTasksResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), FuotaTaskList: Schema.optional(FuotaTaskList)});
-export const ListMulticastGroupsResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), MulticastGroupList: Schema.optional(MulticastGroupList)});
-export const ListMulticastGroupsByFuotaTaskResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), MulticastGroupList: Schema.optional(MulticastGroupListByFuotaTask)});
-export const ListNetworkAnalyzerConfigurationsResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), NetworkAnalyzerConfigurationList: Schema.optional(NetworkAnalyzerConfigurationList)});
-export const ListPositionConfigurationsResponse = Schema.Struct({PositionConfigurationList: Schema.optional(PositionConfigurationList), NextToken: Schema.optional(Schema.String)});
-export const ListQueuedMessagesResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), DownlinkQueueMessagesList: Schema.optional(DownlinkQueueMessagesList)});
-export const ListServiceProfilesResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), ServiceProfileList: Schema.optional(ServiceProfileList)});
-export const ListWirelessDeviceImportTasksResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), WirelessDeviceImportTaskList: Schema.optional(WirelessDeviceImportTaskList)});
-export const ListWirelessGatewaysResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), WirelessGatewayList: Schema.optional(WirelessGatewayStatisticsList)});
-export const PutPositionConfigurationRequest = Schema.Struct({ResourceIdentifier: Schema.String, ResourceType: Schema.String, Solvers: Schema.optional(PositionSolverConfigurations), Destination: Schema.optional(Schema.String)});
-export const PutPositionConfigurationResponse = Schema.Struct({});
-export const SendDataToMulticastGroupRequest = Schema.Struct({Id: Schema.String, PayloadData: Schema.String, WirelessMetadata: MulticastWirelessMetadata});
-export const StartSingleWirelessDeviceImportTaskResponse = Schema.Struct({Id: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String)});
-export const StartWirelessDeviceImportTaskResponse = Schema.Struct({Id: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String)});
-export const UpdateResourceEventConfigurationRequest = Schema.Struct({Identifier: Schema.String, IdentifierType: Schema.String, PartnerType: Schema.optional(Schema.String), DeviceRegistrationState: Schema.optional(DeviceRegistrationStateEventConfiguration), Proximity: Schema.optional(ProximityEventConfiguration), Join: Schema.optional(JoinEventConfiguration), ConnectionStatus: Schema.optional(ConnectionStatusEventConfiguration), MessageDeliveryStatus: Schema.optional(MessageDeliveryStatusEventConfiguration)});
-export const UpdateResourceEventConfigurationResponse = Schema.Struct({});
-export const UpdateWirelessDeviceRequest = Schema.Struct({Id: Schema.String, DestinationName: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), LoRaWAN: Schema.optional(LoRaWANUpdateDevice), Positioning: Schema.optional(Schema.String)});
-export const UpdateWirelessDeviceResponse = Schema.Struct({});
-export const AbpV1_1 = Schema.Struct({DevAddr: Schema.optional(Schema.String), SessionKeys: Schema.optional(SessionKeysAbpV1_1), FCntStart: Schema.optional(Schema.Number)});
-export const AbpV1_0_x = Schema.Struct({DevAddr: Schema.optional(Schema.String), SessionKeys: Schema.optional(SessionKeysAbpV1_0_x), FCntStart: Schema.optional(Schema.Number)});
-export const FPorts = Schema.Struct({Fuota: Schema.optional(Schema.Number), Multicast: Schema.optional(Schema.Number), ClockSync: Schema.optional(Schema.Number), Positioning: Schema.optional(Positioning), Applications: Schema.optional(Applications)});
-export const DakCertificateMetadata = Schema.Struct({CertificateId: Schema.String, MaxAllowedSignature: Schema.optional(Schema.Number), FactorySupport: Schema.optional(Schema.Boolean), ApId: Schema.optional(Schema.String), DeviceTypeId: Schema.optional(Schema.String)});
+export class AssociateAwsAccountWithPartnerAccountResponse extends Schema.Class<AssociateAwsAccountWithPartnerAccountResponse>("AssociateAwsAccountWithPartnerAccountResponse")({Sidewalk: Schema.optional(SidewalkAccountInfo), Arn: Schema.optional(Schema.String)}) {}
+export class CreateDeviceProfileResponse extends Schema.Class<CreateDeviceProfileResponse>("CreateDeviceProfileResponse")({Arn: Schema.optional(Schema.String), Id: Schema.optional(Schema.String)}) {}
+export class CreateFuotaTaskResponse extends Schema.Class<CreateFuotaTaskResponse>("CreateFuotaTaskResponse")({Arn: Schema.optional(Schema.String), Id: Schema.optional(Schema.String)}) {}
+export class CreateMulticastGroupRequest extends Schema.Class<CreateMulticastGroupRequest>("CreateMulticastGroupRequest")({Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), ClientRequestToken: Schema.optional(Schema.String), LoRaWAN: LoRaWANMulticast, Tags: Schema.optional(TagList)}) {}
+export class CreateNetworkAnalyzerConfigurationResponse extends Schema.Class<CreateNetworkAnalyzerConfigurationResponse>("CreateNetworkAnalyzerConfigurationResponse")({Arn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String)}) {}
+export class CreateServiceProfileResponse extends Schema.Class<CreateServiceProfileResponse>("CreateServiceProfileResponse")({Arn: Schema.optional(Schema.String), Id: Schema.optional(Schema.String)}) {}
+export class CreateWirelessGatewayRequest extends Schema.Class<CreateWirelessGatewayRequest>("CreateWirelessGatewayRequest")({Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), LoRaWAN: LoRaWANGateway, Tags: Schema.optional(TagList), ClientRequestToken: Schema.optional(Schema.String)}) {}
+export class GetEventConfigurationByResourceTypesResponse extends Schema.Class<GetEventConfigurationByResourceTypesResponse>("GetEventConfigurationByResourceTypesResponse")({DeviceRegistrationState: Schema.optional(DeviceRegistrationStateResourceTypeEventConfiguration), Proximity: Schema.optional(ProximityResourceTypeEventConfiguration), Join: Schema.optional(JoinResourceTypeEventConfiguration), ConnectionStatus: Schema.optional(ConnectionStatusResourceTypeEventConfiguration), MessageDeliveryStatus: Schema.optional(MessageDeliveryStatusResourceTypeEventConfiguration)}) {}
+export class GetFuotaTaskResponse extends Schema.Class<GetFuotaTaskResponse>("GetFuotaTaskResponse")({Arn: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), LoRaWAN: Schema.optional(LoRaWANFuotaTaskGetInfo), FirmwareUpdateImage: Schema.optional(Schema.String), FirmwareUpdateRole: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date), RedundancyPercent: Schema.optional(Schema.Number), FragmentSizeBytes: Schema.optional(Schema.Number), FragmentIntervalMS: Schema.optional(Schema.Number), Descriptor: Schema.optional(Schema.String)}) {}
+export class GetLogLevelsByResourceTypesResponse extends Schema.Class<GetLogLevelsByResourceTypesResponse>("GetLogLevelsByResourceTypesResponse")({DefaultLogLevel: Schema.optional(Schema.String), WirelessGatewayLogOptions: Schema.optional(WirelessGatewayLogOptionList), WirelessDeviceLogOptions: Schema.optional(WirelessDeviceLogOptionList), FuotaTaskLogOptions: Schema.optional(FuotaTaskLogOptionList)}) {}
+export class GetMetricsRequest extends Schema.Class<GetMetricsRequest>("GetMetricsRequest")({SummaryMetricQueries: Schema.optional(SummaryMetricQueries)}) {}
+export class GetMulticastGroupResponse extends Schema.Class<GetMulticastGroupResponse>("GetMulticastGroupResponse")({Arn: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), LoRaWAN: Schema.optional(LoRaWANMulticastGet), CreatedAt: Schema.optional(Schema.Date)}) {}
+export class GetPartnerAccountResponse extends Schema.Class<GetPartnerAccountResponse>("GetPartnerAccountResponse")({Sidewalk: Schema.optional(SidewalkAccountInfoWithFingerprint), AccountLinked: Schema.optional(Schema.Boolean)}) {}
+export class GetPositionResponse extends Schema.Class<GetPositionResponse>("GetPositionResponse")({Position: Schema.optional(PositionCoordinate), Accuracy: Schema.optional(Accuracy), SolverType: Schema.optional(Schema.String), SolverProvider: Schema.optional(Schema.String), SolverVersion: Schema.optional(Schema.String), Timestamp: Schema.optional(Schema.String)}) {}
+export class GetServiceProfileResponse extends Schema.Class<GetServiceProfileResponse>("GetServiceProfileResponse")({Arn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), LoRaWAN: Schema.optional(LoRaWANGetServiceProfileInfo)}) {}
+export class GetWirelessDeviceImportTaskResponse extends Schema.Class<GetWirelessDeviceImportTaskResponse>("GetWirelessDeviceImportTaskResponse")({Id: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String), DestinationName: Schema.optional(Schema.String), Positioning: Schema.optional(Schema.String), Sidewalk: Schema.optional(SidewalkGetStartImportInfo), CreationTime: Schema.optional(Schema.Date), Status: Schema.optional(Schema.String), StatusReason: Schema.optional(Schema.String), InitializedImportedDeviceCount: Schema.optional(Schema.Number), PendingImportedDeviceCount: Schema.optional(Schema.Number), OnboardedImportedDeviceCount: Schema.optional(Schema.Number), FailedImportedDeviceCount: Schema.optional(Schema.Number)}) {}
+export class GetWirelessGatewayFirmwareInformationResponse extends Schema.Class<GetWirelessGatewayFirmwareInformationResponse>("GetWirelessGatewayFirmwareInformationResponse")({LoRaWAN: Schema.optional(LoRaWANGatewayCurrentVersion)}) {}
+export class ListDestinationsResponse extends Schema.Class<ListDestinationsResponse>("ListDestinationsResponse")({NextToken: Schema.optional(Schema.String), DestinationList: Schema.optional(DestinationList)}) {}
+export class ListDeviceProfilesResponse extends Schema.Class<ListDeviceProfilesResponse>("ListDeviceProfilesResponse")({NextToken: Schema.optional(Schema.String), DeviceProfileList: Schema.optional(DeviceProfileList)}) {}
+export class ListFuotaTasksResponse extends Schema.Class<ListFuotaTasksResponse>("ListFuotaTasksResponse")({NextToken: Schema.optional(Schema.String), FuotaTaskList: Schema.optional(FuotaTaskList)}) {}
+export class ListMulticastGroupsResponse extends Schema.Class<ListMulticastGroupsResponse>("ListMulticastGroupsResponse")({NextToken: Schema.optional(Schema.String), MulticastGroupList: Schema.optional(MulticastGroupList)}) {}
+export class ListMulticastGroupsByFuotaTaskResponse extends Schema.Class<ListMulticastGroupsByFuotaTaskResponse>("ListMulticastGroupsByFuotaTaskResponse")({NextToken: Schema.optional(Schema.String), MulticastGroupList: Schema.optional(MulticastGroupListByFuotaTask)}) {}
+export class ListNetworkAnalyzerConfigurationsResponse extends Schema.Class<ListNetworkAnalyzerConfigurationsResponse>("ListNetworkAnalyzerConfigurationsResponse")({NextToken: Schema.optional(Schema.String), NetworkAnalyzerConfigurationList: Schema.optional(NetworkAnalyzerConfigurationList)}) {}
+export class ListPositionConfigurationsResponse extends Schema.Class<ListPositionConfigurationsResponse>("ListPositionConfigurationsResponse")({PositionConfigurationList: Schema.optional(PositionConfigurationList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListQueuedMessagesResponse extends Schema.Class<ListQueuedMessagesResponse>("ListQueuedMessagesResponse")({NextToken: Schema.optional(Schema.String), DownlinkQueueMessagesList: Schema.optional(DownlinkQueueMessagesList)}) {}
+export class ListServiceProfilesResponse extends Schema.Class<ListServiceProfilesResponse>("ListServiceProfilesResponse")({NextToken: Schema.optional(Schema.String), ServiceProfileList: Schema.optional(ServiceProfileList)}) {}
+export class ListWirelessDeviceImportTasksResponse extends Schema.Class<ListWirelessDeviceImportTasksResponse>("ListWirelessDeviceImportTasksResponse")({NextToken: Schema.optional(Schema.String), WirelessDeviceImportTaskList: Schema.optional(WirelessDeviceImportTaskList)}) {}
+export class ListWirelessGatewaysResponse extends Schema.Class<ListWirelessGatewaysResponse>("ListWirelessGatewaysResponse")({NextToken: Schema.optional(Schema.String), WirelessGatewayList: Schema.optional(WirelessGatewayStatisticsList)}) {}
+export class PutPositionConfigurationRequest extends Schema.Class<PutPositionConfigurationRequest>("PutPositionConfigurationRequest")({ResourceIdentifier: Schema.String, ResourceType: Schema.String, Solvers: Schema.optional(PositionSolverConfigurations), Destination: Schema.optional(Schema.String)}) {}
+export class PutPositionConfigurationResponse extends Schema.Class<PutPositionConfigurationResponse>("PutPositionConfigurationResponse")({}) {}
+export class SendDataToMulticastGroupRequest extends Schema.Class<SendDataToMulticastGroupRequest>("SendDataToMulticastGroupRequest")({Id: Schema.String, PayloadData: Schema.String, WirelessMetadata: MulticastWirelessMetadata}) {}
+export class StartSingleWirelessDeviceImportTaskResponse extends Schema.Class<StartSingleWirelessDeviceImportTaskResponse>("StartSingleWirelessDeviceImportTaskResponse")({Id: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String)}) {}
+export class StartWirelessDeviceImportTaskResponse extends Schema.Class<StartWirelessDeviceImportTaskResponse>("StartWirelessDeviceImportTaskResponse")({Id: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String)}) {}
+export class UpdateResourceEventConfigurationRequest extends Schema.Class<UpdateResourceEventConfigurationRequest>("UpdateResourceEventConfigurationRequest")({Identifier: Schema.String, IdentifierType: Schema.String, PartnerType: Schema.optional(Schema.String), DeviceRegistrationState: Schema.optional(DeviceRegistrationStateEventConfiguration), Proximity: Schema.optional(ProximityEventConfiguration), Join: Schema.optional(JoinEventConfiguration), ConnectionStatus: Schema.optional(ConnectionStatusEventConfiguration), MessageDeliveryStatus: Schema.optional(MessageDeliveryStatusEventConfiguration)}) {}
+export class UpdateResourceEventConfigurationResponse extends Schema.Class<UpdateResourceEventConfigurationResponse>("UpdateResourceEventConfigurationResponse")({}) {}
+export class UpdateWirelessDeviceRequest extends Schema.Class<UpdateWirelessDeviceRequest>("UpdateWirelessDeviceRequest")({Id: Schema.String, DestinationName: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), LoRaWAN: Schema.optional(LoRaWANUpdateDevice), Positioning: Schema.optional(Schema.String), Sidewalk: Schema.optional(SidewalkUpdateWirelessDevice)}) {}
+export class UpdateWirelessDeviceResponse extends Schema.Class<UpdateWirelessDeviceResponse>("UpdateWirelessDeviceResponse")({}) {}
+export class AbpV1_1 extends Schema.Class<AbpV1_1>("AbpV1_1")({DevAddr: Schema.optional(Schema.String), SessionKeys: Schema.optional(SessionKeysAbpV1_1), FCntStart: Schema.optional(Schema.Number)}) {}
+export class AbpV1_0_x extends Schema.Class<AbpV1_0_x>("AbpV1_0_x")({DevAddr: Schema.optional(Schema.String), SessionKeys: Schema.optional(SessionKeysAbpV1_0_x), FCntStart: Schema.optional(Schema.Number)}) {}
+export class FPorts extends Schema.Class<FPorts>("FPorts")({Fuota: Schema.optional(Schema.Number), Multicast: Schema.optional(Schema.Number), ClockSync: Schema.optional(Schema.Number), Positioning: Schema.optional(Positioning), Applications: Schema.optional(Applications)}) {}
+export class DakCertificateMetadata extends Schema.Class<DakCertificateMetadata>("DakCertificateMetadata")({CertificateId: Schema.String, MaxAllowedSignature: Schema.optional(Schema.Number), FactorySupport: Schema.optional(Schema.Boolean), ApId: Schema.optional(Schema.String), DeviceTypeId: Schema.optional(Schema.String)}) {}
 export const DakCertificateMetadataList = Schema.Array(DakCertificateMetadata);
-export const WcdmaObj = Schema.Struct({Mcc: Schema.Number, Mnc: Schema.Number, Lac: Schema.optional(Schema.Number), UtranCid: Schema.Number, WcdmaLocalId: Schema.optional(WcdmaLocalId), Rscp: Schema.optional(Schema.Number), PathLoss: Schema.optional(Schema.Number), WcdmaNmr: Schema.optional(WcdmaNmrList)});
+export class WcdmaObj extends Schema.Class<WcdmaObj>("WcdmaObj")({Mcc: Schema.Number, Mnc: Schema.Number, Lac: Schema.optional(Schema.Number), UtranCid: Schema.Number, WcdmaLocalId: Schema.optional(WcdmaLocalId), Rscp: Schema.optional(Schema.Number), PathLoss: Schema.optional(Schema.Number), WcdmaNmr: Schema.optional(WcdmaNmrList)}) {}
 export const WcdmaList = Schema.Array(WcdmaObj);
-export const TdscdmaObj = Schema.Struct({Mcc: Schema.Number, Mnc: Schema.Number, Lac: Schema.optional(Schema.Number), UtranCid: Schema.Number, TdscdmaLocalId: Schema.optional(TdscdmaLocalId), TdscdmaTimingAdvance: Schema.optional(Schema.Number), Rscp: Schema.optional(Schema.Number), PathLoss: Schema.optional(Schema.Number), TdscdmaNmr: Schema.optional(TdscdmaNmrList)});
+export class TdscdmaObj extends Schema.Class<TdscdmaObj>("TdscdmaObj")({Mcc: Schema.Number, Mnc: Schema.Number, Lac: Schema.optional(Schema.Number), UtranCid: Schema.Number, TdscdmaLocalId: Schema.optional(TdscdmaLocalId), TdscdmaTimingAdvance: Schema.optional(Schema.Number), Rscp: Schema.optional(Schema.Number), PathLoss: Schema.optional(Schema.Number), TdscdmaNmr: Schema.optional(TdscdmaNmrList)}) {}
 export const TdscdmaList = Schema.Array(TdscdmaObj);
-export const LteObj = Schema.Struct({Mcc: Schema.Number, Mnc: Schema.Number, EutranCid: Schema.Number, Tac: Schema.optional(Schema.Number), LteLocalId: Schema.optional(LteLocalId), LteTimingAdvance: Schema.optional(Schema.Number), Rsrp: Schema.optional(Schema.Number), Rsrq: Schema.optional(Schema.Number), NrCapable: Schema.optional(Schema.Boolean), LteNmr: Schema.optional(LteNmrList)});
+export class LteObj extends Schema.Class<LteObj>("LteObj")({Mcc: Schema.Number, Mnc: Schema.Number, EutranCid: Schema.Number, Tac: Schema.optional(Schema.Number), LteLocalId: Schema.optional(LteLocalId), LteTimingAdvance: Schema.optional(Schema.Number), Rsrp: Schema.optional(Schema.Number), Rsrq: Schema.optional(Schema.Number), NrCapable: Schema.optional(Schema.Boolean), LteNmr: Schema.optional(LteNmrList)}) {}
 export const LteList = Schema.Array(LteObj);
-export const CdmaObj = Schema.Struct({SystemId: Schema.Number, NetworkId: Schema.Number, BaseStationId: Schema.Number, RegistrationZone: Schema.optional(Schema.Number), CdmaLocalId: Schema.optional(CdmaLocalId), PilotPower: Schema.optional(Schema.Number), BaseLat: Schema.optional(Schema.Number), BaseLng: Schema.optional(Schema.Number), CdmaNmr: Schema.optional(CdmaNmrList)});
+export class CdmaObj extends Schema.Class<CdmaObj>("CdmaObj")({SystemId: Schema.Number, NetworkId: Schema.Number, BaseStationId: Schema.Number, RegistrationZone: Schema.optional(Schema.Number), CdmaLocalId: Schema.optional(CdmaLocalId), PilotPower: Schema.optional(Schema.Number), BaseLat: Schema.optional(Schema.Number), BaseLng: Schema.optional(Schema.Number), CdmaNmr: Schema.optional(CdmaNmrList)}) {}
 export const CdmaList = Schema.Array(CdmaObj);
 export const DeviceCertificateList = Schema.Array(CertificateList);
-export const LoRaWANGatewayMetadata = Schema.Struct({GatewayEui: Schema.optional(Schema.String), Snr: Schema.optional(Schema.Number), Rssi: Schema.optional(Schema.Number)});
+export class LoRaWANGatewayMetadata extends Schema.Class<LoRaWANGatewayMetadata>("LoRaWANGatewayMetadata")({GatewayEui: Schema.optional(Schema.String), Snr: Schema.optional(Schema.Number), Rssi: Schema.optional(Schema.Number)}) {}
 export const LoRaWANGatewayMetadataList = Schema.Array(LoRaWANGatewayMetadata);
-export const LoRaWANPublicGatewayMetadata = Schema.Struct({ProviderNetId: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Rssi: Schema.optional(Schema.Number), Snr: Schema.optional(Schema.Number), RfRegion: Schema.optional(Schema.String), DlAllowed: Schema.optional(Schema.Boolean)});
+export class LoRaWANPublicGatewayMetadata extends Schema.Class<LoRaWANPublicGatewayMetadata>("LoRaWANPublicGatewayMetadata")({ProviderNetId: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Rssi: Schema.optional(Schema.Number), Snr: Schema.optional(Schema.Number), RfRegion: Schema.optional(Schema.String), DlAllowed: Schema.optional(Schema.Boolean)}) {}
 export const LoRaWANPublicGatewayMetadataList = Schema.Array(LoRaWANPublicGatewayMetadata);
-export const ImportedSidewalkDevice = Schema.Struct({SidewalkManufacturingSn: Schema.optional(Schema.String), OnboardingStatus: Schema.optional(Schema.String), OnboardingStatusReason: Schema.optional(Schema.String), LastUpdateTime: Schema.optional(Schema.Date)});
-export const EventNotificationItemConfigurations = Schema.Struct({DeviceRegistrationState: Schema.optional(DeviceRegistrationStateEventConfiguration), Proximity: Schema.optional(ProximityEventConfiguration), Join: Schema.optional(JoinEventConfiguration), ConnectionStatus: Schema.optional(ConnectionStatusEventConfiguration), MessageDeliveryStatus: Schema.optional(MessageDeliveryStatusEventConfiguration)});
-export const LoRaWANListDevice = Schema.Struct({DevEui: Schema.optional(Schema.String)});
-export const SidewalkListDevice = Schema.Struct({AmazonId: Schema.optional(Schema.String), SidewalkId: Schema.optional(Schema.String), SidewalkManufacturingSn: Schema.optional(Schema.String), DeviceCertificates: Schema.optional(DeviceCertificateList), DeviceProfileId: Schema.optional(Schema.String), Status: Schema.optional(Schema.String)});
-export const LoRaWANUpdateGatewayTaskEntry = Schema.Struct({CurrentVersion: Schema.optional(LoRaWANGatewayVersion), UpdateVersion: Schema.optional(LoRaWANGatewayVersion)});
-export const GlobalIdentity = Schema.Struct({Lac: Schema.Number, GeranCid: Schema.Number});
-export const LoRaWANDevice = Schema.Struct({DevEui: Schema.optional(Schema.String), DeviceProfileId: Schema.optional(Schema.String), ServiceProfileId: Schema.optional(Schema.String), OtaaV1_1: Schema.optional(OtaaV1_1), OtaaV1_0_x: Schema.optional(OtaaV1_0_x), AbpV1_1: Schema.optional(AbpV1_1), AbpV1_0_x: Schema.optional(AbpV1_0_x), FPorts: Schema.optional(FPorts)});
-export const SidewalkGetDeviceProfile = Schema.Struct({ApplicationServerPublicKey: Schema.optional(Schema.String), QualificationStatus: Schema.optional(Schema.Boolean), DakCertificateMetadata: Schema.optional(DakCertificateMetadataList)});
-export const SidewalkDevice = Schema.Struct({AmazonId: Schema.optional(Schema.String), SidewalkId: Schema.optional(Schema.String), SidewalkManufacturingSn: Schema.optional(Schema.String), DeviceCertificates: Schema.optional(DeviceCertificateList), PrivateKeys: Schema.optional(PrivateKeysList), DeviceProfileId: Schema.optional(Schema.String), CertificateId: Schema.optional(Schema.String), Status: Schema.optional(Schema.String)});
-export const LoRaWANDeviceMetadata = Schema.Struct({DevEui: Schema.optional(Schema.String), FPort: Schema.optional(Schema.Number), DataRate: Schema.optional(Schema.Number), Frequency: Schema.optional(Schema.Number), Timestamp: Schema.optional(Schema.String), Gateways: Schema.optional(LoRaWANGatewayMetadataList), PublicGateways: Schema.optional(LoRaWANPublicGatewayMetadataList)});
-export const ImportedWirelessDevice = Schema.Struct({Sidewalk: Schema.optional(ImportedSidewalkDevice)});
+export class ImportedSidewalkDevice extends Schema.Class<ImportedSidewalkDevice>("ImportedSidewalkDevice")({SidewalkManufacturingSn: Schema.optional(Schema.String), OnboardingStatus: Schema.optional(Schema.String), OnboardingStatusReason: Schema.optional(Schema.String), LastUpdateTime: Schema.optional(Schema.Date)}) {}
+export class EventNotificationItemConfigurations extends Schema.Class<EventNotificationItemConfigurations>("EventNotificationItemConfigurations")({DeviceRegistrationState: Schema.optional(DeviceRegistrationStateEventConfiguration), Proximity: Schema.optional(ProximityEventConfiguration), Join: Schema.optional(JoinEventConfiguration), ConnectionStatus: Schema.optional(ConnectionStatusEventConfiguration), MessageDeliveryStatus: Schema.optional(MessageDeliveryStatusEventConfiguration)}) {}
+export class LoRaWANListDevice extends Schema.Class<LoRaWANListDevice>("LoRaWANListDevice")({DevEui: Schema.optional(Schema.String)}) {}
+export class SidewalkListDevice extends Schema.Class<SidewalkListDevice>("SidewalkListDevice")({AmazonId: Schema.optional(Schema.String), SidewalkId: Schema.optional(Schema.String), SidewalkManufacturingSn: Schema.optional(Schema.String), DeviceCertificates: Schema.optional(DeviceCertificateList), DeviceProfileId: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), Positioning: Schema.optional(SidewalkPositioning)}) {}
+export class LoRaWANUpdateGatewayTaskEntry extends Schema.Class<LoRaWANUpdateGatewayTaskEntry>("LoRaWANUpdateGatewayTaskEntry")({CurrentVersion: Schema.optional(LoRaWANGatewayVersion), UpdateVersion: Schema.optional(LoRaWANGatewayVersion)}) {}
+export class GlobalIdentity extends Schema.Class<GlobalIdentity>("GlobalIdentity")({Lac: Schema.Number, GeranCid: Schema.Number}) {}
+export class LoRaWANDevice extends Schema.Class<LoRaWANDevice>("LoRaWANDevice")({DevEui: Schema.optional(Schema.String), DeviceProfileId: Schema.optional(Schema.String), ServiceProfileId: Schema.optional(Schema.String), OtaaV1_1: Schema.optional(OtaaV1_1), OtaaV1_0_x: Schema.optional(OtaaV1_0_x), AbpV1_1: Schema.optional(AbpV1_1), AbpV1_0_x: Schema.optional(AbpV1_0_x), FPorts: Schema.optional(FPorts)}) {}
+export class SidewalkGetDeviceProfile extends Schema.Class<SidewalkGetDeviceProfile>("SidewalkGetDeviceProfile")({ApplicationServerPublicKey: Schema.optional(Schema.String), QualificationStatus: Schema.optional(Schema.Boolean), DakCertificateMetadata: Schema.optional(DakCertificateMetadataList)}) {}
+export class SidewalkDevice extends Schema.Class<SidewalkDevice>("SidewalkDevice")({AmazonId: Schema.optional(Schema.String), SidewalkId: Schema.optional(Schema.String), SidewalkManufacturingSn: Schema.optional(Schema.String), DeviceCertificates: Schema.optional(DeviceCertificateList), PrivateKeys: Schema.optional(PrivateKeysList), DeviceProfileId: Schema.optional(Schema.String), CertificateId: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), Positioning: Schema.optional(SidewalkPositioning)}) {}
+export class LoRaWANDeviceMetadata extends Schema.Class<LoRaWANDeviceMetadata>("LoRaWANDeviceMetadata")({DevEui: Schema.optional(Schema.String), FPort: Schema.optional(Schema.Number), DataRate: Schema.optional(Schema.Number), Frequency: Schema.optional(Schema.Number), Timestamp: Schema.optional(Schema.String), Gateways: Schema.optional(LoRaWANGatewayMetadataList), PublicGateways: Schema.optional(LoRaWANPublicGatewayMetadataList)}) {}
+export class ImportedWirelessDevice extends Schema.Class<ImportedWirelessDevice>("ImportedWirelessDevice")({Sidewalk: Schema.optional(ImportedSidewalkDevice)}) {}
 export const ImportedWirelessDeviceList = Schema.Array(ImportedWirelessDevice);
-export const EventConfigurationItem = Schema.Struct({Identifier: Schema.optional(Schema.String), IdentifierType: Schema.optional(Schema.String), PartnerType: Schema.optional(Schema.String), Events: Schema.optional(EventNotificationItemConfigurations)});
+export class EventConfigurationItem extends Schema.Class<EventConfigurationItem>("EventConfigurationItem")({Identifier: Schema.optional(Schema.String), IdentifierType: Schema.optional(Schema.String), PartnerType: Schema.optional(Schema.String), Events: Schema.optional(EventNotificationItemConfigurations)}) {}
 export const EventConfigurationsList = Schema.Array(EventConfigurationItem);
-export const WirelessDeviceStatistics = Schema.Struct({Arn: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), DestinationName: Schema.optional(Schema.String), LastUplinkReceivedAt: Schema.optional(Schema.String), LoRaWAN: Schema.optional(LoRaWANListDevice), Sidewalk: Schema.optional(SidewalkListDevice), FuotaDeviceStatus: Schema.optional(Schema.String), MulticastDeviceStatus: Schema.optional(Schema.String), McGroupId: Schema.optional(Schema.Number)});
+export class WirelessDeviceStatistics extends Schema.Class<WirelessDeviceStatistics>("WirelessDeviceStatistics")({Arn: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), DestinationName: Schema.optional(Schema.String), LastUplinkReceivedAt: Schema.optional(Schema.String), LoRaWAN: Schema.optional(LoRaWANListDevice), Sidewalk: Schema.optional(SidewalkListDevice), FuotaDeviceStatus: Schema.optional(Schema.String), MulticastDeviceStatus: Schema.optional(Schema.String), McGroupId: Schema.optional(Schema.Number), Positioning: Schema.optional(Schema.String)}) {}
 export const WirelessDeviceStatisticsList = Schema.Array(WirelessDeviceStatistics);
-export const UpdateWirelessGatewayTaskEntry = Schema.Struct({Id: Schema.optional(Schema.String), LoRaWAN: Schema.optional(LoRaWANUpdateGatewayTaskEntry), Arn: Schema.optional(Schema.String)});
+export class UpdateWirelessGatewayTaskEntry extends Schema.Class<UpdateWirelessGatewayTaskEntry>("UpdateWirelessGatewayTaskEntry")({Id: Schema.optional(Schema.String), LoRaWAN: Schema.optional(LoRaWANUpdateGatewayTaskEntry), Arn: Schema.optional(Schema.String)}) {}
 export const WirelessGatewayTaskDefinitionList = Schema.Array(UpdateWirelessGatewayTaskEntry);
-export const GsmNmrObj = Schema.Struct({Bsic: Schema.Number, Bcch: Schema.Number, RxLevel: Schema.optional(Schema.Number), GlobalIdentity: Schema.optional(GlobalIdentity)});
+export class GsmNmrObj extends Schema.Class<GsmNmrObj>("GsmNmrObj")({Bsic: Schema.Number, Bcch: Schema.Number, RxLevel: Schema.optional(Schema.Number), GlobalIdentity: Schema.optional(GlobalIdentity)}) {}
 export const GsmNmrList = Schema.Array(GsmNmrObj);
-export const CreateMulticastGroupResponse = Schema.Struct({Arn: Schema.optional(Schema.String), Id: Schema.optional(Schema.String)});
-export const CreateWirelessDeviceRequest = Schema.Struct({Type: Schema.String, Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), DestinationName: Schema.String, ClientRequestToken: Schema.optional(Schema.String), LoRaWAN: Schema.optional(LoRaWANDevice), Tags: Schema.optional(TagList), Positioning: Schema.optional(Schema.String), Sidewalk: Schema.optional(SidewalkCreateWirelessDevice)});
-export const CreateWirelessGatewayResponse = Schema.Struct({Arn: Schema.optional(Schema.String), Id: Schema.optional(Schema.String)});
-export const CreateWirelessGatewayTaskDefinitionRequest = Schema.Struct({AutoCreateTasks: Schema.Boolean, Name: Schema.optional(Schema.String), Update: Schema.optional(UpdateWirelessGatewayTaskCreate), ClientRequestToken: Schema.optional(Schema.String), Tags: Schema.optional(TagList)});
-export const GetDeviceProfileResponse = Schema.Struct({Arn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), LoRaWAN: Schema.optional(LoRaWANDeviceProfile), Sidewalk: Schema.optional(SidewalkGetDeviceProfile)});
-export const GetPositionConfigurationResponse = Schema.Struct({Solvers: Schema.optional(PositionSolverDetails), Destination: Schema.optional(Schema.String)});
-export const GetWirelessDeviceResponse = Schema.Struct({Type: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), DestinationName: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String), ThingName: Schema.optional(Schema.String), ThingArn: Schema.optional(Schema.String), LoRaWAN: Schema.optional(LoRaWANDevice), Sidewalk: Schema.optional(SidewalkDevice), Positioning: Schema.optional(Schema.String)});
-export const GetWirelessDeviceStatisticsResponse = Schema.Struct({WirelessDeviceId: Schema.optional(Schema.String), LastUplinkReceivedAt: Schema.optional(Schema.String), LoRaWAN: Schema.optional(LoRaWANDeviceMetadata), Sidewalk: Schema.optional(SidewalkDeviceMetadata)});
-export const ListDevicesForWirelessDeviceImportTaskResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), DestinationName: Schema.optional(Schema.String), ImportedWirelessDeviceList: Schema.optional(ImportedWirelessDeviceList)});
-export const ListEventConfigurationsResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), EventConfigurationsList: Schema.optional(EventConfigurationsList)});
-export const ListWirelessDevicesResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), WirelessDeviceList: Schema.optional(WirelessDeviceStatisticsList)});
-export const ListWirelessGatewayTaskDefinitionsResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), TaskDefinitions: Schema.optional(WirelessGatewayTaskDefinitionList)});
-export const SendDataToMulticastGroupResponse = Schema.Struct({MessageId: Schema.optional(Schema.String)});
+export class CreateMulticastGroupResponse extends Schema.Class<CreateMulticastGroupResponse>("CreateMulticastGroupResponse")({Arn: Schema.optional(Schema.String), Id: Schema.optional(Schema.String)}) {}
+export class CreateWirelessDeviceRequest extends Schema.Class<CreateWirelessDeviceRequest>("CreateWirelessDeviceRequest")({Type: Schema.String, Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), DestinationName: Schema.String, ClientRequestToken: Schema.optional(Schema.String), LoRaWAN: Schema.optional(LoRaWANDevice), Tags: Schema.optional(TagList), Positioning: Schema.optional(Schema.String), Sidewalk: Schema.optional(SidewalkCreateWirelessDevice)}) {}
+export class CreateWirelessGatewayResponse extends Schema.Class<CreateWirelessGatewayResponse>("CreateWirelessGatewayResponse")({Arn: Schema.optional(Schema.String), Id: Schema.optional(Schema.String)}) {}
+export class CreateWirelessGatewayTaskDefinitionRequest extends Schema.Class<CreateWirelessGatewayTaskDefinitionRequest>("CreateWirelessGatewayTaskDefinitionRequest")({AutoCreateTasks: Schema.Boolean, Name: Schema.optional(Schema.String), Update: Schema.optional(UpdateWirelessGatewayTaskCreate), ClientRequestToken: Schema.optional(Schema.String), Tags: Schema.optional(TagList)}) {}
+export class GetDeviceProfileResponse extends Schema.Class<GetDeviceProfileResponse>("GetDeviceProfileResponse")({Arn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), LoRaWAN: Schema.optional(LoRaWANDeviceProfile), Sidewalk: Schema.optional(SidewalkGetDeviceProfile)}) {}
+export class GetPositionConfigurationResponse extends Schema.Class<GetPositionConfigurationResponse>("GetPositionConfigurationResponse")({Solvers: Schema.optional(PositionSolverDetails), Destination: Schema.optional(Schema.String)}) {}
+export class GetWirelessDeviceResponse extends Schema.Class<GetWirelessDeviceResponse>("GetWirelessDeviceResponse")({Type: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), DestinationName: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String), ThingName: Schema.optional(Schema.String), ThingArn: Schema.optional(Schema.String), LoRaWAN: Schema.optional(LoRaWANDevice), Sidewalk: Schema.optional(SidewalkDevice), Positioning: Schema.optional(Schema.String)}) {}
+export class GetWirelessDeviceStatisticsResponse extends Schema.Class<GetWirelessDeviceStatisticsResponse>("GetWirelessDeviceStatisticsResponse")({WirelessDeviceId: Schema.optional(Schema.String), LastUplinkReceivedAt: Schema.optional(Schema.String), LoRaWAN: Schema.optional(LoRaWANDeviceMetadata), Sidewalk: Schema.optional(SidewalkDeviceMetadata)}) {}
+export class ListDevicesForWirelessDeviceImportTaskResponse extends Schema.Class<ListDevicesForWirelessDeviceImportTaskResponse>("ListDevicesForWirelessDeviceImportTaskResponse")({NextToken: Schema.optional(Schema.String), DestinationName: Schema.optional(Schema.String), Positioning: Schema.optional(Schema.String), Sidewalk: Schema.optional(SidewalkListDevicesForImportInfo), ImportedWirelessDeviceList: Schema.optional(ImportedWirelessDeviceList)}) {}
+export class ListEventConfigurationsResponse extends Schema.Class<ListEventConfigurationsResponse>("ListEventConfigurationsResponse")({NextToken: Schema.optional(Schema.String), EventConfigurationsList: Schema.optional(EventConfigurationsList)}) {}
+export class ListWirelessDevicesResponse extends Schema.Class<ListWirelessDevicesResponse>("ListWirelessDevicesResponse")({NextToken: Schema.optional(Schema.String), WirelessDeviceList: Schema.optional(WirelessDeviceStatisticsList)}) {}
+export class ListWirelessGatewayTaskDefinitionsResponse extends Schema.Class<ListWirelessGatewayTaskDefinitionsResponse>("ListWirelessGatewayTaskDefinitionsResponse")({NextToken: Schema.optional(Schema.String), TaskDefinitions: Schema.optional(WirelessGatewayTaskDefinitionList)}) {}
+export class SendDataToMulticastGroupResponse extends Schema.Class<SendDataToMulticastGroupResponse>("SendDataToMulticastGroupResponse")({MessageId: Schema.optional(Schema.String)}) {}
 export const MetricQueryTimestamps = Schema.Array(Schema.Date);
-export const GsmObj = Schema.Struct({Mcc: Schema.Number, Mnc: Schema.Number, Lac: Schema.Number, GeranCid: Schema.Number, GsmLocalId: Schema.optional(GsmLocalId), GsmTimingAdvance: Schema.optional(Schema.Number), RxLevel: Schema.optional(Schema.Number), GsmNmr: Schema.optional(GsmNmrList)});
+export class GsmObj extends Schema.Class<GsmObj>("GsmObj")({Mcc: Schema.Number, Mnc: Schema.Number, Lac: Schema.Number, GeranCid: Schema.Number, GsmLocalId: Schema.optional(GsmLocalId), GsmTimingAdvance: Schema.optional(Schema.Number), RxLevel: Schema.optional(Schema.Number), GsmNmr: Schema.optional(GsmNmrList)}) {}
 export const GsmList = Schema.Array(GsmObj);
-export const CellTowers = Schema.Struct({Gsm: Schema.optional(GsmList), Wcdma: Schema.optional(WcdmaList), Tdscdma: Schema.optional(TdscdmaList), Lte: Schema.optional(LteList), Cdma: Schema.optional(CdmaList)});
-export const WirelessMetadata = Schema.Struct({LoRaWAN: Schema.optional(LoRaWANSendDataToDevice), Sidewalk: Schema.optional(SidewalkSendDataToDevice)});
-export const CreateWirelessDeviceResponse = Schema.Struct({Arn: Schema.optional(Schema.String), Id: Schema.optional(Schema.String)});
-export const CreateWirelessGatewayTaskDefinitionResponse = Schema.Struct({Id: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String)});
-export const GetPositionEstimateRequest = Schema.Struct({WiFiAccessPoints: Schema.optional(WiFiAccessPoints), CellTowers: Schema.optional(CellTowers), Ip: Schema.optional(Ip), Gnss: Schema.optional(Gnss), Timestamp: Schema.optional(Schema.Date)});
-export const SendDataToWirelessDeviceRequest = Schema.Struct({Id: Schema.String, TransmitMode: Schema.Number, PayloadData: Schema.String, WirelessMetadata: Schema.optional(WirelessMetadata)});
-export const MetricQueryValue = Schema.Struct({Min: Schema.optional(Schema.Number), Max: Schema.optional(Schema.Number), Sum: Schema.optional(Schema.Number), Avg: Schema.optional(Schema.Number), Std: Schema.optional(Schema.Number), P90: Schema.optional(Schema.Number)});
+export class CellTowers extends Schema.Class<CellTowers>("CellTowers")({Gsm: Schema.optional(GsmList), Wcdma: Schema.optional(WcdmaList), Tdscdma: Schema.optional(TdscdmaList), Lte: Schema.optional(LteList), Cdma: Schema.optional(CdmaList)}) {}
+export class WirelessMetadata extends Schema.Class<WirelessMetadata>("WirelessMetadata")({LoRaWAN: Schema.optional(LoRaWANSendDataToDevice), Sidewalk: Schema.optional(SidewalkSendDataToDevice)}) {}
+export class CreateWirelessDeviceResponse extends Schema.Class<CreateWirelessDeviceResponse>("CreateWirelessDeviceResponse")({Arn: Schema.optional(Schema.String), Id: Schema.optional(Schema.String)}) {}
+export class CreateWirelessGatewayTaskDefinitionResponse extends Schema.Class<CreateWirelessGatewayTaskDefinitionResponse>("CreateWirelessGatewayTaskDefinitionResponse")({Id: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String)}) {}
+export class GetPositionEstimateRequest extends Schema.Class<GetPositionEstimateRequest>("GetPositionEstimateRequest")({WiFiAccessPoints: Schema.optional(WiFiAccessPoints), CellTowers: Schema.optional(CellTowers), Ip: Schema.optional(Ip), Gnss: Schema.optional(Gnss), Timestamp: Schema.optional(Schema.Date)}) {}
+export class SendDataToWirelessDeviceRequest extends Schema.Class<SendDataToWirelessDeviceRequest>("SendDataToWirelessDeviceRequest")({Id: Schema.String, TransmitMode: Schema.Number, PayloadData: Schema.String, WirelessMetadata: Schema.optional(WirelessMetadata)}) {}
+export class MetricQueryValue extends Schema.Class<MetricQueryValue>("MetricQueryValue")({Min: Schema.optional(Schema.Number), Max: Schema.optional(Schema.Number), Sum: Schema.optional(Schema.Number), Avg: Schema.optional(Schema.Number), Std: Schema.optional(Schema.Number), P90: Schema.optional(Schema.Number)}) {}
 export const MetricQueryValues = Schema.Array(MetricQueryValue);
-export const SummaryMetricQueryResult = Schema.Struct({QueryId: Schema.optional(Schema.String), QueryStatus: Schema.optional(Schema.String), Error: Schema.optional(Schema.String), MetricName: Schema.optional(Schema.String), Dimensions: Schema.optional(Dimensions), AggregationPeriod: Schema.optional(Schema.String), StartTimestamp: Schema.optional(Schema.Date), EndTimestamp: Schema.optional(Schema.Date), Timestamps: Schema.optional(MetricQueryTimestamps), Values: Schema.optional(MetricQueryValues), Unit: Schema.optional(Schema.String)});
+export class SummaryMetricQueryResult extends Schema.Class<SummaryMetricQueryResult>("SummaryMetricQueryResult")({QueryId: Schema.optional(Schema.String), QueryStatus: Schema.optional(Schema.String), Error: Schema.optional(Schema.String), MetricName: Schema.optional(Schema.String), Dimensions: Schema.optional(Dimensions), AggregationPeriod: Schema.optional(Schema.String), StartTimestamp: Schema.optional(Schema.Date), EndTimestamp: Schema.optional(Schema.Date), Timestamps: Schema.optional(MetricQueryTimestamps), Values: Schema.optional(MetricQueryValues), Unit: Schema.optional(Schema.String)}) {}
 export const SummaryMetricQueryResults = Schema.Array(SummaryMetricQueryResult);
-export const GetMetricsResponse = Schema.Struct({SummaryMetricQueryResults: Schema.optional(SummaryMetricQueryResults)});
-export const GetPositionEstimateResponse = Schema.Struct({GeoJsonPayload: Schema.optional(Body("undefined", StreamBody()))});
-export const SendDataToWirelessDeviceResponse = Schema.Struct({MessageId: Schema.optional(Schema.String)});
+export class GetMetricsResponse extends Schema.Class<GetMetricsResponse>("GetMetricsResponse")({SummaryMetricQueryResults: Schema.optional(SummaryMetricQueryResults)}) {}
+export class GetPositionEstimateResponse extends Schema.Class<GetPositionEstimateResponse>("GetPositionEstimateResponse")({GeoJsonPayload: Schema.optional(Body("undefined", StreamBody()))}) {}
+export class SendDataToWirelessDeviceResponse extends Schema.Class<SendDataToWirelessDeviceResponse>("SendDataToWirelessDeviceResponse")({MessageId: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class TooManyTagsExceptionError extends Schema.TaggedError<TooManyTagsExceptionError>()("TooManyTagsException", TooManyTagsException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class TooManyTagsExceptionError extends Schema.TaggedError<TooManyTagsExceptionError>()("TooManyTagsException", TooManyTagsException.fields) {};
 
 //# Operations
 export const cancelMulticastGroupSession = /*#__PURE__*/ makeOperation(() => Operation({ version: "2020-11-22", uri: "/multicast-groups/{Id}/session", method: "DELETE", sdkId: "IoT Wireless", sigV4ServiceName: "iotwireless", name: "iotwireless.CancelMulticastGroupSession" }, CancelMulticastGroupSessionRequest, CancelMulticastGroupSessionResponse, [AccessDeniedExceptionError, ConflictExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

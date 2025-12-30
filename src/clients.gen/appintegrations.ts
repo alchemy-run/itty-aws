@@ -5,105 +5,105 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 //# Schemas
 export const PermissionList = Schema.Array(Schema.String);
 export const TagKeyList = Schema.Array(Schema.String);
-export const DeleteApplicationRequest = Schema.Struct({Arn: Schema.String});
-export const DeleteApplicationResponse = Schema.Struct({});
-export const DeleteDataIntegrationRequest = Schema.Struct({DataIntegrationIdentifier: Schema.String});
-export const DeleteDataIntegrationResponse = Schema.Struct({});
-export const DeleteEventIntegrationRequest = Schema.Struct({Name: Schema.String});
-export const DeleteEventIntegrationResponse = Schema.Struct({});
-export const GetApplicationRequest = Schema.Struct({Arn: Schema.String});
-export const GetDataIntegrationRequest = Schema.Struct({Identifier: Schema.String});
-export const GetEventIntegrationRequest = Schema.Struct({Name: Schema.String});
-export const ListApplicationAssociationsRequest = Schema.Struct({ApplicationId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListApplicationsRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListDataIntegrationAssociationsRequest = Schema.Struct({DataIntegrationIdentifier: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListDataIntegrationsRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListEventIntegrationAssociationsRequest = Schema.Struct({EventIntegrationName: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListEventIntegrationsRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListTagsForResourceRequest = Schema.Struct({resourceArn: Schema.String});
+export class DeleteApplicationRequest extends Schema.Class<DeleteApplicationRequest>("DeleteApplicationRequest")({Arn: Schema.String}) {}
+export class DeleteApplicationResponse extends Schema.Class<DeleteApplicationResponse>("DeleteApplicationResponse")({}) {}
+export class DeleteDataIntegrationRequest extends Schema.Class<DeleteDataIntegrationRequest>("DeleteDataIntegrationRequest")({DataIntegrationIdentifier: Schema.String}) {}
+export class DeleteDataIntegrationResponse extends Schema.Class<DeleteDataIntegrationResponse>("DeleteDataIntegrationResponse")({}) {}
+export class DeleteEventIntegrationRequest extends Schema.Class<DeleteEventIntegrationRequest>("DeleteEventIntegrationRequest")({Name: Schema.String}) {}
+export class DeleteEventIntegrationResponse extends Schema.Class<DeleteEventIntegrationResponse>("DeleteEventIntegrationResponse")({}) {}
+export class GetApplicationRequest extends Schema.Class<GetApplicationRequest>("GetApplicationRequest")({Arn: Schema.String}) {}
+export class GetDataIntegrationRequest extends Schema.Class<GetDataIntegrationRequest>("GetDataIntegrationRequest")({Identifier: Schema.String}) {}
+export class GetEventIntegrationRequest extends Schema.Class<GetEventIntegrationRequest>("GetEventIntegrationRequest")({Name: Schema.String}) {}
+export class ListApplicationAssociationsRequest extends Schema.Class<ListApplicationAssociationsRequest>("ListApplicationAssociationsRequest")({ApplicationId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListApplicationsRequest extends Schema.Class<ListApplicationsRequest>("ListApplicationsRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), ApplicationType: Schema.optional(Schema.String)}) {}
+export class ListDataIntegrationAssociationsRequest extends Schema.Class<ListDataIntegrationAssociationsRequest>("ListDataIntegrationAssociationsRequest")({DataIntegrationIdentifier: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListDataIntegrationsRequest extends Schema.Class<ListDataIntegrationsRequest>("ListDataIntegrationsRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListEventIntegrationAssociationsRequest extends Schema.Class<ListEventIntegrationAssociationsRequest>("ListEventIntegrationAssociationsRequest")({EventIntegrationName: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListEventIntegrationsRequest extends Schema.Class<ListEventIntegrationsRequest>("ListEventIntegrationsRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({resourceArn: Schema.String}) {}
 export const TagMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const TagResourceRequest = Schema.Struct({resourceArn: Schema.String, tags: TagMap});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({resourceArn: Schema.String, tagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({resourceArn: Schema.String, tags: TagMap}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({resourceArn: Schema.String, tagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
 export const ApplicationApprovedOrigins = Schema.Array(Schema.String);
-export const ExternalUrlConfig = Schema.Struct({AccessUrl: Schema.String, ApprovedOrigins: Schema.optional(ApplicationApprovedOrigins)});
-export const ApplicationSourceConfig = Schema.Struct({ExternalUrlConfig: Schema.optional(ExternalUrlConfig)});
-export const Subscription = Schema.Struct({Event: Schema.String, Description: Schema.optional(Schema.String)});
+export class ExternalUrlConfig extends Schema.Class<ExternalUrlConfig>("ExternalUrlConfig")({AccessUrl: Schema.String, ApprovedOrigins: Schema.optional(ApplicationApprovedOrigins)}) {}
+export class ApplicationSourceConfig extends Schema.Class<ApplicationSourceConfig>("ApplicationSourceConfig")({ExternalUrlConfig: Schema.optional(ExternalUrlConfig)}) {}
+export class Subscription extends Schema.Class<Subscription>("Subscription")({Event: Schema.String, Description: Schema.optional(Schema.String)}) {}
 export const SubscriptionList = Schema.Array(Subscription);
-export const Publication = Schema.Struct({Event: Schema.String, Schema: Schema.String, Description: Schema.optional(Schema.String)});
+export class Publication extends Schema.Class<Publication>("Publication")({Event: Schema.String, Schema: Schema.String, Description: Schema.optional(Schema.String)}) {}
 export const PublicationList = Schema.Array(Publication);
-export const ContactHandling = Schema.Struct({Scope: Schema.optional(Schema.String)});
-export const ApplicationConfig = Schema.Struct({ContactHandling: Schema.optional(ContactHandling)});
+export class ContactHandling extends Schema.Class<ContactHandling>("ContactHandling")({Scope: Schema.optional(Schema.String)}) {}
+export class ApplicationConfig extends Schema.Class<ApplicationConfig>("ApplicationConfig")({ContactHandling: Schema.optional(ContactHandling)}) {}
 export const IframePermissionList = Schema.Array(Schema.String);
-export const IframeConfig = Schema.Struct({Allow: Schema.optional(IframePermissionList), Sandbox: Schema.optional(IframePermissionList)});
-export const UpdateApplicationRequest = Schema.Struct({Arn: Schema.String, Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), ApplicationSourceConfig: Schema.optional(ApplicationSourceConfig), Subscriptions: Schema.optional(SubscriptionList), Publications: Schema.optional(PublicationList), Permissions: Schema.optional(PermissionList), IsService: Schema.optional(Schema.Boolean), InitializationTimeout: Schema.optional(Schema.Number), ApplicationConfig: Schema.optional(ApplicationConfig), IframeConfig: Schema.optional(IframeConfig)});
-export const UpdateApplicationResponse = Schema.Struct({});
-export const UpdateDataIntegrationRequest = Schema.Struct({Identifier: Schema.String, Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String)});
-export const UpdateDataIntegrationResponse = Schema.Struct({});
-export const OnDemandConfiguration = Schema.Struct({StartTime: Schema.String, EndTime: Schema.optional(Schema.String)});
-export const ScheduleConfiguration = Schema.Struct({FirstExecutionFrom: Schema.optional(Schema.String), Object: Schema.optional(Schema.String), ScheduleExpression: Schema.String});
-export const ExecutionConfiguration = Schema.Struct({ExecutionMode: Schema.String, OnDemandConfiguration: Schema.optional(OnDemandConfiguration), ScheduleConfiguration: Schema.optional(ScheduleConfiguration)});
-export const UpdateDataIntegrationAssociationRequest = Schema.Struct({DataIntegrationIdentifier: Schema.String, DataIntegrationAssociationIdentifier: Schema.String, ExecutionConfiguration: ExecutionConfiguration});
-export const UpdateDataIntegrationAssociationResponse = Schema.Struct({});
-export const UpdateEventIntegrationRequest = Schema.Struct({Name: Schema.String, Description: Schema.optional(Schema.String)});
-export const UpdateEventIntegrationResponse = Schema.Struct({});
+export class IframeConfig extends Schema.Class<IframeConfig>("IframeConfig")({Allow: Schema.optional(IframePermissionList), Sandbox: Schema.optional(IframePermissionList)}) {}
+export class UpdateApplicationRequest extends Schema.Class<UpdateApplicationRequest>("UpdateApplicationRequest")({Arn: Schema.String, Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), ApplicationSourceConfig: Schema.optional(ApplicationSourceConfig), Subscriptions: Schema.optional(SubscriptionList), Publications: Schema.optional(PublicationList), Permissions: Schema.optional(PermissionList), IsService: Schema.optional(Schema.Boolean), InitializationTimeout: Schema.optional(Schema.Number), ApplicationConfig: Schema.optional(ApplicationConfig), IframeConfig: Schema.optional(IframeConfig), ApplicationType: Schema.optional(Schema.String)}) {}
+export class UpdateApplicationResponse extends Schema.Class<UpdateApplicationResponse>("UpdateApplicationResponse")({}) {}
+export class UpdateDataIntegrationRequest extends Schema.Class<UpdateDataIntegrationRequest>("UpdateDataIntegrationRequest")({Identifier: Schema.String, Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String)}) {}
+export class UpdateDataIntegrationResponse extends Schema.Class<UpdateDataIntegrationResponse>("UpdateDataIntegrationResponse")({}) {}
+export class OnDemandConfiguration extends Schema.Class<OnDemandConfiguration>("OnDemandConfiguration")({StartTime: Schema.String, EndTime: Schema.optional(Schema.String)}) {}
+export class ScheduleConfiguration extends Schema.Class<ScheduleConfiguration>("ScheduleConfiguration")({FirstExecutionFrom: Schema.optional(Schema.String), Object: Schema.optional(Schema.String), ScheduleExpression: Schema.String}) {}
+export class ExecutionConfiguration extends Schema.Class<ExecutionConfiguration>("ExecutionConfiguration")({ExecutionMode: Schema.String, OnDemandConfiguration: Schema.optional(OnDemandConfiguration), ScheduleConfiguration: Schema.optional(ScheduleConfiguration)}) {}
+export class UpdateDataIntegrationAssociationRequest extends Schema.Class<UpdateDataIntegrationAssociationRequest>("UpdateDataIntegrationAssociationRequest")({DataIntegrationIdentifier: Schema.String, DataIntegrationAssociationIdentifier: Schema.String, ExecutionConfiguration: ExecutionConfiguration}) {}
+export class UpdateDataIntegrationAssociationResponse extends Schema.Class<UpdateDataIntegrationAssociationResponse>("UpdateDataIntegrationAssociationResponse")({}) {}
+export class UpdateEventIntegrationRequest extends Schema.Class<UpdateEventIntegrationRequest>("UpdateEventIntegrationRequest")({Name: Schema.String, Description: Schema.optional(Schema.String)}) {}
+export class UpdateEventIntegrationResponse extends Schema.Class<UpdateEventIntegrationResponse>("UpdateEventIntegrationResponse")({}) {}
 export const FolderList = Schema.Array(Schema.String);
 export const FieldsList = Schema.Array(Schema.String);
 export const FieldsMap = Schema.Record({key: Schema.String, value: FieldsList});
 export const ObjectConfiguration = Schema.Record({key: Schema.String, value: FieldsMap});
 export const ClientAssociationMetadata = Schema.Record({key: Schema.String, value: Schema.String});
-export const EventFilter = Schema.Struct({Source: Schema.String});
-export const CreateEventIntegrationRequest = Schema.Struct({Name: Schema.String, Description: Schema.optional(Schema.String), EventFilter: EventFilter, EventBridgeBus: Schema.String, ClientToken: Schema.optional(Schema.String), Tags: Schema.optional(TagMap)});
-export const AccessDeniedException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const InternalServiceError = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const InvalidRequestException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const GetApplicationResponse = Schema.Struct({Arn: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Namespace: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), ApplicationSourceConfig: Schema.optional(ApplicationSourceConfig), Subscriptions: Schema.optional(SubscriptionList), Publications: Schema.optional(PublicationList), CreatedTime: Schema.optional(Schema.Date), LastModifiedTime: Schema.optional(Schema.Date), Tags: Schema.optional(TagMap), Permissions: Schema.optional(PermissionList), IsService: Schema.optional(Schema.Boolean), InitializationTimeout: Schema.optional(Schema.Number), ApplicationConfig: Schema.optional(ApplicationConfig), IframeConfig: Schema.optional(IframeConfig)});
-export const FileConfiguration = Schema.Struct({Folders: FolderList, Filters: Schema.optional(FieldsMap)});
-export const GetDataIntegrationResponse = Schema.Struct({Arn: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), KmsKey: Schema.optional(Schema.String), SourceURI: Schema.optional(Schema.String), ScheduleConfiguration: Schema.optional(ScheduleConfiguration), Tags: Schema.optional(TagMap), FileConfiguration: Schema.optional(FileConfiguration), ObjectConfiguration: Schema.optional(ObjectConfiguration)});
-export const GetEventIntegrationResponse = Schema.Struct({Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), EventIntegrationArn: Schema.optional(Schema.String), EventBridgeBus: Schema.optional(Schema.String), EventFilter: Schema.optional(EventFilter), Tags: Schema.optional(TagMap)});
-export const ListTagsForResourceResponse = Schema.Struct({tags: Schema.optional(TagMap)});
-export const ResourceNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ThrottlingException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const UnsupportedOperationException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ApplicationAssociationSummary = Schema.Struct({ApplicationAssociationArn: Schema.optional(Schema.String), ApplicationArn: Schema.optional(Schema.String), ClientId: Schema.optional(Schema.String)});
+export class EventFilter extends Schema.Class<EventFilter>("EventFilter")({Source: Schema.String}) {}
+export class CreateEventIntegrationRequest extends Schema.Class<CreateEventIntegrationRequest>("CreateEventIntegrationRequest")({Name: Schema.String, Description: Schema.optional(Schema.String), EventFilter: EventFilter, EventBridgeBus: Schema.String, ClientToken: Schema.optional(Schema.String), Tags: Schema.optional(TagMap)}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({Message: Schema.optional(Schema.String)}) {}
+export class InternalServiceError extends Schema.Class<InternalServiceError>("InternalServiceError")({Message: Schema.optional(Schema.String)}) {}
+export class InvalidRequestException extends Schema.Class<InvalidRequestException>("InvalidRequestException")({Message: Schema.optional(Schema.String)}) {}
+export class GetApplicationResponse extends Schema.Class<GetApplicationResponse>("GetApplicationResponse")({Arn: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Namespace: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), ApplicationSourceConfig: Schema.optional(ApplicationSourceConfig), Subscriptions: Schema.optional(SubscriptionList), Publications: Schema.optional(PublicationList), CreatedTime: Schema.optional(Schema.Date), LastModifiedTime: Schema.optional(Schema.Date), Tags: Schema.optional(TagMap), Permissions: Schema.optional(PermissionList), IsService: Schema.optional(Schema.Boolean), InitializationTimeout: Schema.optional(Schema.Number), ApplicationConfig: Schema.optional(ApplicationConfig), IframeConfig: Schema.optional(IframeConfig), ApplicationType: Schema.optional(Schema.String)}) {}
+export class FileConfiguration extends Schema.Class<FileConfiguration>("FileConfiguration")({Folders: FolderList, Filters: Schema.optional(FieldsMap)}) {}
+export class GetDataIntegrationResponse extends Schema.Class<GetDataIntegrationResponse>("GetDataIntegrationResponse")({Arn: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), KmsKey: Schema.optional(Schema.String), SourceURI: Schema.optional(Schema.String), ScheduleConfiguration: Schema.optional(ScheduleConfiguration), Tags: Schema.optional(TagMap), FileConfiguration: Schema.optional(FileConfiguration), ObjectConfiguration: Schema.optional(ObjectConfiguration)}) {}
+export class GetEventIntegrationResponse extends Schema.Class<GetEventIntegrationResponse>("GetEventIntegrationResponse")({Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), EventIntegrationArn: Schema.optional(Schema.String), EventBridgeBus: Schema.optional(Schema.String), EventFilter: Schema.optional(EventFilter), Tags: Schema.optional(TagMap)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({tags: Schema.optional(TagMap)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({Message: Schema.optional(Schema.String)}) {}
+export class UnsupportedOperationException extends Schema.Class<UnsupportedOperationException>("UnsupportedOperationException")({Message: Schema.optional(Schema.String)}) {}
+export class ApplicationAssociationSummary extends Schema.Class<ApplicationAssociationSummary>("ApplicationAssociationSummary")({ApplicationAssociationArn: Schema.optional(Schema.String), ApplicationArn: Schema.optional(Schema.String), ClientId: Schema.optional(Schema.String)}) {}
 export const ApplicationAssociationsList = Schema.Array(ApplicationAssociationSummary);
-export const ApplicationSummary = Schema.Struct({Arn: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Namespace: Schema.optional(Schema.String), CreatedTime: Schema.optional(Schema.Date), LastModifiedTime: Schema.optional(Schema.Date), IsService: Schema.optional(Schema.Boolean)});
+export class ApplicationSummary extends Schema.Class<ApplicationSummary>("ApplicationSummary")({Arn: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Namespace: Schema.optional(Schema.String), CreatedTime: Schema.optional(Schema.Date), LastModifiedTime: Schema.optional(Schema.Date), IsService: Schema.optional(Schema.Boolean), ApplicationType: Schema.optional(Schema.String)}) {}
 export const ApplicationsList = Schema.Array(ApplicationSummary);
-export const DataIntegrationSummary = Schema.Struct({Arn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), SourceURI: Schema.optional(Schema.String)});
+export class DataIntegrationSummary extends Schema.Class<DataIntegrationSummary>("DataIntegrationSummary")({Arn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), SourceURI: Schema.optional(Schema.String)}) {}
 export const DataIntegrationsList = Schema.Array(DataIntegrationSummary);
-export const EventIntegrationAssociation = Schema.Struct({EventIntegrationAssociationArn: Schema.optional(Schema.String), EventIntegrationAssociationId: Schema.optional(Schema.String), EventIntegrationName: Schema.optional(Schema.String), ClientId: Schema.optional(Schema.String), EventBridgeRuleName: Schema.optional(Schema.String), ClientAssociationMetadata: Schema.optional(ClientAssociationMetadata)});
+export class EventIntegrationAssociation extends Schema.Class<EventIntegrationAssociation>("EventIntegrationAssociation")({EventIntegrationAssociationArn: Schema.optional(Schema.String), EventIntegrationAssociationId: Schema.optional(Schema.String), EventIntegrationName: Schema.optional(Schema.String), ClientId: Schema.optional(Schema.String), EventBridgeRuleName: Schema.optional(Schema.String), ClientAssociationMetadata: Schema.optional(ClientAssociationMetadata)}) {}
 export const EventIntegrationAssociationsList = Schema.Array(EventIntegrationAssociation);
-export const EventIntegration = Schema.Struct({EventIntegrationArn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), EventFilter: Schema.optional(EventFilter), EventBridgeBus: Schema.optional(Schema.String), Tags: Schema.optional(TagMap)});
+export class EventIntegration extends Schema.Class<EventIntegration>("EventIntegration")({EventIntegrationArn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), EventFilter: Schema.optional(EventFilter), EventBridgeBus: Schema.optional(Schema.String), Tags: Schema.optional(TagMap)}) {}
 export const EventIntegrationsList = Schema.Array(EventIntegration);
-export const CreateApplicationRequest = Schema.Struct({Name: Schema.String, Namespace: Schema.String, Description: Schema.optional(Schema.String), ApplicationSourceConfig: ApplicationSourceConfig, Subscriptions: Schema.optional(SubscriptionList), Publications: Schema.optional(PublicationList), ClientToken: Schema.optional(Schema.String), Tags: Schema.optional(TagMap), Permissions: Schema.optional(PermissionList), IsService: Schema.optional(Schema.Boolean), InitializationTimeout: Schema.optional(Schema.Number), ApplicationConfig: Schema.optional(ApplicationConfig), IframeConfig: Schema.optional(IframeConfig)});
-export const CreateDataIntegrationRequest = Schema.Struct({Name: Schema.String, Description: Schema.optional(Schema.String), KmsKey: Schema.String, SourceURI: Schema.optional(Schema.String), ScheduleConfig: Schema.optional(ScheduleConfiguration), Tags: Schema.optional(TagMap), ClientToken: Schema.optional(Schema.String), FileConfiguration: Schema.optional(FileConfiguration), ObjectConfiguration: Schema.optional(ObjectConfiguration)});
-export const CreateDataIntegrationAssociationRequest = Schema.Struct({DataIntegrationIdentifier: Schema.String, ClientId: Schema.optional(Schema.String), ObjectConfiguration: Schema.optional(ObjectConfiguration), DestinationURI: Schema.optional(Schema.String), ClientAssociationMetadata: Schema.optional(ClientAssociationMetadata), ClientToken: Schema.optional(Schema.String), ExecutionConfiguration: Schema.optional(ExecutionConfiguration)});
-export const CreateEventIntegrationResponse = Schema.Struct({EventIntegrationArn: Schema.optional(Schema.String)});
-export const ListApplicationAssociationsResponse = Schema.Struct({ApplicationAssociations: Schema.optional(ApplicationAssociationsList), NextToken: Schema.optional(Schema.String)});
-export const ListApplicationsResponse = Schema.Struct({Applications: Schema.optional(ApplicationsList), NextToken: Schema.optional(Schema.String)});
-export const ListDataIntegrationsResponse = Schema.Struct({DataIntegrations: Schema.optional(DataIntegrationsList), NextToken: Schema.optional(Schema.String)});
-export const ListEventIntegrationAssociationsResponse = Schema.Struct({EventIntegrationAssociations: Schema.optional(EventIntegrationAssociationsList), NextToken: Schema.optional(Schema.String)});
-export const ListEventIntegrationsResponse = Schema.Struct({EventIntegrations: Schema.optional(EventIntegrationsList), NextToken: Schema.optional(Schema.String)});
-export const LastExecutionStatus = Schema.Struct({ExecutionStatus: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String)});
-export const DataIntegrationAssociationSummary = Schema.Struct({DataIntegrationAssociationArn: Schema.optional(Schema.String), DataIntegrationArn: Schema.optional(Schema.String), ClientId: Schema.optional(Schema.String), DestinationURI: Schema.optional(Schema.String), LastExecutionStatus: Schema.optional(LastExecutionStatus), ExecutionConfiguration: Schema.optional(ExecutionConfiguration)});
+export class CreateApplicationRequest extends Schema.Class<CreateApplicationRequest>("CreateApplicationRequest")({Name: Schema.String, Namespace: Schema.String, Description: Schema.optional(Schema.String), ApplicationSourceConfig: ApplicationSourceConfig, Subscriptions: Schema.optional(SubscriptionList), Publications: Schema.optional(PublicationList), ClientToken: Schema.optional(Schema.String), Tags: Schema.optional(TagMap), Permissions: Schema.optional(PermissionList), IsService: Schema.optional(Schema.Boolean), InitializationTimeout: Schema.optional(Schema.Number), ApplicationConfig: Schema.optional(ApplicationConfig), IframeConfig: Schema.optional(IframeConfig), ApplicationType: Schema.optional(Schema.String)}) {}
+export class CreateDataIntegrationRequest extends Schema.Class<CreateDataIntegrationRequest>("CreateDataIntegrationRequest")({Name: Schema.String, Description: Schema.optional(Schema.String), KmsKey: Schema.String, SourceURI: Schema.optional(Schema.String), ScheduleConfig: Schema.optional(ScheduleConfiguration), Tags: Schema.optional(TagMap), ClientToken: Schema.optional(Schema.String), FileConfiguration: Schema.optional(FileConfiguration), ObjectConfiguration: Schema.optional(ObjectConfiguration)}) {}
+export class CreateDataIntegrationAssociationRequest extends Schema.Class<CreateDataIntegrationAssociationRequest>("CreateDataIntegrationAssociationRequest")({DataIntegrationIdentifier: Schema.String, ClientId: Schema.optional(Schema.String), ObjectConfiguration: Schema.optional(ObjectConfiguration), DestinationURI: Schema.optional(Schema.String), ClientAssociationMetadata: Schema.optional(ClientAssociationMetadata), ClientToken: Schema.optional(Schema.String), ExecutionConfiguration: Schema.optional(ExecutionConfiguration)}) {}
+export class CreateEventIntegrationResponse extends Schema.Class<CreateEventIntegrationResponse>("CreateEventIntegrationResponse")({EventIntegrationArn: Schema.optional(Schema.String)}) {}
+export class ListApplicationAssociationsResponse extends Schema.Class<ListApplicationAssociationsResponse>("ListApplicationAssociationsResponse")({ApplicationAssociations: Schema.optional(ApplicationAssociationsList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListApplicationsResponse extends Schema.Class<ListApplicationsResponse>("ListApplicationsResponse")({Applications: Schema.optional(ApplicationsList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListDataIntegrationsResponse extends Schema.Class<ListDataIntegrationsResponse>("ListDataIntegrationsResponse")({DataIntegrations: Schema.optional(DataIntegrationsList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListEventIntegrationAssociationsResponse extends Schema.Class<ListEventIntegrationAssociationsResponse>("ListEventIntegrationAssociationsResponse")({EventIntegrationAssociations: Schema.optional(EventIntegrationAssociationsList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListEventIntegrationsResponse extends Schema.Class<ListEventIntegrationsResponse>("ListEventIntegrationsResponse")({EventIntegrations: Schema.optional(EventIntegrationsList), NextToken: Schema.optional(Schema.String)}) {}
+export class LastExecutionStatus extends Schema.Class<LastExecutionStatus>("LastExecutionStatus")({ExecutionStatus: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String)}) {}
+export class DataIntegrationAssociationSummary extends Schema.Class<DataIntegrationAssociationSummary>("DataIntegrationAssociationSummary")({DataIntegrationAssociationArn: Schema.optional(Schema.String), DataIntegrationArn: Schema.optional(Schema.String), ClientId: Schema.optional(Schema.String), DestinationURI: Schema.optional(Schema.String), LastExecutionStatus: Schema.optional(LastExecutionStatus), ExecutionConfiguration: Schema.optional(ExecutionConfiguration)}) {}
 export const DataIntegrationAssociationsList = Schema.Array(DataIntegrationAssociationSummary);
-export const CreateApplicationResponse = Schema.Struct({Arn: Schema.optional(Schema.String), Id: Schema.optional(Schema.String)});
-export const CreateDataIntegrationResponse = Schema.Struct({Arn: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), KmsKey: Schema.optional(Schema.String), SourceURI: Schema.optional(Schema.String), ScheduleConfiguration: Schema.optional(ScheduleConfiguration), Tags: Schema.optional(TagMap), ClientToken: Schema.optional(Schema.String), FileConfiguration: Schema.optional(FileConfiguration), ObjectConfiguration: Schema.optional(ObjectConfiguration)});
-export const CreateDataIntegrationAssociationResponse = Schema.Struct({DataIntegrationAssociationId: Schema.optional(Schema.String), DataIntegrationArn: Schema.optional(Schema.String)});
-export const DuplicateResourceException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ListDataIntegrationAssociationsResponse = Schema.Struct({DataIntegrationAssociations: Schema.optional(DataIntegrationAssociationsList), NextToken: Schema.optional(Schema.String)});
-export const ResourceQuotaExceededException = Schema.Struct({Message: Schema.optional(Schema.String)});
+export class CreateApplicationResponse extends Schema.Class<CreateApplicationResponse>("CreateApplicationResponse")({Arn: Schema.optional(Schema.String), Id: Schema.optional(Schema.String)}) {}
+export class CreateDataIntegrationResponse extends Schema.Class<CreateDataIntegrationResponse>("CreateDataIntegrationResponse")({Arn: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), KmsKey: Schema.optional(Schema.String), SourceURI: Schema.optional(Schema.String), ScheduleConfiguration: Schema.optional(ScheduleConfiguration), Tags: Schema.optional(TagMap), ClientToken: Schema.optional(Schema.String), FileConfiguration: Schema.optional(FileConfiguration), ObjectConfiguration: Schema.optional(ObjectConfiguration)}) {}
+export class CreateDataIntegrationAssociationResponse extends Schema.Class<CreateDataIntegrationAssociationResponse>("CreateDataIntegrationAssociationResponse")({DataIntegrationAssociationId: Schema.optional(Schema.String), DataIntegrationArn: Schema.optional(Schema.String)}) {}
+export class DuplicateResourceException extends Schema.Class<DuplicateResourceException>("DuplicateResourceException")({Message: Schema.optional(Schema.String)}) {}
+export class ListDataIntegrationAssociationsResponse extends Schema.Class<ListDataIntegrationAssociationsResponse>("ListDataIntegrationAssociationsResponse")({DataIntegrationAssociations: Schema.optional(DataIntegrationAssociationsList), NextToken: Schema.optional(Schema.String)}) {}
+export class ResourceQuotaExceededException extends Schema.Class<ResourceQuotaExceededException>("ResourceQuotaExceededException")({Message: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class InternalServiceErrorError extends Schema.TaggedError<InternalServiceErrorError>()("InternalServiceError", InternalServiceError) {};
-export class InvalidRequestExceptionError extends Schema.TaggedError<InvalidRequestExceptionError>()("InvalidRequestException", InvalidRequestException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class UnsupportedOperationExceptionError extends Schema.TaggedError<UnsupportedOperationExceptionError>()("UnsupportedOperationException", UnsupportedOperationException) {};
-export class DuplicateResourceExceptionError extends Schema.TaggedError<DuplicateResourceExceptionError>()("DuplicateResourceException", DuplicateResourceException) {};
-export class ResourceQuotaExceededExceptionError extends Schema.TaggedError<ResourceQuotaExceededExceptionError>()("ResourceQuotaExceededException", ResourceQuotaExceededException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class InternalServiceErrorError extends Schema.TaggedError<InternalServiceErrorError>()("InternalServiceError", InternalServiceError.fields) {};
+export class InvalidRequestExceptionError extends Schema.TaggedError<InvalidRequestExceptionError>()("InvalidRequestException", InvalidRequestException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class UnsupportedOperationExceptionError extends Schema.TaggedError<UnsupportedOperationExceptionError>()("UnsupportedOperationException", UnsupportedOperationException.fields) {};
+export class DuplicateResourceExceptionError extends Schema.TaggedError<DuplicateResourceExceptionError>()("DuplicateResourceException", DuplicateResourceException.fields) {};
+export class ResourceQuotaExceededExceptionError extends Schema.TaggedError<ResourceQuotaExceededExceptionError>()("ResourceQuotaExceededException", ResourceQuotaExceededException.fields) {};
 
 //# Operations
 export const updateDataIntegration = /*#__PURE__*/ makeOperation(() => Operation({ version: "2020-07-29", uri: "/dataIntegrations/{Identifier}", method: "PATCH", sdkId: "AppIntegrations", sigV4ServiceName: "app-integrations", name: "AmazonAppIntegrationService.UpdateDataIntegration" }, UpdateDataIntegrationRequest, UpdateDataIntegrationResponse, [AccessDeniedExceptionError, InternalServiceErrorError, InvalidRequestExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

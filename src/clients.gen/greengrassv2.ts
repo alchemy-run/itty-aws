@@ -3,153 +3,153 @@ import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperat
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const DisassociateServiceRoleFromAccountRequest = Schema.Struct({});
-export const GetServiceRoleForAccountRequest = Schema.Struct({});
+export class DisassociateServiceRoleFromAccountRequest extends Schema.Class<DisassociateServiceRoleFromAccountRequest>("DisassociateServiceRoleFromAccountRequest")({}) {}
+export class GetServiceRoleForAccountRequest extends Schema.Class<GetServiceRoleForAccountRequest>("GetServiceRoleForAccountRequest")({}) {}
 export const TagKeyList = Schema.Array(Schema.String);
-export const AssociateServiceRoleToAccountRequest = Schema.Struct({roleArn: Schema.String});
-export const CancelDeploymentRequest = Schema.Struct({deploymentId: Schema.String});
-export const DeleteComponentRequest = Schema.Struct({arn: Schema.String});
-export const DeleteCoreDeviceRequest = Schema.Struct({coreDeviceThingName: Schema.String});
-export const DeleteDeploymentRequest = Schema.Struct({deploymentId: Schema.String});
-export const DescribeComponentRequest = Schema.Struct({arn: Schema.String});
-export const DisassociateServiceRoleFromAccountResponse = Schema.Struct({disassociatedAt: Schema.optional(Schema.String)});
-export const GetComponentRequest = Schema.Struct({recipeOutputFormat: Schema.optional(Schema.String), arn: Schema.String});
-export const GetComponentVersionArtifactRequest = Schema.Struct({arn: Schema.String, artifactName: Schema.String, s3EndpointType: Schema.optional(Schema.String), iotEndpointType: Schema.optional(Header("x-amz-iot-endpoint-type"))});
-export const GetConnectivityInfoRequest = Schema.Struct({thingName: Schema.String});
-export const GetCoreDeviceRequest = Schema.Struct({coreDeviceThingName: Schema.String});
-export const GetDeploymentRequest = Schema.Struct({deploymentId: Schema.String});
-export const GetServiceRoleForAccountResponse = Schema.Struct({associatedAt: Schema.optional(Schema.String), roleArn: Schema.optional(Schema.String)});
-export const ListClientDevicesAssociatedWithCoreDeviceRequest = Schema.Struct({coreDeviceThingName: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListComponentsRequest = Schema.Struct({scope: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListComponentVersionsRequest = Schema.Struct({arn: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListCoreDevicesRequest = Schema.Struct({thingGroupArn: Schema.optional(Schema.String), status: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String), runtime: Schema.optional(Schema.String)});
-export const ListDeploymentsRequest = Schema.Struct({targetArn: Schema.optional(Schema.String), historyFilter: Schema.optional(Schema.String), parentTargetArn: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListEffectiveDeploymentsRequest = Schema.Struct({coreDeviceThingName: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListInstalledComponentsRequest = Schema.Struct({coreDeviceThingName: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String), topologyFilter: Schema.optional(Schema.String)});
-export const ListTagsForResourceRequest = Schema.Struct({resourceArn: Schema.String});
+export class AssociateServiceRoleToAccountRequest extends Schema.Class<AssociateServiceRoleToAccountRequest>("AssociateServiceRoleToAccountRequest")({roleArn: Schema.String}) {}
+export class CancelDeploymentRequest extends Schema.Class<CancelDeploymentRequest>("CancelDeploymentRequest")({deploymentId: Schema.String}) {}
+export class DeleteComponentRequest extends Schema.Class<DeleteComponentRequest>("DeleteComponentRequest")({arn: Schema.String}) {}
+export class DeleteCoreDeviceRequest extends Schema.Class<DeleteCoreDeviceRequest>("DeleteCoreDeviceRequest")({coreDeviceThingName: Schema.String}) {}
+export class DeleteDeploymentRequest extends Schema.Class<DeleteDeploymentRequest>("DeleteDeploymentRequest")({deploymentId: Schema.String}) {}
+export class DescribeComponentRequest extends Schema.Class<DescribeComponentRequest>("DescribeComponentRequest")({arn: Schema.String}) {}
+export class DisassociateServiceRoleFromAccountResponse extends Schema.Class<DisassociateServiceRoleFromAccountResponse>("DisassociateServiceRoleFromAccountResponse")({disassociatedAt: Schema.optional(Schema.String)}) {}
+export class GetComponentRequest extends Schema.Class<GetComponentRequest>("GetComponentRequest")({recipeOutputFormat: Schema.optional(Schema.String), arn: Schema.String}) {}
+export class GetComponentVersionArtifactRequest extends Schema.Class<GetComponentVersionArtifactRequest>("GetComponentVersionArtifactRequest")({arn: Schema.String, artifactName: Schema.String, s3EndpointType: Schema.optional(Schema.String), iotEndpointType: Schema.optional(Header("x-amz-iot-endpoint-type"))}) {}
+export class GetConnectivityInfoRequest extends Schema.Class<GetConnectivityInfoRequest>("GetConnectivityInfoRequest")({thingName: Schema.String}) {}
+export class GetCoreDeviceRequest extends Schema.Class<GetCoreDeviceRequest>("GetCoreDeviceRequest")({coreDeviceThingName: Schema.String}) {}
+export class GetDeploymentRequest extends Schema.Class<GetDeploymentRequest>("GetDeploymentRequest")({deploymentId: Schema.String}) {}
+export class GetServiceRoleForAccountResponse extends Schema.Class<GetServiceRoleForAccountResponse>("GetServiceRoleForAccountResponse")({associatedAt: Schema.optional(Schema.String), roleArn: Schema.optional(Schema.String)}) {}
+export class ListClientDevicesAssociatedWithCoreDeviceRequest extends Schema.Class<ListClientDevicesAssociatedWithCoreDeviceRequest>("ListClientDevicesAssociatedWithCoreDeviceRequest")({coreDeviceThingName: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListComponentsRequest extends Schema.Class<ListComponentsRequest>("ListComponentsRequest")({scope: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListComponentVersionsRequest extends Schema.Class<ListComponentVersionsRequest>("ListComponentVersionsRequest")({arn: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListCoreDevicesRequest extends Schema.Class<ListCoreDevicesRequest>("ListCoreDevicesRequest")({thingGroupArn: Schema.optional(Schema.String), status: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String), runtime: Schema.optional(Schema.String)}) {}
+export class ListDeploymentsRequest extends Schema.Class<ListDeploymentsRequest>("ListDeploymentsRequest")({targetArn: Schema.optional(Schema.String), historyFilter: Schema.optional(Schema.String), parentTargetArn: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListEffectiveDeploymentsRequest extends Schema.Class<ListEffectiveDeploymentsRequest>("ListEffectiveDeploymentsRequest")({coreDeviceThingName: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListInstalledComponentsRequest extends Schema.Class<ListInstalledComponentsRequest>("ListInstalledComponentsRequest")({coreDeviceThingName: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String), topologyFilter: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({resourceArn: Schema.String}) {}
 export const TagMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const TagResourceRequest = Schema.Struct({resourceArn: Schema.String, tags: TagMap});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({resourceArn: Schema.String, tagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({resourceArn: Schema.String, tags: TagMap}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({resourceArn: Schema.String, tagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
 export const PlatformAttributesMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const ComponentPlatform = Schema.Struct({name: Schema.optional(Schema.String), attributes: Schema.optional(PlatformAttributesMap)});
+export class ComponentPlatform extends Schema.Class<ComponentPlatform>("ComponentPlatform")({name: Schema.optional(Schema.String), attributes: Schema.optional(PlatformAttributesMap)}) {}
 export const ComponentPlatformList = Schema.Array(ComponentPlatform);
-export const AssociateClientDeviceWithCoreDeviceEntry = Schema.Struct({thingName: Schema.String});
+export class AssociateClientDeviceWithCoreDeviceEntry extends Schema.Class<AssociateClientDeviceWithCoreDeviceEntry>("AssociateClientDeviceWithCoreDeviceEntry")({thingName: Schema.String}) {}
 export const AssociateClientDeviceWithCoreDeviceEntryList = Schema.Array(AssociateClientDeviceWithCoreDeviceEntry);
-export const DisassociateClientDeviceFromCoreDeviceEntry = Schema.Struct({thingName: Schema.String});
+export class DisassociateClientDeviceFromCoreDeviceEntry extends Schema.Class<DisassociateClientDeviceFromCoreDeviceEntry>("DisassociateClientDeviceFromCoreDeviceEntry")({thingName: Schema.String}) {}
 export const DisassociateClientDeviceFromCoreDeviceEntryList = Schema.Array(DisassociateClientDeviceFromCoreDeviceEntry);
-export const ConnectivityInfo = Schema.Struct({id: Schema.optional(Schema.String), hostAddress: Schema.optional(Schema.String), portNumber: Schema.optional(Schema.Number), metadata: Schema.optional(Schema.String)});
+export class ConnectivityInfo extends Schema.Class<ConnectivityInfo>("ConnectivityInfo")({id: Schema.optional(Schema.String), hostAddress: Schema.optional(Schema.String), portNumber: Schema.optional(Schema.Number), metadata: Schema.optional(Schema.String)}) {}
 export const connectivityInfoList = Schema.Array(ConnectivityInfo);
 export const LambdaExecArgsList = Schema.Array(Schema.String);
-export const AssociateServiceRoleToAccountResponse = Schema.Struct({associatedAt: Schema.optional(Schema.String)});
-export const BatchAssociateClientDeviceWithCoreDeviceRequest = Schema.Struct({entries: Schema.optional(AssociateClientDeviceWithCoreDeviceEntryList), coreDeviceThingName: Schema.String});
-export const BatchDisassociateClientDeviceFromCoreDeviceRequest = Schema.Struct({entries: Schema.optional(DisassociateClientDeviceFromCoreDeviceEntryList), coreDeviceThingName: Schema.String});
-export const CancelDeploymentResponse = Schema.Struct({message: Schema.optional(Schema.String)});
-export const AccessDeniedException = Schema.Struct({message: Schema.String});
-export const ConflictException = Schema.Struct({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String});
-export const InternalServerException = Schema.Struct({message: Schema.String, retryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))});
-export const GetComponentResponse = Schema.Struct({recipeOutputFormat: Schema.String, recipe: StreamBody(), tags: Schema.optional(TagMap)});
-export const GetComponentVersionArtifactResponse = Schema.Struct({preSignedUrl: Schema.String});
-export const GetConnectivityInfoResponse = Schema.Struct({connectivityInfo: Schema.optional(connectivityInfoList), message: Schema.optional(Schema.String)});
-export const GetCoreDeviceResponse = Schema.Struct({coreDeviceThingName: Schema.optional(Schema.String), coreVersion: Schema.optional(Schema.String), platform: Schema.optional(Schema.String), architecture: Schema.optional(Schema.String), runtime: Schema.optional(Schema.String), status: Schema.optional(Schema.String), lastStatusUpdateTimestamp: Schema.optional(Schema.Date), tags: Schema.optional(TagMap)});
+export class AssociateServiceRoleToAccountResponse extends Schema.Class<AssociateServiceRoleToAccountResponse>("AssociateServiceRoleToAccountResponse")({associatedAt: Schema.optional(Schema.String)}) {}
+export class BatchAssociateClientDeviceWithCoreDeviceRequest extends Schema.Class<BatchAssociateClientDeviceWithCoreDeviceRequest>("BatchAssociateClientDeviceWithCoreDeviceRequest")({entries: Schema.optional(AssociateClientDeviceWithCoreDeviceEntryList), coreDeviceThingName: Schema.String}) {}
+export class BatchDisassociateClientDeviceFromCoreDeviceRequest extends Schema.Class<BatchDisassociateClientDeviceFromCoreDeviceRequest>("BatchDisassociateClientDeviceFromCoreDeviceRequest")({entries: Schema.optional(DisassociateClientDeviceFromCoreDeviceEntryList), coreDeviceThingName: Schema.String}) {}
+export class CancelDeploymentResponse extends Schema.Class<CancelDeploymentResponse>("CancelDeploymentResponse")({message: Schema.optional(Schema.String)}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({message: Schema.String}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({message: Schema.String, retryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))}) {}
+export class GetComponentResponse extends Schema.Class<GetComponentResponse>("GetComponentResponse")({recipeOutputFormat: Schema.String, recipe: StreamBody(), tags: Schema.optional(TagMap)}) {}
+export class GetComponentVersionArtifactResponse extends Schema.Class<GetComponentVersionArtifactResponse>("GetComponentVersionArtifactResponse")({preSignedUrl: Schema.String}) {}
+export class GetConnectivityInfoResponse extends Schema.Class<GetConnectivityInfoResponse>("GetConnectivityInfoResponse")({connectivityInfo: Schema.optional(connectivityInfoList), message: Schema.optional(Schema.String)}) {}
+export class GetCoreDeviceResponse extends Schema.Class<GetCoreDeviceResponse>("GetCoreDeviceResponse")({coreDeviceThingName: Schema.optional(Schema.String), coreVersion: Schema.optional(Schema.String), platform: Schema.optional(Schema.String), architecture: Schema.optional(Schema.String), runtime: Schema.optional(Schema.String), status: Schema.optional(Schema.String), lastStatusUpdateTimestamp: Schema.optional(Schema.Date), tags: Schema.optional(TagMap)}) {}
 export const ComponentConfigurationPathList = Schema.Array(Schema.String);
-export const ComponentConfigurationUpdate = Schema.Struct({merge: Schema.optional(Schema.String), reset: Schema.optional(ComponentConfigurationPathList)});
-export const SystemResourceLimits = Schema.Struct({memory: Schema.optional(Schema.Number), cpus: Schema.optional(Schema.Number)});
-export const ComponentRunWith = Schema.Struct({posixUser: Schema.optional(Schema.String), systemResourceLimits: Schema.optional(SystemResourceLimits), windowsUser: Schema.optional(Schema.String)});
-export const ComponentDeploymentSpecification = Schema.Struct({componentVersion: Schema.String, configurationUpdate: Schema.optional(ComponentConfigurationUpdate), runWith: Schema.optional(ComponentRunWith)});
+export class ComponentConfigurationUpdate extends Schema.Class<ComponentConfigurationUpdate>("ComponentConfigurationUpdate")({merge: Schema.optional(Schema.String), reset: Schema.optional(ComponentConfigurationPathList)}) {}
+export class SystemResourceLimits extends Schema.Class<SystemResourceLimits>("SystemResourceLimits")({memory: Schema.optional(Schema.Number), cpus: Schema.optional(Schema.Number)}) {}
+export class ComponentRunWith extends Schema.Class<ComponentRunWith>("ComponentRunWith")({posixUser: Schema.optional(Schema.String), systemResourceLimits: Schema.optional(SystemResourceLimits), windowsUser: Schema.optional(Schema.String)}) {}
+export class ComponentDeploymentSpecification extends Schema.Class<ComponentDeploymentSpecification>("ComponentDeploymentSpecification")({componentVersion: Schema.String, configurationUpdate: Schema.optional(ComponentConfigurationUpdate), runWith: Schema.optional(ComponentRunWith)}) {}
 export const ComponentDeploymentSpecifications = Schema.Record({key: Schema.String, value: ComponentDeploymentSpecification});
-export const DeploymentComponentUpdatePolicy = Schema.Struct({timeoutInSeconds: Schema.optional(Schema.Number), action: Schema.optional(Schema.String)});
-export const DeploymentConfigurationValidationPolicy = Schema.Struct({timeoutInSeconds: Schema.optional(Schema.Number)});
-export const DeploymentPolicies = Schema.Struct({failureHandlingPolicy: Schema.optional(Schema.String), componentUpdatePolicy: Schema.optional(DeploymentComponentUpdatePolicy), configurationValidationPolicy: Schema.optional(DeploymentConfigurationValidationPolicy)});
-export const IoTJobRateIncreaseCriteria = Schema.Struct({numberOfNotifiedThings: Schema.optional(Schema.Number), numberOfSucceededThings: Schema.optional(Schema.Number)});
-export const IoTJobExponentialRolloutRate = Schema.Struct({baseRatePerMinute: Schema.Number, incrementFactor: Schema.Number, rateIncreaseCriteria: IoTJobRateIncreaseCriteria});
-export const IoTJobExecutionsRolloutConfig = Schema.Struct({exponentialRate: Schema.optional(IoTJobExponentialRolloutRate), maximumPerMinute: Schema.optional(Schema.Number)});
-export const IoTJobAbortCriteria = Schema.Struct({failureType: Schema.String, action: Schema.String, thresholdPercentage: Schema.Number, minNumberOfExecutedThings: Schema.Number});
+export class DeploymentComponentUpdatePolicy extends Schema.Class<DeploymentComponentUpdatePolicy>("DeploymentComponentUpdatePolicy")({timeoutInSeconds: Schema.optional(Schema.Number), action: Schema.optional(Schema.String)}) {}
+export class DeploymentConfigurationValidationPolicy extends Schema.Class<DeploymentConfigurationValidationPolicy>("DeploymentConfigurationValidationPolicy")({timeoutInSeconds: Schema.optional(Schema.Number)}) {}
+export class DeploymentPolicies extends Schema.Class<DeploymentPolicies>("DeploymentPolicies")({failureHandlingPolicy: Schema.optional(Schema.String), componentUpdatePolicy: Schema.optional(DeploymentComponentUpdatePolicy), configurationValidationPolicy: Schema.optional(DeploymentConfigurationValidationPolicy)}) {}
+export class IoTJobRateIncreaseCriteria extends Schema.Class<IoTJobRateIncreaseCriteria>("IoTJobRateIncreaseCriteria")({numberOfNotifiedThings: Schema.optional(Schema.Number), numberOfSucceededThings: Schema.optional(Schema.Number)}) {}
+export class IoTJobExponentialRolloutRate extends Schema.Class<IoTJobExponentialRolloutRate>("IoTJobExponentialRolloutRate")({baseRatePerMinute: Schema.Number, incrementFactor: Schema.Number, rateIncreaseCriteria: IoTJobRateIncreaseCriteria}) {}
+export class IoTJobExecutionsRolloutConfig extends Schema.Class<IoTJobExecutionsRolloutConfig>("IoTJobExecutionsRolloutConfig")({exponentialRate: Schema.optional(IoTJobExponentialRolloutRate), maximumPerMinute: Schema.optional(Schema.Number)}) {}
+export class IoTJobAbortCriteria extends Schema.Class<IoTJobAbortCriteria>("IoTJobAbortCriteria")({failureType: Schema.String, action: Schema.String, thresholdPercentage: Schema.Number, minNumberOfExecutedThings: Schema.Number}) {}
 export const IoTJobAbortCriteriaList = Schema.Array(IoTJobAbortCriteria);
-export const IoTJobAbortConfig = Schema.Struct({criteriaList: IoTJobAbortCriteriaList});
-export const IoTJobTimeoutConfig = Schema.Struct({inProgressTimeoutInMinutes: Schema.optional(Schema.Number)});
-export const DeploymentIoTJobConfiguration = Schema.Struct({jobExecutionsRolloutConfig: Schema.optional(IoTJobExecutionsRolloutConfig), abortConfig: Schema.optional(IoTJobAbortConfig), timeoutConfig: Schema.optional(IoTJobTimeoutConfig)});
-export const GetDeploymentResponse = Schema.Struct({targetArn: Schema.optional(Schema.String), revisionId: Schema.optional(Schema.String), deploymentId: Schema.optional(Schema.String), deploymentName: Schema.optional(Schema.String), deploymentStatus: Schema.optional(Schema.String), iotJobId: Schema.optional(Schema.String), iotJobArn: Schema.optional(Schema.String), components: Schema.optional(ComponentDeploymentSpecifications), deploymentPolicies: Schema.optional(DeploymentPolicies), iotJobConfiguration: Schema.optional(DeploymentIoTJobConfiguration), creationTimestamp: Schema.optional(Schema.Date), isLatestForTarget: Schema.optional(Schema.Boolean), parentTargetArn: Schema.optional(Schema.String), tags: Schema.optional(TagMap)});
-export const ListTagsForResourceResponse = Schema.Struct({tags: Schema.optional(TagMap)});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String});
-export const UpdateConnectivityInfoRequest = Schema.Struct({thingName: Schema.String, connectivityInfo: connectivityInfoList});
+export class IoTJobAbortConfig extends Schema.Class<IoTJobAbortConfig>("IoTJobAbortConfig")({criteriaList: IoTJobAbortCriteriaList}) {}
+export class IoTJobTimeoutConfig extends Schema.Class<IoTJobTimeoutConfig>("IoTJobTimeoutConfig")({inProgressTimeoutInMinutes: Schema.optional(Schema.Number)}) {}
+export class DeploymentIoTJobConfiguration extends Schema.Class<DeploymentIoTJobConfiguration>("DeploymentIoTJobConfiguration")({jobExecutionsRolloutConfig: Schema.optional(IoTJobExecutionsRolloutConfig), abortConfig: Schema.optional(IoTJobAbortConfig), timeoutConfig: Schema.optional(IoTJobTimeoutConfig)}) {}
+export class GetDeploymentResponse extends Schema.Class<GetDeploymentResponse>("GetDeploymentResponse")({targetArn: Schema.optional(Schema.String), revisionId: Schema.optional(Schema.String), deploymentId: Schema.optional(Schema.String), deploymentName: Schema.optional(Schema.String), deploymentStatus: Schema.optional(Schema.String), iotJobId: Schema.optional(Schema.String), iotJobArn: Schema.optional(Schema.String), components: Schema.optional(ComponentDeploymentSpecifications), deploymentPolicies: Schema.optional(DeploymentPolicies), iotJobConfiguration: Schema.optional(DeploymentIoTJobConfiguration), creationTimestamp: Schema.optional(Schema.Date), isLatestForTarget: Schema.optional(Schema.Boolean), parentTargetArn: Schema.optional(Schema.String), tags: Schema.optional(TagMap)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({tags: Schema.optional(TagMap)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String}) {}
+export class UpdateConnectivityInfoRequest extends Schema.Class<UpdateConnectivityInfoRequest>("UpdateConnectivityInfoRequest")({thingName: Schema.String, connectivityInfo: connectivityInfoList}) {}
 export const InstalledComponentLifecycleStatusCodeList = Schema.Array(Schema.String);
 export const ComponentVersionRequirementMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const AssociatedClientDevice = Schema.Struct({thingName: Schema.optional(Schema.String), associationTimestamp: Schema.optional(Schema.Date)});
+export class AssociatedClientDevice extends Schema.Class<AssociatedClientDevice>("AssociatedClientDevice")({thingName: Schema.optional(Schema.String), associationTimestamp: Schema.optional(Schema.Date)}) {}
 export const AssociatedClientDeviceList = Schema.Array(AssociatedClientDevice);
-export const ComponentVersionListItem = Schema.Struct({componentName: Schema.optional(Schema.String), componentVersion: Schema.optional(Schema.String), arn: Schema.optional(Schema.String)});
+export class ComponentVersionListItem extends Schema.Class<ComponentVersionListItem>("ComponentVersionListItem")({componentName: Schema.optional(Schema.String), componentVersion: Schema.optional(Schema.String), arn: Schema.optional(Schema.String)}) {}
 export const ComponentVersionList = Schema.Array(ComponentVersionListItem);
-export const CoreDevice = Schema.Struct({coreDeviceThingName: Schema.optional(Schema.String), status: Schema.optional(Schema.String), lastStatusUpdateTimestamp: Schema.optional(Schema.Date), platform: Schema.optional(Schema.String), architecture: Schema.optional(Schema.String), runtime: Schema.optional(Schema.String)});
+export class CoreDevice extends Schema.Class<CoreDevice>("CoreDevice")({coreDeviceThingName: Schema.optional(Schema.String), status: Schema.optional(Schema.String), lastStatusUpdateTimestamp: Schema.optional(Schema.Date), platform: Schema.optional(Schema.String), architecture: Schema.optional(Schema.String), runtime: Schema.optional(Schema.String)}) {}
 export const CoreDevicesList = Schema.Array(CoreDevice);
-export const Deployment = Schema.Struct({targetArn: Schema.optional(Schema.String), revisionId: Schema.optional(Schema.String), deploymentId: Schema.optional(Schema.String), deploymentName: Schema.optional(Schema.String), creationTimestamp: Schema.optional(Schema.Date), deploymentStatus: Schema.optional(Schema.String), isLatestForTarget: Schema.optional(Schema.Boolean), parentTargetArn: Schema.optional(Schema.String)});
+export class Deployment extends Schema.Class<Deployment>("Deployment")({targetArn: Schema.optional(Schema.String), revisionId: Schema.optional(Schema.String), deploymentId: Schema.optional(Schema.String), deploymentName: Schema.optional(Schema.String), creationTimestamp: Schema.optional(Schema.Date), deploymentStatus: Schema.optional(Schema.String), isLatestForTarget: Schema.optional(Schema.Boolean), parentTargetArn: Schema.optional(Schema.String)}) {}
 export const DeploymentList = Schema.Array(Deployment);
-export const InstalledComponent = Schema.Struct({componentName: Schema.optional(Schema.String), componentVersion: Schema.optional(Schema.String), lifecycleState: Schema.optional(Schema.String), lifecycleStateDetails: Schema.optional(Schema.String), isRoot: Schema.optional(Schema.Boolean), lastStatusChangeTimestamp: Schema.optional(Schema.Date), lastReportedTimestamp: Schema.optional(Schema.Date), lastInstallationSource: Schema.optional(Schema.String), lifecycleStatusCodes: Schema.optional(InstalledComponentLifecycleStatusCodeList)});
+export class InstalledComponent extends Schema.Class<InstalledComponent>("InstalledComponent")({componentName: Schema.optional(Schema.String), componentVersion: Schema.optional(Schema.String), lifecycleState: Schema.optional(Schema.String), lifecycleStateDetails: Schema.optional(Schema.String), isRoot: Schema.optional(Schema.Boolean), lastStatusChangeTimestamp: Schema.optional(Schema.Date), lastReportedTimestamp: Schema.optional(Schema.Date), lastInstallationSource: Schema.optional(Schema.String), lifecycleStatusCodes: Schema.optional(InstalledComponentLifecycleStatusCodeList)}) {}
 export const InstalledComponentList = Schema.Array(InstalledComponent);
-export const ComponentCandidate = Schema.Struct({componentName: Schema.optional(Schema.String), componentVersion: Schema.optional(Schema.String), versionRequirements: Schema.optional(ComponentVersionRequirementMap)});
+export class ComponentCandidate extends Schema.Class<ComponentCandidate>("ComponentCandidate")({componentName: Schema.optional(Schema.String), componentVersion: Schema.optional(Schema.String), versionRequirements: Schema.optional(ComponentVersionRequirementMap)}) {}
 export const ComponentCandidateList = Schema.Array(ComponentCandidate);
-export const ValidationExceptionField = Schema.Struct({name: Schema.String, message: Schema.String});
+export class ValidationExceptionField extends Schema.Class<ValidationExceptionField>("ValidationExceptionField")({name: Schema.String, message: Schema.String}) {}
 export const ValidationExceptionFieldList = Schema.Array(ValidationExceptionField);
-export const ComponentDependencyRequirement = Schema.Struct({versionRequirement: Schema.optional(Schema.String), dependencyType: Schema.optional(Schema.String)});
-export const LambdaEventSource = Schema.Struct({topic: Schema.String, type: Schema.String});
+export class ComponentDependencyRequirement extends Schema.Class<ComponentDependencyRequirement>("ComponentDependencyRequirement")({versionRequirement: Schema.optional(Schema.String), dependencyType: Schema.optional(Schema.String)}) {}
+export class LambdaEventSource extends Schema.Class<LambdaEventSource>("LambdaEventSource")({topic: Schema.String, type: Schema.String}) {}
 export const LambdaEventSourceList = Schema.Array(LambdaEventSource);
 export const LambdaEnvironmentVariables = Schema.Record({key: Schema.String, value: Schema.String});
 export const EffectiveDeploymentErrorStack = Schema.Array(Schema.String);
 export const EffectiveDeploymentErrorTypeList = Schema.Array(Schema.String);
-export const ThrottlingException = Schema.Struct({message: Schema.String, quotaCode: Schema.optional(Schema.String), serviceCode: Schema.optional(Schema.String), retryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))});
-export const ListClientDevicesAssociatedWithCoreDeviceResponse = Schema.Struct({associatedClientDevices: Schema.optional(AssociatedClientDeviceList), nextToken: Schema.optional(Schema.String)});
-export const ListComponentVersionsResponse = Schema.Struct({componentVersions: Schema.optional(ComponentVersionList), nextToken: Schema.optional(Schema.String)});
-export const ListCoreDevicesResponse = Schema.Struct({coreDevices: Schema.optional(CoreDevicesList), nextToken: Schema.optional(Schema.String)});
-export const ListDeploymentsResponse = Schema.Struct({deployments: Schema.optional(DeploymentList), nextToken: Schema.optional(Schema.String)});
-export const ListInstalledComponentsResponse = Schema.Struct({installedComponents: Schema.optional(InstalledComponentList), nextToken: Schema.optional(Schema.String)});
-export const ResolveComponentCandidatesRequest = Schema.Struct({platform: Schema.optional(ComponentPlatform), componentCandidates: Schema.optional(ComponentCandidateList)});
-export const ValidationException = Schema.Struct({message: Schema.String, reason: Schema.optional(Schema.String), fields: Schema.optional(ValidationExceptionFieldList)});
-export const UpdateConnectivityInfoResponse = Schema.Struct({version: Schema.optional(Schema.String), message: Schema.optional(Schema.String)});
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({message: Schema.String, quotaCode: Schema.optional(Schema.String), serviceCode: Schema.optional(Schema.String), retryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))}) {}
+export class ListClientDevicesAssociatedWithCoreDeviceResponse extends Schema.Class<ListClientDevicesAssociatedWithCoreDeviceResponse>("ListClientDevicesAssociatedWithCoreDeviceResponse")({associatedClientDevices: Schema.optional(AssociatedClientDeviceList), nextToken: Schema.optional(Schema.String)}) {}
+export class ListComponentVersionsResponse extends Schema.Class<ListComponentVersionsResponse>("ListComponentVersionsResponse")({componentVersions: Schema.optional(ComponentVersionList), nextToken: Schema.optional(Schema.String)}) {}
+export class ListCoreDevicesResponse extends Schema.Class<ListCoreDevicesResponse>("ListCoreDevicesResponse")({coreDevices: Schema.optional(CoreDevicesList), nextToken: Schema.optional(Schema.String)}) {}
+export class ListDeploymentsResponse extends Schema.Class<ListDeploymentsResponse>("ListDeploymentsResponse")({deployments: Schema.optional(DeploymentList), nextToken: Schema.optional(Schema.String)}) {}
+export class ListInstalledComponentsResponse extends Schema.Class<ListInstalledComponentsResponse>("ListInstalledComponentsResponse")({installedComponents: Schema.optional(InstalledComponentList), nextToken: Schema.optional(Schema.String)}) {}
+export class ResolveComponentCandidatesRequest extends Schema.Class<ResolveComponentCandidatesRequest>("ResolveComponentCandidatesRequest")({platform: Schema.optional(ComponentPlatform), componentCandidates: Schema.optional(ComponentCandidateList)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({message: Schema.String, reason: Schema.optional(Schema.String), fields: Schema.optional(ValidationExceptionFieldList)}) {}
+export class UpdateConnectivityInfoResponse extends Schema.Class<UpdateConnectivityInfoResponse>("UpdateConnectivityInfoResponse")({version: Schema.optional(Schema.String), message: Schema.optional(Schema.String)}) {}
 export const ComponentDependencyMap = Schema.Record({key: Schema.String, value: ComponentDependencyRequirement});
 export const StringMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const ComponentLatestVersion = Schema.Struct({arn: Schema.optional(Schema.String), componentVersion: Schema.optional(Schema.String), creationTimestamp: Schema.optional(Schema.Date), description: Schema.optional(Schema.String), publisher: Schema.optional(Schema.String), platforms: Schema.optional(ComponentPlatformList)});
-export const EffectiveDeploymentStatusDetails = Schema.Struct({errorStack: Schema.optional(EffectiveDeploymentErrorStack), errorTypes: Schema.optional(EffectiveDeploymentErrorTypeList)});
-export const AssociateClientDeviceWithCoreDeviceErrorEntry = Schema.Struct({thingName: Schema.optional(Schema.String), code: Schema.optional(Schema.String), message: Schema.optional(Schema.String)});
+export class ComponentLatestVersion extends Schema.Class<ComponentLatestVersion>("ComponentLatestVersion")({arn: Schema.optional(Schema.String), componentVersion: Schema.optional(Schema.String), creationTimestamp: Schema.optional(Schema.Date), description: Schema.optional(Schema.String), publisher: Schema.optional(Schema.String), platforms: Schema.optional(ComponentPlatformList)}) {}
+export class EffectiveDeploymentStatusDetails extends Schema.Class<EffectiveDeploymentStatusDetails>("EffectiveDeploymentStatusDetails")({errorStack: Schema.optional(EffectiveDeploymentErrorStack), errorTypes: Schema.optional(EffectiveDeploymentErrorTypeList)}) {}
+export class AssociateClientDeviceWithCoreDeviceErrorEntry extends Schema.Class<AssociateClientDeviceWithCoreDeviceErrorEntry>("AssociateClientDeviceWithCoreDeviceErrorEntry")({thingName: Schema.optional(Schema.String), code: Schema.optional(Schema.String), message: Schema.optional(Schema.String)}) {}
 export const AssociateClientDeviceWithCoreDeviceErrorList = Schema.Array(AssociateClientDeviceWithCoreDeviceErrorEntry);
-export const DisassociateClientDeviceFromCoreDeviceErrorEntry = Schema.Struct({thingName: Schema.optional(Schema.String), code: Schema.optional(Schema.String), message: Schema.optional(Schema.String)});
+export class DisassociateClientDeviceFromCoreDeviceErrorEntry extends Schema.Class<DisassociateClientDeviceFromCoreDeviceErrorEntry>("DisassociateClientDeviceFromCoreDeviceErrorEntry")({thingName: Schema.optional(Schema.String), code: Schema.optional(Schema.String), message: Schema.optional(Schema.String)}) {}
 export const DisassociateClientDeviceFromCoreDeviceErrorList = Schema.Array(DisassociateClientDeviceFromCoreDeviceErrorEntry);
-export const CloudComponentStatus = Schema.Struct({componentState: Schema.optional(Schema.String), message: Schema.optional(Schema.String), errors: Schema.optional(StringMap), vendorGuidance: Schema.optional(Schema.String), vendorGuidanceMessage: Schema.optional(Schema.String)});
-export const Component = Schema.Struct({arn: Schema.optional(Schema.String), componentName: Schema.optional(Schema.String), latestVersion: Schema.optional(ComponentLatestVersion)});
+export class CloudComponentStatus extends Schema.Class<CloudComponentStatus>("CloudComponentStatus")({componentState: Schema.optional(Schema.String), message: Schema.optional(Schema.String), errors: Schema.optional(StringMap), vendorGuidance: Schema.optional(Schema.String), vendorGuidanceMessage: Schema.optional(Schema.String)}) {}
+export class Component extends Schema.Class<Component>("Component")({arn: Schema.optional(Schema.String), componentName: Schema.optional(Schema.String), latestVersion: Schema.optional(ComponentLatestVersion)}) {}
 export const ComponentList = Schema.Array(Component);
-export const EffectiveDeployment = Schema.Struct({deploymentId: Schema.String, deploymentName: Schema.String, iotJobId: Schema.optional(Schema.String), iotJobArn: Schema.optional(Schema.String), description: Schema.optional(Schema.String), targetArn: Schema.String, coreDeviceExecutionStatus: Schema.String, reason: Schema.optional(Schema.String), creationTimestamp: Schema.Date, modifiedTimestamp: Schema.Date, statusDetails: Schema.optional(EffectiveDeploymentStatusDetails)});
+export class EffectiveDeployment extends Schema.Class<EffectiveDeployment>("EffectiveDeployment")({deploymentId: Schema.String, deploymentName: Schema.String, iotJobId: Schema.optional(Schema.String), iotJobArn: Schema.optional(Schema.String), description: Schema.optional(Schema.String), targetArn: Schema.String, coreDeviceExecutionStatus: Schema.String, reason: Schema.optional(Schema.String), creationTimestamp: Schema.Date, modifiedTimestamp: Schema.Date, statusDetails: Schema.optional(EffectiveDeploymentStatusDetails)}) {}
 export const EffectiveDeploymentsList = Schema.Array(EffectiveDeployment);
-export const BatchAssociateClientDeviceWithCoreDeviceResponse = Schema.Struct({errorEntries: Schema.optional(AssociateClientDeviceWithCoreDeviceErrorList)});
-export const BatchDisassociateClientDeviceFromCoreDeviceResponse = Schema.Struct({errorEntries: Schema.optional(DisassociateClientDeviceFromCoreDeviceErrorList)});
-export const LambdaVolumeMount = Schema.Struct({sourcePath: Schema.String, destinationPath: Schema.String, permission: Schema.optional(Schema.String), addGroupOwner: Schema.optional(Schema.Boolean)});
+export class BatchAssociateClientDeviceWithCoreDeviceResponse extends Schema.Class<BatchAssociateClientDeviceWithCoreDeviceResponse>("BatchAssociateClientDeviceWithCoreDeviceResponse")({errorEntries: Schema.optional(AssociateClientDeviceWithCoreDeviceErrorList)}) {}
+export class BatchDisassociateClientDeviceFromCoreDeviceResponse extends Schema.Class<BatchDisassociateClientDeviceFromCoreDeviceResponse>("BatchDisassociateClientDeviceFromCoreDeviceResponse")({errorEntries: Schema.optional(DisassociateClientDeviceFromCoreDeviceErrorList)}) {}
+export class LambdaVolumeMount extends Schema.Class<LambdaVolumeMount>("LambdaVolumeMount")({sourcePath: Schema.String, destinationPath: Schema.String, permission: Schema.optional(Schema.String), addGroupOwner: Schema.optional(Schema.Boolean)}) {}
 export const LambdaVolumeList = Schema.Array(LambdaVolumeMount);
-export const LambdaDeviceMount = Schema.Struct({path: Schema.String, permission: Schema.optional(Schema.String), addGroupOwner: Schema.optional(Schema.Boolean)});
+export class LambdaDeviceMount extends Schema.Class<LambdaDeviceMount>("LambdaDeviceMount")({path: Schema.String, permission: Schema.optional(Schema.String), addGroupOwner: Schema.optional(Schema.Boolean)}) {}
 export const LambdaDeviceList = Schema.Array(LambdaDeviceMount);
-export const DescribeComponentResponse = Schema.Struct({arn: Schema.optional(Schema.String), componentName: Schema.optional(Schema.String), componentVersion: Schema.optional(Schema.String), creationTimestamp: Schema.optional(Schema.Date), publisher: Schema.optional(Schema.String), description: Schema.optional(Schema.String), status: Schema.optional(CloudComponentStatus), platforms: Schema.optional(ComponentPlatformList), tags: Schema.optional(TagMap)});
-export const ListComponentsResponse = Schema.Struct({components: Schema.optional(ComponentList), nextToken: Schema.optional(Schema.String)});
-export const ListEffectiveDeploymentsResponse = Schema.Struct({effectiveDeployments: Schema.optional(EffectiveDeploymentsList), nextToken: Schema.optional(Schema.String)});
-export const LambdaContainerParams = Schema.Struct({memorySizeInKB: Schema.optional(Schema.Number), mountROSysfs: Schema.optional(Schema.Boolean), volumes: Schema.optional(LambdaVolumeList), devices: Schema.optional(LambdaDeviceList)});
-export const ResolvedComponentVersion = Schema.Struct({arn: Schema.optional(Schema.String), componentName: Schema.optional(Schema.String), componentVersion: Schema.optional(Schema.String), recipe: Schema.optional(StreamBody()), vendorGuidance: Schema.optional(Schema.String), message: Schema.optional(Schema.String)});
+export class DescribeComponentResponse extends Schema.Class<DescribeComponentResponse>("DescribeComponentResponse")({arn: Schema.optional(Schema.String), componentName: Schema.optional(Schema.String), componentVersion: Schema.optional(Schema.String), creationTimestamp: Schema.optional(Schema.Date), publisher: Schema.optional(Schema.String), description: Schema.optional(Schema.String), status: Schema.optional(CloudComponentStatus), platforms: Schema.optional(ComponentPlatformList), tags: Schema.optional(TagMap)}) {}
+export class ListComponentsResponse extends Schema.Class<ListComponentsResponse>("ListComponentsResponse")({components: Schema.optional(ComponentList), nextToken: Schema.optional(Schema.String)}) {}
+export class ListEffectiveDeploymentsResponse extends Schema.Class<ListEffectiveDeploymentsResponse>("ListEffectiveDeploymentsResponse")({effectiveDeployments: Schema.optional(EffectiveDeploymentsList), nextToken: Schema.optional(Schema.String)}) {}
+export class LambdaContainerParams extends Schema.Class<LambdaContainerParams>("LambdaContainerParams")({memorySizeInKB: Schema.optional(Schema.Number), mountROSysfs: Schema.optional(Schema.Boolean), volumes: Schema.optional(LambdaVolumeList), devices: Schema.optional(LambdaDeviceList)}) {}
+export class ResolvedComponentVersion extends Schema.Class<ResolvedComponentVersion>("ResolvedComponentVersion")({arn: Schema.optional(Schema.String), componentName: Schema.optional(Schema.String), componentVersion: Schema.optional(Schema.String), recipe: Schema.optional(StreamBody()), vendorGuidance: Schema.optional(Schema.String), message: Schema.optional(Schema.String)}) {}
 export const ResolvedComponentVersionsList = Schema.Array(ResolvedComponentVersion);
-export const LambdaLinuxProcessParams = Schema.Struct({isolationMode: Schema.optional(Schema.String), containerParams: Schema.optional(LambdaContainerParams)});
-export const CreateDeploymentRequest = Schema.Struct({targetArn: Schema.String, deploymentName: Schema.optional(Schema.String), components: Schema.optional(ComponentDeploymentSpecifications), iotJobConfiguration: Schema.optional(DeploymentIoTJobConfiguration), deploymentPolicies: Schema.optional(DeploymentPolicies), parentTargetArn: Schema.optional(Schema.String), tags: Schema.optional(TagMap), clientToken: Schema.optional(Schema.String)});
-export const ResolveComponentCandidatesResponse = Schema.Struct({resolvedComponentVersions: Schema.optional(ResolvedComponentVersionsList)});
-export const LambdaExecutionParameters = Schema.Struct({eventSources: Schema.optional(LambdaEventSourceList), maxQueueSize: Schema.optional(Schema.Number), maxInstancesCount: Schema.optional(Schema.Number), maxIdleTimeInSeconds: Schema.optional(Schema.Number), timeoutInSeconds: Schema.optional(Schema.Number), statusTimeoutInSeconds: Schema.optional(Schema.Number), pinned: Schema.optional(Schema.Boolean), inputPayloadEncodingType: Schema.optional(Schema.String), execArgs: Schema.optional(LambdaExecArgsList), environmentVariables: Schema.optional(LambdaEnvironmentVariables), linuxProcessParams: Schema.optional(LambdaLinuxProcessParams)});
-export const LambdaFunctionRecipeSource = Schema.Struct({lambdaArn: Schema.String, componentName: Schema.optional(Schema.String), componentVersion: Schema.optional(Schema.String), componentPlatforms: Schema.optional(ComponentPlatformList), componentDependencies: Schema.optional(ComponentDependencyMap), componentLambdaParameters: Schema.optional(LambdaExecutionParameters)});
-export const CreateComponentVersionRequest = Schema.Struct({inlineRecipe: Schema.optional(StreamBody()), lambdaFunction: Schema.optional(LambdaFunctionRecipeSource), tags: Schema.optional(TagMap), clientToken: Schema.optional(Schema.String)});
-export const CreateDeploymentResponse = Schema.Struct({deploymentId: Schema.optional(Schema.String), iotJobId: Schema.optional(Schema.String), iotJobArn: Schema.optional(Schema.String)});
-export const CreateComponentVersionResponse = Schema.Struct({arn: Schema.optional(Schema.String), componentName: Schema.String, componentVersion: Schema.String, creationTimestamp: Schema.Date, status: CloudComponentStatus});
-export const RequestAlreadyInProgressException = Schema.Struct({message: Schema.String});
-export const ServiceQuotaExceededException = Schema.Struct({message: Schema.String, resourceId: Schema.optional(Schema.String), resourceType: Schema.optional(Schema.String), quotaCode: Schema.String, serviceCode: Schema.String});
+export class LambdaLinuxProcessParams extends Schema.Class<LambdaLinuxProcessParams>("LambdaLinuxProcessParams")({isolationMode: Schema.optional(Schema.String), containerParams: Schema.optional(LambdaContainerParams)}) {}
+export class CreateDeploymentRequest extends Schema.Class<CreateDeploymentRequest>("CreateDeploymentRequest")({targetArn: Schema.String, deploymentName: Schema.optional(Schema.String), components: Schema.optional(ComponentDeploymentSpecifications), iotJobConfiguration: Schema.optional(DeploymentIoTJobConfiguration), deploymentPolicies: Schema.optional(DeploymentPolicies), parentTargetArn: Schema.optional(Schema.String), tags: Schema.optional(TagMap), clientToken: Schema.optional(Schema.String)}) {}
+export class ResolveComponentCandidatesResponse extends Schema.Class<ResolveComponentCandidatesResponse>("ResolveComponentCandidatesResponse")({resolvedComponentVersions: Schema.optional(ResolvedComponentVersionsList)}) {}
+export class LambdaExecutionParameters extends Schema.Class<LambdaExecutionParameters>("LambdaExecutionParameters")({eventSources: Schema.optional(LambdaEventSourceList), maxQueueSize: Schema.optional(Schema.Number), maxInstancesCount: Schema.optional(Schema.Number), maxIdleTimeInSeconds: Schema.optional(Schema.Number), timeoutInSeconds: Schema.optional(Schema.Number), statusTimeoutInSeconds: Schema.optional(Schema.Number), pinned: Schema.optional(Schema.Boolean), inputPayloadEncodingType: Schema.optional(Schema.String), execArgs: Schema.optional(LambdaExecArgsList), environmentVariables: Schema.optional(LambdaEnvironmentVariables), linuxProcessParams: Schema.optional(LambdaLinuxProcessParams)}) {}
+export class LambdaFunctionRecipeSource extends Schema.Class<LambdaFunctionRecipeSource>("LambdaFunctionRecipeSource")({lambdaArn: Schema.String, componentName: Schema.optional(Schema.String), componentVersion: Schema.optional(Schema.String), componentPlatforms: Schema.optional(ComponentPlatformList), componentDependencies: Schema.optional(ComponentDependencyMap), componentLambdaParameters: Schema.optional(LambdaExecutionParameters)}) {}
+export class CreateComponentVersionRequest extends Schema.Class<CreateComponentVersionRequest>("CreateComponentVersionRequest")({inlineRecipe: Schema.optional(StreamBody()), lambdaFunction: Schema.optional(LambdaFunctionRecipeSource), tags: Schema.optional(TagMap), clientToken: Schema.optional(Schema.String)}) {}
+export class CreateDeploymentResponse extends Schema.Class<CreateDeploymentResponse>("CreateDeploymentResponse")({deploymentId: Schema.optional(Schema.String), iotJobId: Schema.optional(Schema.String), iotJobArn: Schema.optional(Schema.String)}) {}
+export class CreateComponentVersionResponse extends Schema.Class<CreateComponentVersionResponse>("CreateComponentVersionResponse")({arn: Schema.optional(Schema.String), componentName: Schema.String, componentVersion: Schema.String, creationTimestamp: Schema.Date, status: CloudComponentStatus}) {}
+export class RequestAlreadyInProgressException extends Schema.Class<RequestAlreadyInProgressException>("RequestAlreadyInProgressException")({message: Schema.String}) {}
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({message: Schema.String, resourceId: Schema.optional(Schema.String), resourceType: Schema.optional(Schema.String), quotaCode: Schema.String, serviceCode: Schema.String}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class RequestAlreadyInProgressExceptionError extends Schema.TaggedError<RequestAlreadyInProgressExceptionError>()("RequestAlreadyInProgressException", RequestAlreadyInProgressException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class RequestAlreadyInProgressExceptionError extends Schema.TaggedError<RequestAlreadyInProgressExceptionError>()("RequestAlreadyInProgressException", RequestAlreadyInProgressException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
 
 //# Operations
 export const disassociateServiceRoleFromAccount = /*#__PURE__*/ makeOperation(() => Operation({ version: "2020-11-30", uri: "/greengrass/servicerole", method: "DELETE", sdkId: "GreengrassV2", sigV4ServiceName: "greengrass", name: "GreengrassV2.DisassociateServiceRoleFromAccount" }, DisassociateServiceRoleFromAccountRequest, DisassociateServiceRoleFromAccountResponse, [InternalServerExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

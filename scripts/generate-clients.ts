@@ -36,6 +36,10 @@ class SdkFile extends Context.Tag("SdkFile")<
     >;
     errors: Ref.Ref<Array<{ name: string; definition: string }>>;
     operations: Ref.Ref<string>;
+    // Set of schema names that are part of a cycle (populated before generation)
+    cyclicSchemas: Set<string>;
+    // Set of schema names that are cyclic AND are structs (will become classes)
+    cyclicClasses: Set<string>;
   }
 >() {}
 
@@ -118,8 +122,14 @@ function findShape(
   return effect;
 }
 
+const aliasMappings: Record<string, string> = {
+  Body: "_Body",
+};
+
 function formatName(shapeId: string, lowercase = false) {
   let name = shapeId.split("#")[1] ?? "";
+  // Apply alias mappings for reserved names
+  name = aliasMappings[name] ?? name;
   if (lowercase) {
     name = name.charAt(0).toLowerCase() + name.slice(1);
   }
@@ -127,8 +137,10 @@ function formatName(shapeId: string, lowercase = false) {
 }
 
 // Topological sort for schema definitions to ensure dependencies come before dependents
-function topologicalSort(
+// Handles cycles by treating cyclic schemas specially (they will use Schema.Class and Schema.suspend)
+function topologicalSortWithCycles(
   schemas: Array<{ name: string; definition: string; deps: string[] }>,
+  cyclicSchemas: Set<string>,
 ): Array<{ name: string; definition: string; deps: string[] }> {
   const schemaMap = new Map(schemas.map((s) => [s.name, s]));
   const visited = new Set<string>();
@@ -141,9 +153,16 @@ function topologicalSort(
 
     const schema = schemaMap.get(name);
     if (schema) {
-      // Visit all dependencies first
-      for (const dep of schema.deps) {
-        visit(dep);
+      // For cyclic schemas, only require non-cyclic dependencies to be visited first
+      // Cyclic dependencies will use Schema.suspend so order among them doesn't matter
+      const effectiveDeps = cyclicSchemas.has(name)
+        ? schema.deps.filter((dep) => !cyclicSchemas.has(dep))
+        : schema.deps;
+
+      for (const dep of effectiveDeps) {
+        if (schemaMap.has(dep)) {
+          visit(dep);
+        }
       }
       result.push(schema);
     }
@@ -155,6 +174,122 @@ function topologicalSort(
   }
 
   return result;
+}
+
+// Collect all shape dependencies from the model to compute cycles before generation
+function collectShapeDependencies(
+  model: SmithyModel,
+): Map<string, { deps: string[]; type: string }> {
+  const shapeDeps = new Map<string, { deps: string[]; type: string }>();
+
+  for (const [shapeId, shape] of Object.entries(model.shapes)) {
+    const name = formatName(shapeId);
+    if (!name) continue;
+
+    const deps: string[] = [];
+
+    if (shape.type === "structure") {
+      for (const member of Object.values(shape.members)) {
+        const depName = formatName(member.target);
+        if (depName) deps.push(depName);
+      }
+    } else if (shape.type === "union") {
+      for (const member of Object.values(shape.members)) {
+        const depName = formatName(member.target);
+        if (depName) deps.push(depName);
+      }
+    } else if (shape.type === "list") {
+      const depName = formatName(shape.member.target);
+      if (depName) deps.push(depName);
+    } else if (shape.type === "map") {
+      const keyName = formatName(shape.key.target);
+      const valueName = formatName(shape.value.target);
+      if (keyName) deps.push(keyName);
+      if (valueName) deps.push(valueName);
+    }
+
+    shapeDeps.set(name, { deps, type: shape.type });
+  }
+
+  return shapeDeps;
+}
+
+// Find all schemas that are part of a cycle using the pre-collected dependencies
+function findCyclicSchemasFromDeps(
+  shapeDeps: Map<string, { deps: string[]; type: string }>,
+): { cyclicSchemas: Set<string>; cyclicClasses: Set<string> } {
+  const cyclicSchemas = new Set<string>();
+
+  let index = 0;
+  const stack: string[] = [];
+  const onStack = new Set<string>();
+  const indices = new Map<string, number>();
+  const lowlinks = new Map<string, number>();
+
+  function strongConnect(name: string) {
+    indices.set(name, index);
+    lowlinks.set(name, index);
+    index++;
+    stack.push(name);
+    onStack.add(name);
+
+    const shapeInfo = shapeDeps.get(name);
+    if (shapeInfo) {
+      for (const dep of shapeInfo.deps) {
+        if (shapeDeps.has(dep)) {
+          if (!indices.has(dep)) {
+            strongConnect(dep);
+            lowlinks.set(
+              name,
+              Math.min(lowlinks.get(name)!, lowlinks.get(dep)!),
+            );
+          } else if (onStack.has(dep)) {
+            lowlinks.set(name, Math.min(lowlinks.get(name)!, indices.get(dep)!));
+          }
+        }
+      }
+    }
+
+    if (lowlinks.get(name) === indices.get(name)) {
+      const scc: string[] = [];
+      let w: string;
+      do {
+        w = stack.pop()!;
+        onStack.delete(w);
+        scc.push(w);
+      } while (w !== name);
+
+      // If SCC has more than one node, mark all as cyclic
+      if (scc.length > 1) {
+        for (const node of scc) {
+          cyclicSchemas.add(node);
+        }
+      } else {
+        // Check for self-loop
+        const info = shapeDeps.get(name);
+        if (info && info.deps.includes(name)) {
+          cyclicSchemas.add(name);
+        }
+      }
+    }
+  }
+
+  for (const name of shapeDeps.keys()) {
+    if (!indices.has(name)) {
+      strongConnect(name);
+    }
+  }
+
+  // Determine which cyclic schemas will become classes (structs only)
+  const cyclicClasses = new Set<string>();
+  for (const name of cyclicSchemas) {
+    const info = shapeDeps.get(name);
+    if (info && info.type === "structure") {
+      cyclicClasses.add(name);
+    }
+  }
+
+  return { cyclicSchemas, cyclicClasses };
 }
 
 const convertShapeToSchema: (
@@ -175,20 +310,24 @@ const convertShapeToSchema: (
     MutableHashMap.set(sdkFile.map, target, deferredValue);
   }
 
+  // Helper to get the schema name for this target
+  const getSchemaName = () => formatName(target);
+
   const addAlias = Effect.fn(function* (
-    type: Effect.Effect<
+    definitionEffect: Effect.Effect<
       string,
       ShapeNotFound | UnableToTransformShapeToSchema,
       ModelService | SdkFile
     >,
     deps: string[],
   ) {
-    const tsName = target.split("#")[1]!;
+    const tsName = getSchemaName();
     yield* Deferred.succeed(deferredValue, tsName);
-    const value = yield* type;
+    const definition = yield* definitionEffect;
+
     yield* Ref.update(sdkFile.schemas, (arr) => [
       ...arr,
-      { name: tsName, definition: `export const ${tsName} = ${value};`, deps },
+      { name: tsName, definition, deps },
     ]);
     return tsName;
   });
@@ -297,14 +436,26 @@ const convertShapeToSchema: (
           ),
           Match.when(
             (s) => s.type === "list",
-            (s) =>
-              addAlias(
+            (s) => {
+              const memberName = formatName(s.member.target);
+              const schemaName = getSchemaName();
+              return addAlias(
                 convertShapeToSchema(s.member.target).pipe(
                   Effect.flatMap(Deferred.await),
-                  Effect.map((type) => `Schema.Array(${type})`),
+                  Effect.map((type) => {
+                    // Wrap cyclic references in Schema.suspend
+                    let innerType = type;
+                    if (sdkFile.cyclicSchemas.has(memberName)) {
+                      innerType = sdkFile.cyclicClasses.has(memberName)
+                        ? `Schema.suspend((): Schema.Schema<${type}> => ${type})`
+                        : `Schema.suspend(() => ${type})`;
+                    }
+                    return `export const ${schemaName} = Schema.Array(${innerType});`;
+                  }),
                 ),
-                [formatName(s.member.target)],
-              ),
+                [memberName],
+              );
+            },
           ),
           Match.when(
             (s) => s.type === "structure",
@@ -312,16 +463,29 @@ const convertShapeToSchema: (
               const memberTargets = Object.values(s.members).map((m) =>
                 formatName(m.target),
               );
+              const currentSchemaName = getSchemaName();
+              const isCurrentCyclic = sdkFile.cyclicSchemas.has(currentSchemaName);
+
               return addAlias(
                 Effect.all(
-                  Object.entries(s.members).map(([memberName, member]) =>
-                    convertShapeToSchema(member.target).pipe(
+                  Object.entries(s.members).map(([memberName, member]) => {
+                    const memberTargetName = formatName(member.target);
+                    return convertShapeToSchema(member.target).pipe(
                       Effect.flatMap(Deferred.await),
                       Effect.map((baseSchema) => {
                         let schema = baseSchema;
 
+                        // Wrap cyclic references in Schema.suspend (only if current schema is also cyclic)
+                        if (isCurrentCyclic && sdkFile.cyclicSchemas.has(memberTargetName)) {
+                          if (sdkFile.cyclicClasses.has(memberTargetName)) {
+                            schema = `Schema.suspend((): Schema.Schema<${schema}> => ${schema})`;
+                          } else {
+                            schema = `Schema.suspend(() => ${schema})`;
+                          }
+                        }
+
                         if (member.traits?.["smithy.api#httpHeader"] != null) {
-                          if (schema === "Schema.String") {
+                          if (baseSchema === "Schema.String") {
                             schema = `Header("${member.traits?.["smithy.api#httpHeader"]}")`;
                           } else {
                             schema = `Header("${member.traits?.["smithy.api#httpHeader"]}", ${schema})`;
@@ -343,13 +507,15 @@ const convertShapeToSchema: (
 
                         return `${memberName}: ${schema}`;
                       }),
-                    ),
-                  ),
+                    );
+                  }),
                   { concurrency: "unbounded" },
                 ).pipe(
-                  Effect.map(
-                    (members) => `Schema.Struct({${members.join(", ")}})`,
-                  ),
+                  Effect.map((members) => {
+                    const fields = `{${members.join(", ")}}`;
+                    // Always use Schema.Class for structs
+                    return `export class ${currentSchemaName} extends Schema.Class<${currentSchemaName}>("${currentSchemaName}")(${fields}) {}`;
+                  }),
                 ),
                 memberTargets,
               );
@@ -361,17 +527,32 @@ const convertShapeToSchema: (
               const memberTargets = Object.values(s.members).map((m) =>
                 formatName(m.target),
               );
+              const schemaName = getSchemaName();
+              const isCurrentCyclic = sdkFile.cyclicSchemas.has(schemaName);
+
               return addAlias(
                 Effect.all(
-                  Object.entries(s.members).map(([_memberName, member]) =>
-                    convertShapeToSchema(member.target).pipe(
+                  Object.entries(s.members).map(([_memberName, member]) => {
+                    const memberTargetName = formatName(member.target);
+                    return convertShapeToSchema(member.target).pipe(
                       Effect.flatMap(Deferred.await),
-                    ),
-                  ),
+                      Effect.map((schema) => {
+                        // Wrap cyclic references in Schema.suspend
+                        if (isCurrentCyclic && sdkFile.cyclicSchemas.has(memberTargetName)) {
+                          if (sdkFile.cyclicClasses.has(memberTargetName)) {
+                            return `Schema.suspend((): Schema.Schema<${schema}> => ${schema})`;
+                          } else {
+                            return `Schema.suspend(() => ${schema})`;
+                          }
+                        }
+                        return schema;
+                      }),
+                    );
+                  }),
                   { concurrency: "unbounded" },
                 ).pipe(
                   Effect.map(
-                    (members) => `Schema.Union(${members.join(", ")})`,
+                    (members) => `export const ${schemaName} = Schema.Union(${members.join(", ")});`,
                   ),
                 ),
                 memberTargets,
@@ -380,8 +561,9 @@ const convertShapeToSchema: (
           ),
           Match.when(
             (s) => s.type === "map",
-            (s) =>
-              addAlias(
+            (s) => {
+              const schemaName = getSchemaName();
+              return addAlias(
                 Effect.all(
                   [
                     convertShapeToSchema(s.key.target).pipe(
@@ -395,11 +577,12 @@ const convertShapeToSchema: (
                 ).pipe(
                   Effect.map(
                     ([keySchema, valueSchema]) =>
-                      `Schema.Record({key: ${keySchema}, value: ${valueSchema}})`,
+                      `export const ${schemaName} = Schema.Record({key: ${keySchema}, value: ${valueSchema}});`,
                   ),
                 ),
                 [formatName(s.key.target), formatName(s.value.target)],
-              ),
+              );
+            },
           ),
           Match.orElse((s) =>
             Effect.fail(
@@ -427,7 +610,7 @@ const addError = Effect.fn(function* (error: { name: string; schema: string }) {
       ...errors,
       {
         name: error.name,
-        definition: `export class ${error.name}Error extends Schema.TaggedError<${error.name}Error>()("${error.name}", ${error.schema}) {};`,
+        definition: `export class ${error.name}Error extends Schema.TaggedError<${error.name}Error>()("${error.name}", ${error.schema}.fields) {};`,
       },
     ]);
   }
@@ -574,8 +757,9 @@ const generateClient = Effect.fn(function* (
     );
 
     // Get schemas and sort them topologically
+    // Cycles were already computed before generation, so just sort
     const schemas = yield* Ref.get(sdkFile.schemas);
-    const sortedSchemas = topologicalSort(schemas);
+    const sortedSchemas = topologicalSortWithCycles(schemas, sdkFile.cyclicSchemas);
     const schemaDefinitions = sortedSchemas.map((s) => s.definition).join("\n");
 
     const errors = yield* Ref.get(sdkFile.errors);
@@ -601,6 +785,10 @@ const generateClient = Effect.fn(function* (
     );
   });
 
+  // Pre-compute cyclic schemas from the model before generation
+  const shapeDeps = collectShapeDependencies(model);
+  const { cyclicSchemas, cyclicClasses } = findCyclicSchemasFromDeps(shapeDeps);
+
   return yield* client.pipe(
     Effect.provideService(SdkFile, {
       schemas: yield* Ref.make<
@@ -609,6 +797,8 @@ const generateClient = Effect.fn(function* (
       errors: yield* Ref.make<Array<{ name: string; definition: string }>>([]),
       operations: yield* Ref.make(""),
       map: MutableHashMap.empty<string, Deferred.Deferred<string, never>>(),
+      cyclicSchemas,
+      cyclicClasses,
     }),
     Effect.provideService(ModelService, model),
   );

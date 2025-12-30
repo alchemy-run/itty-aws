@@ -3,81 +3,81 @@ import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperat
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const DeleteSessionRequest = Schema.Struct({botId: Schema.String, botAliasId: Schema.String, localeId: Schema.String, sessionId: Schema.String});
-export const GetSessionRequest = Schema.Struct({botId: Schema.String, botAliasId: Schema.String, localeId: Schema.String, sessionId: Schema.String});
-export const ElicitSubSlot = Schema.Struct({name: Schema.String, subSlotToElicit: Schema.optional(ElicitSubSlot)});
-export const DialogAction = Schema.Struct({type: Schema.String, slotToElicit: Schema.optional(Schema.String), slotElicitationStyle: Schema.optional(Schema.String), subSlotToElicit: Schema.optional(ElicitSubSlot)});
-export const StringList = Schema.Array(Schema.String);
-export const Value = Schema.Struct({originalValue: Schema.optional(Schema.String), interpretedValue: Schema.String, resolvedValues: Schema.optional(StringList)});
-export const Values = Schema.Array(Slot);
-export const Slot = Schema.Struct({value: Schema.optional(Value), shape: Schema.optional(Schema.String), values: Schema.optional(Values), subSlots: Schema.optional(Slots)});
+export class DeleteSessionRequest extends Schema.Class<DeleteSessionRequest>("DeleteSessionRequest")({botId: Schema.String, botAliasId: Schema.String, localeId: Schema.String, sessionId: Schema.String}) {}
+export class GetSessionRequest extends Schema.Class<GetSessionRequest>("GetSessionRequest")({botId: Schema.String, botAliasId: Schema.String, localeId: Schema.String, sessionId: Schema.String}) {}
+export class ElicitSubSlot extends Schema.Class<ElicitSubSlot>("ElicitSubSlot")({name: Schema.String, subSlotToElicit: Schema.optional(Schema.suspend((): Schema.Schema<ElicitSubSlot> => ElicitSubSlot))}) {}
+export class DialogAction extends Schema.Class<DialogAction>("DialogAction")({type: Schema.String, slotToElicit: Schema.optional(Schema.String), slotElicitationStyle: Schema.optional(Schema.String), subSlotToElicit: Schema.optional(ElicitSubSlot)}) {}
 export const Slots = Schema.Record({key: Schema.String, value: Slot});
-export const Intent = Schema.Struct({name: Schema.String, slots: Schema.optional(Slots), state: Schema.optional(Schema.String), confirmationState: Schema.optional(Schema.String)});
-export const ActiveContextTimeToLive = Schema.Struct({timeToLiveInSeconds: Schema.Number, turnsToLive: Schema.Number});
+export class Intent extends Schema.Class<Intent>("Intent")({name: Schema.String, slots: Schema.optional(Slots), state: Schema.optional(Schema.String), confirmationState: Schema.optional(Schema.String)}) {}
+export class ActiveContextTimeToLive extends Schema.Class<ActiveContextTimeToLive>("ActiveContextTimeToLive")({timeToLiveInSeconds: Schema.Number, turnsToLive: Schema.Number}) {}
 export const ActiveContextParametersMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const ActiveContext = Schema.Struct({name: Schema.String, timeToLive: ActiveContextTimeToLive, contextAttributes: ActiveContextParametersMap});
+export class ActiveContext extends Schema.Class<ActiveContext>("ActiveContext")({name: Schema.String, timeToLive: ActiveContextTimeToLive, contextAttributes: ActiveContextParametersMap}) {}
 export const ActiveContextsList = Schema.Array(ActiveContext);
 export const StringMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const RuntimeHintValue = Schema.Struct({phrase: Schema.String});
-export const RuntimeHintValuesList = Schema.Array(RuntimeHintValue);
-export const RuntimeHintDetails = Schema.Struct({runtimeHintValues: Schema.optional(RuntimeHintValuesList), subSlotHints: Schema.optional(SlotHintsSlotMap)});
 export const SlotHintsSlotMap = Schema.Record({key: Schema.String, value: RuntimeHintDetails});
 export const SlotHintsIntentMap = Schema.Record({key: Schema.String, value: SlotHintsSlotMap});
-export const RuntimeHints = Schema.Struct({slotHints: Schema.optional(SlotHintsIntentMap)});
-export const SessionState = Schema.Struct({dialogAction: Schema.optional(DialogAction), intent: Schema.optional(Intent), activeContexts: Schema.optional(ActiveContextsList), sessionAttributes: Schema.optional(StringMap), originatingRequestId: Schema.optional(Schema.String), runtimeHints: Schema.optional(RuntimeHints)});
-export const RecognizeTextRequest = Schema.Struct({botId: Schema.String, botAliasId: Schema.String, localeId: Schema.String, sessionId: Schema.String, text: Schema.String, sessionState: Schema.optional(SessionState), requestAttributes: Schema.optional(StringMap)});
-export const RecognizeUtteranceRequest = Schema.Struct({botId: Schema.String, botAliasId: Schema.String, localeId: Schema.String, sessionId: Schema.String, sessionState: Schema.optional(Header("x-amz-lex-session-state")), requestAttributes: Schema.optional(Header("x-amz-lex-request-attributes")), requestContentType: Header("Content-Type"), responseContentType: Schema.optional(Header("Response-Content-Type")), inputStream: Schema.optional(Body("undefined", StreamBody()))});
-export const DeleteSessionResponse = Schema.Struct({botId: Schema.optional(Schema.String), botAliasId: Schema.optional(Schema.String), localeId: Schema.optional(Schema.String), sessionId: Schema.optional(Schema.String)});
-export const RecognizeUtteranceResponse = Schema.Struct({inputMode: Schema.optional(Header("x-amz-lex-input-mode")), contentType: Schema.optional(Header("Content-Type")), messages: Schema.optional(Header("x-amz-lex-messages")), interpretations: Schema.optional(Header("x-amz-lex-interpretations")), sessionState: Schema.optional(Header("x-amz-lex-session-state")), requestAttributes: Schema.optional(Header("x-amz-lex-request-attributes")), sessionId: Schema.optional(Header("x-amz-lex-session-id")), inputTranscript: Schema.optional(Header("x-amz-lex-input-transcript")), audioStream: Schema.optional(Body("undefined", StreamBody())), recognizedBotMember: Schema.optional(Header("x-amz-lex-recognized-bot-member"))});
-export const Button = Schema.Struct({text: Schema.String, value: Schema.String});
+export class RuntimeHints extends Schema.Class<RuntimeHints>("RuntimeHints")({slotHints: Schema.optional(SlotHintsIntentMap)}) {}
+export class SessionState extends Schema.Class<SessionState>("SessionState")({dialogAction: Schema.optional(DialogAction), intent: Schema.optional(Intent), activeContexts: Schema.optional(ActiveContextsList), sessionAttributes: Schema.optional(StringMap), originatingRequestId: Schema.optional(Schema.String), runtimeHints: Schema.optional(RuntimeHints)}) {}
+export class RecognizeTextRequest extends Schema.Class<RecognizeTextRequest>("RecognizeTextRequest")({botId: Schema.String, botAliasId: Schema.String, localeId: Schema.String, sessionId: Schema.String, text: Schema.String, sessionState: Schema.optional(SessionState), requestAttributes: Schema.optional(StringMap)}) {}
+export class RecognizeUtteranceRequest extends Schema.Class<RecognizeUtteranceRequest>("RecognizeUtteranceRequest")({botId: Schema.String, botAliasId: Schema.String, localeId: Schema.String, sessionId: Schema.String, sessionState: Schema.optional(Header("x-amz-lex-session-state")), requestAttributes: Schema.optional(Header("x-amz-lex-request-attributes")), requestContentType: Header("Content-Type"), responseContentType: Schema.optional(Header("Response-Content-Type")), inputStream: Schema.optional(Body("undefined", StreamBody()))}) {}
+export class DeleteSessionResponse extends Schema.Class<DeleteSessionResponse>("DeleteSessionResponse")({botId: Schema.optional(Schema.String), botAliasId: Schema.optional(Schema.String), localeId: Schema.optional(Schema.String), sessionId: Schema.optional(Schema.String)}) {}
+export class RecognizeUtteranceResponse extends Schema.Class<RecognizeUtteranceResponse>("RecognizeUtteranceResponse")({inputMode: Schema.optional(Header("x-amz-lex-input-mode")), contentType: Schema.optional(Header("Content-Type")), messages: Schema.optional(Header("x-amz-lex-messages")), interpretations: Schema.optional(Header("x-amz-lex-interpretations")), sessionState: Schema.optional(Header("x-amz-lex-session-state")), requestAttributes: Schema.optional(Header("x-amz-lex-request-attributes")), sessionId: Schema.optional(Header("x-amz-lex-session-id")), inputTranscript: Schema.optional(Header("x-amz-lex-input-transcript")), audioStream: Schema.optional(Body("undefined", StreamBody())), recognizedBotMember: Schema.optional(Header("x-amz-lex-recognized-bot-member"))}) {}
+export class Button extends Schema.Class<Button>("Button")({text: Schema.String, value: Schema.String}) {}
 export const ButtonsList = Schema.Array(Button);
-export const ImageResponseCard = Schema.Struct({title: Schema.String, subtitle: Schema.optional(Schema.String), imageUrl: Schema.optional(Schema.String), buttons: Schema.optional(ButtonsList)});
-export const Message = Schema.Struct({content: Schema.optional(Schema.String), contentType: Schema.String, imageResponseCard: Schema.optional(ImageResponseCard)});
+export class ImageResponseCard extends Schema.Class<ImageResponseCard>("ImageResponseCard")({title: Schema.String, subtitle: Schema.optional(Schema.String), imageUrl: Schema.optional(Schema.String), buttons: Schema.optional(ButtonsList)}) {}
+export class Message extends Schema.Class<Message>("Message")({content: Schema.optional(Schema.String), contentType: Schema.String, imageResponseCard: Schema.optional(ImageResponseCard)}) {}
 export const Messages = Schema.Array(Message);
-export const ConfigurationEvent = Schema.Struct({requestAttributes: Schema.optional(StringMap), responseContentType: Schema.String, sessionState: Schema.optional(SessionState), welcomeMessages: Schema.optional(Messages), disablePlayback: Schema.optional(Schema.Boolean), eventId: Schema.optional(Schema.String), clientTimestampMillis: Schema.optional(Schema.Number)});
-export const AudioInputEvent = Schema.Struct({audioChunk: Schema.optional(StreamBody()), contentType: Schema.String, eventId: Schema.optional(Schema.String), clientTimestampMillis: Schema.optional(Schema.Number)});
-export const DTMFInputEvent = Schema.Struct({inputCharacter: Schema.String, eventId: Schema.optional(Schema.String), clientTimestampMillis: Schema.optional(Schema.Number)});
-export const TextInputEvent = Schema.Struct({text: Schema.String, eventId: Schema.optional(Schema.String), clientTimestampMillis: Schema.optional(Schema.Number)});
-export const PlaybackCompletionEvent = Schema.Struct({eventId: Schema.optional(Schema.String), clientTimestampMillis: Schema.optional(Schema.Number)});
-export const DisconnectionEvent = Schema.Struct({eventId: Schema.optional(Schema.String), clientTimestampMillis: Schema.optional(Schema.Number)});
-export const RecognizedBotMember = Schema.Struct({botId: Schema.String, botName: Schema.optional(Schema.String)});
+export class ConfigurationEvent extends Schema.Class<ConfigurationEvent>("ConfigurationEvent")({requestAttributes: Schema.optional(StringMap), responseContentType: Schema.String, sessionState: Schema.optional(SessionState), welcomeMessages: Schema.optional(Messages), disablePlayback: Schema.optional(Schema.Boolean), eventId: Schema.optional(Schema.String), clientTimestampMillis: Schema.optional(Schema.Number)}) {}
+export class AudioInputEvent extends Schema.Class<AudioInputEvent>("AudioInputEvent")({audioChunk: Schema.optional(StreamBody()), contentType: Schema.String, eventId: Schema.optional(Schema.String), clientTimestampMillis: Schema.optional(Schema.Number)}) {}
+export class DTMFInputEvent extends Schema.Class<DTMFInputEvent>("DTMFInputEvent")({inputCharacter: Schema.String, eventId: Schema.optional(Schema.String), clientTimestampMillis: Schema.optional(Schema.Number)}) {}
+export class TextInputEvent extends Schema.Class<TextInputEvent>("TextInputEvent")({text: Schema.String, eventId: Schema.optional(Schema.String), clientTimestampMillis: Schema.optional(Schema.Number)}) {}
+export class PlaybackCompletionEvent extends Schema.Class<PlaybackCompletionEvent>("PlaybackCompletionEvent")({eventId: Schema.optional(Schema.String), clientTimestampMillis: Schema.optional(Schema.Number)}) {}
+export class DisconnectionEvent extends Schema.Class<DisconnectionEvent>("DisconnectionEvent")({eventId: Schema.optional(Schema.String), clientTimestampMillis: Schema.optional(Schema.Number)}) {}
+export class RecognizedBotMember extends Schema.Class<RecognizedBotMember>("RecognizedBotMember")({botId: Schema.String, botName: Schema.optional(Schema.String)}) {}
 export const StartConversationRequestEventStream = Schema.Union(ConfigurationEvent, AudioInputEvent, DTMFInputEvent, TextInputEvent, PlaybackCompletionEvent, DisconnectionEvent);
-export const AccessDeniedException = Schema.Struct({message: Schema.String});
-export const ConfidenceScore = Schema.Struct({score: Schema.optional(Schema.Number)});
-export const SentimentScore = Schema.Struct({positive: Schema.optional(Schema.Number), negative: Schema.optional(Schema.Number), neutral: Schema.optional(Schema.Number), mixed: Schema.optional(Schema.Number)});
-export const SentimentResponse = Schema.Struct({sentiment: Schema.optional(Schema.String), sentimentScore: Schema.optional(SentimentScore)});
-export const Interpretation = Schema.Struct({nluConfidence: Schema.optional(ConfidenceScore), sentimentResponse: Schema.optional(SentimentResponse), intent: Schema.optional(Intent), interpretationSource: Schema.optional(Schema.String)});
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({message: Schema.String}) {}
+export const Values = Schema.Array(Schema.suspend((): Schema.Schema<Slot> => Slot));
+export class ConfidenceScore extends Schema.Class<ConfidenceScore>("ConfidenceScore")({score: Schema.optional(Schema.Number)}) {}
+export class SentimentScore extends Schema.Class<SentimentScore>("SentimentScore")({positive: Schema.optional(Schema.Number), negative: Schema.optional(Schema.Number), neutral: Schema.optional(Schema.Number), mixed: Schema.optional(Schema.Number)}) {}
+export class SentimentResponse extends Schema.Class<SentimentResponse>("SentimentResponse")({sentiment: Schema.optional(Schema.String), sentimentScore: Schema.optional(SentimentScore)}) {}
+export class Interpretation extends Schema.Class<Interpretation>("Interpretation")({nluConfidence: Schema.optional(ConfidenceScore), sentimentResponse: Schema.optional(SentimentResponse), intent: Schema.optional(Intent), interpretationSource: Schema.optional(Schema.String)}) {}
 export const Interpretations = Schema.Array(Interpretation);
-export const RecognizeTextResponse = Schema.Struct({messages: Schema.optional(Messages), sessionState: Schema.optional(SessionState), interpretations: Schema.optional(Interpretations), requestAttributes: Schema.optional(StringMap), sessionId: Schema.optional(Schema.String), recognizedBotMember: Schema.optional(RecognizedBotMember)});
-export const BadGatewayException = Schema.Struct({message: Schema.String});
-export const StartConversationRequest = Schema.Struct({botId: Schema.String, botAliasId: Schema.String, localeId: Schema.String, sessionId: Schema.String, conversationMode: Schema.optional(Header("x-amz-lex-conversation-mode")), requestEventStream: Body("undefined", StartConversationRequestEventStream)});
-export const ConflictException = Schema.Struct({message: Schema.String});
-export const DependencyFailedException = Schema.Struct({message: Schema.String});
-export const InternalServerException = Schema.Struct({message: Schema.String});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.String});
-export const GetSessionResponse = Schema.Struct({sessionId: Schema.optional(Schema.String), messages: Schema.optional(Messages), interpretations: Schema.optional(Interpretations), sessionState: Schema.optional(SessionState)});
-export const ThrottlingException = Schema.Struct({message: Schema.String});
-export const ValidationException = Schema.Struct({message: Schema.String});
-export const PlaybackInterruptionEvent = Schema.Struct({eventReason: Schema.optional(Schema.String), causedByEventId: Schema.optional(Schema.String), eventId: Schema.optional(Schema.String)});
-export const TranscriptEvent = Schema.Struct({transcript: Schema.optional(Schema.String), eventId: Schema.optional(Schema.String)});
-export const IntentResultEvent = Schema.Struct({inputMode: Schema.optional(Schema.String), interpretations: Schema.optional(Interpretations), sessionState: Schema.optional(SessionState), requestAttributes: Schema.optional(StringMap), sessionId: Schema.optional(Schema.String), eventId: Schema.optional(Schema.String), recognizedBotMember: Schema.optional(RecognizedBotMember)});
-export const TextResponseEvent = Schema.Struct({messages: Schema.optional(Messages), eventId: Schema.optional(Schema.String)});
-export const AudioResponseEvent = Schema.Struct({audioChunk: Schema.optional(StreamBody()), contentType: Schema.optional(Schema.String), eventId: Schema.optional(Schema.String)});
-export const HeartbeatEvent = Schema.Struct({eventId: Schema.optional(Schema.String)});
+export class RecognizeTextResponse extends Schema.Class<RecognizeTextResponse>("RecognizeTextResponse")({messages: Schema.optional(Messages), sessionState: Schema.optional(SessionState), interpretations: Schema.optional(Interpretations), requestAttributes: Schema.optional(StringMap), sessionId: Schema.optional(Schema.String), recognizedBotMember: Schema.optional(RecognizedBotMember)}) {}
+export class BadGatewayException extends Schema.Class<BadGatewayException>("BadGatewayException")({message: Schema.String}) {}
+export class StartConversationRequest extends Schema.Class<StartConversationRequest>("StartConversationRequest")({botId: Schema.String, botAliasId: Schema.String, localeId: Schema.String, sessionId: Schema.String, conversationMode: Schema.optional(Header("x-amz-lex-conversation-mode")), requestEventStream: Body("undefined", StartConversationRequestEventStream)}) {}
+export const StringList = Schema.Array(Schema.String);
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({message: Schema.String}) {}
+export class Value extends Schema.Class<Value>("Value")({originalValue: Schema.optional(Schema.String), interpretedValue: Schema.String, resolvedValues: Schema.optional(StringList)}) {}
+export class DependencyFailedException extends Schema.Class<DependencyFailedException>("DependencyFailedException")({message: Schema.String}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({message: Schema.String}) {}
+export class Slot extends Schema.Class<Slot>("Slot")({value: Schema.optional(Value), shape: Schema.optional(Schema.String), values: Schema.optional(Schema.suspend(() => Values)), subSlots: Schema.optional(Schema.suspend(() => Slots))}) {}
+export class RuntimeHintValue extends Schema.Class<RuntimeHintValue>("RuntimeHintValue")({phrase: Schema.String}) {}
+export const RuntimeHintValuesList = Schema.Array(RuntimeHintValue);
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.String}) {}
+export class GetSessionResponse extends Schema.Class<GetSessionResponse>("GetSessionResponse")({sessionId: Schema.optional(Schema.String), messages: Schema.optional(Messages), interpretations: Schema.optional(Interpretations), sessionState: Schema.optional(SessionState)}) {}
+export class RuntimeHintDetails extends Schema.Class<RuntimeHintDetails>("RuntimeHintDetails")({runtimeHintValues: Schema.optional(RuntimeHintValuesList), subSlotHints: Schema.optional(Schema.suspend(() => SlotHintsSlotMap))}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({message: Schema.String}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({message: Schema.String}) {}
+export class PlaybackInterruptionEvent extends Schema.Class<PlaybackInterruptionEvent>("PlaybackInterruptionEvent")({eventReason: Schema.optional(Schema.String), causedByEventId: Schema.optional(Schema.String), eventId: Schema.optional(Schema.String)}) {}
+export class TranscriptEvent extends Schema.Class<TranscriptEvent>("TranscriptEvent")({transcript: Schema.optional(Schema.String), eventId: Schema.optional(Schema.String)}) {}
+export class IntentResultEvent extends Schema.Class<IntentResultEvent>("IntentResultEvent")({inputMode: Schema.optional(Schema.String), interpretations: Schema.optional(Interpretations), sessionState: Schema.optional(SessionState), requestAttributes: Schema.optional(StringMap), sessionId: Schema.optional(Schema.String), eventId: Schema.optional(Schema.String), recognizedBotMember: Schema.optional(RecognizedBotMember)}) {}
+export class TextResponseEvent extends Schema.Class<TextResponseEvent>("TextResponseEvent")({messages: Schema.optional(Messages), eventId: Schema.optional(Schema.String)}) {}
+export class AudioResponseEvent extends Schema.Class<AudioResponseEvent>("AudioResponseEvent")({audioChunk: Schema.optional(StreamBody()), contentType: Schema.optional(Schema.String), eventId: Schema.optional(Schema.String)}) {}
+export class HeartbeatEvent extends Schema.Class<HeartbeatEvent>("HeartbeatEvent")({eventId: Schema.optional(Schema.String)}) {}
 export const StartConversationResponseEventStream = Schema.Union(PlaybackInterruptionEvent, TranscriptEvent, IntentResultEvent, TextResponseEvent, AudioResponseEvent, HeartbeatEvent, AccessDeniedException, ResourceNotFoundException, ValidationException, ThrottlingException, InternalServerException, ConflictException, DependencyFailedException, BadGatewayException);
-export const StartConversationResponse = Schema.Struct({responseEventStream: Schema.optional(Body("undefined", StartConversationResponseEventStream))});
-export const PutSessionRequest = Schema.Struct({botId: Schema.String, botAliasId: Schema.String, localeId: Schema.String, sessionId: Schema.String, messages: Schema.optional(Messages), sessionState: SessionState, requestAttributes: Schema.optional(StringMap), responseContentType: Schema.optional(Header("ResponseContentType"))});
-export const PutSessionResponse = Schema.Struct({contentType: Schema.optional(Header("Content-Type")), messages: Schema.optional(Header("x-amz-lex-messages")), sessionState: Schema.optional(Header("x-amz-lex-session-state")), requestAttributes: Schema.optional(Header("x-amz-lex-request-attributes")), sessionId: Schema.optional(Header("x-amz-lex-session-id")), audioStream: Schema.optional(Body("undefined", StreamBody()))});
+export class StartConversationResponse extends Schema.Class<StartConversationResponse>("StartConversationResponse")({responseEventStream: Schema.optional(Body("undefined", StartConversationResponseEventStream))}) {}
+export class PutSessionRequest extends Schema.Class<PutSessionRequest>("PutSessionRequest")({botId: Schema.String, botAliasId: Schema.String, localeId: Schema.String, sessionId: Schema.String, messages: Schema.optional(Messages), sessionState: SessionState, requestAttributes: Schema.optional(StringMap), responseContentType: Schema.optional(Header("ResponseContentType"))}) {}
+export class PutSessionResponse extends Schema.Class<PutSessionResponse>("PutSessionResponse")({contentType: Schema.optional(Header("Content-Type")), messages: Schema.optional(Header("x-amz-lex-messages")), sessionState: Schema.optional(Header("x-amz-lex-session-state")), requestAttributes: Schema.optional(Header("x-amz-lex-request-attributes")), sessionId: Schema.optional(Header("x-amz-lex-session-id")), audioStream: Schema.optional(Body("undefined", StreamBody()))}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class BadGatewayExceptionError extends Schema.TaggedError<BadGatewayExceptionError>()("BadGatewayException", BadGatewayException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class DependencyFailedExceptionError extends Schema.TaggedError<DependencyFailedExceptionError>()("DependencyFailedException", DependencyFailedException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class BadGatewayExceptionError extends Schema.TaggedError<BadGatewayExceptionError>()("BadGatewayException", BadGatewayException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class DependencyFailedExceptionError extends Schema.TaggedError<DependencyFailedExceptionError>()("DependencyFailedException", DependencyFailedException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
 
 //# Operations
 export const deleteSession = /*#__PURE__*/ makeOperation(() => Operation({ version: "2020-08-07", uri: "/bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}", method: "DELETE", sdkId: "Lex Runtime V2", sigV4ServiceName: "lex", name: "AWSDeepSenseRunTimeServiceApi2_0.DeleteSession" }, DeleteSessionRequest, DeleteSessionResponse, [AccessDeniedExceptionError, ConflictExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

@@ -9,82 +9,82 @@ export const DimensionsMetricList = Schema.Array(Schema.String);
 export const AuthorizedActionsList = Schema.Array(Schema.String);
 export const MetricTypeList = Schema.Array(Schema.String);
 export const TagKeyList = Schema.Array(Schema.String);
-export const DeletePerformanceAnalysisReportRequest = Schema.Struct({ServiceType: Schema.String, Identifier: Schema.String, AnalysisReportId: Schema.String});
-export const DeletePerformanceAnalysisReportResponse = Schema.Struct({});
-export const GetDimensionKeyDetailsRequest = Schema.Struct({ServiceType: Schema.String, Identifier: Schema.String, Group: Schema.String, GroupIdentifier: Schema.String, RequestedDimensions: Schema.optional(RequestedDimensionList)});
-export const GetPerformanceAnalysisReportRequest = Schema.Struct({ServiceType: Schema.String, Identifier: Schema.String, AnalysisReportId: Schema.String, TextFormat: Schema.optional(Schema.String), AcceptLanguage: Schema.optional(Schema.String)});
-export const GetResourceMetadataRequest = Schema.Struct({ServiceType: Schema.String, Identifier: Schema.String});
-export const ListAvailableResourceDimensionsRequest = Schema.Struct({ServiceType: Schema.String, Identifier: Schema.String, Metrics: DimensionsMetricList, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), AuthorizedActions: Schema.optional(AuthorizedActionsList)});
-export const ListAvailableResourceMetricsRequest = Schema.Struct({ServiceType: Schema.String, Identifier: Schema.String, MetricTypes: MetricTypeList, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListPerformanceAnalysisReportsRequest = Schema.Struct({ServiceType: Schema.String, Identifier: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), ListTags: Schema.optional(Schema.Boolean)});
-export const ListTagsForResourceRequest = Schema.Struct({ServiceType: Schema.String, ResourceARN: Schema.String});
-export const Tag = Schema.Struct({Key: Schema.String, Value: Schema.String});
+export class DeletePerformanceAnalysisReportRequest extends Schema.Class<DeletePerformanceAnalysisReportRequest>("DeletePerformanceAnalysisReportRequest")({ServiceType: Schema.String, Identifier: Schema.String, AnalysisReportId: Schema.String}) {}
+export class DeletePerformanceAnalysisReportResponse extends Schema.Class<DeletePerformanceAnalysisReportResponse>("DeletePerformanceAnalysisReportResponse")({}) {}
+export class GetDimensionKeyDetailsRequest extends Schema.Class<GetDimensionKeyDetailsRequest>("GetDimensionKeyDetailsRequest")({ServiceType: Schema.String, Identifier: Schema.String, Group: Schema.String, GroupIdentifier: Schema.String, RequestedDimensions: Schema.optional(RequestedDimensionList)}) {}
+export class GetPerformanceAnalysisReportRequest extends Schema.Class<GetPerformanceAnalysisReportRequest>("GetPerformanceAnalysisReportRequest")({ServiceType: Schema.String, Identifier: Schema.String, AnalysisReportId: Schema.String, TextFormat: Schema.optional(Schema.String), AcceptLanguage: Schema.optional(Schema.String)}) {}
+export class GetResourceMetadataRequest extends Schema.Class<GetResourceMetadataRequest>("GetResourceMetadataRequest")({ServiceType: Schema.String, Identifier: Schema.String}) {}
+export class ListAvailableResourceDimensionsRequest extends Schema.Class<ListAvailableResourceDimensionsRequest>("ListAvailableResourceDimensionsRequest")({ServiceType: Schema.String, Identifier: Schema.String, Metrics: DimensionsMetricList, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), AuthorizedActions: Schema.optional(AuthorizedActionsList)}) {}
+export class ListAvailableResourceMetricsRequest extends Schema.Class<ListAvailableResourceMetricsRequest>("ListAvailableResourceMetricsRequest")({ServiceType: Schema.String, Identifier: Schema.String, MetricTypes: MetricTypeList, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListPerformanceAnalysisReportsRequest extends Schema.Class<ListPerformanceAnalysisReportsRequest>("ListPerformanceAnalysisReportsRequest")({ServiceType: Schema.String, Identifier: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), ListTags: Schema.optional(Schema.Boolean)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({ServiceType: Schema.String, ResourceARN: Schema.String}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.String, Value: Schema.String}) {}
 export const TagList = Schema.Array(Tag);
-export const TagResourceRequest = Schema.Struct({ServiceType: Schema.String, ResourceARN: Schema.String, Tags: TagList});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({ServiceType: Schema.String, ResourceARN: Schema.String, TagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({ServiceType: Schema.String, ResourceARN: Schema.String, Tags: TagList}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({ServiceType: Schema.String, ResourceARN: Schema.String, TagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
 export const SanitizedStringList = Schema.Array(Schema.String);
-export const DimensionGroup = Schema.Struct({Group: Schema.String, Dimensions: Schema.optional(SanitizedStringList), Limit: Schema.optional(Schema.Number)});
+export class DimensionGroup extends Schema.Class<DimensionGroup>("DimensionGroup")({Group: Schema.String, Dimensions: Schema.optional(SanitizedStringList), Limit: Schema.optional(Schema.Number)}) {}
 export const MetricQueryFilterMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const MetricQuery = Schema.Struct({Metric: Schema.String, GroupBy: Schema.optional(DimensionGroup), Filter: Schema.optional(MetricQueryFilterMap)});
+export class MetricQuery extends Schema.Class<MetricQuery>("MetricQuery")({Metric: Schema.String, GroupBy: Schema.optional(DimensionGroup), Filter: Schema.optional(MetricQueryFilterMap)}) {}
 export const MetricQueryList = Schema.Array(MetricQuery);
-export const CreatePerformanceAnalysisReportRequest = Schema.Struct({ServiceType: Schema.String, Identifier: Schema.String, StartTime: Schema.Date, EndTime: Schema.Date, Tags: Schema.optional(TagList)});
-export const InternalServiceError = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DescribeDimensionKeysRequest = Schema.Struct({ServiceType: Schema.String, Identifier: Schema.String, StartTime: Schema.Date, EndTime: Schema.Date, Metric: Schema.String, PeriodInSeconds: Schema.optional(Schema.Number), GroupBy: DimensionGroup, AdditionalMetrics: Schema.optional(AdditionalMetricsList), PartitionBy: Schema.optional(DimensionGroup), Filter: Schema.optional(MetricQueryFilterMap), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const GetResourceMetricsRequest = Schema.Struct({ServiceType: Schema.String, Identifier: Schema.String, MetricQueries: MetricQueryList, StartTime: Schema.Date, EndTime: Schema.Date, PeriodInSeconds: Schema.optional(Schema.Number), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), PeriodAlignment: Schema.optional(Schema.String)});
-export const ListTagsForResourceResponse = Schema.Struct({Tags: Schema.optional(TagList)});
-export const InvalidArgumentException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const NotAuthorizedException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DimensionKeyDetail = Schema.Struct({Value: Schema.optional(Schema.String), Dimension: Schema.optional(Schema.String), Status: Schema.optional(Schema.String)});
+export class CreatePerformanceAnalysisReportRequest extends Schema.Class<CreatePerformanceAnalysisReportRequest>("CreatePerformanceAnalysisReportRequest")({ServiceType: Schema.String, Identifier: Schema.String, StartTime: Schema.Date, EndTime: Schema.Date, Tags: Schema.optional(TagList)}) {}
+export class InternalServiceError extends Schema.Class<InternalServiceError>("InternalServiceError")({Message: Schema.optional(Schema.String)}) {}
+export class DescribeDimensionKeysRequest extends Schema.Class<DescribeDimensionKeysRequest>("DescribeDimensionKeysRequest")({ServiceType: Schema.String, Identifier: Schema.String, StartTime: Schema.Date, EndTime: Schema.Date, Metric: Schema.String, PeriodInSeconds: Schema.optional(Schema.Number), GroupBy: DimensionGroup, AdditionalMetrics: Schema.optional(AdditionalMetricsList), PartitionBy: Schema.optional(DimensionGroup), Filter: Schema.optional(MetricQueryFilterMap), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class GetResourceMetricsRequest extends Schema.Class<GetResourceMetricsRequest>("GetResourceMetricsRequest")({ServiceType: Schema.String, Identifier: Schema.String, MetricQueries: MetricQueryList, StartTime: Schema.Date, EndTime: Schema.Date, PeriodInSeconds: Schema.optional(Schema.Number), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), PeriodAlignment: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({Tags: Schema.optional(TagList)}) {}
+export class InvalidArgumentException extends Schema.Class<InvalidArgumentException>("InvalidArgumentException")({Message: Schema.optional(Schema.String)}) {}
+export class NotAuthorizedException extends Schema.Class<NotAuthorizedException>("NotAuthorizedException")({Message: Schema.optional(Schema.String)}) {}
+export class DimensionKeyDetail extends Schema.Class<DimensionKeyDetail>("DimensionKeyDetail")({Value: Schema.optional(Schema.String), Dimension: Schema.optional(Schema.String), Status: Schema.optional(Schema.String)}) {}
 export const DimensionKeyDetailList = Schema.Array(DimensionKeyDetail);
-export const ResponseResourceMetric = Schema.Struct({Metric: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Unit: Schema.optional(Schema.String)});
+export class ResponseResourceMetric extends Schema.Class<ResponseResourceMetric>("ResponseResourceMetric")({Metric: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Unit: Schema.optional(Schema.String)}) {}
 export const ResponseResourceMetricList = Schema.Array(ResponseResourceMetric);
-export const AnalysisReportSummary = Schema.Struct({AnalysisReportId: Schema.optional(Schema.String), CreateTime: Schema.optional(Schema.Date), StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date), Status: Schema.optional(Schema.String), Tags: Schema.optional(TagList)});
+export class AnalysisReportSummary extends Schema.Class<AnalysisReportSummary>("AnalysisReportSummary")({AnalysisReportId: Schema.optional(Schema.String), CreateTime: Schema.optional(Schema.Date), StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date), Status: Schema.optional(Schema.String), Tags: Schema.optional(TagList)}) {}
 export const AnalysisReportSummaryList = Schema.Array(AnalysisReportSummary);
-export const CreatePerformanceAnalysisReportResponse = Schema.Struct({AnalysisReportId: Schema.optional(Schema.String)});
-export const GetDimensionKeyDetailsResponse = Schema.Struct({Dimensions: Schema.optional(DimensionKeyDetailList)});
-export const ListAvailableResourceMetricsResponse = Schema.Struct({Metrics: Schema.optional(ResponseResourceMetricList), NextToken: Schema.optional(Schema.String)});
-export const ListPerformanceAnalysisReportsResponse = Schema.Struct({AnalysisReports: Schema.optional(AnalysisReportSummaryList), NextToken: Schema.optional(Schema.String)});
+export class CreatePerformanceAnalysisReportResponse extends Schema.Class<CreatePerformanceAnalysisReportResponse>("CreatePerformanceAnalysisReportResponse")({AnalysisReportId: Schema.optional(Schema.String)}) {}
+export class GetDimensionKeyDetailsResponse extends Schema.Class<GetDimensionKeyDetailsResponse>("GetDimensionKeyDetailsResponse")({Dimensions: Schema.optional(DimensionKeyDetailList)}) {}
+export class ListAvailableResourceMetricsResponse extends Schema.Class<ListAvailableResourceMetricsResponse>("ListAvailableResourceMetricsResponse")({Metrics: Schema.optional(ResponseResourceMetricList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListPerformanceAnalysisReportsResponse extends Schema.Class<ListPerformanceAnalysisReportsResponse>("ListPerformanceAnalysisReportsResponse")({AnalysisReports: Schema.optional(AnalysisReportSummaryList), NextToken: Schema.optional(Schema.String)}) {}
 export const MetricValuesList = Schema.Array(Schema.Number);
-export const FeatureMetadata = Schema.Struct({Status: Schema.optional(Schema.String)});
+export class FeatureMetadata extends Schema.Class<FeatureMetadata>("FeatureMetadata")({Status: Schema.optional(Schema.String)}) {}
 export const FeatureMetadataMap = Schema.Record({key: Schema.String, value: FeatureMetadata});
-export const Recommendation = Schema.Struct({RecommendationId: Schema.optional(Schema.String), RecommendationDescription: Schema.optional(Schema.String)});
+export class Recommendation extends Schema.Class<Recommendation>("Recommendation")({RecommendationId: Schema.optional(Schema.String), RecommendationDescription: Schema.optional(Schema.String)}) {}
 export const RecommendationList = Schema.Array(Recommendation);
-export const DimensionDetail = Schema.Struct({Identifier: Schema.optional(Schema.String)});
+export class DimensionDetail extends Schema.Class<DimensionDetail>("DimensionDetail")({Identifier: Schema.optional(Schema.String)}) {}
 export const DimensionDetailList = Schema.Array(DimensionDetail);
-export const GetResourceMetadataResponse = Schema.Struct({Identifier: Schema.optional(Schema.String), Features: Schema.optional(FeatureMetadataMap)});
+export class GetResourceMetadataResponse extends Schema.Class<GetResourceMetadataResponse>("GetResourceMetadataResponse")({Identifier: Schema.optional(Schema.String), Features: Schema.optional(FeatureMetadataMap)}) {}
 export const DimensionMap = Schema.Record({key: Schema.String, value: Schema.String});
 export const AdditionalMetricsMap = Schema.Record({key: Schema.String, value: Schema.Number});
-export const ResponseResourceMetricKey = Schema.Struct({Metric: Schema.String, Dimensions: Schema.optional(DimensionMap)});
-export const DataPoint = Schema.Struct({Timestamp: Schema.Date, Value: Schema.Number});
+export class ResponseResourceMetricKey extends Schema.Class<ResponseResourceMetricKey>("ResponseResourceMetricKey")({Metric: Schema.String, Dimensions: Schema.optional(DimensionMap)}) {}
+export class DataPoint extends Schema.Class<DataPoint>("DataPoint")({Timestamp: Schema.Date, Value: Schema.Number}) {}
 export const DataPointsList = Schema.Array(DataPoint);
-export const DimensionGroupDetail = Schema.Struct({Group: Schema.optional(Schema.String), Dimensions: Schema.optional(DimensionDetailList)});
+export class DimensionGroupDetail extends Schema.Class<DimensionGroupDetail>("DimensionGroupDetail")({Group: Schema.optional(Schema.String), Dimensions: Schema.optional(DimensionDetailList)}) {}
 export const DimensionGroupDetailList = Schema.Array(DimensionGroupDetail);
-export const ResponsePartitionKey = Schema.Struct({Dimensions: DimensionMap});
+export class ResponsePartitionKey extends Schema.Class<ResponsePartitionKey>("ResponsePartitionKey")({Dimensions: DimensionMap}) {}
 export const ResponsePartitionKeyList = Schema.Array(ResponsePartitionKey);
-export const DimensionKeyDescription = Schema.Struct({Dimensions: Schema.optional(DimensionMap), Total: Schema.optional(Schema.Number), AdditionalMetrics: Schema.optional(AdditionalMetricsMap), Partitions: Schema.optional(MetricValuesList)});
+export class DimensionKeyDescription extends Schema.Class<DimensionKeyDescription>("DimensionKeyDescription")({Dimensions: Schema.optional(DimensionMap), Total: Schema.optional(Schema.Number), AdditionalMetrics: Schema.optional(AdditionalMetricsMap), Partitions: Schema.optional(MetricValuesList)}) {}
 export const DimensionKeyDescriptionList = Schema.Array(DimensionKeyDescription);
-export const MetricKeyDataPoints = Schema.Struct({Key: Schema.optional(ResponseResourceMetricKey), DataPoints: Schema.optional(DataPointsList)});
+export class MetricKeyDataPoints extends Schema.Class<MetricKeyDataPoints>("MetricKeyDataPoints")({Key: Schema.optional(ResponseResourceMetricKey), DataPoints: Schema.optional(DataPointsList)}) {}
 export const MetricKeyDataPointsList = Schema.Array(MetricKeyDataPoints);
-export const MetricDimensionGroups = Schema.Struct({Metric: Schema.optional(Schema.String), Groups: Schema.optional(DimensionGroupDetailList)});
+export class MetricDimensionGroups extends Schema.Class<MetricDimensionGroups>("MetricDimensionGroups")({Metric: Schema.optional(Schema.String), Groups: Schema.optional(DimensionGroupDetailList)}) {}
 export const MetricDimensionsList = Schema.Array(MetricDimensionGroups);
-export const DescribeDimensionKeysResponse = Schema.Struct({AlignedStartTime: Schema.optional(Schema.Date), AlignedEndTime: Schema.optional(Schema.Date), PartitionKeys: Schema.optional(ResponsePartitionKeyList), Keys: Schema.optional(DimensionKeyDescriptionList), NextToken: Schema.optional(Schema.String)});
+export class DescribeDimensionKeysResponse extends Schema.Class<DescribeDimensionKeysResponse>("DescribeDimensionKeysResponse")({AlignedStartTime: Schema.optional(Schema.Date), AlignedEndTime: Schema.optional(Schema.Date), PartitionKeys: Schema.optional(ResponsePartitionKeyList), Keys: Schema.optional(DimensionKeyDescriptionList), NextToken: Schema.optional(Schema.String)}) {}
 export const DescriptiveMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const GetResourceMetricsResponse = Schema.Struct({AlignedStartTime: Schema.optional(Schema.Date), AlignedEndTime: Schema.optional(Schema.Date), Identifier: Schema.optional(Schema.String), MetricList: Schema.optional(MetricKeyDataPointsList), NextToken: Schema.optional(Schema.String)});
-export const ListAvailableResourceDimensionsResponse = Schema.Struct({MetricDimensions: Schema.optional(MetricDimensionsList), NextToken: Schema.optional(Schema.String)});
-export const PerformanceInsightsMetric = Schema.Struct({Metric: Schema.optional(Schema.String), DisplayName: Schema.optional(Schema.String), Dimensions: Schema.optional(DescriptiveMap), Filter: Schema.optional(DescriptiveMap), Value: Schema.optional(Schema.Number)});
-export const Data = Schema.Struct({PerformanceInsightsMetric: Schema.optional(PerformanceInsightsMetric)});
+export class GetResourceMetricsResponse extends Schema.Class<GetResourceMetricsResponse>("GetResourceMetricsResponse")({AlignedStartTime: Schema.optional(Schema.Date), AlignedEndTime: Schema.optional(Schema.Date), Identifier: Schema.optional(Schema.String), MetricList: Schema.optional(MetricKeyDataPointsList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListAvailableResourceDimensionsResponse extends Schema.Class<ListAvailableResourceDimensionsResponse>("ListAvailableResourceDimensionsResponse")({MetricDimensions: Schema.optional(MetricDimensionsList), NextToken: Schema.optional(Schema.String)}) {}
+export class PerformanceInsightsMetric extends Schema.Class<PerformanceInsightsMetric>("PerformanceInsightsMetric")({Metric: Schema.optional(Schema.String), DisplayName: Schema.optional(Schema.String), Dimensions: Schema.optional(DescriptiveMap), Filter: Schema.optional(DescriptiveMap), Value: Schema.optional(Schema.Number)}) {}
+export class Data extends Schema.Class<Data>("Data")({PerformanceInsightsMetric: Schema.optional(PerformanceInsightsMetric)}) {}
 export const DataList = Schema.Array(Data);
-export const InsightList = Schema.Array(Insight);
-export const Insight = Schema.Struct({InsightId: Schema.String, InsightType: Schema.optional(Schema.String), Context: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date), Severity: Schema.optional(Schema.String), SupportingInsights: Schema.optional(InsightList), Description: Schema.optional(Schema.String), Recommendations: Schema.optional(RecommendationList), InsightData: Schema.optional(DataList), BaselineData: Schema.optional(DataList)});
-export const AnalysisReport = Schema.Struct({AnalysisReportId: Schema.String, Identifier: Schema.optional(Schema.String), ServiceType: Schema.optional(Schema.String), CreateTime: Schema.optional(Schema.Date), StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date), Status: Schema.optional(Schema.String), Insights: Schema.optional(InsightList)});
-export const GetPerformanceAnalysisReportResponse = Schema.Struct({AnalysisReport: Schema.optional(AnalysisReport)});
+export class Insight extends Schema.Class<Insight>("Insight")({InsightId: Schema.String, InsightType: Schema.optional(Schema.String), Context: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date), Severity: Schema.optional(Schema.String), SupportingInsights: Schema.optional(Schema.suspend(() => InsightList)), Description: Schema.optional(Schema.String), Recommendations: Schema.optional(RecommendationList), InsightData: Schema.optional(DataList), BaselineData: Schema.optional(DataList)}) {}
+export const InsightList = Schema.Array(Schema.suspend((): Schema.Schema<Insight> => Insight));
+export class AnalysisReport extends Schema.Class<AnalysisReport>("AnalysisReport")({AnalysisReportId: Schema.String, Identifier: Schema.optional(Schema.String), ServiceType: Schema.optional(Schema.String), CreateTime: Schema.optional(Schema.Date), StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date), Status: Schema.optional(Schema.String), Insights: Schema.optional(InsightList)}) {}
+export class GetPerformanceAnalysisReportResponse extends Schema.Class<GetPerformanceAnalysisReportResponse>("GetPerformanceAnalysisReportResponse")({AnalysisReport: Schema.optional(AnalysisReport)}) {}
 
 //# Errors
-export class InternalServiceErrorError extends Schema.TaggedError<InternalServiceErrorError>()("InternalServiceError", InternalServiceError) {};
-export class InvalidArgumentExceptionError extends Schema.TaggedError<InvalidArgumentExceptionError>()("InvalidArgumentException", InvalidArgumentException) {};
-export class NotAuthorizedExceptionError extends Schema.TaggedError<NotAuthorizedExceptionError>()("NotAuthorizedException", NotAuthorizedException) {};
+export class InternalServiceErrorError extends Schema.TaggedError<InternalServiceErrorError>()("InternalServiceError", InternalServiceError.fields) {};
+export class InvalidArgumentExceptionError extends Schema.TaggedError<InvalidArgumentExceptionError>()("InvalidArgumentException", InvalidArgumentException.fields) {};
+export class NotAuthorizedExceptionError extends Schema.TaggedError<NotAuthorizedExceptionError>()("NotAuthorizedException", NotAuthorizedException.fields) {};
 
 //# Operations
 export const deletePerformanceAnalysisReport = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-02-27", uri: "/", method: "POST", sdkId: "PI", sigV4ServiceName: "pi", name: "PerformanceInsightsv20180227.DeletePerformanceAnalysisReport" }, DeletePerformanceAnalysisReportRequest, DeletePerformanceAnalysisReportResponse, [InternalServiceErrorError, InvalidArgumentExceptionError, NotAuthorizedExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

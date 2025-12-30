@@ -4,116 +4,116 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 
 //# Schemas
 export const ActionList = Schema.Array(Schema.String);
-export const CreateCertificateAuthorityAuditReportRequest = Schema.Struct({CertificateAuthorityArn: Schema.String, S3BucketName: Schema.String, AuditReportResponseFormat: Schema.String});
-export const CreatePermissionRequest = Schema.Struct({CertificateAuthorityArn: Schema.String, Principal: Schema.String, SourceAccount: Schema.optional(Schema.String), Actions: ActionList});
-export const DeleteCertificateAuthorityRequest = Schema.Struct({CertificateAuthorityArn: Schema.String, PermanentDeletionTimeInDays: Schema.optional(Schema.Number)});
-export const DeletePermissionRequest = Schema.Struct({CertificateAuthorityArn: Schema.String, Principal: Schema.String, SourceAccount: Schema.optional(Schema.String)});
-export const DeletePolicyRequest = Schema.Struct({ResourceArn: Schema.String});
-export const DescribeCertificateAuthorityRequest = Schema.Struct({CertificateAuthorityArn: Schema.String});
-export const DescribeCertificateAuthorityAuditReportRequest = Schema.Struct({CertificateAuthorityArn: Schema.String, AuditReportId: Schema.String});
-export const GetCertificateRequest = Schema.Struct({CertificateAuthorityArn: Schema.String, CertificateArn: Schema.String});
-export const GetCertificateAuthorityCertificateRequest = Schema.Struct({CertificateAuthorityArn: Schema.String});
-export const GetCertificateAuthorityCsrRequest = Schema.Struct({CertificateAuthorityArn: Schema.String});
-export const GetPolicyRequest = Schema.Struct({ResourceArn: Schema.String});
-export const ImportCertificateAuthorityCertificateRequest = Schema.Struct({CertificateAuthorityArn: Schema.String, Certificate: StreamBody(), CertificateChain: Schema.optional(StreamBody())});
-export const ListCertificateAuthoritiesRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), ResourceOwner: Schema.optional(Schema.String)});
-export const ListPermissionsRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), CertificateAuthorityArn: Schema.String});
-export const ListTagsRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), CertificateAuthorityArn: Schema.String});
-export const PutPolicyRequest = Schema.Struct({ResourceArn: Schema.String, Policy: Schema.String});
-export const RestoreCertificateAuthorityRequest = Schema.Struct({CertificateAuthorityArn: Schema.String});
-export const RevokeCertificateRequest = Schema.Struct({CertificateAuthorityArn: Schema.String, CertificateSerial: Schema.String, RevocationReason: Schema.String});
-export const Tag = Schema.Struct({Key: Schema.String, Value: Schema.optional(Schema.String)});
+export class CreateCertificateAuthorityAuditReportRequest extends Schema.Class<CreateCertificateAuthorityAuditReportRequest>("CreateCertificateAuthorityAuditReportRequest")({CertificateAuthorityArn: Schema.String, S3BucketName: Schema.String, AuditReportResponseFormat: Schema.String}) {}
+export class CreatePermissionRequest extends Schema.Class<CreatePermissionRequest>("CreatePermissionRequest")({CertificateAuthorityArn: Schema.String, Principal: Schema.String, SourceAccount: Schema.optional(Schema.String), Actions: ActionList}) {}
+export class DeleteCertificateAuthorityRequest extends Schema.Class<DeleteCertificateAuthorityRequest>("DeleteCertificateAuthorityRequest")({CertificateAuthorityArn: Schema.String, PermanentDeletionTimeInDays: Schema.optional(Schema.Number)}) {}
+export class DeletePermissionRequest extends Schema.Class<DeletePermissionRequest>("DeletePermissionRequest")({CertificateAuthorityArn: Schema.String, Principal: Schema.String, SourceAccount: Schema.optional(Schema.String)}) {}
+export class DeletePolicyRequest extends Schema.Class<DeletePolicyRequest>("DeletePolicyRequest")({ResourceArn: Schema.String}) {}
+export class DescribeCertificateAuthorityRequest extends Schema.Class<DescribeCertificateAuthorityRequest>("DescribeCertificateAuthorityRequest")({CertificateAuthorityArn: Schema.String}) {}
+export class DescribeCertificateAuthorityAuditReportRequest extends Schema.Class<DescribeCertificateAuthorityAuditReportRequest>("DescribeCertificateAuthorityAuditReportRequest")({CertificateAuthorityArn: Schema.String, AuditReportId: Schema.String}) {}
+export class GetCertificateRequest extends Schema.Class<GetCertificateRequest>("GetCertificateRequest")({CertificateAuthorityArn: Schema.String, CertificateArn: Schema.String}) {}
+export class GetCertificateAuthorityCertificateRequest extends Schema.Class<GetCertificateAuthorityCertificateRequest>("GetCertificateAuthorityCertificateRequest")({CertificateAuthorityArn: Schema.String}) {}
+export class GetCertificateAuthorityCsrRequest extends Schema.Class<GetCertificateAuthorityCsrRequest>("GetCertificateAuthorityCsrRequest")({CertificateAuthorityArn: Schema.String}) {}
+export class GetPolicyRequest extends Schema.Class<GetPolicyRequest>("GetPolicyRequest")({ResourceArn: Schema.String}) {}
+export class ImportCertificateAuthorityCertificateRequest extends Schema.Class<ImportCertificateAuthorityCertificateRequest>("ImportCertificateAuthorityCertificateRequest")({CertificateAuthorityArn: Schema.String, Certificate: StreamBody(), CertificateChain: Schema.optional(StreamBody())}) {}
+export class ListCertificateAuthoritiesRequest extends Schema.Class<ListCertificateAuthoritiesRequest>("ListCertificateAuthoritiesRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), ResourceOwner: Schema.optional(Schema.String)}) {}
+export class ListPermissionsRequest extends Schema.Class<ListPermissionsRequest>("ListPermissionsRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), CertificateAuthorityArn: Schema.String}) {}
+export class ListTagsRequest extends Schema.Class<ListTagsRequest>("ListTagsRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), CertificateAuthorityArn: Schema.String}) {}
+export class PutPolicyRequest extends Schema.Class<PutPolicyRequest>("PutPolicyRequest")({ResourceArn: Schema.String, Policy: Schema.String}) {}
+export class RestoreCertificateAuthorityRequest extends Schema.Class<RestoreCertificateAuthorityRequest>("RestoreCertificateAuthorityRequest")({CertificateAuthorityArn: Schema.String}) {}
+export class RevokeCertificateRequest extends Schema.Class<RevokeCertificateRequest>("RevokeCertificateRequest")({CertificateAuthorityArn: Schema.String, CertificateSerial: Schema.String, RevocationReason: Schema.String}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.String, Value: Schema.optional(Schema.String)}) {}
 export const TagList = Schema.Array(Tag);
-export const TagCertificateAuthorityRequest = Schema.Struct({CertificateAuthorityArn: Schema.String, Tags: TagList});
-export const UntagCertificateAuthorityRequest = Schema.Struct({CertificateAuthorityArn: Schema.String, Tags: TagList});
-export const CrlDistributionPointExtensionConfiguration = Schema.Struct({OmitExtension: Schema.Boolean});
-export const CrlConfiguration = Schema.Struct({Enabled: Schema.Boolean, ExpirationInDays: Schema.optional(Schema.Number), CustomCname: Schema.optional(Schema.String), S3BucketName: Schema.optional(Schema.String), S3ObjectAcl: Schema.optional(Schema.String), CrlDistributionPointExtensionConfiguration: Schema.optional(CrlDistributionPointExtensionConfiguration), CrlType: Schema.optional(Schema.String), CustomPath: Schema.optional(Schema.String)});
-export const OcspConfiguration = Schema.Struct({Enabled: Schema.Boolean, OcspCustomCname: Schema.optional(Schema.String)});
-export const RevocationConfiguration = Schema.Struct({CrlConfiguration: Schema.optional(CrlConfiguration), OcspConfiguration: Schema.optional(OcspConfiguration)});
-export const UpdateCertificateAuthorityRequest = Schema.Struct({CertificateAuthorityArn: Schema.String, RevocationConfiguration: Schema.optional(RevocationConfiguration), Status: Schema.optional(Schema.String)});
-export const Validity = Schema.Struct({Value: Schema.Number, Type: Schema.String});
-export const CustomAttribute = Schema.Struct({ObjectIdentifier: Schema.String, Value: Schema.String});
+export class TagCertificateAuthorityRequest extends Schema.Class<TagCertificateAuthorityRequest>("TagCertificateAuthorityRequest")({CertificateAuthorityArn: Schema.String, Tags: TagList}) {}
+export class UntagCertificateAuthorityRequest extends Schema.Class<UntagCertificateAuthorityRequest>("UntagCertificateAuthorityRequest")({CertificateAuthorityArn: Schema.String, Tags: TagList}) {}
+export class CrlDistributionPointExtensionConfiguration extends Schema.Class<CrlDistributionPointExtensionConfiguration>("CrlDistributionPointExtensionConfiguration")({OmitExtension: Schema.Boolean}) {}
+export class CrlConfiguration extends Schema.Class<CrlConfiguration>("CrlConfiguration")({Enabled: Schema.Boolean, ExpirationInDays: Schema.optional(Schema.Number), CustomCname: Schema.optional(Schema.String), S3BucketName: Schema.optional(Schema.String), S3ObjectAcl: Schema.optional(Schema.String), CrlDistributionPointExtensionConfiguration: Schema.optional(CrlDistributionPointExtensionConfiguration), CrlType: Schema.optional(Schema.String), CustomPath: Schema.optional(Schema.String)}) {}
+export class OcspConfiguration extends Schema.Class<OcspConfiguration>("OcspConfiguration")({Enabled: Schema.Boolean, OcspCustomCname: Schema.optional(Schema.String)}) {}
+export class RevocationConfiguration extends Schema.Class<RevocationConfiguration>("RevocationConfiguration")({CrlConfiguration: Schema.optional(CrlConfiguration), OcspConfiguration: Schema.optional(OcspConfiguration)}) {}
+export class UpdateCertificateAuthorityRequest extends Schema.Class<UpdateCertificateAuthorityRequest>("UpdateCertificateAuthorityRequest")({CertificateAuthorityArn: Schema.String, RevocationConfiguration: Schema.optional(RevocationConfiguration), Status: Schema.optional(Schema.String)}) {}
+export class Validity extends Schema.Class<Validity>("Validity")({Value: Schema.Number, Type: Schema.String}) {}
+export class CustomAttribute extends Schema.Class<CustomAttribute>("CustomAttribute")({ObjectIdentifier: Schema.String, Value: Schema.String}) {}
 export const CustomAttributeList = Schema.Array(CustomAttribute);
-export const ASN1Subject = Schema.Struct({Country: Schema.optional(Schema.String), Organization: Schema.optional(Schema.String), OrganizationalUnit: Schema.optional(Schema.String), DistinguishedNameQualifier: Schema.optional(Schema.String), State: Schema.optional(Schema.String), CommonName: Schema.optional(Schema.String), SerialNumber: Schema.optional(Schema.String), Locality: Schema.optional(Schema.String), Title: Schema.optional(Schema.String), Surname: Schema.optional(Schema.String), GivenName: Schema.optional(Schema.String), Initials: Schema.optional(Schema.String), Pseudonym: Schema.optional(Schema.String), GenerationQualifier: Schema.optional(Schema.String), CustomAttributes: Schema.optional(CustomAttributeList)});
-export const KeyUsage = Schema.Struct({DigitalSignature: Schema.optional(Schema.Boolean), NonRepudiation: Schema.optional(Schema.Boolean), KeyEncipherment: Schema.optional(Schema.Boolean), DataEncipherment: Schema.optional(Schema.Boolean), KeyAgreement: Schema.optional(Schema.Boolean), KeyCertSign: Schema.optional(Schema.Boolean), CRLSign: Schema.optional(Schema.Boolean), EncipherOnly: Schema.optional(Schema.Boolean), DecipherOnly: Schema.optional(Schema.Boolean)});
-export const AccessMethod = Schema.Struct({CustomObjectIdentifier: Schema.optional(Schema.String), AccessMethodType: Schema.optional(Schema.String)});
-export const OtherName = Schema.Struct({TypeId: Schema.String, Value: Schema.String});
-export const EdiPartyName = Schema.Struct({PartyName: Schema.String, NameAssigner: Schema.optional(Schema.String)});
-export const GeneralName = Schema.Struct({OtherName: Schema.optional(OtherName), Rfc822Name: Schema.optional(Schema.String), DnsName: Schema.optional(Schema.String), DirectoryName: Schema.optional(ASN1Subject), EdiPartyName: Schema.optional(EdiPartyName), UniformResourceIdentifier: Schema.optional(Schema.String), IpAddress: Schema.optional(Schema.String), RegisteredId: Schema.optional(Schema.String)});
-export const AccessDescription = Schema.Struct({AccessMethod: AccessMethod, AccessLocation: GeneralName});
+export class ASN1Subject extends Schema.Class<ASN1Subject>("ASN1Subject")({Country: Schema.optional(Schema.String), Organization: Schema.optional(Schema.String), OrganizationalUnit: Schema.optional(Schema.String), DistinguishedNameQualifier: Schema.optional(Schema.String), State: Schema.optional(Schema.String), CommonName: Schema.optional(Schema.String), SerialNumber: Schema.optional(Schema.String), Locality: Schema.optional(Schema.String), Title: Schema.optional(Schema.String), Surname: Schema.optional(Schema.String), GivenName: Schema.optional(Schema.String), Initials: Schema.optional(Schema.String), Pseudonym: Schema.optional(Schema.String), GenerationQualifier: Schema.optional(Schema.String), CustomAttributes: Schema.optional(CustomAttributeList)}) {}
+export class KeyUsage extends Schema.Class<KeyUsage>("KeyUsage")({DigitalSignature: Schema.optional(Schema.Boolean), NonRepudiation: Schema.optional(Schema.Boolean), KeyEncipherment: Schema.optional(Schema.Boolean), DataEncipherment: Schema.optional(Schema.Boolean), KeyAgreement: Schema.optional(Schema.Boolean), KeyCertSign: Schema.optional(Schema.Boolean), CRLSign: Schema.optional(Schema.Boolean), EncipherOnly: Schema.optional(Schema.Boolean), DecipherOnly: Schema.optional(Schema.Boolean)}) {}
+export class AccessMethod extends Schema.Class<AccessMethod>("AccessMethod")({CustomObjectIdentifier: Schema.optional(Schema.String), AccessMethodType: Schema.optional(Schema.String)}) {}
+export class OtherName extends Schema.Class<OtherName>("OtherName")({TypeId: Schema.String, Value: Schema.String}) {}
+export class EdiPartyName extends Schema.Class<EdiPartyName>("EdiPartyName")({PartyName: Schema.String, NameAssigner: Schema.optional(Schema.String)}) {}
+export class GeneralName extends Schema.Class<GeneralName>("GeneralName")({OtherName: Schema.optional(OtherName), Rfc822Name: Schema.optional(Schema.String), DnsName: Schema.optional(Schema.String), DirectoryName: Schema.optional(ASN1Subject), EdiPartyName: Schema.optional(EdiPartyName), UniformResourceIdentifier: Schema.optional(Schema.String), IpAddress: Schema.optional(Schema.String), RegisteredId: Schema.optional(Schema.String)}) {}
+export class AccessDescription extends Schema.Class<AccessDescription>("AccessDescription")({AccessMethod: AccessMethod, AccessLocation: GeneralName}) {}
 export const AccessDescriptionList = Schema.Array(AccessDescription);
-export const CsrExtensions = Schema.Struct({KeyUsage: Schema.optional(KeyUsage), SubjectInformationAccess: Schema.optional(AccessDescriptionList)});
-export const CertificateAuthorityConfiguration = Schema.Struct({KeyAlgorithm: Schema.String, SigningAlgorithm: Schema.String, Subject: ASN1Subject, CsrExtensions: Schema.optional(CsrExtensions)});
-export const CertificateAuthority = Schema.Struct({Arn: Schema.optional(Schema.String), OwnerAccount: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date), LastStateChangeAt: Schema.optional(Schema.Date), Type: Schema.optional(Schema.String), Serial: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), NotBefore: Schema.optional(Schema.Date), NotAfter: Schema.optional(Schema.Date), FailureReason: Schema.optional(Schema.String), CertificateAuthorityConfiguration: Schema.optional(CertificateAuthorityConfiguration), RevocationConfiguration: Schema.optional(RevocationConfiguration), RestorableUntil: Schema.optional(Schema.Date), KeyStorageSecurityStandard: Schema.optional(Schema.String), UsageMode: Schema.optional(Schema.String)});
+export class CsrExtensions extends Schema.Class<CsrExtensions>("CsrExtensions")({KeyUsage: Schema.optional(KeyUsage), SubjectInformationAccess: Schema.optional(AccessDescriptionList)}) {}
+export class CertificateAuthorityConfiguration extends Schema.Class<CertificateAuthorityConfiguration>("CertificateAuthorityConfiguration")({KeyAlgorithm: Schema.String, SigningAlgorithm: Schema.String, Subject: ASN1Subject, CsrExtensions: Schema.optional(CsrExtensions)}) {}
+export class CertificateAuthority extends Schema.Class<CertificateAuthority>("CertificateAuthority")({Arn: Schema.optional(Schema.String), OwnerAccount: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date), LastStateChangeAt: Schema.optional(Schema.Date), Type: Schema.optional(Schema.String), Serial: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), NotBefore: Schema.optional(Schema.Date), NotAfter: Schema.optional(Schema.Date), FailureReason: Schema.optional(Schema.String), CertificateAuthorityConfiguration: Schema.optional(CertificateAuthorityConfiguration), RevocationConfiguration: Schema.optional(RevocationConfiguration), RestorableUntil: Schema.optional(Schema.Date), KeyStorageSecurityStandard: Schema.optional(Schema.String), UsageMode: Schema.optional(Schema.String)}) {}
 export const CertificateAuthorities = Schema.Array(CertificateAuthority);
-export const CreateCertificateAuthorityAuditReportResponse = Schema.Struct({AuditReportId: Schema.optional(Schema.String), S3Key: Schema.optional(Schema.String)});
-export const InvalidArnException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ConcurrentModificationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidStateException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const LockoutPreventedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DescribeCertificateAuthorityAuditReportResponse = Schema.Struct({AuditReportStatus: Schema.optional(Schema.String), S3BucketName: Schema.optional(Schema.String), S3Key: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date)});
-export const GetCertificateResponse = Schema.Struct({Certificate: Schema.optional(Schema.String), CertificateChain: Schema.optional(Schema.String)});
-export const GetCertificateAuthorityCertificateResponse = Schema.Struct({Certificate: Schema.optional(Schema.String), CertificateChain: Schema.optional(Schema.String)});
-export const GetCertificateAuthorityCsrResponse = Schema.Struct({Csr: Schema.optional(Schema.String)});
-export const GetPolicyResponse = Schema.Struct({Policy: Schema.optional(Schema.String)});
-export const CertificateMismatchException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ListCertificateAuthoritiesResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), CertificateAuthorities: Schema.optional(CertificateAuthorities)});
-export const ListTagsResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), Tags: Schema.optional(TagList)});
-export const InvalidPolicyException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidRequestException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidTagException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidArgsException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const Permission = Schema.Struct({CertificateAuthorityArn: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date), Principal: Schema.optional(Schema.String), SourceAccount: Schema.optional(Schema.String), Actions: Schema.optional(ActionList), Policy: Schema.optional(Schema.String)});
+export class CreateCertificateAuthorityAuditReportResponse extends Schema.Class<CreateCertificateAuthorityAuditReportResponse>("CreateCertificateAuthorityAuditReportResponse")({AuditReportId: Schema.optional(Schema.String), S3Key: Schema.optional(Schema.String)}) {}
+export class InvalidArnException extends Schema.Class<InvalidArnException>("InvalidArnException")({message: Schema.optional(Schema.String)}) {}
+export class ConcurrentModificationException extends Schema.Class<ConcurrentModificationException>("ConcurrentModificationException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidStateException extends Schema.Class<InvalidStateException>("InvalidStateException")({message: Schema.optional(Schema.String)}) {}
+export class LockoutPreventedException extends Schema.Class<LockoutPreventedException>("LockoutPreventedException")({message: Schema.optional(Schema.String)}) {}
+export class DescribeCertificateAuthorityAuditReportResponse extends Schema.Class<DescribeCertificateAuthorityAuditReportResponse>("DescribeCertificateAuthorityAuditReportResponse")({AuditReportStatus: Schema.optional(Schema.String), S3BucketName: Schema.optional(Schema.String), S3Key: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date)}) {}
+export class GetCertificateResponse extends Schema.Class<GetCertificateResponse>("GetCertificateResponse")({Certificate: Schema.optional(Schema.String), CertificateChain: Schema.optional(Schema.String)}) {}
+export class GetCertificateAuthorityCertificateResponse extends Schema.Class<GetCertificateAuthorityCertificateResponse>("GetCertificateAuthorityCertificateResponse")({Certificate: Schema.optional(Schema.String), CertificateChain: Schema.optional(Schema.String)}) {}
+export class GetCertificateAuthorityCsrResponse extends Schema.Class<GetCertificateAuthorityCsrResponse>("GetCertificateAuthorityCsrResponse")({Csr: Schema.optional(Schema.String)}) {}
+export class GetPolicyResponse extends Schema.Class<GetPolicyResponse>("GetPolicyResponse")({Policy: Schema.optional(Schema.String)}) {}
+export class CertificateMismatchException extends Schema.Class<CertificateMismatchException>("CertificateMismatchException")({message: Schema.optional(Schema.String)}) {}
+export class ListCertificateAuthoritiesResponse extends Schema.Class<ListCertificateAuthoritiesResponse>("ListCertificateAuthoritiesResponse")({NextToken: Schema.optional(Schema.String), CertificateAuthorities: Schema.optional(CertificateAuthorities)}) {}
+export class ListTagsResponse extends Schema.Class<ListTagsResponse>("ListTagsResponse")({NextToken: Schema.optional(Schema.String), Tags: Schema.optional(TagList)}) {}
+export class InvalidPolicyException extends Schema.Class<InvalidPolicyException>("InvalidPolicyException")({message: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidRequestException extends Schema.Class<InvalidRequestException>("InvalidRequestException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidTagException extends Schema.Class<InvalidTagException>("InvalidTagException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidArgsException extends Schema.Class<InvalidArgsException>("InvalidArgsException")({message: Schema.optional(Schema.String)}) {}
+export class Permission extends Schema.Class<Permission>("Permission")({CertificateAuthorityArn: Schema.optional(Schema.String), CreatedAt: Schema.optional(Schema.Date), Principal: Schema.optional(Schema.String), SourceAccount: Schema.optional(Schema.String), Actions: Schema.optional(ActionList), Policy: Schema.optional(Schema.String)}) {}
 export const PermissionList = Schema.Array(Permission);
-export const ExtendedKeyUsage = Schema.Struct({ExtendedKeyUsageType: Schema.optional(Schema.String), ExtendedKeyUsageObjectIdentifier: Schema.optional(Schema.String)});
+export class ExtendedKeyUsage extends Schema.Class<ExtendedKeyUsage>("ExtendedKeyUsage")({ExtendedKeyUsageType: Schema.optional(Schema.String), ExtendedKeyUsageObjectIdentifier: Schema.optional(Schema.String)}) {}
 export const ExtendedKeyUsageList = Schema.Array(ExtendedKeyUsage);
-export const CustomExtension = Schema.Struct({ObjectIdentifier: Schema.String, Value: Schema.String, Critical: Schema.optional(Schema.Boolean)});
+export class CustomExtension extends Schema.Class<CustomExtension>("CustomExtension")({ObjectIdentifier: Schema.String, Value: Schema.String, Critical: Schema.optional(Schema.Boolean)}) {}
 export const CustomExtensionList = Schema.Array(CustomExtension);
-export const RequestFailedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const LimitExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DescribeCertificateAuthorityResponse = Schema.Struct({CertificateAuthority: Schema.optional(CertificateAuthority)});
-export const RequestInProgressException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const MalformedCertificateException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidNextTokenException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ListPermissionsResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), Permissions: Schema.optional(PermissionList)});
-export const RequestAlreadyProcessedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const TooManyTagsException = Schema.Struct({message: Schema.optional(Schema.String)});
+export class RequestFailedException extends Schema.Class<RequestFailedException>("RequestFailedException")({message: Schema.optional(Schema.String)}) {}
+export class LimitExceededException extends Schema.Class<LimitExceededException>("LimitExceededException")({message: Schema.optional(Schema.String)}) {}
+export class DescribeCertificateAuthorityResponse extends Schema.Class<DescribeCertificateAuthorityResponse>("DescribeCertificateAuthorityResponse")({CertificateAuthority: Schema.optional(CertificateAuthority)}) {}
+export class RequestInProgressException extends Schema.Class<RequestInProgressException>("RequestInProgressException")({message: Schema.optional(Schema.String)}) {}
+export class MalformedCertificateException extends Schema.Class<MalformedCertificateException>("MalformedCertificateException")({message: Schema.optional(Schema.String)}) {}
+export class InvalidNextTokenException extends Schema.Class<InvalidNextTokenException>("InvalidNextTokenException")({message: Schema.optional(Schema.String)}) {}
+export class ListPermissionsResponse extends Schema.Class<ListPermissionsResponse>("ListPermissionsResponse")({NextToken: Schema.optional(Schema.String), Permissions: Schema.optional(PermissionList)}) {}
+export class RequestAlreadyProcessedException extends Schema.Class<RequestAlreadyProcessedException>("RequestAlreadyProcessedException")({message: Schema.optional(Schema.String)}) {}
+export class TooManyTagsException extends Schema.Class<TooManyTagsException>("TooManyTagsException")({message: Schema.optional(Schema.String)}) {}
 export const GeneralNameList = Schema.Array(GeneralName);
-export const PermissionAlreadyExistsException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const Qualifier = Schema.Struct({CpsUri: Schema.String});
-export const PolicyQualifierInfo = Schema.Struct({PolicyQualifierId: Schema.String, Qualifier: Qualifier});
+export class PermissionAlreadyExistsException extends Schema.Class<PermissionAlreadyExistsException>("PermissionAlreadyExistsException")({message: Schema.optional(Schema.String)}) {}
+export class Qualifier extends Schema.Class<Qualifier>("Qualifier")({CpsUri: Schema.String}) {}
+export class PolicyQualifierInfo extends Schema.Class<PolicyQualifierInfo>("PolicyQualifierInfo")({PolicyQualifierId: Schema.String, Qualifier: Qualifier}) {}
 export const PolicyQualifierInfoList = Schema.Array(PolicyQualifierInfo);
-export const PolicyInformation = Schema.Struct({CertPolicyId: Schema.String, PolicyQualifiers: Schema.optional(PolicyQualifierInfoList)});
+export class PolicyInformation extends Schema.Class<PolicyInformation>("PolicyInformation")({CertPolicyId: Schema.String, PolicyQualifiers: Schema.optional(PolicyQualifierInfoList)}) {}
 export const CertificatePolicyList = Schema.Array(PolicyInformation);
-export const CreateCertificateAuthorityRequest = Schema.Struct({CertificateAuthorityConfiguration: CertificateAuthorityConfiguration, RevocationConfiguration: Schema.optional(RevocationConfiguration), CertificateAuthorityType: Schema.String, IdempotencyToken: Schema.optional(Schema.String), KeyStorageSecurityStandard: Schema.optional(Schema.String), Tags: Schema.optional(TagList), UsageMode: Schema.optional(Schema.String)});
-export const Extensions = Schema.Struct({CertificatePolicies: Schema.optional(CertificatePolicyList), ExtendedKeyUsage: Schema.optional(ExtendedKeyUsageList), KeyUsage: Schema.optional(KeyUsage), SubjectAlternativeNames: Schema.optional(GeneralNameList), CustomExtensions: Schema.optional(CustomExtensionList)});
-export const ApiPassthrough = Schema.Struct({Extensions: Schema.optional(Extensions), Subject: Schema.optional(ASN1Subject)});
-export const CreateCertificateAuthorityResponse = Schema.Struct({CertificateAuthorityArn: Schema.optional(Schema.String)});
-export const IssueCertificateRequest = Schema.Struct({ApiPassthrough: Schema.optional(ApiPassthrough), CertificateAuthorityArn: Schema.String, Csr: StreamBody(), SigningAlgorithm: Schema.String, TemplateArn: Schema.optional(Schema.String), Validity: Validity, ValidityNotBefore: Schema.optional(Validity), IdempotencyToken: Schema.optional(Schema.String)});
-export const IssueCertificateResponse = Schema.Struct({CertificateArn: Schema.optional(Schema.String)});
-export const MalformedCSRException = Schema.Struct({message: Schema.optional(Schema.String)});
+export class CreateCertificateAuthorityRequest extends Schema.Class<CreateCertificateAuthorityRequest>("CreateCertificateAuthorityRequest")({CertificateAuthorityConfiguration: CertificateAuthorityConfiguration, RevocationConfiguration: Schema.optional(RevocationConfiguration), CertificateAuthorityType: Schema.String, IdempotencyToken: Schema.optional(Schema.String), KeyStorageSecurityStandard: Schema.optional(Schema.String), Tags: Schema.optional(TagList), UsageMode: Schema.optional(Schema.String)}) {}
+export class Extensions extends Schema.Class<Extensions>("Extensions")({CertificatePolicies: Schema.optional(CertificatePolicyList), ExtendedKeyUsage: Schema.optional(ExtendedKeyUsageList), KeyUsage: Schema.optional(KeyUsage), SubjectAlternativeNames: Schema.optional(GeneralNameList), CustomExtensions: Schema.optional(CustomExtensionList)}) {}
+export class ApiPassthrough extends Schema.Class<ApiPassthrough>("ApiPassthrough")({Extensions: Schema.optional(Extensions), Subject: Schema.optional(ASN1Subject)}) {}
+export class CreateCertificateAuthorityResponse extends Schema.Class<CreateCertificateAuthorityResponse>("CreateCertificateAuthorityResponse")({CertificateAuthorityArn: Schema.optional(Schema.String)}) {}
+export class IssueCertificateRequest extends Schema.Class<IssueCertificateRequest>("IssueCertificateRequest")({ApiPassthrough: Schema.optional(ApiPassthrough), CertificateAuthorityArn: Schema.String, Csr: StreamBody(), SigningAlgorithm: Schema.String, TemplateArn: Schema.optional(Schema.String), Validity: Validity, ValidityNotBefore: Schema.optional(Validity), IdempotencyToken: Schema.optional(Schema.String)}) {}
+export class IssueCertificateResponse extends Schema.Class<IssueCertificateResponse>("IssueCertificateResponse")({CertificateArn: Schema.optional(Schema.String)}) {}
+export class MalformedCSRException extends Schema.Class<MalformedCSRException>("MalformedCSRException")({message: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class InvalidArnExceptionError extends Schema.TaggedError<InvalidArnExceptionError>()("InvalidArnException", InvalidArnException) {};
-export class ConcurrentModificationExceptionError extends Schema.TaggedError<ConcurrentModificationExceptionError>()("ConcurrentModificationException", ConcurrentModificationException) {};
-export class InvalidStateExceptionError extends Schema.TaggedError<InvalidStateExceptionError>()("InvalidStateException", InvalidStateException) {};
-export class InvalidTagExceptionError extends Schema.TaggedError<InvalidTagExceptionError>()("InvalidTagException", InvalidTagException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class InvalidArgsExceptionError extends Schema.TaggedError<InvalidArgsExceptionError>()("InvalidArgsException", InvalidArgsException) {};
-export class RequestFailedExceptionError extends Schema.TaggedError<RequestFailedExceptionError>()("RequestFailedException", RequestFailedException) {};
-export class LockoutPreventedExceptionError extends Schema.TaggedError<LockoutPreventedExceptionError>()("LockoutPreventedException", LockoutPreventedException) {};
-export class RequestInProgressExceptionError extends Schema.TaggedError<RequestInProgressExceptionError>()("RequestInProgressException", RequestInProgressException) {};
-export class CertificateMismatchExceptionError extends Schema.TaggedError<CertificateMismatchExceptionError>()("CertificateMismatchException", CertificateMismatchException) {};
-export class InvalidRequestExceptionError extends Schema.TaggedError<InvalidRequestExceptionError>()("InvalidRequestException", InvalidRequestException) {};
-export class InvalidPolicyExceptionError extends Schema.TaggedError<InvalidPolicyExceptionError>()("InvalidPolicyException", InvalidPolicyException) {};
-export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException) {};
-export class MalformedCertificateExceptionError extends Schema.TaggedError<MalformedCertificateExceptionError>()("MalformedCertificateException", MalformedCertificateException) {};
-export class InvalidNextTokenExceptionError extends Schema.TaggedError<InvalidNextTokenExceptionError>()("InvalidNextTokenException", InvalidNextTokenException) {};
-export class RequestAlreadyProcessedExceptionError extends Schema.TaggedError<RequestAlreadyProcessedExceptionError>()("RequestAlreadyProcessedException", RequestAlreadyProcessedException) {};
-export class TooManyTagsExceptionError extends Schema.TaggedError<TooManyTagsExceptionError>()("TooManyTagsException", TooManyTagsException) {};
-export class PermissionAlreadyExistsExceptionError extends Schema.TaggedError<PermissionAlreadyExistsExceptionError>()("PermissionAlreadyExistsException", PermissionAlreadyExistsException) {};
-export class MalformedCSRExceptionError extends Schema.TaggedError<MalformedCSRExceptionError>()("MalformedCSRException", MalformedCSRException) {};
+export class InvalidArnExceptionError extends Schema.TaggedError<InvalidArnExceptionError>()("InvalidArnException", InvalidArnException.fields) {};
+export class ConcurrentModificationExceptionError extends Schema.TaggedError<ConcurrentModificationExceptionError>()("ConcurrentModificationException", ConcurrentModificationException.fields) {};
+export class InvalidStateExceptionError extends Schema.TaggedError<InvalidStateExceptionError>()("InvalidStateException", InvalidStateException.fields) {};
+export class InvalidTagExceptionError extends Schema.TaggedError<InvalidTagExceptionError>()("InvalidTagException", InvalidTagException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class InvalidArgsExceptionError extends Schema.TaggedError<InvalidArgsExceptionError>()("InvalidArgsException", InvalidArgsException.fields) {};
+export class RequestFailedExceptionError extends Schema.TaggedError<RequestFailedExceptionError>()("RequestFailedException", RequestFailedException.fields) {};
+export class LockoutPreventedExceptionError extends Schema.TaggedError<LockoutPreventedExceptionError>()("LockoutPreventedException", LockoutPreventedException.fields) {};
+export class RequestInProgressExceptionError extends Schema.TaggedError<RequestInProgressExceptionError>()("RequestInProgressException", RequestInProgressException.fields) {};
+export class CertificateMismatchExceptionError extends Schema.TaggedError<CertificateMismatchExceptionError>()("CertificateMismatchException", CertificateMismatchException.fields) {};
+export class InvalidRequestExceptionError extends Schema.TaggedError<InvalidRequestExceptionError>()("InvalidRequestException", InvalidRequestException.fields) {};
+export class InvalidPolicyExceptionError extends Schema.TaggedError<InvalidPolicyExceptionError>()("InvalidPolicyException", InvalidPolicyException.fields) {};
+export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException.fields) {};
+export class MalformedCertificateExceptionError extends Schema.TaggedError<MalformedCertificateExceptionError>()("MalformedCertificateException", MalformedCertificateException.fields) {};
+export class InvalidNextTokenExceptionError extends Schema.TaggedError<InvalidNextTokenExceptionError>()("InvalidNextTokenException", InvalidNextTokenException.fields) {};
+export class RequestAlreadyProcessedExceptionError extends Schema.TaggedError<RequestAlreadyProcessedExceptionError>()("RequestAlreadyProcessedException", RequestAlreadyProcessedException.fields) {};
+export class TooManyTagsExceptionError extends Schema.TaggedError<TooManyTagsExceptionError>()("TooManyTagsException", TooManyTagsException.fields) {};
+export class PermissionAlreadyExistsExceptionError extends Schema.TaggedError<PermissionAlreadyExistsExceptionError>()("PermissionAlreadyExistsException", PermissionAlreadyExistsException.fields) {};
+export class MalformedCSRExceptionError extends Schema.TaggedError<MalformedCSRExceptionError>()("MalformedCSRException", MalformedCSRException.fields) {};
 
 //# Operations
 export const untagCertificateAuthority = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-08-22", uri: "/", method: "POST", sdkId: "ACM PCA", sigV4ServiceName: "acm-pca", name: "ACMPrivateCA.UntagCertificateAuthority" }, UntagCertificateAuthorityRequest, Schema.Struct({}), [InvalidArnExceptionError, InvalidStateExceptionError, InvalidTagExceptionError, ResourceNotFoundExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

@@ -4,87 +4,87 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 
 //# Schemas
 export const TagKeyList = Schema.Array(Schema.String);
-export const DeleteLicenseServerEndpointRequest = Schema.Struct({LicenseServerEndpointArn: Schema.String, ServerType: Schema.String});
+export class DeleteLicenseServerEndpointRequest extends Schema.Class<DeleteLicenseServerEndpointRequest>("DeleteLicenseServerEndpointRequest")({LicenseServerEndpointArn: Schema.String, ServerType: Schema.String}) {}
 export const IpV4List = Schema.Array(Schema.String);
 export const IpV6List = Schema.Array(Schema.String);
-export const SecretsManagerCredentialsProvider = Schema.Struct({SecretId: Schema.optional(Schema.String)});
+export class SecretsManagerCredentialsProvider extends Schema.Class<SecretsManagerCredentialsProvider>("SecretsManagerCredentialsProvider")({SecretId: Schema.optional(Schema.String)}) {}
 export const CredentialsProvider = Schema.Union(SecretsManagerCredentialsProvider);
 export const Subnets = Schema.Array(Schema.String);
-export const DomainNetworkSettings = Schema.Struct({Subnets: Subnets});
-export const ActiveDirectorySettings = Schema.Struct({DomainName: Schema.optional(Schema.String), DomainIpv4List: Schema.optional(IpV4List), DomainIpv6List: Schema.optional(IpV6List), DomainCredentialsProvider: Schema.optional(CredentialsProvider), DomainNetworkSettings: Schema.optional(DomainNetworkSettings)});
-export const ActiveDirectoryIdentityProvider = Schema.Struct({DirectoryId: Schema.optional(Schema.String), ActiveDirectorySettings: Schema.optional(ActiveDirectorySettings), ActiveDirectoryType: Schema.optional(Schema.String), IsSharedActiveDirectory: Schema.optional(Schema.Boolean)});
+export class DomainNetworkSettings extends Schema.Class<DomainNetworkSettings>("DomainNetworkSettings")({Subnets: Subnets}) {}
+export class ActiveDirectorySettings extends Schema.Class<ActiveDirectorySettings>("ActiveDirectorySettings")({DomainName: Schema.optional(Schema.String), DomainIpv4List: Schema.optional(IpV4List), DomainIpv6List: Schema.optional(IpV6List), DomainCredentialsProvider: Schema.optional(CredentialsProvider), DomainNetworkSettings: Schema.optional(DomainNetworkSettings)}) {}
+export class ActiveDirectoryIdentityProvider extends Schema.Class<ActiveDirectoryIdentityProvider>("ActiveDirectoryIdentityProvider")({DirectoryId: Schema.optional(Schema.String), ActiveDirectorySettings: Schema.optional(ActiveDirectorySettings), ActiveDirectoryType: Schema.optional(Schema.String), IsSharedActiveDirectory: Schema.optional(Schema.Boolean)}) {}
 export const IdentityProvider = Schema.Union(ActiveDirectoryIdentityProvider);
-export const DeregisterIdentityProviderRequest = Schema.Struct({IdentityProvider: Schema.optional(IdentityProvider), Product: Schema.optional(Schema.String), IdentityProviderArn: Schema.optional(Schema.String)});
-export const DisassociateUserRequest = Schema.Struct({Username: Schema.optional(Schema.String), InstanceId: Schema.optional(Schema.String), IdentityProvider: Schema.optional(IdentityProvider), InstanceUserArn: Schema.optional(Schema.String), Domain: Schema.optional(Schema.String)});
-export const Filter = Schema.Struct({Attribute: Schema.optional(Schema.String), Operation: Schema.optional(Schema.String), Value: Schema.optional(Schema.String)});
+export class DeregisterIdentityProviderRequest extends Schema.Class<DeregisterIdentityProviderRequest>("DeregisterIdentityProviderRequest")({IdentityProvider: Schema.optional(IdentityProvider), Product: Schema.optional(Schema.String), IdentityProviderArn: Schema.optional(Schema.String)}) {}
+export class DisassociateUserRequest extends Schema.Class<DisassociateUserRequest>("DisassociateUserRequest")({Username: Schema.optional(Schema.String), InstanceId: Schema.optional(Schema.String), IdentityProvider: Schema.optional(IdentityProvider), InstanceUserArn: Schema.optional(Schema.String), Domain: Schema.optional(Schema.String)}) {}
+export class Filter extends Schema.Class<Filter>("Filter")({Attribute: Schema.optional(Schema.String), Operation: Schema.optional(Schema.String), Value: Schema.optional(Schema.String)}) {}
 export const FilterList = Schema.Array(Filter);
-export const ListInstancesRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), Filters: Schema.optional(FilterList)});
-export const ListLicenseServerEndpointsRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), Filters: Schema.optional(FilterList), NextToken: Schema.optional(Schema.String)});
-export const ListProductSubscriptionsRequest = Schema.Struct({Product: Schema.optional(Schema.String), IdentityProvider: IdentityProvider, MaxResults: Schema.optional(Schema.Number), Filters: Schema.optional(FilterList), NextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceRequest = Schema.Struct({ResourceArn: Schema.String});
-export const ListUserAssociationsRequest = Schema.Struct({InstanceId: Schema.String, IdentityProvider: IdentityProvider, MaxResults: Schema.optional(Schema.Number), Filters: Schema.optional(FilterList), NextToken: Schema.optional(Schema.String)});
+export class ListInstancesRequest extends Schema.Class<ListInstancesRequest>("ListInstancesRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), Filters: Schema.optional(FilterList)}) {}
+export class ListLicenseServerEndpointsRequest extends Schema.Class<ListLicenseServerEndpointsRequest>("ListLicenseServerEndpointsRequest")({MaxResults: Schema.optional(Schema.Number), Filters: Schema.optional(FilterList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListProductSubscriptionsRequest extends Schema.Class<ListProductSubscriptionsRequest>("ListProductSubscriptionsRequest")({Product: Schema.optional(Schema.String), IdentityProvider: IdentityProvider, MaxResults: Schema.optional(Schema.Number), Filters: Schema.optional(FilterList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({ResourceArn: Schema.String}) {}
+export class ListUserAssociationsRequest extends Schema.Class<ListUserAssociationsRequest>("ListUserAssociationsRequest")({InstanceId: Schema.String, IdentityProvider: IdentityProvider, MaxResults: Schema.optional(Schema.Number), Filters: Schema.optional(FilterList), NextToken: Schema.optional(Schema.String)}) {}
 export const Tags = Schema.Record({key: Schema.String, value: Schema.String});
-export const StartProductSubscriptionRequest = Schema.Struct({Username: Schema.String, IdentityProvider: IdentityProvider, Product: Schema.String, Domain: Schema.optional(Schema.String), Tags: Schema.optional(Tags)});
-export const StopProductSubscriptionRequest = Schema.Struct({Username: Schema.optional(Schema.String), IdentityProvider: Schema.optional(IdentityProvider), Product: Schema.optional(Schema.String), ProductUserArn: Schema.optional(Schema.String), Domain: Schema.optional(Schema.String)});
-export const TagResourceRequest = Schema.Struct({ResourceArn: Schema.String, Tags: Tags});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({ResourceArn: Schema.String, TagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
-export const ServerEndpoint = Schema.Struct({Endpoint: Schema.optional(Schema.String)});
-export const LicenseServer = Schema.Struct({ProvisioningStatus: Schema.optional(Schema.String), HealthStatus: Schema.optional(Schema.String), Ipv4Address: Schema.optional(Schema.String), Ipv6Address: Schema.optional(Schema.String)});
+export class StartProductSubscriptionRequest extends Schema.Class<StartProductSubscriptionRequest>("StartProductSubscriptionRequest")({Username: Schema.String, IdentityProvider: IdentityProvider, Product: Schema.String, Domain: Schema.optional(Schema.String), Tags: Schema.optional(Tags)}) {}
+export class StopProductSubscriptionRequest extends Schema.Class<StopProductSubscriptionRequest>("StopProductSubscriptionRequest")({Username: Schema.optional(Schema.String), IdentityProvider: Schema.optional(IdentityProvider), Product: Schema.optional(Schema.String), ProductUserArn: Schema.optional(Schema.String), Domain: Schema.optional(Schema.String)}) {}
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({ResourceArn: Schema.String, Tags: Tags}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({ResourceArn: Schema.String, TagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class ServerEndpoint extends Schema.Class<ServerEndpoint>("ServerEndpoint")({Endpoint: Schema.optional(Schema.String)}) {}
+export class LicenseServer extends Schema.Class<LicenseServer>("LicenseServer")({ProvisioningStatus: Schema.optional(Schema.String), HealthStatus: Schema.optional(Schema.String), Ipv4Address: Schema.optional(Schema.String), Ipv6Address: Schema.optional(Schema.String)}) {}
 export const LicenseServerList = Schema.Array(LicenseServer);
-export const LicenseServerEndpoint = Schema.Struct({IdentityProviderArn: Schema.optional(Schema.String), ServerType: Schema.optional(Schema.String), ServerEndpoint: Schema.optional(ServerEndpoint), StatusMessage: Schema.optional(Schema.String), LicenseServerEndpointId: Schema.optional(Schema.String), LicenseServerEndpointArn: Schema.optional(Schema.String), LicenseServerEndpointProvisioningStatus: Schema.optional(Schema.String), LicenseServers: Schema.optional(LicenseServerList), CreationTime: Schema.optional(Schema.Date)});
+export class LicenseServerEndpoint extends Schema.Class<LicenseServerEndpoint>("LicenseServerEndpoint")({IdentityProviderArn: Schema.optional(Schema.String), ServerType: Schema.optional(Schema.String), ServerEndpoint: Schema.optional(ServerEndpoint), StatusMessage: Schema.optional(Schema.String), LicenseServerEndpointId: Schema.optional(Schema.String), LicenseServerEndpointArn: Schema.optional(Schema.String), LicenseServerEndpointProvisioningStatus: Schema.optional(Schema.String), LicenseServers: Schema.optional(LicenseServerList), CreationTime: Schema.optional(Schema.Date)}) {}
 export const LicenseServerEndpointList = Schema.Array(LicenseServerEndpoint);
-export const InstanceUserSummary = Schema.Struct({Username: Schema.String, InstanceId: Schema.String, IdentityProvider: IdentityProvider, Status: Schema.String, InstanceUserArn: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), Domain: Schema.optional(Schema.String), AssociationDate: Schema.optional(Schema.String), DisassociationDate: Schema.optional(Schema.String)});
+export class InstanceUserSummary extends Schema.Class<InstanceUserSummary>("InstanceUserSummary")({Username: Schema.String, InstanceId: Schema.String, IdentityProvider: IdentityProvider, Status: Schema.String, InstanceUserArn: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), Domain: Schema.optional(Schema.String), AssociationDate: Schema.optional(Schema.String), DisassociationDate: Schema.optional(Schema.String)}) {}
 export const InstanceUserSummaryList = Schema.Array(InstanceUserSummary);
-export const Settings = Schema.Struct({Subnets: Subnets, SecurityGroupId: Schema.String});
-export const UpdateSettings = Schema.Struct({AddSubnets: Subnets, RemoveSubnets: Subnets, SecurityGroupId: Schema.optional(Schema.String)});
-export const ListIdentityProvidersRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), Filters: Schema.optional(FilterList), NextToken: Schema.optional(Schema.String)});
-export const ListLicenseServerEndpointsResponse = Schema.Struct({LicenseServerEndpoints: Schema.optional(LicenseServerEndpointList), NextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceResponse = Schema.Struct({Tags: Schema.optional(Tags)});
-export const ListUserAssociationsResponse = Schema.Struct({InstanceUserSummaries: Schema.optional(InstanceUserSummaryList), NextToken: Schema.optional(Schema.String)});
-export const RegisterIdentityProviderRequest = Schema.Struct({IdentityProvider: IdentityProvider, Product: Schema.String, Settings: Schema.optional(Settings), Tags: Schema.optional(Tags)});
-export const ProductUserSummary = Schema.Struct({Username: Schema.String, Product: Schema.String, IdentityProvider: IdentityProvider, Status: Schema.String, ProductUserArn: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), Domain: Schema.optional(Schema.String), SubscriptionStartDate: Schema.optional(Schema.String), SubscriptionEndDate: Schema.optional(Schema.String)});
-export const StartProductSubscriptionResponse = Schema.Struct({ProductUserSummary: ProductUserSummary});
-export const StopProductSubscriptionResponse = Schema.Struct({ProductUserSummary: ProductUserSummary});
-export const InternalServerException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UpdateIdentityProviderSettingsRequest = Schema.Struct({IdentityProvider: Schema.optional(IdentityProvider), Product: Schema.optional(Schema.String), IdentityProviderArn: Schema.optional(Schema.String), UpdateSettings: UpdateSettings});
+export class Settings extends Schema.Class<Settings>("Settings")({Subnets: Subnets, SecurityGroupId: Schema.String}) {}
+export class UpdateSettings extends Schema.Class<UpdateSettings>("UpdateSettings")({AddSubnets: Subnets, RemoveSubnets: Subnets, SecurityGroupId: Schema.optional(Schema.String)}) {}
+export class ListIdentityProvidersRequest extends Schema.Class<ListIdentityProvidersRequest>("ListIdentityProvidersRequest")({MaxResults: Schema.optional(Schema.Number), Filters: Schema.optional(FilterList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListLicenseServerEndpointsResponse extends Schema.Class<ListLicenseServerEndpointsResponse>("ListLicenseServerEndpointsResponse")({LicenseServerEndpoints: Schema.optional(LicenseServerEndpointList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({Tags: Schema.optional(Tags)}) {}
+export class ListUserAssociationsResponse extends Schema.Class<ListUserAssociationsResponse>("ListUserAssociationsResponse")({InstanceUserSummaries: Schema.optional(InstanceUserSummaryList), NextToken: Schema.optional(Schema.String)}) {}
+export class RegisterIdentityProviderRequest extends Schema.Class<RegisterIdentityProviderRequest>("RegisterIdentityProviderRequest")({IdentityProvider: IdentityProvider, Product: Schema.String, Settings: Schema.optional(Settings), Tags: Schema.optional(Tags)}) {}
+export class ProductUserSummary extends Schema.Class<ProductUserSummary>("ProductUserSummary")({Username: Schema.String, Product: Schema.String, IdentityProvider: IdentityProvider, Status: Schema.String, ProductUserArn: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), Domain: Schema.optional(Schema.String), SubscriptionStartDate: Schema.optional(Schema.String), SubscriptionEndDate: Schema.optional(Schema.String)}) {}
+export class StartProductSubscriptionResponse extends Schema.Class<StartProductSubscriptionResponse>("StartProductSubscriptionResponse")({ProductUserSummary: ProductUserSummary}) {}
+export class StopProductSubscriptionResponse extends Schema.Class<StopProductSubscriptionResponse>("StopProductSubscriptionResponse")({ProductUserSummary: ProductUserSummary}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({message: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class UpdateIdentityProviderSettingsRequest extends Schema.Class<UpdateIdentityProviderSettingsRequest>("UpdateIdentityProviderSettingsRequest")({IdentityProvider: Schema.optional(IdentityProvider), Product: Schema.optional(Schema.String), IdentityProviderArn: Schema.optional(Schema.String), UpdateSettings: UpdateSettings}) {}
 export const StringList = Schema.Array(Schema.String);
-export const IdentityProviderSummary = Schema.Struct({IdentityProvider: IdentityProvider, Settings: Settings, Product: Schema.String, Status: Schema.String, IdentityProviderArn: Schema.optional(Schema.String), FailureMessage: Schema.optional(Schema.String), OwnerAccountId: Schema.optional(Schema.String)});
+export class IdentityProviderSummary extends Schema.Class<IdentityProviderSummary>("IdentityProviderSummary")({IdentityProvider: IdentityProvider, Settings: Settings, Product: Schema.String, Status: Schema.String, IdentityProviderArn: Schema.optional(Schema.String), FailureMessage: Schema.optional(Schema.String), OwnerAccountId: Schema.optional(Schema.String)}) {}
 export const IdentityProviderSummaryList = Schema.Array(IdentityProviderSummary);
-export const InstanceSummary = Schema.Struct({InstanceId: Schema.String, Status: Schema.String, Products: StringList, LastStatusCheckDate: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), OwnerAccountId: Schema.optional(Schema.String), IdentityProvider: Schema.optional(IdentityProvider)});
+export class InstanceSummary extends Schema.Class<InstanceSummary>("InstanceSummary")({InstanceId: Schema.String, Status: Schema.String, Products: StringList, LastStatusCheckDate: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), OwnerAccountId: Schema.optional(Schema.String), IdentityProvider: Schema.optional(IdentityProvider)}) {}
 export const InstanceSummaryList = Schema.Array(InstanceSummary);
 export const ProductUserSummaryList = Schema.Array(ProductUserSummary);
-export const RdsSalSettings = Schema.Struct({RdsSalCredentialsProvider: CredentialsProvider});
-export const DeregisterIdentityProviderResponse = Schema.Struct({IdentityProviderSummary: IdentityProviderSummary});
-export const DisassociateUserResponse = Schema.Struct({InstanceUserSummary: InstanceUserSummary});
-export const ListIdentityProvidersResponse = Schema.Struct({IdentityProviderSummaries: IdentityProviderSummaryList, NextToken: Schema.optional(Schema.String)});
-export const ListInstancesResponse = Schema.Struct({InstanceSummaries: Schema.optional(InstanceSummaryList), NextToken: Schema.optional(Schema.String)});
-export const AccessDeniedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ListProductSubscriptionsResponse = Schema.Struct({ProductUserSummaries: Schema.optional(ProductUserSummaryList), NextToken: Schema.optional(Schema.String)});
-export const ValidationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ConflictException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const RegisterIdentityProviderResponse = Schema.Struct({IdentityProviderSummary: IdentityProviderSummary});
-export const ServiceQuotaExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ThrottlingException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UpdateIdentityProviderSettingsResponse = Schema.Struct({IdentityProviderSummary: IdentityProviderSummary});
+export class RdsSalSettings extends Schema.Class<RdsSalSettings>("RdsSalSettings")({RdsSalCredentialsProvider: CredentialsProvider}) {}
+export class DeregisterIdentityProviderResponse extends Schema.Class<DeregisterIdentityProviderResponse>("DeregisterIdentityProviderResponse")({IdentityProviderSummary: IdentityProviderSummary}) {}
+export class DisassociateUserResponse extends Schema.Class<DisassociateUserResponse>("DisassociateUserResponse")({InstanceUserSummary: InstanceUserSummary}) {}
+export class ListIdentityProvidersResponse extends Schema.Class<ListIdentityProvidersResponse>("ListIdentityProvidersResponse")({IdentityProviderSummaries: IdentityProviderSummaryList, NextToken: Schema.optional(Schema.String)}) {}
+export class ListInstancesResponse extends Schema.Class<ListInstancesResponse>("ListInstancesResponse")({InstanceSummaries: Schema.optional(InstanceSummaryList), NextToken: Schema.optional(Schema.String)}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({message: Schema.optional(Schema.String)}) {}
+export class ListProductSubscriptionsResponse extends Schema.Class<ListProductSubscriptionsResponse>("ListProductSubscriptionsResponse")({ProductUserSummaries: Schema.optional(ProductUserSummaryList), NextToken: Schema.optional(Schema.String)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({message: Schema.optional(Schema.String)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({message: Schema.optional(Schema.String)}) {}
+export class RegisterIdentityProviderResponse extends Schema.Class<RegisterIdentityProviderResponse>("RegisterIdentityProviderResponse")({IdentityProviderSummary: IdentityProviderSummary}) {}
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({message: Schema.optional(Schema.String)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({message: Schema.optional(Schema.String)}) {}
+export class UpdateIdentityProviderSettingsResponse extends Schema.Class<UpdateIdentityProviderSettingsResponse>("UpdateIdentityProviderSettingsResponse")({IdentityProviderSummary: IdentityProviderSummary}) {}
 export const ServerSettings = Schema.Union(RdsSalSettings);
-export const LicenseServerSettings = Schema.Struct({ServerType: Schema.String, ServerSettings: ServerSettings});
-export const CreateLicenseServerEndpointRequest = Schema.Struct({IdentityProviderArn: Schema.String, LicenseServerSettings: LicenseServerSettings, Tags: Schema.optional(Tags)});
-export const DeleteLicenseServerEndpointResponse = Schema.Struct({LicenseServerEndpoint: Schema.optional(LicenseServerEndpoint)});
-export const CreateLicenseServerEndpointResponse = Schema.Struct({IdentityProviderArn: Schema.optional(Schema.String), LicenseServerEndpointArn: Schema.optional(Schema.String)});
-export const AssociateUserRequest = Schema.Struct({Username: Schema.String, InstanceId: Schema.String, IdentityProvider: IdentityProvider, Domain: Schema.optional(Schema.String), Tags: Schema.optional(Tags)});
-export const AssociateUserResponse = Schema.Struct({InstanceUserSummary: InstanceUserSummary});
+export class LicenseServerSettings extends Schema.Class<LicenseServerSettings>("LicenseServerSettings")({ServerType: Schema.String, ServerSettings: ServerSettings}) {}
+export class CreateLicenseServerEndpointRequest extends Schema.Class<CreateLicenseServerEndpointRequest>("CreateLicenseServerEndpointRequest")({IdentityProviderArn: Schema.String, LicenseServerSettings: LicenseServerSettings, Tags: Schema.optional(Tags)}) {}
+export class DeleteLicenseServerEndpointResponse extends Schema.Class<DeleteLicenseServerEndpointResponse>("DeleteLicenseServerEndpointResponse")({LicenseServerEndpoint: Schema.optional(LicenseServerEndpoint)}) {}
+export class CreateLicenseServerEndpointResponse extends Schema.Class<CreateLicenseServerEndpointResponse>("CreateLicenseServerEndpointResponse")({IdentityProviderArn: Schema.optional(Schema.String), LicenseServerEndpointArn: Schema.optional(Schema.String)}) {}
+export class AssociateUserRequest extends Schema.Class<AssociateUserRequest>("AssociateUserRequest")({Username: Schema.String, InstanceId: Schema.String, IdentityProvider: IdentityProvider, Domain: Schema.optional(Schema.String), Tags: Schema.optional(Tags)}) {}
+export class AssociateUserResponse extends Schema.Class<AssociateUserResponse>("AssociateUserResponse")({InstanceUserSummary: InstanceUserSummary}) {}
 
 //# Errors
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
 
 //# Operations
 export const tagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-05-10", uri: "/tags/{ResourceArn}", method: "PUT", sdkId: "License Manager User Subscriptions", sigV4ServiceName: "license-manager-user-subscriptions", name: "LicenseManagerUserSubscriptions.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalServerExceptionError, ResourceNotFoundExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

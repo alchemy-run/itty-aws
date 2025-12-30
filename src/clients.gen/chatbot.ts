@@ -3,153 +3,153 @@ import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperat
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const GetAccountPreferencesRequest = Schema.Struct({});
+export class GetAccountPreferencesRequest extends Schema.Class<GetAccountPreferencesRequest>("GetAccountPreferencesRequest")({}) {}
 export const SnsTopicArnList = Schema.Array(Schema.String);
 export const GuardrailPolicyArnList = Schema.Array(Schema.String);
-export const Tag = Schema.Struct({TagKey: Schema.String, TagValue: Schema.String});
+export class Tag extends Schema.Class<Tag>("Tag")({TagKey: Schema.String, TagValue: Schema.String}) {}
 export const TagList = Schema.Array(Tag);
 export const TagKeyList = Schema.Array(Schema.String);
-export const AssociateToConfigurationRequest = Schema.Struct({Resource: Schema.String, ChatConfiguration: Schema.String});
-export const AssociateToConfigurationResult = Schema.Struct({});
+export class AssociateToConfigurationRequest extends Schema.Class<AssociateToConfigurationRequest>("AssociateToConfigurationRequest")({Resource: Schema.String, ChatConfiguration: Schema.String}) {}
+export class AssociateToConfigurationResult extends Schema.Class<AssociateToConfigurationResult>("AssociateToConfigurationResult")({}) {}
 export const Tags = Schema.Array(Tag);
-export const CreateTeamsChannelConfigurationRequest = Schema.Struct({ChannelId: Schema.String, ChannelName: Schema.optional(Schema.String), TeamId: Schema.String, TeamName: Schema.optional(Schema.String), TenantId: Schema.String, SnsTopicArns: Schema.optional(SnsTopicArnList), IamRoleArn: Schema.String, ConfigurationName: Schema.String, LoggingLevel: Schema.optional(Schema.String), GuardrailPolicyArns: Schema.optional(GuardrailPolicyArnList), UserAuthorizationRequired: Schema.optional(Schema.Boolean), Tags: Schema.optional(Tags)});
-export const CreateSlackChannelConfigurationRequest = Schema.Struct({SlackTeamId: Schema.String, SlackChannelId: Schema.String, SlackChannelName: Schema.optional(Schema.String), SnsTopicArns: Schema.optional(SnsTopicArnList), IamRoleArn: Schema.String, ConfigurationName: Schema.String, LoggingLevel: Schema.optional(Schema.String), GuardrailPolicyArns: Schema.optional(GuardrailPolicyArnList), UserAuthorizationRequired: Schema.optional(Schema.Boolean), Tags: Schema.optional(Tags)});
-export const DeleteChimeWebhookConfigurationRequest = Schema.Struct({ChatConfigurationArn: Schema.String});
-export const DeleteChimeWebhookConfigurationResult = Schema.Struct({});
-export const DeleteTeamsChannelConfigurationRequest = Schema.Struct({ChatConfigurationArn: Schema.String});
-export const DeleteTeamsChannelConfigurationResult = Schema.Struct({});
-export const DeleteTeamsConfiguredTeamRequest = Schema.Struct({TeamId: Schema.String});
-export const DeleteTeamsConfiguredTeamResult = Schema.Struct({});
-export const DeleteMicrosoftTeamsUserIdentityRequest = Schema.Struct({ChatConfigurationArn: Schema.String, UserId: Schema.String});
-export const DeleteMicrosoftTeamsUserIdentityResult = Schema.Struct({});
-export const DeleteSlackChannelConfigurationRequest = Schema.Struct({ChatConfigurationArn: Schema.String});
-export const DeleteSlackChannelConfigurationResult = Schema.Struct({});
-export const DeleteSlackUserIdentityRequest = Schema.Struct({ChatConfigurationArn: Schema.String, SlackTeamId: Schema.String, SlackUserId: Schema.String});
-export const DeleteSlackUserIdentityResult = Schema.Struct({});
-export const DeleteSlackWorkspaceAuthorizationRequest = Schema.Struct({SlackTeamId: Schema.String});
-export const DeleteSlackWorkspaceAuthorizationResult = Schema.Struct({});
-export const DescribeChimeWebhookConfigurationsRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), ChatConfigurationArn: Schema.optional(Schema.String)});
-export const DescribeSlackChannelConfigurationsRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), ChatConfigurationArn: Schema.optional(Schema.String)});
-export const DescribeSlackUserIdentitiesRequest = Schema.Struct({ChatConfigurationArn: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const DescribeSlackWorkspacesRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const DisassociateFromConfigurationRequest = Schema.Struct({Resource: Schema.String, ChatConfiguration: Schema.String});
-export const DisassociateFromConfigurationResult = Schema.Struct({});
-export const GetTeamsChannelConfigurationRequest = Schema.Struct({ChatConfigurationArn: Schema.String});
-export const ListAssociationsRequest = Schema.Struct({ChatConfiguration: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListTeamsChannelConfigurationsRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), TeamId: Schema.optional(Schema.String)});
-export const ListMicrosoftTeamsConfiguredTeamsRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListMicrosoftTeamsUserIdentitiesRequest = Schema.Struct({ChatConfigurationArn: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListTagsForResourceRequest = Schema.Struct({ResourceARN: Schema.String});
-export const TagResourceRequest = Schema.Struct({ResourceARN: Schema.String, Tags: TagList});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({ResourceARN: Schema.String, TagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
-export const UpdateAccountPreferencesRequest = Schema.Struct({UserAuthorizationRequired: Schema.optional(Schema.Boolean), TrainingDataCollectionEnabled: Schema.optional(Schema.Boolean)});
-export const UpdateChimeWebhookConfigurationRequest = Schema.Struct({ChatConfigurationArn: Schema.String, WebhookDescription: Schema.optional(Schema.String), WebhookUrl: Schema.optional(Schema.String), SnsTopicArns: Schema.optional(SnsTopicArnList), IamRoleArn: Schema.optional(Schema.String), LoggingLevel: Schema.optional(Schema.String)});
-export const UpdateTeamsChannelConfigurationRequest = Schema.Struct({ChatConfigurationArn: Schema.String, ChannelId: Schema.String, ChannelName: Schema.optional(Schema.String), SnsTopicArns: Schema.optional(SnsTopicArnList), IamRoleArn: Schema.optional(Schema.String), LoggingLevel: Schema.optional(Schema.String), GuardrailPolicyArns: Schema.optional(GuardrailPolicyArnList), UserAuthorizationRequired: Schema.optional(Schema.Boolean)});
-export const UpdateSlackChannelConfigurationRequest = Schema.Struct({ChatConfigurationArn: Schema.String, SlackChannelId: Schema.String, SlackChannelName: Schema.optional(Schema.String), SnsTopicArns: Schema.optional(SnsTopicArnList), IamRoleArn: Schema.optional(Schema.String), LoggingLevel: Schema.optional(Schema.String), GuardrailPolicyArns: Schema.optional(GuardrailPolicyArnList), UserAuthorizationRequired: Schema.optional(Schema.Boolean)});
-export const SlackChannelConfiguration = Schema.Struct({SlackTeamName: Schema.String, SlackTeamId: Schema.String, SlackChannelId: Schema.String, SlackChannelName: Schema.String, ChatConfigurationArn: Schema.String, IamRoleArn: Schema.String, SnsTopicArns: SnsTopicArnList, ConfigurationName: Schema.optional(Schema.String), LoggingLevel: Schema.optional(Schema.String), GuardrailPolicyArns: Schema.optional(GuardrailPolicyArnList), UserAuthorizationRequired: Schema.optional(Schema.Boolean), Tags: Schema.optional(Tags), State: Schema.optional(Schema.String), StateReason: Schema.optional(Schema.String)});
+export class CreateTeamsChannelConfigurationRequest extends Schema.Class<CreateTeamsChannelConfigurationRequest>("CreateTeamsChannelConfigurationRequest")({ChannelId: Schema.String, ChannelName: Schema.optional(Schema.String), TeamId: Schema.String, TeamName: Schema.optional(Schema.String), TenantId: Schema.String, SnsTopicArns: Schema.optional(SnsTopicArnList), IamRoleArn: Schema.String, ConfigurationName: Schema.String, LoggingLevel: Schema.optional(Schema.String), GuardrailPolicyArns: Schema.optional(GuardrailPolicyArnList), UserAuthorizationRequired: Schema.optional(Schema.Boolean), Tags: Schema.optional(Tags)}) {}
+export class CreateSlackChannelConfigurationRequest extends Schema.Class<CreateSlackChannelConfigurationRequest>("CreateSlackChannelConfigurationRequest")({SlackTeamId: Schema.String, SlackChannelId: Schema.String, SlackChannelName: Schema.optional(Schema.String), SnsTopicArns: Schema.optional(SnsTopicArnList), IamRoleArn: Schema.String, ConfigurationName: Schema.String, LoggingLevel: Schema.optional(Schema.String), GuardrailPolicyArns: Schema.optional(GuardrailPolicyArnList), UserAuthorizationRequired: Schema.optional(Schema.Boolean), Tags: Schema.optional(Tags)}) {}
+export class DeleteChimeWebhookConfigurationRequest extends Schema.Class<DeleteChimeWebhookConfigurationRequest>("DeleteChimeWebhookConfigurationRequest")({ChatConfigurationArn: Schema.String}) {}
+export class DeleteChimeWebhookConfigurationResult extends Schema.Class<DeleteChimeWebhookConfigurationResult>("DeleteChimeWebhookConfigurationResult")({}) {}
+export class DeleteTeamsChannelConfigurationRequest extends Schema.Class<DeleteTeamsChannelConfigurationRequest>("DeleteTeamsChannelConfigurationRequest")({ChatConfigurationArn: Schema.String}) {}
+export class DeleteTeamsChannelConfigurationResult extends Schema.Class<DeleteTeamsChannelConfigurationResult>("DeleteTeamsChannelConfigurationResult")({}) {}
+export class DeleteTeamsConfiguredTeamRequest extends Schema.Class<DeleteTeamsConfiguredTeamRequest>("DeleteTeamsConfiguredTeamRequest")({TeamId: Schema.String}) {}
+export class DeleteTeamsConfiguredTeamResult extends Schema.Class<DeleteTeamsConfiguredTeamResult>("DeleteTeamsConfiguredTeamResult")({}) {}
+export class DeleteMicrosoftTeamsUserIdentityRequest extends Schema.Class<DeleteMicrosoftTeamsUserIdentityRequest>("DeleteMicrosoftTeamsUserIdentityRequest")({ChatConfigurationArn: Schema.String, UserId: Schema.String}) {}
+export class DeleteMicrosoftTeamsUserIdentityResult extends Schema.Class<DeleteMicrosoftTeamsUserIdentityResult>("DeleteMicrosoftTeamsUserIdentityResult")({}) {}
+export class DeleteSlackChannelConfigurationRequest extends Schema.Class<DeleteSlackChannelConfigurationRequest>("DeleteSlackChannelConfigurationRequest")({ChatConfigurationArn: Schema.String}) {}
+export class DeleteSlackChannelConfigurationResult extends Schema.Class<DeleteSlackChannelConfigurationResult>("DeleteSlackChannelConfigurationResult")({}) {}
+export class DeleteSlackUserIdentityRequest extends Schema.Class<DeleteSlackUserIdentityRequest>("DeleteSlackUserIdentityRequest")({ChatConfigurationArn: Schema.String, SlackTeamId: Schema.String, SlackUserId: Schema.String}) {}
+export class DeleteSlackUserIdentityResult extends Schema.Class<DeleteSlackUserIdentityResult>("DeleteSlackUserIdentityResult")({}) {}
+export class DeleteSlackWorkspaceAuthorizationRequest extends Schema.Class<DeleteSlackWorkspaceAuthorizationRequest>("DeleteSlackWorkspaceAuthorizationRequest")({SlackTeamId: Schema.String}) {}
+export class DeleteSlackWorkspaceAuthorizationResult extends Schema.Class<DeleteSlackWorkspaceAuthorizationResult>("DeleteSlackWorkspaceAuthorizationResult")({}) {}
+export class DescribeChimeWebhookConfigurationsRequest extends Schema.Class<DescribeChimeWebhookConfigurationsRequest>("DescribeChimeWebhookConfigurationsRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), ChatConfigurationArn: Schema.optional(Schema.String)}) {}
+export class DescribeSlackChannelConfigurationsRequest extends Schema.Class<DescribeSlackChannelConfigurationsRequest>("DescribeSlackChannelConfigurationsRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), ChatConfigurationArn: Schema.optional(Schema.String)}) {}
+export class DescribeSlackUserIdentitiesRequest extends Schema.Class<DescribeSlackUserIdentitiesRequest>("DescribeSlackUserIdentitiesRequest")({ChatConfigurationArn: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class DescribeSlackWorkspacesRequest extends Schema.Class<DescribeSlackWorkspacesRequest>("DescribeSlackWorkspacesRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class DisassociateFromConfigurationRequest extends Schema.Class<DisassociateFromConfigurationRequest>("DisassociateFromConfigurationRequest")({Resource: Schema.String, ChatConfiguration: Schema.String}) {}
+export class DisassociateFromConfigurationResult extends Schema.Class<DisassociateFromConfigurationResult>("DisassociateFromConfigurationResult")({}) {}
+export class GetTeamsChannelConfigurationRequest extends Schema.Class<GetTeamsChannelConfigurationRequest>("GetTeamsChannelConfigurationRequest")({ChatConfigurationArn: Schema.String}) {}
+export class ListAssociationsRequest extends Schema.Class<ListAssociationsRequest>("ListAssociationsRequest")({ChatConfiguration: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTeamsChannelConfigurationsRequest extends Schema.Class<ListTeamsChannelConfigurationsRequest>("ListTeamsChannelConfigurationsRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), TeamId: Schema.optional(Schema.String)}) {}
+export class ListMicrosoftTeamsConfiguredTeamsRequest extends Schema.Class<ListMicrosoftTeamsConfiguredTeamsRequest>("ListMicrosoftTeamsConfiguredTeamsRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListMicrosoftTeamsUserIdentitiesRequest extends Schema.Class<ListMicrosoftTeamsUserIdentitiesRequest>("ListMicrosoftTeamsUserIdentitiesRequest")({ChatConfigurationArn: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({ResourceARN: Schema.String}) {}
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({ResourceARN: Schema.String, Tags: TagList}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({ResourceARN: Schema.String, TagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class UpdateAccountPreferencesRequest extends Schema.Class<UpdateAccountPreferencesRequest>("UpdateAccountPreferencesRequest")({UserAuthorizationRequired: Schema.optional(Schema.Boolean), TrainingDataCollectionEnabled: Schema.optional(Schema.Boolean)}) {}
+export class UpdateChimeWebhookConfigurationRequest extends Schema.Class<UpdateChimeWebhookConfigurationRequest>("UpdateChimeWebhookConfigurationRequest")({ChatConfigurationArn: Schema.String, WebhookDescription: Schema.optional(Schema.String), WebhookUrl: Schema.optional(Schema.String), SnsTopicArns: Schema.optional(SnsTopicArnList), IamRoleArn: Schema.optional(Schema.String), LoggingLevel: Schema.optional(Schema.String)}) {}
+export class UpdateTeamsChannelConfigurationRequest extends Schema.Class<UpdateTeamsChannelConfigurationRequest>("UpdateTeamsChannelConfigurationRequest")({ChatConfigurationArn: Schema.String, ChannelId: Schema.String, ChannelName: Schema.optional(Schema.String), SnsTopicArns: Schema.optional(SnsTopicArnList), IamRoleArn: Schema.optional(Schema.String), LoggingLevel: Schema.optional(Schema.String), GuardrailPolicyArns: Schema.optional(GuardrailPolicyArnList), UserAuthorizationRequired: Schema.optional(Schema.Boolean)}) {}
+export class UpdateSlackChannelConfigurationRequest extends Schema.Class<UpdateSlackChannelConfigurationRequest>("UpdateSlackChannelConfigurationRequest")({ChatConfigurationArn: Schema.String, SlackChannelId: Schema.String, SlackChannelName: Schema.optional(Schema.String), SnsTopicArns: Schema.optional(SnsTopicArnList), IamRoleArn: Schema.optional(Schema.String), LoggingLevel: Schema.optional(Schema.String), GuardrailPolicyArns: Schema.optional(GuardrailPolicyArnList), UserAuthorizationRequired: Schema.optional(Schema.Boolean)}) {}
+export class SlackChannelConfiguration extends Schema.Class<SlackChannelConfiguration>("SlackChannelConfiguration")({SlackTeamName: Schema.String, SlackTeamId: Schema.String, SlackChannelId: Schema.String, SlackChannelName: Schema.String, ChatConfigurationArn: Schema.String, IamRoleArn: Schema.String, SnsTopicArns: SnsTopicArnList, ConfigurationName: Schema.optional(Schema.String), LoggingLevel: Schema.optional(Schema.String), GuardrailPolicyArns: Schema.optional(GuardrailPolicyArnList), UserAuthorizationRequired: Schema.optional(Schema.Boolean), Tags: Schema.optional(Tags), State: Schema.optional(Schema.String), StateReason: Schema.optional(Schema.String)}) {}
 export const SlackChannelConfigurationList = Schema.Array(SlackChannelConfiguration);
-export const AccountPreferences = Schema.Struct({UserAuthorizationRequired: Schema.optional(Schema.Boolean), TrainingDataCollectionEnabled: Schema.optional(Schema.Boolean)});
-export const TeamsChannelConfiguration = Schema.Struct({ChannelId: Schema.String, ChannelName: Schema.optional(Schema.String), TeamId: Schema.String, TeamName: Schema.optional(Schema.String), TenantId: Schema.String, ChatConfigurationArn: Schema.String, IamRoleArn: Schema.String, SnsTopicArns: SnsTopicArnList, ConfigurationName: Schema.optional(Schema.String), LoggingLevel: Schema.optional(Schema.String), GuardrailPolicyArns: Schema.optional(GuardrailPolicyArnList), UserAuthorizationRequired: Schema.optional(Schema.Boolean), Tags: Schema.optional(Tags), State: Schema.optional(Schema.String), StateReason: Schema.optional(Schema.String)});
+export class AccountPreferences extends Schema.Class<AccountPreferences>("AccountPreferences")({UserAuthorizationRequired: Schema.optional(Schema.Boolean), TrainingDataCollectionEnabled: Schema.optional(Schema.Boolean)}) {}
+export class TeamsChannelConfiguration extends Schema.Class<TeamsChannelConfiguration>("TeamsChannelConfiguration")({ChannelId: Schema.String, ChannelName: Schema.optional(Schema.String), TeamId: Schema.String, TeamName: Schema.optional(Schema.String), TenantId: Schema.String, ChatConfigurationArn: Schema.String, IamRoleArn: Schema.String, SnsTopicArns: SnsTopicArnList, ConfigurationName: Schema.optional(Schema.String), LoggingLevel: Schema.optional(Schema.String), GuardrailPolicyArns: Schema.optional(GuardrailPolicyArnList), UserAuthorizationRequired: Schema.optional(Schema.Boolean), Tags: Schema.optional(Tags), State: Schema.optional(Schema.String), StateReason: Schema.optional(Schema.String)}) {}
 export const TeamChannelConfigurationsList = Schema.Array(TeamsChannelConfiguration);
-export const InternalServiceError = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const CreateChimeWebhookConfigurationRequest = Schema.Struct({WebhookDescription: Schema.String, WebhookUrl: Schema.String, SnsTopicArns: SnsTopicArnList, IamRoleArn: Schema.String, ConfigurationName: Schema.String, LoggingLevel: Schema.optional(Schema.String), Tags: Schema.optional(Tags)});
-export const DeleteChimeWebhookConfigurationException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DeleteTeamsChannelConfigurationException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DeleteTeamsConfiguredTeamException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DeleteMicrosoftTeamsUserIdentityException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DeleteSlackChannelConfigurationException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DeleteSlackUserIdentityException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DeleteSlackWorkspaceAuthorizationFault = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DescribeSlackChannelConfigurationsResult = Schema.Struct({NextToken: Schema.optional(Schema.String), SlackChannelConfigurations: Schema.optional(SlackChannelConfigurationList)});
-export const InvalidRequestException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const GetAccountPreferencesResult = Schema.Struct({AccountPreferences: Schema.optional(AccountPreferences)});
-export const GetTeamsChannelConfigurationResult = Schema.Struct({ChannelConfiguration: Schema.optional(TeamsChannelConfiguration)});
-export const ListTeamsChannelConfigurationsResult = Schema.Struct({NextToken: Schema.optional(Schema.String), TeamChannelConfigurations: Schema.optional(TeamChannelConfigurationsList)});
-export const ListTagsForResourceResponse = Schema.Struct({Tags: Schema.optional(TagList)});
-export const ResourceNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ServiceUnavailableException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UpdateAccountPreferencesResult = Schema.Struct({AccountPreferences: Schema.optional(AccountPreferences)});
-export const ChimeWebhookConfiguration = Schema.Struct({WebhookDescription: Schema.String, ChatConfigurationArn: Schema.String, IamRoleArn: Schema.String, SnsTopicArns: SnsTopicArnList, ConfigurationName: Schema.optional(Schema.String), LoggingLevel: Schema.optional(Schema.String), Tags: Schema.optional(Tags), State: Schema.optional(Schema.String), StateReason: Schema.optional(Schema.String)});
-export const UpdateChimeWebhookConfigurationResult = Schema.Struct({WebhookConfiguration: Schema.optional(ChimeWebhookConfiguration)});
-export const UpdateTeamsChannelConfigurationResult = Schema.Struct({ChannelConfiguration: Schema.optional(TeamsChannelConfiguration)});
-export const UpdateSlackChannelConfigurationResult = Schema.Struct({ChannelConfiguration: Schema.optional(SlackChannelConfiguration)});
+export class InternalServiceError extends Schema.Class<InternalServiceError>("InternalServiceError")({Message: Schema.optional(Schema.String)}) {}
+export class CreateChimeWebhookConfigurationRequest extends Schema.Class<CreateChimeWebhookConfigurationRequest>("CreateChimeWebhookConfigurationRequest")({WebhookDescription: Schema.String, WebhookUrl: Schema.String, SnsTopicArns: SnsTopicArnList, IamRoleArn: Schema.String, ConfigurationName: Schema.String, LoggingLevel: Schema.optional(Schema.String), Tags: Schema.optional(Tags)}) {}
+export class DeleteChimeWebhookConfigurationException extends Schema.Class<DeleteChimeWebhookConfigurationException>("DeleteChimeWebhookConfigurationException")({Message: Schema.optional(Schema.String)}) {}
+export class DeleteTeamsChannelConfigurationException extends Schema.Class<DeleteTeamsChannelConfigurationException>("DeleteTeamsChannelConfigurationException")({Message: Schema.optional(Schema.String)}) {}
+export class DeleteTeamsConfiguredTeamException extends Schema.Class<DeleteTeamsConfiguredTeamException>("DeleteTeamsConfiguredTeamException")({Message: Schema.optional(Schema.String)}) {}
+export class DeleteMicrosoftTeamsUserIdentityException extends Schema.Class<DeleteMicrosoftTeamsUserIdentityException>("DeleteMicrosoftTeamsUserIdentityException")({Message: Schema.optional(Schema.String)}) {}
+export class DeleteSlackChannelConfigurationException extends Schema.Class<DeleteSlackChannelConfigurationException>("DeleteSlackChannelConfigurationException")({Message: Schema.optional(Schema.String)}) {}
+export class DeleteSlackUserIdentityException extends Schema.Class<DeleteSlackUserIdentityException>("DeleteSlackUserIdentityException")({Message: Schema.optional(Schema.String)}) {}
+export class DeleteSlackWorkspaceAuthorizationFault extends Schema.Class<DeleteSlackWorkspaceAuthorizationFault>("DeleteSlackWorkspaceAuthorizationFault")({Message: Schema.optional(Schema.String)}) {}
+export class DescribeSlackChannelConfigurationsResult extends Schema.Class<DescribeSlackChannelConfigurationsResult>("DescribeSlackChannelConfigurationsResult")({NextToken: Schema.optional(Schema.String), SlackChannelConfigurations: Schema.optional(SlackChannelConfigurationList)}) {}
+export class InvalidRequestException extends Schema.Class<InvalidRequestException>("InvalidRequestException")({message: Schema.optional(Schema.String)}) {}
+export class GetAccountPreferencesResult extends Schema.Class<GetAccountPreferencesResult>("GetAccountPreferencesResult")({AccountPreferences: Schema.optional(AccountPreferences)}) {}
+export class GetTeamsChannelConfigurationResult extends Schema.Class<GetTeamsChannelConfigurationResult>("GetTeamsChannelConfigurationResult")({ChannelConfiguration: Schema.optional(TeamsChannelConfiguration)}) {}
+export class ListTeamsChannelConfigurationsResult extends Schema.Class<ListTeamsChannelConfigurationsResult>("ListTeamsChannelConfigurationsResult")({NextToken: Schema.optional(Schema.String), TeamChannelConfigurations: Schema.optional(TeamChannelConfigurationsList)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({Tags: Schema.optional(TagList)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class ServiceUnavailableException extends Schema.Class<ServiceUnavailableException>("ServiceUnavailableException")({message: Schema.optional(Schema.String)}) {}
+export class UpdateAccountPreferencesResult extends Schema.Class<UpdateAccountPreferencesResult>("UpdateAccountPreferencesResult")({AccountPreferences: Schema.optional(AccountPreferences)}) {}
+export class ChimeWebhookConfiguration extends Schema.Class<ChimeWebhookConfiguration>("ChimeWebhookConfiguration")({WebhookDescription: Schema.String, ChatConfigurationArn: Schema.String, IamRoleArn: Schema.String, SnsTopicArns: SnsTopicArnList, ConfigurationName: Schema.optional(Schema.String), LoggingLevel: Schema.optional(Schema.String), Tags: Schema.optional(Tags), State: Schema.optional(Schema.String), StateReason: Schema.optional(Schema.String)}) {}
+export class UpdateChimeWebhookConfigurationResult extends Schema.Class<UpdateChimeWebhookConfigurationResult>("UpdateChimeWebhookConfigurationResult")({WebhookConfiguration: Schema.optional(ChimeWebhookConfiguration)}) {}
+export class UpdateTeamsChannelConfigurationResult extends Schema.Class<UpdateTeamsChannelConfigurationResult>("UpdateTeamsChannelConfigurationResult")({ChannelConfiguration: Schema.optional(TeamsChannelConfiguration)}) {}
+export class UpdateSlackChannelConfigurationResult extends Schema.Class<UpdateSlackChannelConfigurationResult>("UpdateSlackChannelConfigurationResult")({ChannelConfiguration: Schema.optional(SlackChannelConfiguration)}) {}
 export const ChimeWebhookConfigurationList = Schema.Array(ChimeWebhookConfiguration);
-export const SlackUserIdentity = Schema.Struct({IamRoleArn: Schema.String, ChatConfigurationArn: Schema.String, SlackTeamId: Schema.String, SlackUserId: Schema.String, AwsUserIdentity: Schema.optional(Schema.String)});
+export class SlackUserIdentity extends Schema.Class<SlackUserIdentity>("SlackUserIdentity")({IamRoleArn: Schema.String, ChatConfigurationArn: Schema.String, SlackTeamId: Schema.String, SlackUserId: Schema.String, AwsUserIdentity: Schema.optional(Schema.String)}) {}
 export const SlackUserIdentitiesList = Schema.Array(SlackUserIdentity);
-export const SlackWorkspace = Schema.Struct({SlackTeamId: Schema.String, SlackTeamName: Schema.String, State: Schema.optional(Schema.String), StateReason: Schema.optional(Schema.String)});
+export class SlackWorkspace extends Schema.Class<SlackWorkspace>("SlackWorkspace")({SlackTeamId: Schema.String, SlackTeamName: Schema.String, State: Schema.optional(Schema.String), StateReason: Schema.optional(Schema.String)}) {}
 export const SlackWorkspacesList = Schema.Array(SlackWorkspace);
-export const AssociationListing = Schema.Struct({Resource: Schema.String});
+export class AssociationListing extends Schema.Class<AssociationListing>("AssociationListing")({Resource: Schema.String}) {}
 export const AssociationList = Schema.Array(AssociationListing);
-export const ConfiguredTeam = Schema.Struct({TenantId: Schema.String, TeamId: Schema.String, TeamName: Schema.optional(Schema.String), State: Schema.optional(Schema.String), StateReason: Schema.optional(Schema.String)});
+export class ConfiguredTeam extends Schema.Class<ConfiguredTeam>("ConfiguredTeam")({TenantId: Schema.String, TeamId: Schema.String, TeamName: Schema.optional(Schema.String), State: Schema.optional(Schema.String), StateReason: Schema.optional(Schema.String)}) {}
 export const ConfiguredTeamsList = Schema.Array(ConfiguredTeam);
-export const TeamsUserIdentity = Schema.Struct({IamRoleArn: Schema.String, ChatConfigurationArn: Schema.String, TeamId: Schema.String, UserId: Schema.optional(Schema.String), AwsUserIdentity: Schema.optional(Schema.String), TeamsChannelId: Schema.optional(Schema.String), TeamsTenantId: Schema.optional(Schema.String)});
+export class TeamsUserIdentity extends Schema.Class<TeamsUserIdentity>("TeamsUserIdentity")({IamRoleArn: Schema.String, ChatConfigurationArn: Schema.String, TeamId: Schema.String, UserId: Schema.optional(Schema.String), AwsUserIdentity: Schema.optional(Schema.String), TeamsChannelId: Schema.optional(Schema.String), TeamsTenantId: Schema.optional(Schema.String)}) {}
 export const TeamsUserIdentitiesList = Schema.Array(TeamsUserIdentity);
-export const UnauthorizedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CreateChimeWebhookConfigurationResult = Schema.Struct({WebhookConfiguration: Schema.optional(ChimeWebhookConfiguration)});
-export const CreateTeamsChannelConfigurationResult = Schema.Struct({ChannelConfiguration: Schema.optional(TeamsChannelConfiguration)});
-export const CreateSlackChannelConfigurationResult = Schema.Struct({ChannelConfiguration: Schema.optional(SlackChannelConfiguration)});
-export const InvalidParameterException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DescribeChimeWebhookConfigurationsResult = Schema.Struct({NextToken: Schema.optional(Schema.String), WebhookConfigurations: Schema.optional(ChimeWebhookConfigurationList)});
-export const DescribeSlackChannelConfigurationsException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DescribeSlackUserIdentitiesResult = Schema.Struct({SlackUserIdentities: Schema.optional(SlackUserIdentitiesList), NextToken: Schema.optional(Schema.String)});
-export const DescribeSlackWorkspacesResult = Schema.Struct({SlackWorkspaces: Schema.optional(SlackWorkspacesList), NextToken: Schema.optional(Schema.String)});
-export const GetAccountPreferencesException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const GetTeamsChannelConfigurationException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ListAssociationsResult = Schema.Struct({Associations: AssociationList, NextToken: Schema.optional(Schema.String)});
-export const ListTeamsChannelConfigurationsException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ListMicrosoftTeamsConfiguredTeamsResult = Schema.Struct({ConfiguredTeams: Schema.optional(ConfiguredTeamsList), NextToken: Schema.optional(Schema.String)});
-export const ListMicrosoftTeamsUserIdentitiesResult = Schema.Struct({TeamsUserIdentities: Schema.optional(TeamsUserIdentitiesList), NextToken: Schema.optional(Schema.String)});
-export const TooManyTagsException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UpdateAccountPreferencesException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const UpdateChimeWebhookConfigurationException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const UpdateTeamsChannelConfigurationException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const UpdateSlackChannelConfigurationException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ConflictException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CreateTeamsChannelConfigurationException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const CreateSlackChannelConfigurationException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DescribeChimeWebhookConfigurationsException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DescribeSlackUserIdentitiesException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DescribeSlackWorkspacesException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ListMicrosoftTeamsConfiguredTeamsException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ListMicrosoftTeamsUserIdentitiesException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const CreateChimeWebhookConfigurationException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const LimitExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
+export class UnauthorizedException extends Schema.Class<UnauthorizedException>("UnauthorizedException")({message: Schema.optional(Schema.String)}) {}
+export class CreateChimeWebhookConfigurationResult extends Schema.Class<CreateChimeWebhookConfigurationResult>("CreateChimeWebhookConfigurationResult")({WebhookConfiguration: Schema.optional(ChimeWebhookConfiguration)}) {}
+export class CreateTeamsChannelConfigurationResult extends Schema.Class<CreateTeamsChannelConfigurationResult>("CreateTeamsChannelConfigurationResult")({ChannelConfiguration: Schema.optional(TeamsChannelConfiguration)}) {}
+export class CreateSlackChannelConfigurationResult extends Schema.Class<CreateSlackChannelConfigurationResult>("CreateSlackChannelConfigurationResult")({ChannelConfiguration: Schema.optional(SlackChannelConfiguration)}) {}
+export class InvalidParameterException extends Schema.Class<InvalidParameterException>("InvalidParameterException")({message: Schema.optional(Schema.String)}) {}
+export class DescribeChimeWebhookConfigurationsResult extends Schema.Class<DescribeChimeWebhookConfigurationsResult>("DescribeChimeWebhookConfigurationsResult")({NextToken: Schema.optional(Schema.String), WebhookConfigurations: Schema.optional(ChimeWebhookConfigurationList)}) {}
+export class DescribeSlackChannelConfigurationsException extends Schema.Class<DescribeSlackChannelConfigurationsException>("DescribeSlackChannelConfigurationsException")({Message: Schema.optional(Schema.String)}) {}
+export class DescribeSlackUserIdentitiesResult extends Schema.Class<DescribeSlackUserIdentitiesResult>("DescribeSlackUserIdentitiesResult")({SlackUserIdentities: Schema.optional(SlackUserIdentitiesList), NextToken: Schema.optional(Schema.String)}) {}
+export class DescribeSlackWorkspacesResult extends Schema.Class<DescribeSlackWorkspacesResult>("DescribeSlackWorkspacesResult")({SlackWorkspaces: Schema.optional(SlackWorkspacesList), NextToken: Schema.optional(Schema.String)}) {}
+export class GetAccountPreferencesException extends Schema.Class<GetAccountPreferencesException>("GetAccountPreferencesException")({Message: Schema.optional(Schema.String)}) {}
+export class GetTeamsChannelConfigurationException extends Schema.Class<GetTeamsChannelConfigurationException>("GetTeamsChannelConfigurationException")({Message: Schema.optional(Schema.String)}) {}
+export class ListAssociationsResult extends Schema.Class<ListAssociationsResult>("ListAssociationsResult")({Associations: AssociationList, NextToken: Schema.optional(Schema.String)}) {}
+export class ListTeamsChannelConfigurationsException extends Schema.Class<ListTeamsChannelConfigurationsException>("ListTeamsChannelConfigurationsException")({Message: Schema.optional(Schema.String)}) {}
+export class ListMicrosoftTeamsConfiguredTeamsResult extends Schema.Class<ListMicrosoftTeamsConfiguredTeamsResult>("ListMicrosoftTeamsConfiguredTeamsResult")({ConfiguredTeams: Schema.optional(ConfiguredTeamsList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListMicrosoftTeamsUserIdentitiesResult extends Schema.Class<ListMicrosoftTeamsUserIdentitiesResult>("ListMicrosoftTeamsUserIdentitiesResult")({TeamsUserIdentities: Schema.optional(TeamsUserIdentitiesList), NextToken: Schema.optional(Schema.String)}) {}
+export class TooManyTagsException extends Schema.Class<TooManyTagsException>("TooManyTagsException")({message: Schema.optional(Schema.String)}) {}
+export class UpdateAccountPreferencesException extends Schema.Class<UpdateAccountPreferencesException>("UpdateAccountPreferencesException")({Message: Schema.optional(Schema.String)}) {}
+export class UpdateChimeWebhookConfigurationException extends Schema.Class<UpdateChimeWebhookConfigurationException>("UpdateChimeWebhookConfigurationException")({Message: Schema.optional(Schema.String)}) {}
+export class UpdateTeamsChannelConfigurationException extends Schema.Class<UpdateTeamsChannelConfigurationException>("UpdateTeamsChannelConfigurationException")({Message: Schema.optional(Schema.String)}) {}
+export class UpdateSlackChannelConfigurationException extends Schema.Class<UpdateSlackChannelConfigurationException>("UpdateSlackChannelConfigurationException")({Message: Schema.optional(Schema.String)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({message: Schema.optional(Schema.String)}) {}
+export class CreateTeamsChannelConfigurationException extends Schema.Class<CreateTeamsChannelConfigurationException>("CreateTeamsChannelConfigurationException")({Message: Schema.optional(Schema.String)}) {}
+export class CreateSlackChannelConfigurationException extends Schema.Class<CreateSlackChannelConfigurationException>("CreateSlackChannelConfigurationException")({Message: Schema.optional(Schema.String)}) {}
+export class DescribeChimeWebhookConfigurationsException extends Schema.Class<DescribeChimeWebhookConfigurationsException>("DescribeChimeWebhookConfigurationsException")({Message: Schema.optional(Schema.String)}) {}
+export class DescribeSlackUserIdentitiesException extends Schema.Class<DescribeSlackUserIdentitiesException>("DescribeSlackUserIdentitiesException")({Message: Schema.optional(Schema.String)}) {}
+export class DescribeSlackWorkspacesException extends Schema.Class<DescribeSlackWorkspacesException>("DescribeSlackWorkspacesException")({Message: Schema.optional(Schema.String)}) {}
+export class ListMicrosoftTeamsConfiguredTeamsException extends Schema.Class<ListMicrosoftTeamsConfiguredTeamsException>("ListMicrosoftTeamsConfiguredTeamsException")({Message: Schema.optional(Schema.String)}) {}
+export class ListMicrosoftTeamsUserIdentitiesException extends Schema.Class<ListMicrosoftTeamsUserIdentitiesException>("ListMicrosoftTeamsUserIdentitiesException")({Message: Schema.optional(Schema.String)}) {}
+export class CreateChimeWebhookConfigurationException extends Schema.Class<CreateChimeWebhookConfigurationException>("CreateChimeWebhookConfigurationException")({Message: Schema.optional(Schema.String)}) {}
+export class LimitExceededException extends Schema.Class<LimitExceededException>("LimitExceededException")({message: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class InternalServiceErrorError extends Schema.TaggedError<InternalServiceErrorError>()("InternalServiceError", InternalServiceError) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class InvalidRequestExceptionError extends Schema.TaggedError<InvalidRequestExceptionError>()("InvalidRequestException", InvalidRequestException) {};
-export class DeleteChimeWebhookConfigurationExceptionError extends Schema.TaggedError<DeleteChimeWebhookConfigurationExceptionError>()("DeleteChimeWebhookConfigurationException", DeleteChimeWebhookConfigurationException) {};
-export class DeleteTeamsChannelConfigurationExceptionError extends Schema.TaggedError<DeleteTeamsChannelConfigurationExceptionError>()("DeleteTeamsChannelConfigurationException", DeleteTeamsChannelConfigurationException) {};
-export class InvalidParameterExceptionError extends Schema.TaggedError<InvalidParameterExceptionError>()("InvalidParameterException", InvalidParameterException) {};
-export class DeleteTeamsConfiguredTeamExceptionError extends Schema.TaggedError<DeleteTeamsConfiguredTeamExceptionError>()("DeleteTeamsConfiguredTeamException", DeleteTeamsConfiguredTeamException) {};
-export class DeleteMicrosoftTeamsUserIdentityExceptionError extends Schema.TaggedError<DeleteMicrosoftTeamsUserIdentityExceptionError>()("DeleteMicrosoftTeamsUserIdentityException", DeleteMicrosoftTeamsUserIdentityException) {};
-export class DeleteSlackChannelConfigurationExceptionError extends Schema.TaggedError<DeleteSlackChannelConfigurationExceptionError>()("DeleteSlackChannelConfigurationException", DeleteSlackChannelConfigurationException) {};
-export class DeleteSlackUserIdentityExceptionError extends Schema.TaggedError<DeleteSlackUserIdentityExceptionError>()("DeleteSlackUserIdentityException", DeleteSlackUserIdentityException) {};
-export class DeleteSlackWorkspaceAuthorizationFaultError extends Schema.TaggedError<DeleteSlackWorkspaceAuthorizationFaultError>()("DeleteSlackWorkspaceAuthorizationFault", DeleteSlackWorkspaceAuthorizationFault) {};
-export class UnauthorizedExceptionError extends Schema.TaggedError<UnauthorizedExceptionError>()("UnauthorizedException", UnauthorizedException) {};
-export class ServiceUnavailableExceptionError extends Schema.TaggedError<ServiceUnavailableExceptionError>()("ServiceUnavailableException", ServiceUnavailableException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class DescribeSlackChannelConfigurationsExceptionError extends Schema.TaggedError<DescribeSlackChannelConfigurationsExceptionError>()("DescribeSlackChannelConfigurationsException", DescribeSlackChannelConfigurationsException) {};
-export class GetAccountPreferencesExceptionError extends Schema.TaggedError<GetAccountPreferencesExceptionError>()("GetAccountPreferencesException", GetAccountPreferencesException) {};
-export class GetTeamsChannelConfigurationExceptionError extends Schema.TaggedError<GetTeamsChannelConfigurationExceptionError>()("GetTeamsChannelConfigurationException", GetTeamsChannelConfigurationException) {};
-export class ListTeamsChannelConfigurationsExceptionError extends Schema.TaggedError<ListTeamsChannelConfigurationsExceptionError>()("ListTeamsChannelConfigurationsException", ListTeamsChannelConfigurationsException) {};
-export class TooManyTagsExceptionError extends Schema.TaggedError<TooManyTagsExceptionError>()("TooManyTagsException", TooManyTagsException) {};
-export class UpdateAccountPreferencesExceptionError extends Schema.TaggedError<UpdateAccountPreferencesExceptionError>()("UpdateAccountPreferencesException", UpdateAccountPreferencesException) {};
-export class UpdateChimeWebhookConfigurationExceptionError extends Schema.TaggedError<UpdateChimeWebhookConfigurationExceptionError>()("UpdateChimeWebhookConfigurationException", UpdateChimeWebhookConfigurationException) {};
-export class UpdateTeamsChannelConfigurationExceptionError extends Schema.TaggedError<UpdateTeamsChannelConfigurationExceptionError>()("UpdateTeamsChannelConfigurationException", UpdateTeamsChannelConfigurationException) {};
-export class UpdateSlackChannelConfigurationExceptionError extends Schema.TaggedError<UpdateSlackChannelConfigurationExceptionError>()("UpdateSlackChannelConfigurationException", UpdateSlackChannelConfigurationException) {};
-export class CreateTeamsChannelConfigurationExceptionError extends Schema.TaggedError<CreateTeamsChannelConfigurationExceptionError>()("CreateTeamsChannelConfigurationException", CreateTeamsChannelConfigurationException) {};
-export class CreateSlackChannelConfigurationExceptionError extends Schema.TaggedError<CreateSlackChannelConfigurationExceptionError>()("CreateSlackChannelConfigurationException", CreateSlackChannelConfigurationException) {};
-export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException) {};
-export class DescribeChimeWebhookConfigurationsExceptionError extends Schema.TaggedError<DescribeChimeWebhookConfigurationsExceptionError>()("DescribeChimeWebhookConfigurationsException", DescribeChimeWebhookConfigurationsException) {};
-export class DescribeSlackUserIdentitiesExceptionError extends Schema.TaggedError<DescribeSlackUserIdentitiesExceptionError>()("DescribeSlackUserIdentitiesException", DescribeSlackUserIdentitiesException) {};
-export class DescribeSlackWorkspacesExceptionError extends Schema.TaggedError<DescribeSlackWorkspacesExceptionError>()("DescribeSlackWorkspacesException", DescribeSlackWorkspacesException) {};
-export class ListMicrosoftTeamsConfiguredTeamsExceptionError extends Schema.TaggedError<ListMicrosoftTeamsConfiguredTeamsExceptionError>()("ListMicrosoftTeamsConfiguredTeamsException", ListMicrosoftTeamsConfiguredTeamsException) {};
-export class ListMicrosoftTeamsUserIdentitiesExceptionError extends Schema.TaggedError<ListMicrosoftTeamsUserIdentitiesExceptionError>()("ListMicrosoftTeamsUserIdentitiesException", ListMicrosoftTeamsUserIdentitiesException) {};
-export class CreateChimeWebhookConfigurationExceptionError extends Schema.TaggedError<CreateChimeWebhookConfigurationExceptionError>()("CreateChimeWebhookConfigurationException", CreateChimeWebhookConfigurationException) {};
+export class InternalServiceErrorError extends Schema.TaggedError<InternalServiceErrorError>()("InternalServiceError", InternalServiceError.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class InvalidRequestExceptionError extends Schema.TaggedError<InvalidRequestExceptionError>()("InvalidRequestException", InvalidRequestException.fields) {};
+export class DeleteChimeWebhookConfigurationExceptionError extends Schema.TaggedError<DeleteChimeWebhookConfigurationExceptionError>()("DeleteChimeWebhookConfigurationException", DeleteChimeWebhookConfigurationException.fields) {};
+export class DeleteTeamsChannelConfigurationExceptionError extends Schema.TaggedError<DeleteTeamsChannelConfigurationExceptionError>()("DeleteTeamsChannelConfigurationException", DeleteTeamsChannelConfigurationException.fields) {};
+export class InvalidParameterExceptionError extends Schema.TaggedError<InvalidParameterExceptionError>()("InvalidParameterException", InvalidParameterException.fields) {};
+export class DeleteTeamsConfiguredTeamExceptionError extends Schema.TaggedError<DeleteTeamsConfiguredTeamExceptionError>()("DeleteTeamsConfiguredTeamException", DeleteTeamsConfiguredTeamException.fields) {};
+export class DeleteMicrosoftTeamsUserIdentityExceptionError extends Schema.TaggedError<DeleteMicrosoftTeamsUserIdentityExceptionError>()("DeleteMicrosoftTeamsUserIdentityException", DeleteMicrosoftTeamsUserIdentityException.fields) {};
+export class DeleteSlackChannelConfigurationExceptionError extends Schema.TaggedError<DeleteSlackChannelConfigurationExceptionError>()("DeleteSlackChannelConfigurationException", DeleteSlackChannelConfigurationException.fields) {};
+export class DeleteSlackUserIdentityExceptionError extends Schema.TaggedError<DeleteSlackUserIdentityExceptionError>()("DeleteSlackUserIdentityException", DeleteSlackUserIdentityException.fields) {};
+export class DeleteSlackWorkspaceAuthorizationFaultError extends Schema.TaggedError<DeleteSlackWorkspaceAuthorizationFaultError>()("DeleteSlackWorkspaceAuthorizationFault", DeleteSlackWorkspaceAuthorizationFault.fields) {};
+export class UnauthorizedExceptionError extends Schema.TaggedError<UnauthorizedExceptionError>()("UnauthorizedException", UnauthorizedException.fields) {};
+export class ServiceUnavailableExceptionError extends Schema.TaggedError<ServiceUnavailableExceptionError>()("ServiceUnavailableException", ServiceUnavailableException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class DescribeSlackChannelConfigurationsExceptionError extends Schema.TaggedError<DescribeSlackChannelConfigurationsExceptionError>()("DescribeSlackChannelConfigurationsException", DescribeSlackChannelConfigurationsException.fields) {};
+export class GetAccountPreferencesExceptionError extends Schema.TaggedError<GetAccountPreferencesExceptionError>()("GetAccountPreferencesException", GetAccountPreferencesException.fields) {};
+export class GetTeamsChannelConfigurationExceptionError extends Schema.TaggedError<GetTeamsChannelConfigurationExceptionError>()("GetTeamsChannelConfigurationException", GetTeamsChannelConfigurationException.fields) {};
+export class ListTeamsChannelConfigurationsExceptionError extends Schema.TaggedError<ListTeamsChannelConfigurationsExceptionError>()("ListTeamsChannelConfigurationsException", ListTeamsChannelConfigurationsException.fields) {};
+export class TooManyTagsExceptionError extends Schema.TaggedError<TooManyTagsExceptionError>()("TooManyTagsException", TooManyTagsException.fields) {};
+export class UpdateAccountPreferencesExceptionError extends Schema.TaggedError<UpdateAccountPreferencesExceptionError>()("UpdateAccountPreferencesException", UpdateAccountPreferencesException.fields) {};
+export class UpdateChimeWebhookConfigurationExceptionError extends Schema.TaggedError<UpdateChimeWebhookConfigurationExceptionError>()("UpdateChimeWebhookConfigurationException", UpdateChimeWebhookConfigurationException.fields) {};
+export class UpdateTeamsChannelConfigurationExceptionError extends Schema.TaggedError<UpdateTeamsChannelConfigurationExceptionError>()("UpdateTeamsChannelConfigurationException", UpdateTeamsChannelConfigurationException.fields) {};
+export class UpdateSlackChannelConfigurationExceptionError extends Schema.TaggedError<UpdateSlackChannelConfigurationExceptionError>()("UpdateSlackChannelConfigurationException", UpdateSlackChannelConfigurationException.fields) {};
+export class CreateTeamsChannelConfigurationExceptionError extends Schema.TaggedError<CreateTeamsChannelConfigurationExceptionError>()("CreateTeamsChannelConfigurationException", CreateTeamsChannelConfigurationException.fields) {};
+export class CreateSlackChannelConfigurationExceptionError extends Schema.TaggedError<CreateSlackChannelConfigurationExceptionError>()("CreateSlackChannelConfigurationException", CreateSlackChannelConfigurationException.fields) {};
+export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException.fields) {};
+export class DescribeChimeWebhookConfigurationsExceptionError extends Schema.TaggedError<DescribeChimeWebhookConfigurationsExceptionError>()("DescribeChimeWebhookConfigurationsException", DescribeChimeWebhookConfigurationsException.fields) {};
+export class DescribeSlackUserIdentitiesExceptionError extends Schema.TaggedError<DescribeSlackUserIdentitiesExceptionError>()("DescribeSlackUserIdentitiesException", DescribeSlackUserIdentitiesException.fields) {};
+export class DescribeSlackWorkspacesExceptionError extends Schema.TaggedError<DescribeSlackWorkspacesExceptionError>()("DescribeSlackWorkspacesException", DescribeSlackWorkspacesException.fields) {};
+export class ListMicrosoftTeamsConfiguredTeamsExceptionError extends Schema.TaggedError<ListMicrosoftTeamsConfiguredTeamsExceptionError>()("ListMicrosoftTeamsConfiguredTeamsException", ListMicrosoftTeamsConfiguredTeamsException.fields) {};
+export class ListMicrosoftTeamsUserIdentitiesExceptionError extends Schema.TaggedError<ListMicrosoftTeamsUserIdentitiesExceptionError>()("ListMicrosoftTeamsUserIdentitiesException", ListMicrosoftTeamsUserIdentitiesException.fields) {};
+export class CreateChimeWebhookConfigurationExceptionError extends Schema.TaggedError<CreateChimeWebhookConfigurationExceptionError>()("CreateChimeWebhookConfigurationException", CreateChimeWebhookConfigurationException.fields) {};
 
 //# Operations
 export const deleteMicrosoftTeamsChannelConfiguration = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-10-11", uri: "/delete-ms-teams-channel-configuration", method: "POST", sdkId: "chatbot", sigV4ServiceName: "chatbot", name: "WheatleyOrchestration_20171011.DeleteMicrosoftTeamsChannelConfiguration" }, DeleteTeamsChannelConfigurationRequest, DeleteTeamsChannelConfigurationResult, [DeleteTeamsChannelConfigurationExceptionError, InvalidParameterExceptionError, InvalidRequestExceptionError, ResourceNotFoundExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

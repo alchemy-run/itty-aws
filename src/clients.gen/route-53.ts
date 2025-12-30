@@ -3,359 +3,363 @@ import { FormatXMLRequest,FormatXMLResponse,FormatAwsXMLError, makeOperation } f
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const GetCheckerIpRangesRequest = Schema.Struct({});
-export const GetHealthCheckCountRequest = Schema.Struct({});
-export const GetHostedZoneCountRequest = Schema.Struct({});
-export const GetTrafficPolicyInstanceCountRequest = Schema.Struct({});
+export class GetCheckerIpRangesRequest extends Schema.Class<GetCheckerIpRangesRequest>("GetCheckerIpRangesRequest")({}) {}
+export class GetHealthCheckCountRequest extends Schema.Class<GetHealthCheckCountRequest>("GetHealthCheckCountRequest")({}) {}
+export class GetHostedZoneCountRequest extends Schema.Class<GetHostedZoneCountRequest>("GetHostedZoneCountRequest")({}) {}
+export class GetTrafficPolicyInstanceCountRequest extends Schema.Class<GetTrafficPolicyInstanceCountRequest>("GetTrafficPolicyInstanceCountRequest")({}) {}
 export const TagKeyList = Schema.Array(Schema.String);
 export const CheckerIpRanges = Schema.Array(Schema.String);
 export const TagResourceIdList = Schema.Array(Schema.String);
 export const ChildHealthCheckList = Schema.Array(Schema.String);
 export const HealthCheckRegionList = Schema.Array(Schema.String);
 export const ResettableElementNameList = Schema.Array(Schema.String);
-export const ActivateKeySigningKeyRequest = Schema.Struct({HostedZoneId: Schema.String, Name: Schema.String});
-export const CreateCidrCollectionRequest = Schema.Struct({Name: Schema.String, CallerReference: Schema.String});
-export const CreateKeySigningKeyRequest = Schema.Struct({CallerReference: Schema.String, HostedZoneId: Schema.String, KeyManagementServiceArn: Schema.String, Name: Schema.String, Status: Schema.String});
-export const CreateQueryLoggingConfigRequest = Schema.Struct({HostedZoneId: Schema.String, CloudWatchLogsLogGroupArn: Schema.String});
-export const CreateReusableDelegationSetRequest = Schema.Struct({CallerReference: Schema.String, HostedZoneId: Schema.optional(Schema.String)});
-export const CreateTrafficPolicyRequest = Schema.Struct({Name: Schema.String, Document: Schema.String, Comment: Schema.optional(Schema.String)});
-export const CreateTrafficPolicyInstanceRequest = Schema.Struct({HostedZoneId: Schema.String, Name: Schema.String, TTL: Schema.Number, TrafficPolicyId: Schema.String, TrafficPolicyVersion: Schema.Number});
-export const CreateTrafficPolicyVersionRequest = Schema.Struct({Id: Schema.String, Document: Schema.String, Comment: Schema.optional(Schema.String)});
-export const VPC = Schema.Struct({VPCRegion: Schema.optional(Schema.String), VPCId: Schema.optional(Schema.String)});
-export const CreateVPCAssociationAuthorizationRequest = Schema.Struct({HostedZoneId: Schema.String, VPC: VPC});
-export const DeactivateKeySigningKeyRequest = Schema.Struct({HostedZoneId: Schema.String, Name: Schema.String});
-export const DeleteCidrCollectionRequest = Schema.Struct({Id: Schema.String});
-export const DeleteCidrCollectionResponse = Schema.Struct({});
-export const DeleteHealthCheckRequest = Schema.Struct({HealthCheckId: Schema.String});
-export const DeleteHealthCheckResponse = Schema.Struct({});
-export const DeleteHostedZoneRequest = Schema.Struct({Id: Schema.String});
-export const DeleteKeySigningKeyRequest = Schema.Struct({HostedZoneId: Schema.String, Name: Schema.String});
-export const DeleteQueryLoggingConfigRequest = Schema.Struct({Id: Schema.String});
-export const DeleteQueryLoggingConfigResponse = Schema.Struct({});
-export const DeleteReusableDelegationSetRequest = Schema.Struct({Id: Schema.String});
-export const DeleteReusableDelegationSetResponse = Schema.Struct({});
-export const DeleteTrafficPolicyRequest = Schema.Struct({Id: Schema.String, Version: Schema.Number});
-export const DeleteTrafficPolicyResponse = Schema.Struct({});
-export const DeleteTrafficPolicyInstanceRequest = Schema.Struct({Id: Schema.String});
-export const DeleteTrafficPolicyInstanceResponse = Schema.Struct({});
-export const DeleteVPCAssociationAuthorizationRequest = Schema.Struct({HostedZoneId: Schema.String, VPC: VPC});
-export const DeleteVPCAssociationAuthorizationResponse = Schema.Struct({});
-export const DisableHostedZoneDNSSECRequest = Schema.Struct({HostedZoneId: Schema.String});
-export const DisassociateVPCFromHostedZoneRequest = Schema.Struct({HostedZoneId: Schema.String, VPC: VPC, Comment: Schema.optional(Schema.String)});
-export const EnableHostedZoneDNSSECRequest = Schema.Struct({HostedZoneId: Schema.String});
-export const GetAccountLimitRequest = Schema.Struct({Type: Schema.String});
-export const GetChangeRequest = Schema.Struct({Id: Schema.String});
-export const GetCheckerIpRangesResponse = Schema.Struct({CheckerIpRanges: CheckerIpRanges});
-export const GetDNSSECRequest = Schema.Struct({HostedZoneId: Schema.String});
-export const GetGeoLocationRequest = Schema.Struct({ContinentCode: Schema.optional(Schema.String), CountryCode: Schema.optional(Schema.String), SubdivisionCode: Schema.optional(Schema.String)});
-export const GetHealthCheckRequest = Schema.Struct({HealthCheckId: Schema.String});
-export const GetHealthCheckCountResponse = Schema.Struct({HealthCheckCount: Schema.Number});
-export const GetHealthCheckLastFailureReasonRequest = Schema.Struct({HealthCheckId: Schema.String});
-export const GetHealthCheckStatusRequest = Schema.Struct({HealthCheckId: Schema.String});
-export const GetHostedZoneRequest = Schema.Struct({Id: Schema.String});
-export const GetHostedZoneCountResponse = Schema.Struct({HostedZoneCount: Schema.Number});
-export const GetHostedZoneLimitRequest = Schema.Struct({Type: Schema.String, HostedZoneId: Schema.String});
-export const GetQueryLoggingConfigRequest = Schema.Struct({Id: Schema.String});
-export const GetReusableDelegationSetRequest = Schema.Struct({Id: Schema.String});
-export const GetReusableDelegationSetLimitRequest = Schema.Struct({Type: Schema.String, DelegationSetId: Schema.String});
-export const GetTrafficPolicyRequest = Schema.Struct({Id: Schema.String, Version: Schema.Number});
-export const GetTrafficPolicyInstanceRequest = Schema.Struct({Id: Schema.String});
-export const GetTrafficPolicyInstanceCountResponse = Schema.Struct({TrafficPolicyInstanceCount: Schema.Number});
-export const ListCidrBlocksRequest = Schema.Struct({CollectionId: Schema.String, LocationName: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListCidrCollectionsRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListCidrLocationsRequest = Schema.Struct({CollectionId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListGeoLocationsRequest = Schema.Struct({StartContinentCode: Schema.optional(Schema.String), StartCountryCode: Schema.optional(Schema.String), StartSubdivisionCode: Schema.optional(Schema.String), MaxItems: Schema.optional(Schema.Number)});
-export const ListHealthChecksRequest = Schema.Struct({Marker: Schema.optional(Schema.String), MaxItems: Schema.optional(Schema.Number)});
-export const ListHostedZonesRequest = Schema.Struct({Marker: Schema.optional(Schema.String), MaxItems: Schema.optional(Schema.Number), DelegationSetId: Schema.optional(Schema.String), HostedZoneType: Schema.optional(Schema.String)});
-export const ListHostedZonesByNameRequest = Schema.Struct({DNSName: Schema.optional(Schema.String), HostedZoneId: Schema.optional(Schema.String), MaxItems: Schema.optional(Schema.Number)});
-export const ListHostedZonesByVPCRequest = Schema.Struct({VPCId: Schema.String, VPCRegion: Schema.String, MaxItems: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListQueryLoggingConfigsRequest = Schema.Struct({HostedZoneId: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListResourceRecordSetsRequest = Schema.Struct({HostedZoneId: Schema.String, StartRecordName: Schema.optional(Schema.String), StartRecordType: Schema.optional(Schema.String), StartRecordIdentifier: Schema.optional(Schema.String), MaxItems: Schema.optional(Schema.Number)});
-export const ListReusableDelegationSetsRequest = Schema.Struct({Marker: Schema.optional(Schema.String), MaxItems: Schema.optional(Schema.Number)});
-export const ListTagsForResourceRequest = Schema.Struct({ResourceType: Schema.String, ResourceId: Schema.String});
-export const ListTagsForResourcesRequest = Schema.Struct({ResourceType: Schema.String, ResourceIds: TagResourceIdList});
-export const ListTrafficPoliciesRequest = Schema.Struct({TrafficPolicyIdMarker: Schema.optional(Schema.String), MaxItems: Schema.optional(Schema.Number)});
-export const ListTrafficPolicyInstancesRequest = Schema.Struct({HostedZoneIdMarker: Schema.optional(Schema.String), TrafficPolicyInstanceNameMarker: Schema.optional(Schema.String), TrafficPolicyInstanceTypeMarker: Schema.optional(Schema.String), MaxItems: Schema.optional(Schema.Number)});
-export const ListTrafficPolicyInstancesByHostedZoneRequest = Schema.Struct({HostedZoneId: Schema.String, TrafficPolicyInstanceNameMarker: Schema.optional(Schema.String), TrafficPolicyInstanceTypeMarker: Schema.optional(Schema.String), MaxItems: Schema.optional(Schema.Number)});
-export const ListTrafficPolicyInstancesByPolicyRequest = Schema.Struct({TrafficPolicyId: Schema.String, TrafficPolicyVersion: Schema.Number, HostedZoneIdMarker: Schema.optional(Schema.String), TrafficPolicyInstanceNameMarker: Schema.optional(Schema.String), TrafficPolicyInstanceTypeMarker: Schema.optional(Schema.String), MaxItems: Schema.optional(Schema.Number)});
-export const ListTrafficPolicyVersionsRequest = Schema.Struct({Id: Schema.String, TrafficPolicyVersionMarker: Schema.optional(Schema.String), MaxItems: Schema.optional(Schema.Number)});
-export const ListVPCAssociationAuthorizationsRequest = Schema.Struct({HostedZoneId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const TestDNSAnswerRequest = Schema.Struct({HostedZoneId: Schema.String, RecordName: Schema.String, RecordType: Schema.String, ResolverIP: Schema.optional(Schema.String), EDNS0ClientSubnetIP: Schema.optional(Schema.String), EDNS0ClientSubnetMask: Schema.optional(Schema.String)});
-export const UpdateHostedZoneCommentRequest = Schema.Struct({Id: Schema.String, Comment: Schema.optional(Schema.String)});
-export const UpdateTrafficPolicyCommentRequest = Schema.Struct({Id: Schema.String, Version: Schema.Number, Comment: Schema.String});
-export const UpdateTrafficPolicyInstanceRequest = Schema.Struct({Id: Schema.String, TTL: Schema.Number, TrafficPolicyId: Schema.String, TrafficPolicyVersion: Schema.Number});
+export class ActivateKeySigningKeyRequest extends Schema.Class<ActivateKeySigningKeyRequest>("ActivateKeySigningKeyRequest")({HostedZoneId: Schema.String, Name: Schema.String}) {}
+export class CreateCidrCollectionRequest extends Schema.Class<CreateCidrCollectionRequest>("CreateCidrCollectionRequest")({Name: Schema.String, CallerReference: Schema.String}) {}
+export class CreateKeySigningKeyRequest extends Schema.Class<CreateKeySigningKeyRequest>("CreateKeySigningKeyRequest")({CallerReference: Schema.String, HostedZoneId: Schema.String, KeyManagementServiceArn: Schema.String, Name: Schema.String, Status: Schema.String}) {}
+export class CreateQueryLoggingConfigRequest extends Schema.Class<CreateQueryLoggingConfigRequest>("CreateQueryLoggingConfigRequest")({HostedZoneId: Schema.String, CloudWatchLogsLogGroupArn: Schema.String}) {}
+export class CreateReusableDelegationSetRequest extends Schema.Class<CreateReusableDelegationSetRequest>("CreateReusableDelegationSetRequest")({CallerReference: Schema.String, HostedZoneId: Schema.optional(Schema.String)}) {}
+export class CreateTrafficPolicyRequest extends Schema.Class<CreateTrafficPolicyRequest>("CreateTrafficPolicyRequest")({Name: Schema.String, Document: Schema.String, Comment: Schema.optional(Schema.String)}) {}
+export class CreateTrafficPolicyInstanceRequest extends Schema.Class<CreateTrafficPolicyInstanceRequest>("CreateTrafficPolicyInstanceRequest")({HostedZoneId: Schema.String, Name: Schema.String, TTL: Schema.Number, TrafficPolicyId: Schema.String, TrafficPolicyVersion: Schema.Number}) {}
+export class CreateTrafficPolicyVersionRequest extends Schema.Class<CreateTrafficPolicyVersionRequest>("CreateTrafficPolicyVersionRequest")({Id: Schema.String, Document: Schema.String, Comment: Schema.optional(Schema.String)}) {}
+export class VPC extends Schema.Class<VPC>("VPC")({VPCRegion: Schema.optional(Schema.String), VPCId: Schema.optional(Schema.String)}) {}
+export class CreateVPCAssociationAuthorizationRequest extends Schema.Class<CreateVPCAssociationAuthorizationRequest>("CreateVPCAssociationAuthorizationRequest")({HostedZoneId: Schema.String, VPC: VPC}) {}
+export class DeactivateKeySigningKeyRequest extends Schema.Class<DeactivateKeySigningKeyRequest>("DeactivateKeySigningKeyRequest")({HostedZoneId: Schema.String, Name: Schema.String}) {}
+export class DeleteCidrCollectionRequest extends Schema.Class<DeleteCidrCollectionRequest>("DeleteCidrCollectionRequest")({Id: Schema.String}) {}
+export class DeleteCidrCollectionResponse extends Schema.Class<DeleteCidrCollectionResponse>("DeleteCidrCollectionResponse")({}) {}
+export class DeleteHealthCheckRequest extends Schema.Class<DeleteHealthCheckRequest>("DeleteHealthCheckRequest")({HealthCheckId: Schema.String}) {}
+export class DeleteHealthCheckResponse extends Schema.Class<DeleteHealthCheckResponse>("DeleteHealthCheckResponse")({}) {}
+export class DeleteHostedZoneRequest extends Schema.Class<DeleteHostedZoneRequest>("DeleteHostedZoneRequest")({Id: Schema.String}) {}
+export class DeleteKeySigningKeyRequest extends Schema.Class<DeleteKeySigningKeyRequest>("DeleteKeySigningKeyRequest")({HostedZoneId: Schema.String, Name: Schema.String}) {}
+export class DeleteQueryLoggingConfigRequest extends Schema.Class<DeleteQueryLoggingConfigRequest>("DeleteQueryLoggingConfigRequest")({Id: Schema.String}) {}
+export class DeleteQueryLoggingConfigResponse extends Schema.Class<DeleteQueryLoggingConfigResponse>("DeleteQueryLoggingConfigResponse")({}) {}
+export class DeleteReusableDelegationSetRequest extends Schema.Class<DeleteReusableDelegationSetRequest>("DeleteReusableDelegationSetRequest")({Id: Schema.String}) {}
+export class DeleteReusableDelegationSetResponse extends Schema.Class<DeleteReusableDelegationSetResponse>("DeleteReusableDelegationSetResponse")({}) {}
+export class DeleteTrafficPolicyRequest extends Schema.Class<DeleteTrafficPolicyRequest>("DeleteTrafficPolicyRequest")({Id: Schema.String, Version: Schema.Number}) {}
+export class DeleteTrafficPolicyResponse extends Schema.Class<DeleteTrafficPolicyResponse>("DeleteTrafficPolicyResponse")({}) {}
+export class DeleteTrafficPolicyInstanceRequest extends Schema.Class<DeleteTrafficPolicyInstanceRequest>("DeleteTrafficPolicyInstanceRequest")({Id: Schema.String}) {}
+export class DeleteTrafficPolicyInstanceResponse extends Schema.Class<DeleteTrafficPolicyInstanceResponse>("DeleteTrafficPolicyInstanceResponse")({}) {}
+export class DeleteVPCAssociationAuthorizationRequest extends Schema.Class<DeleteVPCAssociationAuthorizationRequest>("DeleteVPCAssociationAuthorizationRequest")({HostedZoneId: Schema.String, VPC: VPC}) {}
+export class DeleteVPCAssociationAuthorizationResponse extends Schema.Class<DeleteVPCAssociationAuthorizationResponse>("DeleteVPCAssociationAuthorizationResponse")({}) {}
+export class DisableHostedZoneDNSSECRequest extends Schema.Class<DisableHostedZoneDNSSECRequest>("DisableHostedZoneDNSSECRequest")({HostedZoneId: Schema.String}) {}
+export class DisassociateVPCFromHostedZoneRequest extends Schema.Class<DisassociateVPCFromHostedZoneRequest>("DisassociateVPCFromHostedZoneRequest")({HostedZoneId: Schema.String, VPC: VPC, Comment: Schema.optional(Schema.String)}) {}
+export class EnableHostedZoneDNSSECRequest extends Schema.Class<EnableHostedZoneDNSSECRequest>("EnableHostedZoneDNSSECRequest")({HostedZoneId: Schema.String}) {}
+export class GetAccountLimitRequest extends Schema.Class<GetAccountLimitRequest>("GetAccountLimitRequest")({Type: Schema.String}) {}
+export class GetChangeRequest extends Schema.Class<GetChangeRequest>("GetChangeRequest")({Id: Schema.String}) {}
+export class GetCheckerIpRangesResponse extends Schema.Class<GetCheckerIpRangesResponse>("GetCheckerIpRangesResponse")({CheckerIpRanges: CheckerIpRanges}) {}
+export class GetDNSSECRequest extends Schema.Class<GetDNSSECRequest>("GetDNSSECRequest")({HostedZoneId: Schema.String}) {}
+export class GetGeoLocationRequest extends Schema.Class<GetGeoLocationRequest>("GetGeoLocationRequest")({ContinentCode: Schema.optional(Schema.String), CountryCode: Schema.optional(Schema.String), SubdivisionCode: Schema.optional(Schema.String)}) {}
+export class GetHealthCheckRequest extends Schema.Class<GetHealthCheckRequest>("GetHealthCheckRequest")({HealthCheckId: Schema.String}) {}
+export class GetHealthCheckCountResponse extends Schema.Class<GetHealthCheckCountResponse>("GetHealthCheckCountResponse")({HealthCheckCount: Schema.Number}) {}
+export class GetHealthCheckLastFailureReasonRequest extends Schema.Class<GetHealthCheckLastFailureReasonRequest>("GetHealthCheckLastFailureReasonRequest")({HealthCheckId: Schema.String}) {}
+export class GetHealthCheckStatusRequest extends Schema.Class<GetHealthCheckStatusRequest>("GetHealthCheckStatusRequest")({HealthCheckId: Schema.String}) {}
+export class GetHostedZoneRequest extends Schema.Class<GetHostedZoneRequest>("GetHostedZoneRequest")({Id: Schema.String}) {}
+export class GetHostedZoneCountResponse extends Schema.Class<GetHostedZoneCountResponse>("GetHostedZoneCountResponse")({HostedZoneCount: Schema.Number}) {}
+export class GetHostedZoneLimitRequest extends Schema.Class<GetHostedZoneLimitRequest>("GetHostedZoneLimitRequest")({Type: Schema.String, HostedZoneId: Schema.String}) {}
+export class GetQueryLoggingConfigRequest extends Schema.Class<GetQueryLoggingConfigRequest>("GetQueryLoggingConfigRequest")({Id: Schema.String}) {}
+export class GetReusableDelegationSetRequest extends Schema.Class<GetReusableDelegationSetRequest>("GetReusableDelegationSetRequest")({Id: Schema.String}) {}
+export class GetReusableDelegationSetLimitRequest extends Schema.Class<GetReusableDelegationSetLimitRequest>("GetReusableDelegationSetLimitRequest")({Type: Schema.String, DelegationSetId: Schema.String}) {}
+export class GetTrafficPolicyRequest extends Schema.Class<GetTrafficPolicyRequest>("GetTrafficPolicyRequest")({Id: Schema.String, Version: Schema.Number}) {}
+export class GetTrafficPolicyInstanceRequest extends Schema.Class<GetTrafficPolicyInstanceRequest>("GetTrafficPolicyInstanceRequest")({Id: Schema.String}) {}
+export class GetTrafficPolicyInstanceCountResponse extends Schema.Class<GetTrafficPolicyInstanceCountResponse>("GetTrafficPolicyInstanceCountResponse")({TrafficPolicyInstanceCount: Schema.Number}) {}
+export class ListCidrBlocksRequest extends Schema.Class<ListCidrBlocksRequest>("ListCidrBlocksRequest")({CollectionId: Schema.String, LocationName: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListCidrCollectionsRequest extends Schema.Class<ListCidrCollectionsRequest>("ListCidrCollectionsRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListCidrLocationsRequest extends Schema.Class<ListCidrLocationsRequest>("ListCidrLocationsRequest")({CollectionId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListGeoLocationsRequest extends Schema.Class<ListGeoLocationsRequest>("ListGeoLocationsRequest")({StartContinentCode: Schema.optional(Schema.String), StartCountryCode: Schema.optional(Schema.String), StartSubdivisionCode: Schema.optional(Schema.String), MaxItems: Schema.optional(Schema.Number)}) {}
+export class ListHealthChecksRequest extends Schema.Class<ListHealthChecksRequest>("ListHealthChecksRequest")({Marker: Schema.optional(Schema.String), MaxItems: Schema.optional(Schema.Number)}) {}
+export class ListHostedZonesRequest extends Schema.Class<ListHostedZonesRequest>("ListHostedZonesRequest")({Marker: Schema.optional(Schema.String), MaxItems: Schema.optional(Schema.Number), DelegationSetId: Schema.optional(Schema.String), HostedZoneType: Schema.optional(Schema.String)}) {}
+export class ListHostedZonesByNameRequest extends Schema.Class<ListHostedZonesByNameRequest>("ListHostedZonesByNameRequest")({DNSName: Schema.optional(Schema.String), HostedZoneId: Schema.optional(Schema.String), MaxItems: Schema.optional(Schema.Number)}) {}
+export class ListHostedZonesByVPCRequest extends Schema.Class<ListHostedZonesByVPCRequest>("ListHostedZonesByVPCRequest")({VPCId: Schema.String, VPCRegion: Schema.String, MaxItems: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListQueryLoggingConfigsRequest extends Schema.Class<ListQueryLoggingConfigsRequest>("ListQueryLoggingConfigsRequest")({HostedZoneId: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListResourceRecordSetsRequest extends Schema.Class<ListResourceRecordSetsRequest>("ListResourceRecordSetsRequest")({HostedZoneId: Schema.String, StartRecordName: Schema.optional(Schema.String), StartRecordType: Schema.optional(Schema.String), StartRecordIdentifier: Schema.optional(Schema.String), MaxItems: Schema.optional(Schema.Number)}) {}
+export class ListReusableDelegationSetsRequest extends Schema.Class<ListReusableDelegationSetsRequest>("ListReusableDelegationSetsRequest")({Marker: Schema.optional(Schema.String), MaxItems: Schema.optional(Schema.Number)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({ResourceType: Schema.String, ResourceId: Schema.String}) {}
+export class ListTagsForResourcesRequest extends Schema.Class<ListTagsForResourcesRequest>("ListTagsForResourcesRequest")({ResourceType: Schema.String, ResourceIds: TagResourceIdList}) {}
+export class ListTrafficPoliciesRequest extends Schema.Class<ListTrafficPoliciesRequest>("ListTrafficPoliciesRequest")({TrafficPolicyIdMarker: Schema.optional(Schema.String), MaxItems: Schema.optional(Schema.Number)}) {}
+export class ListTrafficPolicyInstancesRequest extends Schema.Class<ListTrafficPolicyInstancesRequest>("ListTrafficPolicyInstancesRequest")({HostedZoneIdMarker: Schema.optional(Schema.String), TrafficPolicyInstanceNameMarker: Schema.optional(Schema.String), TrafficPolicyInstanceTypeMarker: Schema.optional(Schema.String), MaxItems: Schema.optional(Schema.Number)}) {}
+export class ListTrafficPolicyInstancesByHostedZoneRequest extends Schema.Class<ListTrafficPolicyInstancesByHostedZoneRequest>("ListTrafficPolicyInstancesByHostedZoneRequest")({HostedZoneId: Schema.String, TrafficPolicyInstanceNameMarker: Schema.optional(Schema.String), TrafficPolicyInstanceTypeMarker: Schema.optional(Schema.String), MaxItems: Schema.optional(Schema.Number)}) {}
+export class ListTrafficPolicyInstancesByPolicyRequest extends Schema.Class<ListTrafficPolicyInstancesByPolicyRequest>("ListTrafficPolicyInstancesByPolicyRequest")({TrafficPolicyId: Schema.String, TrafficPolicyVersion: Schema.Number, HostedZoneIdMarker: Schema.optional(Schema.String), TrafficPolicyInstanceNameMarker: Schema.optional(Schema.String), TrafficPolicyInstanceTypeMarker: Schema.optional(Schema.String), MaxItems: Schema.optional(Schema.Number)}) {}
+export class ListTrafficPolicyVersionsRequest extends Schema.Class<ListTrafficPolicyVersionsRequest>("ListTrafficPolicyVersionsRequest")({Id: Schema.String, TrafficPolicyVersionMarker: Schema.optional(Schema.String), MaxItems: Schema.optional(Schema.Number)}) {}
+export class ListVPCAssociationAuthorizationsRequest extends Schema.Class<ListVPCAssociationAuthorizationsRequest>("ListVPCAssociationAuthorizationsRequest")({HostedZoneId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class TestDNSAnswerRequest extends Schema.Class<TestDNSAnswerRequest>("TestDNSAnswerRequest")({HostedZoneId: Schema.String, RecordName: Schema.String, RecordType: Schema.String, ResolverIP: Schema.optional(Schema.String), EDNS0ClientSubnetIP: Schema.optional(Schema.String), EDNS0ClientSubnetMask: Schema.optional(Schema.String)}) {}
+export class UpdateHostedZoneCommentRequest extends Schema.Class<UpdateHostedZoneCommentRequest>("UpdateHostedZoneCommentRequest")({Id: Schema.String, Comment: Schema.optional(Schema.String)}) {}
+export class UpdateHostedZoneFeaturesRequest extends Schema.Class<UpdateHostedZoneFeaturesRequest>("UpdateHostedZoneFeaturesRequest")({HostedZoneId: Schema.String, EnableAcceleratedRecovery: Schema.optional(Schema.Boolean)}) {}
+export class UpdateHostedZoneFeaturesResponse extends Schema.Class<UpdateHostedZoneFeaturesResponse>("UpdateHostedZoneFeaturesResponse")({}) {}
+export class UpdateTrafficPolicyCommentRequest extends Schema.Class<UpdateTrafficPolicyCommentRequest>("UpdateTrafficPolicyCommentRequest")({Id: Schema.String, Version: Schema.Number, Comment: Schema.String}) {}
+export class UpdateTrafficPolicyInstanceRequest extends Schema.Class<UpdateTrafficPolicyInstanceRequest>("UpdateTrafficPolicyInstanceRequest")({Id: Schema.String, TTL: Schema.Number, TrafficPolicyId: Schema.String, TrafficPolicyVersion: Schema.Number}) {}
 export const CidrList = Schema.Array(Schema.String);
-export const CidrCollectionChange = Schema.Struct({LocationName: Schema.String, Action: Schema.String, CidrList: CidrList});
+export class CidrCollectionChange extends Schema.Class<CidrCollectionChange>("CidrCollectionChange")({LocationName: Schema.String, Action: Schema.String, CidrList: CidrList}) {}
 export const CidrCollectionChanges = Schema.Array(CidrCollectionChange);
-export const Tag = Schema.Struct({Key: Schema.optional(Schema.String), Value: Schema.optional(Schema.String)});
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.optional(Schema.String), Value: Schema.optional(Schema.String)}) {}
 export const TagList = Schema.Array(Tag);
-export const AlarmIdentifier = Schema.Struct({Region: Schema.String, Name: Schema.String});
-export const HealthCheckConfig = Schema.Struct({IPAddress: Schema.optional(Schema.String), Port: Schema.optional(Schema.Number), Type: Schema.String, ResourcePath: Schema.optional(Schema.String), FullyQualifiedDomainName: Schema.optional(Schema.String), SearchString: Schema.optional(Schema.String), RequestInterval: Schema.optional(Schema.Number), FailureThreshold: Schema.optional(Schema.Number), MeasureLatency: Schema.optional(Schema.Boolean), Inverted: Schema.optional(Schema.Boolean), Disabled: Schema.optional(Schema.Boolean), HealthThreshold: Schema.optional(Schema.Number), ChildHealthChecks: Schema.optional(ChildHealthCheckList), EnableSNI: Schema.optional(Schema.Boolean), Regions: Schema.optional(HealthCheckRegionList), AlarmIdentifier: Schema.optional(AlarmIdentifier), InsufficientDataHealthStatus: Schema.optional(Schema.String), RoutingControlArn: Schema.optional(Schema.String)});
-export const HostedZoneConfig = Schema.Struct({Comment: Schema.optional(Schema.String), PrivateZone: Schema.optional(Schema.Boolean)});
-export const KeySigningKey = Schema.Struct({Name: Schema.optional(Schema.String), KmsArn: Schema.optional(Schema.String), Flag: Schema.optional(Schema.Number), SigningAlgorithmMnemonic: Schema.optional(Schema.String), SigningAlgorithmType: Schema.optional(Schema.Number), DigestAlgorithmMnemonic: Schema.optional(Schema.String), DigestAlgorithmType: Schema.optional(Schema.Number), KeyTag: Schema.optional(Schema.Number), DigestValue: Schema.optional(Schema.String), PublicKey: Schema.optional(Schema.String), DSRecord: Schema.optional(Schema.String), DNSKEYRecord: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), CreatedDate: Schema.optional(Schema.Date), LastModifiedDate: Schema.optional(Schema.Date)});
+export class AlarmIdentifier extends Schema.Class<AlarmIdentifier>("AlarmIdentifier")({Region: Schema.String, Name: Schema.String}) {}
+export class HealthCheckConfig extends Schema.Class<HealthCheckConfig>("HealthCheckConfig")({IPAddress: Schema.optional(Schema.String), Port: Schema.optional(Schema.Number), Type: Schema.String, ResourcePath: Schema.optional(Schema.String), FullyQualifiedDomainName: Schema.optional(Schema.String), SearchString: Schema.optional(Schema.String), RequestInterval: Schema.optional(Schema.Number), FailureThreshold: Schema.optional(Schema.Number), MeasureLatency: Schema.optional(Schema.Boolean), Inverted: Schema.optional(Schema.Boolean), Disabled: Schema.optional(Schema.Boolean), HealthThreshold: Schema.optional(Schema.Number), ChildHealthChecks: Schema.optional(ChildHealthCheckList), EnableSNI: Schema.optional(Schema.Boolean), Regions: Schema.optional(HealthCheckRegionList), AlarmIdentifier: Schema.optional(AlarmIdentifier), InsufficientDataHealthStatus: Schema.optional(Schema.String), RoutingControlArn: Schema.optional(Schema.String)}) {}
+export class HostedZoneConfig extends Schema.Class<HostedZoneConfig>("HostedZoneConfig")({Comment: Schema.optional(Schema.String), PrivateZone: Schema.optional(Schema.Boolean)}) {}
+export class KeySigningKey extends Schema.Class<KeySigningKey>("KeySigningKey")({Name: Schema.optional(Schema.String), KmsArn: Schema.optional(Schema.String), Flag: Schema.optional(Schema.Number), SigningAlgorithmMnemonic: Schema.optional(Schema.String), SigningAlgorithmType: Schema.optional(Schema.Number), DigestAlgorithmMnemonic: Schema.optional(Schema.String), DigestAlgorithmType: Schema.optional(Schema.Number), KeyTag: Schema.optional(Schema.Number), DigestValue: Schema.optional(Schema.String), PublicKey: Schema.optional(Schema.String), DSRecord: Schema.optional(Schema.String), DNSKEYRecord: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), CreatedDate: Schema.optional(Schema.Date), LastModifiedDate: Schema.optional(Schema.Date)}) {}
 export const KeySigningKeys = Schema.Array(KeySigningKey);
 export const VPCs = Schema.Array(VPC);
-export const GeoLocationDetails = Schema.Struct({ContinentCode: Schema.optional(Schema.String), ContinentName: Schema.optional(Schema.String), CountryCode: Schema.optional(Schema.String), CountryName: Schema.optional(Schema.String), SubdivisionCode: Schema.optional(Schema.String), SubdivisionName: Schema.optional(Schema.String)});
+export class GeoLocationDetails extends Schema.Class<GeoLocationDetails>("GeoLocationDetails")({ContinentCode: Schema.optional(Schema.String), ContinentName: Schema.optional(Schema.String), CountryCode: Schema.optional(Schema.String), CountryName: Schema.optional(Schema.String), SubdivisionCode: Schema.optional(Schema.String), SubdivisionName: Schema.optional(Schema.String)}) {}
 export const GeoLocationDetailsList = Schema.Array(GeoLocationDetails);
-export const LinkedService = Schema.Struct({ServicePrincipal: Schema.optional(Schema.String), Description: Schema.optional(Schema.String)});
-export const Dimension = Schema.Struct({Name: Schema.String, Value: Schema.String});
+export class LinkedService extends Schema.Class<LinkedService>("LinkedService")({ServicePrincipal: Schema.optional(Schema.String), Description: Schema.optional(Schema.String)}) {}
+export class Dimension extends Schema.Class<Dimension>("Dimension")({Name: Schema.String, Value: Schema.String}) {}
 export const DimensionList = Schema.Array(Dimension);
-export const CloudWatchAlarmConfiguration = Schema.Struct({EvaluationPeriods: Schema.Number, Threshold: Schema.Number, ComparisonOperator: Schema.String, Period: Schema.Number, MetricName: Schema.String, Namespace: Schema.String, Statistic: Schema.String, Dimensions: Schema.optional(DimensionList)});
-export const HealthCheck = Schema.Struct({Id: Schema.String, CallerReference: Schema.String, LinkedService: Schema.optional(LinkedService), HealthCheckConfig: HealthCheckConfig, HealthCheckVersion: Schema.Number, CloudWatchAlarmConfiguration: Schema.optional(CloudWatchAlarmConfiguration)});
+export class CloudWatchAlarmConfiguration extends Schema.Class<CloudWatchAlarmConfiguration>("CloudWatchAlarmConfiguration")({EvaluationPeriods: Schema.Number, Threshold: Schema.Number, ComparisonOperator: Schema.String, Period: Schema.Number, MetricName: Schema.String, Namespace: Schema.String, Statistic: Schema.String, Dimensions: Schema.optional(DimensionList)}) {}
+export class HealthCheck extends Schema.Class<HealthCheck>("HealthCheck")({Id: Schema.String, CallerReference: Schema.String, LinkedService: Schema.optional(LinkedService), HealthCheckConfig: HealthCheckConfig, HealthCheckVersion: Schema.Number, CloudWatchAlarmConfiguration: Schema.optional(CloudWatchAlarmConfiguration)}) {}
 export const HealthChecks = Schema.Array(HealthCheck);
-export const HostedZone = Schema.Struct({Id: Schema.String, Name: Schema.String, CallerReference: Schema.String, Config: Schema.optional(HostedZoneConfig), ResourceRecordSetCount: Schema.optional(Schema.Number), LinkedService: Schema.optional(LinkedService)});
+export class HostedZoneFailureReasons extends Schema.Class<HostedZoneFailureReasons>("HostedZoneFailureReasons")({AcceleratedRecovery: Schema.optional(Schema.String)}) {}
+export class HostedZoneFeatures extends Schema.Class<HostedZoneFeatures>("HostedZoneFeatures")({AcceleratedRecoveryStatus: Schema.optional(Schema.String), FailureReasons: Schema.optional(HostedZoneFailureReasons)}) {}
+export class HostedZone extends Schema.Class<HostedZone>("HostedZone")({Id: Schema.String, Name: Schema.String, CallerReference: Schema.String, Config: Schema.optional(HostedZoneConfig), ResourceRecordSetCount: Schema.optional(Schema.Number), LinkedService: Schema.optional(LinkedService), Features: Schema.optional(HostedZoneFeatures)}) {}
 export const HostedZones = Schema.Array(HostedZone);
-export const QueryLoggingConfig = Schema.Struct({Id: Schema.String, HostedZoneId: Schema.String, CloudWatchLogsLogGroupArn: Schema.String});
+export class QueryLoggingConfig extends Schema.Class<QueryLoggingConfig>("QueryLoggingConfig")({Id: Schema.String, HostedZoneId: Schema.String, CloudWatchLogsLogGroupArn: Schema.String}) {}
 export const QueryLoggingConfigs = Schema.Array(QueryLoggingConfig);
 export const DelegationSetNameServers = Schema.Array(Schema.String);
-export const DelegationSet = Schema.Struct({Id: Schema.optional(Schema.String), CallerReference: Schema.optional(Schema.String), NameServers: DelegationSetNameServers});
+export class DelegationSet extends Schema.Class<DelegationSet>("DelegationSet")({Id: Schema.optional(Schema.String), CallerReference: Schema.optional(Schema.String), NameServers: DelegationSetNameServers}) {}
 export const DelegationSets = Schema.Array(DelegationSet);
-export const ResourceTagSet = Schema.Struct({ResourceType: Schema.optional(Schema.String), ResourceId: Schema.optional(Schema.String), Tags: Schema.optional(TagList)});
+export class ResourceTagSet extends Schema.Class<ResourceTagSet>("ResourceTagSet")({ResourceType: Schema.optional(Schema.String), ResourceId: Schema.optional(Schema.String), Tags: Schema.optional(TagList)}) {}
 export const ResourceTagSetList = Schema.Array(ResourceTagSet);
-export const TrafficPolicyInstance = Schema.Struct({Id: Schema.String, HostedZoneId: Schema.String, Name: Schema.String, TTL: Schema.Number, State: Schema.String, Message: Schema.String, TrafficPolicyId: Schema.String, TrafficPolicyVersion: Schema.Number, TrafficPolicyType: Schema.String});
+export class TrafficPolicyInstance extends Schema.Class<TrafficPolicyInstance>("TrafficPolicyInstance")({Id: Schema.String, HostedZoneId: Schema.String, Name: Schema.String, TTL: Schema.Number, State: Schema.String, Message: Schema.String, TrafficPolicyId: Schema.String, TrafficPolicyVersion: Schema.Number, TrafficPolicyType: Schema.String}) {}
 export const TrafficPolicyInstances = Schema.Array(TrafficPolicyInstance);
-export const TrafficPolicy = Schema.Struct({Id: Schema.String, Version: Schema.Number, Name: Schema.String, Type: Schema.String, Document: Schema.String, Comment: Schema.optional(Schema.String)});
+export class TrafficPolicy extends Schema.Class<TrafficPolicy>("TrafficPolicy")({Id: Schema.String, Version: Schema.Number, Name: Schema.String, Type: Schema.String, Document: Schema.String, Comment: Schema.optional(Schema.String)}) {}
 export const TrafficPolicies = Schema.Array(TrafficPolicy);
 export const RecordData = Schema.Array(Schema.String);
-export const AssociateVPCWithHostedZoneRequest = Schema.Struct({HostedZoneId: Schema.String, VPC: VPC, Comment: Schema.optional(Schema.String)});
-export const ChangeCidrCollectionRequest = Schema.Struct({Id: Schema.String, CollectionVersion: Schema.optional(Schema.Number), Changes: CidrCollectionChanges});
-export const ChangeTagsForResourceRequest = Schema.Struct({ResourceType: Schema.String, ResourceId: Schema.String, AddTags: Schema.optional(TagList), RemoveTagKeys: Schema.optional(TagKeyList)});
-export const ChangeTagsForResourceResponse = Schema.Struct({});
-export const CreateHealthCheckRequest = Schema.Struct({CallerReference: Schema.String, HealthCheckConfig: HealthCheckConfig});
-export const CreateHostedZoneRequest = Schema.Struct({Name: Schema.String, VPC: Schema.optional(VPC), CallerReference: Schema.String, HostedZoneConfig: Schema.optional(HostedZoneConfig), DelegationSetId: Schema.optional(Schema.String)});
-export const CreateTrafficPolicyVersionResponse = Schema.Struct({TrafficPolicy: TrafficPolicy, Location: Header("Location")});
-export const CreateVPCAssociationAuthorizationResponse = Schema.Struct({HostedZoneId: Schema.String, VPC: VPC});
-export const ChangeInfo = Schema.Struct({Id: Schema.String, Status: Schema.String, SubmittedAt: Schema.Date, Comment: Schema.optional(Schema.String)});
-export const DeactivateKeySigningKeyResponse = Schema.Struct({ChangeInfo: ChangeInfo});
-export const CidrCollectionInUseException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const HealthCheckInUse = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DeleteHostedZoneResponse = Schema.Struct({ChangeInfo: ChangeInfo});
-export const DeleteKeySigningKeyResponse = Schema.Struct({ChangeInfo: ChangeInfo});
-export const ConcurrentModification = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DelegationSetInUse = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidInput = Schema.Struct({message: Schema.optional(Schema.String)});
-export const NoSuchTrafficPolicyInstance = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidVPCId = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DisableHostedZoneDNSSECResponse = Schema.Struct({ChangeInfo: ChangeInfo});
-export const DisassociateVPCFromHostedZoneResponse = Schema.Struct({ChangeInfo: ChangeInfo});
-export const EnableHostedZoneDNSSECResponse = Schema.Struct({ChangeInfo: ChangeInfo});
-export const GetChangeResponse = Schema.Struct({ChangeInfo: ChangeInfo});
-export const StatusReport = Schema.Struct({Status: Schema.optional(Schema.String), CheckedTime: Schema.optional(Schema.Date)});
-export const HealthCheckObservation = Schema.Struct({Region: Schema.optional(Schema.String), IPAddress: Schema.optional(Schema.String), StatusReport: Schema.optional(StatusReport)});
+export class AssociateVPCWithHostedZoneRequest extends Schema.Class<AssociateVPCWithHostedZoneRequest>("AssociateVPCWithHostedZoneRequest")({HostedZoneId: Schema.String, VPC: VPC, Comment: Schema.optional(Schema.String)}) {}
+export class ChangeCidrCollectionRequest extends Schema.Class<ChangeCidrCollectionRequest>("ChangeCidrCollectionRequest")({Id: Schema.String, CollectionVersion: Schema.optional(Schema.Number), Changes: CidrCollectionChanges}) {}
+export class ChangeTagsForResourceRequest extends Schema.Class<ChangeTagsForResourceRequest>("ChangeTagsForResourceRequest")({ResourceType: Schema.String, ResourceId: Schema.String, AddTags: Schema.optional(TagList), RemoveTagKeys: Schema.optional(TagKeyList)}) {}
+export class ChangeTagsForResourceResponse extends Schema.Class<ChangeTagsForResourceResponse>("ChangeTagsForResourceResponse")({}) {}
+export class CreateHealthCheckRequest extends Schema.Class<CreateHealthCheckRequest>("CreateHealthCheckRequest")({CallerReference: Schema.String, HealthCheckConfig: HealthCheckConfig}) {}
+export class CreateHostedZoneRequest extends Schema.Class<CreateHostedZoneRequest>("CreateHostedZoneRequest")({Name: Schema.String, VPC: Schema.optional(VPC), CallerReference: Schema.String, HostedZoneConfig: Schema.optional(HostedZoneConfig), DelegationSetId: Schema.optional(Schema.String)}) {}
+export class CreateTrafficPolicyVersionResponse extends Schema.Class<CreateTrafficPolicyVersionResponse>("CreateTrafficPolicyVersionResponse")({TrafficPolicy: TrafficPolicy, Location: Header("Location")}) {}
+export class CreateVPCAssociationAuthorizationResponse extends Schema.Class<CreateVPCAssociationAuthorizationResponse>("CreateVPCAssociationAuthorizationResponse")({HostedZoneId: Schema.String, VPC: VPC}) {}
+export class ChangeInfo extends Schema.Class<ChangeInfo>("ChangeInfo")({Id: Schema.String, Status: Schema.String, SubmittedAt: Schema.Date, Comment: Schema.optional(Schema.String)}) {}
+export class DeactivateKeySigningKeyResponse extends Schema.Class<DeactivateKeySigningKeyResponse>("DeactivateKeySigningKeyResponse")({ChangeInfo: ChangeInfo}) {}
+export class CidrCollectionInUseException extends Schema.Class<CidrCollectionInUseException>("CidrCollectionInUseException")({Message: Schema.optional(Schema.String)}) {}
+export class HealthCheckInUse extends Schema.Class<HealthCheckInUse>("HealthCheckInUse")({message: Schema.optional(Schema.String)}) {}
+export class DeleteHostedZoneResponse extends Schema.Class<DeleteHostedZoneResponse>("DeleteHostedZoneResponse")({ChangeInfo: ChangeInfo}) {}
+export class DeleteKeySigningKeyResponse extends Schema.Class<DeleteKeySigningKeyResponse>("DeleteKeySigningKeyResponse")({ChangeInfo: ChangeInfo}) {}
+export class ConcurrentModification extends Schema.Class<ConcurrentModification>("ConcurrentModification")({message: Schema.optional(Schema.String)}) {}
+export class DelegationSetInUse extends Schema.Class<DelegationSetInUse>("DelegationSetInUse")({message: Schema.optional(Schema.String)}) {}
+export class InvalidInput extends Schema.Class<InvalidInput>("InvalidInput")({message: Schema.optional(Schema.String)}) {}
+export class NoSuchTrafficPolicyInstance extends Schema.Class<NoSuchTrafficPolicyInstance>("NoSuchTrafficPolicyInstance")({message: Schema.optional(Schema.String)}) {}
+export class InvalidVPCId extends Schema.Class<InvalidVPCId>("InvalidVPCId")({message: Schema.optional(Schema.String)}) {}
+export class DisableHostedZoneDNSSECResponse extends Schema.Class<DisableHostedZoneDNSSECResponse>("DisableHostedZoneDNSSECResponse")({ChangeInfo: ChangeInfo}) {}
+export class DisassociateVPCFromHostedZoneResponse extends Schema.Class<DisassociateVPCFromHostedZoneResponse>("DisassociateVPCFromHostedZoneResponse")({ChangeInfo: ChangeInfo}) {}
+export class EnableHostedZoneDNSSECResponse extends Schema.Class<EnableHostedZoneDNSSECResponse>("EnableHostedZoneDNSSECResponse")({ChangeInfo: ChangeInfo}) {}
+export class GetChangeResponse extends Schema.Class<GetChangeResponse>("GetChangeResponse")({ChangeInfo: ChangeInfo}) {}
+export class StatusReport extends Schema.Class<StatusReport>("StatusReport")({Status: Schema.optional(Schema.String), CheckedTime: Schema.optional(Schema.Date)}) {}
+export class HealthCheckObservation extends Schema.Class<HealthCheckObservation>("HealthCheckObservation")({Region: Schema.optional(Schema.String), IPAddress: Schema.optional(Schema.String), StatusReport: Schema.optional(StatusReport)}) {}
 export const HealthCheckObservations = Schema.Array(HealthCheckObservation);
-export const GetHealthCheckStatusResponse = Schema.Struct({HealthCheckObservations: HealthCheckObservations});
-export const GetQueryLoggingConfigResponse = Schema.Struct({QueryLoggingConfig: QueryLoggingConfig});
-export const GetReusableDelegationSetResponse = Schema.Struct({DelegationSet: DelegationSet});
-export const GetTrafficPolicyResponse = Schema.Struct({TrafficPolicy: TrafficPolicy});
-export const GetTrafficPolicyInstanceResponse = Schema.Struct({TrafficPolicyInstance: TrafficPolicyInstance});
-export const ListGeoLocationsResponse = Schema.Struct({GeoLocationDetailsList: GeoLocationDetailsList, IsTruncated: Schema.Boolean, NextContinentCode: Schema.optional(Schema.String), NextCountryCode: Schema.optional(Schema.String), NextSubdivisionCode: Schema.optional(Schema.String), MaxItems: Schema.Number});
-export const ListHealthChecksResponse = Schema.Struct({HealthChecks: HealthChecks, Marker: Schema.String, IsTruncated: Schema.Boolean, NextMarker: Schema.optional(Schema.String), MaxItems: Schema.Number});
-export const ListHostedZonesResponse = Schema.Struct({HostedZones: HostedZones, Marker: Schema.String, IsTruncated: Schema.Boolean, NextMarker: Schema.optional(Schema.String), MaxItems: Schema.Number});
-export const ListHostedZonesByNameResponse = Schema.Struct({HostedZones: HostedZones, DNSName: Schema.optional(Schema.String), HostedZoneId: Schema.optional(Schema.String), IsTruncated: Schema.Boolean, NextDNSName: Schema.optional(Schema.String), NextHostedZoneId: Schema.optional(Schema.String), MaxItems: Schema.Number});
-export const ListQueryLoggingConfigsResponse = Schema.Struct({QueryLoggingConfigs: QueryLoggingConfigs, NextToken: Schema.optional(Schema.String)});
-export const ListReusableDelegationSetsResponse = Schema.Struct({DelegationSets: DelegationSets, Marker: Schema.String, IsTruncated: Schema.Boolean, NextMarker: Schema.optional(Schema.String), MaxItems: Schema.Number});
-export const ListTagsForResourcesResponse = Schema.Struct({ResourceTagSets: ResourceTagSetList});
-export const ListTrafficPolicyInstancesResponse = Schema.Struct({TrafficPolicyInstances: TrafficPolicyInstances, HostedZoneIdMarker: Schema.optional(Schema.String), TrafficPolicyInstanceNameMarker: Schema.optional(Schema.String), TrafficPolicyInstanceTypeMarker: Schema.optional(Schema.String), IsTruncated: Schema.Boolean, MaxItems: Schema.Number});
-export const ListTrafficPolicyInstancesByHostedZoneResponse = Schema.Struct({TrafficPolicyInstances: TrafficPolicyInstances, TrafficPolicyInstanceNameMarker: Schema.optional(Schema.String), TrafficPolicyInstanceTypeMarker: Schema.optional(Schema.String), IsTruncated: Schema.Boolean, MaxItems: Schema.Number});
-export const ListTrafficPolicyInstancesByPolicyResponse = Schema.Struct({TrafficPolicyInstances: TrafficPolicyInstances, HostedZoneIdMarker: Schema.optional(Schema.String), TrafficPolicyInstanceNameMarker: Schema.optional(Schema.String), TrafficPolicyInstanceTypeMarker: Schema.optional(Schema.String), IsTruncated: Schema.Boolean, MaxItems: Schema.Number});
-export const ListTrafficPolicyVersionsResponse = Schema.Struct({TrafficPolicies: TrafficPolicies, IsTruncated: Schema.Boolean, TrafficPolicyVersionMarker: Schema.String, MaxItems: Schema.Number});
-export const ListVPCAssociationAuthorizationsResponse = Schema.Struct({HostedZoneId: Schema.String, NextToken: Schema.optional(Schema.String), VPCs: VPCs});
-export const TestDNSAnswerResponse = Schema.Struct({Nameserver: Schema.String, RecordName: Schema.String, RecordType: Schema.String, RecordData: RecordData, ResponseCode: Schema.String, Protocol: Schema.String});
-export const UpdateHealthCheckRequest = Schema.Struct({HealthCheckId: Schema.String, HealthCheckVersion: Schema.optional(Schema.Number), IPAddress: Schema.optional(Schema.String), Port: Schema.optional(Schema.Number), ResourcePath: Schema.optional(Schema.String), FullyQualifiedDomainName: Schema.optional(Schema.String), SearchString: Schema.optional(Schema.String), FailureThreshold: Schema.optional(Schema.Number), Inverted: Schema.optional(Schema.Boolean), Disabled: Schema.optional(Schema.Boolean), HealthThreshold: Schema.optional(Schema.Number), ChildHealthChecks: Schema.optional(ChildHealthCheckList), EnableSNI: Schema.optional(Schema.Boolean), Regions: Schema.optional(HealthCheckRegionList), AlarmIdentifier: Schema.optional(AlarmIdentifier), InsufficientDataHealthStatus: Schema.optional(Schema.String), ResetElements: Schema.optional(ResettableElementNameList)});
-export const UpdateHostedZoneCommentResponse = Schema.Struct({HostedZone: HostedZone});
-export const UpdateTrafficPolicyCommentResponse = Schema.Struct({TrafficPolicy: TrafficPolicy});
-export const UpdateTrafficPolicyInstanceResponse = Schema.Struct({TrafficPolicyInstance: TrafficPolicyInstance});
-export const GeoLocation = Schema.Struct({ContinentCode: Schema.optional(Schema.String), CountryCode: Schema.optional(Schema.String), SubdivisionCode: Schema.optional(Schema.String)});
-export const ResourceRecord = Schema.Struct({Value: Schema.String});
+export class GetHealthCheckStatusResponse extends Schema.Class<GetHealthCheckStatusResponse>("GetHealthCheckStatusResponse")({HealthCheckObservations: HealthCheckObservations}) {}
+export class GetQueryLoggingConfigResponse extends Schema.Class<GetQueryLoggingConfigResponse>("GetQueryLoggingConfigResponse")({QueryLoggingConfig: QueryLoggingConfig}) {}
+export class GetReusableDelegationSetResponse extends Schema.Class<GetReusableDelegationSetResponse>("GetReusableDelegationSetResponse")({DelegationSet: DelegationSet}) {}
+export class GetTrafficPolicyResponse extends Schema.Class<GetTrafficPolicyResponse>("GetTrafficPolicyResponse")({TrafficPolicy: TrafficPolicy}) {}
+export class GetTrafficPolicyInstanceResponse extends Schema.Class<GetTrafficPolicyInstanceResponse>("GetTrafficPolicyInstanceResponse")({TrafficPolicyInstance: TrafficPolicyInstance}) {}
+export class ListGeoLocationsResponse extends Schema.Class<ListGeoLocationsResponse>("ListGeoLocationsResponse")({GeoLocationDetailsList: GeoLocationDetailsList, IsTruncated: Schema.Boolean, NextContinentCode: Schema.optional(Schema.String), NextCountryCode: Schema.optional(Schema.String), NextSubdivisionCode: Schema.optional(Schema.String), MaxItems: Schema.Number}) {}
+export class ListHealthChecksResponse extends Schema.Class<ListHealthChecksResponse>("ListHealthChecksResponse")({HealthChecks: HealthChecks, Marker: Schema.String, IsTruncated: Schema.Boolean, NextMarker: Schema.optional(Schema.String), MaxItems: Schema.Number}) {}
+export class ListHostedZonesResponse extends Schema.Class<ListHostedZonesResponse>("ListHostedZonesResponse")({HostedZones: HostedZones, Marker: Schema.String, IsTruncated: Schema.Boolean, NextMarker: Schema.optional(Schema.String), MaxItems: Schema.Number}) {}
+export class ListHostedZonesByNameResponse extends Schema.Class<ListHostedZonesByNameResponse>("ListHostedZonesByNameResponse")({HostedZones: HostedZones, DNSName: Schema.optional(Schema.String), HostedZoneId: Schema.optional(Schema.String), IsTruncated: Schema.Boolean, NextDNSName: Schema.optional(Schema.String), NextHostedZoneId: Schema.optional(Schema.String), MaxItems: Schema.Number}) {}
+export class ListQueryLoggingConfigsResponse extends Schema.Class<ListQueryLoggingConfigsResponse>("ListQueryLoggingConfigsResponse")({QueryLoggingConfigs: QueryLoggingConfigs, NextToken: Schema.optional(Schema.String)}) {}
+export class ListReusableDelegationSetsResponse extends Schema.Class<ListReusableDelegationSetsResponse>("ListReusableDelegationSetsResponse")({DelegationSets: DelegationSets, Marker: Schema.String, IsTruncated: Schema.Boolean, NextMarker: Schema.optional(Schema.String), MaxItems: Schema.Number}) {}
+export class ListTagsForResourcesResponse extends Schema.Class<ListTagsForResourcesResponse>("ListTagsForResourcesResponse")({ResourceTagSets: ResourceTagSetList}) {}
+export class ListTrafficPolicyInstancesResponse extends Schema.Class<ListTrafficPolicyInstancesResponse>("ListTrafficPolicyInstancesResponse")({TrafficPolicyInstances: TrafficPolicyInstances, HostedZoneIdMarker: Schema.optional(Schema.String), TrafficPolicyInstanceNameMarker: Schema.optional(Schema.String), TrafficPolicyInstanceTypeMarker: Schema.optional(Schema.String), IsTruncated: Schema.Boolean, MaxItems: Schema.Number}) {}
+export class ListTrafficPolicyInstancesByHostedZoneResponse extends Schema.Class<ListTrafficPolicyInstancesByHostedZoneResponse>("ListTrafficPolicyInstancesByHostedZoneResponse")({TrafficPolicyInstances: TrafficPolicyInstances, TrafficPolicyInstanceNameMarker: Schema.optional(Schema.String), TrafficPolicyInstanceTypeMarker: Schema.optional(Schema.String), IsTruncated: Schema.Boolean, MaxItems: Schema.Number}) {}
+export class ListTrafficPolicyInstancesByPolicyResponse extends Schema.Class<ListTrafficPolicyInstancesByPolicyResponse>("ListTrafficPolicyInstancesByPolicyResponse")({TrafficPolicyInstances: TrafficPolicyInstances, HostedZoneIdMarker: Schema.optional(Schema.String), TrafficPolicyInstanceNameMarker: Schema.optional(Schema.String), TrafficPolicyInstanceTypeMarker: Schema.optional(Schema.String), IsTruncated: Schema.Boolean, MaxItems: Schema.Number}) {}
+export class ListTrafficPolicyVersionsResponse extends Schema.Class<ListTrafficPolicyVersionsResponse>("ListTrafficPolicyVersionsResponse")({TrafficPolicies: TrafficPolicies, IsTruncated: Schema.Boolean, TrafficPolicyVersionMarker: Schema.String, MaxItems: Schema.Number}) {}
+export class ListVPCAssociationAuthorizationsResponse extends Schema.Class<ListVPCAssociationAuthorizationsResponse>("ListVPCAssociationAuthorizationsResponse")({HostedZoneId: Schema.String, NextToken: Schema.optional(Schema.String), VPCs: VPCs}) {}
+export class TestDNSAnswerResponse extends Schema.Class<TestDNSAnswerResponse>("TestDNSAnswerResponse")({Nameserver: Schema.String, RecordName: Schema.String, RecordType: Schema.String, RecordData: RecordData, ResponseCode: Schema.String, Protocol: Schema.String}) {}
+export class UpdateHealthCheckRequest extends Schema.Class<UpdateHealthCheckRequest>("UpdateHealthCheckRequest")({HealthCheckId: Schema.String, HealthCheckVersion: Schema.optional(Schema.Number), IPAddress: Schema.optional(Schema.String), Port: Schema.optional(Schema.Number), ResourcePath: Schema.optional(Schema.String), FullyQualifiedDomainName: Schema.optional(Schema.String), SearchString: Schema.optional(Schema.String), FailureThreshold: Schema.optional(Schema.Number), Inverted: Schema.optional(Schema.Boolean), Disabled: Schema.optional(Schema.Boolean), HealthThreshold: Schema.optional(Schema.Number), ChildHealthChecks: Schema.optional(ChildHealthCheckList), EnableSNI: Schema.optional(Schema.Boolean), Regions: Schema.optional(HealthCheckRegionList), AlarmIdentifier: Schema.optional(AlarmIdentifier), InsufficientDataHealthStatus: Schema.optional(Schema.String), ResetElements: Schema.optional(ResettableElementNameList)}) {}
+export class UpdateHostedZoneCommentResponse extends Schema.Class<UpdateHostedZoneCommentResponse>("UpdateHostedZoneCommentResponse")({HostedZone: HostedZone}) {}
+export class LimitsExceeded extends Schema.Class<LimitsExceeded>("LimitsExceeded")({message: Schema.optional(Schema.String)}) {}
+export class UpdateTrafficPolicyCommentResponse extends Schema.Class<UpdateTrafficPolicyCommentResponse>("UpdateTrafficPolicyCommentResponse")({TrafficPolicy: TrafficPolicy}) {}
+export class UpdateTrafficPolicyInstanceResponse extends Schema.Class<UpdateTrafficPolicyInstanceResponse>("UpdateTrafficPolicyInstanceResponse")({TrafficPolicyInstance: TrafficPolicyInstance}) {}
+export class GeoLocation extends Schema.Class<GeoLocation>("GeoLocation")({ContinentCode: Schema.optional(Schema.String), CountryCode: Schema.optional(Schema.String), SubdivisionCode: Schema.optional(Schema.String)}) {}
+export class ResourceRecord extends Schema.Class<ResourceRecord>("ResourceRecord")({Value: Schema.String}) {}
 export const ResourceRecords = Schema.Array(ResourceRecord);
-export const AliasTarget = Schema.Struct({HostedZoneId: Schema.String, DNSName: Schema.String, EvaluateTargetHealth: Schema.Boolean});
-export const CidrRoutingConfig = Schema.Struct({CollectionId: Schema.String, LocationName: Schema.String});
-export const Coordinates = Schema.Struct({Latitude: Schema.String, Longitude: Schema.String});
-export const GeoProximityLocation = Schema.Struct({AWSRegion: Schema.optional(Schema.String), LocalZoneGroup: Schema.optional(Schema.String), Coordinates: Schema.optional(Coordinates), Bias: Schema.optional(Schema.Number)});
-export const ResourceRecordSet = Schema.Struct({Name: Schema.String, Type: Schema.String, SetIdentifier: Schema.optional(Schema.String), Weight: Schema.optional(Schema.Number), Region: Schema.optional(Schema.String), GeoLocation: Schema.optional(GeoLocation), Failover: Schema.optional(Schema.String), MultiValueAnswer: Schema.optional(Schema.Boolean), TTL: Schema.optional(Schema.Number), ResourceRecords: Schema.optional(ResourceRecords), AliasTarget: Schema.optional(AliasTarget), HealthCheckId: Schema.optional(Schema.String), TrafficPolicyInstanceId: Schema.optional(Schema.String), CidrRoutingConfig: Schema.optional(CidrRoutingConfig), GeoProximityLocation: Schema.optional(GeoProximityLocation)});
-export const Change = Schema.Struct({Action: Schema.String, ResourceRecordSet: ResourceRecordSet});
+export class AliasTarget extends Schema.Class<AliasTarget>("AliasTarget")({HostedZoneId: Schema.String, DNSName: Schema.String, EvaluateTargetHealth: Schema.Boolean}) {}
+export class CidrRoutingConfig extends Schema.Class<CidrRoutingConfig>("CidrRoutingConfig")({CollectionId: Schema.String, LocationName: Schema.String}) {}
+export class Coordinates extends Schema.Class<Coordinates>("Coordinates")({Latitude: Schema.String, Longitude: Schema.String}) {}
+export class GeoProximityLocation extends Schema.Class<GeoProximityLocation>("GeoProximityLocation")({AWSRegion: Schema.optional(Schema.String), LocalZoneGroup: Schema.optional(Schema.String), Coordinates: Schema.optional(Coordinates), Bias: Schema.optional(Schema.Number)}) {}
+export class ResourceRecordSet extends Schema.Class<ResourceRecordSet>("ResourceRecordSet")({Name: Schema.String, Type: Schema.String, SetIdentifier: Schema.optional(Schema.String), Weight: Schema.optional(Schema.Number), Region: Schema.optional(Schema.String), GeoLocation: Schema.optional(GeoLocation), Failover: Schema.optional(Schema.String), MultiValueAnswer: Schema.optional(Schema.Boolean), TTL: Schema.optional(Schema.Number), ResourceRecords: Schema.optional(ResourceRecords), AliasTarget: Schema.optional(AliasTarget), HealthCheckId: Schema.optional(Schema.String), TrafficPolicyInstanceId: Schema.optional(Schema.String), CidrRoutingConfig: Schema.optional(CidrRoutingConfig), GeoProximityLocation: Schema.optional(GeoProximityLocation)}) {}
+export class Change extends Schema.Class<Change>("Change")({Action: Schema.String, ResourceRecordSet: ResourceRecordSet}) {}
 export const Changes = Schema.Array(Change);
-export const ChangeBatch = Schema.Struct({Comment: Schema.optional(Schema.String), Changes: Changes});
-export const CidrCollection = Schema.Struct({Arn: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Version: Schema.optional(Schema.Number)});
-export const AccountLimit = Schema.Struct({Type: Schema.String, Value: Schema.Number});
-export const DNSSECStatus = Schema.Struct({ServeSignature: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String)});
-export const HostedZoneLimit = Schema.Struct({Type: Schema.String, Value: Schema.Number});
-export const ReusableDelegationSetLimit = Schema.Struct({Type: Schema.String, Value: Schema.Number});
-export const CidrBlockSummary = Schema.Struct({CidrBlock: Schema.optional(Schema.String), LocationName: Schema.optional(Schema.String)});
+export class ChangeBatch extends Schema.Class<ChangeBatch>("ChangeBatch")({Comment: Schema.optional(Schema.String), Changes: Changes}) {}
+export class CidrCollection extends Schema.Class<CidrCollection>("CidrCollection")({Arn: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Version: Schema.optional(Schema.Number)}) {}
+export class AccountLimit extends Schema.Class<AccountLimit>("AccountLimit")({Type: Schema.String, Value: Schema.Number}) {}
+export class DNSSECStatus extends Schema.Class<DNSSECStatus>("DNSSECStatus")({ServeSignature: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String)}) {}
+export class HostedZoneLimit extends Schema.Class<HostedZoneLimit>("HostedZoneLimit")({Type: Schema.String, Value: Schema.Number}) {}
+export class ReusableDelegationSetLimit extends Schema.Class<ReusableDelegationSetLimit>("ReusableDelegationSetLimit")({Type: Schema.String, Value: Schema.Number}) {}
+export class CidrBlockSummary extends Schema.Class<CidrBlockSummary>("CidrBlockSummary")({CidrBlock: Schema.optional(Schema.String), LocationName: Schema.optional(Schema.String)}) {}
 export const CidrBlockSummaries = Schema.Array(CidrBlockSummary);
-export const CollectionSummary = Schema.Struct({Arn: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Version: Schema.optional(Schema.Number)});
+export class CollectionSummary extends Schema.Class<CollectionSummary>("CollectionSummary")({Arn: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Version: Schema.optional(Schema.Number)}) {}
 export const CollectionSummaries = Schema.Array(CollectionSummary);
-export const LocationSummary = Schema.Struct({LocationName: Schema.optional(Schema.String)});
+export class LocationSummary extends Schema.Class<LocationSummary>("LocationSummary")({LocationName: Schema.optional(Schema.String)}) {}
 export const LocationSummaries = Schema.Array(LocationSummary);
-export const TrafficPolicySummary = Schema.Struct({Id: Schema.String, Name: Schema.String, Type: Schema.String, LatestVersion: Schema.Number, TrafficPolicyCount: Schema.Number});
+export class TrafficPolicySummary extends Schema.Class<TrafficPolicySummary>("TrafficPolicySummary")({Id: Schema.String, Name: Schema.String, Type: Schema.String, LatestVersion: Schema.Number, TrafficPolicyCount: Schema.Number}) {}
 export const TrafficPolicySummaries = Schema.Array(TrafficPolicySummary);
-export const ActivateKeySigningKeyResponse = Schema.Struct({ChangeInfo: ChangeInfo});
-export const AssociateVPCWithHostedZoneResponse = Schema.Struct({ChangeInfo: ChangeInfo});
-export const ChangeCidrCollectionResponse = Schema.Struct({Id: Schema.String});
-export const ChangeResourceRecordSetsRequest = Schema.Struct({HostedZoneId: Schema.String, ChangeBatch: ChangeBatch});
-export const NoSuchHealthCheck = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CreateCidrCollectionResponse = Schema.Struct({Collection: Schema.optional(CidrCollection), Location: Schema.optional(Header("Location"))});
-export const CreateHealthCheckResponse = Schema.Struct({HealthCheck: HealthCheck, Location: Header("Location")});
-export const CreateHostedZoneResponse = Schema.Struct({HostedZone: HostedZone, ChangeInfo: ChangeInfo, DelegationSet: DelegationSet, VPC: Schema.optional(VPC), Location: Header("Location")});
-export const CreateKeySigningKeyResponse = Schema.Struct({ChangeInfo: ChangeInfo, KeySigningKey: KeySigningKey, Location: Header("Location")});
-export const CreateQueryLoggingConfigResponse = Schema.Struct({QueryLoggingConfig: QueryLoggingConfig, Location: Header("Location")});
-export const CreateReusableDelegationSetResponse = Schema.Struct({DelegationSet: DelegationSet, Location: Header("Location")});
-export const CreateTrafficPolicyResponse = Schema.Struct({TrafficPolicy: TrafficPolicy, Location: Header("Location")});
-export const CreateTrafficPolicyInstanceResponse = Schema.Struct({TrafficPolicyInstance: TrafficPolicyInstance, Location: Header("Location")});
-export const InvalidTrafficPolicyDocument = Schema.Struct({message: Schema.optional(Schema.String)});
-export const NoSuchHostedZone = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidKeySigningKeyStatus = Schema.Struct({message: Schema.optional(Schema.String)});
-export const NoSuchCidrCollectionException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const HostedZoneNotEmpty = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidKMSArn = Schema.Struct({message: Schema.optional(Schema.String)});
-export const NoSuchQueryLoggingConfig = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DelegationSetNotReusable = Schema.Struct({message: Schema.optional(Schema.String)});
-export const NoSuchTrafficPolicy = Schema.Struct({message: Schema.optional(Schema.String)});
-export const PriorRequestNotComplete = Schema.Struct({message: Schema.optional(Schema.String)});
-export const VPCAssociationAuthorizationNotFound = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DNSSECNotFound = Schema.Struct({message: Schema.optional(Schema.String)});
-export const LastVPCAssociation = Schema.Struct({message: Schema.optional(Schema.String)});
-export const HostedZonePartiallyDelegated = Schema.Struct({message: Schema.optional(Schema.String)});
-export const GetAccountLimitResponse = Schema.Struct({Limit: AccountLimit, Count: Schema.Number});
-export const NoSuchChange = Schema.Struct({message: Schema.optional(Schema.String)});
-export const GetDNSSECResponse = Schema.Struct({Status: DNSSECStatus, KeySigningKeys: KeySigningKeys});
-export const GetGeoLocationResponse = Schema.Struct({GeoLocationDetails: GeoLocationDetails});
-export const GetHostedZoneResponse = Schema.Struct({HostedZone: HostedZone, DelegationSet: Schema.optional(DelegationSet), VPCs: Schema.optional(VPCs)});
-export const GetHostedZoneLimitResponse = Schema.Struct({Limit: HostedZoneLimit, Count: Schema.Number});
-export const NoSuchDelegationSet = Schema.Struct({message: Schema.optional(Schema.String)});
-export const GetReusableDelegationSetLimitResponse = Schema.Struct({Limit: ReusableDelegationSetLimit, Count: Schema.Number});
-export const ListCidrBlocksResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), CidrBlocks: Schema.optional(CidrBlockSummaries)});
-export const ListCidrCollectionsResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), CidrCollections: Schema.optional(CollectionSummaries)});
-export const ListCidrLocationsResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), CidrLocations: Schema.optional(LocationSummaries)});
-export const IncompatibleVersion = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidDomainName = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidPaginationToken = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ListTagsForResourceResponse = Schema.Struct({ResourceTagSet: ResourceTagSet});
-export const ThrottlingException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ListTrafficPoliciesResponse = Schema.Struct({TrafficPolicySummaries: TrafficPolicySummaries, IsTruncated: Schema.Boolean, TrafficPolicyIdMarker: Schema.String, MaxItems: Schema.Number});
-export const UpdateHealthCheckResponse = Schema.Struct({HealthCheck: HealthCheck});
-export const ConflictingTypes = Schema.Struct({message: Schema.optional(Schema.String)});
-export const HostedZoneOwner = Schema.Struct({OwningAccount: Schema.optional(Schema.String), OwningService: Schema.optional(Schema.String)});
-export const HostedZoneSummary = Schema.Struct({HostedZoneId: Schema.String, Name: Schema.String, Owner: HostedZoneOwner});
+export class ActivateKeySigningKeyResponse extends Schema.Class<ActivateKeySigningKeyResponse>("ActivateKeySigningKeyResponse")({ChangeInfo: ChangeInfo}) {}
+export class AssociateVPCWithHostedZoneResponse extends Schema.Class<AssociateVPCWithHostedZoneResponse>("AssociateVPCWithHostedZoneResponse")({ChangeInfo: ChangeInfo}) {}
+export class ChangeCidrCollectionResponse extends Schema.Class<ChangeCidrCollectionResponse>("ChangeCidrCollectionResponse")({Id: Schema.String}) {}
+export class ChangeResourceRecordSetsRequest extends Schema.Class<ChangeResourceRecordSetsRequest>("ChangeResourceRecordSetsRequest")({HostedZoneId: Schema.String, ChangeBatch: ChangeBatch}) {}
+export class NoSuchHealthCheck extends Schema.Class<NoSuchHealthCheck>("NoSuchHealthCheck")({message: Schema.optional(Schema.String)}) {}
+export class CreateCidrCollectionResponse extends Schema.Class<CreateCidrCollectionResponse>("CreateCidrCollectionResponse")({Collection: Schema.optional(CidrCollection), Location: Schema.optional(Header("Location"))}) {}
+export class CreateHealthCheckResponse extends Schema.Class<CreateHealthCheckResponse>("CreateHealthCheckResponse")({HealthCheck: HealthCheck, Location: Header("Location")}) {}
+export class CreateHostedZoneResponse extends Schema.Class<CreateHostedZoneResponse>("CreateHostedZoneResponse")({HostedZone: HostedZone, ChangeInfo: ChangeInfo, DelegationSet: DelegationSet, VPC: Schema.optional(VPC), Location: Header("Location")}) {}
+export class CreateKeySigningKeyResponse extends Schema.Class<CreateKeySigningKeyResponse>("CreateKeySigningKeyResponse")({ChangeInfo: ChangeInfo, KeySigningKey: KeySigningKey, Location: Header("Location")}) {}
+export class CreateQueryLoggingConfigResponse extends Schema.Class<CreateQueryLoggingConfigResponse>("CreateQueryLoggingConfigResponse")({QueryLoggingConfig: QueryLoggingConfig, Location: Header("Location")}) {}
+export class CreateReusableDelegationSetResponse extends Schema.Class<CreateReusableDelegationSetResponse>("CreateReusableDelegationSetResponse")({DelegationSet: DelegationSet, Location: Header("Location")}) {}
+export class CreateTrafficPolicyResponse extends Schema.Class<CreateTrafficPolicyResponse>("CreateTrafficPolicyResponse")({TrafficPolicy: TrafficPolicy, Location: Header("Location")}) {}
+export class CreateTrafficPolicyInstanceResponse extends Schema.Class<CreateTrafficPolicyInstanceResponse>("CreateTrafficPolicyInstanceResponse")({TrafficPolicyInstance: TrafficPolicyInstance, Location: Header("Location")}) {}
+export class InvalidTrafficPolicyDocument extends Schema.Class<InvalidTrafficPolicyDocument>("InvalidTrafficPolicyDocument")({message: Schema.optional(Schema.String)}) {}
+export class NoSuchHostedZone extends Schema.Class<NoSuchHostedZone>("NoSuchHostedZone")({message: Schema.optional(Schema.String)}) {}
+export class InvalidKeySigningKeyStatus extends Schema.Class<InvalidKeySigningKeyStatus>("InvalidKeySigningKeyStatus")({message: Schema.optional(Schema.String)}) {}
+export class NoSuchCidrCollectionException extends Schema.Class<NoSuchCidrCollectionException>("NoSuchCidrCollectionException")({Message: Schema.optional(Schema.String)}) {}
+export class HostedZoneNotEmpty extends Schema.Class<HostedZoneNotEmpty>("HostedZoneNotEmpty")({message: Schema.optional(Schema.String)}) {}
+export class InvalidKMSArn extends Schema.Class<InvalidKMSArn>("InvalidKMSArn")({message: Schema.optional(Schema.String)}) {}
+export class NoSuchQueryLoggingConfig extends Schema.Class<NoSuchQueryLoggingConfig>("NoSuchQueryLoggingConfig")({message: Schema.optional(Schema.String)}) {}
+export class DelegationSetNotReusable extends Schema.Class<DelegationSetNotReusable>("DelegationSetNotReusable")({message: Schema.optional(Schema.String)}) {}
+export class NoSuchTrafficPolicy extends Schema.Class<NoSuchTrafficPolicy>("NoSuchTrafficPolicy")({message: Schema.optional(Schema.String)}) {}
+export class PriorRequestNotComplete extends Schema.Class<PriorRequestNotComplete>("PriorRequestNotComplete")({message: Schema.optional(Schema.String)}) {}
+export class VPCAssociationAuthorizationNotFound extends Schema.Class<VPCAssociationAuthorizationNotFound>("VPCAssociationAuthorizationNotFound")({message: Schema.optional(Schema.String)}) {}
+export class DNSSECNotFound extends Schema.Class<DNSSECNotFound>("DNSSECNotFound")({message: Schema.optional(Schema.String)}) {}
+export class LastVPCAssociation extends Schema.Class<LastVPCAssociation>("LastVPCAssociation")({message: Schema.optional(Schema.String)}) {}
+export class HostedZonePartiallyDelegated extends Schema.Class<HostedZonePartiallyDelegated>("HostedZonePartiallyDelegated")({message: Schema.optional(Schema.String)}) {}
+export class GetAccountLimitResponse extends Schema.Class<GetAccountLimitResponse>("GetAccountLimitResponse")({Limit: AccountLimit, Count: Schema.Number}) {}
+export class NoSuchChange extends Schema.Class<NoSuchChange>("NoSuchChange")({message: Schema.optional(Schema.String)}) {}
+export class GetDNSSECResponse extends Schema.Class<GetDNSSECResponse>("GetDNSSECResponse")({Status: DNSSECStatus, KeySigningKeys: KeySigningKeys}) {}
+export class GetGeoLocationResponse extends Schema.Class<GetGeoLocationResponse>("GetGeoLocationResponse")({GeoLocationDetails: GeoLocationDetails}) {}
+export class GetHostedZoneLimitResponse extends Schema.Class<GetHostedZoneLimitResponse>("GetHostedZoneLimitResponse")({Limit: HostedZoneLimit, Count: Schema.Number}) {}
+export class NoSuchDelegationSet extends Schema.Class<NoSuchDelegationSet>("NoSuchDelegationSet")({message: Schema.optional(Schema.String)}) {}
+export class GetReusableDelegationSetLimitResponse extends Schema.Class<GetReusableDelegationSetLimitResponse>("GetReusableDelegationSetLimitResponse")({Limit: ReusableDelegationSetLimit, Count: Schema.Number}) {}
+export class ListCidrBlocksResponse extends Schema.Class<ListCidrBlocksResponse>("ListCidrBlocksResponse")({NextToken: Schema.optional(Schema.String), CidrBlocks: Schema.optional(CidrBlockSummaries)}) {}
+export class ListCidrCollectionsResponse extends Schema.Class<ListCidrCollectionsResponse>("ListCidrCollectionsResponse")({NextToken: Schema.optional(Schema.String), CidrCollections: Schema.optional(CollectionSummaries)}) {}
+export class ListCidrLocationsResponse extends Schema.Class<ListCidrLocationsResponse>("ListCidrLocationsResponse")({NextToken: Schema.optional(Schema.String), CidrLocations: Schema.optional(LocationSummaries)}) {}
+export class IncompatibleVersion extends Schema.Class<IncompatibleVersion>("IncompatibleVersion")({message: Schema.optional(Schema.String)}) {}
+export class InvalidDomainName extends Schema.Class<InvalidDomainName>("InvalidDomainName")({message: Schema.optional(Schema.String)}) {}
+export class InvalidPaginationToken extends Schema.Class<InvalidPaginationToken>("InvalidPaginationToken")({message: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({ResourceTagSet: ResourceTagSet}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({message: Schema.optional(Schema.String)}) {}
+export class ListTrafficPoliciesResponse extends Schema.Class<ListTrafficPoliciesResponse>("ListTrafficPoliciesResponse")({TrafficPolicySummaries: TrafficPolicySummaries, IsTruncated: Schema.Boolean, TrafficPolicyIdMarker: Schema.String, MaxItems: Schema.Number}) {}
+export class UpdateHealthCheckResponse extends Schema.Class<UpdateHealthCheckResponse>("UpdateHealthCheckResponse")({HealthCheck: HealthCheck}) {}
+export class ConflictingTypes extends Schema.Class<ConflictingTypes>("ConflictingTypes")({message: Schema.optional(Schema.String)}) {}
+export class HostedZoneOwner extends Schema.Class<HostedZoneOwner>("HostedZoneOwner")({OwningAccount: Schema.optional(Schema.String), OwningService: Schema.optional(Schema.String)}) {}
+export class HostedZoneSummary extends Schema.Class<HostedZoneSummary>("HostedZoneSummary")({HostedZoneId: Schema.String, Name: Schema.String, Owner: HostedZoneOwner}) {}
 export const HostedZoneSummaries = Schema.Array(HostedZoneSummary);
-export const InvalidSigningStatus = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ConflictingDomainExists = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CidrBlockInUseException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ChangeResourceRecordSetsResponse = Schema.Struct({ChangeInfo: ChangeInfo});
-export const CidrCollectionAlreadyExistsException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const HealthCheckAlreadyExists = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DelegationSetNotAvailable = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidArgument = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InsufficientCloudWatchLogsResourcePolicy = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DelegationSetAlreadyCreated = Schema.Struct({message: Schema.optional(Schema.String)});
-export const TooManyTrafficPolicies = Schema.Struct({message: Schema.optional(Schema.String)});
-export const TooManyTrafficPolicyInstances = Schema.Struct({message: Schema.optional(Schema.String)});
-export const TooManyTrafficPolicyVersionsForCurrentPolicy = Schema.Struct({message: Schema.optional(Schema.String)});
-export const TooManyVPCAssociationAuthorizations = Schema.Struct({message: Schema.optional(Schema.String)});
-export const KeySigningKeyInParentDSRecord = Schema.Struct({message: Schema.optional(Schema.String)});
-export const NoSuchKeySigningKey = Schema.Struct({message: Schema.optional(Schema.String)});
-export const TrafficPolicyInUse = Schema.Struct({message: Schema.optional(Schema.String)});
-export const VPCAssociationNotFound = Schema.Struct({message: Schema.optional(Schema.String)});
-export const KeySigningKeyWithActiveStatusNotFound = Schema.Struct({message: Schema.optional(Schema.String)});
-export const NoSuchGeoLocation = Schema.Struct({message: Schema.optional(Schema.String)});
-export const GetHealthCheckLastFailureReasonResponse = Schema.Struct({HealthCheckObservations: HealthCheckObservations});
-export const HostedZoneNotPrivate = Schema.Struct({message: Schema.optional(Schema.String)});
-export const NoSuchCidrLocationException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ListHostedZonesByVPCResponse = Schema.Struct({HostedZoneSummaries: HostedZoneSummaries, MaxItems: Schema.Number, NextToken: Schema.optional(Schema.String)});
-export const HealthCheckVersionMismatch = Schema.Struct({message: Schema.optional(Schema.String)});
+export class InvalidSigningStatus extends Schema.Class<InvalidSigningStatus>("InvalidSigningStatus")({message: Schema.optional(Schema.String)}) {}
+export class ConflictingDomainExists extends Schema.Class<ConflictingDomainExists>("ConflictingDomainExists")({message: Schema.optional(Schema.String)}) {}
+export class CidrBlockInUseException extends Schema.Class<CidrBlockInUseException>("CidrBlockInUseException")({Message: Schema.optional(Schema.String)}) {}
+export class ChangeResourceRecordSetsResponse extends Schema.Class<ChangeResourceRecordSetsResponse>("ChangeResourceRecordSetsResponse")({ChangeInfo: ChangeInfo}) {}
+export class CidrCollectionAlreadyExistsException extends Schema.Class<CidrCollectionAlreadyExistsException>("CidrCollectionAlreadyExistsException")({Message: Schema.optional(Schema.String)}) {}
+export class HealthCheckAlreadyExists extends Schema.Class<HealthCheckAlreadyExists>("HealthCheckAlreadyExists")({message: Schema.optional(Schema.String)}) {}
+export class DelegationSetNotAvailable extends Schema.Class<DelegationSetNotAvailable>("DelegationSetNotAvailable")({message: Schema.optional(Schema.String)}) {}
+export class InvalidArgument extends Schema.Class<InvalidArgument>("InvalidArgument")({message: Schema.optional(Schema.String)}) {}
+export class InsufficientCloudWatchLogsResourcePolicy extends Schema.Class<InsufficientCloudWatchLogsResourcePolicy>("InsufficientCloudWatchLogsResourcePolicy")({message: Schema.optional(Schema.String)}) {}
+export class DelegationSetAlreadyCreated extends Schema.Class<DelegationSetAlreadyCreated>("DelegationSetAlreadyCreated")({message: Schema.optional(Schema.String)}) {}
+export class TooManyTrafficPolicies extends Schema.Class<TooManyTrafficPolicies>("TooManyTrafficPolicies")({message: Schema.optional(Schema.String)}) {}
+export class TooManyTrafficPolicyInstances extends Schema.Class<TooManyTrafficPolicyInstances>("TooManyTrafficPolicyInstances")({message: Schema.optional(Schema.String)}) {}
+export class TooManyTrafficPolicyVersionsForCurrentPolicy extends Schema.Class<TooManyTrafficPolicyVersionsForCurrentPolicy>("TooManyTrafficPolicyVersionsForCurrentPolicy")({message: Schema.optional(Schema.String)}) {}
+export class TooManyVPCAssociationAuthorizations extends Schema.Class<TooManyVPCAssociationAuthorizations>("TooManyVPCAssociationAuthorizations")({message: Schema.optional(Schema.String)}) {}
+export class KeySigningKeyInParentDSRecord extends Schema.Class<KeySigningKeyInParentDSRecord>("KeySigningKeyInParentDSRecord")({message: Schema.optional(Schema.String)}) {}
+export class NoSuchKeySigningKey extends Schema.Class<NoSuchKeySigningKey>("NoSuchKeySigningKey")({message: Schema.optional(Schema.String)}) {}
+export class TrafficPolicyInUse extends Schema.Class<TrafficPolicyInUse>("TrafficPolicyInUse")({message: Schema.optional(Schema.String)}) {}
+export class VPCAssociationNotFound extends Schema.Class<VPCAssociationNotFound>("VPCAssociationNotFound")({message: Schema.optional(Schema.String)}) {}
+export class KeySigningKeyWithActiveStatusNotFound extends Schema.Class<KeySigningKeyWithActiveStatusNotFound>("KeySigningKeyWithActiveStatusNotFound")({message: Schema.optional(Schema.String)}) {}
+export class NoSuchGeoLocation extends Schema.Class<NoSuchGeoLocation>("NoSuchGeoLocation")({message: Schema.optional(Schema.String)}) {}
+export class GetHealthCheckLastFailureReasonResponse extends Schema.Class<GetHealthCheckLastFailureReasonResponse>("GetHealthCheckLastFailureReasonResponse")({HealthCheckObservations: HealthCheckObservations}) {}
+export class HostedZoneNotPrivate extends Schema.Class<HostedZoneNotPrivate>("HostedZoneNotPrivate")({message: Schema.optional(Schema.String)}) {}
+export class NoSuchCidrLocationException extends Schema.Class<NoSuchCidrLocationException>("NoSuchCidrLocationException")({Message: Schema.optional(Schema.String)}) {}
+export class ListHostedZonesByVPCResponse extends Schema.Class<ListHostedZonesByVPCResponse>("ListHostedZonesByVPCResponse")({HostedZoneSummaries: HostedZoneSummaries, MaxItems: Schema.Number, NextToken: Schema.optional(Schema.String)}) {}
+export class HealthCheckVersionMismatch extends Schema.Class<HealthCheckVersionMismatch>("HealthCheckVersionMismatch")({message: Schema.optional(Schema.String)}) {}
 export const ErrorMessages = Schema.Array(Schema.String);
 export const ResourceRecordSets = Schema.Array(ResourceRecordSet);
-export const LimitsExceeded = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CidrCollectionVersionMismatchException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const InvalidChangeBatch = Schema.Struct({messages: Schema.optional(ErrorMessages), message: Schema.optional(Schema.String)});
-export const TooManyHealthChecks = Schema.Struct({message: Schema.optional(Schema.String)});
-export const HostedZoneAlreadyExists = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InvalidKeySigningKeyName = Schema.Struct({message: Schema.optional(Schema.String)});
-export const NoSuchCloudWatchLogsLogGroup = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DelegationSetAlreadyReusable = Schema.Struct({message: Schema.optional(Schema.String)});
-export const TrafficPolicyAlreadyExists = Schema.Struct({message: Schema.optional(Schema.String)});
-export const TrafficPolicyInstanceAlreadyExists = Schema.Struct({message: Schema.optional(Schema.String)});
-export const KeySigningKeyInUse = Schema.Struct({message: Schema.optional(Schema.String)});
-export const GetHealthCheckResponse = Schema.Struct({HealthCheck: HealthCheck});
-export const ListResourceRecordSetsResponse = Schema.Struct({ResourceRecordSets: ResourceRecordSets, IsTruncated: Schema.Boolean, NextRecordName: Schema.optional(Schema.String), NextRecordType: Schema.optional(Schema.String), NextRecordIdentifier: Schema.optional(Schema.String), MaxItems: Schema.Number});
-export const NotAuthorizedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const TooManyHostedZones = Schema.Struct({message: Schema.optional(Schema.String)});
-export const KeySigningKeyAlreadyExists = Schema.Struct({message: Schema.optional(Schema.String)});
-export const QueryLoggingConfigAlreadyExists = Schema.Struct({message: Schema.optional(Schema.String)});
-export const HostedZoneNotFound = Schema.Struct({message: Schema.optional(Schema.String)});
-export const PublicZoneVPCAssociation = Schema.Struct({message: Schema.optional(Schema.String)});
-export const TooManyKeySigningKeys = Schema.Struct({message: Schema.optional(Schema.String)});
+export class NotAuthorizedException extends Schema.Class<NotAuthorizedException>("NotAuthorizedException")({message: Schema.optional(Schema.String)}) {}
+export class CidrCollectionVersionMismatchException extends Schema.Class<CidrCollectionVersionMismatchException>("CidrCollectionVersionMismatchException")({Message: Schema.optional(Schema.String)}) {}
+export class InvalidChangeBatch extends Schema.Class<InvalidChangeBatch>("InvalidChangeBatch")({messages: Schema.optional(ErrorMessages), message: Schema.optional(Schema.String)}) {}
+export class TooManyHealthChecks extends Schema.Class<TooManyHealthChecks>("TooManyHealthChecks")({message: Schema.optional(Schema.String)}) {}
+export class HostedZoneAlreadyExists extends Schema.Class<HostedZoneAlreadyExists>("HostedZoneAlreadyExists")({message: Schema.optional(Schema.String)}) {}
+export class InvalidKeySigningKeyName extends Schema.Class<InvalidKeySigningKeyName>("InvalidKeySigningKeyName")({message: Schema.optional(Schema.String)}) {}
+export class NoSuchCloudWatchLogsLogGroup extends Schema.Class<NoSuchCloudWatchLogsLogGroup>("NoSuchCloudWatchLogsLogGroup")({message: Schema.optional(Schema.String)}) {}
+export class DelegationSetAlreadyReusable extends Schema.Class<DelegationSetAlreadyReusable>("DelegationSetAlreadyReusable")({message: Schema.optional(Schema.String)}) {}
+export class TrafficPolicyAlreadyExists extends Schema.Class<TrafficPolicyAlreadyExists>("TrafficPolicyAlreadyExists")({message: Schema.optional(Schema.String)}) {}
+export class TrafficPolicyInstanceAlreadyExists extends Schema.Class<TrafficPolicyInstanceAlreadyExists>("TrafficPolicyInstanceAlreadyExists")({message: Schema.optional(Schema.String)}) {}
+export class KeySigningKeyInUse extends Schema.Class<KeySigningKeyInUse>("KeySigningKeyInUse")({message: Schema.optional(Schema.String)}) {}
+export class GetHealthCheckResponse extends Schema.Class<GetHealthCheckResponse>("GetHealthCheckResponse")({HealthCheck: HealthCheck}) {}
+export class GetHostedZoneResponse extends Schema.Class<GetHostedZoneResponse>("GetHostedZoneResponse")({HostedZone: HostedZone, DelegationSet: Schema.optional(DelegationSet), VPCs: Schema.optional(VPCs)}) {}
+export class ListResourceRecordSetsResponse extends Schema.Class<ListResourceRecordSetsResponse>("ListResourceRecordSetsResponse")({ResourceRecordSets: ResourceRecordSets, IsTruncated: Schema.Boolean, NextRecordName: Schema.optional(Schema.String), NextRecordType: Schema.optional(Schema.String), NextRecordIdentifier: Schema.optional(Schema.String), MaxItems: Schema.Number}) {}
+export class PublicZoneVPCAssociation extends Schema.Class<PublicZoneVPCAssociation>("PublicZoneVPCAssociation")({message: Schema.optional(Schema.String)}) {}
+export class TooManyHostedZones extends Schema.Class<TooManyHostedZones>("TooManyHostedZones")({message: Schema.optional(Schema.String)}) {}
+export class KeySigningKeyAlreadyExists extends Schema.Class<KeySigningKeyAlreadyExists>("KeySigningKeyAlreadyExists")({message: Schema.optional(Schema.String)}) {}
+export class QueryLoggingConfigAlreadyExists extends Schema.Class<QueryLoggingConfigAlreadyExists>("QueryLoggingConfigAlreadyExists")({message: Schema.optional(Schema.String)}) {}
+export class HostedZoneNotFound extends Schema.Class<HostedZoneNotFound>("HostedZoneNotFound")({message: Schema.optional(Schema.String)}) {}
+export class TooManyKeySigningKeys extends Schema.Class<TooManyKeySigningKeys>("TooManyKeySigningKeys")({message: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class ConcurrentModificationError extends Schema.TaggedError<ConcurrentModificationError>()("ConcurrentModification", ConcurrentModification) {};
-export class InvalidInputError extends Schema.TaggedError<InvalidInputError>()("InvalidInput", InvalidInput) {};
-export class InvalidVPCIdError extends Schema.TaggedError<InvalidVPCIdError>()("InvalidVPCId", InvalidVPCId) {};
-export class CidrCollectionInUseExceptionError extends Schema.TaggedError<CidrCollectionInUseExceptionError>()("CidrCollectionInUseException", CidrCollectionInUseException) {};
-export class HealthCheckInUseError extends Schema.TaggedError<HealthCheckInUseError>()("HealthCheckInUse", HealthCheckInUse) {};
-export class NoSuchHealthCheckError extends Schema.TaggedError<NoSuchHealthCheckError>()("NoSuchHealthCheck", NoSuchHealthCheck) {};
-export class InvalidKeySigningKeyStatusError extends Schema.TaggedError<InvalidKeySigningKeyStatusError>()("InvalidKeySigningKeyStatus", InvalidKeySigningKeyStatus) {};
-export class DelegationSetInUseError extends Schema.TaggedError<DelegationSetInUseError>()("DelegationSetInUse", DelegationSetInUse) {};
-export class NoSuchTrafficPolicyInstanceError extends Schema.TaggedError<NoSuchTrafficPolicyInstanceError>()("NoSuchTrafficPolicyInstance", NoSuchTrafficPolicyInstance) {};
-export class NoSuchHostedZoneError extends Schema.TaggedError<NoSuchHostedZoneError>()("NoSuchHostedZone", NoSuchHostedZone) {};
-export class DNSSECNotFoundError extends Schema.TaggedError<DNSSECNotFoundError>()("DNSSECNotFound", DNSSECNotFound) {};
-export class NoSuchQueryLoggingConfigError extends Schema.TaggedError<NoSuchQueryLoggingConfigError>()("NoSuchQueryLoggingConfig", NoSuchQueryLoggingConfig) {};
-export class DelegationSetNotReusableError extends Schema.TaggedError<DelegationSetNotReusableError>()("DelegationSetNotReusable", DelegationSetNotReusable) {};
-export class NoSuchTrafficPolicyError extends Schema.TaggedError<NoSuchTrafficPolicyError>()("NoSuchTrafficPolicy", NoSuchTrafficPolicy) {};
-export class NoSuchDelegationSetError extends Schema.TaggedError<NoSuchDelegationSetError>()("NoSuchDelegationSet", NoSuchDelegationSet) {};
-export class PriorRequestNotCompleteError extends Schema.TaggedError<PriorRequestNotCompleteError>()("PriorRequestNotComplete", PriorRequestNotComplete) {};
-export class InvalidPaginationTokenError extends Schema.TaggedError<InvalidPaginationTokenError>()("InvalidPaginationToken", InvalidPaginationToken) {};
-export class InvalidKMSArnError extends Schema.TaggedError<InvalidKMSArnError>()("InvalidKMSArn", InvalidKMSArn) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ConflictingDomainExistsError extends Schema.TaggedError<ConflictingDomainExistsError>()("ConflictingDomainExists", ConflictingDomainExists) {};
-export class InvalidTrafficPolicyDocumentError extends Schema.TaggedError<InvalidTrafficPolicyDocumentError>()("InvalidTrafficPolicyDocument", InvalidTrafficPolicyDocument) {};
-export class InvalidSigningStatusError extends Schema.TaggedError<InvalidSigningStatusError>()("InvalidSigningStatus", InvalidSigningStatus) {};
-export class NoSuchCidrCollectionExceptionError extends Schema.TaggedError<NoSuchCidrCollectionExceptionError>()("NoSuchCidrCollectionException", NoSuchCidrCollectionException) {};
-export class HostedZoneNotEmptyError extends Schema.TaggedError<HostedZoneNotEmptyError>()("HostedZoneNotEmpty", HostedZoneNotEmpty) {};
-export class InvalidDomainNameError extends Schema.TaggedError<InvalidDomainNameError>()("InvalidDomainName", InvalidDomainName) {};
-export class VPCAssociationAuthorizationNotFoundError extends Schema.TaggedError<VPCAssociationAuthorizationNotFoundError>()("VPCAssociationAuthorizationNotFound", VPCAssociationAuthorizationNotFound) {};
-export class InvalidArgumentError extends Schema.TaggedError<InvalidArgumentError>()("InvalidArgument", InvalidArgument) {};
-export class KeySigningKeyInParentDSRecordError extends Schema.TaggedError<KeySigningKeyInParentDSRecordError>()("KeySigningKeyInParentDSRecord", KeySigningKeyInParentDSRecord) {};
-export class LastVPCAssociationError extends Schema.TaggedError<LastVPCAssociationError>()("LastVPCAssociation", LastVPCAssociation) {};
-export class HostedZonePartiallyDelegatedError extends Schema.TaggedError<HostedZonePartiallyDelegatedError>()("HostedZonePartiallyDelegated", HostedZonePartiallyDelegated) {};
-export class NoSuchChangeError extends Schema.TaggedError<NoSuchChangeError>()("NoSuchChange", NoSuchChange) {};
-export class IncompatibleVersionError extends Schema.TaggedError<IncompatibleVersionError>()("IncompatibleVersion", IncompatibleVersion) {};
-export class ConflictingTypesError extends Schema.TaggedError<ConflictingTypesError>()("ConflictingTypes", ConflictingTypes) {};
-export class NoSuchKeySigningKeyError extends Schema.TaggedError<NoSuchKeySigningKeyError>()("NoSuchKeySigningKey", NoSuchKeySigningKey) {};
-export class CidrBlockInUseExceptionError extends Schema.TaggedError<CidrBlockInUseExceptionError>()("CidrBlockInUseException", CidrBlockInUseException) {};
-export class CidrCollectionAlreadyExistsExceptionError extends Schema.TaggedError<CidrCollectionAlreadyExistsExceptionError>()("CidrCollectionAlreadyExistsException", CidrCollectionAlreadyExistsException) {};
-export class LimitsExceededError extends Schema.TaggedError<LimitsExceededError>()("LimitsExceeded", LimitsExceeded) {};
-export class HealthCheckAlreadyExistsError extends Schema.TaggedError<HealthCheckAlreadyExistsError>()("HealthCheckAlreadyExists", HealthCheckAlreadyExists) {};
-export class DelegationSetNotAvailableError extends Schema.TaggedError<DelegationSetNotAvailableError>()("DelegationSetNotAvailable", DelegationSetNotAvailable) {};
-export class InsufficientCloudWatchLogsResourcePolicyError extends Schema.TaggedError<InsufficientCloudWatchLogsResourcePolicyError>()("InsufficientCloudWatchLogsResourcePolicy", InsufficientCloudWatchLogsResourcePolicy) {};
-export class DelegationSetAlreadyCreatedError extends Schema.TaggedError<DelegationSetAlreadyCreatedError>()("DelegationSetAlreadyCreated", DelegationSetAlreadyCreated) {};
-export class TooManyTrafficPoliciesError extends Schema.TaggedError<TooManyTrafficPoliciesError>()("TooManyTrafficPolicies", TooManyTrafficPolicies) {};
-export class TooManyTrafficPolicyInstancesError extends Schema.TaggedError<TooManyTrafficPolicyInstancesError>()("TooManyTrafficPolicyInstances", TooManyTrafficPolicyInstances) {};
-export class TooManyTrafficPolicyVersionsForCurrentPolicyError extends Schema.TaggedError<TooManyTrafficPolicyVersionsForCurrentPolicyError>()("TooManyTrafficPolicyVersionsForCurrentPolicy", TooManyTrafficPolicyVersionsForCurrentPolicy) {};
-export class TooManyVPCAssociationAuthorizationsError extends Schema.TaggedError<TooManyVPCAssociationAuthorizationsError>()("TooManyVPCAssociationAuthorizations", TooManyVPCAssociationAuthorizations) {};
-export class TrafficPolicyInUseError extends Schema.TaggedError<TrafficPolicyInUseError>()("TrafficPolicyInUse", TrafficPolicyInUse) {};
-export class VPCAssociationNotFoundError extends Schema.TaggedError<VPCAssociationNotFoundError>()("VPCAssociationNotFound", VPCAssociationNotFound) {};
-export class KeySigningKeyWithActiveStatusNotFoundError extends Schema.TaggedError<KeySigningKeyWithActiveStatusNotFoundError>()("KeySigningKeyWithActiveStatusNotFound", KeySigningKeyWithActiveStatusNotFound) {};
-export class NoSuchGeoLocationError extends Schema.TaggedError<NoSuchGeoLocationError>()("NoSuchGeoLocation", NoSuchGeoLocation) {};
-export class HostedZoneNotPrivateError extends Schema.TaggedError<HostedZoneNotPrivateError>()("HostedZoneNotPrivate", HostedZoneNotPrivate) {};
-export class NoSuchCidrLocationExceptionError extends Schema.TaggedError<NoSuchCidrLocationExceptionError>()("NoSuchCidrLocationException", NoSuchCidrLocationException) {};
-export class HealthCheckVersionMismatchError extends Schema.TaggedError<HealthCheckVersionMismatchError>()("HealthCheckVersionMismatch", HealthCheckVersionMismatch) {};
-export class CidrCollectionVersionMismatchExceptionError extends Schema.TaggedError<CidrCollectionVersionMismatchExceptionError>()("CidrCollectionVersionMismatchException", CidrCollectionVersionMismatchException) {};
-export class InvalidChangeBatchError extends Schema.TaggedError<InvalidChangeBatchError>()("InvalidChangeBatch", InvalidChangeBatch) {};
-export class TooManyHealthChecksError extends Schema.TaggedError<TooManyHealthChecksError>()("TooManyHealthChecks", TooManyHealthChecks) {};
-export class HostedZoneAlreadyExistsError extends Schema.TaggedError<HostedZoneAlreadyExistsError>()("HostedZoneAlreadyExists", HostedZoneAlreadyExists) {};
-export class InvalidKeySigningKeyNameError extends Schema.TaggedError<InvalidKeySigningKeyNameError>()("InvalidKeySigningKeyName", InvalidKeySigningKeyName) {};
-export class NoSuchCloudWatchLogsLogGroupError extends Schema.TaggedError<NoSuchCloudWatchLogsLogGroupError>()("NoSuchCloudWatchLogsLogGroup", NoSuchCloudWatchLogsLogGroup) {};
-export class DelegationSetAlreadyReusableError extends Schema.TaggedError<DelegationSetAlreadyReusableError>()("DelegationSetAlreadyReusable", DelegationSetAlreadyReusable) {};
-export class TrafficPolicyAlreadyExistsError extends Schema.TaggedError<TrafficPolicyAlreadyExistsError>()("TrafficPolicyAlreadyExists", TrafficPolicyAlreadyExists) {};
-export class TrafficPolicyInstanceAlreadyExistsError extends Schema.TaggedError<TrafficPolicyInstanceAlreadyExistsError>()("TrafficPolicyInstanceAlreadyExists", TrafficPolicyInstanceAlreadyExists) {};
-export class KeySigningKeyInUseError extends Schema.TaggedError<KeySigningKeyInUseError>()("KeySigningKeyInUse", KeySigningKeyInUse) {};
-export class NotAuthorizedExceptionError extends Schema.TaggedError<NotAuthorizedExceptionError>()("NotAuthorizedException", NotAuthorizedException) {};
-export class TooManyHostedZonesError extends Schema.TaggedError<TooManyHostedZonesError>()("TooManyHostedZones", TooManyHostedZones) {};
-export class KeySigningKeyAlreadyExistsError extends Schema.TaggedError<KeySigningKeyAlreadyExistsError>()("KeySigningKeyAlreadyExists", KeySigningKeyAlreadyExists) {};
-export class QueryLoggingConfigAlreadyExistsError extends Schema.TaggedError<QueryLoggingConfigAlreadyExistsError>()("QueryLoggingConfigAlreadyExists", QueryLoggingConfigAlreadyExists) {};
-export class HostedZoneNotFoundError extends Schema.TaggedError<HostedZoneNotFoundError>()("HostedZoneNotFound", HostedZoneNotFound) {};
-export class PublicZoneVPCAssociationError extends Schema.TaggedError<PublicZoneVPCAssociationError>()("PublicZoneVPCAssociation", PublicZoneVPCAssociation) {};
-export class TooManyKeySigningKeysError extends Schema.TaggedError<TooManyKeySigningKeysError>()("TooManyKeySigningKeys", TooManyKeySigningKeys) {};
+export class ConcurrentModificationError extends Schema.TaggedError<ConcurrentModificationError>()("ConcurrentModification", ConcurrentModification.fields) {};
+export class InvalidInputError extends Schema.TaggedError<InvalidInputError>()("InvalidInput", InvalidInput.fields) {};
+export class InvalidVPCIdError extends Schema.TaggedError<InvalidVPCIdError>()("InvalidVPCId", InvalidVPCId.fields) {};
+export class CidrCollectionInUseExceptionError extends Schema.TaggedError<CidrCollectionInUseExceptionError>()("CidrCollectionInUseException", CidrCollectionInUseException.fields) {};
+export class HealthCheckInUseError extends Schema.TaggedError<HealthCheckInUseError>()("HealthCheckInUse", HealthCheckInUse.fields) {};
+export class NoSuchHealthCheckError extends Schema.TaggedError<NoSuchHealthCheckError>()("NoSuchHealthCheck", NoSuchHealthCheck.fields) {};
+export class InvalidKeySigningKeyStatusError extends Schema.TaggedError<InvalidKeySigningKeyStatusError>()("InvalidKeySigningKeyStatus", InvalidKeySigningKeyStatus.fields) {};
+export class DelegationSetInUseError extends Schema.TaggedError<DelegationSetInUseError>()("DelegationSetInUse", DelegationSetInUse.fields) {};
+export class NoSuchTrafficPolicyInstanceError extends Schema.TaggedError<NoSuchTrafficPolicyInstanceError>()("NoSuchTrafficPolicyInstance", NoSuchTrafficPolicyInstance.fields) {};
+export class NoSuchHostedZoneError extends Schema.TaggedError<NoSuchHostedZoneError>()("NoSuchHostedZone", NoSuchHostedZone.fields) {};
+export class DNSSECNotFoundError extends Schema.TaggedError<DNSSECNotFoundError>()("DNSSECNotFound", DNSSECNotFound.fields) {};
+export class NoSuchQueryLoggingConfigError extends Schema.TaggedError<NoSuchQueryLoggingConfigError>()("NoSuchQueryLoggingConfig", NoSuchQueryLoggingConfig.fields) {};
+export class DelegationSetNotReusableError extends Schema.TaggedError<DelegationSetNotReusableError>()("DelegationSetNotReusable", DelegationSetNotReusable.fields) {};
+export class NoSuchTrafficPolicyError extends Schema.TaggedError<NoSuchTrafficPolicyError>()("NoSuchTrafficPolicy", NoSuchTrafficPolicy.fields) {};
+export class NoSuchDelegationSetError extends Schema.TaggedError<NoSuchDelegationSetError>()("NoSuchDelegationSet", NoSuchDelegationSet.fields) {};
+export class PriorRequestNotCompleteError extends Schema.TaggedError<PriorRequestNotCompleteError>()("PriorRequestNotComplete", PriorRequestNotComplete.fields) {};
+export class InvalidPaginationTokenError extends Schema.TaggedError<InvalidPaginationTokenError>()("InvalidPaginationToken", InvalidPaginationToken.fields) {};
+export class LimitsExceededError extends Schema.TaggedError<LimitsExceededError>()("LimitsExceeded", LimitsExceeded.fields) {};
+export class InvalidKMSArnError extends Schema.TaggedError<InvalidKMSArnError>()("InvalidKMSArn", InvalidKMSArn.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ConflictingDomainExistsError extends Schema.TaggedError<ConflictingDomainExistsError>()("ConflictingDomainExists", ConflictingDomainExists.fields) {};
+export class InvalidTrafficPolicyDocumentError extends Schema.TaggedError<InvalidTrafficPolicyDocumentError>()("InvalidTrafficPolicyDocument", InvalidTrafficPolicyDocument.fields) {};
+export class InvalidSigningStatusError extends Schema.TaggedError<InvalidSigningStatusError>()("InvalidSigningStatus", InvalidSigningStatus.fields) {};
+export class NoSuchCidrCollectionExceptionError extends Schema.TaggedError<NoSuchCidrCollectionExceptionError>()("NoSuchCidrCollectionException", NoSuchCidrCollectionException.fields) {};
+export class HostedZoneNotEmptyError extends Schema.TaggedError<HostedZoneNotEmptyError>()("HostedZoneNotEmpty", HostedZoneNotEmpty.fields) {};
+export class InvalidDomainNameError extends Schema.TaggedError<InvalidDomainNameError>()("InvalidDomainName", InvalidDomainName.fields) {};
+export class VPCAssociationAuthorizationNotFoundError extends Schema.TaggedError<VPCAssociationAuthorizationNotFoundError>()("VPCAssociationAuthorizationNotFound", VPCAssociationAuthorizationNotFound.fields) {};
+export class InvalidArgumentError extends Schema.TaggedError<InvalidArgumentError>()("InvalidArgument", InvalidArgument.fields) {};
+export class KeySigningKeyInParentDSRecordError extends Schema.TaggedError<KeySigningKeyInParentDSRecordError>()("KeySigningKeyInParentDSRecord", KeySigningKeyInParentDSRecord.fields) {};
+export class LastVPCAssociationError extends Schema.TaggedError<LastVPCAssociationError>()("LastVPCAssociation", LastVPCAssociation.fields) {};
+export class HostedZonePartiallyDelegatedError extends Schema.TaggedError<HostedZonePartiallyDelegatedError>()("HostedZonePartiallyDelegated", HostedZonePartiallyDelegated.fields) {};
+export class NoSuchChangeError extends Schema.TaggedError<NoSuchChangeError>()("NoSuchChange", NoSuchChange.fields) {};
+export class IncompatibleVersionError extends Schema.TaggedError<IncompatibleVersionError>()("IncompatibleVersion", IncompatibleVersion.fields) {};
+export class ConflictingTypesError extends Schema.TaggedError<ConflictingTypesError>()("ConflictingTypes", ConflictingTypes.fields) {};
+export class NoSuchKeySigningKeyError extends Schema.TaggedError<NoSuchKeySigningKeyError>()("NoSuchKeySigningKey", NoSuchKeySigningKey.fields) {};
+export class CidrBlockInUseExceptionError extends Schema.TaggedError<CidrBlockInUseExceptionError>()("CidrBlockInUseException", CidrBlockInUseException.fields) {};
+export class CidrCollectionAlreadyExistsExceptionError extends Schema.TaggedError<CidrCollectionAlreadyExistsExceptionError>()("CidrCollectionAlreadyExistsException", CidrCollectionAlreadyExistsException.fields) {};
+export class HealthCheckAlreadyExistsError extends Schema.TaggedError<HealthCheckAlreadyExistsError>()("HealthCheckAlreadyExists", HealthCheckAlreadyExists.fields) {};
+export class DelegationSetNotAvailableError extends Schema.TaggedError<DelegationSetNotAvailableError>()("DelegationSetNotAvailable", DelegationSetNotAvailable.fields) {};
+export class InsufficientCloudWatchLogsResourcePolicyError extends Schema.TaggedError<InsufficientCloudWatchLogsResourcePolicyError>()("InsufficientCloudWatchLogsResourcePolicy", InsufficientCloudWatchLogsResourcePolicy.fields) {};
+export class DelegationSetAlreadyCreatedError extends Schema.TaggedError<DelegationSetAlreadyCreatedError>()("DelegationSetAlreadyCreated", DelegationSetAlreadyCreated.fields) {};
+export class TooManyTrafficPoliciesError extends Schema.TaggedError<TooManyTrafficPoliciesError>()("TooManyTrafficPolicies", TooManyTrafficPolicies.fields) {};
+export class TooManyTrafficPolicyInstancesError extends Schema.TaggedError<TooManyTrafficPolicyInstancesError>()("TooManyTrafficPolicyInstances", TooManyTrafficPolicyInstances.fields) {};
+export class TooManyTrafficPolicyVersionsForCurrentPolicyError extends Schema.TaggedError<TooManyTrafficPolicyVersionsForCurrentPolicyError>()("TooManyTrafficPolicyVersionsForCurrentPolicy", TooManyTrafficPolicyVersionsForCurrentPolicy.fields) {};
+export class TooManyVPCAssociationAuthorizationsError extends Schema.TaggedError<TooManyVPCAssociationAuthorizationsError>()("TooManyVPCAssociationAuthorizations", TooManyVPCAssociationAuthorizations.fields) {};
+export class TrafficPolicyInUseError extends Schema.TaggedError<TrafficPolicyInUseError>()("TrafficPolicyInUse", TrafficPolicyInUse.fields) {};
+export class VPCAssociationNotFoundError extends Schema.TaggedError<VPCAssociationNotFoundError>()("VPCAssociationNotFound", VPCAssociationNotFound.fields) {};
+export class KeySigningKeyWithActiveStatusNotFoundError extends Schema.TaggedError<KeySigningKeyWithActiveStatusNotFoundError>()("KeySigningKeyWithActiveStatusNotFound", KeySigningKeyWithActiveStatusNotFound.fields) {};
+export class NoSuchGeoLocationError extends Schema.TaggedError<NoSuchGeoLocationError>()("NoSuchGeoLocation", NoSuchGeoLocation.fields) {};
+export class HostedZoneNotPrivateError extends Schema.TaggedError<HostedZoneNotPrivateError>()("HostedZoneNotPrivate", HostedZoneNotPrivate.fields) {};
+export class NoSuchCidrLocationExceptionError extends Schema.TaggedError<NoSuchCidrLocationExceptionError>()("NoSuchCidrLocationException", NoSuchCidrLocationException.fields) {};
+export class HealthCheckVersionMismatchError extends Schema.TaggedError<HealthCheckVersionMismatchError>()("HealthCheckVersionMismatch", HealthCheckVersionMismatch.fields) {};
+export class NotAuthorizedExceptionError extends Schema.TaggedError<NotAuthorizedExceptionError>()("NotAuthorizedException", NotAuthorizedException.fields) {};
+export class CidrCollectionVersionMismatchExceptionError extends Schema.TaggedError<CidrCollectionVersionMismatchExceptionError>()("CidrCollectionVersionMismatchException", CidrCollectionVersionMismatchException.fields) {};
+export class InvalidChangeBatchError extends Schema.TaggedError<InvalidChangeBatchError>()("InvalidChangeBatch", InvalidChangeBatch.fields) {};
+export class TooManyHealthChecksError extends Schema.TaggedError<TooManyHealthChecksError>()("TooManyHealthChecks", TooManyHealthChecks.fields) {};
+export class HostedZoneAlreadyExistsError extends Schema.TaggedError<HostedZoneAlreadyExistsError>()("HostedZoneAlreadyExists", HostedZoneAlreadyExists.fields) {};
+export class InvalidKeySigningKeyNameError extends Schema.TaggedError<InvalidKeySigningKeyNameError>()("InvalidKeySigningKeyName", InvalidKeySigningKeyName.fields) {};
+export class NoSuchCloudWatchLogsLogGroupError extends Schema.TaggedError<NoSuchCloudWatchLogsLogGroupError>()("NoSuchCloudWatchLogsLogGroup", NoSuchCloudWatchLogsLogGroup.fields) {};
+export class DelegationSetAlreadyReusableError extends Schema.TaggedError<DelegationSetAlreadyReusableError>()("DelegationSetAlreadyReusable", DelegationSetAlreadyReusable.fields) {};
+export class TrafficPolicyAlreadyExistsError extends Schema.TaggedError<TrafficPolicyAlreadyExistsError>()("TrafficPolicyAlreadyExists", TrafficPolicyAlreadyExists.fields) {};
+export class TrafficPolicyInstanceAlreadyExistsError extends Schema.TaggedError<TrafficPolicyInstanceAlreadyExistsError>()("TrafficPolicyInstanceAlreadyExists", TrafficPolicyInstanceAlreadyExists.fields) {};
+export class KeySigningKeyInUseError extends Schema.TaggedError<KeySigningKeyInUseError>()("KeySigningKeyInUse", KeySigningKeyInUse.fields) {};
+export class PublicZoneVPCAssociationError extends Schema.TaggedError<PublicZoneVPCAssociationError>()("PublicZoneVPCAssociation", PublicZoneVPCAssociation.fields) {};
+export class TooManyHostedZonesError extends Schema.TaggedError<TooManyHostedZonesError>()("TooManyHostedZones", TooManyHostedZones.fields) {};
+export class KeySigningKeyAlreadyExistsError extends Schema.TaggedError<KeySigningKeyAlreadyExistsError>()("KeySigningKeyAlreadyExists", KeySigningKeyAlreadyExists.fields) {};
+export class QueryLoggingConfigAlreadyExistsError extends Schema.TaggedError<QueryLoggingConfigAlreadyExistsError>()("QueryLoggingConfigAlreadyExists", QueryLoggingConfigAlreadyExists.fields) {};
+export class HostedZoneNotFoundError extends Schema.TaggedError<HostedZoneNotFoundError>()("HostedZoneNotFound", HostedZoneNotFound.fields) {};
+export class TooManyKeySigningKeysError extends Schema.TaggedError<TooManyKeySigningKeysError>()("TooManyKeySigningKeys", TooManyKeySigningKeys.fields) {};
 
 //# Operations
 export const getCheckerIpRanges = /*#__PURE__*/ makeOperation(() => Operation({ version: "2013-04-01", uri: "/2013-04-01/checkeripranges", method: "GET", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.GetCheckerIpRanges" }, GetCheckerIpRangesRequest, GetCheckerIpRangesResponse, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
@@ -377,6 +381,7 @@ export const listTrafficPolicyVersions = /*#__PURE__*/ makeOperation(() => Opera
 export const listVPCAssociationAuthorizations = /*#__PURE__*/ makeOperation(() => Operation({ version: "2013-04-01", uri: "/2013-04-01/hostedzone/{HostedZoneId}/authorizevpcassociation", method: "GET", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.ListVPCAssociationAuthorizations" }, ListVPCAssociationAuthorizationsRequest, ListVPCAssociationAuthorizationsResponse, [InvalidInputError, InvalidPaginationTokenError, NoSuchHostedZoneError]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 export const testDNSAnswer = /*#__PURE__*/ makeOperation(() => Operation({ version: "2013-04-01", uri: "/2013-04-01/testdnsanswer", method: "GET", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.TestDNSAnswer" }, TestDNSAnswerRequest, TestDNSAnswerResponse, [InvalidInputError, NoSuchHostedZoneError]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 export const updateHostedZoneComment = /*#__PURE__*/ makeOperation(() => Operation({ version: "2013-04-01", uri: "/2013-04-01/hostedzone/{Id}", method: "POST", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.UpdateHostedZoneComment" }, UpdateHostedZoneCommentRequest, UpdateHostedZoneCommentResponse, [InvalidInputError, NoSuchHostedZoneError, PriorRequestNotCompleteError]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+export const updateHostedZoneFeatures = /*#__PURE__*/ makeOperation(() => Operation({ version: "2013-04-01", uri: "/2013-04-01/hostedzone/{HostedZoneId}/features", method: "POST", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.UpdateHostedZoneFeatures" }, UpdateHostedZoneFeaturesRequest, UpdateHostedZoneFeaturesResponse, [InvalidInputError, LimitsExceededError, NoSuchHostedZoneError, PriorRequestNotCompleteError]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 export const updateTrafficPolicyComment = /*#__PURE__*/ makeOperation(() => Operation({ version: "2013-04-01", uri: "/2013-04-01/trafficpolicy/{Id}/{Version}", method: "POST", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.UpdateTrafficPolicyComment" }, UpdateTrafficPolicyCommentRequest, UpdateTrafficPolicyCommentResponse, [ConcurrentModificationError, InvalidInputError, NoSuchTrafficPolicyError]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 export const changeTagsForResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2013-04-01", uri: "/2013-04-01/tags/{ResourceType}/{ResourceId}", method: "POST", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.ChangeTagsForResource" }, ChangeTagsForResourceRequest, ChangeTagsForResourceResponse, [InvalidInputError, NoSuchHealthCheckError, NoSuchHostedZoneError, PriorRequestNotCompleteError, ThrottlingExceptionError]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 export const deleteCidrCollection = /*#__PURE__*/ makeOperation(() => Operation({ version: "2013-04-01", uri: "/2013-04-01/cidrcollection/{Id}", method: "DELETE", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.DeleteCidrCollection" }, DeleteCidrCollectionRequest, DeleteCidrCollectionResponse, [CidrCollectionInUseExceptionError, ConcurrentModificationError, InvalidInputError, NoSuchCidrCollectionExceptionError]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
@@ -389,7 +394,6 @@ export const disableHostedZoneDNSSEC = /*#__PURE__*/ makeOperation(() => Operati
 export const getAccountLimit = /*#__PURE__*/ makeOperation(() => Operation({ version: "2013-04-01", uri: "/2013-04-01/accountlimit/{Type}", method: "GET", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.GetAccountLimit" }, GetAccountLimitRequest, GetAccountLimitResponse, [InvalidInputError]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 export const getChange = /*#__PURE__*/ makeOperation(() => Operation({ version: "2013-04-01", uri: "/2013-04-01/change/{Id}", method: "GET", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.GetChange" }, GetChangeRequest, GetChangeResponse, [InvalidInputError, NoSuchChangeError]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 export const getDNSSEC = /*#__PURE__*/ makeOperation(() => Operation({ version: "2013-04-01", uri: "/2013-04-01/hostedzone/{HostedZoneId}/dnssec", method: "GET", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.GetDNSSEC" }, GetDNSSECRequest, GetDNSSECResponse, [InvalidArgumentError, InvalidInputError, NoSuchHostedZoneError]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
-export const getHostedZone = /*#__PURE__*/ makeOperation(() => Operation({ version: "2013-04-01", uri: "/2013-04-01/hostedzone/{Id}", method: "GET", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.GetHostedZone" }, GetHostedZoneRequest, GetHostedZoneResponse, [InvalidInputError, NoSuchHostedZoneError]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 export const getReusableDelegationSet = /*#__PURE__*/ makeOperation(() => Operation({ version: "2013-04-01", uri: "/2013-04-01/delegationset/{Id}", method: "GET", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.GetReusableDelegationSet" }, GetReusableDelegationSetRequest, GetReusableDelegationSetResponse, [DelegationSetNotReusableError, InvalidInputError, NoSuchDelegationSetError]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 export const getReusableDelegationSetLimit = /*#__PURE__*/ makeOperation(() => Operation({ version: "2013-04-01", uri: "/2013-04-01/reusabledelegationsetlimit/{DelegationSetId}/{Type}", method: "GET", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.GetReusableDelegationSetLimit" }, GetReusableDelegationSetLimitRequest, GetReusableDelegationSetLimitResponse, [InvalidInputError, NoSuchDelegationSetError]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 export const listCidrCollections = /*#__PURE__*/ makeOperation(() => Operation({ version: "2013-04-01", uri: "/2013-04-01/cidrcollection", method: "GET", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.ListCidrCollections" }, ListCidrCollectionsRequest, ListCidrCollectionsResponse, [InvalidInputError]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
@@ -422,9 +426,10 @@ export const createTrafficPolicy = /*#__PURE__*/ makeOperation(() => Operation({
 export const createTrafficPolicyInstance = /*#__PURE__*/ makeOperation(() => Operation({ version: "2013-04-01", uri: "/2013-04-01/trafficpolicyinstance", method: "POST", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.CreateTrafficPolicyInstance" }, CreateTrafficPolicyInstanceRequest, CreateTrafficPolicyInstanceResponse, [InvalidInputError, NoSuchHostedZoneError, NoSuchTrafficPolicyError, TooManyTrafficPolicyInstancesError, TrafficPolicyInstanceAlreadyExistsError]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 export const deactivateKeySigningKey = /*#__PURE__*/ makeOperation(() => Operation({ version: "2013-04-01", uri: "/2013-04-01/keysigningkey/{HostedZoneId}/{Name}/deactivate", method: "POST", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.DeactivateKeySigningKey" }, DeactivateKeySigningKeyRequest, DeactivateKeySigningKeyResponse, [ConcurrentModificationError, InvalidInputError, InvalidKeySigningKeyStatusError, InvalidSigningStatusError, KeySigningKeyInParentDSRecordError, KeySigningKeyInUseError, NoSuchKeySigningKeyError]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 export const getHealthCheck = /*#__PURE__*/ makeOperation(() => Operation({ version: "2013-04-01", uri: "/2013-04-01/healthcheck/{HealthCheckId}", method: "GET", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.GetHealthCheck" }, GetHealthCheckRequest, GetHealthCheckResponse, [IncompatibleVersionError, InvalidInputError, NoSuchHealthCheckError]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+export const getHostedZone = /*#__PURE__*/ makeOperation(() => Operation({ version: "2013-04-01", uri: "/2013-04-01/hostedzone/{Id}", method: "GET", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.GetHostedZone" }, GetHostedZoneRequest, GetHostedZoneResponse, [InvalidInputError, NoSuchHostedZoneError]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 export const listResourceRecordSets = /*#__PURE__*/ makeOperation(() => Operation({ version: "2013-04-01", uri: "/2013-04-01/hostedzone/{HostedZoneId}/rrset", method: "GET", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.ListResourceRecordSets" }, ListResourceRecordSetsRequest, ListResourceRecordSetsResponse, [InvalidInputError, NoSuchHostedZoneError]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+export const associateVPCWithHostedZone = /*#__PURE__*/ makeOperation(() => Operation({ version: "2013-04-01", uri: "/2013-04-01/hostedzone/{HostedZoneId}/associatevpc", method: "POST", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.AssociateVPCWithHostedZone" }, AssociateVPCWithHostedZoneRequest, AssociateVPCWithHostedZoneResponse, [ConflictingDomainExistsError, InvalidInputError, InvalidVPCIdError, LimitsExceededError, NoSuchHostedZoneError, NotAuthorizedExceptionError, PriorRequestNotCompleteError, PublicZoneVPCAssociationError]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 export const createHostedZone = /*#__PURE__*/ makeOperation(() => Operation({ version: "2013-04-01", uri: "/2013-04-01/hostedzone", method: "POST", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.CreateHostedZone" }, CreateHostedZoneRequest, CreateHostedZoneResponse, [ConflictingDomainExistsError, DelegationSetNotAvailableError, DelegationSetNotReusableError, HostedZoneAlreadyExistsError, InvalidDomainNameError, InvalidInputError, InvalidVPCIdError, NoSuchDelegationSetError, TooManyHostedZonesError]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 export const createQueryLoggingConfig = /*#__PURE__*/ makeOperation(() => Operation({ version: "2013-04-01", uri: "/2013-04-01/queryloggingconfig", method: "POST", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.CreateQueryLoggingConfig" }, CreateQueryLoggingConfigRequest, CreateQueryLoggingConfigResponse, [ConcurrentModificationError, InsufficientCloudWatchLogsResourcePolicyError, InvalidInputError, NoSuchCloudWatchLogsLogGroupError, NoSuchHostedZoneError, QueryLoggingConfigAlreadyExistsError]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 export const createReusableDelegationSet = /*#__PURE__*/ makeOperation(() => Operation({ version: "2013-04-01", uri: "/2013-04-01/delegationset", method: "POST", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.CreateReusableDelegationSet" }, CreateReusableDelegationSetRequest, CreateReusableDelegationSetResponse, [DelegationSetAlreadyCreatedError, DelegationSetAlreadyReusableError, DelegationSetNotAvailableError, HostedZoneNotFoundError, InvalidArgumentError, InvalidInputError, LimitsExceededError]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
-export const associateVPCWithHostedZone = /*#__PURE__*/ makeOperation(() => Operation({ version: "2013-04-01", uri: "/2013-04-01/hostedzone/{HostedZoneId}/associatevpc", method: "POST", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.AssociateVPCWithHostedZone" }, AssociateVPCWithHostedZoneRequest, AssociateVPCWithHostedZoneResponse, [ConflictingDomainExistsError, InvalidInputError, InvalidVPCIdError, LimitsExceededError, NoSuchHostedZoneError, NotAuthorizedExceptionError, PriorRequestNotCompleteError, PublicZoneVPCAssociationError]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 export const createKeySigningKey = /*#__PURE__*/ makeOperation(() => Operation({ version: "2013-04-01", uri: "/2013-04-01/keysigningkey", method: "POST", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.CreateKeySigningKey" }, CreateKeySigningKeyRequest, CreateKeySigningKeyResponse, [ConcurrentModificationError, InvalidArgumentError, InvalidInputError, InvalidKeySigningKeyNameError, InvalidKeySigningKeyStatusError, InvalidKMSArnError, InvalidSigningStatusError, KeySigningKeyAlreadyExistsError, NoSuchHostedZoneError, TooManyKeySigningKeysError]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);

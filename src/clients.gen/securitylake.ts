@@ -3,46 +3,46 @@ import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperat
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const DeleteDataLakeExceptionSubscriptionRequest = Schema.Struct({});
-export const DeleteDataLakeExceptionSubscriptionResponse = Schema.Struct({});
-export const DeregisterDataLakeDelegatedAdministratorRequest = Schema.Struct({});
-export const DeregisterDataLakeDelegatedAdministratorResponse = Schema.Struct({});
-export const GetDataLakeExceptionSubscriptionRequest = Schema.Struct({});
+export class DeleteDataLakeExceptionSubscriptionRequest extends Schema.Class<DeleteDataLakeExceptionSubscriptionRequest>("DeleteDataLakeExceptionSubscriptionRequest")({}) {}
+export class DeleteDataLakeExceptionSubscriptionResponse extends Schema.Class<DeleteDataLakeExceptionSubscriptionResponse>("DeleteDataLakeExceptionSubscriptionResponse")({}) {}
+export class DeregisterDataLakeDelegatedAdministratorRequest extends Schema.Class<DeregisterDataLakeDelegatedAdministratorRequest>("DeregisterDataLakeDelegatedAdministratorRequest")({}) {}
+export class DeregisterDataLakeDelegatedAdministratorResponse extends Schema.Class<DeregisterDataLakeDelegatedAdministratorResponse>("DeregisterDataLakeDelegatedAdministratorResponse")({}) {}
+export class GetDataLakeExceptionSubscriptionRequest extends Schema.Class<GetDataLakeExceptionSubscriptionRequest>("GetDataLakeExceptionSubscriptionRequest")({}) {}
 export const RegionList = Schema.Array(Schema.String);
 export const TagKeyList = Schema.Array(Schema.String);
-export const CreateDataLakeExceptionSubscriptionRequest = Schema.Struct({subscriptionProtocol: Schema.String, notificationEndpoint: Schema.String, exceptionTimeToLive: Schema.optional(Schema.Number)});
-export const CreateDataLakeExceptionSubscriptionResponse = Schema.Struct({});
-export const AccessDeniedException = Schema.Struct({message: Schema.optional(Schema.String), errorCode: Schema.optional(Schema.String)});
-export const BadRequestException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const GetDataLakeExceptionSubscriptionResponse = Schema.Struct({subscriptionProtocol: Schema.optional(Schema.String), notificationEndpoint: Schema.optional(Schema.String), exceptionTimeToLive: Schema.optional(Schema.Number)});
-export const ListDataLakeExceptionsRequest = Schema.Struct({regions: Schema.optional(RegionList), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceRequest = Schema.Struct({resourceArn: Schema.String});
-export const RegisterDataLakeDelegatedAdministratorRequest = Schema.Struct({accountId: Schema.String});
-export const RegisterDataLakeDelegatedAdministratorResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({resourceArn: Schema.String, tagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
-export const UpdateDataLakeExceptionSubscriptionRequest = Schema.Struct({subscriptionProtocol: Schema.String, notificationEndpoint: Schema.String, exceptionTimeToLive: Schema.optional(Schema.Number)});
-export const UpdateDataLakeExceptionSubscriptionResponse = Schema.Struct({});
-export const Tag = Schema.Struct({key: Schema.String, value: Schema.String});
+export class CreateDataLakeExceptionSubscriptionRequest extends Schema.Class<CreateDataLakeExceptionSubscriptionRequest>("CreateDataLakeExceptionSubscriptionRequest")({subscriptionProtocol: Schema.String, notificationEndpoint: Schema.String, exceptionTimeToLive: Schema.optional(Schema.Number)}) {}
+export class CreateDataLakeExceptionSubscriptionResponse extends Schema.Class<CreateDataLakeExceptionSubscriptionResponse>("CreateDataLakeExceptionSubscriptionResponse")({}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({message: Schema.optional(Schema.String), errorCode: Schema.optional(Schema.String)}) {}
+export class BadRequestException extends Schema.Class<BadRequestException>("BadRequestException")({message: Schema.optional(Schema.String)}) {}
+export class GetDataLakeExceptionSubscriptionResponse extends Schema.Class<GetDataLakeExceptionSubscriptionResponse>("GetDataLakeExceptionSubscriptionResponse")({subscriptionProtocol: Schema.optional(Schema.String), notificationEndpoint: Schema.optional(Schema.String), exceptionTimeToLive: Schema.optional(Schema.Number)}) {}
+export class ListDataLakeExceptionsRequest extends Schema.Class<ListDataLakeExceptionsRequest>("ListDataLakeExceptionsRequest")({regions: Schema.optional(RegionList), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({resourceArn: Schema.String}) {}
+export class RegisterDataLakeDelegatedAdministratorRequest extends Schema.Class<RegisterDataLakeDelegatedAdministratorRequest>("RegisterDataLakeDelegatedAdministratorRequest")({accountId: Schema.String}) {}
+export class RegisterDataLakeDelegatedAdministratorResponse extends Schema.Class<RegisterDataLakeDelegatedAdministratorResponse>("RegisterDataLakeDelegatedAdministratorResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({resourceArn: Schema.String, tagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class UpdateDataLakeExceptionSubscriptionRequest extends Schema.Class<UpdateDataLakeExceptionSubscriptionRequest>("UpdateDataLakeExceptionSubscriptionRequest")({subscriptionProtocol: Schema.String, notificationEndpoint: Schema.String, exceptionTimeToLive: Schema.optional(Schema.Number)}) {}
+export class UpdateDataLakeExceptionSubscriptionResponse extends Schema.Class<UpdateDataLakeExceptionSubscriptionResponse>("UpdateDataLakeExceptionSubscriptionResponse")({}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({key: Schema.String, value: Schema.String}) {}
 export const TagList = Schema.Array(Tag);
-export const ConflictException = Schema.Struct({message: Schema.optional(Schema.String), resourceName: Schema.optional(Schema.String), resourceType: Schema.optional(Schema.String)});
-export const InternalServerException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.optional(Schema.String), resourceName: Schema.optional(Schema.String), resourceType: Schema.optional(Schema.String)});
-export const ThrottlingException = Schema.Struct({message: Schema.optional(Schema.String), serviceCode: Schema.optional(Schema.String), quotaCode: Schema.optional(Schema.String), retryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))});
-export const ListTagsForResourceResponse = Schema.Struct({tags: Schema.optional(TagList)});
-export const TagResourceRequest = Schema.Struct({resourceArn: Schema.String, tags: TagList});
-export const TagResourceResponse = Schema.Struct({});
-export const DataLakeException = Schema.Struct({region: Schema.optional(Schema.String), exception: Schema.optional(Schema.String), remediation: Schema.optional(Schema.String), timestamp: Schema.optional(Schema.Date)});
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({message: Schema.optional(Schema.String), resourceName: Schema.optional(Schema.String), resourceType: Schema.optional(Schema.String)}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({message: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.optional(Schema.String), resourceName: Schema.optional(Schema.String), resourceType: Schema.optional(Schema.String)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({message: Schema.optional(Schema.String), serviceCode: Schema.optional(Schema.String), quotaCode: Schema.optional(Schema.String), retryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({tags: Schema.optional(TagList)}) {}
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({resourceArn: Schema.String, tags: TagList}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class DataLakeException extends Schema.Class<DataLakeException>("DataLakeException")({region: Schema.optional(Schema.String), exception: Schema.optional(Schema.String), remediation: Schema.optional(Schema.String), timestamp: Schema.optional(Schema.Date)}) {}
 export const DataLakeExceptionList = Schema.Array(DataLakeException);
-export const ListDataLakeExceptionsResponse = Schema.Struct({exceptions: Schema.optional(DataLakeExceptionList), nextToken: Schema.optional(Schema.String)});
+export class ListDataLakeExceptionsResponse extends Schema.Class<ListDataLakeExceptionsResponse>("ListDataLakeExceptionsResponse")({exceptions: Schema.optional(DataLakeExceptionList), nextToken: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class BadRequestExceptionError extends Schema.TaggedError<BadRequestExceptionError>()("BadRequestException", BadRequestException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class BadRequestExceptionError extends Schema.TaggedError<BadRequestExceptionError>()("BadRequestException", BadRequestException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
 
 //# Operations
 export const registerDataLakeDelegatedAdministrator = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-05-10", uri: "/v1/datalake/delegate", method: "POST", sdkId: "SecurityLake", sigV4ServiceName: "securitylake", name: "SecurityLake.RegisterDataLakeDelegatedAdministrator" }, RegisterDataLakeDelegatedAdministratorRequest, RegisterDataLakeDelegatedAdministratorResponse, [AccessDeniedExceptionError, BadRequestExceptionError, ConflictExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

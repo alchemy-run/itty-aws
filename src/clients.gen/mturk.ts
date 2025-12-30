@@ -3,129 +3,129 @@ import { FormatAwsJSON11Request,FormatJSONResponse,FormatAwsRestJSONError, makeO
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const GetAccountBalanceRequest = Schema.Struct({});
+export class GetAccountBalanceRequest extends Schema.Class<GetAccountBalanceRequest>("GetAccountBalanceRequest")({}) {}
 export const AssignmentStatusList = Schema.Array(Schema.String);
 export const ReviewPolicyLevelList = Schema.Array(Schema.String);
 export const CustomerIdList = Schema.Array(Schema.String);
-export const AcceptQualificationRequestRequest = Schema.Struct({QualificationRequestId: Schema.String, IntegerValue: Schema.optional(Schema.Number)});
-export const AcceptQualificationRequestResponse = Schema.Struct({});
-export const ApproveAssignmentRequest = Schema.Struct({AssignmentId: Schema.String, RequesterFeedback: Schema.optional(Schema.String), OverrideRejection: Schema.optional(Schema.Boolean)});
-export const ApproveAssignmentResponse = Schema.Struct({});
-export const AssociateQualificationWithWorkerRequest = Schema.Struct({QualificationTypeId: Schema.String, WorkerId: Schema.String, IntegerValue: Schema.optional(Schema.Number), SendNotification: Schema.optional(Schema.Boolean)});
-export const AssociateQualificationWithWorkerResponse = Schema.Struct({});
-export const CreateAdditionalAssignmentsForHITRequest = Schema.Struct({HITId: Schema.String, NumberOfAdditionalAssignments: Schema.Number, UniqueRequestToken: Schema.optional(Schema.String)});
-export const CreateAdditionalAssignmentsForHITResponse = Schema.Struct({});
+export class AcceptQualificationRequestRequest extends Schema.Class<AcceptQualificationRequestRequest>("AcceptQualificationRequestRequest")({QualificationRequestId: Schema.String, IntegerValue: Schema.optional(Schema.Number)}) {}
+export class AcceptQualificationRequestResponse extends Schema.Class<AcceptQualificationRequestResponse>("AcceptQualificationRequestResponse")({}) {}
+export class ApproveAssignmentRequest extends Schema.Class<ApproveAssignmentRequest>("ApproveAssignmentRequest")({AssignmentId: Schema.String, RequesterFeedback: Schema.optional(Schema.String), OverrideRejection: Schema.optional(Schema.Boolean)}) {}
+export class ApproveAssignmentResponse extends Schema.Class<ApproveAssignmentResponse>("ApproveAssignmentResponse")({}) {}
+export class AssociateQualificationWithWorkerRequest extends Schema.Class<AssociateQualificationWithWorkerRequest>("AssociateQualificationWithWorkerRequest")({QualificationTypeId: Schema.String, WorkerId: Schema.String, IntegerValue: Schema.optional(Schema.Number), SendNotification: Schema.optional(Schema.Boolean)}) {}
+export class AssociateQualificationWithWorkerResponse extends Schema.Class<AssociateQualificationWithWorkerResponse>("AssociateQualificationWithWorkerResponse")({}) {}
+export class CreateAdditionalAssignmentsForHITRequest extends Schema.Class<CreateAdditionalAssignmentsForHITRequest>("CreateAdditionalAssignmentsForHITRequest")({HITId: Schema.String, NumberOfAdditionalAssignments: Schema.Number, UniqueRequestToken: Schema.optional(Schema.String)}) {}
+export class CreateAdditionalAssignmentsForHITResponse extends Schema.Class<CreateAdditionalAssignmentsForHITResponse>("CreateAdditionalAssignmentsForHITResponse")({}) {}
 export const IntegerList = Schema.Array(Schema.Number);
-export const Locale = Schema.Struct({Country: Schema.String, Subdivision: Schema.optional(Schema.String)});
+export class Locale extends Schema.Class<Locale>("Locale")({Country: Schema.String, Subdivision: Schema.optional(Schema.String)}) {}
 export const LocaleList = Schema.Array(Locale);
-export const QualificationRequirement = Schema.Struct({QualificationTypeId: Schema.String, Comparator: Schema.String, IntegerValues: Schema.optional(IntegerList), LocaleValues: Schema.optional(LocaleList), RequiredToPreview: Schema.optional(Schema.Boolean), ActionsGuarded: Schema.optional(Schema.String)});
+export class QualificationRequirement extends Schema.Class<QualificationRequirement>("QualificationRequirement")({QualificationTypeId: Schema.String, Comparator: Schema.String, IntegerValues: Schema.optional(IntegerList), LocaleValues: Schema.optional(LocaleList), RequiredToPreview: Schema.optional(Schema.Boolean), ActionsGuarded: Schema.optional(Schema.String)}) {}
 export const QualificationRequirementList = Schema.Array(QualificationRequirement);
-export const CreateHITTypeRequest = Schema.Struct({AutoApprovalDelayInSeconds: Schema.optional(Schema.Number), AssignmentDurationInSeconds: Schema.Number, Reward: Schema.String, Title: Schema.String, Keywords: Schema.optional(Schema.String), Description: Schema.String, QualificationRequirements: Schema.optional(QualificationRequirementList)});
+export class CreateHITTypeRequest extends Schema.Class<CreateHITTypeRequest>("CreateHITTypeRequest")({AutoApprovalDelayInSeconds: Schema.optional(Schema.Number), AssignmentDurationInSeconds: Schema.Number, Reward: Schema.String, Title: Schema.String, Keywords: Schema.optional(Schema.String), Description: Schema.String, QualificationRequirements: Schema.optional(QualificationRequirementList)}) {}
 export const StringList = Schema.Array(Schema.String);
-export const ParameterMapEntry = Schema.Struct({Key: Schema.optional(Schema.String), Values: Schema.optional(StringList)});
+export class ParameterMapEntry extends Schema.Class<ParameterMapEntry>("ParameterMapEntry")({Key: Schema.optional(Schema.String), Values: Schema.optional(StringList)}) {}
 export const ParameterMapEntryList = Schema.Array(ParameterMapEntry);
-export const PolicyParameter = Schema.Struct({Key: Schema.optional(Schema.String), Values: Schema.optional(StringList), MapEntries: Schema.optional(ParameterMapEntryList)});
+export class PolicyParameter extends Schema.Class<PolicyParameter>("PolicyParameter")({Key: Schema.optional(Schema.String), Values: Schema.optional(StringList), MapEntries: Schema.optional(ParameterMapEntryList)}) {}
 export const PolicyParameterList = Schema.Array(PolicyParameter);
-export const ReviewPolicy = Schema.Struct({PolicyName: Schema.String, Parameters: Schema.optional(PolicyParameterList)});
-export const HITLayoutParameter = Schema.Struct({Name: Schema.String, Value: Schema.String});
+export class ReviewPolicy extends Schema.Class<ReviewPolicy>("ReviewPolicy")({PolicyName: Schema.String, Parameters: Schema.optional(PolicyParameterList)}) {}
+export class HITLayoutParameter extends Schema.Class<HITLayoutParameter>("HITLayoutParameter")({Name: Schema.String, Value: Schema.String}) {}
 export const HITLayoutParameterList = Schema.Array(HITLayoutParameter);
-export const CreateHITWithHITTypeRequest = Schema.Struct({HITTypeId: Schema.String, MaxAssignments: Schema.optional(Schema.Number), LifetimeInSeconds: Schema.Number, Question: Schema.optional(Schema.String), RequesterAnnotation: Schema.optional(Schema.String), UniqueRequestToken: Schema.optional(Schema.String), AssignmentReviewPolicy: Schema.optional(ReviewPolicy), HITReviewPolicy: Schema.optional(ReviewPolicy), HITLayoutId: Schema.optional(Schema.String), HITLayoutParameters: Schema.optional(HITLayoutParameterList)});
-export const CreateQualificationTypeRequest = Schema.Struct({Name: Schema.String, Keywords: Schema.optional(Schema.String), Description: Schema.String, QualificationTypeStatus: Schema.String, RetryDelayInSeconds: Schema.optional(Schema.Number), Test: Schema.optional(Schema.String), AnswerKey: Schema.optional(Schema.String), TestDurationInSeconds: Schema.optional(Schema.Number), AutoGranted: Schema.optional(Schema.Boolean), AutoGrantedValue: Schema.optional(Schema.Number)});
-export const CreateWorkerBlockRequest = Schema.Struct({WorkerId: Schema.String, Reason: Schema.String});
-export const CreateWorkerBlockResponse = Schema.Struct({});
-export const DeleteHITRequest = Schema.Struct({HITId: Schema.String});
-export const DeleteHITResponse = Schema.Struct({});
-export const DeleteQualificationTypeRequest = Schema.Struct({QualificationTypeId: Schema.String});
-export const DeleteQualificationTypeResponse = Schema.Struct({});
-export const DeleteWorkerBlockRequest = Schema.Struct({WorkerId: Schema.String, Reason: Schema.optional(Schema.String)});
-export const DeleteWorkerBlockResponse = Schema.Struct({});
-export const DisassociateQualificationFromWorkerRequest = Schema.Struct({WorkerId: Schema.String, QualificationTypeId: Schema.String, Reason: Schema.optional(Schema.String)});
-export const DisassociateQualificationFromWorkerResponse = Schema.Struct({});
-export const GetAccountBalanceResponse = Schema.Struct({AvailableBalance: Schema.optional(Schema.String), OnHoldBalance: Schema.optional(Schema.String)});
-export const GetAssignmentRequest = Schema.Struct({AssignmentId: Schema.String});
-export const GetFileUploadURLRequest = Schema.Struct({AssignmentId: Schema.String, QuestionIdentifier: Schema.String});
-export const GetHITRequest = Schema.Struct({HITId: Schema.String});
-export const GetQualificationScoreRequest = Schema.Struct({QualificationTypeId: Schema.String, WorkerId: Schema.String});
-export const GetQualificationTypeRequest = Schema.Struct({QualificationTypeId: Schema.String});
-export const ListAssignmentsForHITRequest = Schema.Struct({HITId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), AssignmentStatuses: Schema.optional(AssignmentStatusList)});
-export const ListBonusPaymentsRequest = Schema.Struct({HITId: Schema.optional(Schema.String), AssignmentId: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListHITsRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListHITsForQualificationTypeRequest = Schema.Struct({QualificationTypeId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListQualificationRequestsRequest = Schema.Struct({QualificationTypeId: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListQualificationTypesRequest = Schema.Struct({Query: Schema.optional(Schema.String), MustBeRequestable: Schema.Boolean, MustBeOwnedByCaller: Schema.optional(Schema.Boolean), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListReviewableHITsRequest = Schema.Struct({HITTypeId: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListReviewPolicyResultsForHITRequest = Schema.Struct({HITId: Schema.String, PolicyLevels: Schema.optional(ReviewPolicyLevelList), RetrieveActions: Schema.optional(Schema.Boolean), RetrieveResults: Schema.optional(Schema.Boolean), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListWorkerBlocksRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListWorkersWithQualificationTypeRequest = Schema.Struct({QualificationTypeId: Schema.String, Status: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const NotifyWorkersRequest = Schema.Struct({Subject: Schema.String, MessageText: Schema.String, WorkerIds: CustomerIdList});
-export const RejectAssignmentRequest = Schema.Struct({AssignmentId: Schema.String, RequesterFeedback: Schema.String});
-export const RejectAssignmentResponse = Schema.Struct({});
-export const RejectQualificationRequestRequest = Schema.Struct({QualificationRequestId: Schema.String, Reason: Schema.optional(Schema.String)});
-export const RejectQualificationRequestResponse = Schema.Struct({});
-export const SendBonusRequest = Schema.Struct({WorkerId: Schema.String, BonusAmount: Schema.String, AssignmentId: Schema.String, Reason: Schema.String, UniqueRequestToken: Schema.optional(Schema.String)});
-export const SendBonusResponse = Schema.Struct({});
-export const UpdateExpirationForHITRequest = Schema.Struct({HITId: Schema.String, ExpireAt: Schema.Date});
-export const UpdateExpirationForHITResponse = Schema.Struct({});
-export const UpdateHITReviewStatusRequest = Schema.Struct({HITId: Schema.String, Revert: Schema.optional(Schema.Boolean)});
-export const UpdateHITReviewStatusResponse = Schema.Struct({});
-export const UpdateHITTypeOfHITRequest = Schema.Struct({HITId: Schema.String, HITTypeId: Schema.String});
-export const UpdateHITTypeOfHITResponse = Schema.Struct({});
+export class CreateHITWithHITTypeRequest extends Schema.Class<CreateHITWithHITTypeRequest>("CreateHITWithHITTypeRequest")({HITTypeId: Schema.String, MaxAssignments: Schema.optional(Schema.Number), LifetimeInSeconds: Schema.Number, Question: Schema.optional(Schema.String), RequesterAnnotation: Schema.optional(Schema.String), UniqueRequestToken: Schema.optional(Schema.String), AssignmentReviewPolicy: Schema.optional(ReviewPolicy), HITReviewPolicy: Schema.optional(ReviewPolicy), HITLayoutId: Schema.optional(Schema.String), HITLayoutParameters: Schema.optional(HITLayoutParameterList)}) {}
+export class CreateQualificationTypeRequest extends Schema.Class<CreateQualificationTypeRequest>("CreateQualificationTypeRequest")({Name: Schema.String, Keywords: Schema.optional(Schema.String), Description: Schema.String, QualificationTypeStatus: Schema.String, RetryDelayInSeconds: Schema.optional(Schema.Number), Test: Schema.optional(Schema.String), AnswerKey: Schema.optional(Schema.String), TestDurationInSeconds: Schema.optional(Schema.Number), AutoGranted: Schema.optional(Schema.Boolean), AutoGrantedValue: Schema.optional(Schema.Number)}) {}
+export class CreateWorkerBlockRequest extends Schema.Class<CreateWorkerBlockRequest>("CreateWorkerBlockRequest")({WorkerId: Schema.String, Reason: Schema.String}) {}
+export class CreateWorkerBlockResponse extends Schema.Class<CreateWorkerBlockResponse>("CreateWorkerBlockResponse")({}) {}
+export class DeleteHITRequest extends Schema.Class<DeleteHITRequest>("DeleteHITRequest")({HITId: Schema.String}) {}
+export class DeleteHITResponse extends Schema.Class<DeleteHITResponse>("DeleteHITResponse")({}) {}
+export class DeleteQualificationTypeRequest extends Schema.Class<DeleteQualificationTypeRequest>("DeleteQualificationTypeRequest")({QualificationTypeId: Schema.String}) {}
+export class DeleteQualificationTypeResponse extends Schema.Class<DeleteQualificationTypeResponse>("DeleteQualificationTypeResponse")({}) {}
+export class DeleteWorkerBlockRequest extends Schema.Class<DeleteWorkerBlockRequest>("DeleteWorkerBlockRequest")({WorkerId: Schema.String, Reason: Schema.optional(Schema.String)}) {}
+export class DeleteWorkerBlockResponse extends Schema.Class<DeleteWorkerBlockResponse>("DeleteWorkerBlockResponse")({}) {}
+export class DisassociateQualificationFromWorkerRequest extends Schema.Class<DisassociateQualificationFromWorkerRequest>("DisassociateQualificationFromWorkerRequest")({WorkerId: Schema.String, QualificationTypeId: Schema.String, Reason: Schema.optional(Schema.String)}) {}
+export class DisassociateQualificationFromWorkerResponse extends Schema.Class<DisassociateQualificationFromWorkerResponse>("DisassociateQualificationFromWorkerResponse")({}) {}
+export class GetAccountBalanceResponse extends Schema.Class<GetAccountBalanceResponse>("GetAccountBalanceResponse")({AvailableBalance: Schema.optional(Schema.String), OnHoldBalance: Schema.optional(Schema.String)}) {}
+export class GetAssignmentRequest extends Schema.Class<GetAssignmentRequest>("GetAssignmentRequest")({AssignmentId: Schema.String}) {}
+export class GetFileUploadURLRequest extends Schema.Class<GetFileUploadURLRequest>("GetFileUploadURLRequest")({AssignmentId: Schema.String, QuestionIdentifier: Schema.String}) {}
+export class GetHITRequest extends Schema.Class<GetHITRequest>("GetHITRequest")({HITId: Schema.String}) {}
+export class GetQualificationScoreRequest extends Schema.Class<GetQualificationScoreRequest>("GetQualificationScoreRequest")({QualificationTypeId: Schema.String, WorkerId: Schema.String}) {}
+export class GetQualificationTypeRequest extends Schema.Class<GetQualificationTypeRequest>("GetQualificationTypeRequest")({QualificationTypeId: Schema.String}) {}
+export class ListAssignmentsForHITRequest extends Schema.Class<ListAssignmentsForHITRequest>("ListAssignmentsForHITRequest")({HITId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), AssignmentStatuses: Schema.optional(AssignmentStatusList)}) {}
+export class ListBonusPaymentsRequest extends Schema.Class<ListBonusPaymentsRequest>("ListBonusPaymentsRequest")({HITId: Schema.optional(Schema.String), AssignmentId: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListHITsRequest extends Schema.Class<ListHITsRequest>("ListHITsRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListHITsForQualificationTypeRequest extends Schema.Class<ListHITsForQualificationTypeRequest>("ListHITsForQualificationTypeRequest")({QualificationTypeId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListQualificationRequestsRequest extends Schema.Class<ListQualificationRequestsRequest>("ListQualificationRequestsRequest")({QualificationTypeId: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListQualificationTypesRequest extends Schema.Class<ListQualificationTypesRequest>("ListQualificationTypesRequest")({Query: Schema.optional(Schema.String), MustBeRequestable: Schema.Boolean, MustBeOwnedByCaller: Schema.optional(Schema.Boolean), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListReviewableHITsRequest extends Schema.Class<ListReviewableHITsRequest>("ListReviewableHITsRequest")({HITTypeId: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListReviewPolicyResultsForHITRequest extends Schema.Class<ListReviewPolicyResultsForHITRequest>("ListReviewPolicyResultsForHITRequest")({HITId: Schema.String, PolicyLevels: Schema.optional(ReviewPolicyLevelList), RetrieveActions: Schema.optional(Schema.Boolean), RetrieveResults: Schema.optional(Schema.Boolean), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListWorkerBlocksRequest extends Schema.Class<ListWorkerBlocksRequest>("ListWorkerBlocksRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListWorkersWithQualificationTypeRequest extends Schema.Class<ListWorkersWithQualificationTypeRequest>("ListWorkersWithQualificationTypeRequest")({QualificationTypeId: Schema.String, Status: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class NotifyWorkersRequest extends Schema.Class<NotifyWorkersRequest>("NotifyWorkersRequest")({Subject: Schema.String, MessageText: Schema.String, WorkerIds: CustomerIdList}) {}
+export class RejectAssignmentRequest extends Schema.Class<RejectAssignmentRequest>("RejectAssignmentRequest")({AssignmentId: Schema.String, RequesterFeedback: Schema.String}) {}
+export class RejectAssignmentResponse extends Schema.Class<RejectAssignmentResponse>("RejectAssignmentResponse")({}) {}
+export class RejectQualificationRequestRequest extends Schema.Class<RejectQualificationRequestRequest>("RejectQualificationRequestRequest")({QualificationRequestId: Schema.String, Reason: Schema.optional(Schema.String)}) {}
+export class RejectQualificationRequestResponse extends Schema.Class<RejectQualificationRequestResponse>("RejectQualificationRequestResponse")({}) {}
+export class SendBonusRequest extends Schema.Class<SendBonusRequest>("SendBonusRequest")({WorkerId: Schema.String, BonusAmount: Schema.String, AssignmentId: Schema.String, Reason: Schema.String, UniqueRequestToken: Schema.optional(Schema.String)}) {}
+export class SendBonusResponse extends Schema.Class<SendBonusResponse>("SendBonusResponse")({}) {}
+export class UpdateExpirationForHITRequest extends Schema.Class<UpdateExpirationForHITRequest>("UpdateExpirationForHITRequest")({HITId: Schema.String, ExpireAt: Schema.Date}) {}
+export class UpdateExpirationForHITResponse extends Schema.Class<UpdateExpirationForHITResponse>("UpdateExpirationForHITResponse")({}) {}
+export class UpdateHITReviewStatusRequest extends Schema.Class<UpdateHITReviewStatusRequest>("UpdateHITReviewStatusRequest")({HITId: Schema.String, Revert: Schema.optional(Schema.Boolean)}) {}
+export class UpdateHITReviewStatusResponse extends Schema.Class<UpdateHITReviewStatusResponse>("UpdateHITReviewStatusResponse")({}) {}
+export class UpdateHITTypeOfHITRequest extends Schema.Class<UpdateHITTypeOfHITRequest>("UpdateHITTypeOfHITRequest")({HITId: Schema.String, HITTypeId: Schema.String}) {}
+export class UpdateHITTypeOfHITResponse extends Schema.Class<UpdateHITTypeOfHITResponse>("UpdateHITTypeOfHITResponse")({}) {}
 export const EventTypeList = Schema.Array(Schema.String);
-export const NotificationSpecification = Schema.Struct({Destination: Schema.String, Transport: Schema.String, Version: Schema.String, EventTypes: EventTypeList});
-export const UpdateNotificationSettingsRequest = Schema.Struct({HITTypeId: Schema.String, Notification: Schema.optional(NotificationSpecification), Active: Schema.optional(Schema.Boolean)});
-export const UpdateNotificationSettingsResponse = Schema.Struct({});
-export const UpdateQualificationTypeRequest = Schema.Struct({QualificationTypeId: Schema.String, Description: Schema.optional(Schema.String), QualificationTypeStatus: Schema.optional(Schema.String), Test: Schema.optional(Schema.String), AnswerKey: Schema.optional(Schema.String), TestDurationInSeconds: Schema.optional(Schema.Number), RetryDelayInSeconds: Schema.optional(Schema.Number), AutoGranted: Schema.optional(Schema.Boolean), AutoGrantedValue: Schema.optional(Schema.Number)});
-export const Assignment = Schema.Struct({AssignmentId: Schema.optional(Schema.String), WorkerId: Schema.optional(Schema.String), HITId: Schema.optional(Schema.String), AssignmentStatus: Schema.optional(Schema.String), AutoApprovalTime: Schema.optional(Schema.Date), AcceptTime: Schema.optional(Schema.Date), SubmitTime: Schema.optional(Schema.Date), ApprovalTime: Schema.optional(Schema.Date), RejectionTime: Schema.optional(Schema.Date), Deadline: Schema.optional(Schema.Date), Answer: Schema.optional(Schema.String), RequesterFeedback: Schema.optional(Schema.String)});
+export class NotificationSpecification extends Schema.Class<NotificationSpecification>("NotificationSpecification")({Destination: Schema.String, Transport: Schema.String, Version: Schema.String, EventTypes: EventTypeList}) {}
+export class UpdateNotificationSettingsRequest extends Schema.Class<UpdateNotificationSettingsRequest>("UpdateNotificationSettingsRequest")({HITTypeId: Schema.String, Notification: Schema.optional(NotificationSpecification), Active: Schema.optional(Schema.Boolean)}) {}
+export class UpdateNotificationSettingsResponse extends Schema.Class<UpdateNotificationSettingsResponse>("UpdateNotificationSettingsResponse")({}) {}
+export class UpdateQualificationTypeRequest extends Schema.Class<UpdateQualificationTypeRequest>("UpdateQualificationTypeRequest")({QualificationTypeId: Schema.String, Description: Schema.optional(Schema.String), QualificationTypeStatus: Schema.optional(Schema.String), Test: Schema.optional(Schema.String), AnswerKey: Schema.optional(Schema.String), TestDurationInSeconds: Schema.optional(Schema.Number), RetryDelayInSeconds: Schema.optional(Schema.Number), AutoGranted: Schema.optional(Schema.Boolean), AutoGrantedValue: Schema.optional(Schema.Number)}) {}
+export class Assignment extends Schema.Class<Assignment>("Assignment")({AssignmentId: Schema.optional(Schema.String), WorkerId: Schema.optional(Schema.String), HITId: Schema.optional(Schema.String), AssignmentStatus: Schema.optional(Schema.String), AutoApprovalTime: Schema.optional(Schema.Date), AcceptTime: Schema.optional(Schema.Date), SubmitTime: Schema.optional(Schema.Date), ApprovalTime: Schema.optional(Schema.Date), RejectionTime: Schema.optional(Schema.Date), Deadline: Schema.optional(Schema.Date), Answer: Schema.optional(Schema.String), RequesterFeedback: Schema.optional(Schema.String)}) {}
 export const AssignmentList = Schema.Array(Assignment);
-export const HIT = Schema.Struct({HITId: Schema.optional(Schema.String), HITTypeId: Schema.optional(Schema.String), HITGroupId: Schema.optional(Schema.String), HITLayoutId: Schema.optional(Schema.String), CreationTime: Schema.optional(Schema.Date), Title: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Question: Schema.optional(Schema.String), Keywords: Schema.optional(Schema.String), HITStatus: Schema.optional(Schema.String), MaxAssignments: Schema.optional(Schema.Number), Reward: Schema.optional(Schema.String), AutoApprovalDelayInSeconds: Schema.optional(Schema.Number), Expiration: Schema.optional(Schema.Date), AssignmentDurationInSeconds: Schema.optional(Schema.Number), RequesterAnnotation: Schema.optional(Schema.String), QualificationRequirements: Schema.optional(QualificationRequirementList), HITReviewStatus: Schema.optional(Schema.String), NumberOfAssignmentsPending: Schema.optional(Schema.Number), NumberOfAssignmentsAvailable: Schema.optional(Schema.Number), NumberOfAssignmentsCompleted: Schema.optional(Schema.Number)});
+export class HIT extends Schema.Class<HIT>("HIT")({HITId: Schema.optional(Schema.String), HITTypeId: Schema.optional(Schema.String), HITGroupId: Schema.optional(Schema.String), HITLayoutId: Schema.optional(Schema.String), CreationTime: Schema.optional(Schema.Date), Title: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Question: Schema.optional(Schema.String), Keywords: Schema.optional(Schema.String), HITStatus: Schema.optional(Schema.String), MaxAssignments: Schema.optional(Schema.Number), Reward: Schema.optional(Schema.String), AutoApprovalDelayInSeconds: Schema.optional(Schema.Number), Expiration: Schema.optional(Schema.Date), AssignmentDurationInSeconds: Schema.optional(Schema.Number), RequesterAnnotation: Schema.optional(Schema.String), QualificationRequirements: Schema.optional(QualificationRequirementList), HITReviewStatus: Schema.optional(Schema.String), NumberOfAssignmentsPending: Schema.optional(Schema.Number), NumberOfAssignmentsAvailable: Schema.optional(Schema.Number), NumberOfAssignmentsCompleted: Schema.optional(Schema.Number)}) {}
 export const HITList = Schema.Array(HIT);
-export const QualificationType = Schema.Struct({QualificationTypeId: Schema.optional(Schema.String), CreationTime: Schema.optional(Schema.Date), Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Keywords: Schema.optional(Schema.String), QualificationTypeStatus: Schema.optional(Schema.String), Test: Schema.optional(Schema.String), TestDurationInSeconds: Schema.optional(Schema.Number), AnswerKey: Schema.optional(Schema.String), RetryDelayInSeconds: Schema.optional(Schema.Number), IsRequestable: Schema.optional(Schema.Boolean), AutoGranted: Schema.optional(Schema.Boolean), AutoGrantedValue: Schema.optional(Schema.Number)});
+export class QualificationType extends Schema.Class<QualificationType>("QualificationType")({QualificationTypeId: Schema.optional(Schema.String), CreationTime: Schema.optional(Schema.Date), Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Keywords: Schema.optional(Schema.String), QualificationTypeStatus: Schema.optional(Schema.String), Test: Schema.optional(Schema.String), TestDurationInSeconds: Schema.optional(Schema.Number), AnswerKey: Schema.optional(Schema.String), RetryDelayInSeconds: Schema.optional(Schema.Number), IsRequestable: Schema.optional(Schema.Boolean), AutoGranted: Schema.optional(Schema.Boolean), AutoGrantedValue: Schema.optional(Schema.Number)}) {}
 export const QualificationTypeList = Schema.Array(QualificationType);
-export const Qualification = Schema.Struct({QualificationTypeId: Schema.optional(Schema.String), WorkerId: Schema.optional(Schema.String), GrantTime: Schema.optional(Schema.Date), IntegerValue: Schema.optional(Schema.Number), LocaleValue: Schema.optional(Locale), Status: Schema.optional(Schema.String)});
+export class Qualification extends Schema.Class<Qualification>("Qualification")({QualificationTypeId: Schema.optional(Schema.String), WorkerId: Schema.optional(Schema.String), GrantTime: Schema.optional(Schema.Date), IntegerValue: Schema.optional(Schema.Number), LocaleValue: Schema.optional(Locale), Status: Schema.optional(Schema.String)}) {}
 export const QualificationList = Schema.Array(Qualification);
-export const RequestError = Schema.Struct({Message: Schema.optional(Schema.String), TurkErrorCode: Schema.optional(Schema.String)});
-export const ServiceFault = Schema.Struct({Message: Schema.optional(Schema.String), TurkErrorCode: Schema.optional(Schema.String)});
-export const CreateHITTypeResponse = Schema.Struct({HITTypeId: Schema.optional(Schema.String)});
-export const GetFileUploadURLResponse = Schema.Struct({FileUploadURL: Schema.optional(Schema.String)});
-export const GetHITResponse = Schema.Struct({HIT: Schema.optional(HIT)});
-export const GetQualificationTypeResponse = Schema.Struct({QualificationType: Schema.optional(QualificationType)});
-export const ListAssignmentsForHITResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), NumResults: Schema.optional(Schema.Number), Assignments: Schema.optional(AssignmentList)});
-export const ListHITsResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), NumResults: Schema.optional(Schema.Number), HITs: Schema.optional(HITList)});
-export const ListHITsForQualificationTypeResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), NumResults: Schema.optional(Schema.Number), HITs: Schema.optional(HITList)});
-export const ListQualificationTypesResponse = Schema.Struct({NumResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), QualificationTypes: Schema.optional(QualificationTypeList)});
-export const ListReviewableHITsResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), NumResults: Schema.optional(Schema.Number), HITs: Schema.optional(HITList)});
-export const ListWorkersWithQualificationTypeResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), NumResults: Schema.optional(Schema.Number), Qualifications: Schema.optional(QualificationList)});
-export const SendTestEventNotificationRequest = Schema.Struct({Notification: NotificationSpecification, TestEventType: Schema.String});
-export const SendTestEventNotificationResponse = Schema.Struct({});
-export const UpdateQualificationTypeResponse = Schema.Struct({QualificationType: Schema.optional(QualificationType)});
-export const BonusPayment = Schema.Struct({WorkerId: Schema.optional(Schema.String), BonusAmount: Schema.optional(Schema.String), AssignmentId: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String), GrantTime: Schema.optional(Schema.Date)});
+export class RequestError extends Schema.Class<RequestError>("RequestError")({Message: Schema.optional(Schema.String), TurkErrorCode: Schema.optional(Schema.String)}) {}
+export class ServiceFault extends Schema.Class<ServiceFault>("ServiceFault")({Message: Schema.optional(Schema.String), TurkErrorCode: Schema.optional(Schema.String)}) {}
+export class CreateHITTypeResponse extends Schema.Class<CreateHITTypeResponse>("CreateHITTypeResponse")({HITTypeId: Schema.optional(Schema.String)}) {}
+export class GetFileUploadURLResponse extends Schema.Class<GetFileUploadURLResponse>("GetFileUploadURLResponse")({FileUploadURL: Schema.optional(Schema.String)}) {}
+export class GetHITResponse extends Schema.Class<GetHITResponse>("GetHITResponse")({HIT: Schema.optional(HIT)}) {}
+export class GetQualificationTypeResponse extends Schema.Class<GetQualificationTypeResponse>("GetQualificationTypeResponse")({QualificationType: Schema.optional(QualificationType)}) {}
+export class ListAssignmentsForHITResponse extends Schema.Class<ListAssignmentsForHITResponse>("ListAssignmentsForHITResponse")({NextToken: Schema.optional(Schema.String), NumResults: Schema.optional(Schema.Number), Assignments: Schema.optional(AssignmentList)}) {}
+export class ListHITsResponse extends Schema.Class<ListHITsResponse>("ListHITsResponse")({NextToken: Schema.optional(Schema.String), NumResults: Schema.optional(Schema.Number), HITs: Schema.optional(HITList)}) {}
+export class ListHITsForQualificationTypeResponse extends Schema.Class<ListHITsForQualificationTypeResponse>("ListHITsForQualificationTypeResponse")({NextToken: Schema.optional(Schema.String), NumResults: Schema.optional(Schema.Number), HITs: Schema.optional(HITList)}) {}
+export class ListQualificationTypesResponse extends Schema.Class<ListQualificationTypesResponse>("ListQualificationTypesResponse")({NumResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), QualificationTypes: Schema.optional(QualificationTypeList)}) {}
+export class ListReviewableHITsResponse extends Schema.Class<ListReviewableHITsResponse>("ListReviewableHITsResponse")({NextToken: Schema.optional(Schema.String), NumResults: Schema.optional(Schema.Number), HITs: Schema.optional(HITList)}) {}
+export class ListWorkersWithQualificationTypeResponse extends Schema.Class<ListWorkersWithQualificationTypeResponse>("ListWorkersWithQualificationTypeResponse")({NextToken: Schema.optional(Schema.String), NumResults: Schema.optional(Schema.Number), Qualifications: Schema.optional(QualificationList)}) {}
+export class SendTestEventNotificationRequest extends Schema.Class<SendTestEventNotificationRequest>("SendTestEventNotificationRequest")({Notification: NotificationSpecification, TestEventType: Schema.String}) {}
+export class SendTestEventNotificationResponse extends Schema.Class<SendTestEventNotificationResponse>("SendTestEventNotificationResponse")({}) {}
+export class UpdateQualificationTypeResponse extends Schema.Class<UpdateQualificationTypeResponse>("UpdateQualificationTypeResponse")({QualificationType: Schema.optional(QualificationType)}) {}
+export class BonusPayment extends Schema.Class<BonusPayment>("BonusPayment")({WorkerId: Schema.optional(Schema.String), BonusAmount: Schema.optional(Schema.String), AssignmentId: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String), GrantTime: Schema.optional(Schema.Date)}) {}
 export const BonusPaymentList = Schema.Array(BonusPayment);
-export const QualificationRequest = Schema.Struct({QualificationRequestId: Schema.optional(Schema.String), QualificationTypeId: Schema.optional(Schema.String), WorkerId: Schema.optional(Schema.String), Test: Schema.optional(Schema.String), Answer: Schema.optional(Schema.String), SubmitTime: Schema.optional(Schema.Date)});
+export class QualificationRequest extends Schema.Class<QualificationRequest>("QualificationRequest")({QualificationRequestId: Schema.optional(Schema.String), QualificationTypeId: Schema.optional(Schema.String), WorkerId: Schema.optional(Schema.String), Test: Schema.optional(Schema.String), Answer: Schema.optional(Schema.String), SubmitTime: Schema.optional(Schema.Date)}) {}
 export const QualificationRequestList = Schema.Array(QualificationRequest);
-export const WorkerBlock = Schema.Struct({WorkerId: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String)});
+export class WorkerBlock extends Schema.Class<WorkerBlock>("WorkerBlock")({WorkerId: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String)}) {}
 export const WorkerBlockList = Schema.Array(WorkerBlock);
-export const NotifyWorkersFailureStatus = Schema.Struct({NotifyWorkersFailureCode: Schema.optional(Schema.String), NotifyWorkersFailureMessage: Schema.optional(Schema.String), WorkerId: Schema.optional(Schema.String)});
+export class NotifyWorkersFailureStatus extends Schema.Class<NotifyWorkersFailureStatus>("NotifyWorkersFailureStatus")({NotifyWorkersFailureCode: Schema.optional(Schema.String), NotifyWorkersFailureMessage: Schema.optional(Schema.String), WorkerId: Schema.optional(Schema.String)}) {}
 export const NotifyWorkersFailureStatusList = Schema.Array(NotifyWorkersFailureStatus);
-export const CreateHITWithHITTypeResponse = Schema.Struct({HIT: Schema.optional(HIT)});
-export const CreateQualificationTypeResponse = Schema.Struct({QualificationType: Schema.optional(QualificationType)});
-export const GetAssignmentResponse = Schema.Struct({Assignment: Schema.optional(Assignment), HIT: Schema.optional(HIT)});
-export const GetQualificationScoreResponse = Schema.Struct({Qualification: Schema.optional(Qualification)});
-export const ListBonusPaymentsResponse = Schema.Struct({NumResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), BonusPayments: Schema.optional(BonusPaymentList)});
-export const ListQualificationRequestsResponse = Schema.Struct({NumResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), QualificationRequests: Schema.optional(QualificationRequestList)});
-export const ListWorkerBlocksResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), NumResults: Schema.optional(Schema.Number), WorkerBlocks: Schema.optional(WorkerBlockList)});
-export const NotifyWorkersResponse = Schema.Struct({NotifyWorkersFailureStatuses: Schema.optional(NotifyWorkersFailureStatusList)});
-export const ReviewResultDetail = Schema.Struct({ActionId: Schema.optional(Schema.String), SubjectId: Schema.optional(Schema.String), SubjectType: Schema.optional(Schema.String), QuestionId: Schema.optional(Schema.String), Key: Schema.optional(Schema.String), Value: Schema.optional(Schema.String)});
+export class CreateHITWithHITTypeResponse extends Schema.Class<CreateHITWithHITTypeResponse>("CreateHITWithHITTypeResponse")({HIT: Schema.optional(HIT)}) {}
+export class CreateQualificationTypeResponse extends Schema.Class<CreateQualificationTypeResponse>("CreateQualificationTypeResponse")({QualificationType: Schema.optional(QualificationType)}) {}
+export class GetAssignmentResponse extends Schema.Class<GetAssignmentResponse>("GetAssignmentResponse")({Assignment: Schema.optional(Assignment), HIT: Schema.optional(HIT)}) {}
+export class GetQualificationScoreResponse extends Schema.Class<GetQualificationScoreResponse>("GetQualificationScoreResponse")({Qualification: Schema.optional(Qualification)}) {}
+export class ListBonusPaymentsResponse extends Schema.Class<ListBonusPaymentsResponse>("ListBonusPaymentsResponse")({NumResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), BonusPayments: Schema.optional(BonusPaymentList)}) {}
+export class ListQualificationRequestsResponse extends Schema.Class<ListQualificationRequestsResponse>("ListQualificationRequestsResponse")({NumResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), QualificationRequests: Schema.optional(QualificationRequestList)}) {}
+export class ListWorkerBlocksResponse extends Schema.Class<ListWorkerBlocksResponse>("ListWorkerBlocksResponse")({NextToken: Schema.optional(Schema.String), NumResults: Schema.optional(Schema.Number), WorkerBlocks: Schema.optional(WorkerBlockList)}) {}
+export class NotifyWorkersResponse extends Schema.Class<NotifyWorkersResponse>("NotifyWorkersResponse")({NotifyWorkersFailureStatuses: Schema.optional(NotifyWorkersFailureStatusList)}) {}
+export class ReviewResultDetail extends Schema.Class<ReviewResultDetail>("ReviewResultDetail")({ActionId: Schema.optional(Schema.String), SubjectId: Schema.optional(Schema.String), SubjectType: Schema.optional(Schema.String), QuestionId: Schema.optional(Schema.String), Key: Schema.optional(Schema.String), Value: Schema.optional(Schema.String)}) {}
 export const ReviewResultDetailList = Schema.Array(ReviewResultDetail);
-export const ReviewActionDetail = Schema.Struct({ActionId: Schema.optional(Schema.String), ActionName: Schema.optional(Schema.String), TargetId: Schema.optional(Schema.String), TargetType: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), CompleteTime: Schema.optional(Schema.Date), Result: Schema.optional(Schema.String), ErrorCode: Schema.optional(Schema.String)});
+export class ReviewActionDetail extends Schema.Class<ReviewActionDetail>("ReviewActionDetail")({ActionId: Schema.optional(Schema.String), ActionName: Schema.optional(Schema.String), TargetId: Schema.optional(Schema.String), TargetType: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), CompleteTime: Schema.optional(Schema.Date), Result: Schema.optional(Schema.String), ErrorCode: Schema.optional(Schema.String)}) {}
 export const ReviewActionDetailList = Schema.Array(ReviewActionDetail);
-export const ReviewReport = Schema.Struct({ReviewResults: Schema.optional(ReviewResultDetailList), ReviewActions: Schema.optional(ReviewActionDetailList)});
-export const CreateHITRequest = Schema.Struct({MaxAssignments: Schema.optional(Schema.Number), AutoApprovalDelayInSeconds: Schema.optional(Schema.Number), LifetimeInSeconds: Schema.Number, AssignmentDurationInSeconds: Schema.Number, Reward: Schema.String, Title: Schema.String, Keywords: Schema.optional(Schema.String), Description: Schema.String, Question: Schema.optional(Schema.String), RequesterAnnotation: Schema.optional(Schema.String), QualificationRequirements: Schema.optional(QualificationRequirementList), UniqueRequestToken: Schema.optional(Schema.String), AssignmentReviewPolicy: Schema.optional(ReviewPolicy), HITReviewPolicy: Schema.optional(ReviewPolicy), HITLayoutId: Schema.optional(Schema.String), HITLayoutParameters: Schema.optional(HITLayoutParameterList)});
-export const ListReviewPolicyResultsForHITResponse = Schema.Struct({HITId: Schema.optional(Schema.String), AssignmentReviewPolicy: Schema.optional(ReviewPolicy), HITReviewPolicy: Schema.optional(ReviewPolicy), AssignmentReviewReport: Schema.optional(ReviewReport), HITReviewReport: Schema.optional(ReviewReport), NextToken: Schema.optional(Schema.String)});
-export const CreateHITResponse = Schema.Struct({HIT: Schema.optional(HIT)});
+export class ReviewReport extends Schema.Class<ReviewReport>("ReviewReport")({ReviewResults: Schema.optional(ReviewResultDetailList), ReviewActions: Schema.optional(ReviewActionDetailList)}) {}
+export class CreateHITRequest extends Schema.Class<CreateHITRequest>("CreateHITRequest")({MaxAssignments: Schema.optional(Schema.Number), AutoApprovalDelayInSeconds: Schema.optional(Schema.Number), LifetimeInSeconds: Schema.Number, AssignmentDurationInSeconds: Schema.Number, Reward: Schema.String, Title: Schema.String, Keywords: Schema.optional(Schema.String), Description: Schema.String, Question: Schema.optional(Schema.String), RequesterAnnotation: Schema.optional(Schema.String), QualificationRequirements: Schema.optional(QualificationRequirementList), UniqueRequestToken: Schema.optional(Schema.String), AssignmentReviewPolicy: Schema.optional(ReviewPolicy), HITReviewPolicy: Schema.optional(ReviewPolicy), HITLayoutId: Schema.optional(Schema.String), HITLayoutParameters: Schema.optional(HITLayoutParameterList)}) {}
+export class ListReviewPolicyResultsForHITResponse extends Schema.Class<ListReviewPolicyResultsForHITResponse>("ListReviewPolicyResultsForHITResponse")({HITId: Schema.optional(Schema.String), AssignmentReviewPolicy: Schema.optional(ReviewPolicy), HITReviewPolicy: Schema.optional(ReviewPolicy), AssignmentReviewReport: Schema.optional(ReviewReport), HITReviewReport: Schema.optional(ReviewReport), NextToken: Schema.optional(Schema.String)}) {}
+export class CreateHITResponse extends Schema.Class<CreateHITResponse>("CreateHITResponse")({HIT: Schema.optional(HIT)}) {}
 
 //# Errors
-export class RequestErrorError extends Schema.TaggedError<RequestErrorError>()("RequestError", RequestError) {};
-export class ServiceFaultError extends Schema.TaggedError<ServiceFaultError>()("ServiceFault", ServiceFault) {};
+export class RequestErrorError extends Schema.TaggedError<RequestErrorError>()("RequestError", RequestError.fields) {};
+export class ServiceFaultError extends Schema.TaggedError<ServiceFaultError>()("ServiceFault", ServiceFault.fields) {};
 
 //# Operations
 export const associateQualificationWithWorker = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-01-17", uri: "/", method: "POST", sdkId: "MTurk", sigV4ServiceName: "mturk-requester", name: "MTurkRequesterServiceV20170117.AssociateQualificationWithWorker" }, AssociateQualificationWithWorkerRequest, AssociateQualificationWithWorkerResponse, [RequestErrorError, ServiceFaultError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

@@ -7,180 +7,181 @@ export const StatementActionList = Schema.Array(Schema.String);
 export const StatementPrincipalList = Schema.Array(Schema.String);
 export const UniqueIdList = Schema.Array(Schema.String);
 export const TagKeyList = Schema.Array(Schema.String);
-export const AddPolicyStatementInput = Schema.Struct({arn: Schema.String, statementId: Schema.String, effect: Schema.String, action: StatementActionList, principal: StatementPrincipalList, condition: Schema.optional(Schema.String)});
-export const BatchDeleteUniqueIdInput = Schema.Struct({workflowName: Schema.String, inputSource: Schema.optional(Header("inputSource")), uniqueIds: Header("uniqueIds", UniqueIdList)});
-export const DeleteIdMappingWorkflowInput = Schema.Struct({workflowName: Schema.String});
-export const DeleteIdNamespaceInput = Schema.Struct({idNamespaceName: Schema.String});
-export const DeleteMatchingWorkflowInput = Schema.Struct({workflowName: Schema.String});
-export const DeletePolicyStatementInput = Schema.Struct({arn: Schema.String, statementId: Schema.String});
-export const DeleteSchemaMappingInput = Schema.Struct({schemaName: Schema.String});
-export const GetIdMappingJobInput = Schema.Struct({workflowName: Schema.String, jobId: Schema.String});
-export const GetIdMappingWorkflowInput = Schema.Struct({workflowName: Schema.String});
-export const GetIdNamespaceInput = Schema.Struct({idNamespaceName: Schema.String});
-export const GetMatchingJobInput = Schema.Struct({workflowName: Schema.String, jobId: Schema.String});
-export const GetMatchingWorkflowInput = Schema.Struct({workflowName: Schema.String});
-export const GetPolicyInput = Schema.Struct({arn: Schema.String});
-export const GetProviderServiceInput = Schema.Struct({providerName: Schema.String, providerServiceName: Schema.String});
-export const GetSchemaMappingInput = Schema.Struct({schemaName: Schema.String});
-export const ListIdMappingJobsInput = Schema.Struct({workflowName: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListIdMappingWorkflowsInput = Schema.Struct({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListIdNamespacesInput = Schema.Struct({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListMatchingJobsInput = Schema.Struct({workflowName: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListMatchingWorkflowsInput = Schema.Struct({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListProviderServicesInput = Schema.Struct({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), providerName: Schema.optional(Schema.String)});
-export const ListSchemaMappingsInput = Schema.Struct({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListTagsForResourceInput = Schema.Struct({resourceArn: Schema.String});
-export const PutPolicyInput = Schema.Struct({arn: Schema.String, token: Schema.optional(Schema.String), policy: Schema.String});
-export const StartMatchingJobInput = Schema.Struct({workflowName: Schema.String});
+export class AddPolicyStatementInput extends Schema.Class<AddPolicyStatementInput>("AddPolicyStatementInput")({arn: Schema.String, statementId: Schema.String, effect: Schema.String, action: StatementActionList, principal: StatementPrincipalList, condition: Schema.optional(Schema.String)}) {}
+export class BatchDeleteUniqueIdInput extends Schema.Class<BatchDeleteUniqueIdInput>("BatchDeleteUniqueIdInput")({workflowName: Schema.String, inputSource: Schema.optional(Header("inputSource")), uniqueIds: Header("uniqueIds", UniqueIdList)}) {}
+export class DeleteIdMappingWorkflowInput extends Schema.Class<DeleteIdMappingWorkflowInput>("DeleteIdMappingWorkflowInput")({workflowName: Schema.String}) {}
+export class DeleteIdNamespaceInput extends Schema.Class<DeleteIdNamespaceInput>("DeleteIdNamespaceInput")({idNamespaceName: Schema.String}) {}
+export class DeleteMatchingWorkflowInput extends Schema.Class<DeleteMatchingWorkflowInput>("DeleteMatchingWorkflowInput")({workflowName: Schema.String}) {}
+export class DeletePolicyStatementInput extends Schema.Class<DeletePolicyStatementInput>("DeletePolicyStatementInput")({arn: Schema.String, statementId: Schema.String}) {}
+export class DeleteSchemaMappingInput extends Schema.Class<DeleteSchemaMappingInput>("DeleteSchemaMappingInput")({schemaName: Schema.String}) {}
+export class GetIdMappingJobInput extends Schema.Class<GetIdMappingJobInput>("GetIdMappingJobInput")({workflowName: Schema.String, jobId: Schema.String}) {}
+export class GetIdMappingWorkflowInput extends Schema.Class<GetIdMappingWorkflowInput>("GetIdMappingWorkflowInput")({workflowName: Schema.String}) {}
+export class GetIdNamespaceInput extends Schema.Class<GetIdNamespaceInput>("GetIdNamespaceInput")({idNamespaceName: Schema.String}) {}
+export class GetMatchingJobInput extends Schema.Class<GetMatchingJobInput>("GetMatchingJobInput")({workflowName: Schema.String, jobId: Schema.String}) {}
+export class GetMatchingWorkflowInput extends Schema.Class<GetMatchingWorkflowInput>("GetMatchingWorkflowInput")({workflowName: Schema.String}) {}
+export class GetPolicyInput extends Schema.Class<GetPolicyInput>("GetPolicyInput")({arn: Schema.String}) {}
+export class GetProviderServiceInput extends Schema.Class<GetProviderServiceInput>("GetProviderServiceInput")({providerName: Schema.String, providerServiceName: Schema.String}) {}
+export class GetSchemaMappingInput extends Schema.Class<GetSchemaMappingInput>("GetSchemaMappingInput")({schemaName: Schema.String}) {}
+export class ListIdMappingJobsInput extends Schema.Class<ListIdMappingJobsInput>("ListIdMappingJobsInput")({workflowName: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListIdMappingWorkflowsInput extends Schema.Class<ListIdMappingWorkflowsInput>("ListIdMappingWorkflowsInput")({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListIdNamespacesInput extends Schema.Class<ListIdNamespacesInput>("ListIdNamespacesInput")({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListMatchingJobsInput extends Schema.Class<ListMatchingJobsInput>("ListMatchingJobsInput")({workflowName: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListMatchingWorkflowsInput extends Schema.Class<ListMatchingWorkflowsInput>("ListMatchingWorkflowsInput")({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListProviderServicesInput extends Schema.Class<ListProviderServicesInput>("ListProviderServicesInput")({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), providerName: Schema.optional(Schema.String)}) {}
+export class ListSchemaMappingsInput extends Schema.Class<ListSchemaMappingsInput>("ListSchemaMappingsInput")({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListTagsForResourceInput extends Schema.Class<ListTagsForResourceInput>("ListTagsForResourceInput")({resourceArn: Schema.String}) {}
+export class PutPolicyInput extends Schema.Class<PutPolicyInput>("PutPolicyInput")({arn: Schema.String, token: Schema.optional(Schema.String), policy: Schema.String}) {}
+export class StartMatchingJobInput extends Schema.Class<StartMatchingJobInput>("StartMatchingJobInput")({workflowName: Schema.String}) {}
 export const TagMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const TagResourceInput = Schema.Struct({resourceArn: Schema.String, tags: TagMap});
-export const TagResourceOutput = Schema.Struct({});
-export const UntagResourceInput = Schema.Struct({resourceArn: Schema.String, tagKeys: TagKeyList});
-export const UntagResourceOutput = Schema.Struct({});
-export const IdMappingWorkflowInputSource = Schema.Struct({inputSourceARN: Schema.String, schemaName: Schema.optional(Schema.String), type: Schema.optional(Schema.String)});
+export class TagResourceInput extends Schema.Class<TagResourceInput>("TagResourceInput")({resourceArn: Schema.String, tags: TagMap}) {}
+export class TagResourceOutput extends Schema.Class<TagResourceOutput>("TagResourceOutput")({}) {}
+export class UntagResourceInput extends Schema.Class<UntagResourceInput>("UntagResourceInput")({resourceArn: Schema.String, tagKeys: TagKeyList}) {}
+export class UntagResourceOutput extends Schema.Class<UntagResourceOutput>("UntagResourceOutput")({}) {}
+export class IdMappingWorkflowInputSource extends Schema.Class<IdMappingWorkflowInputSource>("IdMappingWorkflowInputSource")({inputSourceARN: Schema.String, schemaName: Schema.optional(Schema.String), type: Schema.optional(Schema.String)}) {}
 export const IdMappingWorkflowInputSourceConfig = Schema.Array(IdMappingWorkflowInputSource);
-export const IdMappingWorkflowOutputSource = Schema.Struct({outputS3Path: Schema.String, KMSArn: Schema.optional(Schema.String)});
+export class IdMappingWorkflowOutputSource extends Schema.Class<IdMappingWorkflowOutputSource>("IdMappingWorkflowOutputSource")({KMSArn: Schema.optional(Schema.String), outputS3Path: Schema.String}) {}
 export const IdMappingWorkflowOutputSourceConfig = Schema.Array(IdMappingWorkflowOutputSource);
 export const MatchingKeys = Schema.Array(Schema.String);
-export const Rule = Schema.Struct({ruleName: Schema.String, matchingKeys: MatchingKeys});
+export class Rule extends Schema.Class<Rule>("Rule")({ruleName: Schema.String, matchingKeys: MatchingKeys}) {}
 export const RuleList = Schema.Array(Rule);
-export const IdMappingRuleBasedProperties = Schema.Struct({rules: Schema.optional(RuleList), ruleDefinitionType: Schema.String, attributeMatchingModel: Schema.String, recordMatchingModel: Schema.String});
-export const IntermediateSourceConfiguration = Schema.Struct({intermediateS3Path: Schema.String});
-export const ProviderProperties = Schema.Struct({providerServiceArn: Schema.String, providerConfiguration: Schema.optional(Schema.JsonValue), intermediateSourceConfiguration: Schema.optional(IntermediateSourceConfiguration)});
-export const IdMappingTechniques = Schema.Struct({idMappingType: Schema.String, ruleBasedProperties: Schema.optional(IdMappingRuleBasedProperties), providerProperties: Schema.optional(ProviderProperties)});
-export const IdMappingIncrementalRunConfig = Schema.Struct({incrementalRunType: Schema.optional(Schema.String)});
-export const UpdateIdMappingWorkflowInput = Schema.Struct({workflowName: Schema.String, description: Schema.optional(Schema.String), inputSourceConfig: IdMappingWorkflowInputSourceConfig, outputSourceConfig: Schema.optional(IdMappingWorkflowOutputSourceConfig), idMappingTechniques: IdMappingTechniques, incrementalRunConfig: Schema.optional(IdMappingIncrementalRunConfig), roleArn: Schema.optional(Schema.String)});
-export const IdNamespaceInputSource = Schema.Struct({inputSourceARN: Schema.String, schemaName: Schema.optional(Schema.String)});
+export class IdMappingRuleBasedProperties extends Schema.Class<IdMappingRuleBasedProperties>("IdMappingRuleBasedProperties")({rules: Schema.optional(RuleList), ruleDefinitionType: Schema.String, attributeMatchingModel: Schema.String, recordMatchingModel: Schema.String}) {}
+export class IntermediateSourceConfiguration extends Schema.Class<IntermediateSourceConfiguration>("IntermediateSourceConfiguration")({intermediateS3Path: Schema.String}) {}
+export class ProviderProperties extends Schema.Class<ProviderProperties>("ProviderProperties")({providerServiceArn: Schema.String, providerConfiguration: Schema.optional(Schema.JsonValue), intermediateSourceConfiguration: Schema.optional(IntermediateSourceConfiguration)}) {}
+export class IdMappingTechniques extends Schema.Class<IdMappingTechniques>("IdMappingTechniques")({idMappingType: Schema.String, ruleBasedProperties: Schema.optional(IdMappingRuleBasedProperties), providerProperties: Schema.optional(ProviderProperties)}) {}
+export class IdMappingIncrementalRunConfig extends Schema.Class<IdMappingIncrementalRunConfig>("IdMappingIncrementalRunConfig")({incrementalRunType: Schema.optional(Schema.String)}) {}
+export class UpdateIdMappingWorkflowInput extends Schema.Class<UpdateIdMappingWorkflowInput>("UpdateIdMappingWorkflowInput")({workflowName: Schema.String, description: Schema.optional(Schema.String), inputSourceConfig: IdMappingWorkflowInputSourceConfig, outputSourceConfig: Schema.optional(IdMappingWorkflowOutputSourceConfig), idMappingTechniques: IdMappingTechniques, incrementalRunConfig: Schema.optional(IdMappingIncrementalRunConfig), roleArn: Schema.optional(Schema.String)}) {}
+export class IdNamespaceInputSource extends Schema.Class<IdNamespaceInputSource>("IdNamespaceInputSource")({inputSourceARN: Schema.String, schemaName: Schema.optional(Schema.String)}) {}
 export const IdNamespaceInputSourceConfig = Schema.Array(IdNamespaceInputSource);
 export const IdMappingWorkflowRuleDefinitionTypeList = Schema.Array(Schema.String);
 export const RecordMatchingModelList = Schema.Array(Schema.String);
-export const NamespaceRuleBasedProperties = Schema.Struct({rules: Schema.optional(RuleList), ruleDefinitionTypes: Schema.optional(IdMappingWorkflowRuleDefinitionTypeList), attributeMatchingModel: Schema.optional(Schema.String), recordMatchingModels: Schema.optional(RecordMatchingModelList)});
-export const NamespaceProviderProperties = Schema.Struct({providerServiceArn: Schema.String, providerConfiguration: Schema.optional(Schema.JsonValue)});
-export const IdNamespaceIdMappingWorkflowProperties = Schema.Struct({idMappingType: Schema.String, ruleBasedProperties: Schema.optional(NamespaceRuleBasedProperties), providerProperties: Schema.optional(NamespaceProviderProperties)});
+export class NamespaceRuleBasedProperties extends Schema.Class<NamespaceRuleBasedProperties>("NamespaceRuleBasedProperties")({rules: Schema.optional(RuleList), ruleDefinitionTypes: Schema.optional(IdMappingWorkflowRuleDefinitionTypeList), attributeMatchingModel: Schema.optional(Schema.String), recordMatchingModels: Schema.optional(RecordMatchingModelList)}) {}
+export class NamespaceProviderProperties extends Schema.Class<NamespaceProviderProperties>("NamespaceProviderProperties")({providerServiceArn: Schema.String, providerConfiguration: Schema.optional(Schema.JsonValue)}) {}
+export class IdNamespaceIdMappingWorkflowProperties extends Schema.Class<IdNamespaceIdMappingWorkflowProperties>("IdNamespaceIdMappingWorkflowProperties")({idMappingType: Schema.String, ruleBasedProperties: Schema.optional(NamespaceRuleBasedProperties), providerProperties: Schema.optional(NamespaceProviderProperties)}) {}
 export const IdNamespaceIdMappingWorkflowPropertiesList = Schema.Array(IdNamespaceIdMappingWorkflowProperties);
-export const UpdateIdNamespaceInput = Schema.Struct({idNamespaceName: Schema.String, description: Schema.optional(Schema.String), inputSourceConfig: Schema.optional(IdNamespaceInputSourceConfig), idMappingWorkflowProperties: Schema.optional(IdNamespaceIdMappingWorkflowPropertiesList), roleArn: Schema.optional(Schema.String)});
-export const InputSource = Schema.Struct({inputSourceARN: Schema.String, schemaName: Schema.String, applyNormalization: Schema.optional(Schema.Boolean)});
+export class UpdateIdNamespaceInput extends Schema.Class<UpdateIdNamespaceInput>("UpdateIdNamespaceInput")({idNamespaceName: Schema.String, description: Schema.optional(Schema.String), inputSourceConfig: Schema.optional(IdNamespaceInputSourceConfig), idMappingWorkflowProperties: Schema.optional(IdNamespaceIdMappingWorkflowPropertiesList), roleArn: Schema.optional(Schema.String)}) {}
+export class InputSource extends Schema.Class<InputSource>("InputSource")({inputSourceARN: Schema.String, schemaName: Schema.String, applyNormalization: Schema.optional(Schema.Boolean)}) {}
 export const InputSourceConfig = Schema.Array(InputSource);
-export const OutputAttribute = Schema.Struct({name: Schema.String, hashed: Schema.optional(Schema.Boolean)});
+export class OutputAttribute extends Schema.Class<OutputAttribute>("OutputAttribute")({name: Schema.String, hashed: Schema.optional(Schema.Boolean)}) {}
 export const OutputAttributes = Schema.Array(OutputAttribute);
-export const OutputSource = Schema.Struct({outputS3Path: Schema.String, KMSArn: Schema.optional(Schema.String), output: OutputAttributes, applyNormalization: Schema.optional(Schema.Boolean)});
+export class CustomerProfilesIntegrationConfig extends Schema.Class<CustomerProfilesIntegrationConfig>("CustomerProfilesIntegrationConfig")({domainArn: Schema.String, objectTypeArn: Schema.String}) {}
+export class OutputSource extends Schema.Class<OutputSource>("OutputSource")({KMSArn: Schema.optional(Schema.String), outputS3Path: Schema.optional(Schema.String), output: OutputAttributes, applyNormalization: Schema.optional(Schema.Boolean), customerProfilesIntegrationConfig: Schema.optional(CustomerProfilesIntegrationConfig)}) {}
 export const OutputSourceConfig = Schema.Array(OutputSource);
-export const RuleBasedProperties = Schema.Struct({rules: RuleList, attributeMatchingModel: Schema.String, matchPurpose: Schema.optional(Schema.String)});
-export const RuleCondition = Schema.Struct({ruleName: Schema.String, condition: Schema.String});
+export class RuleBasedProperties extends Schema.Class<RuleBasedProperties>("RuleBasedProperties")({rules: RuleList, attributeMatchingModel: Schema.String, matchPurpose: Schema.optional(Schema.String)}) {}
+export class RuleCondition extends Schema.Class<RuleCondition>("RuleCondition")({ruleName: Schema.String, condition: Schema.String}) {}
 export const RuleConditionList = Schema.Array(RuleCondition);
-export const RuleConditionProperties = Schema.Struct({rules: RuleConditionList});
-export const ResolutionTechniques = Schema.Struct({resolutionType: Schema.String, ruleBasedProperties: Schema.optional(RuleBasedProperties), ruleConditionProperties: Schema.optional(RuleConditionProperties), providerProperties: Schema.optional(ProviderProperties)});
-export const IncrementalRunConfig = Schema.Struct({incrementalRunType: Schema.optional(Schema.String)});
-export const UpdateMatchingWorkflowInput = Schema.Struct({workflowName: Schema.String, description: Schema.optional(Schema.String), inputSourceConfig: InputSourceConfig, outputSourceConfig: OutputSourceConfig, resolutionTechniques: ResolutionTechniques, incrementalRunConfig: Schema.optional(IncrementalRunConfig), roleArn: Schema.String});
-export const SchemaInputAttribute = Schema.Struct({fieldName: Schema.String, type: Schema.String, groupName: Schema.optional(Schema.String), matchKey: Schema.optional(Schema.String), subType: Schema.optional(Schema.String), hashed: Schema.optional(Schema.Boolean)});
+export class RuleConditionProperties extends Schema.Class<RuleConditionProperties>("RuleConditionProperties")({rules: RuleConditionList}) {}
+export class ResolutionTechniques extends Schema.Class<ResolutionTechniques>("ResolutionTechniques")({resolutionType: Schema.String, ruleBasedProperties: Schema.optional(RuleBasedProperties), ruleConditionProperties: Schema.optional(RuleConditionProperties), providerProperties: Schema.optional(ProviderProperties)}) {}
+export class IncrementalRunConfig extends Schema.Class<IncrementalRunConfig>("IncrementalRunConfig")({incrementalRunType: Schema.optional(Schema.String)}) {}
+export class UpdateMatchingWorkflowInput extends Schema.Class<UpdateMatchingWorkflowInput>("UpdateMatchingWorkflowInput")({workflowName: Schema.String, description: Schema.optional(Schema.String), inputSourceConfig: InputSourceConfig, outputSourceConfig: OutputSourceConfig, resolutionTechniques: ResolutionTechniques, incrementalRunConfig: Schema.optional(IncrementalRunConfig), roleArn: Schema.String}) {}
+export class SchemaInputAttribute extends Schema.Class<SchemaInputAttribute>("SchemaInputAttribute")({fieldName: Schema.String, type: Schema.String, groupName: Schema.optional(Schema.String), matchKey: Schema.optional(Schema.String), subType: Schema.optional(Schema.String), hashed: Schema.optional(Schema.Boolean)}) {}
 export const SchemaInputAttributes = Schema.Array(SchemaInputAttribute);
-export const UpdateSchemaMappingInput = Schema.Struct({schemaName: Schema.String, description: Schema.optional(Schema.String), mappedInputFields: SchemaInputAttributes});
+export class UpdateSchemaMappingInput extends Schema.Class<UpdateSchemaMappingInput>("UpdateSchemaMappingInput")({schemaName: Schema.String, description: Schema.optional(Schema.String), mappedInputFields: SchemaInputAttributes}) {}
 export const DisconnectedUniqueIdsList = Schema.Array(Schema.String);
 export const RecordAttributeMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const IdMappingJobOutputSource = Schema.Struct({roleArn: Schema.String, outputS3Path: Schema.String, KMSArn: Schema.optional(Schema.String)});
+export class IdMappingJobOutputSource extends Schema.Class<IdMappingJobOutputSource>("IdMappingJobOutputSource")({roleArn: Schema.String, outputS3Path: Schema.String, KMSArn: Schema.optional(Schema.String)}) {}
 export const IdMappingJobOutputSourceConfig = Schema.Array(IdMappingJobOutputSource);
-export const AddPolicyStatementOutput = Schema.Struct({arn: Schema.String, token: Schema.String, policy: Schema.optional(Schema.String)});
-export const CreateSchemaMappingInput = Schema.Struct({schemaName: Schema.String, description: Schema.optional(Schema.String), mappedInputFields: SchemaInputAttributes, tags: Schema.optional(TagMap)});
-export const DeleteIdMappingWorkflowOutput = Schema.Struct({message: Schema.String});
-export const DeleteIdNamespaceOutput = Schema.Struct({message: Schema.String});
-export const DeleteMatchingWorkflowOutput = Schema.Struct({message: Schema.String});
-export const DeletePolicyStatementOutput = Schema.Struct({arn: Schema.String, token: Schema.String, policy: Schema.optional(Schema.String)});
-export const DeleteSchemaMappingOutput = Schema.Struct({message: Schema.String});
-export const GetIdMappingWorkflowOutput = Schema.Struct({workflowName: Schema.String, workflowArn: Schema.String, description: Schema.optional(Schema.String), inputSourceConfig: IdMappingWorkflowInputSourceConfig, outputSourceConfig: Schema.optional(IdMappingWorkflowOutputSourceConfig), idMappingTechniques: IdMappingTechniques, createdAt: Schema.Date, updatedAt: Schema.Date, incrementalRunConfig: Schema.optional(IdMappingIncrementalRunConfig), roleArn: Schema.optional(Schema.String), tags: Schema.optional(TagMap)});
-export const GetIdNamespaceOutput = Schema.Struct({idNamespaceName: Schema.String, idNamespaceArn: Schema.String, description: Schema.optional(Schema.String), inputSourceConfig: Schema.optional(IdNamespaceInputSourceConfig), idMappingWorkflowProperties: Schema.optional(IdNamespaceIdMappingWorkflowPropertiesList), type: Schema.String, roleArn: Schema.optional(Schema.String), createdAt: Schema.Date, updatedAt: Schema.Date, tags: Schema.optional(TagMap)});
-export const GetMatchIdInput = Schema.Struct({workflowName: Schema.String, record: RecordAttributeMap, applyNormalization: Schema.optional(Schema.Boolean)});
-export const GetMatchingWorkflowOutput = Schema.Struct({workflowName: Schema.String, workflowArn: Schema.String, description: Schema.optional(Schema.String), inputSourceConfig: InputSourceConfig, outputSourceConfig: OutputSourceConfig, resolutionTechniques: ResolutionTechniques, createdAt: Schema.Date, updatedAt: Schema.Date, incrementalRunConfig: Schema.optional(IncrementalRunConfig), roleArn: Schema.String, tags: Schema.optional(TagMap)});
-export const GetPolicyOutput = Schema.Struct({arn: Schema.String, token: Schema.String, policy: Schema.optional(Schema.String)});
-export const GetSchemaMappingOutput = Schema.Struct({schemaName: Schema.String, schemaArn: Schema.String, description: Schema.optional(Schema.String), mappedInputFields: SchemaInputAttributes, createdAt: Schema.Date, updatedAt: Schema.Date, tags: Schema.optional(TagMap), hasWorkflows: Schema.Boolean});
-export const JobSummary = Schema.Struct({jobId: Schema.String, status: Schema.String, startTime: Schema.Date, endTime: Schema.optional(Schema.Date)});
+export class AddPolicyStatementOutput extends Schema.Class<AddPolicyStatementOutput>("AddPolicyStatementOutput")({arn: Schema.String, token: Schema.String, policy: Schema.optional(Schema.String)}) {}
+export class CreateSchemaMappingInput extends Schema.Class<CreateSchemaMappingInput>("CreateSchemaMappingInput")({schemaName: Schema.String, description: Schema.optional(Schema.String), mappedInputFields: SchemaInputAttributes, tags: Schema.optional(TagMap)}) {}
+export class DeleteIdMappingWorkflowOutput extends Schema.Class<DeleteIdMappingWorkflowOutput>("DeleteIdMappingWorkflowOutput")({message: Schema.String}) {}
+export class DeleteIdNamespaceOutput extends Schema.Class<DeleteIdNamespaceOutput>("DeleteIdNamespaceOutput")({message: Schema.String}) {}
+export class DeleteMatchingWorkflowOutput extends Schema.Class<DeleteMatchingWorkflowOutput>("DeleteMatchingWorkflowOutput")({message: Schema.String}) {}
+export class DeletePolicyStatementOutput extends Schema.Class<DeletePolicyStatementOutput>("DeletePolicyStatementOutput")({arn: Schema.String, token: Schema.String, policy: Schema.optional(Schema.String)}) {}
+export class DeleteSchemaMappingOutput extends Schema.Class<DeleteSchemaMappingOutput>("DeleteSchemaMappingOutput")({message: Schema.String}) {}
+export class GetIdMappingWorkflowOutput extends Schema.Class<GetIdMappingWorkflowOutput>("GetIdMappingWorkflowOutput")({workflowName: Schema.String, workflowArn: Schema.String, description: Schema.optional(Schema.String), inputSourceConfig: IdMappingWorkflowInputSourceConfig, outputSourceConfig: Schema.optional(IdMappingWorkflowOutputSourceConfig), idMappingTechniques: IdMappingTechniques, createdAt: Schema.Date, updatedAt: Schema.Date, incrementalRunConfig: Schema.optional(IdMappingIncrementalRunConfig), roleArn: Schema.optional(Schema.String), tags: Schema.optional(TagMap)}) {}
+export class GetIdNamespaceOutput extends Schema.Class<GetIdNamespaceOutput>("GetIdNamespaceOutput")({idNamespaceName: Schema.String, idNamespaceArn: Schema.String, description: Schema.optional(Schema.String), inputSourceConfig: Schema.optional(IdNamespaceInputSourceConfig), idMappingWorkflowProperties: Schema.optional(IdNamespaceIdMappingWorkflowPropertiesList), type: Schema.String, roleArn: Schema.optional(Schema.String), createdAt: Schema.Date, updatedAt: Schema.Date, tags: Schema.optional(TagMap)}) {}
+export class GetMatchIdInput extends Schema.Class<GetMatchIdInput>("GetMatchIdInput")({workflowName: Schema.String, record: RecordAttributeMap, applyNormalization: Schema.optional(Schema.Boolean)}) {}
+export class GetMatchingWorkflowOutput extends Schema.Class<GetMatchingWorkflowOutput>("GetMatchingWorkflowOutput")({workflowName: Schema.String, workflowArn: Schema.String, description: Schema.optional(Schema.String), inputSourceConfig: InputSourceConfig, outputSourceConfig: OutputSourceConfig, resolutionTechniques: ResolutionTechniques, createdAt: Schema.Date, updatedAt: Schema.Date, incrementalRunConfig: Schema.optional(IncrementalRunConfig), roleArn: Schema.String, tags: Schema.optional(TagMap)}) {}
+export class GetPolicyOutput extends Schema.Class<GetPolicyOutput>("GetPolicyOutput")({arn: Schema.String, token: Schema.String, policy: Schema.optional(Schema.String)}) {}
+export class GetSchemaMappingOutput extends Schema.Class<GetSchemaMappingOutput>("GetSchemaMappingOutput")({schemaName: Schema.String, schemaArn: Schema.String, description: Schema.optional(Schema.String), mappedInputFields: SchemaInputAttributes, createdAt: Schema.Date, updatedAt: Schema.Date, tags: Schema.optional(TagMap), hasWorkflows: Schema.Boolean}) {}
+export class JobSummary extends Schema.Class<JobSummary>("JobSummary")({jobId: Schema.String, status: Schema.String, startTime: Schema.Date, endTime: Schema.optional(Schema.Date)}) {}
 export const JobList = Schema.Array(JobSummary);
-export const ListMatchingJobsOutput = Schema.Struct({jobs: Schema.optional(JobList), nextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceOutput = Schema.Struct({tags: TagMap});
-export const PutPolicyOutput = Schema.Struct({arn: Schema.String, token: Schema.String, policy: Schema.optional(Schema.String)});
-export const StartIdMappingJobInput = Schema.Struct({workflowName: Schema.String, outputSourceConfig: Schema.optional(IdMappingJobOutputSourceConfig), jobType: Schema.optional(Schema.String)});
-export const StartMatchingJobOutput = Schema.Struct({jobId: Schema.String});
-export const InternalServerException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UpdateIdMappingWorkflowOutput = Schema.Struct({workflowName: Schema.String, workflowArn: Schema.String, description: Schema.optional(Schema.String), inputSourceConfig: IdMappingWorkflowInputSourceConfig, outputSourceConfig: Schema.optional(IdMappingWorkflowOutputSourceConfig), idMappingTechniques: IdMappingTechniques, incrementalRunConfig: Schema.optional(IdMappingIncrementalRunConfig), roleArn: Schema.optional(Schema.String)});
-export const UpdateIdNamespaceOutput = Schema.Struct({idNamespaceName: Schema.String, idNamespaceArn: Schema.String, description: Schema.optional(Schema.String), inputSourceConfig: Schema.optional(IdNamespaceInputSourceConfig), idMappingWorkflowProperties: Schema.optional(IdNamespaceIdMappingWorkflowPropertiesList), type: Schema.String, roleArn: Schema.optional(Schema.String), createdAt: Schema.Date, updatedAt: Schema.Date});
-export const UpdateMatchingWorkflowOutput = Schema.Struct({workflowName: Schema.String, description: Schema.optional(Schema.String), inputSourceConfig: InputSourceConfig, outputSourceConfig: OutputSourceConfig, resolutionTechniques: ResolutionTechniques, incrementalRunConfig: Schema.optional(IncrementalRunConfig), roleArn: Schema.String});
-export const UpdateSchemaMappingOutput = Schema.Struct({schemaName: Schema.String, schemaArn: Schema.String, description: Schema.optional(Schema.String), mappedInputFields: SchemaInputAttributes});
+export class ListMatchingJobsOutput extends Schema.Class<ListMatchingJobsOutput>("ListMatchingJobsOutput")({jobs: Schema.optional(JobList), nextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceOutput extends Schema.Class<ListTagsForResourceOutput>("ListTagsForResourceOutput")({tags: TagMap}) {}
+export class PutPolicyOutput extends Schema.Class<PutPolicyOutput>("PutPolicyOutput")({arn: Schema.String, token: Schema.String, policy: Schema.optional(Schema.String)}) {}
+export class StartIdMappingJobInput extends Schema.Class<StartIdMappingJobInput>("StartIdMappingJobInput")({workflowName: Schema.String, outputSourceConfig: Schema.optional(IdMappingJobOutputSourceConfig), jobType: Schema.optional(Schema.String)}) {}
+export class StartMatchingJobOutput extends Schema.Class<StartMatchingJobOutput>("StartMatchingJobOutput")({jobId: Schema.String}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({message: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class UpdateIdMappingWorkflowOutput extends Schema.Class<UpdateIdMappingWorkflowOutput>("UpdateIdMappingWorkflowOutput")({workflowName: Schema.String, workflowArn: Schema.String, description: Schema.optional(Schema.String), inputSourceConfig: IdMappingWorkflowInputSourceConfig, outputSourceConfig: Schema.optional(IdMappingWorkflowOutputSourceConfig), idMappingTechniques: IdMappingTechniques, incrementalRunConfig: Schema.optional(IdMappingIncrementalRunConfig), roleArn: Schema.optional(Schema.String)}) {}
+export class UpdateIdNamespaceOutput extends Schema.Class<UpdateIdNamespaceOutput>("UpdateIdNamespaceOutput")({idNamespaceName: Schema.String, idNamespaceArn: Schema.String, description: Schema.optional(Schema.String), inputSourceConfig: Schema.optional(IdNamespaceInputSourceConfig), idMappingWorkflowProperties: Schema.optional(IdNamespaceIdMappingWorkflowPropertiesList), type: Schema.String, roleArn: Schema.optional(Schema.String), createdAt: Schema.Date, updatedAt: Schema.Date}) {}
+export class UpdateMatchingWorkflowOutput extends Schema.Class<UpdateMatchingWorkflowOutput>("UpdateMatchingWorkflowOutput")({workflowName: Schema.String, description: Schema.optional(Schema.String), inputSourceConfig: InputSourceConfig, outputSourceConfig: OutputSourceConfig, resolutionTechniques: ResolutionTechniques, incrementalRunConfig: Schema.optional(IncrementalRunConfig), roleArn: Schema.String}) {}
+export class UpdateSchemaMappingOutput extends Schema.Class<UpdateSchemaMappingOutput>("UpdateSchemaMappingOutput")({schemaName: Schema.String, schemaArn: Schema.String, description: Schema.optional(Schema.String), mappedInputFields: SchemaInputAttributes}) {}
 export const RecordAttributeMapString255 = Schema.Record({key: Schema.String, value: Schema.String});
 export const AwsAccountIdList = Schema.Array(Schema.String);
 export const RequiredBucketActionsList = Schema.Array(Schema.String);
 export const SchemaList = Schema.Array(Schema.String);
 export const Schemas = Schema.Array(SchemaList);
-export const DeleteUniqueIdError = Schema.Struct({uniqueId: Schema.String, errorType: Schema.String});
+export class DeleteUniqueIdError extends Schema.Class<DeleteUniqueIdError>("DeleteUniqueIdError")({uniqueId: Schema.String, errorType: Schema.String}) {}
 export const DeleteUniqueIdErrorsList = Schema.Array(DeleteUniqueIdError);
-export const DeletedUniqueId = Schema.Struct({uniqueId: Schema.String});
+export class DeletedUniqueId extends Schema.Class<DeletedUniqueId>("DeletedUniqueId")({uniqueId: Schema.String}) {}
 export const DeletedUniqueIdList = Schema.Array(DeletedUniqueId);
-export const Record = Schema.Struct({inputSourceARN: Schema.String, uniqueId: Schema.String, recordAttributeMap: RecordAttributeMapString255});
+export class Record extends Schema.Class<Record>("Record")({inputSourceARN: Schema.String, uniqueId: Schema.String, recordAttributeMap: RecordAttributeMapString255}) {}
 export const RecordList = Schema.Array(Record);
-export const IdMappingJobMetrics = Schema.Struct({inputRecords: Schema.optional(Schema.Number), totalRecordsProcessed: Schema.optional(Schema.Number), recordsNotProcessed: Schema.optional(Schema.Number), deleteRecordsProcessed: Schema.optional(Schema.Number), totalMappedRecords: Schema.optional(Schema.Number), totalMappedSourceRecords: Schema.optional(Schema.Number), totalMappedTargetRecords: Schema.optional(Schema.Number), uniqueRecordsLoaded: Schema.optional(Schema.Number), newMappedRecords: Schema.optional(Schema.Number), newMappedSourceRecords: Schema.optional(Schema.Number), newMappedTargetRecords: Schema.optional(Schema.Number), newUniqueRecordsLoaded: Schema.optional(Schema.Number), mappedRecordsRemoved: Schema.optional(Schema.Number), mappedSourceRecordsRemoved: Schema.optional(Schema.Number), mappedTargetRecordsRemoved: Schema.optional(Schema.Number)});
-export const ErrorDetails = Schema.Struct({errorMessage: Schema.optional(Schema.String)});
-export const JobMetrics = Schema.Struct({inputRecords: Schema.optional(Schema.Number), totalRecordsProcessed: Schema.optional(Schema.Number), recordsNotProcessed: Schema.optional(Schema.Number), deleteRecordsProcessed: Schema.optional(Schema.Number), matchIDs: Schema.optional(Schema.Number)});
-export const JobOutputSource = Schema.Struct({roleArn: Schema.String, outputS3Path: Schema.String, KMSArn: Schema.optional(Schema.String)});
+export class IdMappingJobMetrics extends Schema.Class<IdMappingJobMetrics>("IdMappingJobMetrics")({inputRecords: Schema.optional(Schema.Number), totalRecordsProcessed: Schema.optional(Schema.Number), recordsNotProcessed: Schema.optional(Schema.Number), deleteRecordsProcessed: Schema.optional(Schema.Number), totalMappedRecords: Schema.optional(Schema.Number), totalMappedSourceRecords: Schema.optional(Schema.Number), totalMappedTargetRecords: Schema.optional(Schema.Number), uniqueRecordsLoaded: Schema.optional(Schema.Number), newMappedRecords: Schema.optional(Schema.Number), newMappedSourceRecords: Schema.optional(Schema.Number), newMappedTargetRecords: Schema.optional(Schema.Number), newUniqueRecordsLoaded: Schema.optional(Schema.Number), mappedRecordsRemoved: Schema.optional(Schema.Number), mappedSourceRecordsRemoved: Schema.optional(Schema.Number), mappedTargetRecordsRemoved: Schema.optional(Schema.Number)}) {}
+export class ErrorDetails extends Schema.Class<ErrorDetails>("ErrorDetails")({errorMessage: Schema.optional(Schema.String)}) {}
+export class JobMetrics extends Schema.Class<JobMetrics>("JobMetrics")({inputRecords: Schema.optional(Schema.Number), totalRecordsProcessed: Schema.optional(Schema.Number), recordsNotProcessed: Schema.optional(Schema.Number), deleteRecordsProcessed: Schema.optional(Schema.Number), matchIDs: Schema.optional(Schema.Number)}) {}
+export class JobOutputSource extends Schema.Class<JobOutputSource>("JobOutputSource")({roleArn: Schema.String, outputS3Path: Schema.String, KMSArn: Schema.optional(Schema.String)}) {}
 export const JobOutputSourceConfig = Schema.Array(JobOutputSource);
-export const ProviderIdNameSpaceConfiguration = Schema.Struct({description: Schema.optional(Schema.String), providerTargetConfigurationDefinition: Schema.optional(Schema.JsonValue), providerSourceConfigurationDefinition: Schema.optional(Schema.JsonValue)});
-export const ProviderIntermediateDataAccessConfiguration = Schema.Struct({awsAccountIds: Schema.optional(AwsAccountIdList), requiredBucketActions: Schema.optional(RequiredBucketActionsList)});
-export const IdMappingWorkflowSummary = Schema.Struct({workflowName: Schema.String, workflowArn: Schema.String, createdAt: Schema.Date, updatedAt: Schema.Date});
+export class ProviderIdNameSpaceConfiguration extends Schema.Class<ProviderIdNameSpaceConfiguration>("ProviderIdNameSpaceConfiguration")({description: Schema.optional(Schema.String), providerTargetConfigurationDefinition: Schema.optional(Schema.JsonValue), providerSourceConfigurationDefinition: Schema.optional(Schema.JsonValue)}) {}
+export class ProviderIntermediateDataAccessConfiguration extends Schema.Class<ProviderIntermediateDataAccessConfiguration>("ProviderIntermediateDataAccessConfiguration")({awsAccountIds: Schema.optional(AwsAccountIdList), requiredBucketActions: Schema.optional(RequiredBucketActionsList)}) {}
+export class IdMappingWorkflowSummary extends Schema.Class<IdMappingWorkflowSummary>("IdMappingWorkflowSummary")({workflowName: Schema.String, workflowArn: Schema.String, createdAt: Schema.Date, updatedAt: Schema.Date}) {}
 export const IdMappingWorkflowList = Schema.Array(IdMappingWorkflowSummary);
-export const MatchingWorkflowSummary = Schema.Struct({workflowName: Schema.String, workflowArn: Schema.String, createdAt: Schema.Date, updatedAt: Schema.Date, resolutionType: Schema.String});
+export class MatchingWorkflowSummary extends Schema.Class<MatchingWorkflowSummary>("MatchingWorkflowSummary")({workflowName: Schema.String, workflowArn: Schema.String, createdAt: Schema.Date, updatedAt: Schema.Date, resolutionType: Schema.String}) {}
 export const MatchingWorkflowList = Schema.Array(MatchingWorkflowSummary);
-export const ProviderServiceSummary = Schema.Struct({providerServiceArn: Schema.String, providerName: Schema.String, providerServiceDisplayName: Schema.String, providerServiceName: Schema.String, providerServiceType: Schema.String});
+export class ProviderServiceSummary extends Schema.Class<ProviderServiceSummary>("ProviderServiceSummary")({providerServiceArn: Schema.String, providerName: Schema.String, providerServiceDisplayName: Schema.String, providerServiceName: Schema.String, providerServiceType: Schema.String}) {}
 export const ProviderServiceList = Schema.Array(ProviderServiceSummary);
-export const SchemaMappingSummary = Schema.Struct({schemaName: Schema.String, schemaArn: Schema.String, createdAt: Schema.Date, updatedAt: Schema.Date, hasWorkflows: Schema.Boolean});
+export class SchemaMappingSummary extends Schema.Class<SchemaMappingSummary>("SchemaMappingSummary")({schemaName: Schema.String, schemaArn: Schema.String, createdAt: Schema.Date, updatedAt: Schema.Date, hasWorkflows: Schema.Boolean}) {}
 export const SchemaMappingList = Schema.Array(SchemaMappingSummary);
-export const AccessDeniedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const BatchDeleteUniqueIdOutput = Schema.Struct({status: Schema.String, errors: DeleteUniqueIdErrorsList, deleted: DeletedUniqueIdList, disconnectedUniqueIds: DisconnectedUniqueIdsList});
-export const CreateIdNamespaceInput = Schema.Struct({idNamespaceName: Schema.String, description: Schema.optional(Schema.String), inputSourceConfig: Schema.optional(IdNamespaceInputSourceConfig), idMappingWorkflowProperties: Schema.optional(IdNamespaceIdMappingWorkflowPropertiesList), type: Schema.String, roleArn: Schema.optional(Schema.String), tags: Schema.optional(TagMap)});
-export const CreateSchemaMappingOutput = Schema.Struct({schemaName: Schema.String, schemaArn: Schema.String, description: Schema.String, mappedInputFields: SchemaInputAttributes});
-export const ConflictException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ThrottlingException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ValidationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const GenerateMatchIdInput = Schema.Struct({workflowName: Schema.String, records: RecordList, processingType: Schema.optional(Schema.String)});
-export const GetIdMappingJobOutput = Schema.Struct({jobId: Schema.String, status: Schema.String, startTime: Schema.Date, endTime: Schema.optional(Schema.Date), metrics: Schema.optional(IdMappingJobMetrics), errorDetails: Schema.optional(ErrorDetails), outputSourceConfig: Schema.optional(IdMappingJobOutputSourceConfig), jobType: Schema.optional(Schema.String)});
-export const GetMatchIdOutput = Schema.Struct({matchId: Schema.optional(Schema.String), matchRule: Schema.optional(Schema.String)});
-export const GetMatchingJobOutput = Schema.Struct({jobId: Schema.String, status: Schema.String, startTime: Schema.Date, endTime: Schema.optional(Schema.Date), metrics: Schema.optional(JobMetrics), errorDetails: Schema.optional(ErrorDetails), outputSourceConfig: Schema.optional(JobOutputSourceConfig)});
-export const ListIdMappingJobsOutput = Schema.Struct({jobs: Schema.optional(JobList), nextToken: Schema.optional(Schema.String)});
-export const ListIdMappingWorkflowsOutput = Schema.Struct({workflowSummaries: Schema.optional(IdMappingWorkflowList), nextToken: Schema.optional(Schema.String)});
-export const ListMatchingWorkflowsOutput = Schema.Struct({workflowSummaries: Schema.optional(MatchingWorkflowList), nextToken: Schema.optional(Schema.String)});
-export const ListProviderServicesOutput = Schema.Struct({providerServiceSummaries: Schema.optional(ProviderServiceList), nextToken: Schema.optional(Schema.String)});
-export const ListSchemaMappingsOutput = Schema.Struct({schemaList: Schema.optional(SchemaMappingList), nextToken: Schema.optional(Schema.String)});
-export const StartIdMappingJobOutput = Schema.Struct({jobId: Schema.String, outputSourceConfig: Schema.optional(IdMappingJobOutputSourceConfig), jobType: Schema.optional(Schema.String)});
-export const ExceedsLimitException = Schema.Struct({message: Schema.optional(Schema.String), quotaName: Schema.optional(Schema.String), quotaValue: Schema.optional(Schema.Number)});
-export const ProviderMarketplaceConfiguration = Schema.Struct({dataSetId: Schema.String, revisionId: Schema.String, assetId: Schema.String, listingId: Schema.String});
-export const ProviderSchemaAttribute = Schema.Struct({fieldName: Schema.String, type: Schema.String, subType: Schema.optional(Schema.String), hashing: Schema.optional(Schema.Boolean)});
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({message: Schema.optional(Schema.String)}) {}
+export class BatchDeleteUniqueIdOutput extends Schema.Class<BatchDeleteUniqueIdOutput>("BatchDeleteUniqueIdOutput")({status: Schema.String, errors: DeleteUniqueIdErrorsList, deleted: DeletedUniqueIdList, disconnectedUniqueIds: DisconnectedUniqueIdsList}) {}
+export class CreateIdNamespaceInput extends Schema.Class<CreateIdNamespaceInput>("CreateIdNamespaceInput")({idNamespaceName: Schema.String, description: Schema.optional(Schema.String), inputSourceConfig: Schema.optional(IdNamespaceInputSourceConfig), idMappingWorkflowProperties: Schema.optional(IdNamespaceIdMappingWorkflowPropertiesList), type: Schema.String, roleArn: Schema.optional(Schema.String), tags: Schema.optional(TagMap)}) {}
+export class CreateSchemaMappingOutput extends Schema.Class<CreateSchemaMappingOutput>("CreateSchemaMappingOutput")({schemaName: Schema.String, schemaArn: Schema.String, description: Schema.String, mappedInputFields: SchemaInputAttributes}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({message: Schema.optional(Schema.String)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({message: Schema.optional(Schema.String)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({message: Schema.optional(Schema.String)}) {}
+export class GenerateMatchIdInput extends Schema.Class<GenerateMatchIdInput>("GenerateMatchIdInput")({workflowName: Schema.String, records: RecordList, processingType: Schema.optional(Schema.String)}) {}
+export class GetIdMappingJobOutput extends Schema.Class<GetIdMappingJobOutput>("GetIdMappingJobOutput")({jobId: Schema.String, status: Schema.String, startTime: Schema.Date, endTime: Schema.optional(Schema.Date), metrics: Schema.optional(IdMappingJobMetrics), errorDetails: Schema.optional(ErrorDetails), outputSourceConfig: Schema.optional(IdMappingJobOutputSourceConfig), jobType: Schema.optional(Schema.String)}) {}
+export class GetMatchIdOutput extends Schema.Class<GetMatchIdOutput>("GetMatchIdOutput")({matchId: Schema.optional(Schema.String), matchRule: Schema.optional(Schema.String)}) {}
+export class GetMatchingJobOutput extends Schema.Class<GetMatchingJobOutput>("GetMatchingJobOutput")({jobId: Schema.String, status: Schema.String, startTime: Schema.Date, endTime: Schema.optional(Schema.Date), metrics: Schema.optional(JobMetrics), errorDetails: Schema.optional(ErrorDetails), outputSourceConfig: Schema.optional(JobOutputSourceConfig)}) {}
+export class ListIdMappingJobsOutput extends Schema.Class<ListIdMappingJobsOutput>("ListIdMappingJobsOutput")({jobs: Schema.optional(JobList), nextToken: Schema.optional(Schema.String)}) {}
+export class ListIdMappingWorkflowsOutput extends Schema.Class<ListIdMappingWorkflowsOutput>("ListIdMappingWorkflowsOutput")({workflowSummaries: Schema.optional(IdMappingWorkflowList), nextToken: Schema.optional(Schema.String)}) {}
+export class ListMatchingWorkflowsOutput extends Schema.Class<ListMatchingWorkflowsOutput>("ListMatchingWorkflowsOutput")({workflowSummaries: Schema.optional(MatchingWorkflowList), nextToken: Schema.optional(Schema.String)}) {}
+export class ListProviderServicesOutput extends Schema.Class<ListProviderServicesOutput>("ListProviderServicesOutput")({providerServiceSummaries: Schema.optional(ProviderServiceList), nextToken: Schema.optional(Schema.String)}) {}
+export class ListSchemaMappingsOutput extends Schema.Class<ListSchemaMappingsOutput>("ListSchemaMappingsOutput")({schemaList: Schema.optional(SchemaMappingList), nextToken: Schema.optional(Schema.String)}) {}
+export class StartIdMappingJobOutput extends Schema.Class<StartIdMappingJobOutput>("StartIdMappingJobOutput")({jobId: Schema.String, outputSourceConfig: Schema.optional(IdMappingJobOutputSourceConfig), jobType: Schema.optional(Schema.String)}) {}
+export class ExceedsLimitException extends Schema.Class<ExceedsLimitException>("ExceedsLimitException")({message: Schema.optional(Schema.String), quotaName: Schema.optional(Schema.String), quotaValue: Schema.optional(Schema.Number)}) {}
+export class ProviderMarketplaceConfiguration extends Schema.Class<ProviderMarketplaceConfiguration>("ProviderMarketplaceConfiguration")({dataSetId: Schema.String, revisionId: Schema.String, assetId: Schema.String, listingId: Schema.String}) {}
+export class ProviderSchemaAttribute extends Schema.Class<ProviderSchemaAttribute>("ProviderSchemaAttribute")({fieldName: Schema.String, type: Schema.String, subType: Schema.optional(Schema.String), hashing: Schema.optional(Schema.Boolean)}) {}
 export const ProviderSchemaAttributes = Schema.Array(ProviderSchemaAttribute);
-export const IdNamespaceIdMappingWorkflowMetadata = Schema.Struct({idMappingType: Schema.String});
+export class IdNamespaceIdMappingWorkflowMetadata extends Schema.Class<IdNamespaceIdMappingWorkflowMetadata>("IdNamespaceIdMappingWorkflowMetadata")({idMappingType: Schema.String}) {}
 export const IdNamespaceIdMappingWorkflowMetadataList = Schema.Array(IdNamespaceIdMappingWorkflowMetadata);
 export const ProviderEndpointConfiguration = Schema.Union(ProviderMarketplaceConfiguration);
-export const ProviderComponentSchema = Schema.Struct({schemas: Schema.optional(Schemas), providerSchemaAttributes: Schema.optional(ProviderSchemaAttributes)});
-export const IdNamespaceSummary = Schema.Struct({idNamespaceName: Schema.String, idNamespaceArn: Schema.String, description: Schema.optional(Schema.String), idMappingWorkflowProperties: Schema.optional(IdNamespaceIdMappingWorkflowMetadataList), type: Schema.String, createdAt: Schema.Date, updatedAt: Schema.Date});
+export class ProviderComponentSchema extends Schema.Class<ProviderComponentSchema>("ProviderComponentSchema")({schemas: Schema.optional(Schemas), providerSchemaAttributes: Schema.optional(ProviderSchemaAttributes)}) {}
+export class IdNamespaceSummary extends Schema.Class<IdNamespaceSummary>("IdNamespaceSummary")({idNamespaceName: Schema.String, idNamespaceArn: Schema.String, description: Schema.optional(Schema.String), idMappingWorkflowProperties: Schema.optional(IdNamespaceIdMappingWorkflowMetadataList), type: Schema.String, createdAt: Schema.Date, updatedAt: Schema.Date}) {}
 export const IdNamespaceList = Schema.Array(IdNamespaceSummary);
-export const CreateIdMappingWorkflowInput = Schema.Struct({workflowName: Schema.String, description: Schema.optional(Schema.String), inputSourceConfig: IdMappingWorkflowInputSourceConfig, outputSourceConfig: Schema.optional(IdMappingWorkflowOutputSourceConfig), idMappingTechniques: IdMappingTechniques, incrementalRunConfig: Schema.optional(IdMappingIncrementalRunConfig), roleArn: Schema.optional(Schema.String), tags: Schema.optional(TagMap)});
-export const CreateIdNamespaceOutput = Schema.Struct({idNamespaceName: Schema.String, idNamespaceArn: Schema.String, description: Schema.optional(Schema.String), inputSourceConfig: Schema.optional(IdNamespaceInputSourceConfig), idMappingWorkflowProperties: Schema.optional(IdNamespaceIdMappingWorkflowPropertiesList), type: Schema.String, roleArn: Schema.optional(Schema.String), createdAt: Schema.Date, updatedAt: Schema.Date, tags: Schema.optional(TagMap)});
-export const CreateMatchingWorkflowInput = Schema.Struct({workflowName: Schema.String, description: Schema.optional(Schema.String), inputSourceConfig: InputSourceConfig, outputSourceConfig: OutputSourceConfig, resolutionTechniques: ResolutionTechniques, incrementalRunConfig: Schema.optional(IncrementalRunConfig), roleArn: Schema.String, tags: Schema.optional(TagMap)});
-export const GetProviderServiceOutput = Schema.Struct({providerName: Schema.String, providerServiceName: Schema.String, providerServiceDisplayName: Schema.String, providerServiceType: Schema.String, providerServiceArn: Schema.String, providerConfigurationDefinition: Schema.optional(Schema.JsonValue), providerIdNameSpaceConfiguration: Schema.optional(ProviderIdNameSpaceConfiguration), providerJobConfiguration: Schema.optional(Schema.JsonValue), providerEndpointConfiguration: ProviderEndpointConfiguration, anonymizedOutput: Schema.Boolean, providerEntityOutputDefinition: Schema.JsonValue, providerIntermediateDataAccessConfiguration: Schema.optional(ProviderIntermediateDataAccessConfiguration), providerComponentSchema: Schema.optional(ProviderComponentSchema)});
-export const ListIdNamespacesOutput = Schema.Struct({idNamespaceSummaries: Schema.optional(IdNamespaceList), nextToken: Schema.optional(Schema.String)});
-export const FailedRecord = Schema.Struct({inputSourceARN: Schema.String, uniqueId: Schema.String, errorMessage: Schema.String});
+export class CreateIdMappingWorkflowInput extends Schema.Class<CreateIdMappingWorkflowInput>("CreateIdMappingWorkflowInput")({workflowName: Schema.String, description: Schema.optional(Schema.String), inputSourceConfig: IdMappingWorkflowInputSourceConfig, outputSourceConfig: Schema.optional(IdMappingWorkflowOutputSourceConfig), idMappingTechniques: IdMappingTechniques, incrementalRunConfig: Schema.optional(IdMappingIncrementalRunConfig), roleArn: Schema.optional(Schema.String), tags: Schema.optional(TagMap)}) {}
+export class CreateIdNamespaceOutput extends Schema.Class<CreateIdNamespaceOutput>("CreateIdNamespaceOutput")({idNamespaceName: Schema.String, idNamespaceArn: Schema.String, description: Schema.optional(Schema.String), inputSourceConfig: Schema.optional(IdNamespaceInputSourceConfig), idMappingWorkflowProperties: Schema.optional(IdNamespaceIdMappingWorkflowPropertiesList), type: Schema.String, roleArn: Schema.optional(Schema.String), createdAt: Schema.Date, updatedAt: Schema.Date, tags: Schema.optional(TagMap)}) {}
+export class CreateMatchingWorkflowInput extends Schema.Class<CreateMatchingWorkflowInput>("CreateMatchingWorkflowInput")({workflowName: Schema.String, description: Schema.optional(Schema.String), inputSourceConfig: InputSourceConfig, outputSourceConfig: OutputSourceConfig, resolutionTechniques: ResolutionTechniques, incrementalRunConfig: Schema.optional(IncrementalRunConfig), roleArn: Schema.String, tags: Schema.optional(TagMap)}) {}
+export class GetProviderServiceOutput extends Schema.Class<GetProviderServiceOutput>("GetProviderServiceOutput")({providerName: Schema.String, providerServiceName: Schema.String, providerServiceDisplayName: Schema.String, providerServiceType: Schema.String, providerServiceArn: Schema.String, providerConfigurationDefinition: Schema.optional(Schema.JsonValue), providerIdNameSpaceConfiguration: Schema.optional(ProviderIdNameSpaceConfiguration), providerJobConfiguration: Schema.optional(Schema.JsonValue), providerEndpointConfiguration: ProviderEndpointConfiguration, anonymizedOutput: Schema.Boolean, providerEntityOutputDefinition: Schema.JsonValue, providerIntermediateDataAccessConfiguration: Schema.optional(ProviderIntermediateDataAccessConfiguration), providerComponentSchema: Schema.optional(ProviderComponentSchema)}) {}
+export class ListIdNamespacesOutput extends Schema.Class<ListIdNamespacesOutput>("ListIdNamespacesOutput")({idNamespaceSummaries: Schema.optional(IdNamespaceList), nextToken: Schema.optional(Schema.String)}) {}
+export class FailedRecord extends Schema.Class<FailedRecord>("FailedRecord")({inputSourceARN: Schema.String, uniqueId: Schema.String, errorMessage: Schema.String}) {}
 export const FailedRecordsList = Schema.Array(FailedRecord);
-export const CreateIdMappingWorkflowOutput = Schema.Struct({workflowName: Schema.String, workflowArn: Schema.String, description: Schema.optional(Schema.String), inputSourceConfig: IdMappingWorkflowInputSourceConfig, outputSourceConfig: Schema.optional(IdMappingWorkflowOutputSourceConfig), idMappingTechniques: IdMappingTechniques, incrementalRunConfig: Schema.optional(IdMappingIncrementalRunConfig), roleArn: Schema.optional(Schema.String)});
-export const CreateMatchingWorkflowOutput = Schema.Struct({workflowName: Schema.String, workflowArn: Schema.String, description: Schema.optional(Schema.String), inputSourceConfig: InputSourceConfig, outputSourceConfig: OutputSourceConfig, resolutionTechniques: ResolutionTechniques, incrementalRunConfig: Schema.optional(IncrementalRunConfig), roleArn: Schema.String});
-export const MatchedRecord = Schema.Struct({inputSourceARN: Schema.String, recordId: Schema.String});
+export class CreateIdMappingWorkflowOutput extends Schema.Class<CreateIdMappingWorkflowOutput>("CreateIdMappingWorkflowOutput")({workflowName: Schema.String, workflowArn: Schema.String, description: Schema.optional(Schema.String), inputSourceConfig: IdMappingWorkflowInputSourceConfig, outputSourceConfig: Schema.optional(IdMappingWorkflowOutputSourceConfig), idMappingTechniques: IdMappingTechniques, incrementalRunConfig: Schema.optional(IdMappingIncrementalRunConfig), roleArn: Schema.optional(Schema.String)}) {}
+export class CreateMatchingWorkflowOutput extends Schema.Class<CreateMatchingWorkflowOutput>("CreateMatchingWorkflowOutput")({workflowName: Schema.String, workflowArn: Schema.String, description: Schema.optional(Schema.String), inputSourceConfig: InputSourceConfig, outputSourceConfig: OutputSourceConfig, resolutionTechniques: ResolutionTechniques, incrementalRunConfig: Schema.optional(IncrementalRunConfig), roleArn: Schema.String}) {}
+export class MatchedRecord extends Schema.Class<MatchedRecord>("MatchedRecord")({inputSourceARN: Schema.String, recordId: Schema.String}) {}
 export const MatchedRecordsList = Schema.Array(MatchedRecord);
-export const MatchGroup = Schema.Struct({records: MatchedRecordsList, matchId: Schema.String, matchRule: Schema.String});
+export class MatchGroup extends Schema.Class<MatchGroup>("MatchGroup")({records: MatchedRecordsList, matchId: Schema.String, matchRule: Schema.String}) {}
 export const MatchGroupsList = Schema.Array(MatchGroup);
-export const GenerateMatchIdOutput = Schema.Struct({matchGroups: MatchGroupsList, failedRecords: FailedRecordsList});
+export class GenerateMatchIdOutput extends Schema.Class<GenerateMatchIdOutput>("GenerateMatchIdOutput")({matchGroups: MatchGroupsList, failedRecords: FailedRecordsList}) {}
 
 //# Errors
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class ExceedsLimitExceptionError extends Schema.TaggedError<ExceedsLimitExceptionError>()("ExceedsLimitException", ExceedsLimitException) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class ExceedsLimitExceptionError extends Schema.TaggedError<ExceedsLimitExceptionError>()("ExceedsLimitException", ExceedsLimitException.fields) {};
 
 //# Operations
 export const deletePolicyStatement = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-05-10", uri: "/policies/{arn}/{statementId}", method: "DELETE", sdkId: "EntityResolution", sigV4ServiceName: "entityresolution", name: "AWSVeniceService.DeletePolicyStatement" }, DeletePolicyStatementInput, DeletePolicyStatementOutput, [AccessDeniedExceptionError, ConflictExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

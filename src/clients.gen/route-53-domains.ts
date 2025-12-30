@@ -6,117 +6,117 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 export const TagKeyList = Schema.Array(Schema.String);
 export const OperationStatusList = Schema.Array(Schema.String);
 export const OperationTypeList = Schema.Array(Schema.String);
-export const AcceptDomainTransferFromAnotherAwsAccountRequest = Schema.Struct({DomainName: Schema.String, Password: Schema.String});
-export const CancelDomainTransferToAnotherAwsAccountRequest = Schema.Struct({DomainName: Schema.String});
-export const CheckDomainAvailabilityRequest = Schema.Struct({DomainName: Schema.String, IdnLangCode: Schema.optional(Schema.String)});
-export const CheckDomainTransferabilityRequest = Schema.Struct({DomainName: Schema.String, AuthCode: Schema.optional(Schema.String)});
-export const DeleteDomainRequest = Schema.Struct({DomainName: Schema.String});
-export const DeleteTagsForDomainRequest = Schema.Struct({DomainName: Schema.String, TagsToDelete: TagKeyList});
-export const DeleteTagsForDomainResponse = Schema.Struct({});
-export const DisableDomainAutoRenewRequest = Schema.Struct({DomainName: Schema.String});
-export const DisableDomainAutoRenewResponse = Schema.Struct({});
-export const DisableDomainTransferLockRequest = Schema.Struct({DomainName: Schema.String});
-export const DisassociateDelegationSignerFromDomainRequest = Schema.Struct({DomainName: Schema.String, Id: Schema.String});
-export const EnableDomainAutoRenewRequest = Schema.Struct({DomainName: Schema.String});
-export const EnableDomainAutoRenewResponse = Schema.Struct({});
-export const EnableDomainTransferLockRequest = Schema.Struct({DomainName: Schema.String});
-export const GetContactReachabilityStatusRequest = Schema.Struct({domainName: Schema.optional(Schema.String)});
-export const GetDomainDetailRequest = Schema.Struct({DomainName: Schema.String});
-export const GetDomainSuggestionsRequest = Schema.Struct({DomainName: Schema.String, SuggestionCount: Schema.Number, OnlyAvailable: Schema.Boolean});
-export const GetOperationDetailRequest = Schema.Struct({OperationId: Schema.String});
-export const ListOperationsRequest = Schema.Struct({SubmittedSince: Schema.optional(Schema.Date), Marker: Schema.optional(Schema.String), MaxItems: Schema.optional(Schema.Number), Status: Schema.optional(OperationStatusList), Type: Schema.optional(OperationTypeList), SortBy: Schema.optional(Schema.String), SortOrder: Schema.optional(Schema.String)});
-export const ListPricesRequest = Schema.Struct({Tld: Schema.optional(Schema.String), Marker: Schema.optional(Schema.String), MaxItems: Schema.optional(Schema.Number)});
-export const ListTagsForDomainRequest = Schema.Struct({DomainName: Schema.String});
-export const PushDomainRequest = Schema.Struct({DomainName: Schema.String, Target: Schema.String});
-export const RejectDomainTransferFromAnotherAwsAccountRequest = Schema.Struct({DomainName: Schema.String});
-export const RenewDomainRequest = Schema.Struct({DomainName: Schema.String, DurationInYears: Schema.optional(Schema.Number), CurrentExpiryYear: Schema.Number});
-export const ResendContactReachabilityEmailRequest = Schema.Struct({domainName: Schema.optional(Schema.String)});
-export const ResendOperationAuthorizationRequest = Schema.Struct({OperationId: Schema.String});
-export const RetrieveDomainAuthCodeRequest = Schema.Struct({DomainName: Schema.String});
-export const TransferDomainToAnotherAwsAccountRequest = Schema.Struct({DomainName: Schema.String, AccountId: Schema.String});
-export const UpdateDomainContactPrivacyRequest = Schema.Struct({DomainName: Schema.String, AdminPrivacy: Schema.optional(Schema.Boolean), RegistrantPrivacy: Schema.optional(Schema.Boolean), TechPrivacy: Schema.optional(Schema.Boolean), BillingPrivacy: Schema.optional(Schema.Boolean)});
+export class AcceptDomainTransferFromAnotherAwsAccountRequest extends Schema.Class<AcceptDomainTransferFromAnotherAwsAccountRequest>("AcceptDomainTransferFromAnotherAwsAccountRequest")({DomainName: Schema.String, Password: Schema.String}) {}
+export class CancelDomainTransferToAnotherAwsAccountRequest extends Schema.Class<CancelDomainTransferToAnotherAwsAccountRequest>("CancelDomainTransferToAnotherAwsAccountRequest")({DomainName: Schema.String}) {}
+export class CheckDomainAvailabilityRequest extends Schema.Class<CheckDomainAvailabilityRequest>("CheckDomainAvailabilityRequest")({DomainName: Schema.String, IdnLangCode: Schema.optional(Schema.String)}) {}
+export class CheckDomainTransferabilityRequest extends Schema.Class<CheckDomainTransferabilityRequest>("CheckDomainTransferabilityRequest")({DomainName: Schema.String, AuthCode: Schema.optional(Schema.String)}) {}
+export class DeleteDomainRequest extends Schema.Class<DeleteDomainRequest>("DeleteDomainRequest")({DomainName: Schema.String}) {}
+export class DeleteTagsForDomainRequest extends Schema.Class<DeleteTagsForDomainRequest>("DeleteTagsForDomainRequest")({DomainName: Schema.String, TagsToDelete: TagKeyList}) {}
+export class DeleteTagsForDomainResponse extends Schema.Class<DeleteTagsForDomainResponse>("DeleteTagsForDomainResponse")({}) {}
+export class DisableDomainAutoRenewRequest extends Schema.Class<DisableDomainAutoRenewRequest>("DisableDomainAutoRenewRequest")({DomainName: Schema.String}) {}
+export class DisableDomainAutoRenewResponse extends Schema.Class<DisableDomainAutoRenewResponse>("DisableDomainAutoRenewResponse")({}) {}
+export class DisableDomainTransferLockRequest extends Schema.Class<DisableDomainTransferLockRequest>("DisableDomainTransferLockRequest")({DomainName: Schema.String}) {}
+export class DisassociateDelegationSignerFromDomainRequest extends Schema.Class<DisassociateDelegationSignerFromDomainRequest>("DisassociateDelegationSignerFromDomainRequest")({DomainName: Schema.String, Id: Schema.String}) {}
+export class EnableDomainAutoRenewRequest extends Schema.Class<EnableDomainAutoRenewRequest>("EnableDomainAutoRenewRequest")({DomainName: Schema.String}) {}
+export class EnableDomainAutoRenewResponse extends Schema.Class<EnableDomainAutoRenewResponse>("EnableDomainAutoRenewResponse")({}) {}
+export class EnableDomainTransferLockRequest extends Schema.Class<EnableDomainTransferLockRequest>("EnableDomainTransferLockRequest")({DomainName: Schema.String}) {}
+export class GetContactReachabilityStatusRequest extends Schema.Class<GetContactReachabilityStatusRequest>("GetContactReachabilityStatusRequest")({domainName: Schema.optional(Schema.String)}) {}
+export class GetDomainDetailRequest extends Schema.Class<GetDomainDetailRequest>("GetDomainDetailRequest")({DomainName: Schema.String}) {}
+export class GetDomainSuggestionsRequest extends Schema.Class<GetDomainSuggestionsRequest>("GetDomainSuggestionsRequest")({DomainName: Schema.String, SuggestionCount: Schema.Number, OnlyAvailable: Schema.Boolean}) {}
+export class GetOperationDetailRequest extends Schema.Class<GetOperationDetailRequest>("GetOperationDetailRequest")({OperationId: Schema.String}) {}
+export class ListOperationsRequest extends Schema.Class<ListOperationsRequest>("ListOperationsRequest")({SubmittedSince: Schema.optional(Schema.Date), Marker: Schema.optional(Schema.String), MaxItems: Schema.optional(Schema.Number), Status: Schema.optional(OperationStatusList), Type: Schema.optional(OperationTypeList), SortBy: Schema.optional(Schema.String), SortOrder: Schema.optional(Schema.String)}) {}
+export class ListPricesRequest extends Schema.Class<ListPricesRequest>("ListPricesRequest")({Tld: Schema.optional(Schema.String), Marker: Schema.optional(Schema.String), MaxItems: Schema.optional(Schema.Number)}) {}
+export class ListTagsForDomainRequest extends Schema.Class<ListTagsForDomainRequest>("ListTagsForDomainRequest")({DomainName: Schema.String}) {}
+export class PushDomainRequest extends Schema.Class<PushDomainRequest>("PushDomainRequest")({DomainName: Schema.String, Target: Schema.String}) {}
+export class RejectDomainTransferFromAnotherAwsAccountRequest extends Schema.Class<RejectDomainTransferFromAnotherAwsAccountRequest>("RejectDomainTransferFromAnotherAwsAccountRequest")({DomainName: Schema.String}) {}
+export class RenewDomainRequest extends Schema.Class<RenewDomainRequest>("RenewDomainRequest")({DomainName: Schema.String, DurationInYears: Schema.optional(Schema.Number), CurrentExpiryYear: Schema.Number}) {}
+export class ResendContactReachabilityEmailRequest extends Schema.Class<ResendContactReachabilityEmailRequest>("ResendContactReachabilityEmailRequest")({domainName: Schema.optional(Schema.String)}) {}
+export class ResendOperationAuthorizationRequest extends Schema.Class<ResendOperationAuthorizationRequest>("ResendOperationAuthorizationRequest")({OperationId: Schema.String}) {}
+export class RetrieveDomainAuthCodeRequest extends Schema.Class<RetrieveDomainAuthCodeRequest>("RetrieveDomainAuthCodeRequest")({DomainName: Schema.String}) {}
+export class TransferDomainToAnotherAwsAccountRequest extends Schema.Class<TransferDomainToAnotherAwsAccountRequest>("TransferDomainToAnotherAwsAccountRequest")({DomainName: Schema.String, AccountId: Schema.String}) {}
+export class UpdateDomainContactPrivacyRequest extends Schema.Class<UpdateDomainContactPrivacyRequest>("UpdateDomainContactPrivacyRequest")({DomainName: Schema.String, AdminPrivacy: Schema.optional(Schema.Boolean), RegistrantPrivacy: Schema.optional(Schema.Boolean), TechPrivacy: Schema.optional(Schema.Boolean), BillingPrivacy: Schema.optional(Schema.Boolean)}) {}
 export const GlueIpList = Schema.Array(Schema.String);
-export const Nameserver = Schema.Struct({Name: Schema.String, GlueIps: Schema.optional(GlueIpList)});
+export class Nameserver extends Schema.Class<Nameserver>("Nameserver")({Name: Schema.String, GlueIps: Schema.optional(GlueIpList)}) {}
 export const NameserverList = Schema.Array(Nameserver);
-export const UpdateDomainNameserversRequest = Schema.Struct({DomainName: Schema.String, FIAuthKey: Schema.optional(Schema.String), Nameservers: NameserverList});
-export const ViewBillingRequest = Schema.Struct({Start: Schema.optional(Schema.Date), End: Schema.optional(Schema.Date), Marker: Schema.optional(Schema.String), MaxItems: Schema.optional(Schema.Number)});
+export class UpdateDomainNameserversRequest extends Schema.Class<UpdateDomainNameserversRequest>("UpdateDomainNameserversRequest")({DomainName: Schema.String, FIAuthKey: Schema.optional(Schema.String), Nameservers: NameserverList}) {}
+export class ViewBillingRequest extends Schema.Class<ViewBillingRequest>("ViewBillingRequest")({Start: Schema.optional(Schema.Date), End: Schema.optional(Schema.Date), Marker: Schema.optional(Schema.String), MaxItems: Schema.optional(Schema.Number)}) {}
 export const Values = Schema.Array(Schema.String);
-export const DnssecSigningAttributes = Schema.Struct({Algorithm: Schema.optional(Schema.Number), Flags: Schema.optional(Schema.Number), PublicKey: Schema.optional(Schema.String)});
+export class DnssecSigningAttributes extends Schema.Class<DnssecSigningAttributes>("DnssecSigningAttributes")({Algorithm: Schema.optional(Schema.Number), Flags: Schema.optional(Schema.Number), PublicKey: Schema.optional(Schema.String)}) {}
 export const DomainStatusList = Schema.Array(Schema.String);
-export const FilterCondition = Schema.Struct({Name: Schema.String, Operator: Schema.String, Values: Values});
+export class FilterCondition extends Schema.Class<FilterCondition>("FilterCondition")({Name: Schema.String, Operator: Schema.String, Values: Values}) {}
 export const FilterConditions = Schema.Array(FilterCondition);
-export const SortCondition = Schema.Struct({Name: Schema.String, SortOrder: Schema.String});
-export const Consent = Schema.Struct({MaxPrice: Schema.Number, Currency: Schema.String});
-export const Tag = Schema.Struct({Key: Schema.optional(Schema.String), Value: Schema.optional(Schema.String)});
+export class SortCondition extends Schema.Class<SortCondition>("SortCondition")({Name: Schema.String, SortOrder: Schema.String}) {}
+export class Consent extends Schema.Class<Consent>("Consent")({MaxPrice: Schema.Number, Currency: Schema.String}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.optional(Schema.String), Value: Schema.optional(Schema.String)}) {}
 export const TagList = Schema.Array(Tag);
-export const AcceptDomainTransferFromAnotherAwsAccountResponse = Schema.Struct({OperationId: Schema.optional(Schema.String)});
-export const AssociateDelegationSignerToDomainRequest = Schema.Struct({DomainName: Schema.String, SigningAttributes: DnssecSigningAttributes});
-export const CancelDomainTransferToAnotherAwsAccountResponse = Schema.Struct({OperationId: Schema.optional(Schema.String)});
-export const CheckDomainAvailabilityResponse = Schema.Struct({Availability: Schema.optional(Schema.String)});
-export const DeleteDomainResponse = Schema.Struct({OperationId: Schema.optional(Schema.String)});
-export const InvalidInput = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UnsupportedTLD = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DisableDomainTransferLockResponse = Schema.Struct({OperationId: Schema.optional(Schema.String)});
-export const DisassociateDelegationSignerFromDomainResponse = Schema.Struct({OperationId: Schema.optional(Schema.String)});
-export const TLDRulesViolation = Schema.Struct({message: Schema.optional(Schema.String)});
-export const EnableDomainTransferLockResponse = Schema.Struct({OperationId: Schema.optional(Schema.String)});
-export const GetContactReachabilityStatusResponse = Schema.Struct({domainName: Schema.optional(Schema.String), status: Schema.optional(Schema.String)});
-export const GetOperationDetailResponse = Schema.Struct({OperationId: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), Message: Schema.optional(Schema.String), DomainName: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), SubmittedDate: Schema.optional(Schema.Date), LastUpdatedDate: Schema.optional(Schema.Date), StatusFlag: Schema.optional(Schema.String)});
-export const ListDomainsRequest = Schema.Struct({FilterConditions: Schema.optional(FilterConditions), SortCondition: Schema.optional(SortCondition), Marker: Schema.optional(Schema.String), MaxItems: Schema.optional(Schema.Number)});
-export const ListTagsForDomainResponse = Schema.Struct({TagList: Schema.optional(TagList)});
-export const OperationLimitExceeded = Schema.Struct({message: Schema.optional(Schema.String)});
-export const RejectDomainTransferFromAnotherAwsAccountResponse = Schema.Struct({OperationId: Schema.optional(Schema.String)});
-export const RenewDomainResponse = Schema.Struct({OperationId: Schema.optional(Schema.String)});
-export const ResendContactReachabilityEmailResponse = Schema.Struct({domainName: Schema.optional(Schema.String), emailAddress: Schema.optional(Schema.String), isAlreadyVerified: Schema.optional(Schema.Boolean)});
-export const RetrieveDomainAuthCodeResponse = Schema.Struct({AuthCode: Schema.optional(Schema.String)});
-export const ExtraParam = Schema.Struct({Name: Schema.String, Value: Schema.String});
+export class AcceptDomainTransferFromAnotherAwsAccountResponse extends Schema.Class<AcceptDomainTransferFromAnotherAwsAccountResponse>("AcceptDomainTransferFromAnotherAwsAccountResponse")({OperationId: Schema.optional(Schema.String)}) {}
+export class AssociateDelegationSignerToDomainRequest extends Schema.Class<AssociateDelegationSignerToDomainRequest>("AssociateDelegationSignerToDomainRequest")({DomainName: Schema.String, SigningAttributes: DnssecSigningAttributes}) {}
+export class CancelDomainTransferToAnotherAwsAccountResponse extends Schema.Class<CancelDomainTransferToAnotherAwsAccountResponse>("CancelDomainTransferToAnotherAwsAccountResponse")({OperationId: Schema.optional(Schema.String)}) {}
+export class CheckDomainAvailabilityResponse extends Schema.Class<CheckDomainAvailabilityResponse>("CheckDomainAvailabilityResponse")({Availability: Schema.optional(Schema.String)}) {}
+export class DeleteDomainResponse extends Schema.Class<DeleteDomainResponse>("DeleteDomainResponse")({OperationId: Schema.optional(Schema.String)}) {}
+export class InvalidInput extends Schema.Class<InvalidInput>("InvalidInput")({message: Schema.optional(Schema.String)}) {}
+export class UnsupportedTLD extends Schema.Class<UnsupportedTLD>("UnsupportedTLD")({message: Schema.optional(Schema.String)}) {}
+export class DisableDomainTransferLockResponse extends Schema.Class<DisableDomainTransferLockResponse>("DisableDomainTransferLockResponse")({OperationId: Schema.optional(Schema.String)}) {}
+export class DisassociateDelegationSignerFromDomainResponse extends Schema.Class<DisassociateDelegationSignerFromDomainResponse>("DisassociateDelegationSignerFromDomainResponse")({OperationId: Schema.optional(Schema.String)}) {}
+export class TLDRulesViolation extends Schema.Class<TLDRulesViolation>("TLDRulesViolation")({message: Schema.optional(Schema.String)}) {}
+export class EnableDomainTransferLockResponse extends Schema.Class<EnableDomainTransferLockResponse>("EnableDomainTransferLockResponse")({OperationId: Schema.optional(Schema.String)}) {}
+export class GetContactReachabilityStatusResponse extends Schema.Class<GetContactReachabilityStatusResponse>("GetContactReachabilityStatusResponse")({domainName: Schema.optional(Schema.String), status: Schema.optional(Schema.String)}) {}
+export class GetOperationDetailResponse extends Schema.Class<GetOperationDetailResponse>("GetOperationDetailResponse")({OperationId: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), Message: Schema.optional(Schema.String), DomainName: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), SubmittedDate: Schema.optional(Schema.Date), LastUpdatedDate: Schema.optional(Schema.Date), StatusFlag: Schema.optional(Schema.String)}) {}
+export class ListDomainsRequest extends Schema.Class<ListDomainsRequest>("ListDomainsRequest")({FilterConditions: Schema.optional(FilterConditions), SortCondition: Schema.optional(SortCondition), Marker: Schema.optional(Schema.String), MaxItems: Schema.optional(Schema.Number)}) {}
+export class ListTagsForDomainResponse extends Schema.Class<ListTagsForDomainResponse>("ListTagsForDomainResponse")({TagList: Schema.optional(TagList)}) {}
+export class OperationLimitExceeded extends Schema.Class<OperationLimitExceeded>("OperationLimitExceeded")({message: Schema.optional(Schema.String)}) {}
+export class RejectDomainTransferFromAnotherAwsAccountResponse extends Schema.Class<RejectDomainTransferFromAnotherAwsAccountResponse>("RejectDomainTransferFromAnotherAwsAccountResponse")({OperationId: Schema.optional(Schema.String)}) {}
+export class RenewDomainResponse extends Schema.Class<RenewDomainResponse>("RenewDomainResponse")({OperationId: Schema.optional(Schema.String)}) {}
+export class ResendContactReachabilityEmailResponse extends Schema.Class<ResendContactReachabilityEmailResponse>("ResendContactReachabilityEmailResponse")({domainName: Schema.optional(Schema.String), emailAddress: Schema.optional(Schema.String), isAlreadyVerified: Schema.optional(Schema.Boolean)}) {}
+export class RetrieveDomainAuthCodeResponse extends Schema.Class<RetrieveDomainAuthCodeResponse>("RetrieveDomainAuthCodeResponse")({AuthCode: Schema.optional(Schema.String)}) {}
+export class ExtraParam extends Schema.Class<ExtraParam>("ExtraParam")({Name: Schema.String, Value: Schema.String}) {}
 export const ExtraParamList = Schema.Array(ExtraParam);
-export const ContactDetail = Schema.Struct({FirstName: Schema.optional(Schema.String), LastName: Schema.optional(Schema.String), ContactType: Schema.optional(Schema.String), OrganizationName: Schema.optional(Schema.String), AddressLine1: Schema.optional(Schema.String), AddressLine2: Schema.optional(Schema.String), City: Schema.optional(Schema.String), State: Schema.optional(Schema.String), CountryCode: Schema.optional(Schema.String), ZipCode: Schema.optional(Schema.String), PhoneNumber: Schema.optional(Schema.String), Email: Schema.optional(Schema.String), Fax: Schema.optional(Schema.String), ExtraParams: Schema.optional(ExtraParamList)});
-export const TransferDomainRequest = Schema.Struct({DomainName: Schema.String, IdnLangCode: Schema.optional(Schema.String), DurationInYears: Schema.Number, Nameservers: Schema.optional(NameserverList), AuthCode: Schema.optional(Schema.String), AutoRenew: Schema.optional(Schema.Boolean), AdminContact: ContactDetail, RegistrantContact: ContactDetail, TechContact: ContactDetail, PrivacyProtectAdminContact: Schema.optional(Schema.Boolean), PrivacyProtectRegistrantContact: Schema.optional(Schema.Boolean), PrivacyProtectTechContact: Schema.optional(Schema.Boolean), BillingContact: Schema.optional(ContactDetail), PrivacyProtectBillingContact: Schema.optional(Schema.Boolean)});
-export const TransferDomainToAnotherAwsAccountResponse = Schema.Struct({OperationId: Schema.optional(Schema.String), Password: Schema.optional(Schema.String)});
-export const UpdateDomainContactRequest = Schema.Struct({DomainName: Schema.String, AdminContact: Schema.optional(ContactDetail), RegistrantContact: Schema.optional(ContactDetail), TechContact: Schema.optional(ContactDetail), Consent: Schema.optional(Consent), BillingContact: Schema.optional(ContactDetail)});
-export const UpdateDomainContactPrivacyResponse = Schema.Struct({OperationId: Schema.optional(Schema.String)});
-export const UpdateDomainNameserversResponse = Schema.Struct({OperationId: Schema.optional(Schema.String)});
-export const UpdateTagsForDomainRequest = Schema.Struct({DomainName: Schema.String, TagsToUpdate: Schema.optional(TagList)});
-export const UpdateTagsForDomainResponse = Schema.Struct({});
-export const DomainTransferability = Schema.Struct({Transferable: Schema.optional(Schema.String)});
-export const DnssecKey = Schema.Struct({Algorithm: Schema.optional(Schema.Number), Flags: Schema.optional(Schema.Number), PublicKey: Schema.optional(Schema.String), DigestType: Schema.optional(Schema.Number), Digest: Schema.optional(Schema.String), KeyTag: Schema.optional(Schema.Number), Id: Schema.optional(Schema.String)});
+export class ContactDetail extends Schema.Class<ContactDetail>("ContactDetail")({FirstName: Schema.optional(Schema.String), LastName: Schema.optional(Schema.String), ContactType: Schema.optional(Schema.String), OrganizationName: Schema.optional(Schema.String), AddressLine1: Schema.optional(Schema.String), AddressLine2: Schema.optional(Schema.String), City: Schema.optional(Schema.String), State: Schema.optional(Schema.String), CountryCode: Schema.optional(Schema.String), ZipCode: Schema.optional(Schema.String), PhoneNumber: Schema.optional(Schema.String), Email: Schema.optional(Schema.String), Fax: Schema.optional(Schema.String), ExtraParams: Schema.optional(ExtraParamList)}) {}
+export class TransferDomainRequest extends Schema.Class<TransferDomainRequest>("TransferDomainRequest")({DomainName: Schema.String, IdnLangCode: Schema.optional(Schema.String), DurationInYears: Schema.Number, Nameservers: Schema.optional(NameserverList), AuthCode: Schema.optional(Schema.String), AutoRenew: Schema.optional(Schema.Boolean), AdminContact: ContactDetail, RegistrantContact: ContactDetail, TechContact: ContactDetail, PrivacyProtectAdminContact: Schema.optional(Schema.Boolean), PrivacyProtectRegistrantContact: Schema.optional(Schema.Boolean), PrivacyProtectTechContact: Schema.optional(Schema.Boolean), BillingContact: Schema.optional(ContactDetail), PrivacyProtectBillingContact: Schema.optional(Schema.Boolean)}) {}
+export class TransferDomainToAnotherAwsAccountResponse extends Schema.Class<TransferDomainToAnotherAwsAccountResponse>("TransferDomainToAnotherAwsAccountResponse")({OperationId: Schema.optional(Schema.String), Password: Schema.optional(Schema.String)}) {}
+export class UpdateDomainContactRequest extends Schema.Class<UpdateDomainContactRequest>("UpdateDomainContactRequest")({DomainName: Schema.String, AdminContact: Schema.optional(ContactDetail), RegistrantContact: Schema.optional(ContactDetail), TechContact: Schema.optional(ContactDetail), Consent: Schema.optional(Consent), BillingContact: Schema.optional(ContactDetail)}) {}
+export class UpdateDomainContactPrivacyResponse extends Schema.Class<UpdateDomainContactPrivacyResponse>("UpdateDomainContactPrivacyResponse")({OperationId: Schema.optional(Schema.String)}) {}
+export class UpdateDomainNameserversResponse extends Schema.Class<UpdateDomainNameserversResponse>("UpdateDomainNameserversResponse")({OperationId: Schema.optional(Schema.String)}) {}
+export class UpdateTagsForDomainRequest extends Schema.Class<UpdateTagsForDomainRequest>("UpdateTagsForDomainRequest")({DomainName: Schema.String, TagsToUpdate: Schema.optional(TagList)}) {}
+export class UpdateTagsForDomainResponse extends Schema.Class<UpdateTagsForDomainResponse>("UpdateTagsForDomainResponse")({}) {}
+export class DomainTransferability extends Schema.Class<DomainTransferability>("DomainTransferability")({Transferable: Schema.optional(Schema.String)}) {}
+export class DnssecKey extends Schema.Class<DnssecKey>("DnssecKey")({Algorithm: Schema.optional(Schema.Number), Flags: Schema.optional(Schema.Number), PublicKey: Schema.optional(Schema.String), DigestType: Schema.optional(Schema.Number), Digest: Schema.optional(Schema.String), KeyTag: Schema.optional(Schema.Number), Id: Schema.optional(Schema.String)}) {}
 export const DnssecKeyList = Schema.Array(DnssecKey);
-export const DomainSuggestion = Schema.Struct({DomainName: Schema.optional(Schema.String), Availability: Schema.optional(Schema.String)});
+export class DomainSuggestion extends Schema.Class<DomainSuggestion>("DomainSuggestion")({DomainName: Schema.optional(Schema.String), Availability: Schema.optional(Schema.String)}) {}
 export const DomainSuggestionsList = Schema.Array(DomainSuggestion);
-export const OperationSummary = Schema.Struct({OperationId: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), SubmittedDate: Schema.optional(Schema.Date), DomainName: Schema.optional(Schema.String), Message: Schema.optional(Schema.String), StatusFlag: Schema.optional(Schema.String), LastUpdatedDate: Schema.optional(Schema.Date)});
+export class OperationSummary extends Schema.Class<OperationSummary>("OperationSummary")({OperationId: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), SubmittedDate: Schema.optional(Schema.Date), DomainName: Schema.optional(Schema.String), Message: Schema.optional(Schema.String), StatusFlag: Schema.optional(Schema.String), LastUpdatedDate: Schema.optional(Schema.Date)}) {}
 export const OperationSummaryList = Schema.Array(OperationSummary);
-export const BillingRecord = Schema.Struct({DomainName: Schema.optional(Schema.String), Operation: Schema.optional(Schema.String), InvoiceId: Schema.optional(Schema.String), BillDate: Schema.optional(Schema.Date), Price: Schema.optional(Schema.Number)});
+export class BillingRecord extends Schema.Class<BillingRecord>("BillingRecord")({DomainName: Schema.optional(Schema.String), Operation: Schema.optional(Schema.String), InvoiceId: Schema.optional(Schema.String), BillDate: Schema.optional(Schema.Date), Price: Schema.optional(Schema.Number)}) {}
 export const BillingRecords = Schema.Array(BillingRecord);
-export const DomainLimitExceeded = Schema.Struct({message: Schema.optional(Schema.String)});
-export const AssociateDelegationSignerToDomainResponse = Schema.Struct({OperationId: Schema.optional(Schema.String)});
-export const CheckDomainTransferabilityResponse = Schema.Struct({Transferability: Schema.optional(DomainTransferability), Message: Schema.optional(Schema.String)});
-export const DuplicateRequest = Schema.Struct({requestId: Schema.optional(Schema.String), message: Schema.optional(Schema.String)});
-export const GetDomainDetailResponse = Schema.Struct({DomainName: Schema.optional(Schema.String), Nameservers: Schema.optional(NameserverList), AutoRenew: Schema.optional(Schema.Boolean), AdminContact: Schema.optional(ContactDetail), RegistrantContact: Schema.optional(ContactDetail), TechContact: Schema.optional(ContactDetail), AdminPrivacy: Schema.optional(Schema.Boolean), RegistrantPrivacy: Schema.optional(Schema.Boolean), TechPrivacy: Schema.optional(Schema.Boolean), RegistrarName: Schema.optional(Schema.String), WhoIsServer: Schema.optional(Schema.String), RegistrarUrl: Schema.optional(Schema.String), AbuseContactEmail: Schema.optional(Schema.String), AbuseContactPhone: Schema.optional(Schema.String), RegistryDomainId: Schema.optional(Schema.String), CreationDate: Schema.optional(Schema.Date), UpdatedDate: Schema.optional(Schema.Date), ExpirationDate: Schema.optional(Schema.Date), Reseller: Schema.optional(Schema.String), DnsSec: Schema.optional(Schema.String), StatusList: Schema.optional(DomainStatusList), DnssecKeys: Schema.optional(DnssecKeyList), BillingContact: Schema.optional(ContactDetail), BillingPrivacy: Schema.optional(Schema.Boolean)});
-export const GetDomainSuggestionsResponse = Schema.Struct({SuggestionsList: Schema.optional(DomainSuggestionsList)});
-export const ListOperationsResponse = Schema.Struct({Operations: Schema.optional(OperationSummaryList), NextPageMarker: Schema.optional(Schema.String)});
-export const RegisterDomainRequest = Schema.Struct({DomainName: Schema.String, IdnLangCode: Schema.optional(Schema.String), DurationInYears: Schema.Number, AutoRenew: Schema.optional(Schema.Boolean), AdminContact: ContactDetail, RegistrantContact: ContactDetail, TechContact: ContactDetail, PrivacyProtectAdminContact: Schema.optional(Schema.Boolean), PrivacyProtectRegistrantContact: Schema.optional(Schema.Boolean), PrivacyProtectTechContact: Schema.optional(Schema.Boolean), BillingContact: Schema.optional(ContactDetail), PrivacyProtectBillingContact: Schema.optional(Schema.Boolean)});
-export const TransferDomainResponse = Schema.Struct({OperationId: Schema.optional(Schema.String)});
-export const UpdateDomainContactResponse = Schema.Struct({OperationId: Schema.optional(Schema.String)});
-export const ViewBillingResponse = Schema.Struct({NextPageMarker: Schema.optional(Schema.String), BillingRecords: Schema.optional(BillingRecords)});
-export const PriceWithCurrency = Schema.Struct({Price: Schema.Number, Currency: Schema.String});
-export const DomainSummary = Schema.Struct({DomainName: Schema.optional(Schema.String), AutoRenew: Schema.optional(Schema.Boolean), TransferLock: Schema.optional(Schema.Boolean), Expiry: Schema.optional(Schema.Date)});
+export class DomainLimitExceeded extends Schema.Class<DomainLimitExceeded>("DomainLimitExceeded")({message: Schema.optional(Schema.String)}) {}
+export class AssociateDelegationSignerToDomainResponse extends Schema.Class<AssociateDelegationSignerToDomainResponse>("AssociateDelegationSignerToDomainResponse")({OperationId: Schema.optional(Schema.String)}) {}
+export class CheckDomainTransferabilityResponse extends Schema.Class<CheckDomainTransferabilityResponse>("CheckDomainTransferabilityResponse")({Transferability: Schema.optional(DomainTransferability), Message: Schema.optional(Schema.String)}) {}
+export class DuplicateRequest extends Schema.Class<DuplicateRequest>("DuplicateRequest")({requestId: Schema.optional(Schema.String), message: Schema.optional(Schema.String)}) {}
+export class GetDomainDetailResponse extends Schema.Class<GetDomainDetailResponse>("GetDomainDetailResponse")({DomainName: Schema.optional(Schema.String), Nameservers: Schema.optional(NameserverList), AutoRenew: Schema.optional(Schema.Boolean), AdminContact: Schema.optional(ContactDetail), RegistrantContact: Schema.optional(ContactDetail), TechContact: Schema.optional(ContactDetail), AdminPrivacy: Schema.optional(Schema.Boolean), RegistrantPrivacy: Schema.optional(Schema.Boolean), TechPrivacy: Schema.optional(Schema.Boolean), RegistrarName: Schema.optional(Schema.String), WhoIsServer: Schema.optional(Schema.String), RegistrarUrl: Schema.optional(Schema.String), AbuseContactEmail: Schema.optional(Schema.String), AbuseContactPhone: Schema.optional(Schema.String), RegistryDomainId: Schema.optional(Schema.String), CreationDate: Schema.optional(Schema.Date), UpdatedDate: Schema.optional(Schema.Date), ExpirationDate: Schema.optional(Schema.Date), Reseller: Schema.optional(Schema.String), DnsSec: Schema.optional(Schema.String), StatusList: Schema.optional(DomainStatusList), DnssecKeys: Schema.optional(DnssecKeyList), BillingContact: Schema.optional(ContactDetail), BillingPrivacy: Schema.optional(Schema.Boolean)}) {}
+export class GetDomainSuggestionsResponse extends Schema.Class<GetDomainSuggestionsResponse>("GetDomainSuggestionsResponse")({SuggestionsList: Schema.optional(DomainSuggestionsList)}) {}
+export class ListOperationsResponse extends Schema.Class<ListOperationsResponse>("ListOperationsResponse")({Operations: Schema.optional(OperationSummaryList), NextPageMarker: Schema.optional(Schema.String)}) {}
+export class RegisterDomainRequest extends Schema.Class<RegisterDomainRequest>("RegisterDomainRequest")({DomainName: Schema.String, IdnLangCode: Schema.optional(Schema.String), DurationInYears: Schema.Number, AutoRenew: Schema.optional(Schema.Boolean), AdminContact: ContactDetail, RegistrantContact: ContactDetail, TechContact: ContactDetail, PrivacyProtectAdminContact: Schema.optional(Schema.Boolean), PrivacyProtectRegistrantContact: Schema.optional(Schema.Boolean), PrivacyProtectTechContact: Schema.optional(Schema.Boolean), BillingContact: Schema.optional(ContactDetail), PrivacyProtectBillingContact: Schema.optional(Schema.Boolean)}) {}
+export class TransferDomainResponse extends Schema.Class<TransferDomainResponse>("TransferDomainResponse")({OperationId: Schema.optional(Schema.String)}) {}
+export class UpdateDomainContactResponse extends Schema.Class<UpdateDomainContactResponse>("UpdateDomainContactResponse")({OperationId: Schema.optional(Schema.String)}) {}
+export class ViewBillingResponse extends Schema.Class<ViewBillingResponse>("ViewBillingResponse")({NextPageMarker: Schema.optional(Schema.String), BillingRecords: Schema.optional(BillingRecords)}) {}
+export class PriceWithCurrency extends Schema.Class<PriceWithCurrency>("PriceWithCurrency")({Price: Schema.Number, Currency: Schema.String}) {}
+export class DomainSummary extends Schema.Class<DomainSummary>("DomainSummary")({DomainName: Schema.optional(Schema.String), AutoRenew: Schema.optional(Schema.Boolean), TransferLock: Schema.optional(Schema.Boolean), Expiry: Schema.optional(Schema.Date)}) {}
 export const DomainSummaryList = Schema.Array(DomainSummary);
-export const DomainPrice = Schema.Struct({Name: Schema.optional(Schema.String), RegistrationPrice: Schema.optional(PriceWithCurrency), TransferPrice: Schema.optional(PriceWithCurrency), RenewalPrice: Schema.optional(PriceWithCurrency), ChangeOwnershipPrice: Schema.optional(PriceWithCurrency), RestorationPrice: Schema.optional(PriceWithCurrency)});
+export class DomainPrice extends Schema.Class<DomainPrice>("DomainPrice")({Name: Schema.optional(Schema.String), RegistrationPrice: Schema.optional(PriceWithCurrency), TransferPrice: Schema.optional(PriceWithCurrency), RenewalPrice: Schema.optional(PriceWithCurrency), ChangeOwnershipPrice: Schema.optional(PriceWithCurrency), RestorationPrice: Schema.optional(PriceWithCurrency)}) {}
 export const DomainPriceList = Schema.Array(DomainPrice);
-export const DnssecLimitExceeded = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ListDomainsResponse = Schema.Struct({Domains: Schema.optional(DomainSummaryList), NextPageMarker: Schema.optional(Schema.String)});
-export const ListPricesResponse = Schema.Struct({Prices: Schema.optional(DomainPriceList), NextPageMarker: Schema.optional(Schema.String)});
-export const RegisterDomainResponse = Schema.Struct({OperationId: Schema.optional(Schema.String)});
+export class DnssecLimitExceeded extends Schema.Class<DnssecLimitExceeded>("DnssecLimitExceeded")({message: Schema.optional(Schema.String)}) {}
+export class ListDomainsResponse extends Schema.Class<ListDomainsResponse>("ListDomainsResponse")({Domains: Schema.optional(DomainSummaryList), NextPageMarker: Schema.optional(Schema.String)}) {}
+export class ListPricesResponse extends Schema.Class<ListPricesResponse>("ListPricesResponse")({Prices: Schema.optional(DomainPriceList), NextPageMarker: Schema.optional(Schema.String)}) {}
+export class RegisterDomainResponse extends Schema.Class<RegisterDomainResponse>("RegisterDomainResponse")({OperationId: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class InvalidInputError extends Schema.TaggedError<InvalidInputError>()("InvalidInput", InvalidInput) {};
-export class OperationLimitExceededError extends Schema.TaggedError<OperationLimitExceededError>()("OperationLimitExceeded", OperationLimitExceeded) {};
-export class UnsupportedTLDError extends Schema.TaggedError<UnsupportedTLDError>()("UnsupportedTLD", UnsupportedTLD) {};
-export class DuplicateRequestError extends Schema.TaggedError<DuplicateRequestError>()("DuplicateRequest", DuplicateRequest) {};
-export class TLDRulesViolationError extends Schema.TaggedError<TLDRulesViolationError>()("TLDRulesViolation", TLDRulesViolation) {};
-export class DomainLimitExceededError extends Schema.TaggedError<DomainLimitExceededError>()("DomainLimitExceeded", DomainLimitExceeded) {};
-export class DnssecLimitExceededError extends Schema.TaggedError<DnssecLimitExceededError>()("DnssecLimitExceeded", DnssecLimitExceeded) {};
+export class InvalidInputError extends Schema.TaggedError<InvalidInputError>()("InvalidInput", InvalidInput.fields) {};
+export class OperationLimitExceededError extends Schema.TaggedError<OperationLimitExceededError>()("OperationLimitExceeded", OperationLimitExceeded.fields) {};
+export class UnsupportedTLDError extends Schema.TaggedError<UnsupportedTLDError>()("UnsupportedTLD", UnsupportedTLD.fields) {};
+export class DuplicateRequestError extends Schema.TaggedError<DuplicateRequestError>()("DuplicateRequest", DuplicateRequest.fields) {};
+export class TLDRulesViolationError extends Schema.TaggedError<TLDRulesViolationError>()("TLDRulesViolation", TLDRulesViolation.fields) {};
+export class DomainLimitExceededError extends Schema.TaggedError<DomainLimitExceededError>()("DomainLimitExceeded", DomainLimitExceeded.fields) {};
+export class DnssecLimitExceededError extends Schema.TaggedError<DnssecLimitExceededError>()("DnssecLimitExceeded", DnssecLimitExceeded.fields) {};
 
 //# Operations
 export const resendOperationAuthorization = /*#__PURE__*/ makeOperation(() => Operation({ version: "2014-05-15", uri: "/", method: "POST", sdkId: "Route 53 Domains", sigV4ServiceName: "route53domains", name: "Route53Domains_v20140515.ResendOperationAuthorization" }, ResendOperationAuthorizationRequest, Schema.Struct({}), [InvalidInputError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

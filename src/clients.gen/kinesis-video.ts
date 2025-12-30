@@ -3,143 +3,150 @@ import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperat
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const Tag = Schema.Struct({Key: Schema.String, Value: Schema.String});
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.String, Value: Schema.String}) {}
 export const TagList = Schema.Array(Tag);
 export const TagKeyList = Schema.Array(Schema.String);
-export const DeleteEdgeConfigurationInput = Schema.Struct({StreamName: Schema.optional(Schema.String), StreamARN: Schema.optional(Schema.String)});
-export const DeleteEdgeConfigurationOutput = Schema.Struct({});
-export const DeleteSignalingChannelInput = Schema.Struct({ChannelARN: Schema.String, CurrentVersion: Schema.optional(Schema.String)});
-export const DeleteSignalingChannelOutput = Schema.Struct({});
-export const DeleteStreamInput = Schema.Struct({StreamARN: Schema.String, CurrentVersion: Schema.optional(Schema.String)});
-export const DeleteStreamOutput = Schema.Struct({});
-export const DescribeEdgeConfigurationInput = Schema.Struct({StreamName: Schema.optional(Schema.String), StreamARN: Schema.optional(Schema.String)});
-export const DescribeImageGenerationConfigurationInput = Schema.Struct({StreamName: Schema.optional(Schema.String), StreamARN: Schema.optional(Schema.String)});
-export const DescribeMappedResourceConfigurationInput = Schema.Struct({StreamName: Schema.optional(Schema.String), StreamARN: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const DescribeMediaStorageConfigurationInput = Schema.Struct({ChannelName: Schema.optional(Schema.String), ChannelARN: Schema.optional(Schema.String)});
-export const DescribeNotificationConfigurationInput = Schema.Struct({StreamName: Schema.optional(Schema.String), StreamARN: Schema.optional(Schema.String)});
-export const DescribeSignalingChannelInput = Schema.Struct({ChannelName: Schema.optional(Schema.String), ChannelARN: Schema.optional(Schema.String)});
-export const DescribeStreamInput = Schema.Struct({StreamName: Schema.optional(Schema.String), StreamARN: Schema.optional(Schema.String)});
-export const GetDataEndpointInput = Schema.Struct({StreamName: Schema.optional(Schema.String), StreamARN: Schema.optional(Schema.String), APIName: Schema.String});
-export const ListEdgeAgentConfigurationsInput = Schema.Struct({HubDeviceArn: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceInput = Schema.Struct({NextToken: Schema.optional(Schema.String), ResourceARN: Schema.String});
-export const ListTagsForStreamInput = Schema.Struct({NextToken: Schema.optional(Schema.String), StreamARN: Schema.optional(Schema.String), StreamName: Schema.optional(Schema.String)});
-export const TagResourceInput = Schema.Struct({ResourceARN: Schema.String, Tags: TagList});
-export const TagResourceOutput = Schema.Struct({});
+export class DeleteEdgeConfigurationInput extends Schema.Class<DeleteEdgeConfigurationInput>("DeleteEdgeConfigurationInput")({StreamName: Schema.optional(Schema.String), StreamARN: Schema.optional(Schema.String)}) {}
+export class DeleteEdgeConfigurationOutput extends Schema.Class<DeleteEdgeConfigurationOutput>("DeleteEdgeConfigurationOutput")({}) {}
+export class DeleteSignalingChannelInput extends Schema.Class<DeleteSignalingChannelInput>("DeleteSignalingChannelInput")({ChannelARN: Schema.String, CurrentVersion: Schema.optional(Schema.String)}) {}
+export class DeleteSignalingChannelOutput extends Schema.Class<DeleteSignalingChannelOutput>("DeleteSignalingChannelOutput")({}) {}
+export class DeleteStreamInput extends Schema.Class<DeleteStreamInput>("DeleteStreamInput")({StreamARN: Schema.String, CurrentVersion: Schema.optional(Schema.String)}) {}
+export class DeleteStreamOutput extends Schema.Class<DeleteStreamOutput>("DeleteStreamOutput")({}) {}
+export class DescribeEdgeConfigurationInput extends Schema.Class<DescribeEdgeConfigurationInput>("DescribeEdgeConfigurationInput")({StreamName: Schema.optional(Schema.String), StreamARN: Schema.optional(Schema.String)}) {}
+export class DescribeImageGenerationConfigurationInput extends Schema.Class<DescribeImageGenerationConfigurationInput>("DescribeImageGenerationConfigurationInput")({StreamName: Schema.optional(Schema.String), StreamARN: Schema.optional(Schema.String)}) {}
+export class DescribeMappedResourceConfigurationInput extends Schema.Class<DescribeMappedResourceConfigurationInput>("DescribeMappedResourceConfigurationInput")({StreamName: Schema.optional(Schema.String), StreamARN: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class DescribeMediaStorageConfigurationInput extends Schema.Class<DescribeMediaStorageConfigurationInput>("DescribeMediaStorageConfigurationInput")({ChannelName: Schema.optional(Schema.String), ChannelARN: Schema.optional(Schema.String)}) {}
+export class DescribeNotificationConfigurationInput extends Schema.Class<DescribeNotificationConfigurationInput>("DescribeNotificationConfigurationInput")({StreamName: Schema.optional(Schema.String), StreamARN: Schema.optional(Schema.String)}) {}
+export class DescribeSignalingChannelInput extends Schema.Class<DescribeSignalingChannelInput>("DescribeSignalingChannelInput")({ChannelName: Schema.optional(Schema.String), ChannelARN: Schema.optional(Schema.String)}) {}
+export class DescribeStreamInput extends Schema.Class<DescribeStreamInput>("DescribeStreamInput")({StreamName: Schema.optional(Schema.String), StreamARN: Schema.optional(Schema.String)}) {}
+export class DescribeStreamStorageConfigurationInput extends Schema.Class<DescribeStreamStorageConfigurationInput>("DescribeStreamStorageConfigurationInput")({StreamName: Schema.optional(Schema.String), StreamARN: Schema.optional(Schema.String)}) {}
+export class GetDataEndpointInput extends Schema.Class<GetDataEndpointInput>("GetDataEndpointInput")({StreamName: Schema.optional(Schema.String), StreamARN: Schema.optional(Schema.String), APIName: Schema.String}) {}
+export class ListEdgeAgentConfigurationsInput extends Schema.Class<ListEdgeAgentConfigurationsInput>("ListEdgeAgentConfigurationsInput")({HubDeviceArn: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceInput extends Schema.Class<ListTagsForResourceInput>("ListTagsForResourceInput")({NextToken: Schema.optional(Schema.String), ResourceARN: Schema.String}) {}
+export class ListTagsForStreamInput extends Schema.Class<ListTagsForStreamInput>("ListTagsForStreamInput")({NextToken: Schema.optional(Schema.String), StreamARN: Schema.optional(Schema.String), StreamName: Schema.optional(Schema.String)}) {}
+export class TagResourceInput extends Schema.Class<TagResourceInput>("TagResourceInput")({ResourceARN: Schema.String, Tags: TagList}) {}
+export class TagResourceOutput extends Schema.Class<TagResourceOutput>("TagResourceOutput")({}) {}
 export const ResourceTags = Schema.Record({key: Schema.String, value: Schema.String});
-export const TagStreamInput = Schema.Struct({StreamARN: Schema.optional(Schema.String), StreamName: Schema.optional(Schema.String), Tags: ResourceTags});
-export const TagStreamOutput = Schema.Struct({});
-export const UntagResourceInput = Schema.Struct({ResourceARN: Schema.String, TagKeyList: TagKeyList});
-export const UntagResourceOutput = Schema.Struct({});
-export const UntagStreamInput = Schema.Struct({StreamARN: Schema.optional(Schema.String), StreamName: Schema.optional(Schema.String), TagKeyList: TagKeyList});
-export const UntagStreamOutput = Schema.Struct({});
-export const UpdateDataRetentionInput = Schema.Struct({StreamName: Schema.optional(Schema.String), StreamARN: Schema.optional(Schema.String), CurrentVersion: Schema.String, Operation: Schema.String, DataRetentionChangeInHours: Schema.Number});
-export const UpdateDataRetentionOutput = Schema.Struct({});
-export const SingleMasterConfiguration = Schema.Struct({MessageTtlSeconds: Schema.optional(Schema.Number)});
-export const UpdateSignalingChannelInput = Schema.Struct({ChannelARN: Schema.String, CurrentVersion: Schema.String, SingleMasterConfiguration: Schema.optional(SingleMasterConfiguration)});
-export const UpdateSignalingChannelOutput = Schema.Struct({});
-export const UpdateStreamInput = Schema.Struct({StreamName: Schema.optional(Schema.String), StreamARN: Schema.optional(Schema.String), CurrentVersion: Schema.String, DeviceName: Schema.optional(Schema.String), MediaType: Schema.optional(Schema.String)});
-export const UpdateStreamOutput = Schema.Struct({});
+export class TagStreamInput extends Schema.Class<TagStreamInput>("TagStreamInput")({StreamARN: Schema.optional(Schema.String), StreamName: Schema.optional(Schema.String), Tags: ResourceTags}) {}
+export class TagStreamOutput extends Schema.Class<TagStreamOutput>("TagStreamOutput")({}) {}
+export class UntagResourceInput extends Schema.Class<UntagResourceInput>("UntagResourceInput")({ResourceARN: Schema.String, TagKeyList: TagKeyList}) {}
+export class UntagResourceOutput extends Schema.Class<UntagResourceOutput>("UntagResourceOutput")({}) {}
+export class UntagStreamInput extends Schema.Class<UntagStreamInput>("UntagStreamInput")({StreamARN: Schema.optional(Schema.String), StreamName: Schema.optional(Schema.String), TagKeyList: TagKeyList}) {}
+export class UntagStreamOutput extends Schema.Class<UntagStreamOutput>("UntagStreamOutput")({}) {}
+export class UpdateDataRetentionInput extends Schema.Class<UpdateDataRetentionInput>("UpdateDataRetentionInput")({StreamName: Schema.optional(Schema.String), StreamARN: Schema.optional(Schema.String), CurrentVersion: Schema.String, Operation: Schema.String, DataRetentionChangeInHours: Schema.Number}) {}
+export class UpdateDataRetentionOutput extends Schema.Class<UpdateDataRetentionOutput>("UpdateDataRetentionOutput")({}) {}
+export class SingleMasterConfiguration extends Schema.Class<SingleMasterConfiguration>("SingleMasterConfiguration")({MessageTtlSeconds: Schema.optional(Schema.Number)}) {}
+export class UpdateSignalingChannelInput extends Schema.Class<UpdateSignalingChannelInput>("UpdateSignalingChannelInput")({ChannelARN: Schema.String, CurrentVersion: Schema.String, SingleMasterConfiguration: Schema.optional(SingleMasterConfiguration)}) {}
+export class UpdateSignalingChannelOutput extends Schema.Class<UpdateSignalingChannelOutput>("UpdateSignalingChannelOutput")({}) {}
+export class UpdateStreamInput extends Schema.Class<UpdateStreamInput>("UpdateStreamInput")({StreamName: Schema.optional(Schema.String), StreamARN: Schema.optional(Schema.String), CurrentVersion: Schema.String, DeviceName: Schema.optional(Schema.String), MediaType: Schema.optional(Schema.String)}) {}
+export class UpdateStreamOutput extends Schema.Class<UpdateStreamOutput>("UpdateStreamOutput")({}) {}
+export class StreamStorageConfiguration extends Schema.Class<StreamStorageConfiguration>("StreamStorageConfiguration")({DefaultStorageTier: Schema.String}) {}
+export class UpdateStreamStorageConfigurationInput extends Schema.Class<UpdateStreamStorageConfigurationInput>("UpdateStreamStorageConfigurationInput")({StreamName: Schema.optional(Schema.String), StreamARN: Schema.optional(Schema.String), CurrentVersion: Schema.String, StreamStorageConfiguration: StreamStorageConfiguration}) {}
+export class UpdateStreamStorageConfigurationOutput extends Schema.Class<UpdateStreamStorageConfigurationOutput>("UpdateStreamStorageConfigurationOutput")({}) {}
 export const ListOfProtocols = Schema.Array(Schema.String);
 export const TagOnCreateList = Schema.Array(Tag);
-export const SingleMasterChannelEndpointConfiguration = Schema.Struct({Protocols: Schema.optional(ListOfProtocols), Role: Schema.optional(Schema.String)});
-export const ChannelNameCondition = Schema.Struct({ComparisonOperator: Schema.optional(Schema.String), ComparisonValue: Schema.optional(Schema.String)});
-export const StreamNameCondition = Schema.Struct({ComparisonOperator: Schema.optional(Schema.String), ComparisonValue: Schema.optional(Schema.String)});
-export const MediaStorageConfiguration = Schema.Struct({StreamARN: Schema.optional(Schema.String), Status: Schema.String});
-export const CreateSignalingChannelInput = Schema.Struct({ChannelName: Schema.String, ChannelType: Schema.optional(Schema.String), SingleMasterConfiguration: Schema.optional(SingleMasterConfiguration), Tags: Schema.optional(TagOnCreateList)});
-export const CreateStreamInput = Schema.Struct({DeviceName: Schema.optional(Schema.String), StreamName: Schema.String, MediaType: Schema.optional(Schema.String), KmsKeyId: Schema.optional(Schema.String), DataRetentionInHours: Schema.optional(Schema.Number), Tags: Schema.optional(ResourceTags)});
-export const AccessDeniedException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ClientLimitExceededException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const InvalidArgumentException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ImageGenerationDestinationConfig = Schema.Struct({Uri: Schema.String, DestinationRegion: Schema.String});
+export class SingleMasterChannelEndpointConfiguration extends Schema.Class<SingleMasterChannelEndpointConfiguration>("SingleMasterChannelEndpointConfiguration")({Protocols: Schema.optional(ListOfProtocols), Role: Schema.optional(Schema.String)}) {}
+export class ChannelNameCondition extends Schema.Class<ChannelNameCondition>("ChannelNameCondition")({ComparisonOperator: Schema.optional(Schema.String), ComparisonValue: Schema.optional(Schema.String)}) {}
+export class StreamNameCondition extends Schema.Class<StreamNameCondition>("StreamNameCondition")({ComparisonOperator: Schema.optional(Schema.String), ComparisonValue: Schema.optional(Schema.String)}) {}
+export class MediaStorageConfiguration extends Schema.Class<MediaStorageConfiguration>("MediaStorageConfiguration")({StreamARN: Schema.optional(Schema.String), Status: Schema.String}) {}
+export class CreateSignalingChannelInput extends Schema.Class<CreateSignalingChannelInput>("CreateSignalingChannelInput")({ChannelName: Schema.String, ChannelType: Schema.optional(Schema.String), SingleMasterConfiguration: Schema.optional(SingleMasterConfiguration), Tags: Schema.optional(TagOnCreateList)}) {}
+export class CreateStreamInput extends Schema.Class<CreateStreamInput>("CreateStreamInput")({DeviceName: Schema.optional(Schema.String), StreamName: Schema.String, MediaType: Schema.optional(Schema.String), KmsKeyId: Schema.optional(Schema.String), DataRetentionInHours: Schema.optional(Schema.Number), Tags: Schema.optional(ResourceTags), StreamStorageConfiguration: Schema.optional(StreamStorageConfiguration)}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({Message: Schema.optional(Schema.String)}) {}
+export class ClientLimitExceededException extends Schema.Class<ClientLimitExceededException>("ClientLimitExceededException")({Message: Schema.optional(Schema.String)}) {}
+export class InvalidArgumentException extends Schema.Class<InvalidArgumentException>("InvalidArgumentException")({Message: Schema.optional(Schema.String)}) {}
+export class ImageGenerationDestinationConfig extends Schema.Class<ImageGenerationDestinationConfig>("ImageGenerationDestinationConfig")({Uri: Schema.String, DestinationRegion: Schema.String}) {}
 export const FormatConfig = Schema.Record({key: Schema.String, value: Schema.String});
-export const ImageGenerationConfiguration = Schema.Struct({Status: Schema.String, ImageSelectorType: Schema.String, DestinationConfig: ImageGenerationDestinationConfig, SamplingInterval: Schema.Number, Format: Schema.String, FormatConfig: Schema.optional(FormatConfig), WidthPixels: Schema.optional(Schema.Number), HeightPixels: Schema.optional(Schema.Number)});
-export const DescribeImageGenerationConfigurationOutput = Schema.Struct({ImageGenerationConfiguration: Schema.optional(ImageGenerationConfiguration)});
-export const DescribeMediaStorageConfigurationOutput = Schema.Struct({MediaStorageConfiguration: Schema.optional(MediaStorageConfiguration)});
-export const NotificationDestinationConfig = Schema.Struct({Uri: Schema.String});
-export const NotificationConfiguration = Schema.Struct({Status: Schema.String, DestinationConfig: NotificationDestinationConfig});
-export const DescribeNotificationConfigurationOutput = Schema.Struct({NotificationConfiguration: Schema.optional(NotificationConfiguration)});
-export const GetDataEndpointOutput = Schema.Struct({DataEndpoint: Schema.optional(Schema.String)});
-export const GetSignalingChannelEndpointInput = Schema.Struct({ChannelARN: Schema.String, SingleMasterChannelEndpointConfiguration: Schema.optional(SingleMasterChannelEndpointConfiguration)});
-export const ListSignalingChannelsInput = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), ChannelNameCondition: Schema.optional(ChannelNameCondition)});
-export const ListStreamsInput = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), StreamNameCondition: Schema.optional(StreamNameCondition)});
-export const ListTagsForResourceOutput = Schema.Struct({NextToken: Schema.optional(Schema.String), Tags: Schema.optional(ResourceTags)});
-export const ListTagsForStreamOutput = Schema.Struct({NextToken: Schema.optional(Schema.String), Tags: Schema.optional(ResourceTags)});
-export const ResourceNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const InvalidResourceFormatException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const NotAuthorizedException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ResourceInUseException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const UpdateMediaStorageConfigurationInput = Schema.Struct({ChannelARN: Schema.String, MediaStorageConfiguration: MediaStorageConfiguration});
-export const UpdateMediaStorageConfigurationOutput = Schema.Struct({});
-export const VersionMismatchException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ScheduleConfig = Schema.Struct({ScheduleExpression: Schema.String, DurationInSeconds: Schema.Number});
-export const UploaderConfig = Schema.Struct({ScheduleConfig: ScheduleConfig});
-export const MappedResourceConfigurationListItem = Schema.Struct({Type: Schema.optional(Schema.String), ARN: Schema.optional(Schema.String)});
+export class ImageGenerationConfiguration extends Schema.Class<ImageGenerationConfiguration>("ImageGenerationConfiguration")({Status: Schema.String, ImageSelectorType: Schema.String, DestinationConfig: ImageGenerationDestinationConfig, SamplingInterval: Schema.Number, Format: Schema.String, FormatConfig: Schema.optional(FormatConfig), WidthPixels: Schema.optional(Schema.Number), HeightPixels: Schema.optional(Schema.Number)}) {}
+export class DescribeImageGenerationConfigurationOutput extends Schema.Class<DescribeImageGenerationConfigurationOutput>("DescribeImageGenerationConfigurationOutput")({ImageGenerationConfiguration: Schema.optional(ImageGenerationConfiguration)}) {}
+export class DescribeMediaStorageConfigurationOutput extends Schema.Class<DescribeMediaStorageConfigurationOutput>("DescribeMediaStorageConfigurationOutput")({MediaStorageConfiguration: Schema.optional(MediaStorageConfiguration)}) {}
+export class NotificationDestinationConfig extends Schema.Class<NotificationDestinationConfig>("NotificationDestinationConfig")({Uri: Schema.String}) {}
+export class NotificationConfiguration extends Schema.Class<NotificationConfiguration>("NotificationConfiguration")({Status: Schema.String, DestinationConfig: NotificationDestinationConfig}) {}
+export class DescribeNotificationConfigurationOutput extends Schema.Class<DescribeNotificationConfigurationOutput>("DescribeNotificationConfigurationOutput")({NotificationConfiguration: Schema.optional(NotificationConfiguration)}) {}
+export class DescribeStreamStorageConfigurationOutput extends Schema.Class<DescribeStreamStorageConfigurationOutput>("DescribeStreamStorageConfigurationOutput")({StreamName: Schema.optional(Schema.String), StreamARN: Schema.optional(Schema.String), StreamStorageConfiguration: Schema.optional(StreamStorageConfiguration)}) {}
+export class GetDataEndpointOutput extends Schema.Class<GetDataEndpointOutput>("GetDataEndpointOutput")({DataEndpoint: Schema.optional(Schema.String)}) {}
+export class GetSignalingChannelEndpointInput extends Schema.Class<GetSignalingChannelEndpointInput>("GetSignalingChannelEndpointInput")({ChannelARN: Schema.String, SingleMasterChannelEndpointConfiguration: Schema.optional(SingleMasterChannelEndpointConfiguration)}) {}
+export class ListSignalingChannelsInput extends Schema.Class<ListSignalingChannelsInput>("ListSignalingChannelsInput")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), ChannelNameCondition: Schema.optional(ChannelNameCondition)}) {}
+export class ListStreamsInput extends Schema.Class<ListStreamsInput>("ListStreamsInput")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), StreamNameCondition: Schema.optional(StreamNameCondition)}) {}
+export class ListTagsForResourceOutput extends Schema.Class<ListTagsForResourceOutput>("ListTagsForResourceOutput")({NextToken: Schema.optional(Schema.String), Tags: Schema.optional(ResourceTags)}) {}
+export class ListTagsForStreamOutput extends Schema.Class<ListTagsForStreamOutput>("ListTagsForStreamOutput")({NextToken: Schema.optional(Schema.String), Tags: Schema.optional(ResourceTags)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class InvalidResourceFormatException extends Schema.Class<InvalidResourceFormatException>("InvalidResourceFormatException")({Message: Schema.optional(Schema.String)}) {}
+export class NotAuthorizedException extends Schema.Class<NotAuthorizedException>("NotAuthorizedException")({Message: Schema.optional(Schema.String)}) {}
+export class ResourceInUseException extends Schema.Class<ResourceInUseException>("ResourceInUseException")({Message: Schema.optional(Schema.String)}) {}
+export class UpdateMediaStorageConfigurationInput extends Schema.Class<UpdateMediaStorageConfigurationInput>("UpdateMediaStorageConfigurationInput")({ChannelARN: Schema.String, MediaStorageConfiguration: MediaStorageConfiguration}) {}
+export class UpdateMediaStorageConfigurationOutput extends Schema.Class<UpdateMediaStorageConfigurationOutput>("UpdateMediaStorageConfigurationOutput")({}) {}
+export class VersionMismatchException extends Schema.Class<VersionMismatchException>("VersionMismatchException")({Message: Schema.optional(Schema.String)}) {}
+export class ScheduleConfig extends Schema.Class<ScheduleConfig>("ScheduleConfig")({ScheduleExpression: Schema.String, DurationInSeconds: Schema.Number}) {}
+export class UploaderConfig extends Schema.Class<UploaderConfig>("UploaderConfig")({ScheduleConfig: ScheduleConfig}) {}
+export class MappedResourceConfigurationListItem extends Schema.Class<MappedResourceConfigurationListItem>("MappedResourceConfigurationListItem")({Type: Schema.optional(Schema.String), ARN: Schema.optional(Schema.String)}) {}
 export const MappedResourceConfigurationList = Schema.Array(MappedResourceConfigurationListItem);
-export const ChannelInfo = Schema.Struct({ChannelName: Schema.optional(Schema.String), ChannelARN: Schema.optional(Schema.String), ChannelType: Schema.optional(Schema.String), ChannelStatus: Schema.optional(Schema.String), CreationTime: Schema.optional(Schema.Date), SingleMasterConfiguration: Schema.optional(SingleMasterConfiguration), Version: Schema.optional(Schema.String)});
-export const StreamInfo = Schema.Struct({DeviceName: Schema.optional(Schema.String), StreamName: Schema.optional(Schema.String), StreamARN: Schema.optional(Schema.String), MediaType: Schema.optional(Schema.String), KmsKeyId: Schema.optional(Schema.String), Version: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), CreationTime: Schema.optional(Schema.Date), DataRetentionInHours: Schema.optional(Schema.Number)});
-export const MediaSourceConfig = Schema.Struct({MediaUriSecretArn: Schema.String, MediaUriType: Schema.String});
-export const RecorderConfig = Schema.Struct({MediaSourceConfig: MediaSourceConfig, ScheduleConfig: Schema.optional(ScheduleConfig)});
-export const LocalSizeConfig = Schema.Struct({MaxLocalMediaSizeInMB: Schema.optional(Schema.Number), StrategyOnFullSize: Schema.optional(Schema.String)});
-export const DeletionConfig = Schema.Struct({EdgeRetentionInHours: Schema.optional(Schema.Number), LocalSizeConfig: Schema.optional(LocalSizeConfig), DeleteAfterUpload: Schema.optional(Schema.Boolean)});
-export const EdgeConfig = Schema.Struct({HubDeviceArn: Schema.String, RecorderConfig: RecorderConfig, UploaderConfig: Schema.optional(UploaderConfig), DeletionConfig: Schema.optional(DeletionConfig)});
-export const ListEdgeAgentConfigurationsEdgeConfig = Schema.Struct({StreamName: Schema.optional(Schema.String), StreamARN: Schema.optional(Schema.String), CreationTime: Schema.optional(Schema.Date), LastUpdatedTime: Schema.optional(Schema.Date), SyncStatus: Schema.optional(Schema.String), FailedStatusDetails: Schema.optional(Schema.String), EdgeConfig: Schema.optional(EdgeConfig)});
+export class ChannelInfo extends Schema.Class<ChannelInfo>("ChannelInfo")({ChannelName: Schema.optional(Schema.String), ChannelARN: Schema.optional(Schema.String), ChannelType: Schema.optional(Schema.String), ChannelStatus: Schema.optional(Schema.String), CreationTime: Schema.optional(Schema.Date), SingleMasterConfiguration: Schema.optional(SingleMasterConfiguration), Version: Schema.optional(Schema.String)}) {}
+export class StreamInfo extends Schema.Class<StreamInfo>("StreamInfo")({DeviceName: Schema.optional(Schema.String), StreamName: Schema.optional(Schema.String), StreamARN: Schema.optional(Schema.String), MediaType: Schema.optional(Schema.String), KmsKeyId: Schema.optional(Schema.String), Version: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), CreationTime: Schema.optional(Schema.Date), DataRetentionInHours: Schema.optional(Schema.Number)}) {}
+export class MediaSourceConfig extends Schema.Class<MediaSourceConfig>("MediaSourceConfig")({MediaUriSecretArn: Schema.String, MediaUriType: Schema.String}) {}
+export class RecorderConfig extends Schema.Class<RecorderConfig>("RecorderConfig")({MediaSourceConfig: MediaSourceConfig, ScheduleConfig: Schema.optional(ScheduleConfig)}) {}
+export class LocalSizeConfig extends Schema.Class<LocalSizeConfig>("LocalSizeConfig")({MaxLocalMediaSizeInMB: Schema.optional(Schema.Number), StrategyOnFullSize: Schema.optional(Schema.String)}) {}
+export class DeletionConfig extends Schema.Class<DeletionConfig>("DeletionConfig")({EdgeRetentionInHours: Schema.optional(Schema.Number), LocalSizeConfig: Schema.optional(LocalSizeConfig), DeleteAfterUpload: Schema.optional(Schema.Boolean)}) {}
+export class EdgeConfig extends Schema.Class<EdgeConfig>("EdgeConfig")({HubDeviceArn: Schema.String, RecorderConfig: RecorderConfig, UploaderConfig: Schema.optional(UploaderConfig), DeletionConfig: Schema.optional(DeletionConfig)}) {}
+export class ListEdgeAgentConfigurationsEdgeConfig extends Schema.Class<ListEdgeAgentConfigurationsEdgeConfig>("ListEdgeAgentConfigurationsEdgeConfig")({StreamName: Schema.optional(Schema.String), StreamARN: Schema.optional(Schema.String), CreationTime: Schema.optional(Schema.Date), LastUpdatedTime: Schema.optional(Schema.Date), SyncStatus: Schema.optional(Schema.String), FailedStatusDetails: Schema.optional(Schema.String), EdgeConfig: Schema.optional(EdgeConfig)}) {}
 export const ListEdgeAgentConfigurationsEdgeConfigList = Schema.Array(ListEdgeAgentConfigurationsEdgeConfig);
 export const ChannelInfoList = Schema.Array(ChannelInfo);
 export const StreamInfoList = Schema.Array(StreamInfo);
-export const CreateSignalingChannelOutput = Schema.Struct({ChannelARN: Schema.optional(Schema.String)});
-export const CreateStreamOutput = Schema.Struct({StreamARN: Schema.optional(Schema.String)});
-export const StreamEdgeConfigurationNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DescribeMappedResourceConfigurationOutput = Schema.Struct({MappedResourceConfigurationList: Schema.optional(MappedResourceConfigurationList), NextToken: Schema.optional(Schema.String)});
-export const DescribeSignalingChannelOutput = Schema.Struct({ChannelInfo: Schema.optional(ChannelInfo)});
-export const DescribeStreamOutput = Schema.Struct({StreamInfo: Schema.optional(StreamInfo)});
-export const ListEdgeAgentConfigurationsOutput = Schema.Struct({EdgeConfigs: Schema.optional(ListEdgeAgentConfigurationsEdgeConfigList), NextToken: Schema.optional(Schema.String)});
-export const ListSignalingChannelsOutput = Schema.Struct({ChannelInfoList: Schema.optional(ChannelInfoList), NextToken: Schema.optional(Schema.String)});
-export const ListStreamsOutput = Schema.Struct({StreamInfoList: Schema.optional(StreamInfoList), NextToken: Schema.optional(Schema.String)});
-export const TagsPerResourceExceededLimitException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const UpdateImageGenerationConfigurationInput = Schema.Struct({StreamName: Schema.optional(Schema.String), StreamARN: Schema.optional(Schema.String), ImageGenerationConfiguration: Schema.optional(ImageGenerationConfiguration)});
-export const UpdateImageGenerationConfigurationOutput = Schema.Struct({});
-export const NoDataRetentionException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const UpdateNotificationConfigurationInput = Schema.Struct({StreamName: Schema.optional(Schema.String), StreamARN: Schema.optional(Schema.String), NotificationConfiguration: Schema.optional(NotificationConfiguration)});
-export const UpdateNotificationConfigurationOutput = Schema.Struct({});
-export const LastRecorderStatus = Schema.Struct({JobStatusDetails: Schema.optional(Schema.String), LastCollectedTime: Schema.optional(Schema.Date), LastUpdatedTime: Schema.optional(Schema.Date), RecorderStatus: Schema.optional(Schema.String)});
-export const LastUploaderStatus = Schema.Struct({JobStatusDetails: Schema.optional(Schema.String), LastCollectedTime: Schema.optional(Schema.Date), LastUpdatedTime: Schema.optional(Schema.Date), UploaderStatus: Schema.optional(Schema.String)});
-export const EdgeAgentStatus = Schema.Struct({LastRecorderStatus: Schema.optional(LastRecorderStatus), LastUploaderStatus: Schema.optional(LastUploaderStatus)});
-export const ResourceEndpointListItem = Schema.Struct({Protocol: Schema.optional(Schema.String), ResourceEndpoint: Schema.optional(Schema.String)});
+export class CreateSignalingChannelOutput extends Schema.Class<CreateSignalingChannelOutput>("CreateSignalingChannelOutput")({ChannelARN: Schema.optional(Schema.String)}) {}
+export class CreateStreamOutput extends Schema.Class<CreateStreamOutput>("CreateStreamOutput")({StreamARN: Schema.optional(Schema.String)}) {}
+export class StreamEdgeConfigurationNotFoundException extends Schema.Class<StreamEdgeConfigurationNotFoundException>("StreamEdgeConfigurationNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class DescribeMappedResourceConfigurationOutput extends Schema.Class<DescribeMappedResourceConfigurationOutput>("DescribeMappedResourceConfigurationOutput")({MappedResourceConfigurationList: Schema.optional(MappedResourceConfigurationList), NextToken: Schema.optional(Schema.String)}) {}
+export class DescribeSignalingChannelOutput extends Schema.Class<DescribeSignalingChannelOutput>("DescribeSignalingChannelOutput")({ChannelInfo: Schema.optional(ChannelInfo)}) {}
+export class DescribeStreamOutput extends Schema.Class<DescribeStreamOutput>("DescribeStreamOutput")({StreamInfo: Schema.optional(StreamInfo)}) {}
+export class ListEdgeAgentConfigurationsOutput extends Schema.Class<ListEdgeAgentConfigurationsOutput>("ListEdgeAgentConfigurationsOutput")({EdgeConfigs: Schema.optional(ListEdgeAgentConfigurationsEdgeConfigList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListSignalingChannelsOutput extends Schema.Class<ListSignalingChannelsOutput>("ListSignalingChannelsOutput")({ChannelInfoList: Schema.optional(ChannelInfoList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListStreamsOutput extends Schema.Class<ListStreamsOutput>("ListStreamsOutput")({StreamInfoList: Schema.optional(StreamInfoList), NextToken: Schema.optional(Schema.String)}) {}
+export class TagsPerResourceExceededLimitException extends Schema.Class<TagsPerResourceExceededLimitException>("TagsPerResourceExceededLimitException")({Message: Schema.optional(Schema.String)}) {}
+export class UpdateImageGenerationConfigurationInput extends Schema.Class<UpdateImageGenerationConfigurationInput>("UpdateImageGenerationConfigurationInput")({StreamName: Schema.optional(Schema.String), StreamARN: Schema.optional(Schema.String), ImageGenerationConfiguration: Schema.optional(ImageGenerationConfiguration)}) {}
+export class UpdateImageGenerationConfigurationOutput extends Schema.Class<UpdateImageGenerationConfigurationOutput>("UpdateImageGenerationConfigurationOutput")({}) {}
+export class NoDataRetentionException extends Schema.Class<NoDataRetentionException>("NoDataRetentionException")({Message: Schema.optional(Schema.String)}) {}
+export class UpdateNotificationConfigurationInput extends Schema.Class<UpdateNotificationConfigurationInput>("UpdateNotificationConfigurationInput")({StreamName: Schema.optional(Schema.String), StreamARN: Schema.optional(Schema.String), NotificationConfiguration: Schema.optional(NotificationConfiguration)}) {}
+export class UpdateNotificationConfigurationOutput extends Schema.Class<UpdateNotificationConfigurationOutput>("UpdateNotificationConfigurationOutput")({}) {}
+export class LastRecorderStatus extends Schema.Class<LastRecorderStatus>("LastRecorderStatus")({JobStatusDetails: Schema.optional(Schema.String), LastCollectedTime: Schema.optional(Schema.Date), LastUpdatedTime: Schema.optional(Schema.Date), RecorderStatus: Schema.optional(Schema.String)}) {}
+export class LastUploaderStatus extends Schema.Class<LastUploaderStatus>("LastUploaderStatus")({JobStatusDetails: Schema.optional(Schema.String), LastCollectedTime: Schema.optional(Schema.Date), LastUpdatedTime: Schema.optional(Schema.Date), UploaderStatus: Schema.optional(Schema.String)}) {}
+export class EdgeAgentStatus extends Schema.Class<EdgeAgentStatus>("EdgeAgentStatus")({LastRecorderStatus: Schema.optional(LastRecorderStatus), LastUploaderStatus: Schema.optional(LastUploaderStatus)}) {}
+export class ResourceEndpointListItem extends Schema.Class<ResourceEndpointListItem>("ResourceEndpointListItem")({Protocol: Schema.optional(Schema.String), ResourceEndpoint: Schema.optional(Schema.String)}) {}
 export const ResourceEndpointList = Schema.Array(ResourceEndpointListItem);
-export const AccountChannelLimitExceededException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const AccountStreamLimitExceededException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DescribeEdgeConfigurationOutput = Schema.Struct({StreamName: Schema.optional(Schema.String), StreamARN: Schema.optional(Schema.String), CreationTime: Schema.optional(Schema.Date), LastUpdatedTime: Schema.optional(Schema.Date), SyncStatus: Schema.optional(Schema.String), FailedStatusDetails: Schema.optional(Schema.String), EdgeConfig: Schema.optional(EdgeConfig), EdgeAgentStatus: Schema.optional(EdgeAgentStatus)});
-export const GetSignalingChannelEndpointOutput = Schema.Struct({ResourceEndpointList: Schema.optional(ResourceEndpointList)});
-export const StartEdgeConfigurationUpdateInput = Schema.Struct({StreamName: Schema.optional(Schema.String), StreamARN: Schema.optional(Schema.String), EdgeConfig: EdgeConfig});
-export const DeviceStreamLimitExceededException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const StartEdgeConfigurationUpdateOutput = Schema.Struct({StreamName: Schema.optional(Schema.String), StreamARN: Schema.optional(Schema.String), CreationTime: Schema.optional(Schema.Date), LastUpdatedTime: Schema.optional(Schema.Date), SyncStatus: Schema.optional(Schema.String), FailedStatusDetails: Schema.optional(Schema.String), EdgeConfig: Schema.optional(EdgeConfig)});
-export const InvalidDeviceException = Schema.Struct({Message: Schema.optional(Schema.String)});
+export class AccountChannelLimitExceededException extends Schema.Class<AccountChannelLimitExceededException>("AccountChannelLimitExceededException")({Message: Schema.optional(Schema.String)}) {}
+export class AccountStreamLimitExceededException extends Schema.Class<AccountStreamLimitExceededException>("AccountStreamLimitExceededException")({Message: Schema.optional(Schema.String)}) {}
+export class DescribeEdgeConfigurationOutput extends Schema.Class<DescribeEdgeConfigurationOutput>("DescribeEdgeConfigurationOutput")({StreamName: Schema.optional(Schema.String), StreamARN: Schema.optional(Schema.String), CreationTime: Schema.optional(Schema.Date), LastUpdatedTime: Schema.optional(Schema.Date), SyncStatus: Schema.optional(Schema.String), FailedStatusDetails: Schema.optional(Schema.String), EdgeConfig: Schema.optional(EdgeConfig), EdgeAgentStatus: Schema.optional(EdgeAgentStatus)}) {}
+export class GetSignalingChannelEndpointOutput extends Schema.Class<GetSignalingChannelEndpointOutput>("GetSignalingChannelEndpointOutput")({ResourceEndpointList: Schema.optional(ResourceEndpointList)}) {}
+export class StartEdgeConfigurationUpdateInput extends Schema.Class<StartEdgeConfigurationUpdateInput>("StartEdgeConfigurationUpdateInput")({StreamName: Schema.optional(Schema.String), StreamARN: Schema.optional(Schema.String), EdgeConfig: EdgeConfig}) {}
+export class DeviceStreamLimitExceededException extends Schema.Class<DeviceStreamLimitExceededException>("DeviceStreamLimitExceededException")({Message: Schema.optional(Schema.String)}) {}
+export class StartEdgeConfigurationUpdateOutput extends Schema.Class<StartEdgeConfigurationUpdateOutput>("StartEdgeConfigurationUpdateOutput")({StreamName: Schema.optional(Schema.String), StreamARN: Schema.optional(Schema.String), CreationTime: Schema.optional(Schema.Date), LastUpdatedTime: Schema.optional(Schema.Date), SyncStatus: Schema.optional(Schema.String), FailedStatusDetails: Schema.optional(Schema.String), EdgeConfig: Schema.optional(EdgeConfig)}) {}
+export class InvalidDeviceException extends Schema.Class<InvalidDeviceException>("InvalidDeviceException")({Message: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class ClientLimitExceededExceptionError extends Schema.TaggedError<ClientLimitExceededExceptionError>()("ClientLimitExceededException", ClientLimitExceededException) {};
-export class InvalidArgumentExceptionError extends Schema.TaggedError<InvalidArgumentExceptionError>()("InvalidArgumentException", InvalidArgumentException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class InvalidResourceFormatExceptionError extends Schema.TaggedError<InvalidResourceFormatExceptionError>()("InvalidResourceFormatException", InvalidResourceFormatException) {};
-export class NotAuthorizedExceptionError extends Schema.TaggedError<NotAuthorizedExceptionError>()("NotAuthorizedException", NotAuthorizedException) {};
-export class ResourceInUseExceptionError extends Schema.TaggedError<ResourceInUseExceptionError>()("ResourceInUseException", ResourceInUseException) {};
-export class VersionMismatchExceptionError extends Schema.TaggedError<VersionMismatchExceptionError>()("VersionMismatchException", VersionMismatchException) {};
-export class TagsPerResourceExceededLimitExceptionError extends Schema.TaggedError<TagsPerResourceExceededLimitExceptionError>()("TagsPerResourceExceededLimitException", TagsPerResourceExceededLimitException) {};
-export class StreamEdgeConfigurationNotFoundExceptionError extends Schema.TaggedError<StreamEdgeConfigurationNotFoundExceptionError>()("StreamEdgeConfigurationNotFoundException", StreamEdgeConfigurationNotFoundException) {};
-export class NoDataRetentionExceptionError extends Schema.TaggedError<NoDataRetentionExceptionError>()("NoDataRetentionException", NoDataRetentionException) {};
-export class AccountChannelLimitExceededExceptionError extends Schema.TaggedError<AccountChannelLimitExceededExceptionError>()("AccountChannelLimitExceededException", AccountChannelLimitExceededException) {};
-export class AccountStreamLimitExceededExceptionError extends Schema.TaggedError<AccountStreamLimitExceededExceptionError>()("AccountStreamLimitExceededException", AccountStreamLimitExceededException) {};
-export class DeviceStreamLimitExceededExceptionError extends Schema.TaggedError<DeviceStreamLimitExceededExceptionError>()("DeviceStreamLimitExceededException", DeviceStreamLimitExceededException) {};
-export class InvalidDeviceExceptionError extends Schema.TaggedError<InvalidDeviceExceptionError>()("InvalidDeviceException", InvalidDeviceException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class ClientLimitExceededExceptionError extends Schema.TaggedError<ClientLimitExceededExceptionError>()("ClientLimitExceededException", ClientLimitExceededException.fields) {};
+export class InvalidArgumentExceptionError extends Schema.TaggedError<InvalidArgumentExceptionError>()("InvalidArgumentException", InvalidArgumentException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class InvalidResourceFormatExceptionError extends Schema.TaggedError<InvalidResourceFormatExceptionError>()("InvalidResourceFormatException", InvalidResourceFormatException.fields) {};
+export class NotAuthorizedExceptionError extends Schema.TaggedError<NotAuthorizedExceptionError>()("NotAuthorizedException", NotAuthorizedException.fields) {};
+export class ResourceInUseExceptionError extends Schema.TaggedError<ResourceInUseExceptionError>()("ResourceInUseException", ResourceInUseException.fields) {};
+export class VersionMismatchExceptionError extends Schema.TaggedError<VersionMismatchExceptionError>()("VersionMismatchException", VersionMismatchException.fields) {};
+export class TagsPerResourceExceededLimitExceptionError extends Schema.TaggedError<TagsPerResourceExceededLimitExceptionError>()("TagsPerResourceExceededLimitException", TagsPerResourceExceededLimitException.fields) {};
+export class StreamEdgeConfigurationNotFoundExceptionError extends Schema.TaggedError<StreamEdgeConfigurationNotFoundExceptionError>()("StreamEdgeConfigurationNotFoundException", StreamEdgeConfigurationNotFoundException.fields) {};
+export class NoDataRetentionExceptionError extends Schema.TaggedError<NoDataRetentionExceptionError>()("NoDataRetentionException", NoDataRetentionException.fields) {};
+export class AccountChannelLimitExceededExceptionError extends Schema.TaggedError<AccountChannelLimitExceededExceptionError>()("AccountChannelLimitExceededException", AccountChannelLimitExceededException.fields) {};
+export class AccountStreamLimitExceededExceptionError extends Schema.TaggedError<AccountStreamLimitExceededExceptionError>()("AccountStreamLimitExceededException", AccountStreamLimitExceededException.fields) {};
+export class DeviceStreamLimitExceededExceptionError extends Schema.TaggedError<DeviceStreamLimitExceededExceptionError>()("DeviceStreamLimitExceededException", DeviceStreamLimitExceededException.fields) {};
+export class InvalidDeviceExceptionError extends Schema.TaggedError<InvalidDeviceExceptionError>()("InvalidDeviceException", InvalidDeviceException.fields) {};
 
 //# Operations
 export const untagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-09-30", uri: "/UntagResource", method: "POST", sdkId: "Kinesis Video", sigV4ServiceName: "kinesisvideo", name: "KinesisVideo_20170930.UntagResource" }, UntagResourceInput, UntagResourceOutput, [AccessDeniedExceptionError, ClientLimitExceededExceptionError, InvalidArgumentExceptionError, ResourceNotFoundExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 export const updateStream = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-09-30", uri: "/updateStream", method: "POST", sdkId: "Kinesis Video", sigV4ServiceName: "kinesisvideo", name: "KinesisVideo_20170930.UpdateStream" }, UpdateStreamInput, UpdateStreamOutput, [ClientLimitExceededExceptionError, InvalidArgumentExceptionError, NotAuthorizedExceptionError, ResourceInUseExceptionError, ResourceNotFoundExceptionError, VersionMismatchExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const updateStreamStorageConfiguration = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-09-30", uri: "/updateStreamStorageConfiguration", method: "POST", sdkId: "Kinesis Video", sigV4ServiceName: "kinesisvideo", name: "KinesisVideo_20170930.UpdateStreamStorageConfiguration" }, UpdateStreamStorageConfigurationInput, UpdateStreamStorageConfigurationOutput, [AccessDeniedExceptionError, ClientLimitExceededExceptionError, InvalidArgumentExceptionError, ResourceInUseExceptionError, ResourceNotFoundExceptionError, VersionMismatchExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 export const deleteSignalingChannel = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-09-30", uri: "/deleteSignalingChannel", method: "POST", sdkId: "Kinesis Video", sigV4ServiceName: "kinesisvideo", name: "KinesisVideo_20170930.DeleteSignalingChannel" }, DeleteSignalingChannelInput, DeleteSignalingChannelOutput, [AccessDeniedExceptionError, ClientLimitExceededExceptionError, InvalidArgumentExceptionError, ResourceInUseExceptionError, ResourceNotFoundExceptionError, VersionMismatchExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 export const deleteStream = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-09-30", uri: "/deleteStream", method: "POST", sdkId: "Kinesis Video", sigV4ServiceName: "kinesisvideo", name: "KinesisVideo_20170930.DeleteStream" }, DeleteStreamInput, DeleteStreamOutput, [ClientLimitExceededExceptionError, InvalidArgumentExceptionError, NotAuthorizedExceptionError, ResourceInUseExceptionError, ResourceNotFoundExceptionError, VersionMismatchExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 export const describeImageGenerationConfiguration = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-09-30", uri: "/describeImageGenerationConfiguration", method: "POST", sdkId: "Kinesis Video", sigV4ServiceName: "kinesisvideo", name: "KinesisVideo_20170930.DescribeImageGenerationConfiguration" }, DescribeImageGenerationConfigurationInput, DescribeImageGenerationConfigurationOutput, [AccessDeniedExceptionError, ClientLimitExceededExceptionError, InvalidArgumentExceptionError, ResourceNotFoundExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 export const describeMediaStorageConfiguration = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-09-30", uri: "/describeMediaStorageConfiguration", method: "POST", sdkId: "Kinesis Video", sigV4ServiceName: "kinesisvideo", name: "KinesisVideo_20170930.DescribeMediaStorageConfiguration" }, DescribeMediaStorageConfigurationInput, DescribeMediaStorageConfigurationOutput, [AccessDeniedExceptionError, ClientLimitExceededExceptionError, InvalidArgumentExceptionError, ResourceNotFoundExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 export const describeNotificationConfiguration = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-09-30", uri: "/describeNotificationConfiguration", method: "POST", sdkId: "Kinesis Video", sigV4ServiceName: "kinesisvideo", name: "KinesisVideo_20170930.DescribeNotificationConfiguration" }, DescribeNotificationConfigurationInput, DescribeNotificationConfigurationOutput, [AccessDeniedExceptionError, ClientLimitExceededExceptionError, InvalidArgumentExceptionError, ResourceNotFoundExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const describeStreamStorageConfiguration = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-09-30", uri: "/describeStreamStorageConfiguration", method: "POST", sdkId: "Kinesis Video", sigV4ServiceName: "kinesisvideo", name: "KinesisVideo_20170930.DescribeStreamStorageConfiguration" }, DescribeStreamStorageConfigurationInput, DescribeStreamStorageConfigurationOutput, [AccessDeniedExceptionError, ClientLimitExceededExceptionError, InvalidArgumentExceptionError, ResourceNotFoundExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 export const getDataEndpoint = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-09-30", uri: "/getDataEndpoint", method: "POST", sdkId: "Kinesis Video", sigV4ServiceName: "kinesisvideo", name: "KinesisVideo_20170930.GetDataEndpoint" }, GetDataEndpointInput, GetDataEndpointOutput, [ClientLimitExceededExceptionError, InvalidArgumentExceptionError, NotAuthorizedExceptionError, ResourceNotFoundExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 export const listTagsForResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-09-30", uri: "/ListTagsForResource", method: "POST", sdkId: "Kinesis Video", sigV4ServiceName: "kinesisvideo", name: "KinesisVideo_20170930.ListTagsForResource" }, ListTagsForResourceInput, ListTagsForResourceOutput, [AccessDeniedExceptionError, ClientLimitExceededExceptionError, InvalidArgumentExceptionError, ResourceNotFoundExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 export const listTagsForStream = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-09-30", uri: "/listTagsForStream", method: "POST", sdkId: "Kinesis Video", sigV4ServiceName: "kinesisvideo", name: "KinesisVideo_20170930.ListTagsForStream" }, ListTagsForStreamInput, ListTagsForStreamOutput, [ClientLimitExceededExceptionError, InvalidArgumentExceptionError, InvalidResourceFormatExceptionError, NotAuthorizedExceptionError, ResourceNotFoundExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

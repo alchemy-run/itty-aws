@@ -8,110 +8,110 @@ export const GraphArnList = Schema.Array(Schema.String);
 export const AccountIdList = Schema.Array(Schema.String);
 export const TagKeyList = Schema.Array(Schema.String);
 export const DatasourcePackageList = Schema.Array(Schema.String);
-export const AcceptInvitationRequest = Schema.Struct({GraphArn: Schema.String});
-export const BatchGetGraphMemberDatasourcesRequest = Schema.Struct({GraphArn: Schema.String, AccountIds: AccountIdExtendedList});
-export const BatchGetMembershipDatasourcesRequest = Schema.Struct({GraphArns: GraphArnList});
-export const DeleteGraphRequest = Schema.Struct({GraphArn: Schema.String});
-export const DeleteMembersRequest = Schema.Struct({GraphArn: Schema.String, AccountIds: AccountIdList});
-export const DescribeOrganizationConfigurationRequest = Schema.Struct({GraphArn: Schema.String});
-export const AccessDeniedException = Schema.Struct({Message: Schema.optional(Schema.String), ErrorCode: Schema.optional(Schema.String), ErrorCodeReason: Schema.optional(Schema.String), SubErrorCode: Schema.optional(Schema.String), SubErrorCodeReason: Schema.optional(Schema.String)});
-export const DisassociateMembershipRequest = Schema.Struct({GraphArn: Schema.String});
-export const EnableOrganizationAdminAccountRequest = Schema.Struct({AccountId: Schema.String});
-export const GetInvestigationRequest = Schema.Struct({GraphArn: Schema.String, InvestigationId: Schema.String});
-export const GetMembersRequest = Schema.Struct({GraphArn: Schema.String, AccountIds: AccountIdList});
-export const ListDatasourcePackagesRequest = Schema.Struct({GraphArn: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListGraphsRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListIndicatorsRequest = Schema.Struct({GraphArn: Schema.String, InvestigationId: Schema.String, IndicatorType: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListInvitationsRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListMembersRequest = Schema.Struct({GraphArn: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListOrganizationAdminAccountsRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListTagsForResourceRequest = Schema.Struct({ResourceArn: Schema.String});
-export const RejectInvitationRequest = Schema.Struct({GraphArn: Schema.String});
-export const StartInvestigationRequest = Schema.Struct({GraphArn: Schema.String, EntityArn: Schema.String, ScopeStartTime: Schema.Date, ScopeEndTime: Schema.Date});
-export const StartMonitoringMemberRequest = Schema.Struct({GraphArn: Schema.String, AccountId: Schema.String});
+export class AcceptInvitationRequest extends Schema.Class<AcceptInvitationRequest>("AcceptInvitationRequest")({GraphArn: Schema.String}) {}
+export class BatchGetGraphMemberDatasourcesRequest extends Schema.Class<BatchGetGraphMemberDatasourcesRequest>("BatchGetGraphMemberDatasourcesRequest")({GraphArn: Schema.String, AccountIds: AccountIdExtendedList}) {}
+export class BatchGetMembershipDatasourcesRequest extends Schema.Class<BatchGetMembershipDatasourcesRequest>("BatchGetMembershipDatasourcesRequest")({GraphArns: GraphArnList}) {}
+export class DeleteGraphRequest extends Schema.Class<DeleteGraphRequest>("DeleteGraphRequest")({GraphArn: Schema.String}) {}
+export class DeleteMembersRequest extends Schema.Class<DeleteMembersRequest>("DeleteMembersRequest")({GraphArn: Schema.String, AccountIds: AccountIdList}) {}
+export class DescribeOrganizationConfigurationRequest extends Schema.Class<DescribeOrganizationConfigurationRequest>("DescribeOrganizationConfigurationRequest")({GraphArn: Schema.String}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({Message: Schema.optional(Schema.String), ErrorCode: Schema.optional(Schema.String), ErrorCodeReason: Schema.optional(Schema.String), SubErrorCode: Schema.optional(Schema.String), SubErrorCodeReason: Schema.optional(Schema.String)}) {}
+export class DisassociateMembershipRequest extends Schema.Class<DisassociateMembershipRequest>("DisassociateMembershipRequest")({GraphArn: Schema.String}) {}
+export class EnableOrganizationAdminAccountRequest extends Schema.Class<EnableOrganizationAdminAccountRequest>("EnableOrganizationAdminAccountRequest")({AccountId: Schema.String}) {}
+export class GetInvestigationRequest extends Schema.Class<GetInvestigationRequest>("GetInvestigationRequest")({GraphArn: Schema.String, InvestigationId: Schema.String}) {}
+export class GetMembersRequest extends Schema.Class<GetMembersRequest>("GetMembersRequest")({GraphArn: Schema.String, AccountIds: AccountIdList}) {}
+export class ListDatasourcePackagesRequest extends Schema.Class<ListDatasourcePackagesRequest>("ListDatasourcePackagesRequest")({GraphArn: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListGraphsRequest extends Schema.Class<ListGraphsRequest>("ListGraphsRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListIndicatorsRequest extends Schema.Class<ListIndicatorsRequest>("ListIndicatorsRequest")({GraphArn: Schema.String, InvestigationId: Schema.String, IndicatorType: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListInvitationsRequest extends Schema.Class<ListInvitationsRequest>("ListInvitationsRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListMembersRequest extends Schema.Class<ListMembersRequest>("ListMembersRequest")({GraphArn: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListOrganizationAdminAccountsRequest extends Schema.Class<ListOrganizationAdminAccountsRequest>("ListOrganizationAdminAccountsRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({ResourceArn: Schema.String}) {}
+export class RejectInvitationRequest extends Schema.Class<RejectInvitationRequest>("RejectInvitationRequest")({GraphArn: Schema.String}) {}
+export class StartInvestigationRequest extends Schema.Class<StartInvestigationRequest>("StartInvestigationRequest")({GraphArn: Schema.String, EntityArn: Schema.String, ScopeStartTime: Schema.Date, ScopeEndTime: Schema.Date}) {}
+export class StartMonitoringMemberRequest extends Schema.Class<StartMonitoringMemberRequest>("StartMonitoringMemberRequest")({GraphArn: Schema.String, AccountId: Schema.String}) {}
 export const TagMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const TagResourceRequest = Schema.Struct({ResourceArn: Schema.String, Tags: TagMap});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({ResourceArn: Schema.String, TagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
-export const UpdateDatasourcePackagesRequest = Schema.Struct({GraphArn: Schema.String, DatasourcePackages: DatasourcePackageList});
-export const UpdateInvestigationStateRequest = Schema.Struct({GraphArn: Schema.String, InvestigationId: Schema.String, State: Schema.String});
-export const UpdateOrganizationConfigurationRequest = Schema.Struct({GraphArn: Schema.String, AutoEnable: Schema.optional(Schema.Boolean)});
-export const Account = Schema.Struct({AccountId: Schema.String, EmailAddress: Schema.String});
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({ResourceArn: Schema.String, Tags: TagMap}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({ResourceArn: Schema.String, TagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class UpdateDatasourcePackagesRequest extends Schema.Class<UpdateDatasourcePackagesRequest>("UpdateDatasourcePackagesRequest")({GraphArn: Schema.String, DatasourcePackages: DatasourcePackageList}) {}
+export class UpdateInvestigationStateRequest extends Schema.Class<UpdateInvestigationStateRequest>("UpdateInvestigationStateRequest")({GraphArn: Schema.String, InvestigationId: Schema.String, State: Schema.String}) {}
+export class UpdateOrganizationConfigurationRequest extends Schema.Class<UpdateOrganizationConfigurationRequest>("UpdateOrganizationConfigurationRequest")({GraphArn: Schema.String, AutoEnable: Schema.optional(Schema.Boolean)}) {}
+export class Account extends Schema.Class<Account>("Account")({AccountId: Schema.String, EmailAddress: Schema.String}) {}
 export const AccountList = Schema.Array(Account);
-export const SortCriteria = Schema.Struct({Field: Schema.optional(Schema.String), SortOrder: Schema.optional(Schema.String)});
+export class SortCriteria extends Schema.Class<SortCriteria>("SortCriteria")({Field: Schema.optional(Schema.String), SortOrder: Schema.optional(Schema.String)}) {}
 export const ResourceList = Schema.Array(Schema.String);
-export const ConflictException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const CreateGraphRequest = Schema.Struct({Tags: Schema.optional(TagMap)});
-export const CreateMembersRequest = Schema.Struct({GraphArn: Schema.String, Message: Schema.optional(Schema.String), DisableEmailNotification: Schema.optional(Schema.Boolean), Accounts: AccountList});
-export const InternalServerException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const UnprocessedAccount = Schema.Struct({AccountId: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String)});
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({Message: Schema.optional(Schema.String)}) {}
+export class CreateGraphRequest extends Schema.Class<CreateGraphRequest>("CreateGraphRequest")({Tags: Schema.optional(TagMap)}) {}
+export class CreateMembersRequest extends Schema.Class<CreateMembersRequest>("CreateMembersRequest")({GraphArn: Schema.String, Message: Schema.optional(Schema.String), DisableEmailNotification: Schema.optional(Schema.Boolean), Accounts: AccountList}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({Message: Schema.optional(Schema.String)}) {}
+export class UnprocessedAccount extends Schema.Class<UnprocessedAccount>("UnprocessedAccount")({AccountId: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String)}) {}
 export const UnprocessedAccountList = Schema.Array(UnprocessedAccount);
-export const DeleteMembersResponse = Schema.Struct({AccountIds: Schema.optional(AccountIdList), UnprocessedAccounts: Schema.optional(UnprocessedAccountList)});
-export const DescribeOrganizationConfigurationResponse = Schema.Struct({AutoEnable: Schema.optional(Schema.Boolean)});
-export const TooManyRequestsException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ValidationException = Schema.Struct({Message: Schema.optional(Schema.String), ErrorCode: Schema.optional(Schema.String), ErrorCodeReason: Schema.optional(Schema.String)});
-export const GetInvestigationResponse = Schema.Struct({GraphArn: Schema.optional(Schema.String), InvestigationId: Schema.optional(Schema.String), EntityArn: Schema.optional(Schema.String), EntityType: Schema.optional(Schema.String), CreatedTime: Schema.optional(Schema.Date), ScopeStartTime: Schema.optional(Schema.Date), ScopeEndTime: Schema.optional(Schema.Date), Status: Schema.optional(Schema.String), Severity: Schema.optional(Schema.String), State: Schema.optional(Schema.String)});
-export const DatasourcePackageUsageInfo = Schema.Struct({VolumeUsageInBytes: Schema.optional(Schema.Number), VolumeUsageUpdateTime: Schema.optional(Schema.Date)});
+export class DeleteMembersResponse extends Schema.Class<DeleteMembersResponse>("DeleteMembersResponse")({AccountIds: Schema.optional(AccountIdList), UnprocessedAccounts: Schema.optional(UnprocessedAccountList)}) {}
+export class DescribeOrganizationConfigurationResponse extends Schema.Class<DescribeOrganizationConfigurationResponse>("DescribeOrganizationConfigurationResponse")({AutoEnable: Schema.optional(Schema.Boolean)}) {}
+export class TooManyRequestsException extends Schema.Class<TooManyRequestsException>("TooManyRequestsException")({Message: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({Message: Schema.optional(Schema.String), ErrorCode: Schema.optional(Schema.String), ErrorCodeReason: Schema.optional(Schema.String)}) {}
+export class GetInvestigationResponse extends Schema.Class<GetInvestigationResponse>("GetInvestigationResponse")({GraphArn: Schema.optional(Schema.String), InvestigationId: Schema.optional(Schema.String), EntityArn: Schema.optional(Schema.String), EntityType: Schema.optional(Schema.String), CreatedTime: Schema.optional(Schema.Date), ScopeStartTime: Schema.optional(Schema.Date), ScopeEndTime: Schema.optional(Schema.Date), Status: Schema.optional(Schema.String), Severity: Schema.optional(Schema.String), State: Schema.optional(Schema.String)}) {}
+export class DatasourcePackageUsageInfo extends Schema.Class<DatasourcePackageUsageInfo>("DatasourcePackageUsageInfo")({VolumeUsageInBytes: Schema.optional(Schema.Number), VolumeUsageUpdateTime: Schema.optional(Schema.Date)}) {}
 export const VolumeUsageByDatasourcePackage = Schema.Record({key: Schema.String, value: DatasourcePackageUsageInfo});
 export const DatasourcePackageIngestStates = Schema.Record({key: Schema.String, value: Schema.String});
-export const MemberDetail = Schema.Struct({AccountId: Schema.optional(Schema.String), EmailAddress: Schema.optional(Schema.String), GraphArn: Schema.optional(Schema.String), MasterId: Schema.optional(Schema.String), AdministratorId: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), DisabledReason: Schema.optional(Schema.String), InvitedTime: Schema.optional(Schema.Date), UpdatedTime: Schema.optional(Schema.Date), VolumeUsageInBytes: Schema.optional(Schema.Number), VolumeUsageUpdatedTime: Schema.optional(Schema.Date), PercentOfGraphUtilization: Schema.optional(Schema.Number), PercentOfGraphUtilizationUpdatedTime: Schema.optional(Schema.Date), InvitationType: Schema.optional(Schema.String), VolumeUsageByDatasourcePackage: Schema.optional(VolumeUsageByDatasourcePackage), DatasourcePackageIngestStates: Schema.optional(DatasourcePackageIngestStates)});
+export class MemberDetail extends Schema.Class<MemberDetail>("MemberDetail")({AccountId: Schema.optional(Schema.String), EmailAddress: Schema.optional(Schema.String), GraphArn: Schema.optional(Schema.String), MasterId: Schema.optional(Schema.String), AdministratorId: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), DisabledReason: Schema.optional(Schema.String), InvitedTime: Schema.optional(Schema.Date), UpdatedTime: Schema.optional(Schema.Date), VolumeUsageInBytes: Schema.optional(Schema.Number), VolumeUsageUpdatedTime: Schema.optional(Schema.Date), PercentOfGraphUtilization: Schema.optional(Schema.Number), PercentOfGraphUtilizationUpdatedTime: Schema.optional(Schema.Date), InvitationType: Schema.optional(Schema.String), VolumeUsageByDatasourcePackage: Schema.optional(VolumeUsageByDatasourcePackage), DatasourcePackageIngestStates: Schema.optional(DatasourcePackageIngestStates)}) {}
 export const MemberDetailList = Schema.Array(MemberDetail);
-export const ListInvitationsResponse = Schema.Struct({Invitations: Schema.optional(MemberDetailList), NextToken: Schema.optional(Schema.String)});
-export const ListMembersResponse = Schema.Struct({MemberDetails: Schema.optional(MemberDetailList), NextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceResponse = Schema.Struct({Tags: Schema.optional(TagMap)});
-export const StartInvestigationResponse = Schema.Struct({InvestigationId: Schema.optional(Schema.String)});
-export const ServiceQuotaExceededException = Schema.Struct({Message: Schema.optional(Schema.String), Resources: Schema.optional(ResourceList)});
-export const StringFilter = Schema.Struct({Value: Schema.String});
-export const DateFilter = Schema.Struct({StartInclusive: Schema.Date, EndInclusive: Schema.Date});
-export const UnprocessedGraph = Schema.Struct({GraphArn: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String)});
+export class ListInvitationsResponse extends Schema.Class<ListInvitationsResponse>("ListInvitationsResponse")({Invitations: Schema.optional(MemberDetailList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListMembersResponse extends Schema.Class<ListMembersResponse>("ListMembersResponse")({MemberDetails: Schema.optional(MemberDetailList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({Tags: Schema.optional(TagMap)}) {}
+export class StartInvestigationResponse extends Schema.Class<StartInvestigationResponse>("StartInvestigationResponse")({InvestigationId: Schema.optional(Schema.String)}) {}
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({Message: Schema.optional(Schema.String), Resources: Schema.optional(ResourceList)}) {}
+export class StringFilter extends Schema.Class<StringFilter>("StringFilter")({Value: Schema.String}) {}
+export class DateFilter extends Schema.Class<DateFilter>("DateFilter")({StartInclusive: Schema.Date, EndInclusive: Schema.Date}) {}
+export class UnprocessedGraph extends Schema.Class<UnprocessedGraph>("UnprocessedGraph")({GraphArn: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String)}) {}
 export const UnprocessedGraphList = Schema.Array(UnprocessedGraph);
-export const Graph = Schema.Struct({Arn: Schema.optional(Schema.String), CreatedTime: Schema.optional(Schema.Date)});
+export class Graph extends Schema.Class<Graph>("Graph")({Arn: Schema.optional(Schema.String), CreatedTime: Schema.optional(Schema.Date)}) {}
 export const GraphList = Schema.Array(Graph);
-export const FilterCriteria = Schema.Struct({Severity: Schema.optional(StringFilter), Status: Schema.optional(StringFilter), State: Schema.optional(StringFilter), EntityArn: Schema.optional(StringFilter), CreatedTime: Schema.optional(DateFilter)});
-export const Administrator = Schema.Struct({AccountId: Schema.optional(Schema.String), GraphArn: Schema.optional(Schema.String), DelegationTime: Schema.optional(Schema.Date)});
+export class FilterCriteria extends Schema.Class<FilterCriteria>("FilterCriteria")({Severity: Schema.optional(StringFilter), Status: Schema.optional(StringFilter), State: Schema.optional(StringFilter), EntityArn: Schema.optional(StringFilter), CreatedTime: Schema.optional(DateFilter)}) {}
+export class Administrator extends Schema.Class<Administrator>("Administrator")({AccountId: Schema.optional(Schema.String), GraphArn: Schema.optional(Schema.String), DelegationTime: Schema.optional(Schema.Date)}) {}
 export const AdministratorList = Schema.Array(Administrator);
-export const TimestampForCollection = Schema.Struct({Timestamp: Schema.optional(Schema.Date)});
+export class TimestampForCollection extends Schema.Class<TimestampForCollection>("TimestampForCollection")({Timestamp: Schema.optional(Schema.Date)}) {}
 export const LastIngestStateChangeDates = Schema.Record({key: Schema.String, value: TimestampForCollection});
 export const DatasourcePackageIngestHistory = Schema.Record({key: Schema.String, value: LastIngestStateChangeDates});
-export const MembershipDatasources = Schema.Struct({AccountId: Schema.optional(Schema.String), GraphArn: Schema.optional(Schema.String), DatasourcePackageIngestHistory: Schema.optional(DatasourcePackageIngestHistory)});
+export class MembershipDatasources extends Schema.Class<MembershipDatasources>("MembershipDatasources")({AccountId: Schema.optional(Schema.String), GraphArn: Schema.optional(Schema.String), DatasourcePackageIngestHistory: Schema.optional(DatasourcePackageIngestHistory)}) {}
 export const MembershipDatasourcesList = Schema.Array(MembershipDatasources);
-export const BatchGetMembershipDatasourcesResponse = Schema.Struct({MembershipDatasources: Schema.optional(MembershipDatasourcesList), UnprocessedGraphs: Schema.optional(UnprocessedGraphList)});
-export const CreateGraphResponse = Schema.Struct({GraphArn: Schema.optional(Schema.String)});
-export const CreateMembersResponse = Schema.Struct({Members: Schema.optional(MemberDetailList), UnprocessedAccounts: Schema.optional(UnprocessedAccountList)});
-export const ListGraphsResponse = Schema.Struct({GraphList: Schema.optional(GraphList), NextToken: Schema.optional(Schema.String)});
-export const ListInvestigationsRequest = Schema.Struct({GraphArn: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), FilterCriteria: Schema.optional(FilterCriteria), SortCriteria: Schema.optional(SortCriteria)});
-export const ListOrganizationAdminAccountsResponse = Schema.Struct({Administrators: Schema.optional(AdministratorList), NextToken: Schema.optional(Schema.String)});
-export const DatasourcePackageIngestDetail = Schema.Struct({DatasourcePackageIngestState: Schema.optional(Schema.String), LastIngestStateChange: Schema.optional(LastIngestStateChangeDates)});
+export class BatchGetMembershipDatasourcesResponse extends Schema.Class<BatchGetMembershipDatasourcesResponse>("BatchGetMembershipDatasourcesResponse")({MembershipDatasources: Schema.optional(MembershipDatasourcesList), UnprocessedGraphs: Schema.optional(UnprocessedGraphList)}) {}
+export class CreateGraphResponse extends Schema.Class<CreateGraphResponse>("CreateGraphResponse")({GraphArn: Schema.optional(Schema.String)}) {}
+export class CreateMembersResponse extends Schema.Class<CreateMembersResponse>("CreateMembersResponse")({Members: Schema.optional(MemberDetailList), UnprocessedAccounts: Schema.optional(UnprocessedAccountList)}) {}
+export class ListGraphsResponse extends Schema.Class<ListGraphsResponse>("ListGraphsResponse")({GraphList: Schema.optional(GraphList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListInvestigationsRequest extends Schema.Class<ListInvestigationsRequest>("ListInvestigationsRequest")({GraphArn: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), FilterCriteria: Schema.optional(FilterCriteria), SortCriteria: Schema.optional(SortCriteria)}) {}
+export class ListOrganizationAdminAccountsResponse extends Schema.Class<ListOrganizationAdminAccountsResponse>("ListOrganizationAdminAccountsResponse")({Administrators: Schema.optional(AdministratorList), NextToken: Schema.optional(Schema.String)}) {}
+export class DatasourcePackageIngestDetail extends Schema.Class<DatasourcePackageIngestDetail>("DatasourcePackageIngestDetail")({DatasourcePackageIngestState: Schema.optional(Schema.String), LastIngestStateChange: Schema.optional(LastIngestStateChangeDates)}) {}
 export const DatasourcePackageIngestDetails = Schema.Record({key: Schema.String, value: DatasourcePackageIngestDetail});
-export const TTPsObservedDetail = Schema.Struct({Tactic: Schema.optional(Schema.String), Technique: Schema.optional(Schema.String), Procedure: Schema.optional(Schema.String), IpAddress: Schema.optional(Schema.String), APIName: Schema.optional(Schema.String), APISuccessCount: Schema.optional(Schema.Number), APIFailureCount: Schema.optional(Schema.Number)});
-export const ImpossibleTravelDetail = Schema.Struct({StartingIpAddress: Schema.optional(Schema.String), EndingIpAddress: Schema.optional(Schema.String), StartingLocation: Schema.optional(Schema.String), EndingLocation: Schema.optional(Schema.String), HourlyTimeDelta: Schema.optional(Schema.Number)});
-export const FlaggedIpAddressDetail = Schema.Struct({IpAddress: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String)});
-export const NewGeolocationDetail = Schema.Struct({Location: Schema.optional(Schema.String), IpAddress: Schema.optional(Schema.String), IsNewForEntireAccount: Schema.optional(Schema.Boolean)});
-export const NewAsoDetail = Schema.Struct({Aso: Schema.optional(Schema.String), IsNewForEntireAccount: Schema.optional(Schema.Boolean)});
-export const NewUserAgentDetail = Schema.Struct({UserAgent: Schema.optional(Schema.String), IsNewForEntireAccount: Schema.optional(Schema.Boolean)});
-export const RelatedFindingDetail = Schema.Struct({Arn: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), IpAddress: Schema.optional(Schema.String)});
-export const RelatedFindingGroupDetail = Schema.Struct({Id: Schema.optional(Schema.String)});
-export const ListDatasourcePackagesResponse = Schema.Struct({DatasourcePackages: Schema.optional(DatasourcePackageIngestDetails), NextToken: Schema.optional(Schema.String)});
-export const IndicatorDetail = Schema.Struct({TTPsObservedDetail: Schema.optional(TTPsObservedDetail), ImpossibleTravelDetail: Schema.optional(ImpossibleTravelDetail), FlaggedIpAddressDetail: Schema.optional(FlaggedIpAddressDetail), NewGeolocationDetail: Schema.optional(NewGeolocationDetail), NewAsoDetail: Schema.optional(NewAsoDetail), NewUserAgentDetail: Schema.optional(NewUserAgentDetail), RelatedFindingDetail: Schema.optional(RelatedFindingDetail), RelatedFindingGroupDetail: Schema.optional(RelatedFindingGroupDetail)});
-export const Indicator = Schema.Struct({IndicatorType: Schema.optional(Schema.String), IndicatorDetail: Schema.optional(IndicatorDetail)});
+export class TTPsObservedDetail extends Schema.Class<TTPsObservedDetail>("TTPsObservedDetail")({Tactic: Schema.optional(Schema.String), Technique: Schema.optional(Schema.String), Procedure: Schema.optional(Schema.String), IpAddress: Schema.optional(Schema.String), APIName: Schema.optional(Schema.String), APISuccessCount: Schema.optional(Schema.Number), APIFailureCount: Schema.optional(Schema.Number)}) {}
+export class ImpossibleTravelDetail extends Schema.Class<ImpossibleTravelDetail>("ImpossibleTravelDetail")({StartingIpAddress: Schema.optional(Schema.String), EndingIpAddress: Schema.optional(Schema.String), StartingLocation: Schema.optional(Schema.String), EndingLocation: Schema.optional(Schema.String), HourlyTimeDelta: Schema.optional(Schema.Number)}) {}
+export class FlaggedIpAddressDetail extends Schema.Class<FlaggedIpAddressDetail>("FlaggedIpAddressDetail")({IpAddress: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String)}) {}
+export class NewGeolocationDetail extends Schema.Class<NewGeolocationDetail>("NewGeolocationDetail")({Location: Schema.optional(Schema.String), IpAddress: Schema.optional(Schema.String), IsNewForEntireAccount: Schema.optional(Schema.Boolean)}) {}
+export class NewAsoDetail extends Schema.Class<NewAsoDetail>("NewAsoDetail")({Aso: Schema.optional(Schema.String), IsNewForEntireAccount: Schema.optional(Schema.Boolean)}) {}
+export class NewUserAgentDetail extends Schema.Class<NewUserAgentDetail>("NewUserAgentDetail")({UserAgent: Schema.optional(Schema.String), IsNewForEntireAccount: Schema.optional(Schema.Boolean)}) {}
+export class RelatedFindingDetail extends Schema.Class<RelatedFindingDetail>("RelatedFindingDetail")({Arn: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), IpAddress: Schema.optional(Schema.String)}) {}
+export class RelatedFindingGroupDetail extends Schema.Class<RelatedFindingGroupDetail>("RelatedFindingGroupDetail")({Id: Schema.optional(Schema.String)}) {}
+export class ListDatasourcePackagesResponse extends Schema.Class<ListDatasourcePackagesResponse>("ListDatasourcePackagesResponse")({DatasourcePackages: Schema.optional(DatasourcePackageIngestDetails), NextToken: Schema.optional(Schema.String)}) {}
+export class IndicatorDetail extends Schema.Class<IndicatorDetail>("IndicatorDetail")({TTPsObservedDetail: Schema.optional(TTPsObservedDetail), ImpossibleTravelDetail: Schema.optional(ImpossibleTravelDetail), FlaggedIpAddressDetail: Schema.optional(FlaggedIpAddressDetail), NewGeolocationDetail: Schema.optional(NewGeolocationDetail), NewAsoDetail: Schema.optional(NewAsoDetail), NewUserAgentDetail: Schema.optional(NewUserAgentDetail), RelatedFindingDetail: Schema.optional(RelatedFindingDetail), RelatedFindingGroupDetail: Schema.optional(RelatedFindingGroupDetail)}) {}
+export class Indicator extends Schema.Class<Indicator>("Indicator")({IndicatorType: Schema.optional(Schema.String), IndicatorDetail: Schema.optional(IndicatorDetail)}) {}
 export const Indicators = Schema.Array(Indicator);
-export const InvestigationDetail = Schema.Struct({InvestigationId: Schema.optional(Schema.String), Severity: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), State: Schema.optional(Schema.String), CreatedTime: Schema.optional(Schema.Date), EntityArn: Schema.optional(Schema.String), EntityType: Schema.optional(Schema.String)});
+export class InvestigationDetail extends Schema.Class<InvestigationDetail>("InvestigationDetail")({InvestigationId: Schema.optional(Schema.String), Severity: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), State: Schema.optional(Schema.String), CreatedTime: Schema.optional(Schema.Date), EntityArn: Schema.optional(Schema.String), EntityType: Schema.optional(Schema.String)}) {}
 export const InvestigationDetails = Schema.Array(InvestigationDetail);
-export const GetMembersResponse = Schema.Struct({MemberDetails: Schema.optional(MemberDetailList), UnprocessedAccounts: Schema.optional(UnprocessedAccountList)});
-export const ListIndicatorsResponse = Schema.Struct({GraphArn: Schema.optional(Schema.String), InvestigationId: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), Indicators: Schema.optional(Indicators)});
-export const ListInvestigationsResponse = Schema.Struct({InvestigationDetails: Schema.optional(InvestigationDetails), NextToken: Schema.optional(Schema.String)});
-export const BatchGetGraphMemberDatasourcesResponse = Schema.Struct({MemberDatasources: Schema.optional(MembershipDatasourcesList), UnprocessedAccounts: Schema.optional(UnprocessedAccountList)});
+export class GetMembersResponse extends Schema.Class<GetMembersResponse>("GetMembersResponse")({MemberDetails: Schema.optional(MemberDetailList), UnprocessedAccounts: Schema.optional(UnprocessedAccountList)}) {}
+export class ListIndicatorsResponse extends Schema.Class<ListIndicatorsResponse>("ListIndicatorsResponse")({GraphArn: Schema.optional(Schema.String), InvestigationId: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), Indicators: Schema.optional(Indicators)}) {}
+export class ListInvestigationsResponse extends Schema.Class<ListInvestigationsResponse>("ListInvestigationsResponse")({InvestigationDetails: Schema.optional(InvestigationDetails), NextToken: Schema.optional(Schema.String)}) {}
+export class BatchGetGraphMemberDatasourcesResponse extends Schema.Class<BatchGetGraphMemberDatasourcesResponse>("BatchGetGraphMemberDatasourcesResponse")({MemberDatasources: Schema.optional(MembershipDatasourcesList), UnprocessedAccounts: Schema.optional(UnprocessedAccountList)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class TooManyRequestsExceptionError extends Schema.TaggedError<TooManyRequestsExceptionError>()("TooManyRequestsException", TooManyRequestsException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class TooManyRequestsExceptionError extends Schema.TaggedError<TooManyRequestsExceptionError>()("TooManyRequestsException", TooManyRequestsException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
 
 //# Operations
 export const rejectInvitation = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-10-26", uri: "/invitation/removal", method: "POST", sdkId: "Detective", sigV4ServiceName: "detective", name: "AmazonDetective.RejectInvitation" }, RejectInvitationRequest, Schema.Struct({}), [AccessDeniedExceptionError, ConflictExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

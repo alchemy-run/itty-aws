@@ -3,64 +3,62 @@ import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperat
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const GetPricingPlanRequest = Schema.Struct({});
+export class GetPricingPlanRequest extends Schema.Class<GetPricingPlanRequest>("GetPricingPlanRequest")({}) {}
 export const ExtendsFrom = Schema.Array(Schema.String);
 export const SceneCapabilities = Schema.Array(Schema.String);
 export const SelectedPropertyList = Schema.Array(Schema.String);
 export const TagKeyList = Schema.Array(Schema.String);
 export const PricingBundles = Schema.Array(Schema.String);
-export const CancelMetadataTransferJobRequest = Schema.Struct({metadataTransferJobId: Schema.String});
+export class CancelMetadataTransferJobRequest extends Schema.Class<CancelMetadataTransferJobRequest>("CancelMetadataTransferJobRequest")({metadataTransferJobId: Schema.String}) {}
 export const TagMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const CreateSyncJobRequest = Schema.Struct({workspaceId: Schema.String, syncSource: Schema.String, syncRole: Schema.String, tags: Schema.optional(TagMap)});
-export const CreateWorkspaceRequest = Schema.Struct({workspaceId: Schema.String, description: Schema.optional(Schema.String), s3Location: Schema.optional(Schema.String), role: Schema.optional(Schema.String), tags: Schema.optional(TagMap)});
-export const DeleteComponentTypeRequest = Schema.Struct({workspaceId: Schema.String, componentTypeId: Schema.String});
-export const DeleteEntityRequest = Schema.Struct({workspaceId: Schema.String, entityId: Schema.String, isRecursive: Schema.optional(Schema.Boolean)});
-export const DeleteSceneRequest = Schema.Struct({workspaceId: Schema.String, sceneId: Schema.String});
-export const DeleteSceneResponse = Schema.Struct({});
-export const DeleteSyncJobRequest = Schema.Struct({workspaceId: Schema.String, syncSource: Schema.String});
-export const DeleteWorkspaceRequest = Schema.Struct({workspaceId: Schema.String});
-export const ExecuteQueryRequest = Schema.Struct({workspaceId: Schema.String, queryStatement: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const GetComponentTypeRequest = Schema.Struct({workspaceId: Schema.String, componentTypeId: Schema.String});
-export const GetEntityRequest = Schema.Struct({workspaceId: Schema.String, entityId: Schema.String});
-export const GetMetadataTransferJobRequest = Schema.Struct({metadataTransferJobId: Schema.String});
-export const GetSceneRequest = Schema.Struct({workspaceId: Schema.String, sceneId: Schema.String});
-export const GetSyncJobRequest = Schema.Struct({syncSource: Schema.String, workspaceId: Schema.optional(Schema.String)});
-export const GetWorkspaceRequest = Schema.Struct({workspaceId: Schema.String});
-export const ListComponentsRequest = Schema.Struct({workspaceId: Schema.String, entityId: Schema.String, componentPath: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListPropertiesRequest = Schema.Struct({workspaceId: Schema.String, componentName: Schema.optional(Schema.String), componentPath: Schema.optional(Schema.String), entityId: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListScenesRequest = Schema.Struct({workspaceId: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListSyncJobsRequest = Schema.Struct({workspaceId: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceRequest = Schema.Struct({resourceARN: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListWorkspacesRequest = Schema.Struct({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const TagResourceRequest = Schema.Struct({resourceARN: Schema.String, tags: TagMap});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({resourceARN: Schema.String, tagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
-export const DataValueMap = Schema.Record({key: Schema.String, value: DataValue});
-export const RelationshipValue = Schema.Struct({targetEntityId: Schema.optional(Schema.String), targetComponentName: Schema.optional(Schema.String)});
-export const DataValue = Schema.Struct({booleanValue: Schema.optional(Schema.Boolean), doubleValue: Schema.optional(Schema.Number), integerValue: Schema.optional(Schema.Number), longValue: Schema.optional(Schema.Number), stringValue: Schema.optional(Schema.String), listValue: Schema.optional(DataValueList), mapValue: Schema.optional(DataValueMap), relationshipValue: Schema.optional(RelationshipValue), expression: Schema.optional(Schema.String)});
-export const DataValueList = Schema.Array(DataValue);
-export const Relationship = Schema.Struct({targetComponentTypeId: Schema.optional(Schema.String), relationshipType: Schema.optional(Schema.String)});
-export const DataType = Schema.Struct({type: Schema.String, nestedType: Schema.optional(DataType), allowedValues: Schema.optional(DataValueList), unitOfMeasure: Schema.optional(Schema.String), relationship: Schema.optional(Relationship)});
+export class CreateSyncJobRequest extends Schema.Class<CreateSyncJobRequest>("CreateSyncJobRequest")({workspaceId: Schema.String, syncSource: Schema.String, syncRole: Schema.String, tags: Schema.optional(TagMap)}) {}
+export class CreateWorkspaceRequest extends Schema.Class<CreateWorkspaceRequest>("CreateWorkspaceRequest")({workspaceId: Schema.String, description: Schema.optional(Schema.String), s3Location: Schema.optional(Schema.String), role: Schema.optional(Schema.String), tags: Schema.optional(TagMap)}) {}
+export class DeleteComponentTypeRequest extends Schema.Class<DeleteComponentTypeRequest>("DeleteComponentTypeRequest")({workspaceId: Schema.String, componentTypeId: Schema.String}) {}
+export class DeleteEntityRequest extends Schema.Class<DeleteEntityRequest>("DeleteEntityRequest")({workspaceId: Schema.String, entityId: Schema.String, isRecursive: Schema.optional(Schema.Boolean)}) {}
+export class DeleteSceneRequest extends Schema.Class<DeleteSceneRequest>("DeleteSceneRequest")({workspaceId: Schema.String, sceneId: Schema.String}) {}
+export class DeleteSceneResponse extends Schema.Class<DeleteSceneResponse>("DeleteSceneResponse")({}) {}
+export class DeleteSyncJobRequest extends Schema.Class<DeleteSyncJobRequest>("DeleteSyncJobRequest")({workspaceId: Schema.String, syncSource: Schema.String}) {}
+export class DeleteWorkspaceRequest extends Schema.Class<DeleteWorkspaceRequest>("DeleteWorkspaceRequest")({workspaceId: Schema.String}) {}
+export class ExecuteQueryRequest extends Schema.Class<ExecuteQueryRequest>("ExecuteQueryRequest")({workspaceId: Schema.String, queryStatement: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class GetComponentTypeRequest extends Schema.Class<GetComponentTypeRequest>("GetComponentTypeRequest")({workspaceId: Schema.String, componentTypeId: Schema.String}) {}
+export class GetEntityRequest extends Schema.Class<GetEntityRequest>("GetEntityRequest")({workspaceId: Schema.String, entityId: Schema.String}) {}
+export class GetMetadataTransferJobRequest extends Schema.Class<GetMetadataTransferJobRequest>("GetMetadataTransferJobRequest")({metadataTransferJobId: Schema.String}) {}
+export class GetSceneRequest extends Schema.Class<GetSceneRequest>("GetSceneRequest")({workspaceId: Schema.String, sceneId: Schema.String}) {}
+export class GetSyncJobRequest extends Schema.Class<GetSyncJobRequest>("GetSyncJobRequest")({syncSource: Schema.String, workspaceId: Schema.optional(Schema.String)}) {}
+export class GetWorkspaceRequest extends Schema.Class<GetWorkspaceRequest>("GetWorkspaceRequest")({workspaceId: Schema.String}) {}
+export class ListComponentsRequest extends Schema.Class<ListComponentsRequest>("ListComponentsRequest")({workspaceId: Schema.String, entityId: Schema.String, componentPath: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListPropertiesRequest extends Schema.Class<ListPropertiesRequest>("ListPropertiesRequest")({workspaceId: Schema.String, componentName: Schema.optional(Schema.String), componentPath: Schema.optional(Schema.String), entityId: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListScenesRequest extends Schema.Class<ListScenesRequest>("ListScenesRequest")({workspaceId: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListSyncJobsRequest extends Schema.Class<ListSyncJobsRequest>("ListSyncJobsRequest")({workspaceId: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({resourceARN: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListWorkspacesRequest extends Schema.Class<ListWorkspacesRequest>("ListWorkspacesRequest")({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({resourceARN: Schema.String, tags: TagMap}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({resourceARN: Schema.String, tagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class Relationship extends Schema.Class<Relationship>("Relationship")({targetComponentTypeId: Schema.optional(Schema.String), relationshipType: Schema.optional(Schema.String)}) {}
+export class DataType extends Schema.Class<DataType>("DataType")({type: Schema.String, nestedType: Schema.optional(Schema.suspend((): Schema.Schema<DataType> => DataType)), allowedValues: Schema.optional(Schema.suspend(() => DataValueList)), unitOfMeasure: Schema.optional(Schema.String), relationship: Schema.optional(Relationship)}) {}
+export class RelationshipValue extends Schema.Class<RelationshipValue>("RelationshipValue")({targetEntityId: Schema.optional(Schema.String), targetComponentName: Schema.optional(Schema.String)}) {}
+export class DataValue extends Schema.Class<DataValue>("DataValue")({booleanValue: Schema.optional(Schema.Boolean), doubleValue: Schema.optional(Schema.Number), integerValue: Schema.optional(Schema.Number), longValue: Schema.optional(Schema.Number), stringValue: Schema.optional(Schema.String), listValue: Schema.optional(Schema.suspend(() => DataValueList)), mapValue: Schema.optional(Schema.suspend(() => DataValueMap)), relationshipValue: Schema.optional(RelationshipValue), expression: Schema.optional(Schema.String)}) {}
 export const Configuration = Schema.Record({key: Schema.String, value: Schema.String});
-export const PropertyDefinitionRequest = Schema.Struct({dataType: Schema.optional(DataType), isRequiredInEntity: Schema.optional(Schema.Boolean), isExternalId: Schema.optional(Schema.Boolean), isStoredExternally: Schema.optional(Schema.Boolean), isTimeSeries: Schema.optional(Schema.Boolean), defaultValue: Schema.optional(DataValue), configuration: Schema.optional(Configuration), displayName: Schema.optional(Schema.String)});
+export class PropertyDefinitionRequest extends Schema.Class<PropertyDefinitionRequest>("PropertyDefinitionRequest")({dataType: Schema.optional(DataType), isRequiredInEntity: Schema.optional(Schema.Boolean), isExternalId: Schema.optional(Schema.Boolean), isStoredExternally: Schema.optional(Schema.Boolean), isTimeSeries: Schema.optional(Schema.Boolean), defaultValue: Schema.optional(DataValue), configuration: Schema.optional(Configuration), displayName: Schema.optional(Schema.String)}) {}
 export const PropertyDefinitionsRequest = Schema.Record({key: Schema.String, value: PropertyDefinitionRequest});
 export const RequiredProperties = Schema.Array(Schema.String);
-export const LambdaFunction = Schema.Struct({arn: Schema.String});
-export const DataConnector = Schema.Struct({lambda: Schema.optional(LambdaFunction), isNative: Schema.optional(Schema.Boolean)});
-export const FunctionRequest = Schema.Struct({requiredProperties: Schema.optional(RequiredProperties), scope: Schema.optional(Schema.String), implementedBy: Schema.optional(DataConnector)});
+export class LambdaFunction extends Schema.Class<LambdaFunction>("LambdaFunction")({arn: Schema.String}) {}
+export class DataConnector extends Schema.Class<DataConnector>("DataConnector")({lambda: Schema.optional(LambdaFunction), isNative: Schema.optional(Schema.Boolean)}) {}
+export class FunctionRequest extends Schema.Class<FunctionRequest>("FunctionRequest")({requiredProperties: Schema.optional(RequiredProperties), scope: Schema.optional(Schema.String), implementedBy: Schema.optional(DataConnector)}) {}
 export const FunctionsRequest = Schema.Record({key: Schema.String, value: FunctionRequest});
 export const PropertyNames = Schema.Array(Schema.String);
-export const PropertyGroupRequest = Schema.Struct({groupType: Schema.optional(Schema.String), propertyNames: Schema.optional(PropertyNames)});
+export class PropertyGroupRequest extends Schema.Class<PropertyGroupRequest>("PropertyGroupRequest")({groupType: Schema.optional(Schema.String), propertyNames: Schema.optional(PropertyNames)}) {}
 export const PropertyGroupsRequest = Schema.Record({key: Schema.String, value: PropertyGroupRequest});
-export const CompositeComponentTypeRequest = Schema.Struct({componentTypeId: Schema.optional(Schema.String)});
+export class CompositeComponentTypeRequest extends Schema.Class<CompositeComponentTypeRequest>("CompositeComponentTypeRequest")({componentTypeId: Schema.optional(Schema.String)}) {}
 export const CompositeComponentTypesRequest = Schema.Record({key: Schema.String, value: CompositeComponentTypeRequest});
-export const UpdateComponentTypeRequest = Schema.Struct({workspaceId: Schema.String, isSingleton: Schema.optional(Schema.Boolean), componentTypeId: Schema.String, description: Schema.optional(Schema.String), propertyDefinitions: Schema.optional(PropertyDefinitionsRequest), extendsFrom: Schema.optional(ExtendsFrom), functions: Schema.optional(FunctionsRequest), propertyGroups: Schema.optional(PropertyGroupsRequest), componentTypeName: Schema.optional(Schema.String), compositeComponentTypes: Schema.optional(CompositeComponentTypesRequest)});
-export const UpdatePricingPlanRequest = Schema.Struct({pricingMode: Schema.String, bundleNames: Schema.optional(PricingBundles)});
+export class UpdateComponentTypeRequest extends Schema.Class<UpdateComponentTypeRequest>("UpdateComponentTypeRequest")({workspaceId: Schema.String, isSingleton: Schema.optional(Schema.Boolean), componentTypeId: Schema.String, description: Schema.optional(Schema.String), propertyDefinitions: Schema.optional(PropertyDefinitionsRequest), extendsFrom: Schema.optional(ExtendsFrom), functions: Schema.optional(FunctionsRequest), propertyGroups: Schema.optional(PropertyGroupsRequest), componentTypeName: Schema.optional(Schema.String), compositeComponentTypes: Schema.optional(CompositeComponentTypesRequest)}) {}
+export class UpdatePricingPlanRequest extends Schema.Class<UpdatePricingPlanRequest>("UpdatePricingPlanRequest")({pricingMode: Schema.String, bundleNames: Schema.optional(PricingBundles)}) {}
 export const SceneMetadataMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const UpdateSceneRequest = Schema.Struct({workspaceId: Schema.String, sceneId: Schema.String, contentLocation: Schema.optional(Schema.String), description: Schema.optional(Schema.String), capabilities: Schema.optional(SceneCapabilities), sceneMetadata: Schema.optional(SceneMetadataMap)});
-export const UpdateWorkspaceRequest = Schema.Struct({workspaceId: Schema.String, description: Schema.optional(Schema.String), role: Schema.optional(Schema.String), s3Location: Schema.optional(Schema.String)});
-export const InterpolationParameters = Schema.Struct({interpolationType: Schema.optional(Schema.String), intervalInSeconds: Schema.optional(Schema.Number)});
+export class UpdateSceneRequest extends Schema.Class<UpdateSceneRequest>("UpdateSceneRequest")({workspaceId: Schema.String, sceneId: Schema.String, contentLocation: Schema.optional(Schema.String), description: Schema.optional(Schema.String), capabilities: Schema.optional(SceneCapabilities), sceneMetadata: Schema.optional(SceneMetadataMap)}) {}
+export class UpdateWorkspaceRequest extends Schema.Class<UpdateWorkspaceRequest>("UpdateWorkspaceRequest")({workspaceId: Schema.String, description: Schema.optional(Schema.String), role: Schema.optional(Schema.String), s3Location: Schema.optional(Schema.String)}) {}
+export class InterpolationParameters extends Schema.Class<InterpolationParameters>("InterpolationParameters")({interpolationType: Schema.optional(Schema.String), intervalInSeconds: Schema.optional(Schema.Number)}) {}
 export const LinkedServices = Schema.Array(Schema.String);
 export const ListComponentTypesFilter = Schema.Union(Schema.String, Schema.String, Schema.Boolean);
 export const ListComponentTypesFilters = Schema.Array(ListComponentTypesFilter);
@@ -70,179 +68,181 @@ export const ListMetadataTransferJobsFilter = Schema.Union(Schema.String, Schema
 export const ListMetadataTransferJobsFilters = Schema.Array(ListMetadataTransferJobsFilter);
 export const SyncResourceFilter = Schema.Union(Schema.String, Schema.String, Schema.String, Schema.String);
 export const SyncResourceFilters = Schema.Array(SyncResourceFilter);
-export const ParentEntityUpdateRequest = Schema.Struct({updateType: Schema.String, parentEntityId: Schema.optional(Schema.String)});
-export const CreateSceneRequest = Schema.Struct({workspaceId: Schema.String, sceneId: Schema.String, contentLocation: Schema.String, description: Schema.optional(Schema.String), capabilities: Schema.optional(SceneCapabilities), tags: Schema.optional(TagMap), sceneMetadata: Schema.optional(SceneMetadataMap)});
-export const CreateSyncJobResponse = Schema.Struct({arn: Schema.String, creationDateTime: Schema.Date, state: Schema.String});
-export const CreateWorkspaceResponse = Schema.Struct({arn: Schema.String, creationDateTime: Schema.Date});
-export const DeleteComponentTypeResponse = Schema.Struct({state: Schema.String});
-export const DeleteEntityResponse = Schema.Struct({state: Schema.String});
-export const AccessDeniedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DeleteSyncJobResponse = Schema.Struct({state: Schema.String});
-export const DeleteWorkspaceResponse = Schema.Struct({message: Schema.optional(Schema.String)});
-export const S3SourceConfiguration = Schema.Struct({location: Schema.String});
-export const FilterByAssetModel = Schema.Struct({assetModelId: Schema.optional(Schema.String), assetModelExternalId: Schema.optional(Schema.String), includeOffspring: Schema.optional(Schema.Boolean), includeAssets: Schema.optional(Schema.Boolean)});
-export const FilterByAsset = Schema.Struct({assetId: Schema.optional(Schema.String), assetExternalId: Schema.optional(Schema.String), includeOffspring: Schema.optional(Schema.Boolean), includeAssetModel: Schema.optional(Schema.Boolean)});
+export class ParentEntityUpdateRequest extends Schema.Class<ParentEntityUpdateRequest>("ParentEntityUpdateRequest")({updateType: Schema.String, parentEntityId: Schema.optional(Schema.String)}) {}
+export const DataValueList = Schema.Array(Schema.suspend((): Schema.Schema<DataValue> => DataValue));
+export class CreateSceneRequest extends Schema.Class<CreateSceneRequest>("CreateSceneRequest")({workspaceId: Schema.String, sceneId: Schema.String, contentLocation: Schema.String, description: Schema.optional(Schema.String), capabilities: Schema.optional(SceneCapabilities), tags: Schema.optional(TagMap), sceneMetadata: Schema.optional(SceneMetadataMap)}) {}
+export class CreateSyncJobResponse extends Schema.Class<CreateSyncJobResponse>("CreateSyncJobResponse")({arn: Schema.String, creationDateTime: Schema.Date, state: Schema.String}) {}
+export class CreateWorkspaceResponse extends Schema.Class<CreateWorkspaceResponse>("CreateWorkspaceResponse")({arn: Schema.String, creationDateTime: Schema.Date}) {}
+export class DeleteComponentTypeResponse extends Schema.Class<DeleteComponentTypeResponse>("DeleteComponentTypeResponse")({state: Schema.String}) {}
+export class DeleteEntityResponse extends Schema.Class<DeleteEntityResponse>("DeleteEntityResponse")({state: Schema.String}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({message: Schema.optional(Schema.String)}) {}
+export class DeleteSyncJobResponse extends Schema.Class<DeleteSyncJobResponse>("DeleteSyncJobResponse")({state: Schema.String}) {}
+export class DeleteWorkspaceResponse extends Schema.Class<DeleteWorkspaceResponse>("DeleteWorkspaceResponse")({message: Schema.optional(Schema.String)}) {}
+export class S3SourceConfiguration extends Schema.Class<S3SourceConfiguration>("S3SourceConfiguration")({location: Schema.String}) {}
+export class FilterByAssetModel extends Schema.Class<FilterByAssetModel>("FilterByAssetModel")({assetModelId: Schema.optional(Schema.String), assetModelExternalId: Schema.optional(Schema.String), includeOffspring: Schema.optional(Schema.Boolean), includeAssets: Schema.optional(Schema.Boolean)}) {}
+export class FilterByAsset extends Schema.Class<FilterByAsset>("FilterByAsset")({assetId: Schema.optional(Schema.String), assetExternalId: Schema.optional(Schema.String), includeOffspring: Schema.optional(Schema.Boolean), includeAssetModel: Schema.optional(Schema.Boolean)}) {}
 export const IotSiteWiseSourceConfigurationFilter = Schema.Union(FilterByAssetModel, FilterByAsset);
 export const IotSiteWiseSourceConfigurationFilters = Schema.Array(IotSiteWiseSourceConfigurationFilter);
-export const IotSiteWiseSourceConfiguration = Schema.Struct({filters: Schema.optional(IotSiteWiseSourceConfigurationFilters)});
-export const FilterByComponentType = Schema.Struct({componentTypeId: Schema.String});
-export const FilterByEntity = Schema.Struct({entityId: Schema.String});
+export class IotSiteWiseSourceConfiguration extends Schema.Class<IotSiteWiseSourceConfiguration>("IotSiteWiseSourceConfiguration")({filters: Schema.optional(IotSiteWiseSourceConfigurationFilters)}) {}
+export class FilterByComponentType extends Schema.Class<FilterByComponentType>("FilterByComponentType")({componentTypeId: Schema.String}) {}
+export class FilterByEntity extends Schema.Class<FilterByEntity>("FilterByEntity")({entityId: Schema.String}) {}
 export const IotTwinMakerSourceConfigurationFilter = Schema.Union(FilterByComponentType, FilterByEntity);
 export const IotTwinMakerSourceConfigurationFilters = Schema.Array(IotTwinMakerSourceConfigurationFilter);
-export const IotTwinMakerSourceConfiguration = Schema.Struct({workspace: Schema.String, filters: Schema.optional(IotTwinMakerSourceConfigurationFilters)});
-export const SourceConfiguration = Schema.Struct({type: Schema.String, s3Configuration: Schema.optional(S3SourceConfiguration), iotSiteWiseConfiguration: Schema.optional(IotSiteWiseSourceConfiguration), iotTwinMakerConfiguration: Schema.optional(IotTwinMakerSourceConfiguration)});
+export class IotTwinMakerSourceConfiguration extends Schema.Class<IotTwinMakerSourceConfiguration>("IotTwinMakerSourceConfiguration")({workspace: Schema.String, filters: Schema.optional(IotTwinMakerSourceConfigurationFilters)}) {}
+export class SourceConfiguration extends Schema.Class<SourceConfiguration>("SourceConfiguration")({type: Schema.String, s3Configuration: Schema.optional(S3SourceConfiguration), iotSiteWiseConfiguration: Schema.optional(IotSiteWiseSourceConfiguration), iotTwinMakerConfiguration: Schema.optional(IotTwinMakerSourceConfiguration)}) {}
 export const SourceConfigurations = Schema.Array(SourceConfiguration);
-export const S3DestinationConfiguration = Schema.Struct({location: Schema.String});
-export const IotTwinMakerDestinationConfiguration = Schema.Struct({workspace: Schema.String});
-export const DestinationConfiguration = Schema.Struct({type: Schema.String, s3Configuration: Schema.optional(S3DestinationConfiguration), iotTwinMakerConfiguration: Schema.optional(IotTwinMakerDestinationConfiguration)});
-export const ErrorDetails = Schema.Struct({code: Schema.optional(Schema.String), message: Schema.optional(Schema.String)});
-export const MetadataTransferJobStatus = Schema.Struct({state: Schema.optional(Schema.String), error: Schema.optional(ErrorDetails), queuedPosition: Schema.optional(Schema.Number)});
-export const MetadataTransferJobProgress = Schema.Struct({totalCount: Schema.optional(Schema.Number), succeededCount: Schema.optional(Schema.Number), skippedCount: Schema.optional(Schema.Number), failedCount: Schema.optional(Schema.Number)});
-export const GetMetadataTransferJobResponse = Schema.Struct({metadataTransferJobId: Schema.String, arn: Schema.String, description: Schema.optional(Schema.String), sources: SourceConfigurations, destination: DestinationConfiguration, metadataTransferJobRole: Schema.String, reportUrl: Schema.optional(Schema.String), creationDateTime: Schema.Date, updateDateTime: Schema.Date, status: MetadataTransferJobStatus, progress: Schema.optional(MetadataTransferJobProgress)});
-export const GetWorkspaceResponse = Schema.Struct({workspaceId: Schema.String, arn: Schema.String, description: Schema.optional(Schema.String), linkedServices: Schema.optional(LinkedServices), s3Location: Schema.optional(Schema.String), role: Schema.optional(Schema.String), creationDateTime: Schema.Date, updateDateTime: Schema.Date});
-export const ListComponentTypesRequest = Schema.Struct({workspaceId: Schema.String, filters: Schema.optional(ListComponentTypesFilters), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListEntitiesRequest = Schema.Struct({workspaceId: Schema.String, filters: Schema.optional(ListEntitiesFilters), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListMetadataTransferJobsRequest = Schema.Struct({sourceType: Schema.String, destinationType: Schema.String, filters: Schema.optional(ListMetadataTransferJobsFilters), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListSyncResourcesRequest = Schema.Struct({workspaceId: Schema.String, syncSource: Schema.String, filters: Schema.optional(SyncResourceFilters), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceResponse = Schema.Struct({tags: Schema.optional(TagMap), nextToken: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UpdateComponentTypeResponse = Schema.Struct({workspaceId: Schema.String, arn: Schema.String, componentTypeId: Schema.String, state: Schema.String});
-export const BundleInformation = Schema.Struct({bundleNames: PricingBundles, pricingTier: Schema.optional(Schema.String)});
-export const PricingPlan = Schema.Struct({billableEntityCount: Schema.optional(Schema.Number), bundleInformation: Schema.optional(BundleInformation), effectiveDateTime: Schema.Date, pricingMode: Schema.String, updateDateTime: Schema.Date, updateReason: Schema.String});
-export const UpdatePricingPlanResponse = Schema.Struct({currentPricingPlan: PricingPlan, pendingPricingPlan: Schema.optional(PricingPlan)});
-export const UpdateSceneResponse = Schema.Struct({updateDateTime: Schema.Date});
-export const UpdateWorkspaceResponse = Schema.Struct({updateDateTime: Schema.Date});
-export const PropertyValue = Schema.Struct({timestamp: Schema.optional(Schema.Date), value: DataValue, time: Schema.optional(Schema.String)});
+export class S3DestinationConfiguration extends Schema.Class<S3DestinationConfiguration>("S3DestinationConfiguration")({location: Schema.String}) {}
+export class IotTwinMakerDestinationConfiguration extends Schema.Class<IotTwinMakerDestinationConfiguration>("IotTwinMakerDestinationConfiguration")({workspace: Schema.String}) {}
+export class DestinationConfiguration extends Schema.Class<DestinationConfiguration>("DestinationConfiguration")({type: Schema.String, s3Configuration: Schema.optional(S3DestinationConfiguration), iotTwinMakerConfiguration: Schema.optional(IotTwinMakerDestinationConfiguration)}) {}
+export class ErrorDetails extends Schema.Class<ErrorDetails>("ErrorDetails")({code: Schema.optional(Schema.String), message: Schema.optional(Schema.String)}) {}
+export class MetadataTransferJobStatus extends Schema.Class<MetadataTransferJobStatus>("MetadataTransferJobStatus")({state: Schema.optional(Schema.String), error: Schema.optional(ErrorDetails), queuedPosition: Schema.optional(Schema.Number)}) {}
+export class MetadataTransferJobProgress extends Schema.Class<MetadataTransferJobProgress>("MetadataTransferJobProgress")({totalCount: Schema.optional(Schema.Number), succeededCount: Schema.optional(Schema.Number), skippedCount: Schema.optional(Schema.Number), failedCount: Schema.optional(Schema.Number)}) {}
+export class GetMetadataTransferJobResponse extends Schema.Class<GetMetadataTransferJobResponse>("GetMetadataTransferJobResponse")({metadataTransferJobId: Schema.String, arn: Schema.String, description: Schema.optional(Schema.String), sources: SourceConfigurations, destination: DestinationConfiguration, metadataTransferJobRole: Schema.String, reportUrl: Schema.optional(Schema.String), creationDateTime: Schema.Date, updateDateTime: Schema.Date, status: MetadataTransferJobStatus, progress: Schema.optional(MetadataTransferJobProgress)}) {}
+export class GetWorkspaceResponse extends Schema.Class<GetWorkspaceResponse>("GetWorkspaceResponse")({workspaceId: Schema.String, arn: Schema.String, description: Schema.optional(Schema.String), linkedServices: Schema.optional(LinkedServices), s3Location: Schema.optional(Schema.String), role: Schema.optional(Schema.String), creationDateTime: Schema.Date, updateDateTime: Schema.Date}) {}
+export class ListComponentTypesRequest extends Schema.Class<ListComponentTypesRequest>("ListComponentTypesRequest")({workspaceId: Schema.String, filters: Schema.optional(ListComponentTypesFilters), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListEntitiesRequest extends Schema.Class<ListEntitiesRequest>("ListEntitiesRequest")({workspaceId: Schema.String, filters: Schema.optional(ListEntitiesFilters), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListMetadataTransferJobsRequest extends Schema.Class<ListMetadataTransferJobsRequest>("ListMetadataTransferJobsRequest")({sourceType: Schema.String, destinationType: Schema.String, filters: Schema.optional(ListMetadataTransferJobsFilters), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListSyncResourcesRequest extends Schema.Class<ListSyncResourcesRequest>("ListSyncResourcesRequest")({workspaceId: Schema.String, syncSource: Schema.String, filters: Schema.optional(SyncResourceFilters), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({tags: Schema.optional(TagMap), nextToken: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class UpdateComponentTypeResponse extends Schema.Class<UpdateComponentTypeResponse>("UpdateComponentTypeResponse")({workspaceId: Schema.String, arn: Schema.String, componentTypeId: Schema.String, state: Schema.String}) {}
+export class BundleInformation extends Schema.Class<BundleInformation>("BundleInformation")({bundleNames: PricingBundles, pricingTier: Schema.optional(Schema.String)}) {}
+export class PricingPlan extends Schema.Class<PricingPlan>("PricingPlan")({billableEntityCount: Schema.optional(Schema.Number), bundleInformation: Schema.optional(BundleInformation), effectiveDateTime: Schema.Date, pricingMode: Schema.String, updateDateTime: Schema.Date, updateReason: Schema.String}) {}
+export class UpdatePricingPlanResponse extends Schema.Class<UpdatePricingPlanResponse>("UpdatePricingPlanResponse")({currentPricingPlan: PricingPlan, pendingPricingPlan: Schema.optional(PricingPlan)}) {}
+export class UpdateSceneResponse extends Schema.Class<UpdateSceneResponse>("UpdateSceneResponse")({updateDateTime: Schema.Date}) {}
+export class UpdateWorkspaceResponse extends Schema.Class<UpdateWorkspaceResponse>("UpdateWorkspaceResponse")({updateDateTime: Schema.Date}) {}
+export class PropertyValue extends Schema.Class<PropertyValue>("PropertyValue")({timestamp: Schema.optional(Schema.Date), value: DataValue, time: Schema.optional(Schema.String)}) {}
 export const PropertyValues = Schema.Array(PropertyValue);
-export const PropertyRequest = Schema.Struct({definition: Schema.optional(PropertyDefinitionRequest), value: Schema.optional(DataValue), updateType: Schema.optional(Schema.String)});
+export class PropertyRequest extends Schema.Class<PropertyRequest>("PropertyRequest")({definition: Schema.optional(PropertyDefinitionRequest), value: Schema.optional(DataValue), updateType: Schema.optional(Schema.String)}) {}
 export const PropertyRequests = Schema.Record({key: Schema.String, value: PropertyRequest});
-export const ComponentPropertyGroupRequest = Schema.Struct({groupType: Schema.optional(Schema.String), propertyNames: Schema.optional(PropertyNames), updateType: Schema.optional(Schema.String)});
+export class ComponentPropertyGroupRequest extends Schema.Class<ComponentPropertyGroupRequest>("ComponentPropertyGroupRequest")({groupType: Schema.optional(Schema.String), propertyNames: Schema.optional(PropertyNames), updateType: Schema.optional(Schema.String)}) {}
 export const ComponentPropertyGroupRequests = Schema.Record({key: Schema.String, value: ComponentPropertyGroupRequest});
-export const CompositeComponentRequest = Schema.Struct({description: Schema.optional(Schema.String), properties: Schema.optional(PropertyRequests), propertyGroups: Schema.optional(ComponentPropertyGroupRequests)});
+export class CompositeComponentRequest extends Schema.Class<CompositeComponentRequest>("CompositeComponentRequest")({description: Schema.optional(Schema.String), properties: Schema.optional(PropertyRequests), propertyGroups: Schema.optional(ComponentPropertyGroupRequests)}) {}
 export const RowData = Schema.Array(Schema.JsonValue);
-export const OrderBy = Schema.Struct({order: Schema.optional(Schema.String), propertyName: Schema.String});
+export class OrderBy extends Schema.Class<OrderBy>("OrderBy")({order: Schema.optional(Schema.String), propertyName: Schema.String}) {}
 export const OrderByList = Schema.Array(OrderBy);
-export const ComponentUpdateRequest = Schema.Struct({updateType: Schema.optional(Schema.String), description: Schema.optional(Schema.String), componentTypeId: Schema.optional(Schema.String), propertyUpdates: Schema.optional(PropertyRequests), propertyGroupUpdates: Schema.optional(ComponentPropertyGroupRequests)});
-export const CompositeComponentUpdateRequest = Schema.Struct({updateType: Schema.optional(Schema.String), description: Schema.optional(Schema.String), propertyUpdates: Schema.optional(PropertyRequests), propertyGroupUpdates: Schema.optional(ComponentPropertyGroupRequests)});
+export class ComponentUpdateRequest extends Schema.Class<ComponentUpdateRequest>("ComponentUpdateRequest")({updateType: Schema.optional(Schema.String), description: Schema.optional(Schema.String), componentTypeId: Schema.optional(Schema.String), propertyUpdates: Schema.optional(PropertyRequests), propertyGroupUpdates: Schema.optional(ComponentPropertyGroupRequests)}) {}
+export class CompositeComponentUpdateRequest extends Schema.Class<CompositeComponentUpdateRequest>("CompositeComponentUpdateRequest")({updateType: Schema.optional(Schema.String), description: Schema.optional(Schema.String), propertyUpdates: Schema.optional(PropertyRequests), propertyGroupUpdates: Schema.optional(ComponentPropertyGroupRequests)}) {}
 export const CompositeComponentsMapRequest = Schema.Record({key: Schema.String, value: CompositeComponentRequest});
-export const ColumnDescription = Schema.Struct({name: Schema.optional(Schema.String), type: Schema.optional(Schema.String)});
+export class ColumnDescription extends Schema.Class<ColumnDescription>("ColumnDescription")({name: Schema.optional(Schema.String), type: Schema.optional(Schema.String)}) {}
 export const ColumnDescriptions = Schema.Array(ColumnDescription);
-export const Row = Schema.Struct({rowData: Schema.optional(RowData)});
+export class Row extends Schema.Class<Row>("Row")({rowData: Schema.optional(RowData)}) {}
 export const Rows = Schema.Array(Row);
-export const Status = Schema.Struct({state: Schema.optional(Schema.String), error: Schema.optional(ErrorDetails)});
-export const PropertyFilter = Schema.Struct({propertyName: Schema.optional(Schema.String), operator: Schema.optional(Schema.String), value: Schema.optional(DataValue)});
+export class Status extends Schema.Class<Status>("Status")({state: Schema.optional(Schema.String), error: Schema.optional(ErrorDetails)}) {}
+export class PropertyFilter extends Schema.Class<PropertyFilter>("PropertyFilter")({propertyName: Schema.optional(Schema.String), operator: Schema.optional(Schema.String), value: Schema.optional(DataValue)}) {}
 export const PropertyFilters = Schema.Array(PropertyFilter);
-export const TabularConditions = Schema.Struct({orderBy: Schema.optional(OrderByList), propertyFilters: Schema.optional(PropertyFilters)});
+export class TabularConditions extends Schema.Class<TabularConditions>("TabularConditions")({orderBy: Schema.optional(OrderByList), propertyFilters: Schema.optional(PropertyFilters)}) {}
 export const GeneratedSceneMetadataMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const SceneError = Schema.Struct({code: Schema.optional(Schema.String), message: Schema.optional(Schema.String)});
-export const SyncJobStatus = Schema.Struct({state: Schema.optional(Schema.String), error: Schema.optional(ErrorDetails)});
-export const PropertyDefinitionResponse = Schema.Struct({dataType: DataType, isTimeSeries: Schema.Boolean, isRequiredInEntity: Schema.Boolean, isExternalId: Schema.Boolean, isStoredExternally: Schema.Boolean, isImported: Schema.Boolean, isFinal: Schema.Boolean, isInherited: Schema.Boolean, defaultValue: Schema.optional(DataValue), configuration: Schema.optional(Configuration), displayName: Schema.optional(Schema.String)});
-export const PropertySummary = Schema.Struct({definition: Schema.optional(PropertyDefinitionResponse), propertyName: Schema.String, value: Schema.optional(DataValue), areAllPropertyValuesReturned: Schema.optional(Schema.Boolean)});
+export class SceneError extends Schema.Class<SceneError>("SceneError")({code: Schema.optional(Schema.String), message: Schema.optional(Schema.String)}) {}
+export class SyncJobStatus extends Schema.Class<SyncJobStatus>("SyncJobStatus")({state: Schema.optional(Schema.String), error: Schema.optional(ErrorDetails)}) {}
+export class PropertyDefinitionResponse extends Schema.Class<PropertyDefinitionResponse>("PropertyDefinitionResponse")({dataType: DataType, isTimeSeries: Schema.Boolean, isRequiredInEntity: Schema.Boolean, isExternalId: Schema.Boolean, isStoredExternally: Schema.Boolean, isImported: Schema.Boolean, isFinal: Schema.Boolean, isInherited: Schema.Boolean, defaultValue: Schema.optional(DataValue), configuration: Schema.optional(Configuration), displayName: Schema.optional(Schema.String)}) {}
+export class PropertySummary extends Schema.Class<PropertySummary>("PropertySummary")({definition: Schema.optional(PropertyDefinitionResponse), propertyName: Schema.String, value: Schema.optional(DataValue), areAllPropertyValuesReturned: Schema.optional(Schema.Boolean)}) {}
 export const PropertySummaries = Schema.Array(PropertySummary);
-export const SceneSummary = Schema.Struct({sceneId: Schema.String, contentLocation: Schema.String, arn: Schema.String, creationDateTime: Schema.Date, updateDateTime: Schema.Date, description: Schema.optional(Schema.String)});
+export class SceneSummary extends Schema.Class<SceneSummary>("SceneSummary")({sceneId: Schema.String, contentLocation: Schema.String, arn: Schema.String, creationDateTime: Schema.Date, updateDateTime: Schema.Date, description: Schema.optional(Schema.String)}) {}
 export const SceneSummaries = Schema.Array(SceneSummary);
-export const SyncJobSummary = Schema.Struct({arn: Schema.optional(Schema.String), workspaceId: Schema.optional(Schema.String), syncSource: Schema.optional(Schema.String), status: Schema.optional(SyncJobStatus), creationDateTime: Schema.optional(Schema.Date), updateDateTime: Schema.optional(Schema.Date)});
+export class SyncJobSummary extends Schema.Class<SyncJobSummary>("SyncJobSummary")({arn: Schema.optional(Schema.String), workspaceId: Schema.optional(Schema.String), syncSource: Schema.optional(Schema.String), status: Schema.optional(SyncJobStatus), creationDateTime: Schema.optional(Schema.Date), updateDateTime: Schema.optional(Schema.Date)}) {}
 export const SyncJobSummaries = Schema.Array(SyncJobSummary);
-export const WorkspaceSummary = Schema.Struct({workspaceId: Schema.String, arn: Schema.String, description: Schema.optional(Schema.String), linkedServices: Schema.optional(LinkedServices), creationDateTime: Schema.Date, updateDateTime: Schema.Date});
+export class WorkspaceSummary extends Schema.Class<WorkspaceSummary>("WorkspaceSummary")({workspaceId: Schema.String, arn: Schema.String, description: Schema.optional(Schema.String), linkedServices: Schema.optional(LinkedServices), creationDateTime: Schema.Date, updateDateTime: Schema.Date}) {}
 export const WorkspaceSummaries = Schema.Array(WorkspaceSummary);
 export const ComponentUpdatesMapRequest = Schema.Record({key: Schema.String, value: ComponentUpdateRequest});
 export const CompositeComponentUpdatesMapRequest = Schema.Record({key: Schema.String, value: CompositeComponentUpdateRequest});
 export const ExternalIdProperty = Schema.Record({key: Schema.String, value: Schema.String});
-export const CreateSceneResponse = Schema.Struct({arn: Schema.String, creationDateTime: Schema.Date});
-export const ConflictException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InternalServerException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ThrottlingException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ServiceQuotaExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ValidationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ExecuteQueryResponse = Schema.Struct({columnDescriptions: Schema.optional(ColumnDescriptions), rows: Schema.optional(Rows), nextToken: Schema.optional(Schema.String)});
-export const GetPricingPlanResponse = Schema.Struct({currentPricingPlan: PricingPlan, pendingPricingPlan: Schema.optional(PricingPlan)});
-export const GetPropertyValueRequest = Schema.Struct({componentName: Schema.optional(Schema.String), componentPath: Schema.optional(Schema.String), componentTypeId: Schema.optional(Schema.String), entityId: Schema.optional(Schema.String), selectedProperties: SelectedPropertyList, workspaceId: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String), propertyGroupName: Schema.optional(Schema.String), tabularConditions: Schema.optional(TabularConditions)});
-export const GetSceneResponse = Schema.Struct({workspaceId: Schema.String, sceneId: Schema.String, contentLocation: Schema.String, arn: Schema.String, creationDateTime: Schema.Date, updateDateTime: Schema.Date, description: Schema.optional(Schema.String), capabilities: Schema.optional(SceneCapabilities), sceneMetadata: Schema.optional(SceneMetadataMap), generatedSceneMetadata: Schema.optional(GeneratedSceneMetadataMap), error: Schema.optional(SceneError)});
-export const GetSyncJobResponse = Schema.Struct({arn: Schema.String, workspaceId: Schema.String, syncSource: Schema.String, syncRole: Schema.String, status: SyncJobStatus, creationDateTime: Schema.Date, updateDateTime: Schema.Date});
-export const ListPropertiesResponse = Schema.Struct({propertySummaries: PropertySummaries, nextToken: Schema.optional(Schema.String)});
-export const ListScenesResponse = Schema.Struct({sceneSummaries: Schema.optional(SceneSummaries), nextToken: Schema.optional(Schema.String)});
-export const ListSyncJobsResponse = Schema.Struct({syncJobSummaries: Schema.optional(SyncJobSummaries), nextToken: Schema.optional(Schema.String)});
-export const ListWorkspacesResponse = Schema.Struct({workspaceSummaries: Schema.optional(WorkspaceSummaries), nextToken: Schema.optional(Schema.String)});
-export const TooManyTagsException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UpdateEntityRequest = Schema.Struct({workspaceId: Schema.String, entityId: Schema.String, entityName: Schema.optional(Schema.String), description: Schema.optional(Schema.String), componentUpdates: Schema.optional(ComponentUpdatesMapRequest), compositeComponentUpdates: Schema.optional(CompositeComponentUpdatesMapRequest), parentEntityUpdate: Schema.optional(ParentEntityUpdateRequest)});
-export const EntityPropertyReference = Schema.Struct({componentName: Schema.optional(Schema.String), componentPath: Schema.optional(Schema.String), externalIdProperty: Schema.optional(ExternalIdProperty), entityId: Schema.optional(Schema.String), propertyName: Schema.String});
-export const FunctionResponse = Schema.Struct({requiredProperties: Schema.optional(RequiredProperties), scope: Schema.optional(Schema.String), implementedBy: Schema.optional(DataConnector), isInherited: Schema.optional(Schema.Boolean)});
-export const PropertyGroupResponse = Schema.Struct({groupType: Schema.String, propertyNames: PropertyNames, isInherited: Schema.Boolean});
-export const CompositeComponentTypeResponse = Schema.Struct({componentTypeId: Schema.optional(Schema.String), isInherited: Schema.optional(Schema.Boolean)});
-export const PropertyValueEntry = Schema.Struct({entityPropertyReference: EntityPropertyReference, propertyValues: Schema.optional(PropertyValues)});
+export const DataValueMap = Schema.Record({key: Schema.String, value: DataValue});
+export class CreateSceneResponse extends Schema.Class<CreateSceneResponse>("CreateSceneResponse")({arn: Schema.String, creationDateTime: Schema.Date}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({message: Schema.optional(Schema.String)}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({message: Schema.optional(Schema.String)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({message: Schema.optional(Schema.String)}) {}
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({message: Schema.optional(Schema.String)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({message: Schema.optional(Schema.String)}) {}
+export class ExecuteQueryResponse extends Schema.Class<ExecuteQueryResponse>("ExecuteQueryResponse")({columnDescriptions: Schema.optional(ColumnDescriptions), rows: Schema.optional(Rows), nextToken: Schema.optional(Schema.String)}) {}
+export class GetPricingPlanResponse extends Schema.Class<GetPricingPlanResponse>("GetPricingPlanResponse")({currentPricingPlan: PricingPlan, pendingPricingPlan: Schema.optional(PricingPlan)}) {}
+export class GetPropertyValueRequest extends Schema.Class<GetPropertyValueRequest>("GetPropertyValueRequest")({componentName: Schema.optional(Schema.String), componentPath: Schema.optional(Schema.String), componentTypeId: Schema.optional(Schema.String), entityId: Schema.optional(Schema.String), selectedProperties: SelectedPropertyList, workspaceId: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String), propertyGroupName: Schema.optional(Schema.String), tabularConditions: Schema.optional(TabularConditions)}) {}
+export class GetSceneResponse extends Schema.Class<GetSceneResponse>("GetSceneResponse")({workspaceId: Schema.String, sceneId: Schema.String, contentLocation: Schema.String, arn: Schema.String, creationDateTime: Schema.Date, updateDateTime: Schema.Date, description: Schema.optional(Schema.String), capabilities: Schema.optional(SceneCapabilities), sceneMetadata: Schema.optional(SceneMetadataMap), generatedSceneMetadata: Schema.optional(GeneratedSceneMetadataMap), error: Schema.optional(SceneError)}) {}
+export class GetSyncJobResponse extends Schema.Class<GetSyncJobResponse>("GetSyncJobResponse")({arn: Schema.String, workspaceId: Schema.String, syncSource: Schema.String, syncRole: Schema.String, status: SyncJobStatus, creationDateTime: Schema.Date, updateDateTime: Schema.Date}) {}
+export class ListPropertiesResponse extends Schema.Class<ListPropertiesResponse>("ListPropertiesResponse")({propertySummaries: PropertySummaries, nextToken: Schema.optional(Schema.String)}) {}
+export class ListScenesResponse extends Schema.Class<ListScenesResponse>("ListScenesResponse")({sceneSummaries: Schema.optional(SceneSummaries), nextToken: Schema.optional(Schema.String)}) {}
+export class ListSyncJobsResponse extends Schema.Class<ListSyncJobsResponse>("ListSyncJobsResponse")({syncJobSummaries: Schema.optional(SyncJobSummaries), nextToken: Schema.optional(Schema.String)}) {}
+export class ListWorkspacesResponse extends Schema.Class<ListWorkspacesResponse>("ListWorkspacesResponse")({workspaceSummaries: Schema.optional(WorkspaceSummaries), nextToken: Schema.optional(Schema.String)}) {}
+export class TooManyTagsException extends Schema.Class<TooManyTagsException>("TooManyTagsException")({message: Schema.optional(Schema.String)}) {}
+export class UpdateEntityRequest extends Schema.Class<UpdateEntityRequest>("UpdateEntityRequest")({workspaceId: Schema.String, entityId: Schema.String, entityName: Schema.optional(Schema.String), description: Schema.optional(Schema.String), componentUpdates: Schema.optional(ComponentUpdatesMapRequest), compositeComponentUpdates: Schema.optional(CompositeComponentUpdatesMapRequest), parentEntityUpdate: Schema.optional(ParentEntityUpdateRequest)}) {}
+export class EntityPropertyReference extends Schema.Class<EntityPropertyReference>("EntityPropertyReference")({componentName: Schema.optional(Schema.String), componentPath: Schema.optional(Schema.String), externalIdProperty: Schema.optional(ExternalIdProperty), entityId: Schema.optional(Schema.String), propertyName: Schema.String}) {}
+export class FunctionResponse extends Schema.Class<FunctionResponse>("FunctionResponse")({requiredProperties: Schema.optional(RequiredProperties), scope: Schema.optional(Schema.String), implementedBy: Schema.optional(DataConnector), isInherited: Schema.optional(Schema.Boolean)}) {}
+export class PropertyGroupResponse extends Schema.Class<PropertyGroupResponse>("PropertyGroupResponse")({groupType: Schema.String, propertyNames: PropertyNames, isInherited: Schema.Boolean}) {}
+export class CompositeComponentTypeResponse extends Schema.Class<CompositeComponentTypeResponse>("CompositeComponentTypeResponse")({componentTypeId: Schema.optional(Schema.String), isInherited: Schema.optional(Schema.Boolean)}) {}
+export class PropertyValueEntry extends Schema.Class<PropertyValueEntry>("PropertyValueEntry")({entityPropertyReference: EntityPropertyReference, propertyValues: Schema.optional(PropertyValues)}) {}
 export const Entries = Schema.Array(PropertyValueEntry);
 export const PropertyDefinitionsResponse = Schema.Record({key: Schema.String, value: PropertyDefinitionResponse});
 export const FunctionsResponse = Schema.Record({key: Schema.String, value: FunctionResponse});
 export const PropertyGroupsResponse = Schema.Record({key: Schema.String, value: PropertyGroupResponse});
 export const CompositeComponentTypesResponse = Schema.Record({key: Schema.String, value: CompositeComponentTypeResponse});
-export const ComponentTypeSummary = Schema.Struct({arn: Schema.String, componentTypeId: Schema.String, creationDateTime: Schema.Date, updateDateTime: Schema.Date, description: Schema.optional(Schema.String), status: Schema.optional(Status), componentTypeName: Schema.optional(Schema.String)});
+export class ComponentTypeSummary extends Schema.Class<ComponentTypeSummary>("ComponentTypeSummary")({arn: Schema.String, componentTypeId: Schema.String, creationDateTime: Schema.Date, updateDateTime: Schema.Date, description: Schema.optional(Schema.String), status: Schema.optional(Status), componentTypeName: Schema.optional(Schema.String)}) {}
 export const ComponentTypeSummaries = Schema.Array(ComponentTypeSummary);
-export const EntitySummary = Schema.Struct({entityId: Schema.String, entityName: Schema.String, arn: Schema.String, parentEntityId: Schema.optional(Schema.String), status: Status, description: Schema.optional(Schema.String), hasChildEntities: Schema.optional(Schema.Boolean), creationDateTime: Schema.Date, updateDateTime: Schema.Date});
+export class EntitySummary extends Schema.Class<EntitySummary>("EntitySummary")({entityId: Schema.String, entityName: Schema.String, arn: Schema.String, parentEntityId: Schema.optional(Schema.String), status: Status, description: Schema.optional(Schema.String), hasChildEntities: Schema.optional(Schema.Boolean), creationDateTime: Schema.Date, updateDateTime: Schema.Date}) {}
 export const EntitySummaries = Schema.Array(EntitySummary);
-export const MetadataTransferJobSummary = Schema.Struct({metadataTransferJobId: Schema.String, arn: Schema.String, creationDateTime: Schema.Date, updateDateTime: Schema.Date, status: MetadataTransferJobStatus, progress: Schema.optional(MetadataTransferJobProgress)});
+export class MetadataTransferJobSummary extends Schema.Class<MetadataTransferJobSummary>("MetadataTransferJobSummary")({metadataTransferJobId: Schema.String, arn: Schema.String, creationDateTime: Schema.Date, updateDateTime: Schema.Date, status: MetadataTransferJobStatus, progress: Schema.optional(MetadataTransferJobProgress)}) {}
 export const MetadataTransferJobSummaries = Schema.Array(MetadataTransferJobSummary);
-export const ComponentPropertyGroupResponse = Schema.Struct({groupType: Schema.String, propertyNames: PropertyNames, isInherited: Schema.Boolean});
+export class ComponentPropertyGroupResponse extends Schema.Class<ComponentPropertyGroupResponse>("ComponentPropertyGroupResponse")({groupType: Schema.String, propertyNames: PropertyNames, isInherited: Schema.Boolean}) {}
 export const ComponentPropertyGroupResponses = Schema.Record({key: Schema.String, value: ComponentPropertyGroupResponse});
-export const ComponentSummary = Schema.Struct({componentName: Schema.String, componentTypeId: Schema.String, definedIn: Schema.optional(Schema.String), description: Schema.optional(Schema.String), propertyGroups: Schema.optional(ComponentPropertyGroupResponses), status: Status, syncSource: Schema.optional(Schema.String), componentPath: Schema.optional(Schema.String)});
+export class ComponentSummary extends Schema.Class<ComponentSummary>("ComponentSummary")({componentName: Schema.String, componentTypeId: Schema.String, definedIn: Schema.optional(Schema.String), description: Schema.optional(Schema.String), propertyGroups: Schema.optional(ComponentPropertyGroupResponses), status: Status, syncSource: Schema.optional(Schema.String), componentPath: Schema.optional(Schema.String)}) {}
 export const CompositeComponentResponse = Schema.Record({key: Schema.String, value: ComponentSummary});
-export const BatchPutPropertyValuesRequest = Schema.Struct({workspaceId: Schema.String, entries: Entries});
-export const CancelMetadataTransferJobResponse = Schema.Struct({metadataTransferJobId: Schema.String, arn: Schema.String, updateDateTime: Schema.Date, status: MetadataTransferJobStatus, progress: Schema.optional(MetadataTransferJobProgress)});
-export const QueryTimeoutException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const GetComponentTypeResponse = Schema.Struct({workspaceId: Schema.String, isSingleton: Schema.optional(Schema.Boolean), componentTypeId: Schema.String, description: Schema.optional(Schema.String), propertyDefinitions: Schema.optional(PropertyDefinitionsResponse), extendsFrom: Schema.optional(ExtendsFrom), functions: Schema.optional(FunctionsResponse), creationDateTime: Schema.Date, updateDateTime: Schema.Date, arn: Schema.String, isAbstract: Schema.optional(Schema.Boolean), isSchemaInitialized: Schema.optional(Schema.Boolean), status: Schema.optional(Status), propertyGroups: Schema.optional(PropertyGroupsResponse), syncSource: Schema.optional(Schema.String), componentTypeName: Schema.optional(Schema.String), compositeComponentTypes: Schema.optional(CompositeComponentTypesResponse)});
-export const GetPropertyValueHistoryRequest = Schema.Struct({workspaceId: Schema.String, entityId: Schema.optional(Schema.String), componentName: Schema.optional(Schema.String), componentPath: Schema.optional(Schema.String), componentTypeId: Schema.optional(Schema.String), selectedProperties: SelectedPropertyList, propertyFilters: Schema.optional(PropertyFilters), startDateTime: Schema.optional(Schema.Date), endDateTime: Schema.optional(Schema.Date), interpolation: Schema.optional(InterpolationParameters), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), orderByTime: Schema.optional(Schema.String), startTime: Schema.optional(Schema.String), endTime: Schema.optional(Schema.String)});
-export const ListComponentTypesResponse = Schema.Struct({workspaceId: Schema.String, componentTypeSummaries: ComponentTypeSummaries, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListEntitiesResponse = Schema.Struct({entitySummaries: Schema.optional(EntitySummaries), nextToken: Schema.optional(Schema.String)});
-export const ListMetadataTransferJobsResponse = Schema.Struct({metadataTransferJobSummaries: MetadataTransferJobSummaries, nextToken: Schema.optional(Schema.String)});
-export const UpdateEntityResponse = Schema.Struct({updateDateTime: Schema.Date, state: Schema.String});
-export const ComponentRequest = Schema.Struct({description: Schema.optional(Schema.String), componentTypeId: Schema.optional(Schema.String), properties: Schema.optional(PropertyRequests), propertyGroups: Schema.optional(ComponentPropertyGroupRequests)});
-export const SyncResourceStatus = Schema.Struct({state: Schema.optional(Schema.String), error: Schema.optional(ErrorDetails)});
-export const PropertyResponse = Schema.Struct({definition: Schema.optional(PropertyDefinitionResponse), value: Schema.optional(DataValue), areAllPropertyValuesReturned: Schema.optional(Schema.Boolean)});
+export class BatchPutPropertyValuesRequest extends Schema.Class<BatchPutPropertyValuesRequest>("BatchPutPropertyValuesRequest")({workspaceId: Schema.String, entries: Entries}) {}
+export class CancelMetadataTransferJobResponse extends Schema.Class<CancelMetadataTransferJobResponse>("CancelMetadataTransferJobResponse")({metadataTransferJobId: Schema.String, arn: Schema.String, updateDateTime: Schema.Date, status: MetadataTransferJobStatus, progress: Schema.optional(MetadataTransferJobProgress)}) {}
+export class QueryTimeoutException extends Schema.Class<QueryTimeoutException>("QueryTimeoutException")({message: Schema.optional(Schema.String)}) {}
+export class GetComponentTypeResponse extends Schema.Class<GetComponentTypeResponse>("GetComponentTypeResponse")({workspaceId: Schema.String, isSingleton: Schema.optional(Schema.Boolean), componentTypeId: Schema.String, description: Schema.optional(Schema.String), propertyDefinitions: Schema.optional(PropertyDefinitionsResponse), extendsFrom: Schema.optional(ExtendsFrom), functions: Schema.optional(FunctionsResponse), creationDateTime: Schema.Date, updateDateTime: Schema.Date, arn: Schema.String, isAbstract: Schema.optional(Schema.Boolean), isSchemaInitialized: Schema.optional(Schema.Boolean), status: Schema.optional(Status), propertyGroups: Schema.optional(PropertyGroupsResponse), syncSource: Schema.optional(Schema.String), componentTypeName: Schema.optional(Schema.String), compositeComponentTypes: Schema.optional(CompositeComponentTypesResponse)}) {}
+export class GetPropertyValueHistoryRequest extends Schema.Class<GetPropertyValueHistoryRequest>("GetPropertyValueHistoryRequest")({workspaceId: Schema.String, entityId: Schema.optional(Schema.String), componentName: Schema.optional(Schema.String), componentPath: Schema.optional(Schema.String), componentTypeId: Schema.optional(Schema.String), selectedProperties: SelectedPropertyList, propertyFilters: Schema.optional(PropertyFilters), startDateTime: Schema.optional(Schema.Date), endDateTime: Schema.optional(Schema.Date), interpolation: Schema.optional(InterpolationParameters), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), orderByTime: Schema.optional(Schema.String), startTime: Schema.optional(Schema.String), endTime: Schema.optional(Schema.String)}) {}
+export class ListComponentTypesResponse extends Schema.Class<ListComponentTypesResponse>("ListComponentTypesResponse")({workspaceId: Schema.String, componentTypeSummaries: ComponentTypeSummaries, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListEntitiesResponse extends Schema.Class<ListEntitiesResponse>("ListEntitiesResponse")({entitySummaries: Schema.optional(EntitySummaries), nextToken: Schema.optional(Schema.String)}) {}
+export class ListMetadataTransferJobsResponse extends Schema.Class<ListMetadataTransferJobsResponse>("ListMetadataTransferJobsResponse")({metadataTransferJobSummaries: MetadataTransferJobSummaries, nextToken: Schema.optional(Schema.String)}) {}
+export class UpdateEntityResponse extends Schema.Class<UpdateEntityResponse>("UpdateEntityResponse")({updateDateTime: Schema.Date, state: Schema.String}) {}
+export class ComponentRequest extends Schema.Class<ComponentRequest>("ComponentRequest")({description: Schema.optional(Schema.String), componentTypeId: Schema.optional(Schema.String), properties: Schema.optional(PropertyRequests), propertyGroups: Schema.optional(ComponentPropertyGroupRequests)}) {}
+export class SyncResourceStatus extends Schema.Class<SyncResourceStatus>("SyncResourceStatus")({state: Schema.optional(Schema.String), error: Schema.optional(ErrorDetails)}) {}
+export class PropertyResponse extends Schema.Class<PropertyResponse>("PropertyResponse")({definition: Schema.optional(PropertyDefinitionResponse), value: Schema.optional(DataValue), areAllPropertyValuesReturned: Schema.optional(Schema.Boolean)}) {}
 export const ComponentsMapRequest = Schema.Record({key: Schema.String, value: ComponentRequest});
 export const PropertyTableValue = Schema.Record({key: Schema.String, value: DataValue});
 export const TabularPropertyValue = Schema.Array(PropertyTableValue);
 export const TabularPropertyValues = Schema.Array(TabularPropertyValue);
 export const ComponentSummaries = Schema.Array(ComponentSummary);
-export const SyncResourceSummary = Schema.Struct({resourceType: Schema.optional(Schema.String), externalId: Schema.optional(Schema.String), resourceId: Schema.optional(Schema.String), status: Schema.optional(SyncResourceStatus), updateDateTime: Schema.optional(Schema.Date)});
+export class SyncResourceSummary extends Schema.Class<SyncResourceSummary>("SyncResourceSummary")({resourceType: Schema.optional(Schema.String), externalId: Schema.optional(Schema.String), resourceId: Schema.optional(Schema.String), status: Schema.optional(SyncResourceStatus), updateDateTime: Schema.optional(Schema.Date)}) {}
 export const SyncResourceSummaries = Schema.Array(SyncResourceSummary);
 export const PropertyResponses = Schema.Record({key: Schema.String, value: PropertyResponse});
-export const CreateComponentTypeRequest = Schema.Struct({workspaceId: Schema.String, isSingleton: Schema.optional(Schema.Boolean), componentTypeId: Schema.String, description: Schema.optional(Schema.String), propertyDefinitions: Schema.optional(PropertyDefinitionsRequest), extendsFrom: Schema.optional(ExtendsFrom), functions: Schema.optional(FunctionsRequest), tags: Schema.optional(TagMap), propertyGroups: Schema.optional(PropertyGroupsRequest), componentTypeName: Schema.optional(Schema.String), compositeComponentTypes: Schema.optional(CompositeComponentTypesRequest)});
-export const CreateEntityRequest = Schema.Struct({workspaceId: Schema.String, entityId: Schema.optional(Schema.String), entityName: Schema.String, description: Schema.optional(Schema.String), components: Schema.optional(ComponentsMapRequest), compositeComponents: Schema.optional(CompositeComponentsMapRequest), parentEntityId: Schema.optional(Schema.String), tags: Schema.optional(TagMap)});
-export const CreateMetadataTransferJobRequest = Schema.Struct({metadataTransferJobId: Schema.optional(Schema.String), description: Schema.optional(Schema.String), sources: SourceConfigurations, destination: DestinationConfiguration});
-export const ListComponentsResponse = Schema.Struct({componentSummaries: ComponentSummaries, nextToken: Schema.optional(Schema.String)});
-export const ListSyncResourcesResponse = Schema.Struct({syncResources: Schema.optional(SyncResourceSummaries), nextToken: Schema.optional(Schema.String)});
-export const ComponentResponse = Schema.Struct({componentName: Schema.optional(Schema.String), description: Schema.optional(Schema.String), componentTypeId: Schema.optional(Schema.String), status: Schema.optional(Status), definedIn: Schema.optional(Schema.String), properties: Schema.optional(PropertyResponses), propertyGroups: Schema.optional(ComponentPropertyGroupResponses), syncSource: Schema.optional(Schema.String), areAllPropertiesReturned: Schema.optional(Schema.Boolean), compositeComponents: Schema.optional(CompositeComponentResponse), areAllCompositeComponentsReturned: Schema.optional(Schema.Boolean)});
-export const PropertyLatestValue = Schema.Struct({propertyReference: EntityPropertyReference, propertyValue: Schema.optional(DataValue)});
+export class CreateComponentTypeRequest extends Schema.Class<CreateComponentTypeRequest>("CreateComponentTypeRequest")({workspaceId: Schema.String, isSingleton: Schema.optional(Schema.Boolean), componentTypeId: Schema.String, description: Schema.optional(Schema.String), propertyDefinitions: Schema.optional(PropertyDefinitionsRequest), extendsFrom: Schema.optional(ExtendsFrom), functions: Schema.optional(FunctionsRequest), tags: Schema.optional(TagMap), propertyGroups: Schema.optional(PropertyGroupsRequest), componentTypeName: Schema.optional(Schema.String), compositeComponentTypes: Schema.optional(CompositeComponentTypesRequest)}) {}
+export class CreateEntityRequest extends Schema.Class<CreateEntityRequest>("CreateEntityRequest")({workspaceId: Schema.String, entityId: Schema.optional(Schema.String), entityName: Schema.String, description: Schema.optional(Schema.String), components: Schema.optional(ComponentsMapRequest), compositeComponents: Schema.optional(CompositeComponentsMapRequest), parentEntityId: Schema.optional(Schema.String), tags: Schema.optional(TagMap)}) {}
+export class CreateMetadataTransferJobRequest extends Schema.Class<CreateMetadataTransferJobRequest>("CreateMetadataTransferJobRequest")({metadataTransferJobId: Schema.optional(Schema.String), description: Schema.optional(Schema.String), sources: SourceConfigurations, destination: DestinationConfiguration}) {}
+export class ListComponentsResponse extends Schema.Class<ListComponentsResponse>("ListComponentsResponse")({componentSummaries: ComponentSummaries, nextToken: Schema.optional(Schema.String)}) {}
+export class ListSyncResourcesResponse extends Schema.Class<ListSyncResourcesResponse>("ListSyncResourcesResponse")({syncResources: Schema.optional(SyncResourceSummaries), nextToken: Schema.optional(Schema.String)}) {}
+export class ComponentResponse extends Schema.Class<ComponentResponse>("ComponentResponse")({componentName: Schema.optional(Schema.String), description: Schema.optional(Schema.String), componentTypeId: Schema.optional(Schema.String), status: Schema.optional(Status), definedIn: Schema.optional(Schema.String), properties: Schema.optional(PropertyResponses), propertyGroups: Schema.optional(ComponentPropertyGroupResponses), syncSource: Schema.optional(Schema.String), areAllPropertiesReturned: Schema.optional(Schema.Boolean), compositeComponents: Schema.optional(CompositeComponentResponse), areAllCompositeComponentsReturned: Schema.optional(Schema.Boolean)}) {}
+export class PropertyLatestValue extends Schema.Class<PropertyLatestValue>("PropertyLatestValue")({propertyReference: EntityPropertyReference, propertyValue: Schema.optional(DataValue)}) {}
 export const Values = Schema.Array(PropertyValue);
 export const ComponentsMap = Schema.Record({key: Schema.String, value: ComponentResponse});
 export const PropertyLatestValueMap = Schema.Record({key: Schema.String, value: PropertyLatestValue});
-export const PropertyValueHistory = Schema.Struct({entityPropertyReference: EntityPropertyReference, values: Schema.optional(Values)});
+export class PropertyValueHistory extends Schema.Class<PropertyValueHistory>("PropertyValueHistory")({entityPropertyReference: EntityPropertyReference, values: Schema.optional(Values)}) {}
 export const PropertyValueList = Schema.Array(PropertyValueHistory);
-export const CreateComponentTypeResponse = Schema.Struct({arn: Schema.String, creationDateTime: Schema.Date, state: Schema.String});
-export const CreateEntityResponse = Schema.Struct({entityId: Schema.String, arn: Schema.String, creationDateTime: Schema.Date, state: Schema.String});
-export const CreateMetadataTransferJobResponse = Schema.Struct({metadataTransferJobId: Schema.String, arn: Schema.String, creationDateTime: Schema.Date, status: MetadataTransferJobStatus});
-export const GetEntityResponse = Schema.Struct({entityId: Schema.String, entityName: Schema.String, arn: Schema.String, status: Status, workspaceId: Schema.String, description: Schema.optional(Schema.String), components: Schema.optional(ComponentsMap), parentEntityId: Schema.String, hasChildEntities: Schema.Boolean, creationDateTime: Schema.Date, updateDateTime: Schema.Date, syncSource: Schema.optional(Schema.String), areAllComponentsReturned: Schema.optional(Schema.Boolean)});
-export const GetPropertyValueResponse = Schema.Struct({propertyValues: Schema.optional(PropertyLatestValueMap), nextToken: Schema.optional(Schema.String), tabularPropertyValues: Schema.optional(TabularPropertyValues)});
-export const GetPropertyValueHistoryResponse = Schema.Struct({propertyValues: PropertyValueList, nextToken: Schema.optional(Schema.String)});
-export const BatchPutPropertyError = Schema.Struct({errorCode: Schema.String, errorMessage: Schema.String, entry: PropertyValueEntry});
+export class CreateComponentTypeResponse extends Schema.Class<CreateComponentTypeResponse>("CreateComponentTypeResponse")({arn: Schema.String, creationDateTime: Schema.Date, state: Schema.String}) {}
+export class CreateEntityResponse extends Schema.Class<CreateEntityResponse>("CreateEntityResponse")({entityId: Schema.String, arn: Schema.String, creationDateTime: Schema.Date, state: Schema.String}) {}
+export class CreateMetadataTransferJobResponse extends Schema.Class<CreateMetadataTransferJobResponse>("CreateMetadataTransferJobResponse")({metadataTransferJobId: Schema.String, arn: Schema.String, creationDateTime: Schema.Date, status: MetadataTransferJobStatus}) {}
+export class GetEntityResponse extends Schema.Class<GetEntityResponse>("GetEntityResponse")({entityId: Schema.String, entityName: Schema.String, arn: Schema.String, status: Status, workspaceId: Schema.String, description: Schema.optional(Schema.String), components: Schema.optional(ComponentsMap), parentEntityId: Schema.String, hasChildEntities: Schema.Boolean, creationDateTime: Schema.Date, updateDateTime: Schema.Date, syncSource: Schema.optional(Schema.String), areAllComponentsReturned: Schema.optional(Schema.Boolean)}) {}
+export class GetPropertyValueResponse extends Schema.Class<GetPropertyValueResponse>("GetPropertyValueResponse")({propertyValues: Schema.optional(PropertyLatestValueMap), nextToken: Schema.optional(Schema.String), tabularPropertyValues: Schema.optional(TabularPropertyValues)}) {}
+export class GetPropertyValueHistoryResponse extends Schema.Class<GetPropertyValueHistoryResponse>("GetPropertyValueHistoryResponse")({propertyValues: PropertyValueList, nextToken: Schema.optional(Schema.String)}) {}
+export class BatchPutPropertyError extends Schema.Class<BatchPutPropertyError>("BatchPutPropertyError")({errorCode: Schema.String, errorMessage: Schema.String, entry: PropertyValueEntry}) {}
 export const Errors = Schema.Array(BatchPutPropertyError);
-export const BatchPutPropertyErrorEntry = Schema.Struct({errors: Errors});
+export class BatchPutPropertyErrorEntry extends Schema.Class<BatchPutPropertyErrorEntry>("BatchPutPropertyErrorEntry")({errors: Errors}) {}
 export const ErrorEntries = Schema.Array(BatchPutPropertyErrorEntry);
-export const BatchPutPropertyValuesResponse = Schema.Struct({errorEntries: ErrorEntries});
-export const ConnectorFailureException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ConnectorTimeoutException = Schema.Struct({message: Schema.optional(Schema.String)});
+export class BatchPutPropertyValuesResponse extends Schema.Class<BatchPutPropertyValuesResponse>("BatchPutPropertyValuesResponse")({errorEntries: ErrorEntries}) {}
+export class ConnectorFailureException extends Schema.Class<ConnectorFailureException>("ConnectorFailureException")({message: Schema.optional(Schema.String)}) {}
+export class ConnectorTimeoutException extends Schema.Class<ConnectorTimeoutException>("ConnectorTimeoutException")({message: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class TooManyTagsExceptionError extends Schema.TaggedError<TooManyTagsExceptionError>()("TooManyTagsException", TooManyTagsException) {};
-export class QueryTimeoutExceptionError extends Schema.TaggedError<QueryTimeoutExceptionError>()("QueryTimeoutException", QueryTimeoutException) {};
-export class ConnectorFailureExceptionError extends Schema.TaggedError<ConnectorFailureExceptionError>()("ConnectorFailureException", ConnectorFailureException) {};
-export class ConnectorTimeoutExceptionError extends Schema.TaggedError<ConnectorTimeoutExceptionError>()("ConnectorTimeoutException", ConnectorTimeoutException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class TooManyTagsExceptionError extends Schema.TaggedError<TooManyTagsExceptionError>()("TooManyTagsException", TooManyTagsException.fields) {};
+export class QueryTimeoutExceptionError extends Schema.TaggedError<QueryTimeoutExceptionError>()("QueryTimeoutException", QueryTimeoutException.fields) {};
+export class ConnectorFailureExceptionError extends Schema.TaggedError<ConnectorFailureExceptionError>()("ConnectorFailureException", ConnectorFailureException.fields) {};
+export class ConnectorTimeoutExceptionError extends Schema.TaggedError<ConnectorTimeoutExceptionError>()("ConnectorTimeoutException", ConnectorTimeoutException.fields) {};
 
 //# Operations
 export const untagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2021-11-29", uri: "/tags", method: "DELETE", sdkId: "IoTTwinMaker", sigV4ServiceName: "iottwinmaker", name: "AWSIoTTwinMaker.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [AccessDeniedExceptionError, ResourceNotFoundExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

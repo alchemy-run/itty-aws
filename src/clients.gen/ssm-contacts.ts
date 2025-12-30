@@ -7,150 +7,150 @@ export const RotationContactsArnList = Schema.Array(Schema.String);
 export const RotationOverrideContactsArnList = Schema.Array(Schema.String);
 export const RotationPreviewMemberList = Schema.Array(Schema.String);
 export const TagKeyList = Schema.Array(Schema.String);
-export const AcceptPageRequest = Schema.Struct({PageId: Schema.String, ContactChannelId: Schema.optional(Schema.String), AcceptType: Schema.String, Note: Schema.optional(Schema.String), AcceptCode: Schema.String, AcceptCodeValidation: Schema.optional(Schema.String)});
-export const AcceptPageResult = Schema.Struct({});
-export const ActivateContactChannelRequest = Schema.Struct({ContactChannelId: Schema.String, ActivationCode: Schema.String});
-export const ActivateContactChannelResult = Schema.Struct({});
-export const CreateRotationOverrideRequest = Schema.Struct({RotationId: Schema.String, NewContactIds: RotationOverrideContactsArnList, StartTime: Schema.Date, EndTime: Schema.Date, IdempotencyToken: Schema.optional(Schema.String)});
-export const DeactivateContactChannelRequest = Schema.Struct({ContactChannelId: Schema.String});
-export const DeactivateContactChannelResult = Schema.Struct({});
-export const DeleteContactRequest = Schema.Struct({ContactId: Schema.String});
-export const DeleteContactResult = Schema.Struct({});
-export const DeleteContactChannelRequest = Schema.Struct({ContactChannelId: Schema.String});
-export const DeleteContactChannelResult = Schema.Struct({});
-export const DeleteRotationRequest = Schema.Struct({RotationId: Schema.String});
-export const DeleteRotationResult = Schema.Struct({});
-export const DeleteRotationOverrideRequest = Schema.Struct({RotationId: Schema.String, RotationOverrideId: Schema.String});
-export const DeleteRotationOverrideResult = Schema.Struct({});
-export const DescribeEngagementRequest = Schema.Struct({EngagementId: Schema.String});
-export const DescribePageRequest = Schema.Struct({PageId: Schema.String});
-export const GetContactRequest = Schema.Struct({ContactId: Schema.String});
-export const GetContactChannelRequest = Schema.Struct({ContactChannelId: Schema.String});
-export const GetContactPolicyRequest = Schema.Struct({ContactArn: Schema.String});
-export const GetRotationRequest = Schema.Struct({RotationId: Schema.String});
-export const GetRotationOverrideRequest = Schema.Struct({RotationId: Schema.String, RotationOverrideId: Schema.String});
-export const ListContactChannelsRequest = Schema.Struct({ContactId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListContactsRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), AliasPrefix: Schema.optional(Schema.String), Type: Schema.optional(Schema.String)});
-export const ListPageReceiptsRequest = Schema.Struct({PageId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListPageResolutionsRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), PageId: Schema.String});
-export const ListPagesByContactRequest = Schema.Struct({ContactId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListPagesByEngagementRequest = Schema.Struct({EngagementId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListRotationOverridesRequest = Schema.Struct({RotationId: Schema.String, StartTime: Schema.Date, EndTime: Schema.Date, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListRotationsRequest = Schema.Struct({RotationNamePrefix: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListRotationShiftsRequest = Schema.Struct({RotationId: Schema.String, StartTime: Schema.optional(Schema.Date), EndTime: Schema.Date, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListTagsForResourceRequest = Schema.Struct({ResourceARN: Schema.String});
-export const PutContactPolicyRequest = Schema.Struct({ContactArn: Schema.String, Policy: Schema.String});
-export const PutContactPolicyResult = Schema.Struct({});
-export const SendActivationCodeRequest = Schema.Struct({ContactChannelId: Schema.String});
-export const SendActivationCodeResult = Schema.Struct({});
-export const StartEngagementRequest = Schema.Struct({ContactId: Schema.String, Sender: Schema.String, Subject: Schema.String, Content: Schema.String, PublicSubject: Schema.optional(Schema.String), PublicContent: Schema.optional(Schema.String), IncidentId: Schema.optional(Schema.String), IdempotencyToken: Schema.optional(Schema.String)});
-export const StopEngagementRequest = Schema.Struct({EngagementId: Schema.String, Reason: Schema.optional(Schema.String)});
-export const StopEngagementResult = Schema.Struct({});
-export const Tag = Schema.Struct({Key: Schema.optional(Schema.String), Value: Schema.optional(Schema.String)});
+export class AcceptPageRequest extends Schema.Class<AcceptPageRequest>("AcceptPageRequest")({PageId: Schema.String, ContactChannelId: Schema.optional(Schema.String), AcceptType: Schema.String, Note: Schema.optional(Schema.String), AcceptCode: Schema.String, AcceptCodeValidation: Schema.optional(Schema.String)}) {}
+export class AcceptPageResult extends Schema.Class<AcceptPageResult>("AcceptPageResult")({}) {}
+export class ActivateContactChannelRequest extends Schema.Class<ActivateContactChannelRequest>("ActivateContactChannelRequest")({ContactChannelId: Schema.String, ActivationCode: Schema.String}) {}
+export class ActivateContactChannelResult extends Schema.Class<ActivateContactChannelResult>("ActivateContactChannelResult")({}) {}
+export class CreateRotationOverrideRequest extends Schema.Class<CreateRotationOverrideRequest>("CreateRotationOverrideRequest")({RotationId: Schema.String, NewContactIds: RotationOverrideContactsArnList, StartTime: Schema.Date, EndTime: Schema.Date, IdempotencyToken: Schema.optional(Schema.String)}) {}
+export class DeactivateContactChannelRequest extends Schema.Class<DeactivateContactChannelRequest>("DeactivateContactChannelRequest")({ContactChannelId: Schema.String}) {}
+export class DeactivateContactChannelResult extends Schema.Class<DeactivateContactChannelResult>("DeactivateContactChannelResult")({}) {}
+export class DeleteContactRequest extends Schema.Class<DeleteContactRequest>("DeleteContactRequest")({ContactId: Schema.String}) {}
+export class DeleteContactResult extends Schema.Class<DeleteContactResult>("DeleteContactResult")({}) {}
+export class DeleteContactChannelRequest extends Schema.Class<DeleteContactChannelRequest>("DeleteContactChannelRequest")({ContactChannelId: Schema.String}) {}
+export class DeleteContactChannelResult extends Schema.Class<DeleteContactChannelResult>("DeleteContactChannelResult")({}) {}
+export class DeleteRotationRequest extends Schema.Class<DeleteRotationRequest>("DeleteRotationRequest")({RotationId: Schema.String}) {}
+export class DeleteRotationResult extends Schema.Class<DeleteRotationResult>("DeleteRotationResult")({}) {}
+export class DeleteRotationOverrideRequest extends Schema.Class<DeleteRotationOverrideRequest>("DeleteRotationOverrideRequest")({RotationId: Schema.String, RotationOverrideId: Schema.String}) {}
+export class DeleteRotationOverrideResult extends Schema.Class<DeleteRotationOverrideResult>("DeleteRotationOverrideResult")({}) {}
+export class DescribeEngagementRequest extends Schema.Class<DescribeEngagementRequest>("DescribeEngagementRequest")({EngagementId: Schema.String}) {}
+export class DescribePageRequest extends Schema.Class<DescribePageRequest>("DescribePageRequest")({PageId: Schema.String}) {}
+export class GetContactRequest extends Schema.Class<GetContactRequest>("GetContactRequest")({ContactId: Schema.String}) {}
+export class GetContactChannelRequest extends Schema.Class<GetContactChannelRequest>("GetContactChannelRequest")({ContactChannelId: Schema.String}) {}
+export class GetContactPolicyRequest extends Schema.Class<GetContactPolicyRequest>("GetContactPolicyRequest")({ContactArn: Schema.String}) {}
+export class GetRotationRequest extends Schema.Class<GetRotationRequest>("GetRotationRequest")({RotationId: Schema.String}) {}
+export class GetRotationOverrideRequest extends Schema.Class<GetRotationOverrideRequest>("GetRotationOverrideRequest")({RotationId: Schema.String, RotationOverrideId: Schema.String}) {}
+export class ListContactChannelsRequest extends Schema.Class<ListContactChannelsRequest>("ListContactChannelsRequest")({ContactId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListContactsRequest extends Schema.Class<ListContactsRequest>("ListContactsRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), AliasPrefix: Schema.optional(Schema.String), Type: Schema.optional(Schema.String)}) {}
+export class ListPageReceiptsRequest extends Schema.Class<ListPageReceiptsRequest>("ListPageReceiptsRequest")({PageId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListPageResolutionsRequest extends Schema.Class<ListPageResolutionsRequest>("ListPageResolutionsRequest")({NextToken: Schema.optional(Schema.String), PageId: Schema.String}) {}
+export class ListPagesByContactRequest extends Schema.Class<ListPagesByContactRequest>("ListPagesByContactRequest")({ContactId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListPagesByEngagementRequest extends Schema.Class<ListPagesByEngagementRequest>("ListPagesByEngagementRequest")({EngagementId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListRotationOverridesRequest extends Schema.Class<ListRotationOverridesRequest>("ListRotationOverridesRequest")({RotationId: Schema.String, StartTime: Schema.Date, EndTime: Schema.Date, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListRotationsRequest extends Schema.Class<ListRotationsRequest>("ListRotationsRequest")({RotationNamePrefix: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListRotationShiftsRequest extends Schema.Class<ListRotationShiftsRequest>("ListRotationShiftsRequest")({RotationId: Schema.String, StartTime: Schema.optional(Schema.Date), EndTime: Schema.Date, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({ResourceARN: Schema.String}) {}
+export class PutContactPolicyRequest extends Schema.Class<PutContactPolicyRequest>("PutContactPolicyRequest")({ContactArn: Schema.String, Policy: Schema.String}) {}
+export class PutContactPolicyResult extends Schema.Class<PutContactPolicyResult>("PutContactPolicyResult")({}) {}
+export class SendActivationCodeRequest extends Schema.Class<SendActivationCodeRequest>("SendActivationCodeRequest")({ContactChannelId: Schema.String}) {}
+export class SendActivationCodeResult extends Schema.Class<SendActivationCodeResult>("SendActivationCodeResult")({}) {}
+export class StartEngagementRequest extends Schema.Class<StartEngagementRequest>("StartEngagementRequest")({ContactId: Schema.String, Sender: Schema.String, Subject: Schema.String, Content: Schema.String, PublicSubject: Schema.optional(Schema.String), PublicContent: Schema.optional(Schema.String), IncidentId: Schema.optional(Schema.String), IdempotencyToken: Schema.optional(Schema.String)}) {}
+export class StopEngagementRequest extends Schema.Class<StopEngagementRequest>("StopEngagementRequest")({EngagementId: Schema.String, Reason: Schema.optional(Schema.String)}) {}
+export class StopEngagementResult extends Schema.Class<StopEngagementResult>("StopEngagementResult")({}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.optional(Schema.String), Value: Schema.optional(Schema.String)}) {}
 export const TagsList = Schema.Array(Tag);
-export const TagResourceRequest = Schema.Struct({ResourceARN: Schema.String, Tags: TagsList});
-export const TagResourceResult = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({ResourceARN: Schema.String, TagKeys: TagKeyList});
-export const UntagResourceResult = Schema.Struct({});
-export const ChannelTargetInfo = Schema.Struct({ContactChannelId: Schema.String, RetryIntervalInMinutes: Schema.optional(Schema.Number)});
-export const ContactTargetInfo = Schema.Struct({ContactId: Schema.optional(Schema.String), IsEssential: Schema.Boolean});
-export const Target = Schema.Struct({ChannelTargetInfo: Schema.optional(ChannelTargetInfo), ContactTargetInfo: Schema.optional(ContactTargetInfo)});
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({ResourceARN: Schema.String, Tags: TagsList}) {}
+export class TagResourceResult extends Schema.Class<TagResourceResult>("TagResourceResult")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({ResourceARN: Schema.String, TagKeys: TagKeyList}) {}
+export class UntagResourceResult extends Schema.Class<UntagResourceResult>("UntagResourceResult")({}) {}
+export class ChannelTargetInfo extends Schema.Class<ChannelTargetInfo>("ChannelTargetInfo")({ContactChannelId: Schema.String, RetryIntervalInMinutes: Schema.optional(Schema.Number)}) {}
+export class ContactTargetInfo extends Schema.Class<ContactTargetInfo>("ContactTargetInfo")({ContactId: Schema.optional(Schema.String), IsEssential: Schema.Boolean}) {}
+export class Target extends Schema.Class<Target>("Target")({ChannelTargetInfo: Schema.optional(ChannelTargetInfo), ContactTargetInfo: Schema.optional(ContactTargetInfo)}) {}
 export const TargetsList = Schema.Array(Target);
-export const Stage = Schema.Struct({DurationInMinutes: Schema.Number, Targets: TargetsList});
+export class Stage extends Schema.Class<Stage>("Stage")({DurationInMinutes: Schema.Number, Targets: TargetsList}) {}
 export const StagesList = Schema.Array(Stage);
 export const SsmContactsArnList = Schema.Array(Schema.String);
-export const Plan = Schema.Struct({Stages: Schema.optional(StagesList), RotationIds: Schema.optional(SsmContactsArnList)});
-export const UpdateContactRequest = Schema.Struct({ContactId: Schema.String, DisplayName: Schema.optional(Schema.String), Plan: Schema.optional(Plan)});
-export const UpdateContactResult = Schema.Struct({});
-export const ContactChannelAddress = Schema.Struct({SimpleAddress: Schema.optional(Schema.String)});
-export const UpdateContactChannelRequest = Schema.Struct({ContactChannelId: Schema.String, Name: Schema.optional(Schema.String), DeliveryAddress: Schema.optional(ContactChannelAddress)});
-export const UpdateContactChannelResult = Schema.Struct({});
-export const HandOffTime = Schema.Struct({HourOfDay: Schema.Number, MinuteOfHour: Schema.Number});
-export const MonthlySetting = Schema.Struct({DayOfMonth: Schema.Number, HandOffTime: HandOffTime});
+export class Plan extends Schema.Class<Plan>("Plan")({Stages: Schema.optional(StagesList), RotationIds: Schema.optional(SsmContactsArnList)}) {}
+export class UpdateContactRequest extends Schema.Class<UpdateContactRequest>("UpdateContactRequest")({ContactId: Schema.String, DisplayName: Schema.optional(Schema.String), Plan: Schema.optional(Plan)}) {}
+export class UpdateContactResult extends Schema.Class<UpdateContactResult>("UpdateContactResult")({}) {}
+export class ContactChannelAddress extends Schema.Class<ContactChannelAddress>("ContactChannelAddress")({SimpleAddress: Schema.optional(Schema.String)}) {}
+export class UpdateContactChannelRequest extends Schema.Class<UpdateContactChannelRequest>("UpdateContactChannelRequest")({ContactChannelId: Schema.String, Name: Schema.optional(Schema.String), DeliveryAddress: Schema.optional(ContactChannelAddress)}) {}
+export class UpdateContactChannelResult extends Schema.Class<UpdateContactChannelResult>("UpdateContactChannelResult")({}) {}
+export class HandOffTime extends Schema.Class<HandOffTime>("HandOffTime")({HourOfDay: Schema.Number, MinuteOfHour: Schema.Number}) {}
+export class MonthlySetting extends Schema.Class<MonthlySetting>("MonthlySetting")({DayOfMonth: Schema.Number, HandOffTime: HandOffTime}) {}
 export const MonthlySettings = Schema.Array(MonthlySetting);
-export const WeeklySetting = Schema.Struct({DayOfWeek: Schema.String, HandOffTime: HandOffTime});
+export class WeeklySetting extends Schema.Class<WeeklySetting>("WeeklySetting")({DayOfWeek: Schema.String, HandOffTime: HandOffTime}) {}
 export const WeeklySettings = Schema.Array(WeeklySetting);
 export const DailySettings = Schema.Array(HandOffTime);
-export const CoverageTime = Schema.Struct({Start: Schema.optional(HandOffTime), End: Schema.optional(HandOffTime)});
+export class CoverageTime extends Schema.Class<CoverageTime>("CoverageTime")({Start: Schema.optional(HandOffTime), End: Schema.optional(HandOffTime)}) {}
 export const CoverageTimes = Schema.Array(CoverageTime);
 export const ShiftCoveragesMap = Schema.Record({key: Schema.String, value: CoverageTimes});
-export const RecurrenceSettings = Schema.Struct({MonthlySettings: Schema.optional(MonthlySettings), WeeklySettings: Schema.optional(WeeklySettings), DailySettings: Schema.optional(DailySettings), NumberOfOnCalls: Schema.Number, ShiftCoverages: Schema.optional(ShiftCoveragesMap), RecurrenceMultiplier: Schema.Number});
-export const UpdateRotationRequest = Schema.Struct({RotationId: Schema.String, ContactIds: Schema.optional(RotationContactsArnList), StartTime: Schema.optional(Schema.Date), TimeZoneId: Schema.optional(Schema.String), Recurrence: RecurrenceSettings});
-export const UpdateRotationResult = Schema.Struct({});
+export class RecurrenceSettings extends Schema.Class<RecurrenceSettings>("RecurrenceSettings")({MonthlySettings: Schema.optional(MonthlySettings), WeeklySettings: Schema.optional(WeeklySettings), DailySettings: Schema.optional(DailySettings), NumberOfOnCalls: Schema.Number, ShiftCoverages: Schema.optional(ShiftCoveragesMap), RecurrenceMultiplier: Schema.Number}) {}
+export class UpdateRotationRequest extends Schema.Class<UpdateRotationRequest>("UpdateRotationRequest")({RotationId: Schema.String, ContactIds: Schema.optional(RotationContactsArnList), StartTime: Schema.optional(Schema.Date), TimeZoneId: Schema.optional(Schema.String), Recurrence: RecurrenceSettings}) {}
+export class UpdateRotationResult extends Schema.Class<UpdateRotationResult>("UpdateRotationResult")({}) {}
 export const RotationOverridePreviewMemberList = Schema.Array(Schema.String);
-export const TimeRange = Schema.Struct({StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date)});
-export const PreviewOverride = Schema.Struct({NewMembers: Schema.optional(RotationOverridePreviewMemberList), StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date)});
+export class TimeRange extends Schema.Class<TimeRange>("TimeRange")({StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date)}) {}
+export class PreviewOverride extends Schema.Class<PreviewOverride>("PreviewOverride")({NewMembers: Schema.optional(RotationOverridePreviewMemberList), StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date)}) {}
 export const OverrideList = Schema.Array(PreviewOverride);
-export const AccessDeniedException = Schema.Struct({Message: Schema.String});
-export const InternalServerException = Schema.Struct({Message: Schema.String, RetryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))});
-export const CreateContactChannelRequest = Schema.Struct({ContactId: Schema.String, Name: Schema.String, Type: Schema.String, DeliveryAddress: ContactChannelAddress, DeferActivation: Schema.optional(Schema.Boolean), IdempotencyToken: Schema.optional(Schema.String)});
-export const CreateRotationOverrideResult = Schema.Struct({RotationOverrideId: Schema.String});
-export const ResourceNotFoundException = Schema.Struct({Message: Schema.String, ResourceId: Schema.String, ResourceType: Schema.String});
-export const ThrottlingException = Schema.Struct({Message: Schema.String, QuotaCode: Schema.optional(Schema.String), ServiceCode: Schema.optional(Schema.String), RetryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))});
-export const DescribeEngagementResult = Schema.Struct({ContactArn: Schema.String, EngagementArn: Schema.String, Sender: Schema.String, Subject: Schema.String, Content: Schema.String, PublicSubject: Schema.optional(Schema.String), PublicContent: Schema.optional(Schema.String), IncidentId: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.Date), StopTime: Schema.optional(Schema.Date)});
-export const DescribePageResult = Schema.Struct({PageArn: Schema.String, EngagementArn: Schema.String, ContactArn: Schema.String, Sender: Schema.String, Subject: Schema.String, Content: Schema.String, PublicSubject: Schema.optional(Schema.String), PublicContent: Schema.optional(Schema.String), IncidentId: Schema.optional(Schema.String), SentTime: Schema.optional(Schema.Date), ReadTime: Schema.optional(Schema.Date), DeliveryTime: Schema.optional(Schema.Date)});
-export const GetContactResult = Schema.Struct({ContactArn: Schema.String, Alias: Schema.String, DisplayName: Schema.optional(Schema.String), Type: Schema.String, Plan: Plan});
-export const GetContactChannelResult = Schema.Struct({ContactArn: Schema.String, ContactChannelArn: Schema.String, Name: Schema.String, Type: Schema.String, DeliveryAddress: ContactChannelAddress, ActivationStatus: Schema.optional(Schema.String)});
-export const GetContactPolicyResult = Schema.Struct({ContactArn: Schema.optional(Schema.String), Policy: Schema.optional(Schema.String)});
-export const GetRotationResult = Schema.Struct({RotationArn: Schema.String, Name: Schema.String, ContactIds: RotationContactsArnList, StartTime: Schema.Date, TimeZoneId: Schema.String, Recurrence: RecurrenceSettings});
-export const GetRotationOverrideResult = Schema.Struct({RotationOverrideId: Schema.optional(Schema.String), RotationArn: Schema.optional(Schema.String), NewContactIds: Schema.optional(SsmContactsArnList), StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date), CreateTime: Schema.optional(Schema.Date)});
-export const ListEngagementsRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), IncidentId: Schema.optional(Schema.String), TimeRangeValue: Schema.optional(TimeRange)});
-export const Page = Schema.Struct({PageArn: Schema.String, EngagementArn: Schema.String, ContactArn: Schema.String, Sender: Schema.String, IncidentId: Schema.optional(Schema.String), SentTime: Schema.optional(Schema.Date), DeliveryTime: Schema.optional(Schema.Date), ReadTime: Schema.optional(Schema.Date)});
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({Message: Schema.String}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({Message: Schema.String, RetryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))}) {}
+export class CreateContactChannelRequest extends Schema.Class<CreateContactChannelRequest>("CreateContactChannelRequest")({ContactId: Schema.String, Name: Schema.String, Type: Schema.String, DeliveryAddress: ContactChannelAddress, DeferActivation: Schema.optional(Schema.Boolean), IdempotencyToken: Schema.optional(Schema.String)}) {}
+export class CreateRotationOverrideResult extends Schema.Class<CreateRotationOverrideResult>("CreateRotationOverrideResult")({RotationOverrideId: Schema.String}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({Message: Schema.String, ResourceId: Schema.String, ResourceType: Schema.String}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({Message: Schema.String, QuotaCode: Schema.optional(Schema.String), ServiceCode: Schema.optional(Schema.String), RetryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))}) {}
+export class DescribeEngagementResult extends Schema.Class<DescribeEngagementResult>("DescribeEngagementResult")({ContactArn: Schema.String, EngagementArn: Schema.String, Sender: Schema.String, Subject: Schema.String, Content: Schema.String, PublicSubject: Schema.optional(Schema.String), PublicContent: Schema.optional(Schema.String), IncidentId: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.Date), StopTime: Schema.optional(Schema.Date)}) {}
+export class DescribePageResult extends Schema.Class<DescribePageResult>("DescribePageResult")({PageArn: Schema.String, EngagementArn: Schema.String, ContactArn: Schema.String, Sender: Schema.String, Subject: Schema.String, Content: Schema.String, PublicSubject: Schema.optional(Schema.String), PublicContent: Schema.optional(Schema.String), IncidentId: Schema.optional(Schema.String), SentTime: Schema.optional(Schema.Date), ReadTime: Schema.optional(Schema.Date), DeliveryTime: Schema.optional(Schema.Date)}) {}
+export class GetContactResult extends Schema.Class<GetContactResult>("GetContactResult")({ContactArn: Schema.String, Alias: Schema.String, DisplayName: Schema.optional(Schema.String), Type: Schema.String, Plan: Plan}) {}
+export class GetContactChannelResult extends Schema.Class<GetContactChannelResult>("GetContactChannelResult")({ContactArn: Schema.String, ContactChannelArn: Schema.String, Name: Schema.String, Type: Schema.String, DeliveryAddress: ContactChannelAddress, ActivationStatus: Schema.optional(Schema.String)}) {}
+export class GetContactPolicyResult extends Schema.Class<GetContactPolicyResult>("GetContactPolicyResult")({ContactArn: Schema.optional(Schema.String), Policy: Schema.optional(Schema.String)}) {}
+export class GetRotationResult extends Schema.Class<GetRotationResult>("GetRotationResult")({RotationArn: Schema.String, Name: Schema.String, ContactIds: RotationContactsArnList, StartTime: Schema.Date, TimeZoneId: Schema.String, Recurrence: RecurrenceSettings}) {}
+export class GetRotationOverrideResult extends Schema.Class<GetRotationOverrideResult>("GetRotationOverrideResult")({RotationOverrideId: Schema.optional(Schema.String), RotationArn: Schema.optional(Schema.String), NewContactIds: Schema.optional(SsmContactsArnList), StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date), CreateTime: Schema.optional(Schema.Date)}) {}
+export class ListEngagementsRequest extends Schema.Class<ListEngagementsRequest>("ListEngagementsRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), IncidentId: Schema.optional(Schema.String), TimeRangeValue: Schema.optional(TimeRange)}) {}
+export class Page extends Schema.Class<Page>("Page")({PageArn: Schema.String, EngagementArn: Schema.String, ContactArn: Schema.String, Sender: Schema.String, IncidentId: Schema.optional(Schema.String), SentTime: Schema.optional(Schema.Date), DeliveryTime: Schema.optional(Schema.Date), ReadTime: Schema.optional(Schema.Date)}) {}
 export const PagesList = Schema.Array(Page);
-export const ListPagesByEngagementResult = Schema.Struct({NextToken: Schema.optional(Schema.String), Pages: PagesList});
-export const ListPreviewRotationShiftsRequest = Schema.Struct({RotationStartTime: Schema.optional(Schema.Date), StartTime: Schema.optional(Schema.Date), EndTime: Schema.Date, Members: RotationPreviewMemberList, TimeZoneId: Schema.String, Recurrence: RecurrenceSettings, Overrides: Schema.optional(OverrideList), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListTagsForResourceResult = Schema.Struct({Tags: Schema.optional(TagsList)});
-export const DataEncryptionException = Schema.Struct({Message: Schema.String});
-export const StartEngagementResult = Schema.Struct({EngagementArn: Schema.String});
-export const ServiceQuotaExceededException = Schema.Struct({Message: Schema.String, ResourceId: Schema.optional(Schema.String), ResourceType: Schema.optional(Schema.String), QuotaCode: Schema.String, ServiceCode: Schema.String});
-export const DependentEntity = Schema.Struct({RelationType: Schema.String, DependentResourceIds: SsmContactsArnList});
+export class ListPagesByEngagementResult extends Schema.Class<ListPagesByEngagementResult>("ListPagesByEngagementResult")({NextToken: Schema.optional(Schema.String), Pages: PagesList}) {}
+export class ListPreviewRotationShiftsRequest extends Schema.Class<ListPreviewRotationShiftsRequest>("ListPreviewRotationShiftsRequest")({RotationStartTime: Schema.optional(Schema.Date), StartTime: Schema.optional(Schema.Date), EndTime: Schema.Date, Members: RotationPreviewMemberList, TimeZoneId: Schema.String, Recurrence: RecurrenceSettings, Overrides: Schema.optional(OverrideList), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListTagsForResourceResult extends Schema.Class<ListTagsForResourceResult>("ListTagsForResourceResult")({Tags: Schema.optional(TagsList)}) {}
+export class DataEncryptionException extends Schema.Class<DataEncryptionException>("DataEncryptionException")({Message: Schema.String}) {}
+export class StartEngagementResult extends Schema.Class<StartEngagementResult>("StartEngagementResult")({EngagementArn: Schema.String}) {}
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({Message: Schema.String, ResourceId: Schema.optional(Schema.String), ResourceType: Schema.optional(Schema.String), QuotaCode: Schema.String, ServiceCode: Schema.String}) {}
+export class DependentEntity extends Schema.Class<DependentEntity>("DependentEntity")({RelationType: Schema.String, DependentResourceIds: SsmContactsArnList}) {}
 export const DependentEntityList = Schema.Array(DependentEntity);
-export const ValidationExceptionField = Schema.Struct({Name: Schema.String, Message: Schema.String});
+export class ValidationExceptionField extends Schema.Class<ValidationExceptionField>("ValidationExceptionField")({Name: Schema.String, Message: Schema.String}) {}
 export const ValidationExceptionFieldList = Schema.Array(ValidationExceptionField);
-export const ContactChannel = Schema.Struct({ContactChannelArn: Schema.String, ContactArn: Schema.String, Name: Schema.String, Type: Schema.optional(Schema.String), DeliveryAddress: ContactChannelAddress, ActivationStatus: Schema.String});
+export class ContactChannel extends Schema.Class<ContactChannel>("ContactChannel")({ContactChannelArn: Schema.String, ContactArn: Schema.String, Name: Schema.String, Type: Schema.optional(Schema.String), DeliveryAddress: ContactChannelAddress, ActivationStatus: Schema.String}) {}
 export const ContactChannelList = Schema.Array(ContactChannel);
-export const Contact = Schema.Struct({ContactArn: Schema.String, Alias: Schema.String, DisplayName: Schema.optional(Schema.String), Type: Schema.String});
+export class Contact extends Schema.Class<Contact>("Contact")({ContactArn: Schema.String, Alias: Schema.String, DisplayName: Schema.optional(Schema.String), Type: Schema.String}) {}
 export const ContactsList = Schema.Array(Contact);
-export const Receipt = Schema.Struct({ContactChannelArn: Schema.optional(Schema.String), ReceiptType: Schema.String, ReceiptInfo: Schema.optional(Schema.String), ReceiptTime: Schema.Date});
+export class Receipt extends Schema.Class<Receipt>("Receipt")({ContactChannelArn: Schema.optional(Schema.String), ReceiptType: Schema.String, ReceiptInfo: Schema.optional(Schema.String), ReceiptTime: Schema.Date}) {}
 export const ReceiptsList = Schema.Array(Receipt);
-export const ResolutionContact = Schema.Struct({ContactArn: Schema.String, Type: Schema.String, StageIndex: Schema.optional(Schema.Number)});
+export class ResolutionContact extends Schema.Class<ResolutionContact>("ResolutionContact")({ContactArn: Schema.String, Type: Schema.String, StageIndex: Schema.optional(Schema.Number)}) {}
 export const ResolutionList = Schema.Array(ResolutionContact);
-export const RotationOverride = Schema.Struct({RotationOverrideId: Schema.String, NewContactIds: SsmContactsArnList, StartTime: Schema.Date, EndTime: Schema.Date, CreateTime: Schema.Date});
+export class RotationOverride extends Schema.Class<RotationOverride>("RotationOverride")({RotationOverrideId: Schema.String, NewContactIds: SsmContactsArnList, StartTime: Schema.Date, EndTime: Schema.Date, CreateTime: Schema.Date}) {}
 export const RotationOverrides = Schema.Array(RotationOverride);
-export const Rotation = Schema.Struct({RotationArn: Schema.String, Name: Schema.String, ContactIds: Schema.optional(SsmContactsArnList), StartTime: Schema.optional(Schema.Date), TimeZoneId: Schema.optional(Schema.String), Recurrence: Schema.optional(RecurrenceSettings)});
+export class Rotation extends Schema.Class<Rotation>("Rotation")({RotationArn: Schema.String, Name: Schema.String, ContactIds: Schema.optional(SsmContactsArnList), StartTime: Schema.optional(Schema.Date), TimeZoneId: Schema.optional(Schema.String), Recurrence: Schema.optional(RecurrenceSettings)}) {}
 export const Rotations = Schema.Array(Rotation);
-export const CreateContactChannelResult = Schema.Struct({ContactChannelArn: Schema.String});
-export const ConflictException = Schema.Struct({Message: Schema.String, ResourceId: Schema.String, ResourceType: Schema.String, DependentEntities: Schema.optional(DependentEntityList)});
-export const ValidationException = Schema.Struct({Message: Schema.String, Reason: Schema.optional(Schema.String), Fields: Schema.optional(ValidationExceptionFieldList)});
-export const ListContactChannelsResult = Schema.Struct({NextToken: Schema.optional(Schema.String), ContactChannels: ContactChannelList});
-export const ListContactsResult = Schema.Struct({NextToken: Schema.optional(Schema.String), Contacts: Schema.optional(ContactsList)});
-export const ListPageReceiptsResult = Schema.Struct({NextToken: Schema.optional(Schema.String), Receipts: Schema.optional(ReceiptsList)});
-export const ListPageResolutionsResult = Schema.Struct({NextToken: Schema.optional(Schema.String), PageResolutions: ResolutionList});
-export const ListPagesByContactResult = Schema.Struct({NextToken: Schema.optional(Schema.String), Pages: PagesList});
-export const ShiftDetails = Schema.Struct({OverriddenContactIds: SsmContactsArnList});
-export const RotationShift = Schema.Struct({ContactIds: Schema.optional(SsmContactsArnList), StartTime: Schema.Date, EndTime: Schema.Date, Type: Schema.optional(Schema.String), ShiftDetails: Schema.optional(ShiftDetails)});
+export class CreateContactChannelResult extends Schema.Class<CreateContactChannelResult>("CreateContactChannelResult")({ContactChannelArn: Schema.String}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({Message: Schema.String, ResourceId: Schema.String, ResourceType: Schema.String, DependentEntities: Schema.optional(DependentEntityList)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({Message: Schema.String, Reason: Schema.optional(Schema.String), Fields: Schema.optional(ValidationExceptionFieldList)}) {}
+export class ListContactChannelsResult extends Schema.Class<ListContactChannelsResult>("ListContactChannelsResult")({NextToken: Schema.optional(Schema.String), ContactChannels: ContactChannelList}) {}
+export class ListContactsResult extends Schema.Class<ListContactsResult>("ListContactsResult")({NextToken: Schema.optional(Schema.String), Contacts: Schema.optional(ContactsList)}) {}
+export class ListPageReceiptsResult extends Schema.Class<ListPageReceiptsResult>("ListPageReceiptsResult")({NextToken: Schema.optional(Schema.String), Receipts: Schema.optional(ReceiptsList)}) {}
+export class ListPageResolutionsResult extends Schema.Class<ListPageResolutionsResult>("ListPageResolutionsResult")({NextToken: Schema.optional(Schema.String), PageResolutions: ResolutionList}) {}
+export class ListPagesByContactResult extends Schema.Class<ListPagesByContactResult>("ListPagesByContactResult")({NextToken: Schema.optional(Schema.String), Pages: PagesList}) {}
+export class ShiftDetails extends Schema.Class<ShiftDetails>("ShiftDetails")({OverriddenContactIds: SsmContactsArnList}) {}
+export class RotationShift extends Schema.Class<RotationShift>("RotationShift")({ContactIds: Schema.optional(SsmContactsArnList), StartTime: Schema.Date, EndTime: Schema.Date, Type: Schema.optional(Schema.String), ShiftDetails: Schema.optional(ShiftDetails)}) {}
 export const RotationShifts = Schema.Array(RotationShift);
-export const ListPreviewRotationShiftsResult = Schema.Struct({RotationShifts: Schema.optional(RotationShifts), NextToken: Schema.optional(Schema.String)});
-export const ListRotationOverridesResult = Schema.Struct({RotationOverrides: Schema.optional(RotationOverrides), NextToken: Schema.optional(Schema.String)});
-export const ListRotationsResult = Schema.Struct({NextToken: Schema.optional(Schema.String), Rotations: Rotations});
-export const Engagement = Schema.Struct({EngagementArn: Schema.String, ContactArn: Schema.String, Sender: Schema.String, IncidentId: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.Date), StopTime: Schema.optional(Schema.Date)});
+export class ListPreviewRotationShiftsResult extends Schema.Class<ListPreviewRotationShiftsResult>("ListPreviewRotationShiftsResult")({RotationShifts: Schema.optional(RotationShifts), NextToken: Schema.optional(Schema.String)}) {}
+export class ListRotationOverridesResult extends Schema.Class<ListRotationOverridesResult>("ListRotationOverridesResult")({RotationOverrides: Schema.optional(RotationOverrides), NextToken: Schema.optional(Schema.String)}) {}
+export class ListRotationsResult extends Schema.Class<ListRotationsResult>("ListRotationsResult")({NextToken: Schema.optional(Schema.String), Rotations: Rotations}) {}
+export class Engagement extends Schema.Class<Engagement>("Engagement")({EngagementArn: Schema.String, ContactArn: Schema.String, Sender: Schema.String, IncidentId: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.Date), StopTime: Schema.optional(Schema.Date)}) {}
 export const EngagementsList = Schema.Array(Engagement);
-export const CreateRotationRequest = Schema.Struct({Name: Schema.String, ContactIds: RotationContactsArnList, StartTime: Schema.optional(Schema.Date), TimeZoneId: Schema.String, Recurrence: RecurrenceSettings, Tags: Schema.optional(TagsList), IdempotencyToken: Schema.optional(Schema.String)});
-export const ListEngagementsResult = Schema.Struct({NextToken: Schema.optional(Schema.String), Engagements: EngagementsList});
-export const ListRotationShiftsResult = Schema.Struct({RotationShifts: Schema.optional(RotationShifts), NextToken: Schema.optional(Schema.String)});
-export const CreateContactRequest = Schema.Struct({Alias: Schema.String, DisplayName: Schema.optional(Schema.String), Type: Schema.String, Plan: Plan, Tags: Schema.optional(TagsList), IdempotencyToken: Schema.optional(Schema.String)});
-export const CreateRotationResult = Schema.Struct({RotationArn: Schema.String});
-export const CreateContactResult = Schema.Struct({ContactArn: Schema.String});
+export class CreateRotationRequest extends Schema.Class<CreateRotationRequest>("CreateRotationRequest")({Name: Schema.String, ContactIds: RotationContactsArnList, StartTime: Schema.optional(Schema.Date), TimeZoneId: Schema.String, Recurrence: RecurrenceSettings, Tags: Schema.optional(TagsList), IdempotencyToken: Schema.optional(Schema.String)}) {}
+export class ListEngagementsResult extends Schema.Class<ListEngagementsResult>("ListEngagementsResult")({NextToken: Schema.optional(Schema.String), Engagements: EngagementsList}) {}
+export class ListRotationShiftsResult extends Schema.Class<ListRotationShiftsResult>("ListRotationShiftsResult")({RotationShifts: Schema.optional(RotationShifts), NextToken: Schema.optional(Schema.String)}) {}
+export class CreateContactRequest extends Schema.Class<CreateContactRequest>("CreateContactRequest")({Alias: Schema.String, DisplayName: Schema.optional(Schema.String), Type: Schema.String, Plan: Plan, Tags: Schema.optional(TagsList), IdempotencyToken: Schema.optional(Schema.String)}) {}
+export class CreateRotationResult extends Schema.Class<CreateRotationResult>("CreateRotationResult")({RotationArn: Schema.String}) {}
+export class CreateContactResult extends Schema.Class<CreateContactResult>("CreateContactResult")({ContactArn: Schema.String}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class DataEncryptionExceptionError extends Schema.TaggedError<DataEncryptionExceptionError>()("DataEncryptionException", DataEncryptionException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class DataEncryptionExceptionError extends Schema.TaggedError<DataEncryptionExceptionError>()("DataEncryptionException", DataEncryptionException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
 
 //# Operations
 export const deleteRotationOverride = /*#__PURE__*/ makeOperation(() => Operation({ version: "2021-05-03", uri: "/", method: "POST", sdkId: "SSM Contacts", sigV4ServiceName: "ssm-contacts", name: "SSMContacts.DeleteRotationOverride" }, DeleteRotationOverrideRequest, DeleteRotationOverrideResult, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

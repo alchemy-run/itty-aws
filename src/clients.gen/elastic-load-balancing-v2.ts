@@ -20,312 +20,316 @@ export const TrustStoreArns = Schema.Array(Schema.String);
 export const TrustStoreNames = Schema.Array(Schema.String);
 export const RemoveIpamPools = Schema.Array(Schema.String);
 export const TagKeys = Schema.Array(Schema.String);
-export const Tag = Schema.Struct({Key: Schema.String, Value: Schema.optional(Schema.String)});
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.String, Value: Schema.optional(Schema.String)}) {}
 export const TagList = Schema.Array(Tag);
-export const CreateTrustStoreInput = Schema.Struct({Name: Schema.String, CaCertificatesBundleS3Bucket: Schema.String, CaCertificatesBundleS3Key: Schema.String, CaCertificatesBundleS3ObjectVersion: Schema.optional(Schema.String), Tags: Schema.optional(TagList)});
-export const DeleteListenerInput = Schema.Struct({ListenerArn: Schema.String});
-export const DeleteListenerOutput = Schema.Struct({});
-export const DeleteLoadBalancerInput = Schema.Struct({LoadBalancerArn: Schema.String});
-export const DeleteLoadBalancerOutput = Schema.Struct({});
-export const DeleteRuleInput = Schema.Struct({RuleArn: Schema.String});
-export const DeleteRuleOutput = Schema.Struct({});
-export const DeleteSharedTrustStoreAssociationInput = Schema.Struct({TrustStoreArn: Schema.String, ResourceArn: Schema.String});
-export const DeleteSharedTrustStoreAssociationOutput = Schema.Struct({});
-export const DeleteTargetGroupInput = Schema.Struct({TargetGroupArn: Schema.String});
-export const DeleteTargetGroupOutput = Schema.Struct({});
-export const DeleteTrustStoreInput = Schema.Struct({TrustStoreArn: Schema.String});
-export const DeleteTrustStoreOutput = Schema.Struct({});
-export const DescribeAccountLimitsInput = Schema.Struct({Marker: Schema.optional(Schema.String), PageSize: Schema.optional(Schema.Number)});
-export const DescribeCapacityReservationInput = Schema.Struct({LoadBalancerArn: Schema.String});
-export const DescribeListenerAttributesInput = Schema.Struct({ListenerArn: Schema.String});
-export const DescribeListenerCertificatesInput = Schema.Struct({ListenerArn: Schema.String, Marker: Schema.optional(Schema.String), PageSize: Schema.optional(Schema.Number)});
-export const DescribeListenersInput = Schema.Struct({LoadBalancerArn: Schema.optional(Schema.String), ListenerArns: Schema.optional(ListenerArns), Marker: Schema.optional(Schema.String), PageSize: Schema.optional(Schema.Number)});
-export const DescribeLoadBalancerAttributesInput = Schema.Struct({LoadBalancerArn: Schema.String});
-export const DescribeLoadBalancersInput = Schema.Struct({LoadBalancerArns: Schema.optional(LoadBalancerArns), Names: Schema.optional(LoadBalancerNames), Marker: Schema.optional(Schema.String), PageSize: Schema.optional(Schema.Number)});
-export const DescribeRulesInput = Schema.Struct({ListenerArn: Schema.optional(Schema.String), RuleArns: Schema.optional(RuleArns), Marker: Schema.optional(Schema.String), PageSize: Schema.optional(Schema.Number)});
-export const DescribeSSLPoliciesInput = Schema.Struct({Names: Schema.optional(SslPolicyNames), Marker: Schema.optional(Schema.String), PageSize: Schema.optional(Schema.Number), LoadBalancerType: Schema.optional(Schema.String)});
-export const DescribeTagsInput = Schema.Struct({ResourceArns: ResourceArns});
-export const DescribeTargetGroupAttributesInput = Schema.Struct({TargetGroupArn: Schema.String});
-export const DescribeTargetGroupsInput = Schema.Struct({LoadBalancerArn: Schema.optional(Schema.String), TargetGroupArns: Schema.optional(TargetGroupArns), Names: Schema.optional(TargetGroupNames), Marker: Schema.optional(Schema.String), PageSize: Schema.optional(Schema.Number)});
-export const TargetDescription = Schema.Struct({Id: Schema.String, Port: Schema.optional(Schema.Number), AvailabilityZone: Schema.optional(Schema.String)});
+export class CreateTrustStoreInput extends Schema.Class<CreateTrustStoreInput>("CreateTrustStoreInput")({Name: Schema.String, CaCertificatesBundleS3Bucket: Schema.String, CaCertificatesBundleS3Key: Schema.String, CaCertificatesBundleS3ObjectVersion: Schema.optional(Schema.String), Tags: Schema.optional(TagList)}) {}
+export class DeleteListenerInput extends Schema.Class<DeleteListenerInput>("DeleteListenerInput")({ListenerArn: Schema.String}) {}
+export class DeleteListenerOutput extends Schema.Class<DeleteListenerOutput>("DeleteListenerOutput")({}) {}
+export class DeleteLoadBalancerInput extends Schema.Class<DeleteLoadBalancerInput>("DeleteLoadBalancerInput")({LoadBalancerArn: Schema.String}) {}
+export class DeleteLoadBalancerOutput extends Schema.Class<DeleteLoadBalancerOutput>("DeleteLoadBalancerOutput")({}) {}
+export class DeleteRuleInput extends Schema.Class<DeleteRuleInput>("DeleteRuleInput")({RuleArn: Schema.String}) {}
+export class DeleteRuleOutput extends Schema.Class<DeleteRuleOutput>("DeleteRuleOutput")({}) {}
+export class DeleteSharedTrustStoreAssociationInput extends Schema.Class<DeleteSharedTrustStoreAssociationInput>("DeleteSharedTrustStoreAssociationInput")({TrustStoreArn: Schema.String, ResourceArn: Schema.String}) {}
+export class DeleteSharedTrustStoreAssociationOutput extends Schema.Class<DeleteSharedTrustStoreAssociationOutput>("DeleteSharedTrustStoreAssociationOutput")({}) {}
+export class DeleteTargetGroupInput extends Schema.Class<DeleteTargetGroupInput>("DeleteTargetGroupInput")({TargetGroupArn: Schema.String}) {}
+export class DeleteTargetGroupOutput extends Schema.Class<DeleteTargetGroupOutput>("DeleteTargetGroupOutput")({}) {}
+export class DeleteTrustStoreInput extends Schema.Class<DeleteTrustStoreInput>("DeleteTrustStoreInput")({TrustStoreArn: Schema.String}) {}
+export class DeleteTrustStoreOutput extends Schema.Class<DeleteTrustStoreOutput>("DeleteTrustStoreOutput")({}) {}
+export class DescribeAccountLimitsInput extends Schema.Class<DescribeAccountLimitsInput>("DescribeAccountLimitsInput")({Marker: Schema.optional(Schema.String), PageSize: Schema.optional(Schema.Number)}) {}
+export class DescribeCapacityReservationInput extends Schema.Class<DescribeCapacityReservationInput>("DescribeCapacityReservationInput")({LoadBalancerArn: Schema.String}) {}
+export class DescribeListenerAttributesInput extends Schema.Class<DescribeListenerAttributesInput>("DescribeListenerAttributesInput")({ListenerArn: Schema.String}) {}
+export class DescribeListenerCertificatesInput extends Schema.Class<DescribeListenerCertificatesInput>("DescribeListenerCertificatesInput")({ListenerArn: Schema.String, Marker: Schema.optional(Schema.String), PageSize: Schema.optional(Schema.Number)}) {}
+export class DescribeListenersInput extends Schema.Class<DescribeListenersInput>("DescribeListenersInput")({LoadBalancerArn: Schema.optional(Schema.String), ListenerArns: Schema.optional(ListenerArns), Marker: Schema.optional(Schema.String), PageSize: Schema.optional(Schema.Number)}) {}
+export class DescribeLoadBalancerAttributesInput extends Schema.Class<DescribeLoadBalancerAttributesInput>("DescribeLoadBalancerAttributesInput")({LoadBalancerArn: Schema.String}) {}
+export class DescribeLoadBalancersInput extends Schema.Class<DescribeLoadBalancersInput>("DescribeLoadBalancersInput")({LoadBalancerArns: Schema.optional(LoadBalancerArns), Names: Schema.optional(LoadBalancerNames), Marker: Schema.optional(Schema.String), PageSize: Schema.optional(Schema.Number)}) {}
+export class DescribeRulesInput extends Schema.Class<DescribeRulesInput>("DescribeRulesInput")({ListenerArn: Schema.optional(Schema.String), RuleArns: Schema.optional(RuleArns), Marker: Schema.optional(Schema.String), PageSize: Schema.optional(Schema.Number)}) {}
+export class DescribeSSLPoliciesInput extends Schema.Class<DescribeSSLPoliciesInput>("DescribeSSLPoliciesInput")({Names: Schema.optional(SslPolicyNames), Marker: Schema.optional(Schema.String), PageSize: Schema.optional(Schema.Number), LoadBalancerType: Schema.optional(Schema.String)}) {}
+export class DescribeTagsInput extends Schema.Class<DescribeTagsInput>("DescribeTagsInput")({ResourceArns: ResourceArns}) {}
+export class DescribeTargetGroupAttributesInput extends Schema.Class<DescribeTargetGroupAttributesInput>("DescribeTargetGroupAttributesInput")({TargetGroupArn: Schema.String}) {}
+export class DescribeTargetGroupsInput extends Schema.Class<DescribeTargetGroupsInput>("DescribeTargetGroupsInput")({LoadBalancerArn: Schema.optional(Schema.String), TargetGroupArns: Schema.optional(TargetGroupArns), Names: Schema.optional(TargetGroupNames), Marker: Schema.optional(Schema.String), PageSize: Schema.optional(Schema.Number)}) {}
+export class TargetDescription extends Schema.Class<TargetDescription>("TargetDescription")({Id: Schema.String, Port: Schema.optional(Schema.Number), AvailabilityZone: Schema.optional(Schema.String), QuicServerId: Schema.optional(Schema.String)}) {}
 export const TargetDescriptions = Schema.Array(TargetDescription);
-export const DescribeTargetHealthInput = Schema.Struct({TargetGroupArn: Schema.String, Targets: Schema.optional(TargetDescriptions), Include: Schema.optional(ListOfDescribeTargetHealthIncludeOptions)});
-export const DescribeTrustStoreAssociationsInput = Schema.Struct({TrustStoreArn: Schema.String, Marker: Schema.optional(Schema.String), PageSize: Schema.optional(Schema.Number)});
-export const DescribeTrustStoreRevocationsInput = Schema.Struct({TrustStoreArn: Schema.String, RevocationIds: Schema.optional(RevocationIds), Marker: Schema.optional(Schema.String), PageSize: Schema.optional(Schema.Number)});
-export const DescribeTrustStoresInput = Schema.Struct({TrustStoreArns: Schema.optional(TrustStoreArns), Names: Schema.optional(TrustStoreNames), Marker: Schema.optional(Schema.String), PageSize: Schema.optional(Schema.Number)});
-export const GetResourcePolicyInput = Schema.Struct({ResourceArn: Schema.String});
-export const GetTrustStoreCaCertificatesBundleInput = Schema.Struct({TrustStoreArn: Schema.String});
-export const GetTrustStoreRevocationContentInput = Schema.Struct({TrustStoreArn: Schema.String, RevocationId: Schema.Number});
-export const IpamPools = Schema.Struct({Ipv4IpamPoolId: Schema.optional(Schema.String)});
-export const ModifyIpPoolsInput = Schema.Struct({LoadBalancerArn: Schema.String, IpamPools: Schema.optional(IpamPools), RemoveIpamPools: Schema.optional(RemoveIpamPools)});
-export const Certificate = Schema.Struct({CertificateArn: Schema.optional(Schema.String), IsDefault: Schema.optional(Schema.Boolean)});
+export class DescribeTargetHealthInput extends Schema.Class<DescribeTargetHealthInput>("DescribeTargetHealthInput")({TargetGroupArn: Schema.String, Targets: Schema.optional(TargetDescriptions), Include: Schema.optional(ListOfDescribeTargetHealthIncludeOptions)}) {}
+export class DescribeTrustStoreAssociationsInput extends Schema.Class<DescribeTrustStoreAssociationsInput>("DescribeTrustStoreAssociationsInput")({TrustStoreArn: Schema.String, Marker: Schema.optional(Schema.String), PageSize: Schema.optional(Schema.Number)}) {}
+export class DescribeTrustStoreRevocationsInput extends Schema.Class<DescribeTrustStoreRevocationsInput>("DescribeTrustStoreRevocationsInput")({TrustStoreArn: Schema.String, RevocationIds: Schema.optional(RevocationIds), Marker: Schema.optional(Schema.String), PageSize: Schema.optional(Schema.Number)}) {}
+export class DescribeTrustStoresInput extends Schema.Class<DescribeTrustStoresInput>("DescribeTrustStoresInput")({TrustStoreArns: Schema.optional(TrustStoreArns), Names: Schema.optional(TrustStoreNames), Marker: Schema.optional(Schema.String), PageSize: Schema.optional(Schema.Number)}) {}
+export class GetResourcePolicyInput extends Schema.Class<GetResourcePolicyInput>("GetResourcePolicyInput")({ResourceArn: Schema.String}) {}
+export class GetTrustStoreCaCertificatesBundleInput extends Schema.Class<GetTrustStoreCaCertificatesBundleInput>("GetTrustStoreCaCertificatesBundleInput")({TrustStoreArn: Schema.String}) {}
+export class GetTrustStoreRevocationContentInput extends Schema.Class<GetTrustStoreRevocationContentInput>("GetTrustStoreRevocationContentInput")({TrustStoreArn: Schema.String, RevocationId: Schema.Number}) {}
+export class IpamPools extends Schema.Class<IpamPools>("IpamPools")({Ipv4IpamPoolId: Schema.optional(Schema.String)}) {}
+export class ModifyIpPoolsInput extends Schema.Class<ModifyIpPoolsInput>("ModifyIpPoolsInput")({LoadBalancerArn: Schema.String, IpamPools: Schema.optional(IpamPools), RemoveIpamPools: Schema.optional(RemoveIpamPools)}) {}
+export class Certificate extends Schema.Class<Certificate>("Certificate")({CertificateArn: Schema.optional(Schema.String), IsDefault: Schema.optional(Schema.Boolean)}) {}
 export const CertificateList = Schema.Array(Certificate);
 export const AuthenticateOidcActionAuthenticationRequestExtraParams = Schema.Record({key: Schema.String, value: Schema.String});
-export const AuthenticateOidcActionConfig = Schema.Struct({Issuer: Schema.String, AuthorizationEndpoint: Schema.String, TokenEndpoint: Schema.String, UserInfoEndpoint: Schema.String, ClientId: Schema.String, ClientSecret: Schema.optional(Schema.String), SessionCookieName: Schema.optional(Schema.String), Scope: Schema.optional(Schema.String), SessionTimeout: Schema.optional(Schema.Number), AuthenticationRequestExtraParams: Schema.optional(AuthenticateOidcActionAuthenticationRequestExtraParams), OnUnauthenticatedRequest: Schema.optional(Schema.String), UseExistingClientSecret: Schema.optional(Schema.Boolean)});
+export class AuthenticateOidcActionConfig extends Schema.Class<AuthenticateOidcActionConfig>("AuthenticateOidcActionConfig")({Issuer: Schema.String, AuthorizationEndpoint: Schema.String, TokenEndpoint: Schema.String, UserInfoEndpoint: Schema.String, ClientId: Schema.String, ClientSecret: Schema.optional(Schema.String), SessionCookieName: Schema.optional(Schema.String), Scope: Schema.optional(Schema.String), SessionTimeout: Schema.optional(Schema.Number), AuthenticationRequestExtraParams: Schema.optional(AuthenticateOidcActionAuthenticationRequestExtraParams), OnUnauthenticatedRequest: Schema.optional(Schema.String), UseExistingClientSecret: Schema.optional(Schema.Boolean)}) {}
 export const AuthenticateCognitoActionAuthenticationRequestExtraParams = Schema.Record({key: Schema.String, value: Schema.String});
-export const AuthenticateCognitoActionConfig = Schema.Struct({UserPoolArn: Schema.String, UserPoolClientId: Schema.String, UserPoolDomain: Schema.String, SessionCookieName: Schema.optional(Schema.String), Scope: Schema.optional(Schema.String), SessionTimeout: Schema.optional(Schema.Number), AuthenticationRequestExtraParams: Schema.optional(AuthenticateCognitoActionAuthenticationRequestExtraParams), OnUnauthenticatedRequest: Schema.optional(Schema.String)});
-export const RedirectActionConfig = Schema.Struct({Protocol: Schema.optional(Schema.String), Port: Schema.optional(Schema.String), Host: Schema.optional(Schema.String), Path: Schema.optional(Schema.String), Query: Schema.optional(Schema.String), StatusCode: Schema.String});
-export const FixedResponseActionConfig = Schema.Struct({MessageBody: Schema.optional(Schema.String), StatusCode: Schema.String, ContentType: Schema.optional(Schema.String)});
-export const TargetGroupTuple = Schema.Struct({TargetGroupArn: Schema.optional(Schema.String), Weight: Schema.optional(Schema.Number)});
+export class AuthenticateCognitoActionConfig extends Schema.Class<AuthenticateCognitoActionConfig>("AuthenticateCognitoActionConfig")({UserPoolArn: Schema.String, UserPoolClientId: Schema.String, UserPoolDomain: Schema.String, SessionCookieName: Schema.optional(Schema.String), Scope: Schema.optional(Schema.String), SessionTimeout: Schema.optional(Schema.Number), AuthenticationRequestExtraParams: Schema.optional(AuthenticateCognitoActionAuthenticationRequestExtraParams), OnUnauthenticatedRequest: Schema.optional(Schema.String)}) {}
+export class RedirectActionConfig extends Schema.Class<RedirectActionConfig>("RedirectActionConfig")({Protocol: Schema.optional(Schema.String), Port: Schema.optional(Schema.String), Host: Schema.optional(Schema.String), Path: Schema.optional(Schema.String), Query: Schema.optional(Schema.String), StatusCode: Schema.String}) {}
+export class FixedResponseActionConfig extends Schema.Class<FixedResponseActionConfig>("FixedResponseActionConfig")({MessageBody: Schema.optional(Schema.String), StatusCode: Schema.String, ContentType: Schema.optional(Schema.String)}) {}
+export class TargetGroupTuple extends Schema.Class<TargetGroupTuple>("TargetGroupTuple")({TargetGroupArn: Schema.optional(Schema.String), Weight: Schema.optional(Schema.Number)}) {}
 export const TargetGroupList = Schema.Array(TargetGroupTuple);
-export const TargetGroupStickinessConfig = Schema.Struct({Enabled: Schema.optional(Schema.Boolean), DurationSeconds: Schema.optional(Schema.Number)});
-export const ForwardActionConfig = Schema.Struct({TargetGroups: Schema.optional(TargetGroupList), TargetGroupStickinessConfig: Schema.optional(TargetGroupStickinessConfig)});
-export const Action = Schema.Struct({Type: Schema.String, TargetGroupArn: Schema.optional(Schema.String), AuthenticateOidcConfig: Schema.optional(AuthenticateOidcActionConfig), AuthenticateCognitoConfig: Schema.optional(AuthenticateCognitoActionConfig), Order: Schema.optional(Schema.Number), RedirectConfig: Schema.optional(RedirectActionConfig), FixedResponseConfig: Schema.optional(FixedResponseActionConfig), ForwardConfig: Schema.optional(ForwardActionConfig)});
+export class TargetGroupStickinessConfig extends Schema.Class<TargetGroupStickinessConfig>("TargetGroupStickinessConfig")({Enabled: Schema.optional(Schema.Boolean), DurationSeconds: Schema.optional(Schema.Number)}) {}
+export class ForwardActionConfig extends Schema.Class<ForwardActionConfig>("ForwardActionConfig")({TargetGroups: Schema.optional(TargetGroupList), TargetGroupStickinessConfig: Schema.optional(TargetGroupStickinessConfig)}) {}
+export const JwtValidationActionAdditionalClaimValues = Schema.Array(Schema.String);
+export class JwtValidationActionAdditionalClaim extends Schema.Class<JwtValidationActionAdditionalClaim>("JwtValidationActionAdditionalClaim")({Format: Schema.String, Name: Schema.String, Values: JwtValidationActionAdditionalClaimValues}) {}
+export const JwtValidationActionAdditionalClaims = Schema.Array(JwtValidationActionAdditionalClaim);
+export class JwtValidationActionConfig extends Schema.Class<JwtValidationActionConfig>("JwtValidationActionConfig")({JwksEndpoint: Schema.String, Issuer: Schema.String, AdditionalClaims: Schema.optional(JwtValidationActionAdditionalClaims)}) {}
+export class Action extends Schema.Class<Action>("Action")({Type: Schema.String, TargetGroupArn: Schema.optional(Schema.String), AuthenticateOidcConfig: Schema.optional(AuthenticateOidcActionConfig), AuthenticateCognitoConfig: Schema.optional(AuthenticateCognitoActionConfig), Order: Schema.optional(Schema.Number), RedirectConfig: Schema.optional(RedirectActionConfig), FixedResponseConfig: Schema.optional(FixedResponseActionConfig), ForwardConfig: Schema.optional(ForwardActionConfig), JwtValidationConfig: Schema.optional(JwtValidationActionConfig)}) {}
 export const Actions = Schema.Array(Action);
-export const MutualAuthenticationAttributes = Schema.Struct({Mode: Schema.optional(Schema.String), TrustStoreArn: Schema.optional(Schema.String), IgnoreClientCertificateExpiry: Schema.optional(Schema.Boolean), TrustStoreAssociationStatus: Schema.optional(Schema.String), AdvertiseTrustStoreCaNames: Schema.optional(Schema.String)});
-export const ModifyListenerInput = Schema.Struct({ListenerArn: Schema.String, Port: Schema.optional(Schema.Number), Protocol: Schema.optional(Schema.String), SslPolicy: Schema.optional(Schema.String), Certificates: Schema.optional(CertificateList), DefaultActions: Schema.optional(Actions), AlpnPolicy: Schema.optional(AlpnPolicyName), MutualAuthentication: Schema.optional(MutualAuthenticationAttributes)});
+export class MutualAuthenticationAttributes extends Schema.Class<MutualAuthenticationAttributes>("MutualAuthenticationAttributes")({Mode: Schema.optional(Schema.String), TrustStoreArn: Schema.optional(Schema.String), IgnoreClientCertificateExpiry: Schema.optional(Schema.Boolean), TrustStoreAssociationStatus: Schema.optional(Schema.String), AdvertiseTrustStoreCaNames: Schema.optional(Schema.String)}) {}
+export class ModifyListenerInput extends Schema.Class<ModifyListenerInput>("ModifyListenerInput")({ListenerArn: Schema.String, Port: Schema.optional(Schema.Number), Protocol: Schema.optional(Schema.String), SslPolicy: Schema.optional(Schema.String), Certificates: Schema.optional(CertificateList), DefaultActions: Schema.optional(Actions), AlpnPolicy: Schema.optional(AlpnPolicyName), MutualAuthentication: Schema.optional(MutualAuthenticationAttributes)}) {}
 export const ListOfString = Schema.Array(Schema.String);
-export const HostHeaderConditionConfig = Schema.Struct({Values: Schema.optional(ListOfString), RegexValues: Schema.optional(ListOfString)});
-export const PathPatternConditionConfig = Schema.Struct({Values: Schema.optional(ListOfString), RegexValues: Schema.optional(ListOfString)});
-export const HttpHeaderConditionConfig = Schema.Struct({HttpHeaderName: Schema.optional(Schema.String), Values: Schema.optional(ListOfString), RegexValues: Schema.optional(ListOfString)});
-export const QueryStringKeyValuePair = Schema.Struct({Key: Schema.optional(Schema.String), Value: Schema.optional(Schema.String)});
+export class HostHeaderConditionConfig extends Schema.Class<HostHeaderConditionConfig>("HostHeaderConditionConfig")({Values: Schema.optional(ListOfString), RegexValues: Schema.optional(ListOfString)}) {}
+export class PathPatternConditionConfig extends Schema.Class<PathPatternConditionConfig>("PathPatternConditionConfig")({Values: Schema.optional(ListOfString), RegexValues: Schema.optional(ListOfString)}) {}
+export class HttpHeaderConditionConfig extends Schema.Class<HttpHeaderConditionConfig>("HttpHeaderConditionConfig")({HttpHeaderName: Schema.optional(Schema.String), Values: Schema.optional(ListOfString), RegexValues: Schema.optional(ListOfString)}) {}
+export class QueryStringKeyValuePair extends Schema.Class<QueryStringKeyValuePair>("QueryStringKeyValuePair")({Key: Schema.optional(Schema.String), Value: Schema.optional(Schema.String)}) {}
 export const QueryStringKeyValuePairList = Schema.Array(QueryStringKeyValuePair);
-export const QueryStringConditionConfig = Schema.Struct({Values: Schema.optional(QueryStringKeyValuePairList)});
-export const HttpRequestMethodConditionConfig = Schema.Struct({Values: Schema.optional(ListOfString)});
-export const SourceIpConditionConfig = Schema.Struct({Values: Schema.optional(ListOfString)});
-export const RuleCondition = Schema.Struct({Field: Schema.optional(Schema.String), Values: Schema.optional(ListOfString), HostHeaderConfig: Schema.optional(HostHeaderConditionConfig), PathPatternConfig: Schema.optional(PathPatternConditionConfig), HttpHeaderConfig: Schema.optional(HttpHeaderConditionConfig), QueryStringConfig: Schema.optional(QueryStringConditionConfig), HttpRequestMethodConfig: Schema.optional(HttpRequestMethodConditionConfig), SourceIpConfig: Schema.optional(SourceIpConditionConfig), RegexValues: Schema.optional(ListOfString)});
+export class QueryStringConditionConfig extends Schema.Class<QueryStringConditionConfig>("QueryStringConditionConfig")({Values: Schema.optional(QueryStringKeyValuePairList)}) {}
+export class HttpRequestMethodConditionConfig extends Schema.Class<HttpRequestMethodConditionConfig>("HttpRequestMethodConditionConfig")({Values: Schema.optional(ListOfString)}) {}
+export class SourceIpConditionConfig extends Schema.Class<SourceIpConditionConfig>("SourceIpConditionConfig")({Values: Schema.optional(ListOfString)}) {}
+export class RuleCondition extends Schema.Class<RuleCondition>("RuleCondition")({Field: Schema.optional(Schema.String), Values: Schema.optional(ListOfString), HostHeaderConfig: Schema.optional(HostHeaderConditionConfig), PathPatternConfig: Schema.optional(PathPatternConditionConfig), HttpHeaderConfig: Schema.optional(HttpHeaderConditionConfig), QueryStringConfig: Schema.optional(QueryStringConditionConfig), HttpRequestMethodConfig: Schema.optional(HttpRequestMethodConditionConfig), SourceIpConfig: Schema.optional(SourceIpConditionConfig), RegexValues: Schema.optional(ListOfString)}) {}
 export const RuleConditionList = Schema.Array(RuleCondition);
-export const RewriteConfig = Schema.Struct({Regex: Schema.String, Replace: Schema.String});
+export class RewriteConfig extends Schema.Class<RewriteConfig>("RewriteConfig")({Regex: Schema.String, Replace: Schema.String}) {}
 export const RewriteConfigList = Schema.Array(RewriteConfig);
-export const HostHeaderRewriteConfig = Schema.Struct({Rewrites: Schema.optional(RewriteConfigList)});
-export const UrlRewriteConfig = Schema.Struct({Rewrites: Schema.optional(RewriteConfigList)});
-export const RuleTransform = Schema.Struct({Type: Schema.String, HostHeaderRewriteConfig: Schema.optional(HostHeaderRewriteConfig), UrlRewriteConfig: Schema.optional(UrlRewriteConfig)});
+export class HostHeaderRewriteConfig extends Schema.Class<HostHeaderRewriteConfig>("HostHeaderRewriteConfig")({Rewrites: Schema.optional(RewriteConfigList)}) {}
+export class UrlRewriteConfig extends Schema.Class<UrlRewriteConfig>("UrlRewriteConfig")({Rewrites: Schema.optional(RewriteConfigList)}) {}
+export class RuleTransform extends Schema.Class<RuleTransform>("RuleTransform")({Type: Schema.String, HostHeaderRewriteConfig: Schema.optional(HostHeaderRewriteConfig), UrlRewriteConfig: Schema.optional(UrlRewriteConfig)}) {}
 export const RuleTransformList = Schema.Array(RuleTransform);
-export const ModifyRuleInput = Schema.Struct({RuleArn: Schema.String, Conditions: Schema.optional(RuleConditionList), Actions: Schema.optional(Actions), Transforms: Schema.optional(RuleTransformList), ResetTransforms: Schema.optional(Schema.Boolean)});
-export const Matcher = Schema.Struct({HttpCode: Schema.optional(Schema.String), GrpcCode: Schema.optional(Schema.String)});
-export const ModifyTargetGroupInput = Schema.Struct({TargetGroupArn: Schema.String, HealthCheckProtocol: Schema.optional(Schema.String), HealthCheckPort: Schema.optional(Schema.String), HealthCheckPath: Schema.optional(Schema.String), HealthCheckEnabled: Schema.optional(Schema.Boolean), HealthCheckIntervalSeconds: Schema.optional(Schema.Number), HealthCheckTimeoutSeconds: Schema.optional(Schema.Number), HealthyThresholdCount: Schema.optional(Schema.Number), UnhealthyThresholdCount: Schema.optional(Schema.Number), Matcher: Schema.optional(Matcher)});
-export const ModifyTrustStoreInput = Schema.Struct({TrustStoreArn: Schema.String, CaCertificatesBundleS3Bucket: Schema.String, CaCertificatesBundleS3Key: Schema.String, CaCertificatesBundleS3ObjectVersion: Schema.optional(Schema.String)});
-export const RegisterTargetsInput = Schema.Struct({TargetGroupArn: Schema.String, Targets: TargetDescriptions});
-export const RegisterTargetsOutput = Schema.Struct({});
-export const RemoveListenerCertificatesInput = Schema.Struct({ListenerArn: Schema.String, Certificates: CertificateList});
-export const RemoveListenerCertificatesOutput = Schema.Struct({});
-export const RemoveTagsInput = Schema.Struct({ResourceArns: ResourceArns, TagKeys: TagKeys});
-export const RemoveTagsOutput = Schema.Struct({});
-export const RemoveTrustStoreRevocationsInput = Schema.Struct({TrustStoreArn: Schema.String, RevocationIds: RevocationIds});
-export const RemoveTrustStoreRevocationsOutput = Schema.Struct({});
-export const SetIpAddressTypeInput = Schema.Struct({LoadBalancerArn: Schema.String, IpAddressType: Schema.String});
-export const SetSecurityGroupsInput = Schema.Struct({LoadBalancerArn: Schema.String, SecurityGroups: SecurityGroups, EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic: Schema.optional(Schema.String)});
-export const SubnetMapping = Schema.Struct({SubnetId: Schema.optional(Schema.String), AllocationId: Schema.optional(Schema.String), PrivateIPv4Address: Schema.optional(Schema.String), IPv6Address: Schema.optional(Schema.String), SourceNatIpv6Prefix: Schema.optional(Schema.String)});
+export class ModifyRuleInput extends Schema.Class<ModifyRuleInput>("ModifyRuleInput")({RuleArn: Schema.String, Conditions: Schema.optional(RuleConditionList), Actions: Schema.optional(Actions), Transforms: Schema.optional(RuleTransformList), ResetTransforms: Schema.optional(Schema.Boolean)}) {}
+export class Matcher extends Schema.Class<Matcher>("Matcher")({HttpCode: Schema.optional(Schema.String), GrpcCode: Schema.optional(Schema.String)}) {}
+export class ModifyTargetGroupInput extends Schema.Class<ModifyTargetGroupInput>("ModifyTargetGroupInput")({TargetGroupArn: Schema.String, HealthCheckProtocol: Schema.optional(Schema.String), HealthCheckPort: Schema.optional(Schema.String), HealthCheckPath: Schema.optional(Schema.String), HealthCheckEnabled: Schema.optional(Schema.Boolean), HealthCheckIntervalSeconds: Schema.optional(Schema.Number), HealthCheckTimeoutSeconds: Schema.optional(Schema.Number), HealthyThresholdCount: Schema.optional(Schema.Number), UnhealthyThresholdCount: Schema.optional(Schema.Number), Matcher: Schema.optional(Matcher)}) {}
+export class ModifyTrustStoreInput extends Schema.Class<ModifyTrustStoreInput>("ModifyTrustStoreInput")({TrustStoreArn: Schema.String, CaCertificatesBundleS3Bucket: Schema.String, CaCertificatesBundleS3Key: Schema.String, CaCertificatesBundleS3ObjectVersion: Schema.optional(Schema.String)}) {}
+export class RegisterTargetsInput extends Schema.Class<RegisterTargetsInput>("RegisterTargetsInput")({TargetGroupArn: Schema.String, Targets: TargetDescriptions}) {}
+export class RegisterTargetsOutput extends Schema.Class<RegisterTargetsOutput>("RegisterTargetsOutput")({}) {}
+export class RemoveListenerCertificatesInput extends Schema.Class<RemoveListenerCertificatesInput>("RemoveListenerCertificatesInput")({ListenerArn: Schema.String, Certificates: CertificateList}) {}
+export class RemoveListenerCertificatesOutput extends Schema.Class<RemoveListenerCertificatesOutput>("RemoveListenerCertificatesOutput")({}) {}
+export class RemoveTagsInput extends Schema.Class<RemoveTagsInput>("RemoveTagsInput")({ResourceArns: ResourceArns, TagKeys: TagKeys}) {}
+export class RemoveTagsOutput extends Schema.Class<RemoveTagsOutput>("RemoveTagsOutput")({}) {}
+export class RemoveTrustStoreRevocationsInput extends Schema.Class<RemoveTrustStoreRevocationsInput>("RemoveTrustStoreRevocationsInput")({TrustStoreArn: Schema.String, RevocationIds: RevocationIds}) {}
+export class RemoveTrustStoreRevocationsOutput extends Schema.Class<RemoveTrustStoreRevocationsOutput>("RemoveTrustStoreRevocationsOutput")({}) {}
+export class SetIpAddressTypeInput extends Schema.Class<SetIpAddressTypeInput>("SetIpAddressTypeInput")({LoadBalancerArn: Schema.String, IpAddressType: Schema.String}) {}
+export class SetSecurityGroupsInput extends Schema.Class<SetSecurityGroupsInput>("SetSecurityGroupsInput")({LoadBalancerArn: Schema.String, SecurityGroups: SecurityGroups, EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic: Schema.optional(Schema.String)}) {}
+export class SubnetMapping extends Schema.Class<SubnetMapping>("SubnetMapping")({SubnetId: Schema.optional(Schema.String), AllocationId: Schema.optional(Schema.String), PrivateIPv4Address: Schema.optional(Schema.String), IPv6Address: Schema.optional(Schema.String), SourceNatIpv6Prefix: Schema.optional(Schema.String)}) {}
 export const SubnetMappings = Schema.Array(SubnetMapping);
-export const SetSubnetsInput = Schema.Struct({LoadBalancerArn: Schema.String, Subnets: Schema.optional(Subnets), SubnetMappings: Schema.optional(SubnetMappings), IpAddressType: Schema.optional(Schema.String), EnablePrefixForIpv6SourceNat: Schema.optional(Schema.String)});
-export const RevocationContent = Schema.Struct({S3Bucket: Schema.optional(Schema.String), S3Key: Schema.optional(Schema.String), S3ObjectVersion: Schema.optional(Schema.String), RevocationType: Schema.optional(Schema.String)});
+export class SetSubnetsInput extends Schema.Class<SetSubnetsInput>("SetSubnetsInput")({LoadBalancerArn: Schema.String, Subnets: Schema.optional(Subnets), SubnetMappings: Schema.optional(SubnetMappings), IpAddressType: Schema.optional(Schema.String), EnablePrefixForIpv6SourceNat: Schema.optional(Schema.String)}) {}
+export class RevocationContent extends Schema.Class<RevocationContent>("RevocationContent")({S3Bucket: Schema.optional(Schema.String), S3Key: Schema.optional(Schema.String), S3ObjectVersion: Schema.optional(Schema.String), RevocationType: Schema.optional(Schema.String)}) {}
 export const RevocationContents = Schema.Array(RevocationContent);
-export const MinimumLoadBalancerCapacity = Schema.Struct({CapacityUnits: Schema.optional(Schema.Number)});
-export const ListenerAttribute = Schema.Struct({Key: Schema.optional(Schema.String), Value: Schema.optional(Schema.String)});
+export class MinimumLoadBalancerCapacity extends Schema.Class<MinimumLoadBalancerCapacity>("MinimumLoadBalancerCapacity")({CapacityUnits: Schema.optional(Schema.Number)}) {}
+export class ListenerAttribute extends Schema.Class<ListenerAttribute>("ListenerAttribute")({Key: Schema.optional(Schema.String), Value: Schema.optional(Schema.String)}) {}
 export const ListenerAttributes = Schema.Array(ListenerAttribute);
-export const LoadBalancerAttribute = Schema.Struct({Key: Schema.optional(Schema.String), Value: Schema.optional(Schema.String)});
+export class LoadBalancerAttribute extends Schema.Class<LoadBalancerAttribute>("LoadBalancerAttribute")({Key: Schema.optional(Schema.String), Value: Schema.optional(Schema.String)}) {}
 export const LoadBalancerAttributes = Schema.Array(LoadBalancerAttribute);
-export const TargetGroupAttribute = Schema.Struct({Key: Schema.optional(Schema.String), Value: Schema.optional(Schema.String)});
+export class TargetGroupAttribute extends Schema.Class<TargetGroupAttribute>("TargetGroupAttribute")({Key: Schema.optional(Schema.String), Value: Schema.optional(Schema.String)}) {}
 export const TargetGroupAttributes = Schema.Array(TargetGroupAttribute);
-export const RulePriorityPair = Schema.Struct({RuleArn: Schema.optional(Schema.String), Priority: Schema.optional(Schema.Number)});
+export class RulePriorityPair extends Schema.Class<RulePriorityPair>("RulePriorityPair")({RuleArn: Schema.optional(Schema.String), Priority: Schema.optional(Schema.Number)}) {}
 export const RulePriorityList = Schema.Array(RulePriorityPair);
-export const AddListenerCertificatesInput = Schema.Struct({ListenerArn: Schema.String, Certificates: CertificateList});
-export const AddTagsInput = Schema.Struct({ResourceArns: ResourceArns, Tags: TagList});
-export const AddTagsOutput = Schema.Struct({});
-export const AddTrustStoreRevocationsInput = Schema.Struct({TrustStoreArn: Schema.String, RevocationContents: Schema.optional(RevocationContents)});
-export const CreateLoadBalancerInput = Schema.Struct({Name: Schema.String, Subnets: Schema.optional(Subnets), SubnetMappings: Schema.optional(SubnetMappings), SecurityGroups: Schema.optional(SecurityGroups), Scheme: Schema.optional(Schema.String), Tags: Schema.optional(TagList), Type: Schema.optional(Schema.String), IpAddressType: Schema.optional(Schema.String), CustomerOwnedIpv4Pool: Schema.optional(Schema.String), EnablePrefixForIpv6SourceNat: Schema.optional(Schema.String), IpamPools: Schema.optional(IpamPools)});
-export const CreateTargetGroupInput = Schema.Struct({Name: Schema.String, Protocol: Schema.optional(Schema.String), ProtocolVersion: Schema.optional(Schema.String), Port: Schema.optional(Schema.Number), VpcId: Schema.optional(Schema.String), HealthCheckProtocol: Schema.optional(Schema.String), HealthCheckPort: Schema.optional(Schema.String), HealthCheckEnabled: Schema.optional(Schema.Boolean), HealthCheckPath: Schema.optional(Schema.String), HealthCheckIntervalSeconds: Schema.optional(Schema.Number), HealthCheckTimeoutSeconds: Schema.optional(Schema.Number), HealthyThresholdCount: Schema.optional(Schema.Number), UnhealthyThresholdCount: Schema.optional(Schema.Number), Matcher: Schema.optional(Matcher), TargetType: Schema.optional(Schema.String), Tags: Schema.optional(TagList), IpAddressType: Schema.optional(Schema.String)});
-export const ListenerNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const LoadBalancerNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const OperationNotPermittedException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DeleteAssociationSameAccountException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ResourceInUseException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const TrustStoreInUseException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DeregisterTargetsInput = Schema.Struct({TargetGroupArn: Schema.String, Targets: TargetDescriptions});
-export const DeregisterTargetsOutput = Schema.Struct({});
-export const DescribeListenerAttributesOutput = Schema.Struct({Attributes: Schema.optional(ListenerAttributes)});
-export const DescribeListenerCertificatesOutput = Schema.Struct({Certificates: Schema.optional(CertificateList), NextMarker: Schema.optional(Schema.String)});
-export const DescribeLoadBalancerAttributesOutput = Schema.Struct({Attributes: Schema.optional(LoadBalancerAttributes)});
-export const DescribeTargetGroupAttributesOutput = Schema.Struct({Attributes: Schema.optional(TargetGroupAttributes)});
-export const TrustStore = Schema.Struct({Name: Schema.optional(Schema.String), TrustStoreArn: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), NumberOfCaCertificates: Schema.optional(Schema.Number), TotalRevokedEntries: Schema.optional(Schema.Number)});
+export class AddListenerCertificatesInput extends Schema.Class<AddListenerCertificatesInput>("AddListenerCertificatesInput")({ListenerArn: Schema.String, Certificates: CertificateList}) {}
+export class AddTagsInput extends Schema.Class<AddTagsInput>("AddTagsInput")({ResourceArns: ResourceArns, Tags: TagList}) {}
+export class AddTagsOutput extends Schema.Class<AddTagsOutput>("AddTagsOutput")({}) {}
+export class AddTrustStoreRevocationsInput extends Schema.Class<AddTrustStoreRevocationsInput>("AddTrustStoreRevocationsInput")({TrustStoreArn: Schema.String, RevocationContents: Schema.optional(RevocationContents)}) {}
+export class CreateLoadBalancerInput extends Schema.Class<CreateLoadBalancerInput>("CreateLoadBalancerInput")({Name: Schema.String, Subnets: Schema.optional(Subnets), SubnetMappings: Schema.optional(SubnetMappings), SecurityGroups: Schema.optional(SecurityGroups), Scheme: Schema.optional(Schema.String), Tags: Schema.optional(TagList), Type: Schema.optional(Schema.String), IpAddressType: Schema.optional(Schema.String), CustomerOwnedIpv4Pool: Schema.optional(Schema.String), EnablePrefixForIpv6SourceNat: Schema.optional(Schema.String), IpamPools: Schema.optional(IpamPools)}) {}
+export class CreateTargetGroupInput extends Schema.Class<CreateTargetGroupInput>("CreateTargetGroupInput")({Name: Schema.String, Protocol: Schema.optional(Schema.String), ProtocolVersion: Schema.optional(Schema.String), Port: Schema.optional(Schema.Number), VpcId: Schema.optional(Schema.String), HealthCheckProtocol: Schema.optional(Schema.String), HealthCheckPort: Schema.optional(Schema.String), HealthCheckEnabled: Schema.optional(Schema.Boolean), HealthCheckPath: Schema.optional(Schema.String), HealthCheckIntervalSeconds: Schema.optional(Schema.Number), HealthCheckTimeoutSeconds: Schema.optional(Schema.Number), HealthyThresholdCount: Schema.optional(Schema.Number), UnhealthyThresholdCount: Schema.optional(Schema.Number), Matcher: Schema.optional(Matcher), TargetType: Schema.optional(Schema.String), Tags: Schema.optional(TagList), IpAddressType: Schema.optional(Schema.String), TargetControlPort: Schema.optional(Schema.Number)}) {}
+export class ListenerNotFoundException extends Schema.Class<ListenerNotFoundException>("ListenerNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class LoadBalancerNotFoundException extends Schema.Class<LoadBalancerNotFoundException>("LoadBalancerNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class OperationNotPermittedException extends Schema.Class<OperationNotPermittedException>("OperationNotPermittedException")({Message: Schema.optional(Schema.String)}) {}
+export class DeleteAssociationSameAccountException extends Schema.Class<DeleteAssociationSameAccountException>("DeleteAssociationSameAccountException")({Message: Schema.optional(Schema.String)}) {}
+export class ResourceInUseException extends Schema.Class<ResourceInUseException>("ResourceInUseException")({Message: Schema.optional(Schema.String)}) {}
+export class TrustStoreInUseException extends Schema.Class<TrustStoreInUseException>("TrustStoreInUseException")({Message: Schema.optional(Schema.String)}) {}
+export class DeregisterTargetsInput extends Schema.Class<DeregisterTargetsInput>("DeregisterTargetsInput")({TargetGroupArn: Schema.String, Targets: TargetDescriptions}) {}
+export class DeregisterTargetsOutput extends Schema.Class<DeregisterTargetsOutput>("DeregisterTargetsOutput")({}) {}
+export class DescribeListenerAttributesOutput extends Schema.Class<DescribeListenerAttributesOutput>("DescribeListenerAttributesOutput")({Attributes: Schema.optional(ListenerAttributes)}) {}
+export class DescribeListenerCertificatesOutput extends Schema.Class<DescribeListenerCertificatesOutput>("DescribeListenerCertificatesOutput")({Certificates: Schema.optional(CertificateList), NextMarker: Schema.optional(Schema.String)}) {}
+export class DescribeLoadBalancerAttributesOutput extends Schema.Class<DescribeLoadBalancerAttributesOutput>("DescribeLoadBalancerAttributesOutput")({Attributes: Schema.optional(LoadBalancerAttributes)}) {}
+export class DescribeTargetGroupAttributesOutput extends Schema.Class<DescribeTargetGroupAttributesOutput>("DescribeTargetGroupAttributesOutput")({Attributes: Schema.optional(TargetGroupAttributes)}) {}
+export class TrustStore extends Schema.Class<TrustStore>("TrustStore")({Name: Schema.optional(Schema.String), TrustStoreArn: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), NumberOfCaCertificates: Schema.optional(Schema.Number), TotalRevokedEntries: Schema.optional(Schema.Number)}) {}
 export const TrustStores = Schema.Array(TrustStore);
-export const DescribeTrustStoresOutput = Schema.Struct({TrustStores: Schema.optional(TrustStores), NextMarker: Schema.optional(Schema.String)});
-export const GetResourcePolicyOutput = Schema.Struct({Policy: Schema.optional(Schema.String)});
-export const GetTrustStoreCaCertificatesBundleOutput = Schema.Struct({Location: Schema.optional(Schema.String)});
-export const GetTrustStoreRevocationContentOutput = Schema.Struct({Location: Schema.optional(Schema.String)});
-export const ModifyCapacityReservationInput = Schema.Struct({LoadBalancerArn: Schema.String, MinimumLoadBalancerCapacity: Schema.optional(MinimumLoadBalancerCapacity), ResetCapacityReservation: Schema.optional(Schema.Boolean)});
-export const ModifyIpPoolsOutput = Schema.Struct({IpamPools: Schema.optional(IpamPools)});
-export const Listener = Schema.Struct({ListenerArn: Schema.optional(Schema.String), LoadBalancerArn: Schema.optional(Schema.String), Port: Schema.optional(Schema.Number), Protocol: Schema.optional(Schema.String), Certificates: Schema.optional(CertificateList), SslPolicy: Schema.optional(Schema.String), DefaultActions: Schema.optional(Actions), AlpnPolicy: Schema.optional(AlpnPolicyName), MutualAuthentication: Schema.optional(MutualAuthenticationAttributes)});
+export class DescribeTrustStoresOutput extends Schema.Class<DescribeTrustStoresOutput>("DescribeTrustStoresOutput")({TrustStores: Schema.optional(TrustStores), NextMarker: Schema.optional(Schema.String)}) {}
+export class GetResourcePolicyOutput extends Schema.Class<GetResourcePolicyOutput>("GetResourcePolicyOutput")({Policy: Schema.optional(Schema.String)}) {}
+export class GetTrustStoreCaCertificatesBundleOutput extends Schema.Class<GetTrustStoreCaCertificatesBundleOutput>("GetTrustStoreCaCertificatesBundleOutput")({Location: Schema.optional(Schema.String)}) {}
+export class GetTrustStoreRevocationContentOutput extends Schema.Class<GetTrustStoreRevocationContentOutput>("GetTrustStoreRevocationContentOutput")({Location: Schema.optional(Schema.String)}) {}
+export class ModifyCapacityReservationInput extends Schema.Class<ModifyCapacityReservationInput>("ModifyCapacityReservationInput")({LoadBalancerArn: Schema.String, MinimumLoadBalancerCapacity: Schema.optional(MinimumLoadBalancerCapacity), ResetCapacityReservation: Schema.optional(Schema.Boolean)}) {}
+export class ModifyIpPoolsOutput extends Schema.Class<ModifyIpPoolsOutput>("ModifyIpPoolsOutput")({IpamPools: Schema.optional(IpamPools)}) {}
+export class Listener extends Schema.Class<Listener>("Listener")({ListenerArn: Schema.optional(Schema.String), LoadBalancerArn: Schema.optional(Schema.String), Port: Schema.optional(Schema.Number), Protocol: Schema.optional(Schema.String), Certificates: Schema.optional(CertificateList), SslPolicy: Schema.optional(Schema.String), DefaultActions: Schema.optional(Actions), AlpnPolicy: Schema.optional(AlpnPolicyName), MutualAuthentication: Schema.optional(MutualAuthenticationAttributes)}) {}
 export const Listeners = Schema.Array(Listener);
-export const ModifyListenerOutput = Schema.Struct({Listeners: Schema.optional(Listeners)});
-export const ModifyListenerAttributesInput = Schema.Struct({ListenerArn: Schema.String, Attributes: ListenerAttributes});
-export const ModifyLoadBalancerAttributesInput = Schema.Struct({LoadBalancerArn: Schema.String, Attributes: LoadBalancerAttributes});
-export const Rule = Schema.Struct({RuleArn: Schema.optional(Schema.String), Priority: Schema.optional(Schema.String), Conditions: Schema.optional(RuleConditionList), Actions: Schema.optional(Actions), IsDefault: Schema.optional(Schema.Boolean), Transforms: Schema.optional(RuleTransformList)});
+export class ModifyListenerOutput extends Schema.Class<ModifyListenerOutput>("ModifyListenerOutput")({Listeners: Schema.optional(Listeners)}) {}
+export class ModifyListenerAttributesInput extends Schema.Class<ModifyListenerAttributesInput>("ModifyListenerAttributesInput")({ListenerArn: Schema.String, Attributes: ListenerAttributes}) {}
+export class ModifyLoadBalancerAttributesInput extends Schema.Class<ModifyLoadBalancerAttributesInput>("ModifyLoadBalancerAttributesInput")({LoadBalancerArn: Schema.String, Attributes: LoadBalancerAttributes}) {}
+export class Rule extends Schema.Class<Rule>("Rule")({RuleArn: Schema.optional(Schema.String), Priority: Schema.optional(Schema.String), Conditions: Schema.optional(RuleConditionList), Actions: Schema.optional(Actions), IsDefault: Schema.optional(Schema.Boolean), Transforms: Schema.optional(RuleTransformList)}) {}
 export const Rules = Schema.Array(Rule);
-export const ModifyRuleOutput = Schema.Struct({Rules: Schema.optional(Rules)});
-export const TargetGroup = Schema.Struct({TargetGroupArn: Schema.optional(Schema.String), TargetGroupName: Schema.optional(Schema.String), Protocol: Schema.optional(Schema.String), Port: Schema.optional(Schema.Number), VpcId: Schema.optional(Schema.String), HealthCheckProtocol: Schema.optional(Schema.String), HealthCheckPort: Schema.optional(Schema.String), HealthCheckEnabled: Schema.optional(Schema.Boolean), HealthCheckIntervalSeconds: Schema.optional(Schema.Number), HealthCheckTimeoutSeconds: Schema.optional(Schema.Number), HealthyThresholdCount: Schema.optional(Schema.Number), UnhealthyThresholdCount: Schema.optional(Schema.Number), HealthCheckPath: Schema.optional(Schema.String), Matcher: Schema.optional(Matcher), LoadBalancerArns: Schema.optional(LoadBalancerArns), TargetType: Schema.optional(Schema.String), ProtocolVersion: Schema.optional(Schema.String), IpAddressType: Schema.optional(Schema.String)});
+export class ModifyRuleOutput extends Schema.Class<ModifyRuleOutput>("ModifyRuleOutput")({Rules: Schema.optional(Rules)}) {}
+export class TargetGroup extends Schema.Class<TargetGroup>("TargetGroup")({TargetGroupArn: Schema.optional(Schema.String), TargetGroupName: Schema.optional(Schema.String), Protocol: Schema.optional(Schema.String), Port: Schema.optional(Schema.Number), VpcId: Schema.optional(Schema.String), HealthCheckProtocol: Schema.optional(Schema.String), HealthCheckPort: Schema.optional(Schema.String), HealthCheckEnabled: Schema.optional(Schema.Boolean), HealthCheckIntervalSeconds: Schema.optional(Schema.Number), HealthCheckTimeoutSeconds: Schema.optional(Schema.Number), HealthyThresholdCount: Schema.optional(Schema.Number), UnhealthyThresholdCount: Schema.optional(Schema.Number), HealthCheckPath: Schema.optional(Schema.String), Matcher: Schema.optional(Matcher), LoadBalancerArns: Schema.optional(LoadBalancerArns), TargetType: Schema.optional(Schema.String), ProtocolVersion: Schema.optional(Schema.String), IpAddressType: Schema.optional(Schema.String), TargetControlPort: Schema.optional(Schema.Number)}) {}
 export const TargetGroups = Schema.Array(TargetGroup);
-export const ModifyTargetGroupOutput = Schema.Struct({TargetGroups: Schema.optional(TargetGroups)});
-export const ModifyTargetGroupAttributesInput = Schema.Struct({TargetGroupArn: Schema.String, Attributes: TargetGroupAttributes});
-export const ModifyTrustStoreOutput = Schema.Struct({TrustStores: Schema.optional(TrustStores)});
-export const InvalidTargetException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const RuleNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const RevocationIdNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const SetIpAddressTypeOutput = Schema.Struct({IpAddressType: Schema.optional(Schema.String)});
-export const SetRulePrioritiesInput = Schema.Struct({RulePriorities: RulePriorityList});
-export const SetSecurityGroupsOutput = Schema.Struct({SecurityGroupIds: Schema.optional(SecurityGroups), EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic: Schema.optional(Schema.String)});
+export class ModifyTargetGroupOutput extends Schema.Class<ModifyTargetGroupOutput>("ModifyTargetGroupOutput")({TargetGroups: Schema.optional(TargetGroups)}) {}
+export class ModifyTargetGroupAttributesInput extends Schema.Class<ModifyTargetGroupAttributesInput>("ModifyTargetGroupAttributesInput")({TargetGroupArn: Schema.String, Attributes: TargetGroupAttributes}) {}
+export class ModifyTrustStoreOutput extends Schema.Class<ModifyTrustStoreOutput>("ModifyTrustStoreOutput")({TrustStores: Schema.optional(TrustStores)}) {}
+export class InvalidTargetException extends Schema.Class<InvalidTargetException>("InvalidTargetException")({Message: Schema.optional(Schema.String)}) {}
+export class RuleNotFoundException extends Schema.Class<RuleNotFoundException>("RuleNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class RevocationIdNotFoundException extends Schema.Class<RevocationIdNotFoundException>("RevocationIdNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class SetIpAddressTypeOutput extends Schema.Class<SetIpAddressTypeOutput>("SetIpAddressTypeOutput")({IpAddressType: Schema.optional(Schema.String)}) {}
+export class SetRulePrioritiesInput extends Schema.Class<SetRulePrioritiesInput>("SetRulePrioritiesInput")({RulePriorities: RulePriorityList}) {}
+export class SetSecurityGroupsOutput extends Schema.Class<SetSecurityGroupsOutput>("SetSecurityGroupsOutput")({SecurityGroupIds: Schema.optional(SecurityGroups), EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic: Schema.optional(Schema.String)}) {}
 export const SslProtocols = Schema.Array(Schema.String);
 export const SourceNatIpv6Prefixes = Schema.Array(Schema.String);
-export const Limit = Schema.Struct({Name: Schema.optional(Schema.String), Max: Schema.optional(Schema.String)});
+export class Limit extends Schema.Class<Limit>("Limit")({Name: Schema.optional(Schema.String), Max: Schema.optional(Schema.String)}) {}
 export const Limits = Schema.Array(Limit);
-export const TagDescription = Schema.Struct({ResourceArn: Schema.optional(Schema.String), Tags: Schema.optional(TagList)});
+export class TagDescription extends Schema.Class<TagDescription>("TagDescription")({ResourceArn: Schema.optional(Schema.String), Tags: Schema.optional(TagList)}) {}
 export const TagDescriptions = Schema.Array(TagDescription);
-export const TrustStoreAssociation = Schema.Struct({ResourceArn: Schema.optional(Schema.String)});
+export class TrustStoreAssociation extends Schema.Class<TrustStoreAssociation>("TrustStoreAssociation")({ResourceArn: Schema.optional(Schema.String)}) {}
 export const TrustStoreAssociations = Schema.Array(TrustStoreAssociation);
-export const DescribeTrustStoreRevocation = Schema.Struct({TrustStoreArn: Schema.optional(Schema.String), RevocationId: Schema.optional(Schema.Number), RevocationType: Schema.optional(Schema.String), NumberOfRevokedEntries: Schema.optional(Schema.Number)});
+export class DescribeTrustStoreRevocation extends Schema.Class<DescribeTrustStoreRevocation>("DescribeTrustStoreRevocation")({TrustStoreArn: Schema.optional(Schema.String), RevocationId: Schema.optional(Schema.Number), RevocationType: Schema.optional(Schema.String), NumberOfRevokedEntries: Schema.optional(Schema.Number)}) {}
 export const DescribeTrustStoreRevocationResponse = Schema.Array(DescribeTrustStoreRevocation);
-export const AddListenerCertificatesOutput = Schema.Struct({Certificates: Schema.optional(CertificateList)});
-export const DuplicateTagKeysException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const LoadBalancerState = Schema.Struct({Code: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String)});
-export const LoadBalancerAddress = Schema.Struct({IpAddress: Schema.optional(Schema.String), AllocationId: Schema.optional(Schema.String), PrivateIPv4Address: Schema.optional(Schema.String), IPv6Address: Schema.optional(Schema.String)});
+export class AddListenerCertificatesOutput extends Schema.Class<AddListenerCertificatesOutput>("AddListenerCertificatesOutput")({Certificates: Schema.optional(CertificateList)}) {}
+export class DuplicateTagKeysException extends Schema.Class<DuplicateTagKeysException>("DuplicateTagKeysException")({Message: Schema.optional(Schema.String)}) {}
+export class LoadBalancerState extends Schema.Class<LoadBalancerState>("LoadBalancerState")({Code: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String)}) {}
+export class LoadBalancerAddress extends Schema.Class<LoadBalancerAddress>("LoadBalancerAddress")({IpAddress: Schema.optional(Schema.String), AllocationId: Schema.optional(Schema.String), PrivateIPv4Address: Schema.optional(Schema.String), IPv6Address: Schema.optional(Schema.String)}) {}
 export const LoadBalancerAddresses = Schema.Array(LoadBalancerAddress);
-export const AvailabilityZone = Schema.Struct({ZoneName: Schema.optional(Schema.String), SubnetId: Schema.optional(Schema.String), OutpostId: Schema.optional(Schema.String), LoadBalancerAddresses: Schema.optional(LoadBalancerAddresses), SourceNatIpv6Prefixes: Schema.optional(SourceNatIpv6Prefixes)});
+export class AvailabilityZone extends Schema.Class<AvailabilityZone>("AvailabilityZone")({ZoneName: Schema.optional(Schema.String), SubnetId: Schema.optional(Schema.String), OutpostId: Schema.optional(Schema.String), LoadBalancerAddresses: Schema.optional(LoadBalancerAddresses), SourceNatIpv6Prefixes: Schema.optional(SourceNatIpv6Prefixes)}) {}
 export const AvailabilityZones = Schema.Array(AvailabilityZone);
-export const LoadBalancer = Schema.Struct({LoadBalancerArn: Schema.optional(Schema.String), DNSName: Schema.optional(Schema.String), CanonicalHostedZoneId: Schema.optional(Schema.String), CreatedTime: Schema.optional(Schema.Date), LoadBalancerName: Schema.optional(Schema.String), Scheme: Schema.optional(Schema.String), VpcId: Schema.optional(Schema.String), State: Schema.optional(LoadBalancerState), Type: Schema.optional(Schema.String), AvailabilityZones: Schema.optional(AvailabilityZones), SecurityGroups: Schema.optional(SecurityGroups), IpAddressType: Schema.optional(Schema.String), CustomerOwnedIpv4Pool: Schema.optional(Schema.String), EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic: Schema.optional(Schema.String), EnablePrefixForIpv6SourceNat: Schema.optional(Schema.String), IpamPools: Schema.optional(IpamPools)});
+export class LoadBalancer extends Schema.Class<LoadBalancer>("LoadBalancer")({LoadBalancerArn: Schema.optional(Schema.String), DNSName: Schema.optional(Schema.String), CanonicalHostedZoneId: Schema.optional(Schema.String), CreatedTime: Schema.optional(Schema.Date), LoadBalancerName: Schema.optional(Schema.String), Scheme: Schema.optional(Schema.String), VpcId: Schema.optional(Schema.String), State: Schema.optional(LoadBalancerState), Type: Schema.optional(Schema.String), AvailabilityZones: Schema.optional(AvailabilityZones), SecurityGroups: Schema.optional(SecurityGroups), IpAddressType: Schema.optional(Schema.String), CustomerOwnedIpv4Pool: Schema.optional(Schema.String), EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic: Schema.optional(Schema.String), EnablePrefixForIpv6SourceNat: Schema.optional(Schema.String), IpamPools: Schema.optional(IpamPools)}) {}
 export const LoadBalancers = Schema.Array(LoadBalancer);
-export const CreateLoadBalancerOutput = Schema.Struct({LoadBalancers: Schema.optional(LoadBalancers)});
-export const CreateTargetGroupOutput = Schema.Struct({TargetGroups: Schema.optional(TargetGroups)});
-export const CreateTrustStoreOutput = Schema.Struct({TrustStores: Schema.optional(TrustStores)});
-export const TrustStoreAssociationNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const TrustStoreNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const TargetGroupNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DescribeAccountLimitsOutput = Schema.Struct({Limits: Schema.optional(Limits), NextMarker: Schema.optional(Schema.String)});
-export const DescribeListenersOutput = Schema.Struct({Listeners: Schema.optional(Listeners), NextMarker: Schema.optional(Schema.String)});
-export const DescribeRulesOutput = Schema.Struct({Rules: Schema.optional(Rules), NextMarker: Schema.optional(Schema.String)});
-export const DescribeTagsOutput = Schema.Struct({TagDescriptions: Schema.optional(TagDescriptions)});
-export const DescribeTargetGroupsOutput = Schema.Struct({TargetGroups: Schema.optional(TargetGroups), NextMarker: Schema.optional(Schema.String)});
-export const DescribeTrustStoreAssociationsOutput = Schema.Struct({TrustStoreAssociations: Schema.optional(TrustStoreAssociations), NextMarker: Schema.optional(Schema.String)});
-export const DescribeTrustStoreRevocationsOutput = Schema.Struct({TrustStoreRevocations: Schema.optional(DescribeTrustStoreRevocationResponse), NextMarker: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const CapacityReservationStatus = Schema.Struct({Code: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String)});
-export const ZonalCapacityReservationState = Schema.Struct({State: Schema.optional(CapacityReservationStatus), AvailabilityZone: Schema.optional(Schema.String), EffectiveCapacityUnits: Schema.optional(Schema.Number)});
+export class CreateLoadBalancerOutput extends Schema.Class<CreateLoadBalancerOutput>("CreateLoadBalancerOutput")({LoadBalancers: Schema.optional(LoadBalancers)}) {}
+export class CreateTargetGroupOutput extends Schema.Class<CreateTargetGroupOutput>("CreateTargetGroupOutput")({TargetGroups: Schema.optional(TargetGroups)}) {}
+export class CreateTrustStoreOutput extends Schema.Class<CreateTrustStoreOutput>("CreateTrustStoreOutput")({TrustStores: Schema.optional(TrustStores)}) {}
+export class TrustStoreAssociationNotFoundException extends Schema.Class<TrustStoreAssociationNotFoundException>("TrustStoreAssociationNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class TrustStoreNotFoundException extends Schema.Class<TrustStoreNotFoundException>("TrustStoreNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class TargetGroupNotFoundException extends Schema.Class<TargetGroupNotFoundException>("TargetGroupNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class DescribeAccountLimitsOutput extends Schema.Class<DescribeAccountLimitsOutput>("DescribeAccountLimitsOutput")({Limits: Schema.optional(Limits), NextMarker: Schema.optional(Schema.String)}) {}
+export class DescribeListenersOutput extends Schema.Class<DescribeListenersOutput>("DescribeListenersOutput")({Listeners: Schema.optional(Listeners), NextMarker: Schema.optional(Schema.String)}) {}
+export class DescribeRulesOutput extends Schema.Class<DescribeRulesOutput>("DescribeRulesOutput")({Rules: Schema.optional(Rules), NextMarker: Schema.optional(Schema.String)}) {}
+export class DescribeTagsOutput extends Schema.Class<DescribeTagsOutput>("DescribeTagsOutput")({TagDescriptions: Schema.optional(TagDescriptions)}) {}
+export class DescribeTargetGroupsOutput extends Schema.Class<DescribeTargetGroupsOutput>("DescribeTargetGroupsOutput")({TargetGroups: Schema.optional(TargetGroups), NextMarker: Schema.optional(Schema.String)}) {}
+export class DescribeTrustStoreAssociationsOutput extends Schema.Class<DescribeTrustStoreAssociationsOutput>("DescribeTrustStoreAssociationsOutput")({TrustStoreAssociations: Schema.optional(TrustStoreAssociations), NextMarker: Schema.optional(Schema.String)}) {}
+export class DescribeTrustStoreRevocationsOutput extends Schema.Class<DescribeTrustStoreRevocationsOutput>("DescribeTrustStoreRevocationsOutput")({TrustStoreRevocations: Schema.optional(DescribeTrustStoreRevocationResponse), NextMarker: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class CapacityReservationStatus extends Schema.Class<CapacityReservationStatus>("CapacityReservationStatus")({Code: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String)}) {}
+export class ZonalCapacityReservationState extends Schema.Class<ZonalCapacityReservationState>("ZonalCapacityReservationState")({State: Schema.optional(CapacityReservationStatus), AvailabilityZone: Schema.optional(Schema.String), EffectiveCapacityUnits: Schema.optional(Schema.Number)}) {}
 export const ZonalCapacityReservationStates = Schema.Array(ZonalCapacityReservationState);
-export const ModifyCapacityReservationOutput = Schema.Struct({LastModifiedTime: Schema.optional(Schema.Date), DecreaseRequestsRemaining: Schema.optional(Schema.Number), MinimumLoadBalancerCapacity: Schema.optional(MinimumLoadBalancerCapacity), CapacityReservationState: Schema.optional(ZonalCapacityReservationStates)});
-export const ALPNPolicyNotSupportedException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ModifyListenerAttributesOutput = Schema.Struct({Attributes: Schema.optional(ListenerAttributes)});
-export const ModifyLoadBalancerAttributesOutput = Schema.Struct({Attributes: Schema.optional(LoadBalancerAttributes)});
-export const IncompatibleProtocolsException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const InvalidConfigurationRequestException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ModifyTargetGroupAttributesOutput = Schema.Struct({Attributes: Schema.optional(TargetGroupAttributes)});
-export const CaCertificatesBundleNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const TooManyRegistrationsForTargetIdException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const TooManyTagsException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const InvalidSubnetException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const SetRulePrioritiesOutput = Schema.Struct({Rules: Schema.optional(Rules)});
-export const InvalidSecurityGroupException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const Cipher = Schema.Struct({Name: Schema.optional(Schema.String), Priority: Schema.optional(Schema.Number)});
+export class ModifyCapacityReservationOutput extends Schema.Class<ModifyCapacityReservationOutput>("ModifyCapacityReservationOutput")({LastModifiedTime: Schema.optional(Schema.Date), DecreaseRequestsRemaining: Schema.optional(Schema.Number), MinimumLoadBalancerCapacity: Schema.optional(MinimumLoadBalancerCapacity), CapacityReservationState: Schema.optional(ZonalCapacityReservationStates)}) {}
+export class ALPNPolicyNotSupportedException extends Schema.Class<ALPNPolicyNotSupportedException>("ALPNPolicyNotSupportedException")({Message: Schema.optional(Schema.String)}) {}
+export class ModifyListenerAttributesOutput extends Schema.Class<ModifyListenerAttributesOutput>("ModifyListenerAttributesOutput")({Attributes: Schema.optional(ListenerAttributes)}) {}
+export class ModifyLoadBalancerAttributesOutput extends Schema.Class<ModifyLoadBalancerAttributesOutput>("ModifyLoadBalancerAttributesOutput")({Attributes: Schema.optional(LoadBalancerAttributes)}) {}
+export class IncompatibleProtocolsException extends Schema.Class<IncompatibleProtocolsException>("IncompatibleProtocolsException")({Message: Schema.optional(Schema.String)}) {}
+export class InvalidConfigurationRequestException extends Schema.Class<InvalidConfigurationRequestException>("InvalidConfigurationRequestException")({Message: Schema.optional(Schema.String)}) {}
+export class ModifyTargetGroupAttributesOutput extends Schema.Class<ModifyTargetGroupAttributesOutput>("ModifyTargetGroupAttributesOutput")({Attributes: Schema.optional(TargetGroupAttributes)}) {}
+export class CaCertificatesBundleNotFoundException extends Schema.Class<CaCertificatesBundleNotFoundException>("CaCertificatesBundleNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class TooManyRegistrationsForTargetIdException extends Schema.Class<TooManyRegistrationsForTargetIdException>("TooManyRegistrationsForTargetIdException")({Message: Schema.optional(Schema.String)}) {}
+export class TooManyTagsException extends Schema.Class<TooManyTagsException>("TooManyTagsException")({Message: Schema.optional(Schema.String)}) {}
+export class InvalidSubnetException extends Schema.Class<InvalidSubnetException>("InvalidSubnetException")({Message: Schema.optional(Schema.String)}) {}
+export class SetRulePrioritiesOutput extends Schema.Class<SetRulePrioritiesOutput>("SetRulePrioritiesOutput")({Rules: Schema.optional(Rules)}) {}
+export class InvalidSecurityGroupException extends Schema.Class<InvalidSecurityGroupException>("InvalidSecurityGroupException")({Message: Schema.optional(Schema.String)}) {}
+export class Cipher extends Schema.Class<Cipher>("Cipher")({Name: Schema.optional(Schema.String), Priority: Schema.optional(Schema.Number)}) {}
 export const Ciphers = Schema.Array(Cipher);
-export const TargetHealth = Schema.Struct({State: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String), Description: Schema.optional(Schema.String)});
-export const AnomalyDetection = Schema.Struct({Result: Schema.optional(Schema.String), MitigationInEffect: Schema.optional(Schema.String)});
-export const AdministrativeOverride = Schema.Struct({State: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String), Description: Schema.optional(Schema.String)});
-export const TrustStoreRevocation = Schema.Struct({TrustStoreArn: Schema.optional(Schema.String), RevocationId: Schema.optional(Schema.Number), RevocationType: Schema.optional(Schema.String), NumberOfRevokedEntries: Schema.optional(Schema.Number)});
+export class TargetHealth extends Schema.Class<TargetHealth>("TargetHealth")({State: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String), Description: Schema.optional(Schema.String)}) {}
+export class AnomalyDetection extends Schema.Class<AnomalyDetection>("AnomalyDetection")({Result: Schema.optional(Schema.String), MitigationInEffect: Schema.optional(Schema.String)}) {}
+export class AdministrativeOverride extends Schema.Class<AdministrativeOverride>("AdministrativeOverride")({State: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String), Description: Schema.optional(Schema.String)}) {}
+export class TrustStoreRevocation extends Schema.Class<TrustStoreRevocation>("TrustStoreRevocation")({TrustStoreArn: Schema.optional(Schema.String), RevocationId: Schema.optional(Schema.Number), RevocationType: Schema.optional(Schema.String), NumberOfRevokedEntries: Schema.optional(Schema.Number)}) {}
 export const TrustStoreRevocations = Schema.Array(TrustStoreRevocation);
-export const SslPolicy = Schema.Struct({SslProtocols: Schema.optional(SslProtocols), Ciphers: Schema.optional(Ciphers), Name: Schema.optional(Schema.String), SupportedLoadBalancerTypes: Schema.optional(ListOfString)});
+export class SslPolicy extends Schema.Class<SslPolicy>("SslPolicy")({SslProtocols: Schema.optional(SslProtocols), Ciphers: Schema.optional(Ciphers), Name: Schema.optional(Schema.String), SupportedLoadBalancerTypes: Schema.optional(ListOfString)}) {}
 export const SslPolicies = Schema.Array(SslPolicy);
-export const TargetHealthDescription = Schema.Struct({Target: Schema.optional(TargetDescription), HealthCheckPort: Schema.optional(Schema.String), TargetHealth: Schema.optional(TargetHealth), AnomalyDetection: Schema.optional(AnomalyDetection), AdministrativeOverride: Schema.optional(AdministrativeOverride)});
+export class TargetHealthDescription extends Schema.Class<TargetHealthDescription>("TargetHealthDescription")({Target: Schema.optional(TargetDescription), HealthCheckPort: Schema.optional(Schema.String), TargetHealth: Schema.optional(TargetHealth), AnomalyDetection: Schema.optional(AnomalyDetection), AdministrativeOverride: Schema.optional(AdministrativeOverride)}) {}
 export const TargetHealthDescriptions = Schema.Array(TargetHealthDescription);
-export const CertificateNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const AddTrustStoreRevocationsOutput = Schema.Struct({TrustStoreRevocations: Schema.optional(TrustStoreRevocations)});
-export const CreateListenerInput = Schema.Struct({LoadBalancerArn: Schema.String, Protocol: Schema.optional(Schema.String), Port: Schema.optional(Schema.Number), SslPolicy: Schema.optional(Schema.String), Certificates: Schema.optional(CertificateList), DefaultActions: Actions, AlpnPolicy: Schema.optional(AlpnPolicyName), Tags: Schema.optional(TagList), MutualAuthentication: Schema.optional(MutualAuthenticationAttributes)});
-export const AllocationIdNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const CreateRuleInput = Schema.Struct({ListenerArn: Schema.String, Conditions: RuleConditionList, Priority: Schema.Number, Actions: Actions, Tags: Schema.optional(TagList), Transforms: Schema.optional(RuleTransformList)});
-export const DuplicateTargetGroupNameException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DuplicateTrustStoreNameException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DescribeCapacityReservationOutput = Schema.Struct({LastModifiedTime: Schema.optional(Schema.Date), DecreaseRequestsRemaining: Schema.optional(Schema.Number), MinimumLoadBalancerCapacity: Schema.optional(MinimumLoadBalancerCapacity), CapacityReservationState: Schema.optional(ZonalCapacityReservationStates)});
-export const UnsupportedProtocolException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DescribeLoadBalancersOutput = Schema.Struct({LoadBalancers: Schema.optional(LoadBalancers), NextMarker: Schema.optional(Schema.String)});
-export const DescribeSSLPoliciesOutput = Schema.Struct({SslPolicies: Schema.optional(SslPolicies), NextMarker: Schema.optional(Schema.String)});
-export const DescribeTargetHealthOutput = Schema.Struct({TargetHealthDescriptions: Schema.optional(TargetHealthDescriptions)});
-export const CapacityDecreaseRequestsLimitExceededException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DuplicateListenerException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const InvalidLoadBalancerActionException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const InvalidCaCertificatesBundleException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const TooManyTargetsException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const PriorityInUseException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const SetSubnetsOutput = Schema.Struct({AvailabilityZones: Schema.optional(AvailabilityZones), IpAddressType: Schema.optional(Schema.String), EnablePrefixForIpv6SourceNat: Schema.optional(Schema.String)});
-export const TooManyCertificatesException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const InvalidRevocationContentException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const CreateListenerOutput = Schema.Struct({Listeners: Schema.optional(Listeners)});
-export const AvailabilityZoneNotSupportedException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const CreateRuleOutput = Schema.Struct({Rules: Schema.optional(Rules)});
-export const TooManyTargetGroupsException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const TooManyTrustStoresException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const SSLPolicyNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const HealthUnavailableException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const CapacityReservationPendingException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const TargetGroupAssociationLimitException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const TooManyActionsException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const SubnetNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const RevocationContentNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const TooManyListenersException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DuplicateLoadBalancerNameException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const TooManyRulesException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const CapacityUnitsLimitExceededException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const TooManyUniqueTargetGroupsPerLoadBalancerException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const TooManyTrustStoreRevocationEntriesException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const TrustStoreNotReadyException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const InvalidSchemeException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const InsufficientCapacityException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const TooManyLoadBalancersException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const PriorRequestNotCompleteException = Schema.Struct({Message: Schema.optional(Schema.String)});
+export class CertificateNotFoundException extends Schema.Class<CertificateNotFoundException>("CertificateNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class AddTrustStoreRevocationsOutput extends Schema.Class<AddTrustStoreRevocationsOutput>("AddTrustStoreRevocationsOutput")({TrustStoreRevocations: Schema.optional(TrustStoreRevocations)}) {}
+export class CreateListenerInput extends Schema.Class<CreateListenerInput>("CreateListenerInput")({LoadBalancerArn: Schema.String, Protocol: Schema.optional(Schema.String), Port: Schema.optional(Schema.Number), SslPolicy: Schema.optional(Schema.String), Certificates: Schema.optional(CertificateList), DefaultActions: Actions, AlpnPolicy: Schema.optional(AlpnPolicyName), Tags: Schema.optional(TagList), MutualAuthentication: Schema.optional(MutualAuthenticationAttributes)}) {}
+export class AllocationIdNotFoundException extends Schema.Class<AllocationIdNotFoundException>("AllocationIdNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class CreateRuleInput extends Schema.Class<CreateRuleInput>("CreateRuleInput")({ListenerArn: Schema.String, Conditions: RuleConditionList, Priority: Schema.Number, Actions: Actions, Tags: Schema.optional(TagList), Transforms: Schema.optional(RuleTransformList)}) {}
+export class DuplicateTargetGroupNameException extends Schema.Class<DuplicateTargetGroupNameException>("DuplicateTargetGroupNameException")({Message: Schema.optional(Schema.String)}) {}
+export class DuplicateTrustStoreNameException extends Schema.Class<DuplicateTrustStoreNameException>("DuplicateTrustStoreNameException")({Message: Schema.optional(Schema.String)}) {}
+export class DescribeCapacityReservationOutput extends Schema.Class<DescribeCapacityReservationOutput>("DescribeCapacityReservationOutput")({LastModifiedTime: Schema.optional(Schema.Date), DecreaseRequestsRemaining: Schema.optional(Schema.Number), MinimumLoadBalancerCapacity: Schema.optional(MinimumLoadBalancerCapacity), CapacityReservationState: Schema.optional(ZonalCapacityReservationStates)}) {}
+export class UnsupportedProtocolException extends Schema.Class<UnsupportedProtocolException>("UnsupportedProtocolException")({Message: Schema.optional(Schema.String)}) {}
+export class DescribeLoadBalancersOutput extends Schema.Class<DescribeLoadBalancersOutput>("DescribeLoadBalancersOutput")({LoadBalancers: Schema.optional(LoadBalancers), NextMarker: Schema.optional(Schema.String)}) {}
+export class DescribeSSLPoliciesOutput extends Schema.Class<DescribeSSLPoliciesOutput>("DescribeSSLPoliciesOutput")({SslPolicies: Schema.optional(SslPolicies), NextMarker: Schema.optional(Schema.String)}) {}
+export class DescribeTargetHealthOutput extends Schema.Class<DescribeTargetHealthOutput>("DescribeTargetHealthOutput")({TargetHealthDescriptions: Schema.optional(TargetHealthDescriptions)}) {}
+export class CapacityDecreaseRequestsLimitExceededException extends Schema.Class<CapacityDecreaseRequestsLimitExceededException>("CapacityDecreaseRequestsLimitExceededException")({Message: Schema.optional(Schema.String)}) {}
+export class DuplicateListenerException extends Schema.Class<DuplicateListenerException>("DuplicateListenerException")({Message: Schema.optional(Schema.String)}) {}
+export class InvalidLoadBalancerActionException extends Schema.Class<InvalidLoadBalancerActionException>("InvalidLoadBalancerActionException")({Message: Schema.optional(Schema.String)}) {}
+export class InvalidCaCertificatesBundleException extends Schema.Class<InvalidCaCertificatesBundleException>("InvalidCaCertificatesBundleException")({Message: Schema.optional(Schema.String)}) {}
+export class TooManyTargetsException extends Schema.Class<TooManyTargetsException>("TooManyTargetsException")({Message: Schema.optional(Schema.String)}) {}
+export class PriorityInUseException extends Schema.Class<PriorityInUseException>("PriorityInUseException")({Message: Schema.optional(Schema.String)}) {}
+export class SetSubnetsOutput extends Schema.Class<SetSubnetsOutput>("SetSubnetsOutput")({AvailabilityZones: Schema.optional(AvailabilityZones), IpAddressType: Schema.optional(Schema.String), EnablePrefixForIpv6SourceNat: Schema.optional(Schema.String)}) {}
+export class TooManyCertificatesException extends Schema.Class<TooManyCertificatesException>("TooManyCertificatesException")({Message: Schema.optional(Schema.String)}) {}
+export class InvalidRevocationContentException extends Schema.Class<InvalidRevocationContentException>("InvalidRevocationContentException")({Message: Schema.optional(Schema.String)}) {}
+export class CreateListenerOutput extends Schema.Class<CreateListenerOutput>("CreateListenerOutput")({Listeners: Schema.optional(Listeners)}) {}
+export class AvailabilityZoneNotSupportedException extends Schema.Class<AvailabilityZoneNotSupportedException>("AvailabilityZoneNotSupportedException")({Message: Schema.optional(Schema.String)}) {}
+export class CreateRuleOutput extends Schema.Class<CreateRuleOutput>("CreateRuleOutput")({Rules: Schema.optional(Rules)}) {}
+export class TooManyTargetGroupsException extends Schema.Class<TooManyTargetGroupsException>("TooManyTargetGroupsException")({Message: Schema.optional(Schema.String)}) {}
+export class TooManyTrustStoresException extends Schema.Class<TooManyTrustStoresException>("TooManyTrustStoresException")({Message: Schema.optional(Schema.String)}) {}
+export class SSLPolicyNotFoundException extends Schema.Class<SSLPolicyNotFoundException>("SSLPolicyNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class HealthUnavailableException extends Schema.Class<HealthUnavailableException>("HealthUnavailableException")({Message: Schema.optional(Schema.String)}) {}
+export class CapacityReservationPendingException extends Schema.Class<CapacityReservationPendingException>("CapacityReservationPendingException")({Message: Schema.optional(Schema.String)}) {}
+export class TargetGroupAssociationLimitException extends Schema.Class<TargetGroupAssociationLimitException>("TargetGroupAssociationLimitException")({Message: Schema.optional(Schema.String)}) {}
+export class TooManyActionsException extends Schema.Class<TooManyActionsException>("TooManyActionsException")({Message: Schema.optional(Schema.String)}) {}
+export class SubnetNotFoundException extends Schema.Class<SubnetNotFoundException>("SubnetNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class RevocationContentNotFoundException extends Schema.Class<RevocationContentNotFoundException>("RevocationContentNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class TooManyListenersException extends Schema.Class<TooManyListenersException>("TooManyListenersException")({Message: Schema.optional(Schema.String)}) {}
+export class DuplicateLoadBalancerNameException extends Schema.Class<DuplicateLoadBalancerNameException>("DuplicateLoadBalancerNameException")({Message: Schema.optional(Schema.String)}) {}
+export class TooManyRulesException extends Schema.Class<TooManyRulesException>("TooManyRulesException")({Message: Schema.optional(Schema.String)}) {}
+export class CapacityUnitsLimitExceededException extends Schema.Class<CapacityUnitsLimitExceededException>("CapacityUnitsLimitExceededException")({Message: Schema.optional(Schema.String)}) {}
+export class TooManyUniqueTargetGroupsPerLoadBalancerException extends Schema.Class<TooManyUniqueTargetGroupsPerLoadBalancerException>("TooManyUniqueTargetGroupsPerLoadBalancerException")({Message: Schema.optional(Schema.String)}) {}
+export class TooManyTrustStoreRevocationEntriesException extends Schema.Class<TooManyTrustStoreRevocationEntriesException>("TooManyTrustStoreRevocationEntriesException")({Message: Schema.optional(Schema.String)}) {}
+export class TrustStoreNotReadyException extends Schema.Class<TrustStoreNotReadyException>("TrustStoreNotReadyException")({Message: Schema.optional(Schema.String)}) {}
+export class InvalidSchemeException extends Schema.Class<InvalidSchemeException>("InvalidSchemeException")({Message: Schema.optional(Schema.String)}) {}
+export class InsufficientCapacityException extends Schema.Class<InsufficientCapacityException>("InsufficientCapacityException")({Message: Schema.optional(Schema.String)}) {}
+export class TooManyLoadBalancersException extends Schema.Class<TooManyLoadBalancersException>("TooManyLoadBalancersException")({Message: Schema.optional(Schema.String)}) {}
+export class PriorRequestNotCompleteException extends Schema.Class<PriorRequestNotCompleteException>("PriorRequestNotCompleteException")({Message: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class ListenerNotFoundExceptionError extends Schema.TaggedError<ListenerNotFoundExceptionError>()("ListenerNotFoundException", ListenerNotFoundException) {};
-export class OperationNotPermittedExceptionError extends Schema.TaggedError<OperationNotPermittedExceptionError>()("OperationNotPermittedException", OperationNotPermittedException) {};
-export class LoadBalancerNotFoundExceptionError extends Schema.TaggedError<LoadBalancerNotFoundExceptionError>()("LoadBalancerNotFoundException", LoadBalancerNotFoundException) {};
-export class ResourceInUseExceptionError extends Schema.TaggedError<ResourceInUseExceptionError>()("ResourceInUseException", ResourceInUseException) {};
-export class RuleNotFoundExceptionError extends Schema.TaggedError<RuleNotFoundExceptionError>()("RuleNotFoundException", RuleNotFoundException) {};
-export class DeleteAssociationSameAccountExceptionError extends Schema.TaggedError<DeleteAssociationSameAccountExceptionError>()("DeleteAssociationSameAccountException", DeleteAssociationSameAccountException) {};
-export class TrustStoreInUseExceptionError extends Schema.TaggedError<TrustStoreInUseExceptionError>()("TrustStoreInUseException", TrustStoreInUseException) {};
-export class InvalidTargetExceptionError extends Schema.TaggedError<InvalidTargetExceptionError>()("InvalidTargetException", InvalidTargetException) {};
-export class TargetGroupNotFoundExceptionError extends Schema.TaggedError<TargetGroupNotFoundExceptionError>()("TargetGroupNotFoundException", TargetGroupNotFoundException) {};
-export class TrustStoreNotFoundExceptionError extends Schema.TaggedError<TrustStoreNotFoundExceptionError>()("TrustStoreNotFoundException", TrustStoreNotFoundException) {};
-export class RevocationIdNotFoundExceptionError extends Schema.TaggedError<RevocationIdNotFoundExceptionError>()("RevocationIdNotFoundException", RevocationIdNotFoundException) {};
-export class InvalidConfigurationRequestExceptionError extends Schema.TaggedError<InvalidConfigurationRequestExceptionError>()("InvalidConfigurationRequestException", InvalidConfigurationRequestException) {};
-export class DuplicateTagKeysExceptionError extends Schema.TaggedError<DuplicateTagKeysExceptionError>()("DuplicateTagKeysException", DuplicateTagKeysException) {};
-export class TooManyTagsExceptionError extends Schema.TaggedError<TooManyTagsExceptionError>()("TooManyTagsException", TooManyTagsException) {};
-export class CaCertificatesBundleNotFoundExceptionError extends Schema.TaggedError<CaCertificatesBundleNotFoundExceptionError>()("CaCertificatesBundleNotFoundException", CaCertificatesBundleNotFoundException) {};
-export class TrustStoreAssociationNotFoundExceptionError extends Schema.TaggedError<TrustStoreAssociationNotFoundExceptionError>()("TrustStoreAssociationNotFoundException", TrustStoreAssociationNotFoundException) {};
-export class UnsupportedProtocolExceptionError extends Schema.TaggedError<UnsupportedProtocolExceptionError>()("UnsupportedProtocolException", UnsupportedProtocolException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ALPNPolicyNotSupportedExceptionError extends Schema.TaggedError<ALPNPolicyNotSupportedExceptionError>()("ALPNPolicyNotSupportedException", ALPNPolicyNotSupportedException) {};
-export class CertificateNotFoundExceptionError extends Schema.TaggedError<CertificateNotFoundExceptionError>()("CertificateNotFoundException", CertificateNotFoundException) {};
-export class IncompatibleProtocolsExceptionError extends Schema.TaggedError<IncompatibleProtocolsExceptionError>()("IncompatibleProtocolsException", IncompatibleProtocolsException) {};
-export class TooManyRegistrationsForTargetIdExceptionError extends Schema.TaggedError<TooManyRegistrationsForTargetIdExceptionError>()("TooManyRegistrationsForTargetIdException", TooManyRegistrationsForTargetIdException) {};
-export class InvalidSubnetExceptionError extends Schema.TaggedError<InvalidSubnetExceptionError>()("InvalidSubnetException", InvalidSubnetException) {};
-export class InvalidSecurityGroupExceptionError extends Schema.TaggedError<InvalidSecurityGroupExceptionError>()("InvalidSecurityGroupException", InvalidSecurityGroupException) {};
-export class AllocationIdNotFoundExceptionError extends Schema.TaggedError<AllocationIdNotFoundExceptionError>()("AllocationIdNotFoundException", AllocationIdNotFoundException) {};
-export class DuplicateTargetGroupNameExceptionError extends Schema.TaggedError<DuplicateTargetGroupNameExceptionError>()("DuplicateTargetGroupNameException", DuplicateTargetGroupNameException) {};
-export class DuplicateTrustStoreNameExceptionError extends Schema.TaggedError<DuplicateTrustStoreNameExceptionError>()("DuplicateTrustStoreNameException", DuplicateTrustStoreNameException) {};
-export class InvalidCaCertificatesBundleExceptionError extends Schema.TaggedError<InvalidCaCertificatesBundleExceptionError>()("InvalidCaCertificatesBundleException", InvalidCaCertificatesBundleException) {};
-export class CapacityDecreaseRequestsLimitExceededExceptionError extends Schema.TaggedError<CapacityDecreaseRequestsLimitExceededExceptionError>()("CapacityDecreaseRequestsLimitExceededException", CapacityDecreaseRequestsLimitExceededException) {};
-export class DuplicateListenerExceptionError extends Schema.TaggedError<DuplicateListenerExceptionError>()("DuplicateListenerException", DuplicateListenerException) {};
-export class InvalidLoadBalancerActionExceptionError extends Schema.TaggedError<InvalidLoadBalancerActionExceptionError>()("InvalidLoadBalancerActionException", InvalidLoadBalancerActionException) {};
-export class SSLPolicyNotFoundExceptionError extends Schema.TaggedError<SSLPolicyNotFoundExceptionError>()("SSLPolicyNotFoundException", SSLPolicyNotFoundException) {};
-export class TargetGroupAssociationLimitExceptionError extends Schema.TaggedError<TargetGroupAssociationLimitExceptionError>()("TargetGroupAssociationLimitException", TargetGroupAssociationLimitException) {};
-export class TooManyTargetsExceptionError extends Schema.TaggedError<TooManyTargetsExceptionError>()("TooManyTargetsException", TooManyTargetsException) {};
-export class PriorityInUseExceptionError extends Schema.TaggedError<PriorityInUseExceptionError>()("PriorityInUseException", PriorityInUseException) {};
-export class AvailabilityZoneNotSupportedExceptionError extends Schema.TaggedError<AvailabilityZoneNotSupportedExceptionError>()("AvailabilityZoneNotSupportedException", AvailabilityZoneNotSupportedException) {};
-export class CapacityReservationPendingExceptionError extends Schema.TaggedError<CapacityReservationPendingExceptionError>()("CapacityReservationPendingException", CapacityReservationPendingException) {};
-export class TooManyCertificatesExceptionError extends Schema.TaggedError<TooManyCertificatesExceptionError>()("TooManyCertificatesException", TooManyCertificatesException) {};
-export class InvalidRevocationContentExceptionError extends Schema.TaggedError<InvalidRevocationContentExceptionError>()("InvalidRevocationContentException", InvalidRevocationContentException) {};
-export class TooManyActionsExceptionError extends Schema.TaggedError<TooManyActionsExceptionError>()("TooManyActionsException", TooManyActionsException) {};
-export class TooManyTargetGroupsExceptionError extends Schema.TaggedError<TooManyTargetGroupsExceptionError>()("TooManyTargetGroupsException", TooManyTargetGroupsException) {};
-export class TooManyTrustStoresExceptionError extends Schema.TaggedError<TooManyTrustStoresExceptionError>()("TooManyTrustStoresException", TooManyTrustStoresException) {};
-export class HealthUnavailableExceptionError extends Schema.TaggedError<HealthUnavailableExceptionError>()("HealthUnavailableException", HealthUnavailableException) {};
-export class TooManyListenersExceptionError extends Schema.TaggedError<TooManyListenersExceptionError>()("TooManyListenersException", TooManyListenersException) {};
-export class TooManyUniqueTargetGroupsPerLoadBalancerExceptionError extends Schema.TaggedError<TooManyUniqueTargetGroupsPerLoadBalancerExceptionError>()("TooManyUniqueTargetGroupsPerLoadBalancerException", TooManyUniqueTargetGroupsPerLoadBalancerException) {};
-export class SubnetNotFoundExceptionError extends Schema.TaggedError<SubnetNotFoundExceptionError>()("SubnetNotFoundException", SubnetNotFoundException) {};
-export class RevocationContentNotFoundExceptionError extends Schema.TaggedError<RevocationContentNotFoundExceptionError>()("RevocationContentNotFoundException", RevocationContentNotFoundException) {};
-export class DuplicateLoadBalancerNameExceptionError extends Schema.TaggedError<DuplicateLoadBalancerNameExceptionError>()("DuplicateLoadBalancerNameException", DuplicateLoadBalancerNameException) {};
-export class TooManyRulesExceptionError extends Schema.TaggedError<TooManyRulesExceptionError>()("TooManyRulesException", TooManyRulesException) {};
-export class CapacityUnitsLimitExceededExceptionError extends Schema.TaggedError<CapacityUnitsLimitExceededExceptionError>()("CapacityUnitsLimitExceededException", CapacityUnitsLimitExceededException) {};
-export class TrustStoreNotReadyExceptionError extends Schema.TaggedError<TrustStoreNotReadyExceptionError>()("TrustStoreNotReadyException", TrustStoreNotReadyException) {};
-export class TooManyTrustStoreRevocationEntriesExceptionError extends Schema.TaggedError<TooManyTrustStoreRevocationEntriesExceptionError>()("TooManyTrustStoreRevocationEntriesException", TooManyTrustStoreRevocationEntriesException) {};
-export class InvalidSchemeExceptionError extends Schema.TaggedError<InvalidSchemeExceptionError>()("InvalidSchemeException", InvalidSchemeException) {};
-export class InsufficientCapacityExceptionError extends Schema.TaggedError<InsufficientCapacityExceptionError>()("InsufficientCapacityException", InsufficientCapacityException) {};
-export class TooManyLoadBalancersExceptionError extends Schema.TaggedError<TooManyLoadBalancersExceptionError>()("TooManyLoadBalancersException", TooManyLoadBalancersException) {};
-export class PriorRequestNotCompleteExceptionError extends Schema.TaggedError<PriorRequestNotCompleteExceptionError>()("PriorRequestNotCompleteException", PriorRequestNotCompleteException) {};
+export class ListenerNotFoundExceptionError extends Schema.TaggedError<ListenerNotFoundExceptionError>()("ListenerNotFoundException", ListenerNotFoundException.fields) {};
+export class OperationNotPermittedExceptionError extends Schema.TaggedError<OperationNotPermittedExceptionError>()("OperationNotPermittedException", OperationNotPermittedException.fields) {};
+export class LoadBalancerNotFoundExceptionError extends Schema.TaggedError<LoadBalancerNotFoundExceptionError>()("LoadBalancerNotFoundException", LoadBalancerNotFoundException.fields) {};
+export class ResourceInUseExceptionError extends Schema.TaggedError<ResourceInUseExceptionError>()("ResourceInUseException", ResourceInUseException.fields) {};
+export class RuleNotFoundExceptionError extends Schema.TaggedError<RuleNotFoundExceptionError>()("RuleNotFoundException", RuleNotFoundException.fields) {};
+export class DeleteAssociationSameAccountExceptionError extends Schema.TaggedError<DeleteAssociationSameAccountExceptionError>()("DeleteAssociationSameAccountException", DeleteAssociationSameAccountException.fields) {};
+export class TrustStoreInUseExceptionError extends Schema.TaggedError<TrustStoreInUseExceptionError>()("TrustStoreInUseException", TrustStoreInUseException.fields) {};
+export class InvalidTargetExceptionError extends Schema.TaggedError<InvalidTargetExceptionError>()("InvalidTargetException", InvalidTargetException.fields) {};
+export class TargetGroupNotFoundExceptionError extends Schema.TaggedError<TargetGroupNotFoundExceptionError>()("TargetGroupNotFoundException", TargetGroupNotFoundException.fields) {};
+export class TrustStoreNotFoundExceptionError extends Schema.TaggedError<TrustStoreNotFoundExceptionError>()("TrustStoreNotFoundException", TrustStoreNotFoundException.fields) {};
+export class RevocationIdNotFoundExceptionError extends Schema.TaggedError<RevocationIdNotFoundExceptionError>()("RevocationIdNotFoundException", RevocationIdNotFoundException.fields) {};
+export class InvalidConfigurationRequestExceptionError extends Schema.TaggedError<InvalidConfigurationRequestExceptionError>()("InvalidConfigurationRequestException", InvalidConfigurationRequestException.fields) {};
+export class DuplicateTagKeysExceptionError extends Schema.TaggedError<DuplicateTagKeysExceptionError>()("DuplicateTagKeysException", DuplicateTagKeysException.fields) {};
+export class TooManyTagsExceptionError extends Schema.TaggedError<TooManyTagsExceptionError>()("TooManyTagsException", TooManyTagsException.fields) {};
+export class CaCertificatesBundleNotFoundExceptionError extends Schema.TaggedError<CaCertificatesBundleNotFoundExceptionError>()("CaCertificatesBundleNotFoundException", CaCertificatesBundleNotFoundException.fields) {};
+export class TrustStoreAssociationNotFoundExceptionError extends Schema.TaggedError<TrustStoreAssociationNotFoundExceptionError>()("TrustStoreAssociationNotFoundException", TrustStoreAssociationNotFoundException.fields) {};
+export class UnsupportedProtocolExceptionError extends Schema.TaggedError<UnsupportedProtocolExceptionError>()("UnsupportedProtocolException", UnsupportedProtocolException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ALPNPolicyNotSupportedExceptionError extends Schema.TaggedError<ALPNPolicyNotSupportedExceptionError>()("ALPNPolicyNotSupportedException", ALPNPolicyNotSupportedException.fields) {};
+export class CertificateNotFoundExceptionError extends Schema.TaggedError<CertificateNotFoundExceptionError>()("CertificateNotFoundException", CertificateNotFoundException.fields) {};
+export class IncompatibleProtocolsExceptionError extends Schema.TaggedError<IncompatibleProtocolsExceptionError>()("IncompatibleProtocolsException", IncompatibleProtocolsException.fields) {};
+export class TooManyRegistrationsForTargetIdExceptionError extends Schema.TaggedError<TooManyRegistrationsForTargetIdExceptionError>()("TooManyRegistrationsForTargetIdException", TooManyRegistrationsForTargetIdException.fields) {};
+export class InvalidSubnetExceptionError extends Schema.TaggedError<InvalidSubnetExceptionError>()("InvalidSubnetException", InvalidSubnetException.fields) {};
+export class InvalidSecurityGroupExceptionError extends Schema.TaggedError<InvalidSecurityGroupExceptionError>()("InvalidSecurityGroupException", InvalidSecurityGroupException.fields) {};
+export class AllocationIdNotFoundExceptionError extends Schema.TaggedError<AllocationIdNotFoundExceptionError>()("AllocationIdNotFoundException", AllocationIdNotFoundException.fields) {};
+export class DuplicateTargetGroupNameExceptionError extends Schema.TaggedError<DuplicateTargetGroupNameExceptionError>()("DuplicateTargetGroupNameException", DuplicateTargetGroupNameException.fields) {};
+export class DuplicateTrustStoreNameExceptionError extends Schema.TaggedError<DuplicateTrustStoreNameExceptionError>()("DuplicateTrustStoreNameException", DuplicateTrustStoreNameException.fields) {};
+export class InvalidCaCertificatesBundleExceptionError extends Schema.TaggedError<InvalidCaCertificatesBundleExceptionError>()("InvalidCaCertificatesBundleException", InvalidCaCertificatesBundleException.fields) {};
+export class CapacityDecreaseRequestsLimitExceededExceptionError extends Schema.TaggedError<CapacityDecreaseRequestsLimitExceededExceptionError>()("CapacityDecreaseRequestsLimitExceededException", CapacityDecreaseRequestsLimitExceededException.fields) {};
+export class DuplicateListenerExceptionError extends Schema.TaggedError<DuplicateListenerExceptionError>()("DuplicateListenerException", DuplicateListenerException.fields) {};
+export class InvalidLoadBalancerActionExceptionError extends Schema.TaggedError<InvalidLoadBalancerActionExceptionError>()("InvalidLoadBalancerActionException", InvalidLoadBalancerActionException.fields) {};
+export class SSLPolicyNotFoundExceptionError extends Schema.TaggedError<SSLPolicyNotFoundExceptionError>()("SSLPolicyNotFoundException", SSLPolicyNotFoundException.fields) {};
+export class TargetGroupAssociationLimitExceptionError extends Schema.TaggedError<TargetGroupAssociationLimitExceptionError>()("TargetGroupAssociationLimitException", TargetGroupAssociationLimitException.fields) {};
+export class TooManyTargetsExceptionError extends Schema.TaggedError<TooManyTargetsExceptionError>()("TooManyTargetsException", TooManyTargetsException.fields) {};
+export class PriorityInUseExceptionError extends Schema.TaggedError<PriorityInUseExceptionError>()("PriorityInUseException", PriorityInUseException.fields) {};
+export class AvailabilityZoneNotSupportedExceptionError extends Schema.TaggedError<AvailabilityZoneNotSupportedExceptionError>()("AvailabilityZoneNotSupportedException", AvailabilityZoneNotSupportedException.fields) {};
+export class CapacityReservationPendingExceptionError extends Schema.TaggedError<CapacityReservationPendingExceptionError>()("CapacityReservationPendingException", CapacityReservationPendingException.fields) {};
+export class TooManyCertificatesExceptionError extends Schema.TaggedError<TooManyCertificatesExceptionError>()("TooManyCertificatesException", TooManyCertificatesException.fields) {};
+export class InvalidRevocationContentExceptionError extends Schema.TaggedError<InvalidRevocationContentExceptionError>()("InvalidRevocationContentException", InvalidRevocationContentException.fields) {};
+export class TooManyActionsExceptionError extends Schema.TaggedError<TooManyActionsExceptionError>()("TooManyActionsException", TooManyActionsException.fields) {};
+export class TooManyTargetGroupsExceptionError extends Schema.TaggedError<TooManyTargetGroupsExceptionError>()("TooManyTargetGroupsException", TooManyTargetGroupsException.fields) {};
+export class TooManyTrustStoresExceptionError extends Schema.TaggedError<TooManyTrustStoresExceptionError>()("TooManyTrustStoresException", TooManyTrustStoresException.fields) {};
+export class HealthUnavailableExceptionError extends Schema.TaggedError<HealthUnavailableExceptionError>()("HealthUnavailableException", HealthUnavailableException.fields) {};
+export class TooManyListenersExceptionError extends Schema.TaggedError<TooManyListenersExceptionError>()("TooManyListenersException", TooManyListenersException.fields) {};
+export class TooManyUniqueTargetGroupsPerLoadBalancerExceptionError extends Schema.TaggedError<TooManyUniqueTargetGroupsPerLoadBalancerExceptionError>()("TooManyUniqueTargetGroupsPerLoadBalancerException", TooManyUniqueTargetGroupsPerLoadBalancerException.fields) {};
+export class SubnetNotFoundExceptionError extends Schema.TaggedError<SubnetNotFoundExceptionError>()("SubnetNotFoundException", SubnetNotFoundException.fields) {};
+export class RevocationContentNotFoundExceptionError extends Schema.TaggedError<RevocationContentNotFoundExceptionError>()("RevocationContentNotFoundException", RevocationContentNotFoundException.fields) {};
+export class DuplicateLoadBalancerNameExceptionError extends Schema.TaggedError<DuplicateLoadBalancerNameExceptionError>()("DuplicateLoadBalancerNameException", DuplicateLoadBalancerNameException.fields) {};
+export class TooManyRulesExceptionError extends Schema.TaggedError<TooManyRulesExceptionError>()("TooManyRulesException", TooManyRulesException.fields) {};
+export class CapacityUnitsLimitExceededExceptionError extends Schema.TaggedError<CapacityUnitsLimitExceededExceptionError>()("CapacityUnitsLimitExceededException", CapacityUnitsLimitExceededException.fields) {};
+export class TrustStoreNotReadyExceptionError extends Schema.TaggedError<TrustStoreNotReadyExceptionError>()("TrustStoreNotReadyException", TrustStoreNotReadyException.fields) {};
+export class TooManyTrustStoreRevocationEntriesExceptionError extends Schema.TaggedError<TooManyTrustStoreRevocationEntriesExceptionError>()("TooManyTrustStoreRevocationEntriesException", TooManyTrustStoreRevocationEntriesException.fields) {};
+export class InvalidSchemeExceptionError extends Schema.TaggedError<InvalidSchemeExceptionError>()("InvalidSchemeException", InvalidSchemeException.fields) {};
+export class InsufficientCapacityExceptionError extends Schema.TaggedError<InsufficientCapacityExceptionError>()("InsufficientCapacityException", InsufficientCapacityException.fields) {};
+export class TooManyLoadBalancersExceptionError extends Schema.TaggedError<TooManyLoadBalancersExceptionError>()("TooManyLoadBalancersException", TooManyLoadBalancersException.fields) {};
+export class PriorRequestNotCompleteExceptionError extends Schema.TaggedError<PriorRequestNotCompleteExceptionError>()("PriorRequestNotCompleteException", PriorRequestNotCompleteException.fields) {};
 
 //# Operations
 export const removeListenerCertificates = /*#__PURE__*/ makeOperation(() => Operation({ version: "2015-12-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing v2", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v10.RemoveListenerCertificates" }, RemoveListenerCertificatesInput, RemoveListenerCertificatesOutput, [ListenerNotFoundExceptionError, OperationNotPermittedExceptionError]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAWSXMLError);

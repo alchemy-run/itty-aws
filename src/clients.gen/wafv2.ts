@@ -7,351 +7,354 @@ export const APIKeyTokenDomains = Schema.Array(Schema.String);
 export const IPAddresses = Schema.Array(Schema.String);
 export const TokenDomains = Schema.Array(Schema.String);
 export const TagKeyList = Schema.Array(Schema.String);
-export const AssociateWebACLRequest = Schema.Struct({WebACLArn: Schema.String, ResourceArn: Schema.String});
-export const AssociateWebACLResponse = Schema.Struct({});
-export const CreateAPIKeyRequest = Schema.Struct({Scope: Schema.String, TokenDomains: APIKeyTokenDomains});
-export const DeleteAPIKeyRequest = Schema.Struct({Scope: Schema.String, APIKey: Schema.String});
-export const DeleteAPIKeyResponse = Schema.Struct({});
-export const DeleteFirewallManagerRuleGroupsRequest = Schema.Struct({WebACLArn: Schema.String, WebACLLockToken: Schema.String});
-export const DeleteIPSetRequest = Schema.Struct({Name: Schema.String, Scope: Schema.String, Id: Schema.String, LockToken: Schema.String});
-export const DeleteIPSetResponse = Schema.Struct({});
-export const DeleteLoggingConfigurationRequest = Schema.Struct({ResourceArn: Schema.String, LogType: Schema.optional(Schema.String), LogScope: Schema.optional(Schema.String)});
-export const DeleteLoggingConfigurationResponse = Schema.Struct({});
-export const DeletePermissionPolicyRequest = Schema.Struct({ResourceArn: Schema.String});
-export const DeletePermissionPolicyResponse = Schema.Struct({});
-export const DeleteRegexPatternSetRequest = Schema.Struct({Name: Schema.String, Scope: Schema.String, Id: Schema.String, LockToken: Schema.String});
-export const DeleteRegexPatternSetResponse = Schema.Struct({});
-export const DeleteRuleGroupRequest = Schema.Struct({Name: Schema.String, Scope: Schema.String, Id: Schema.String, LockToken: Schema.String});
-export const DeleteRuleGroupResponse = Schema.Struct({});
-export const DeleteWebACLRequest = Schema.Struct({Name: Schema.String, Scope: Schema.String, Id: Schema.String, LockToken: Schema.String});
-export const DeleteWebACLResponse = Schema.Struct({});
-export const DescribeAllManagedProductsRequest = Schema.Struct({Scope: Schema.String});
-export const DescribeManagedProductsByVendorRequest = Schema.Struct({VendorName: Schema.String, Scope: Schema.String});
-export const DescribeManagedRuleGroupRequest = Schema.Struct({VendorName: Schema.String, Name: Schema.String, Scope: Schema.String, VersionName: Schema.optional(Schema.String)});
-export const DisassociateWebACLRequest = Schema.Struct({ResourceArn: Schema.String});
-export const DisassociateWebACLResponse = Schema.Struct({});
-export const GenerateMobileSdkReleaseUrlRequest = Schema.Struct({Platform: Schema.String, ReleaseVersion: Schema.String});
-export const GetDecryptedAPIKeyRequest = Schema.Struct({Scope: Schema.String, APIKey: Schema.String});
-export const GetIPSetRequest = Schema.Struct({Name: Schema.String, Scope: Schema.String, Id: Schema.String});
-export const GetLoggingConfigurationRequest = Schema.Struct({ResourceArn: Schema.String, LogType: Schema.optional(Schema.String), LogScope: Schema.optional(Schema.String)});
-export const GetManagedRuleSetRequest = Schema.Struct({Name: Schema.String, Scope: Schema.String, Id: Schema.String});
-export const GetMobileSdkReleaseRequest = Schema.Struct({Platform: Schema.String, ReleaseVersion: Schema.String});
-export const GetPermissionPolicyRequest = Schema.Struct({ResourceArn: Schema.String});
-export const GetRateBasedStatementManagedKeysRequest = Schema.Struct({Scope: Schema.String, WebACLName: Schema.String, WebACLId: Schema.String, RuleGroupRuleName: Schema.optional(Schema.String), RuleName: Schema.String});
-export const GetRegexPatternSetRequest = Schema.Struct({Name: Schema.String, Scope: Schema.String, Id: Schema.String});
-export const GetRuleGroupRequest = Schema.Struct({Name: Schema.optional(Schema.String), Scope: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), ARN: Schema.optional(Schema.String)});
-export const GetWebACLRequest = Schema.Struct({Name: Schema.optional(Schema.String), Scope: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), ARN: Schema.optional(Schema.String)});
-export const GetWebACLForResourceRequest = Schema.Struct({ResourceArn: Schema.String});
-export const ListAPIKeysRequest = Schema.Struct({Scope: Schema.String, NextMarker: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)});
-export const ListAvailableManagedRuleGroupsRequest = Schema.Struct({Scope: Schema.String, NextMarker: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)});
-export const ListAvailableManagedRuleGroupVersionsRequest = Schema.Struct({VendorName: Schema.String, Name: Schema.String, Scope: Schema.String, NextMarker: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)});
-export const ListIPSetsRequest = Schema.Struct({Scope: Schema.String, NextMarker: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)});
-export const ListLoggingConfigurationsRequest = Schema.Struct({Scope: Schema.String, NextMarker: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number), LogScope: Schema.optional(Schema.String)});
-export const ListManagedRuleSetsRequest = Schema.Struct({Scope: Schema.String, NextMarker: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)});
-export const ListMobileSdkReleasesRequest = Schema.Struct({Platform: Schema.String, NextMarker: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)});
-export const ListRegexPatternSetsRequest = Schema.Struct({Scope: Schema.String, NextMarker: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)});
-export const ListResourcesForWebACLRequest = Schema.Struct({WebACLArn: Schema.String, ResourceType: Schema.optional(Schema.String)});
-export const ListRuleGroupsRequest = Schema.Struct({Scope: Schema.String, NextMarker: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)});
-export const ListTagsForResourceRequest = Schema.Struct({NextMarker: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number), ResourceARN: Schema.String});
-export const ListWebACLsRequest = Schema.Struct({Scope: Schema.String, NextMarker: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)});
-export const PutPermissionPolicyRequest = Schema.Struct({ResourceArn: Schema.String, Policy: Schema.String});
-export const PutPermissionPolicyResponse = Schema.Struct({});
-export const Tag = Schema.Struct({Key: Schema.String, Value: Schema.String});
+export class AssociateWebACLRequest extends Schema.Class<AssociateWebACLRequest>("AssociateWebACLRequest")({WebACLArn: Schema.String, ResourceArn: Schema.String}) {}
+export class AssociateWebACLResponse extends Schema.Class<AssociateWebACLResponse>("AssociateWebACLResponse")({}) {}
+export class CreateAPIKeyRequest extends Schema.Class<CreateAPIKeyRequest>("CreateAPIKeyRequest")({Scope: Schema.String, TokenDomains: APIKeyTokenDomains}) {}
+export class DeleteAPIKeyRequest extends Schema.Class<DeleteAPIKeyRequest>("DeleteAPIKeyRequest")({Scope: Schema.String, APIKey: Schema.String}) {}
+export class DeleteAPIKeyResponse extends Schema.Class<DeleteAPIKeyResponse>("DeleteAPIKeyResponse")({}) {}
+export class DeleteFirewallManagerRuleGroupsRequest extends Schema.Class<DeleteFirewallManagerRuleGroupsRequest>("DeleteFirewallManagerRuleGroupsRequest")({WebACLArn: Schema.String, WebACLLockToken: Schema.String}) {}
+export class DeleteIPSetRequest extends Schema.Class<DeleteIPSetRequest>("DeleteIPSetRequest")({Name: Schema.String, Scope: Schema.String, Id: Schema.String, LockToken: Schema.String}) {}
+export class DeleteIPSetResponse extends Schema.Class<DeleteIPSetResponse>("DeleteIPSetResponse")({}) {}
+export class DeleteLoggingConfigurationRequest extends Schema.Class<DeleteLoggingConfigurationRequest>("DeleteLoggingConfigurationRequest")({ResourceArn: Schema.String, LogType: Schema.optional(Schema.String), LogScope: Schema.optional(Schema.String)}) {}
+export class DeleteLoggingConfigurationResponse extends Schema.Class<DeleteLoggingConfigurationResponse>("DeleteLoggingConfigurationResponse")({}) {}
+export class DeletePermissionPolicyRequest extends Schema.Class<DeletePermissionPolicyRequest>("DeletePermissionPolicyRequest")({ResourceArn: Schema.String}) {}
+export class DeletePermissionPolicyResponse extends Schema.Class<DeletePermissionPolicyResponse>("DeletePermissionPolicyResponse")({}) {}
+export class DeleteRegexPatternSetRequest extends Schema.Class<DeleteRegexPatternSetRequest>("DeleteRegexPatternSetRequest")({Name: Schema.String, Scope: Schema.String, Id: Schema.String, LockToken: Schema.String}) {}
+export class DeleteRegexPatternSetResponse extends Schema.Class<DeleteRegexPatternSetResponse>("DeleteRegexPatternSetResponse")({}) {}
+export class DeleteRuleGroupRequest extends Schema.Class<DeleteRuleGroupRequest>("DeleteRuleGroupRequest")({Name: Schema.String, Scope: Schema.String, Id: Schema.String, LockToken: Schema.String}) {}
+export class DeleteRuleGroupResponse extends Schema.Class<DeleteRuleGroupResponse>("DeleteRuleGroupResponse")({}) {}
+export class DeleteWebACLRequest extends Schema.Class<DeleteWebACLRequest>("DeleteWebACLRequest")({Name: Schema.String, Scope: Schema.String, Id: Schema.String, LockToken: Schema.String}) {}
+export class DeleteWebACLResponse extends Schema.Class<DeleteWebACLResponse>("DeleteWebACLResponse")({}) {}
+export class DescribeAllManagedProductsRequest extends Schema.Class<DescribeAllManagedProductsRequest>("DescribeAllManagedProductsRequest")({Scope: Schema.String}) {}
+export class DescribeManagedProductsByVendorRequest extends Schema.Class<DescribeManagedProductsByVendorRequest>("DescribeManagedProductsByVendorRequest")({VendorName: Schema.String, Scope: Schema.String}) {}
+export class DescribeManagedRuleGroupRequest extends Schema.Class<DescribeManagedRuleGroupRequest>("DescribeManagedRuleGroupRequest")({VendorName: Schema.String, Name: Schema.String, Scope: Schema.String, VersionName: Schema.optional(Schema.String)}) {}
+export class DisassociateWebACLRequest extends Schema.Class<DisassociateWebACLRequest>("DisassociateWebACLRequest")({ResourceArn: Schema.String}) {}
+export class DisassociateWebACLResponse extends Schema.Class<DisassociateWebACLResponse>("DisassociateWebACLResponse")({}) {}
+export class GenerateMobileSdkReleaseUrlRequest extends Schema.Class<GenerateMobileSdkReleaseUrlRequest>("GenerateMobileSdkReleaseUrlRequest")({Platform: Schema.String, ReleaseVersion: Schema.String}) {}
+export class GetDecryptedAPIKeyRequest extends Schema.Class<GetDecryptedAPIKeyRequest>("GetDecryptedAPIKeyRequest")({Scope: Schema.String, APIKey: Schema.String}) {}
+export class GetIPSetRequest extends Schema.Class<GetIPSetRequest>("GetIPSetRequest")({Name: Schema.String, Scope: Schema.String, Id: Schema.String}) {}
+export class GetLoggingConfigurationRequest extends Schema.Class<GetLoggingConfigurationRequest>("GetLoggingConfigurationRequest")({ResourceArn: Schema.String, LogType: Schema.optional(Schema.String), LogScope: Schema.optional(Schema.String)}) {}
+export class GetManagedRuleSetRequest extends Schema.Class<GetManagedRuleSetRequest>("GetManagedRuleSetRequest")({Name: Schema.String, Scope: Schema.String, Id: Schema.String}) {}
+export class GetMobileSdkReleaseRequest extends Schema.Class<GetMobileSdkReleaseRequest>("GetMobileSdkReleaseRequest")({Platform: Schema.String, ReleaseVersion: Schema.String}) {}
+export class GetPermissionPolicyRequest extends Schema.Class<GetPermissionPolicyRequest>("GetPermissionPolicyRequest")({ResourceArn: Schema.String}) {}
+export class GetRateBasedStatementManagedKeysRequest extends Schema.Class<GetRateBasedStatementManagedKeysRequest>("GetRateBasedStatementManagedKeysRequest")({Scope: Schema.String, WebACLName: Schema.String, WebACLId: Schema.String, RuleGroupRuleName: Schema.optional(Schema.String), RuleName: Schema.String}) {}
+export class GetRegexPatternSetRequest extends Schema.Class<GetRegexPatternSetRequest>("GetRegexPatternSetRequest")({Name: Schema.String, Scope: Schema.String, Id: Schema.String}) {}
+export class GetRuleGroupRequest extends Schema.Class<GetRuleGroupRequest>("GetRuleGroupRequest")({Name: Schema.optional(Schema.String), Scope: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), ARN: Schema.optional(Schema.String)}) {}
+export class GetWebACLRequest extends Schema.Class<GetWebACLRequest>("GetWebACLRequest")({Name: Schema.optional(Schema.String), Scope: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), ARN: Schema.optional(Schema.String)}) {}
+export class GetWebACLForResourceRequest extends Schema.Class<GetWebACLForResourceRequest>("GetWebACLForResourceRequest")({ResourceArn: Schema.String}) {}
+export class ListAPIKeysRequest extends Schema.Class<ListAPIKeysRequest>("ListAPIKeysRequest")({Scope: Schema.String, NextMarker: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)}) {}
+export class ListAvailableManagedRuleGroupsRequest extends Schema.Class<ListAvailableManagedRuleGroupsRequest>("ListAvailableManagedRuleGroupsRequest")({Scope: Schema.String, NextMarker: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)}) {}
+export class ListAvailableManagedRuleGroupVersionsRequest extends Schema.Class<ListAvailableManagedRuleGroupVersionsRequest>("ListAvailableManagedRuleGroupVersionsRequest")({VendorName: Schema.String, Name: Schema.String, Scope: Schema.String, NextMarker: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)}) {}
+export class ListIPSetsRequest extends Schema.Class<ListIPSetsRequest>("ListIPSetsRequest")({Scope: Schema.String, NextMarker: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)}) {}
+export class ListLoggingConfigurationsRequest extends Schema.Class<ListLoggingConfigurationsRequest>("ListLoggingConfigurationsRequest")({Scope: Schema.String, NextMarker: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number), LogScope: Schema.optional(Schema.String)}) {}
+export class ListManagedRuleSetsRequest extends Schema.Class<ListManagedRuleSetsRequest>("ListManagedRuleSetsRequest")({Scope: Schema.String, NextMarker: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)}) {}
+export class ListMobileSdkReleasesRequest extends Schema.Class<ListMobileSdkReleasesRequest>("ListMobileSdkReleasesRequest")({Platform: Schema.String, NextMarker: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)}) {}
+export class ListRegexPatternSetsRequest extends Schema.Class<ListRegexPatternSetsRequest>("ListRegexPatternSetsRequest")({Scope: Schema.String, NextMarker: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)}) {}
+export class ListResourcesForWebACLRequest extends Schema.Class<ListResourcesForWebACLRequest>("ListResourcesForWebACLRequest")({WebACLArn: Schema.String, ResourceType: Schema.optional(Schema.String)}) {}
+export class ListRuleGroupsRequest extends Schema.Class<ListRuleGroupsRequest>("ListRuleGroupsRequest")({Scope: Schema.String, NextMarker: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({NextMarker: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number), ResourceARN: Schema.String}) {}
+export class ListWebACLsRequest extends Schema.Class<ListWebACLsRequest>("ListWebACLsRequest")({Scope: Schema.String, NextMarker: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)}) {}
+export class PutPermissionPolicyRequest extends Schema.Class<PutPermissionPolicyRequest>("PutPermissionPolicyRequest")({ResourceArn: Schema.String, Policy: Schema.String}) {}
+export class PutPermissionPolicyResponse extends Schema.Class<PutPermissionPolicyResponse>("PutPermissionPolicyResponse")({}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.String, Value: Schema.String}) {}
 export const TagList = Schema.Array(Tag);
-export const TagResourceRequest = Schema.Struct({ResourceARN: Schema.String, Tags: TagList});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({ResourceARN: Schema.String, TagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
-export const UpdateIPSetRequest = Schema.Struct({Name: Schema.String, Scope: Schema.String, Id: Schema.String, Description: Schema.optional(Schema.String), Addresses: IPAddresses, LockToken: Schema.String});
-export const UpdateManagedRuleSetVersionExpiryDateRequest = Schema.Struct({Name: Schema.String, Scope: Schema.String, Id: Schema.String, LockToken: Schema.String, VersionToExpire: Schema.String, ExpiryTimestamp: Schema.Date});
-export const Regex = Schema.Struct({RegexString: Schema.optional(Schema.String)});
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({ResourceARN: Schema.String, Tags: TagList}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({ResourceARN: Schema.String, TagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class UpdateIPSetRequest extends Schema.Class<UpdateIPSetRequest>("UpdateIPSetRequest")({Name: Schema.String, Scope: Schema.String, Id: Schema.String, Description: Schema.optional(Schema.String), Addresses: IPAddresses, LockToken: Schema.String}) {}
+export class UpdateManagedRuleSetVersionExpiryDateRequest extends Schema.Class<UpdateManagedRuleSetVersionExpiryDateRequest>("UpdateManagedRuleSetVersionExpiryDateRequest")({Name: Schema.String, Scope: Schema.String, Id: Schema.String, LockToken: Schema.String, VersionToExpire: Schema.String, ExpiryTimestamp: Schema.Date}) {}
+export class Regex extends Schema.Class<Regex>("Regex")({RegexString: Schema.optional(Schema.String)}) {}
 export const RegularExpressionList = Schema.Array(Regex);
-export const UpdateRegexPatternSetRequest = Schema.Struct({Name: Schema.String, Scope: Schema.String, Id: Schema.String, Description: Schema.optional(Schema.String), RegularExpressionList: RegularExpressionList, LockToken: Schema.String});
-export const SingleHeader = Schema.Struct({Name: Schema.String});
-export const SingleQueryArgument = Schema.Struct({Name: Schema.String});
-export const AllQueryArguments = Schema.Struct({});
-export const UriPath = Schema.Struct({});
-export const QueryString = Schema.Struct({});
-export const Body = Schema.Struct({OversizeHandling: Schema.optional(Schema.String)});
-export const Method = Schema.Struct({});
-export const All = Schema.Struct({});
+export class UpdateRegexPatternSetRequest extends Schema.Class<UpdateRegexPatternSetRequest>("UpdateRegexPatternSetRequest")({Name: Schema.String, Scope: Schema.String, Id: Schema.String, Description: Schema.optional(Schema.String), RegularExpressionList: RegularExpressionList, LockToken: Schema.String}) {}
+export class SingleHeader extends Schema.Class<SingleHeader>("SingleHeader")({Name: Schema.String}) {}
+export class SingleQueryArgument extends Schema.Class<SingleQueryArgument>("SingleQueryArgument")({Name: Schema.String}) {}
+export class AllQueryArguments extends Schema.Class<AllQueryArguments>("AllQueryArguments")({}) {}
+export class UriPath extends Schema.Class<UriPath>("UriPath")({}) {}
+export class QueryString extends Schema.Class<QueryString>("QueryString")({}) {}
+export class _Body extends Schema.Class<_Body>("_Body")({OversizeHandling: Schema.optional(Schema.String)}) {}
+export class Method extends Schema.Class<Method>("Method")({}) {}
+export class All extends Schema.Class<All>("All")({}) {}
 export const JsonPointerPaths = Schema.Array(Schema.String);
-export const JsonMatchPattern = Schema.Struct({All: Schema.optional(All), IncludedPaths: Schema.optional(JsonPointerPaths)});
-export const JsonBody = Schema.Struct({MatchPattern: JsonMatchPattern, MatchScope: Schema.String, InvalidFallbackBehavior: Schema.optional(Schema.String), OversizeHandling: Schema.optional(Schema.String)});
+export class JsonMatchPattern extends Schema.Class<JsonMatchPattern>("JsonMatchPattern")({All: Schema.optional(All), IncludedPaths: Schema.optional(JsonPointerPaths)}) {}
+export class JsonBody extends Schema.Class<JsonBody>("JsonBody")({MatchPattern: JsonMatchPattern, MatchScope: Schema.String, InvalidFallbackBehavior: Schema.optional(Schema.String), OversizeHandling: Schema.optional(Schema.String)}) {}
 export const HeaderNames = Schema.Array(Schema.String);
-export const HeaderMatchPattern = Schema.Struct({All: Schema.optional(All), IncludedHeaders: Schema.optional(HeaderNames), ExcludedHeaders: Schema.optional(HeaderNames)});
-export const Headers = Schema.Struct({MatchPattern: HeaderMatchPattern, MatchScope: Schema.String, OversizeHandling: Schema.String});
+export class HeaderMatchPattern extends Schema.Class<HeaderMatchPattern>("HeaderMatchPattern")({All: Schema.optional(All), IncludedHeaders: Schema.optional(HeaderNames), ExcludedHeaders: Schema.optional(HeaderNames)}) {}
+export class Headers extends Schema.Class<Headers>("Headers")({MatchPattern: HeaderMatchPattern, MatchScope: Schema.String, OversizeHandling: Schema.String}) {}
 export const CookieNames = Schema.Array(Schema.String);
-export const CookieMatchPattern = Schema.Struct({All: Schema.optional(All), IncludedCookies: Schema.optional(CookieNames), ExcludedCookies: Schema.optional(CookieNames)});
-export const Cookies = Schema.Struct({MatchPattern: CookieMatchPattern, MatchScope: Schema.String, OversizeHandling: Schema.String});
-export const HeaderOrder = Schema.Struct({OversizeHandling: Schema.String});
-export const JA3Fingerprint = Schema.Struct({FallbackBehavior: Schema.String});
-export const JA4Fingerprint = Schema.Struct({FallbackBehavior: Schema.String});
-export const UriFragment = Schema.Struct({FallbackBehavior: Schema.optional(Schema.String)});
-export const FieldToMatch = Schema.Struct({SingleHeader: Schema.optional(SingleHeader), SingleQueryArgument: Schema.optional(SingleQueryArgument), AllQueryArguments: Schema.optional(AllQueryArguments), UriPath: Schema.optional(UriPath), QueryString: Schema.optional(QueryString), Body: Schema.optional(Body), Method: Schema.optional(Method), JsonBody: Schema.optional(JsonBody), Headers: Schema.optional(Headers), Cookies: Schema.optional(Cookies), HeaderOrder: Schema.optional(HeaderOrder), JA3Fingerprint: Schema.optional(JA3Fingerprint), JA4Fingerprint: Schema.optional(JA4Fingerprint), UriFragment: Schema.optional(UriFragment)});
-export const TextTransformation = Schema.Struct({Priority: Schema.Number, Type: Schema.String});
+export class CookieMatchPattern extends Schema.Class<CookieMatchPattern>("CookieMatchPattern")({All: Schema.optional(All), IncludedCookies: Schema.optional(CookieNames), ExcludedCookies: Schema.optional(CookieNames)}) {}
+export class Cookies extends Schema.Class<Cookies>("Cookies")({MatchPattern: CookieMatchPattern, MatchScope: Schema.String, OversizeHandling: Schema.String}) {}
+export class HeaderOrder extends Schema.Class<HeaderOrder>("HeaderOrder")({OversizeHandling: Schema.String}) {}
+export class JA3Fingerprint extends Schema.Class<JA3Fingerprint>("JA3Fingerprint")({FallbackBehavior: Schema.String}) {}
+export class JA4Fingerprint extends Schema.Class<JA4Fingerprint>("JA4Fingerprint")({FallbackBehavior: Schema.String}) {}
+export class UriFragment extends Schema.Class<UriFragment>("UriFragment")({FallbackBehavior: Schema.optional(Schema.String)}) {}
+export class FieldToMatch extends Schema.Class<FieldToMatch>("FieldToMatch")({SingleHeader: Schema.optional(SingleHeader), SingleQueryArgument: Schema.optional(SingleQueryArgument), AllQueryArguments: Schema.optional(AllQueryArguments), UriPath: Schema.optional(UriPath), QueryString: Schema.optional(QueryString), Body: Schema.optional(_Body), Method: Schema.optional(Method), JsonBody: Schema.optional(JsonBody), Headers: Schema.optional(Headers), Cookies: Schema.optional(Cookies), HeaderOrder: Schema.optional(HeaderOrder), JA3Fingerprint: Schema.optional(JA3Fingerprint), JA4Fingerprint: Schema.optional(JA4Fingerprint), UriFragment: Schema.optional(UriFragment)}) {}
+export class TextTransformation extends Schema.Class<TextTransformation>("TextTransformation")({Priority: Schema.Number, Type: Schema.String}) {}
 export const TextTransformations = Schema.Array(TextTransformation);
-export const ByteMatchStatement = Schema.Struct({SearchString: StreamBody(), FieldToMatch: FieldToMatch, TextTransformations: TextTransformations, PositionalConstraint: Schema.String});
-export const SqliMatchStatement = Schema.Struct({FieldToMatch: FieldToMatch, TextTransformations: TextTransformations, SensitivityLevel: Schema.optional(Schema.String)});
-export const XssMatchStatement = Schema.Struct({FieldToMatch: FieldToMatch, TextTransformations: TextTransformations});
-export const SizeConstraintStatement = Schema.Struct({FieldToMatch: FieldToMatch, ComparisonOperator: Schema.String, Size: Schema.Number, TextTransformations: TextTransformations});
+export class ByteMatchStatement extends Schema.Class<ByteMatchStatement>("ByteMatchStatement")({SearchString: StreamBody(), FieldToMatch: FieldToMatch, TextTransformations: TextTransformations, PositionalConstraint: Schema.String}) {}
+export class SqliMatchStatement extends Schema.Class<SqliMatchStatement>("SqliMatchStatement")({FieldToMatch: FieldToMatch, TextTransformations: TextTransformations, SensitivityLevel: Schema.optional(Schema.String)}) {}
+export class XssMatchStatement extends Schema.Class<XssMatchStatement>("XssMatchStatement")({FieldToMatch: FieldToMatch, TextTransformations: TextTransformations}) {}
+export class SizeConstraintStatement extends Schema.Class<SizeConstraintStatement>("SizeConstraintStatement")({FieldToMatch: FieldToMatch, ComparisonOperator: Schema.String, Size: Schema.Number, TextTransformations: TextTransformations}) {}
 export const CountryCodes = Schema.Array(Schema.String);
-export const ForwardedIPConfig = Schema.Struct({HeaderName: Schema.String, FallbackBehavior: Schema.String});
-export const GeoMatchStatement = Schema.Struct({CountryCodes: Schema.optional(CountryCodes), ForwardedIPConfig: Schema.optional(ForwardedIPConfig)});
-export const ExcludedRule = Schema.Struct({Name: Schema.String});
+export class ForwardedIPConfig extends Schema.Class<ForwardedIPConfig>("ForwardedIPConfig")({HeaderName: Schema.String, FallbackBehavior: Schema.String}) {}
+export class GeoMatchStatement extends Schema.Class<GeoMatchStatement>("GeoMatchStatement")({CountryCodes: Schema.optional(CountryCodes), ForwardedIPConfig: Schema.optional(ForwardedIPConfig)}) {}
+export class ExcludedRule extends Schema.Class<ExcludedRule>("ExcludedRule")({Name: Schema.String}) {}
 export const ExcludedRules = Schema.Array(ExcludedRule);
-export const CustomHTTPHeader = Schema.Struct({Name: Schema.String, Value: Schema.String});
+export class CustomHTTPHeader extends Schema.Class<CustomHTTPHeader>("CustomHTTPHeader")({Name: Schema.String, Value: Schema.String}) {}
 export const CustomHTTPHeaders = Schema.Array(CustomHTTPHeader);
-export const CustomResponse = Schema.Struct({ResponseCode: Schema.Number, CustomResponseBodyKey: Schema.optional(Schema.String), ResponseHeaders: Schema.optional(CustomHTTPHeaders)});
-export const BlockAction = Schema.Struct({CustomResponse: Schema.optional(CustomResponse)});
-export const CustomRequestHandling = Schema.Struct({InsertHeaders: CustomHTTPHeaders});
-export const AllowAction = Schema.Struct({CustomRequestHandling: Schema.optional(CustomRequestHandling)});
-export const CountAction = Schema.Struct({CustomRequestHandling: Schema.optional(CustomRequestHandling)});
-export const CaptchaAction = Schema.Struct({CustomRequestHandling: Schema.optional(CustomRequestHandling)});
-export const ChallengeAction = Schema.Struct({CustomRequestHandling: Schema.optional(CustomRequestHandling)});
-export const RuleAction = Schema.Struct({Block: Schema.optional(BlockAction), Allow: Schema.optional(AllowAction), Count: Schema.optional(CountAction), Captcha: Schema.optional(CaptchaAction), Challenge: Schema.optional(ChallengeAction)});
-export const RuleActionOverride = Schema.Struct({Name: Schema.String, ActionToUse: RuleAction});
+export class CustomResponse extends Schema.Class<CustomResponse>("CustomResponse")({ResponseCode: Schema.Number, CustomResponseBodyKey: Schema.optional(Schema.String), ResponseHeaders: Schema.optional(CustomHTTPHeaders)}) {}
+export class BlockAction extends Schema.Class<BlockAction>("BlockAction")({CustomResponse: Schema.optional(CustomResponse)}) {}
+export class CustomRequestHandling extends Schema.Class<CustomRequestHandling>("CustomRequestHandling")({InsertHeaders: CustomHTTPHeaders}) {}
+export class AllowAction extends Schema.Class<AllowAction>("AllowAction")({CustomRequestHandling: Schema.optional(CustomRequestHandling)}) {}
+export class CountAction extends Schema.Class<CountAction>("CountAction")({CustomRequestHandling: Schema.optional(CustomRequestHandling)}) {}
+export class CaptchaAction extends Schema.Class<CaptchaAction>("CaptchaAction")({CustomRequestHandling: Schema.optional(CustomRequestHandling)}) {}
+export class ChallengeAction extends Schema.Class<ChallengeAction>("ChallengeAction")({CustomRequestHandling: Schema.optional(CustomRequestHandling)}) {}
+export class RuleAction extends Schema.Class<RuleAction>("RuleAction")({Block: Schema.optional(BlockAction), Allow: Schema.optional(AllowAction), Count: Schema.optional(CountAction), Captcha: Schema.optional(CaptchaAction), Challenge: Schema.optional(ChallengeAction)}) {}
+export class RuleActionOverride extends Schema.Class<RuleActionOverride>("RuleActionOverride")({Name: Schema.String, ActionToUse: RuleAction}) {}
 export const RuleActionOverrides = Schema.Array(RuleActionOverride);
-export const RuleGroupReferenceStatement = Schema.Struct({ARN: Schema.String, ExcludedRules: Schema.optional(ExcludedRules), RuleActionOverrides: Schema.optional(RuleActionOverrides)});
-export const IPSetForwardedIPConfig = Schema.Struct({HeaderName: Schema.String, FallbackBehavior: Schema.String, Position: Schema.String});
-export const IPSetReferenceStatement = Schema.Struct({ARN: Schema.String, IPSetForwardedIPConfig: Schema.optional(IPSetForwardedIPConfig)});
-export const RegexPatternSetReferenceStatement = Schema.Struct({ARN: Schema.String, FieldToMatch: FieldToMatch, TextTransformations: TextTransformations});
-export const RateLimitHeader = Schema.Struct({Name: Schema.String, TextTransformations: TextTransformations});
-export const RateLimitCookie = Schema.Struct({Name: Schema.String, TextTransformations: TextTransformations});
-export const RateLimitQueryArgument = Schema.Struct({Name: Schema.String, TextTransformations: TextTransformations});
-export const RateLimitQueryString = Schema.Struct({TextTransformations: TextTransformations});
-export const RateLimitHTTPMethod = Schema.Struct({});
-export const RateLimitForwardedIP = Schema.Struct({});
-export const RateLimitIP = Schema.Struct({});
-export const RateLimitLabelNamespace = Schema.Struct({Namespace: Schema.String});
-export const RateLimitUriPath = Schema.Struct({TextTransformations: TextTransformations});
-export const RateLimitJA3Fingerprint = Schema.Struct({FallbackBehavior: Schema.String});
-export const RateLimitJA4Fingerprint = Schema.Struct({FallbackBehavior: Schema.String});
-export const RateLimitAsn = Schema.Struct({});
-export const RateBasedStatementCustomKey = Schema.Struct({Header: Schema.optional(RateLimitHeader), Cookie: Schema.optional(RateLimitCookie), QueryArgument: Schema.optional(RateLimitQueryArgument), QueryString: Schema.optional(RateLimitQueryString), HTTPMethod: Schema.optional(RateLimitHTTPMethod), ForwardedIP: Schema.optional(RateLimitForwardedIP), IP: Schema.optional(RateLimitIP), LabelNamespace: Schema.optional(RateLimitLabelNamespace), UriPath: Schema.optional(RateLimitUriPath), JA3Fingerprint: Schema.optional(RateLimitJA3Fingerprint), JA4Fingerprint: Schema.optional(RateLimitJA4Fingerprint), ASN: Schema.optional(RateLimitAsn)});
-export const RateBasedStatementCustomKeys = Schema.Array(RateBasedStatementCustomKey);
-export const RateBasedStatement = Schema.Struct({Limit: Schema.Number, EvaluationWindowSec: Schema.optional(Schema.Number), AggregateKeyType: Schema.String, ScopeDownStatement: Schema.optional(Statement), ForwardedIPConfig: Schema.optional(ForwardedIPConfig), CustomKeys: Schema.optional(RateBasedStatementCustomKeys)});
-export const Statements = Schema.Array(Statement);
-export const AndStatement = Schema.Struct({Statements: Statements});
-export const OrStatement = Schema.Struct({Statements: Statements});
-export const NotStatement = Schema.Struct({Statement: Statement});
-export const UsernameField = Schema.Struct({Identifier: Schema.String});
-export const PasswordField = Schema.Struct({Identifier: Schema.String});
-export const AWSManagedRulesBotControlRuleSet = Schema.Struct({InspectionLevel: Schema.String, EnableMachineLearning: Schema.optional(Schema.Boolean)});
-export const RequestInspection = Schema.Struct({PayloadType: Schema.String, UsernameField: UsernameField, PasswordField: PasswordField});
-export const ResponseInspectionStatusCodeSuccessCodes = Schema.Array(Schema.Number);
-export const ResponseInspectionStatusCodeFailureCodes = Schema.Array(Schema.Number);
-export const ResponseInspectionStatusCode = Schema.Struct({SuccessCodes: ResponseInspectionStatusCodeSuccessCodes, FailureCodes: ResponseInspectionStatusCodeFailureCodes});
-export const ResponseInspectionHeaderSuccessValues = Schema.Array(Schema.String);
-export const ResponseInspectionHeaderFailureValues = Schema.Array(Schema.String);
-export const ResponseInspectionHeader = Schema.Struct({Name: Schema.String, SuccessValues: ResponseInspectionHeaderSuccessValues, FailureValues: ResponseInspectionHeaderFailureValues});
-export const ResponseInspectionBodyContainsSuccessStrings = Schema.Array(Schema.String);
-export const ResponseInspectionBodyContainsFailureStrings = Schema.Array(Schema.String);
-export const ResponseInspectionBodyContains = Schema.Struct({SuccessStrings: ResponseInspectionBodyContainsSuccessStrings, FailureStrings: ResponseInspectionBodyContainsFailureStrings});
-export const ResponseInspectionJsonSuccessValues = Schema.Array(Schema.String);
-export const ResponseInspectionJsonFailureValues = Schema.Array(Schema.String);
-export const ResponseInspectionJson = Schema.Struct({Identifier: Schema.String, SuccessValues: ResponseInspectionJsonSuccessValues, FailureValues: ResponseInspectionJsonFailureValues});
-export const ResponseInspection = Schema.Struct({StatusCode: Schema.optional(ResponseInspectionStatusCode), Header: Schema.optional(ResponseInspectionHeader), BodyContains: Schema.optional(ResponseInspectionBodyContains), Json: Schema.optional(ResponseInspectionJson)});
-export const AWSManagedRulesATPRuleSet = Schema.Struct({LoginPath: Schema.String, RequestInspection: Schema.optional(RequestInspection), ResponseInspection: Schema.optional(ResponseInspection), EnableRegexInPath: Schema.optional(Schema.Boolean)});
-export const EmailField = Schema.Struct({Identifier: Schema.String});
-export const PhoneNumberField = Schema.Struct({Identifier: Schema.String});
-export const PhoneNumberFields = Schema.Array(PhoneNumberField);
-export const AddressField = Schema.Struct({Identifier: Schema.String});
-export const AddressFields = Schema.Array(AddressField);
-export const RequestInspectionACFP = Schema.Struct({PayloadType: Schema.String, UsernameField: Schema.optional(UsernameField), PasswordField: Schema.optional(PasswordField), EmailField: Schema.optional(EmailField), PhoneNumberFields: Schema.optional(PhoneNumberFields), AddressFields: Schema.optional(AddressFields)});
-export const AWSManagedRulesACFPRuleSet = Schema.Struct({CreationPath: Schema.String, RegistrationPagePath: Schema.String, RequestInspection: RequestInspectionACFP, ResponseInspection: Schema.optional(ResponseInspection), EnableRegexInPath: Schema.optional(Schema.Boolean)});
-export const ClientSideAction = Schema.Struct({UsageOfAction: Schema.String, Sensitivity: Schema.optional(Schema.String), ExemptUriRegularExpressions: Schema.optional(RegularExpressionList)});
-export const ClientSideActionConfig = Schema.Struct({Challenge: ClientSideAction});
-export const AWSManagedRulesAntiDDoSRuleSet = Schema.Struct({ClientSideActionConfig: ClientSideActionConfig, SensitivityToBlock: Schema.optional(Schema.String)});
-export const ManagedRuleGroupConfig = Schema.Struct({LoginPath: Schema.optional(Schema.String), PayloadType: Schema.optional(Schema.String), UsernameField: Schema.optional(UsernameField), PasswordField: Schema.optional(PasswordField), AWSManagedRulesBotControlRuleSet: Schema.optional(AWSManagedRulesBotControlRuleSet), AWSManagedRulesATPRuleSet: Schema.optional(AWSManagedRulesATPRuleSet), AWSManagedRulesACFPRuleSet: Schema.optional(AWSManagedRulesACFPRuleSet), AWSManagedRulesAntiDDoSRuleSet: Schema.optional(AWSManagedRulesAntiDDoSRuleSet)});
-export const ManagedRuleGroupConfigs = Schema.Array(ManagedRuleGroupConfig);
-export const ManagedRuleGroupStatement = Schema.Struct({VendorName: Schema.String, Name: Schema.String, Version: Schema.optional(Schema.String), ExcludedRules: Schema.optional(ExcludedRules), ScopeDownStatement: Schema.optional(Statement), ManagedRuleGroupConfigs: Schema.optional(ManagedRuleGroupConfigs), RuleActionOverrides: Schema.optional(RuleActionOverrides)});
-export const LabelMatchStatement = Schema.Struct({Scope: Schema.String, Key: Schema.String});
-export const RegexMatchStatement = Schema.Struct({RegexString: Schema.String, FieldToMatch: FieldToMatch, TextTransformations: TextTransformations});
+export class RuleGroupReferenceStatement extends Schema.Class<RuleGroupReferenceStatement>("RuleGroupReferenceStatement")({ARN: Schema.String, ExcludedRules: Schema.optional(ExcludedRules), RuleActionOverrides: Schema.optional(RuleActionOverrides)}) {}
+export class IPSetForwardedIPConfig extends Schema.Class<IPSetForwardedIPConfig>("IPSetForwardedIPConfig")({HeaderName: Schema.String, FallbackBehavior: Schema.String, Position: Schema.String}) {}
+export class IPSetReferenceStatement extends Schema.Class<IPSetReferenceStatement>("IPSetReferenceStatement")({ARN: Schema.String, IPSetForwardedIPConfig: Schema.optional(IPSetForwardedIPConfig)}) {}
+export class RegexPatternSetReferenceStatement extends Schema.Class<RegexPatternSetReferenceStatement>("RegexPatternSetReferenceStatement")({ARN: Schema.String, FieldToMatch: FieldToMatch, TextTransformations: TextTransformations}) {}
+export class LabelMatchStatement extends Schema.Class<LabelMatchStatement>("LabelMatchStatement")({Scope: Schema.String, Key: Schema.String}) {}
+export class RegexMatchStatement extends Schema.Class<RegexMatchStatement>("RegexMatchStatement")({RegexString: Schema.String, FieldToMatch: FieldToMatch, TextTransformations: TextTransformations}) {}
 export const AsnList = Schema.Array(Schema.Number);
-export const AsnMatchStatement = Schema.Struct({AsnList: AsnList, ForwardedIPConfig: Schema.optional(ForwardedIPConfig)});
-export const Statement = Schema.Struct({ByteMatchStatement: Schema.optional(ByteMatchStatement), SqliMatchStatement: Schema.optional(SqliMatchStatement), XssMatchStatement: Schema.optional(XssMatchStatement), SizeConstraintStatement: Schema.optional(SizeConstraintStatement), GeoMatchStatement: Schema.optional(GeoMatchStatement), RuleGroupReferenceStatement: Schema.optional(RuleGroupReferenceStatement), IPSetReferenceStatement: Schema.optional(IPSetReferenceStatement), RegexPatternSetReferenceStatement: Schema.optional(RegexPatternSetReferenceStatement), RateBasedStatement: Schema.optional(RateBasedStatement), AndStatement: Schema.optional(AndStatement), OrStatement: Schema.optional(OrStatement), NotStatement: Schema.optional(NotStatement), ManagedRuleGroupStatement: Schema.optional(ManagedRuleGroupStatement), LabelMatchStatement: Schema.optional(LabelMatchStatement), RegexMatchStatement: Schema.optional(RegexMatchStatement), AsnMatchStatement: Schema.optional(AsnMatchStatement)});
-export const NoneAction = Schema.Struct({});
-export const OverrideAction = Schema.Struct({Count: Schema.optional(CountAction), None: Schema.optional(NoneAction)});
-export const Label = Schema.Struct({Name: Schema.String});
+export class AsnMatchStatement extends Schema.Class<AsnMatchStatement>("AsnMatchStatement")({AsnList: AsnList, ForwardedIPConfig: Schema.optional(ForwardedIPConfig)}) {}
+export class Statement extends Schema.Class<Statement>("Statement")({ByteMatchStatement: Schema.optional(ByteMatchStatement), SqliMatchStatement: Schema.optional(SqliMatchStatement), XssMatchStatement: Schema.optional(XssMatchStatement), SizeConstraintStatement: Schema.optional(SizeConstraintStatement), GeoMatchStatement: Schema.optional(GeoMatchStatement), RuleGroupReferenceStatement: Schema.optional(RuleGroupReferenceStatement), IPSetReferenceStatement: Schema.optional(IPSetReferenceStatement), RegexPatternSetReferenceStatement: Schema.optional(RegexPatternSetReferenceStatement), RateBasedStatement: Schema.optional(Schema.suspend((): Schema.Schema<RateBasedStatement> => RateBasedStatement)), AndStatement: Schema.optional(Schema.suspend((): Schema.Schema<AndStatement> => AndStatement)), OrStatement: Schema.optional(Schema.suspend((): Schema.Schema<OrStatement> => OrStatement)), NotStatement: Schema.optional(Schema.suspend((): Schema.Schema<NotStatement> => NotStatement)), ManagedRuleGroupStatement: Schema.optional(Schema.suspend((): Schema.Schema<ManagedRuleGroupStatement> => ManagedRuleGroupStatement)), LabelMatchStatement: Schema.optional(LabelMatchStatement), RegexMatchStatement: Schema.optional(RegexMatchStatement), AsnMatchStatement: Schema.optional(AsnMatchStatement)}) {}
+export class NoneAction extends Schema.Class<NoneAction>("NoneAction")({}) {}
+export class OverrideAction extends Schema.Class<OverrideAction>("OverrideAction")({Count: Schema.optional(CountAction), None: Schema.optional(NoneAction)}) {}
+export class Label extends Schema.Class<Label>("Label")({Name: Schema.String}) {}
 export const Labels = Schema.Array(Label);
-export const VisibilityConfig = Schema.Struct({SampledRequestsEnabled: Schema.Boolean, CloudWatchMetricsEnabled: Schema.Boolean, MetricName: Schema.String});
-export const ImmunityTimeProperty = Schema.Struct({ImmunityTime: Schema.Number});
-export const CaptchaConfig = Schema.Struct({ImmunityTimeProperty: Schema.optional(ImmunityTimeProperty)});
-export const ChallengeConfig = Schema.Struct({ImmunityTimeProperty: Schema.optional(ImmunityTimeProperty)});
-export const Rule = Schema.Struct({Name: Schema.String, Priority: Schema.Number, Statement: Statement, Action: Schema.optional(RuleAction), OverrideAction: Schema.optional(OverrideAction), RuleLabels: Schema.optional(Labels), VisibilityConfig: VisibilityConfig, CaptchaConfig: Schema.optional(CaptchaConfig), ChallengeConfig: Schema.optional(ChallengeConfig)});
+export class VisibilityConfig extends Schema.Class<VisibilityConfig>("VisibilityConfig")({SampledRequestsEnabled: Schema.Boolean, CloudWatchMetricsEnabled: Schema.Boolean, MetricName: Schema.String}) {}
+export class ImmunityTimeProperty extends Schema.Class<ImmunityTimeProperty>("ImmunityTimeProperty")({ImmunityTime: Schema.Number}) {}
+export class CaptchaConfig extends Schema.Class<CaptchaConfig>("CaptchaConfig")({ImmunityTimeProperty: Schema.optional(ImmunityTimeProperty)}) {}
+export class ChallengeConfig extends Schema.Class<ChallengeConfig>("ChallengeConfig")({ImmunityTimeProperty: Schema.optional(ImmunityTimeProperty)}) {}
+export class Rule extends Schema.Class<Rule>("Rule")({Name: Schema.String, Priority: Schema.Number, Statement: Statement, Action: Schema.optional(RuleAction), OverrideAction: Schema.optional(OverrideAction), RuleLabels: Schema.optional(Labels), VisibilityConfig: VisibilityConfig, CaptchaConfig: Schema.optional(CaptchaConfig), ChallengeConfig: Schema.optional(ChallengeConfig)}) {}
 export const Rules = Schema.Array(Rule);
-export const CustomResponseBody = Schema.Struct({ContentType: Schema.String, Content: Schema.String});
+export class CustomResponseBody extends Schema.Class<CustomResponseBody>("CustomResponseBody")({ContentType: Schema.String, Content: Schema.String}) {}
 export const CustomResponseBodies = Schema.Record({key: Schema.String, value: CustomResponseBody});
-export const UpdateRuleGroupRequest = Schema.Struct({Name: Schema.String, Scope: Schema.String, Id: Schema.String, Description: Schema.optional(Schema.String), Rules: Schema.optional(Rules), VisibilityConfig: VisibilityConfig, LockToken: Schema.String, CustomResponseBodies: Schema.optional(CustomResponseBodies)});
-export const DefaultAction = Schema.Struct({Block: Schema.optional(BlockAction), Allow: Schema.optional(AllowAction)});
+export class UpdateRuleGroupRequest extends Schema.Class<UpdateRuleGroupRequest>("UpdateRuleGroupRequest")({Name: Schema.String, Scope: Schema.String, Id: Schema.String, Description: Schema.optional(Schema.String), Rules: Schema.optional(Rules), VisibilityConfig: VisibilityConfig, LockToken: Schema.String, CustomResponseBodies: Schema.optional(CustomResponseBodies)}) {}
+export class DefaultAction extends Schema.Class<DefaultAction>("DefaultAction")({Block: Schema.optional(BlockAction), Allow: Schema.optional(AllowAction)}) {}
 export const FieldToProtectKeys = Schema.Array(Schema.String);
-export const FieldToProtect = Schema.Struct({FieldType: Schema.String, FieldKeys: Schema.optional(FieldToProtectKeys)});
-export const DataProtection = Schema.Struct({Field: FieldToProtect, Action: Schema.String, ExcludeRuleMatchDetails: Schema.optional(Schema.Boolean), ExcludeRateBasedDetails: Schema.optional(Schema.Boolean)});
+export class FieldToProtect extends Schema.Class<FieldToProtect>("FieldToProtect")({FieldType: Schema.String, FieldKeys: Schema.optional(FieldToProtectKeys)}) {}
+export class DataProtection extends Schema.Class<DataProtection>("DataProtection")({Field: FieldToProtect, Action: Schema.String, ExcludeRuleMatchDetails: Schema.optional(Schema.Boolean), ExcludeRateBasedDetails: Schema.optional(Schema.Boolean)}) {}
 export const DataProtections = Schema.Array(DataProtection);
-export const DataProtectionConfig = Schema.Struct({DataProtections: DataProtections});
-export const RequestBodyAssociatedResourceTypeConfig = Schema.Struct({DefaultSizeInspectionLimit: Schema.String});
+export class DataProtectionConfig extends Schema.Class<DataProtectionConfig>("DataProtectionConfig")({DataProtections: DataProtections}) {}
+export class RequestBodyAssociatedResourceTypeConfig extends Schema.Class<RequestBodyAssociatedResourceTypeConfig>("RequestBodyAssociatedResourceTypeConfig")({DefaultSizeInspectionLimit: Schema.String}) {}
 export const RequestBody = Schema.Record({key: Schema.String, value: RequestBodyAssociatedResourceTypeConfig});
-export const AssociationConfig = Schema.Struct({RequestBody: Schema.optional(RequestBody)});
-export const OnSourceDDoSProtectionConfig = Schema.Struct({ALBLowReputationMode: Schema.String});
+export class AssociationConfig extends Schema.Class<AssociationConfig>("AssociationConfig")({RequestBody: Schema.optional(RequestBody)}) {}
+export class OnSourceDDoSProtectionConfig extends Schema.Class<OnSourceDDoSProtectionConfig>("OnSourceDDoSProtectionConfig")({ALBLowReputationMode: Schema.String}) {}
 export const AttributeValues = Schema.Array(Schema.String);
-export const ApplicationAttribute = Schema.Struct({Name: Schema.optional(Schema.String), Values: Schema.optional(AttributeValues)});
+export class ApplicationAttribute extends Schema.Class<ApplicationAttribute>("ApplicationAttribute")({Name: Schema.optional(Schema.String), Values: Schema.optional(AttributeValues)}) {}
 export const ApplicationAttributes = Schema.Array(ApplicationAttribute);
-export const ApplicationConfig = Schema.Struct({Attributes: Schema.optional(ApplicationAttributes)});
-export const UpdateWebACLRequest = Schema.Struct({Name: Schema.String, Scope: Schema.String, Id: Schema.String, DefaultAction: DefaultAction, Description: Schema.optional(Schema.String), Rules: Schema.optional(Rules), VisibilityConfig: VisibilityConfig, DataProtectionConfig: Schema.optional(DataProtectionConfig), LockToken: Schema.String, CustomResponseBodies: Schema.optional(CustomResponseBodies), CaptchaConfig: Schema.optional(CaptchaConfig), ChallengeConfig: Schema.optional(ChallengeConfig), TokenDomains: Schema.optional(TokenDomains), AssociationConfig: Schema.optional(AssociationConfig), OnSourceDDoSProtectionConfig: Schema.optional(OnSourceDDoSProtectionConfig), ApplicationConfig: Schema.optional(ApplicationConfig)});
+export class ApplicationConfig extends Schema.Class<ApplicationConfig>("ApplicationConfig")({Attributes: Schema.optional(ApplicationAttributes)}) {}
+export class UpdateWebACLRequest extends Schema.Class<UpdateWebACLRequest>("UpdateWebACLRequest")({Name: Schema.String, Scope: Schema.String, Id: Schema.String, DefaultAction: DefaultAction, Description: Schema.optional(Schema.String), Rules: Schema.optional(Rules), VisibilityConfig: VisibilityConfig, DataProtectionConfig: Schema.optional(DataProtectionConfig), LockToken: Schema.String, CustomResponseBodies: Schema.optional(CustomResponseBodies), CaptchaConfig: Schema.optional(CaptchaConfig), ChallengeConfig: Schema.optional(ChallengeConfig), TokenDomains: Schema.optional(TokenDomains), AssociationConfig: Schema.optional(AssociationConfig), OnSourceDDoSProtectionConfig: Schema.optional(OnSourceDDoSProtectionConfig), ApplicationConfig: Schema.optional(ApplicationConfig)}) {}
 export const LogDestinationConfigs = Schema.Array(Schema.String);
-export const TimeWindow = Schema.Struct({StartTime: Schema.Date, EndTime: Schema.Date});
+export class TimeWindow extends Schema.Class<TimeWindow>("TimeWindow")({StartTime: Schema.Date, EndTime: Schema.Date}) {}
 export const RedactedFields = Schema.Array(FieldToMatch);
-export const ActionCondition = Schema.Struct({Action: Schema.String});
-export const LabelNameCondition = Schema.Struct({LabelName: Schema.String});
-export const Condition = Schema.Struct({ActionCondition: Schema.optional(ActionCondition), LabelNameCondition: Schema.optional(LabelNameCondition)});
+export class ActionCondition extends Schema.Class<ActionCondition>("ActionCondition")({Action: Schema.String}) {}
+export class LabelNameCondition extends Schema.Class<LabelNameCondition>("LabelNameCondition")({LabelName: Schema.String}) {}
+export class Condition extends Schema.Class<Condition>("Condition")({ActionCondition: Schema.optional(ActionCondition), LabelNameCondition: Schema.optional(LabelNameCondition)}) {}
 export const Conditions = Schema.Array(Condition);
-export const Filter = Schema.Struct({Behavior: Schema.String, Requirement: Schema.String, Conditions: Conditions});
+export class Filter extends Schema.Class<Filter>("Filter")({Behavior: Schema.String, Requirement: Schema.String, Conditions: Conditions}) {}
 export const Filters = Schema.Array(Filter);
-export const LoggingFilter = Schema.Struct({Filters: Filters, DefaultBehavior: Schema.String});
-export const LoggingConfiguration = Schema.Struct({ResourceArn: Schema.String, LogDestinationConfigs: LogDestinationConfigs, RedactedFields: Schema.optional(RedactedFields), ManagedByFirewallManager: Schema.optional(Schema.Boolean), LoggingFilter: Schema.optional(LoggingFilter), LogType: Schema.optional(Schema.String), LogScope: Schema.optional(Schema.String)});
+export class LoggingFilter extends Schema.Class<LoggingFilter>("LoggingFilter")({Filters: Filters, DefaultBehavior: Schema.String}) {}
+export class LoggingConfiguration extends Schema.Class<LoggingConfiguration>("LoggingConfiguration")({ResourceArn: Schema.String, LogDestinationConfigs: LogDestinationConfigs, RedactedFields: Schema.optional(RedactedFields), ManagedByFirewallManager: Schema.optional(Schema.Boolean), LoggingFilter: Schema.optional(LoggingFilter), LogType: Schema.optional(Schema.String), LogScope: Schema.optional(Schema.String)}) {}
 export const LoggingConfigurations = Schema.Array(LoggingConfiguration);
 export const ResourceArns = Schema.Array(Schema.String);
-export const WAFInternalErrorException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const CreateAPIKeyResponse = Schema.Struct({APIKey: Schema.optional(Schema.String)});
-export const CreateIPSetRequest = Schema.Struct({Name: Schema.String, Scope: Schema.String, Description: Schema.optional(Schema.String), IPAddressVersion: Schema.String, Addresses: IPAddresses, Tags: Schema.optional(TagList)});
-export const CreateRegexPatternSetRequest = Schema.Struct({Name: Schema.String, Scope: Schema.String, Description: Schema.optional(Schema.String), RegularExpressionList: RegularExpressionList, Tags: Schema.optional(TagList)});
-export const WAFInvalidOperationException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DeleteFirewallManagerRuleGroupsResponse = Schema.Struct({NextWebACLLockToken: Schema.optional(Schema.String)});
-export const WAFAssociatedItemException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const WAFInvalidParameterException = Schema.Struct({message: Schema.optional(Schema.String), Field: Schema.optional(Schema.String), Parameter: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String)});
-export const WAFNonexistentItemException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const WAFOptimisticLockException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const WAFTagOperationException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const WAFTagOperationInternalErrorException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ManagedProductDescriptor = Schema.Struct({VendorName: Schema.optional(Schema.String), ManagedRuleSetName: Schema.optional(Schema.String), ProductId: Schema.optional(Schema.String), ProductLink: Schema.optional(Schema.String), ProductTitle: Schema.optional(Schema.String), ProductDescription: Schema.optional(Schema.String), SnsTopicArn: Schema.optional(Schema.String), IsVersioningSupported: Schema.optional(Schema.Boolean), IsAdvancedManagedRuleSet: Schema.optional(Schema.Boolean)});
+export class CreateAPIKeyResponse extends Schema.Class<CreateAPIKeyResponse>("CreateAPIKeyResponse")({APIKey: Schema.optional(Schema.String)}) {}
+export class CreateIPSetRequest extends Schema.Class<CreateIPSetRequest>("CreateIPSetRequest")({Name: Schema.String, Scope: Schema.String, Description: Schema.optional(Schema.String), IPAddressVersion: Schema.String, Addresses: IPAddresses, Tags: Schema.optional(TagList)}) {}
+export class CreateRegexPatternSetRequest extends Schema.Class<CreateRegexPatternSetRequest>("CreateRegexPatternSetRequest")({Name: Schema.String, Scope: Schema.String, Description: Schema.optional(Schema.String), RegularExpressionList: RegularExpressionList, Tags: Schema.optional(TagList)}) {}
+export class WAFInternalErrorException extends Schema.Class<WAFInternalErrorException>("WAFInternalErrorException")({Message: Schema.optional(Schema.String)}) {}
+export class DeleteFirewallManagerRuleGroupsResponse extends Schema.Class<DeleteFirewallManagerRuleGroupsResponse>("DeleteFirewallManagerRuleGroupsResponse")({NextWebACLLockToken: Schema.optional(Schema.String)}) {}
+export class WAFAssociatedItemException extends Schema.Class<WAFAssociatedItemException>("WAFAssociatedItemException")({Message: Schema.optional(Schema.String)}) {}
+export class WAFInvalidOperationException extends Schema.Class<WAFInvalidOperationException>("WAFInvalidOperationException")({Message: Schema.optional(Schema.String)}) {}
+export class WAFInvalidParameterException extends Schema.Class<WAFInvalidParameterException>("WAFInvalidParameterException")({message: Schema.optional(Schema.String), Field: Schema.optional(Schema.String), Parameter: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String)}) {}
+export class WAFNonexistentItemException extends Schema.Class<WAFNonexistentItemException>("WAFNonexistentItemException")({Message: Schema.optional(Schema.String)}) {}
+export class WAFOptimisticLockException extends Schema.Class<WAFOptimisticLockException>("WAFOptimisticLockException")({Message: Schema.optional(Schema.String)}) {}
+export class WAFTagOperationException extends Schema.Class<WAFTagOperationException>("WAFTagOperationException")({Message: Schema.optional(Schema.String)}) {}
+export class ManagedProductDescriptor extends Schema.Class<ManagedProductDescriptor>("ManagedProductDescriptor")({VendorName: Schema.optional(Schema.String), ManagedRuleSetName: Schema.optional(Schema.String), ProductId: Schema.optional(Schema.String), ProductLink: Schema.optional(Schema.String), ProductTitle: Schema.optional(Schema.String), ProductDescription: Schema.optional(Schema.String), SnsTopicArn: Schema.optional(Schema.String), IsVersioningSupported: Schema.optional(Schema.Boolean), IsAdvancedManagedRuleSet: Schema.optional(Schema.Boolean)}) {}
 export const ManagedProductDescriptors = Schema.Array(ManagedProductDescriptor);
-export const DescribeManagedProductsByVendorResponse = Schema.Struct({ManagedProducts: Schema.optional(ManagedProductDescriptors)});
-export const GenerateMobileSdkReleaseUrlResponse = Schema.Struct({Url: Schema.optional(Schema.String)});
-export const GetDecryptedAPIKeyResponse = Schema.Struct({TokenDomains: Schema.optional(TokenDomains), CreationTimestamp: Schema.optional(Schema.Date)});
-export const GetLoggingConfigurationResponse = Schema.Struct({LoggingConfiguration: Schema.optional(LoggingConfiguration)});
-export const GetPermissionPolicyResponse = Schema.Struct({Policy: Schema.optional(Schema.String)});
-export const GetSampledRequestsRequest = Schema.Struct({WebAclArn: Schema.String, RuleMetricName: Schema.String, Scope: Schema.String, TimeWindow: TimeWindow, MaxItems: Schema.Number});
-export const FirewallManagerStatement = Schema.Struct({ManagedRuleGroupStatement: Schema.optional(ManagedRuleGroupStatement), RuleGroupReferenceStatement: Schema.optional(RuleGroupReferenceStatement)});
-export const FirewallManagerRuleGroup = Schema.Struct({Name: Schema.String, Priority: Schema.Number, FirewallManagerStatement: FirewallManagerStatement, OverrideAction: OverrideAction, VisibilityConfig: VisibilityConfig});
+export class DescribeManagedProductsByVendorResponse extends Schema.Class<DescribeManagedProductsByVendorResponse>("DescribeManagedProductsByVendorResponse")({ManagedProducts: Schema.optional(ManagedProductDescriptors)}) {}
+export class GenerateMobileSdkReleaseUrlResponse extends Schema.Class<GenerateMobileSdkReleaseUrlResponse>("GenerateMobileSdkReleaseUrlResponse")({Url: Schema.optional(Schema.String)}) {}
+export class GetDecryptedAPIKeyResponse extends Schema.Class<GetDecryptedAPIKeyResponse>("GetDecryptedAPIKeyResponse")({TokenDomains: Schema.optional(TokenDomains), CreationTimestamp: Schema.optional(Schema.Date)}) {}
+export class GetLoggingConfigurationResponse extends Schema.Class<GetLoggingConfigurationResponse>("GetLoggingConfigurationResponse")({LoggingConfiguration: Schema.optional(LoggingConfiguration)}) {}
+export class GetPermissionPolicyResponse extends Schema.Class<GetPermissionPolicyResponse>("GetPermissionPolicyResponse")({Policy: Schema.optional(Schema.String)}) {}
+export class GetSampledRequestsRequest extends Schema.Class<GetSampledRequestsRequest>("GetSampledRequestsRequest")({WebAclArn: Schema.String, RuleMetricName: Schema.String, Scope: Schema.String, TimeWindow: TimeWindow, MaxItems: Schema.Number}) {}
+export class UsernameField extends Schema.Class<UsernameField>("UsernameField")({Identifier: Schema.String}) {}
+export class PasswordField extends Schema.Class<PasswordField>("PasswordField")({Identifier: Schema.String}) {}
+export class AWSManagedRulesBotControlRuleSet extends Schema.Class<AWSManagedRulesBotControlRuleSet>("AWSManagedRulesBotControlRuleSet")({InspectionLevel: Schema.String, EnableMachineLearning: Schema.optional(Schema.Boolean)}) {}
+export class RequestInspection extends Schema.Class<RequestInspection>("RequestInspection")({PayloadType: Schema.String, UsernameField: UsernameField, PasswordField: PasswordField}) {}
+export const ResponseInspectionStatusCodeSuccessCodes = Schema.Array(Schema.Number);
+export const ResponseInspectionStatusCodeFailureCodes = Schema.Array(Schema.Number);
+export class ResponseInspectionStatusCode extends Schema.Class<ResponseInspectionStatusCode>("ResponseInspectionStatusCode")({SuccessCodes: ResponseInspectionStatusCodeSuccessCodes, FailureCodes: ResponseInspectionStatusCodeFailureCodes}) {}
+export const ResponseInspectionHeaderSuccessValues = Schema.Array(Schema.String);
+export const ResponseInspectionHeaderFailureValues = Schema.Array(Schema.String);
+export class ResponseInspectionHeader extends Schema.Class<ResponseInspectionHeader>("ResponseInspectionHeader")({Name: Schema.String, SuccessValues: ResponseInspectionHeaderSuccessValues, FailureValues: ResponseInspectionHeaderFailureValues}) {}
+export const ResponseInspectionBodyContainsSuccessStrings = Schema.Array(Schema.String);
+export const ResponseInspectionBodyContainsFailureStrings = Schema.Array(Schema.String);
+export class ResponseInspectionBodyContains extends Schema.Class<ResponseInspectionBodyContains>("ResponseInspectionBodyContains")({SuccessStrings: ResponseInspectionBodyContainsSuccessStrings, FailureStrings: ResponseInspectionBodyContainsFailureStrings}) {}
+export const ResponseInspectionJsonSuccessValues = Schema.Array(Schema.String);
+export const ResponseInspectionJsonFailureValues = Schema.Array(Schema.String);
+export class ResponseInspectionJson extends Schema.Class<ResponseInspectionJson>("ResponseInspectionJson")({Identifier: Schema.String, SuccessValues: ResponseInspectionJsonSuccessValues, FailureValues: ResponseInspectionJsonFailureValues}) {}
+export class ResponseInspection extends Schema.Class<ResponseInspection>("ResponseInspection")({StatusCode: Schema.optional(ResponseInspectionStatusCode), Header: Schema.optional(ResponseInspectionHeader), BodyContains: Schema.optional(ResponseInspectionBodyContains), Json: Schema.optional(ResponseInspectionJson)}) {}
+export class AWSManagedRulesATPRuleSet extends Schema.Class<AWSManagedRulesATPRuleSet>("AWSManagedRulesATPRuleSet")({LoginPath: Schema.String, RequestInspection: Schema.optional(RequestInspection), ResponseInspection: Schema.optional(ResponseInspection), EnableRegexInPath: Schema.optional(Schema.Boolean)}) {}
+export class EmailField extends Schema.Class<EmailField>("EmailField")({Identifier: Schema.String}) {}
+export class PhoneNumberField extends Schema.Class<PhoneNumberField>("PhoneNumberField")({Identifier: Schema.String}) {}
+export const PhoneNumberFields = Schema.Array(PhoneNumberField);
+export class AddressField extends Schema.Class<AddressField>("AddressField")({Identifier: Schema.String}) {}
+export const AddressFields = Schema.Array(AddressField);
+export class RequestInspectionACFP extends Schema.Class<RequestInspectionACFP>("RequestInspectionACFP")({PayloadType: Schema.String, UsernameField: Schema.optional(UsernameField), PasswordField: Schema.optional(PasswordField), EmailField: Schema.optional(EmailField), PhoneNumberFields: Schema.optional(PhoneNumberFields), AddressFields: Schema.optional(AddressFields)}) {}
+export class AWSManagedRulesACFPRuleSet extends Schema.Class<AWSManagedRulesACFPRuleSet>("AWSManagedRulesACFPRuleSet")({CreationPath: Schema.String, RegistrationPagePath: Schema.String, RequestInspection: RequestInspectionACFP, ResponseInspection: Schema.optional(ResponseInspection), EnableRegexInPath: Schema.optional(Schema.Boolean)}) {}
+export class ClientSideAction extends Schema.Class<ClientSideAction>("ClientSideAction")({UsageOfAction: Schema.String, Sensitivity: Schema.optional(Schema.String), ExemptUriRegularExpressions: Schema.optional(RegularExpressionList)}) {}
+export class ClientSideActionConfig extends Schema.Class<ClientSideActionConfig>("ClientSideActionConfig")({Challenge: ClientSideAction}) {}
+export class AWSManagedRulesAntiDDoSRuleSet extends Schema.Class<AWSManagedRulesAntiDDoSRuleSet>("AWSManagedRulesAntiDDoSRuleSet")({ClientSideActionConfig: ClientSideActionConfig, SensitivityToBlock: Schema.optional(Schema.String)}) {}
+export class ManagedRuleGroupConfig extends Schema.Class<ManagedRuleGroupConfig>("ManagedRuleGroupConfig")({LoginPath: Schema.optional(Schema.String), PayloadType: Schema.optional(Schema.String), UsernameField: Schema.optional(UsernameField), PasswordField: Schema.optional(PasswordField), AWSManagedRulesBotControlRuleSet: Schema.optional(AWSManagedRulesBotControlRuleSet), AWSManagedRulesATPRuleSet: Schema.optional(AWSManagedRulesATPRuleSet), AWSManagedRulesACFPRuleSet: Schema.optional(AWSManagedRulesACFPRuleSet), AWSManagedRulesAntiDDoSRuleSet: Schema.optional(AWSManagedRulesAntiDDoSRuleSet)}) {}
+export const ManagedRuleGroupConfigs = Schema.Array(ManagedRuleGroupConfig);
+export class ManagedRuleGroupStatement extends Schema.Class<ManagedRuleGroupStatement>("ManagedRuleGroupStatement")({VendorName: Schema.String, Name: Schema.String, Version: Schema.optional(Schema.String), ExcludedRules: Schema.optional(ExcludedRules), ScopeDownStatement: Schema.optional(Schema.suspend((): Schema.Schema<Statement> => Statement)), ManagedRuleGroupConfigs: Schema.optional(ManagedRuleGroupConfigs), RuleActionOverrides: Schema.optional(RuleActionOverrides)}) {}
+export class FirewallManagerStatement extends Schema.Class<FirewallManagerStatement>("FirewallManagerStatement")({ManagedRuleGroupStatement: Schema.optional(ManagedRuleGroupStatement), RuleGroupReferenceStatement: Schema.optional(RuleGroupReferenceStatement)}) {}
+export class FirewallManagerRuleGroup extends Schema.Class<FirewallManagerRuleGroup>("FirewallManagerRuleGroup")({Name: Schema.String, Priority: Schema.Number, FirewallManagerStatement: FirewallManagerStatement, OverrideAction: OverrideAction, VisibilityConfig: VisibilityConfig}) {}
 export const FirewallManagerRuleGroups = Schema.Array(FirewallManagerRuleGroup);
-export const WebACL = Schema.Struct({Name: Schema.String, Id: Schema.String, ARN: Schema.String, DefaultAction: DefaultAction, Description: Schema.optional(Schema.String), Rules: Schema.optional(Rules), VisibilityConfig: VisibilityConfig, DataProtectionConfig: Schema.optional(DataProtectionConfig), Capacity: Schema.optional(Schema.Number), PreProcessFirewallManagerRuleGroups: Schema.optional(FirewallManagerRuleGroups), PostProcessFirewallManagerRuleGroups: Schema.optional(FirewallManagerRuleGroups), ManagedByFirewallManager: Schema.optional(Schema.Boolean), LabelNamespace: Schema.optional(Schema.String), CustomResponseBodies: Schema.optional(CustomResponseBodies), CaptchaConfig: Schema.optional(CaptchaConfig), ChallengeConfig: Schema.optional(ChallengeConfig), TokenDomains: Schema.optional(TokenDomains), AssociationConfig: Schema.optional(AssociationConfig), RetrofittedByFirewallManager: Schema.optional(Schema.Boolean), OnSourceDDoSProtectionConfig: Schema.optional(OnSourceDDoSProtectionConfig), ApplicationConfig: Schema.optional(ApplicationConfig)});
-export const GetWebACLForResourceResponse = Schema.Struct({WebACL: Schema.optional(WebACL)});
-export const ListLoggingConfigurationsResponse = Schema.Struct({LoggingConfigurations: Schema.optional(LoggingConfigurations), NextMarker: Schema.optional(Schema.String)});
-export const ListResourcesForWebACLResponse = Schema.Struct({ResourceArns: Schema.optional(ResourceArns)});
-export const WAFInvalidPermissionPolicyException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const WAFLimitsExceededException = Schema.Struct({Message: Schema.optional(Schema.String), SourceType: Schema.optional(Schema.String)});
-export const UpdateIPSetResponse = Schema.Struct({NextLockToken: Schema.optional(Schema.String)});
-export const UpdateManagedRuleSetVersionExpiryDateResponse = Schema.Struct({ExpiringVersion: Schema.optional(Schema.String), ExpiryTimestamp: Schema.optional(Schema.Date), NextLockToken: Schema.optional(Schema.String)});
-export const UpdateRegexPatternSetResponse = Schema.Struct({NextLockToken: Schema.optional(Schema.String)});
-export const UpdateRuleGroupResponse = Schema.Struct({NextLockToken: Schema.optional(Schema.String)});
-export const UpdateWebACLResponse = Schema.Struct({NextLockToken: Schema.optional(Schema.String)});
-export const VersionToPublish = Schema.Struct({AssociatedRuleGroupArn: Schema.optional(Schema.String), ForecastedLifetime: Schema.optional(Schema.Number)});
-export const RuleSummary = Schema.Struct({Name: Schema.optional(Schema.String), Action: Schema.optional(RuleAction)});
+export class WebACL extends Schema.Class<WebACL>("WebACL")({Name: Schema.String, Id: Schema.String, ARN: Schema.String, DefaultAction: DefaultAction, Description: Schema.optional(Schema.String), Rules: Schema.optional(Rules), VisibilityConfig: VisibilityConfig, DataProtectionConfig: Schema.optional(DataProtectionConfig), Capacity: Schema.optional(Schema.Number), PreProcessFirewallManagerRuleGroups: Schema.optional(FirewallManagerRuleGroups), PostProcessFirewallManagerRuleGroups: Schema.optional(FirewallManagerRuleGroups), ManagedByFirewallManager: Schema.optional(Schema.Boolean), LabelNamespace: Schema.optional(Schema.String), CustomResponseBodies: Schema.optional(CustomResponseBodies), CaptchaConfig: Schema.optional(CaptchaConfig), ChallengeConfig: Schema.optional(ChallengeConfig), TokenDomains: Schema.optional(TokenDomains), AssociationConfig: Schema.optional(AssociationConfig), RetrofittedByFirewallManager: Schema.optional(Schema.Boolean), OnSourceDDoSProtectionConfig: Schema.optional(OnSourceDDoSProtectionConfig), ApplicationConfig: Schema.optional(ApplicationConfig)}) {}
+export class GetWebACLForResourceResponse extends Schema.Class<GetWebACLForResourceResponse>("GetWebACLForResourceResponse")({WebACL: Schema.optional(WebACL)}) {}
+export class ListLoggingConfigurationsResponse extends Schema.Class<ListLoggingConfigurationsResponse>("ListLoggingConfigurationsResponse")({LoggingConfigurations: Schema.optional(LoggingConfigurations), NextMarker: Schema.optional(Schema.String)}) {}
+export class ListResourcesForWebACLResponse extends Schema.Class<ListResourcesForWebACLResponse>("ListResourcesForWebACLResponse")({ResourceArns: Schema.optional(ResourceArns)}) {}
+export class WAFInvalidPermissionPolicyException extends Schema.Class<WAFInvalidPermissionPolicyException>("WAFInvalidPermissionPolicyException")({Message: Schema.optional(Schema.String)}) {}
+export class WAFLimitsExceededException extends Schema.Class<WAFLimitsExceededException>("WAFLimitsExceededException")({Message: Schema.optional(Schema.String), SourceType: Schema.optional(Schema.String)}) {}
+export class WAFTagOperationInternalErrorException extends Schema.Class<WAFTagOperationInternalErrorException>("WAFTagOperationInternalErrorException")({Message: Schema.optional(Schema.String)}) {}
+export class UpdateIPSetResponse extends Schema.Class<UpdateIPSetResponse>("UpdateIPSetResponse")({NextLockToken: Schema.optional(Schema.String)}) {}
+export class UpdateManagedRuleSetVersionExpiryDateResponse extends Schema.Class<UpdateManagedRuleSetVersionExpiryDateResponse>("UpdateManagedRuleSetVersionExpiryDateResponse")({ExpiringVersion: Schema.optional(Schema.String), ExpiryTimestamp: Schema.optional(Schema.Date), NextLockToken: Schema.optional(Schema.String)}) {}
+export class UpdateRegexPatternSetResponse extends Schema.Class<UpdateRegexPatternSetResponse>("UpdateRegexPatternSetResponse")({NextLockToken: Schema.optional(Schema.String)}) {}
+export class UpdateRuleGroupResponse extends Schema.Class<UpdateRuleGroupResponse>("UpdateRuleGroupResponse")({NextLockToken: Schema.optional(Schema.String)}) {}
+export class UpdateWebACLResponse extends Schema.Class<UpdateWebACLResponse>("UpdateWebACLResponse")({NextLockToken: Schema.optional(Schema.String)}) {}
+export class VersionToPublish extends Schema.Class<VersionToPublish>("VersionToPublish")({AssociatedRuleGroupArn: Schema.optional(Schema.String), ForecastedLifetime: Schema.optional(Schema.Number)}) {}
+export const Statements = Schema.Array(Schema.suspend((): Schema.Schema<Statement> => Statement));
+export class DisallowedFeature extends Schema.Class<DisallowedFeature>("DisallowedFeature")({Feature: Schema.optional(Schema.String), RequiredPricingPlan: Schema.optional(Schema.String)}) {}
+export const DisallowedFeatures = Schema.Array(DisallowedFeature);
+export class RuleSummary extends Schema.Class<RuleSummary>("RuleSummary")({Name: Schema.optional(Schema.String), Action: Schema.optional(RuleAction)}) {}
 export const RuleSummaries = Schema.Array(RuleSummary);
-export const LabelSummary = Schema.Struct({Name: Schema.optional(Schema.String)});
+export class LabelSummary extends Schema.Class<LabelSummary>("LabelSummary")({Name: Schema.optional(Schema.String)}) {}
 export const LabelSummaries = Schema.Array(LabelSummary);
-export const IPSet = Schema.Struct({Name: Schema.String, Id: Schema.String, ARN: Schema.String, Description: Schema.optional(Schema.String), IPAddressVersion: Schema.String, Addresses: IPAddresses});
-export const MobileSdkRelease = Schema.Struct({ReleaseVersion: Schema.optional(Schema.String), Timestamp: Schema.optional(Schema.Date), ReleaseNotes: Schema.optional(Schema.String), Tags: Schema.optional(TagList)});
-export const RateBasedStatementManagedKeysIPSet = Schema.Struct({IPAddressVersion: Schema.optional(Schema.String), Addresses: Schema.optional(IPAddresses)});
-export const RegexPatternSet = Schema.Struct({Name: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), ARN: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), RegularExpressionList: Schema.optional(RegularExpressionList)});
-export const RuleGroup = Schema.Struct({Name: Schema.String, Id: Schema.String, Capacity: Schema.Number, ARN: Schema.String, Description: Schema.optional(Schema.String), Rules: Schema.optional(Rules), VisibilityConfig: VisibilityConfig, LabelNamespace: Schema.optional(Schema.String), CustomResponseBodies: Schema.optional(CustomResponseBodies), AvailableLabels: Schema.optional(LabelSummaries), ConsumedLabels: Schema.optional(LabelSummaries)});
-export const APIKeySummary = Schema.Struct({TokenDomains: Schema.optional(TokenDomains), APIKey: Schema.optional(Schema.String), CreationTimestamp: Schema.optional(Schema.Date), Version: Schema.optional(Schema.Number)});
+export class IPSet extends Schema.Class<IPSet>("IPSet")({Name: Schema.String, Id: Schema.String, ARN: Schema.String, Description: Schema.optional(Schema.String), IPAddressVersion: Schema.String, Addresses: IPAddresses}) {}
+export class MobileSdkRelease extends Schema.Class<MobileSdkRelease>("MobileSdkRelease")({ReleaseVersion: Schema.optional(Schema.String), Timestamp: Schema.optional(Schema.Date), ReleaseNotes: Schema.optional(Schema.String), Tags: Schema.optional(TagList)}) {}
+export class RateBasedStatementManagedKeysIPSet extends Schema.Class<RateBasedStatementManagedKeysIPSet>("RateBasedStatementManagedKeysIPSet")({IPAddressVersion: Schema.optional(Schema.String), Addresses: Schema.optional(IPAddresses)}) {}
+export class RegexPatternSet extends Schema.Class<RegexPatternSet>("RegexPatternSet")({Name: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), ARN: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), RegularExpressionList: Schema.optional(RegularExpressionList)}) {}
+export class RuleGroup extends Schema.Class<RuleGroup>("RuleGroup")({Name: Schema.String, Id: Schema.String, Capacity: Schema.Number, ARN: Schema.String, Description: Schema.optional(Schema.String), Rules: Schema.optional(Rules), VisibilityConfig: VisibilityConfig, LabelNamespace: Schema.optional(Schema.String), CustomResponseBodies: Schema.optional(CustomResponseBodies), AvailableLabels: Schema.optional(LabelSummaries), ConsumedLabels: Schema.optional(LabelSummaries)}) {}
+export class APIKeySummary extends Schema.Class<APIKeySummary>("APIKeySummary")({TokenDomains: Schema.optional(TokenDomains), APIKey: Schema.optional(Schema.String), CreationTimestamp: Schema.optional(Schema.Date), Version: Schema.optional(Schema.Number)}) {}
 export const APIKeySummaries = Schema.Array(APIKeySummary);
-export const ManagedRuleGroupSummary = Schema.Struct({VendorName: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), VersioningSupported: Schema.optional(Schema.Boolean), Description: Schema.optional(Schema.String)});
+export class ManagedRuleGroupSummary extends Schema.Class<ManagedRuleGroupSummary>("ManagedRuleGroupSummary")({VendorName: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), VersioningSupported: Schema.optional(Schema.Boolean), Description: Schema.optional(Schema.String)}) {}
 export const ManagedRuleGroupSummaries = Schema.Array(ManagedRuleGroupSummary);
-export const ManagedRuleGroupVersion = Schema.Struct({Name: Schema.optional(Schema.String), LastUpdateTimestamp: Schema.optional(Schema.Date)});
+export class ManagedRuleGroupVersion extends Schema.Class<ManagedRuleGroupVersion>("ManagedRuleGroupVersion")({Name: Schema.optional(Schema.String), LastUpdateTimestamp: Schema.optional(Schema.Date)}) {}
 export const ManagedRuleGroupVersions = Schema.Array(ManagedRuleGroupVersion);
-export const IPSetSummary = Schema.Struct({Name: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), LockToken: Schema.optional(Schema.String), ARN: Schema.optional(Schema.String)});
+export class IPSetSummary extends Schema.Class<IPSetSummary>("IPSetSummary")({Name: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), LockToken: Schema.optional(Schema.String), ARN: Schema.optional(Schema.String)}) {}
 export const IPSetSummaries = Schema.Array(IPSetSummary);
-export const ManagedRuleSetSummary = Schema.Struct({Name: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), LockToken: Schema.optional(Schema.String), ARN: Schema.optional(Schema.String), LabelNamespace: Schema.optional(Schema.String)});
+export class ManagedRuleSetSummary extends Schema.Class<ManagedRuleSetSummary>("ManagedRuleSetSummary")({Name: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), LockToken: Schema.optional(Schema.String), ARN: Schema.optional(Schema.String), LabelNamespace: Schema.optional(Schema.String)}) {}
 export const ManagedRuleSetSummaries = Schema.Array(ManagedRuleSetSummary);
-export const ReleaseSummary = Schema.Struct({ReleaseVersion: Schema.optional(Schema.String), Timestamp: Schema.optional(Schema.Date)});
+export class ReleaseSummary extends Schema.Class<ReleaseSummary>("ReleaseSummary")({ReleaseVersion: Schema.optional(Schema.String), Timestamp: Schema.optional(Schema.Date)}) {}
 export const ReleaseSummaries = Schema.Array(ReleaseSummary);
-export const RegexPatternSetSummary = Schema.Struct({Name: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), LockToken: Schema.optional(Schema.String), ARN: Schema.optional(Schema.String)});
+export class RegexPatternSetSummary extends Schema.Class<RegexPatternSetSummary>("RegexPatternSetSummary")({Name: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), LockToken: Schema.optional(Schema.String), ARN: Schema.optional(Schema.String)}) {}
 export const RegexPatternSetSummaries = Schema.Array(RegexPatternSetSummary);
-export const RuleGroupSummary = Schema.Struct({Name: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), LockToken: Schema.optional(Schema.String), ARN: Schema.optional(Schema.String)});
+export class RuleGroupSummary extends Schema.Class<RuleGroupSummary>("RuleGroupSummary")({Name: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), LockToken: Schema.optional(Schema.String), ARN: Schema.optional(Schema.String)}) {}
 export const RuleGroupSummaries = Schema.Array(RuleGroupSummary);
-export const TagInfoForResource = Schema.Struct({ResourceARN: Schema.optional(Schema.String), TagList: Schema.optional(TagList)});
-export const WebACLSummary = Schema.Struct({Name: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), LockToken: Schema.optional(Schema.String), ARN: Schema.optional(Schema.String)});
+export class TagInfoForResource extends Schema.Class<TagInfoForResource>("TagInfoForResource")({ResourceARN: Schema.optional(Schema.String), TagList: Schema.optional(TagList)}) {}
+export class WebACLSummary extends Schema.Class<WebACLSummary>("WebACLSummary")({Name: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), LockToken: Schema.optional(Schema.String), ARN: Schema.optional(Schema.String)}) {}
 export const WebACLSummaries = Schema.Array(WebACLSummary);
 export const VersionsToPublish = Schema.Record({key: Schema.String, value: VersionToPublish});
-export const WAFUnavailableEntityException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const CreateIPSetResponse = Schema.Struct({Summary: Schema.optional(IPSetSummary)});
-export const CreateRegexPatternSetResponse = Schema.Struct({Summary: Schema.optional(RegexPatternSetSummary)});
-export const CreateRuleGroupRequest = Schema.Struct({Name: Schema.String, Scope: Schema.String, Capacity: Schema.Number, Description: Schema.optional(Schema.String), Rules: Schema.optional(Rules), VisibilityConfig: VisibilityConfig, Tags: Schema.optional(TagList), CustomResponseBodies: Schema.optional(CustomResponseBodies)});
-export const DescribeAllManagedProductsResponse = Schema.Struct({ManagedProducts: Schema.optional(ManagedProductDescriptors)});
-export const DescribeManagedRuleGroupResponse = Schema.Struct({VersionName: Schema.optional(Schema.String), SnsTopicArn: Schema.optional(Schema.String), Capacity: Schema.optional(Schema.Number), Rules: Schema.optional(RuleSummaries), LabelNamespace: Schema.optional(Schema.String), AvailableLabels: Schema.optional(LabelSummaries), ConsumedLabels: Schema.optional(LabelSummaries)});
-export const WAFInvalidResourceException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const GetIPSetResponse = Schema.Struct({IPSet: Schema.optional(IPSet), LockToken: Schema.optional(Schema.String)});
-export const GetMobileSdkReleaseResponse = Schema.Struct({MobileSdkRelease: Schema.optional(MobileSdkRelease)});
-export const GetRateBasedStatementManagedKeysResponse = Schema.Struct({ManagedKeysIPV4: Schema.optional(RateBasedStatementManagedKeysIPSet), ManagedKeysIPV6: Schema.optional(RateBasedStatementManagedKeysIPSet)});
-export const GetRegexPatternSetResponse = Schema.Struct({RegexPatternSet: Schema.optional(RegexPatternSet), LockToken: Schema.optional(Schema.String)});
-export const GetRuleGroupResponse = Schema.Struct({RuleGroup: Schema.optional(RuleGroup), LockToken: Schema.optional(Schema.String)});
-export const ListAPIKeysResponse = Schema.Struct({NextMarker: Schema.optional(Schema.String), APIKeySummaries: Schema.optional(APIKeySummaries), ApplicationIntegrationURL: Schema.optional(Schema.String)});
-export const ListAvailableManagedRuleGroupsResponse = Schema.Struct({NextMarker: Schema.optional(Schema.String), ManagedRuleGroups: Schema.optional(ManagedRuleGroupSummaries)});
-export const ListAvailableManagedRuleGroupVersionsResponse = Schema.Struct({NextMarker: Schema.optional(Schema.String), Versions: Schema.optional(ManagedRuleGroupVersions), CurrentDefaultVersion: Schema.optional(Schema.String)});
-export const ListIPSetsResponse = Schema.Struct({NextMarker: Schema.optional(Schema.String), IPSets: Schema.optional(IPSetSummaries)});
-export const ListManagedRuleSetsResponse = Schema.Struct({NextMarker: Schema.optional(Schema.String), ManagedRuleSets: Schema.optional(ManagedRuleSetSummaries)});
-export const ListMobileSdkReleasesResponse = Schema.Struct({ReleaseSummaries: Schema.optional(ReleaseSummaries), NextMarker: Schema.optional(Schema.String)});
-export const ListRegexPatternSetsResponse = Schema.Struct({NextMarker: Schema.optional(Schema.String), RegexPatternSets: Schema.optional(RegexPatternSetSummaries)});
-export const ListRuleGroupsResponse = Schema.Struct({NextMarker: Schema.optional(Schema.String), RuleGroups: Schema.optional(RuleGroupSummaries)});
-export const ListTagsForResourceResponse = Schema.Struct({NextMarker: Schema.optional(Schema.String), TagInfoForResource: Schema.optional(TagInfoForResource)});
-export const ListWebACLsResponse = Schema.Struct({NextMarker: Schema.optional(Schema.String), WebACLs: Schema.optional(WebACLSummaries)});
-export const PutManagedRuleSetVersionsRequest = Schema.Struct({Name: Schema.String, Scope: Schema.String, Id: Schema.String, LockToken: Schema.String, RecommendedVersion: Schema.optional(Schema.String), VersionsToPublish: Schema.optional(VersionsToPublish)});
-export const WAFDuplicateItemException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const WAFConfigurationWarningException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const WAFExpiredManagedRuleGroupVersionException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ManagedRuleSetVersion = Schema.Struct({AssociatedRuleGroupArn: Schema.optional(Schema.String), Capacity: Schema.optional(Schema.Number), ForecastedLifetime: Schema.optional(Schema.Number), PublishTimestamp: Schema.optional(Schema.Date), LastUpdateTimestamp: Schema.optional(Schema.Date), ExpiryTimestamp: Schema.optional(Schema.Date)});
-export const CreateRuleGroupResponse = Schema.Struct({Summary: Schema.optional(RuleGroupSummary)});
-export const WAFUnsupportedAggregateKeyTypeException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const PutManagedRuleSetVersionsResponse = Schema.Struct({NextLockToken: Schema.optional(Schema.String)});
-export const WAFSubscriptionNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
+export class AndStatement extends Schema.Class<AndStatement>("AndStatement")({Statements: Schema.suspend(() => Statements)}) {}
+export class OrStatement extends Schema.Class<OrStatement>("OrStatement")({Statements: Schema.suspend(() => Statements)}) {}
+export class NotStatement extends Schema.Class<NotStatement>("NotStatement")({Statement: Schema.suspend((): Schema.Schema<Statement> => Statement)}) {}
+export class WAFFeatureNotIncludedInPricingPlanException extends Schema.Class<WAFFeatureNotIncludedInPricingPlanException>("WAFFeatureNotIncludedInPricingPlanException")({Message: Schema.optional(Schema.String), DisallowedFeatures: Schema.optional(DisallowedFeatures)}) {}
+export class RateLimitHTTPMethod extends Schema.Class<RateLimitHTTPMethod>("RateLimitHTTPMethod")({}) {}
+export class RateLimitForwardedIP extends Schema.Class<RateLimitForwardedIP>("RateLimitForwardedIP")({}) {}
+export class RateLimitIP extends Schema.Class<RateLimitIP>("RateLimitIP")({}) {}
+export class RateLimitAsn extends Schema.Class<RateLimitAsn>("RateLimitAsn")({}) {}
+export class CreateIPSetResponse extends Schema.Class<CreateIPSetResponse>("CreateIPSetResponse")({Summary: Schema.optional(IPSetSummary)}) {}
+export class CreateRegexPatternSetResponse extends Schema.Class<CreateRegexPatternSetResponse>("CreateRegexPatternSetResponse")({Summary: Schema.optional(RegexPatternSetSummary)}) {}
+export class CreateRuleGroupRequest extends Schema.Class<CreateRuleGroupRequest>("CreateRuleGroupRequest")({Name: Schema.String, Scope: Schema.String, Capacity: Schema.Number, Description: Schema.optional(Schema.String), Rules: Schema.optional(Rules), VisibilityConfig: VisibilityConfig, Tags: Schema.optional(TagList), CustomResponseBodies: Schema.optional(CustomResponseBodies)}) {}
+export class DescribeAllManagedProductsResponse extends Schema.Class<DescribeAllManagedProductsResponse>("DescribeAllManagedProductsResponse")({ManagedProducts: Schema.optional(ManagedProductDescriptors)}) {}
+export class DescribeManagedRuleGroupResponse extends Schema.Class<DescribeManagedRuleGroupResponse>("DescribeManagedRuleGroupResponse")({VersionName: Schema.optional(Schema.String), SnsTopicArn: Schema.optional(Schema.String), Capacity: Schema.optional(Schema.Number), Rules: Schema.optional(RuleSummaries), LabelNamespace: Schema.optional(Schema.String), AvailableLabels: Schema.optional(LabelSummaries), ConsumedLabels: Schema.optional(LabelSummaries)}) {}
+export class WAFInvalidResourceException extends Schema.Class<WAFInvalidResourceException>("WAFInvalidResourceException")({Message: Schema.optional(Schema.String)}) {}
+export class GetIPSetResponse extends Schema.Class<GetIPSetResponse>("GetIPSetResponse")({IPSet: Schema.optional(IPSet), LockToken: Schema.optional(Schema.String)}) {}
+export class GetMobileSdkReleaseResponse extends Schema.Class<GetMobileSdkReleaseResponse>("GetMobileSdkReleaseResponse")({MobileSdkRelease: Schema.optional(MobileSdkRelease)}) {}
+export class GetRateBasedStatementManagedKeysResponse extends Schema.Class<GetRateBasedStatementManagedKeysResponse>("GetRateBasedStatementManagedKeysResponse")({ManagedKeysIPV4: Schema.optional(RateBasedStatementManagedKeysIPSet), ManagedKeysIPV6: Schema.optional(RateBasedStatementManagedKeysIPSet)}) {}
+export class GetRegexPatternSetResponse extends Schema.Class<GetRegexPatternSetResponse>("GetRegexPatternSetResponse")({RegexPatternSet: Schema.optional(RegexPatternSet), LockToken: Schema.optional(Schema.String)}) {}
+export class GetRuleGroupResponse extends Schema.Class<GetRuleGroupResponse>("GetRuleGroupResponse")({RuleGroup: Schema.optional(RuleGroup), LockToken: Schema.optional(Schema.String)}) {}
+export class WAFUnavailableEntityException extends Schema.Class<WAFUnavailableEntityException>("WAFUnavailableEntityException")({Message: Schema.optional(Schema.String)}) {}
+export class ListAPIKeysResponse extends Schema.Class<ListAPIKeysResponse>("ListAPIKeysResponse")({NextMarker: Schema.optional(Schema.String), APIKeySummaries: Schema.optional(APIKeySummaries), ApplicationIntegrationURL: Schema.optional(Schema.String)}) {}
+export class ListAvailableManagedRuleGroupsResponse extends Schema.Class<ListAvailableManagedRuleGroupsResponse>("ListAvailableManagedRuleGroupsResponse")({NextMarker: Schema.optional(Schema.String), ManagedRuleGroups: Schema.optional(ManagedRuleGroupSummaries)}) {}
+export class ListAvailableManagedRuleGroupVersionsResponse extends Schema.Class<ListAvailableManagedRuleGroupVersionsResponse>("ListAvailableManagedRuleGroupVersionsResponse")({NextMarker: Schema.optional(Schema.String), Versions: Schema.optional(ManagedRuleGroupVersions), CurrentDefaultVersion: Schema.optional(Schema.String)}) {}
+export class ListIPSetsResponse extends Schema.Class<ListIPSetsResponse>("ListIPSetsResponse")({NextMarker: Schema.optional(Schema.String), IPSets: Schema.optional(IPSetSummaries)}) {}
+export class ListManagedRuleSetsResponse extends Schema.Class<ListManagedRuleSetsResponse>("ListManagedRuleSetsResponse")({NextMarker: Schema.optional(Schema.String), ManagedRuleSets: Schema.optional(ManagedRuleSetSummaries)}) {}
+export class ListMobileSdkReleasesResponse extends Schema.Class<ListMobileSdkReleasesResponse>("ListMobileSdkReleasesResponse")({ReleaseSummaries: Schema.optional(ReleaseSummaries), NextMarker: Schema.optional(Schema.String)}) {}
+export class ListRegexPatternSetsResponse extends Schema.Class<ListRegexPatternSetsResponse>("ListRegexPatternSetsResponse")({NextMarker: Schema.optional(Schema.String), RegexPatternSets: Schema.optional(RegexPatternSetSummaries)}) {}
+export class ListRuleGroupsResponse extends Schema.Class<ListRuleGroupsResponse>("ListRuleGroupsResponse")({NextMarker: Schema.optional(Schema.String), RuleGroups: Schema.optional(RuleGroupSummaries)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({NextMarker: Schema.optional(Schema.String), TagInfoForResource: Schema.optional(TagInfoForResource)}) {}
+export class ListWebACLsResponse extends Schema.Class<ListWebACLsResponse>("ListWebACLsResponse")({NextMarker: Schema.optional(Schema.String), WebACLs: Schema.optional(WebACLSummaries)}) {}
+export class PutManagedRuleSetVersionsRequest extends Schema.Class<PutManagedRuleSetVersionsRequest>("PutManagedRuleSetVersionsRequest")({Name: Schema.String, Scope: Schema.String, Id: Schema.String, LockToken: Schema.String, RecommendedVersion: Schema.optional(Schema.String), VersionsToPublish: Schema.optional(VersionsToPublish)}) {}
+export class WAFDuplicateItemException extends Schema.Class<WAFDuplicateItemException>("WAFDuplicateItemException")({Message: Schema.optional(Schema.String)}) {}
+export class WAFConfigurationWarningException extends Schema.Class<WAFConfigurationWarningException>("WAFConfigurationWarningException")({Message: Schema.optional(Schema.String)}) {}
+export class WAFExpiredManagedRuleGroupVersionException extends Schema.Class<WAFExpiredManagedRuleGroupVersionException>("WAFExpiredManagedRuleGroupVersionException")({Message: Schema.optional(Schema.String)}) {}
+export class ManagedRuleSetVersion extends Schema.Class<ManagedRuleSetVersion>("ManagedRuleSetVersion")({AssociatedRuleGroupArn: Schema.optional(Schema.String), Capacity: Schema.optional(Schema.Number), ForecastedLifetime: Schema.optional(Schema.Number), PublishTimestamp: Schema.optional(Schema.Date), LastUpdateTimestamp: Schema.optional(Schema.Date), ExpiryTimestamp: Schema.optional(Schema.Date)}) {}
+export class RateLimitHeader extends Schema.Class<RateLimitHeader>("RateLimitHeader")({Name: Schema.String, TextTransformations: TextTransformations}) {}
+export class RateLimitCookie extends Schema.Class<RateLimitCookie>("RateLimitCookie")({Name: Schema.String, TextTransformations: TextTransformations}) {}
+export class RateLimitQueryArgument extends Schema.Class<RateLimitQueryArgument>("RateLimitQueryArgument")({Name: Schema.String, TextTransformations: TextTransformations}) {}
+export class RateLimitQueryString extends Schema.Class<RateLimitQueryString>("RateLimitQueryString")({TextTransformations: TextTransformations}) {}
+export class RateLimitLabelNamespace extends Schema.Class<RateLimitLabelNamespace>("RateLimitLabelNamespace")({Namespace: Schema.String}) {}
+export class RateLimitUriPath extends Schema.Class<RateLimitUriPath>("RateLimitUriPath")({TextTransformations: TextTransformations}) {}
+export class RateLimitJA3Fingerprint extends Schema.Class<RateLimitJA3Fingerprint>("RateLimitJA3Fingerprint")({FallbackBehavior: Schema.String}) {}
+export class RateLimitJA4Fingerprint extends Schema.Class<RateLimitJA4Fingerprint>("RateLimitJA4Fingerprint")({FallbackBehavior: Schema.String}) {}
+export class CreateRuleGroupResponse extends Schema.Class<CreateRuleGroupResponse>("CreateRuleGroupResponse")({Summary: Schema.optional(RuleGroupSummary)}) {}
+export class WAFUnsupportedAggregateKeyTypeException extends Schema.Class<WAFUnsupportedAggregateKeyTypeException>("WAFUnsupportedAggregateKeyTypeException")({Message: Schema.optional(Schema.String)}) {}
+export class PutManagedRuleSetVersionsResponse extends Schema.Class<PutManagedRuleSetVersionsResponse>("PutManagedRuleSetVersionsResponse")({NextLockToken: Schema.optional(Schema.String)}) {}
+export class WAFSubscriptionNotFoundException extends Schema.Class<WAFSubscriptionNotFoundException>("WAFSubscriptionNotFoundException")({Message: Schema.optional(Schema.String)}) {}
 export const PublishedVersions = Schema.Record({key: Schema.String, value: ManagedRuleSetVersion});
-export const HTTPHeader = Schema.Struct({Name: Schema.optional(Schema.String), Value: Schema.optional(Schema.String)});
+export class HTTPHeader extends Schema.Class<HTTPHeader>("HTTPHeader")({Name: Schema.optional(Schema.String), Value: Schema.optional(Schema.String)}) {}
 export const HTTPHeaders = Schema.Array(HTTPHeader);
-export const HTTPRequest = Schema.Struct({ClientIP: Schema.optional(Schema.String), Country: Schema.optional(Schema.String), URI: Schema.optional(Schema.String), Method: Schema.optional(Schema.String), HTTPVersion: Schema.optional(Schema.String), Headers: Schema.optional(HTTPHeaders)});
-export const CaptchaResponse = Schema.Struct({ResponseCode: Schema.optional(Schema.Number), SolveTimestamp: Schema.optional(Schema.Number), FailureReason: Schema.optional(Schema.String)});
-export const ChallengeResponse = Schema.Struct({ResponseCode: Schema.optional(Schema.Number), SolveTimestamp: Schema.optional(Schema.Number), FailureReason: Schema.optional(Schema.String)});
-export const ManagedRuleSet = Schema.Struct({Name: Schema.String, Id: Schema.String, ARN: Schema.String, Description: Schema.optional(Schema.String), PublishedVersions: Schema.optional(PublishedVersions), RecommendedVersion: Schema.optional(Schema.String), LabelNamespace: Schema.optional(Schema.String)});
-export const SampledHTTPRequest = Schema.Struct({Request: HTTPRequest, Weight: Schema.Number, Timestamp: Schema.optional(Schema.Date), Action: Schema.optional(Schema.String), RuleNameWithinRuleGroup: Schema.optional(Schema.String), RequestHeadersInserted: Schema.optional(HTTPHeaders), ResponseCodeSent: Schema.optional(Schema.Number), Labels: Schema.optional(Labels), CaptchaResponse: Schema.optional(CaptchaResponse), ChallengeResponse: Schema.optional(ChallengeResponse), OverriddenAction: Schema.optional(Schema.String)});
+export class HTTPRequest extends Schema.Class<HTTPRequest>("HTTPRequest")({ClientIP: Schema.optional(Schema.String), Country: Schema.optional(Schema.String), URI: Schema.optional(Schema.String), Method: Schema.optional(Schema.String), HTTPVersion: Schema.optional(Schema.String), Headers: Schema.optional(HTTPHeaders)}) {}
+export class CaptchaResponse extends Schema.Class<CaptchaResponse>("CaptchaResponse")({ResponseCode: Schema.optional(Schema.Number), SolveTimestamp: Schema.optional(Schema.Number), FailureReason: Schema.optional(Schema.String)}) {}
+export class ChallengeResponse extends Schema.Class<ChallengeResponse>("ChallengeResponse")({ResponseCode: Schema.optional(Schema.Number), SolveTimestamp: Schema.optional(Schema.Number), FailureReason: Schema.optional(Schema.String)}) {}
+export class RateBasedStatementCustomKey extends Schema.Class<RateBasedStatementCustomKey>("RateBasedStatementCustomKey")({Header: Schema.optional(RateLimitHeader), Cookie: Schema.optional(RateLimitCookie), QueryArgument: Schema.optional(RateLimitQueryArgument), QueryString: Schema.optional(RateLimitQueryString), HTTPMethod: Schema.optional(RateLimitHTTPMethod), ForwardedIP: Schema.optional(RateLimitForwardedIP), IP: Schema.optional(RateLimitIP), LabelNamespace: Schema.optional(RateLimitLabelNamespace), UriPath: Schema.optional(RateLimitUriPath), JA3Fingerprint: Schema.optional(RateLimitJA3Fingerprint), JA4Fingerprint: Schema.optional(RateLimitJA4Fingerprint), ASN: Schema.optional(RateLimitAsn)}) {}
+export const RateBasedStatementCustomKeys = Schema.Array(RateBasedStatementCustomKey);
+export class ManagedRuleSet extends Schema.Class<ManagedRuleSet>("ManagedRuleSet")({Name: Schema.String, Id: Schema.String, ARN: Schema.String, Description: Schema.optional(Schema.String), PublishedVersions: Schema.optional(PublishedVersions), RecommendedVersion: Schema.optional(Schema.String), LabelNamespace: Schema.optional(Schema.String)}) {}
+export class SampledHTTPRequest extends Schema.Class<SampledHTTPRequest>("SampledHTTPRequest")({Request: HTTPRequest, Weight: Schema.Number, Timestamp: Schema.optional(Schema.Date), Action: Schema.optional(Schema.String), RuleNameWithinRuleGroup: Schema.optional(Schema.String), RequestHeadersInserted: Schema.optional(HTTPHeaders), ResponseCodeSent: Schema.optional(Schema.Number), Labels: Schema.optional(Labels), CaptchaResponse: Schema.optional(CaptchaResponse), ChallengeResponse: Schema.optional(ChallengeResponse), OverriddenAction: Schema.optional(Schema.String)}) {}
 export const SampledHTTPRequests = Schema.Array(SampledHTTPRequest);
-export const CreateWebACLRequest = Schema.Struct({Name: Schema.String, Scope: Schema.String, DefaultAction: DefaultAction, Description: Schema.optional(Schema.String), Rules: Schema.optional(Rules), VisibilityConfig: VisibilityConfig, DataProtectionConfig: Schema.optional(DataProtectionConfig), Tags: Schema.optional(TagList), CustomResponseBodies: Schema.optional(CustomResponseBodies), CaptchaConfig: Schema.optional(CaptchaConfig), ChallengeConfig: Schema.optional(ChallengeConfig), TokenDomains: Schema.optional(TokenDomains), AssociationConfig: Schema.optional(AssociationConfig), OnSourceDDoSProtectionConfig: Schema.optional(OnSourceDDoSProtectionConfig), ApplicationConfig: Schema.optional(ApplicationConfig)});
-export const GetManagedRuleSetResponse = Schema.Struct({ManagedRuleSet: Schema.optional(ManagedRuleSet), LockToken: Schema.optional(Schema.String)});
-export const GetSampledRequestsResponse = Schema.Struct({SampledRequests: Schema.optional(SampledHTTPRequests), PopulationSize: Schema.optional(Schema.Number), TimeWindow: Schema.optional(TimeWindow)});
-export const GetWebACLResponse = Schema.Struct({WebACL: Schema.optional(WebACL), LockToken: Schema.optional(Schema.String), ApplicationIntegrationURL: Schema.optional(Schema.String)});
-export const CreateWebACLResponse = Schema.Struct({Summary: Schema.optional(WebACLSummary)});
-export const PutLoggingConfigurationRequest = Schema.Struct({LoggingConfiguration: LoggingConfiguration});
-export const PutLoggingConfigurationResponse = Schema.Struct({LoggingConfiguration: Schema.optional(LoggingConfiguration)});
-export const CheckCapacityRequest = Schema.Struct({Scope: Schema.String, Rules: Rules});
-export const WAFLogDestinationPermissionIssueException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const CheckCapacityResponse = Schema.Struct({Capacity: Schema.optional(Schema.Number)});
-export const WAFServiceLinkedRoleErrorException = Schema.Struct({message: Schema.optional(Schema.String)});
+export class RateBasedStatement extends Schema.Class<RateBasedStatement>("RateBasedStatement")({Limit: Schema.Number, EvaluationWindowSec: Schema.optional(Schema.Number), AggregateKeyType: Schema.String, ScopeDownStatement: Schema.optional(Schema.suspend((): Schema.Schema<Statement> => Statement)), ForwardedIPConfig: Schema.optional(ForwardedIPConfig), CustomKeys: Schema.optional(RateBasedStatementCustomKeys)}) {}
+export class CreateWebACLRequest extends Schema.Class<CreateWebACLRequest>("CreateWebACLRequest")({Name: Schema.String, Scope: Schema.String, DefaultAction: DefaultAction, Description: Schema.optional(Schema.String), Rules: Schema.optional(Rules), VisibilityConfig: VisibilityConfig, DataProtectionConfig: Schema.optional(DataProtectionConfig), Tags: Schema.optional(TagList), CustomResponseBodies: Schema.optional(CustomResponseBodies), CaptchaConfig: Schema.optional(CaptchaConfig), ChallengeConfig: Schema.optional(ChallengeConfig), TokenDomains: Schema.optional(TokenDomains), AssociationConfig: Schema.optional(AssociationConfig), OnSourceDDoSProtectionConfig: Schema.optional(OnSourceDDoSProtectionConfig), ApplicationConfig: Schema.optional(ApplicationConfig)}) {}
+export class GetManagedRuleSetResponse extends Schema.Class<GetManagedRuleSetResponse>("GetManagedRuleSetResponse")({ManagedRuleSet: Schema.optional(ManagedRuleSet), LockToken: Schema.optional(Schema.String)}) {}
+export class GetSampledRequestsResponse extends Schema.Class<GetSampledRequestsResponse>("GetSampledRequestsResponse")({SampledRequests: Schema.optional(SampledHTTPRequests), PopulationSize: Schema.optional(Schema.Number), TimeWindow: Schema.optional(TimeWindow)}) {}
+export class GetWebACLResponse extends Schema.Class<GetWebACLResponse>("GetWebACLResponse")({WebACL: Schema.optional(WebACL), LockToken: Schema.optional(Schema.String), ApplicationIntegrationURL: Schema.optional(Schema.String)}) {}
+export class CreateWebACLResponse extends Schema.Class<CreateWebACLResponse>("CreateWebACLResponse")({Summary: Schema.optional(WebACLSummary)}) {}
+export class PutLoggingConfigurationRequest extends Schema.Class<PutLoggingConfigurationRequest>("PutLoggingConfigurationRequest")({LoggingConfiguration: LoggingConfiguration}) {}
+export class PutLoggingConfigurationResponse extends Schema.Class<PutLoggingConfigurationResponse>("PutLoggingConfigurationResponse")({LoggingConfiguration: Schema.optional(LoggingConfiguration)}) {}
+export class CheckCapacityRequest extends Schema.Class<CheckCapacityRequest>("CheckCapacityRequest")({Scope: Schema.String, Rules: Rules}) {}
+export class WAFLogDestinationPermissionIssueException extends Schema.Class<WAFLogDestinationPermissionIssueException>("WAFLogDestinationPermissionIssueException")({Message: Schema.optional(Schema.String)}) {}
+export class CheckCapacityResponse extends Schema.Class<CheckCapacityResponse>("CheckCapacityResponse")({Capacity: Schema.optional(Schema.Number)}) {}
+export class WAFServiceLinkedRoleErrorException extends Schema.Class<WAFServiceLinkedRoleErrorException>("WAFServiceLinkedRoleErrorException")({message: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class WAFInternalErrorExceptionError extends Schema.TaggedError<WAFInternalErrorExceptionError>()("WAFInternalErrorException", WAFInternalErrorException) {};
-export class WAFInvalidOperationExceptionError extends Schema.TaggedError<WAFInvalidOperationExceptionError>()("WAFInvalidOperationException", WAFInvalidOperationException) {};
-export class WAFInvalidParameterExceptionError extends Schema.TaggedError<WAFInvalidParameterExceptionError>()("WAFInvalidParameterException", WAFInvalidParameterException) {};
-export class WAFAssociatedItemExceptionError extends Schema.TaggedError<WAFAssociatedItemExceptionError>()("WAFAssociatedItemException", WAFAssociatedItemException) {};
-export class WAFNonexistentItemExceptionError extends Schema.TaggedError<WAFNonexistentItemExceptionError>()("WAFNonexistentItemException", WAFNonexistentItemException) {};
-export class WAFOptimisticLockExceptionError extends Schema.TaggedError<WAFOptimisticLockExceptionError>()("WAFOptimisticLockException", WAFOptimisticLockException) {};
-export class WAFTagOperationExceptionError extends Schema.TaggedError<WAFTagOperationExceptionError>()("WAFTagOperationException", WAFTagOperationException) {};
-export class WAFTagOperationInternalErrorExceptionError extends Schema.TaggedError<WAFTagOperationInternalErrorExceptionError>()("WAFTagOperationInternalErrorException", WAFTagOperationInternalErrorException) {};
-export class WAFLimitsExceededExceptionError extends Schema.TaggedError<WAFLimitsExceededExceptionError>()("WAFLimitsExceededException", WAFLimitsExceededException) {};
-export class WAFUnavailableEntityExceptionError extends Schema.TaggedError<WAFUnavailableEntityExceptionError>()("WAFUnavailableEntityException", WAFUnavailableEntityException) {};
-export class WAFInvalidPermissionPolicyExceptionError extends Schema.TaggedError<WAFInvalidPermissionPolicyExceptionError>()("WAFInvalidPermissionPolicyException", WAFInvalidPermissionPolicyException) {};
-export class WAFDuplicateItemExceptionError extends Schema.TaggedError<WAFDuplicateItemExceptionError>()("WAFDuplicateItemException", WAFDuplicateItemException) {};
-export class WAFConfigurationWarningExceptionError extends Schema.TaggedError<WAFConfigurationWarningExceptionError>()("WAFConfigurationWarningException", WAFConfigurationWarningException) {};
-export class WAFExpiredManagedRuleGroupVersionExceptionError extends Schema.TaggedError<WAFExpiredManagedRuleGroupVersionExceptionError>()("WAFExpiredManagedRuleGroupVersionException", WAFExpiredManagedRuleGroupVersionException) {};
-export class WAFInvalidResourceExceptionError extends Schema.TaggedError<WAFInvalidResourceExceptionError>()("WAFInvalidResourceException", WAFInvalidResourceException) {};
-export class WAFSubscriptionNotFoundExceptionError extends Schema.TaggedError<WAFSubscriptionNotFoundExceptionError>()("WAFSubscriptionNotFoundException", WAFSubscriptionNotFoundException) {};
-export class WAFUnsupportedAggregateKeyTypeExceptionError extends Schema.TaggedError<WAFUnsupportedAggregateKeyTypeExceptionError>()("WAFUnsupportedAggregateKeyTypeException", WAFUnsupportedAggregateKeyTypeException) {};
-export class WAFLogDestinationPermissionIssueExceptionError extends Schema.TaggedError<WAFLogDestinationPermissionIssueExceptionError>()("WAFLogDestinationPermissionIssueException", WAFLogDestinationPermissionIssueException) {};
-export class WAFServiceLinkedRoleErrorExceptionError extends Schema.TaggedError<WAFServiceLinkedRoleErrorExceptionError>()("WAFServiceLinkedRoleErrorException", WAFServiceLinkedRoleErrorException) {};
+export class WAFInternalErrorExceptionError extends Schema.TaggedError<WAFInternalErrorExceptionError>()("WAFInternalErrorException", WAFInternalErrorException.fields) {};
+export class WAFAssociatedItemExceptionError extends Schema.TaggedError<WAFAssociatedItemExceptionError>()("WAFAssociatedItemException", WAFAssociatedItemException.fields) {};
+export class WAFInvalidOperationExceptionError extends Schema.TaggedError<WAFInvalidOperationExceptionError>()("WAFInvalidOperationException", WAFInvalidOperationException.fields) {};
+export class WAFInvalidParameterExceptionError extends Schema.TaggedError<WAFInvalidParameterExceptionError>()("WAFInvalidParameterException", WAFInvalidParameterException.fields) {};
+export class WAFNonexistentItemExceptionError extends Schema.TaggedError<WAFNonexistentItemExceptionError>()("WAFNonexistentItemException", WAFNonexistentItemException.fields) {};
+export class WAFOptimisticLockExceptionError extends Schema.TaggedError<WAFOptimisticLockExceptionError>()("WAFOptimisticLockException", WAFOptimisticLockException.fields) {};
+export class WAFTagOperationExceptionError extends Schema.TaggedError<WAFTagOperationExceptionError>()("WAFTagOperationException", WAFTagOperationException.fields) {};
+export class WAFLimitsExceededExceptionError extends Schema.TaggedError<WAFLimitsExceededExceptionError>()("WAFLimitsExceededException", WAFLimitsExceededException.fields) {};
+export class WAFTagOperationInternalErrorExceptionError extends Schema.TaggedError<WAFTagOperationInternalErrorExceptionError>()("WAFTagOperationInternalErrorException", WAFTagOperationInternalErrorException.fields) {};
+export class WAFInvalidPermissionPolicyExceptionError extends Schema.TaggedError<WAFInvalidPermissionPolicyExceptionError>()("WAFInvalidPermissionPolicyException", WAFInvalidPermissionPolicyException.fields) {};
+export class WAFDuplicateItemExceptionError extends Schema.TaggedError<WAFDuplicateItemExceptionError>()("WAFDuplicateItemException", WAFDuplicateItemException.fields) {};
+export class WAFConfigurationWarningExceptionError extends Schema.TaggedError<WAFConfigurationWarningExceptionError>()("WAFConfigurationWarningException", WAFConfigurationWarningException.fields) {};
+export class WAFFeatureNotIncludedInPricingPlanExceptionError extends Schema.TaggedError<WAFFeatureNotIncludedInPricingPlanExceptionError>()("WAFFeatureNotIncludedInPricingPlanException", WAFFeatureNotIncludedInPricingPlanException.fields) {};
+export class WAFUnavailableEntityExceptionError extends Schema.TaggedError<WAFUnavailableEntityExceptionError>()("WAFUnavailableEntityException", WAFUnavailableEntityException.fields) {};
+export class WAFExpiredManagedRuleGroupVersionExceptionError extends Schema.TaggedError<WAFExpiredManagedRuleGroupVersionExceptionError>()("WAFExpiredManagedRuleGroupVersionException", WAFExpiredManagedRuleGroupVersionException.fields) {};
+export class WAFInvalidResourceExceptionError extends Schema.TaggedError<WAFInvalidResourceExceptionError>()("WAFInvalidResourceException", WAFInvalidResourceException.fields) {};
+export class WAFSubscriptionNotFoundExceptionError extends Schema.TaggedError<WAFSubscriptionNotFoundExceptionError>()("WAFSubscriptionNotFoundException", WAFSubscriptionNotFoundException.fields) {};
+export class WAFUnsupportedAggregateKeyTypeExceptionError extends Schema.TaggedError<WAFUnsupportedAggregateKeyTypeExceptionError>()("WAFUnsupportedAggregateKeyTypeException", WAFUnsupportedAggregateKeyTypeException.fields) {};
+export class WAFLogDestinationPermissionIssueExceptionError extends Schema.TaggedError<WAFLogDestinationPermissionIssueExceptionError>()("WAFLogDestinationPermissionIssueException", WAFLogDestinationPermissionIssueException.fields) {};
+export class WAFServiceLinkedRoleErrorExceptionError extends Schema.TaggedError<WAFServiceLinkedRoleErrorExceptionError>()("WAFServiceLinkedRoleErrorException", WAFServiceLinkedRoleErrorException.fields) {};
 
 //# Operations
 export const disassociateWebACL = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-07-29", uri: "/", method: "POST", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.DisassociateWebACL" }, DisassociateWebACLRequest, DisassociateWebACLResponse, [WAFInternalErrorExceptionError, WAFInvalidOperationExceptionError, WAFInvalidParameterExceptionError, WAFNonexistentItemExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const untagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-07-29", uri: "/", method: "POST", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [WAFInternalErrorExceptionError, WAFInvalidOperationExceptionError, WAFInvalidParameterExceptionError, WAFNonexistentItemExceptionError, WAFTagOperationExceptionError, WAFTagOperationInternalErrorExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const createAPIKey = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-07-29", uri: "/", method: "POST", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.CreateAPIKey" }, CreateAPIKeyRequest, CreateAPIKeyResponse, [WAFInternalErrorExceptionError, WAFInvalidOperationExceptionError, WAFInvalidParameterExceptionError, WAFLimitsExceededExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const deleteAPIKey = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-07-29", uri: "/", method: "POST", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.DeleteAPIKey" }, DeleteAPIKeyRequest, DeleteAPIKeyResponse, [WAFInternalErrorExceptionError, WAFInvalidOperationExceptionError, WAFInvalidParameterExceptionError, WAFNonexistentItemExceptionError, WAFOptimisticLockExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const deleteFirewallManagerRuleGroups = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-07-29", uri: "/", method: "POST", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.DeleteFirewallManagerRuleGroups" }, DeleteFirewallManagerRuleGroupsRequest, DeleteFirewallManagerRuleGroupsResponse, [WAFInternalErrorExceptionError, WAFInvalidOperationExceptionError, WAFInvalidParameterExceptionError, WAFNonexistentItemExceptionError, WAFOptimisticLockExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -365,14 +368,14 @@ export const describeManagedProductsByVendor = /*#__PURE__*/ makeOperation(() =>
 export const generateMobileSdkReleaseUrl = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-07-29", uri: "/", method: "POST", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.GenerateMobileSdkReleaseUrl" }, GenerateMobileSdkReleaseUrlRequest, GenerateMobileSdkReleaseUrlResponse, [WAFInternalErrorExceptionError, WAFInvalidOperationExceptionError, WAFInvalidParameterExceptionError, WAFNonexistentItemExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const getLoggingConfiguration = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-07-29", uri: "/", method: "POST", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.GetLoggingConfiguration" }, GetLoggingConfigurationRequest, GetLoggingConfigurationResponse, [WAFInternalErrorExceptionError, WAFInvalidOperationExceptionError, WAFInvalidParameterExceptionError, WAFNonexistentItemExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const getPermissionPolicy = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-07-29", uri: "/", method: "POST", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.GetPermissionPolicy" }, GetPermissionPolicyRequest, GetPermissionPolicyResponse, [WAFInternalErrorExceptionError, WAFInvalidParameterExceptionError, WAFNonexistentItemExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getWebACLForResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-07-29", uri: "/", method: "POST", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.GetWebACLForResource" }, GetWebACLForResourceRequest, GetWebACLForResourceResponse, [WAFInternalErrorExceptionError, WAFInvalidOperationExceptionError, WAFInvalidParameterExceptionError, WAFNonexistentItemExceptionError, WAFUnavailableEntityExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const listLoggingConfigurations = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-07-29", uri: "/", method: "POST", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.ListLoggingConfigurations" }, ListLoggingConfigurationsRequest, ListLoggingConfigurationsResponse, [WAFInternalErrorExceptionError, WAFInvalidOperationExceptionError, WAFInvalidParameterExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const listResourcesForWebACL = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-07-29", uri: "/", method: "POST", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.ListResourcesForWebACL" }, ListResourcesForWebACLRequest, ListResourcesForWebACLResponse, [WAFInternalErrorExceptionError, WAFInvalidOperationExceptionError, WAFInvalidParameterExceptionError, WAFNonexistentItemExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const putPermissionPolicy = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-07-29", uri: "/", method: "POST", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.PutPermissionPolicy" }, PutPermissionPolicyRequest, PutPermissionPolicyResponse, [WAFInternalErrorExceptionError, WAFInvalidParameterExceptionError, WAFInvalidPermissionPolicyExceptionError, WAFNonexistentItemExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const tagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-07-29", uri: "/", method: "POST", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.TagResource" }, TagResourceRequest, TagResourceResponse, [WAFInternalErrorExceptionError, WAFInvalidOperationExceptionError, WAFInvalidParameterExceptionError, WAFLimitsExceededExceptionError, WAFNonexistentItemExceptionError, WAFTagOperationExceptionError, WAFTagOperationInternalErrorExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const untagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-07-29", uri: "/", method: "POST", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [WAFInternalErrorExceptionError, WAFInvalidOperationExceptionError, WAFInvalidParameterExceptionError, WAFNonexistentItemExceptionError, WAFTagOperationExceptionError, WAFTagOperationInternalErrorExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const updateManagedRuleSetVersionExpiryDate = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-07-29", uri: "/", method: "POST", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.UpdateManagedRuleSetVersionExpiryDate" }, UpdateManagedRuleSetVersionExpiryDateRequest, UpdateManagedRuleSetVersionExpiryDateResponse, [WAFInternalErrorExceptionError, WAFInvalidOperationExceptionError, WAFInvalidParameterExceptionError, WAFNonexistentItemExceptionError, WAFOptimisticLockExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const updateRegexPatternSet = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-07-29", uri: "/", method: "POST", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.UpdateRegexPatternSet" }, UpdateRegexPatternSetRequest, UpdateRegexPatternSetResponse, [WAFDuplicateItemExceptionError, WAFInternalErrorExceptionError, WAFInvalidOperationExceptionError, WAFInvalidParameterExceptionError, WAFLimitsExceededExceptionError, WAFNonexistentItemExceptionError, WAFOptimisticLockExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const associateWebACL = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-07-29", uri: "/", method: "POST", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.AssociateWebACL" }, AssociateWebACLRequest, AssociateWebACLResponse, [WAFInternalErrorExceptionError, WAFInvalidOperationExceptionError, WAFInvalidParameterExceptionError, WAFLimitsExceededExceptionError, WAFNonexistentItemExceptionError, WAFUnavailableEntityExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const associateWebACL = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-07-29", uri: "/", method: "POST", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.AssociateWebACL" }, AssociateWebACLRequest, AssociateWebACLResponse, [WAFFeatureNotIncludedInPricingPlanExceptionError, WAFInternalErrorExceptionError, WAFInvalidOperationExceptionError, WAFInvalidParameterExceptionError, WAFLimitsExceededExceptionError, WAFNonexistentItemExceptionError, WAFUnavailableEntityExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const createIPSet = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-07-29", uri: "/", method: "POST", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.CreateIPSet" }, CreateIPSetRequest, CreateIPSetResponse, [WAFDuplicateItemExceptionError, WAFInternalErrorExceptionError, WAFInvalidOperationExceptionError, WAFInvalidParameterExceptionError, WAFLimitsExceededExceptionError, WAFOptimisticLockExceptionError, WAFTagOperationExceptionError, WAFTagOperationInternalErrorExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const createRegexPatternSet = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-07-29", uri: "/", method: "POST", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.CreateRegexPatternSet" }, CreateRegexPatternSetRequest, CreateRegexPatternSetResponse, [WAFDuplicateItemExceptionError, WAFInternalErrorExceptionError, WAFInvalidOperationExceptionError, WAFInvalidParameterExceptionError, WAFLimitsExceededExceptionError, WAFOptimisticLockExceptionError, WAFTagOperationExceptionError, WAFTagOperationInternalErrorExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const describeAllManagedProducts = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-07-29", uri: "/", method: "POST", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.DescribeAllManagedProducts" }, DescribeAllManagedProductsRequest, DescribeAllManagedProductsResponse, [WAFInternalErrorExceptionError, WAFInvalidOperationExceptionError, WAFInvalidParameterExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -382,6 +385,7 @@ export const getIPSet = /*#__PURE__*/ makeOperation(() => Operation({ version: "
 export const getMobileSdkRelease = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-07-29", uri: "/", method: "POST", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.GetMobileSdkRelease" }, GetMobileSdkReleaseRequest, GetMobileSdkReleaseResponse, [WAFInternalErrorExceptionError, WAFInvalidOperationExceptionError, WAFInvalidParameterExceptionError, WAFNonexistentItemExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const getRegexPatternSet = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-07-29", uri: "/", method: "POST", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.GetRegexPatternSet" }, GetRegexPatternSetRequest, GetRegexPatternSetResponse, [WAFInternalErrorExceptionError, WAFInvalidOperationExceptionError, WAFInvalidParameterExceptionError, WAFNonexistentItemExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const getRuleGroup = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-07-29", uri: "/", method: "POST", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.GetRuleGroup" }, GetRuleGroupRequest, GetRuleGroupResponse, [WAFInternalErrorExceptionError, WAFInvalidOperationExceptionError, WAFInvalidParameterExceptionError, WAFNonexistentItemExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const getWebACLForResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-07-29", uri: "/", method: "POST", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.GetWebACLForResource" }, GetWebACLForResourceRequest, GetWebACLForResourceResponse, [WAFInternalErrorExceptionError, WAFInvalidOperationExceptionError, WAFInvalidParameterExceptionError, WAFNonexistentItemExceptionError, WAFUnavailableEntityExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const listAPIKeys = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-07-29", uri: "/", method: "POST", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.ListAPIKeys" }, ListAPIKeysRequest, ListAPIKeysResponse, [WAFInternalErrorExceptionError, WAFInvalidOperationExceptionError, WAFInvalidParameterExceptionError, WAFInvalidResourceExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const listAvailableManagedRuleGroups = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-07-29", uri: "/", method: "POST", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.ListAvailableManagedRuleGroups" }, ListAvailableManagedRuleGroupsRequest, ListAvailableManagedRuleGroupsResponse, [WAFInternalErrorExceptionError, WAFInvalidOperationExceptionError, WAFInvalidParameterExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const listAvailableManagedRuleGroupVersions = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-07-29", uri: "/", method: "POST", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.ListAvailableManagedRuleGroupVersions" }, ListAvailableManagedRuleGroupVersionsRequest, ListAvailableManagedRuleGroupVersionsResponse, [WAFInternalErrorExceptionError, WAFInvalidOperationExceptionError, WAFInvalidParameterExceptionError, WAFNonexistentItemExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -393,7 +397,7 @@ export const listRuleGroups = /*#__PURE__*/ makeOperation(() => Operation({ vers
 export const listTagsForResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-07-29", uri: "/", method: "POST", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [WAFInternalErrorExceptionError, WAFInvalidOperationExceptionError, WAFInvalidParameterExceptionError, WAFNonexistentItemExceptionError, WAFTagOperationExceptionError, WAFTagOperationInternalErrorExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const listWebACLs = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-07-29", uri: "/", method: "POST", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.ListWebACLs" }, ListWebACLsRequest, ListWebACLsResponse, [WAFInternalErrorExceptionError, WAFInvalidOperationExceptionError, WAFInvalidParameterExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const updateIPSet = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-07-29", uri: "/", method: "POST", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.UpdateIPSet" }, UpdateIPSetRequest, UpdateIPSetResponse, [WAFDuplicateItemExceptionError, WAFInternalErrorExceptionError, WAFInvalidOperationExceptionError, WAFInvalidParameterExceptionError, WAFLimitsExceededExceptionError, WAFNonexistentItemExceptionError, WAFOptimisticLockExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateWebACL = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-07-29", uri: "/", method: "POST", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.UpdateWebACL" }, UpdateWebACLRequest, UpdateWebACLResponse, [WAFConfigurationWarningExceptionError, WAFDuplicateItemExceptionError, WAFExpiredManagedRuleGroupVersionExceptionError, WAFInternalErrorExceptionError, WAFInvalidOperationExceptionError, WAFInvalidParameterExceptionError, WAFInvalidResourceExceptionError, WAFLimitsExceededExceptionError, WAFNonexistentItemExceptionError, WAFOptimisticLockExceptionError, WAFSubscriptionNotFoundExceptionError, WAFUnavailableEntityExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const updateWebACL = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-07-29", uri: "/", method: "POST", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.UpdateWebACL" }, UpdateWebACLRequest, UpdateWebACLResponse, [WAFConfigurationWarningExceptionError, WAFDuplicateItemExceptionError, WAFExpiredManagedRuleGroupVersionExceptionError, WAFFeatureNotIncludedInPricingPlanExceptionError, WAFInternalErrorExceptionError, WAFInvalidOperationExceptionError, WAFInvalidParameterExceptionError, WAFInvalidResourceExceptionError, WAFLimitsExceededExceptionError, WAFNonexistentItemExceptionError, WAFOptimisticLockExceptionError, WAFSubscriptionNotFoundExceptionError, WAFUnavailableEntityExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const createRuleGroup = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-07-29", uri: "/", method: "POST", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.CreateRuleGroup" }, CreateRuleGroupRequest, CreateRuleGroupResponse, [WAFDuplicateItemExceptionError, WAFInternalErrorExceptionError, WAFInvalidOperationExceptionError, WAFInvalidParameterExceptionError, WAFLimitsExceededExceptionError, WAFNonexistentItemExceptionError, WAFOptimisticLockExceptionError, WAFSubscriptionNotFoundExceptionError, WAFTagOperationExceptionError, WAFTagOperationInternalErrorExceptionError, WAFUnavailableEntityExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const getRateBasedStatementManagedKeys = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-07-29", uri: "/", method: "POST", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.GetRateBasedStatementManagedKeys" }, GetRateBasedStatementManagedKeysRequest, GetRateBasedStatementManagedKeysResponse, [WAFInternalErrorExceptionError, WAFInvalidOperationExceptionError, WAFInvalidParameterExceptionError, WAFNonexistentItemExceptionError, WAFUnsupportedAggregateKeyTypeExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const putManagedRuleSetVersions = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-07-29", uri: "/", method: "POST", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.PutManagedRuleSetVersions" }, PutManagedRuleSetVersionsRequest, PutManagedRuleSetVersionsResponse, [WAFInternalErrorExceptionError, WAFInvalidOperationExceptionError, WAFInvalidParameterExceptionError, WAFNonexistentItemExceptionError, WAFOptimisticLockExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -403,4 +407,4 @@ export const getSampledRequests = /*#__PURE__*/ makeOperation(() => Operation({ 
 export const getWebACL = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-07-29", uri: "/", method: "POST", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.GetWebACL" }, GetWebACLRequest, GetWebACLResponse, [WAFInternalErrorExceptionError, WAFInvalidOperationExceptionError, WAFInvalidParameterExceptionError, WAFNonexistentItemExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const createWebACL = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-07-29", uri: "/", method: "POST", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.CreateWebACL" }, CreateWebACLRequest, CreateWebACLResponse, [WAFConfigurationWarningExceptionError, WAFDuplicateItemExceptionError, WAFExpiredManagedRuleGroupVersionExceptionError, WAFInternalErrorExceptionError, WAFInvalidOperationExceptionError, WAFInvalidParameterExceptionError, WAFInvalidResourceExceptionError, WAFLimitsExceededExceptionError, WAFNonexistentItemExceptionError, WAFOptimisticLockExceptionError, WAFSubscriptionNotFoundExceptionError, WAFTagOperationExceptionError, WAFTagOperationInternalErrorExceptionError, WAFUnavailableEntityExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const checkCapacity = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-07-29", uri: "/", method: "POST", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.CheckCapacity" }, CheckCapacityRequest, CheckCapacityResponse, [WAFExpiredManagedRuleGroupVersionExceptionError, WAFInternalErrorExceptionError, WAFInvalidOperationExceptionError, WAFInvalidParameterExceptionError, WAFInvalidResourceExceptionError, WAFLimitsExceededExceptionError, WAFNonexistentItemExceptionError, WAFSubscriptionNotFoundExceptionError, WAFUnavailableEntityExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const putLoggingConfiguration = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-07-29", uri: "/", method: "POST", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.PutLoggingConfiguration" }, PutLoggingConfigurationRequest, PutLoggingConfigurationResponse, [WAFInternalErrorExceptionError, WAFInvalidOperationExceptionError, WAFInvalidParameterExceptionError, WAFLimitsExceededExceptionError, WAFLogDestinationPermissionIssueExceptionError, WAFNonexistentItemExceptionError, WAFOptimisticLockExceptionError, WAFServiceLinkedRoleErrorExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const putLoggingConfiguration = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-07-29", uri: "/", method: "POST", sdkId: "WAFV2", sigV4ServiceName: "wafv2", name: "AWSWAF_20190729.PutLoggingConfiguration" }, PutLoggingConfigurationRequest, PutLoggingConfigurationResponse, [WAFFeatureNotIncludedInPricingPlanExceptionError, WAFInternalErrorExceptionError, WAFInvalidOperationExceptionError, WAFInvalidParameterExceptionError, WAFLimitsExceededExceptionError, WAFLogDestinationPermissionIssueExceptionError, WAFNonexistentItemExceptionError, WAFOptimisticLockExceptionError, WAFServiceLinkedRoleErrorExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

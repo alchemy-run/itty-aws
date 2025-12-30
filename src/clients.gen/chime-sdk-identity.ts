@@ -4,105 +4,105 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 
 //# Schemas
 export const TagKeyList = Schema.Array(Schema.String);
-export const CreateAppInstanceAdminRequest = Schema.Struct({AppInstanceAdminArn: Schema.String, AppInstanceArn: Schema.String});
-export const DeleteAppInstanceRequest = Schema.Struct({AppInstanceArn: Schema.String});
-export const DeleteAppInstanceAdminRequest = Schema.Struct({AppInstanceAdminArn: Schema.String, AppInstanceArn: Schema.String});
-export const DeleteAppInstanceBotRequest = Schema.Struct({AppInstanceBotArn: Schema.String});
-export const DeleteAppInstanceUserRequest = Schema.Struct({AppInstanceUserArn: Schema.String});
-export const DeregisterAppInstanceUserEndpointRequest = Schema.Struct({AppInstanceUserArn: Schema.String, EndpointId: Schema.String});
-export const DescribeAppInstanceRequest = Schema.Struct({AppInstanceArn: Schema.String});
-export const DescribeAppInstanceAdminRequest = Schema.Struct({AppInstanceAdminArn: Schema.String, AppInstanceArn: Schema.String});
-export const DescribeAppInstanceBotRequest = Schema.Struct({AppInstanceBotArn: Schema.String});
-export const DescribeAppInstanceUserRequest = Schema.Struct({AppInstanceUserArn: Schema.String});
-export const DescribeAppInstanceUserEndpointRequest = Schema.Struct({AppInstanceUserArn: Schema.String, EndpointId: Schema.String});
-export const GetAppInstanceRetentionSettingsRequest = Schema.Struct({AppInstanceArn: Schema.String});
-export const ListAppInstanceAdminsRequest = Schema.Struct({AppInstanceArn: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListAppInstanceBotsRequest = Schema.Struct({AppInstanceArn: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListAppInstancesRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListAppInstanceUserEndpointsRequest = Schema.Struct({AppInstanceUserArn: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListAppInstanceUsersRequest = Schema.Struct({AppInstanceArn: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceRequest = Schema.Struct({ResourceARN: Schema.String});
-export const ExpirationSettings = Schema.Struct({ExpirationDays: Schema.Number, ExpirationCriterion: Schema.String});
-export const PutAppInstanceUserExpirationSettingsRequest = Schema.Struct({AppInstanceUserArn: Schema.String, ExpirationSettings: Schema.optional(ExpirationSettings)});
-export const Tag = Schema.Struct({Key: Schema.String, Value: Schema.String});
+export class CreateAppInstanceAdminRequest extends Schema.Class<CreateAppInstanceAdminRequest>("CreateAppInstanceAdminRequest")({AppInstanceAdminArn: Schema.String, AppInstanceArn: Schema.String}) {}
+export class DeleteAppInstanceRequest extends Schema.Class<DeleteAppInstanceRequest>("DeleteAppInstanceRequest")({AppInstanceArn: Schema.String}) {}
+export class DeleteAppInstanceAdminRequest extends Schema.Class<DeleteAppInstanceAdminRequest>("DeleteAppInstanceAdminRequest")({AppInstanceAdminArn: Schema.String, AppInstanceArn: Schema.String}) {}
+export class DeleteAppInstanceBotRequest extends Schema.Class<DeleteAppInstanceBotRequest>("DeleteAppInstanceBotRequest")({AppInstanceBotArn: Schema.String}) {}
+export class DeleteAppInstanceUserRequest extends Schema.Class<DeleteAppInstanceUserRequest>("DeleteAppInstanceUserRequest")({AppInstanceUserArn: Schema.String}) {}
+export class DeregisterAppInstanceUserEndpointRequest extends Schema.Class<DeregisterAppInstanceUserEndpointRequest>("DeregisterAppInstanceUserEndpointRequest")({AppInstanceUserArn: Schema.String, EndpointId: Schema.String}) {}
+export class DescribeAppInstanceRequest extends Schema.Class<DescribeAppInstanceRequest>("DescribeAppInstanceRequest")({AppInstanceArn: Schema.String}) {}
+export class DescribeAppInstanceAdminRequest extends Schema.Class<DescribeAppInstanceAdminRequest>("DescribeAppInstanceAdminRequest")({AppInstanceAdminArn: Schema.String, AppInstanceArn: Schema.String}) {}
+export class DescribeAppInstanceBotRequest extends Schema.Class<DescribeAppInstanceBotRequest>("DescribeAppInstanceBotRequest")({AppInstanceBotArn: Schema.String}) {}
+export class DescribeAppInstanceUserRequest extends Schema.Class<DescribeAppInstanceUserRequest>("DescribeAppInstanceUserRequest")({AppInstanceUserArn: Schema.String}) {}
+export class DescribeAppInstanceUserEndpointRequest extends Schema.Class<DescribeAppInstanceUserEndpointRequest>("DescribeAppInstanceUserEndpointRequest")({AppInstanceUserArn: Schema.String, EndpointId: Schema.String}) {}
+export class GetAppInstanceRetentionSettingsRequest extends Schema.Class<GetAppInstanceRetentionSettingsRequest>("GetAppInstanceRetentionSettingsRequest")({AppInstanceArn: Schema.String}) {}
+export class ListAppInstanceAdminsRequest extends Schema.Class<ListAppInstanceAdminsRequest>("ListAppInstanceAdminsRequest")({AppInstanceArn: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListAppInstanceBotsRequest extends Schema.Class<ListAppInstanceBotsRequest>("ListAppInstanceBotsRequest")({AppInstanceArn: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListAppInstancesRequest extends Schema.Class<ListAppInstancesRequest>("ListAppInstancesRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListAppInstanceUserEndpointsRequest extends Schema.Class<ListAppInstanceUserEndpointsRequest>("ListAppInstanceUserEndpointsRequest")({AppInstanceUserArn: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListAppInstanceUsersRequest extends Schema.Class<ListAppInstanceUsersRequest>("ListAppInstanceUsersRequest")({AppInstanceArn: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({ResourceARN: Schema.String}) {}
+export class ExpirationSettings extends Schema.Class<ExpirationSettings>("ExpirationSettings")({ExpirationDays: Schema.Number, ExpirationCriterion: Schema.String}) {}
+export class PutAppInstanceUserExpirationSettingsRequest extends Schema.Class<PutAppInstanceUserExpirationSettingsRequest>("PutAppInstanceUserExpirationSettingsRequest")({AppInstanceUserArn: Schema.String, ExpirationSettings: Schema.optional(ExpirationSettings)}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.String, Value: Schema.String}) {}
 export const TagList = Schema.Array(Tag);
-export const TagResourceRequest = Schema.Struct({ResourceARN: Schema.String, Tags: TagList});
-export const UntagResourceRequest = Schema.Struct({ResourceARN: Schema.String, TagKeys: TagKeyList});
-export const UpdateAppInstanceRequest = Schema.Struct({AppInstanceArn: Schema.String, Name: Schema.String, Metadata: Schema.String});
-export const InvokedBy = Schema.Struct({StandardMessages: Schema.String, TargetedMessages: Schema.String});
-export const LexConfiguration = Schema.Struct({RespondsTo: Schema.optional(Schema.String), InvokedBy: Schema.optional(InvokedBy), LexBotAliasArn: Schema.String, LocaleId: Schema.String, WelcomeIntent: Schema.optional(Schema.String)});
-export const Configuration = Schema.Struct({Lex: LexConfiguration});
-export const UpdateAppInstanceBotRequest = Schema.Struct({AppInstanceBotArn: Schema.String, Name: Schema.String, Metadata: Schema.String, Configuration: Schema.optional(Configuration)});
-export const UpdateAppInstanceUserRequest = Schema.Struct({AppInstanceUserArn: Schema.String, Name: Schema.String, Metadata: Schema.String});
-export const UpdateAppInstanceUserEndpointRequest = Schema.Struct({AppInstanceUserArn: Schema.String, EndpointId: Schema.String, Name: Schema.optional(Schema.String), AllowMessages: Schema.optional(Schema.String)});
-export const EndpointAttributes = Schema.Struct({DeviceToken: Schema.String, VoipDeviceToken: Schema.optional(Schema.String)});
-export const CreateAppInstanceRequest = Schema.Struct({Name: Schema.String, Metadata: Schema.optional(Schema.String), ClientRequestToken: Schema.String, Tags: Schema.optional(TagList)});
-export const CreateAppInstanceUserRequest = Schema.Struct({AppInstanceArn: Schema.String, AppInstanceUserId: Schema.String, Name: Schema.String, Metadata: Schema.optional(Schema.String), ClientRequestToken: Schema.String, Tags: Schema.optional(TagList), ExpirationSettings: Schema.optional(ExpirationSettings)});
-export const BadRequestException = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
-export const ConflictException = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
-export const ForbiddenException = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
-export const ResourceLimitExceededException = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
-export const ServiceFailureException = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
-export const ChannelRetentionSettings = Schema.Struct({RetentionDays: Schema.optional(Schema.Number)});
-export const AppInstanceRetentionSettings = Schema.Struct({ChannelRetentionSettings: Schema.optional(ChannelRetentionSettings)});
-export const GetAppInstanceRetentionSettingsResponse = Schema.Struct({AppInstanceRetentionSettings: Schema.optional(AppInstanceRetentionSettings), InitiateDeletionTimestamp: Schema.optional(Schema.Date)});
-export const ListTagsForResourceResponse = Schema.Struct({Tags: Schema.optional(TagList)});
-export const PutAppInstanceUserExpirationSettingsResponse = Schema.Struct({AppInstanceUserArn: Schema.optional(Schema.String), ExpirationSettings: Schema.optional(ExpirationSettings)});
-export const RegisterAppInstanceUserEndpointRequest = Schema.Struct({AppInstanceUserArn: Schema.String, Name: Schema.optional(Schema.String), Type: Schema.String, ResourceArn: Schema.String, EndpointAttributes: EndpointAttributes, ClientRequestToken: Schema.String, AllowMessages: Schema.optional(Schema.String)});
-export const ServiceUnavailableException = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
-export const ThrottledClientException = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
-export const UpdateAppInstanceResponse = Schema.Struct({AppInstanceArn: Schema.optional(Schema.String)});
-export const UpdateAppInstanceBotResponse = Schema.Struct({AppInstanceBotArn: Schema.optional(Schema.String)});
-export const UpdateAppInstanceUserResponse = Schema.Struct({AppInstanceUserArn: Schema.optional(Schema.String)});
-export const UpdateAppInstanceUserEndpointResponse = Schema.Struct({AppInstanceUserArn: Schema.optional(Schema.String), EndpointId: Schema.optional(Schema.String)});
-export const Identity = Schema.Struct({Arn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String)});
-export const AppInstance = Schema.Struct({AppInstanceArn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), CreatedTimestamp: Schema.optional(Schema.Date), LastUpdatedTimestamp: Schema.optional(Schema.Date), Metadata: Schema.optional(Schema.String)});
-export const AppInstanceAdmin = Schema.Struct({Admin: Schema.optional(Identity), AppInstanceArn: Schema.optional(Schema.String), CreatedTimestamp: Schema.optional(Schema.Date)});
-export const AppInstanceBot = Schema.Struct({AppInstanceBotArn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Configuration: Schema.optional(Configuration), CreatedTimestamp: Schema.optional(Schema.Date), LastUpdatedTimestamp: Schema.optional(Schema.Date), Metadata: Schema.optional(Schema.String)});
-export const AppInstanceUser = Schema.Struct({AppInstanceUserArn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Metadata: Schema.optional(Schema.String), CreatedTimestamp: Schema.optional(Schema.Date), LastUpdatedTimestamp: Schema.optional(Schema.Date), ExpirationSettings: Schema.optional(ExpirationSettings)});
-export const AppInstanceAdminSummary = Schema.Struct({Admin: Schema.optional(Identity)});
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({ResourceARN: Schema.String, Tags: TagList}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({ResourceARN: Schema.String, TagKeys: TagKeyList}) {}
+export class UpdateAppInstanceRequest extends Schema.Class<UpdateAppInstanceRequest>("UpdateAppInstanceRequest")({AppInstanceArn: Schema.String, Name: Schema.String, Metadata: Schema.String}) {}
+export class InvokedBy extends Schema.Class<InvokedBy>("InvokedBy")({StandardMessages: Schema.String, TargetedMessages: Schema.String}) {}
+export class LexConfiguration extends Schema.Class<LexConfiguration>("LexConfiguration")({RespondsTo: Schema.optional(Schema.String), InvokedBy: Schema.optional(InvokedBy), LexBotAliasArn: Schema.String, LocaleId: Schema.String, WelcomeIntent: Schema.optional(Schema.String)}) {}
+export class Configuration extends Schema.Class<Configuration>("Configuration")({Lex: LexConfiguration}) {}
+export class UpdateAppInstanceBotRequest extends Schema.Class<UpdateAppInstanceBotRequest>("UpdateAppInstanceBotRequest")({AppInstanceBotArn: Schema.String, Name: Schema.String, Metadata: Schema.String, Configuration: Schema.optional(Configuration)}) {}
+export class UpdateAppInstanceUserRequest extends Schema.Class<UpdateAppInstanceUserRequest>("UpdateAppInstanceUserRequest")({AppInstanceUserArn: Schema.String, Name: Schema.String, Metadata: Schema.String}) {}
+export class UpdateAppInstanceUserEndpointRequest extends Schema.Class<UpdateAppInstanceUserEndpointRequest>("UpdateAppInstanceUserEndpointRequest")({AppInstanceUserArn: Schema.String, EndpointId: Schema.String, Name: Schema.optional(Schema.String), AllowMessages: Schema.optional(Schema.String)}) {}
+export class EndpointAttributes extends Schema.Class<EndpointAttributes>("EndpointAttributes")({DeviceToken: Schema.String, VoipDeviceToken: Schema.optional(Schema.String)}) {}
+export class CreateAppInstanceRequest extends Schema.Class<CreateAppInstanceRequest>("CreateAppInstanceRequest")({Name: Schema.String, Metadata: Schema.optional(Schema.String), ClientRequestToken: Schema.String, Tags: Schema.optional(TagList)}) {}
+export class CreateAppInstanceUserRequest extends Schema.Class<CreateAppInstanceUserRequest>("CreateAppInstanceUserRequest")({AppInstanceArn: Schema.String, AppInstanceUserId: Schema.String, Name: Schema.String, Metadata: Schema.optional(Schema.String), ClientRequestToken: Schema.String, Tags: Schema.optional(TagList), ExpirationSettings: Schema.optional(ExpirationSettings)}) {}
+export class BadRequestException extends Schema.Class<BadRequestException>("BadRequestException")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
+export class ForbiddenException extends Schema.Class<ForbiddenException>("ForbiddenException")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
+export class ResourceLimitExceededException extends Schema.Class<ResourceLimitExceededException>("ResourceLimitExceededException")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
+export class ServiceFailureException extends Schema.Class<ServiceFailureException>("ServiceFailureException")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
+export class ChannelRetentionSettings extends Schema.Class<ChannelRetentionSettings>("ChannelRetentionSettings")({RetentionDays: Schema.optional(Schema.Number)}) {}
+export class AppInstanceRetentionSettings extends Schema.Class<AppInstanceRetentionSettings>("AppInstanceRetentionSettings")({ChannelRetentionSettings: Schema.optional(ChannelRetentionSettings)}) {}
+export class GetAppInstanceRetentionSettingsResponse extends Schema.Class<GetAppInstanceRetentionSettingsResponse>("GetAppInstanceRetentionSettingsResponse")({AppInstanceRetentionSettings: Schema.optional(AppInstanceRetentionSettings), InitiateDeletionTimestamp: Schema.optional(Schema.Date)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({Tags: Schema.optional(TagList)}) {}
+export class PutAppInstanceUserExpirationSettingsResponse extends Schema.Class<PutAppInstanceUserExpirationSettingsResponse>("PutAppInstanceUserExpirationSettingsResponse")({AppInstanceUserArn: Schema.optional(Schema.String), ExpirationSettings: Schema.optional(ExpirationSettings)}) {}
+export class RegisterAppInstanceUserEndpointRequest extends Schema.Class<RegisterAppInstanceUserEndpointRequest>("RegisterAppInstanceUserEndpointRequest")({AppInstanceUserArn: Schema.String, Name: Schema.optional(Schema.String), Type: Schema.String, ResourceArn: Schema.String, EndpointAttributes: EndpointAttributes, ClientRequestToken: Schema.String, AllowMessages: Schema.optional(Schema.String)}) {}
+export class ServiceUnavailableException extends Schema.Class<ServiceUnavailableException>("ServiceUnavailableException")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
+export class ThrottledClientException extends Schema.Class<ThrottledClientException>("ThrottledClientException")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
+export class UpdateAppInstanceResponse extends Schema.Class<UpdateAppInstanceResponse>("UpdateAppInstanceResponse")({AppInstanceArn: Schema.optional(Schema.String)}) {}
+export class UpdateAppInstanceBotResponse extends Schema.Class<UpdateAppInstanceBotResponse>("UpdateAppInstanceBotResponse")({AppInstanceBotArn: Schema.optional(Schema.String)}) {}
+export class UpdateAppInstanceUserResponse extends Schema.Class<UpdateAppInstanceUserResponse>("UpdateAppInstanceUserResponse")({AppInstanceUserArn: Schema.optional(Schema.String)}) {}
+export class UpdateAppInstanceUserEndpointResponse extends Schema.Class<UpdateAppInstanceUserEndpointResponse>("UpdateAppInstanceUserEndpointResponse")({AppInstanceUserArn: Schema.optional(Schema.String), EndpointId: Schema.optional(Schema.String)}) {}
+export class Identity extends Schema.Class<Identity>("Identity")({Arn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String)}) {}
+export class AppInstance extends Schema.Class<AppInstance>("AppInstance")({AppInstanceArn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), CreatedTimestamp: Schema.optional(Schema.Date), LastUpdatedTimestamp: Schema.optional(Schema.Date), Metadata: Schema.optional(Schema.String)}) {}
+export class AppInstanceAdmin extends Schema.Class<AppInstanceAdmin>("AppInstanceAdmin")({Admin: Schema.optional(Identity), AppInstanceArn: Schema.optional(Schema.String), CreatedTimestamp: Schema.optional(Schema.Date)}) {}
+export class AppInstanceBot extends Schema.Class<AppInstanceBot>("AppInstanceBot")({AppInstanceBotArn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Configuration: Schema.optional(Configuration), CreatedTimestamp: Schema.optional(Schema.Date), LastUpdatedTimestamp: Schema.optional(Schema.Date), Metadata: Schema.optional(Schema.String)}) {}
+export class AppInstanceUser extends Schema.Class<AppInstanceUser>("AppInstanceUser")({AppInstanceUserArn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Metadata: Schema.optional(Schema.String), CreatedTimestamp: Schema.optional(Schema.Date), LastUpdatedTimestamp: Schema.optional(Schema.Date), ExpirationSettings: Schema.optional(ExpirationSettings)}) {}
+export class AppInstanceAdminSummary extends Schema.Class<AppInstanceAdminSummary>("AppInstanceAdminSummary")({Admin: Schema.optional(Identity)}) {}
 export const AppInstanceAdminList = Schema.Array(AppInstanceAdminSummary);
-export const AppInstanceBotSummary = Schema.Struct({AppInstanceBotArn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Metadata: Schema.optional(Schema.String)});
+export class AppInstanceBotSummary extends Schema.Class<AppInstanceBotSummary>("AppInstanceBotSummary")({AppInstanceBotArn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Metadata: Schema.optional(Schema.String)}) {}
 export const AppInstanceBotList = Schema.Array(AppInstanceBotSummary);
-export const AppInstanceSummary = Schema.Struct({AppInstanceArn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Metadata: Schema.optional(Schema.String)});
+export class AppInstanceSummary extends Schema.Class<AppInstanceSummary>("AppInstanceSummary")({AppInstanceArn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Metadata: Schema.optional(Schema.String)}) {}
 export const AppInstanceList = Schema.Array(AppInstanceSummary);
-export const EndpointState = Schema.Struct({Status: Schema.String, StatusReason: Schema.optional(Schema.String)});
-export const AppInstanceUserEndpointSummary = Schema.Struct({AppInstanceUserArn: Schema.optional(Schema.String), EndpointId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), AllowMessages: Schema.optional(Schema.String), EndpointState: Schema.optional(EndpointState)});
+export class EndpointState extends Schema.Class<EndpointState>("EndpointState")({Status: Schema.String, StatusReason: Schema.optional(Schema.String)}) {}
+export class AppInstanceUserEndpointSummary extends Schema.Class<AppInstanceUserEndpointSummary>("AppInstanceUserEndpointSummary")({AppInstanceUserArn: Schema.optional(Schema.String), EndpointId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), AllowMessages: Schema.optional(Schema.String), EndpointState: Schema.optional(EndpointState)}) {}
 export const AppInstanceUserEndpointSummaryList = Schema.Array(AppInstanceUserEndpointSummary);
-export const AppInstanceUserSummary = Schema.Struct({AppInstanceUserArn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Metadata: Schema.optional(Schema.String)});
+export class AppInstanceUserSummary extends Schema.Class<AppInstanceUserSummary>("AppInstanceUserSummary")({AppInstanceUserArn: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Metadata: Schema.optional(Schema.String)}) {}
 export const AppInstanceUserList = Schema.Array(AppInstanceUserSummary);
-export const CreateAppInstanceResponse = Schema.Struct({AppInstanceArn: Schema.optional(Schema.String)});
-export const CreateAppInstanceAdminResponse = Schema.Struct({AppInstanceAdmin: Schema.optional(Identity), AppInstanceArn: Schema.optional(Schema.String)});
-export const CreateAppInstanceUserResponse = Schema.Struct({AppInstanceUserArn: Schema.optional(Schema.String)});
-export const UnauthorizedClientException = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
-export const DescribeAppInstanceResponse = Schema.Struct({AppInstance: Schema.optional(AppInstance)});
-export const DescribeAppInstanceAdminResponse = Schema.Struct({AppInstanceAdmin: Schema.optional(AppInstanceAdmin)});
-export const DescribeAppInstanceBotResponse = Schema.Struct({AppInstanceBot: Schema.optional(AppInstanceBot)});
-export const DescribeAppInstanceUserResponse = Schema.Struct({AppInstanceUser: Schema.optional(AppInstanceUser)});
-export const ListAppInstanceAdminsResponse = Schema.Struct({AppInstanceArn: Schema.optional(Schema.String), AppInstanceAdmins: Schema.optional(AppInstanceAdminList), NextToken: Schema.optional(Schema.String)});
-export const ListAppInstanceBotsResponse = Schema.Struct({AppInstanceArn: Schema.optional(Schema.String), AppInstanceBots: Schema.optional(AppInstanceBotList), NextToken: Schema.optional(Schema.String)});
-export const ListAppInstancesResponse = Schema.Struct({AppInstances: Schema.optional(AppInstanceList), NextToken: Schema.optional(Schema.String)});
-export const ListAppInstanceUserEndpointsResponse = Schema.Struct({AppInstanceUserEndpoints: Schema.optional(AppInstanceUserEndpointSummaryList), NextToken: Schema.optional(Schema.String)});
-export const ListAppInstanceUsersResponse = Schema.Struct({AppInstanceArn: Schema.optional(Schema.String), AppInstanceUsers: Schema.optional(AppInstanceUserList), NextToken: Schema.optional(Schema.String)});
-export const PutAppInstanceRetentionSettingsRequest = Schema.Struct({AppInstanceArn: Schema.String, AppInstanceRetentionSettings: AppInstanceRetentionSettings});
-export const RegisterAppInstanceUserEndpointResponse = Schema.Struct({AppInstanceUserArn: Schema.optional(Schema.String), EndpointId: Schema.optional(Schema.String)});
-export const AppInstanceUserEndpoint = Schema.Struct({AppInstanceUserArn: Schema.optional(Schema.String), EndpointId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), ResourceArn: Schema.optional(Schema.String), EndpointAttributes: Schema.optional(EndpointAttributes), CreatedTimestamp: Schema.optional(Schema.Date), LastUpdatedTimestamp: Schema.optional(Schema.Date), AllowMessages: Schema.optional(Schema.String), EndpointState: Schema.optional(EndpointState)});
-export const CreateAppInstanceBotRequest = Schema.Struct({AppInstanceArn: Schema.String, Name: Schema.optional(Schema.String), Metadata: Schema.optional(Schema.String), ClientRequestToken: Schema.String, Tags: Schema.optional(TagList), Configuration: Configuration});
-export const NotFoundException = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
-export const DescribeAppInstanceUserEndpointResponse = Schema.Struct({AppInstanceUserEndpoint: Schema.optional(AppInstanceUserEndpoint)});
-export const PutAppInstanceRetentionSettingsResponse = Schema.Struct({AppInstanceRetentionSettings: Schema.optional(AppInstanceRetentionSettings), InitiateDeletionTimestamp: Schema.optional(Schema.Date)});
-export const CreateAppInstanceBotResponse = Schema.Struct({AppInstanceBotArn: Schema.optional(Schema.String)});
+export class CreateAppInstanceResponse extends Schema.Class<CreateAppInstanceResponse>("CreateAppInstanceResponse")({AppInstanceArn: Schema.optional(Schema.String)}) {}
+export class CreateAppInstanceAdminResponse extends Schema.Class<CreateAppInstanceAdminResponse>("CreateAppInstanceAdminResponse")({AppInstanceAdmin: Schema.optional(Identity), AppInstanceArn: Schema.optional(Schema.String)}) {}
+export class CreateAppInstanceUserResponse extends Schema.Class<CreateAppInstanceUserResponse>("CreateAppInstanceUserResponse")({AppInstanceUserArn: Schema.optional(Schema.String)}) {}
+export class UnauthorizedClientException extends Schema.Class<UnauthorizedClientException>("UnauthorizedClientException")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
+export class DescribeAppInstanceResponse extends Schema.Class<DescribeAppInstanceResponse>("DescribeAppInstanceResponse")({AppInstance: Schema.optional(AppInstance)}) {}
+export class DescribeAppInstanceAdminResponse extends Schema.Class<DescribeAppInstanceAdminResponse>("DescribeAppInstanceAdminResponse")({AppInstanceAdmin: Schema.optional(AppInstanceAdmin)}) {}
+export class DescribeAppInstanceBotResponse extends Schema.Class<DescribeAppInstanceBotResponse>("DescribeAppInstanceBotResponse")({AppInstanceBot: Schema.optional(AppInstanceBot)}) {}
+export class DescribeAppInstanceUserResponse extends Schema.Class<DescribeAppInstanceUserResponse>("DescribeAppInstanceUserResponse")({AppInstanceUser: Schema.optional(AppInstanceUser)}) {}
+export class ListAppInstanceAdminsResponse extends Schema.Class<ListAppInstanceAdminsResponse>("ListAppInstanceAdminsResponse")({AppInstanceArn: Schema.optional(Schema.String), AppInstanceAdmins: Schema.optional(AppInstanceAdminList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListAppInstanceBotsResponse extends Schema.Class<ListAppInstanceBotsResponse>("ListAppInstanceBotsResponse")({AppInstanceArn: Schema.optional(Schema.String), AppInstanceBots: Schema.optional(AppInstanceBotList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListAppInstancesResponse extends Schema.Class<ListAppInstancesResponse>("ListAppInstancesResponse")({AppInstances: Schema.optional(AppInstanceList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListAppInstanceUserEndpointsResponse extends Schema.Class<ListAppInstanceUserEndpointsResponse>("ListAppInstanceUserEndpointsResponse")({AppInstanceUserEndpoints: Schema.optional(AppInstanceUserEndpointSummaryList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListAppInstanceUsersResponse extends Schema.Class<ListAppInstanceUsersResponse>("ListAppInstanceUsersResponse")({AppInstanceArn: Schema.optional(Schema.String), AppInstanceUsers: Schema.optional(AppInstanceUserList), NextToken: Schema.optional(Schema.String)}) {}
+export class PutAppInstanceRetentionSettingsRequest extends Schema.Class<PutAppInstanceRetentionSettingsRequest>("PutAppInstanceRetentionSettingsRequest")({AppInstanceArn: Schema.String, AppInstanceRetentionSettings: AppInstanceRetentionSettings}) {}
+export class RegisterAppInstanceUserEndpointResponse extends Schema.Class<RegisterAppInstanceUserEndpointResponse>("RegisterAppInstanceUserEndpointResponse")({AppInstanceUserArn: Schema.optional(Schema.String), EndpointId: Schema.optional(Schema.String)}) {}
+export class AppInstanceUserEndpoint extends Schema.Class<AppInstanceUserEndpoint>("AppInstanceUserEndpoint")({AppInstanceUserArn: Schema.optional(Schema.String), EndpointId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), ResourceArn: Schema.optional(Schema.String), EndpointAttributes: Schema.optional(EndpointAttributes), CreatedTimestamp: Schema.optional(Schema.Date), LastUpdatedTimestamp: Schema.optional(Schema.Date), AllowMessages: Schema.optional(Schema.String), EndpointState: Schema.optional(EndpointState)}) {}
+export class CreateAppInstanceBotRequest extends Schema.Class<CreateAppInstanceBotRequest>("CreateAppInstanceBotRequest")({AppInstanceArn: Schema.String, Name: Schema.optional(Schema.String), Metadata: Schema.optional(Schema.String), ClientRequestToken: Schema.String, Tags: Schema.optional(TagList), Configuration: Configuration}) {}
+export class NotFoundException extends Schema.Class<NotFoundException>("NotFoundException")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
+export class DescribeAppInstanceUserEndpointResponse extends Schema.Class<DescribeAppInstanceUserEndpointResponse>("DescribeAppInstanceUserEndpointResponse")({AppInstanceUserEndpoint: Schema.optional(AppInstanceUserEndpoint)}) {}
+export class PutAppInstanceRetentionSettingsResponse extends Schema.Class<PutAppInstanceRetentionSettingsResponse>("PutAppInstanceRetentionSettingsResponse")({AppInstanceRetentionSettings: Schema.optional(AppInstanceRetentionSettings), InitiateDeletionTimestamp: Schema.optional(Schema.Date)}) {}
+export class CreateAppInstanceBotResponse extends Schema.Class<CreateAppInstanceBotResponse>("CreateAppInstanceBotResponse")({AppInstanceBotArn: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class BadRequestExceptionError extends Schema.TaggedError<BadRequestExceptionError>()("BadRequestException", BadRequestException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class ForbiddenExceptionError extends Schema.TaggedError<ForbiddenExceptionError>()("ForbiddenException", ForbiddenException) {};
-export class ResourceLimitExceededExceptionError extends Schema.TaggedError<ResourceLimitExceededExceptionError>()("ResourceLimitExceededException", ResourceLimitExceededException) {};
-export class ServiceFailureExceptionError extends Schema.TaggedError<ServiceFailureExceptionError>()("ServiceFailureException", ServiceFailureException) {};
-export class ServiceUnavailableExceptionError extends Schema.TaggedError<ServiceUnavailableExceptionError>()("ServiceUnavailableException", ServiceUnavailableException) {};
-export class ThrottledClientExceptionError extends Schema.TaggedError<ThrottledClientExceptionError>()("ThrottledClientException", ThrottledClientException) {};
-export class UnauthorizedClientExceptionError extends Schema.TaggedError<UnauthorizedClientExceptionError>()("UnauthorizedClientException", UnauthorizedClientException) {};
-export class NotFoundExceptionError extends Schema.TaggedError<NotFoundExceptionError>()("NotFoundException", NotFoundException) {};
+export class BadRequestExceptionError extends Schema.TaggedError<BadRequestExceptionError>()("BadRequestException", BadRequestException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class ForbiddenExceptionError extends Schema.TaggedError<ForbiddenExceptionError>()("ForbiddenException", ForbiddenException.fields) {};
+export class ResourceLimitExceededExceptionError extends Schema.TaggedError<ResourceLimitExceededExceptionError>()("ResourceLimitExceededException", ResourceLimitExceededException.fields) {};
+export class ServiceFailureExceptionError extends Schema.TaggedError<ServiceFailureExceptionError>()("ServiceFailureException", ServiceFailureException.fields) {};
+export class ServiceUnavailableExceptionError extends Schema.TaggedError<ServiceUnavailableExceptionError>()("ServiceUnavailableException", ServiceUnavailableException.fields) {};
+export class ThrottledClientExceptionError extends Schema.TaggedError<ThrottledClientExceptionError>()("ThrottledClientException", ThrottledClientException.fields) {};
+export class UnauthorizedClientExceptionError extends Schema.TaggedError<UnauthorizedClientExceptionError>()("UnauthorizedClientException", UnauthorizedClientException.fields) {};
+export class NotFoundExceptionError extends Schema.TaggedError<NotFoundExceptionError>()("NotFoundException", NotFoundException.fields) {};
 
 //# Operations
 export const deleteAppInstanceAdmin = /*#__PURE__*/ makeOperation(() => Operation({ version: "2021-04-20", uri: "/app-instances/{AppInstanceArn}/admins/{AppInstanceAdminArn}", method: "DELETE", sdkId: "Chime SDK Identity", sigV4ServiceName: "chime", name: "ChimeIdentityService.DeleteAppInstanceAdmin" }, DeleteAppInstanceAdminRequest, Schema.Struct({}), [BadRequestExceptionError, ConflictExceptionError, ForbiddenExceptionError, ResourceLimitExceededExceptionError, ServiceFailureExceptionError, ServiceUnavailableExceptionError, ThrottledClientExceptionError, UnauthorizedClientExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

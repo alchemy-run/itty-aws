@@ -13,296 +13,296 @@ export const UserIdList = Schema.Array(Schema.String);
 export const ImpersonationRoleIdList = Schema.Array(Schema.String);
 export const PermissionValues = Schema.Array(Schema.String);
 export const TagKeyList = Schema.Array(Schema.String);
-export const AssociateDelegateToResourceRequest = Schema.Struct({OrganizationId: Schema.String, ResourceId: Schema.String, EntityId: Schema.String});
-export const AssociateDelegateToResourceResponse = Schema.Struct({});
-export const AssociateMemberToGroupRequest = Schema.Struct({OrganizationId: Schema.String, GroupId: Schema.String, MemberId: Schema.String});
-export const AssociateMemberToGroupResponse = Schema.Struct({});
-export const AssumeImpersonationRoleRequest = Schema.Struct({OrganizationId: Schema.String, ImpersonationRoleId: Schema.String});
-export const CancelMailboxExportJobRequest = Schema.Struct({ClientToken: Schema.String, JobId: Schema.String, OrganizationId: Schema.String});
-export const CancelMailboxExportJobResponse = Schema.Struct({});
-export const CreateAliasRequest = Schema.Struct({OrganizationId: Schema.String, EntityId: Schema.String, Alias: Schema.String});
-export const CreateAliasResponse = Schema.Struct({});
-export const CreateGroupRequest = Schema.Struct({OrganizationId: Schema.String, Name: Schema.String, HiddenFromGlobalAddressList: Schema.optional(Schema.Boolean)});
-export const CreateIdentityCenterApplicationRequest = Schema.Struct({Name: Schema.String, InstanceArn: Schema.String, ClientToken: Schema.optional(Schema.String)});
-export const CreateMobileDeviceAccessRuleRequest = Schema.Struct({OrganizationId: Schema.String, ClientToken: Schema.optional(Schema.String), Name: Schema.String, Description: Schema.optional(Schema.String), Effect: Schema.String, DeviceTypes: Schema.optional(DeviceTypeList), NotDeviceTypes: Schema.optional(DeviceTypeList), DeviceModels: Schema.optional(DeviceModelList), NotDeviceModels: Schema.optional(DeviceModelList), DeviceOperatingSystems: Schema.optional(DeviceOperatingSystemList), NotDeviceOperatingSystems: Schema.optional(DeviceOperatingSystemList), DeviceUserAgents: Schema.optional(DeviceUserAgentList), NotDeviceUserAgents: Schema.optional(DeviceUserAgentList)});
-export const CreateResourceRequest = Schema.Struct({OrganizationId: Schema.String, Name: Schema.String, Type: Schema.String, Description: Schema.optional(Schema.String), HiddenFromGlobalAddressList: Schema.optional(Schema.Boolean)});
-export const CreateUserRequest = Schema.Struct({OrganizationId: Schema.String, Name: Schema.String, DisplayName: Schema.String, Password: Schema.optional(Schema.String), Role: Schema.optional(Schema.String), FirstName: Schema.optional(Schema.String), LastName: Schema.optional(Schema.String), HiddenFromGlobalAddressList: Schema.optional(Schema.Boolean), IdentityProviderUserId: Schema.optional(Schema.String)});
-export const DeleteAccessControlRuleRequest = Schema.Struct({OrganizationId: Schema.String, Name: Schema.String});
-export const DeleteAccessControlRuleResponse = Schema.Struct({});
-export const DeleteAliasRequest = Schema.Struct({OrganizationId: Schema.String, EntityId: Schema.String, Alias: Schema.String});
-export const DeleteAliasResponse = Schema.Struct({});
-export const DeleteAvailabilityConfigurationRequest = Schema.Struct({OrganizationId: Schema.String, DomainName: Schema.String});
-export const DeleteAvailabilityConfigurationResponse = Schema.Struct({});
-export const DeleteEmailMonitoringConfigurationRequest = Schema.Struct({OrganizationId: Schema.String});
-export const DeleteEmailMonitoringConfigurationResponse = Schema.Struct({});
-export const DeleteGroupRequest = Schema.Struct({OrganizationId: Schema.String, GroupId: Schema.String});
-export const DeleteGroupResponse = Schema.Struct({});
-export const DeleteIdentityCenterApplicationRequest = Schema.Struct({ApplicationArn: Schema.String});
-export const DeleteIdentityCenterApplicationResponse = Schema.Struct({});
-export const DeleteIdentityProviderConfigurationRequest = Schema.Struct({OrganizationId: Schema.String});
-export const DeleteIdentityProviderConfigurationResponse = Schema.Struct({});
-export const DeleteImpersonationRoleRequest = Schema.Struct({OrganizationId: Schema.String, ImpersonationRoleId: Schema.String});
-export const DeleteImpersonationRoleResponse = Schema.Struct({});
-export const DeleteMailboxPermissionsRequest = Schema.Struct({OrganizationId: Schema.String, EntityId: Schema.String, GranteeId: Schema.String});
-export const DeleteMailboxPermissionsResponse = Schema.Struct({});
-export const DeleteMobileDeviceAccessOverrideRequest = Schema.Struct({OrganizationId: Schema.String, UserId: Schema.String, DeviceId: Schema.String});
-export const DeleteMobileDeviceAccessOverrideResponse = Schema.Struct({});
-export const DeleteMobileDeviceAccessRuleRequest = Schema.Struct({OrganizationId: Schema.String, MobileDeviceAccessRuleId: Schema.String});
-export const DeleteMobileDeviceAccessRuleResponse = Schema.Struct({});
-export const DeleteOrganizationRequest = Schema.Struct({ClientToken: Schema.optional(Schema.String), OrganizationId: Schema.String, DeleteDirectory: Schema.Boolean, ForceDelete: Schema.optional(Schema.Boolean), DeleteIdentityCenterApplication: Schema.optional(Schema.Boolean)});
-export const DeletePersonalAccessTokenRequest = Schema.Struct({OrganizationId: Schema.String, PersonalAccessTokenId: Schema.String});
-export const DeletePersonalAccessTokenResponse = Schema.Struct({});
-export const DeleteResourceRequest = Schema.Struct({OrganizationId: Schema.String, ResourceId: Schema.String});
-export const DeleteResourceResponse = Schema.Struct({});
-export const DeleteRetentionPolicyRequest = Schema.Struct({OrganizationId: Schema.String, Id: Schema.String});
-export const DeleteRetentionPolicyResponse = Schema.Struct({});
-export const DeleteUserRequest = Schema.Struct({OrganizationId: Schema.String, UserId: Schema.String});
-export const DeleteUserResponse = Schema.Struct({});
-export const DeregisterFromWorkMailRequest = Schema.Struct({OrganizationId: Schema.String, EntityId: Schema.String});
-export const DeregisterFromWorkMailResponse = Schema.Struct({});
-export const DeregisterMailDomainRequest = Schema.Struct({OrganizationId: Schema.String, DomainName: Schema.String});
-export const DeregisterMailDomainResponse = Schema.Struct({});
-export const DescribeEmailMonitoringConfigurationRequest = Schema.Struct({OrganizationId: Schema.String});
-export const DescribeEntityRequest = Schema.Struct({OrganizationId: Schema.String, Email: Schema.String});
-export const DescribeGroupRequest = Schema.Struct({OrganizationId: Schema.String, GroupId: Schema.String});
-export const DescribeIdentityProviderConfigurationRequest = Schema.Struct({OrganizationId: Schema.String});
-export const DescribeInboundDmarcSettingsRequest = Schema.Struct({OrganizationId: Schema.String});
-export const DescribeMailboxExportJobRequest = Schema.Struct({JobId: Schema.String, OrganizationId: Schema.String});
-export const DescribeOrganizationRequest = Schema.Struct({OrganizationId: Schema.String});
-export const DescribeResourceRequest = Schema.Struct({OrganizationId: Schema.String, ResourceId: Schema.String});
-export const DescribeUserRequest = Schema.Struct({OrganizationId: Schema.String, UserId: Schema.String});
-export const DisassociateDelegateFromResourceRequest = Schema.Struct({OrganizationId: Schema.String, ResourceId: Schema.String, EntityId: Schema.String});
-export const DisassociateDelegateFromResourceResponse = Schema.Struct({});
-export const DisassociateMemberFromGroupRequest = Schema.Struct({OrganizationId: Schema.String, GroupId: Schema.String, MemberId: Schema.String});
-export const DisassociateMemberFromGroupResponse = Schema.Struct({});
-export const GetAccessControlEffectRequest = Schema.Struct({OrganizationId: Schema.String, IpAddress: Schema.String, Action: Schema.String, UserId: Schema.optional(Schema.String), ImpersonationRoleId: Schema.optional(Schema.String)});
-export const GetDefaultRetentionPolicyRequest = Schema.Struct({OrganizationId: Schema.String});
-export const GetImpersonationRoleRequest = Schema.Struct({OrganizationId: Schema.String, ImpersonationRoleId: Schema.String});
-export const GetImpersonationRoleEffectRequest = Schema.Struct({OrganizationId: Schema.String, ImpersonationRoleId: Schema.String, TargetUser: Schema.String});
-export const GetMailboxDetailsRequest = Schema.Struct({OrganizationId: Schema.String, UserId: Schema.String});
-export const GetMailDomainRequest = Schema.Struct({OrganizationId: Schema.String, DomainName: Schema.String});
-export const GetMobileDeviceAccessEffectRequest = Schema.Struct({OrganizationId: Schema.String, DeviceType: Schema.optional(Schema.String), DeviceModel: Schema.optional(Schema.String), DeviceOperatingSystem: Schema.optional(Schema.String), DeviceUserAgent: Schema.optional(Schema.String)});
-export const GetMobileDeviceAccessOverrideRequest = Schema.Struct({OrganizationId: Schema.String, UserId: Schema.String, DeviceId: Schema.String});
-export const GetPersonalAccessTokenMetadataRequest = Schema.Struct({OrganizationId: Schema.String, PersonalAccessTokenId: Schema.String});
-export const ListAccessControlRulesRequest = Schema.Struct({OrganizationId: Schema.String});
-export const ListAliasesRequest = Schema.Struct({OrganizationId: Schema.String, EntityId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListAvailabilityConfigurationsRequest = Schema.Struct({OrganizationId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListGroupMembersRequest = Schema.Struct({OrganizationId: Schema.String, GroupId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListImpersonationRolesRequest = Schema.Struct({OrganizationId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListMailboxExportJobsRequest = Schema.Struct({OrganizationId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListMailboxPermissionsRequest = Schema.Struct({OrganizationId: Schema.String, EntityId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListMailDomainsRequest = Schema.Struct({OrganizationId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListMobileDeviceAccessOverridesRequest = Schema.Struct({OrganizationId: Schema.String, UserId: Schema.optional(Schema.String), DeviceId: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListMobileDeviceAccessRulesRequest = Schema.Struct({OrganizationId: Schema.String});
-export const ListOrganizationsRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListPersonalAccessTokensRequest = Schema.Struct({OrganizationId: Schema.String, UserId: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListResourceDelegatesRequest = Schema.Struct({OrganizationId: Schema.String, ResourceId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListTagsForResourceRequest = Schema.Struct({ResourceARN: Schema.String});
-export const PutAccessControlRuleRequest = Schema.Struct({Name: Schema.String, Effect: Schema.String, Description: Schema.String, IpRanges: Schema.optional(IpRangeList), NotIpRanges: Schema.optional(IpRangeList), Actions: Schema.optional(ActionsList), NotActions: Schema.optional(ActionsList), UserIds: Schema.optional(UserIdList), NotUserIds: Schema.optional(UserIdList), OrganizationId: Schema.String, ImpersonationRoleIds: Schema.optional(ImpersonationRoleIdList), NotImpersonationRoleIds: Schema.optional(ImpersonationRoleIdList)});
-export const PutAccessControlRuleResponse = Schema.Struct({});
-export const PutEmailMonitoringConfigurationRequest = Schema.Struct({OrganizationId: Schema.String, RoleArn: Schema.optional(Schema.String), LogGroupArn: Schema.String});
-export const PutEmailMonitoringConfigurationResponse = Schema.Struct({});
-export const PutInboundDmarcSettingsRequest = Schema.Struct({OrganizationId: Schema.String, Enforced: Schema.Boolean});
-export const PutInboundDmarcSettingsResponse = Schema.Struct({});
-export const PutMailboxPermissionsRequest = Schema.Struct({OrganizationId: Schema.String, EntityId: Schema.String, GranteeId: Schema.String, PermissionValues: PermissionValues});
-export const PutMailboxPermissionsResponse = Schema.Struct({});
-export const PutMobileDeviceAccessOverrideRequest = Schema.Struct({OrganizationId: Schema.String, UserId: Schema.String, DeviceId: Schema.String, Effect: Schema.String, Description: Schema.optional(Schema.String)});
-export const PutMobileDeviceAccessOverrideResponse = Schema.Struct({});
-export const RegisterMailDomainRequest = Schema.Struct({ClientToken: Schema.optional(Schema.String), OrganizationId: Schema.String, DomainName: Schema.String});
-export const RegisterMailDomainResponse = Schema.Struct({});
-export const RegisterToWorkMailRequest = Schema.Struct({OrganizationId: Schema.String, EntityId: Schema.String, Email: Schema.String});
-export const RegisterToWorkMailResponse = Schema.Struct({});
-export const ResetPasswordRequest = Schema.Struct({OrganizationId: Schema.String, UserId: Schema.String, Password: Schema.String});
-export const ResetPasswordResponse = Schema.Struct({});
-export const StartMailboxExportJobRequest = Schema.Struct({ClientToken: Schema.String, OrganizationId: Schema.String, EntityId: Schema.String, Description: Schema.optional(Schema.String), RoleArn: Schema.String, KmsKeyArn: Schema.String, S3BucketName: Schema.String, S3Prefix: Schema.String});
-export const EwsAvailabilityProvider = Schema.Struct({EwsEndpoint: Schema.String, EwsUsername: Schema.String, EwsPassword: Schema.String});
-export const LambdaAvailabilityProvider = Schema.Struct({LambdaArn: Schema.String});
-export const TestAvailabilityConfigurationRequest = Schema.Struct({OrganizationId: Schema.String, DomainName: Schema.optional(Schema.String), EwsProvider: Schema.optional(EwsAvailabilityProvider), LambdaProvider: Schema.optional(LambdaAvailabilityProvider)});
-export const UntagResourceRequest = Schema.Struct({ResourceARN: Schema.String, TagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
-export const UpdateAvailabilityConfigurationRequest = Schema.Struct({OrganizationId: Schema.String, DomainName: Schema.String, EwsProvider: Schema.optional(EwsAvailabilityProvider), LambdaProvider: Schema.optional(LambdaAvailabilityProvider)});
-export const UpdateAvailabilityConfigurationResponse = Schema.Struct({});
-export const UpdateDefaultMailDomainRequest = Schema.Struct({OrganizationId: Schema.String, DomainName: Schema.String});
-export const UpdateDefaultMailDomainResponse = Schema.Struct({});
-export const UpdateGroupRequest = Schema.Struct({OrganizationId: Schema.String, GroupId: Schema.String, HiddenFromGlobalAddressList: Schema.optional(Schema.Boolean)});
-export const UpdateGroupResponse = Schema.Struct({});
+export class AssociateDelegateToResourceRequest extends Schema.Class<AssociateDelegateToResourceRequest>("AssociateDelegateToResourceRequest")({OrganizationId: Schema.String, ResourceId: Schema.String, EntityId: Schema.String}) {}
+export class AssociateDelegateToResourceResponse extends Schema.Class<AssociateDelegateToResourceResponse>("AssociateDelegateToResourceResponse")({}) {}
+export class AssociateMemberToGroupRequest extends Schema.Class<AssociateMemberToGroupRequest>("AssociateMemberToGroupRequest")({OrganizationId: Schema.String, GroupId: Schema.String, MemberId: Schema.String}) {}
+export class AssociateMemberToGroupResponse extends Schema.Class<AssociateMemberToGroupResponse>("AssociateMemberToGroupResponse")({}) {}
+export class AssumeImpersonationRoleRequest extends Schema.Class<AssumeImpersonationRoleRequest>("AssumeImpersonationRoleRequest")({OrganizationId: Schema.String, ImpersonationRoleId: Schema.String}) {}
+export class CancelMailboxExportJobRequest extends Schema.Class<CancelMailboxExportJobRequest>("CancelMailboxExportJobRequest")({ClientToken: Schema.String, JobId: Schema.String, OrganizationId: Schema.String}) {}
+export class CancelMailboxExportJobResponse extends Schema.Class<CancelMailboxExportJobResponse>("CancelMailboxExportJobResponse")({}) {}
+export class CreateAliasRequest extends Schema.Class<CreateAliasRequest>("CreateAliasRequest")({OrganizationId: Schema.String, EntityId: Schema.String, Alias: Schema.String}) {}
+export class CreateAliasResponse extends Schema.Class<CreateAliasResponse>("CreateAliasResponse")({}) {}
+export class CreateGroupRequest extends Schema.Class<CreateGroupRequest>("CreateGroupRequest")({OrganizationId: Schema.String, Name: Schema.String, HiddenFromGlobalAddressList: Schema.optional(Schema.Boolean)}) {}
+export class CreateIdentityCenterApplicationRequest extends Schema.Class<CreateIdentityCenterApplicationRequest>("CreateIdentityCenterApplicationRequest")({Name: Schema.String, InstanceArn: Schema.String, ClientToken: Schema.optional(Schema.String)}) {}
+export class CreateMobileDeviceAccessRuleRequest extends Schema.Class<CreateMobileDeviceAccessRuleRequest>("CreateMobileDeviceAccessRuleRequest")({OrganizationId: Schema.String, ClientToken: Schema.optional(Schema.String), Name: Schema.String, Description: Schema.optional(Schema.String), Effect: Schema.String, DeviceTypes: Schema.optional(DeviceTypeList), NotDeviceTypes: Schema.optional(DeviceTypeList), DeviceModels: Schema.optional(DeviceModelList), NotDeviceModels: Schema.optional(DeviceModelList), DeviceOperatingSystems: Schema.optional(DeviceOperatingSystemList), NotDeviceOperatingSystems: Schema.optional(DeviceOperatingSystemList), DeviceUserAgents: Schema.optional(DeviceUserAgentList), NotDeviceUserAgents: Schema.optional(DeviceUserAgentList)}) {}
+export class CreateResourceRequest extends Schema.Class<CreateResourceRequest>("CreateResourceRequest")({OrganizationId: Schema.String, Name: Schema.String, Type: Schema.String, Description: Schema.optional(Schema.String), HiddenFromGlobalAddressList: Schema.optional(Schema.Boolean)}) {}
+export class CreateUserRequest extends Schema.Class<CreateUserRequest>("CreateUserRequest")({OrganizationId: Schema.String, Name: Schema.String, DisplayName: Schema.String, Password: Schema.optional(Schema.String), Role: Schema.optional(Schema.String), FirstName: Schema.optional(Schema.String), LastName: Schema.optional(Schema.String), HiddenFromGlobalAddressList: Schema.optional(Schema.Boolean), IdentityProviderUserId: Schema.optional(Schema.String)}) {}
+export class DeleteAccessControlRuleRequest extends Schema.Class<DeleteAccessControlRuleRequest>("DeleteAccessControlRuleRequest")({OrganizationId: Schema.String, Name: Schema.String}) {}
+export class DeleteAccessControlRuleResponse extends Schema.Class<DeleteAccessControlRuleResponse>("DeleteAccessControlRuleResponse")({}) {}
+export class DeleteAliasRequest extends Schema.Class<DeleteAliasRequest>("DeleteAliasRequest")({OrganizationId: Schema.String, EntityId: Schema.String, Alias: Schema.String}) {}
+export class DeleteAliasResponse extends Schema.Class<DeleteAliasResponse>("DeleteAliasResponse")({}) {}
+export class DeleteAvailabilityConfigurationRequest extends Schema.Class<DeleteAvailabilityConfigurationRequest>("DeleteAvailabilityConfigurationRequest")({OrganizationId: Schema.String, DomainName: Schema.String}) {}
+export class DeleteAvailabilityConfigurationResponse extends Schema.Class<DeleteAvailabilityConfigurationResponse>("DeleteAvailabilityConfigurationResponse")({}) {}
+export class DeleteEmailMonitoringConfigurationRequest extends Schema.Class<DeleteEmailMonitoringConfigurationRequest>("DeleteEmailMonitoringConfigurationRequest")({OrganizationId: Schema.String}) {}
+export class DeleteEmailMonitoringConfigurationResponse extends Schema.Class<DeleteEmailMonitoringConfigurationResponse>("DeleteEmailMonitoringConfigurationResponse")({}) {}
+export class DeleteGroupRequest extends Schema.Class<DeleteGroupRequest>("DeleteGroupRequest")({OrganizationId: Schema.String, GroupId: Schema.String}) {}
+export class DeleteGroupResponse extends Schema.Class<DeleteGroupResponse>("DeleteGroupResponse")({}) {}
+export class DeleteIdentityCenterApplicationRequest extends Schema.Class<DeleteIdentityCenterApplicationRequest>("DeleteIdentityCenterApplicationRequest")({ApplicationArn: Schema.String}) {}
+export class DeleteIdentityCenterApplicationResponse extends Schema.Class<DeleteIdentityCenterApplicationResponse>("DeleteIdentityCenterApplicationResponse")({}) {}
+export class DeleteIdentityProviderConfigurationRequest extends Schema.Class<DeleteIdentityProviderConfigurationRequest>("DeleteIdentityProviderConfigurationRequest")({OrganizationId: Schema.String}) {}
+export class DeleteIdentityProviderConfigurationResponse extends Schema.Class<DeleteIdentityProviderConfigurationResponse>("DeleteIdentityProviderConfigurationResponse")({}) {}
+export class DeleteImpersonationRoleRequest extends Schema.Class<DeleteImpersonationRoleRequest>("DeleteImpersonationRoleRequest")({OrganizationId: Schema.String, ImpersonationRoleId: Schema.String}) {}
+export class DeleteImpersonationRoleResponse extends Schema.Class<DeleteImpersonationRoleResponse>("DeleteImpersonationRoleResponse")({}) {}
+export class DeleteMailboxPermissionsRequest extends Schema.Class<DeleteMailboxPermissionsRequest>("DeleteMailboxPermissionsRequest")({OrganizationId: Schema.String, EntityId: Schema.String, GranteeId: Schema.String}) {}
+export class DeleteMailboxPermissionsResponse extends Schema.Class<DeleteMailboxPermissionsResponse>("DeleteMailboxPermissionsResponse")({}) {}
+export class DeleteMobileDeviceAccessOverrideRequest extends Schema.Class<DeleteMobileDeviceAccessOverrideRequest>("DeleteMobileDeviceAccessOverrideRequest")({OrganizationId: Schema.String, UserId: Schema.String, DeviceId: Schema.String}) {}
+export class DeleteMobileDeviceAccessOverrideResponse extends Schema.Class<DeleteMobileDeviceAccessOverrideResponse>("DeleteMobileDeviceAccessOverrideResponse")({}) {}
+export class DeleteMobileDeviceAccessRuleRequest extends Schema.Class<DeleteMobileDeviceAccessRuleRequest>("DeleteMobileDeviceAccessRuleRequest")({OrganizationId: Schema.String, MobileDeviceAccessRuleId: Schema.String}) {}
+export class DeleteMobileDeviceAccessRuleResponse extends Schema.Class<DeleteMobileDeviceAccessRuleResponse>("DeleteMobileDeviceAccessRuleResponse")({}) {}
+export class DeleteOrganizationRequest extends Schema.Class<DeleteOrganizationRequest>("DeleteOrganizationRequest")({ClientToken: Schema.optional(Schema.String), OrganizationId: Schema.String, DeleteDirectory: Schema.Boolean, ForceDelete: Schema.optional(Schema.Boolean), DeleteIdentityCenterApplication: Schema.optional(Schema.Boolean)}) {}
+export class DeletePersonalAccessTokenRequest extends Schema.Class<DeletePersonalAccessTokenRequest>("DeletePersonalAccessTokenRequest")({OrganizationId: Schema.String, PersonalAccessTokenId: Schema.String}) {}
+export class DeletePersonalAccessTokenResponse extends Schema.Class<DeletePersonalAccessTokenResponse>("DeletePersonalAccessTokenResponse")({}) {}
+export class DeleteResourceRequest extends Schema.Class<DeleteResourceRequest>("DeleteResourceRequest")({OrganizationId: Schema.String, ResourceId: Schema.String}) {}
+export class DeleteResourceResponse extends Schema.Class<DeleteResourceResponse>("DeleteResourceResponse")({}) {}
+export class DeleteRetentionPolicyRequest extends Schema.Class<DeleteRetentionPolicyRequest>("DeleteRetentionPolicyRequest")({OrganizationId: Schema.String, Id: Schema.String}) {}
+export class DeleteRetentionPolicyResponse extends Schema.Class<DeleteRetentionPolicyResponse>("DeleteRetentionPolicyResponse")({}) {}
+export class DeleteUserRequest extends Schema.Class<DeleteUserRequest>("DeleteUserRequest")({OrganizationId: Schema.String, UserId: Schema.String}) {}
+export class DeleteUserResponse extends Schema.Class<DeleteUserResponse>("DeleteUserResponse")({}) {}
+export class DeregisterFromWorkMailRequest extends Schema.Class<DeregisterFromWorkMailRequest>("DeregisterFromWorkMailRequest")({OrganizationId: Schema.String, EntityId: Schema.String}) {}
+export class DeregisterFromWorkMailResponse extends Schema.Class<DeregisterFromWorkMailResponse>("DeregisterFromWorkMailResponse")({}) {}
+export class DeregisterMailDomainRequest extends Schema.Class<DeregisterMailDomainRequest>("DeregisterMailDomainRequest")({OrganizationId: Schema.String, DomainName: Schema.String}) {}
+export class DeregisterMailDomainResponse extends Schema.Class<DeregisterMailDomainResponse>("DeregisterMailDomainResponse")({}) {}
+export class DescribeEmailMonitoringConfigurationRequest extends Schema.Class<DescribeEmailMonitoringConfigurationRequest>("DescribeEmailMonitoringConfigurationRequest")({OrganizationId: Schema.String}) {}
+export class DescribeEntityRequest extends Schema.Class<DescribeEntityRequest>("DescribeEntityRequest")({OrganizationId: Schema.String, Email: Schema.String}) {}
+export class DescribeGroupRequest extends Schema.Class<DescribeGroupRequest>("DescribeGroupRequest")({OrganizationId: Schema.String, GroupId: Schema.String}) {}
+export class DescribeIdentityProviderConfigurationRequest extends Schema.Class<DescribeIdentityProviderConfigurationRequest>("DescribeIdentityProviderConfigurationRequest")({OrganizationId: Schema.String}) {}
+export class DescribeInboundDmarcSettingsRequest extends Schema.Class<DescribeInboundDmarcSettingsRequest>("DescribeInboundDmarcSettingsRequest")({OrganizationId: Schema.String}) {}
+export class DescribeMailboxExportJobRequest extends Schema.Class<DescribeMailboxExportJobRequest>("DescribeMailboxExportJobRequest")({JobId: Schema.String, OrganizationId: Schema.String}) {}
+export class DescribeOrganizationRequest extends Schema.Class<DescribeOrganizationRequest>("DescribeOrganizationRequest")({OrganizationId: Schema.String}) {}
+export class DescribeResourceRequest extends Schema.Class<DescribeResourceRequest>("DescribeResourceRequest")({OrganizationId: Schema.String, ResourceId: Schema.String}) {}
+export class DescribeUserRequest extends Schema.Class<DescribeUserRequest>("DescribeUserRequest")({OrganizationId: Schema.String, UserId: Schema.String}) {}
+export class DisassociateDelegateFromResourceRequest extends Schema.Class<DisassociateDelegateFromResourceRequest>("DisassociateDelegateFromResourceRequest")({OrganizationId: Schema.String, ResourceId: Schema.String, EntityId: Schema.String}) {}
+export class DisassociateDelegateFromResourceResponse extends Schema.Class<DisassociateDelegateFromResourceResponse>("DisassociateDelegateFromResourceResponse")({}) {}
+export class DisassociateMemberFromGroupRequest extends Schema.Class<DisassociateMemberFromGroupRequest>("DisassociateMemberFromGroupRequest")({OrganizationId: Schema.String, GroupId: Schema.String, MemberId: Schema.String}) {}
+export class DisassociateMemberFromGroupResponse extends Schema.Class<DisassociateMemberFromGroupResponse>("DisassociateMemberFromGroupResponse")({}) {}
+export class GetAccessControlEffectRequest extends Schema.Class<GetAccessControlEffectRequest>("GetAccessControlEffectRequest")({OrganizationId: Schema.String, IpAddress: Schema.String, Action: Schema.String, UserId: Schema.optional(Schema.String), ImpersonationRoleId: Schema.optional(Schema.String)}) {}
+export class GetDefaultRetentionPolicyRequest extends Schema.Class<GetDefaultRetentionPolicyRequest>("GetDefaultRetentionPolicyRequest")({OrganizationId: Schema.String}) {}
+export class GetImpersonationRoleRequest extends Schema.Class<GetImpersonationRoleRequest>("GetImpersonationRoleRequest")({OrganizationId: Schema.String, ImpersonationRoleId: Schema.String}) {}
+export class GetImpersonationRoleEffectRequest extends Schema.Class<GetImpersonationRoleEffectRequest>("GetImpersonationRoleEffectRequest")({OrganizationId: Schema.String, ImpersonationRoleId: Schema.String, TargetUser: Schema.String}) {}
+export class GetMailboxDetailsRequest extends Schema.Class<GetMailboxDetailsRequest>("GetMailboxDetailsRequest")({OrganizationId: Schema.String, UserId: Schema.String}) {}
+export class GetMailDomainRequest extends Schema.Class<GetMailDomainRequest>("GetMailDomainRequest")({OrganizationId: Schema.String, DomainName: Schema.String}) {}
+export class GetMobileDeviceAccessEffectRequest extends Schema.Class<GetMobileDeviceAccessEffectRequest>("GetMobileDeviceAccessEffectRequest")({OrganizationId: Schema.String, DeviceType: Schema.optional(Schema.String), DeviceModel: Schema.optional(Schema.String), DeviceOperatingSystem: Schema.optional(Schema.String), DeviceUserAgent: Schema.optional(Schema.String)}) {}
+export class GetMobileDeviceAccessOverrideRequest extends Schema.Class<GetMobileDeviceAccessOverrideRequest>("GetMobileDeviceAccessOverrideRequest")({OrganizationId: Schema.String, UserId: Schema.String, DeviceId: Schema.String}) {}
+export class GetPersonalAccessTokenMetadataRequest extends Schema.Class<GetPersonalAccessTokenMetadataRequest>("GetPersonalAccessTokenMetadataRequest")({OrganizationId: Schema.String, PersonalAccessTokenId: Schema.String}) {}
+export class ListAccessControlRulesRequest extends Schema.Class<ListAccessControlRulesRequest>("ListAccessControlRulesRequest")({OrganizationId: Schema.String}) {}
+export class ListAliasesRequest extends Schema.Class<ListAliasesRequest>("ListAliasesRequest")({OrganizationId: Schema.String, EntityId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListAvailabilityConfigurationsRequest extends Schema.Class<ListAvailabilityConfigurationsRequest>("ListAvailabilityConfigurationsRequest")({OrganizationId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListGroupMembersRequest extends Schema.Class<ListGroupMembersRequest>("ListGroupMembersRequest")({OrganizationId: Schema.String, GroupId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListImpersonationRolesRequest extends Schema.Class<ListImpersonationRolesRequest>("ListImpersonationRolesRequest")({OrganizationId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListMailboxExportJobsRequest extends Schema.Class<ListMailboxExportJobsRequest>("ListMailboxExportJobsRequest")({OrganizationId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListMailboxPermissionsRequest extends Schema.Class<ListMailboxPermissionsRequest>("ListMailboxPermissionsRequest")({OrganizationId: Schema.String, EntityId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListMailDomainsRequest extends Schema.Class<ListMailDomainsRequest>("ListMailDomainsRequest")({OrganizationId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListMobileDeviceAccessOverridesRequest extends Schema.Class<ListMobileDeviceAccessOverridesRequest>("ListMobileDeviceAccessOverridesRequest")({OrganizationId: Schema.String, UserId: Schema.optional(Schema.String), DeviceId: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListMobileDeviceAccessRulesRequest extends Schema.Class<ListMobileDeviceAccessRulesRequest>("ListMobileDeviceAccessRulesRequest")({OrganizationId: Schema.String}) {}
+export class ListOrganizationsRequest extends Schema.Class<ListOrganizationsRequest>("ListOrganizationsRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListPersonalAccessTokensRequest extends Schema.Class<ListPersonalAccessTokensRequest>("ListPersonalAccessTokensRequest")({OrganizationId: Schema.String, UserId: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListResourceDelegatesRequest extends Schema.Class<ListResourceDelegatesRequest>("ListResourceDelegatesRequest")({OrganizationId: Schema.String, ResourceId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({ResourceARN: Schema.String}) {}
+export class PutAccessControlRuleRequest extends Schema.Class<PutAccessControlRuleRequest>("PutAccessControlRuleRequest")({Name: Schema.String, Effect: Schema.String, Description: Schema.String, IpRanges: Schema.optional(IpRangeList), NotIpRanges: Schema.optional(IpRangeList), Actions: Schema.optional(ActionsList), NotActions: Schema.optional(ActionsList), UserIds: Schema.optional(UserIdList), NotUserIds: Schema.optional(UserIdList), OrganizationId: Schema.String, ImpersonationRoleIds: Schema.optional(ImpersonationRoleIdList), NotImpersonationRoleIds: Schema.optional(ImpersonationRoleIdList)}) {}
+export class PutAccessControlRuleResponse extends Schema.Class<PutAccessControlRuleResponse>("PutAccessControlRuleResponse")({}) {}
+export class PutEmailMonitoringConfigurationRequest extends Schema.Class<PutEmailMonitoringConfigurationRequest>("PutEmailMonitoringConfigurationRequest")({OrganizationId: Schema.String, RoleArn: Schema.optional(Schema.String), LogGroupArn: Schema.String}) {}
+export class PutEmailMonitoringConfigurationResponse extends Schema.Class<PutEmailMonitoringConfigurationResponse>("PutEmailMonitoringConfigurationResponse")({}) {}
+export class PutInboundDmarcSettingsRequest extends Schema.Class<PutInboundDmarcSettingsRequest>("PutInboundDmarcSettingsRequest")({OrganizationId: Schema.String, Enforced: Schema.Boolean}) {}
+export class PutInboundDmarcSettingsResponse extends Schema.Class<PutInboundDmarcSettingsResponse>("PutInboundDmarcSettingsResponse")({}) {}
+export class PutMailboxPermissionsRequest extends Schema.Class<PutMailboxPermissionsRequest>("PutMailboxPermissionsRequest")({OrganizationId: Schema.String, EntityId: Schema.String, GranteeId: Schema.String, PermissionValues: PermissionValues}) {}
+export class PutMailboxPermissionsResponse extends Schema.Class<PutMailboxPermissionsResponse>("PutMailboxPermissionsResponse")({}) {}
+export class PutMobileDeviceAccessOverrideRequest extends Schema.Class<PutMobileDeviceAccessOverrideRequest>("PutMobileDeviceAccessOverrideRequest")({OrganizationId: Schema.String, UserId: Schema.String, DeviceId: Schema.String, Effect: Schema.String, Description: Schema.optional(Schema.String)}) {}
+export class PutMobileDeviceAccessOverrideResponse extends Schema.Class<PutMobileDeviceAccessOverrideResponse>("PutMobileDeviceAccessOverrideResponse")({}) {}
+export class RegisterMailDomainRequest extends Schema.Class<RegisterMailDomainRequest>("RegisterMailDomainRequest")({ClientToken: Schema.optional(Schema.String), OrganizationId: Schema.String, DomainName: Schema.String}) {}
+export class RegisterMailDomainResponse extends Schema.Class<RegisterMailDomainResponse>("RegisterMailDomainResponse")({}) {}
+export class RegisterToWorkMailRequest extends Schema.Class<RegisterToWorkMailRequest>("RegisterToWorkMailRequest")({OrganizationId: Schema.String, EntityId: Schema.String, Email: Schema.String}) {}
+export class RegisterToWorkMailResponse extends Schema.Class<RegisterToWorkMailResponse>("RegisterToWorkMailResponse")({}) {}
+export class ResetPasswordRequest extends Schema.Class<ResetPasswordRequest>("ResetPasswordRequest")({OrganizationId: Schema.String, UserId: Schema.String, Password: Schema.String}) {}
+export class ResetPasswordResponse extends Schema.Class<ResetPasswordResponse>("ResetPasswordResponse")({}) {}
+export class StartMailboxExportJobRequest extends Schema.Class<StartMailboxExportJobRequest>("StartMailboxExportJobRequest")({ClientToken: Schema.String, OrganizationId: Schema.String, EntityId: Schema.String, Description: Schema.optional(Schema.String), RoleArn: Schema.String, KmsKeyArn: Schema.String, S3BucketName: Schema.String, S3Prefix: Schema.String}) {}
+export class EwsAvailabilityProvider extends Schema.Class<EwsAvailabilityProvider>("EwsAvailabilityProvider")({EwsEndpoint: Schema.String, EwsUsername: Schema.String, EwsPassword: Schema.String}) {}
+export class LambdaAvailabilityProvider extends Schema.Class<LambdaAvailabilityProvider>("LambdaAvailabilityProvider")({LambdaArn: Schema.String}) {}
+export class TestAvailabilityConfigurationRequest extends Schema.Class<TestAvailabilityConfigurationRequest>("TestAvailabilityConfigurationRequest")({OrganizationId: Schema.String, DomainName: Schema.optional(Schema.String), EwsProvider: Schema.optional(EwsAvailabilityProvider), LambdaProvider: Schema.optional(LambdaAvailabilityProvider)}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({ResourceARN: Schema.String, TagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class UpdateAvailabilityConfigurationRequest extends Schema.Class<UpdateAvailabilityConfigurationRequest>("UpdateAvailabilityConfigurationRequest")({OrganizationId: Schema.String, DomainName: Schema.String, EwsProvider: Schema.optional(EwsAvailabilityProvider), LambdaProvider: Schema.optional(LambdaAvailabilityProvider)}) {}
+export class UpdateAvailabilityConfigurationResponse extends Schema.Class<UpdateAvailabilityConfigurationResponse>("UpdateAvailabilityConfigurationResponse")({}) {}
+export class UpdateDefaultMailDomainRequest extends Schema.Class<UpdateDefaultMailDomainRequest>("UpdateDefaultMailDomainRequest")({OrganizationId: Schema.String, DomainName: Schema.String}) {}
+export class UpdateDefaultMailDomainResponse extends Schema.Class<UpdateDefaultMailDomainResponse>("UpdateDefaultMailDomainResponse")({}) {}
+export class UpdateGroupRequest extends Schema.Class<UpdateGroupRequest>("UpdateGroupRequest")({OrganizationId: Schema.String, GroupId: Schema.String, HiddenFromGlobalAddressList: Schema.optional(Schema.Boolean)}) {}
+export class UpdateGroupResponse extends Schema.Class<UpdateGroupResponse>("UpdateGroupResponse")({}) {}
 export const TargetUsers = Schema.Array(Schema.String);
-export const ImpersonationRule = Schema.Struct({ImpersonationRuleId: Schema.String, Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Effect: Schema.String, TargetUsers: Schema.optional(TargetUsers), NotTargetUsers: Schema.optional(TargetUsers)});
+export class ImpersonationRule extends Schema.Class<ImpersonationRule>("ImpersonationRule")({ImpersonationRuleId: Schema.String, Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Effect: Schema.String, TargetUsers: Schema.optional(TargetUsers), NotTargetUsers: Schema.optional(TargetUsers)}) {}
 export const ImpersonationRuleList = Schema.Array(ImpersonationRule);
-export const UpdateImpersonationRoleRequest = Schema.Struct({OrganizationId: Schema.String, ImpersonationRoleId: Schema.String, Name: Schema.String, Type: Schema.String, Description: Schema.optional(Schema.String), Rules: ImpersonationRuleList});
-export const UpdateImpersonationRoleResponse = Schema.Struct({});
-export const UpdateMailboxQuotaRequest = Schema.Struct({OrganizationId: Schema.String, UserId: Schema.String, MailboxQuota: Schema.Number});
-export const UpdateMailboxQuotaResponse = Schema.Struct({});
-export const UpdateMobileDeviceAccessRuleRequest = Schema.Struct({OrganizationId: Schema.String, MobileDeviceAccessRuleId: Schema.String, Name: Schema.String, Description: Schema.optional(Schema.String), Effect: Schema.String, DeviceTypes: Schema.optional(DeviceTypeList), NotDeviceTypes: Schema.optional(DeviceTypeList), DeviceModels: Schema.optional(DeviceModelList), NotDeviceModels: Schema.optional(DeviceModelList), DeviceOperatingSystems: Schema.optional(DeviceOperatingSystemList), NotDeviceOperatingSystems: Schema.optional(DeviceOperatingSystemList), DeviceUserAgents: Schema.optional(DeviceUserAgentList), NotDeviceUserAgents: Schema.optional(DeviceUserAgentList)});
-export const UpdateMobileDeviceAccessRuleResponse = Schema.Struct({});
-export const UpdatePrimaryEmailAddressRequest = Schema.Struct({OrganizationId: Schema.String, EntityId: Schema.String, Email: Schema.String});
-export const UpdatePrimaryEmailAddressResponse = Schema.Struct({});
-export const UpdateUserRequest = Schema.Struct({OrganizationId: Schema.String, UserId: Schema.String, Role: Schema.optional(Schema.String), DisplayName: Schema.optional(Schema.String), FirstName: Schema.optional(Schema.String), LastName: Schema.optional(Schema.String), HiddenFromGlobalAddressList: Schema.optional(Schema.Boolean), Initials: Schema.optional(Schema.String), Telephone: Schema.optional(Schema.String), Street: Schema.optional(Schema.String), JobTitle: Schema.optional(Schema.String), City: Schema.optional(Schema.String), Company: Schema.optional(Schema.String), ZipCode: Schema.optional(Schema.String), Department: Schema.optional(Schema.String), Country: Schema.optional(Schema.String), Office: Schema.optional(Schema.String), IdentityProviderUserId: Schema.optional(Schema.String)});
-export const UpdateUserResponse = Schema.Struct({});
-export const Domain = Schema.Struct({DomainName: Schema.String, HostedZoneId: Schema.optional(Schema.String)});
+export class UpdateImpersonationRoleRequest extends Schema.Class<UpdateImpersonationRoleRequest>("UpdateImpersonationRoleRequest")({OrganizationId: Schema.String, ImpersonationRoleId: Schema.String, Name: Schema.String, Type: Schema.String, Description: Schema.optional(Schema.String), Rules: ImpersonationRuleList}) {}
+export class UpdateImpersonationRoleResponse extends Schema.Class<UpdateImpersonationRoleResponse>("UpdateImpersonationRoleResponse")({}) {}
+export class UpdateMailboxQuotaRequest extends Schema.Class<UpdateMailboxQuotaRequest>("UpdateMailboxQuotaRequest")({OrganizationId: Schema.String, UserId: Schema.String, MailboxQuota: Schema.Number}) {}
+export class UpdateMailboxQuotaResponse extends Schema.Class<UpdateMailboxQuotaResponse>("UpdateMailboxQuotaResponse")({}) {}
+export class UpdateMobileDeviceAccessRuleRequest extends Schema.Class<UpdateMobileDeviceAccessRuleRequest>("UpdateMobileDeviceAccessRuleRequest")({OrganizationId: Schema.String, MobileDeviceAccessRuleId: Schema.String, Name: Schema.String, Description: Schema.optional(Schema.String), Effect: Schema.String, DeviceTypes: Schema.optional(DeviceTypeList), NotDeviceTypes: Schema.optional(DeviceTypeList), DeviceModels: Schema.optional(DeviceModelList), NotDeviceModels: Schema.optional(DeviceModelList), DeviceOperatingSystems: Schema.optional(DeviceOperatingSystemList), NotDeviceOperatingSystems: Schema.optional(DeviceOperatingSystemList), DeviceUserAgents: Schema.optional(DeviceUserAgentList), NotDeviceUserAgents: Schema.optional(DeviceUserAgentList)}) {}
+export class UpdateMobileDeviceAccessRuleResponse extends Schema.Class<UpdateMobileDeviceAccessRuleResponse>("UpdateMobileDeviceAccessRuleResponse")({}) {}
+export class UpdatePrimaryEmailAddressRequest extends Schema.Class<UpdatePrimaryEmailAddressRequest>("UpdatePrimaryEmailAddressRequest")({OrganizationId: Schema.String, EntityId: Schema.String, Email: Schema.String}) {}
+export class UpdatePrimaryEmailAddressResponse extends Schema.Class<UpdatePrimaryEmailAddressResponse>("UpdatePrimaryEmailAddressResponse")({}) {}
+export class UpdateUserRequest extends Schema.Class<UpdateUserRequest>("UpdateUserRequest")({OrganizationId: Schema.String, UserId: Schema.String, Role: Schema.optional(Schema.String), DisplayName: Schema.optional(Schema.String), FirstName: Schema.optional(Schema.String), LastName: Schema.optional(Schema.String), HiddenFromGlobalAddressList: Schema.optional(Schema.Boolean), Initials: Schema.optional(Schema.String), Telephone: Schema.optional(Schema.String), Street: Schema.optional(Schema.String), JobTitle: Schema.optional(Schema.String), City: Schema.optional(Schema.String), Company: Schema.optional(Schema.String), ZipCode: Schema.optional(Schema.String), Department: Schema.optional(Schema.String), Country: Schema.optional(Schema.String), Office: Schema.optional(Schema.String), IdentityProviderUserId: Schema.optional(Schema.String)}) {}
+export class UpdateUserResponse extends Schema.Class<UpdateUserResponse>("UpdateUserResponse")({}) {}
+export class Domain extends Schema.Class<Domain>("Domain")({DomainName: Schema.String, HostedZoneId: Schema.optional(Schema.String)}) {}
 export const Domains = Schema.Array(Domain);
 export const AccessControlRuleNameList = Schema.Array(Schema.String);
 export const PersonalAccessTokenScopeList = Schema.Array(Schema.String);
 export const Aliases = Schema.Array(Schema.String);
-export const ListGroupsFilters = Schema.Struct({NamePrefix: Schema.optional(Schema.String), PrimaryEmailPrefix: Schema.optional(Schema.String), State: Schema.optional(Schema.String)});
-export const ListGroupsForEntityFilters = Schema.Struct({GroupNamePrefix: Schema.optional(Schema.String)});
-export const ListResourcesFilters = Schema.Struct({NamePrefix: Schema.optional(Schema.String), PrimaryEmailPrefix: Schema.optional(Schema.String), State: Schema.optional(Schema.String)});
-export const ListUsersFilters = Schema.Struct({UsernamePrefix: Schema.optional(Schema.String), DisplayNamePrefix: Schema.optional(Schema.String), PrimaryEmailPrefix: Schema.optional(Schema.String), State: Schema.optional(Schema.String), IdentityProviderUserIdPrefix: Schema.optional(Schema.String)});
-export const IdentityCenterConfiguration = Schema.Struct({InstanceArn: Schema.String, ApplicationArn: Schema.String});
-export const PersonalAccessTokenConfiguration = Schema.Struct({Status: Schema.String, LifetimeInDays: Schema.optional(Schema.Number)});
-export const FolderConfiguration = Schema.Struct({Name: Schema.String, Action: Schema.String, Period: Schema.optional(Schema.Number)});
+export class ListGroupsFilters extends Schema.Class<ListGroupsFilters>("ListGroupsFilters")({NamePrefix: Schema.optional(Schema.String), PrimaryEmailPrefix: Schema.optional(Schema.String), State: Schema.optional(Schema.String)}) {}
+export class ListGroupsForEntityFilters extends Schema.Class<ListGroupsForEntityFilters>("ListGroupsForEntityFilters")({GroupNamePrefix: Schema.optional(Schema.String)}) {}
+export class ListResourcesFilters extends Schema.Class<ListResourcesFilters>("ListResourcesFilters")({NamePrefix: Schema.optional(Schema.String), PrimaryEmailPrefix: Schema.optional(Schema.String), State: Schema.optional(Schema.String)}) {}
+export class ListUsersFilters extends Schema.Class<ListUsersFilters>("ListUsersFilters")({UsernamePrefix: Schema.optional(Schema.String), DisplayNamePrefix: Schema.optional(Schema.String), PrimaryEmailPrefix: Schema.optional(Schema.String), State: Schema.optional(Schema.String), IdentityProviderUserIdPrefix: Schema.optional(Schema.String)}) {}
+export class IdentityCenterConfiguration extends Schema.Class<IdentityCenterConfiguration>("IdentityCenterConfiguration")({InstanceArn: Schema.String, ApplicationArn: Schema.String}) {}
+export class PersonalAccessTokenConfiguration extends Schema.Class<PersonalAccessTokenConfiguration>("PersonalAccessTokenConfiguration")({Status: Schema.String, LifetimeInDays: Schema.optional(Schema.Number)}) {}
+export class FolderConfiguration extends Schema.Class<FolderConfiguration>("FolderConfiguration")({Name: Schema.String, Action: Schema.String, Period: Schema.optional(Schema.Number)}) {}
 export const FolderConfigurations = Schema.Array(FolderConfiguration);
-export const Tag = Schema.Struct({Key: Schema.String, Value: Schema.String});
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.String, Value: Schema.String}) {}
 export const TagList = Schema.Array(Tag);
-export const BookingOptions = Schema.Struct({AutoAcceptRequests: Schema.optional(Schema.Boolean), AutoDeclineRecurringRequests: Schema.optional(Schema.Boolean), AutoDeclineConflictingRequests: Schema.optional(Schema.Boolean)});
-export const EntityNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DirectoryServiceAuthenticationFailedException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const AssumeImpersonationRoleResponse = Schema.Struct({Token: Schema.optional(Schema.String), ExpiresIn: Schema.optional(Schema.Number)});
-export const InvalidParameterException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const EmailAddressInUseException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const CreateAvailabilityConfigurationRequest = Schema.Struct({ClientToken: Schema.optional(Schema.String), OrganizationId: Schema.String, DomainName: Schema.String, EwsProvider: Schema.optional(EwsAvailabilityProvider), LambdaProvider: Schema.optional(LambdaAvailabilityProvider)});
-export const CreateAvailabilityConfigurationResponse = Schema.Struct({});
-export const CreateGroupResponse = Schema.Struct({GroupId: Schema.optional(Schema.String)});
-export const CreateIdentityCenterApplicationResponse = Schema.Struct({ApplicationArn: Schema.optional(Schema.String)});
-export const CreateImpersonationRoleRequest = Schema.Struct({ClientToken: Schema.optional(Schema.String), OrganizationId: Schema.String, Name: Schema.String, Type: Schema.String, Description: Schema.optional(Schema.String), Rules: ImpersonationRuleList});
-export const CreateMobileDeviceAccessRuleResponse = Schema.Struct({MobileDeviceAccessRuleId: Schema.optional(Schema.String)});
-export const CreateOrganizationRequest = Schema.Struct({DirectoryId: Schema.optional(Schema.String), Alias: Schema.String, ClientToken: Schema.optional(Schema.String), Domains: Schema.optional(Domains), KmsKeyArn: Schema.optional(Schema.String), EnableInteroperability: Schema.optional(Schema.Boolean)});
-export const CreateResourceResponse = Schema.Struct({ResourceId: Schema.optional(Schema.String)});
-export const CreateUserResponse = Schema.Struct({UserId: Schema.optional(Schema.String)});
-export const OrganizationNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const EntityStateException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const OrganizationStateException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DirectoryUnavailableException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DeleteOrganizationResponse = Schema.Struct({OrganizationId: Schema.optional(Schema.String), State: Schema.optional(Schema.String)});
-export const UnsupportedOperationException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const InvalidCustomSesConfigurationException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DescribeEmailMonitoringConfigurationResponse = Schema.Struct({RoleArn: Schema.optional(Schema.String), LogGroupArn: Schema.optional(Schema.String)});
-export const DescribeEntityResponse = Schema.Struct({EntityId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Type: Schema.optional(Schema.String)});
-export const DescribeGroupResponse = Schema.Struct({GroupId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Email: Schema.optional(Schema.String), State: Schema.optional(Schema.String), EnabledDate: Schema.optional(Schema.Date), DisabledDate: Schema.optional(Schema.Date), HiddenFromGlobalAddressList: Schema.optional(Schema.Boolean)});
-export const DescribeIdentityProviderConfigurationResponse = Schema.Struct({AuthenticationMode: Schema.optional(Schema.String), IdentityCenterConfiguration: Schema.optional(IdentityCenterConfiguration), PersonalAccessTokenConfiguration: Schema.optional(PersonalAccessTokenConfiguration)});
-export const DescribeInboundDmarcSettingsResponse = Schema.Struct({Enforced: Schema.optional(Schema.Boolean)});
-export const DescribeMailboxExportJobResponse = Schema.Struct({EntityId: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), RoleArn: Schema.optional(Schema.String), KmsKeyArn: Schema.optional(Schema.String), S3BucketName: Schema.optional(Schema.String), S3Prefix: Schema.optional(Schema.String), S3Path: Schema.optional(Schema.String), EstimatedProgress: Schema.optional(Schema.Number), State: Schema.optional(Schema.String), ErrorInfo: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date)});
-export const DescribeOrganizationResponse = Schema.Struct({OrganizationId: Schema.optional(Schema.String), Alias: Schema.optional(Schema.String), State: Schema.optional(Schema.String), DirectoryId: Schema.optional(Schema.String), DirectoryType: Schema.optional(Schema.String), DefaultMailDomain: Schema.optional(Schema.String), CompletedDate: Schema.optional(Schema.Date), ErrorMessage: Schema.optional(Schema.String), ARN: Schema.optional(Schema.String), MigrationAdmin: Schema.optional(Schema.String), InteroperabilityEnabled: Schema.optional(Schema.Boolean)});
-export const DescribeResourceResponse = Schema.Struct({ResourceId: Schema.optional(Schema.String), Email: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), BookingOptions: Schema.optional(BookingOptions), State: Schema.optional(Schema.String), EnabledDate: Schema.optional(Schema.Date), DisabledDate: Schema.optional(Schema.Date), Description: Schema.optional(Schema.String), HiddenFromGlobalAddressList: Schema.optional(Schema.Boolean)});
-export const DescribeUserResponse = Schema.Struct({UserId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Email: Schema.optional(Schema.String), DisplayName: Schema.optional(Schema.String), State: Schema.optional(Schema.String), UserRole: Schema.optional(Schema.String), EnabledDate: Schema.optional(Schema.Date), DisabledDate: Schema.optional(Schema.Date), MailboxProvisionedDate: Schema.optional(Schema.Date), MailboxDeprovisionedDate: Schema.optional(Schema.Date), FirstName: Schema.optional(Schema.String), LastName: Schema.optional(Schema.String), HiddenFromGlobalAddressList: Schema.optional(Schema.Boolean), Initials: Schema.optional(Schema.String), Telephone: Schema.optional(Schema.String), Street: Schema.optional(Schema.String), JobTitle: Schema.optional(Schema.String), City: Schema.optional(Schema.String), Company: Schema.optional(Schema.String), ZipCode: Schema.optional(Schema.String), Department: Schema.optional(Schema.String), Country: Schema.optional(Schema.String), Office: Schema.optional(Schema.String), IdentityProviderUserId: Schema.optional(Schema.String), IdentityProviderIdentityStoreId: Schema.optional(Schema.String)});
-export const GetAccessControlEffectResponse = Schema.Struct({Effect: Schema.optional(Schema.String), MatchedRules: Schema.optional(AccessControlRuleNameList)});
-export const GetDefaultRetentionPolicyResponse = Schema.Struct({Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), FolderConfigurations: Schema.optional(FolderConfigurations)});
-export const GetImpersonationRoleResponse = Schema.Struct({ImpersonationRoleId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Rules: Schema.optional(ImpersonationRuleList), DateCreated: Schema.optional(Schema.Date), DateModified: Schema.optional(Schema.Date)});
-export const GetMailboxDetailsResponse = Schema.Struct({MailboxQuota: Schema.optional(Schema.Number), MailboxSize: Schema.optional(Schema.Number)});
-export const GetMobileDeviceAccessOverrideResponse = Schema.Struct({UserId: Schema.optional(Schema.String), DeviceId: Schema.optional(Schema.String), Effect: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), DateCreated: Schema.optional(Schema.Date), DateModified: Schema.optional(Schema.Date)});
-export const GetPersonalAccessTokenMetadataResponse = Schema.Struct({PersonalAccessTokenId: Schema.optional(Schema.String), UserId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), DateCreated: Schema.optional(Schema.Date), DateLastUsed: Schema.optional(Schema.Date), ExpiresTime: Schema.optional(Schema.Date), Scopes: Schema.optional(PersonalAccessTokenScopeList)});
-export const ListAliasesResponse = Schema.Struct({Aliases: Schema.optional(Aliases), NextToken: Schema.optional(Schema.String)});
-export const ListGroupsRequest = Schema.Struct({OrganizationId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), Filters: Schema.optional(ListGroupsFilters)});
-export const ListGroupsForEntityRequest = Schema.Struct({OrganizationId: Schema.String, EntityId: Schema.String, Filters: Schema.optional(ListGroupsForEntityFilters), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListResourcesRequest = Schema.Struct({OrganizationId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), Filters: Schema.optional(ListResourcesFilters)});
-export const ListTagsForResourceResponse = Schema.Struct({Tags: Schema.optional(TagList)});
-export const ListUsersRequest = Schema.Struct({OrganizationId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), Filters: Schema.optional(ListUsersFilters)});
-export const LimitExceededException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const PutIdentityProviderConfigurationRequest = Schema.Struct({OrganizationId: Schema.String, AuthenticationMode: Schema.String, IdentityCenterConfiguration: IdentityCenterConfiguration, PersonalAccessTokenConfiguration: PersonalAccessTokenConfiguration});
-export const PutIdentityProviderConfigurationResponse = Schema.Struct({});
-export const PutRetentionPolicyRequest = Schema.Struct({OrganizationId: Schema.String, Id: Schema.optional(Schema.String), Name: Schema.String, Description: Schema.optional(Schema.String), FolderConfigurations: FolderConfigurations});
-export const PutRetentionPolicyResponse = Schema.Struct({});
-export const MailDomainInUseException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const EntityAlreadyRegisteredException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const InvalidPasswordException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const StartMailboxExportJobResponse = Schema.Struct({JobId: Schema.optional(Schema.String)});
-export const TagResourceRequest = Schema.Struct({ResourceARN: Schema.String, Tags: TagList});
-export const TagResourceResponse = Schema.Struct({});
-export const TestAvailabilityConfigurationResponse = Schema.Struct({TestPassed: Schema.optional(Schema.Boolean), FailureReason: Schema.optional(Schema.String)});
-export const MailDomainNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const MailDomainStateException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const UpdateResourceRequest = Schema.Struct({OrganizationId: Schema.String, ResourceId: Schema.String, Name: Schema.optional(Schema.String), BookingOptions: Schema.optional(BookingOptions), Description: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), HiddenFromGlobalAddressList: Schema.optional(Schema.Boolean)});
-export const UpdateResourceResponse = Schema.Struct({});
-export const ImpersonationMatchedRule = Schema.Struct({ImpersonationRuleId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String)});
+export class BookingOptions extends Schema.Class<BookingOptions>("BookingOptions")({AutoAcceptRequests: Schema.optional(Schema.Boolean), AutoDeclineRecurringRequests: Schema.optional(Schema.Boolean), AutoDeclineConflictingRequests: Schema.optional(Schema.Boolean)}) {}
+export class EntityNotFoundException extends Schema.Class<EntityNotFoundException>("EntityNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class DirectoryServiceAuthenticationFailedException extends Schema.Class<DirectoryServiceAuthenticationFailedException>("DirectoryServiceAuthenticationFailedException")({Message: Schema.optional(Schema.String)}) {}
+export class AssumeImpersonationRoleResponse extends Schema.Class<AssumeImpersonationRoleResponse>("AssumeImpersonationRoleResponse")({Token: Schema.optional(Schema.String), ExpiresIn: Schema.optional(Schema.Number)}) {}
+export class InvalidParameterException extends Schema.Class<InvalidParameterException>("InvalidParameterException")({Message: Schema.optional(Schema.String)}) {}
+export class EmailAddressInUseException extends Schema.Class<EmailAddressInUseException>("EmailAddressInUseException")({Message: Schema.optional(Schema.String)}) {}
+export class CreateAvailabilityConfigurationRequest extends Schema.Class<CreateAvailabilityConfigurationRequest>("CreateAvailabilityConfigurationRequest")({ClientToken: Schema.optional(Schema.String), OrganizationId: Schema.String, DomainName: Schema.String, EwsProvider: Schema.optional(EwsAvailabilityProvider), LambdaProvider: Schema.optional(LambdaAvailabilityProvider)}) {}
+export class CreateAvailabilityConfigurationResponse extends Schema.Class<CreateAvailabilityConfigurationResponse>("CreateAvailabilityConfigurationResponse")({}) {}
+export class CreateGroupResponse extends Schema.Class<CreateGroupResponse>("CreateGroupResponse")({GroupId: Schema.optional(Schema.String)}) {}
+export class CreateIdentityCenterApplicationResponse extends Schema.Class<CreateIdentityCenterApplicationResponse>("CreateIdentityCenterApplicationResponse")({ApplicationArn: Schema.optional(Schema.String)}) {}
+export class CreateImpersonationRoleRequest extends Schema.Class<CreateImpersonationRoleRequest>("CreateImpersonationRoleRequest")({ClientToken: Schema.optional(Schema.String), OrganizationId: Schema.String, Name: Schema.String, Type: Schema.String, Description: Schema.optional(Schema.String), Rules: ImpersonationRuleList}) {}
+export class CreateMobileDeviceAccessRuleResponse extends Schema.Class<CreateMobileDeviceAccessRuleResponse>("CreateMobileDeviceAccessRuleResponse")({MobileDeviceAccessRuleId: Schema.optional(Schema.String)}) {}
+export class CreateOrganizationRequest extends Schema.Class<CreateOrganizationRequest>("CreateOrganizationRequest")({DirectoryId: Schema.optional(Schema.String), Alias: Schema.String, ClientToken: Schema.optional(Schema.String), Domains: Schema.optional(Domains), KmsKeyArn: Schema.optional(Schema.String), EnableInteroperability: Schema.optional(Schema.Boolean)}) {}
+export class CreateResourceResponse extends Schema.Class<CreateResourceResponse>("CreateResourceResponse")({ResourceId: Schema.optional(Schema.String)}) {}
+export class CreateUserResponse extends Schema.Class<CreateUserResponse>("CreateUserResponse")({UserId: Schema.optional(Schema.String)}) {}
+export class OrganizationNotFoundException extends Schema.Class<OrganizationNotFoundException>("OrganizationNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class EntityStateException extends Schema.Class<EntityStateException>("EntityStateException")({Message: Schema.optional(Schema.String)}) {}
+export class OrganizationStateException extends Schema.Class<OrganizationStateException>("OrganizationStateException")({Message: Schema.optional(Schema.String)}) {}
+export class DirectoryUnavailableException extends Schema.Class<DirectoryUnavailableException>("DirectoryUnavailableException")({Message: Schema.optional(Schema.String)}) {}
+export class DeleteOrganizationResponse extends Schema.Class<DeleteOrganizationResponse>("DeleteOrganizationResponse")({OrganizationId: Schema.optional(Schema.String), State: Schema.optional(Schema.String)}) {}
+export class UnsupportedOperationException extends Schema.Class<UnsupportedOperationException>("UnsupportedOperationException")({Message: Schema.optional(Schema.String)}) {}
+export class InvalidCustomSesConfigurationException extends Schema.Class<InvalidCustomSesConfigurationException>("InvalidCustomSesConfigurationException")({Message: Schema.optional(Schema.String)}) {}
+export class DescribeEmailMonitoringConfigurationResponse extends Schema.Class<DescribeEmailMonitoringConfigurationResponse>("DescribeEmailMonitoringConfigurationResponse")({RoleArn: Schema.optional(Schema.String), LogGroupArn: Schema.optional(Schema.String)}) {}
+export class DescribeEntityResponse extends Schema.Class<DescribeEntityResponse>("DescribeEntityResponse")({EntityId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Type: Schema.optional(Schema.String)}) {}
+export class DescribeGroupResponse extends Schema.Class<DescribeGroupResponse>("DescribeGroupResponse")({GroupId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Email: Schema.optional(Schema.String), State: Schema.optional(Schema.String), EnabledDate: Schema.optional(Schema.Date), DisabledDate: Schema.optional(Schema.Date), HiddenFromGlobalAddressList: Schema.optional(Schema.Boolean)}) {}
+export class DescribeIdentityProviderConfigurationResponse extends Schema.Class<DescribeIdentityProviderConfigurationResponse>("DescribeIdentityProviderConfigurationResponse")({AuthenticationMode: Schema.optional(Schema.String), IdentityCenterConfiguration: Schema.optional(IdentityCenterConfiguration), PersonalAccessTokenConfiguration: Schema.optional(PersonalAccessTokenConfiguration)}) {}
+export class DescribeInboundDmarcSettingsResponse extends Schema.Class<DescribeInboundDmarcSettingsResponse>("DescribeInboundDmarcSettingsResponse")({Enforced: Schema.optional(Schema.Boolean)}) {}
+export class DescribeMailboxExportJobResponse extends Schema.Class<DescribeMailboxExportJobResponse>("DescribeMailboxExportJobResponse")({EntityId: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), RoleArn: Schema.optional(Schema.String), KmsKeyArn: Schema.optional(Schema.String), S3BucketName: Schema.optional(Schema.String), S3Prefix: Schema.optional(Schema.String), S3Path: Schema.optional(Schema.String), EstimatedProgress: Schema.optional(Schema.Number), State: Schema.optional(Schema.String), ErrorInfo: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date)}) {}
+export class DescribeOrganizationResponse extends Schema.Class<DescribeOrganizationResponse>("DescribeOrganizationResponse")({OrganizationId: Schema.optional(Schema.String), Alias: Schema.optional(Schema.String), State: Schema.optional(Schema.String), DirectoryId: Schema.optional(Schema.String), DirectoryType: Schema.optional(Schema.String), DefaultMailDomain: Schema.optional(Schema.String), CompletedDate: Schema.optional(Schema.Date), ErrorMessage: Schema.optional(Schema.String), ARN: Schema.optional(Schema.String), MigrationAdmin: Schema.optional(Schema.String), InteroperabilityEnabled: Schema.optional(Schema.Boolean)}) {}
+export class DescribeResourceResponse extends Schema.Class<DescribeResourceResponse>("DescribeResourceResponse")({ResourceId: Schema.optional(Schema.String), Email: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), BookingOptions: Schema.optional(BookingOptions), State: Schema.optional(Schema.String), EnabledDate: Schema.optional(Schema.Date), DisabledDate: Schema.optional(Schema.Date), Description: Schema.optional(Schema.String), HiddenFromGlobalAddressList: Schema.optional(Schema.Boolean)}) {}
+export class DescribeUserResponse extends Schema.Class<DescribeUserResponse>("DescribeUserResponse")({UserId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Email: Schema.optional(Schema.String), DisplayName: Schema.optional(Schema.String), State: Schema.optional(Schema.String), UserRole: Schema.optional(Schema.String), EnabledDate: Schema.optional(Schema.Date), DisabledDate: Schema.optional(Schema.Date), MailboxProvisionedDate: Schema.optional(Schema.Date), MailboxDeprovisionedDate: Schema.optional(Schema.Date), FirstName: Schema.optional(Schema.String), LastName: Schema.optional(Schema.String), HiddenFromGlobalAddressList: Schema.optional(Schema.Boolean), Initials: Schema.optional(Schema.String), Telephone: Schema.optional(Schema.String), Street: Schema.optional(Schema.String), JobTitle: Schema.optional(Schema.String), City: Schema.optional(Schema.String), Company: Schema.optional(Schema.String), ZipCode: Schema.optional(Schema.String), Department: Schema.optional(Schema.String), Country: Schema.optional(Schema.String), Office: Schema.optional(Schema.String), IdentityProviderUserId: Schema.optional(Schema.String), IdentityProviderIdentityStoreId: Schema.optional(Schema.String)}) {}
+export class GetAccessControlEffectResponse extends Schema.Class<GetAccessControlEffectResponse>("GetAccessControlEffectResponse")({Effect: Schema.optional(Schema.String), MatchedRules: Schema.optional(AccessControlRuleNameList)}) {}
+export class GetDefaultRetentionPolicyResponse extends Schema.Class<GetDefaultRetentionPolicyResponse>("GetDefaultRetentionPolicyResponse")({Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), FolderConfigurations: Schema.optional(FolderConfigurations)}) {}
+export class GetImpersonationRoleResponse extends Schema.Class<GetImpersonationRoleResponse>("GetImpersonationRoleResponse")({ImpersonationRoleId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Rules: Schema.optional(ImpersonationRuleList), DateCreated: Schema.optional(Schema.Date), DateModified: Schema.optional(Schema.Date)}) {}
+export class GetMailboxDetailsResponse extends Schema.Class<GetMailboxDetailsResponse>("GetMailboxDetailsResponse")({MailboxQuota: Schema.optional(Schema.Number), MailboxSize: Schema.optional(Schema.Number)}) {}
+export class GetMobileDeviceAccessOverrideResponse extends Schema.Class<GetMobileDeviceAccessOverrideResponse>("GetMobileDeviceAccessOverrideResponse")({UserId: Schema.optional(Schema.String), DeviceId: Schema.optional(Schema.String), Effect: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), DateCreated: Schema.optional(Schema.Date), DateModified: Schema.optional(Schema.Date)}) {}
+export class GetPersonalAccessTokenMetadataResponse extends Schema.Class<GetPersonalAccessTokenMetadataResponse>("GetPersonalAccessTokenMetadataResponse")({PersonalAccessTokenId: Schema.optional(Schema.String), UserId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), DateCreated: Schema.optional(Schema.Date), DateLastUsed: Schema.optional(Schema.Date), ExpiresTime: Schema.optional(Schema.Date), Scopes: Schema.optional(PersonalAccessTokenScopeList)}) {}
+export class ListAliasesResponse extends Schema.Class<ListAliasesResponse>("ListAliasesResponse")({Aliases: Schema.optional(Aliases), NextToken: Schema.optional(Schema.String)}) {}
+export class ListGroupsRequest extends Schema.Class<ListGroupsRequest>("ListGroupsRequest")({OrganizationId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), Filters: Schema.optional(ListGroupsFilters)}) {}
+export class ListGroupsForEntityRequest extends Schema.Class<ListGroupsForEntityRequest>("ListGroupsForEntityRequest")({OrganizationId: Schema.String, EntityId: Schema.String, Filters: Schema.optional(ListGroupsForEntityFilters), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListResourcesRequest extends Schema.Class<ListResourcesRequest>("ListResourcesRequest")({OrganizationId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), Filters: Schema.optional(ListResourcesFilters)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({Tags: Schema.optional(TagList)}) {}
+export class ListUsersRequest extends Schema.Class<ListUsersRequest>("ListUsersRequest")({OrganizationId: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), Filters: Schema.optional(ListUsersFilters)}) {}
+export class LimitExceededException extends Schema.Class<LimitExceededException>("LimitExceededException")({Message: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class PutIdentityProviderConfigurationRequest extends Schema.Class<PutIdentityProviderConfigurationRequest>("PutIdentityProviderConfigurationRequest")({OrganizationId: Schema.String, AuthenticationMode: Schema.String, IdentityCenterConfiguration: IdentityCenterConfiguration, PersonalAccessTokenConfiguration: PersonalAccessTokenConfiguration}) {}
+export class PutIdentityProviderConfigurationResponse extends Schema.Class<PutIdentityProviderConfigurationResponse>("PutIdentityProviderConfigurationResponse")({}) {}
+export class PutRetentionPolicyRequest extends Schema.Class<PutRetentionPolicyRequest>("PutRetentionPolicyRequest")({OrganizationId: Schema.String, Id: Schema.optional(Schema.String), Name: Schema.String, Description: Schema.optional(Schema.String), FolderConfigurations: FolderConfigurations}) {}
+export class PutRetentionPolicyResponse extends Schema.Class<PutRetentionPolicyResponse>("PutRetentionPolicyResponse")({}) {}
+export class MailDomainInUseException extends Schema.Class<MailDomainInUseException>("MailDomainInUseException")({Message: Schema.optional(Schema.String)}) {}
+export class EntityAlreadyRegisteredException extends Schema.Class<EntityAlreadyRegisteredException>("EntityAlreadyRegisteredException")({Message: Schema.optional(Schema.String)}) {}
+export class InvalidPasswordException extends Schema.Class<InvalidPasswordException>("InvalidPasswordException")({Message: Schema.optional(Schema.String)}) {}
+export class StartMailboxExportJobResponse extends Schema.Class<StartMailboxExportJobResponse>("StartMailboxExportJobResponse")({JobId: Schema.optional(Schema.String)}) {}
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({ResourceARN: Schema.String, Tags: TagList}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class TestAvailabilityConfigurationResponse extends Schema.Class<TestAvailabilityConfigurationResponse>("TestAvailabilityConfigurationResponse")({TestPassed: Schema.optional(Schema.Boolean), FailureReason: Schema.optional(Schema.String)}) {}
+export class MailDomainNotFoundException extends Schema.Class<MailDomainNotFoundException>("MailDomainNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class MailDomainStateException extends Schema.Class<MailDomainStateException>("MailDomainStateException")({Message: Schema.optional(Schema.String)}) {}
+export class UpdateResourceRequest extends Schema.Class<UpdateResourceRequest>("UpdateResourceRequest")({OrganizationId: Schema.String, ResourceId: Schema.String, Name: Schema.optional(Schema.String), BookingOptions: Schema.optional(BookingOptions), Description: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), HiddenFromGlobalAddressList: Schema.optional(Schema.Boolean)}) {}
+export class UpdateResourceResponse extends Schema.Class<UpdateResourceResponse>("UpdateResourceResponse")({}) {}
+export class ImpersonationMatchedRule extends Schema.Class<ImpersonationMatchedRule>("ImpersonationMatchedRule")({ImpersonationRuleId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String)}) {}
 export const ImpersonationMatchedRuleList = Schema.Array(ImpersonationMatchedRule);
-export const DnsRecord = Schema.Struct({Type: Schema.optional(Schema.String), Hostname: Schema.optional(Schema.String), Value: Schema.optional(Schema.String)});
+export class DnsRecord extends Schema.Class<DnsRecord>("DnsRecord")({Type: Schema.optional(Schema.String), Hostname: Schema.optional(Schema.String), Value: Schema.optional(Schema.String)}) {}
 export const DnsRecords = Schema.Array(DnsRecord);
-export const MobileDeviceAccessMatchedRule = Schema.Struct({MobileDeviceAccessRuleId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String)});
+export class MobileDeviceAccessMatchedRule extends Schema.Class<MobileDeviceAccessMatchedRule>("MobileDeviceAccessMatchedRule")({MobileDeviceAccessRuleId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String)}) {}
 export const MobileDeviceAccessMatchedRuleList = Schema.Array(MobileDeviceAccessMatchedRule);
-export const AccessControlRule = Schema.Struct({Name: Schema.optional(Schema.String), Effect: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), IpRanges: Schema.optional(IpRangeList), NotIpRanges: Schema.optional(IpRangeList), Actions: Schema.optional(ActionsList), NotActions: Schema.optional(ActionsList), UserIds: Schema.optional(UserIdList), NotUserIds: Schema.optional(UserIdList), DateCreated: Schema.optional(Schema.Date), DateModified: Schema.optional(Schema.Date), ImpersonationRoleIds: Schema.optional(ImpersonationRoleIdList), NotImpersonationRoleIds: Schema.optional(ImpersonationRoleIdList)});
+export class AccessControlRule extends Schema.Class<AccessControlRule>("AccessControlRule")({Name: Schema.optional(Schema.String), Effect: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), IpRanges: Schema.optional(IpRangeList), NotIpRanges: Schema.optional(IpRangeList), Actions: Schema.optional(ActionsList), NotActions: Schema.optional(ActionsList), UserIds: Schema.optional(UserIdList), NotUserIds: Schema.optional(UserIdList), DateCreated: Schema.optional(Schema.Date), DateModified: Schema.optional(Schema.Date), ImpersonationRoleIds: Schema.optional(ImpersonationRoleIdList), NotImpersonationRoleIds: Schema.optional(ImpersonationRoleIdList)}) {}
 export const AccessControlRulesList = Schema.Array(AccessControlRule);
-export const Member = Schema.Struct({Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), State: Schema.optional(Schema.String), EnabledDate: Schema.optional(Schema.Date), DisabledDate: Schema.optional(Schema.Date)});
+export class Member extends Schema.Class<Member>("Member")({Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), State: Schema.optional(Schema.String), EnabledDate: Schema.optional(Schema.Date), DisabledDate: Schema.optional(Schema.Date)}) {}
 export const Members = Schema.Array(Member);
-export const ImpersonationRole = Schema.Struct({ImpersonationRoleId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), DateCreated: Schema.optional(Schema.Date), DateModified: Schema.optional(Schema.Date)});
+export class ImpersonationRole extends Schema.Class<ImpersonationRole>("ImpersonationRole")({ImpersonationRoleId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), DateCreated: Schema.optional(Schema.Date), DateModified: Schema.optional(Schema.Date)}) {}
 export const ImpersonationRoleList = Schema.Array(ImpersonationRole);
-export const MailboxExportJob = Schema.Struct({JobId: Schema.optional(Schema.String), EntityId: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), S3BucketName: Schema.optional(Schema.String), S3Path: Schema.optional(Schema.String), EstimatedProgress: Schema.optional(Schema.Number), State: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date)});
+export class MailboxExportJob extends Schema.Class<MailboxExportJob>("MailboxExportJob")({JobId: Schema.optional(Schema.String), EntityId: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), S3BucketName: Schema.optional(Schema.String), S3Path: Schema.optional(Schema.String), EstimatedProgress: Schema.optional(Schema.Number), State: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date)}) {}
 export const Jobs = Schema.Array(MailboxExportJob);
-export const Permission = Schema.Struct({GranteeId: Schema.String, GranteeType: Schema.String, PermissionValues: PermissionValues});
+export class Permission extends Schema.Class<Permission>("Permission")({GranteeId: Schema.String, GranteeType: Schema.String, PermissionValues: PermissionValues}) {}
 export const Permissions = Schema.Array(Permission);
-export const MailDomainSummary = Schema.Struct({DomainName: Schema.optional(Schema.String), DefaultDomain: Schema.optional(Schema.Boolean)});
+export class MailDomainSummary extends Schema.Class<MailDomainSummary>("MailDomainSummary")({DomainName: Schema.optional(Schema.String), DefaultDomain: Schema.optional(Schema.Boolean)}) {}
 export const MailDomains = Schema.Array(MailDomainSummary);
-export const MobileDeviceAccessOverride = Schema.Struct({UserId: Schema.optional(Schema.String), DeviceId: Schema.optional(Schema.String), Effect: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), DateCreated: Schema.optional(Schema.Date), DateModified: Schema.optional(Schema.Date)});
+export class MobileDeviceAccessOverride extends Schema.Class<MobileDeviceAccessOverride>("MobileDeviceAccessOverride")({UserId: Schema.optional(Schema.String), DeviceId: Schema.optional(Schema.String), Effect: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), DateCreated: Schema.optional(Schema.Date), DateModified: Schema.optional(Schema.Date)}) {}
 export const MobileDeviceAccessOverridesList = Schema.Array(MobileDeviceAccessOverride);
-export const MobileDeviceAccessRule = Schema.Struct({MobileDeviceAccessRuleId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Effect: Schema.optional(Schema.String), DeviceTypes: Schema.optional(DeviceTypeList), NotDeviceTypes: Schema.optional(DeviceTypeList), DeviceModels: Schema.optional(DeviceModelList), NotDeviceModels: Schema.optional(DeviceModelList), DeviceOperatingSystems: Schema.optional(DeviceOperatingSystemList), NotDeviceOperatingSystems: Schema.optional(DeviceOperatingSystemList), DeviceUserAgents: Schema.optional(DeviceUserAgentList), NotDeviceUserAgents: Schema.optional(DeviceUserAgentList), DateCreated: Schema.optional(Schema.Date), DateModified: Schema.optional(Schema.Date)});
+export class MobileDeviceAccessRule extends Schema.Class<MobileDeviceAccessRule>("MobileDeviceAccessRule")({MobileDeviceAccessRuleId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Effect: Schema.optional(Schema.String), DeviceTypes: Schema.optional(DeviceTypeList), NotDeviceTypes: Schema.optional(DeviceTypeList), DeviceModels: Schema.optional(DeviceModelList), NotDeviceModels: Schema.optional(DeviceModelList), DeviceOperatingSystems: Schema.optional(DeviceOperatingSystemList), NotDeviceOperatingSystems: Schema.optional(DeviceOperatingSystemList), DeviceUserAgents: Schema.optional(DeviceUserAgentList), NotDeviceUserAgents: Schema.optional(DeviceUserAgentList), DateCreated: Schema.optional(Schema.Date), DateModified: Schema.optional(Schema.Date)}) {}
 export const MobileDeviceAccessRulesList = Schema.Array(MobileDeviceAccessRule);
-export const OrganizationSummary = Schema.Struct({OrganizationId: Schema.optional(Schema.String), Alias: Schema.optional(Schema.String), DefaultMailDomain: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String), State: Schema.optional(Schema.String)});
+export class OrganizationSummary extends Schema.Class<OrganizationSummary>("OrganizationSummary")({OrganizationId: Schema.optional(Schema.String), Alias: Schema.optional(Schema.String), DefaultMailDomain: Schema.optional(Schema.String), ErrorMessage: Schema.optional(Schema.String), State: Schema.optional(Schema.String)}) {}
 export const OrganizationSummaries = Schema.Array(OrganizationSummary);
-export const PersonalAccessTokenSummary = Schema.Struct({PersonalAccessTokenId: Schema.optional(Schema.String), UserId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), DateCreated: Schema.optional(Schema.Date), DateLastUsed: Schema.optional(Schema.Date), ExpiresTime: Schema.optional(Schema.Date), Scopes: Schema.optional(PersonalAccessTokenScopeList)});
+export class PersonalAccessTokenSummary extends Schema.Class<PersonalAccessTokenSummary>("PersonalAccessTokenSummary")({PersonalAccessTokenId: Schema.optional(Schema.String), UserId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), DateCreated: Schema.optional(Schema.Date), DateLastUsed: Schema.optional(Schema.Date), ExpiresTime: Schema.optional(Schema.Date), Scopes: Schema.optional(PersonalAccessTokenScopeList)}) {}
 export const PersonalAccessTokenSummaryList = Schema.Array(PersonalAccessTokenSummary);
-export const Delegate = Schema.Struct({Id: Schema.String, Type: Schema.String});
+export class Delegate extends Schema.Class<Delegate>("Delegate")({Id: Schema.String, Type: Schema.String}) {}
 export const ResourceDelegates = Schema.Array(Delegate);
-export const NameAvailabilityException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ReservedNameException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const CreateImpersonationRoleResponse = Schema.Struct({ImpersonationRoleId: Schema.optional(Schema.String)});
-export const CreateOrganizationResponse = Schema.Struct({OrganizationId: Schema.optional(Schema.String)});
-export const GetImpersonationRoleEffectResponse = Schema.Struct({Type: Schema.optional(Schema.String), Effect: Schema.optional(Schema.String), MatchedRules: Schema.optional(ImpersonationMatchedRuleList)});
-export const GetMailDomainResponse = Schema.Struct({Records: Schema.optional(DnsRecords), IsTestDomain: Schema.optional(Schema.Boolean), IsDefault: Schema.optional(Schema.Boolean), OwnershipVerificationStatus: Schema.optional(Schema.String), DkimVerificationStatus: Schema.optional(Schema.String)});
-export const GetMobileDeviceAccessEffectResponse = Schema.Struct({Effect: Schema.optional(Schema.String), MatchedRules: Schema.optional(MobileDeviceAccessMatchedRuleList)});
-export const ListAccessControlRulesResponse = Schema.Struct({Rules: Schema.optional(AccessControlRulesList)});
-export const ListGroupMembersResponse = Schema.Struct({Members: Schema.optional(Members), NextToken: Schema.optional(Schema.String)});
-export const ListImpersonationRolesResponse = Schema.Struct({Roles: Schema.optional(ImpersonationRoleList), NextToken: Schema.optional(Schema.String)});
-export const ListMailboxExportJobsResponse = Schema.Struct({Jobs: Schema.optional(Jobs), NextToken: Schema.optional(Schema.String)});
-export const ListMailboxPermissionsResponse = Schema.Struct({Permissions: Schema.optional(Permissions), NextToken: Schema.optional(Schema.String)});
-export const ListMailDomainsResponse = Schema.Struct({MailDomains: Schema.optional(MailDomains), NextToken: Schema.optional(Schema.String)});
-export const ListMobileDeviceAccessOverridesResponse = Schema.Struct({Overrides: Schema.optional(MobileDeviceAccessOverridesList), NextToken: Schema.optional(Schema.String)});
-export const ListMobileDeviceAccessRulesResponse = Schema.Struct({Rules: Schema.optional(MobileDeviceAccessRulesList)});
-export const ListOrganizationsResponse = Schema.Struct({OrganizationSummaries: Schema.optional(OrganizationSummaries), NextToken: Schema.optional(Schema.String)});
-export const ListPersonalAccessTokensResponse = Schema.Struct({NextToken: Schema.optional(Schema.String), PersonalAccessTokenSummaries: Schema.optional(PersonalAccessTokenSummaryList)});
-export const ListResourceDelegatesResponse = Schema.Struct({Delegates: Schema.optional(ResourceDelegates), NextToken: Schema.optional(Schema.String)});
-export const TooManyTagsException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const InvalidConfigurationException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const RedactedEwsAvailabilityProvider = Schema.Struct({EwsEndpoint: Schema.optional(Schema.String), EwsUsername: Schema.optional(Schema.String)});
-export const AvailabilityConfiguration = Schema.Struct({DomainName: Schema.optional(Schema.String), ProviderType: Schema.optional(Schema.String), EwsProvider: Schema.optional(RedactedEwsAvailabilityProvider), LambdaProvider: Schema.optional(LambdaAvailabilityProvider), DateCreated: Schema.optional(Schema.Date), DateModified: Schema.optional(Schema.Date)});
+export class NameAvailabilityException extends Schema.Class<NameAvailabilityException>("NameAvailabilityException")({Message: Schema.optional(Schema.String)}) {}
+export class ReservedNameException extends Schema.Class<ReservedNameException>("ReservedNameException")({Message: Schema.optional(Schema.String)}) {}
+export class CreateImpersonationRoleResponse extends Schema.Class<CreateImpersonationRoleResponse>("CreateImpersonationRoleResponse")({ImpersonationRoleId: Schema.optional(Schema.String)}) {}
+export class CreateOrganizationResponse extends Schema.Class<CreateOrganizationResponse>("CreateOrganizationResponse")({OrganizationId: Schema.optional(Schema.String)}) {}
+export class GetImpersonationRoleEffectResponse extends Schema.Class<GetImpersonationRoleEffectResponse>("GetImpersonationRoleEffectResponse")({Type: Schema.optional(Schema.String), Effect: Schema.optional(Schema.String), MatchedRules: Schema.optional(ImpersonationMatchedRuleList)}) {}
+export class GetMailDomainResponse extends Schema.Class<GetMailDomainResponse>("GetMailDomainResponse")({Records: Schema.optional(DnsRecords), IsTestDomain: Schema.optional(Schema.Boolean), IsDefault: Schema.optional(Schema.Boolean), OwnershipVerificationStatus: Schema.optional(Schema.String), DkimVerificationStatus: Schema.optional(Schema.String)}) {}
+export class GetMobileDeviceAccessEffectResponse extends Schema.Class<GetMobileDeviceAccessEffectResponse>("GetMobileDeviceAccessEffectResponse")({Effect: Schema.optional(Schema.String), MatchedRules: Schema.optional(MobileDeviceAccessMatchedRuleList)}) {}
+export class ListAccessControlRulesResponse extends Schema.Class<ListAccessControlRulesResponse>("ListAccessControlRulesResponse")({Rules: Schema.optional(AccessControlRulesList)}) {}
+export class ListGroupMembersResponse extends Schema.Class<ListGroupMembersResponse>("ListGroupMembersResponse")({Members: Schema.optional(Members), NextToken: Schema.optional(Schema.String)}) {}
+export class ListImpersonationRolesResponse extends Schema.Class<ListImpersonationRolesResponse>("ListImpersonationRolesResponse")({Roles: Schema.optional(ImpersonationRoleList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListMailboxExportJobsResponse extends Schema.Class<ListMailboxExportJobsResponse>("ListMailboxExportJobsResponse")({Jobs: Schema.optional(Jobs), NextToken: Schema.optional(Schema.String)}) {}
+export class ListMailboxPermissionsResponse extends Schema.Class<ListMailboxPermissionsResponse>("ListMailboxPermissionsResponse")({Permissions: Schema.optional(Permissions), NextToken: Schema.optional(Schema.String)}) {}
+export class ListMailDomainsResponse extends Schema.Class<ListMailDomainsResponse>("ListMailDomainsResponse")({MailDomains: Schema.optional(MailDomains), NextToken: Schema.optional(Schema.String)}) {}
+export class ListMobileDeviceAccessOverridesResponse extends Schema.Class<ListMobileDeviceAccessOverridesResponse>("ListMobileDeviceAccessOverridesResponse")({Overrides: Schema.optional(MobileDeviceAccessOverridesList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListMobileDeviceAccessRulesResponse extends Schema.Class<ListMobileDeviceAccessRulesResponse>("ListMobileDeviceAccessRulesResponse")({Rules: Schema.optional(MobileDeviceAccessRulesList)}) {}
+export class ListOrganizationsResponse extends Schema.Class<ListOrganizationsResponse>("ListOrganizationsResponse")({OrganizationSummaries: Schema.optional(OrganizationSummaries), NextToken: Schema.optional(Schema.String)}) {}
+export class ListPersonalAccessTokensResponse extends Schema.Class<ListPersonalAccessTokensResponse>("ListPersonalAccessTokensResponse")({NextToken: Schema.optional(Schema.String), PersonalAccessTokenSummaries: Schema.optional(PersonalAccessTokenSummaryList)}) {}
+export class ListResourceDelegatesResponse extends Schema.Class<ListResourceDelegatesResponse>("ListResourceDelegatesResponse")({Delegates: Schema.optional(ResourceDelegates), NextToken: Schema.optional(Schema.String)}) {}
+export class TooManyTagsException extends Schema.Class<TooManyTagsException>("TooManyTagsException")({Message: Schema.optional(Schema.String)}) {}
+export class InvalidConfigurationException extends Schema.Class<InvalidConfigurationException>("InvalidConfigurationException")({Message: Schema.optional(Schema.String)}) {}
+export class RedactedEwsAvailabilityProvider extends Schema.Class<RedactedEwsAvailabilityProvider>("RedactedEwsAvailabilityProvider")({EwsEndpoint: Schema.optional(Schema.String), EwsUsername: Schema.optional(Schema.String)}) {}
+export class AvailabilityConfiguration extends Schema.Class<AvailabilityConfiguration>("AvailabilityConfiguration")({DomainName: Schema.optional(Schema.String), ProviderType: Schema.optional(Schema.String), EwsProvider: Schema.optional(RedactedEwsAvailabilityProvider), LambdaProvider: Schema.optional(LambdaAvailabilityProvider), DateCreated: Schema.optional(Schema.Date), DateModified: Schema.optional(Schema.Date)}) {}
 export const AvailabilityConfigurationList = Schema.Array(AvailabilityConfiguration);
-export const Group = Schema.Struct({Id: Schema.optional(Schema.String), Email: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), State: Schema.optional(Schema.String), EnabledDate: Schema.optional(Schema.Date), DisabledDate: Schema.optional(Schema.Date)});
+export class Group extends Schema.Class<Group>("Group")({Id: Schema.optional(Schema.String), Email: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), State: Schema.optional(Schema.String), EnabledDate: Schema.optional(Schema.Date), DisabledDate: Schema.optional(Schema.Date)}) {}
 export const Groups = Schema.Array(Group);
-export const GroupIdentifier = Schema.Struct({GroupId: Schema.optional(Schema.String), GroupName: Schema.optional(Schema.String)});
+export class GroupIdentifier extends Schema.Class<GroupIdentifier>("GroupIdentifier")({GroupId: Schema.optional(Schema.String), GroupName: Schema.optional(Schema.String)}) {}
 export const GroupIdentifiers = Schema.Array(GroupIdentifier);
-export const Resource = Schema.Struct({Id: Schema.optional(Schema.String), Email: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), State: Schema.optional(Schema.String), EnabledDate: Schema.optional(Schema.Date), DisabledDate: Schema.optional(Schema.Date), Description: Schema.optional(Schema.String)});
+export class Resource extends Schema.Class<Resource>("Resource")({Id: Schema.optional(Schema.String), Email: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), State: Schema.optional(Schema.String), EnabledDate: Schema.optional(Schema.Date), DisabledDate: Schema.optional(Schema.Date), Description: Schema.optional(Schema.String)}) {}
 export const Resources = Schema.Array(Resource);
-export const User = Schema.Struct({Id: Schema.optional(Schema.String), Email: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), DisplayName: Schema.optional(Schema.String), State: Schema.optional(Schema.String), UserRole: Schema.optional(Schema.String), EnabledDate: Schema.optional(Schema.Date), DisabledDate: Schema.optional(Schema.Date), IdentityProviderUserId: Schema.optional(Schema.String), IdentityProviderIdentityStoreId: Schema.optional(Schema.String)});
+export class User extends Schema.Class<User>("User")({Id: Schema.optional(Schema.String), Email: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), DisplayName: Schema.optional(Schema.String), State: Schema.optional(Schema.String), UserRole: Schema.optional(Schema.String), EnabledDate: Schema.optional(Schema.Date), DisabledDate: Schema.optional(Schema.Date), IdentityProviderUserId: Schema.optional(Schema.String), IdentityProviderIdentityStoreId: Schema.optional(Schema.String)}) {}
 export const Users = Schema.Array(User);
-export const DirectoryInUseException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ListAvailabilityConfigurationsResponse = Schema.Struct({AvailabilityConfigurations: Schema.optional(AvailabilityConfigurationList), NextToken: Schema.optional(Schema.String)});
-export const ListGroupsResponse = Schema.Struct({Groups: Schema.optional(Groups), NextToken: Schema.optional(Schema.String)});
-export const ListGroupsForEntityResponse = Schema.Struct({Groups: Schema.optional(GroupIdentifiers), NextToken: Schema.optional(Schema.String)});
-export const ListResourcesResponse = Schema.Struct({Resources: Schema.optional(Resources), NextToken: Schema.optional(Schema.String)});
-export const ListUsersResponse = Schema.Struct({Users: Schema.optional(Users), NextToken: Schema.optional(Schema.String)});
+export class DirectoryInUseException extends Schema.Class<DirectoryInUseException>("DirectoryInUseException")({Message: Schema.optional(Schema.String)}) {}
+export class ListAvailabilityConfigurationsResponse extends Schema.Class<ListAvailabilityConfigurationsResponse>("ListAvailabilityConfigurationsResponse")({AvailabilityConfigurations: Schema.optional(AvailabilityConfigurationList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListGroupsResponse extends Schema.Class<ListGroupsResponse>("ListGroupsResponse")({Groups: Schema.optional(Groups), NextToken: Schema.optional(Schema.String)}) {}
+export class ListGroupsForEntityResponse extends Schema.Class<ListGroupsForEntityResponse>("ListGroupsForEntityResponse")({Groups: Schema.optional(GroupIdentifiers), NextToken: Schema.optional(Schema.String)}) {}
+export class ListResourcesResponse extends Schema.Class<ListResourcesResponse>("ListResourcesResponse")({Resources: Schema.optional(Resources), NextToken: Schema.optional(Schema.String)}) {}
+export class ListUsersResponse extends Schema.Class<ListUsersResponse>("ListUsersResponse")({Users: Schema.optional(Users), NextToken: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class EntityNotFoundExceptionError extends Schema.TaggedError<EntityNotFoundExceptionError>()("EntityNotFoundException", EntityNotFoundException) {};
-export class OrganizationNotFoundExceptionError extends Schema.TaggedError<OrganizationNotFoundExceptionError>()("OrganizationNotFoundException", OrganizationNotFoundException) {};
-export class InvalidParameterExceptionError extends Schema.TaggedError<InvalidParameterExceptionError>()("InvalidParameterException", InvalidParameterException) {};
-export class OrganizationStateExceptionError extends Schema.TaggedError<OrganizationStateExceptionError>()("OrganizationStateException", OrganizationStateException) {};
-export class DirectoryServiceAuthenticationFailedExceptionError extends Schema.TaggedError<DirectoryServiceAuthenticationFailedExceptionError>()("DirectoryServiceAuthenticationFailedException", DirectoryServiceAuthenticationFailedException) {};
-export class EntityStateExceptionError extends Schema.TaggedError<EntityStateExceptionError>()("EntityStateException", EntityStateException) {};
-export class DirectoryUnavailableExceptionError extends Schema.TaggedError<DirectoryUnavailableExceptionError>()("DirectoryUnavailableException", DirectoryUnavailableException) {};
-export class UnsupportedOperationExceptionError extends Schema.TaggedError<UnsupportedOperationExceptionError>()("UnsupportedOperationException", UnsupportedOperationException) {};
-export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException) {};
-export class EmailAddressInUseExceptionError extends Schema.TaggedError<EmailAddressInUseExceptionError>()("EmailAddressInUseException", EmailAddressInUseException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class MailDomainNotFoundExceptionError extends Schema.TaggedError<MailDomainNotFoundExceptionError>()("MailDomainNotFoundException", MailDomainNotFoundException) {};
-export class MailDomainStateExceptionError extends Schema.TaggedError<MailDomainStateExceptionError>()("MailDomainStateException", MailDomainStateException) {};
-export class NameAvailabilityExceptionError extends Schema.TaggedError<NameAvailabilityExceptionError>()("NameAvailabilityException", NameAvailabilityException) {};
-export class ReservedNameExceptionError extends Schema.TaggedError<ReservedNameExceptionError>()("ReservedNameException", ReservedNameException) {};
-export class InvalidPasswordExceptionError extends Schema.TaggedError<InvalidPasswordExceptionError>()("InvalidPasswordException", InvalidPasswordException) {};
-export class InvalidCustomSesConfigurationExceptionError extends Schema.TaggedError<InvalidCustomSesConfigurationExceptionError>()("InvalidCustomSesConfigurationException", InvalidCustomSesConfigurationException) {};
-export class MailDomainInUseExceptionError extends Schema.TaggedError<MailDomainInUseExceptionError>()("MailDomainInUseException", MailDomainInUseException) {};
-export class EntityAlreadyRegisteredExceptionError extends Schema.TaggedError<EntityAlreadyRegisteredExceptionError>()("EntityAlreadyRegisteredException", EntityAlreadyRegisteredException) {};
-export class TooManyTagsExceptionError extends Schema.TaggedError<TooManyTagsExceptionError>()("TooManyTagsException", TooManyTagsException) {};
-export class InvalidConfigurationExceptionError extends Schema.TaggedError<InvalidConfigurationExceptionError>()("InvalidConfigurationException", InvalidConfigurationException) {};
-export class DirectoryInUseExceptionError extends Schema.TaggedError<DirectoryInUseExceptionError>()("DirectoryInUseException", DirectoryInUseException) {};
+export class EntityNotFoundExceptionError extends Schema.TaggedError<EntityNotFoundExceptionError>()("EntityNotFoundException", EntityNotFoundException.fields) {};
+export class OrganizationNotFoundExceptionError extends Schema.TaggedError<OrganizationNotFoundExceptionError>()("OrganizationNotFoundException", OrganizationNotFoundException.fields) {};
+export class InvalidParameterExceptionError extends Schema.TaggedError<InvalidParameterExceptionError>()("InvalidParameterException", InvalidParameterException.fields) {};
+export class OrganizationStateExceptionError extends Schema.TaggedError<OrganizationStateExceptionError>()("OrganizationStateException", OrganizationStateException.fields) {};
+export class DirectoryServiceAuthenticationFailedExceptionError extends Schema.TaggedError<DirectoryServiceAuthenticationFailedExceptionError>()("DirectoryServiceAuthenticationFailedException", DirectoryServiceAuthenticationFailedException.fields) {};
+export class EntityStateExceptionError extends Schema.TaggedError<EntityStateExceptionError>()("EntityStateException", EntityStateException.fields) {};
+export class DirectoryUnavailableExceptionError extends Schema.TaggedError<DirectoryUnavailableExceptionError>()("DirectoryUnavailableException", DirectoryUnavailableException.fields) {};
+export class UnsupportedOperationExceptionError extends Schema.TaggedError<UnsupportedOperationExceptionError>()("UnsupportedOperationException", UnsupportedOperationException.fields) {};
+export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException.fields) {};
+export class EmailAddressInUseExceptionError extends Schema.TaggedError<EmailAddressInUseExceptionError>()("EmailAddressInUseException", EmailAddressInUseException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class MailDomainNotFoundExceptionError extends Schema.TaggedError<MailDomainNotFoundExceptionError>()("MailDomainNotFoundException", MailDomainNotFoundException.fields) {};
+export class MailDomainStateExceptionError extends Schema.TaggedError<MailDomainStateExceptionError>()("MailDomainStateException", MailDomainStateException.fields) {};
+export class NameAvailabilityExceptionError extends Schema.TaggedError<NameAvailabilityExceptionError>()("NameAvailabilityException", NameAvailabilityException.fields) {};
+export class ReservedNameExceptionError extends Schema.TaggedError<ReservedNameExceptionError>()("ReservedNameException", ReservedNameException.fields) {};
+export class InvalidPasswordExceptionError extends Schema.TaggedError<InvalidPasswordExceptionError>()("InvalidPasswordException", InvalidPasswordException.fields) {};
+export class InvalidCustomSesConfigurationExceptionError extends Schema.TaggedError<InvalidCustomSesConfigurationExceptionError>()("InvalidCustomSesConfigurationException", InvalidCustomSesConfigurationException.fields) {};
+export class MailDomainInUseExceptionError extends Schema.TaggedError<MailDomainInUseExceptionError>()("MailDomainInUseException", MailDomainInUseException.fields) {};
+export class EntityAlreadyRegisteredExceptionError extends Schema.TaggedError<EntityAlreadyRegisteredExceptionError>()("EntityAlreadyRegisteredException", EntityAlreadyRegisteredException.fields) {};
+export class TooManyTagsExceptionError extends Schema.TaggedError<TooManyTagsExceptionError>()("TooManyTagsException", TooManyTagsException.fields) {};
+export class InvalidConfigurationExceptionError extends Schema.TaggedError<InvalidConfigurationExceptionError>()("InvalidConfigurationException", InvalidConfigurationException.fields) {};
+export class DirectoryInUseExceptionError extends Schema.TaggedError<DirectoryInUseExceptionError>()("DirectoryInUseException", DirectoryInUseException.fields) {};
 
 //# Operations
 export const deleteEmailMonitoringConfiguration = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-10-01", uri: "/", method: "POST", sdkId: "WorkMail", sigV4ServiceName: "workmail", name: "WorkMailService.DeleteEmailMonitoringConfiguration" }, DeleteEmailMonitoringConfigurationRequest, DeleteEmailMonitoringConfigurationResponse, [InvalidParameterExceptionError, OrganizationNotFoundExceptionError, OrganizationStateExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

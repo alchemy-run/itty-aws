@@ -3,78 +3,78 @@ import { FormatAwsJSON10Request,FormatJSONResponse,FormatAwsRestJSONError, makeO
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const GetEncryptionConfigurationRequest = Schema.Struct({});
-export const GetLoggingOptionsRequest = Schema.Struct({});
-export const GetRegisterAccountStatusRequest = Schema.Struct({});
+export class GetEncryptionConfigurationRequest extends Schema.Class<GetEncryptionConfigurationRequest>("GetEncryptionConfigurationRequest")({}) {}
+export class GetLoggingOptionsRequest extends Schema.Class<GetLoggingOptionsRequest>("GetLoggingOptionsRequest")({}) {}
+export class GetRegisterAccountStatusRequest extends Schema.Class<GetRegisterAccountStatusRequest>("GetRegisterAccountStatusRequest")({}) {}
 export const TagKeyList = Schema.Array(Schema.String);
-export const GetEncryptionConfigurationResponse = Schema.Struct({kmsKeyId: Schema.optional(Schema.String), encryptionStatus: Schema.String, encryptionType: Schema.String, errorMessage: Schema.optional(Schema.String), creationTime: Schema.optional(Schema.Date), lastModificationTime: Schema.optional(Schema.Date)});
-export const GetVehicleStatusRequest = Schema.Struct({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), vehicleName: Schema.String});
-export const ListTagsForResourceRequest = Schema.Struct({ResourceARN: Schema.String});
-export const PutEncryptionConfigurationRequest = Schema.Struct({kmsKeyId: Schema.optional(Schema.String), encryptionType: Schema.String});
-export const CloudWatchLogDeliveryOptions = Schema.Struct({logType: Schema.String, logGroupName: Schema.optional(Schema.String)});
-export const PutLoggingOptionsRequest = Schema.Struct({cloudWatchLogDelivery: CloudWatchLogDeliveryOptions});
-export const PutLoggingOptionsResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({ResourceARN: Schema.String, TagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
+export class GetEncryptionConfigurationResponse extends Schema.Class<GetEncryptionConfigurationResponse>("GetEncryptionConfigurationResponse")({kmsKeyId: Schema.optional(Schema.String), encryptionStatus: Schema.String, encryptionType: Schema.String, errorMessage: Schema.optional(Schema.String), creationTime: Schema.optional(Schema.Date), lastModificationTime: Schema.optional(Schema.Date)}) {}
+export class GetVehicleStatusRequest extends Schema.Class<GetVehicleStatusRequest>("GetVehicleStatusRequest")({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), vehicleName: Schema.String}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({ResourceARN: Schema.String}) {}
+export class PutEncryptionConfigurationRequest extends Schema.Class<PutEncryptionConfigurationRequest>("PutEncryptionConfigurationRequest")({kmsKeyId: Schema.optional(Schema.String), encryptionType: Schema.String}) {}
+export class CloudWatchLogDeliveryOptions extends Schema.Class<CloudWatchLogDeliveryOptions>("CloudWatchLogDeliveryOptions")({logType: Schema.String, logGroupName: Schema.optional(Schema.String)}) {}
+export class PutLoggingOptionsRequest extends Schema.Class<PutLoggingOptionsRequest>("PutLoggingOptionsRequest")({cloudWatchLogDelivery: CloudWatchLogDeliveryOptions}) {}
+export class PutLoggingOptionsResponse extends Schema.Class<PutLoggingOptionsResponse>("PutLoggingOptionsResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({ResourceARN: Schema.String, TagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
 export const StateTemplateAssociationIdentifiers = Schema.Array(Schema.String);
 export const attributesMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const TimePeriod = Schema.Struct({unit: Schema.String, value: Schema.Number});
-export const PeriodicStateTemplateUpdateStrategy = Schema.Struct({stateTemplateUpdateRate: TimePeriod});
-export const OnChangeStateTemplateUpdateStrategy = Schema.Struct({});
+export class TimePeriod extends Schema.Class<TimePeriod>("TimePeriod")({unit: Schema.String, value: Schema.Number}) {}
+export class PeriodicStateTemplateUpdateStrategy extends Schema.Class<PeriodicStateTemplateUpdateStrategy>("PeriodicStateTemplateUpdateStrategy")({stateTemplateUpdateRate: TimePeriod}) {}
+export class OnChangeStateTemplateUpdateStrategy extends Schema.Class<OnChangeStateTemplateUpdateStrategy>("OnChangeStateTemplateUpdateStrategy")({}) {}
 export const StateTemplateUpdateStrategy = Schema.Union(PeriodicStateTemplateUpdateStrategy, OnChangeStateTemplateUpdateStrategy);
-export const StateTemplateAssociation = Schema.Struct({identifier: Schema.String, stateTemplateUpdateStrategy: StateTemplateUpdateStrategy});
+export class StateTemplateAssociation extends Schema.Class<StateTemplateAssociation>("StateTemplateAssociation")({identifier: Schema.String, stateTemplateUpdateStrategy: StateTemplateUpdateStrategy}) {}
 export const StateTemplateAssociations = Schema.Array(StateTemplateAssociation);
-export const UpdateVehicleRequestItem = Schema.Struct({vehicleName: Schema.String, modelManifestArn: Schema.optional(Schema.String), decoderManifestArn: Schema.optional(Schema.String), attributes: Schema.optional(attributesMap), attributeUpdateMode: Schema.optional(Schema.String), stateTemplatesToAdd: Schema.optional(StateTemplateAssociations), stateTemplatesToRemove: Schema.optional(StateTemplateAssociationIdentifiers), stateTemplatesToUpdate: Schema.optional(StateTemplateAssociations)});
+export class UpdateVehicleRequestItem extends Schema.Class<UpdateVehicleRequestItem>("UpdateVehicleRequestItem")({vehicleName: Schema.String, modelManifestArn: Schema.optional(Schema.String), decoderManifestArn: Schema.optional(Schema.String), attributes: Schema.optional(attributesMap), attributeUpdateMode: Schema.optional(Schema.String), stateTemplatesToAdd: Schema.optional(StateTemplateAssociations), stateTemplatesToRemove: Schema.optional(StateTemplateAssociationIdentifiers), stateTemplatesToUpdate: Schema.optional(StateTemplateAssociations)}) {}
 export const updateVehicleRequestItems = Schema.Array(UpdateVehicleRequestItem);
-export const TimestreamRegistrationResponse = Schema.Struct({timestreamDatabaseName: Schema.String, timestreamTableName: Schema.String, timestreamDatabaseArn: Schema.optional(Schema.String), timestreamTableArn: Schema.optional(Schema.String), registrationStatus: Schema.String, errorMessage: Schema.optional(Schema.String)});
-export const IamRegistrationResponse = Schema.Struct({roleArn: Schema.String, registrationStatus: Schema.String, errorMessage: Schema.optional(Schema.String)});
-export const TimestreamResources = Schema.Struct({timestreamDatabaseName: Schema.String, timestreamTableName: Schema.String});
-export const IamResources = Schema.Struct({roleArn: Schema.String});
-export const Tag = Schema.Struct({Key: Schema.String, Value: Schema.String});
+export class TimestreamRegistrationResponse extends Schema.Class<TimestreamRegistrationResponse>("TimestreamRegistrationResponse")({timestreamDatabaseName: Schema.String, timestreamTableName: Schema.String, timestreamDatabaseArn: Schema.optional(Schema.String), timestreamTableArn: Schema.optional(Schema.String), registrationStatus: Schema.String, errorMessage: Schema.optional(Schema.String)}) {}
+export class IamRegistrationResponse extends Schema.Class<IamRegistrationResponse>("IamRegistrationResponse")({roleArn: Schema.String, registrationStatus: Schema.String, errorMessage: Schema.optional(Schema.String)}) {}
+export class TimestreamResources extends Schema.Class<TimestreamResources>("TimestreamResources")({timestreamDatabaseName: Schema.String, timestreamTableName: Schema.String}) {}
+export class IamResources extends Schema.Class<IamResources>("IamResources")({roleArn: Schema.String}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.String, Value: Schema.String}) {}
 export const TagList = Schema.Array(Tag);
-export const BatchUpdateVehicleRequest = Schema.Struct({vehicles: updateVehicleRequestItems});
-export const AccessDeniedException = Schema.Struct({message: Schema.String});
-export const GetLoggingOptionsResponse = Schema.Struct({cloudWatchLogDelivery: CloudWatchLogDeliveryOptions});
-export const GetRegisterAccountStatusResponse = Schema.Struct({customerAccountId: Schema.String, accountStatus: Schema.String, timestreamRegistrationResponse: Schema.optional(TimestreamRegistrationResponse), iamRegistrationResponse: IamRegistrationResponse, creationTime: Schema.Date, lastModificationTime: Schema.Date});
-export const ListTagsForResourceResponse = Schema.Struct({Tags: Schema.optional(TagList)});
-export const PutEncryptionConfigurationResponse = Schema.Struct({kmsKeyId: Schema.optional(Schema.String), encryptionStatus: Schema.String, encryptionType: Schema.String});
-export const ConflictException = Schema.Struct({message: Schema.String, resource: Schema.String, resourceType: Schema.String});
-export const RegisterAccountRequest = Schema.Struct({timestreamResources: Schema.optional(TimestreamResources), iamResources: Schema.optional(IamResources)});
-export const TagResourceRequest = Schema.Struct({ResourceARN: Schema.String, Tags: TagList});
-export const TagResourceResponse = Schema.Struct({});
-export const InternalServerException = Schema.Struct({message: Schema.String, retryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))});
-export const VehicleStatus = Schema.Struct({campaignName: Schema.optional(Schema.String), vehicleName: Schema.optional(Schema.String), status: Schema.optional(Schema.String)});
+export class BatchUpdateVehicleRequest extends Schema.Class<BatchUpdateVehicleRequest>("BatchUpdateVehicleRequest")({vehicles: updateVehicleRequestItems}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({message: Schema.String}) {}
+export class GetLoggingOptionsResponse extends Schema.Class<GetLoggingOptionsResponse>("GetLoggingOptionsResponse")({cloudWatchLogDelivery: CloudWatchLogDeliveryOptions}) {}
+export class GetRegisterAccountStatusResponse extends Schema.Class<GetRegisterAccountStatusResponse>("GetRegisterAccountStatusResponse")({customerAccountId: Schema.String, accountStatus: Schema.String, timestreamRegistrationResponse: Schema.optional(TimestreamRegistrationResponse), iamRegistrationResponse: IamRegistrationResponse, creationTime: Schema.Date, lastModificationTime: Schema.Date}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({Tags: Schema.optional(TagList)}) {}
+export class PutEncryptionConfigurationResponse extends Schema.Class<PutEncryptionConfigurationResponse>("PutEncryptionConfigurationResponse")({kmsKeyId: Schema.optional(Schema.String), encryptionStatus: Schema.String, encryptionType: Schema.String}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({message: Schema.String, resource: Schema.String, resourceType: Schema.String}) {}
+export class RegisterAccountRequest extends Schema.Class<RegisterAccountRequest>("RegisterAccountRequest")({timestreamResources: Schema.optional(TimestreamResources), iamResources: Schema.optional(IamResources)}) {}
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({ResourceARN: Schema.String, Tags: TagList}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({message: Schema.String, retryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))}) {}
+export class VehicleStatus extends Schema.Class<VehicleStatus>("VehicleStatus")({campaignName: Schema.optional(Schema.String), vehicleName: Schema.optional(Schema.String), status: Schema.optional(Schema.String)}) {}
 export const VehicleStatusList = Schema.Array(VehicleStatus);
-export const ResourceNotFoundException = Schema.Struct({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String});
-export const ThrottlingException = Schema.Struct({message: Schema.String, quotaCode: Schema.optional(Schema.String), serviceCode: Schema.optional(Schema.String), retryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))});
-export const GetVehicleStatusResponse = Schema.Struct({campaigns: Schema.optional(VehicleStatusList), nextToken: Schema.optional(Schema.String)});
-export const RegisterAccountResponse = Schema.Struct({registerAccountStatus: Schema.String, timestreamResources: Schema.optional(TimestreamResources), iamResources: IamResources, creationTime: Schema.Date, lastModificationTime: Schema.Date});
-export const UpdateVehicleResponseItem = Schema.Struct({vehicleName: Schema.optional(Schema.String), arn: Schema.optional(Schema.String)});
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({message: Schema.String, quotaCode: Schema.optional(Schema.String), serviceCode: Schema.optional(Schema.String), retryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))}) {}
+export class GetVehicleStatusResponse extends Schema.Class<GetVehicleStatusResponse>("GetVehicleStatusResponse")({campaigns: Schema.optional(VehicleStatusList), nextToken: Schema.optional(Schema.String)}) {}
+export class RegisterAccountResponse extends Schema.Class<RegisterAccountResponse>("RegisterAccountResponse")({registerAccountStatus: Schema.String, timestreamResources: Schema.optional(TimestreamResources), iamResources: IamResources, creationTime: Schema.Date, lastModificationTime: Schema.Date}) {}
+export class UpdateVehicleResponseItem extends Schema.Class<UpdateVehicleResponseItem>("UpdateVehicleResponseItem")({vehicleName: Schema.optional(Schema.String), arn: Schema.optional(Schema.String)}) {}
 export const updateVehicleResponseItems = Schema.Array(UpdateVehicleResponseItem);
-export const UpdateVehicleError = Schema.Struct({vehicleName: Schema.optional(Schema.String), code: Schema.optional(Schema.Number), message: Schema.optional(Schema.String)});
+export class UpdateVehicleError extends Schema.Class<UpdateVehicleError>("UpdateVehicleError")({vehicleName: Schema.optional(Schema.String), code: Schema.optional(Schema.Number), message: Schema.optional(Schema.String)}) {}
 export const updateVehicleErrors = Schema.Array(UpdateVehicleError);
-export const ValidationExceptionField = Schema.Struct({name: Schema.String, message: Schema.String});
+export class ValidationExceptionField extends Schema.Class<ValidationExceptionField>("ValidationExceptionField")({name: Schema.String, message: Schema.String}) {}
 export const ValidationExceptionFieldList = Schema.Array(ValidationExceptionField);
-export const BatchUpdateVehicleResponse = Schema.Struct({vehicles: Schema.optional(updateVehicleResponseItems), errors: Schema.optional(updateVehicleErrors)});
-export const ValidationException = Schema.Struct({message: Schema.String, reason: Schema.optional(Schema.String), fieldList: Schema.optional(ValidationExceptionFieldList)});
-export const LimitExceededException = Schema.Struct({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String});
-export const CreateVehicleRequestItem = Schema.Struct({vehicleName: Schema.String, modelManifestArn: Schema.String, decoderManifestArn: Schema.String, attributes: Schema.optional(attributesMap), associationBehavior: Schema.optional(Schema.String), tags: Schema.optional(TagList), stateTemplates: Schema.optional(StateTemplateAssociations)});
+export class BatchUpdateVehicleResponse extends Schema.Class<BatchUpdateVehicleResponse>("BatchUpdateVehicleResponse")({vehicles: Schema.optional(updateVehicleResponseItems), errors: Schema.optional(updateVehicleErrors)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({message: Schema.String, reason: Schema.optional(Schema.String), fieldList: Schema.optional(ValidationExceptionFieldList)}) {}
+export class LimitExceededException extends Schema.Class<LimitExceededException>("LimitExceededException")({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String}) {}
+export class CreateVehicleRequestItem extends Schema.Class<CreateVehicleRequestItem>("CreateVehicleRequestItem")({vehicleName: Schema.String, modelManifestArn: Schema.String, decoderManifestArn: Schema.String, attributes: Schema.optional(attributesMap), associationBehavior: Schema.optional(Schema.String), tags: Schema.optional(TagList), stateTemplates: Schema.optional(StateTemplateAssociations)}) {}
 export const createVehicleRequestItems = Schema.Array(CreateVehicleRequestItem);
-export const BatchCreateVehicleRequest = Schema.Struct({vehicles: createVehicleRequestItems});
-export const CreateVehicleResponseItem = Schema.Struct({vehicleName: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), thingArn: Schema.optional(Schema.String)});
+export class BatchCreateVehicleRequest extends Schema.Class<BatchCreateVehicleRequest>("BatchCreateVehicleRequest")({vehicles: createVehicleRequestItems}) {}
+export class CreateVehicleResponseItem extends Schema.Class<CreateVehicleResponseItem>("CreateVehicleResponseItem")({vehicleName: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), thingArn: Schema.optional(Schema.String)}) {}
 export const createVehicleResponses = Schema.Array(CreateVehicleResponseItem);
-export const CreateVehicleError = Schema.Struct({vehicleName: Schema.optional(Schema.String), code: Schema.optional(Schema.String), message: Schema.optional(Schema.String)});
+export class CreateVehicleError extends Schema.Class<CreateVehicleError>("CreateVehicleError")({vehicleName: Schema.optional(Schema.String), code: Schema.optional(Schema.String), message: Schema.optional(Schema.String)}) {}
 export const createVehicleErrors = Schema.Array(CreateVehicleError);
-export const BatchCreateVehicleResponse = Schema.Struct({vehicles: Schema.optional(createVehicleResponses), errors: Schema.optional(createVehicleErrors)});
+export class BatchCreateVehicleResponse extends Schema.Class<BatchCreateVehicleResponse>("BatchCreateVehicleResponse")({vehicles: Schema.optional(createVehicleResponses), errors: Schema.optional(createVehicleErrors)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException.fields) {};
 
 //# Operations
 export const listTagsForResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2021-06-17", uri: "/tags", method: "GET", sdkId: "IoTFleetWise", sigV4ServiceName: "iotfleetwise", name: "IoTAutobahnControlPlane.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);

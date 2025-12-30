@@ -3,34 +3,34 @@ import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperat
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const DeleteReportDefinitionRequest = Schema.Struct({reportId: Schema.String});
-export const GetReportDefinitionRequest = Schema.Struct({reportId: Schema.String});
-export const ListReportDefinitionsRequest = Schema.Struct({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const S3Location = Schema.Struct({bucket: Schema.String, prefix: Schema.String});
-export const UpdateReportDefinitionRequest = Schema.Struct({reportId: Schema.String, reportDescription: Schema.String, reportFrequency: Schema.String, format: Schema.String, destinationS3Location: S3Location});
-export const SourceS3Location = Schema.Struct({bucket: Schema.String, key: Schema.String, region: Schema.optional(Schema.String)});
-export const DeleteReportDefinitionResult = Schema.Struct({reportId: Schema.optional(Schema.String)});
-export const GetReportDefinitionResult = Schema.Struct({reportId: Schema.String, reportDescription: Schema.String, reportFrequency: Schema.String, format: Schema.String, destinationS3Location: S3Location, createdAt: Schema.Date, lastUpdated: Schema.Date});
-export const ImportApplicationUsageRequest = Schema.Struct({sourceS3Location: SourceS3Location});
-export const PutReportDefinitionRequest = Schema.Struct({reportId: Schema.String, reportDescription: Schema.String, reportFrequency: Schema.String, format: Schema.String, destinationS3Location: S3Location});
-export const UpdateReportDefinitionResult = Schema.Struct({reportId: Schema.optional(Schema.String)});
-export const ReportDefinition = Schema.Struct({reportId: Schema.optional(Schema.String), reportDescription: Schema.optional(Schema.String), reportFrequency: Schema.optional(Schema.String), format: Schema.optional(Schema.String), destinationS3Location: Schema.optional(S3Location), createdAt: Schema.optional(Schema.Date), lastUpdatedAt: Schema.optional(Schema.Date)});
+export class DeleteReportDefinitionRequest extends Schema.Class<DeleteReportDefinitionRequest>("DeleteReportDefinitionRequest")({reportId: Schema.String}) {}
+export class GetReportDefinitionRequest extends Schema.Class<GetReportDefinitionRequest>("GetReportDefinitionRequest")({reportId: Schema.String}) {}
+export class ListReportDefinitionsRequest extends Schema.Class<ListReportDefinitionsRequest>("ListReportDefinitionsRequest")({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class S3Location extends Schema.Class<S3Location>("S3Location")({bucket: Schema.String, prefix: Schema.String}) {}
+export class UpdateReportDefinitionRequest extends Schema.Class<UpdateReportDefinitionRequest>("UpdateReportDefinitionRequest")({reportId: Schema.String, reportDescription: Schema.String, reportFrequency: Schema.String, format: Schema.String, destinationS3Location: S3Location}) {}
+export class SourceS3Location extends Schema.Class<SourceS3Location>("SourceS3Location")({bucket: Schema.String, key: Schema.String, region: Schema.optional(Schema.String)}) {}
+export class DeleteReportDefinitionResult extends Schema.Class<DeleteReportDefinitionResult>("DeleteReportDefinitionResult")({reportId: Schema.optional(Schema.String)}) {}
+export class GetReportDefinitionResult extends Schema.Class<GetReportDefinitionResult>("GetReportDefinitionResult")({reportId: Schema.String, reportDescription: Schema.String, reportFrequency: Schema.String, format: Schema.String, destinationS3Location: S3Location, createdAt: Schema.Date, lastUpdated: Schema.Date}) {}
+export class ImportApplicationUsageRequest extends Schema.Class<ImportApplicationUsageRequest>("ImportApplicationUsageRequest")({sourceS3Location: SourceS3Location}) {}
+export class PutReportDefinitionRequest extends Schema.Class<PutReportDefinitionRequest>("PutReportDefinitionRequest")({reportId: Schema.String, reportDescription: Schema.String, reportFrequency: Schema.String, format: Schema.String, destinationS3Location: S3Location}) {}
+export class UpdateReportDefinitionResult extends Schema.Class<UpdateReportDefinitionResult>("UpdateReportDefinitionResult")({reportId: Schema.optional(Schema.String)}) {}
+export class ReportDefinition extends Schema.Class<ReportDefinition>("ReportDefinition")({reportId: Schema.optional(Schema.String), reportDescription: Schema.optional(Schema.String), reportFrequency: Schema.optional(Schema.String), format: Schema.optional(Schema.String), destinationS3Location: Schema.optional(S3Location), createdAt: Schema.optional(Schema.Date), lastUpdatedAt: Schema.optional(Schema.Date)}) {}
 export const ReportDefinitionList = Schema.Array(ReportDefinition);
-export const AccessDeniedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InternalServerException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ImportApplicationUsageResult = Schema.Struct({importId: Schema.String});
-export const ListReportDefinitionsResult = Schema.Struct({reportDefinitions: Schema.optional(ReportDefinitionList), nextToken: Schema.optional(Schema.String)});
-export const PutReportDefinitionResult = Schema.Struct({reportId: Schema.optional(Schema.String)});
-export const ThrottlingException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ValidationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ServiceQuotaExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({message: Schema.optional(Schema.String)}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({message: Schema.optional(Schema.String)}) {}
+export class ImportApplicationUsageResult extends Schema.Class<ImportApplicationUsageResult>("ImportApplicationUsageResult")({importId: Schema.String}) {}
+export class ListReportDefinitionsResult extends Schema.Class<ListReportDefinitionsResult>("ListReportDefinitionsResult")({reportDefinitions: Schema.optional(ReportDefinitionList), nextToken: Schema.optional(Schema.String)}) {}
+export class PutReportDefinitionResult extends Schema.Class<PutReportDefinitionResult>("PutReportDefinitionResult")({reportId: Schema.optional(Schema.String)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({message: Schema.optional(Schema.String)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({message: Schema.optional(Schema.String)}) {}
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({message: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
 
 //# Operations
 export const getReportDefinition = /*#__PURE__*/ makeOperation(() => Operation({ version: "2020-09-10", uri: "/reportDefinition/{reportId}", method: "GET", sdkId: "ApplicationCostProfiler", sigV4ServiceName: "application-cost-profiler", name: "AWSApplicationCostProfiler.GetReportDefinition" }, GetReportDefinitionRequest, GetReportDefinitionResult, [AccessDeniedExceptionError, InternalServerExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

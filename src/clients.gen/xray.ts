@@ -3,227 +3,227 @@ import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperat
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const GetEncryptionConfigRequest = Schema.Struct({});
-export const GetTraceSegmentDestinationRequest = Schema.Struct({});
+export class GetEncryptionConfigRequest extends Schema.Class<GetEncryptionConfigRequest>("GetEncryptionConfigRequest")({}) {}
+export class GetTraceSegmentDestinationRequest extends Schema.Class<GetTraceSegmentDestinationRequest>("GetTraceSegmentDestinationRequest")({}) {}
 export const TraceIdList = Schema.Array(Schema.String);
 export const InsightStateList = Schema.Array(Schema.String);
 export const TraceSegmentDocumentList = Schema.Array(Schema.String);
 export const TraceIdListForRetrieval = Schema.Array(Schema.String);
 export const TagKeyList = Schema.Array(Schema.String);
-export const BatchGetTracesRequest = Schema.Struct({TraceIds: TraceIdList, NextToken: Schema.optional(Schema.String)});
-export const CancelTraceRetrievalRequest = Schema.Struct({RetrievalToken: Schema.String});
-export const CancelTraceRetrievalResult = Schema.Struct({});
-export const DeleteGroupRequest = Schema.Struct({GroupName: Schema.optional(Schema.String), GroupARN: Schema.optional(Schema.String)});
-export const DeleteGroupResult = Schema.Struct({});
-export const DeleteResourcePolicyRequest = Schema.Struct({PolicyName: Schema.String, PolicyRevisionId: Schema.optional(Schema.String)});
-export const DeleteResourcePolicyResult = Schema.Struct({});
-export const DeleteSamplingRuleRequest = Schema.Struct({RuleName: Schema.optional(Schema.String), RuleARN: Schema.optional(Schema.String)});
-export const GetGroupRequest = Schema.Struct({GroupName: Schema.optional(Schema.String), GroupARN: Schema.optional(Schema.String)});
-export const GetGroupsRequest = Schema.Struct({NextToken: Schema.optional(Schema.String)});
-export const GetIndexingRulesRequest = Schema.Struct({NextToken: Schema.optional(Schema.String)});
-export const GetInsightRequest = Schema.Struct({InsightId: Schema.String});
-export const GetInsightEventsRequest = Schema.Struct({InsightId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const GetInsightImpactGraphRequest = Schema.Struct({InsightId: Schema.String, StartTime: Schema.Date, EndTime: Schema.Date, NextToken: Schema.optional(Schema.String)});
-export const GetInsightSummariesRequest = Schema.Struct({States: Schema.optional(InsightStateList), GroupARN: Schema.optional(Schema.String), GroupName: Schema.optional(Schema.String), StartTime: Schema.Date, EndTime: Schema.Date, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const GetRetrievedTracesGraphRequest = Schema.Struct({RetrievalToken: Schema.String, NextToken: Schema.optional(Schema.String)});
-export const GetSamplingRulesRequest = Schema.Struct({NextToken: Schema.optional(Schema.String)});
-export const GetSamplingStatisticSummariesRequest = Schema.Struct({NextToken: Schema.optional(Schema.String)});
-export const GetServiceGraphRequest = Schema.Struct({StartTime: Schema.Date, EndTime: Schema.Date, GroupName: Schema.optional(Schema.String), GroupARN: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String)});
-export const GetTimeSeriesServiceStatisticsRequest = Schema.Struct({StartTime: Schema.Date, EndTime: Schema.Date, GroupName: Schema.optional(Schema.String), GroupARN: Schema.optional(Schema.String), EntitySelectorExpression: Schema.optional(Schema.String), Period: Schema.optional(Schema.Number), ForecastStatistics: Schema.optional(Schema.Boolean), NextToken: Schema.optional(Schema.String)});
-export const GetTraceGraphRequest = Schema.Struct({TraceIds: TraceIdList, NextToken: Schema.optional(Schema.String)});
-export const GetTraceSegmentDestinationResult = Schema.Struct({Destination: Schema.optional(Schema.String), Status: Schema.optional(Schema.String)});
-export const ListResourcePoliciesRequest = Schema.Struct({NextToken: Schema.optional(Schema.String)});
-export const ListRetrievedTracesRequest = Schema.Struct({RetrievalToken: Schema.String, TraceFormat: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceRequest = Schema.Struct({ResourceARN: Schema.String, NextToken: Schema.optional(Schema.String)});
-export const PutEncryptionConfigRequest = Schema.Struct({KeyId: Schema.optional(Schema.String), Type: Schema.String});
-export const PutResourcePolicyRequest = Schema.Struct({PolicyName: Schema.String, PolicyDocument: Schema.String, PolicyRevisionId: Schema.optional(Schema.String), BypassPolicyLockoutCheck: Schema.optional(Schema.Boolean)});
-export const PutTraceSegmentsRequest = Schema.Struct({TraceSegmentDocuments: TraceSegmentDocumentList});
-export const StartTraceRetrievalRequest = Schema.Struct({TraceIds: TraceIdListForRetrieval, StartTime: Schema.Date, EndTime: Schema.Date});
-export const Tag = Schema.Struct({Key: Schema.String, Value: Schema.String});
+export class BatchGetTracesRequest extends Schema.Class<BatchGetTracesRequest>("BatchGetTracesRequest")({TraceIds: TraceIdList, NextToken: Schema.optional(Schema.String)}) {}
+export class CancelTraceRetrievalRequest extends Schema.Class<CancelTraceRetrievalRequest>("CancelTraceRetrievalRequest")({RetrievalToken: Schema.String}) {}
+export class CancelTraceRetrievalResult extends Schema.Class<CancelTraceRetrievalResult>("CancelTraceRetrievalResult")({}) {}
+export class DeleteGroupRequest extends Schema.Class<DeleteGroupRequest>("DeleteGroupRequest")({GroupName: Schema.optional(Schema.String), GroupARN: Schema.optional(Schema.String)}) {}
+export class DeleteGroupResult extends Schema.Class<DeleteGroupResult>("DeleteGroupResult")({}) {}
+export class DeleteResourcePolicyRequest extends Schema.Class<DeleteResourcePolicyRequest>("DeleteResourcePolicyRequest")({PolicyName: Schema.String, PolicyRevisionId: Schema.optional(Schema.String)}) {}
+export class DeleteResourcePolicyResult extends Schema.Class<DeleteResourcePolicyResult>("DeleteResourcePolicyResult")({}) {}
+export class DeleteSamplingRuleRequest extends Schema.Class<DeleteSamplingRuleRequest>("DeleteSamplingRuleRequest")({RuleName: Schema.optional(Schema.String), RuleARN: Schema.optional(Schema.String)}) {}
+export class GetGroupRequest extends Schema.Class<GetGroupRequest>("GetGroupRequest")({GroupName: Schema.optional(Schema.String), GroupARN: Schema.optional(Schema.String)}) {}
+export class GetGroupsRequest extends Schema.Class<GetGroupsRequest>("GetGroupsRequest")({NextToken: Schema.optional(Schema.String)}) {}
+export class GetIndexingRulesRequest extends Schema.Class<GetIndexingRulesRequest>("GetIndexingRulesRequest")({NextToken: Schema.optional(Schema.String)}) {}
+export class GetInsightRequest extends Schema.Class<GetInsightRequest>("GetInsightRequest")({InsightId: Schema.String}) {}
+export class GetInsightEventsRequest extends Schema.Class<GetInsightEventsRequest>("GetInsightEventsRequest")({InsightId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class GetInsightImpactGraphRequest extends Schema.Class<GetInsightImpactGraphRequest>("GetInsightImpactGraphRequest")({InsightId: Schema.String, StartTime: Schema.Date, EndTime: Schema.Date, NextToken: Schema.optional(Schema.String)}) {}
+export class GetInsightSummariesRequest extends Schema.Class<GetInsightSummariesRequest>("GetInsightSummariesRequest")({States: Schema.optional(InsightStateList), GroupARN: Schema.optional(Schema.String), GroupName: Schema.optional(Schema.String), StartTime: Schema.Date, EndTime: Schema.Date, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class GetRetrievedTracesGraphRequest extends Schema.Class<GetRetrievedTracesGraphRequest>("GetRetrievedTracesGraphRequest")({RetrievalToken: Schema.String, NextToken: Schema.optional(Schema.String)}) {}
+export class GetSamplingRulesRequest extends Schema.Class<GetSamplingRulesRequest>("GetSamplingRulesRequest")({NextToken: Schema.optional(Schema.String)}) {}
+export class GetSamplingStatisticSummariesRequest extends Schema.Class<GetSamplingStatisticSummariesRequest>("GetSamplingStatisticSummariesRequest")({NextToken: Schema.optional(Schema.String)}) {}
+export class GetServiceGraphRequest extends Schema.Class<GetServiceGraphRequest>("GetServiceGraphRequest")({StartTime: Schema.Date, EndTime: Schema.Date, GroupName: Schema.optional(Schema.String), GroupARN: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String)}) {}
+export class GetTimeSeriesServiceStatisticsRequest extends Schema.Class<GetTimeSeriesServiceStatisticsRequest>("GetTimeSeriesServiceStatisticsRequest")({StartTime: Schema.Date, EndTime: Schema.Date, GroupName: Schema.optional(Schema.String), GroupARN: Schema.optional(Schema.String), EntitySelectorExpression: Schema.optional(Schema.String), Period: Schema.optional(Schema.Number), ForecastStatistics: Schema.optional(Schema.Boolean), NextToken: Schema.optional(Schema.String)}) {}
+export class GetTraceGraphRequest extends Schema.Class<GetTraceGraphRequest>("GetTraceGraphRequest")({TraceIds: TraceIdList, NextToken: Schema.optional(Schema.String)}) {}
+export class GetTraceSegmentDestinationResult extends Schema.Class<GetTraceSegmentDestinationResult>("GetTraceSegmentDestinationResult")({Destination: Schema.optional(Schema.String), Status: Schema.optional(Schema.String)}) {}
+export class ListResourcePoliciesRequest extends Schema.Class<ListResourcePoliciesRequest>("ListResourcePoliciesRequest")({NextToken: Schema.optional(Schema.String)}) {}
+export class ListRetrievedTracesRequest extends Schema.Class<ListRetrievedTracesRequest>("ListRetrievedTracesRequest")({RetrievalToken: Schema.String, TraceFormat: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({ResourceARN: Schema.String, NextToken: Schema.optional(Schema.String)}) {}
+export class PutEncryptionConfigRequest extends Schema.Class<PutEncryptionConfigRequest>("PutEncryptionConfigRequest")({KeyId: Schema.optional(Schema.String), Type: Schema.String}) {}
+export class PutResourcePolicyRequest extends Schema.Class<PutResourcePolicyRequest>("PutResourcePolicyRequest")({PolicyName: Schema.String, PolicyDocument: Schema.String, PolicyRevisionId: Schema.optional(Schema.String), BypassPolicyLockoutCheck: Schema.optional(Schema.Boolean)}) {}
+export class PutTraceSegmentsRequest extends Schema.Class<PutTraceSegmentsRequest>("PutTraceSegmentsRequest")({TraceSegmentDocuments: TraceSegmentDocumentList}) {}
+export class StartTraceRetrievalRequest extends Schema.Class<StartTraceRetrievalRequest>("StartTraceRetrievalRequest")({TraceIds: TraceIdListForRetrieval, StartTime: Schema.Date, EndTime: Schema.Date}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.String, Value: Schema.String}) {}
 export const TagList = Schema.Array(Tag);
-export const TagResourceRequest = Schema.Struct({ResourceARN: Schema.String, Tags: TagList});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({ResourceARN: Schema.String, TagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
-export const InsightsConfiguration = Schema.Struct({InsightsEnabled: Schema.optional(Schema.Boolean), NotificationsEnabled: Schema.optional(Schema.Boolean)});
-export const UpdateGroupRequest = Schema.Struct({GroupName: Schema.optional(Schema.String), GroupARN: Schema.optional(Schema.String), FilterExpression: Schema.optional(Schema.String), InsightsConfiguration: Schema.optional(InsightsConfiguration)});
-export const UpdateTraceSegmentDestinationRequest = Schema.Struct({Destination: Schema.optional(Schema.String)});
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({ResourceARN: Schema.String, Tags: TagList}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({ResourceARN: Schema.String, TagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class InsightsConfiguration extends Schema.Class<InsightsConfiguration>("InsightsConfiguration")({InsightsEnabled: Schema.optional(Schema.Boolean), NotificationsEnabled: Schema.optional(Schema.Boolean)}) {}
+export class UpdateGroupRequest extends Schema.Class<UpdateGroupRequest>("UpdateGroupRequest")({GroupName: Schema.optional(Schema.String), GroupARN: Schema.optional(Schema.String), FilterExpression: Schema.optional(Schema.String), InsightsConfiguration: Schema.optional(InsightsConfiguration)}) {}
+export class UpdateTraceSegmentDestinationRequest extends Schema.Class<UpdateTraceSegmentDestinationRequest>("UpdateTraceSegmentDestinationRequest")({Destination: Schema.optional(Schema.String)}) {}
 export const UnprocessedTraceIdList = Schema.Array(Schema.String);
-export const EncryptionConfig = Schema.Struct({KeyId: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), Type: Schema.optional(Schema.String)});
+export class EncryptionConfig extends Schema.Class<EncryptionConfig>("EncryptionConfig")({KeyId: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), Type: Schema.optional(Schema.String)}) {}
 export const AttributeMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const SamplingRateBoost = Schema.Struct({MaxRate: Schema.Number, CooldownWindowMinutes: Schema.Number});
-export const SamplingRule = Schema.Struct({RuleName: Schema.optional(Schema.String), RuleARN: Schema.optional(Schema.String), ResourceARN: Schema.String, Priority: Schema.Number, FixedRate: Schema.Number, ReservoirSize: Schema.Number, ServiceName: Schema.String, ServiceType: Schema.String, Host: Schema.String, HTTPMethod: Schema.String, URLPath: Schema.String, Version: Schema.Number, Attributes: Schema.optional(AttributeMap), SamplingRateBoost: Schema.optional(SamplingRateBoost)});
-export const SamplingRuleRecord = Schema.Struct({SamplingRule: Schema.optional(SamplingRule), CreatedAt: Schema.optional(Schema.Date), ModifiedAt: Schema.optional(Schema.Date)});
+export class SamplingRateBoost extends Schema.Class<SamplingRateBoost>("SamplingRateBoost")({MaxRate: Schema.Number, CooldownWindowMinutes: Schema.Number}) {}
+export class SamplingRule extends Schema.Class<SamplingRule>("SamplingRule")({RuleName: Schema.optional(Schema.String), RuleARN: Schema.optional(Schema.String), ResourceARN: Schema.String, Priority: Schema.Number, FixedRate: Schema.Number, ReservoirSize: Schema.Number, ServiceName: Schema.String, ServiceType: Schema.String, Host: Schema.String, HTTPMethod: Schema.String, URLPath: Schema.String, Version: Schema.Number, Attributes: Schema.optional(AttributeMap), SamplingRateBoost: Schema.optional(SamplingRateBoost)}) {}
+export class SamplingRuleRecord extends Schema.Class<SamplingRuleRecord>("SamplingRuleRecord")({SamplingRule: Schema.optional(SamplingRule), CreatedAt: Schema.optional(Schema.Date), ModifiedAt: Schema.optional(Schema.Date)}) {}
 export const SamplingRuleRecordList = Schema.Array(SamplingRuleRecord);
-export const SamplingStatisticsDocument = Schema.Struct({RuleName: Schema.String, ClientID: Schema.String, Timestamp: Schema.Date, RequestCount: Schema.Number, SampledCount: Schema.Number, BorrowCount: Schema.optional(Schema.Number)});
+export class SamplingStatisticsDocument extends Schema.Class<SamplingStatisticsDocument>("SamplingStatisticsDocument")({RuleName: Schema.String, ClientID: Schema.String, Timestamp: Schema.Date, RequestCount: Schema.Number, SampledCount: Schema.Number, BorrowCount: Schema.optional(Schema.Number)}) {}
 export const SamplingStatisticsDocumentList = Schema.Array(SamplingStatisticsDocument);
-export const SamplingBoostStatisticsDocument = Schema.Struct({RuleName: Schema.String, ServiceName: Schema.String, Timestamp: Schema.Date, AnomalyCount: Schema.Number, TotalCount: Schema.Number, SampledAnomalyCount: Schema.Number});
+export class SamplingBoostStatisticsDocument extends Schema.Class<SamplingBoostStatisticsDocument>("SamplingBoostStatisticsDocument")({RuleName: Schema.String, ServiceName: Schema.String, Timestamp: Schema.Date, AnomalyCount: Schema.Number, TotalCount: Schema.Number, SampledAnomalyCount: Schema.Number}) {}
 export const SamplingBoostStatisticsDocumentList = Schema.Array(SamplingBoostStatisticsDocument);
-export const SamplingStrategy = Schema.Struct({Name: Schema.optional(Schema.String), Value: Schema.optional(Schema.Number)});
-export const SamplingRuleUpdate = Schema.Struct({RuleName: Schema.optional(Schema.String), RuleARN: Schema.optional(Schema.String), ResourceARN: Schema.optional(Schema.String), Priority: Schema.optional(Schema.Number), FixedRate: Schema.optional(Schema.Number), ReservoirSize: Schema.optional(Schema.Number), Host: Schema.optional(Schema.String), ServiceName: Schema.optional(Schema.String), ServiceType: Schema.optional(Schema.String), HTTPMethod: Schema.optional(Schema.String), URLPath: Schema.optional(Schema.String), Attributes: Schema.optional(AttributeMap), SamplingRateBoost: Schema.optional(SamplingRateBoost)});
-export const InvalidRequestException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const CreateGroupRequest = Schema.Struct({GroupName: Schema.String, FilterExpression: Schema.optional(Schema.String), InsightsConfiguration: Schema.optional(InsightsConfiguration), Tags: Schema.optional(TagList)});
-export const ThrottledException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const InvalidPolicyRevisionIdException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const GetEncryptionConfigResult = Schema.Struct({EncryptionConfig: Schema.optional(EncryptionConfig)});
-export const GetSamplingRulesResult = Schema.Struct({SamplingRuleRecords: Schema.optional(SamplingRuleRecordList), NextToken: Schema.optional(Schema.String)});
-export const GetSamplingTargetsRequest = Schema.Struct({SamplingStatisticsDocuments: SamplingStatisticsDocumentList, SamplingBoostStatisticsDocuments: Schema.optional(SamplingBoostStatisticsDocumentList)});
+export class SamplingStrategy extends Schema.Class<SamplingStrategy>("SamplingStrategy")({Name: Schema.optional(Schema.String), Value: Schema.optional(Schema.Number)}) {}
+export class SamplingRuleUpdate extends Schema.Class<SamplingRuleUpdate>("SamplingRuleUpdate")({RuleName: Schema.optional(Schema.String), RuleARN: Schema.optional(Schema.String), ResourceARN: Schema.optional(Schema.String), Priority: Schema.optional(Schema.Number), FixedRate: Schema.optional(Schema.Number), ReservoirSize: Schema.optional(Schema.Number), Host: Schema.optional(Schema.String), ServiceName: Schema.optional(Schema.String), ServiceType: Schema.optional(Schema.String), HTTPMethod: Schema.optional(Schema.String), URLPath: Schema.optional(Schema.String), Attributes: Schema.optional(AttributeMap), SamplingRateBoost: Schema.optional(SamplingRateBoost)}) {}
+export class InvalidRequestException extends Schema.Class<InvalidRequestException>("InvalidRequestException")({Message: Schema.optional(Schema.String)}) {}
+export class CreateGroupRequest extends Schema.Class<CreateGroupRequest>("CreateGroupRequest")({GroupName: Schema.String, FilterExpression: Schema.optional(Schema.String), InsightsConfiguration: Schema.optional(InsightsConfiguration), Tags: Schema.optional(TagList)}) {}
+export class ThrottledException extends Schema.Class<ThrottledException>("ThrottledException")({Message: Schema.optional(Schema.String)}) {}
+export class InvalidPolicyRevisionIdException extends Schema.Class<InvalidPolicyRevisionIdException>("InvalidPolicyRevisionIdException")({Message: Schema.optional(Schema.String)}) {}
+export class GetEncryptionConfigResult extends Schema.Class<GetEncryptionConfigResult>("GetEncryptionConfigResult")({EncryptionConfig: Schema.optional(EncryptionConfig)}) {}
+export class GetSamplingRulesResult extends Schema.Class<GetSamplingRulesResult>("GetSamplingRulesResult")({SamplingRuleRecords: Schema.optional(SamplingRuleRecordList), NextToken: Schema.optional(Schema.String)}) {}
+export class GetSamplingTargetsRequest extends Schema.Class<GetSamplingTargetsRequest>("GetSamplingTargetsRequest")({SamplingStatisticsDocuments: SamplingStatisticsDocumentList, SamplingBoostStatisticsDocuments: Schema.optional(SamplingBoostStatisticsDocumentList)}) {}
 export const ServiceNames = Schema.Array(Schema.String);
-export const ErrorStatistics = Schema.Struct({ThrottleCount: Schema.optional(Schema.Number), OtherCount: Schema.optional(Schema.Number), TotalCount: Schema.optional(Schema.Number)});
-export const FaultStatistics = Schema.Struct({OtherCount: Schema.optional(Schema.Number), TotalCount: Schema.optional(Schema.Number)});
-export const EdgeStatistics = Schema.Struct({OkCount: Schema.optional(Schema.Number), ErrorStatistics: Schema.optional(ErrorStatistics), FaultStatistics: Schema.optional(FaultStatistics), TotalCount: Schema.optional(Schema.Number), TotalResponseTime: Schema.optional(Schema.Number)});
-export const HistogramEntry = Schema.Struct({Value: Schema.optional(Schema.Number), Count: Schema.optional(Schema.Number)});
+export class ErrorStatistics extends Schema.Class<ErrorStatistics>("ErrorStatistics")({ThrottleCount: Schema.optional(Schema.Number), OtherCount: Schema.optional(Schema.Number), TotalCount: Schema.optional(Schema.Number)}) {}
+export class FaultStatistics extends Schema.Class<FaultStatistics>("FaultStatistics")({OtherCount: Schema.optional(Schema.Number), TotalCount: Schema.optional(Schema.Number)}) {}
+export class EdgeStatistics extends Schema.Class<EdgeStatistics>("EdgeStatistics")({OkCount: Schema.optional(Schema.Number), ErrorStatistics: Schema.optional(ErrorStatistics), FaultStatistics: Schema.optional(FaultStatistics), TotalCount: Schema.optional(Schema.Number), TotalResponseTime: Schema.optional(Schema.Number)}) {}
+export class HistogramEntry extends Schema.Class<HistogramEntry>("HistogramEntry")({Value: Schema.optional(Schema.Number), Count: Schema.optional(Schema.Number)}) {}
 export const Histogram = Schema.Array(HistogramEntry);
 export const AliasNames = Schema.Array(Schema.String);
-export const Alias = Schema.Struct({Name: Schema.optional(Schema.String), Names: Schema.optional(AliasNames), Type: Schema.optional(Schema.String)});
+export class Alias extends Schema.Class<Alias>("Alias")({Name: Schema.optional(Schema.String), Names: Schema.optional(AliasNames), Type: Schema.optional(Schema.String)}) {}
 export const AliasList = Schema.Array(Alias);
-export const Edge = Schema.Struct({ReferenceId: Schema.optional(Schema.Number), StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date), SummaryStatistics: Schema.optional(EdgeStatistics), ResponseTimeHistogram: Schema.optional(Histogram), Aliases: Schema.optional(AliasList), EdgeType: Schema.optional(Schema.String), ReceivedEventAgeHistogram: Schema.optional(Histogram)});
+export class Edge extends Schema.Class<Edge>("Edge")({ReferenceId: Schema.optional(Schema.Number), StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date), SummaryStatistics: Schema.optional(EdgeStatistics), ResponseTimeHistogram: Schema.optional(Histogram), Aliases: Schema.optional(AliasList), EdgeType: Schema.optional(Schema.String), ReceivedEventAgeHistogram: Schema.optional(Histogram)}) {}
 export const EdgeList = Schema.Array(Edge);
-export const ServiceStatistics = Schema.Struct({OkCount: Schema.optional(Schema.Number), ErrorStatistics: Schema.optional(ErrorStatistics), FaultStatistics: Schema.optional(FaultStatistics), TotalCount: Schema.optional(Schema.Number), TotalResponseTime: Schema.optional(Schema.Number)});
-export const Service = Schema.Struct({ReferenceId: Schema.optional(Schema.Number), Name: Schema.optional(Schema.String), Names: Schema.optional(ServiceNames), Root: Schema.optional(Schema.Boolean), AccountId: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), State: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date), Edges: Schema.optional(EdgeList), SummaryStatistics: Schema.optional(ServiceStatistics), DurationHistogram: Schema.optional(Histogram), ResponseTimeHistogram: Schema.optional(Histogram)});
+export class ServiceStatistics extends Schema.Class<ServiceStatistics>("ServiceStatistics")({OkCount: Schema.optional(Schema.Number), ErrorStatistics: Schema.optional(ErrorStatistics), FaultStatistics: Schema.optional(FaultStatistics), TotalCount: Schema.optional(Schema.Number), TotalResponseTime: Schema.optional(Schema.Number)}) {}
+export class Service extends Schema.Class<Service>("Service")({ReferenceId: Schema.optional(Schema.Number), Name: Schema.optional(Schema.String), Names: Schema.optional(ServiceNames), Root: Schema.optional(Schema.Boolean), AccountId: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), State: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date), Edges: Schema.optional(EdgeList), SummaryStatistics: Schema.optional(ServiceStatistics), DurationHistogram: Schema.optional(Histogram), ResponseTimeHistogram: Schema.optional(Histogram)}) {}
 export const ServiceList = Schema.Array(Service);
-export const GetTraceGraphResult = Schema.Struct({Services: Schema.optional(ServiceList), NextToken: Schema.optional(Schema.String)});
-export const GetTraceSummariesRequest = Schema.Struct({StartTime: Schema.Date, EndTime: Schema.Date, TimeRangeType: Schema.optional(Schema.String), Sampling: Schema.optional(Schema.Boolean), SamplingStrategy: Schema.optional(SamplingStrategy), FilterExpression: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceResponse = Schema.Struct({Tags: Schema.optional(TagList), NextToken: Schema.optional(Schema.String)});
-export const PutEncryptionConfigResult = Schema.Struct({EncryptionConfig: Schema.optional(EncryptionConfig)});
-export const ResourcePolicy = Schema.Struct({PolicyName: Schema.optional(Schema.String), PolicyDocument: Schema.optional(Schema.String), PolicyRevisionId: Schema.optional(Schema.String), LastUpdatedTime: Schema.optional(Schema.Date)});
-export const PutResourcePolicyResult = Schema.Struct({ResourcePolicy: Schema.optional(ResourcePolicy)});
-export const StartTraceRetrievalResult = Schema.Struct({RetrievalToken: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String), ResourceName: Schema.optional(Schema.String)});
-export const Group = Schema.Struct({GroupName: Schema.optional(Schema.String), GroupARN: Schema.optional(Schema.String), FilterExpression: Schema.optional(Schema.String), InsightsConfiguration: Schema.optional(InsightsConfiguration)});
-export const UpdateGroupResult = Schema.Struct({Group: Schema.optional(Group)});
-export const UpdateSamplingRuleRequest = Schema.Struct({SamplingRuleUpdate: SamplingRuleUpdate});
-export const UpdateTraceSegmentDestinationResult = Schema.Struct({Destination: Schema.optional(Schema.String), Status: Schema.optional(Schema.String)});
+export class GetTraceGraphResult extends Schema.Class<GetTraceGraphResult>("GetTraceGraphResult")({Services: Schema.optional(ServiceList), NextToken: Schema.optional(Schema.String)}) {}
+export class GetTraceSummariesRequest extends Schema.Class<GetTraceSummariesRequest>("GetTraceSummariesRequest")({StartTime: Schema.Date, EndTime: Schema.Date, TimeRangeType: Schema.optional(Schema.String), Sampling: Schema.optional(Schema.Boolean), SamplingStrategy: Schema.optional(SamplingStrategy), FilterExpression: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({Tags: Schema.optional(TagList), NextToken: Schema.optional(Schema.String)}) {}
+export class PutEncryptionConfigResult extends Schema.Class<PutEncryptionConfigResult>("PutEncryptionConfigResult")({EncryptionConfig: Schema.optional(EncryptionConfig)}) {}
+export class ResourcePolicy extends Schema.Class<ResourcePolicy>("ResourcePolicy")({PolicyName: Schema.optional(Schema.String), PolicyDocument: Schema.optional(Schema.String), PolicyRevisionId: Schema.optional(Schema.String), LastUpdatedTime: Schema.optional(Schema.Date)}) {}
+export class PutResourcePolicyResult extends Schema.Class<PutResourcePolicyResult>("PutResourcePolicyResult")({ResourcePolicy: Schema.optional(ResourcePolicy)}) {}
+export class StartTraceRetrievalResult extends Schema.Class<StartTraceRetrievalResult>("StartTraceRetrievalResult")({RetrievalToken: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({Message: Schema.optional(Schema.String), ResourceName: Schema.optional(Schema.String)}) {}
+export class Group extends Schema.Class<Group>("Group")({GroupName: Schema.optional(Schema.String), GroupARN: Schema.optional(Schema.String), FilterExpression: Schema.optional(Schema.String), InsightsConfiguration: Schema.optional(InsightsConfiguration)}) {}
+export class UpdateGroupResult extends Schema.Class<UpdateGroupResult>("UpdateGroupResult")({Group: Schema.optional(Group)}) {}
+export class UpdateSamplingRuleRequest extends Schema.Class<UpdateSamplingRuleRequest>("UpdateSamplingRuleRequest")({SamplingRuleUpdate: SamplingRuleUpdate}) {}
+export class UpdateTraceSegmentDestinationResult extends Schema.Class<UpdateTraceSegmentDestinationResult>("UpdateTraceSegmentDestinationResult")({Destination: Schema.optional(Schema.String), Status: Schema.optional(Schema.String)}) {}
 export const InsightCategoryList = Schema.Array(Schema.String);
-export const BackendConnectionErrors = Schema.Struct({TimeoutCount: Schema.optional(Schema.Number), ConnectionRefusedCount: Schema.optional(Schema.Number), HTTPCode4XXCount: Schema.optional(Schema.Number), HTTPCode5XXCount: Schema.optional(Schema.Number), UnknownHostCount: Schema.optional(Schema.Number), OtherCount: Schema.optional(Schema.Number)});
-export const ProbabilisticRuleValueUpdate = Schema.Struct({DesiredSamplingPercentage: Schema.Number});
-export const GroupSummary = Schema.Struct({GroupName: Schema.optional(Schema.String), GroupARN: Schema.optional(Schema.String), FilterExpression: Schema.optional(Schema.String), InsightsConfiguration: Schema.optional(InsightsConfiguration)});
+export class BackendConnectionErrors extends Schema.Class<BackendConnectionErrors>("BackendConnectionErrors")({TimeoutCount: Schema.optional(Schema.Number), ConnectionRefusedCount: Schema.optional(Schema.Number), HTTPCode4XXCount: Schema.optional(Schema.Number), HTTPCode5XXCount: Schema.optional(Schema.Number), UnknownHostCount: Schema.optional(Schema.Number), OtherCount: Schema.optional(Schema.Number)}) {}
+export class ProbabilisticRuleValueUpdate extends Schema.Class<ProbabilisticRuleValueUpdate>("ProbabilisticRuleValueUpdate")({DesiredSamplingPercentage: Schema.Number}) {}
+export class GroupSummary extends Schema.Class<GroupSummary>("GroupSummary")({GroupName: Schema.optional(Schema.String), GroupARN: Schema.optional(Schema.String), FilterExpression: Schema.optional(Schema.String), InsightsConfiguration: Schema.optional(InsightsConfiguration)}) {}
 export const GroupSummaryList = Schema.Array(GroupSummary);
-export const RequestImpactStatistics = Schema.Struct({FaultCount: Schema.optional(Schema.Number), OkCount: Schema.optional(Schema.Number), TotalCount: Schema.optional(Schema.Number)});
-export const ServiceId = Schema.Struct({Name: Schema.optional(Schema.String), Names: Schema.optional(ServiceNames), AccountId: Schema.optional(Schema.String), Type: Schema.optional(Schema.String)});
-export const AnomalousService = Schema.Struct({ServiceId: Schema.optional(ServiceId)});
+export class RequestImpactStatistics extends Schema.Class<RequestImpactStatistics>("RequestImpactStatistics")({FaultCount: Schema.optional(Schema.Number), OkCount: Schema.optional(Schema.Number), TotalCount: Schema.optional(Schema.Number)}) {}
+export class ServiceId extends Schema.Class<ServiceId>("ServiceId")({Name: Schema.optional(Schema.String), Names: Schema.optional(ServiceNames), AccountId: Schema.optional(Schema.String), Type: Schema.optional(Schema.String)}) {}
+export class AnomalousService extends Schema.Class<AnomalousService>("AnomalousService")({ServiceId: Schema.optional(ServiceId)}) {}
 export const AnomalousServiceList = Schema.Array(AnomalousService);
-export const InsightEvent = Schema.Struct({Summary: Schema.optional(Schema.String), EventTime: Schema.optional(Schema.Date), ClientRequestImpactStatistics: Schema.optional(RequestImpactStatistics), RootCauseServiceRequestImpactStatistics: Schema.optional(RequestImpactStatistics), TopAnomalousServices: Schema.optional(AnomalousServiceList)});
+export class InsightEvent extends Schema.Class<InsightEvent>("InsightEvent")({Summary: Schema.optional(Schema.String), EventTime: Schema.optional(Schema.Date), ClientRequestImpactStatistics: Schema.optional(RequestImpactStatistics), RootCauseServiceRequestImpactStatistics: Schema.optional(RequestImpactStatistics), TopAnomalousServices: Schema.optional(AnomalousServiceList)}) {}
 export const InsightEventList = Schema.Array(InsightEvent);
-export const InsightSummary = Schema.Struct({InsightId: Schema.optional(Schema.String), GroupARN: Schema.optional(Schema.String), GroupName: Schema.optional(Schema.String), RootCauseServiceId: Schema.optional(ServiceId), Categories: Schema.optional(InsightCategoryList), State: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date), Summary: Schema.optional(Schema.String), ClientRequestImpactStatistics: Schema.optional(RequestImpactStatistics), RootCauseServiceRequestImpactStatistics: Schema.optional(RequestImpactStatistics), TopAnomalousServices: Schema.optional(AnomalousServiceList), LastUpdateTime: Schema.optional(Schema.Date)});
+export class InsightSummary extends Schema.Class<InsightSummary>("InsightSummary")({InsightId: Schema.optional(Schema.String), GroupARN: Schema.optional(Schema.String), GroupName: Schema.optional(Schema.String), RootCauseServiceId: Schema.optional(ServiceId), Categories: Schema.optional(InsightCategoryList), State: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date), Summary: Schema.optional(Schema.String), ClientRequestImpactStatistics: Schema.optional(RequestImpactStatistics), RootCauseServiceRequestImpactStatistics: Schema.optional(RequestImpactStatistics), TopAnomalousServices: Schema.optional(AnomalousServiceList), LastUpdateTime: Schema.optional(Schema.Date)}) {}
 export const InsightSummaryList = Schema.Array(InsightSummary);
-export const SamplingStatisticSummary = Schema.Struct({RuleName: Schema.optional(Schema.String), Timestamp: Schema.optional(Schema.Date), RequestCount: Schema.optional(Schema.Number), BorrowCount: Schema.optional(Schema.Number), SampledCount: Schema.optional(Schema.Number)});
+export class SamplingStatisticSummary extends Schema.Class<SamplingStatisticSummary>("SamplingStatisticSummary")({RuleName: Schema.optional(Schema.String), Timestamp: Schema.optional(Schema.Date), RequestCount: Schema.optional(Schema.Number), BorrowCount: Schema.optional(Schema.Number), SampledCount: Schema.optional(Schema.Number)}) {}
 export const SamplingStatisticSummaryList = Schema.Array(SamplingStatisticSummary);
 export const ResourcePolicyList = Schema.Array(ResourcePolicy);
-export const TelemetryRecord = Schema.Struct({Timestamp: Schema.Date, SegmentsReceivedCount: Schema.optional(Schema.Number), SegmentsSentCount: Schema.optional(Schema.Number), SegmentsSpilloverCount: Schema.optional(Schema.Number), SegmentsRejectedCount: Schema.optional(Schema.Number), BackendConnectionErrors: Schema.optional(BackendConnectionErrors)});
+export class TelemetryRecord extends Schema.Class<TelemetryRecord>("TelemetryRecord")({Timestamp: Schema.Date, SegmentsReceivedCount: Schema.optional(Schema.Number), SegmentsSentCount: Schema.optional(Schema.Number), SegmentsSpilloverCount: Schema.optional(Schema.Number), SegmentsRejectedCount: Schema.optional(Schema.Number), BackendConnectionErrors: Schema.optional(BackendConnectionErrors)}) {}
 export const TelemetryRecordList = Schema.Array(TelemetryRecord);
-export const UnprocessedTraceSegment = Schema.Struct({Id: Schema.optional(Schema.String), ErrorCode: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
+export class UnprocessedTraceSegment extends Schema.Class<UnprocessedTraceSegment>("UnprocessedTraceSegment")({Id: Schema.optional(Schema.String), ErrorCode: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
 export const UnprocessedTraceSegmentList = Schema.Array(UnprocessedTraceSegment);
 export const IndexingRuleValueUpdate = Schema.Union(ProbabilisticRuleValueUpdate);
-export const CreateGroupResult = Schema.Struct({Group: Schema.optional(Group)});
-export const CreateSamplingRuleRequest = Schema.Struct({SamplingRule: SamplingRule, Tags: Schema.optional(TagList)});
-export const DeleteSamplingRuleResult = Schema.Struct({SamplingRuleRecord: Schema.optional(SamplingRuleRecord)});
-export const GetGroupResult = Schema.Struct({Group: Schema.optional(Group)});
-export const GetGroupsResult = Schema.Struct({Groups: Schema.optional(GroupSummaryList), NextToken: Schema.optional(Schema.String)});
-export const GetInsightEventsResult = Schema.Struct({InsightEvents: Schema.optional(InsightEventList), NextToken: Schema.optional(Schema.String)});
-export const GetInsightSummariesResult = Schema.Struct({InsightSummaries: Schema.optional(InsightSummaryList), NextToken: Schema.optional(Schema.String)});
-export const GetSamplingStatisticSummariesResult = Schema.Struct({SamplingStatisticSummaries: Schema.optional(SamplingStatisticSummaryList), NextToken: Schema.optional(Schema.String)});
-export const ListResourcePoliciesResult = Schema.Struct({ResourcePolicies: Schema.optional(ResourcePolicyList), NextToken: Schema.optional(Schema.String)});
-export const LockoutPreventionException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const PutTelemetryRecordsRequest = Schema.Struct({TelemetryRecords: TelemetryRecordList, EC2InstanceId: Schema.optional(Schema.String), Hostname: Schema.optional(Schema.String), ResourceARN: Schema.optional(Schema.String)});
-export const PutTelemetryRecordsResult = Schema.Struct({});
-export const PutTraceSegmentsResult = Schema.Struct({UnprocessedTraceSegments: Schema.optional(UnprocessedTraceSegmentList)});
-export const TooManyTagsException = Schema.Struct({Message: Schema.optional(Schema.String), ResourceName: Schema.optional(Schema.String)});
-export const UpdateIndexingRuleRequest = Schema.Struct({Name: Schema.String, Rule: IndexingRuleValueUpdate});
-export const UpdateSamplingRuleResult = Schema.Struct({SamplingRuleRecord: Schema.optional(SamplingRuleRecord)});
-export const Segment = Schema.Struct({Id: Schema.optional(Schema.String), Document: Schema.optional(Schema.String)});
+export class CreateGroupResult extends Schema.Class<CreateGroupResult>("CreateGroupResult")({Group: Schema.optional(Group)}) {}
+export class CreateSamplingRuleRequest extends Schema.Class<CreateSamplingRuleRequest>("CreateSamplingRuleRequest")({SamplingRule: SamplingRule, Tags: Schema.optional(TagList)}) {}
+export class DeleteSamplingRuleResult extends Schema.Class<DeleteSamplingRuleResult>("DeleteSamplingRuleResult")({SamplingRuleRecord: Schema.optional(SamplingRuleRecord)}) {}
+export class GetGroupResult extends Schema.Class<GetGroupResult>("GetGroupResult")({Group: Schema.optional(Group)}) {}
+export class GetGroupsResult extends Schema.Class<GetGroupsResult>("GetGroupsResult")({Groups: Schema.optional(GroupSummaryList), NextToken: Schema.optional(Schema.String)}) {}
+export class GetInsightEventsResult extends Schema.Class<GetInsightEventsResult>("GetInsightEventsResult")({InsightEvents: Schema.optional(InsightEventList), NextToken: Schema.optional(Schema.String)}) {}
+export class GetInsightSummariesResult extends Schema.Class<GetInsightSummariesResult>("GetInsightSummariesResult")({InsightSummaries: Schema.optional(InsightSummaryList), NextToken: Schema.optional(Schema.String)}) {}
+export class GetSamplingStatisticSummariesResult extends Schema.Class<GetSamplingStatisticSummariesResult>("GetSamplingStatisticSummariesResult")({SamplingStatisticSummaries: Schema.optional(SamplingStatisticSummaryList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListResourcePoliciesResult extends Schema.Class<ListResourcePoliciesResult>("ListResourcePoliciesResult")({ResourcePolicies: Schema.optional(ResourcePolicyList), NextToken: Schema.optional(Schema.String)}) {}
+export class LockoutPreventionException extends Schema.Class<LockoutPreventionException>("LockoutPreventionException")({Message: Schema.optional(Schema.String)}) {}
+export class PutTelemetryRecordsRequest extends Schema.Class<PutTelemetryRecordsRequest>("PutTelemetryRecordsRequest")({TelemetryRecords: TelemetryRecordList, EC2InstanceId: Schema.optional(Schema.String), Hostname: Schema.optional(Schema.String), ResourceARN: Schema.optional(Schema.String)}) {}
+export class PutTelemetryRecordsResult extends Schema.Class<PutTelemetryRecordsResult>("PutTelemetryRecordsResult")({}) {}
+export class PutTraceSegmentsResult extends Schema.Class<PutTraceSegmentsResult>("PutTraceSegmentsResult")({UnprocessedTraceSegments: Schema.optional(UnprocessedTraceSegmentList)}) {}
+export class TooManyTagsException extends Schema.Class<TooManyTagsException>("TooManyTagsException")({Message: Schema.optional(Schema.String), ResourceName: Schema.optional(Schema.String)}) {}
+export class UpdateIndexingRuleRequest extends Schema.Class<UpdateIndexingRuleRequest>("UpdateIndexingRuleRequest")({Name: Schema.String, Rule: IndexingRuleValueUpdate}) {}
+export class UpdateSamplingRuleResult extends Schema.Class<UpdateSamplingRuleResult>("UpdateSamplingRuleResult")({SamplingRuleRecord: Schema.optional(SamplingRuleRecord)}) {}
+export class Segment extends Schema.Class<Segment>("Segment")({Id: Schema.optional(Schema.String), Document: Schema.optional(Schema.String)}) {}
 export const SegmentList = Schema.Array(Segment);
-export const InsightImpactGraphEdge = Schema.Struct({ReferenceId: Schema.optional(Schema.Number)});
+export class InsightImpactGraphEdge extends Schema.Class<InsightImpactGraphEdge>("InsightImpactGraphEdge")({ReferenceId: Schema.optional(Schema.Number)}) {}
 export const InsightImpactGraphEdgeList = Schema.Array(InsightImpactGraphEdge);
-export const GraphLink = Schema.Struct({ReferenceType: Schema.optional(Schema.String), SourceTraceId: Schema.optional(Schema.String), DestinationTraceIds: Schema.optional(TraceIdList)});
+export class GraphLink extends Schema.Class<GraphLink>("GraphLink")({ReferenceType: Schema.optional(Schema.String), SourceTraceId: Schema.optional(Schema.String), DestinationTraceIds: Schema.optional(TraceIdList)}) {}
 export const LinksList = Schema.Array(GraphLink);
-export const ForecastStatistics = Schema.Struct({FaultCountHigh: Schema.optional(Schema.Number), FaultCountLow: Schema.optional(Schema.Number)});
+export class ForecastStatistics extends Schema.Class<ForecastStatistics>("ForecastStatistics")({FaultCountHigh: Schema.optional(Schema.Number), FaultCountLow: Schema.optional(Schema.Number)}) {}
 export const ServiceIds = Schema.Array(ServiceId);
-export const Span = Schema.Struct({Id: Schema.optional(Schema.String), Document: Schema.optional(Schema.String)});
+export class Span extends Schema.Class<Span>("Span")({Id: Schema.optional(Schema.String), Document: Schema.optional(Schema.String)}) {}
 export const SpanList = Schema.Array(Span);
-export const Trace = Schema.Struct({Id: Schema.optional(Schema.String), Duration: Schema.optional(Schema.Number), LimitExceeded: Schema.optional(Schema.Boolean), Segments: Schema.optional(SegmentList)});
+export class Trace extends Schema.Class<Trace>("Trace")({Id: Schema.optional(Schema.String), Duration: Schema.optional(Schema.Number), LimitExceeded: Schema.optional(Schema.Boolean), Segments: Schema.optional(SegmentList)}) {}
 export const TraceList = Schema.Array(Trace);
-export const Insight = Schema.Struct({InsightId: Schema.optional(Schema.String), GroupARN: Schema.optional(Schema.String), GroupName: Schema.optional(Schema.String), RootCauseServiceId: Schema.optional(ServiceId), Categories: Schema.optional(InsightCategoryList), State: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date), Summary: Schema.optional(Schema.String), ClientRequestImpactStatistics: Schema.optional(RequestImpactStatistics), RootCauseServiceRequestImpactStatistics: Schema.optional(RequestImpactStatistics), TopAnomalousServices: Schema.optional(AnomalousServiceList)});
-export const InsightImpactGraphService = Schema.Struct({ReferenceId: Schema.optional(Schema.Number), Type: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Names: Schema.optional(ServiceNames), AccountId: Schema.optional(Schema.String), Edges: Schema.optional(InsightImpactGraphEdgeList)});
+export class Insight extends Schema.Class<Insight>("Insight")({InsightId: Schema.optional(Schema.String), GroupARN: Schema.optional(Schema.String), GroupName: Schema.optional(Schema.String), RootCauseServiceId: Schema.optional(ServiceId), Categories: Schema.optional(InsightCategoryList), State: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date), Summary: Schema.optional(Schema.String), ClientRequestImpactStatistics: Schema.optional(RequestImpactStatistics), RootCauseServiceRequestImpactStatistics: Schema.optional(RequestImpactStatistics), TopAnomalousServices: Schema.optional(AnomalousServiceList)}) {}
+export class InsightImpactGraphService extends Schema.Class<InsightImpactGraphService>("InsightImpactGraphService")({ReferenceId: Schema.optional(Schema.Number), Type: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Names: Schema.optional(ServiceNames), AccountId: Schema.optional(Schema.String), Edges: Schema.optional(InsightImpactGraphEdgeList)}) {}
 export const InsightImpactGraphServiceList = Schema.Array(InsightImpactGraphService);
-export const RetrievedService = Schema.Struct({Service: Schema.optional(Service), Links: Schema.optional(LinksList)});
+export class RetrievedService extends Schema.Class<RetrievedService>("RetrievedService")({Service: Schema.optional(Service), Links: Schema.optional(LinksList)}) {}
 export const RetrievedServicesList = Schema.Array(RetrievedService);
-export const UnprocessedStatistics = Schema.Struct({RuleName: Schema.optional(Schema.String), ErrorCode: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
+export class UnprocessedStatistics extends Schema.Class<UnprocessedStatistics>("UnprocessedStatistics")({RuleName: Schema.optional(Schema.String), ErrorCode: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
 export const UnprocessedStatisticsList = Schema.Array(UnprocessedStatistics);
-export const TimeSeriesServiceStatistics = Schema.Struct({Timestamp: Schema.optional(Schema.Date), EdgeSummaryStatistics: Schema.optional(EdgeStatistics), ServiceSummaryStatistics: Schema.optional(ServiceStatistics), ServiceForecastStatistics: Schema.optional(ForecastStatistics), ResponseTimeHistogram: Schema.optional(Histogram)});
+export class TimeSeriesServiceStatistics extends Schema.Class<TimeSeriesServiceStatistics>("TimeSeriesServiceStatistics")({Timestamp: Schema.optional(Schema.Date), EdgeSummaryStatistics: Schema.optional(EdgeStatistics), ServiceSummaryStatistics: Schema.optional(ServiceStatistics), ServiceForecastStatistics: Schema.optional(ForecastStatistics), ResponseTimeHistogram: Schema.optional(Histogram)}) {}
 export const TimeSeriesServiceStatisticsList = Schema.Array(TimeSeriesServiceStatistics);
-export const RetrievedTrace = Schema.Struct({Id: Schema.optional(Schema.String), Duration: Schema.optional(Schema.Number), Spans: Schema.optional(SpanList)});
+export class RetrievedTrace extends Schema.Class<RetrievedTrace>("RetrievedTrace")({Id: Schema.optional(Schema.String), Duration: Schema.optional(Schema.Number), Spans: Schema.optional(SpanList)}) {}
 export const TraceSpanList = Schema.Array(RetrievedTrace);
-export const ProbabilisticRuleValue = Schema.Struct({DesiredSamplingPercentage: Schema.Number, ActualSamplingPercentage: Schema.optional(Schema.Number)});
-export const BatchGetTracesResult = Schema.Struct({Traces: Schema.optional(TraceList), UnprocessedTraceIds: Schema.optional(UnprocessedTraceIdList), NextToken: Schema.optional(Schema.String)});
-export const CreateSamplingRuleResult = Schema.Struct({SamplingRuleRecord: Schema.optional(SamplingRuleRecord)});
-export const GetInsightResult = Schema.Struct({Insight: Schema.optional(Insight)});
-export const GetInsightImpactGraphResult = Schema.Struct({InsightId: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date), ServiceGraphStartTime: Schema.optional(Schema.Date), ServiceGraphEndTime: Schema.optional(Schema.Date), Services: Schema.optional(InsightImpactGraphServiceList), NextToken: Schema.optional(Schema.String)});
-export const GetRetrievedTracesGraphResult = Schema.Struct({RetrievalStatus: Schema.optional(Schema.String), Services: Schema.optional(RetrievedServicesList), NextToken: Schema.optional(Schema.String)});
-export const GetTimeSeriesServiceStatisticsResult = Schema.Struct({TimeSeriesServiceStatistics: Schema.optional(TimeSeriesServiceStatisticsList), ContainsOldGroupVersions: Schema.optional(Schema.Boolean), NextToken: Schema.optional(Schema.String)});
-export const ListRetrievedTracesResult = Schema.Struct({RetrievalStatus: Schema.optional(Schema.String), TraceFormat: Schema.optional(Schema.String), Traces: Schema.optional(TraceSpanList), NextToken: Schema.optional(Schema.String)});
-export const MalformedPolicyDocumentException = Schema.Struct({Message: Schema.optional(Schema.String)});
+export class ProbabilisticRuleValue extends Schema.Class<ProbabilisticRuleValue>("ProbabilisticRuleValue")({DesiredSamplingPercentage: Schema.Number, ActualSamplingPercentage: Schema.optional(Schema.Number)}) {}
+export class BatchGetTracesResult extends Schema.Class<BatchGetTracesResult>("BatchGetTracesResult")({Traces: Schema.optional(TraceList), UnprocessedTraceIds: Schema.optional(UnprocessedTraceIdList), NextToken: Schema.optional(Schema.String)}) {}
+export class CreateSamplingRuleResult extends Schema.Class<CreateSamplingRuleResult>("CreateSamplingRuleResult")({SamplingRuleRecord: Schema.optional(SamplingRuleRecord)}) {}
+export class GetInsightResult extends Schema.Class<GetInsightResult>("GetInsightResult")({Insight: Schema.optional(Insight)}) {}
+export class GetInsightImpactGraphResult extends Schema.Class<GetInsightImpactGraphResult>("GetInsightImpactGraphResult")({InsightId: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date), ServiceGraphStartTime: Schema.optional(Schema.Date), ServiceGraphEndTime: Schema.optional(Schema.Date), Services: Schema.optional(InsightImpactGraphServiceList), NextToken: Schema.optional(Schema.String)}) {}
+export class GetRetrievedTracesGraphResult extends Schema.Class<GetRetrievedTracesGraphResult>("GetRetrievedTracesGraphResult")({RetrievalStatus: Schema.optional(Schema.String), Services: Schema.optional(RetrievedServicesList), NextToken: Schema.optional(Schema.String)}) {}
+export class GetTimeSeriesServiceStatisticsResult extends Schema.Class<GetTimeSeriesServiceStatisticsResult>("GetTimeSeriesServiceStatisticsResult")({TimeSeriesServiceStatistics: Schema.optional(TimeSeriesServiceStatisticsList), ContainsOldGroupVersions: Schema.optional(Schema.Boolean), NextToken: Schema.optional(Schema.String)}) {}
+export class ListRetrievedTracesResult extends Schema.Class<ListRetrievedTracesResult>("ListRetrievedTracesResult")({RetrievalStatus: Schema.optional(Schema.String), TraceFormat: Schema.optional(Schema.String), Traces: Schema.optional(TraceSpanList), NextToken: Schema.optional(Schema.String)}) {}
+export class MalformedPolicyDocumentException extends Schema.Class<MalformedPolicyDocumentException>("MalformedPolicyDocumentException")({Message: Schema.optional(Schema.String)}) {}
 export const IndexingRuleValue = Schema.Union(ProbabilisticRuleValue);
-export const IndexingRule = Schema.Struct({Name: Schema.optional(Schema.String), ModifiedAt: Schema.optional(Schema.Date), Rule: Schema.optional(IndexingRuleValue)});
-export const UpdateIndexingRuleResult = Schema.Struct({IndexingRule: Schema.optional(IndexingRule)});
-export const SamplingBoost = Schema.Struct({BoostRate: Schema.Number, BoostRateTTL: Schema.Date});
-export const Http = Schema.Struct({HttpURL: Schema.optional(Schema.String), HttpStatus: Schema.optional(Schema.Number), HttpMethod: Schema.optional(Schema.String), UserAgent: Schema.optional(Schema.String), ClientIp: Schema.optional(Schema.String)});
-export const TraceUser = Schema.Struct({UserName: Schema.optional(Schema.String), ServiceIds: Schema.optional(ServiceIds)});
+export class IndexingRule extends Schema.Class<IndexingRule>("IndexingRule")({Name: Schema.optional(Schema.String), ModifiedAt: Schema.optional(Schema.Date), Rule: Schema.optional(IndexingRuleValue)}) {}
+export class UpdateIndexingRuleResult extends Schema.Class<UpdateIndexingRuleResult>("UpdateIndexingRuleResult")({IndexingRule: Schema.optional(IndexingRule)}) {}
+export class SamplingBoost extends Schema.Class<SamplingBoost>("SamplingBoost")({BoostRate: Schema.Number, BoostRateTTL: Schema.Date}) {}
+export class Http extends Schema.Class<Http>("Http")({HttpURL: Schema.optional(Schema.String), HttpStatus: Schema.optional(Schema.Number), HttpMethod: Schema.optional(Schema.String), UserAgent: Schema.optional(Schema.String), ClientIp: Schema.optional(Schema.String)}) {}
+export class TraceUser extends Schema.Class<TraceUser>("TraceUser")({UserName: Schema.optional(Schema.String), ServiceIds: Schema.optional(ServiceIds)}) {}
 export const TraceUsers = Schema.Array(TraceUser);
-export const ResourceARNDetail = Schema.Struct({ARN: Schema.optional(Schema.String)});
+export class ResourceARNDetail extends Schema.Class<ResourceARNDetail>("ResourceARNDetail")({ARN: Schema.optional(Schema.String)}) {}
 export const TraceResourceARNs = Schema.Array(ResourceARNDetail);
-export const InstanceIdDetail = Schema.Struct({Id: Schema.optional(Schema.String)});
+export class InstanceIdDetail extends Schema.Class<InstanceIdDetail>("InstanceIdDetail")({Id: Schema.optional(Schema.String)}) {}
 export const TraceInstanceIds = Schema.Array(InstanceIdDetail);
-export const AvailabilityZoneDetail = Schema.Struct({Name: Schema.optional(Schema.String)});
+export class AvailabilityZoneDetail extends Schema.Class<AvailabilityZoneDetail>("AvailabilityZoneDetail")({Name: Schema.optional(Schema.String)}) {}
 export const TraceAvailabilityZones = Schema.Array(AvailabilityZoneDetail);
 export const IndexingRuleList = Schema.Array(IndexingRule);
-export const SamplingTargetDocument = Schema.Struct({RuleName: Schema.optional(Schema.String), FixedRate: Schema.optional(Schema.Number), ReservoirQuota: Schema.optional(Schema.Number), ReservoirQuotaTTL: Schema.optional(Schema.Date), Interval: Schema.optional(Schema.Number), SamplingBoost: Schema.optional(SamplingBoost)});
+export class SamplingTargetDocument extends Schema.Class<SamplingTargetDocument>("SamplingTargetDocument")({RuleName: Schema.optional(Schema.String), FixedRate: Schema.optional(Schema.Number), ReservoirQuota: Schema.optional(Schema.Number), ReservoirQuotaTTL: Schema.optional(Schema.Date), Interval: Schema.optional(Schema.Number), SamplingBoost: Schema.optional(SamplingBoost)}) {}
 export const SamplingTargetDocumentList = Schema.Array(SamplingTargetDocument);
-export const RuleLimitExceededException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const GetIndexingRulesResult = Schema.Struct({IndexingRules: Schema.optional(IndexingRuleList), NextToken: Schema.optional(Schema.String)});
-export const GetSamplingTargetsResult = Schema.Struct({SamplingTargetDocuments: Schema.optional(SamplingTargetDocumentList), LastRuleModification: Schema.optional(Schema.Date), UnprocessedStatistics: Schema.optional(UnprocessedStatisticsList), UnprocessedBoostStatistics: Schema.optional(UnprocessedStatisticsList)});
-export const GetServiceGraphResult = Schema.Struct({StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date), Services: Schema.optional(ServiceList), ContainsOldGroupVersions: Schema.optional(Schema.Boolean), NextToken: Schema.optional(Schema.String)});
-export const PolicyCountLimitExceededException = Schema.Struct({Message: Schema.optional(Schema.String)});
+export class RuleLimitExceededException extends Schema.Class<RuleLimitExceededException>("RuleLimitExceededException")({Message: Schema.optional(Schema.String)}) {}
+export class GetIndexingRulesResult extends Schema.Class<GetIndexingRulesResult>("GetIndexingRulesResult")({IndexingRules: Schema.optional(IndexingRuleList), NextToken: Schema.optional(Schema.String)}) {}
+export class GetSamplingTargetsResult extends Schema.Class<GetSamplingTargetsResult>("GetSamplingTargetsResult")({SamplingTargetDocuments: Schema.optional(SamplingTargetDocumentList), LastRuleModification: Schema.optional(Schema.Date), UnprocessedStatistics: Schema.optional(UnprocessedStatisticsList), UnprocessedBoostStatistics: Schema.optional(UnprocessedStatisticsList)}) {}
+export class GetServiceGraphResult extends Schema.Class<GetServiceGraphResult>("GetServiceGraphResult")({StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date), Services: Schema.optional(ServiceList), ContainsOldGroupVersions: Schema.optional(Schema.Boolean), NextToken: Schema.optional(Schema.String)}) {}
+export class PolicyCountLimitExceededException extends Schema.Class<PolicyCountLimitExceededException>("PolicyCountLimitExceededException")({Message: Schema.optional(Schema.String)}) {}
 export const AnnotationValue = Schema.Union(Schema.Number, Schema.Boolean, Schema.String);
-export const RootCauseException = Schema.Struct({Name: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
+export class RootCauseException extends Schema.Class<RootCauseException>("RootCauseException")({Name: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
 export const RootCauseExceptions = Schema.Array(RootCauseException);
-export const ErrorRootCauseEntity = Schema.Struct({Name: Schema.optional(Schema.String), Exceptions: Schema.optional(RootCauseExceptions), Remote: Schema.optional(Schema.Boolean)});
+export class ErrorRootCauseEntity extends Schema.Class<ErrorRootCauseEntity>("ErrorRootCauseEntity")({Name: Schema.optional(Schema.String), Exceptions: Schema.optional(RootCauseExceptions), Remote: Schema.optional(Schema.Boolean)}) {}
 export const ErrorRootCauseEntityPath = Schema.Array(ErrorRootCauseEntity);
-export const ResponseTimeRootCauseEntity = Schema.Struct({Name: Schema.optional(Schema.String), Coverage: Schema.optional(Schema.Number), Remote: Schema.optional(Schema.Boolean)});
+export class ResponseTimeRootCauseEntity extends Schema.Class<ResponseTimeRootCauseEntity>("ResponseTimeRootCauseEntity")({Name: Schema.optional(Schema.String), Coverage: Schema.optional(Schema.Number), Remote: Schema.optional(Schema.Boolean)}) {}
 export const ResponseTimeRootCauseEntityPath = Schema.Array(ResponseTimeRootCauseEntity);
-export const ValueWithServiceIds = Schema.Struct({AnnotationValue: Schema.optional(AnnotationValue), ServiceIds: Schema.optional(ServiceIds)});
+export class ValueWithServiceIds extends Schema.Class<ValueWithServiceIds>("ValueWithServiceIds")({AnnotationValue: Schema.optional(AnnotationValue), ServiceIds: Schema.optional(ServiceIds)}) {}
 export const ValuesWithServiceIds = Schema.Array(ValueWithServiceIds);
-export const ErrorRootCauseService = Schema.Struct({Name: Schema.optional(Schema.String), Names: Schema.optional(ServiceNames), Type: Schema.optional(Schema.String), AccountId: Schema.optional(Schema.String), EntityPath: Schema.optional(ErrorRootCauseEntityPath), Inferred: Schema.optional(Schema.Boolean)});
+export class ErrorRootCauseService extends Schema.Class<ErrorRootCauseService>("ErrorRootCauseService")({Name: Schema.optional(Schema.String), Names: Schema.optional(ServiceNames), Type: Schema.optional(Schema.String), AccountId: Schema.optional(Schema.String), EntityPath: Schema.optional(ErrorRootCauseEntityPath), Inferred: Schema.optional(Schema.Boolean)}) {}
 export const ErrorRootCauseServices = Schema.Array(ErrorRootCauseService);
-export const ResponseTimeRootCauseService = Schema.Struct({Name: Schema.optional(Schema.String), Names: Schema.optional(ServiceNames), Type: Schema.optional(Schema.String), AccountId: Schema.optional(Schema.String), EntityPath: Schema.optional(ResponseTimeRootCauseEntityPath), Inferred: Schema.optional(Schema.Boolean)});
+export class ResponseTimeRootCauseService extends Schema.Class<ResponseTimeRootCauseService>("ResponseTimeRootCauseService")({Name: Schema.optional(Schema.String), Names: Schema.optional(ServiceNames), Type: Schema.optional(Schema.String), AccountId: Schema.optional(Schema.String), EntityPath: Schema.optional(ResponseTimeRootCauseEntityPath), Inferred: Schema.optional(Schema.Boolean)}) {}
 export const ResponseTimeRootCauseServices = Schema.Array(ResponseTimeRootCauseService);
-export const PolicySizeLimitExceededException = Schema.Struct({Message: Schema.optional(Schema.String)});
+export class PolicySizeLimitExceededException extends Schema.Class<PolicySizeLimitExceededException>("PolicySizeLimitExceededException")({Message: Schema.optional(Schema.String)}) {}
 export const Annotations = Schema.Record({key: Schema.String, value: ValuesWithServiceIds});
-export const ErrorRootCause = Schema.Struct({Services: Schema.optional(ErrorRootCauseServices), ClientImpacting: Schema.optional(Schema.Boolean)});
+export class ErrorRootCause extends Schema.Class<ErrorRootCause>("ErrorRootCause")({Services: Schema.optional(ErrorRootCauseServices), ClientImpacting: Schema.optional(Schema.Boolean)}) {}
 export const ErrorRootCauses = Schema.Array(ErrorRootCause);
-export const ResponseTimeRootCause = Schema.Struct({Services: Schema.optional(ResponseTimeRootCauseServices), ClientImpacting: Schema.optional(Schema.Boolean)});
+export class ResponseTimeRootCause extends Schema.Class<ResponseTimeRootCause>("ResponseTimeRootCause")({Services: Schema.optional(ResponseTimeRootCauseServices), ClientImpacting: Schema.optional(Schema.Boolean)}) {}
 export const ResponseTimeRootCauses = Schema.Array(ResponseTimeRootCause);
-export const FaultRootCauseEntity = Schema.Struct({Name: Schema.optional(Schema.String), Exceptions: Schema.optional(RootCauseExceptions), Remote: Schema.optional(Schema.Boolean)});
+export class FaultRootCauseEntity extends Schema.Class<FaultRootCauseEntity>("FaultRootCauseEntity")({Name: Schema.optional(Schema.String), Exceptions: Schema.optional(RootCauseExceptions), Remote: Schema.optional(Schema.Boolean)}) {}
 export const FaultRootCauseEntityPath = Schema.Array(FaultRootCauseEntity);
-export const FaultRootCauseService = Schema.Struct({Name: Schema.optional(Schema.String), Names: Schema.optional(ServiceNames), Type: Schema.optional(Schema.String), AccountId: Schema.optional(Schema.String), EntityPath: Schema.optional(FaultRootCauseEntityPath), Inferred: Schema.optional(Schema.Boolean)});
+export class FaultRootCauseService extends Schema.Class<FaultRootCauseService>("FaultRootCauseService")({Name: Schema.optional(Schema.String), Names: Schema.optional(ServiceNames), Type: Schema.optional(Schema.String), AccountId: Schema.optional(Schema.String), EntityPath: Schema.optional(FaultRootCauseEntityPath), Inferred: Schema.optional(Schema.Boolean)}) {}
 export const FaultRootCauseServices = Schema.Array(FaultRootCauseService);
-export const FaultRootCause = Schema.Struct({Services: Schema.optional(FaultRootCauseServices), ClientImpacting: Schema.optional(Schema.Boolean)});
+export class FaultRootCause extends Schema.Class<FaultRootCause>("FaultRootCause")({Services: Schema.optional(FaultRootCauseServices), ClientImpacting: Schema.optional(Schema.Boolean)}) {}
 export const FaultRootCauses = Schema.Array(FaultRootCause);
-export const TraceSummary = Schema.Struct({Id: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.Date), Duration: Schema.optional(Schema.Number), ResponseTime: Schema.optional(Schema.Number), HasFault: Schema.optional(Schema.Boolean), HasError: Schema.optional(Schema.Boolean), HasThrottle: Schema.optional(Schema.Boolean), IsPartial: Schema.optional(Schema.Boolean), Http: Schema.optional(Http), Annotations: Schema.optional(Annotations), Users: Schema.optional(TraceUsers), ServiceIds: Schema.optional(ServiceIds), ResourceARNs: Schema.optional(TraceResourceARNs), InstanceIds: Schema.optional(TraceInstanceIds), AvailabilityZones: Schema.optional(TraceAvailabilityZones), EntryPoint: Schema.optional(ServiceId), FaultRootCauses: Schema.optional(FaultRootCauses), ErrorRootCauses: Schema.optional(ErrorRootCauses), ResponseTimeRootCauses: Schema.optional(ResponseTimeRootCauses), Revision: Schema.optional(Schema.Number), MatchedEventTime: Schema.optional(Schema.Date)});
+export class TraceSummary extends Schema.Class<TraceSummary>("TraceSummary")({Id: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.Date), Duration: Schema.optional(Schema.Number), ResponseTime: Schema.optional(Schema.Number), HasFault: Schema.optional(Schema.Boolean), HasError: Schema.optional(Schema.Boolean), HasThrottle: Schema.optional(Schema.Boolean), IsPartial: Schema.optional(Schema.Boolean), Http: Schema.optional(Http), Annotations: Schema.optional(Annotations), Users: Schema.optional(TraceUsers), ServiceIds: Schema.optional(ServiceIds), ResourceARNs: Schema.optional(TraceResourceARNs), InstanceIds: Schema.optional(TraceInstanceIds), AvailabilityZones: Schema.optional(TraceAvailabilityZones), EntryPoint: Schema.optional(ServiceId), FaultRootCauses: Schema.optional(FaultRootCauses), ErrorRootCauses: Schema.optional(ErrorRootCauses), ResponseTimeRootCauses: Schema.optional(ResponseTimeRootCauses), Revision: Schema.optional(Schema.Number), MatchedEventTime: Schema.optional(Schema.Date)}) {}
 export const TraceSummaryList = Schema.Array(TraceSummary);
-export const GetTraceSummariesResult = Schema.Struct({TraceSummaries: Schema.optional(TraceSummaryList), ApproximateTime: Schema.optional(Schema.Date), TracesProcessedCount: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
+export class GetTraceSummariesResult extends Schema.Class<GetTraceSummariesResult>("GetTraceSummariesResult")({TraceSummaries: Schema.optional(TraceSummaryList), ApproximateTime: Schema.optional(Schema.Date), TracesProcessedCount: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class InvalidRequestExceptionError extends Schema.TaggedError<InvalidRequestExceptionError>()("InvalidRequestException", InvalidRequestException) {};
-export class ThrottledExceptionError extends Schema.TaggedError<ThrottledExceptionError>()("ThrottledException", ThrottledException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class InvalidPolicyRevisionIdExceptionError extends Schema.TaggedError<InvalidPolicyRevisionIdExceptionError>()("InvalidPolicyRevisionIdException", InvalidPolicyRevisionIdException) {};
-export class LockoutPreventionExceptionError extends Schema.TaggedError<LockoutPreventionExceptionError>()("LockoutPreventionException", LockoutPreventionException) {};
-export class TooManyTagsExceptionError extends Schema.TaggedError<TooManyTagsExceptionError>()("TooManyTagsException", TooManyTagsException) {};
-export class MalformedPolicyDocumentExceptionError extends Schema.TaggedError<MalformedPolicyDocumentExceptionError>()("MalformedPolicyDocumentException", MalformedPolicyDocumentException) {};
-export class RuleLimitExceededExceptionError extends Schema.TaggedError<RuleLimitExceededExceptionError>()("RuleLimitExceededException", RuleLimitExceededException) {};
-export class PolicyCountLimitExceededExceptionError extends Schema.TaggedError<PolicyCountLimitExceededExceptionError>()("PolicyCountLimitExceededException", PolicyCountLimitExceededException) {};
-export class PolicySizeLimitExceededExceptionError extends Schema.TaggedError<PolicySizeLimitExceededExceptionError>()("PolicySizeLimitExceededException", PolicySizeLimitExceededException) {};
+export class InvalidRequestExceptionError extends Schema.TaggedError<InvalidRequestExceptionError>()("InvalidRequestException", InvalidRequestException.fields) {};
+export class ThrottledExceptionError extends Schema.TaggedError<ThrottledExceptionError>()("ThrottledException", ThrottledException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class InvalidPolicyRevisionIdExceptionError extends Schema.TaggedError<InvalidPolicyRevisionIdExceptionError>()("InvalidPolicyRevisionIdException", InvalidPolicyRevisionIdException.fields) {};
+export class LockoutPreventionExceptionError extends Schema.TaggedError<LockoutPreventionExceptionError>()("LockoutPreventionException", LockoutPreventionException.fields) {};
+export class TooManyTagsExceptionError extends Schema.TaggedError<TooManyTagsExceptionError>()("TooManyTagsException", TooManyTagsException.fields) {};
+export class MalformedPolicyDocumentExceptionError extends Schema.TaggedError<MalformedPolicyDocumentExceptionError>()("MalformedPolicyDocumentException", MalformedPolicyDocumentException.fields) {};
+export class RuleLimitExceededExceptionError extends Schema.TaggedError<RuleLimitExceededExceptionError>()("RuleLimitExceededException", RuleLimitExceededException.fields) {};
+export class PolicyCountLimitExceededExceptionError extends Schema.TaggedError<PolicyCountLimitExceededExceptionError>()("PolicyCountLimitExceededException", PolicyCountLimitExceededException.fields) {};
+export class PolicySizeLimitExceededExceptionError extends Schema.TaggedError<PolicySizeLimitExceededExceptionError>()("PolicySizeLimitExceededException", PolicySizeLimitExceededException.fields) {};
 
 //# Operations
 export const getTraceSegmentDestination = /*#__PURE__*/ makeOperation(() => Operation({ version: "2016-04-12", uri: "/GetTraceSegmentDestination", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.GetTraceSegmentDestination" }, GetTraceSegmentDestinationRequest, GetTraceSegmentDestinationResult, [InvalidRequestExceptionError, ThrottledExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

@@ -6,65 +6,65 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 export const ResourceTypesInput = Schema.Array(Schema.String);
 export const TagKeys = Schema.Array(Schema.String);
 export const TagMapInput = Schema.Record({key: Schema.String, value: Schema.String});
-export const CreateSinkInput = Schema.Struct({Name: Schema.String, Tags: Schema.optional(TagMapInput)});
-export const DeleteLinkInput = Schema.Struct({Identifier: Schema.String});
-export const DeleteLinkOutput = Schema.Struct({});
-export const DeleteSinkInput = Schema.Struct({Identifier: Schema.String});
-export const DeleteSinkOutput = Schema.Struct({});
-export const GetLinkInput = Schema.Struct({Identifier: Schema.String, IncludeTags: Schema.optional(Schema.Boolean)});
-export const GetSinkInput = Schema.Struct({Identifier: Schema.String, IncludeTags: Schema.optional(Schema.Boolean)});
-export const GetSinkPolicyInput = Schema.Struct({SinkIdentifier: Schema.String});
-export const ListAttachedLinksInput = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), SinkIdentifier: Schema.String});
-export const ListLinksInput = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListSinksInput = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceInput = Schema.Struct({ResourceArn: Schema.String});
-export const PutSinkPolicyInput = Schema.Struct({SinkIdentifier: Schema.String, Policy: Schema.String});
-export const TagResourceInput = Schema.Struct({ResourceArn: Schema.String, Tags: TagMapInput});
-export const TagResourceOutput = Schema.Struct({});
-export const UntagResourceInput = Schema.Struct({ResourceArn: Schema.String, TagKeys: TagKeys});
-export const UntagResourceOutput = Schema.Struct({});
-export const LogGroupConfiguration = Schema.Struct({Filter: Schema.String});
-export const MetricConfiguration = Schema.Struct({Filter: Schema.String});
-export const LinkConfiguration = Schema.Struct({LogGroupConfiguration: Schema.optional(LogGroupConfiguration), MetricConfiguration: Schema.optional(MetricConfiguration)});
-export const UpdateLinkInput = Schema.Struct({Identifier: Schema.String, ResourceTypes: ResourceTypesInput, LinkConfiguration: Schema.optional(LinkConfiguration), IncludeTags: Schema.optional(Schema.Boolean)});
+export class CreateSinkInput extends Schema.Class<CreateSinkInput>("CreateSinkInput")({Name: Schema.String, Tags: Schema.optional(TagMapInput)}) {}
+export class DeleteLinkInput extends Schema.Class<DeleteLinkInput>("DeleteLinkInput")({Identifier: Schema.String}) {}
+export class DeleteLinkOutput extends Schema.Class<DeleteLinkOutput>("DeleteLinkOutput")({}) {}
+export class DeleteSinkInput extends Schema.Class<DeleteSinkInput>("DeleteSinkInput")({Identifier: Schema.String}) {}
+export class DeleteSinkOutput extends Schema.Class<DeleteSinkOutput>("DeleteSinkOutput")({}) {}
+export class GetLinkInput extends Schema.Class<GetLinkInput>("GetLinkInput")({Identifier: Schema.String, IncludeTags: Schema.optional(Schema.Boolean)}) {}
+export class GetSinkInput extends Schema.Class<GetSinkInput>("GetSinkInput")({Identifier: Schema.String, IncludeTags: Schema.optional(Schema.Boolean)}) {}
+export class GetSinkPolicyInput extends Schema.Class<GetSinkPolicyInput>("GetSinkPolicyInput")({SinkIdentifier: Schema.String}) {}
+export class ListAttachedLinksInput extends Schema.Class<ListAttachedLinksInput>("ListAttachedLinksInput")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), SinkIdentifier: Schema.String}) {}
+export class ListLinksInput extends Schema.Class<ListLinksInput>("ListLinksInput")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListSinksInput extends Schema.Class<ListSinksInput>("ListSinksInput")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceInput extends Schema.Class<ListTagsForResourceInput>("ListTagsForResourceInput")({ResourceArn: Schema.String}) {}
+export class PutSinkPolicyInput extends Schema.Class<PutSinkPolicyInput>("PutSinkPolicyInput")({SinkIdentifier: Schema.String, Policy: Schema.String}) {}
+export class TagResourceInput extends Schema.Class<TagResourceInput>("TagResourceInput")({ResourceArn: Schema.String, Tags: TagMapInput}) {}
+export class TagResourceOutput extends Schema.Class<TagResourceOutput>("TagResourceOutput")({}) {}
+export class UntagResourceInput extends Schema.Class<UntagResourceInput>("UntagResourceInput")({ResourceArn: Schema.String, TagKeys: TagKeys}) {}
+export class UntagResourceOutput extends Schema.Class<UntagResourceOutput>("UntagResourceOutput")({}) {}
+export class LogGroupConfiguration extends Schema.Class<LogGroupConfiguration>("LogGroupConfiguration")({Filter: Schema.String}) {}
+export class MetricConfiguration extends Schema.Class<MetricConfiguration>("MetricConfiguration")({Filter: Schema.String}) {}
+export class LinkConfiguration extends Schema.Class<LinkConfiguration>("LinkConfiguration")({LogGroupConfiguration: Schema.optional(LogGroupConfiguration), MetricConfiguration: Schema.optional(MetricConfiguration)}) {}
+export class UpdateLinkInput extends Schema.Class<UpdateLinkInput>("UpdateLinkInput")({Identifier: Schema.String, ResourceTypes: ResourceTypesInput, LinkConfiguration: Schema.optional(LinkConfiguration), IncludeTags: Schema.optional(Schema.Boolean)}) {}
 export const ResourceTypesOutput = Schema.Array(Schema.String);
-export const InternalServiceFault = Schema.Struct({Message: Schema.optional(Schema.String), amznErrorType: Schema.optional(Header("x-amzn-ErrorType"))});
-export const ConflictException = Schema.Struct({Message: Schema.optional(Schema.String), amznErrorType: Schema.optional(Header("x-amzn-ErrorType"))});
+export class InternalServiceFault extends Schema.Class<InternalServiceFault>("InternalServiceFault")({Message: Schema.optional(Schema.String), amznErrorType: Schema.optional(Header("x-amzn-ErrorType"))}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({Message: Schema.optional(Schema.String), amznErrorType: Schema.optional(Header("x-amzn-ErrorType"))}) {}
 export const TagMapOutput = Schema.Record({key: Schema.String, value: Schema.String});
-export const GetLinkOutput = Schema.Struct({Arn: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Label: Schema.optional(Schema.String), LabelTemplate: Schema.optional(Schema.String), ResourceTypes: Schema.optional(ResourceTypesOutput), SinkArn: Schema.optional(Schema.String), Tags: Schema.optional(TagMapOutput), LinkConfiguration: Schema.optional(LinkConfiguration)});
-export const GetSinkOutput = Schema.Struct({Arn: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Tags: Schema.optional(TagMapOutput)});
-export const GetSinkPolicyOutput = Schema.Struct({SinkArn: Schema.optional(Schema.String), SinkId: Schema.optional(Schema.String), Policy: Schema.optional(Schema.String)});
-export const ListTagsForResourceOutput = Schema.Struct({Tags: Schema.optional(TagMapOutput)});
-export const PutSinkPolicyOutput = Schema.Struct({SinkArn: Schema.optional(Schema.String), SinkId: Schema.optional(Schema.String), Policy: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String), amznErrorType: Schema.optional(Header("x-amzn-ErrorType"))});
-export const ValidationException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const UpdateLinkOutput = Schema.Struct({Arn: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Label: Schema.optional(Schema.String), LabelTemplate: Schema.optional(Schema.String), ResourceTypes: Schema.optional(ResourceTypesOutput), SinkArn: Schema.optional(Schema.String), Tags: Schema.optional(TagMapOutput), LinkConfiguration: Schema.optional(LinkConfiguration)});
-export const ListAttachedLinksItem = Schema.Struct({Label: Schema.optional(Schema.String), LinkArn: Schema.optional(Schema.String), ResourceTypes: Schema.optional(ResourceTypesOutput)});
+export class GetLinkOutput extends Schema.Class<GetLinkOutput>("GetLinkOutput")({Arn: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Label: Schema.optional(Schema.String), LabelTemplate: Schema.optional(Schema.String), ResourceTypes: Schema.optional(ResourceTypesOutput), SinkArn: Schema.optional(Schema.String), Tags: Schema.optional(TagMapOutput), LinkConfiguration: Schema.optional(LinkConfiguration)}) {}
+export class GetSinkOutput extends Schema.Class<GetSinkOutput>("GetSinkOutput")({Arn: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Tags: Schema.optional(TagMapOutput)}) {}
+export class GetSinkPolicyOutput extends Schema.Class<GetSinkPolicyOutput>("GetSinkPolicyOutput")({SinkArn: Schema.optional(Schema.String), SinkId: Schema.optional(Schema.String), Policy: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceOutput extends Schema.Class<ListTagsForResourceOutput>("ListTagsForResourceOutput")({Tags: Schema.optional(TagMapOutput)}) {}
+export class PutSinkPolicyOutput extends Schema.Class<PutSinkPolicyOutput>("PutSinkPolicyOutput")({SinkArn: Schema.optional(Schema.String), SinkId: Schema.optional(Schema.String), Policy: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({Message: Schema.optional(Schema.String), amznErrorType: Schema.optional(Header("x-amzn-ErrorType"))}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({Message: Schema.optional(Schema.String)}) {}
+export class UpdateLinkOutput extends Schema.Class<UpdateLinkOutput>("UpdateLinkOutput")({Arn: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Label: Schema.optional(Schema.String), LabelTemplate: Schema.optional(Schema.String), ResourceTypes: Schema.optional(ResourceTypesOutput), SinkArn: Schema.optional(Schema.String), Tags: Schema.optional(TagMapOutput), LinkConfiguration: Schema.optional(LinkConfiguration)}) {}
+export class ListAttachedLinksItem extends Schema.Class<ListAttachedLinksItem>("ListAttachedLinksItem")({Label: Schema.optional(Schema.String), LinkArn: Schema.optional(Schema.String), ResourceTypes: Schema.optional(ResourceTypesOutput)}) {}
 export const ListAttachedLinksItems = Schema.Array(ListAttachedLinksItem);
-export const ListLinksItem = Schema.Struct({Arn: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Label: Schema.optional(Schema.String), ResourceTypes: Schema.optional(ResourceTypesOutput), SinkArn: Schema.optional(Schema.String)});
+export class ListLinksItem extends Schema.Class<ListLinksItem>("ListLinksItem")({Arn: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Label: Schema.optional(Schema.String), ResourceTypes: Schema.optional(ResourceTypesOutput), SinkArn: Schema.optional(Schema.String)}) {}
 export const ListLinksItems = Schema.Array(ListLinksItem);
-export const ListSinksItem = Schema.Struct({Arn: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String)});
+export class ListSinksItem extends Schema.Class<ListSinksItem>("ListSinksItem")({Arn: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String)}) {}
 export const ListSinksItems = Schema.Array(ListSinksItem);
-export const CreateLinkInput = Schema.Struct({LabelTemplate: Schema.String, ResourceTypes: ResourceTypesInput, SinkIdentifier: Schema.String, Tags: Schema.optional(TagMapInput), LinkConfiguration: Schema.optional(LinkConfiguration)});
-export const CreateSinkOutput = Schema.Struct({Arn: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Tags: Schema.optional(TagMapOutput)});
-export const InvalidParameterException = Schema.Struct({message: Schema.optional(Schema.String), amznErrorType: Schema.optional(Header("x-amzn-ErrorType"))});
-export const MissingRequiredParameterException = Schema.Struct({message: Schema.optional(Schema.String), amznErrorType: Schema.optional(Header("x-amzn-ErrorType"))});
-export const ListAttachedLinksOutput = Schema.Struct({Items: ListAttachedLinksItems, NextToken: Schema.optional(Schema.String)});
-export const ListLinksOutput = Schema.Struct({Items: ListLinksItems, NextToken: Schema.optional(Schema.String)});
-export const ListSinksOutput = Schema.Struct({Items: ListSinksItems, NextToken: Schema.optional(Schema.String)});
-export const TooManyTagsException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const CreateLinkOutput = Schema.Struct({Arn: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Label: Schema.optional(Schema.String), LabelTemplate: Schema.optional(Schema.String), ResourceTypes: Schema.optional(ResourceTypesOutput), SinkArn: Schema.optional(Schema.String), Tags: Schema.optional(TagMapOutput), LinkConfiguration: Schema.optional(LinkConfiguration)});
-export const ServiceQuotaExceededException = Schema.Struct({Message: Schema.optional(Schema.String), amznErrorType: Schema.optional(Header("x-amzn-ErrorType"))});
+export class CreateLinkInput extends Schema.Class<CreateLinkInput>("CreateLinkInput")({LabelTemplate: Schema.String, ResourceTypes: ResourceTypesInput, SinkIdentifier: Schema.String, Tags: Schema.optional(TagMapInput), LinkConfiguration: Schema.optional(LinkConfiguration)}) {}
+export class CreateSinkOutput extends Schema.Class<CreateSinkOutput>("CreateSinkOutput")({Arn: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Tags: Schema.optional(TagMapOutput)}) {}
+export class InvalidParameterException extends Schema.Class<InvalidParameterException>("InvalidParameterException")({message: Schema.optional(Schema.String), amznErrorType: Schema.optional(Header("x-amzn-ErrorType"))}) {}
+export class MissingRequiredParameterException extends Schema.Class<MissingRequiredParameterException>("MissingRequiredParameterException")({message: Schema.optional(Schema.String), amznErrorType: Schema.optional(Header("x-amzn-ErrorType"))}) {}
+export class ListAttachedLinksOutput extends Schema.Class<ListAttachedLinksOutput>("ListAttachedLinksOutput")({Items: ListAttachedLinksItems, NextToken: Schema.optional(Schema.String)}) {}
+export class ListLinksOutput extends Schema.Class<ListLinksOutput>("ListLinksOutput")({Items: ListLinksItems, NextToken: Schema.optional(Schema.String)}) {}
+export class ListSinksOutput extends Schema.Class<ListSinksOutput>("ListSinksOutput")({Items: ListSinksItems, NextToken: Schema.optional(Schema.String)}) {}
+export class TooManyTagsException extends Schema.Class<TooManyTagsException>("TooManyTagsException")({Message: Schema.optional(Schema.String)}) {}
+export class CreateLinkOutput extends Schema.Class<CreateLinkOutput>("CreateLinkOutput")({Arn: Schema.optional(Schema.String), Id: Schema.optional(Schema.String), Label: Schema.optional(Schema.String), LabelTemplate: Schema.optional(Schema.String), ResourceTypes: Schema.optional(ResourceTypesOutput), SinkArn: Schema.optional(Schema.String), Tags: Schema.optional(TagMapOutput), LinkConfiguration: Schema.optional(LinkConfiguration)}) {}
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({Message: Schema.optional(Schema.String), amznErrorType: Schema.optional(Header("x-amzn-ErrorType"))}) {}
 
 //# Errors
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class InternalServiceFaultError extends Schema.TaggedError<InternalServiceFaultError>()("InternalServiceFault", InternalServiceFault) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class InvalidParameterExceptionError extends Schema.TaggedError<InvalidParameterExceptionError>()("InvalidParameterException", InvalidParameterException) {};
-export class MissingRequiredParameterExceptionError extends Schema.TaggedError<MissingRequiredParameterExceptionError>()("MissingRequiredParameterException", MissingRequiredParameterException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class TooManyTagsExceptionError extends Schema.TaggedError<TooManyTagsExceptionError>()("TooManyTagsException", TooManyTagsException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class InternalServiceFaultError extends Schema.TaggedError<InternalServiceFaultError>()("InternalServiceFault", InternalServiceFault.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class InvalidParameterExceptionError extends Schema.TaggedError<InvalidParameterExceptionError>()("InvalidParameterException", InvalidParameterException.fields) {};
+export class MissingRequiredParameterExceptionError extends Schema.TaggedError<MissingRequiredParameterExceptionError>()("MissingRequiredParameterException", MissingRequiredParameterException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class TooManyTagsExceptionError extends Schema.TaggedError<TooManyTagsExceptionError>()("TooManyTagsException", TooManyTagsException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
 
 //# Operations
 export const getLink = /*#__PURE__*/ makeOperation(() => Operation({ version: "2022-06-10", uri: "/GetLink", method: "POST", sdkId: "OAM", sigV4ServiceName: "oam", name: "oamservice.GetLink" }, GetLinkInput, GetLinkOutput, [InternalServiceFaultError, InvalidParameterExceptionError, MissingRequiredParameterExceptionError, ResourceNotFoundExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

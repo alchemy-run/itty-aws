@@ -3,132 +3,132 @@ import { FormatAwsJSON11Request,FormatJSONResponse,FormatAwsRestJSONError, makeO
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const GetSnowballUsageRequest = Schema.Struct({});
+export class GetSnowballUsageRequest extends Schema.Class<GetSnowballUsageRequest>("GetSnowballUsageRequest")({}) {}
 export const LongTermPricingIdList = Schema.Array(Schema.String);
-export const CancelClusterRequest = Schema.Struct({ClusterId: Schema.String});
-export const CancelClusterResult = Schema.Struct({});
-export const CancelJobRequest = Schema.Struct({JobId: Schema.String});
-export const CancelJobResult = Schema.Struct({});
-export const CreateLongTermPricingRequest = Schema.Struct({LongTermPricingType: Schema.String, IsLongTermPricingAutoRenew: Schema.optional(Schema.Boolean), SnowballType: Schema.String});
-export const CreateReturnShippingLabelRequest = Schema.Struct({JobId: Schema.String, ShippingOption: Schema.optional(Schema.String)});
-export const DescribeAddressRequest = Schema.Struct({AddressId: Schema.String});
-export const DescribeAddressesRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const DescribeClusterRequest = Schema.Struct({ClusterId: Schema.String});
-export const DescribeJobRequest = Schema.Struct({JobId: Schema.String});
-export const DescribeReturnShippingLabelRequest = Schema.Struct({JobId: Schema.String});
-export const GetJobManifestRequest = Schema.Struct({JobId: Schema.String});
-export const GetJobUnlockCodeRequest = Schema.Struct({JobId: Schema.String});
-export const GetSnowballUsageResult = Schema.Struct({SnowballLimit: Schema.optional(Schema.Number), SnowballsInUse: Schema.optional(Schema.Number)});
-export const GetSoftwareUpdatesRequest = Schema.Struct({JobId: Schema.String});
-export const ListClusterJobsRequest = Schema.Struct({ClusterId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListClustersRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListCompatibleImagesRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListJobsRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListLongTermPricingRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListPickupLocationsRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const KeyRange = Schema.Struct({BeginMarker: Schema.optional(Schema.String), EndMarker: Schema.optional(Schema.String)});
-export const TargetOnDeviceService = Schema.Struct({ServiceName: Schema.optional(Schema.String), TransferOption: Schema.optional(Schema.String)});
+export class CancelClusterRequest extends Schema.Class<CancelClusterRequest>("CancelClusterRequest")({ClusterId: Schema.String}) {}
+export class CancelClusterResult extends Schema.Class<CancelClusterResult>("CancelClusterResult")({}) {}
+export class CancelJobRequest extends Schema.Class<CancelJobRequest>("CancelJobRequest")({JobId: Schema.String}) {}
+export class CancelJobResult extends Schema.Class<CancelJobResult>("CancelJobResult")({}) {}
+export class CreateLongTermPricingRequest extends Schema.Class<CreateLongTermPricingRequest>("CreateLongTermPricingRequest")({LongTermPricingType: Schema.String, IsLongTermPricingAutoRenew: Schema.optional(Schema.Boolean), SnowballType: Schema.String}) {}
+export class CreateReturnShippingLabelRequest extends Schema.Class<CreateReturnShippingLabelRequest>("CreateReturnShippingLabelRequest")({JobId: Schema.String, ShippingOption: Schema.optional(Schema.String)}) {}
+export class DescribeAddressRequest extends Schema.Class<DescribeAddressRequest>("DescribeAddressRequest")({AddressId: Schema.String}) {}
+export class DescribeAddressesRequest extends Schema.Class<DescribeAddressesRequest>("DescribeAddressesRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class DescribeClusterRequest extends Schema.Class<DescribeClusterRequest>("DescribeClusterRequest")({ClusterId: Schema.String}) {}
+export class DescribeJobRequest extends Schema.Class<DescribeJobRequest>("DescribeJobRequest")({JobId: Schema.String}) {}
+export class DescribeReturnShippingLabelRequest extends Schema.Class<DescribeReturnShippingLabelRequest>("DescribeReturnShippingLabelRequest")({JobId: Schema.String}) {}
+export class GetJobManifestRequest extends Schema.Class<GetJobManifestRequest>("GetJobManifestRequest")({JobId: Schema.String}) {}
+export class GetJobUnlockCodeRequest extends Schema.Class<GetJobUnlockCodeRequest>("GetJobUnlockCodeRequest")({JobId: Schema.String}) {}
+export class GetSnowballUsageResult extends Schema.Class<GetSnowballUsageResult>("GetSnowballUsageResult")({SnowballLimit: Schema.optional(Schema.Number), SnowballsInUse: Schema.optional(Schema.Number)}) {}
+export class GetSoftwareUpdatesRequest extends Schema.Class<GetSoftwareUpdatesRequest>("GetSoftwareUpdatesRequest")({JobId: Schema.String}) {}
+export class ListClusterJobsRequest extends Schema.Class<ListClusterJobsRequest>("ListClusterJobsRequest")({ClusterId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListClustersRequest extends Schema.Class<ListClustersRequest>("ListClustersRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListCompatibleImagesRequest extends Schema.Class<ListCompatibleImagesRequest>("ListCompatibleImagesRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListJobsRequest extends Schema.Class<ListJobsRequest>("ListJobsRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListLongTermPricingRequest extends Schema.Class<ListLongTermPricingRequest>("ListLongTermPricingRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListPickupLocationsRequest extends Schema.Class<ListPickupLocationsRequest>("ListPickupLocationsRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class KeyRange extends Schema.Class<KeyRange>("KeyRange")({BeginMarker: Schema.optional(Schema.String), EndMarker: Schema.optional(Schema.String)}) {}
+export class TargetOnDeviceService extends Schema.Class<TargetOnDeviceService>("TargetOnDeviceService")({ServiceName: Schema.optional(Schema.String), TransferOption: Schema.optional(Schema.String)}) {}
 export const TargetOnDeviceServiceList = Schema.Array(TargetOnDeviceService);
-export const S3Resource = Schema.Struct({BucketArn: Schema.optional(Schema.String), KeyRange: Schema.optional(KeyRange), TargetOnDeviceServices: Schema.optional(TargetOnDeviceServiceList)});
+export class S3Resource extends Schema.Class<S3Resource>("S3Resource")({BucketArn: Schema.optional(Schema.String), KeyRange: Schema.optional(KeyRange), TargetOnDeviceServices: Schema.optional(TargetOnDeviceServiceList)}) {}
 export const S3ResourceList = Schema.Array(S3Resource);
-export const EventTriggerDefinition = Schema.Struct({EventResourceARN: Schema.optional(Schema.String)});
+export class EventTriggerDefinition extends Schema.Class<EventTriggerDefinition>("EventTriggerDefinition")({EventResourceARN: Schema.optional(Schema.String)}) {}
 export const EventTriggerDefinitionList = Schema.Array(EventTriggerDefinition);
-export const LambdaResource = Schema.Struct({LambdaArn: Schema.optional(Schema.String), EventTriggers: Schema.optional(EventTriggerDefinitionList)});
+export class LambdaResource extends Schema.Class<LambdaResource>("LambdaResource")({LambdaArn: Schema.optional(Schema.String), EventTriggers: Schema.optional(EventTriggerDefinitionList)}) {}
 export const LambdaResourceList = Schema.Array(LambdaResource);
-export const Ec2AmiResource = Schema.Struct({AmiId: Schema.String, SnowballAmiId: Schema.optional(Schema.String)});
+export class Ec2AmiResource extends Schema.Class<Ec2AmiResource>("Ec2AmiResource")({AmiId: Schema.String, SnowballAmiId: Schema.optional(Schema.String)}) {}
 export const Ec2AmiResourceList = Schema.Array(Ec2AmiResource);
-export const JobResource = Schema.Struct({S3Resources: Schema.optional(S3ResourceList), LambdaResources: Schema.optional(LambdaResourceList), Ec2AmiResources: Schema.optional(Ec2AmiResourceList)});
-export const NFSOnDeviceServiceConfiguration = Schema.Struct({StorageLimit: Schema.optional(Schema.Number), StorageUnit: Schema.optional(Schema.String)});
-export const TGWOnDeviceServiceConfiguration = Schema.Struct({StorageLimit: Schema.optional(Schema.Number), StorageUnit: Schema.optional(Schema.String)});
-export const EKSOnDeviceServiceConfiguration = Schema.Struct({KubernetesVersion: Schema.optional(Schema.String), EKSAnywhereVersion: Schema.optional(Schema.String)});
-export const S3OnDeviceServiceConfiguration = Schema.Struct({StorageLimit: Schema.optional(Schema.Number), StorageUnit: Schema.optional(Schema.String), ServiceSize: Schema.optional(Schema.Number), FaultTolerance: Schema.optional(Schema.Number)});
-export const OnDeviceServiceConfiguration = Schema.Struct({NFSOnDeviceService: Schema.optional(NFSOnDeviceServiceConfiguration), TGWOnDeviceService: Schema.optional(TGWOnDeviceServiceConfiguration), EKSOnDeviceService: Schema.optional(EKSOnDeviceServiceConfiguration), S3OnDeviceService: Schema.optional(S3OnDeviceServiceConfiguration)});
+export class JobResource extends Schema.Class<JobResource>("JobResource")({S3Resources: Schema.optional(S3ResourceList), LambdaResources: Schema.optional(LambdaResourceList), Ec2AmiResources: Schema.optional(Ec2AmiResourceList)}) {}
+export class NFSOnDeviceServiceConfiguration extends Schema.Class<NFSOnDeviceServiceConfiguration>("NFSOnDeviceServiceConfiguration")({StorageLimit: Schema.optional(Schema.Number), StorageUnit: Schema.optional(Schema.String)}) {}
+export class TGWOnDeviceServiceConfiguration extends Schema.Class<TGWOnDeviceServiceConfiguration>("TGWOnDeviceServiceConfiguration")({StorageLimit: Schema.optional(Schema.Number), StorageUnit: Schema.optional(Schema.String)}) {}
+export class EKSOnDeviceServiceConfiguration extends Schema.Class<EKSOnDeviceServiceConfiguration>("EKSOnDeviceServiceConfiguration")({KubernetesVersion: Schema.optional(Schema.String), EKSAnywhereVersion: Schema.optional(Schema.String)}) {}
+export class S3OnDeviceServiceConfiguration extends Schema.Class<S3OnDeviceServiceConfiguration>("S3OnDeviceServiceConfiguration")({StorageLimit: Schema.optional(Schema.Number), StorageUnit: Schema.optional(Schema.String), ServiceSize: Schema.optional(Schema.Number), FaultTolerance: Schema.optional(Schema.Number)}) {}
+export class OnDeviceServiceConfiguration extends Schema.Class<OnDeviceServiceConfiguration>("OnDeviceServiceConfiguration")({NFSOnDeviceService: Schema.optional(NFSOnDeviceServiceConfiguration), TGWOnDeviceService: Schema.optional(TGWOnDeviceServiceConfiguration), EKSOnDeviceService: Schema.optional(EKSOnDeviceServiceConfiguration), S3OnDeviceService: Schema.optional(S3OnDeviceServiceConfiguration)}) {}
 export const JobStateList = Schema.Array(Schema.String);
-export const Notification = Schema.Struct({SnsTopicARN: Schema.optional(Schema.String), JobStatesToNotify: Schema.optional(JobStateList), NotifyAll: Schema.optional(Schema.Boolean), DevicePickupSnsTopicARN: Schema.optional(Schema.String)});
-export const UpdateClusterRequest = Schema.Struct({ClusterId: Schema.String, RoleARN: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Resources: Schema.optional(JobResource), OnDeviceServiceConfiguration: Schema.optional(OnDeviceServiceConfiguration), AddressId: Schema.optional(Schema.String), ShippingOption: Schema.optional(Schema.String), Notification: Schema.optional(Notification), ForwardingAddressId: Schema.optional(Schema.String)});
-export const UpdateClusterResult = Schema.Struct({});
-export const PickupDetails = Schema.Struct({Name: Schema.optional(Schema.String), PhoneNumber: Schema.optional(Schema.String), Email: Schema.optional(Schema.String), IdentificationNumber: Schema.optional(Schema.String), IdentificationExpirationDate: Schema.optional(Schema.Date), IdentificationIssuingOrg: Schema.optional(Schema.String), DevicePickupId: Schema.optional(Schema.String)});
-export const UpdateJobRequest = Schema.Struct({JobId: Schema.String, RoleARN: Schema.optional(Schema.String), Notification: Schema.optional(Notification), Resources: Schema.optional(JobResource), OnDeviceServiceConfiguration: Schema.optional(OnDeviceServiceConfiguration), AddressId: Schema.optional(Schema.String), ShippingOption: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), SnowballCapacityPreference: Schema.optional(Schema.String), ForwardingAddressId: Schema.optional(Schema.String), PickupDetails: Schema.optional(PickupDetails)});
-export const UpdateJobResult = Schema.Struct({});
-export const UpdateJobShipmentStateRequest = Schema.Struct({JobId: Schema.String, ShipmentState: Schema.String});
-export const UpdateJobShipmentStateResult = Schema.Struct({});
-export const UpdateLongTermPricingRequest = Schema.Struct({LongTermPricingId: Schema.String, ReplacementJob: Schema.optional(Schema.String), IsLongTermPricingAutoRenew: Schema.optional(Schema.Boolean)});
-export const UpdateLongTermPricingResult = Schema.Struct({});
-export const Address = Schema.Struct({AddressId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Company: Schema.optional(Schema.String), Street1: Schema.optional(Schema.String), Street2: Schema.optional(Schema.String), Street3: Schema.optional(Schema.String), City: Schema.optional(Schema.String), StateOrProvince: Schema.optional(Schema.String), PrefectureOrDistrict: Schema.optional(Schema.String), Landmark: Schema.optional(Schema.String), Country: Schema.optional(Schema.String), PostalCode: Schema.optional(Schema.String), PhoneNumber: Schema.optional(Schema.String), IsRestricted: Schema.optional(Schema.Boolean), Type: Schema.optional(Schema.String)});
+export class Notification extends Schema.Class<Notification>("Notification")({SnsTopicARN: Schema.optional(Schema.String), JobStatesToNotify: Schema.optional(JobStateList), NotifyAll: Schema.optional(Schema.Boolean), DevicePickupSnsTopicARN: Schema.optional(Schema.String)}) {}
+export class UpdateClusterRequest extends Schema.Class<UpdateClusterRequest>("UpdateClusterRequest")({ClusterId: Schema.String, RoleARN: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Resources: Schema.optional(JobResource), OnDeviceServiceConfiguration: Schema.optional(OnDeviceServiceConfiguration), AddressId: Schema.optional(Schema.String), ShippingOption: Schema.optional(Schema.String), Notification: Schema.optional(Notification), ForwardingAddressId: Schema.optional(Schema.String)}) {}
+export class UpdateClusterResult extends Schema.Class<UpdateClusterResult>("UpdateClusterResult")({}) {}
+export class PickupDetails extends Schema.Class<PickupDetails>("PickupDetails")({Name: Schema.optional(Schema.String), PhoneNumber: Schema.optional(Schema.String), Email: Schema.optional(Schema.String), IdentificationNumber: Schema.optional(Schema.String), IdentificationExpirationDate: Schema.optional(Schema.Date), IdentificationIssuingOrg: Schema.optional(Schema.String), DevicePickupId: Schema.optional(Schema.String)}) {}
+export class UpdateJobRequest extends Schema.Class<UpdateJobRequest>("UpdateJobRequest")({JobId: Schema.String, RoleARN: Schema.optional(Schema.String), Notification: Schema.optional(Notification), Resources: Schema.optional(JobResource), OnDeviceServiceConfiguration: Schema.optional(OnDeviceServiceConfiguration), AddressId: Schema.optional(Schema.String), ShippingOption: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), SnowballCapacityPreference: Schema.optional(Schema.String), ForwardingAddressId: Schema.optional(Schema.String), PickupDetails: Schema.optional(PickupDetails)}) {}
+export class UpdateJobResult extends Schema.Class<UpdateJobResult>("UpdateJobResult")({}) {}
+export class UpdateJobShipmentStateRequest extends Schema.Class<UpdateJobShipmentStateRequest>("UpdateJobShipmentStateRequest")({JobId: Schema.String, ShipmentState: Schema.String}) {}
+export class UpdateJobShipmentStateResult extends Schema.Class<UpdateJobShipmentStateResult>("UpdateJobShipmentStateResult")({}) {}
+export class UpdateLongTermPricingRequest extends Schema.Class<UpdateLongTermPricingRequest>("UpdateLongTermPricingRequest")({LongTermPricingId: Schema.String, ReplacementJob: Schema.optional(Schema.String), IsLongTermPricingAutoRenew: Schema.optional(Schema.Boolean)}) {}
+export class UpdateLongTermPricingResult extends Schema.Class<UpdateLongTermPricingResult>("UpdateLongTermPricingResult")({}) {}
+export class Address extends Schema.Class<Address>("Address")({AddressId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Company: Schema.optional(Schema.String), Street1: Schema.optional(Schema.String), Street2: Schema.optional(Schema.String), Street3: Schema.optional(Schema.String), City: Schema.optional(Schema.String), StateOrProvince: Schema.optional(Schema.String), PrefectureOrDistrict: Schema.optional(Schema.String), Landmark: Schema.optional(Schema.String), Country: Schema.optional(Schema.String), PostalCode: Schema.optional(Schema.String), PhoneNumber: Schema.optional(Schema.String), IsRestricted: Schema.optional(Schema.Boolean), Type: Schema.optional(Schema.String)}) {}
 export const AddressList = Schema.Array(Address);
-export const Shipment = Schema.Struct({Status: Schema.optional(Schema.String), TrackingNumber: Schema.optional(Schema.String)});
-export const ShippingDetails = Schema.Struct({ShippingOption: Schema.optional(Schema.String), InboundShipment: Schema.optional(Shipment), OutboundShipment: Schema.optional(Shipment)});
-export const DataTransfer = Schema.Struct({BytesTransferred: Schema.optional(Schema.Number), ObjectsTransferred: Schema.optional(Schema.Number), TotalBytes: Schema.optional(Schema.Number), TotalObjects: Schema.optional(Schema.Number)});
-export const JobLogs = Schema.Struct({JobCompletionReportURI: Schema.optional(Schema.String), JobSuccessLogURI: Schema.optional(Schema.String), JobFailureLogURI: Schema.optional(Schema.String)});
-export const INDTaxDocuments = Schema.Struct({GSTIN: Schema.optional(Schema.String)});
-export const TaxDocuments = Schema.Struct({IND: Schema.optional(INDTaxDocuments)});
-export const WirelessConnection = Schema.Struct({IsWifiEnabled: Schema.optional(Schema.Boolean)});
-export const SnowconeDeviceConfiguration = Schema.Struct({WirelessConnection: Schema.optional(WirelessConnection)});
-export const DeviceConfiguration = Schema.Struct({SnowconeDeviceConfiguration: Schema.optional(SnowconeDeviceConfiguration)});
-export const JobMetadata = Schema.Struct({JobId: Schema.optional(Schema.String), JobState: Schema.optional(Schema.String), JobType: Schema.optional(Schema.String), SnowballType: Schema.optional(Schema.String), CreationDate: Schema.optional(Schema.Date), Resources: Schema.optional(JobResource), Description: Schema.optional(Schema.String), KmsKeyARN: Schema.optional(Schema.String), RoleARN: Schema.optional(Schema.String), AddressId: Schema.optional(Schema.String), ShippingDetails: Schema.optional(ShippingDetails), SnowballCapacityPreference: Schema.optional(Schema.String), Notification: Schema.optional(Notification), DataTransferProgress: Schema.optional(DataTransfer), JobLogInfo: Schema.optional(JobLogs), ClusterId: Schema.optional(Schema.String), ForwardingAddressId: Schema.optional(Schema.String), TaxDocuments: Schema.optional(TaxDocuments), DeviceConfiguration: Schema.optional(DeviceConfiguration), RemoteManagement: Schema.optional(Schema.String), LongTermPricingId: Schema.optional(Schema.String), OnDeviceServiceConfiguration: Schema.optional(OnDeviceServiceConfiguration), ImpactLevel: Schema.optional(Schema.String), PickupDetails: Schema.optional(PickupDetails), SnowballId: Schema.optional(Schema.String)});
+export class Shipment extends Schema.Class<Shipment>("Shipment")({Status: Schema.optional(Schema.String), TrackingNumber: Schema.optional(Schema.String)}) {}
+export class ShippingDetails extends Schema.Class<ShippingDetails>("ShippingDetails")({ShippingOption: Schema.optional(Schema.String), InboundShipment: Schema.optional(Shipment), OutboundShipment: Schema.optional(Shipment)}) {}
+export class DataTransfer extends Schema.Class<DataTransfer>("DataTransfer")({BytesTransferred: Schema.optional(Schema.Number), ObjectsTransferred: Schema.optional(Schema.Number), TotalBytes: Schema.optional(Schema.Number), TotalObjects: Schema.optional(Schema.Number)}) {}
+export class JobLogs extends Schema.Class<JobLogs>("JobLogs")({JobCompletionReportURI: Schema.optional(Schema.String), JobSuccessLogURI: Schema.optional(Schema.String), JobFailureLogURI: Schema.optional(Schema.String)}) {}
+export class INDTaxDocuments extends Schema.Class<INDTaxDocuments>("INDTaxDocuments")({GSTIN: Schema.optional(Schema.String)}) {}
+export class TaxDocuments extends Schema.Class<TaxDocuments>("TaxDocuments")({IND: Schema.optional(INDTaxDocuments)}) {}
+export class WirelessConnection extends Schema.Class<WirelessConnection>("WirelessConnection")({IsWifiEnabled: Schema.optional(Schema.Boolean)}) {}
+export class SnowconeDeviceConfiguration extends Schema.Class<SnowconeDeviceConfiguration>("SnowconeDeviceConfiguration")({WirelessConnection: Schema.optional(WirelessConnection)}) {}
+export class DeviceConfiguration extends Schema.Class<DeviceConfiguration>("DeviceConfiguration")({SnowconeDeviceConfiguration: Schema.optional(SnowconeDeviceConfiguration)}) {}
+export class JobMetadata extends Schema.Class<JobMetadata>("JobMetadata")({JobId: Schema.optional(Schema.String), JobState: Schema.optional(Schema.String), JobType: Schema.optional(Schema.String), SnowballType: Schema.optional(Schema.String), CreationDate: Schema.optional(Schema.Date), Resources: Schema.optional(JobResource), Description: Schema.optional(Schema.String), KmsKeyARN: Schema.optional(Schema.String), RoleARN: Schema.optional(Schema.String), AddressId: Schema.optional(Schema.String), ShippingDetails: Schema.optional(ShippingDetails), SnowballCapacityPreference: Schema.optional(Schema.String), Notification: Schema.optional(Notification), DataTransferProgress: Schema.optional(DataTransfer), JobLogInfo: Schema.optional(JobLogs), ClusterId: Schema.optional(Schema.String), ForwardingAddressId: Schema.optional(Schema.String), TaxDocuments: Schema.optional(TaxDocuments), DeviceConfiguration: Schema.optional(DeviceConfiguration), RemoteManagement: Schema.optional(Schema.String), LongTermPricingId: Schema.optional(Schema.String), OnDeviceServiceConfiguration: Schema.optional(OnDeviceServiceConfiguration), ImpactLevel: Schema.optional(Schema.String), PickupDetails: Schema.optional(PickupDetails), SnowballId: Schema.optional(Schema.String)}) {}
 export const JobMetadataList = Schema.Array(JobMetadata);
-export const InvalidJobStateException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const InvalidResourceException = Schema.Struct({Message: Schema.optional(Schema.String), ResourceType: Schema.optional(Schema.String)});
-export const CreateAddressRequest = Schema.Struct({Address: Address});
-export const CreateLongTermPricingResult = Schema.Struct({LongTermPricingId: Schema.optional(Schema.String)});
-export const CreateReturnShippingLabelResult = Schema.Struct({Status: Schema.optional(Schema.String)});
-export const DescribeAddressResult = Schema.Struct({Address: Schema.optional(Address)});
-export const DescribeAddressesResult = Schema.Struct({Addresses: Schema.optional(AddressList), NextToken: Schema.optional(Schema.String)});
-export const DescribeReturnShippingLabelResult = Schema.Struct({Status: Schema.optional(Schema.String), ExpirationDate: Schema.optional(Schema.Date), ReturnShippingLabelURI: Schema.optional(Schema.String)});
-export const GetJobManifestResult = Schema.Struct({ManifestURI: Schema.optional(Schema.String)});
-export const GetJobUnlockCodeResult = Schema.Struct({UnlockCode: Schema.optional(Schema.String)});
-export const GetSoftwareUpdatesResult = Schema.Struct({UpdatesURI: Schema.optional(Schema.String)});
-export const JobListEntry = Schema.Struct({JobId: Schema.optional(Schema.String), JobState: Schema.optional(Schema.String), IsMaster: Schema.optional(Schema.Boolean), JobType: Schema.optional(Schema.String), SnowballType: Schema.optional(Schema.String), CreationDate: Schema.optional(Schema.Date), Description: Schema.optional(Schema.String)});
+export class InvalidJobStateException extends Schema.Class<InvalidJobStateException>("InvalidJobStateException")({Message: Schema.optional(Schema.String)}) {}
+export class InvalidResourceException extends Schema.Class<InvalidResourceException>("InvalidResourceException")({Message: Schema.optional(Schema.String), ResourceType: Schema.optional(Schema.String)}) {}
+export class CreateAddressRequest extends Schema.Class<CreateAddressRequest>("CreateAddressRequest")({Address: Address}) {}
+export class CreateLongTermPricingResult extends Schema.Class<CreateLongTermPricingResult>("CreateLongTermPricingResult")({LongTermPricingId: Schema.optional(Schema.String)}) {}
+export class CreateReturnShippingLabelResult extends Schema.Class<CreateReturnShippingLabelResult>("CreateReturnShippingLabelResult")({Status: Schema.optional(Schema.String)}) {}
+export class DescribeAddressResult extends Schema.Class<DescribeAddressResult>("DescribeAddressResult")({Address: Schema.optional(Address)}) {}
+export class DescribeAddressesResult extends Schema.Class<DescribeAddressesResult>("DescribeAddressesResult")({Addresses: Schema.optional(AddressList), NextToken: Schema.optional(Schema.String)}) {}
+export class DescribeReturnShippingLabelResult extends Schema.Class<DescribeReturnShippingLabelResult>("DescribeReturnShippingLabelResult")({Status: Schema.optional(Schema.String), ExpirationDate: Schema.optional(Schema.Date), ReturnShippingLabelURI: Schema.optional(Schema.String)}) {}
+export class GetJobManifestResult extends Schema.Class<GetJobManifestResult>("GetJobManifestResult")({ManifestURI: Schema.optional(Schema.String)}) {}
+export class GetJobUnlockCodeResult extends Schema.Class<GetJobUnlockCodeResult>("GetJobUnlockCodeResult")({UnlockCode: Schema.optional(Schema.String)}) {}
+export class GetSoftwareUpdatesResult extends Schema.Class<GetSoftwareUpdatesResult>("GetSoftwareUpdatesResult")({UpdatesURI: Schema.optional(Schema.String)}) {}
+export class JobListEntry extends Schema.Class<JobListEntry>("JobListEntry")({JobId: Schema.optional(Schema.String), JobState: Schema.optional(Schema.String), IsMaster: Schema.optional(Schema.Boolean), JobType: Schema.optional(Schema.String), SnowballType: Schema.optional(Schema.String), CreationDate: Schema.optional(Schema.Date), Description: Schema.optional(Schema.String)}) {}
 export const JobListEntryList = Schema.Array(JobListEntry);
-export const ListJobsResult = Schema.Struct({JobListEntries: Schema.optional(JobListEntryList), NextToken: Schema.optional(Schema.String)});
-export const ListPickupLocationsResult = Schema.Struct({Addresses: Schema.optional(AddressList), NextToken: Schema.optional(Schema.String)});
-export const Ec2RequestFailedException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ClusterLimitExceededException = Schema.Struct({Message: Schema.optional(Schema.String)});
+export class ListJobsResult extends Schema.Class<ListJobsResult>("ListJobsResult")({JobListEntries: Schema.optional(JobListEntryList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListPickupLocationsResult extends Schema.Class<ListPickupLocationsResult>("ListPickupLocationsResult")({Addresses: Schema.optional(AddressList), NextToken: Schema.optional(Schema.String)}) {}
+export class Ec2RequestFailedException extends Schema.Class<Ec2RequestFailedException>("Ec2RequestFailedException")({Message: Schema.optional(Schema.String)}) {}
+export class ClusterLimitExceededException extends Schema.Class<ClusterLimitExceededException>("ClusterLimitExceededException")({Message: Schema.optional(Schema.String)}) {}
 export const LongTermPricingAssociatedJobIdList = Schema.Array(Schema.String);
-export const ServiceVersion = Schema.Struct({Version: Schema.optional(Schema.String)});
-export const ClusterMetadata = Schema.Struct({ClusterId: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), KmsKeyARN: Schema.optional(Schema.String), RoleARN: Schema.optional(Schema.String), ClusterState: Schema.optional(Schema.String), JobType: Schema.optional(Schema.String), SnowballType: Schema.optional(Schema.String), CreationDate: Schema.optional(Schema.Date), Resources: Schema.optional(JobResource), AddressId: Schema.optional(Schema.String), ShippingOption: Schema.optional(Schema.String), Notification: Schema.optional(Notification), ForwardingAddressId: Schema.optional(Schema.String), TaxDocuments: Schema.optional(TaxDocuments), OnDeviceServiceConfiguration: Schema.optional(OnDeviceServiceConfiguration)});
-export const ClusterListEntry = Schema.Struct({ClusterId: Schema.optional(Schema.String), ClusterState: Schema.optional(Schema.String), CreationDate: Schema.optional(Schema.Date), Description: Schema.optional(Schema.String)});
+export class ServiceVersion extends Schema.Class<ServiceVersion>("ServiceVersion")({Version: Schema.optional(Schema.String)}) {}
+export class ClusterMetadata extends Schema.Class<ClusterMetadata>("ClusterMetadata")({ClusterId: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), KmsKeyARN: Schema.optional(Schema.String), RoleARN: Schema.optional(Schema.String), ClusterState: Schema.optional(Schema.String), JobType: Schema.optional(Schema.String), SnowballType: Schema.optional(Schema.String), CreationDate: Schema.optional(Schema.Date), Resources: Schema.optional(JobResource), AddressId: Schema.optional(Schema.String), ShippingOption: Schema.optional(Schema.String), Notification: Schema.optional(Notification), ForwardingAddressId: Schema.optional(Schema.String), TaxDocuments: Schema.optional(TaxDocuments), OnDeviceServiceConfiguration: Schema.optional(OnDeviceServiceConfiguration)}) {}
+export class ClusterListEntry extends Schema.Class<ClusterListEntry>("ClusterListEntry")({ClusterId: Schema.optional(Schema.String), ClusterState: Schema.optional(Schema.String), CreationDate: Schema.optional(Schema.Date), Description: Schema.optional(Schema.String)}) {}
 export const ClusterListEntryList = Schema.Array(ClusterListEntry);
-export const CompatibleImage = Schema.Struct({AmiId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String)});
+export class CompatibleImage extends Schema.Class<CompatibleImage>("CompatibleImage")({AmiId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String)}) {}
 export const CompatibleImageList = Schema.Array(CompatibleImage);
-export const LongTermPricingListEntry = Schema.Struct({LongTermPricingId: Schema.optional(Schema.String), LongTermPricingEndDate: Schema.optional(Schema.Date), LongTermPricingStartDate: Schema.optional(Schema.Date), LongTermPricingType: Schema.optional(Schema.String), CurrentActiveJob: Schema.optional(Schema.String), ReplacementJob: Schema.optional(Schema.String), IsLongTermPricingAutoRenew: Schema.optional(Schema.Boolean), LongTermPricingStatus: Schema.optional(Schema.String), SnowballType: Schema.optional(Schema.String), JobIds: Schema.optional(LongTermPricingAssociatedJobIdList)});
+export class LongTermPricingListEntry extends Schema.Class<LongTermPricingListEntry>("LongTermPricingListEntry")({LongTermPricingId: Schema.optional(Schema.String), LongTermPricingEndDate: Schema.optional(Schema.Date), LongTermPricingStartDate: Schema.optional(Schema.Date), LongTermPricingType: Schema.optional(Schema.String), CurrentActiveJob: Schema.optional(Schema.String), ReplacementJob: Schema.optional(Schema.String), IsLongTermPricingAutoRenew: Schema.optional(Schema.Boolean), LongTermPricingStatus: Schema.optional(Schema.String), SnowballType: Schema.optional(Schema.String), JobIds: Schema.optional(LongTermPricingAssociatedJobIdList)}) {}
 export const LongTermPricingEntryList = Schema.Array(LongTermPricingListEntry);
-export const DependentService = Schema.Struct({ServiceName: Schema.optional(Schema.String), ServiceVersion: Schema.optional(ServiceVersion)});
+export class DependentService extends Schema.Class<DependentService>("DependentService")({ServiceName: Schema.optional(Schema.String), ServiceVersion: Schema.optional(ServiceVersion)}) {}
 export const DependentServiceList = Schema.Array(DependentService);
-export const KMSRequestFailedException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const CreateAddressResult = Schema.Struct({AddressId: Schema.optional(Schema.String)});
-export const ConflictException = Schema.Struct({ConflictResource: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
-export const InvalidNextTokenException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DescribeClusterResult = Schema.Struct({ClusterMetadata: Schema.optional(ClusterMetadata)});
-export const ListClusterJobsResult = Schema.Struct({JobListEntries: Schema.optional(JobListEntryList), NextToken: Schema.optional(Schema.String)});
-export const ListClustersResult = Schema.Struct({ClusterListEntries: Schema.optional(ClusterListEntryList), NextToken: Schema.optional(Schema.String)});
-export const ListCompatibleImagesResult = Schema.Struct({CompatibleImages: Schema.optional(CompatibleImageList), NextToken: Schema.optional(Schema.String)});
-export const ListLongTermPricingResult = Schema.Struct({LongTermPricingEntries: Schema.optional(LongTermPricingEntryList), NextToken: Schema.optional(Schema.String)});
-export const ListServiceVersionsRequest = Schema.Struct({ServiceName: Schema.String, DependentServices: Schema.optional(DependentServiceList), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const InvalidInputCombinationException = Schema.Struct({Message: Schema.optional(Schema.String)});
+export class KMSRequestFailedException extends Schema.Class<KMSRequestFailedException>("KMSRequestFailedException")({Message: Schema.optional(Schema.String)}) {}
+export class CreateAddressResult extends Schema.Class<CreateAddressResult>("CreateAddressResult")({AddressId: Schema.optional(Schema.String)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({ConflictResource: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
+export class InvalidNextTokenException extends Schema.Class<InvalidNextTokenException>("InvalidNextTokenException")({Message: Schema.optional(Schema.String)}) {}
+export class DescribeClusterResult extends Schema.Class<DescribeClusterResult>("DescribeClusterResult")({ClusterMetadata: Schema.optional(ClusterMetadata)}) {}
+export class ListClusterJobsResult extends Schema.Class<ListClusterJobsResult>("ListClusterJobsResult")({JobListEntries: Schema.optional(JobListEntryList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListClustersResult extends Schema.Class<ListClustersResult>("ListClustersResult")({ClusterListEntries: Schema.optional(ClusterListEntryList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListCompatibleImagesResult extends Schema.Class<ListCompatibleImagesResult>("ListCompatibleImagesResult")({CompatibleImages: Schema.optional(CompatibleImageList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListLongTermPricingResult extends Schema.Class<ListLongTermPricingResult>("ListLongTermPricingResult")({LongTermPricingEntries: Schema.optional(LongTermPricingEntryList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListServiceVersionsRequest extends Schema.Class<ListServiceVersionsRequest>("ListServiceVersionsRequest")({ServiceName: Schema.String, DependentServices: Schema.optional(DependentServiceList), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class InvalidInputCombinationException extends Schema.Class<InvalidInputCombinationException>("InvalidInputCombinationException")({Message: Schema.optional(Schema.String)}) {}
 export const ServiceVersionList = Schema.Array(ServiceVersion);
-export const InvalidAddressException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const CreateClusterRequest = Schema.Struct({JobType: Schema.String, Resources: Schema.optional(JobResource), OnDeviceServiceConfiguration: Schema.optional(OnDeviceServiceConfiguration), Description: Schema.optional(Schema.String), AddressId: Schema.String, KmsKeyARN: Schema.optional(Schema.String), RoleARN: Schema.optional(Schema.String), SnowballType: Schema.String, ShippingOption: Schema.String, Notification: Schema.optional(Notification), ForwardingAddressId: Schema.optional(Schema.String), TaxDocuments: Schema.optional(TaxDocuments), RemoteManagement: Schema.optional(Schema.String), InitialClusterSize: Schema.optional(Schema.Number), ForceCreateJobs: Schema.optional(Schema.Boolean), LongTermPricingIds: Schema.optional(LongTermPricingIdList), SnowballCapacityPreference: Schema.optional(Schema.String)});
-export const CreateJobRequest = Schema.Struct({JobType: Schema.optional(Schema.String), Resources: Schema.optional(JobResource), OnDeviceServiceConfiguration: Schema.optional(OnDeviceServiceConfiguration), Description: Schema.optional(Schema.String), AddressId: Schema.optional(Schema.String), KmsKeyARN: Schema.optional(Schema.String), RoleARN: Schema.optional(Schema.String), SnowballCapacityPreference: Schema.optional(Schema.String), ShippingOption: Schema.optional(Schema.String), Notification: Schema.optional(Notification), ClusterId: Schema.optional(Schema.String), SnowballType: Schema.optional(Schema.String), ForwardingAddressId: Schema.optional(Schema.String), TaxDocuments: Schema.optional(TaxDocuments), DeviceConfiguration: Schema.optional(DeviceConfiguration), RemoteManagement: Schema.optional(Schema.String), LongTermPricingId: Schema.optional(Schema.String), ImpactLevel: Schema.optional(Schema.String), PickupDetails: Schema.optional(PickupDetails)});
-export const ReturnShippingLabelAlreadyExistsException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ListServiceVersionsResult = Schema.Struct({ServiceVersions: ServiceVersionList, ServiceName: Schema.String, DependentServices: Schema.optional(DependentServiceList), NextToken: Schema.optional(Schema.String)});
-export const UnsupportedAddressException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const CreateClusterResult = Schema.Struct({ClusterId: Schema.optional(Schema.String), JobListEntries: Schema.optional(JobListEntryList)});
-export const CreateJobResult = Schema.Struct({JobId: Schema.optional(Schema.String)});
-export const DescribeJobResult = Schema.Struct({JobMetadata: Schema.optional(JobMetadata), SubJobMetadata: Schema.optional(JobMetadataList)});
+export class InvalidAddressException extends Schema.Class<InvalidAddressException>("InvalidAddressException")({Message: Schema.optional(Schema.String)}) {}
+export class CreateClusterRequest extends Schema.Class<CreateClusterRequest>("CreateClusterRequest")({JobType: Schema.String, Resources: Schema.optional(JobResource), OnDeviceServiceConfiguration: Schema.optional(OnDeviceServiceConfiguration), Description: Schema.optional(Schema.String), AddressId: Schema.String, KmsKeyARN: Schema.optional(Schema.String), RoleARN: Schema.optional(Schema.String), SnowballType: Schema.String, ShippingOption: Schema.String, Notification: Schema.optional(Notification), ForwardingAddressId: Schema.optional(Schema.String), TaxDocuments: Schema.optional(TaxDocuments), RemoteManagement: Schema.optional(Schema.String), InitialClusterSize: Schema.optional(Schema.Number), ForceCreateJobs: Schema.optional(Schema.Boolean), LongTermPricingIds: Schema.optional(LongTermPricingIdList), SnowballCapacityPreference: Schema.optional(Schema.String)}) {}
+export class CreateJobRequest extends Schema.Class<CreateJobRequest>("CreateJobRequest")({JobType: Schema.optional(Schema.String), Resources: Schema.optional(JobResource), OnDeviceServiceConfiguration: Schema.optional(OnDeviceServiceConfiguration), Description: Schema.optional(Schema.String), AddressId: Schema.optional(Schema.String), KmsKeyARN: Schema.optional(Schema.String), RoleARN: Schema.optional(Schema.String), SnowballCapacityPreference: Schema.optional(Schema.String), ShippingOption: Schema.optional(Schema.String), Notification: Schema.optional(Notification), ClusterId: Schema.optional(Schema.String), SnowballType: Schema.optional(Schema.String), ForwardingAddressId: Schema.optional(Schema.String), TaxDocuments: Schema.optional(TaxDocuments), DeviceConfiguration: Schema.optional(DeviceConfiguration), RemoteManagement: Schema.optional(Schema.String), LongTermPricingId: Schema.optional(Schema.String), ImpactLevel: Schema.optional(Schema.String), PickupDetails: Schema.optional(PickupDetails)}) {}
+export class ReturnShippingLabelAlreadyExistsException extends Schema.Class<ReturnShippingLabelAlreadyExistsException>("ReturnShippingLabelAlreadyExistsException")({Message: Schema.optional(Schema.String)}) {}
+export class ListServiceVersionsResult extends Schema.Class<ListServiceVersionsResult>("ListServiceVersionsResult")({ServiceVersions: ServiceVersionList, ServiceName: Schema.String, DependentServices: Schema.optional(DependentServiceList), NextToken: Schema.optional(Schema.String)}) {}
+export class UnsupportedAddressException extends Schema.Class<UnsupportedAddressException>("UnsupportedAddressException")({Message: Schema.optional(Schema.String)}) {}
+export class CreateClusterResult extends Schema.Class<CreateClusterResult>("CreateClusterResult")({ClusterId: Schema.optional(Schema.String), JobListEntries: Schema.optional(JobListEntryList)}) {}
+export class CreateJobResult extends Schema.Class<CreateJobResult>("CreateJobResult")({JobId: Schema.optional(Schema.String)}) {}
+export class DescribeJobResult extends Schema.Class<DescribeJobResult>("DescribeJobResult")({JobMetadata: Schema.optional(JobMetadata), SubJobMetadata: Schema.optional(JobMetadataList)}) {}
 
 //# Errors
-export class InvalidJobStateExceptionError extends Schema.TaggedError<InvalidJobStateExceptionError>()("InvalidJobStateException", InvalidJobStateException) {};
-export class InvalidResourceExceptionError extends Schema.TaggedError<InvalidResourceExceptionError>()("InvalidResourceException", InvalidResourceException) {};
-export class KMSRequestFailedExceptionError extends Schema.TaggedError<KMSRequestFailedExceptionError>()("KMSRequestFailedException", KMSRequestFailedException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class InvalidNextTokenExceptionError extends Schema.TaggedError<InvalidNextTokenExceptionError>()("InvalidNextTokenException", InvalidNextTokenException) {};
-export class Ec2RequestFailedExceptionError extends Schema.TaggedError<Ec2RequestFailedExceptionError>()("Ec2RequestFailedException", Ec2RequestFailedException) {};
-export class ClusterLimitExceededExceptionError extends Schema.TaggedError<ClusterLimitExceededExceptionError>()("ClusterLimitExceededException", ClusterLimitExceededException) {};
-export class InvalidInputCombinationExceptionError extends Schema.TaggedError<InvalidInputCombinationExceptionError>()("InvalidInputCombinationException", InvalidInputCombinationException) {};
-export class InvalidAddressExceptionError extends Schema.TaggedError<InvalidAddressExceptionError>()("InvalidAddressException", InvalidAddressException) {};
-export class ReturnShippingLabelAlreadyExistsExceptionError extends Schema.TaggedError<ReturnShippingLabelAlreadyExistsExceptionError>()("ReturnShippingLabelAlreadyExistsException", ReturnShippingLabelAlreadyExistsException) {};
-export class UnsupportedAddressExceptionError extends Schema.TaggedError<UnsupportedAddressExceptionError>()("UnsupportedAddressException", UnsupportedAddressException) {};
+export class InvalidJobStateExceptionError extends Schema.TaggedError<InvalidJobStateExceptionError>()("InvalidJobStateException", InvalidJobStateException.fields) {};
+export class InvalidResourceExceptionError extends Schema.TaggedError<InvalidResourceExceptionError>()("InvalidResourceException", InvalidResourceException.fields) {};
+export class KMSRequestFailedExceptionError extends Schema.TaggedError<KMSRequestFailedExceptionError>()("KMSRequestFailedException", KMSRequestFailedException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class InvalidNextTokenExceptionError extends Schema.TaggedError<InvalidNextTokenExceptionError>()("InvalidNextTokenException", InvalidNextTokenException.fields) {};
+export class Ec2RequestFailedExceptionError extends Schema.TaggedError<Ec2RequestFailedExceptionError>()("Ec2RequestFailedException", Ec2RequestFailedException.fields) {};
+export class ClusterLimitExceededExceptionError extends Schema.TaggedError<ClusterLimitExceededExceptionError>()("ClusterLimitExceededException", ClusterLimitExceededException.fields) {};
+export class InvalidInputCombinationExceptionError extends Schema.TaggedError<InvalidInputCombinationExceptionError>()("InvalidInputCombinationException", InvalidInputCombinationException.fields) {};
+export class InvalidAddressExceptionError extends Schema.TaggedError<InvalidAddressExceptionError>()("InvalidAddressException", InvalidAddressException.fields) {};
+export class ReturnShippingLabelAlreadyExistsExceptionError extends Schema.TaggedError<ReturnShippingLabelAlreadyExistsExceptionError>()("ReturnShippingLabelAlreadyExistsException", ReturnShippingLabelAlreadyExistsException.fields) {};
+export class UnsupportedAddressExceptionError extends Schema.TaggedError<UnsupportedAddressExceptionError>()("UnsupportedAddressException", UnsupportedAddressException.fields) {};
 
 //# Operations
 export const getSnowballUsage = /*#__PURE__*/ makeOperation(() => Operation({ version: "2016-06-30", uri: "/", method: "POST", sdkId: "Snowball", sigV4ServiceName: "snowball", name: "AWSIESnowballJobManagementService.GetSnowballUsage" }, GetSnowballUsageRequest, GetSnowballUsageResult, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

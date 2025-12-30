@@ -3,76 +3,78 @@ import { FormatAwsJSON10Request,FormatJSONResponse,FormatAwsRestJSONError, makeO
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const GetDefaultKeyReplicationRegionsInput = Schema.Struct({});
+export class GetDefaultKeyReplicationRegionsInput extends Schema.Class<GetDefaultKeyReplicationRegionsInput>("GetDefaultKeyReplicationRegionsInput")({}) {}
 export const Regions = Schema.Array(Schema.String);
 export const TagKeys = Schema.Array(Schema.String);
-export const DisableDefaultKeyReplicationRegionsInput = Schema.Struct({ReplicationRegions: Regions});
-export const EnableDefaultKeyReplicationRegionsInput = Schema.Struct({ReplicationRegions: Regions});
-export const GetDefaultKeyReplicationRegionsOutput = Schema.Struct({EnabledReplicationRegions: Regions});
-export const GetParametersForExportInput = Schema.Struct({KeyMaterialType: Schema.String, SigningKeyAlgorithm: Schema.String});
-export const GetParametersForImportInput = Schema.Struct({KeyMaterialType: Schema.String, WrappingKeyAlgorithm: Schema.String});
-export const GetPublicKeyCertificateInput = Schema.Struct({KeyIdentifier: Schema.String});
-export const ListTagsForResourceInput = Schema.Struct({ResourceArn: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const Tag = Schema.Struct({Key: Schema.String, Value: Schema.String});
+export class DisableDefaultKeyReplicationRegionsInput extends Schema.Class<DisableDefaultKeyReplicationRegionsInput>("DisableDefaultKeyReplicationRegionsInput")({ReplicationRegions: Regions}) {}
+export class EnableDefaultKeyReplicationRegionsInput extends Schema.Class<EnableDefaultKeyReplicationRegionsInput>("EnableDefaultKeyReplicationRegionsInput")({ReplicationRegions: Regions}) {}
+export class GetDefaultKeyReplicationRegionsOutput extends Schema.Class<GetDefaultKeyReplicationRegionsOutput>("GetDefaultKeyReplicationRegionsOutput")({EnabledReplicationRegions: Regions}) {}
+export class GetParametersForExportInput extends Schema.Class<GetParametersForExportInput>("GetParametersForExportInput")({KeyMaterialType: Schema.String, SigningKeyAlgorithm: Schema.String}) {}
+export class GetParametersForImportInput extends Schema.Class<GetParametersForImportInput>("GetParametersForImportInput")({KeyMaterialType: Schema.String, WrappingKeyAlgorithm: Schema.String}) {}
+export class GetPublicKeyCertificateInput extends Schema.Class<GetPublicKeyCertificateInput>("GetPublicKeyCertificateInput")({KeyIdentifier: Schema.String}) {}
+export class ListTagsForResourceInput extends Schema.Class<ListTagsForResourceInput>("ListTagsForResourceInput")({ResourceArn: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.String, Value: Schema.String}) {}
 export const Tags = Schema.Array(Tag);
-export const TagResourceInput = Schema.Struct({ResourceArn: Schema.String, Tags: Tags});
-export const TagResourceOutput = Schema.Struct({});
-export const UntagResourceInput = Schema.Struct({ResourceArn: Schema.String, TagKeys: TagKeys});
-export const UntagResourceOutput = Schema.Struct({});
-export const CertificateSubjectType = Schema.Struct({CommonName: Schema.String, OrganizationUnit: Schema.optional(Schema.String), Organization: Schema.optional(Schema.String), City: Schema.optional(Schema.String), Country: Schema.optional(Schema.String), StateOrProvince: Schema.optional(Schema.String), EmailAddress: Schema.optional(Schema.String)});
-export const DisableDefaultKeyReplicationRegionsOutput = Schema.Struct({EnabledReplicationRegions: Regions});
-export const EnableDefaultKeyReplicationRegionsOutput = Schema.Struct({EnabledReplicationRegions: Regions});
-export const GetCertificateSigningRequestInput = Schema.Struct({KeyIdentifier: Schema.String, SigningAlgorithm: Schema.String, CertificateSubject: CertificateSubjectType});
-export const AccessDeniedException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const GetParametersForExportOutput = Schema.Struct({SigningKeyCertificate: Schema.String, SigningKeyCertificateChain: Schema.String, SigningKeyAlgorithm: Schema.String, ExportToken: Schema.String, ParametersValidUntilTimestamp: Schema.Date});
-export const GetParametersForImportOutput = Schema.Struct({WrappingKeyCertificate: Schema.String, WrappingKeyCertificateChain: Schema.String, WrappingKeyAlgorithm: Schema.String, ImportToken: Schema.String, ParametersValidUntilTimestamp: Schema.Date});
-export const GetPublicKeyCertificateOutput = Schema.Struct({KeyCertificate: Schema.String, KeyCertificateChain: Schema.String});
-export const ListTagsForResourceOutput = Schema.Struct({Tags: Tags, NextToken: Schema.optional(Schema.String)});
-export const ConflictException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const InternalServerException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const KeyModesOfUse = Schema.Struct({Encrypt: Schema.optional(Schema.Boolean), Decrypt: Schema.optional(Schema.Boolean), Wrap: Schema.optional(Schema.Boolean), Unwrap: Schema.optional(Schema.Boolean), Generate: Schema.optional(Schema.Boolean), Sign: Schema.optional(Schema.Boolean), Verify: Schema.optional(Schema.Boolean), DeriveKey: Schema.optional(Schema.Boolean), NoRestrictions: Schema.optional(Schema.Boolean)});
+export class TagResourceInput extends Schema.Class<TagResourceInput>("TagResourceInput")({ResourceArn: Schema.String, Tags: Tags}) {}
+export class TagResourceOutput extends Schema.Class<TagResourceOutput>("TagResourceOutput")({}) {}
+export class UntagResourceInput extends Schema.Class<UntagResourceInput>("UntagResourceInput")({ResourceArn: Schema.String, TagKeys: TagKeys}) {}
+export class UntagResourceOutput extends Schema.Class<UntagResourceOutput>("UntagResourceOutput")({}) {}
+export class CertificateSubjectType extends Schema.Class<CertificateSubjectType>("CertificateSubjectType")({CommonName: Schema.String, OrganizationUnit: Schema.optional(Schema.String), Organization: Schema.optional(Schema.String), City: Schema.optional(Schema.String), Country: Schema.optional(Schema.String), StateOrProvince: Schema.optional(Schema.String), EmailAddress: Schema.optional(Schema.String)}) {}
+export class DisableDefaultKeyReplicationRegionsOutput extends Schema.Class<DisableDefaultKeyReplicationRegionsOutput>("DisableDefaultKeyReplicationRegionsOutput")({EnabledReplicationRegions: Regions}) {}
+export class EnableDefaultKeyReplicationRegionsOutput extends Schema.Class<EnableDefaultKeyReplicationRegionsOutput>("EnableDefaultKeyReplicationRegionsOutput")({EnabledReplicationRegions: Regions}) {}
+export class GetCertificateSigningRequestInput extends Schema.Class<GetCertificateSigningRequestInput>("GetCertificateSigningRequestInput")({KeyIdentifier: Schema.String, SigningAlgorithm: Schema.String, CertificateSubject: CertificateSubjectType}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({Message: Schema.optional(Schema.String)}) {}
+export class GetParametersForExportOutput extends Schema.Class<GetParametersForExportOutput>("GetParametersForExportOutput")({SigningKeyCertificate: Schema.String, SigningKeyCertificateChain: Schema.String, SigningKeyAlgorithm: Schema.String, ExportToken: Schema.String, ParametersValidUntilTimestamp: Schema.Date}) {}
+export class GetParametersForImportOutput extends Schema.Class<GetParametersForImportOutput>("GetParametersForImportOutput")({WrappingKeyCertificate: Schema.String, WrappingKeyCertificateChain: Schema.String, WrappingKeyAlgorithm: Schema.String, ImportToken: Schema.String, ParametersValidUntilTimestamp: Schema.Date}) {}
+export class GetPublicKeyCertificateOutput extends Schema.Class<GetPublicKeyCertificateOutput>("GetPublicKeyCertificateOutput")({KeyCertificate: Schema.String, KeyCertificateChain: Schema.String}) {}
+export class ListTagsForResourceOutput extends Schema.Class<ListTagsForResourceOutput>("ListTagsForResourceOutput")({Tags: Tags, NextToken: Schema.optional(Schema.String)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({Message: Schema.optional(Schema.String)}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({Message: Schema.optional(Schema.String)}) {}
+export class KeyModesOfUse extends Schema.Class<KeyModesOfUse>("KeyModesOfUse")({Encrypt: Schema.optional(Schema.Boolean), Decrypt: Schema.optional(Schema.Boolean), Wrap: Schema.optional(Schema.Boolean), Unwrap: Schema.optional(Schema.Boolean), Generate: Schema.optional(Schema.Boolean), Sign: Schema.optional(Schema.Boolean), Verify: Schema.optional(Schema.Boolean), DeriveKey: Schema.optional(Schema.Boolean), NoRestrictions: Schema.optional(Schema.Boolean)}) {}
 export const OptionalBlocks = Schema.Record({key: Schema.String, value: Schema.String});
-export const KeyBlockHeaders = Schema.Struct({KeyModesOfUse: Schema.optional(KeyModesOfUse), KeyExportability: Schema.optional(Schema.String), KeyVersion: Schema.optional(Schema.String), OptionalBlocks: Schema.optional(OptionalBlocks)});
-export const ExportTr34KeyBlock = Schema.Struct({CertificateAuthorityPublicKeyIdentifier: Schema.String, WrappingKeyCertificate: Schema.String, ExportToken: Schema.optional(Schema.String), SigningKeyIdentifier: Schema.optional(Schema.String), SigningKeyCertificate: Schema.optional(Schema.String), KeyBlockFormat: Schema.String, RandomNonce: Schema.optional(Schema.String), KeyBlockHeaders: Schema.optional(KeyBlockHeaders)});
-export const ExportKeyCryptogram = Schema.Struct({CertificateAuthorityPublicKeyIdentifier: Schema.String, WrappingKeyCertificate: Schema.String, WrappingSpec: Schema.optional(Schema.String)});
-export const ExportDukptInitialKey = Schema.Struct({KeySerialNumber: Schema.String});
-export const KeyAttributes = Schema.Struct({KeyUsage: Schema.String, KeyClass: Schema.String, KeyAlgorithm: Schema.String, KeyModesOfUse: KeyModesOfUse});
-export const TrustedCertificatePublicKey = Schema.Struct({KeyAttributes: KeyAttributes, PublicKeyCertificate: Schema.String, CertificateAuthorityPublicKeyIdentifier: Schema.String});
-export const ImportTr31KeyBlock = Schema.Struct({WrappingKeyIdentifier: Schema.String, WrappedKeyBlock: Schema.String});
-export const ImportTr34KeyBlock = Schema.Struct({CertificateAuthorityPublicKeyIdentifier: Schema.String, SigningKeyCertificate: Schema.String, ImportToken: Schema.optional(Schema.String), WrappingKeyIdentifier: Schema.optional(Schema.String), WrappingKeyCertificate: Schema.optional(Schema.String), WrappedKeyBlock: Schema.String, KeyBlockFormat: Schema.String, RandomNonce: Schema.optional(Schema.String)});
-export const ImportKeyCryptogram = Schema.Struct({KeyAttributes: KeyAttributes, Exportable: Schema.Boolean, WrappedKeyCryptogram: Schema.String, ImportToken: Schema.String, WrappingSpec: Schema.optional(Schema.String)});
+export class KeyBlockHeaders extends Schema.Class<KeyBlockHeaders>("KeyBlockHeaders")({KeyModesOfUse: Schema.optional(KeyModesOfUse), KeyExportability: Schema.optional(Schema.String), KeyVersion: Schema.optional(Schema.String), OptionalBlocks: Schema.optional(OptionalBlocks)}) {}
+export class ExportTr34KeyBlock extends Schema.Class<ExportTr34KeyBlock>("ExportTr34KeyBlock")({CertificateAuthorityPublicKeyIdentifier: Schema.String, WrappingKeyCertificate: Schema.String, ExportToken: Schema.optional(Schema.String), SigningKeyIdentifier: Schema.optional(Schema.String), SigningKeyCertificate: Schema.optional(Schema.String), KeyBlockFormat: Schema.String, RandomNonce: Schema.optional(Schema.String), KeyBlockHeaders: Schema.optional(KeyBlockHeaders)}) {}
+export class ExportKeyCryptogram extends Schema.Class<ExportKeyCryptogram>("ExportKeyCryptogram")({CertificateAuthorityPublicKeyIdentifier: Schema.String, WrappingKeyCertificate: Schema.String, WrappingSpec: Schema.optional(Schema.String)}) {}
+export class ExportAs2805KeyCryptogram extends Schema.Class<ExportAs2805KeyCryptogram>("ExportAs2805KeyCryptogram")({WrappingKeyIdentifier: Schema.String, As2805KeyVariant: Schema.String}) {}
+export class ExportDukptInitialKey extends Schema.Class<ExportDukptInitialKey>("ExportDukptInitialKey")({KeySerialNumber: Schema.String}) {}
+export class KeyAttributes extends Schema.Class<KeyAttributes>("KeyAttributes")({KeyUsage: Schema.String, KeyClass: Schema.String, KeyAlgorithm: Schema.String, KeyModesOfUse: KeyModesOfUse}) {}
+export class TrustedCertificatePublicKey extends Schema.Class<TrustedCertificatePublicKey>("TrustedCertificatePublicKey")({KeyAttributes: KeyAttributes, PublicKeyCertificate: Schema.String, CertificateAuthorityPublicKeyIdentifier: Schema.String}) {}
+export class ImportTr31KeyBlock extends Schema.Class<ImportTr31KeyBlock>("ImportTr31KeyBlock")({WrappingKeyIdentifier: Schema.String, WrappedKeyBlock: Schema.String}) {}
+export class ImportTr34KeyBlock extends Schema.Class<ImportTr34KeyBlock>("ImportTr34KeyBlock")({CertificateAuthorityPublicKeyIdentifier: Schema.String, SigningKeyCertificate: Schema.String, ImportToken: Schema.optional(Schema.String), WrappingKeyIdentifier: Schema.optional(Schema.String), WrappingKeyCertificate: Schema.optional(Schema.String), WrappedKeyBlock: Schema.String, KeyBlockFormat: Schema.String, RandomNonce: Schema.optional(Schema.String)}) {}
+export class ImportKeyCryptogram extends Schema.Class<ImportKeyCryptogram>("ImportKeyCryptogram")({KeyAttributes: KeyAttributes, Exportable: Schema.Boolean, WrappedKeyCryptogram: Schema.String, ImportToken: Schema.String, WrappingSpec: Schema.optional(Schema.String)}) {}
 export const DiffieHellmanDerivationData = Schema.Union(Schema.String);
-export const ImportDiffieHellmanTr31KeyBlock = Schema.Struct({PrivateKeyIdentifier: Schema.String, CertificateAuthorityPublicKeyIdentifier: Schema.String, PublicKeyCertificate: Schema.String, DeriveKeyAlgorithm: Schema.String, KeyDerivationFunction: Schema.String, KeyDerivationHashAlgorithm: Schema.String, DerivationData: DiffieHellmanDerivationData, WrappedKeyBlock: Schema.String});
-export const ExportAttributes = Schema.Struct({ExportDukptInitialKey: Schema.optional(ExportDukptInitialKey), KeyCheckValueAlgorithm: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({ResourceId: Schema.optional(Schema.String)});
-export const ServiceQuotaExceededException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const GetCertificateSigningRequestOutput = Schema.Struct({CertificateSigningRequest: Schema.String});
-export const ThrottlingException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ServiceUnavailableException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ValidationException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ExportDiffieHellmanTr31KeyBlock = Schema.Struct({PrivateKeyIdentifier: Schema.String, CertificateAuthorityPublicKeyIdentifier: Schema.String, PublicKeyCertificate: Schema.String, DeriveKeyAlgorithm: Schema.String, KeyDerivationFunction: Schema.String, KeyDerivationHashAlgorithm: Schema.String, DerivationData: DiffieHellmanDerivationData, KeyBlockHeaders: Schema.optional(KeyBlockHeaders)});
-export const RootCertificatePublicKey = Schema.Struct({KeyAttributes: KeyAttributes, PublicKeyCertificate: Schema.String});
-export const ImportKeyMaterial = Schema.Union(RootCertificatePublicKey, TrustedCertificatePublicKey, ImportTr31KeyBlock, ImportTr34KeyBlock, ImportKeyCryptogram, ImportDiffieHellmanTr31KeyBlock);
-export const ImportKeyInput = Schema.Struct({KeyMaterial: ImportKeyMaterial, KeyCheckValueAlgorithm: Schema.optional(Schema.String), Enabled: Schema.optional(Schema.Boolean), Tags: Schema.optional(Tags), ReplicationRegions: Schema.optional(Regions)});
-export const ExportTr31KeyBlock = Schema.Struct({WrappingKeyIdentifier: Schema.String, KeyBlockHeaders: Schema.optional(KeyBlockHeaders)});
-export const ExportKeyMaterial = Schema.Union(ExportTr31KeyBlock, ExportTr34KeyBlock, ExportKeyCryptogram, ExportDiffieHellmanTr31KeyBlock);
-export const ExportKeyInput = Schema.Struct({KeyMaterial: ExportKeyMaterial, ExportKeyIdentifier: Schema.String, ExportAttributes: Schema.optional(ExportAttributes)});
-export const WrappedKey = Schema.Struct({WrappingKeyArn: Schema.String, WrappedKeyMaterialFormat: Schema.String, KeyMaterial: Schema.String, KeyCheckValue: Schema.optional(Schema.String), KeyCheckValueAlgorithm: Schema.optional(Schema.String)});
-export const ReplicationStatusType = Schema.Struct({Status: Schema.String, StatusMessage: Schema.optional(Schema.String)});
-export const ExportKeyOutput = Schema.Struct({WrappedKey: Schema.optional(WrappedKey)});
+export class ImportDiffieHellmanTr31KeyBlock extends Schema.Class<ImportDiffieHellmanTr31KeyBlock>("ImportDiffieHellmanTr31KeyBlock")({PrivateKeyIdentifier: Schema.String, CertificateAuthorityPublicKeyIdentifier: Schema.String, PublicKeyCertificate: Schema.String, DeriveKeyAlgorithm: Schema.String, KeyDerivationFunction: Schema.String, KeyDerivationHashAlgorithm: Schema.String, DerivationData: DiffieHellmanDerivationData, WrappedKeyBlock: Schema.String}) {}
+export class ExportAttributes extends Schema.Class<ExportAttributes>("ExportAttributes")({ExportDukptInitialKey: Schema.optional(ExportDukptInitialKey), KeyCheckValueAlgorithm: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({ResourceId: Schema.optional(Schema.String)}) {}
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({Message: Schema.optional(Schema.String)}) {}
+export class GetCertificateSigningRequestOutput extends Schema.Class<GetCertificateSigningRequestOutput>("GetCertificateSigningRequestOutput")({CertificateSigningRequest: Schema.String}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({Message: Schema.optional(Schema.String)}) {}
+export class ServiceUnavailableException extends Schema.Class<ServiceUnavailableException>("ServiceUnavailableException")({Message: Schema.optional(Schema.String)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({Message: Schema.optional(Schema.String)}) {}
+export class ExportDiffieHellmanTr31KeyBlock extends Schema.Class<ExportDiffieHellmanTr31KeyBlock>("ExportDiffieHellmanTr31KeyBlock")({PrivateKeyIdentifier: Schema.String, CertificateAuthorityPublicKeyIdentifier: Schema.String, PublicKeyCertificate: Schema.String, DeriveKeyAlgorithm: Schema.String, KeyDerivationFunction: Schema.String, KeyDerivationHashAlgorithm: Schema.String, DerivationData: DiffieHellmanDerivationData, KeyBlockHeaders: Schema.optional(KeyBlockHeaders)}) {}
+export class RootCertificatePublicKey extends Schema.Class<RootCertificatePublicKey>("RootCertificatePublicKey")({KeyAttributes: KeyAttributes, PublicKeyCertificate: Schema.String}) {}
+export class ImportAs2805KeyCryptogram extends Schema.Class<ImportAs2805KeyCryptogram>("ImportAs2805KeyCryptogram")({As2805KeyVariant: Schema.String, KeyModesOfUse: KeyModesOfUse, KeyAlgorithm: Schema.String, Exportable: Schema.Boolean, WrappingKeyIdentifier: Schema.String, WrappedKeyCryptogram: Schema.String}) {}
+export const ImportKeyMaterial = Schema.Union(RootCertificatePublicKey, TrustedCertificatePublicKey, ImportTr31KeyBlock, ImportTr34KeyBlock, ImportKeyCryptogram, ImportDiffieHellmanTr31KeyBlock, ImportAs2805KeyCryptogram);
+export class ImportKeyInput extends Schema.Class<ImportKeyInput>("ImportKeyInput")({KeyMaterial: ImportKeyMaterial, KeyCheckValueAlgorithm: Schema.optional(Schema.String), Enabled: Schema.optional(Schema.Boolean), Tags: Schema.optional(Tags), ReplicationRegions: Schema.optional(Regions)}) {}
+export class ExportTr31KeyBlock extends Schema.Class<ExportTr31KeyBlock>("ExportTr31KeyBlock")({WrappingKeyIdentifier: Schema.String, KeyBlockHeaders: Schema.optional(KeyBlockHeaders)}) {}
+export const ExportKeyMaterial = Schema.Union(ExportTr31KeyBlock, ExportTr34KeyBlock, ExportKeyCryptogram, ExportDiffieHellmanTr31KeyBlock, ExportAs2805KeyCryptogram);
+export class ExportKeyInput extends Schema.Class<ExportKeyInput>("ExportKeyInput")({KeyMaterial: ExportKeyMaterial, ExportKeyIdentifier: Schema.String, ExportAttributes: Schema.optional(ExportAttributes)}) {}
+export class WrappedKey extends Schema.Class<WrappedKey>("WrappedKey")({WrappingKeyArn: Schema.String, WrappedKeyMaterialFormat: Schema.String, KeyMaterial: Schema.String, KeyCheckValue: Schema.optional(Schema.String), KeyCheckValueAlgorithm: Schema.optional(Schema.String)}) {}
+export class ReplicationStatusType extends Schema.Class<ReplicationStatusType>("ReplicationStatusType")({Status: Schema.String, StatusMessage: Schema.optional(Schema.String)}) {}
+export class ExportKeyOutput extends Schema.Class<ExportKeyOutput>("ExportKeyOutput")({WrappedKey: Schema.optional(WrappedKey)}) {}
 export const ReplicationStatus = Schema.Record({key: Schema.String, value: ReplicationStatusType});
-export const Key = Schema.Struct({KeyArn: Schema.String, KeyAttributes: KeyAttributes, KeyCheckValue: Schema.String, KeyCheckValueAlgorithm: Schema.String, Enabled: Schema.Boolean, Exportable: Schema.Boolean, KeyState: Schema.String, KeyOrigin: Schema.String, CreateTimestamp: Schema.Date, UsageStartTimestamp: Schema.optional(Schema.Date), UsageStopTimestamp: Schema.optional(Schema.Date), DeletePendingTimestamp: Schema.optional(Schema.Date), DeleteTimestamp: Schema.optional(Schema.Date), DeriveKeyUsage: Schema.optional(Schema.String), MultiRegionKeyType: Schema.optional(Schema.String), PrimaryRegion: Schema.optional(Schema.String), ReplicationStatus: Schema.optional(ReplicationStatus), UsingDefaultReplicationRegions: Schema.optional(Schema.Boolean)});
-export const ImportKeyOutput = Schema.Struct({Key: Key});
+export class Key extends Schema.Class<Key>("Key")({KeyArn: Schema.String, KeyAttributes: KeyAttributes, KeyCheckValue: Schema.String, KeyCheckValueAlgorithm: Schema.String, Enabled: Schema.Boolean, Exportable: Schema.Boolean, KeyState: Schema.String, KeyOrigin: Schema.String, CreateTimestamp: Schema.Date, UsageStartTimestamp: Schema.optional(Schema.Date), UsageStopTimestamp: Schema.optional(Schema.Date), DeletePendingTimestamp: Schema.optional(Schema.Date), DeleteTimestamp: Schema.optional(Schema.Date), DeriveKeyUsage: Schema.optional(Schema.String), MultiRegionKeyType: Schema.optional(Schema.String), PrimaryRegion: Schema.optional(Schema.String), ReplicationStatus: Schema.optional(ReplicationStatus), UsingDefaultReplicationRegions: Schema.optional(Schema.Boolean)}) {}
+export class ImportKeyOutput extends Schema.Class<ImportKeyOutput>("ImportKeyOutput")({Key: Key}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
-export class ServiceUnavailableExceptionError extends Schema.TaggedError<ServiceUnavailableExceptionError>()("ServiceUnavailableException", ServiceUnavailableException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
+export class ServiceUnavailableExceptionError extends Schema.TaggedError<ServiceUnavailableExceptionError>()("ServiceUnavailableException", ServiceUnavailableException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
 
 //# Operations
 export const getPublicKeyCertificate = /*#__PURE__*/ makeOperation(() => Operation({ version: "2021-09-14", uri: "/", method: "POST", sdkId: "Payment Cryptography", sigV4ServiceName: "payment-cryptography", name: "PaymentCryptographyControlPlane.GetPublicKeyCertificate" }, GetPublicKeyCertificateInput, GetPublicKeyCertificateOutput, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ServiceUnavailableExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);

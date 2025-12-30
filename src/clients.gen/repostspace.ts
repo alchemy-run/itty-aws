@@ -5,73 +5,73 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 //# Schemas
 export const AccessorIdList = Schema.Array(Schema.String);
 export const TagKeyList = Schema.Array(Schema.String);
-export const BatchAddChannelRoleToAccessorsInput = Schema.Struct({spaceId: Schema.String, channelId: Schema.String, accessorIds: AccessorIdList, channelRole: Schema.String});
-export const BatchAddRoleInput = Schema.Struct({spaceId: Schema.String, accessorIds: AccessorIdList, role: Schema.String});
-export const BatchRemoveChannelRoleFromAccessorsInput = Schema.Struct({spaceId: Schema.String, channelId: Schema.String, accessorIds: AccessorIdList, channelRole: Schema.String});
-export const BatchRemoveRoleInput = Schema.Struct({spaceId: Schema.String, accessorIds: AccessorIdList, role: Schema.String});
-export const CreateChannelInput = Schema.Struct({spaceId: Schema.String, channelName: Schema.String, channelDescription: Schema.optional(Schema.String)});
-export const DeleteSpaceInput = Schema.Struct({spaceId: Schema.String});
-export const DeregisterAdminInput = Schema.Struct({spaceId: Schema.String, adminId: Schema.String});
-export const GetChannelInput = Schema.Struct({spaceId: Schema.String, channelId: Schema.String});
-export const GetSpaceInput = Schema.Struct({spaceId: Schema.String});
-export const ListChannelsInput = Schema.Struct({spaceId: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListSpacesInput = Schema.Struct({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListTagsForResourceRequest = Schema.Struct({resourceArn: Schema.String});
-export const RegisterAdminInput = Schema.Struct({spaceId: Schema.String, adminId: Schema.String});
-export const SendInvitesInput = Schema.Struct({spaceId: Schema.String, accessorIds: AccessorIdList, title: Schema.String, body: Schema.String});
+export class BatchAddChannelRoleToAccessorsInput extends Schema.Class<BatchAddChannelRoleToAccessorsInput>("BatchAddChannelRoleToAccessorsInput")({spaceId: Schema.String, channelId: Schema.String, accessorIds: AccessorIdList, channelRole: Schema.String}) {}
+export class BatchAddRoleInput extends Schema.Class<BatchAddRoleInput>("BatchAddRoleInput")({spaceId: Schema.String, accessorIds: AccessorIdList, role: Schema.String}) {}
+export class BatchRemoveChannelRoleFromAccessorsInput extends Schema.Class<BatchRemoveChannelRoleFromAccessorsInput>("BatchRemoveChannelRoleFromAccessorsInput")({spaceId: Schema.String, channelId: Schema.String, accessorIds: AccessorIdList, channelRole: Schema.String}) {}
+export class BatchRemoveRoleInput extends Schema.Class<BatchRemoveRoleInput>("BatchRemoveRoleInput")({spaceId: Schema.String, accessorIds: AccessorIdList, role: Schema.String}) {}
+export class CreateChannelInput extends Schema.Class<CreateChannelInput>("CreateChannelInput")({spaceId: Schema.String, channelName: Schema.String, channelDescription: Schema.optional(Schema.String)}) {}
+export class DeleteSpaceInput extends Schema.Class<DeleteSpaceInput>("DeleteSpaceInput")({spaceId: Schema.String}) {}
+export class DeregisterAdminInput extends Schema.Class<DeregisterAdminInput>("DeregisterAdminInput")({spaceId: Schema.String, adminId: Schema.String}) {}
+export class GetChannelInput extends Schema.Class<GetChannelInput>("GetChannelInput")({spaceId: Schema.String, channelId: Schema.String}) {}
+export class GetSpaceInput extends Schema.Class<GetSpaceInput>("GetSpaceInput")({spaceId: Schema.String}) {}
+export class ListChannelsInput extends Schema.Class<ListChannelsInput>("ListChannelsInput")({spaceId: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListSpacesInput extends Schema.Class<ListSpacesInput>("ListSpacesInput")({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({resourceArn: Schema.String}) {}
+export class RegisterAdminInput extends Schema.Class<RegisterAdminInput>("RegisterAdminInput")({spaceId: Schema.String, adminId: Schema.String}) {}
+export class SendInvitesInput extends Schema.Class<SendInvitesInput>("SendInvitesInput")({spaceId: Schema.String, accessorIds: AccessorIdList, title: Schema.String, body: Schema.String}) {}
 export const Tags = Schema.Record({key: Schema.String, value: Schema.String});
-export const TagResourceRequest = Schema.Struct({resourceArn: Schema.String, tags: Tags});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({resourceArn: Schema.String, tagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
-export const UpdateChannelInput = Schema.Struct({spaceId: Schema.String, channelId: Schema.String, channelName: Schema.String, channelDescription: Schema.optional(Schema.String)});
-export const UpdateChannelOutput = Schema.Struct({});
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({resourceArn: Schema.String, tags: Tags}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({resourceArn: Schema.String, tagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class UpdateChannelInput extends Schema.Class<UpdateChannelInput>("UpdateChannelInput")({spaceId: Schema.String, channelId: Schema.String, channelName: Schema.String, channelDescription: Schema.optional(Schema.String)}) {}
+export class UpdateChannelOutput extends Schema.Class<UpdateChannelOutput>("UpdateChannelOutput")({}) {}
 export const AllowedDomainsList = Schema.Array(Schema.String);
-export const SupportedEmailDomainsParameters = Schema.Struct({enabled: Schema.optional(Schema.String), allowedDomains: Schema.optional(AllowedDomainsList)});
-export const UpdateSpaceInput = Schema.Struct({spaceId: Schema.String, description: Schema.optional(Schema.String), tier: Schema.optional(Schema.String), roleArn: Schema.optional(Schema.String), supportedEmailDomains: Schema.optional(SupportedEmailDomainsParameters)});
+export class SupportedEmailDomainsParameters extends Schema.Class<SupportedEmailDomainsParameters>("SupportedEmailDomainsParameters")({enabled: Schema.optional(Schema.String), allowedDomains: Schema.optional(AllowedDomainsList)}) {}
+export class UpdateSpaceInput extends Schema.Class<UpdateSpaceInput>("UpdateSpaceInput")({spaceId: Schema.String, description: Schema.optional(Schema.String), tier: Schema.optional(Schema.String), roleArn: Schema.optional(Schema.String), supportedEmailDomains: Schema.optional(SupportedEmailDomainsParameters)}) {}
 export const UserAdmins = Schema.Array(Schema.String);
 export const GroupAdmins = Schema.Array(Schema.String);
-export const BatchError = Schema.Struct({accessorId: Schema.String, error: Schema.Number, message: Schema.String});
+export class BatchError extends Schema.Class<BatchError>("BatchError")({accessorId: Schema.String, error: Schema.Number, message: Schema.String}) {}
 export const BatchErrorList = Schema.Array(BatchError);
-export const BatchAddRoleOutput = Schema.Struct({addedAccessorIds: AccessorIdList, errors: BatchErrorList});
-export const BatchRemoveChannelRoleFromAccessorsOutput = Schema.Struct({removedAccessorIds: AccessorIdList, errors: BatchErrorList});
-export const BatchRemoveRoleOutput = Schema.Struct({removedAccessorIds: AccessorIdList, errors: BatchErrorList});
-export const CreateChannelOutput = Schema.Struct({channelId: Schema.String});
-export const CreateSpaceInput = Schema.Struct({name: Schema.String, subdomain: Schema.String, tier: Schema.String, description: Schema.optional(Schema.String), userKMSKey: Schema.optional(Schema.String), tags: Schema.optional(Tags), roleArn: Schema.optional(Schema.String), supportedEmailDomains: Schema.optional(SupportedEmailDomainsParameters)});
-export const AccessDeniedException = Schema.Struct({message: Schema.String});
-export const InternalServerException = Schema.Struct({message: Schema.String, retryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))});
-export const ListTagsForResourceResponse = Schema.Struct({tags: Schema.optional(Tags)});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String});
-export const ThrottlingException = Schema.Struct({message: Schema.String, serviceCode: Schema.optional(Schema.String), quotaCode: Schema.optional(Schema.String), retryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))});
-export const ConflictException = Schema.Struct({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String});
+export class BatchAddRoleOutput extends Schema.Class<BatchAddRoleOutput>("BatchAddRoleOutput")({addedAccessorIds: AccessorIdList, errors: BatchErrorList}) {}
+export class BatchRemoveChannelRoleFromAccessorsOutput extends Schema.Class<BatchRemoveChannelRoleFromAccessorsOutput>("BatchRemoveChannelRoleFromAccessorsOutput")({removedAccessorIds: AccessorIdList, errors: BatchErrorList}) {}
+export class BatchRemoveRoleOutput extends Schema.Class<BatchRemoveRoleOutput>("BatchRemoveRoleOutput")({removedAccessorIds: AccessorIdList, errors: BatchErrorList}) {}
+export class CreateChannelOutput extends Schema.Class<CreateChannelOutput>("CreateChannelOutput")({channelId: Schema.String}) {}
+export class CreateSpaceInput extends Schema.Class<CreateSpaceInput>("CreateSpaceInput")({name: Schema.String, subdomain: Schema.String, tier: Schema.String, description: Schema.optional(Schema.String), userKMSKey: Schema.optional(Schema.String), tags: Schema.optional(Tags), roleArn: Schema.optional(Schema.String), supportedEmailDomains: Schema.optional(SupportedEmailDomainsParameters)}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({message: Schema.String}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({message: Schema.String, retryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({tags: Schema.optional(Tags)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({message: Schema.String, serviceCode: Schema.optional(Schema.String), quotaCode: Schema.optional(Schema.String), retryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String}) {}
 export const ChannelRoleList = Schema.Array(Schema.String);
 export const RoleList = Schema.Array(Schema.String);
 export const ChannelRoles = Schema.Record({key: Schema.String, value: ChannelRoleList});
 export const Roles = Schema.Record({key: Schema.String, value: RoleList});
-export const SupportedEmailDomainsStatus = Schema.Struct({enabled: Schema.optional(Schema.String), allowedDomains: Schema.optional(AllowedDomainsList)});
-export const ChannelData = Schema.Struct({spaceId: Schema.String, channelId: Schema.String, channelName: Schema.String, channelDescription: Schema.optional(Schema.String), createDateTime: Schema.Date, deleteDateTime: Schema.optional(Schema.Date), channelStatus: Schema.String, userCount: Schema.Number, groupCount: Schema.Number});
+export class SupportedEmailDomainsStatus extends Schema.Class<SupportedEmailDomainsStatus>("SupportedEmailDomainsStatus")({enabled: Schema.optional(Schema.String), allowedDomains: Schema.optional(AllowedDomainsList)}) {}
+export class ChannelData extends Schema.Class<ChannelData>("ChannelData")({spaceId: Schema.String, channelId: Schema.String, channelName: Schema.String, channelDescription: Schema.optional(Schema.String), createDateTime: Schema.Date, deleteDateTime: Schema.optional(Schema.Date), channelStatus: Schema.String, userCount: Schema.Number, groupCount: Schema.Number}) {}
 export const ChannelsList = Schema.Array(ChannelData);
-export const SpaceData = Schema.Struct({spaceId: Schema.String, arn: Schema.String, name: Schema.String, description: Schema.optional(Schema.String), status: Schema.String, configurationStatus: Schema.String, vanityDomainStatus: Schema.String, vanityDomain: Schema.String, randomDomain: Schema.String, tier: Schema.String, storageLimit: Schema.Number, createDateTime: Schema.Date, deleteDateTime: Schema.optional(Schema.Date), userKMSKey: Schema.optional(Schema.String), userCount: Schema.optional(Schema.Number), contentSize: Schema.optional(Schema.Number), supportedEmailDomains: Schema.optional(SupportedEmailDomainsStatus)});
+export class SpaceData extends Schema.Class<SpaceData>("SpaceData")({spaceId: Schema.String, arn: Schema.String, name: Schema.String, description: Schema.optional(Schema.String), status: Schema.String, configurationStatus: Schema.String, vanityDomainStatus: Schema.String, vanityDomain: Schema.String, randomDomain: Schema.String, tier: Schema.String, storageLimit: Schema.Number, createDateTime: Schema.Date, deleteDateTime: Schema.optional(Schema.Date), userKMSKey: Schema.optional(Schema.String), userCount: Schema.optional(Schema.Number), contentSize: Schema.optional(Schema.Number), supportedEmailDomains: Schema.optional(SupportedEmailDomainsStatus)}) {}
 export const SpacesList = Schema.Array(SpaceData);
-export const ValidationExceptionField = Schema.Struct({name: Schema.String, message: Schema.String});
+export class ValidationExceptionField extends Schema.Class<ValidationExceptionField>("ValidationExceptionField")({name: Schema.String, message: Schema.String}) {}
 export const ValidationExceptionFieldList = Schema.Array(ValidationExceptionField);
-export const BatchAddChannelRoleToAccessorsOutput = Schema.Struct({addedAccessorIds: AccessorIdList, errors: BatchErrorList});
-export const ServiceQuotaExceededException = Schema.Struct({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String, serviceCode: Schema.String, quotaCode: Schema.String});
-export const CreateSpaceOutput = Schema.Struct({spaceId: Schema.String});
-export const GetChannelOutput = Schema.Struct({spaceId: Schema.String, channelId: Schema.String, channelName: Schema.String, channelDescription: Schema.optional(Schema.String), createDateTime: Schema.Date, deleteDateTime: Schema.optional(Schema.Date), channelRoles: Schema.optional(ChannelRoles), channelStatus: Schema.String});
-export const GetSpaceOutput = Schema.Struct({spaceId: Schema.String, arn: Schema.String, name: Schema.String, status: Schema.String, configurationStatus: Schema.String, clientId: Schema.String, identityStoreId: Schema.optional(Schema.String), applicationArn: Schema.optional(Schema.String), description: Schema.optional(Schema.String), vanityDomainStatus: Schema.String, vanityDomain: Schema.String, randomDomain: Schema.String, customerRoleArn: Schema.optional(Schema.String), createDateTime: Schema.Date, deleteDateTime: Schema.optional(Schema.Date), tier: Schema.String, storageLimit: Schema.Number, userAdmins: Schema.optional(UserAdmins), groupAdmins: Schema.optional(GroupAdmins), roles: Schema.optional(Roles), userKMSKey: Schema.optional(Schema.String), userCount: Schema.optional(Schema.Number), contentSize: Schema.optional(Schema.Number), supportedEmailDomains: Schema.optional(SupportedEmailDomainsStatus)});
-export const ListChannelsOutput = Schema.Struct({channels: ChannelsList, nextToken: Schema.optional(Schema.String)});
-export const ListSpacesOutput = Schema.Struct({spaces: SpacesList, nextToken: Schema.optional(Schema.String)});
-export const ValidationException = Schema.Struct({message: Schema.String, reason: Schema.String, fieldList: Schema.optional(ValidationExceptionFieldList)});
+export class BatchAddChannelRoleToAccessorsOutput extends Schema.Class<BatchAddChannelRoleToAccessorsOutput>("BatchAddChannelRoleToAccessorsOutput")({addedAccessorIds: AccessorIdList, errors: BatchErrorList}) {}
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String, serviceCode: Schema.String, quotaCode: Schema.String}) {}
+export class CreateSpaceOutput extends Schema.Class<CreateSpaceOutput>("CreateSpaceOutput")({spaceId: Schema.String}) {}
+export class GetChannelOutput extends Schema.Class<GetChannelOutput>("GetChannelOutput")({spaceId: Schema.String, channelId: Schema.String, channelName: Schema.String, channelDescription: Schema.optional(Schema.String), createDateTime: Schema.Date, deleteDateTime: Schema.optional(Schema.Date), channelRoles: Schema.optional(ChannelRoles), channelStatus: Schema.String}) {}
+export class GetSpaceOutput extends Schema.Class<GetSpaceOutput>("GetSpaceOutput")({spaceId: Schema.String, arn: Schema.String, name: Schema.String, status: Schema.String, configurationStatus: Schema.String, clientId: Schema.String, identityStoreId: Schema.optional(Schema.String), applicationArn: Schema.optional(Schema.String), description: Schema.optional(Schema.String), vanityDomainStatus: Schema.String, vanityDomain: Schema.String, randomDomain: Schema.String, customerRoleArn: Schema.optional(Schema.String), createDateTime: Schema.Date, deleteDateTime: Schema.optional(Schema.Date), tier: Schema.String, storageLimit: Schema.Number, userAdmins: Schema.optional(UserAdmins), groupAdmins: Schema.optional(GroupAdmins), roles: Schema.optional(Roles), userKMSKey: Schema.optional(Schema.String), userCount: Schema.optional(Schema.Number), contentSize: Schema.optional(Schema.Number), supportedEmailDomains: Schema.optional(SupportedEmailDomainsStatus)}) {}
+export class ListChannelsOutput extends Schema.Class<ListChannelsOutput>("ListChannelsOutput")({channels: ChannelsList, nextToken: Schema.optional(Schema.String)}) {}
+export class ListSpacesOutput extends Schema.Class<ListSpacesOutput>("ListSpacesOutput")({spaces: SpacesList, nextToken: Schema.optional(Schema.String)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({message: Schema.String, reason: Schema.String, fieldList: Schema.optional(ValidationExceptionFieldList)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
 
 //# Operations
 export const untagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2022-05-13", uri: "/tags/{resourceArn}", method: "DELETE", sdkId: "repostspace", sigV4ServiceName: "repostspace", name: "RepostSpace.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

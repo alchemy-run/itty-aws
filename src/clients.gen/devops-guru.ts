@@ -3,232 +3,232 @@ import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperat
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const DescribeAccountHealthRequest = Schema.Struct({});
-export const DescribeEventSourcesConfigRequest = Schema.Struct({});
-export const DescribeServiceIntegrationRequest = Schema.Struct({});
+export class DescribeAccountHealthRequest extends Schema.Class<DescribeAccountHealthRequest>("DescribeAccountHealthRequest")({}) {}
+export class DescribeEventSourcesConfigRequest extends Schema.Class<DescribeEventSourcesConfigRequest>("DescribeEventSourcesConfigRequest")({}) {}
+export class DescribeServiceIntegrationRequest extends Schema.Class<DescribeServiceIntegrationRequest>("DescribeServiceIntegrationRequest")({}) {}
 export const AccountIdList = Schema.Array(Schema.String);
 export const OrganizationalUnitIdList = Schema.Array(Schema.String);
 export const ListInsightsAccountIdList = Schema.Array(Schema.String);
 export const ListInsightsOrganizationalUnitIdList = Schema.Array(Schema.String);
 export const SearchInsightsAccountIdList = Schema.Array(Schema.String);
-export const DeleteInsightRequest = Schema.Struct({Id: Schema.String});
-export const DeleteInsightResponse = Schema.Struct({});
-export const DescribeAccountHealthResponse = Schema.Struct({OpenReactiveInsights: Schema.Number, OpenProactiveInsights: Schema.Number, MetricsAnalyzed: Schema.Number, ResourceHours: Schema.Number, AnalyzedResourceCount: Schema.optional(Schema.Number)});
-export const DescribeAccountOverviewRequest = Schema.Struct({FromTime: Schema.Date, ToTime: Schema.optional(Schema.Date)});
-export const DescribeAnomalyRequest = Schema.Struct({Id: Schema.String, AccountId: Schema.optional(Schema.String)});
-export const DescribeFeedbackRequest = Schema.Struct({InsightId: Schema.optional(Schema.String)});
-export const DescribeInsightRequest = Schema.Struct({Id: Schema.String, AccountId: Schema.optional(Schema.String)});
-export const DescribeOrganizationHealthRequest = Schema.Struct({AccountIds: Schema.optional(AccountIdList), OrganizationalUnitIds: Schema.optional(OrganizationalUnitIdList)});
-export const DescribeOrganizationOverviewRequest = Schema.Struct({FromTime: Schema.Date, ToTime: Schema.optional(Schema.Date), AccountIds: Schema.optional(AccountIdList), OrganizationalUnitIds: Schema.optional(OrganizationalUnitIdList)});
-export const DescribeOrganizationResourceCollectionHealthRequest = Schema.Struct({OrganizationResourceCollectionType: Schema.String, AccountIds: Schema.optional(AccountIdList), OrganizationalUnitIds: Schema.optional(OrganizationalUnitIdList), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const DescribeResourceCollectionHealthRequest = Schema.Struct({ResourceCollectionType: Schema.String, NextToken: Schema.optional(Schema.String)});
-export const GetCostEstimationRequest = Schema.Struct({NextToken: Schema.optional(Schema.String)});
-export const GetResourceCollectionRequest = Schema.Struct({ResourceCollectionType: Schema.String, NextToken: Schema.optional(Schema.String)});
-export const ListAnomalousLogGroupsRequest = Schema.Struct({InsightId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListNotificationChannelsRequest = Schema.Struct({NextToken: Schema.optional(Schema.String)});
-export const ListInsightsOngoingStatusFilter = Schema.Struct({Type: Schema.String});
-export const EndTimeRange = Schema.Struct({FromTime: Schema.optional(Schema.Date), ToTime: Schema.optional(Schema.Date)});
-export const ListInsightsClosedStatusFilter = Schema.Struct({Type: Schema.String, EndTimeRange: EndTimeRange});
-export const StartTimeRange = Schema.Struct({FromTime: Schema.optional(Schema.Date), ToTime: Schema.optional(Schema.Date)});
-export const ListInsightsAnyStatusFilter = Schema.Struct({Type: Schema.String, StartTimeRange: StartTimeRange});
-export const ListInsightsStatusFilter = Schema.Struct({Ongoing: Schema.optional(ListInsightsOngoingStatusFilter), Closed: Schema.optional(ListInsightsClosedStatusFilter), Any: Schema.optional(ListInsightsAnyStatusFilter)});
-export const ListOrganizationInsightsRequest = Schema.Struct({StatusFilter: ListInsightsStatusFilter, MaxResults: Schema.optional(Schema.Number), AccountIds: Schema.optional(ListInsightsAccountIdList), OrganizationalUnitIds: Schema.optional(ListInsightsOrganizationalUnitIdList), NextToken: Schema.optional(Schema.String)});
-export const ListRecommendationsRequest = Schema.Struct({InsightId: Schema.String, NextToken: Schema.optional(Schema.String), Locale: Schema.optional(Schema.String), AccountId: Schema.optional(Schema.String)});
-export const RemoveNotificationChannelRequest = Schema.Struct({Id: Schema.String});
-export const RemoveNotificationChannelResponse = Schema.Struct({});
-export const AmazonCodeGuruProfilerIntegration = Schema.Struct({Status: Schema.optional(Schema.String)});
-export const EventSourcesConfig = Schema.Struct({AmazonCodeGuruProfiler: Schema.optional(AmazonCodeGuruProfilerIntegration)});
-export const UpdateEventSourcesConfigRequest = Schema.Struct({EventSources: Schema.optional(EventSourcesConfig)});
-export const UpdateEventSourcesConfigResponse = Schema.Struct({});
+export class DeleteInsightRequest extends Schema.Class<DeleteInsightRequest>("DeleteInsightRequest")({Id: Schema.String}) {}
+export class DeleteInsightResponse extends Schema.Class<DeleteInsightResponse>("DeleteInsightResponse")({}) {}
+export class DescribeAccountHealthResponse extends Schema.Class<DescribeAccountHealthResponse>("DescribeAccountHealthResponse")({OpenReactiveInsights: Schema.Number, OpenProactiveInsights: Schema.Number, MetricsAnalyzed: Schema.Number, ResourceHours: Schema.Number, AnalyzedResourceCount: Schema.optional(Schema.Number)}) {}
+export class DescribeAccountOverviewRequest extends Schema.Class<DescribeAccountOverviewRequest>("DescribeAccountOverviewRequest")({FromTime: Schema.Date, ToTime: Schema.optional(Schema.Date)}) {}
+export class DescribeAnomalyRequest extends Schema.Class<DescribeAnomalyRequest>("DescribeAnomalyRequest")({Id: Schema.String, AccountId: Schema.optional(Schema.String)}) {}
+export class DescribeFeedbackRequest extends Schema.Class<DescribeFeedbackRequest>("DescribeFeedbackRequest")({InsightId: Schema.optional(Schema.String)}) {}
+export class DescribeInsightRequest extends Schema.Class<DescribeInsightRequest>("DescribeInsightRequest")({Id: Schema.String, AccountId: Schema.optional(Schema.String)}) {}
+export class DescribeOrganizationHealthRequest extends Schema.Class<DescribeOrganizationHealthRequest>("DescribeOrganizationHealthRequest")({AccountIds: Schema.optional(AccountIdList), OrganizationalUnitIds: Schema.optional(OrganizationalUnitIdList)}) {}
+export class DescribeOrganizationOverviewRequest extends Schema.Class<DescribeOrganizationOverviewRequest>("DescribeOrganizationOverviewRequest")({FromTime: Schema.Date, ToTime: Schema.optional(Schema.Date), AccountIds: Schema.optional(AccountIdList), OrganizationalUnitIds: Schema.optional(OrganizationalUnitIdList)}) {}
+export class DescribeOrganizationResourceCollectionHealthRequest extends Schema.Class<DescribeOrganizationResourceCollectionHealthRequest>("DescribeOrganizationResourceCollectionHealthRequest")({OrganizationResourceCollectionType: Schema.String, AccountIds: Schema.optional(AccountIdList), OrganizationalUnitIds: Schema.optional(OrganizationalUnitIdList), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class DescribeResourceCollectionHealthRequest extends Schema.Class<DescribeResourceCollectionHealthRequest>("DescribeResourceCollectionHealthRequest")({ResourceCollectionType: Schema.String, NextToken: Schema.optional(Schema.String)}) {}
+export class GetCostEstimationRequest extends Schema.Class<GetCostEstimationRequest>("GetCostEstimationRequest")({NextToken: Schema.optional(Schema.String)}) {}
+export class GetResourceCollectionRequest extends Schema.Class<GetResourceCollectionRequest>("GetResourceCollectionRequest")({ResourceCollectionType: Schema.String, NextToken: Schema.optional(Schema.String)}) {}
+export class ListAnomalousLogGroupsRequest extends Schema.Class<ListAnomalousLogGroupsRequest>("ListAnomalousLogGroupsRequest")({InsightId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListNotificationChannelsRequest extends Schema.Class<ListNotificationChannelsRequest>("ListNotificationChannelsRequest")({NextToken: Schema.optional(Schema.String)}) {}
+export class ListInsightsOngoingStatusFilter extends Schema.Class<ListInsightsOngoingStatusFilter>("ListInsightsOngoingStatusFilter")({Type: Schema.String}) {}
+export class EndTimeRange extends Schema.Class<EndTimeRange>("EndTimeRange")({FromTime: Schema.optional(Schema.Date), ToTime: Schema.optional(Schema.Date)}) {}
+export class ListInsightsClosedStatusFilter extends Schema.Class<ListInsightsClosedStatusFilter>("ListInsightsClosedStatusFilter")({Type: Schema.String, EndTimeRange: EndTimeRange}) {}
+export class StartTimeRange extends Schema.Class<StartTimeRange>("StartTimeRange")({FromTime: Schema.optional(Schema.Date), ToTime: Schema.optional(Schema.Date)}) {}
+export class ListInsightsAnyStatusFilter extends Schema.Class<ListInsightsAnyStatusFilter>("ListInsightsAnyStatusFilter")({Type: Schema.String, StartTimeRange: StartTimeRange}) {}
+export class ListInsightsStatusFilter extends Schema.Class<ListInsightsStatusFilter>("ListInsightsStatusFilter")({Ongoing: Schema.optional(ListInsightsOngoingStatusFilter), Closed: Schema.optional(ListInsightsClosedStatusFilter), Any: Schema.optional(ListInsightsAnyStatusFilter)}) {}
+export class ListOrganizationInsightsRequest extends Schema.Class<ListOrganizationInsightsRequest>("ListOrganizationInsightsRequest")({StatusFilter: ListInsightsStatusFilter, MaxResults: Schema.optional(Schema.Number), AccountIds: Schema.optional(ListInsightsAccountIdList), OrganizationalUnitIds: Schema.optional(ListInsightsOrganizationalUnitIdList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListRecommendationsRequest extends Schema.Class<ListRecommendationsRequest>("ListRecommendationsRequest")({InsightId: Schema.String, NextToken: Schema.optional(Schema.String), Locale: Schema.optional(Schema.String), AccountId: Schema.optional(Schema.String)}) {}
+export class RemoveNotificationChannelRequest extends Schema.Class<RemoveNotificationChannelRequest>("RemoveNotificationChannelRequest")({Id: Schema.String}) {}
+export class RemoveNotificationChannelResponse extends Schema.Class<RemoveNotificationChannelResponse>("RemoveNotificationChannelResponse")({}) {}
+export class AmazonCodeGuruProfilerIntegration extends Schema.Class<AmazonCodeGuruProfilerIntegration>("AmazonCodeGuruProfilerIntegration")({Status: Schema.optional(Schema.String)}) {}
+export class EventSourcesConfig extends Schema.Class<EventSourcesConfig>("EventSourcesConfig")({AmazonCodeGuruProfiler: Schema.optional(AmazonCodeGuruProfilerIntegration)}) {}
+export class UpdateEventSourcesConfigRequest extends Schema.Class<UpdateEventSourcesConfigRequest>("UpdateEventSourcesConfigRequest")({EventSources: Schema.optional(EventSourcesConfig)}) {}
+export class UpdateEventSourcesConfigResponse extends Schema.Class<UpdateEventSourcesConfigResponse>("UpdateEventSourcesConfigResponse")({}) {}
 export const ResourceTypeFilters = Schema.Array(Schema.String);
 export const InsightSeverities = Schema.Array(Schema.String);
 export const InsightStatuses = Schema.Array(Schema.String);
-export const ListMonitoredResourcesFilters = Schema.Struct({ResourcePermission: Schema.String, ResourceTypeFilters: ResourceTypeFilters});
-export const InsightFeedback = Schema.Struct({Id: Schema.optional(Schema.String), Feedback: Schema.optional(Schema.String)});
+export class ListMonitoredResourcesFilters extends Schema.Class<ListMonitoredResourcesFilters>("ListMonitoredResourcesFilters")({ResourcePermission: Schema.String, ResourceTypeFilters: ResourceTypeFilters}) {}
+export class InsightFeedback extends Schema.Class<InsightFeedback>("InsightFeedback")({Id: Schema.optional(Schema.String), Feedback: Schema.optional(Schema.String)}) {}
 export const StackNames = Schema.Array(Schema.String);
-export const CloudFormationCollection = Schema.Struct({StackNames: Schema.optional(StackNames)});
+export class CloudFormationCollection extends Schema.Class<CloudFormationCollection>("CloudFormationCollection")({StackNames: Schema.optional(StackNames)}) {}
 export const TagValues = Schema.Array(Schema.String);
-export const TagCollection = Schema.Struct({AppBoundaryKey: Schema.String, TagValues: TagValues});
+export class TagCollection extends Schema.Class<TagCollection>("TagCollection")({AppBoundaryKey: Schema.String, TagValues: TagValues}) {}
 export const TagCollections = Schema.Array(TagCollection);
-export const ResourceCollection = Schema.Struct({CloudFormation: Schema.optional(CloudFormationCollection), Tags: Schema.optional(TagCollections)});
+export class ResourceCollection extends Schema.Class<ResourceCollection>("ResourceCollection")({CloudFormation: Schema.optional(CloudFormationCollection), Tags: Schema.optional(TagCollections)}) {}
 export const ServiceNames = Schema.Array(Schema.String);
-export const ServiceCollection = Schema.Struct({ServiceNames: Schema.optional(ServiceNames)});
-export const SearchInsightsFilters = Schema.Struct({Severities: Schema.optional(InsightSeverities), Statuses: Schema.optional(InsightStatuses), ResourceCollection: Schema.optional(ResourceCollection), ServiceCollection: Schema.optional(ServiceCollection)});
-export const SearchOrganizationInsightsFilters = Schema.Struct({Severities: Schema.optional(InsightSeverities), Statuses: Schema.optional(InsightStatuses), ResourceCollection: Schema.optional(ResourceCollection), ServiceCollection: Schema.optional(ServiceCollection)});
+export class ServiceCollection extends Schema.Class<ServiceCollection>("ServiceCollection")({ServiceNames: Schema.optional(ServiceNames)}) {}
+export class SearchInsightsFilters extends Schema.Class<SearchInsightsFilters>("SearchInsightsFilters")({Severities: Schema.optional(InsightSeverities), Statuses: Schema.optional(InsightStatuses), ResourceCollection: Schema.optional(ResourceCollection), ServiceCollection: Schema.optional(ServiceCollection)}) {}
+export class SearchOrganizationInsightsFilters extends Schema.Class<SearchOrganizationInsightsFilters>("SearchOrganizationInsightsFilters")({Severities: Schema.optional(InsightSeverities), Statuses: Schema.optional(InsightStatuses), ResourceCollection: Schema.optional(ResourceCollection), ServiceCollection: Schema.optional(ServiceCollection)}) {}
 export const NotificationMessageTypes = Schema.Array(Schema.String);
 export const CostEstimationStackNames = Schema.Array(Schema.String);
 export const CostEstimationTagValues = Schema.Array(Schema.String);
 export const UpdateStackNames = Schema.Array(Schema.String);
 export const UpdateTagValues = Schema.Array(Schema.String);
-export const AccessDeniedException = Schema.Struct({Message: Schema.String});
-export const InternalServerException = Schema.Struct({Message: Schema.String, RetryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))});
-export const DescribeAccountOverviewResponse = Schema.Struct({ReactiveInsights: Schema.Number, ProactiveInsights: Schema.Number, MeanTimeToRecoverInMilliseconds: Schema.Number});
-export const DescribeFeedbackResponse = Schema.Struct({InsightFeedback: Schema.optional(InsightFeedback)});
-export const DescribeOrganizationHealthResponse = Schema.Struct({OpenReactiveInsights: Schema.Number, OpenProactiveInsights: Schema.Number, MetricsAnalyzed: Schema.Number, ResourceHours: Schema.Number});
-export const DescribeOrganizationOverviewResponse = Schema.Struct({ReactiveInsights: Schema.Number, ProactiveInsights: Schema.Number});
-export const InsightHealth = Schema.Struct({OpenProactiveInsights: Schema.optional(Schema.Number), OpenReactiveInsights: Schema.optional(Schema.Number), MeanTimeToRecoverInMilliseconds: Schema.optional(Schema.Number)});
-export const CloudFormationHealth = Schema.Struct({StackName: Schema.optional(Schema.String), Insight: Schema.optional(InsightHealth), AnalyzedResourceCount: Schema.optional(Schema.Number)});
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({Message: Schema.String}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({Message: Schema.String, RetryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))}) {}
+export class DescribeAccountOverviewResponse extends Schema.Class<DescribeAccountOverviewResponse>("DescribeAccountOverviewResponse")({ReactiveInsights: Schema.Number, ProactiveInsights: Schema.Number, MeanTimeToRecoverInMilliseconds: Schema.Number}) {}
+export class DescribeFeedbackResponse extends Schema.Class<DescribeFeedbackResponse>("DescribeFeedbackResponse")({InsightFeedback: Schema.optional(InsightFeedback)}) {}
+export class DescribeOrganizationHealthResponse extends Schema.Class<DescribeOrganizationHealthResponse>("DescribeOrganizationHealthResponse")({OpenReactiveInsights: Schema.Number, OpenProactiveInsights: Schema.Number, MetricsAnalyzed: Schema.Number, ResourceHours: Schema.Number}) {}
+export class DescribeOrganizationOverviewResponse extends Schema.Class<DescribeOrganizationOverviewResponse>("DescribeOrganizationOverviewResponse")({ReactiveInsights: Schema.Number, ProactiveInsights: Schema.Number}) {}
+export class InsightHealth extends Schema.Class<InsightHealth>("InsightHealth")({OpenProactiveInsights: Schema.optional(Schema.Number), OpenReactiveInsights: Schema.optional(Schema.Number), MeanTimeToRecoverInMilliseconds: Schema.optional(Schema.Number)}) {}
+export class CloudFormationHealth extends Schema.Class<CloudFormationHealth>("CloudFormationHealth")({StackName: Schema.optional(Schema.String), Insight: Schema.optional(InsightHealth), AnalyzedResourceCount: Schema.optional(Schema.Number)}) {}
 export const CloudFormationHealths = Schema.Array(CloudFormationHealth);
-export const ServiceInsightHealth = Schema.Struct({OpenProactiveInsights: Schema.optional(Schema.Number), OpenReactiveInsights: Schema.optional(Schema.Number)});
-export const ServiceHealth = Schema.Struct({ServiceName: Schema.optional(Schema.String), Insight: Schema.optional(ServiceInsightHealth), AnalyzedResourceCount: Schema.optional(Schema.Number)});
+export class ServiceInsightHealth extends Schema.Class<ServiceInsightHealth>("ServiceInsightHealth")({OpenProactiveInsights: Schema.optional(Schema.Number), OpenReactiveInsights: Schema.optional(Schema.Number)}) {}
+export class ServiceHealth extends Schema.Class<ServiceHealth>("ServiceHealth")({ServiceName: Schema.optional(Schema.String), Insight: Schema.optional(ServiceInsightHealth), AnalyzedResourceCount: Schema.optional(Schema.Number)}) {}
 export const ServiceHealths = Schema.Array(ServiceHealth);
-export const TagHealth = Schema.Struct({AppBoundaryKey: Schema.optional(Schema.String), TagValue: Schema.optional(Schema.String), Insight: Schema.optional(InsightHealth), AnalyzedResourceCount: Schema.optional(Schema.Number)});
+export class TagHealth extends Schema.Class<TagHealth>("TagHealth")({AppBoundaryKey: Schema.optional(Schema.String), TagValue: Schema.optional(Schema.String), Insight: Schema.optional(InsightHealth), AnalyzedResourceCount: Schema.optional(Schema.Number)}) {}
 export const TagHealths = Schema.Array(TagHealth);
-export const DescribeResourceCollectionHealthResponse = Schema.Struct({CloudFormation: Schema.optional(CloudFormationHealths), Service: Schema.optional(ServiceHealths), NextToken: Schema.optional(Schema.String), Tags: Schema.optional(TagHealths)});
-export const ListMonitoredResourcesRequest = Schema.Struct({Filters: Schema.optional(ListMonitoredResourcesFilters), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const PutFeedbackRequest = Schema.Struct({InsightFeedback: Schema.optional(InsightFeedback)});
-export const PutFeedbackResponse = Schema.Struct({});
-export const ConflictException = Schema.Struct({Message: Schema.String, ResourceId: Schema.String, ResourceType: Schema.String});
-export const SearchInsightsRequest = Schema.Struct({StartTimeRange: StartTimeRange, Filters: Schema.optional(SearchInsightsFilters), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), Type: Schema.String});
-export const SearchOrganizationInsightsRequest = Schema.Struct({AccountIds: SearchInsightsAccountIdList, StartTimeRange: StartTimeRange, Filters: Schema.optional(SearchOrganizationInsightsFilters), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), Type: Schema.String});
-export const ThrottlingException = Schema.Struct({Message: Schema.String, QuotaCode: Schema.optional(Schema.String), ServiceCode: Schema.optional(Schema.String), RetryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))});
-export const SnsChannelConfig = Schema.Struct({TopicArn: Schema.optional(Schema.String)});
-export const NotificationFilterConfig = Schema.Struct({Severities: Schema.optional(InsightSeverities), MessageTypes: Schema.optional(NotificationMessageTypes)});
-export const OpsCenterIntegration = Schema.Struct({OptInStatus: Schema.optional(Schema.String)});
-export const LogsAnomalyDetectionIntegration = Schema.Struct({OptInStatus: Schema.optional(Schema.String)});
-export const KMSServerSideEncryptionIntegration = Schema.Struct({KMSKeyId: Schema.optional(Schema.String), OptInStatus: Schema.optional(Schema.String), Type: Schema.optional(Schema.String)});
-export const EventTimeRange = Schema.Struct({FromTime: Schema.Date, ToTime: Schema.Date});
-export const CloudFormationCostEstimationResourceCollectionFilter = Schema.Struct({StackNames: Schema.optional(CostEstimationStackNames)});
-export const TagCostEstimationResourceCollectionFilter = Schema.Struct({AppBoundaryKey: Schema.String, TagValues: CostEstimationTagValues});
+export class DescribeResourceCollectionHealthResponse extends Schema.Class<DescribeResourceCollectionHealthResponse>("DescribeResourceCollectionHealthResponse")({CloudFormation: Schema.optional(CloudFormationHealths), Service: Schema.optional(ServiceHealths), NextToken: Schema.optional(Schema.String), Tags: Schema.optional(TagHealths)}) {}
+export class ListMonitoredResourcesRequest extends Schema.Class<ListMonitoredResourcesRequest>("ListMonitoredResourcesRequest")({Filters: Schema.optional(ListMonitoredResourcesFilters), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class PutFeedbackRequest extends Schema.Class<PutFeedbackRequest>("PutFeedbackRequest")({InsightFeedback: Schema.optional(InsightFeedback)}) {}
+export class PutFeedbackResponse extends Schema.Class<PutFeedbackResponse>("PutFeedbackResponse")({}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({Message: Schema.String, ResourceId: Schema.String, ResourceType: Schema.String}) {}
+export class SearchInsightsRequest extends Schema.Class<SearchInsightsRequest>("SearchInsightsRequest")({StartTimeRange: StartTimeRange, Filters: Schema.optional(SearchInsightsFilters), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), Type: Schema.String}) {}
+export class SearchOrganizationInsightsRequest extends Schema.Class<SearchOrganizationInsightsRequest>("SearchOrganizationInsightsRequest")({AccountIds: SearchInsightsAccountIdList, StartTimeRange: StartTimeRange, Filters: Schema.optional(SearchOrganizationInsightsFilters), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), Type: Schema.String}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({Message: Schema.String, QuotaCode: Schema.optional(Schema.String), ServiceCode: Schema.optional(Schema.String), RetryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))}) {}
+export class SnsChannelConfig extends Schema.Class<SnsChannelConfig>("SnsChannelConfig")({TopicArn: Schema.optional(Schema.String)}) {}
+export class NotificationFilterConfig extends Schema.Class<NotificationFilterConfig>("NotificationFilterConfig")({Severities: Schema.optional(InsightSeverities), MessageTypes: Schema.optional(NotificationMessageTypes)}) {}
+export class OpsCenterIntegration extends Schema.Class<OpsCenterIntegration>("OpsCenterIntegration")({OptInStatus: Schema.optional(Schema.String)}) {}
+export class LogsAnomalyDetectionIntegration extends Schema.Class<LogsAnomalyDetectionIntegration>("LogsAnomalyDetectionIntegration")({OptInStatus: Schema.optional(Schema.String)}) {}
+export class KMSServerSideEncryptionIntegration extends Schema.Class<KMSServerSideEncryptionIntegration>("KMSServerSideEncryptionIntegration")({KMSKeyId: Schema.optional(Schema.String), OptInStatus: Schema.optional(Schema.String), Type: Schema.optional(Schema.String)}) {}
+export class EventTimeRange extends Schema.Class<EventTimeRange>("EventTimeRange")({FromTime: Schema.Date, ToTime: Schema.Date}) {}
+export class CloudFormationCostEstimationResourceCollectionFilter extends Schema.Class<CloudFormationCostEstimationResourceCollectionFilter>("CloudFormationCostEstimationResourceCollectionFilter")({StackNames: Schema.optional(CostEstimationStackNames)}) {}
+export class TagCostEstimationResourceCollectionFilter extends Schema.Class<TagCostEstimationResourceCollectionFilter>("TagCostEstimationResourceCollectionFilter")({AppBoundaryKey: Schema.String, TagValues: CostEstimationTagValues}) {}
 export const TagCostEstimationResourceCollectionFilters = Schema.Array(TagCostEstimationResourceCollectionFilter);
-export const UpdateCloudFormationCollectionFilter = Schema.Struct({StackNames: Schema.optional(UpdateStackNames)});
-export const UpdateTagCollectionFilter = Schema.Struct({AppBoundaryKey: Schema.String, TagValues: UpdateTagValues});
+export class UpdateCloudFormationCollectionFilter extends Schema.Class<UpdateCloudFormationCollectionFilter>("UpdateCloudFormationCollectionFilter")({StackNames: Schema.optional(UpdateStackNames)}) {}
+export class UpdateTagCollectionFilter extends Schema.Class<UpdateTagCollectionFilter>("UpdateTagCollectionFilter")({AppBoundaryKey: Schema.String, TagValues: UpdateTagValues}) {}
 export const UpdateTagCollectionFilters = Schema.Array(UpdateTagCollectionFilter);
-export const OpsCenterIntegrationConfig = Schema.Struct({OptInStatus: Schema.optional(Schema.String)});
-export const LogsAnomalyDetectionIntegrationConfig = Schema.Struct({OptInStatus: Schema.optional(Schema.String)});
-export const KMSServerSideEncryptionIntegrationConfig = Schema.Struct({KMSKeyId: Schema.optional(Schema.String), OptInStatus: Schema.optional(Schema.String), Type: Schema.optional(Schema.String)});
-export const NotificationChannelConfig = Schema.Struct({Sns: SnsChannelConfig, Filters: Schema.optional(NotificationFilterConfig)});
-export const AnomalyTimeRange = Schema.Struct({StartTime: Schema.Date, EndTime: Schema.optional(Schema.Date)});
-export const AnomalyReportedTimeRange = Schema.Struct({OpenTime: Schema.Date, CloseTime: Schema.optional(Schema.Date)});
-export const CloudWatchMetricsDimension = Schema.Struct({Name: Schema.optional(Schema.String), Value: Schema.optional(Schema.String)});
+export class OpsCenterIntegrationConfig extends Schema.Class<OpsCenterIntegrationConfig>("OpsCenterIntegrationConfig")({OptInStatus: Schema.optional(Schema.String)}) {}
+export class LogsAnomalyDetectionIntegrationConfig extends Schema.Class<LogsAnomalyDetectionIntegrationConfig>("LogsAnomalyDetectionIntegrationConfig")({OptInStatus: Schema.optional(Schema.String)}) {}
+export class KMSServerSideEncryptionIntegrationConfig extends Schema.Class<KMSServerSideEncryptionIntegrationConfig>("KMSServerSideEncryptionIntegrationConfig")({KMSKeyId: Schema.optional(Schema.String), OptInStatus: Schema.optional(Schema.String), Type: Schema.optional(Schema.String)}) {}
+export class NotificationChannelConfig extends Schema.Class<NotificationChannelConfig>("NotificationChannelConfig")({Sns: SnsChannelConfig, Filters: Schema.optional(NotificationFilterConfig)}) {}
+export class AnomalyTimeRange extends Schema.Class<AnomalyTimeRange>("AnomalyTimeRange")({StartTime: Schema.Date, EndTime: Schema.optional(Schema.Date)}) {}
+export class AnomalyReportedTimeRange extends Schema.Class<AnomalyReportedTimeRange>("AnomalyReportedTimeRange")({OpenTime: Schema.Date, CloseTime: Schema.optional(Schema.Date)}) {}
+export class CloudWatchMetricsDimension extends Schema.Class<CloudWatchMetricsDimension>("CloudWatchMetricsDimension")({Name: Schema.optional(Schema.String), Value: Schema.optional(Schema.String)}) {}
 export const CloudWatchMetricsDimensions = Schema.Array(CloudWatchMetricsDimension);
-export const TimestampMetricValuePair = Schema.Struct({Timestamp: Schema.optional(Schema.Date), MetricValue: Schema.optional(Schema.Number)});
+export class TimestampMetricValuePair extends Schema.Class<TimestampMetricValuePair>("TimestampMetricValuePair")({Timestamp: Schema.optional(Schema.Date), MetricValue: Schema.optional(Schema.Number)}) {}
 export const TimestampMetricValuePairList = Schema.Array(TimestampMetricValuePair);
-export const CloudWatchMetricsDataSummary = Schema.Struct({TimestampMetricValuePairList: Schema.optional(TimestampMetricValuePairList), StatusCode: Schema.optional(Schema.String)});
-export const CloudWatchMetricsDetail = Schema.Struct({MetricName: Schema.optional(Schema.String), Namespace: Schema.optional(Schema.String), Dimensions: Schema.optional(CloudWatchMetricsDimensions), Stat: Schema.optional(Schema.String), Unit: Schema.optional(Schema.String), Period: Schema.optional(Schema.Number), MetricDataSummary: Schema.optional(CloudWatchMetricsDataSummary)});
+export class CloudWatchMetricsDataSummary extends Schema.Class<CloudWatchMetricsDataSummary>("CloudWatchMetricsDataSummary")({TimestampMetricValuePairList: Schema.optional(TimestampMetricValuePairList), StatusCode: Schema.optional(Schema.String)}) {}
+export class CloudWatchMetricsDetail extends Schema.Class<CloudWatchMetricsDetail>("CloudWatchMetricsDetail")({MetricName: Schema.optional(Schema.String), Namespace: Schema.optional(Schema.String), Dimensions: Schema.optional(CloudWatchMetricsDimensions), Stat: Schema.optional(Schema.String), Unit: Schema.optional(Schema.String), Period: Schema.optional(Schema.Number), MetricDataSummary: Schema.optional(CloudWatchMetricsDataSummary)}) {}
 export const CloudWatchMetricsDetails = Schema.Array(CloudWatchMetricsDetail);
 export const PerformanceInsightsMetricDimensions = Schema.Array(Schema.String);
-export const PerformanceInsightsMetricDimensionGroup = Schema.Struct({Group: Schema.optional(Schema.String), Dimensions: Schema.optional(PerformanceInsightsMetricDimensions), Limit: Schema.optional(Schema.Number)});
+export class PerformanceInsightsMetricDimensionGroup extends Schema.Class<PerformanceInsightsMetricDimensionGroup>("PerformanceInsightsMetricDimensionGroup")({Group: Schema.optional(Schema.String), Dimensions: Schema.optional(PerformanceInsightsMetricDimensions), Limit: Schema.optional(Schema.Number)}) {}
 export const PerformanceInsightsMetricFilterMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const PerformanceInsightsMetricQuery = Schema.Struct({Metric: Schema.optional(Schema.String), GroupBy: Schema.optional(PerformanceInsightsMetricDimensionGroup), Filter: Schema.optional(PerformanceInsightsMetricFilterMap)});
-export const PerformanceInsightsReferenceScalar = Schema.Struct({Value: Schema.optional(Schema.Number)});
-export const PerformanceInsightsReferenceMetric = Schema.Struct({MetricQuery: Schema.optional(PerformanceInsightsMetricQuery)});
-export const PerformanceInsightsReferenceComparisonValues = Schema.Struct({ReferenceScalar: Schema.optional(PerformanceInsightsReferenceScalar), ReferenceMetric: Schema.optional(PerformanceInsightsReferenceMetric)});
-export const PerformanceInsightsReferenceData = Schema.Struct({Name: Schema.optional(Schema.String), ComparisonValues: Schema.optional(PerformanceInsightsReferenceComparisonValues)});
+export class PerformanceInsightsMetricQuery extends Schema.Class<PerformanceInsightsMetricQuery>("PerformanceInsightsMetricQuery")({Metric: Schema.optional(Schema.String), GroupBy: Schema.optional(PerformanceInsightsMetricDimensionGroup), Filter: Schema.optional(PerformanceInsightsMetricFilterMap)}) {}
+export class PerformanceInsightsReferenceScalar extends Schema.Class<PerformanceInsightsReferenceScalar>("PerformanceInsightsReferenceScalar")({Value: Schema.optional(Schema.Number)}) {}
+export class PerformanceInsightsReferenceMetric extends Schema.Class<PerformanceInsightsReferenceMetric>("PerformanceInsightsReferenceMetric")({MetricQuery: Schema.optional(PerformanceInsightsMetricQuery)}) {}
+export class PerformanceInsightsReferenceComparisonValues extends Schema.Class<PerformanceInsightsReferenceComparisonValues>("PerformanceInsightsReferenceComparisonValues")({ReferenceScalar: Schema.optional(PerformanceInsightsReferenceScalar), ReferenceMetric: Schema.optional(PerformanceInsightsReferenceMetric)}) {}
+export class PerformanceInsightsReferenceData extends Schema.Class<PerformanceInsightsReferenceData>("PerformanceInsightsReferenceData")({Name: Schema.optional(Schema.String), ComparisonValues: Schema.optional(PerformanceInsightsReferenceComparisonValues)}) {}
 export const PerformanceInsightsReferenceDataList = Schema.Array(PerformanceInsightsReferenceData);
-export const PerformanceInsightsStat = Schema.Struct({Type: Schema.optional(Schema.String), Value: Schema.optional(Schema.Number)});
+export class PerformanceInsightsStat extends Schema.Class<PerformanceInsightsStat>("PerformanceInsightsStat")({Type: Schema.optional(Schema.String), Value: Schema.optional(Schema.Number)}) {}
 export const PerformanceInsightsStats = Schema.Array(PerformanceInsightsStat);
-export const PerformanceInsightsMetricsDetail = Schema.Struct({MetricDisplayName: Schema.optional(Schema.String), Unit: Schema.optional(Schema.String), MetricQuery: Schema.optional(PerformanceInsightsMetricQuery), ReferenceData: Schema.optional(PerformanceInsightsReferenceDataList), StatsAtAnomaly: Schema.optional(PerformanceInsightsStats), StatsAtBaseline: Schema.optional(PerformanceInsightsStats)});
+export class PerformanceInsightsMetricsDetail extends Schema.Class<PerformanceInsightsMetricsDetail>("PerformanceInsightsMetricsDetail")({MetricDisplayName: Schema.optional(Schema.String), Unit: Schema.optional(Schema.String), MetricQuery: Schema.optional(PerformanceInsightsMetricQuery), ReferenceData: Schema.optional(PerformanceInsightsReferenceDataList), StatsAtAnomaly: Schema.optional(PerformanceInsightsStats), StatsAtBaseline: Schema.optional(PerformanceInsightsStats)}) {}
 export const PerformanceInsightsMetricsDetails = Schema.Array(PerformanceInsightsMetricsDetail);
-export const AnomalySourceDetails = Schema.Struct({CloudWatchMetrics: Schema.optional(CloudWatchMetricsDetails), PerformanceInsightsMetrics: Schema.optional(PerformanceInsightsMetricsDetails)});
-export const AnomalyResource = Schema.Struct({Name: Schema.optional(Schema.String), Type: Schema.optional(Schema.String)});
+export class AnomalySourceDetails extends Schema.Class<AnomalySourceDetails>("AnomalySourceDetails")({CloudWatchMetrics: Schema.optional(CloudWatchMetricsDetails), PerformanceInsightsMetrics: Schema.optional(PerformanceInsightsMetricsDetails)}) {}
+export class AnomalyResource extends Schema.Class<AnomalyResource>("AnomalyResource")({Name: Schema.optional(Schema.String), Type: Schema.optional(Schema.String)}) {}
 export const AnomalyResources = Schema.Array(AnomalyResource);
-export const ReactiveAnomaly = Schema.Struct({Id: Schema.optional(Schema.String), Severity: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), AnomalyTimeRange: Schema.optional(AnomalyTimeRange), AnomalyReportedTimeRange: Schema.optional(AnomalyReportedTimeRange), SourceDetails: Schema.optional(AnomalySourceDetails), AssociatedInsightId: Schema.optional(Schema.String), ResourceCollection: Schema.optional(ResourceCollection), Type: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), CausalAnomalyId: Schema.optional(Schema.String), AnomalyResources: Schema.optional(AnomalyResources)});
-export const InsightTimeRange = Schema.Struct({StartTime: Schema.Date, EndTime: Schema.optional(Schema.Date)});
-export const ReactiveInsight = Schema.Struct({Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Severity: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), InsightTimeRange: Schema.optional(InsightTimeRange), ResourceCollection: Schema.optional(ResourceCollection), SsmOpsItemId: Schema.optional(Schema.String), Description: Schema.optional(Schema.String)});
-export const ServiceIntegrationConfig = Schema.Struct({OpsCenter: Schema.optional(OpsCenterIntegration), LogsAnomalyDetection: Schema.optional(LogsAnomalyDetectionIntegration), KMSServerSideEncryption: Schema.optional(KMSServerSideEncryptionIntegration)});
-export const ServiceResourceCost = Schema.Struct({Type: Schema.optional(Schema.String), State: Schema.optional(Schema.String), Count: Schema.optional(Schema.Number), UnitCost: Schema.optional(Schema.Number), Cost: Schema.optional(Schema.Number)});
+export class ReactiveAnomaly extends Schema.Class<ReactiveAnomaly>("ReactiveAnomaly")({Id: Schema.optional(Schema.String), Severity: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), AnomalyTimeRange: Schema.optional(AnomalyTimeRange), AnomalyReportedTimeRange: Schema.optional(AnomalyReportedTimeRange), SourceDetails: Schema.optional(AnomalySourceDetails), AssociatedInsightId: Schema.optional(Schema.String), ResourceCollection: Schema.optional(ResourceCollection), Type: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), CausalAnomalyId: Schema.optional(Schema.String), AnomalyResources: Schema.optional(AnomalyResources)}) {}
+export class InsightTimeRange extends Schema.Class<InsightTimeRange>("InsightTimeRange")({StartTime: Schema.Date, EndTime: Schema.optional(Schema.Date)}) {}
+export class ReactiveInsight extends Schema.Class<ReactiveInsight>("ReactiveInsight")({Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Severity: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), InsightTimeRange: Schema.optional(InsightTimeRange), ResourceCollection: Schema.optional(ResourceCollection), SsmOpsItemId: Schema.optional(Schema.String), Description: Schema.optional(Schema.String)}) {}
+export class ServiceIntegrationConfig extends Schema.Class<ServiceIntegrationConfig>("ServiceIntegrationConfig")({OpsCenter: Schema.optional(OpsCenterIntegration), LogsAnomalyDetection: Schema.optional(LogsAnomalyDetectionIntegration), KMSServerSideEncryption: Schema.optional(KMSServerSideEncryptionIntegration)}) {}
+export class ServiceResourceCost extends Schema.Class<ServiceResourceCost>("ServiceResourceCost")({Type: Schema.optional(Schema.String), State: Schema.optional(Schema.String), Count: Schema.optional(Schema.Number), UnitCost: Schema.optional(Schema.Number), Cost: Schema.optional(Schema.Number)}) {}
 export const ServiceResourceCosts = Schema.Array(ServiceResourceCost);
-export const CostEstimationTimeRange = Schema.Struct({StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date)});
-export const ListAnomaliesForInsightFilters = Schema.Struct({ServiceCollection: Schema.optional(ServiceCollection)});
-export const NotificationChannel = Schema.Struct({Id: Schema.optional(Schema.String), Config: Schema.optional(NotificationChannelConfig)});
+export class CostEstimationTimeRange extends Schema.Class<CostEstimationTimeRange>("CostEstimationTimeRange")({StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date)}) {}
+export class ListAnomaliesForInsightFilters extends Schema.Class<ListAnomaliesForInsightFilters>("ListAnomaliesForInsightFilters")({ServiceCollection: Schema.optional(ServiceCollection)}) {}
+export class NotificationChannel extends Schema.Class<NotificationChannel>("NotificationChannel")({Id: Schema.optional(Schema.String), Config: Schema.optional(NotificationChannelConfig)}) {}
 export const Channels = Schema.Array(NotificationChannel);
-export const PredictionTimeRange = Schema.Struct({StartTime: Schema.Date, EndTime: Schema.optional(Schema.Date)});
-export const ProactiveOrganizationInsightSummary = Schema.Struct({Id: Schema.optional(Schema.String), AccountId: Schema.optional(Schema.String), OrganizationalUnitId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Severity: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), InsightTimeRange: Schema.optional(InsightTimeRange), PredictionTimeRange: Schema.optional(PredictionTimeRange), ResourceCollection: Schema.optional(ResourceCollection), ServiceCollection: Schema.optional(ServiceCollection)});
+export class PredictionTimeRange extends Schema.Class<PredictionTimeRange>("PredictionTimeRange")({StartTime: Schema.Date, EndTime: Schema.optional(Schema.Date)}) {}
+export class ProactiveOrganizationInsightSummary extends Schema.Class<ProactiveOrganizationInsightSummary>("ProactiveOrganizationInsightSummary")({Id: Schema.optional(Schema.String), AccountId: Schema.optional(Schema.String), OrganizationalUnitId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Severity: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), InsightTimeRange: Schema.optional(InsightTimeRange), PredictionTimeRange: Schema.optional(PredictionTimeRange), ResourceCollection: Schema.optional(ResourceCollection), ServiceCollection: Schema.optional(ServiceCollection)}) {}
 export const ProactiveOrganizationInsights = Schema.Array(ProactiveOrganizationInsightSummary);
-export const ReactiveOrganizationInsightSummary = Schema.Struct({Id: Schema.optional(Schema.String), AccountId: Schema.optional(Schema.String), OrganizationalUnitId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Severity: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), InsightTimeRange: Schema.optional(InsightTimeRange), ResourceCollection: Schema.optional(ResourceCollection), ServiceCollection: Schema.optional(ServiceCollection)});
+export class ReactiveOrganizationInsightSummary extends Schema.Class<ReactiveOrganizationInsightSummary>("ReactiveOrganizationInsightSummary")({Id: Schema.optional(Schema.String), AccountId: Schema.optional(Schema.String), OrganizationalUnitId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Severity: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), InsightTimeRange: Schema.optional(InsightTimeRange), ResourceCollection: Schema.optional(ResourceCollection), ServiceCollection: Schema.optional(ServiceCollection)}) {}
 export const ReactiveOrganizationInsights = Schema.Array(ReactiveOrganizationInsightSummary);
-export const CostEstimationResourceCollectionFilter = Schema.Struct({CloudFormation: Schema.optional(CloudFormationCostEstimationResourceCollectionFilter), Tags: Schema.optional(TagCostEstimationResourceCollectionFilters)});
-export const UpdateResourceCollectionFilter = Schema.Struct({CloudFormation: Schema.optional(UpdateCloudFormationCollectionFilter), Tags: Schema.optional(UpdateTagCollectionFilters)});
-export const UpdateServiceIntegrationConfig = Schema.Struct({OpsCenter: Schema.optional(OpsCenterIntegrationConfig), LogsAnomalyDetection: Schema.optional(LogsAnomalyDetectionIntegrationConfig), KMSServerSideEncryption: Schema.optional(KMSServerSideEncryptionIntegrationConfig)});
-export const AddNotificationChannelRequest = Schema.Struct({Config: NotificationChannelConfig});
-export const ResourceNotFoundException = Schema.Struct({Message: Schema.String, ResourceId: Schema.String, ResourceType: Schema.String});
-export const DescribeEventSourcesConfigResponse = Schema.Struct({EventSources: Schema.optional(EventSourcesConfig)});
-export const DescribeServiceIntegrationResponse = Schema.Struct({ServiceIntegration: Schema.optional(ServiceIntegrationConfig)});
-export const GetCostEstimationResponse = Schema.Struct({ResourceCollection: Schema.optional(CostEstimationResourceCollectionFilter), Status: Schema.optional(Schema.String), Costs: Schema.optional(ServiceResourceCosts), TimeRange: Schema.optional(CostEstimationTimeRange), TotalCost: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListAnomaliesForInsightRequest = Schema.Struct({InsightId: Schema.String, StartTimeRange: Schema.optional(StartTimeRange), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), AccountId: Schema.optional(Schema.String), Filters: Schema.optional(ListAnomaliesForInsightFilters)});
-export const ListNotificationChannelsResponse = Schema.Struct({Channels: Schema.optional(Channels), NextToken: Schema.optional(Schema.String)});
-export const ListOrganizationInsightsResponse = Schema.Struct({ProactiveInsights: Schema.optional(ProactiveOrganizationInsights), ReactiveInsights: Schema.optional(ReactiveOrganizationInsights), NextToken: Schema.optional(Schema.String)});
+export class CostEstimationResourceCollectionFilter extends Schema.Class<CostEstimationResourceCollectionFilter>("CostEstimationResourceCollectionFilter")({CloudFormation: Schema.optional(CloudFormationCostEstimationResourceCollectionFilter), Tags: Schema.optional(TagCostEstimationResourceCollectionFilters)}) {}
+export class UpdateResourceCollectionFilter extends Schema.Class<UpdateResourceCollectionFilter>("UpdateResourceCollectionFilter")({CloudFormation: Schema.optional(UpdateCloudFormationCollectionFilter), Tags: Schema.optional(UpdateTagCollectionFilters)}) {}
+export class UpdateServiceIntegrationConfig extends Schema.Class<UpdateServiceIntegrationConfig>("UpdateServiceIntegrationConfig")({OpsCenter: Schema.optional(OpsCenterIntegrationConfig), LogsAnomalyDetection: Schema.optional(LogsAnomalyDetectionIntegrationConfig), KMSServerSideEncryption: Schema.optional(KMSServerSideEncryptionIntegrationConfig)}) {}
+export class AddNotificationChannelRequest extends Schema.Class<AddNotificationChannelRequest>("AddNotificationChannelRequest")({Config: NotificationChannelConfig}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({Message: Schema.String, ResourceId: Schema.String, ResourceType: Schema.String}) {}
+export class DescribeEventSourcesConfigResponse extends Schema.Class<DescribeEventSourcesConfigResponse>("DescribeEventSourcesConfigResponse")({EventSources: Schema.optional(EventSourcesConfig)}) {}
+export class DescribeServiceIntegrationResponse extends Schema.Class<DescribeServiceIntegrationResponse>("DescribeServiceIntegrationResponse")({ServiceIntegration: Schema.optional(ServiceIntegrationConfig)}) {}
+export class GetCostEstimationResponse extends Schema.Class<GetCostEstimationResponse>("GetCostEstimationResponse")({ResourceCollection: Schema.optional(CostEstimationResourceCollectionFilter), Status: Schema.optional(Schema.String), Costs: Schema.optional(ServiceResourceCosts), TimeRange: Schema.optional(CostEstimationTimeRange), TotalCost: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListAnomaliesForInsightRequest extends Schema.Class<ListAnomaliesForInsightRequest>("ListAnomaliesForInsightRequest")({InsightId: Schema.String, StartTimeRange: Schema.optional(StartTimeRange), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), AccountId: Schema.optional(Schema.String), Filters: Schema.optional(ListAnomaliesForInsightFilters)}) {}
+export class ListNotificationChannelsResponse extends Schema.Class<ListNotificationChannelsResponse>("ListNotificationChannelsResponse")({Channels: Schema.optional(Channels), NextToken: Schema.optional(Schema.String)}) {}
+export class ListOrganizationInsightsResponse extends Schema.Class<ListOrganizationInsightsResponse>("ListOrganizationInsightsResponse")({ProactiveInsights: Schema.optional(ProactiveOrganizationInsights), ReactiveInsights: Schema.optional(ReactiveOrganizationInsights), NextToken: Schema.optional(Schema.String)}) {}
 export const AssociatedResourceArns = Schema.Array(Schema.String);
-export const ProactiveInsightSummary = Schema.Struct({Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Severity: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), InsightTimeRange: Schema.optional(InsightTimeRange), PredictionTimeRange: Schema.optional(PredictionTimeRange), ResourceCollection: Schema.optional(ResourceCollection), ServiceCollection: Schema.optional(ServiceCollection), AssociatedResourceArns: Schema.optional(AssociatedResourceArns)});
+export class ProactiveInsightSummary extends Schema.Class<ProactiveInsightSummary>("ProactiveInsightSummary")({Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Severity: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), InsightTimeRange: Schema.optional(InsightTimeRange), PredictionTimeRange: Schema.optional(PredictionTimeRange), ResourceCollection: Schema.optional(ResourceCollection), ServiceCollection: Schema.optional(ServiceCollection), AssociatedResourceArns: Schema.optional(AssociatedResourceArns)}) {}
 export const ProactiveInsights = Schema.Array(ProactiveInsightSummary);
-export const ReactiveInsightSummary = Schema.Struct({Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Severity: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), InsightTimeRange: Schema.optional(InsightTimeRange), ResourceCollection: Schema.optional(ResourceCollection), ServiceCollection: Schema.optional(ServiceCollection), AssociatedResourceArns: Schema.optional(AssociatedResourceArns)});
+export class ReactiveInsightSummary extends Schema.Class<ReactiveInsightSummary>("ReactiveInsightSummary")({Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Severity: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), InsightTimeRange: Schema.optional(InsightTimeRange), ResourceCollection: Schema.optional(ResourceCollection), ServiceCollection: Schema.optional(ServiceCollection), AssociatedResourceArns: Schema.optional(AssociatedResourceArns)}) {}
 export const ReactiveInsights = Schema.Array(ReactiveInsightSummary);
-export const SearchOrganizationInsightsResponse = Schema.Struct({ProactiveInsights: Schema.optional(ProactiveInsights), ReactiveInsights: Schema.optional(ReactiveInsights), NextToken: Schema.optional(Schema.String)});
-export const StartCostEstimationRequest = Schema.Struct({ResourceCollection: CostEstimationResourceCollectionFilter, ClientToken: Schema.optional(Schema.String)});
-export const StartCostEstimationResponse = Schema.Struct({});
-export const UpdateResourceCollectionRequest = Schema.Struct({Action: Schema.String, ResourceCollection: UpdateResourceCollectionFilter});
-export const UpdateResourceCollectionResponse = Schema.Struct({});
-export const UpdateServiceIntegrationRequest = Schema.Struct({ServiceIntegration: UpdateServiceIntegrationConfig});
-export const UpdateServiceIntegrationResponse = Schema.Struct({});
-export const AnomalySourceMetadata = Schema.Struct({Source: Schema.optional(Schema.String), SourceResourceName: Schema.optional(Schema.String), SourceResourceType: Schema.optional(Schema.String)});
-export const AccountInsightHealth = Schema.Struct({OpenProactiveInsights: Schema.optional(Schema.Number), OpenReactiveInsights: Schema.optional(Schema.Number)});
-export const CloudFormationCollectionFilter = Schema.Struct({StackNames: Schema.optional(StackNames)});
-export const TagCollectionFilter = Schema.Struct({AppBoundaryKey: Schema.String, TagValues: TagValues});
+export class SearchOrganizationInsightsResponse extends Schema.Class<SearchOrganizationInsightsResponse>("SearchOrganizationInsightsResponse")({ProactiveInsights: Schema.optional(ProactiveInsights), ReactiveInsights: Schema.optional(ReactiveInsights), NextToken: Schema.optional(Schema.String)}) {}
+export class StartCostEstimationRequest extends Schema.Class<StartCostEstimationRequest>("StartCostEstimationRequest")({ResourceCollection: CostEstimationResourceCollectionFilter, ClientToken: Schema.optional(Schema.String)}) {}
+export class StartCostEstimationResponse extends Schema.Class<StartCostEstimationResponse>("StartCostEstimationResponse")({}) {}
+export class UpdateResourceCollectionRequest extends Schema.Class<UpdateResourceCollectionRequest>("UpdateResourceCollectionRequest")({Action: Schema.String, ResourceCollection: UpdateResourceCollectionFilter}) {}
+export class UpdateResourceCollectionResponse extends Schema.Class<UpdateResourceCollectionResponse>("UpdateResourceCollectionResponse")({}) {}
+export class UpdateServiceIntegrationRequest extends Schema.Class<UpdateServiceIntegrationRequest>("UpdateServiceIntegrationRequest")({ServiceIntegration: UpdateServiceIntegrationConfig}) {}
+export class UpdateServiceIntegrationResponse extends Schema.Class<UpdateServiceIntegrationResponse>("UpdateServiceIntegrationResponse")({}) {}
+export class AnomalySourceMetadata extends Schema.Class<AnomalySourceMetadata>("AnomalySourceMetadata")({Source: Schema.optional(Schema.String), SourceResourceName: Schema.optional(Schema.String), SourceResourceType: Schema.optional(Schema.String)}) {}
+export class AccountInsightHealth extends Schema.Class<AccountInsightHealth>("AccountInsightHealth")({OpenProactiveInsights: Schema.optional(Schema.Number), OpenReactiveInsights: Schema.optional(Schema.Number)}) {}
+export class CloudFormationCollectionFilter extends Schema.Class<CloudFormationCollectionFilter>("CloudFormationCollectionFilter")({StackNames: Schema.optional(StackNames)}) {}
+export class TagCollectionFilter extends Schema.Class<TagCollectionFilter>("TagCollectionFilter")({AppBoundaryKey: Schema.String, TagValues: TagValues}) {}
 export const TagCollectionFilters = Schema.Array(TagCollectionFilter);
-export const ValidationExceptionField = Schema.Struct({Name: Schema.String, Message: Schema.String});
+export class ValidationExceptionField extends Schema.Class<ValidationExceptionField>("ValidationExceptionField")({Name: Schema.String, Message: Schema.String}) {}
 export const ValidationExceptionFields = Schema.Array(ValidationExceptionField);
-export const ProactiveInsight = Schema.Struct({Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Severity: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), InsightTimeRange: Schema.optional(InsightTimeRange), PredictionTimeRange: Schema.optional(PredictionTimeRange), ResourceCollection: Schema.optional(ResourceCollection), SsmOpsItemId: Schema.optional(Schema.String), Description: Schema.optional(Schema.String)});
-export const AccountHealth = Schema.Struct({AccountId: Schema.optional(Schema.String), Insight: Schema.optional(AccountInsightHealth)});
+export class ProactiveInsight extends Schema.Class<ProactiveInsight>("ProactiveInsight")({Id: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Severity: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), InsightTimeRange: Schema.optional(InsightTimeRange), PredictionTimeRange: Schema.optional(PredictionTimeRange), ResourceCollection: Schema.optional(ResourceCollection), SsmOpsItemId: Schema.optional(Schema.String), Description: Schema.optional(Schema.String)}) {}
+export class AccountHealth extends Schema.Class<AccountHealth>("AccountHealth")({AccountId: Schema.optional(Schema.String), Insight: Schema.optional(AccountInsightHealth)}) {}
 export const AccountHealths = Schema.Array(AccountHealth);
-export const ResourceCollectionFilter = Schema.Struct({CloudFormation: Schema.optional(CloudFormationCollectionFilter), Tags: Schema.optional(TagCollectionFilters)});
-export const ListEventsFilters = Schema.Struct({InsightId: Schema.optional(Schema.String), EventTimeRange: Schema.optional(EventTimeRange), EventClass: Schema.optional(Schema.String), EventSource: Schema.optional(Schema.String), DataSource: Schema.optional(Schema.String), ResourceCollection: Schema.optional(ResourceCollection)});
-export const MonitoredResourceIdentifier = Schema.Struct({MonitoredResourceName: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), ResourcePermission: Schema.optional(Schema.String), LastUpdated: Schema.optional(Schema.Date), ResourceCollection: Schema.optional(ResourceCollection)});
+export class ResourceCollectionFilter extends Schema.Class<ResourceCollectionFilter>("ResourceCollectionFilter")({CloudFormation: Schema.optional(CloudFormationCollectionFilter), Tags: Schema.optional(TagCollectionFilters)}) {}
+export class ListEventsFilters extends Schema.Class<ListEventsFilters>("ListEventsFilters")({InsightId: Schema.optional(Schema.String), EventTimeRange: Schema.optional(EventTimeRange), EventClass: Schema.optional(Schema.String), EventSource: Schema.optional(Schema.String), DataSource: Schema.optional(Schema.String), ResourceCollection: Schema.optional(ResourceCollection)}) {}
+export class MonitoredResourceIdentifier extends Schema.Class<MonitoredResourceIdentifier>("MonitoredResourceIdentifier")({MonitoredResourceName: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), ResourcePermission: Schema.optional(Schema.String), LastUpdated: Schema.optional(Schema.Date), ResourceCollection: Schema.optional(ResourceCollection)}) {}
 export const MonitoredResourceIdentifiers = Schema.Array(MonitoredResourceIdentifier);
-export const LogAnomalyClass = Schema.Struct({LogStreamName: Schema.optional(Schema.String), LogAnomalyType: Schema.optional(Schema.String), LogAnomalyToken: Schema.optional(Schema.String), LogEventId: Schema.optional(Schema.String), Explanation: Schema.optional(Schema.String), NumberOfLogLinesOccurrences: Schema.optional(Schema.Number), LogEventTimestamp: Schema.optional(Schema.Date)});
+export class LogAnomalyClass extends Schema.Class<LogAnomalyClass>("LogAnomalyClass")({LogStreamName: Schema.optional(Schema.String), LogAnomalyType: Schema.optional(Schema.String), LogAnomalyToken: Schema.optional(Schema.String), LogEventId: Schema.optional(Schema.String), Explanation: Schema.optional(Schema.String), NumberOfLogLinesOccurrences: Schema.optional(Schema.Number), LogEventTimestamp: Schema.optional(Schema.Date)}) {}
 export const LogAnomalyClasses = Schema.Array(LogAnomalyClass);
-export const RecommendationRelatedEventResource = Schema.Struct({Name: Schema.optional(Schema.String), Type: Schema.optional(Schema.String)});
+export class RecommendationRelatedEventResource extends Schema.Class<RecommendationRelatedEventResource>("RecommendationRelatedEventResource")({Name: Schema.optional(Schema.String), Type: Schema.optional(Schema.String)}) {}
 export const RecommendationRelatedEventResources = Schema.Array(RecommendationRelatedEventResource);
-export const RecommendationRelatedAnomalyResource = Schema.Struct({Name: Schema.optional(Schema.String), Type: Schema.optional(Schema.String)});
+export class RecommendationRelatedAnomalyResource extends Schema.Class<RecommendationRelatedAnomalyResource>("RecommendationRelatedAnomalyResource")({Name: Schema.optional(Schema.String), Type: Schema.optional(Schema.String)}) {}
 export const RecommendationRelatedAnomalyResources = Schema.Array(RecommendationRelatedAnomalyResource);
-export const AddNotificationChannelResponse = Schema.Struct({Id: Schema.String});
-export const ValidationException = Schema.Struct({Message: Schema.String, Reason: Schema.optional(Schema.String), Fields: Schema.optional(ValidationExceptionFields)});
-export const DescribeInsightResponse = Schema.Struct({ProactiveInsight: Schema.optional(ProactiveInsight), ReactiveInsight: Schema.optional(ReactiveInsight)});
-export const DescribeOrganizationResourceCollectionHealthResponse = Schema.Struct({CloudFormation: Schema.optional(CloudFormationHealths), Service: Schema.optional(ServiceHealths), Account: Schema.optional(AccountHealths), NextToken: Schema.optional(Schema.String), Tags: Schema.optional(TagHealths)});
-export const GetResourceCollectionResponse = Schema.Struct({ResourceCollection: Schema.optional(ResourceCollectionFilter), NextToken: Schema.optional(Schema.String)});
-export const ListEventsRequest = Schema.Struct({Filters: ListEventsFilters, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), AccountId: Schema.optional(Schema.String)});
-export const ListInsightsRequest = Schema.Struct({StatusFilter: ListInsightsStatusFilter, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListMonitoredResourcesResponse = Schema.Struct({MonitoredResourceIdentifiers: MonitoredResourceIdentifiers, NextToken: Schema.optional(Schema.String)});
-export const SearchInsightsResponse = Schema.Struct({ProactiveInsights: Schema.optional(ProactiveInsights), ReactiveInsights: Schema.optional(ReactiveInsights), NextToken: Schema.optional(Schema.String)});
-export const LogAnomalyShowcase = Schema.Struct({LogAnomalyClasses: Schema.optional(LogAnomalyClasses)});
+export class AddNotificationChannelResponse extends Schema.Class<AddNotificationChannelResponse>("AddNotificationChannelResponse")({Id: Schema.String}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({Message: Schema.String, Reason: Schema.optional(Schema.String), Fields: Schema.optional(ValidationExceptionFields)}) {}
+export class DescribeInsightResponse extends Schema.Class<DescribeInsightResponse>("DescribeInsightResponse")({ProactiveInsight: Schema.optional(ProactiveInsight), ReactiveInsight: Schema.optional(ReactiveInsight)}) {}
+export class DescribeOrganizationResourceCollectionHealthResponse extends Schema.Class<DescribeOrganizationResourceCollectionHealthResponse>("DescribeOrganizationResourceCollectionHealthResponse")({CloudFormation: Schema.optional(CloudFormationHealths), Service: Schema.optional(ServiceHealths), Account: Schema.optional(AccountHealths), NextToken: Schema.optional(Schema.String), Tags: Schema.optional(TagHealths)}) {}
+export class GetResourceCollectionResponse extends Schema.Class<GetResourceCollectionResponse>("GetResourceCollectionResponse")({ResourceCollection: Schema.optional(ResourceCollectionFilter), NextToken: Schema.optional(Schema.String)}) {}
+export class ListEventsRequest extends Schema.Class<ListEventsRequest>("ListEventsRequest")({Filters: ListEventsFilters, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), AccountId: Schema.optional(Schema.String)}) {}
+export class ListInsightsRequest extends Schema.Class<ListInsightsRequest>("ListInsightsRequest")({StatusFilter: ListInsightsStatusFilter, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListMonitoredResourcesResponse extends Schema.Class<ListMonitoredResourcesResponse>("ListMonitoredResourcesResponse")({MonitoredResourceIdentifiers: MonitoredResourceIdentifiers, NextToken: Schema.optional(Schema.String)}) {}
+export class SearchInsightsResponse extends Schema.Class<SearchInsightsResponse>("SearchInsightsResponse")({ProactiveInsights: Schema.optional(ProactiveInsights), ReactiveInsights: Schema.optional(ReactiveInsights), NextToken: Schema.optional(Schema.String)}) {}
+export class LogAnomalyShowcase extends Schema.Class<LogAnomalyShowcase>("LogAnomalyShowcase")({LogAnomalyClasses: Schema.optional(LogAnomalyClasses)}) {}
 export const LogAnomalyShowcases = Schema.Array(LogAnomalyShowcase);
-export const RecommendationRelatedEvent = Schema.Struct({Name: Schema.optional(Schema.String), Resources: Schema.optional(RecommendationRelatedEventResources)});
+export class RecommendationRelatedEvent extends Schema.Class<RecommendationRelatedEvent>("RecommendationRelatedEvent")({Name: Schema.optional(Schema.String), Resources: Schema.optional(RecommendationRelatedEventResources)}) {}
 export const RecommendationRelatedEvents = Schema.Array(RecommendationRelatedEvent);
-export const RecommendationRelatedCloudWatchMetricsSourceDetail = Schema.Struct({MetricName: Schema.optional(Schema.String), Namespace: Schema.optional(Schema.String)});
+export class RecommendationRelatedCloudWatchMetricsSourceDetail extends Schema.Class<RecommendationRelatedCloudWatchMetricsSourceDetail>("RecommendationRelatedCloudWatchMetricsSourceDetail")({MetricName: Schema.optional(Schema.String), Namespace: Schema.optional(Schema.String)}) {}
 export const RecommendationRelatedCloudWatchMetricsSourceDetails = Schema.Array(RecommendationRelatedCloudWatchMetricsSourceDetail);
-export const ProactiveAnomalySummary = Schema.Struct({Id: Schema.optional(Schema.String), Severity: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), UpdateTime: Schema.optional(Schema.Date), AnomalyTimeRange: Schema.optional(AnomalyTimeRange), AnomalyReportedTimeRange: Schema.optional(AnomalyReportedTimeRange), PredictionTimeRange: Schema.optional(PredictionTimeRange), SourceDetails: Schema.optional(AnomalySourceDetails), AssociatedInsightId: Schema.optional(Schema.String), ResourceCollection: Schema.optional(ResourceCollection), Limit: Schema.optional(Schema.Number), SourceMetadata: Schema.optional(AnomalySourceMetadata), AnomalyResources: Schema.optional(AnomalyResources), Description: Schema.optional(Schema.String)});
+export class ProactiveAnomalySummary extends Schema.Class<ProactiveAnomalySummary>("ProactiveAnomalySummary")({Id: Schema.optional(Schema.String), Severity: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), UpdateTime: Schema.optional(Schema.Date), AnomalyTimeRange: Schema.optional(AnomalyTimeRange), AnomalyReportedTimeRange: Schema.optional(AnomalyReportedTimeRange), PredictionTimeRange: Schema.optional(PredictionTimeRange), SourceDetails: Schema.optional(AnomalySourceDetails), AssociatedInsightId: Schema.optional(Schema.String), ResourceCollection: Schema.optional(ResourceCollection), Limit: Schema.optional(Schema.Number), SourceMetadata: Schema.optional(AnomalySourceMetadata), AnomalyResources: Schema.optional(AnomalyResources), Description: Schema.optional(Schema.String)}) {}
 export const ProactiveAnomalies = Schema.Array(ProactiveAnomalySummary);
-export const ReactiveAnomalySummary = Schema.Struct({Id: Schema.optional(Schema.String), Severity: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), AnomalyTimeRange: Schema.optional(AnomalyTimeRange), AnomalyReportedTimeRange: Schema.optional(AnomalyReportedTimeRange), SourceDetails: Schema.optional(AnomalySourceDetails), AssociatedInsightId: Schema.optional(Schema.String), ResourceCollection: Schema.optional(ResourceCollection), Type: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), CausalAnomalyId: Schema.optional(Schema.String), AnomalyResources: Schema.optional(AnomalyResources)});
+export class ReactiveAnomalySummary extends Schema.Class<ReactiveAnomalySummary>("ReactiveAnomalySummary")({Id: Schema.optional(Schema.String), Severity: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), AnomalyTimeRange: Schema.optional(AnomalyTimeRange), AnomalyReportedTimeRange: Schema.optional(AnomalyReportedTimeRange), SourceDetails: Schema.optional(AnomalySourceDetails), AssociatedInsightId: Schema.optional(Schema.String), ResourceCollection: Schema.optional(ResourceCollection), Type: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), CausalAnomalyId: Schema.optional(Schema.String), AnomalyResources: Schema.optional(AnomalyResources)}) {}
 export const ReactiveAnomalies = Schema.Array(ReactiveAnomalySummary);
-export const AnomalousLogGroup = Schema.Struct({LogGroupName: Schema.optional(Schema.String), ImpactStartTime: Schema.optional(Schema.Date), ImpactEndTime: Schema.optional(Schema.Date), NumberOfLogLinesScanned: Schema.optional(Schema.Number), LogAnomalyShowcases: Schema.optional(LogAnomalyShowcases)});
+export class AnomalousLogGroup extends Schema.Class<AnomalousLogGroup>("AnomalousLogGroup")({LogGroupName: Schema.optional(Schema.String), ImpactStartTime: Schema.optional(Schema.Date), ImpactEndTime: Schema.optional(Schema.Date), NumberOfLogLinesScanned: Schema.optional(Schema.Number), LogAnomalyShowcases: Schema.optional(LogAnomalyShowcases)}) {}
 export const AnomalousLogGroups = Schema.Array(AnomalousLogGroup);
-export const RecommendationRelatedAnomalySourceDetail = Schema.Struct({CloudWatchMetrics: Schema.optional(RecommendationRelatedCloudWatchMetricsSourceDetails)});
+export class RecommendationRelatedAnomalySourceDetail extends Schema.Class<RecommendationRelatedAnomalySourceDetail>("RecommendationRelatedAnomalySourceDetail")({CloudWatchMetrics: Schema.optional(RecommendationRelatedCloudWatchMetricsSourceDetails)}) {}
 export const RelatedAnomalySourceDetails = Schema.Array(RecommendationRelatedAnomalySourceDetail);
-export const ServiceQuotaExceededException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ListAnomaliesForInsightResponse = Schema.Struct({ProactiveAnomalies: Schema.optional(ProactiveAnomalies), ReactiveAnomalies: Schema.optional(ReactiveAnomalies), NextToken: Schema.optional(Schema.String)});
-export const ListAnomalousLogGroupsResponse = Schema.Struct({InsightId: Schema.String, AnomalousLogGroups: AnomalousLogGroups, NextToken: Schema.optional(Schema.String)});
-export const ListInsightsResponse = Schema.Struct({ProactiveInsights: Schema.optional(ProactiveInsights), ReactiveInsights: Schema.optional(ReactiveInsights), NextToken: Schema.optional(Schema.String)});
-export const RecommendationRelatedAnomaly = Schema.Struct({Resources: Schema.optional(RecommendationRelatedAnomalyResources), SourceDetails: Schema.optional(RelatedAnomalySourceDetails), AnomalyId: Schema.optional(Schema.String)});
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({Message: Schema.optional(Schema.String)}) {}
+export class ListAnomaliesForInsightResponse extends Schema.Class<ListAnomaliesForInsightResponse>("ListAnomaliesForInsightResponse")({ProactiveAnomalies: Schema.optional(ProactiveAnomalies), ReactiveAnomalies: Schema.optional(ReactiveAnomalies), NextToken: Schema.optional(Schema.String)}) {}
+export class ListAnomalousLogGroupsResponse extends Schema.Class<ListAnomalousLogGroupsResponse>("ListAnomalousLogGroupsResponse")({InsightId: Schema.String, AnomalousLogGroups: AnomalousLogGroups, NextToken: Schema.optional(Schema.String)}) {}
+export class ListInsightsResponse extends Schema.Class<ListInsightsResponse>("ListInsightsResponse")({ProactiveInsights: Schema.optional(ProactiveInsights), ReactiveInsights: Schema.optional(ReactiveInsights), NextToken: Schema.optional(Schema.String)}) {}
+export class RecommendationRelatedAnomaly extends Schema.Class<RecommendationRelatedAnomaly>("RecommendationRelatedAnomaly")({Resources: Schema.optional(RecommendationRelatedAnomalyResources), SourceDetails: Schema.optional(RelatedAnomalySourceDetails), AnomalyId: Schema.optional(Schema.String)}) {}
 export const RecommendationRelatedAnomalies = Schema.Array(RecommendationRelatedAnomaly);
-export const Recommendation = Schema.Struct({Description: Schema.optional(Schema.String), Link: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String), RelatedEvents: Schema.optional(RecommendationRelatedEvents), RelatedAnomalies: Schema.optional(RecommendationRelatedAnomalies), Category: Schema.optional(Schema.String)});
+export class Recommendation extends Schema.Class<Recommendation>("Recommendation")({Description: Schema.optional(Schema.String), Link: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Reason: Schema.optional(Schema.String), RelatedEvents: Schema.optional(RecommendationRelatedEvents), RelatedAnomalies: Schema.optional(RecommendationRelatedAnomalies), Category: Schema.optional(Schema.String)}) {}
 export const Recommendations = Schema.Array(Recommendation);
-export const ListRecommendationsResponse = Schema.Struct({Recommendations: Schema.optional(Recommendations), NextToken: Schema.optional(Schema.String)});
-export const EventResource = Schema.Struct({Type: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String)});
+export class ListRecommendationsResponse extends Schema.Class<ListRecommendationsResponse>("ListRecommendationsResponse")({Recommendations: Schema.optional(Recommendations), NextToken: Schema.optional(Schema.String)}) {}
+export class EventResource extends Schema.Class<EventResource>("EventResource")({Type: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Arn: Schema.optional(Schema.String)}) {}
 export const EventResources = Schema.Array(EventResource);
-export const Event = Schema.Struct({ResourceCollection: Schema.optional(ResourceCollection), Id: Schema.optional(Schema.String), Time: Schema.optional(Schema.Date), EventSource: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), DataSource: Schema.optional(Schema.String), EventClass: Schema.optional(Schema.String), Resources: Schema.optional(EventResources)});
+export class Event extends Schema.Class<Event>("Event")({ResourceCollection: Schema.optional(ResourceCollection), Id: Schema.optional(Schema.String), Time: Schema.optional(Schema.Date), EventSource: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), DataSource: Schema.optional(Schema.String), EventClass: Schema.optional(Schema.String), Resources: Schema.optional(EventResources)}) {}
 export const Events = Schema.Array(Event);
-export const ListEventsResponse = Schema.Struct({Events: Events, NextToken: Schema.optional(Schema.String)});
-export const ProactiveAnomaly = Schema.Struct({Id: Schema.optional(Schema.String), Severity: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), UpdateTime: Schema.optional(Schema.Date), AnomalyTimeRange: Schema.optional(AnomalyTimeRange), AnomalyReportedTimeRange: Schema.optional(AnomalyReportedTimeRange), PredictionTimeRange: Schema.optional(PredictionTimeRange), SourceDetails: Schema.optional(AnomalySourceDetails), AssociatedInsightId: Schema.optional(Schema.String), ResourceCollection: Schema.optional(ResourceCollection), Limit: Schema.optional(Schema.Number), SourceMetadata: Schema.optional(AnomalySourceMetadata), AnomalyResources: Schema.optional(AnomalyResources), Description: Schema.optional(Schema.String)});
-export const DescribeAnomalyResponse = Schema.Struct({ProactiveAnomaly: Schema.optional(ProactiveAnomaly), ReactiveAnomaly: Schema.optional(ReactiveAnomaly)});
+export class ListEventsResponse extends Schema.Class<ListEventsResponse>("ListEventsResponse")({Events: Events, NextToken: Schema.optional(Schema.String)}) {}
+export class ProactiveAnomaly extends Schema.Class<ProactiveAnomaly>("ProactiveAnomaly")({Id: Schema.optional(Schema.String), Severity: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), UpdateTime: Schema.optional(Schema.Date), AnomalyTimeRange: Schema.optional(AnomalyTimeRange), AnomalyReportedTimeRange: Schema.optional(AnomalyReportedTimeRange), PredictionTimeRange: Schema.optional(PredictionTimeRange), SourceDetails: Schema.optional(AnomalySourceDetails), AssociatedInsightId: Schema.optional(Schema.String), ResourceCollection: Schema.optional(ResourceCollection), Limit: Schema.optional(Schema.Number), SourceMetadata: Schema.optional(AnomalySourceMetadata), AnomalyResources: Schema.optional(AnomalyResources), Description: Schema.optional(Schema.String)}) {}
+export class DescribeAnomalyResponse extends Schema.Class<DescribeAnomalyResponse>("DescribeAnomalyResponse")({ProactiveAnomaly: Schema.optional(ProactiveAnomaly), ReactiveAnomaly: Schema.optional(ReactiveAnomaly)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
 
 //# Operations
 export const describeAccountOverview = /*#__PURE__*/ makeOperation(() => Operation({ version: "2020-12-01", uri: "/accounts/overview", method: "POST", sdkId: "DevOps Guru", sigV4ServiceName: "devops-guru", name: "CapstoneControlPlaneService.DescribeAccountOverview" }, DescribeAccountOverviewRequest, DescribeAccountOverviewResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

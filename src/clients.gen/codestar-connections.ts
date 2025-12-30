@@ -4,123 +4,123 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 
 //# Schemas
 export const TagKeyList = Schema.Array(Schema.String);
-export const Tag = Schema.Struct({Key: Schema.String, Value: Schema.String});
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.String, Value: Schema.String}) {}
 export const TagList = Schema.Array(Tag);
-export const CreateRepositoryLinkInput = Schema.Struct({ConnectionArn: Schema.String, OwnerId: Schema.String, RepositoryName: Schema.String, EncryptionKeyArn: Schema.optional(Schema.String), Tags: Schema.optional(TagList)});
-export const CreateSyncConfigurationInput = Schema.Struct({Branch: Schema.String, ConfigFile: Schema.String, RepositoryLinkId: Schema.String, ResourceName: Schema.String, RoleArn: Schema.String, SyncType: Schema.String, PublishDeploymentStatus: Schema.optional(Schema.String), TriggerResourceUpdateOn: Schema.optional(Schema.String)});
-export const DeleteConnectionInput = Schema.Struct({ConnectionArn: Schema.String});
-export const DeleteConnectionOutput = Schema.Struct({});
-export const DeleteHostInput = Schema.Struct({HostArn: Schema.String});
-export const DeleteHostOutput = Schema.Struct({});
-export const DeleteRepositoryLinkInput = Schema.Struct({RepositoryLinkId: Schema.String});
-export const DeleteRepositoryLinkOutput = Schema.Struct({});
-export const DeleteSyncConfigurationInput = Schema.Struct({SyncType: Schema.String, ResourceName: Schema.String});
-export const DeleteSyncConfigurationOutput = Schema.Struct({});
-export const GetConnectionInput = Schema.Struct({ConnectionArn: Schema.String});
-export const GetHostInput = Schema.Struct({HostArn: Schema.String});
-export const GetRepositoryLinkInput = Schema.Struct({RepositoryLinkId: Schema.String});
-export const GetRepositorySyncStatusInput = Schema.Struct({Branch: Schema.String, RepositoryLinkId: Schema.String, SyncType: Schema.String});
-export const GetResourceSyncStatusInput = Schema.Struct({ResourceName: Schema.String, SyncType: Schema.String});
-export const GetSyncBlockerSummaryInput = Schema.Struct({SyncType: Schema.String, ResourceName: Schema.String});
-export const GetSyncConfigurationInput = Schema.Struct({SyncType: Schema.String, ResourceName: Schema.String});
-export const ListConnectionsInput = Schema.Struct({ProviderTypeFilter: Schema.optional(Schema.String), HostArnFilter: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListHostsInput = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListRepositoryLinksInput = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListRepositorySyncDefinitionsInput = Schema.Struct({RepositoryLinkId: Schema.String, SyncType: Schema.String});
-export const ListSyncConfigurationsInput = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), RepositoryLinkId: Schema.String, SyncType: Schema.String});
-export const ListTagsForResourceInput = Schema.Struct({ResourceArn: Schema.String});
-export const TagResourceInput = Schema.Struct({ResourceArn: Schema.String, Tags: TagList});
-export const TagResourceOutput = Schema.Struct({});
-export const UntagResourceInput = Schema.Struct({ResourceArn: Schema.String, TagKeys: TagKeyList});
-export const UntagResourceOutput = Schema.Struct({});
+export class CreateRepositoryLinkInput extends Schema.Class<CreateRepositoryLinkInput>("CreateRepositoryLinkInput")({ConnectionArn: Schema.String, OwnerId: Schema.String, RepositoryName: Schema.String, EncryptionKeyArn: Schema.optional(Schema.String), Tags: Schema.optional(TagList)}) {}
+export class CreateSyncConfigurationInput extends Schema.Class<CreateSyncConfigurationInput>("CreateSyncConfigurationInput")({Branch: Schema.String, ConfigFile: Schema.String, RepositoryLinkId: Schema.String, ResourceName: Schema.String, RoleArn: Schema.String, SyncType: Schema.String, PublishDeploymentStatus: Schema.optional(Schema.String), TriggerResourceUpdateOn: Schema.optional(Schema.String)}) {}
+export class DeleteConnectionInput extends Schema.Class<DeleteConnectionInput>("DeleteConnectionInput")({ConnectionArn: Schema.String}) {}
+export class DeleteConnectionOutput extends Schema.Class<DeleteConnectionOutput>("DeleteConnectionOutput")({}) {}
+export class DeleteHostInput extends Schema.Class<DeleteHostInput>("DeleteHostInput")({HostArn: Schema.String}) {}
+export class DeleteHostOutput extends Schema.Class<DeleteHostOutput>("DeleteHostOutput")({}) {}
+export class DeleteRepositoryLinkInput extends Schema.Class<DeleteRepositoryLinkInput>("DeleteRepositoryLinkInput")({RepositoryLinkId: Schema.String}) {}
+export class DeleteRepositoryLinkOutput extends Schema.Class<DeleteRepositoryLinkOutput>("DeleteRepositoryLinkOutput")({}) {}
+export class DeleteSyncConfigurationInput extends Schema.Class<DeleteSyncConfigurationInput>("DeleteSyncConfigurationInput")({SyncType: Schema.String, ResourceName: Schema.String}) {}
+export class DeleteSyncConfigurationOutput extends Schema.Class<DeleteSyncConfigurationOutput>("DeleteSyncConfigurationOutput")({}) {}
+export class GetConnectionInput extends Schema.Class<GetConnectionInput>("GetConnectionInput")({ConnectionArn: Schema.String}) {}
+export class GetHostInput extends Schema.Class<GetHostInput>("GetHostInput")({HostArn: Schema.String}) {}
+export class GetRepositoryLinkInput extends Schema.Class<GetRepositoryLinkInput>("GetRepositoryLinkInput")({RepositoryLinkId: Schema.String}) {}
+export class GetRepositorySyncStatusInput extends Schema.Class<GetRepositorySyncStatusInput>("GetRepositorySyncStatusInput")({Branch: Schema.String, RepositoryLinkId: Schema.String, SyncType: Schema.String}) {}
+export class GetResourceSyncStatusInput extends Schema.Class<GetResourceSyncStatusInput>("GetResourceSyncStatusInput")({ResourceName: Schema.String, SyncType: Schema.String}) {}
+export class GetSyncBlockerSummaryInput extends Schema.Class<GetSyncBlockerSummaryInput>("GetSyncBlockerSummaryInput")({SyncType: Schema.String, ResourceName: Schema.String}) {}
+export class GetSyncConfigurationInput extends Schema.Class<GetSyncConfigurationInput>("GetSyncConfigurationInput")({SyncType: Schema.String, ResourceName: Schema.String}) {}
+export class ListConnectionsInput extends Schema.Class<ListConnectionsInput>("ListConnectionsInput")({ProviderTypeFilter: Schema.optional(Schema.String), HostArnFilter: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListHostsInput extends Schema.Class<ListHostsInput>("ListHostsInput")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListRepositoryLinksInput extends Schema.Class<ListRepositoryLinksInput>("ListRepositoryLinksInput")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListRepositorySyncDefinitionsInput extends Schema.Class<ListRepositorySyncDefinitionsInput>("ListRepositorySyncDefinitionsInput")({RepositoryLinkId: Schema.String, SyncType: Schema.String}) {}
+export class ListSyncConfigurationsInput extends Schema.Class<ListSyncConfigurationsInput>("ListSyncConfigurationsInput")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), RepositoryLinkId: Schema.String, SyncType: Schema.String}) {}
+export class ListTagsForResourceInput extends Schema.Class<ListTagsForResourceInput>("ListTagsForResourceInput")({ResourceArn: Schema.String}) {}
+export class TagResourceInput extends Schema.Class<TagResourceInput>("TagResourceInput")({ResourceArn: Schema.String, Tags: TagList}) {}
+export class TagResourceOutput extends Schema.Class<TagResourceOutput>("TagResourceOutput")({}) {}
+export class UntagResourceInput extends Schema.Class<UntagResourceInput>("UntagResourceInput")({ResourceArn: Schema.String, TagKeys: TagKeyList}) {}
+export class UntagResourceOutput extends Schema.Class<UntagResourceOutput>("UntagResourceOutput")({}) {}
 export const SubnetIds = Schema.Array(Schema.String);
 export const SecurityGroupIds = Schema.Array(Schema.String);
-export const VpcConfiguration = Schema.Struct({VpcId: Schema.String, SubnetIds: SubnetIds, SecurityGroupIds: SecurityGroupIds, TlsCertificate: Schema.optional(Schema.String)});
-export const UpdateHostInput = Schema.Struct({HostArn: Schema.String, ProviderEndpoint: Schema.optional(Schema.String), VpcConfiguration: Schema.optional(VpcConfiguration)});
-export const UpdateHostOutput = Schema.Struct({});
-export const UpdateRepositoryLinkInput = Schema.Struct({ConnectionArn: Schema.optional(Schema.String), EncryptionKeyArn: Schema.optional(Schema.String), RepositoryLinkId: Schema.String});
-export const UpdateSyncBlockerInput = Schema.Struct({Id: Schema.String, SyncType: Schema.String, ResourceName: Schema.String, ResolvedReason: Schema.String});
-export const UpdateSyncConfigurationInput = Schema.Struct({Branch: Schema.optional(Schema.String), ConfigFile: Schema.optional(Schema.String), RepositoryLinkId: Schema.optional(Schema.String), ResourceName: Schema.String, RoleArn: Schema.optional(Schema.String), SyncType: Schema.String, PublishDeploymentStatus: Schema.optional(Schema.String), TriggerResourceUpdateOn: Schema.optional(Schema.String)});
-export const Connection = Schema.Struct({ConnectionName: Schema.optional(Schema.String), ConnectionArn: Schema.optional(Schema.String), ProviderType: Schema.optional(Schema.String), OwnerAccountId: Schema.optional(Schema.String), ConnectionStatus: Schema.optional(Schema.String), HostArn: Schema.optional(Schema.String)});
+export class VpcConfiguration extends Schema.Class<VpcConfiguration>("VpcConfiguration")({VpcId: Schema.String, SubnetIds: SubnetIds, SecurityGroupIds: SecurityGroupIds, TlsCertificate: Schema.optional(Schema.String)}) {}
+export class UpdateHostInput extends Schema.Class<UpdateHostInput>("UpdateHostInput")({HostArn: Schema.String, ProviderEndpoint: Schema.optional(Schema.String), VpcConfiguration: Schema.optional(VpcConfiguration)}) {}
+export class UpdateHostOutput extends Schema.Class<UpdateHostOutput>("UpdateHostOutput")({}) {}
+export class UpdateRepositoryLinkInput extends Schema.Class<UpdateRepositoryLinkInput>("UpdateRepositoryLinkInput")({ConnectionArn: Schema.optional(Schema.String), EncryptionKeyArn: Schema.optional(Schema.String), RepositoryLinkId: Schema.String}) {}
+export class UpdateSyncBlockerInput extends Schema.Class<UpdateSyncBlockerInput>("UpdateSyncBlockerInput")({Id: Schema.String, SyncType: Schema.String, ResourceName: Schema.String, ResolvedReason: Schema.String}) {}
+export class UpdateSyncConfigurationInput extends Schema.Class<UpdateSyncConfigurationInput>("UpdateSyncConfigurationInput")({Branch: Schema.optional(Schema.String), ConfigFile: Schema.optional(Schema.String), RepositoryLinkId: Schema.optional(Schema.String), ResourceName: Schema.String, RoleArn: Schema.optional(Schema.String), SyncType: Schema.String, PublishDeploymentStatus: Schema.optional(Schema.String), TriggerResourceUpdateOn: Schema.optional(Schema.String)}) {}
+export class Connection extends Schema.Class<Connection>("Connection")({ConnectionName: Schema.optional(Schema.String), ConnectionArn: Schema.optional(Schema.String), ProviderType: Schema.optional(Schema.String), OwnerAccountId: Schema.optional(Schema.String), ConnectionStatus: Schema.optional(Schema.String), HostArn: Schema.optional(Schema.String)}) {}
 export const ConnectionList = Schema.Array(Connection);
-export const RepositoryLinkInfo = Schema.Struct({ConnectionArn: Schema.String, EncryptionKeyArn: Schema.optional(Schema.String), OwnerId: Schema.String, ProviderType: Schema.String, RepositoryLinkArn: Schema.String, RepositoryLinkId: Schema.String, RepositoryName: Schema.String});
+export class RepositoryLinkInfo extends Schema.Class<RepositoryLinkInfo>("RepositoryLinkInfo")({ConnectionArn: Schema.String, EncryptionKeyArn: Schema.optional(Schema.String), OwnerId: Schema.String, ProviderType: Schema.String, RepositoryLinkArn: Schema.String, RepositoryLinkId: Schema.String, RepositoryName: Schema.String}) {}
 export const RepositoryLinkList = Schema.Array(RepositoryLinkInfo);
-export const SyncConfiguration = Schema.Struct({Branch: Schema.String, ConfigFile: Schema.optional(Schema.String), OwnerId: Schema.String, ProviderType: Schema.String, RepositoryLinkId: Schema.String, RepositoryName: Schema.String, ResourceName: Schema.String, RoleArn: Schema.String, SyncType: Schema.String, PublishDeploymentStatus: Schema.optional(Schema.String), TriggerResourceUpdateOn: Schema.optional(Schema.String)});
+export class SyncConfiguration extends Schema.Class<SyncConfiguration>("SyncConfiguration")({Branch: Schema.String, ConfigFile: Schema.optional(Schema.String), OwnerId: Schema.String, ProviderType: Schema.String, RepositoryLinkId: Schema.String, RepositoryName: Schema.String, ResourceName: Schema.String, RoleArn: Schema.String, SyncType: Schema.String, PublishDeploymentStatus: Schema.optional(Schema.String), TriggerResourceUpdateOn: Schema.optional(Schema.String)}) {}
 export const SyncConfigurationList = Schema.Array(SyncConfiguration);
-export const CreateConnectionInput = Schema.Struct({ProviderType: Schema.optional(Schema.String), ConnectionName: Schema.String, Tags: Schema.optional(TagList), HostArn: Schema.optional(Schema.String)});
-export const CreateHostInput = Schema.Struct({Name: Schema.String, ProviderType: Schema.String, ProviderEndpoint: Schema.String, VpcConfiguration: Schema.optional(VpcConfiguration), Tags: Schema.optional(TagList)});
-export const ResourceNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ResourceUnavailableException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const AccessDeniedException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ConcurrentModificationException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const GetHostOutput = Schema.Struct({Name: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), ProviderType: Schema.optional(Schema.String), ProviderEndpoint: Schema.optional(Schema.String), VpcConfiguration: Schema.optional(VpcConfiguration)});
-export const GetRepositoryLinkOutput = Schema.Struct({RepositoryLinkInfo: RepositoryLinkInfo});
-export const GetSyncConfigurationOutput = Schema.Struct({SyncConfiguration: SyncConfiguration});
-export const ListConnectionsOutput = Schema.Struct({Connections: Schema.optional(ConnectionList), NextToken: Schema.optional(Schema.String)});
-export const ListRepositoryLinksOutput = Schema.Struct({RepositoryLinks: RepositoryLinkList, NextToken: Schema.optional(Schema.String)});
-export const ListSyncConfigurationsOutput = Schema.Struct({SyncConfigurations: SyncConfigurationList, NextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceOutput = Schema.Struct({Tags: Schema.optional(TagList)});
-export const LimitExceededException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ConflictException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const UpdateRepositoryLinkOutput = Schema.Struct({RepositoryLinkInfo: RepositoryLinkInfo});
-export const UpdateSyncConfigurationOutput = Schema.Struct({SyncConfiguration: SyncConfiguration});
-export const SyncBlockerContext = Schema.Struct({Key: Schema.String, Value: Schema.String});
+export class CreateConnectionInput extends Schema.Class<CreateConnectionInput>("CreateConnectionInput")({ProviderType: Schema.optional(Schema.String), ConnectionName: Schema.String, Tags: Schema.optional(TagList), HostArn: Schema.optional(Schema.String)}) {}
+export class CreateHostInput extends Schema.Class<CreateHostInput>("CreateHostInput")({Name: Schema.String, ProviderType: Schema.String, ProviderEndpoint: Schema.String, VpcConfiguration: Schema.optional(VpcConfiguration), Tags: Schema.optional(TagList)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class ResourceUnavailableException extends Schema.Class<ResourceUnavailableException>("ResourceUnavailableException")({Message: Schema.optional(Schema.String)}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({Message: Schema.optional(Schema.String)}) {}
+export class ConcurrentModificationException extends Schema.Class<ConcurrentModificationException>("ConcurrentModificationException")({Message: Schema.optional(Schema.String)}) {}
+export class GetHostOutput extends Schema.Class<GetHostOutput>("GetHostOutput")({Name: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), ProviderType: Schema.optional(Schema.String), ProviderEndpoint: Schema.optional(Schema.String), VpcConfiguration: Schema.optional(VpcConfiguration)}) {}
+export class GetRepositoryLinkOutput extends Schema.Class<GetRepositoryLinkOutput>("GetRepositoryLinkOutput")({RepositoryLinkInfo: RepositoryLinkInfo}) {}
+export class GetSyncConfigurationOutput extends Schema.Class<GetSyncConfigurationOutput>("GetSyncConfigurationOutput")({SyncConfiguration: SyncConfiguration}) {}
+export class ListConnectionsOutput extends Schema.Class<ListConnectionsOutput>("ListConnectionsOutput")({Connections: Schema.optional(ConnectionList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListRepositoryLinksOutput extends Schema.Class<ListRepositoryLinksOutput>("ListRepositoryLinksOutput")({RepositoryLinks: RepositoryLinkList, NextToken: Schema.optional(Schema.String)}) {}
+export class ListSyncConfigurationsOutput extends Schema.Class<ListSyncConfigurationsOutput>("ListSyncConfigurationsOutput")({SyncConfigurations: SyncConfigurationList, NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceOutput extends Schema.Class<ListTagsForResourceOutput>("ListTagsForResourceOutput")({Tags: Schema.optional(TagList)}) {}
+export class LimitExceededException extends Schema.Class<LimitExceededException>("LimitExceededException")({Message: Schema.optional(Schema.String)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({Message: Schema.optional(Schema.String)}) {}
+export class UpdateRepositoryLinkOutput extends Schema.Class<UpdateRepositoryLinkOutput>("UpdateRepositoryLinkOutput")({RepositoryLinkInfo: RepositoryLinkInfo}) {}
+export class UpdateSyncConfigurationOutput extends Schema.Class<UpdateSyncConfigurationOutput>("UpdateSyncConfigurationOutput")({SyncConfiguration: SyncConfiguration}) {}
+export class SyncBlockerContext extends Schema.Class<SyncBlockerContext>("SyncBlockerContext")({Key: Schema.String, Value: Schema.String}) {}
 export const SyncBlockerContextList = Schema.Array(SyncBlockerContext);
-export const SyncBlocker = Schema.Struct({Id: Schema.String, Type: Schema.String, Status: Schema.String, CreatedReason: Schema.String, CreatedAt: Schema.Date, Contexts: Schema.optional(SyncBlockerContextList), ResolvedReason: Schema.optional(Schema.String), ResolvedAt: Schema.optional(Schema.Date)});
+export class SyncBlocker extends Schema.Class<SyncBlocker>("SyncBlocker")({Id: Schema.String, Type: Schema.String, Status: Schema.String, CreatedReason: Schema.String, CreatedAt: Schema.Date, Contexts: Schema.optional(SyncBlockerContextList), ResolvedReason: Schema.optional(Schema.String), ResolvedAt: Schema.optional(Schema.Date)}) {}
 export const LatestSyncBlockerList = Schema.Array(SyncBlocker);
-export const Revision = Schema.Struct({Branch: Schema.String, Directory: Schema.String, OwnerId: Schema.String, RepositoryName: Schema.String, ProviderType: Schema.String, Sha: Schema.String});
-export const SyncBlockerSummary = Schema.Struct({ResourceName: Schema.String, ParentResourceName: Schema.optional(Schema.String), LatestBlockers: Schema.optional(LatestSyncBlockerList)});
-export const Host = Schema.Struct({Name: Schema.optional(Schema.String), HostArn: Schema.optional(Schema.String), ProviderType: Schema.optional(Schema.String), ProviderEndpoint: Schema.optional(Schema.String), VpcConfiguration: Schema.optional(VpcConfiguration), Status: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String)});
+export class Revision extends Schema.Class<Revision>("Revision")({Branch: Schema.String, Directory: Schema.String, OwnerId: Schema.String, RepositoryName: Schema.String, ProviderType: Schema.String, Sha: Schema.String}) {}
+export class SyncBlockerSummary extends Schema.Class<SyncBlockerSummary>("SyncBlockerSummary")({ResourceName: Schema.String, ParentResourceName: Schema.optional(Schema.String), LatestBlockers: Schema.optional(LatestSyncBlockerList)}) {}
+export class Host extends Schema.Class<Host>("Host")({Name: Schema.optional(Schema.String), HostArn: Schema.optional(Schema.String), ProviderType: Schema.optional(Schema.String), ProviderEndpoint: Schema.optional(Schema.String), VpcConfiguration: Schema.optional(VpcConfiguration), Status: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String)}) {}
 export const HostList = Schema.Array(Host);
-export const RepositorySyncDefinition = Schema.Struct({Branch: Schema.String, Directory: Schema.String, Parent: Schema.String, Target: Schema.String});
+export class RepositorySyncDefinition extends Schema.Class<RepositorySyncDefinition>("RepositorySyncDefinition")({Branch: Schema.String, Directory: Schema.String, Parent: Schema.String, Target: Schema.String}) {}
 export const RepositorySyncDefinitionList = Schema.Array(RepositorySyncDefinition);
-export const CreateConnectionOutput = Schema.Struct({ConnectionArn: Schema.String, Tags: Schema.optional(TagList)});
-export const CreateHostOutput = Schema.Struct({HostArn: Schema.optional(Schema.String), Tags: Schema.optional(TagList)});
-export const CreateRepositoryLinkOutput = Schema.Struct({RepositoryLinkInfo: RepositoryLinkInfo});
-export const CreateSyncConfigurationOutput = Schema.Struct({SyncConfiguration: SyncConfiguration});
-export const InternalServerException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const InvalidInputException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const GetConnectionOutput = Schema.Struct({Connection: Schema.optional(Connection)});
-export const ThrottlingException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const GetSyncBlockerSummaryOutput = Schema.Struct({SyncBlockerSummary: SyncBlockerSummary});
-export const ListHostsOutput = Schema.Struct({Hosts: Schema.optional(HostList), NextToken: Schema.optional(Schema.String)});
-export const ListRepositorySyncDefinitionsOutput = Schema.Struct({RepositorySyncDefinitions: RepositorySyncDefinitionList, NextToken: Schema.optional(Schema.String)});
-export const UnsupportedOperationException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ConditionalCheckFailedException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const UpdateOutOfSyncException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const RepositorySyncEvent = Schema.Struct({Event: Schema.String, ExternalId: Schema.optional(Schema.String), Time: Schema.Date, Type: Schema.String});
+export class CreateConnectionOutput extends Schema.Class<CreateConnectionOutput>("CreateConnectionOutput")({ConnectionArn: Schema.String, Tags: Schema.optional(TagList)}) {}
+export class CreateHostOutput extends Schema.Class<CreateHostOutput>("CreateHostOutput")({HostArn: Schema.optional(Schema.String), Tags: Schema.optional(TagList)}) {}
+export class CreateRepositoryLinkOutput extends Schema.Class<CreateRepositoryLinkOutput>("CreateRepositoryLinkOutput")({RepositoryLinkInfo: RepositoryLinkInfo}) {}
+export class CreateSyncConfigurationOutput extends Schema.Class<CreateSyncConfigurationOutput>("CreateSyncConfigurationOutput")({SyncConfiguration: SyncConfiguration}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({Message: Schema.optional(Schema.String)}) {}
+export class InvalidInputException extends Schema.Class<InvalidInputException>("InvalidInputException")({Message: Schema.optional(Schema.String)}) {}
+export class GetConnectionOutput extends Schema.Class<GetConnectionOutput>("GetConnectionOutput")({Connection: Schema.optional(Connection)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({Message: Schema.optional(Schema.String)}) {}
+export class GetSyncBlockerSummaryOutput extends Schema.Class<GetSyncBlockerSummaryOutput>("GetSyncBlockerSummaryOutput")({SyncBlockerSummary: SyncBlockerSummary}) {}
+export class ListHostsOutput extends Schema.Class<ListHostsOutput>("ListHostsOutput")({Hosts: Schema.optional(HostList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListRepositorySyncDefinitionsOutput extends Schema.Class<ListRepositorySyncDefinitionsOutput>("ListRepositorySyncDefinitionsOutput")({RepositorySyncDefinitions: RepositorySyncDefinitionList, NextToken: Schema.optional(Schema.String)}) {}
+export class UnsupportedOperationException extends Schema.Class<UnsupportedOperationException>("UnsupportedOperationException")({Message: Schema.optional(Schema.String)}) {}
+export class ConditionalCheckFailedException extends Schema.Class<ConditionalCheckFailedException>("ConditionalCheckFailedException")({Message: Schema.optional(Schema.String)}) {}
+export class UpdateOutOfSyncException extends Schema.Class<UpdateOutOfSyncException>("UpdateOutOfSyncException")({Message: Schema.optional(Schema.String)}) {}
+export class RepositorySyncEvent extends Schema.Class<RepositorySyncEvent>("RepositorySyncEvent")({Event: Schema.String, ExternalId: Schema.optional(Schema.String), Time: Schema.Date, Type: Schema.String}) {}
 export const RepositorySyncEventList = Schema.Array(RepositorySyncEvent);
-export const ResourceSyncEvent = Schema.Struct({Event: Schema.String, ExternalId: Schema.optional(Schema.String), Time: Schema.Date, Type: Schema.String});
+export class ResourceSyncEvent extends Schema.Class<ResourceSyncEvent>("ResourceSyncEvent")({Event: Schema.String, ExternalId: Schema.optional(Schema.String), Time: Schema.Date, Type: Schema.String}) {}
 export const ResourceSyncEventList = Schema.Array(ResourceSyncEvent);
-export const RepositorySyncAttempt = Schema.Struct({StartedAt: Schema.Date, Status: Schema.String, Events: RepositorySyncEventList});
-export const ResourceSyncAttempt = Schema.Struct({Events: ResourceSyncEventList, InitialRevision: Revision, StartedAt: Schema.Date, Status: Schema.String, TargetRevision: Revision, Target: Schema.String});
-export const ResourceAlreadyExistsException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const SyncConfigurationStillExistsException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const GetRepositorySyncStatusOutput = Schema.Struct({LatestSync: RepositorySyncAttempt});
-export const GetResourceSyncStatusOutput = Schema.Struct({DesiredState: Schema.optional(Revision), LatestSuccessfulSync: Schema.optional(ResourceSyncAttempt), LatestSync: ResourceSyncAttempt});
-export const UpdateSyncBlockerOutput = Schema.Struct({ResourceName: Schema.String, ParentResourceName: Schema.optional(Schema.String), SyncBlocker: SyncBlocker});
-export const UnsupportedProviderTypeException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const RetryLatestCommitFailedException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const SyncBlockerDoesNotExistException = Schema.Struct({Message: Schema.optional(Schema.String)});
+export class RepositorySyncAttempt extends Schema.Class<RepositorySyncAttempt>("RepositorySyncAttempt")({StartedAt: Schema.Date, Status: Schema.String, Events: RepositorySyncEventList}) {}
+export class ResourceSyncAttempt extends Schema.Class<ResourceSyncAttempt>("ResourceSyncAttempt")({Events: ResourceSyncEventList, InitialRevision: Revision, StartedAt: Schema.Date, Status: Schema.String, TargetRevision: Revision, Target: Schema.String}) {}
+export class ResourceAlreadyExistsException extends Schema.Class<ResourceAlreadyExistsException>("ResourceAlreadyExistsException")({Message: Schema.optional(Schema.String)}) {}
+export class SyncConfigurationStillExistsException extends Schema.Class<SyncConfigurationStillExistsException>("SyncConfigurationStillExistsException")({Message: Schema.optional(Schema.String)}) {}
+export class GetRepositorySyncStatusOutput extends Schema.Class<GetRepositorySyncStatusOutput>("GetRepositorySyncStatusOutput")({LatestSync: RepositorySyncAttempt}) {}
+export class GetResourceSyncStatusOutput extends Schema.Class<GetResourceSyncStatusOutput>("GetResourceSyncStatusOutput")({DesiredState: Schema.optional(Revision), LatestSuccessfulSync: Schema.optional(ResourceSyncAttempt), LatestSync: ResourceSyncAttempt}) {}
+export class UpdateSyncBlockerOutput extends Schema.Class<UpdateSyncBlockerOutput>("UpdateSyncBlockerOutput")({ResourceName: Schema.String, ParentResourceName: Schema.optional(Schema.String), SyncBlocker: SyncBlocker}) {}
+export class UnsupportedProviderTypeException extends Schema.Class<UnsupportedProviderTypeException>("UnsupportedProviderTypeException")({Message: Schema.optional(Schema.String)}) {}
+export class RetryLatestCommitFailedException extends Schema.Class<RetryLatestCommitFailedException>("RetryLatestCommitFailedException")({Message: Schema.optional(Schema.String)}) {}
+export class SyncBlockerDoesNotExistException extends Schema.Class<SyncBlockerDoesNotExistException>("SyncBlockerDoesNotExistException")({Message: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class ResourceUnavailableExceptionError extends Schema.TaggedError<ResourceUnavailableExceptionError>()("ResourceUnavailableException", ResourceUnavailableException) {};
-export class ConcurrentModificationExceptionError extends Schema.TaggedError<ConcurrentModificationExceptionError>()("ConcurrentModificationException", ConcurrentModificationException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class InvalidInputExceptionError extends Schema.TaggedError<InvalidInputExceptionError>()("InvalidInputException", InvalidInputException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class ResourceAlreadyExistsExceptionError extends Schema.TaggedError<ResourceAlreadyExistsExceptionError>()("ResourceAlreadyExistsException", ResourceAlreadyExistsException) {};
-export class UnsupportedOperationExceptionError extends Schema.TaggedError<UnsupportedOperationExceptionError>()("UnsupportedOperationException", UnsupportedOperationException) {};
-export class ConditionalCheckFailedExceptionError extends Schema.TaggedError<ConditionalCheckFailedExceptionError>()("ConditionalCheckFailedException", ConditionalCheckFailedException) {};
-export class UpdateOutOfSyncExceptionError extends Schema.TaggedError<UpdateOutOfSyncExceptionError>()("UpdateOutOfSyncException", UpdateOutOfSyncException) {};
-export class SyncConfigurationStillExistsExceptionError extends Schema.TaggedError<SyncConfigurationStillExistsExceptionError>()("SyncConfigurationStillExistsException", SyncConfigurationStillExistsException) {};
-export class UnsupportedProviderTypeExceptionError extends Schema.TaggedError<UnsupportedProviderTypeExceptionError>()("UnsupportedProviderTypeException", UnsupportedProviderTypeException) {};
-export class RetryLatestCommitFailedExceptionError extends Schema.TaggedError<RetryLatestCommitFailedExceptionError>()("RetryLatestCommitFailedException", RetryLatestCommitFailedException) {};
-export class SyncBlockerDoesNotExistExceptionError extends Schema.TaggedError<SyncBlockerDoesNotExistExceptionError>()("SyncBlockerDoesNotExistException", SyncBlockerDoesNotExistException) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class ResourceUnavailableExceptionError extends Schema.TaggedError<ResourceUnavailableExceptionError>()("ResourceUnavailableException", ResourceUnavailableException.fields) {};
+export class ConcurrentModificationExceptionError extends Schema.TaggedError<ConcurrentModificationExceptionError>()("ConcurrentModificationException", ConcurrentModificationException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class InvalidInputExceptionError extends Schema.TaggedError<InvalidInputExceptionError>()("InvalidInputException", InvalidInputException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class ResourceAlreadyExistsExceptionError extends Schema.TaggedError<ResourceAlreadyExistsExceptionError>()("ResourceAlreadyExistsException", ResourceAlreadyExistsException.fields) {};
+export class UnsupportedOperationExceptionError extends Schema.TaggedError<UnsupportedOperationExceptionError>()("UnsupportedOperationException", UnsupportedOperationException.fields) {};
+export class ConditionalCheckFailedExceptionError extends Schema.TaggedError<ConditionalCheckFailedExceptionError>()("ConditionalCheckFailedException", ConditionalCheckFailedException.fields) {};
+export class UpdateOutOfSyncExceptionError extends Schema.TaggedError<UpdateOutOfSyncExceptionError>()("UpdateOutOfSyncException", UpdateOutOfSyncException.fields) {};
+export class SyncConfigurationStillExistsExceptionError extends Schema.TaggedError<SyncConfigurationStillExistsExceptionError>()("SyncConfigurationStillExistsException", SyncConfigurationStillExistsException.fields) {};
+export class UnsupportedProviderTypeExceptionError extends Schema.TaggedError<UnsupportedProviderTypeExceptionError>()("UnsupportedProviderTypeException", UnsupportedProviderTypeException.fields) {};
+export class RetryLatestCommitFailedExceptionError extends Schema.TaggedError<RetryLatestCommitFailedExceptionError>()("RetryLatestCommitFailedException", RetryLatestCommitFailedException.fields) {};
+export class SyncBlockerDoesNotExistExceptionError extends Schema.TaggedError<SyncBlockerDoesNotExistExceptionError>()("SyncBlockerDoesNotExistException", SyncBlockerDoesNotExistException.fields) {};
 
 //# Operations
 export const untagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-12-01", uri: "/", method: "POST", sdkId: "CodeStar connections", sigV4ServiceName: "codestar-connections", name: "CodeStar_connections_20191201.UntagResource" }, UntagResourceInput, UntagResourceOutput, [ResourceNotFoundExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);

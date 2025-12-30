@@ -5,75 +5,75 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 //# Schemas
 export const StringList = Schema.Array(Schema.String);
 export const TagKeyList = Schema.Array(Schema.String);
-export const ApplyPendingMaintenanceActionInput = Schema.Struct({resourceArn: Schema.String, applyAction: Schema.String, optInType: Schema.String, applyOn: Schema.optional(Schema.String)});
+export class ApplyPendingMaintenanceActionInput extends Schema.Class<ApplyPendingMaintenanceActionInput>("ApplyPendingMaintenanceActionInput")({resourceArn: Schema.String, applyAction: Schema.String, optInType: Schema.String, applyOn: Schema.optional(Schema.String)}) {}
 export const TagMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const CreateClusterInput = Schema.Struct({clusterName: Schema.String, authType: Schema.String, adminUserName: Schema.String, adminUserPassword: Schema.String, shardCapacity: Schema.Number, shardCount: Schema.Number, vpcSecurityGroupIds: Schema.optional(StringList), subnetIds: Schema.optional(StringList), kmsKeyId: Schema.optional(Schema.String), clientToken: Schema.optional(Schema.String), preferredMaintenanceWindow: Schema.optional(Schema.String), tags: Schema.optional(TagMap), backupRetentionPeriod: Schema.optional(Schema.Number), preferredBackupWindow: Schema.optional(Schema.String), shardInstanceCount: Schema.optional(Schema.Number)});
-export const CreateClusterSnapshotInput = Schema.Struct({clusterArn: Schema.String, snapshotName: Schema.String, tags: Schema.optional(TagMap)});
-export const DeleteClusterInput = Schema.Struct({clusterArn: Schema.String});
-export const DeleteClusterSnapshotInput = Schema.Struct({snapshotArn: Schema.String});
-export const GetClusterInput = Schema.Struct({clusterArn: Schema.String});
-export const GetClusterSnapshotInput = Schema.Struct({snapshotArn: Schema.String});
-export const GetPendingMaintenanceActionInput = Schema.Struct({resourceArn: Schema.String});
-export const ListClustersInput = Schema.Struct({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListClusterSnapshotsInput = Schema.Struct({clusterArn: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), snapshotType: Schema.optional(Schema.String)});
-export const ListPendingMaintenanceActionsInput = Schema.Struct({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListTagsForResourceRequest = Schema.Struct({resourceArn: Schema.String});
-export const RestoreClusterFromSnapshotInput = Schema.Struct({clusterName: Schema.String, snapshotArn: Schema.String, vpcSecurityGroupIds: Schema.optional(StringList), subnetIds: Schema.optional(StringList), kmsKeyId: Schema.optional(Schema.String), tags: Schema.optional(TagMap), shardCapacity: Schema.optional(Schema.Number), shardInstanceCount: Schema.optional(Schema.Number)});
-export const StartClusterInput = Schema.Struct({clusterArn: Schema.String});
-export const StopClusterInput = Schema.Struct({clusterArn: Schema.String});
-export const TagResourceRequest = Schema.Struct({resourceArn: Schema.String, tags: TagMap});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({resourceArn: Schema.String, tagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
-export const UpdateClusterInput = Schema.Struct({clusterArn: Schema.String, authType: Schema.optional(Schema.String), shardCapacity: Schema.optional(Schema.Number), shardCount: Schema.optional(Schema.Number), vpcSecurityGroupIds: Schema.optional(StringList), subnetIds: Schema.optional(StringList), adminUserPassword: Schema.optional(Schema.String), clientToken: Schema.optional(Schema.String), preferredMaintenanceWindow: Schema.optional(Schema.String), backupRetentionPeriod: Schema.optional(Schema.Number), preferredBackupWindow: Schema.optional(Schema.String), shardInstanceCount: Schema.optional(Schema.Number)});
-export const PendingMaintenanceActionDetails = Schema.Struct({action: Schema.String, autoAppliedAfterDate: Schema.optional(Schema.String), forcedApplyDate: Schema.optional(Schema.String), optInStatus: Schema.optional(Schema.String), currentApplyDate: Schema.optional(Schema.String), description: Schema.optional(Schema.String)});
+export class CreateClusterInput extends Schema.Class<CreateClusterInput>("CreateClusterInput")({clusterName: Schema.String, authType: Schema.String, adminUserName: Schema.String, adminUserPassword: Schema.String, shardCapacity: Schema.Number, shardCount: Schema.Number, vpcSecurityGroupIds: Schema.optional(StringList), subnetIds: Schema.optional(StringList), kmsKeyId: Schema.optional(Schema.String), clientToken: Schema.optional(Schema.String), preferredMaintenanceWindow: Schema.optional(Schema.String), tags: Schema.optional(TagMap), backupRetentionPeriod: Schema.optional(Schema.Number), preferredBackupWindow: Schema.optional(Schema.String), shardInstanceCount: Schema.optional(Schema.Number)}) {}
+export class CreateClusterSnapshotInput extends Schema.Class<CreateClusterSnapshotInput>("CreateClusterSnapshotInput")({clusterArn: Schema.String, snapshotName: Schema.String, tags: Schema.optional(TagMap)}) {}
+export class DeleteClusterInput extends Schema.Class<DeleteClusterInput>("DeleteClusterInput")({clusterArn: Schema.String}) {}
+export class DeleteClusterSnapshotInput extends Schema.Class<DeleteClusterSnapshotInput>("DeleteClusterSnapshotInput")({snapshotArn: Schema.String}) {}
+export class GetClusterInput extends Schema.Class<GetClusterInput>("GetClusterInput")({clusterArn: Schema.String}) {}
+export class GetClusterSnapshotInput extends Schema.Class<GetClusterSnapshotInput>("GetClusterSnapshotInput")({snapshotArn: Schema.String}) {}
+export class GetPendingMaintenanceActionInput extends Schema.Class<GetPendingMaintenanceActionInput>("GetPendingMaintenanceActionInput")({resourceArn: Schema.String}) {}
+export class ListClustersInput extends Schema.Class<ListClustersInput>("ListClustersInput")({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListClusterSnapshotsInput extends Schema.Class<ListClusterSnapshotsInput>("ListClusterSnapshotsInput")({clusterArn: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), snapshotType: Schema.optional(Schema.String)}) {}
+export class ListPendingMaintenanceActionsInput extends Schema.Class<ListPendingMaintenanceActionsInput>("ListPendingMaintenanceActionsInput")({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({resourceArn: Schema.String}) {}
+export class RestoreClusterFromSnapshotInput extends Schema.Class<RestoreClusterFromSnapshotInput>("RestoreClusterFromSnapshotInput")({clusterName: Schema.String, snapshotArn: Schema.String, vpcSecurityGroupIds: Schema.optional(StringList), subnetIds: Schema.optional(StringList), kmsKeyId: Schema.optional(Schema.String), tags: Schema.optional(TagMap), shardCapacity: Schema.optional(Schema.Number), shardInstanceCount: Schema.optional(Schema.Number)}) {}
+export class StartClusterInput extends Schema.Class<StartClusterInput>("StartClusterInput")({clusterArn: Schema.String}) {}
+export class StopClusterInput extends Schema.Class<StopClusterInput>("StopClusterInput")({clusterArn: Schema.String}) {}
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({resourceArn: Schema.String, tags: TagMap}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({resourceArn: Schema.String, tagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class UpdateClusterInput extends Schema.Class<UpdateClusterInput>("UpdateClusterInput")({clusterArn: Schema.String, authType: Schema.optional(Schema.String), shardCapacity: Schema.optional(Schema.Number), shardCount: Schema.optional(Schema.Number), vpcSecurityGroupIds: Schema.optional(StringList), subnetIds: Schema.optional(StringList), adminUserPassword: Schema.optional(Schema.String), clientToken: Schema.optional(Schema.String), preferredMaintenanceWindow: Schema.optional(Schema.String), backupRetentionPeriod: Schema.optional(Schema.Number), preferredBackupWindow: Schema.optional(Schema.String), shardInstanceCount: Schema.optional(Schema.Number)}) {}
+export class PendingMaintenanceActionDetails extends Schema.Class<PendingMaintenanceActionDetails>("PendingMaintenanceActionDetails")({action: Schema.String, autoAppliedAfterDate: Schema.optional(Schema.String), forcedApplyDate: Schema.optional(Schema.String), optInStatus: Schema.optional(Schema.String), currentApplyDate: Schema.optional(Schema.String), description: Schema.optional(Schema.String)}) {}
 export const PendingMaintenanceActionDetailsList = Schema.Array(PendingMaintenanceActionDetails);
-export const ResourcePendingMaintenanceAction = Schema.Struct({resourceArn: Schema.optional(Schema.String), pendingMaintenanceActionDetails: Schema.optional(PendingMaintenanceActionDetailsList)});
+export class ResourcePendingMaintenanceAction extends Schema.Class<ResourcePendingMaintenanceAction>("ResourcePendingMaintenanceAction")({resourceArn: Schema.optional(Schema.String), pendingMaintenanceActionDetails: Schema.optional(PendingMaintenanceActionDetailsList)}) {}
 export const ResourcePendingMaintenanceActionList = Schema.Array(ResourcePendingMaintenanceAction);
-export const CopyClusterSnapshotInput = Schema.Struct({snapshotArn: Schema.String, targetSnapshotName: Schema.String, kmsKeyId: Schema.optional(Schema.String), copyTags: Schema.optional(Schema.Boolean), tags: Schema.optional(TagMap)});
-export const Shard = Schema.Struct({shardId: Schema.String, createTime: Schema.String, status: Schema.String});
+export class CopyClusterSnapshotInput extends Schema.Class<CopyClusterSnapshotInput>("CopyClusterSnapshotInput")({snapshotArn: Schema.String, targetSnapshotName: Schema.String, kmsKeyId: Schema.optional(Schema.String), copyTags: Schema.optional(Schema.Boolean), tags: Schema.optional(TagMap)}) {}
+export class Shard extends Schema.Class<Shard>("Shard")({shardId: Schema.String, createTime: Schema.String, status: Schema.String}) {}
 export const ShardList = Schema.Array(Shard);
-export const Cluster = Schema.Struct({clusterName: Schema.String, clusterArn: Schema.String, status: Schema.String, clusterEndpoint: Schema.String, createTime: Schema.String, adminUserName: Schema.String, authType: Schema.String, shardCapacity: Schema.Number, shardCount: Schema.Number, vpcSecurityGroupIds: StringList, subnetIds: StringList, preferredMaintenanceWindow: Schema.String, kmsKeyId: Schema.String, shards: Schema.optional(ShardList), backupRetentionPeriod: Schema.optional(Schema.Number), preferredBackupWindow: Schema.optional(Schema.String), shardInstanceCount: Schema.optional(Schema.Number)});
-export const DeleteClusterOutput = Schema.Struct({cluster: Cluster});
-export const ClusterSnapshot = Schema.Struct({subnetIds: StringList, snapshotName: Schema.String, snapshotArn: Schema.String, snapshotCreationTime: Schema.String, clusterArn: Schema.String, clusterCreationTime: Schema.String, status: Schema.String, vpcSecurityGroupIds: StringList, adminUserName: Schema.String, kmsKeyId: Schema.String, snapshotType: Schema.optional(Schema.String)});
-export const DeleteClusterSnapshotOutput = Schema.Struct({snapshot: ClusterSnapshot});
-export const GetClusterOutput = Schema.Struct({cluster: Cluster});
-export const GetClusterSnapshotOutput = Schema.Struct({snapshot: ClusterSnapshot});
-export const GetPendingMaintenanceActionOutput = Schema.Struct({resourcePendingMaintenanceAction: ResourcePendingMaintenanceAction});
-export const ListPendingMaintenanceActionsOutput = Schema.Struct({resourcePendingMaintenanceActions: ResourcePendingMaintenanceActionList, nextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceResponse = Schema.Struct({tags: Schema.optional(TagMap)});
-export const RestoreClusterFromSnapshotOutput = Schema.Struct({cluster: Cluster});
-export const StartClusterOutput = Schema.Struct({cluster: Cluster});
-export const StopClusterOutput = Schema.Struct({cluster: Cluster});
-export const InternalServerException = Schema.Struct({message: Schema.String});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String});
-export const UpdateClusterOutput = Schema.Struct({cluster: Cluster});
-export const ClusterInList = Schema.Struct({clusterName: Schema.String, clusterArn: Schema.String, status: Schema.String});
+export class Cluster extends Schema.Class<Cluster>("Cluster")({clusterName: Schema.String, clusterArn: Schema.String, status: Schema.String, clusterEndpoint: Schema.String, createTime: Schema.String, adminUserName: Schema.String, authType: Schema.String, shardCapacity: Schema.Number, shardCount: Schema.Number, vpcSecurityGroupIds: StringList, subnetIds: StringList, preferredMaintenanceWindow: Schema.String, kmsKeyId: Schema.String, shards: Schema.optional(ShardList), backupRetentionPeriod: Schema.optional(Schema.Number), preferredBackupWindow: Schema.optional(Schema.String), shardInstanceCount: Schema.optional(Schema.Number)}) {}
+export class DeleteClusterOutput extends Schema.Class<DeleteClusterOutput>("DeleteClusterOutput")({cluster: Cluster}) {}
+export class ClusterSnapshot extends Schema.Class<ClusterSnapshot>("ClusterSnapshot")({subnetIds: StringList, snapshotName: Schema.String, snapshotArn: Schema.String, snapshotCreationTime: Schema.String, clusterArn: Schema.String, clusterCreationTime: Schema.String, status: Schema.String, vpcSecurityGroupIds: StringList, adminUserName: Schema.String, kmsKeyId: Schema.String, snapshotType: Schema.optional(Schema.String)}) {}
+export class DeleteClusterSnapshotOutput extends Schema.Class<DeleteClusterSnapshotOutput>("DeleteClusterSnapshotOutput")({snapshot: ClusterSnapshot}) {}
+export class GetClusterOutput extends Schema.Class<GetClusterOutput>("GetClusterOutput")({cluster: Cluster}) {}
+export class GetClusterSnapshotOutput extends Schema.Class<GetClusterSnapshotOutput>("GetClusterSnapshotOutput")({snapshot: ClusterSnapshot}) {}
+export class GetPendingMaintenanceActionOutput extends Schema.Class<GetPendingMaintenanceActionOutput>("GetPendingMaintenanceActionOutput")({resourcePendingMaintenanceAction: ResourcePendingMaintenanceAction}) {}
+export class ListPendingMaintenanceActionsOutput extends Schema.Class<ListPendingMaintenanceActionsOutput>("ListPendingMaintenanceActionsOutput")({resourcePendingMaintenanceActions: ResourcePendingMaintenanceActionList, nextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({tags: Schema.optional(TagMap)}) {}
+export class RestoreClusterFromSnapshotOutput extends Schema.Class<RestoreClusterFromSnapshotOutput>("RestoreClusterFromSnapshotOutput")({cluster: Cluster}) {}
+export class StartClusterOutput extends Schema.Class<StartClusterOutput>("StartClusterOutput")({cluster: Cluster}) {}
+export class StopClusterOutput extends Schema.Class<StopClusterOutput>("StopClusterOutput")({cluster: Cluster}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({message: Schema.String}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String}) {}
+export class UpdateClusterOutput extends Schema.Class<UpdateClusterOutput>("UpdateClusterOutput")({cluster: Cluster}) {}
+export class ClusterInList extends Schema.Class<ClusterInList>("ClusterInList")({clusterName: Schema.String, clusterArn: Schema.String, status: Schema.String}) {}
 export const ClusterList = Schema.Array(ClusterInList);
-export const ClusterSnapshotInList = Schema.Struct({snapshotName: Schema.String, snapshotArn: Schema.String, clusterArn: Schema.String, status: Schema.String, snapshotCreationTime: Schema.String});
+export class ClusterSnapshotInList extends Schema.Class<ClusterSnapshotInList>("ClusterSnapshotInList")({snapshotName: Schema.String, snapshotArn: Schema.String, clusterArn: Schema.String, status: Schema.String, snapshotCreationTime: Schema.String}) {}
 export const ClusterSnapshotList = Schema.Array(ClusterSnapshotInList);
-export const CopyClusterSnapshotOutput = Schema.Struct({snapshot: ClusterSnapshot});
-export const CreateClusterSnapshotOutput = Schema.Struct({snapshot: ClusterSnapshot});
-export const AccessDeniedException = Schema.Struct({message: Schema.String});
-export const ConflictException = Schema.Struct({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String});
-export const ThrottlingException = Schema.Struct({message: Schema.String, retryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))});
-export const ListClustersOutput = Schema.Struct({clusters: Schema.optional(ClusterList), nextToken: Schema.optional(Schema.String)});
-export const ListClusterSnapshotsOutput = Schema.Struct({snapshots: Schema.optional(ClusterSnapshotList), nextToken: Schema.optional(Schema.String)});
-export const ServiceQuotaExceededException = Schema.Struct({message: Schema.String});
-export const ValidationExceptionField = Schema.Struct({name: Schema.String, message: Schema.String});
+export class CopyClusterSnapshotOutput extends Schema.Class<CopyClusterSnapshotOutput>("CopyClusterSnapshotOutput")({snapshot: ClusterSnapshot}) {}
+export class CreateClusterSnapshotOutput extends Schema.Class<CreateClusterSnapshotOutput>("CreateClusterSnapshotOutput")({snapshot: ClusterSnapshot}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({message: Schema.String}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({message: Schema.String, retryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))}) {}
+export class ListClustersOutput extends Schema.Class<ListClustersOutput>("ListClustersOutput")({clusters: Schema.optional(ClusterList), nextToken: Schema.optional(Schema.String)}) {}
+export class ListClusterSnapshotsOutput extends Schema.Class<ListClusterSnapshotsOutput>("ListClusterSnapshotsOutput")({snapshots: Schema.optional(ClusterSnapshotList), nextToken: Schema.optional(Schema.String)}) {}
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({message: Schema.String}) {}
+export class ValidationExceptionField extends Schema.Class<ValidationExceptionField>("ValidationExceptionField")({name: Schema.String, message: Schema.String}) {}
 export const ValidationExceptionFieldList = Schema.Array(ValidationExceptionField);
-export const ApplyPendingMaintenanceActionOutput = Schema.Struct({resourcePendingMaintenanceAction: ResourcePendingMaintenanceAction});
-export const CreateClusterOutput = Schema.Struct({cluster: Cluster});
-export const ValidationException = Schema.Struct({message: Schema.String, reason: Schema.String, fieldList: Schema.optional(ValidationExceptionFieldList)});
+export class ApplyPendingMaintenanceActionOutput extends Schema.Class<ApplyPendingMaintenanceActionOutput>("ApplyPendingMaintenanceActionOutput")({resourcePendingMaintenanceAction: ResourcePendingMaintenanceAction}) {}
+export class CreateClusterOutput extends Schema.Class<CreateClusterOutput>("CreateClusterOutput")({cluster: Cluster}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({message: Schema.String, reason: Schema.String, fieldList: Schema.optional(ValidationExceptionFieldList)}) {}
 
 //# Errors
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
 
 //# Operations
 export const getPendingMaintenanceAction = /*#__PURE__*/ makeOperation(() => Operation({ version: "2022-11-28", uri: "/pending-action/{resourceArn}", method: "GET", sdkId: "DocDB Elastic", sigV4ServiceName: "docdb-elastic", name: "ChimeraDbLionfishServiceLambda.GetPendingMaintenanceAction" }, GetPendingMaintenanceActionInput, GetPendingMaintenanceActionOutput, [AccessDeniedExceptionError, ConflictExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

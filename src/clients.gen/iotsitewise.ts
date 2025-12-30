@@ -3,482 +3,482 @@ import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperat
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const DescribeDefaultEncryptionConfigurationRequest = Schema.Struct({});
-export const DescribeLoggingOptionsRequest = Schema.Struct({});
-export const DescribeStorageConfigurationRequest = Schema.Struct({});
+export class DescribeDefaultEncryptionConfigurationRequest extends Schema.Class<DescribeDefaultEncryptionConfigurationRequest>("DescribeDefaultEncryptionConfigurationRequest")({}) {}
+export class DescribeLoggingOptionsRequest extends Schema.Class<DescribeLoggingOptionsRequest>("DescribeLoggingOptionsRequest")({}) {}
+export class DescribeStorageConfigurationRequest extends Schema.Class<DescribeStorageConfigurationRequest>("DescribeStorageConfigurationRequest")({}) {}
 export const IDs = Schema.Array(Schema.String);
 export const AggregateTypes = Schema.Array(Schema.String);
 export const Qualities = Schema.Array(Schema.String);
 export const ListAssetModelsTypeFilter = Schema.Array(Schema.String);
 export const TagKeyList = Schema.Array(Schema.String);
-export const AssociateAssetsRequest = Schema.Struct({assetId: Schema.String, hierarchyId: Schema.String, childAssetId: Schema.String, clientToken: Schema.optional(Schema.String)});
-export const AssociateTimeSeriesToAssetPropertyRequest = Schema.Struct({alias: Schema.String, assetId: Schema.String, propertyId: Schema.String, clientToken: Schema.optional(Schema.String)});
-export const BatchAssociateProjectAssetsRequest = Schema.Struct({projectId: Schema.String, assetIds: IDs, clientToken: Schema.optional(Schema.String)});
-export const BatchDisassociateProjectAssetsRequest = Schema.Struct({projectId: Schema.String, assetIds: IDs, clientToken: Schema.optional(Schema.String)});
+export class AssociateAssetsRequest extends Schema.Class<AssociateAssetsRequest>("AssociateAssetsRequest")({assetId: Schema.String, hierarchyId: Schema.String, childAssetId: Schema.String, clientToken: Schema.optional(Schema.String)}) {}
+export class AssociateTimeSeriesToAssetPropertyRequest extends Schema.Class<AssociateTimeSeriesToAssetPropertyRequest>("AssociateTimeSeriesToAssetPropertyRequest")({alias: Schema.String, assetId: Schema.String, propertyId: Schema.String, clientToken: Schema.optional(Schema.String)}) {}
+export class BatchAssociateProjectAssetsRequest extends Schema.Class<BatchAssociateProjectAssetsRequest>("BatchAssociateProjectAssetsRequest")({projectId: Schema.String, assetIds: IDs, clientToken: Schema.optional(Schema.String)}) {}
+export class BatchDisassociateProjectAssetsRequest extends Schema.Class<BatchDisassociateProjectAssetsRequest>("BatchDisassociateProjectAssetsRequest")({projectId: Schema.String, assetIds: IDs, clientToken: Schema.optional(Schema.String)}) {}
 export const TagMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const CreateAssetRequest = Schema.Struct({assetName: Schema.String, assetModelId: Schema.String, assetId: Schema.optional(Schema.String), assetExternalId: Schema.optional(Schema.String), clientToken: Schema.optional(Schema.String), tags: Schema.optional(TagMap), assetDescription: Schema.optional(Schema.String)});
-export const Attribute = Schema.Struct({defaultValue: Schema.optional(Schema.String)});
-export const ForwardingConfig = Schema.Struct({state: Schema.String});
-export const MeasurementProcessingConfig = Schema.Struct({forwardingConfig: ForwardingConfig});
-export const Measurement = Schema.Struct({processingConfig: Schema.optional(MeasurementProcessingConfig)});
-export const AssetModelPropertyPathSegment = Schema.Struct({id: Schema.optional(Schema.String), name: Schema.optional(Schema.String)});
+export class CreateAssetRequest extends Schema.Class<CreateAssetRequest>("CreateAssetRequest")({assetName: Schema.String, assetModelId: Schema.String, assetId: Schema.optional(Schema.String), assetExternalId: Schema.optional(Schema.String), clientToken: Schema.optional(Schema.String), tags: Schema.optional(TagMap), assetDescription: Schema.optional(Schema.String)}) {}
+export class Attribute extends Schema.Class<Attribute>("Attribute")({defaultValue: Schema.optional(Schema.String)}) {}
+export class ForwardingConfig extends Schema.Class<ForwardingConfig>("ForwardingConfig")({state: Schema.String}) {}
+export class MeasurementProcessingConfig extends Schema.Class<MeasurementProcessingConfig>("MeasurementProcessingConfig")({forwardingConfig: ForwardingConfig}) {}
+export class Measurement extends Schema.Class<Measurement>("Measurement")({processingConfig: Schema.optional(MeasurementProcessingConfig)}) {}
+export class AssetModelPropertyPathSegment extends Schema.Class<AssetModelPropertyPathSegment>("AssetModelPropertyPathSegment")({id: Schema.optional(Schema.String), name: Schema.optional(Schema.String)}) {}
 export const AssetModelPropertyPath = Schema.Array(AssetModelPropertyPathSegment);
-export const VariableValue = Schema.Struct({propertyId: Schema.optional(Schema.String), hierarchyId: Schema.optional(Schema.String), propertyPath: Schema.optional(AssetModelPropertyPath)});
-export const ExpressionVariable = Schema.Struct({name: Schema.String, value: VariableValue});
+export class VariableValue extends Schema.Class<VariableValue>("VariableValue")({propertyId: Schema.optional(Schema.String), hierarchyId: Schema.optional(Schema.String), propertyPath: Schema.optional(AssetModelPropertyPath)}) {}
+export class ExpressionVariable extends Schema.Class<ExpressionVariable>("ExpressionVariable")({name: Schema.String, value: VariableValue}) {}
 export const ExpressionVariables = Schema.Array(ExpressionVariable);
-export const TransformProcessingConfig = Schema.Struct({computeLocation: Schema.String, forwardingConfig: Schema.optional(ForwardingConfig)});
-export const Transform = Schema.Struct({expression: Schema.String, variables: ExpressionVariables, processingConfig: Schema.optional(TransformProcessingConfig)});
-export const TumblingWindow = Schema.Struct({interval: Schema.String, offset: Schema.optional(Schema.String)});
-export const MetricWindow = Schema.Struct({tumbling: Schema.optional(TumblingWindow)});
-export const MetricProcessingConfig = Schema.Struct({computeLocation: Schema.String});
-export const Metric = Schema.Struct({expression: Schema.optional(Schema.String), variables: Schema.optional(ExpressionVariables), window: MetricWindow, processingConfig: Schema.optional(MetricProcessingConfig)});
-export const PropertyType = Schema.Struct({attribute: Schema.optional(Attribute), measurement: Schema.optional(Measurement), transform: Schema.optional(Transform), metric: Schema.optional(Metric)});
-export const AssetModelPropertyDefinition = Schema.Struct({id: Schema.optional(Schema.String), externalId: Schema.optional(Schema.String), name: Schema.String, dataType: Schema.String, dataTypeSpec: Schema.optional(Schema.String), unit: Schema.optional(Schema.String), type: PropertyType});
+export class TransformProcessingConfig extends Schema.Class<TransformProcessingConfig>("TransformProcessingConfig")({computeLocation: Schema.String, forwardingConfig: Schema.optional(ForwardingConfig)}) {}
+export class Transform extends Schema.Class<Transform>("Transform")({expression: Schema.String, variables: ExpressionVariables, processingConfig: Schema.optional(TransformProcessingConfig)}) {}
+export class TumblingWindow extends Schema.Class<TumblingWindow>("TumblingWindow")({interval: Schema.String, offset: Schema.optional(Schema.String)}) {}
+export class MetricWindow extends Schema.Class<MetricWindow>("MetricWindow")({tumbling: Schema.optional(TumblingWindow)}) {}
+export class MetricProcessingConfig extends Schema.Class<MetricProcessingConfig>("MetricProcessingConfig")({computeLocation: Schema.String}) {}
+export class Metric extends Schema.Class<Metric>("Metric")({expression: Schema.optional(Schema.String), variables: Schema.optional(ExpressionVariables), window: MetricWindow, processingConfig: Schema.optional(MetricProcessingConfig)}) {}
+export class PropertyType extends Schema.Class<PropertyType>("PropertyType")({attribute: Schema.optional(Attribute), measurement: Schema.optional(Measurement), transform: Schema.optional(Transform), metric: Schema.optional(Metric)}) {}
+export class AssetModelPropertyDefinition extends Schema.Class<AssetModelPropertyDefinition>("AssetModelPropertyDefinition")({id: Schema.optional(Schema.String), externalId: Schema.optional(Schema.String), name: Schema.String, dataType: Schema.String, dataTypeSpec: Schema.optional(Schema.String), unit: Schema.optional(Schema.String), type: PropertyType}) {}
 export const AssetModelPropertyDefinitions = Schema.Array(AssetModelPropertyDefinition);
-export const CreateAssetModelCompositeModelRequest = Schema.Struct({assetModelId: Schema.String, assetModelCompositeModelExternalId: Schema.optional(Schema.String), parentAssetModelCompositeModelId: Schema.optional(Schema.String), assetModelCompositeModelId: Schema.optional(Schema.String), assetModelCompositeModelDescription: Schema.optional(Schema.String), assetModelCompositeModelName: Schema.String, assetModelCompositeModelType: Schema.String, clientToken: Schema.optional(Schema.String), composedAssetModelId: Schema.optional(Schema.String), assetModelCompositeModelProperties: Schema.optional(AssetModelPropertyDefinitions), ifMatch: Schema.optional(Header("If-Match")), ifNoneMatch: Schema.optional(Header("If-None-Match")), matchForVersionType: Schema.optional(Header("Match-For-Version-Type"))});
-export const CreateDashboardRequest = Schema.Struct({projectId: Schema.String, dashboardName: Schema.String, dashboardDescription: Schema.optional(Schema.String), dashboardDefinition: Schema.String, clientToken: Schema.optional(Schema.String), tags: Schema.optional(TagMap)});
-export const CreateProjectRequest = Schema.Struct({portalId: Schema.String, projectName: Schema.String, projectDescription: Schema.optional(Schema.String), clientToken: Schema.optional(Schema.String), tags: Schema.optional(TagMap)});
-export const DeleteAccessPolicyRequest = Schema.Struct({accessPolicyId: Schema.String, clientToken: Schema.optional(Schema.String)});
-export const DeleteAccessPolicyResponse = Schema.Struct({});
-export const DeleteAssetRequest = Schema.Struct({assetId: Schema.String, clientToken: Schema.optional(Schema.String)});
-export const DeleteAssetModelRequest = Schema.Struct({assetModelId: Schema.String, clientToken: Schema.optional(Schema.String), ifMatch: Schema.optional(Header("If-Match")), ifNoneMatch: Schema.optional(Header("If-None-Match")), matchForVersionType: Schema.optional(Header("Match-For-Version-Type"))});
-export const DeleteAssetModelCompositeModelRequest = Schema.Struct({assetModelId: Schema.String, assetModelCompositeModelId: Schema.String, clientToken: Schema.optional(Schema.String), ifMatch: Schema.optional(Header("If-Match")), ifNoneMatch: Schema.optional(Header("If-None-Match")), matchForVersionType: Schema.optional(Header("Match-For-Version-Type"))});
-export const DeleteAssetModelInterfaceRelationshipRequest = Schema.Struct({assetModelId: Schema.String, interfaceAssetModelId: Schema.String, clientToken: Schema.optional(Schema.String)});
-export const DeleteComputationModelRequest = Schema.Struct({computationModelId: Schema.String, clientToken: Schema.optional(Schema.String)});
-export const DeleteDashboardRequest = Schema.Struct({dashboardId: Schema.String, clientToken: Schema.optional(Schema.String)});
-export const DeleteDashboardResponse = Schema.Struct({});
-export const DeleteDatasetRequest = Schema.Struct({datasetId: Schema.String, clientToken: Schema.optional(Schema.String)});
-export const DeleteGatewayRequest = Schema.Struct({gatewayId: Schema.String});
-export const DeletePortalRequest = Schema.Struct({portalId: Schema.String, clientToken: Schema.optional(Schema.String)});
-export const DeleteProjectRequest = Schema.Struct({projectId: Schema.String, clientToken: Schema.optional(Schema.String)});
-export const DeleteProjectResponse = Schema.Struct({});
-export const DeleteTimeSeriesRequest = Schema.Struct({alias: Schema.optional(Schema.String), assetId: Schema.optional(Schema.String), propertyId: Schema.optional(Schema.String), clientToken: Schema.optional(Schema.String)});
-export const DescribeAccessPolicyRequest = Schema.Struct({accessPolicyId: Schema.String});
-export const DescribeActionRequest = Schema.Struct({actionId: Schema.String});
-export const DescribeAssetRequest = Schema.Struct({assetId: Schema.String, excludeProperties: Schema.optional(Schema.Boolean)});
-export const DescribeAssetCompositeModelRequest = Schema.Struct({assetId: Schema.String, assetCompositeModelId: Schema.String});
-export const DescribeAssetModelRequest = Schema.Struct({assetModelId: Schema.String, excludeProperties: Schema.optional(Schema.Boolean), assetModelVersion: Schema.optional(Schema.String)});
-export const DescribeAssetModelCompositeModelRequest = Schema.Struct({assetModelId: Schema.String, assetModelCompositeModelId: Schema.String, assetModelVersion: Schema.optional(Schema.String)});
-export const DescribeAssetModelInterfaceRelationshipRequest = Schema.Struct({assetModelId: Schema.String, interfaceAssetModelId: Schema.String});
-export const DescribeAssetPropertyRequest = Schema.Struct({assetId: Schema.String, propertyId: Schema.String});
-export const DescribeBulkImportJobRequest = Schema.Struct({jobId: Schema.String});
-export const DescribeComputationModelRequest = Schema.Struct({computationModelId: Schema.String, computationModelVersion: Schema.optional(Schema.String)});
-export const DescribeComputationModelExecutionSummaryRequest = Schema.Struct({computationModelId: Schema.String, resolveToResourceType: Schema.optional(Schema.String), resolveToResourceId: Schema.optional(Schema.String)});
-export const DescribeDashboardRequest = Schema.Struct({dashboardId: Schema.String});
-export const DescribeDatasetRequest = Schema.Struct({datasetId: Schema.String});
-export const DescribeExecutionRequest = Schema.Struct({executionId: Schema.String});
-export const DescribeGatewayRequest = Schema.Struct({gatewayId: Schema.String});
-export const DescribeGatewayCapabilityConfigurationRequest = Schema.Struct({gatewayId: Schema.String, capabilityNamespace: Schema.String});
-export const DescribePortalRequest = Schema.Struct({portalId: Schema.String});
-export const DescribeProjectRequest = Schema.Struct({projectId: Schema.String});
-export const DescribeTimeSeriesRequest = Schema.Struct({alias: Schema.optional(Schema.String), assetId: Schema.optional(Schema.String), propertyId: Schema.optional(Schema.String)});
-export const DisassociateAssetsRequest = Schema.Struct({assetId: Schema.String, hierarchyId: Schema.String, childAssetId: Schema.String, clientToken: Schema.optional(Schema.String)});
-export const DisassociateTimeSeriesFromAssetPropertyRequest = Schema.Struct({alias: Schema.String, assetId: Schema.String, propertyId: Schema.String, clientToken: Schema.optional(Schema.String)});
-export const ExecuteQueryRequest = Schema.Struct({queryStatement: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), clientToken: Schema.optional(Schema.String)});
-export const GetAssetPropertyAggregatesRequest = Schema.Struct({assetId: Schema.optional(Schema.String), propertyId: Schema.optional(Schema.String), propertyAlias: Schema.optional(Schema.String), aggregateTypes: AggregateTypes, resolution: Schema.String, qualities: Schema.optional(Qualities), startDate: Schema.Date, endDate: Schema.Date, timeOrdering: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const GetAssetPropertyValueRequest = Schema.Struct({assetId: Schema.optional(Schema.String), propertyId: Schema.optional(Schema.String), propertyAlias: Schema.optional(Schema.String)});
-export const GetAssetPropertyValueHistoryRequest = Schema.Struct({assetId: Schema.optional(Schema.String), propertyId: Schema.optional(Schema.String), propertyAlias: Schema.optional(Schema.String), startDate: Schema.optional(Schema.Date), endDate: Schema.optional(Schema.Date), qualities: Schema.optional(Qualities), timeOrdering: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const GetInterpolatedAssetPropertyValuesRequest = Schema.Struct({assetId: Schema.optional(Schema.String), propertyId: Schema.optional(Schema.String), propertyAlias: Schema.optional(Schema.String), startTimeInSeconds: Schema.Number, startTimeOffsetInNanos: Schema.optional(Schema.Number), endTimeInSeconds: Schema.Number, endTimeOffsetInNanos: Schema.optional(Schema.Number), quality: Schema.String, intervalInSeconds: Schema.Number, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), type: Schema.String, intervalWindowInSeconds: Schema.optional(Schema.Number)});
-export const InvokeAssistantRequest = Schema.Struct({conversationId: Schema.optional(Schema.String), message: Schema.String, enableTrace: Schema.optional(Schema.Boolean)});
-export const ListAccessPoliciesRequest = Schema.Struct({identityType: Schema.optional(Schema.String), identityId: Schema.optional(Schema.String), resourceType: Schema.optional(Schema.String), resourceId: Schema.optional(Schema.String), iamArn: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListActionsRequest = Schema.Struct({targetResourceType: Schema.String, targetResourceId: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), resolveToResourceType: Schema.optional(Schema.String), resolveToResourceId: Schema.optional(Schema.String)});
-export const ListAssetModelCompositeModelsRequest = Schema.Struct({assetModelId: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), assetModelVersion: Schema.optional(Schema.String)});
-export const ListAssetModelPropertiesRequest = Schema.Struct({assetModelId: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), filter: Schema.optional(Schema.String), assetModelVersion: Schema.optional(Schema.String)});
-export const ListAssetModelsRequest = Schema.Struct({assetModelTypes: Schema.optional(ListAssetModelsTypeFilter), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), assetModelVersion: Schema.optional(Schema.String)});
-export const ListAssetPropertiesRequest = Schema.Struct({assetId: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), filter: Schema.optional(Schema.String)});
-export const ListAssetRelationshipsRequest = Schema.Struct({assetId: Schema.String, traversalType: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListAssetsRequest = Schema.Struct({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), assetModelId: Schema.optional(Schema.String), filter: Schema.optional(Schema.String)});
-export const ListAssociatedAssetsRequest = Schema.Struct({assetId: Schema.String, hierarchyId: Schema.optional(Schema.String), traversalDirection: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListBulkImportJobsRequest = Schema.Struct({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), filter: Schema.optional(Schema.String)});
-export const ListCompositionRelationshipsRequest = Schema.Struct({assetModelId: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListComputationModelResolveToResourcesRequest = Schema.Struct({computationModelId: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListComputationModelsRequest = Schema.Struct({computationModelType: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListDashboardsRequest = Schema.Struct({projectId: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListDatasetsRequest = Schema.Struct({sourceType: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListExecutionsRequest = Schema.Struct({targetResourceType: Schema.String, targetResourceId: Schema.String, resolveToResourceType: Schema.optional(Schema.String), resolveToResourceId: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), actionType: Schema.optional(Schema.String)});
-export const ListGatewaysRequest = Schema.Struct({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListInterfaceRelationshipsRequest = Schema.Struct({interfaceAssetModelId: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListPortalsRequest = Schema.Struct({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListProjectAssetsRequest = Schema.Struct({projectId: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListProjectsRequest = Schema.Struct({portalId: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListTagsForResourceRequest = Schema.Struct({resourceArn: Schema.String});
-export const ListTimeSeriesRequest = Schema.Struct({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), assetId: Schema.optional(Schema.String), aliasPrefix: Schema.optional(Schema.String), timeSeriesType: Schema.optional(Schema.String)});
-export const PutDefaultEncryptionConfigurationRequest = Schema.Struct({encryptionType: Schema.String, kmsKeyId: Schema.optional(Schema.String)});
-export const LoggingOptions = Schema.Struct({level: Schema.String});
-export const PutLoggingOptionsRequest = Schema.Struct({loggingOptions: LoggingOptions});
-export const PutLoggingOptionsResponse = Schema.Struct({});
-export const CustomerManagedS3Storage = Schema.Struct({s3ResourceArn: Schema.String, roleArn: Schema.String});
-export const MultiLayerStorage = Schema.Struct({customerManagedS3Storage: CustomerManagedS3Storage});
-export const RetentionPeriod = Schema.Struct({numberOfDays: Schema.optional(Schema.Number), unlimited: Schema.optional(Schema.Boolean)});
-export const WarmTierRetentionPeriod = Schema.Struct({numberOfDays: Schema.optional(Schema.Number), unlimited: Schema.optional(Schema.Boolean)});
-export const PutStorageConfigurationRequest = Schema.Struct({storageType: Schema.String, multiLayerStorage: Schema.optional(MultiLayerStorage), disassociatedDataStorage: Schema.optional(Schema.String), retentionPeriod: Schema.optional(RetentionPeriod), warmTier: Schema.optional(Schema.String), warmTierRetentionPeriod: Schema.optional(WarmTierRetentionPeriod), disallowIngestNullNaN: Schema.optional(Schema.Boolean)});
-export const TagResourceRequest = Schema.Struct({resourceArn: Schema.String, tags: TagMap});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({resourceArn: Schema.String, tagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
-export const UserIdentity = Schema.Struct({id: Schema.String});
-export const GroupIdentity = Schema.Struct({id: Schema.String});
-export const IAMUserIdentity = Schema.Struct({arn: Schema.String});
-export const IAMRoleIdentity = Schema.Struct({arn: Schema.String});
-export const Identity = Schema.Struct({user: Schema.optional(UserIdentity), group: Schema.optional(GroupIdentity), iamUser: Schema.optional(IAMUserIdentity), iamRole: Schema.optional(IAMRoleIdentity)});
-export const PortalResource = Schema.Struct({id: Schema.String});
-export const ProjectResource = Schema.Struct({id: Schema.String});
-export const Resource = Schema.Struct({portal: Schema.optional(PortalResource), project: Schema.optional(ProjectResource)});
-export const UpdateAccessPolicyRequest = Schema.Struct({accessPolicyId: Schema.String, accessPolicyIdentity: Identity, accessPolicyResource: Resource, accessPolicyPermission: Schema.String, clientToken: Schema.optional(Schema.String)});
-export const UpdateAccessPolicyResponse = Schema.Struct({});
-export const UpdateAssetRequest = Schema.Struct({assetId: Schema.String, assetExternalId: Schema.optional(Schema.String), assetName: Schema.String, clientToken: Schema.optional(Schema.String), assetDescription: Schema.optional(Schema.String)});
-export const AssetModelProperty = Schema.Struct({id: Schema.optional(Schema.String), externalId: Schema.optional(Schema.String), name: Schema.String, dataType: Schema.String, dataTypeSpec: Schema.optional(Schema.String), unit: Schema.optional(Schema.String), type: PropertyType, path: Schema.optional(AssetModelPropertyPath)});
+export class CreateAssetModelCompositeModelRequest extends Schema.Class<CreateAssetModelCompositeModelRequest>("CreateAssetModelCompositeModelRequest")({assetModelId: Schema.String, assetModelCompositeModelExternalId: Schema.optional(Schema.String), parentAssetModelCompositeModelId: Schema.optional(Schema.String), assetModelCompositeModelId: Schema.optional(Schema.String), assetModelCompositeModelDescription: Schema.optional(Schema.String), assetModelCompositeModelName: Schema.String, assetModelCompositeModelType: Schema.String, clientToken: Schema.optional(Schema.String), composedAssetModelId: Schema.optional(Schema.String), assetModelCompositeModelProperties: Schema.optional(AssetModelPropertyDefinitions), ifMatch: Schema.optional(Header("If-Match")), ifNoneMatch: Schema.optional(Header("If-None-Match")), matchForVersionType: Schema.optional(Header("Match-For-Version-Type"))}) {}
+export class CreateDashboardRequest extends Schema.Class<CreateDashboardRequest>("CreateDashboardRequest")({projectId: Schema.String, dashboardName: Schema.String, dashboardDescription: Schema.optional(Schema.String), dashboardDefinition: Schema.String, clientToken: Schema.optional(Schema.String), tags: Schema.optional(TagMap)}) {}
+export class CreateProjectRequest extends Schema.Class<CreateProjectRequest>("CreateProjectRequest")({portalId: Schema.String, projectName: Schema.String, projectDescription: Schema.optional(Schema.String), clientToken: Schema.optional(Schema.String), tags: Schema.optional(TagMap)}) {}
+export class DeleteAccessPolicyRequest extends Schema.Class<DeleteAccessPolicyRequest>("DeleteAccessPolicyRequest")({accessPolicyId: Schema.String, clientToken: Schema.optional(Schema.String)}) {}
+export class DeleteAccessPolicyResponse extends Schema.Class<DeleteAccessPolicyResponse>("DeleteAccessPolicyResponse")({}) {}
+export class DeleteAssetRequest extends Schema.Class<DeleteAssetRequest>("DeleteAssetRequest")({assetId: Schema.String, clientToken: Schema.optional(Schema.String)}) {}
+export class DeleteAssetModelRequest extends Schema.Class<DeleteAssetModelRequest>("DeleteAssetModelRequest")({assetModelId: Schema.String, clientToken: Schema.optional(Schema.String), ifMatch: Schema.optional(Header("If-Match")), ifNoneMatch: Schema.optional(Header("If-None-Match")), matchForVersionType: Schema.optional(Header("Match-For-Version-Type"))}) {}
+export class DeleteAssetModelCompositeModelRequest extends Schema.Class<DeleteAssetModelCompositeModelRequest>("DeleteAssetModelCompositeModelRequest")({assetModelId: Schema.String, assetModelCompositeModelId: Schema.String, clientToken: Schema.optional(Schema.String), ifMatch: Schema.optional(Header("If-Match")), ifNoneMatch: Schema.optional(Header("If-None-Match")), matchForVersionType: Schema.optional(Header("Match-For-Version-Type"))}) {}
+export class DeleteAssetModelInterfaceRelationshipRequest extends Schema.Class<DeleteAssetModelInterfaceRelationshipRequest>("DeleteAssetModelInterfaceRelationshipRequest")({assetModelId: Schema.String, interfaceAssetModelId: Schema.String, clientToken: Schema.optional(Schema.String)}) {}
+export class DeleteComputationModelRequest extends Schema.Class<DeleteComputationModelRequest>("DeleteComputationModelRequest")({computationModelId: Schema.String, clientToken: Schema.optional(Schema.String)}) {}
+export class DeleteDashboardRequest extends Schema.Class<DeleteDashboardRequest>("DeleteDashboardRequest")({dashboardId: Schema.String, clientToken: Schema.optional(Schema.String)}) {}
+export class DeleteDashboardResponse extends Schema.Class<DeleteDashboardResponse>("DeleteDashboardResponse")({}) {}
+export class DeleteDatasetRequest extends Schema.Class<DeleteDatasetRequest>("DeleteDatasetRequest")({datasetId: Schema.String, clientToken: Schema.optional(Schema.String)}) {}
+export class DeleteGatewayRequest extends Schema.Class<DeleteGatewayRequest>("DeleteGatewayRequest")({gatewayId: Schema.String}) {}
+export class DeletePortalRequest extends Schema.Class<DeletePortalRequest>("DeletePortalRequest")({portalId: Schema.String, clientToken: Schema.optional(Schema.String)}) {}
+export class DeleteProjectRequest extends Schema.Class<DeleteProjectRequest>("DeleteProjectRequest")({projectId: Schema.String, clientToken: Schema.optional(Schema.String)}) {}
+export class DeleteProjectResponse extends Schema.Class<DeleteProjectResponse>("DeleteProjectResponse")({}) {}
+export class DeleteTimeSeriesRequest extends Schema.Class<DeleteTimeSeriesRequest>("DeleteTimeSeriesRequest")({alias: Schema.optional(Schema.String), assetId: Schema.optional(Schema.String), propertyId: Schema.optional(Schema.String), clientToken: Schema.optional(Schema.String)}) {}
+export class DescribeAccessPolicyRequest extends Schema.Class<DescribeAccessPolicyRequest>("DescribeAccessPolicyRequest")({accessPolicyId: Schema.String}) {}
+export class DescribeActionRequest extends Schema.Class<DescribeActionRequest>("DescribeActionRequest")({actionId: Schema.String}) {}
+export class DescribeAssetRequest extends Schema.Class<DescribeAssetRequest>("DescribeAssetRequest")({assetId: Schema.String, excludeProperties: Schema.optional(Schema.Boolean)}) {}
+export class DescribeAssetCompositeModelRequest extends Schema.Class<DescribeAssetCompositeModelRequest>("DescribeAssetCompositeModelRequest")({assetId: Schema.String, assetCompositeModelId: Schema.String}) {}
+export class DescribeAssetModelRequest extends Schema.Class<DescribeAssetModelRequest>("DescribeAssetModelRequest")({assetModelId: Schema.String, excludeProperties: Schema.optional(Schema.Boolean), assetModelVersion: Schema.optional(Schema.String)}) {}
+export class DescribeAssetModelCompositeModelRequest extends Schema.Class<DescribeAssetModelCompositeModelRequest>("DescribeAssetModelCompositeModelRequest")({assetModelId: Schema.String, assetModelCompositeModelId: Schema.String, assetModelVersion: Schema.optional(Schema.String)}) {}
+export class DescribeAssetModelInterfaceRelationshipRequest extends Schema.Class<DescribeAssetModelInterfaceRelationshipRequest>("DescribeAssetModelInterfaceRelationshipRequest")({assetModelId: Schema.String, interfaceAssetModelId: Schema.String}) {}
+export class DescribeAssetPropertyRequest extends Schema.Class<DescribeAssetPropertyRequest>("DescribeAssetPropertyRequest")({assetId: Schema.String, propertyId: Schema.String}) {}
+export class DescribeBulkImportJobRequest extends Schema.Class<DescribeBulkImportJobRequest>("DescribeBulkImportJobRequest")({jobId: Schema.String}) {}
+export class DescribeComputationModelRequest extends Schema.Class<DescribeComputationModelRequest>("DescribeComputationModelRequest")({computationModelId: Schema.String, computationModelVersion: Schema.optional(Schema.String)}) {}
+export class DescribeComputationModelExecutionSummaryRequest extends Schema.Class<DescribeComputationModelExecutionSummaryRequest>("DescribeComputationModelExecutionSummaryRequest")({computationModelId: Schema.String, resolveToResourceType: Schema.optional(Schema.String), resolveToResourceId: Schema.optional(Schema.String)}) {}
+export class DescribeDashboardRequest extends Schema.Class<DescribeDashboardRequest>("DescribeDashboardRequest")({dashboardId: Schema.String}) {}
+export class DescribeDatasetRequest extends Schema.Class<DescribeDatasetRequest>("DescribeDatasetRequest")({datasetId: Schema.String}) {}
+export class DescribeExecutionRequest extends Schema.Class<DescribeExecutionRequest>("DescribeExecutionRequest")({executionId: Schema.String}) {}
+export class DescribeGatewayRequest extends Schema.Class<DescribeGatewayRequest>("DescribeGatewayRequest")({gatewayId: Schema.String}) {}
+export class DescribeGatewayCapabilityConfigurationRequest extends Schema.Class<DescribeGatewayCapabilityConfigurationRequest>("DescribeGatewayCapabilityConfigurationRequest")({gatewayId: Schema.String, capabilityNamespace: Schema.String}) {}
+export class DescribePortalRequest extends Schema.Class<DescribePortalRequest>("DescribePortalRequest")({portalId: Schema.String}) {}
+export class DescribeProjectRequest extends Schema.Class<DescribeProjectRequest>("DescribeProjectRequest")({projectId: Schema.String}) {}
+export class DescribeTimeSeriesRequest extends Schema.Class<DescribeTimeSeriesRequest>("DescribeTimeSeriesRequest")({alias: Schema.optional(Schema.String), assetId: Schema.optional(Schema.String), propertyId: Schema.optional(Schema.String)}) {}
+export class DisassociateAssetsRequest extends Schema.Class<DisassociateAssetsRequest>("DisassociateAssetsRequest")({assetId: Schema.String, hierarchyId: Schema.String, childAssetId: Schema.String, clientToken: Schema.optional(Schema.String)}) {}
+export class DisassociateTimeSeriesFromAssetPropertyRequest extends Schema.Class<DisassociateTimeSeriesFromAssetPropertyRequest>("DisassociateTimeSeriesFromAssetPropertyRequest")({alias: Schema.String, assetId: Schema.String, propertyId: Schema.String, clientToken: Schema.optional(Schema.String)}) {}
+export class ExecuteQueryRequest extends Schema.Class<ExecuteQueryRequest>("ExecuteQueryRequest")({queryStatement: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), clientToken: Schema.optional(Schema.String)}) {}
+export class GetAssetPropertyAggregatesRequest extends Schema.Class<GetAssetPropertyAggregatesRequest>("GetAssetPropertyAggregatesRequest")({assetId: Schema.optional(Schema.String), propertyId: Schema.optional(Schema.String), propertyAlias: Schema.optional(Schema.String), aggregateTypes: AggregateTypes, resolution: Schema.String, qualities: Schema.optional(Qualities), startDate: Schema.Date, endDate: Schema.Date, timeOrdering: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class GetAssetPropertyValueRequest extends Schema.Class<GetAssetPropertyValueRequest>("GetAssetPropertyValueRequest")({assetId: Schema.optional(Schema.String), propertyId: Schema.optional(Schema.String), propertyAlias: Schema.optional(Schema.String)}) {}
+export class GetAssetPropertyValueHistoryRequest extends Schema.Class<GetAssetPropertyValueHistoryRequest>("GetAssetPropertyValueHistoryRequest")({assetId: Schema.optional(Schema.String), propertyId: Schema.optional(Schema.String), propertyAlias: Schema.optional(Schema.String), startDate: Schema.optional(Schema.Date), endDate: Schema.optional(Schema.Date), qualities: Schema.optional(Qualities), timeOrdering: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class GetInterpolatedAssetPropertyValuesRequest extends Schema.Class<GetInterpolatedAssetPropertyValuesRequest>("GetInterpolatedAssetPropertyValuesRequest")({assetId: Schema.optional(Schema.String), propertyId: Schema.optional(Schema.String), propertyAlias: Schema.optional(Schema.String), startTimeInSeconds: Schema.Number, startTimeOffsetInNanos: Schema.optional(Schema.Number), endTimeInSeconds: Schema.Number, endTimeOffsetInNanos: Schema.optional(Schema.Number), quality: Schema.String, intervalInSeconds: Schema.Number, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), type: Schema.String, intervalWindowInSeconds: Schema.optional(Schema.Number)}) {}
+export class InvokeAssistantRequest extends Schema.Class<InvokeAssistantRequest>("InvokeAssistantRequest")({conversationId: Schema.optional(Schema.String), message: Schema.String, enableTrace: Schema.optional(Schema.Boolean)}) {}
+export class ListAccessPoliciesRequest extends Schema.Class<ListAccessPoliciesRequest>("ListAccessPoliciesRequest")({identityType: Schema.optional(Schema.String), identityId: Schema.optional(Schema.String), resourceType: Schema.optional(Schema.String), resourceId: Schema.optional(Schema.String), iamArn: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListActionsRequest extends Schema.Class<ListActionsRequest>("ListActionsRequest")({targetResourceType: Schema.String, targetResourceId: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), resolveToResourceType: Schema.optional(Schema.String), resolveToResourceId: Schema.optional(Schema.String)}) {}
+export class ListAssetModelCompositeModelsRequest extends Schema.Class<ListAssetModelCompositeModelsRequest>("ListAssetModelCompositeModelsRequest")({assetModelId: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), assetModelVersion: Schema.optional(Schema.String)}) {}
+export class ListAssetModelPropertiesRequest extends Schema.Class<ListAssetModelPropertiesRequest>("ListAssetModelPropertiesRequest")({assetModelId: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), filter: Schema.optional(Schema.String), assetModelVersion: Schema.optional(Schema.String)}) {}
+export class ListAssetModelsRequest extends Schema.Class<ListAssetModelsRequest>("ListAssetModelsRequest")({assetModelTypes: Schema.optional(ListAssetModelsTypeFilter), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), assetModelVersion: Schema.optional(Schema.String)}) {}
+export class ListAssetPropertiesRequest extends Schema.Class<ListAssetPropertiesRequest>("ListAssetPropertiesRequest")({assetId: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), filter: Schema.optional(Schema.String)}) {}
+export class ListAssetRelationshipsRequest extends Schema.Class<ListAssetRelationshipsRequest>("ListAssetRelationshipsRequest")({assetId: Schema.String, traversalType: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListAssetsRequest extends Schema.Class<ListAssetsRequest>("ListAssetsRequest")({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), assetModelId: Schema.optional(Schema.String), filter: Schema.optional(Schema.String)}) {}
+export class ListAssociatedAssetsRequest extends Schema.Class<ListAssociatedAssetsRequest>("ListAssociatedAssetsRequest")({assetId: Schema.String, hierarchyId: Schema.optional(Schema.String), traversalDirection: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListBulkImportJobsRequest extends Schema.Class<ListBulkImportJobsRequest>("ListBulkImportJobsRequest")({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), filter: Schema.optional(Schema.String)}) {}
+export class ListCompositionRelationshipsRequest extends Schema.Class<ListCompositionRelationshipsRequest>("ListCompositionRelationshipsRequest")({assetModelId: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListComputationModelResolveToResourcesRequest extends Schema.Class<ListComputationModelResolveToResourcesRequest>("ListComputationModelResolveToResourcesRequest")({computationModelId: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListComputationModelsRequest extends Schema.Class<ListComputationModelsRequest>("ListComputationModelsRequest")({computationModelType: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListDashboardsRequest extends Schema.Class<ListDashboardsRequest>("ListDashboardsRequest")({projectId: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListDatasetsRequest extends Schema.Class<ListDatasetsRequest>("ListDatasetsRequest")({sourceType: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListExecutionsRequest extends Schema.Class<ListExecutionsRequest>("ListExecutionsRequest")({targetResourceType: Schema.String, targetResourceId: Schema.String, resolveToResourceType: Schema.optional(Schema.String), resolveToResourceId: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), actionType: Schema.optional(Schema.String)}) {}
+export class ListGatewaysRequest extends Schema.Class<ListGatewaysRequest>("ListGatewaysRequest")({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListInterfaceRelationshipsRequest extends Schema.Class<ListInterfaceRelationshipsRequest>("ListInterfaceRelationshipsRequest")({interfaceAssetModelId: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListPortalsRequest extends Schema.Class<ListPortalsRequest>("ListPortalsRequest")({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListProjectAssetsRequest extends Schema.Class<ListProjectAssetsRequest>("ListProjectAssetsRequest")({projectId: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListProjectsRequest extends Schema.Class<ListProjectsRequest>("ListProjectsRequest")({portalId: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({resourceArn: Schema.String}) {}
+export class ListTimeSeriesRequest extends Schema.Class<ListTimeSeriesRequest>("ListTimeSeriesRequest")({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), assetId: Schema.optional(Schema.String), aliasPrefix: Schema.optional(Schema.String), timeSeriesType: Schema.optional(Schema.String)}) {}
+export class PutDefaultEncryptionConfigurationRequest extends Schema.Class<PutDefaultEncryptionConfigurationRequest>("PutDefaultEncryptionConfigurationRequest")({encryptionType: Schema.String, kmsKeyId: Schema.optional(Schema.String)}) {}
+export class LoggingOptions extends Schema.Class<LoggingOptions>("LoggingOptions")({level: Schema.String}) {}
+export class PutLoggingOptionsRequest extends Schema.Class<PutLoggingOptionsRequest>("PutLoggingOptionsRequest")({loggingOptions: LoggingOptions}) {}
+export class PutLoggingOptionsResponse extends Schema.Class<PutLoggingOptionsResponse>("PutLoggingOptionsResponse")({}) {}
+export class CustomerManagedS3Storage extends Schema.Class<CustomerManagedS3Storage>("CustomerManagedS3Storage")({s3ResourceArn: Schema.String, roleArn: Schema.String}) {}
+export class MultiLayerStorage extends Schema.Class<MultiLayerStorage>("MultiLayerStorage")({customerManagedS3Storage: CustomerManagedS3Storage}) {}
+export class RetentionPeriod extends Schema.Class<RetentionPeriod>("RetentionPeriod")({numberOfDays: Schema.optional(Schema.Number), unlimited: Schema.optional(Schema.Boolean)}) {}
+export class WarmTierRetentionPeriod extends Schema.Class<WarmTierRetentionPeriod>("WarmTierRetentionPeriod")({numberOfDays: Schema.optional(Schema.Number), unlimited: Schema.optional(Schema.Boolean)}) {}
+export class PutStorageConfigurationRequest extends Schema.Class<PutStorageConfigurationRequest>("PutStorageConfigurationRequest")({storageType: Schema.String, multiLayerStorage: Schema.optional(MultiLayerStorage), disassociatedDataStorage: Schema.optional(Schema.String), retentionPeriod: Schema.optional(RetentionPeriod), warmTier: Schema.optional(Schema.String), warmTierRetentionPeriod: Schema.optional(WarmTierRetentionPeriod), disallowIngestNullNaN: Schema.optional(Schema.Boolean)}) {}
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({resourceArn: Schema.String, tags: TagMap}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({resourceArn: Schema.String, tagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class UserIdentity extends Schema.Class<UserIdentity>("UserIdentity")({id: Schema.String}) {}
+export class GroupIdentity extends Schema.Class<GroupIdentity>("GroupIdentity")({id: Schema.String}) {}
+export class IAMUserIdentity extends Schema.Class<IAMUserIdentity>("IAMUserIdentity")({arn: Schema.String}) {}
+export class IAMRoleIdentity extends Schema.Class<IAMRoleIdentity>("IAMRoleIdentity")({arn: Schema.String}) {}
+export class Identity extends Schema.Class<Identity>("Identity")({user: Schema.optional(UserIdentity), group: Schema.optional(GroupIdentity), iamUser: Schema.optional(IAMUserIdentity), iamRole: Schema.optional(IAMRoleIdentity)}) {}
+export class PortalResource extends Schema.Class<PortalResource>("PortalResource")({id: Schema.String}) {}
+export class ProjectResource extends Schema.Class<ProjectResource>("ProjectResource")({id: Schema.String}) {}
+export class Resource extends Schema.Class<Resource>("Resource")({portal: Schema.optional(PortalResource), project: Schema.optional(ProjectResource)}) {}
+export class UpdateAccessPolicyRequest extends Schema.Class<UpdateAccessPolicyRequest>("UpdateAccessPolicyRequest")({accessPolicyId: Schema.String, accessPolicyIdentity: Identity, accessPolicyResource: Resource, accessPolicyPermission: Schema.String, clientToken: Schema.optional(Schema.String)}) {}
+export class UpdateAccessPolicyResponse extends Schema.Class<UpdateAccessPolicyResponse>("UpdateAccessPolicyResponse")({}) {}
+export class UpdateAssetRequest extends Schema.Class<UpdateAssetRequest>("UpdateAssetRequest")({assetId: Schema.String, assetExternalId: Schema.optional(Schema.String), assetName: Schema.String, clientToken: Schema.optional(Schema.String), assetDescription: Schema.optional(Schema.String)}) {}
+export class AssetModelProperty extends Schema.Class<AssetModelProperty>("AssetModelProperty")({id: Schema.optional(Schema.String), externalId: Schema.optional(Schema.String), name: Schema.String, dataType: Schema.String, dataTypeSpec: Schema.optional(Schema.String), unit: Schema.optional(Schema.String), type: PropertyType, path: Schema.optional(AssetModelPropertyPath)}) {}
 export const AssetModelProperties = Schema.Array(AssetModelProperty);
-export const UpdateAssetModelCompositeModelRequest = Schema.Struct({assetModelId: Schema.String, assetModelCompositeModelId: Schema.String, assetModelCompositeModelExternalId: Schema.optional(Schema.String), assetModelCompositeModelDescription: Schema.optional(Schema.String), assetModelCompositeModelName: Schema.String, clientToken: Schema.optional(Schema.String), assetModelCompositeModelProperties: Schema.optional(AssetModelProperties), ifMatch: Schema.optional(Header("If-Match")), ifNoneMatch: Schema.optional(Header("If-None-Match")), matchForVersionType: Schema.optional(Header("Match-For-Version-Type"))});
-export const UpdateAssetPropertyRequest = Schema.Struct({assetId: Schema.String, propertyId: Schema.String, propertyAlias: Schema.optional(Schema.String), propertyNotificationState: Schema.optional(Schema.String), clientToken: Schema.optional(Schema.String), propertyUnit: Schema.optional(Schema.String)});
-export const ComputationModelAnomalyDetectionConfiguration = Schema.Struct({inputProperties: Schema.String, resultProperty: Schema.String});
-export const ComputationModelConfiguration = Schema.Struct({anomalyDetection: Schema.optional(ComputationModelAnomalyDetectionConfiguration)});
-export const AssetModelPropertyBindingValue = Schema.Struct({assetModelId: Schema.String, propertyId: Schema.String});
-export const AssetPropertyBindingValue = Schema.Struct({assetId: Schema.String, propertyId: Schema.String});
-export const BindingValueList = Schema.Array(ComputationModelDataBindingValue);
-export const ComputationModelDataBindingValue = Schema.Struct({assetModelProperty: Schema.optional(AssetModelPropertyBindingValue), assetProperty: Schema.optional(AssetPropertyBindingValue), list: Schema.optional(BindingValueList)});
+export class UpdateAssetModelCompositeModelRequest extends Schema.Class<UpdateAssetModelCompositeModelRequest>("UpdateAssetModelCompositeModelRequest")({assetModelId: Schema.String, assetModelCompositeModelId: Schema.String, assetModelCompositeModelExternalId: Schema.optional(Schema.String), assetModelCompositeModelDescription: Schema.optional(Schema.String), assetModelCompositeModelName: Schema.String, clientToken: Schema.optional(Schema.String), assetModelCompositeModelProperties: Schema.optional(AssetModelProperties), ifMatch: Schema.optional(Header("If-Match")), ifNoneMatch: Schema.optional(Header("If-None-Match")), matchForVersionType: Schema.optional(Header("Match-For-Version-Type"))}) {}
+export class UpdateAssetPropertyRequest extends Schema.Class<UpdateAssetPropertyRequest>("UpdateAssetPropertyRequest")({assetId: Schema.String, propertyId: Schema.String, propertyAlias: Schema.optional(Schema.String), propertyNotificationState: Schema.optional(Schema.String), clientToken: Schema.optional(Schema.String), propertyUnit: Schema.optional(Schema.String)}) {}
+export class ComputationModelAnomalyDetectionConfiguration extends Schema.Class<ComputationModelAnomalyDetectionConfiguration>("ComputationModelAnomalyDetectionConfiguration")({inputProperties: Schema.String, resultProperty: Schema.String}) {}
+export class ComputationModelConfiguration extends Schema.Class<ComputationModelConfiguration>("ComputationModelConfiguration")({anomalyDetection: Schema.optional(ComputationModelAnomalyDetectionConfiguration)}) {}
+export class AssetModelPropertyBindingValue extends Schema.Class<AssetModelPropertyBindingValue>("AssetModelPropertyBindingValue")({assetModelId: Schema.String, propertyId: Schema.String}) {}
+export class AssetPropertyBindingValue extends Schema.Class<AssetPropertyBindingValue>("AssetPropertyBindingValue")({assetId: Schema.String, propertyId: Schema.String}) {}
+export class ComputationModelDataBindingValue extends Schema.Class<ComputationModelDataBindingValue>("ComputationModelDataBindingValue")({assetModelProperty: Schema.optional(AssetModelPropertyBindingValue), assetProperty: Schema.optional(AssetPropertyBindingValue), list: Schema.optional(Schema.suspend(() => BindingValueList))}) {}
 export const ComputationModelDataBinding = Schema.Record({key: Schema.String, value: ComputationModelDataBindingValue});
-export const UpdateComputationModelRequest = Schema.Struct({computationModelId: Schema.String, computationModelName: Schema.String, computationModelDescription: Schema.optional(Schema.String), computationModelConfiguration: ComputationModelConfiguration, computationModelDataBinding: ComputationModelDataBinding, clientToken: Schema.optional(Schema.String)});
-export const UpdateDashboardRequest = Schema.Struct({dashboardId: Schema.String, dashboardName: Schema.String, dashboardDescription: Schema.optional(Schema.String), dashboardDefinition: Schema.String, clientToken: Schema.optional(Schema.String)});
-export const UpdateDashboardResponse = Schema.Struct({});
-export const KendraSourceDetail = Schema.Struct({knowledgeBaseArn: Schema.String, roleArn: Schema.String});
-export const SourceDetail = Schema.Struct({kendra: Schema.optional(KendraSourceDetail)});
-export const DatasetSource = Schema.Struct({sourceType: Schema.String, sourceFormat: Schema.String, sourceDetail: Schema.optional(SourceDetail)});
-export const UpdateDatasetRequest = Schema.Struct({datasetId: Schema.String, datasetName: Schema.String, datasetDescription: Schema.optional(Schema.String), datasetSource: DatasetSource, clientToken: Schema.optional(Schema.String)});
-export const UpdateGatewayRequest = Schema.Struct({gatewayId: Schema.String, gatewayName: Schema.String});
-export const UpdateGatewayCapabilityConfigurationRequest = Schema.Struct({gatewayId: Schema.String, capabilityNamespace: Schema.String, capabilityConfiguration: Schema.String});
-export const UpdateProjectRequest = Schema.Struct({projectId: Schema.String, projectName: Schema.String, projectDescription: Schema.optional(Schema.String), clientToken: Schema.optional(Schema.String)});
-export const UpdateProjectResponse = Schema.Struct({});
-export const AssetErrorDetails = Schema.Struct({assetId: Schema.String, code: Schema.String, message: Schema.String});
+export class UpdateComputationModelRequest extends Schema.Class<UpdateComputationModelRequest>("UpdateComputationModelRequest")({computationModelId: Schema.String, computationModelName: Schema.String, computationModelDescription: Schema.optional(Schema.String), computationModelConfiguration: ComputationModelConfiguration, computationModelDataBinding: ComputationModelDataBinding, clientToken: Schema.optional(Schema.String)}) {}
+export class UpdateDashboardRequest extends Schema.Class<UpdateDashboardRequest>("UpdateDashboardRequest")({dashboardId: Schema.String, dashboardName: Schema.String, dashboardDescription: Schema.optional(Schema.String), dashboardDefinition: Schema.String, clientToken: Schema.optional(Schema.String)}) {}
+export class UpdateDashboardResponse extends Schema.Class<UpdateDashboardResponse>("UpdateDashboardResponse")({}) {}
+export class KendraSourceDetail extends Schema.Class<KendraSourceDetail>("KendraSourceDetail")({knowledgeBaseArn: Schema.String, roleArn: Schema.String}) {}
+export class SourceDetail extends Schema.Class<SourceDetail>("SourceDetail")({kendra: Schema.optional(KendraSourceDetail)}) {}
+export class DatasetSource extends Schema.Class<DatasetSource>("DatasetSource")({sourceType: Schema.String, sourceFormat: Schema.String, sourceDetail: Schema.optional(SourceDetail)}) {}
+export class UpdateDatasetRequest extends Schema.Class<UpdateDatasetRequest>("UpdateDatasetRequest")({datasetId: Schema.String, datasetName: Schema.String, datasetDescription: Schema.optional(Schema.String), datasetSource: DatasetSource, clientToken: Schema.optional(Schema.String)}) {}
+export class UpdateGatewayRequest extends Schema.Class<UpdateGatewayRequest>("UpdateGatewayRequest")({gatewayId: Schema.String, gatewayName: Schema.String}) {}
+export class UpdateGatewayCapabilityConfigurationRequest extends Schema.Class<UpdateGatewayCapabilityConfigurationRequest>("UpdateGatewayCapabilityConfigurationRequest")({gatewayId: Schema.String, capabilityNamespace: Schema.String, capabilityConfiguration: Schema.String}) {}
+export class UpdateProjectRequest extends Schema.Class<UpdateProjectRequest>("UpdateProjectRequest")({projectId: Schema.String, projectName: Schema.String, projectDescription: Schema.optional(Schema.String), clientToken: Schema.optional(Schema.String)}) {}
+export class UpdateProjectResponse extends Schema.Class<UpdateProjectResponse>("UpdateProjectResponse")({}) {}
+export class AssetErrorDetails extends Schema.Class<AssetErrorDetails>("AssetErrorDetails")({assetId: Schema.String, code: Schema.String, message: Schema.String}) {}
 export const BatchDisassociateProjectAssetsErrors = Schema.Array(AssetErrorDetails);
-export const BatchGetAssetPropertyAggregatesEntry = Schema.Struct({entryId: Schema.String, assetId: Schema.optional(Schema.String), propertyId: Schema.optional(Schema.String), propertyAlias: Schema.optional(Schema.String), aggregateTypes: AggregateTypes, resolution: Schema.String, startDate: Schema.Date, endDate: Schema.Date, qualities: Schema.optional(Qualities), timeOrdering: Schema.optional(Schema.String)});
+export class BatchGetAssetPropertyAggregatesEntry extends Schema.Class<BatchGetAssetPropertyAggregatesEntry>("BatchGetAssetPropertyAggregatesEntry")({entryId: Schema.String, assetId: Schema.optional(Schema.String), propertyId: Schema.optional(Schema.String), propertyAlias: Schema.optional(Schema.String), aggregateTypes: AggregateTypes, resolution: Schema.String, startDate: Schema.Date, endDate: Schema.Date, qualities: Schema.optional(Qualities), timeOrdering: Schema.optional(Schema.String)}) {}
 export const BatchGetAssetPropertyAggregatesEntries = Schema.Array(BatchGetAssetPropertyAggregatesEntry);
-export const BatchGetAssetPropertyValueEntry = Schema.Struct({entryId: Schema.String, assetId: Schema.optional(Schema.String), propertyId: Schema.optional(Schema.String), propertyAlias: Schema.optional(Schema.String)});
+export class BatchGetAssetPropertyValueEntry extends Schema.Class<BatchGetAssetPropertyValueEntry>("BatchGetAssetPropertyValueEntry")({entryId: Schema.String, assetId: Schema.optional(Schema.String), propertyId: Schema.optional(Schema.String), propertyAlias: Schema.optional(Schema.String)}) {}
 export const BatchGetAssetPropertyValueEntries = Schema.Array(BatchGetAssetPropertyValueEntry);
-export const BatchGetAssetPropertyValueHistoryEntry = Schema.Struct({entryId: Schema.String, assetId: Schema.optional(Schema.String), propertyId: Schema.optional(Schema.String), propertyAlias: Schema.optional(Schema.String), startDate: Schema.optional(Schema.Date), endDate: Schema.optional(Schema.Date), qualities: Schema.optional(Qualities), timeOrdering: Schema.optional(Schema.String)});
+export class BatchGetAssetPropertyValueHistoryEntry extends Schema.Class<BatchGetAssetPropertyValueHistoryEntry>("BatchGetAssetPropertyValueHistoryEntry")({entryId: Schema.String, assetId: Schema.optional(Schema.String), propertyId: Schema.optional(Schema.String), propertyAlias: Schema.optional(Schema.String), startDate: Schema.optional(Schema.Date), endDate: Schema.optional(Schema.Date), qualities: Schema.optional(Qualities), timeOrdering: Schema.optional(Schema.String)}) {}
 export const BatchGetAssetPropertyValueHistoryEntries = Schema.Array(BatchGetAssetPropertyValueHistoryEntry);
-export const AssetModelHierarchyDefinition = Schema.Struct({id: Schema.optional(Schema.String), externalId: Schema.optional(Schema.String), name: Schema.String, childAssetModelId: Schema.String});
+export class AssetModelHierarchyDefinition extends Schema.Class<AssetModelHierarchyDefinition>("AssetModelHierarchyDefinition")({id: Schema.optional(Schema.String), externalId: Schema.optional(Schema.String), name: Schema.String, childAssetModelId: Schema.String}) {}
 export const AssetModelHierarchyDefinitions = Schema.Array(AssetModelHierarchyDefinition);
-export const AssetModelCompositeModelDefinition = Schema.Struct({id: Schema.optional(Schema.String), externalId: Schema.optional(Schema.String), name: Schema.String, description: Schema.optional(Schema.String), type: Schema.String, properties: Schema.optional(AssetModelPropertyDefinitions)});
+export class AssetModelCompositeModelDefinition extends Schema.Class<AssetModelCompositeModelDefinition>("AssetModelCompositeModelDefinition")({id: Schema.optional(Schema.String), externalId: Schema.optional(Schema.String), name: Schema.String, description: Schema.optional(Schema.String), type: Schema.String, properties: Schema.optional(AssetModelPropertyDefinitions)}) {}
 export const AssetModelCompositeModelDefinitions = Schema.Array(AssetModelCompositeModelDefinition);
-export const File = Schema.Struct({bucket: Schema.String, key: Schema.String, versionId: Schema.optional(Schema.String)});
+export class File extends Schema.Class<File>("File")({bucket: Schema.String, key: Schema.String, versionId: Schema.optional(Schema.String)}) {}
 export const Files = Schema.Array(File);
-export const ErrorReportLocation = Schema.Struct({bucket: Schema.String, prefix: Schema.String});
-export const ImageFile = Schema.Struct({data: StreamBody(), type: Schema.String});
-export const Alarms = Schema.Struct({alarmRoleArn: Schema.String, notificationLambdaArn: Schema.optional(Schema.String)});
-export const TargetResource = Schema.Struct({assetId: Schema.optional(Schema.String), computationModelId: Schema.optional(Schema.String)});
-export const ActionPayload = Schema.Struct({stringValue: Schema.String});
-export const ResolveTo = Schema.Struct({assetId: Schema.String});
-export const PropertyValueNullValue = Schema.Struct({valueType: Schema.String});
-export const Variant = Schema.Struct({stringValue: Schema.optional(Schema.String), integerValue: Schema.optional(Schema.Number), doubleValue: Schema.optional(Schema.Number), booleanValue: Schema.optional(Schema.Boolean), nullValue: Schema.optional(PropertyValueNullValue)});
-export const TimeInNanos = Schema.Struct({timeInSeconds: Schema.Number, offsetInNanos: Schema.optional(Schema.Number)});
-export const AssetPropertyValue = Schema.Struct({value: Variant, timestamp: TimeInNanos, quality: Schema.optional(Schema.String)});
+export class ErrorReportLocation extends Schema.Class<ErrorReportLocation>("ErrorReportLocation")({bucket: Schema.String, prefix: Schema.String}) {}
+export class ImageFile extends Schema.Class<ImageFile>("ImageFile")({data: StreamBody(), type: Schema.String}) {}
+export class Alarms extends Schema.Class<Alarms>("Alarms")({alarmRoleArn: Schema.String, notificationLambdaArn: Schema.optional(Schema.String)}) {}
+export class TargetResource extends Schema.Class<TargetResource>("TargetResource")({assetId: Schema.optional(Schema.String), computationModelId: Schema.optional(Schema.String)}) {}
+export class ActionPayload extends Schema.Class<ActionPayload>("ActionPayload")({stringValue: Schema.String}) {}
+export class ResolveTo extends Schema.Class<ResolveTo>("ResolveTo")({assetId: Schema.String}) {}
+export class PropertyValueNullValue extends Schema.Class<PropertyValueNullValue>("PropertyValueNullValue")({valueType: Schema.String}) {}
+export class Variant extends Schema.Class<Variant>("Variant")({stringValue: Schema.optional(Schema.String), integerValue: Schema.optional(Schema.Number), doubleValue: Schema.optional(Schema.Number), booleanValue: Schema.optional(Schema.Boolean), nullValue: Schema.optional(PropertyValueNullValue)}) {}
+export class TimeInNanos extends Schema.Class<TimeInNanos>("TimeInNanos")({timeInSeconds: Schema.Number, offsetInNanos: Schema.optional(Schema.Number)}) {}
+export class AssetPropertyValue extends Schema.Class<AssetPropertyValue>("AssetPropertyValue")({value: Variant, timestamp: TimeInNanos, quality: Schema.optional(Schema.String)}) {}
 export const AssetPropertyValueHistory = Schema.Array(AssetPropertyValue);
 export const AssetIDs = Schema.Array(Schema.String);
-export const AssetModelHierarchy = Schema.Struct({id: Schema.optional(Schema.String), externalId: Schema.optional(Schema.String), name: Schema.String, childAssetModelId: Schema.String});
+export class AssetModelHierarchy extends Schema.Class<AssetModelHierarchy>("AssetModelHierarchy")({id: Schema.optional(Schema.String), externalId: Schema.optional(Schema.String), name: Schema.String, childAssetModelId: Schema.String}) {}
 export const AssetModelHierarchies = Schema.Array(AssetModelHierarchy);
-export const AssetModelCompositeModel = Schema.Struct({name: Schema.String, description: Schema.optional(Schema.String), type: Schema.String, properties: Schema.optional(AssetModelProperties), id: Schema.optional(Schema.String), externalId: Schema.optional(Schema.String)});
+export class AssetModelCompositeModel extends Schema.Class<AssetModelCompositeModel>("AssetModelCompositeModel")({name: Schema.String, description: Schema.optional(Schema.String), type: Schema.String, properties: Schema.optional(AssetModelProperties), id: Schema.optional(Schema.String), externalId: Schema.optional(Schema.String)}) {}
 export const AssetModelCompositeModels = Schema.Array(AssetModelCompositeModel);
-export const Image = Schema.Struct({id: Schema.optional(Schema.String), file: Schema.optional(ImageFile)});
-export const Parquet = Schema.Struct({});
+export class Image extends Schema.Class<Image>("Image")({id: Schema.optional(Schema.String), file: Schema.optional(ImageFile)}) {}
+export class Parquet extends Schema.Class<Parquet>("Parquet")({}) {}
+export const BindingValueList = Schema.Array(Schema.suspend((): Schema.Schema<ComputationModelDataBindingValue> => ComputationModelDataBindingValue));
 export const PortalTools = Schema.Array(Schema.String);
-export const ConflictingOperationException = Schema.Struct({message: Schema.String, resourceId: Schema.String, resourceArn: Schema.String});
-export const InternalFailureException = Schema.Struct({message: Schema.String});
-export const BatchDisassociateProjectAssetsResponse = Schema.Struct({errors: Schema.optional(BatchDisassociateProjectAssetsErrors)});
-export const BatchGetAssetPropertyAggregatesRequest = Schema.Struct({entries: BatchGetAssetPropertyAggregatesEntries, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const BatchGetAssetPropertyValueRequest = Schema.Struct({entries: BatchGetAssetPropertyValueEntries, nextToken: Schema.optional(Schema.String)});
-export const BatchGetAssetPropertyValueHistoryRequest = Schema.Struct({entries: BatchGetAssetPropertyValueHistoryEntries, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const CreateDashboardResponse = Schema.Struct({dashboardId: Schema.String, dashboardArn: Schema.String});
-export const CreateProjectResponse = Schema.Struct({projectId: Schema.String, projectArn: Schema.String});
-export const InvalidRequestException = Schema.Struct({message: Schema.String});
-export const DetailedError = Schema.Struct({code: Schema.String, message: Schema.String});
+export class ConflictingOperationException extends Schema.Class<ConflictingOperationException>("ConflictingOperationException")({message: Schema.String, resourceId: Schema.String, resourceArn: Schema.String}) {}
+export class InternalFailureException extends Schema.Class<InternalFailureException>("InternalFailureException")({message: Schema.String}) {}
+export class BatchDisassociateProjectAssetsResponse extends Schema.Class<BatchDisassociateProjectAssetsResponse>("BatchDisassociateProjectAssetsResponse")({errors: Schema.optional(BatchDisassociateProjectAssetsErrors)}) {}
+export class BatchGetAssetPropertyAggregatesRequest extends Schema.Class<BatchGetAssetPropertyAggregatesRequest>("BatchGetAssetPropertyAggregatesRequest")({entries: BatchGetAssetPropertyAggregatesEntries, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class BatchGetAssetPropertyValueRequest extends Schema.Class<BatchGetAssetPropertyValueRequest>("BatchGetAssetPropertyValueRequest")({entries: BatchGetAssetPropertyValueEntries, nextToken: Schema.optional(Schema.String)}) {}
+export class BatchGetAssetPropertyValueHistoryRequest extends Schema.Class<BatchGetAssetPropertyValueHistoryRequest>("BatchGetAssetPropertyValueHistoryRequest")({entries: BatchGetAssetPropertyValueHistoryEntries, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class CreateDashboardResponse extends Schema.Class<CreateDashboardResponse>("CreateDashboardResponse")({dashboardId: Schema.String, dashboardArn: Schema.String}) {}
+export class CreateProjectResponse extends Schema.Class<CreateProjectResponse>("CreateProjectResponse")({projectId: Schema.String, projectArn: Schema.String}) {}
+export class InvalidRequestException extends Schema.Class<InvalidRequestException>("InvalidRequestException")({message: Schema.String}) {}
+export class DetailedError extends Schema.Class<DetailedError>("DetailedError")({code: Schema.String, message: Schema.String}) {}
 export const DetailedErrors = Schema.Array(DetailedError);
-export const ErrorDetails = Schema.Struct({code: Schema.String, message: Schema.String, details: Schema.optional(DetailedErrors)});
-export const AssetStatus = Schema.Struct({state: Schema.String, error: Schema.optional(ErrorDetails)});
-export const DeleteAssetResponse = Schema.Struct({assetStatus: AssetStatus});
-export const AssetModelStatus = Schema.Struct({state: Schema.String, error: Schema.optional(ErrorDetails)});
-export const DeleteAssetModelResponse = Schema.Struct({assetModelStatus: AssetModelStatus});
-export const DeleteAssetModelCompositeModelResponse = Schema.Struct({assetModelStatus: AssetModelStatus});
-export const DeleteAssetModelInterfaceRelationshipResponse = Schema.Struct({assetModelId: Schema.String, interfaceAssetModelId: Schema.String, assetModelArn: Schema.String, assetModelStatus: AssetModelStatus});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.String});
-export const ThrottlingException = Schema.Struct({message: Schema.String});
-export const DescribeAccessPolicyResponse = Schema.Struct({accessPolicyId: Schema.String, accessPolicyArn: Schema.String, accessPolicyIdentity: Identity, accessPolicyResource: Resource, accessPolicyPermission: Schema.String, accessPolicyCreationDate: Schema.Date, accessPolicyLastUpdateDate: Schema.Date});
-export const DescribeActionResponse = Schema.Struct({actionId: Schema.String, targetResource: TargetResource, actionDefinitionId: Schema.String, actionPayload: ActionPayload, executionTime: Schema.Date, resolveTo: Schema.optional(ResolveTo)});
+export class ErrorDetails extends Schema.Class<ErrorDetails>("ErrorDetails")({code: Schema.String, message: Schema.String, details: Schema.optional(DetailedErrors)}) {}
+export class AssetStatus extends Schema.Class<AssetStatus>("AssetStatus")({state: Schema.String, error: Schema.optional(ErrorDetails)}) {}
+export class DeleteAssetResponse extends Schema.Class<DeleteAssetResponse>("DeleteAssetResponse")({assetStatus: AssetStatus}) {}
+export class AssetModelStatus extends Schema.Class<AssetModelStatus>("AssetModelStatus")({state: Schema.String, error: Schema.optional(ErrorDetails)}) {}
+export class DeleteAssetModelResponse extends Schema.Class<DeleteAssetModelResponse>("DeleteAssetModelResponse")({assetModelStatus: AssetModelStatus}) {}
+export class DeleteAssetModelCompositeModelResponse extends Schema.Class<DeleteAssetModelCompositeModelResponse>("DeleteAssetModelCompositeModelResponse")({assetModelStatus: AssetModelStatus}) {}
+export class DeleteAssetModelInterfaceRelationshipResponse extends Schema.Class<DeleteAssetModelInterfaceRelationshipResponse>("DeleteAssetModelInterfaceRelationshipResponse")({assetModelId: Schema.String, interfaceAssetModelId: Schema.String, assetModelArn: Schema.String, assetModelStatus: AssetModelStatus}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.String}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({message: Schema.String}) {}
+export class DescribeAccessPolicyResponse extends Schema.Class<DescribeAccessPolicyResponse>("DescribeAccessPolicyResponse")({accessPolicyId: Schema.String, accessPolicyArn: Schema.String, accessPolicyIdentity: Identity, accessPolicyResource: Resource, accessPolicyPermission: Schema.String, accessPolicyCreationDate: Schema.Date, accessPolicyLastUpdateDate: Schema.Date}) {}
+export class DescribeActionResponse extends Schema.Class<DescribeActionResponse>("DescribeActionResponse")({actionId: Schema.String, targetResource: TargetResource, actionDefinitionId: Schema.String, actionPayload: ActionPayload, executionTime: Schema.Date, resolveTo: Schema.optional(ResolveTo)}) {}
 export const ColumnNames = Schema.Array(Schema.String);
-export const Csv = Schema.Struct({columnNames: ColumnNames});
-export const FileFormat = Schema.Struct({csv: Schema.optional(Csv), parquet: Schema.optional(Parquet)});
-export const JobConfiguration = Schema.Struct({fileFormat: FileFormat});
-export const DescribeBulkImportJobResponse = Schema.Struct({jobId: Schema.String, jobName: Schema.String, jobStatus: Schema.String, jobRoleArn: Schema.String, files: Files, errorReportLocation: ErrorReportLocation, jobConfiguration: JobConfiguration, jobCreationDate: Schema.Date, jobLastUpdateDate: Schema.Date, adaptiveIngestion: Schema.optional(Schema.Boolean), deleteFilesAfterImport: Schema.optional(Schema.Boolean)});
-export const ComputationModelStatus = Schema.Struct({state: Schema.String, error: Schema.optional(ErrorDetails)});
-export const ActionDefinition = Schema.Struct({actionDefinitionId: Schema.String, actionName: Schema.String, actionType: Schema.String});
+export class Csv extends Schema.Class<Csv>("Csv")({columnNames: ColumnNames}) {}
+export class FileFormat extends Schema.Class<FileFormat>("FileFormat")({csv: Schema.optional(Csv), parquet: Schema.optional(Parquet)}) {}
+export class JobConfiguration extends Schema.Class<JobConfiguration>("JobConfiguration")({fileFormat: FileFormat}) {}
+export class DescribeBulkImportJobResponse extends Schema.Class<DescribeBulkImportJobResponse>("DescribeBulkImportJobResponse")({jobId: Schema.String, jobName: Schema.String, jobStatus: Schema.String, jobRoleArn: Schema.String, files: Files, errorReportLocation: ErrorReportLocation, jobConfiguration: JobConfiguration, jobCreationDate: Schema.Date, jobLastUpdateDate: Schema.Date, adaptiveIngestion: Schema.optional(Schema.Boolean), deleteFilesAfterImport: Schema.optional(Schema.Boolean)}) {}
+export class ComputationModelStatus extends Schema.Class<ComputationModelStatus>("ComputationModelStatus")({state: Schema.String, error: Schema.optional(ErrorDetails)}) {}
+export class ActionDefinition extends Schema.Class<ActionDefinition>("ActionDefinition")({actionDefinitionId: Schema.String, actionName: Schema.String, actionType: Schema.String}) {}
 export const ActionDefinitions = Schema.Array(ActionDefinition);
-export const DescribeComputationModelResponse = Schema.Struct({computationModelId: Schema.String, computationModelArn: Schema.String, computationModelName: Schema.String, computationModelDescription: Schema.optional(Schema.String), computationModelConfiguration: ComputationModelConfiguration, computationModelDataBinding: ComputationModelDataBinding, computationModelCreationDate: Schema.Date, computationModelLastUpdateDate: Schema.Date, computationModelStatus: ComputationModelStatus, computationModelVersion: Schema.String, actionDefinitions: ActionDefinitions});
-export const DescribeDashboardResponse = Schema.Struct({dashboardId: Schema.String, dashboardArn: Schema.String, dashboardName: Schema.String, projectId: Schema.String, dashboardDescription: Schema.optional(Schema.String), dashboardDefinition: Schema.String, dashboardCreationDate: Schema.Date, dashboardLastUpdateDate: Schema.Date});
-export const DatasetStatus = Schema.Struct({state: Schema.String, error: Schema.optional(ErrorDetails)});
-export const DescribeDatasetResponse = Schema.Struct({datasetId: Schema.String, datasetArn: Schema.String, datasetName: Schema.String, datasetDescription: Schema.String, datasetSource: DatasetSource, datasetStatus: DatasetStatus, datasetCreationDate: Schema.Date, datasetLastUpdateDate: Schema.Date, datasetVersion: Schema.optional(Schema.String)});
-export const DescribeGatewayCapabilityConfigurationResponse = Schema.Struct({gatewayId: Schema.String, capabilityNamespace: Schema.String, capabilityConfiguration: Schema.String, capabilitySyncStatus: Schema.String});
-export const DescribeLoggingOptionsResponse = Schema.Struct({loggingOptions: LoggingOptions});
-export const DescribeProjectResponse = Schema.Struct({projectId: Schema.String, projectArn: Schema.String, projectName: Schema.String, portalId: Schema.String, projectDescription: Schema.optional(Schema.String), projectCreationDate: Schema.Date, projectLastUpdateDate: Schema.Date});
-export const DescribeTimeSeriesResponse = Schema.Struct({assetId: Schema.optional(Schema.String), propertyId: Schema.optional(Schema.String), alias: Schema.optional(Schema.String), timeSeriesId: Schema.String, dataType: Schema.String, dataTypeSpec: Schema.optional(Schema.String), timeSeriesCreationDate: Schema.Date, timeSeriesLastUpdateDate: Schema.Date, timeSeriesArn: Schema.String});
-export const ExecuteActionRequest = Schema.Struct({targetResource: TargetResource, actionDefinitionId: Schema.String, actionPayload: ActionPayload, clientToken: Schema.optional(Schema.String), resolveTo: Schema.optional(ResolveTo)});
-export const GetAssetPropertyValueResponse = Schema.Struct({propertyValue: Schema.optional(AssetPropertyValue)});
-export const GetAssetPropertyValueHistoryResponse = Schema.Struct({assetPropertyValueHistory: AssetPropertyValueHistory, nextToken: Schema.optional(Schema.String)});
-export const AssetModelCompositeModelPathSegment = Schema.Struct({id: Schema.optional(Schema.String), name: Schema.optional(Schema.String)});
+export class DescribeComputationModelResponse extends Schema.Class<DescribeComputationModelResponse>("DescribeComputationModelResponse")({computationModelId: Schema.String, computationModelArn: Schema.String, computationModelName: Schema.String, computationModelDescription: Schema.optional(Schema.String), computationModelConfiguration: ComputationModelConfiguration, computationModelDataBinding: ComputationModelDataBinding, computationModelCreationDate: Schema.Date, computationModelLastUpdateDate: Schema.Date, computationModelStatus: ComputationModelStatus, computationModelVersion: Schema.String, actionDefinitions: ActionDefinitions}) {}
+export class DescribeDashboardResponse extends Schema.Class<DescribeDashboardResponse>("DescribeDashboardResponse")({dashboardId: Schema.String, dashboardArn: Schema.String, dashboardName: Schema.String, projectId: Schema.String, dashboardDescription: Schema.optional(Schema.String), dashboardDefinition: Schema.String, dashboardCreationDate: Schema.Date, dashboardLastUpdateDate: Schema.Date}) {}
+export class DatasetStatus extends Schema.Class<DatasetStatus>("DatasetStatus")({state: Schema.String, error: Schema.optional(ErrorDetails)}) {}
+export class DescribeDatasetResponse extends Schema.Class<DescribeDatasetResponse>("DescribeDatasetResponse")({datasetId: Schema.String, datasetArn: Schema.String, datasetName: Schema.String, datasetDescription: Schema.String, datasetSource: DatasetSource, datasetStatus: DatasetStatus, datasetCreationDate: Schema.Date, datasetLastUpdateDate: Schema.Date, datasetVersion: Schema.optional(Schema.String)}) {}
+export class DescribeGatewayCapabilityConfigurationResponse extends Schema.Class<DescribeGatewayCapabilityConfigurationResponse>("DescribeGatewayCapabilityConfigurationResponse")({gatewayId: Schema.String, capabilityNamespace: Schema.String, capabilityConfiguration: Schema.String, capabilitySyncStatus: Schema.String}) {}
+export class DescribeLoggingOptionsResponse extends Schema.Class<DescribeLoggingOptionsResponse>("DescribeLoggingOptionsResponse")({loggingOptions: LoggingOptions}) {}
+export class DescribeProjectResponse extends Schema.Class<DescribeProjectResponse>("DescribeProjectResponse")({projectId: Schema.String, projectArn: Schema.String, projectName: Schema.String, portalId: Schema.String, projectDescription: Schema.optional(Schema.String), projectCreationDate: Schema.Date, projectLastUpdateDate: Schema.Date}) {}
+export class DescribeTimeSeriesResponse extends Schema.Class<DescribeTimeSeriesResponse>("DescribeTimeSeriesResponse")({assetId: Schema.optional(Schema.String), propertyId: Schema.optional(Schema.String), alias: Schema.optional(Schema.String), timeSeriesId: Schema.String, dataType: Schema.String, dataTypeSpec: Schema.optional(Schema.String), timeSeriesCreationDate: Schema.Date, timeSeriesLastUpdateDate: Schema.Date, timeSeriesArn: Schema.String}) {}
+export class ExecuteActionRequest extends Schema.Class<ExecuteActionRequest>("ExecuteActionRequest")({targetResource: TargetResource, actionDefinitionId: Schema.String, actionPayload: ActionPayload, clientToken: Schema.optional(Schema.String), resolveTo: Schema.optional(ResolveTo)}) {}
+export class GetAssetPropertyValueResponse extends Schema.Class<GetAssetPropertyValueResponse>("GetAssetPropertyValueResponse")({propertyValue: Schema.optional(AssetPropertyValue)}) {}
+export class GetAssetPropertyValueHistoryResponse extends Schema.Class<GetAssetPropertyValueHistoryResponse>("GetAssetPropertyValueHistoryResponse")({assetPropertyValueHistory: AssetPropertyValueHistory, nextToken: Schema.optional(Schema.String)}) {}
+export class AssetModelCompositeModelPathSegment extends Schema.Class<AssetModelCompositeModelPathSegment>("AssetModelCompositeModelPathSegment")({id: Schema.optional(Schema.String), name: Schema.optional(Schema.String)}) {}
 export const AssetModelCompositeModelPath = Schema.Array(AssetModelCompositeModelPathSegment);
-export const AssetModelCompositeModelSummary = Schema.Struct({id: Schema.String, externalId: Schema.optional(Schema.String), name: Schema.String, type: Schema.String, description: Schema.optional(Schema.String), path: Schema.optional(AssetModelCompositeModelPath)});
+export class AssetModelCompositeModelSummary extends Schema.Class<AssetModelCompositeModelSummary>("AssetModelCompositeModelSummary")({id: Schema.String, externalId: Schema.optional(Schema.String), name: Schema.String, type: Schema.String, description: Schema.optional(Schema.String), path: Schema.optional(AssetModelCompositeModelPath)}) {}
 export const AssetModelCompositeModelSummaries = Schema.Array(AssetModelCompositeModelSummary);
-export const ListAssetModelCompositeModelsResponse = Schema.Struct({assetModelCompositeModelSummaries: AssetModelCompositeModelSummaries, nextToken: Schema.optional(Schema.String)});
-export const ListProjectAssetsResponse = Schema.Struct({assetIds: AssetIDs, nextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceResponse = Schema.Struct({tags: Schema.optional(TagMap)});
-export const ConfigurationErrorDetails = Schema.Struct({code: Schema.String, message: Schema.String});
-export const ConfigurationStatus = Schema.Struct({state: Schema.String, error: Schema.optional(ConfigurationErrorDetails)});
-export const PutDefaultEncryptionConfigurationResponse = Schema.Struct({encryptionType: Schema.String, kmsKeyArn: Schema.optional(Schema.String), configurationStatus: ConfigurationStatus});
-export const PutStorageConfigurationResponse = Schema.Struct({storageType: Schema.String, multiLayerStorage: Schema.optional(MultiLayerStorage), disassociatedDataStorage: Schema.optional(Schema.String), retentionPeriod: Schema.optional(RetentionPeriod), configurationStatus: ConfigurationStatus, warmTier: Schema.optional(Schema.String), warmTierRetentionPeriod: Schema.optional(WarmTierRetentionPeriod), disallowIngestNullNaN: Schema.optional(Schema.Boolean)});
-export const LimitExceededException = Schema.Struct({message: Schema.String});
-export const UnauthorizedException = Schema.Struct({message: Schema.String});
-export const UpdateAssetResponse = Schema.Struct({assetStatus: AssetStatus});
-export const UpdateAssetModelCompositeModelResponse = Schema.Struct({assetModelCompositeModelPath: AssetModelCompositeModelPath, assetModelStatus: AssetModelStatus});
-export const UpdateComputationModelResponse = Schema.Struct({computationModelStatus: ComputationModelStatus});
-export const UpdateDatasetResponse = Schema.Struct({datasetId: Schema.optional(Schema.String), datasetArn: Schema.optional(Schema.String), datasetStatus: Schema.optional(DatasetStatus)});
-export const UpdateGatewayCapabilityConfigurationResponse = Schema.Struct({capabilityNamespace: Schema.String, capabilitySyncStatus: Schema.String});
-export const PortalTypeEntry = Schema.Struct({portalTools: Schema.optional(PortalTools)});
+export class ListAssetModelCompositeModelsResponse extends Schema.Class<ListAssetModelCompositeModelsResponse>("ListAssetModelCompositeModelsResponse")({assetModelCompositeModelSummaries: AssetModelCompositeModelSummaries, nextToken: Schema.optional(Schema.String)}) {}
+export class ListProjectAssetsResponse extends Schema.Class<ListProjectAssetsResponse>("ListProjectAssetsResponse")({assetIds: AssetIDs, nextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({tags: Schema.optional(TagMap)}) {}
+export class ConfigurationErrorDetails extends Schema.Class<ConfigurationErrorDetails>("ConfigurationErrorDetails")({code: Schema.String, message: Schema.String}) {}
+export class ConfigurationStatus extends Schema.Class<ConfigurationStatus>("ConfigurationStatus")({state: Schema.String, error: Schema.optional(ConfigurationErrorDetails)}) {}
+export class PutDefaultEncryptionConfigurationResponse extends Schema.Class<PutDefaultEncryptionConfigurationResponse>("PutDefaultEncryptionConfigurationResponse")({encryptionType: Schema.String, kmsKeyArn: Schema.optional(Schema.String), configurationStatus: ConfigurationStatus}) {}
+export class PutStorageConfigurationResponse extends Schema.Class<PutStorageConfigurationResponse>("PutStorageConfigurationResponse")({storageType: Schema.String, multiLayerStorage: Schema.optional(MultiLayerStorage), disassociatedDataStorage: Schema.optional(Schema.String), retentionPeriod: Schema.optional(RetentionPeriod), configurationStatus: ConfigurationStatus, warmTier: Schema.optional(Schema.String), warmTierRetentionPeriod: Schema.optional(WarmTierRetentionPeriod), disallowIngestNullNaN: Schema.optional(Schema.Boolean)}) {}
+export class LimitExceededException extends Schema.Class<LimitExceededException>("LimitExceededException")({message: Schema.String}) {}
+export class UnauthorizedException extends Schema.Class<UnauthorizedException>("UnauthorizedException")({message: Schema.String}) {}
+export class UpdateAssetResponse extends Schema.Class<UpdateAssetResponse>("UpdateAssetResponse")({assetStatus: AssetStatus}) {}
+export class UpdateAssetModelCompositeModelResponse extends Schema.Class<UpdateAssetModelCompositeModelResponse>("UpdateAssetModelCompositeModelResponse")({assetModelCompositeModelPath: AssetModelCompositeModelPath, assetModelStatus: AssetModelStatus}) {}
+export class UpdateComputationModelResponse extends Schema.Class<UpdateComputationModelResponse>("UpdateComputationModelResponse")({computationModelStatus: ComputationModelStatus}) {}
+export class UpdateDatasetResponse extends Schema.Class<UpdateDatasetResponse>("UpdateDatasetResponse")({datasetId: Schema.optional(Schema.String), datasetArn: Schema.optional(Schema.String), datasetStatus: Schema.optional(DatasetStatus)}) {}
+export class UpdateGatewayCapabilityConfigurationResponse extends Schema.Class<UpdateGatewayCapabilityConfigurationResponse>("UpdateGatewayCapabilityConfigurationResponse")({capabilityNamespace: Schema.String, capabilitySyncStatus: Schema.String}) {}
+export class PortalTypeEntry extends Schema.Class<PortalTypeEntry>("PortalTypeEntry")({portalTools: Schema.optional(PortalTools)}) {}
 export const PortalTypeConfiguration = Schema.Record({key: Schema.String, value: PortalTypeEntry});
-export const UpdatePortalRequest = Schema.Struct({portalId: Schema.String, portalName: Schema.String, portalDescription: Schema.optional(Schema.String), portalContactEmail: Schema.String, portalLogoImage: Schema.optional(Image), roleArn: Schema.String, clientToken: Schema.optional(Schema.String), notificationSenderEmail: Schema.optional(Schema.String), alarms: Schema.optional(Alarms), portalType: Schema.optional(Schema.String), portalTypeConfiguration: Schema.optional(PortalTypeConfiguration)});
-export const Greengrass = Schema.Struct({groupArn: Schema.String});
-export const GreengrassV2 = Schema.Struct({coreDeviceThingName: Schema.String, coreDeviceOperatingSystem: Schema.optional(Schema.String)});
-export const SiemensIE = Schema.Struct({iotCoreThingName: Schema.String});
-export const AssetBindingValueFilter = Schema.Struct({assetId: Schema.String});
-export const AssetModelBindingValueFilter = Schema.Struct({assetModelId: Schema.String});
-export const AssetPropertyBindingValueFilter = Schema.Struct({assetId: Schema.String, propertyId: Schema.String});
-export const AssetModelPropertyBindingValueFilter = Schema.Struct({assetModelId: Schema.String, propertyId: Schema.String});
-export const PropertyMapping = Schema.Struct({assetModelPropertyId: Schema.String, interfaceAssetModelPropertyId: Schema.String});
+export class UpdatePortalRequest extends Schema.Class<UpdatePortalRequest>("UpdatePortalRequest")({portalId: Schema.String, portalName: Schema.String, portalDescription: Schema.optional(Schema.String), portalContactEmail: Schema.String, portalLogoImage: Schema.optional(Image), roleArn: Schema.String, clientToken: Schema.optional(Schema.String), notificationSenderEmail: Schema.optional(Schema.String), alarms: Schema.optional(Alarms), portalType: Schema.optional(Schema.String), portalTypeConfiguration: Schema.optional(PortalTypeConfiguration)}) {}
+export class Greengrass extends Schema.Class<Greengrass>("Greengrass")({groupArn: Schema.String}) {}
+export class GreengrassV2 extends Schema.Class<GreengrassV2>("GreengrassV2")({coreDeviceThingName: Schema.String, coreDeviceOperatingSystem: Schema.optional(Schema.String)}) {}
+export class SiemensIE extends Schema.Class<SiemensIE>("SiemensIE")({iotCoreThingName: Schema.String}) {}
+export class AssetBindingValueFilter extends Schema.Class<AssetBindingValueFilter>("AssetBindingValueFilter")({assetId: Schema.String}) {}
+export class AssetModelBindingValueFilter extends Schema.Class<AssetModelBindingValueFilter>("AssetModelBindingValueFilter")({assetModelId: Schema.String}) {}
+export class AssetPropertyBindingValueFilter extends Schema.Class<AssetPropertyBindingValueFilter>("AssetPropertyBindingValueFilter")({assetId: Schema.String, propertyId: Schema.String}) {}
+export class AssetModelPropertyBindingValueFilter extends Schema.Class<AssetModelPropertyBindingValueFilter>("AssetModelPropertyBindingValueFilter")({assetModelId: Schema.String, propertyId: Schema.String}) {}
+export class PropertyMapping extends Schema.Class<PropertyMapping>("PropertyMapping")({assetModelPropertyId: Schema.String, interfaceAssetModelPropertyId: Schema.String}) {}
 export const PropertyMappings = Schema.Array(PropertyMapping);
 export const BatchAssociateProjectAssetsErrors = Schema.Array(AssetErrorDetails);
-export const GatewayPlatform = Schema.Struct({greengrass: Schema.optional(Greengrass), greengrassV2: Schema.optional(GreengrassV2), siemensIE: Schema.optional(SiemensIE)});
-export const AssetHierarchy = Schema.Struct({id: Schema.optional(Schema.String), externalId: Schema.optional(Schema.String), name: Schema.String});
+export class GatewayPlatform extends Schema.Class<GatewayPlatform>("GatewayPlatform")({greengrass: Schema.optional(Greengrass), greengrassV2: Schema.optional(GreengrassV2), siemensIE: Schema.optional(SiemensIE)}) {}
+export class AssetHierarchy extends Schema.Class<AssetHierarchy>("AssetHierarchy")({id: Schema.optional(Schema.String), externalId: Schema.optional(Schema.String), name: Schema.String}) {}
 export const AssetHierarchies = Schema.Array(AssetHierarchy);
-export const PropertyNotification = Schema.Struct({topic: Schema.String, state: Schema.String});
-export const AssetPropertyPathSegment = Schema.Struct({id: Schema.optional(Schema.String), name: Schema.optional(Schema.String)});
+export class PropertyNotification extends Schema.Class<PropertyNotification>("PropertyNotification")({topic: Schema.String, state: Schema.String}) {}
+export class AssetPropertyPathSegment extends Schema.Class<AssetPropertyPathSegment>("AssetPropertyPathSegment")({id: Schema.optional(Schema.String), name: Schema.optional(Schema.String)}) {}
 export const AssetPropertyPath = Schema.Array(AssetPropertyPathSegment);
-export const AssetProperty = Schema.Struct({id: Schema.String, externalId: Schema.optional(Schema.String), name: Schema.String, alias: Schema.optional(Schema.String), notification: Schema.optional(PropertyNotification), dataType: Schema.String, dataTypeSpec: Schema.optional(Schema.String), unit: Schema.optional(Schema.String), path: Schema.optional(AssetPropertyPath)});
+export class AssetProperty extends Schema.Class<AssetProperty>("AssetProperty")({id: Schema.String, externalId: Schema.optional(Schema.String), name: Schema.String, alias: Schema.optional(Schema.String), notification: Schema.optional(PropertyNotification), dataType: Schema.String, dataTypeSpec: Schema.optional(Schema.String), unit: Schema.optional(Schema.String), path: Schema.optional(AssetPropertyPath)}) {}
 export const AssetProperties = Schema.Array(AssetProperty);
-export const AssetCompositeModel = Schema.Struct({name: Schema.String, description: Schema.optional(Schema.String), type: Schema.String, properties: AssetProperties, id: Schema.optional(Schema.String), externalId: Schema.optional(Schema.String)});
+export class AssetCompositeModel extends Schema.Class<AssetCompositeModel>("AssetCompositeModel")({name: Schema.String, description: Schema.optional(Schema.String), type: Schema.String, properties: AssetProperties, id: Schema.optional(Schema.String), externalId: Schema.optional(Schema.String)}) {}
 export const AssetCompositeModels = Schema.Array(AssetCompositeModel);
-export const AssetCompositeModelPathSegment = Schema.Struct({id: Schema.optional(Schema.String), name: Schema.optional(Schema.String)});
+export class AssetCompositeModelPathSegment extends Schema.Class<AssetCompositeModelPathSegment>("AssetCompositeModelPathSegment")({id: Schema.optional(Schema.String), name: Schema.optional(Schema.String)}) {}
 export const AssetCompositeModelPath = Schema.Array(AssetCompositeModelPathSegment);
-export const AssetCompositeModelSummary = Schema.Struct({id: Schema.String, externalId: Schema.optional(Schema.String), name: Schema.String, type: Schema.String, description: Schema.String, path: AssetCompositeModelPath});
+export class AssetCompositeModelSummary extends Schema.Class<AssetCompositeModelSummary>("AssetCompositeModelSummary")({id: Schema.String, externalId: Schema.optional(Schema.String), name: Schema.String, type: Schema.String, description: Schema.String, path: AssetCompositeModelPath}) {}
 export const AssetCompositeModelSummaries = Schema.Array(AssetCompositeModelSummary);
-export const InterfaceRelationship = Schema.Struct({id: Schema.String});
+export class InterfaceRelationship extends Schema.Class<InterfaceRelationship>("InterfaceRelationship")({id: Schema.String}) {}
 export const InterfaceDetails = Schema.Array(InterfaceRelationship);
-export const HierarchyMapping = Schema.Struct({assetModelHierarchyId: Schema.String, interfaceAssetModelHierarchyId: Schema.String});
+export class HierarchyMapping extends Schema.Class<HierarchyMapping>("HierarchyMapping")({assetModelHierarchyId: Schema.String, interfaceAssetModelHierarchyId: Schema.String}) {}
 export const HierarchyMappings = Schema.Array(HierarchyMapping);
-export const Property = Schema.Struct({id: Schema.String, externalId: Schema.optional(Schema.String), name: Schema.String, alias: Schema.optional(Schema.String), notification: Schema.optional(PropertyNotification), dataType: Schema.String, unit: Schema.optional(Schema.String), type: Schema.optional(PropertyType), path: Schema.optional(AssetPropertyPath)});
-export const CompositeModelProperty = Schema.Struct({name: Schema.String, type: Schema.String, assetProperty: Property, id: Schema.optional(Schema.String), externalId: Schema.optional(Schema.String)});
+export class Property extends Schema.Class<Property>("Property")({id: Schema.String, externalId: Schema.optional(Schema.String), name: Schema.String, alias: Schema.optional(Schema.String), notification: Schema.optional(PropertyNotification), dataType: Schema.String, unit: Schema.optional(Schema.String), type: Schema.optional(PropertyType), path: Schema.optional(AssetPropertyPath)}) {}
+export class CompositeModelProperty extends Schema.Class<CompositeModelProperty>("CompositeModelProperty")({name: Schema.String, type: Schema.String, assetProperty: Property, id: Schema.optional(Schema.String), externalId: Schema.optional(Schema.String)}) {}
 export const ComputationModelExecutionSummary = Schema.Record({key: Schema.String, value: Schema.String});
-export const ExecutionStatus = Schema.Struct({state: Schema.String});
+export class ExecutionStatus extends Schema.Class<ExecutionStatus>("ExecutionStatus")({state: Schema.String}) {}
 export const ExecutionResult = Schema.Record({key: Schema.String, value: Schema.String});
 export const ExecutionDetails = Schema.Record({key: Schema.String, value: Schema.String});
-export const GatewayCapabilitySummary = Schema.Struct({capabilityNamespace: Schema.String, capabilitySyncStatus: Schema.String});
+export class GatewayCapabilitySummary extends Schema.Class<GatewayCapabilitySummary>("GatewayCapabilitySummary")({capabilityNamespace: Schema.String, capabilitySyncStatus: Schema.String}) {}
 export const GatewayCapabilitySummaries = Schema.Array(GatewayCapabilitySummary);
-export const ImageLocation = Schema.Struct({id: Schema.String, url: Schema.String});
-export const InterpolatedAssetPropertyValue = Schema.Struct({timestamp: TimeInNanos, value: Variant});
+export class ImageLocation extends Schema.Class<ImageLocation>("ImageLocation")({id: Schema.String, url: Schema.String}) {}
+export class InterpolatedAssetPropertyValue extends Schema.Class<InterpolatedAssetPropertyValue>("InterpolatedAssetPropertyValue")({timestamp: TimeInNanos, value: Variant}) {}
 export const InterpolatedAssetPropertyValues = Schema.Array(InterpolatedAssetPropertyValue);
-export const AccessPolicySummary = Schema.Struct({id: Schema.String, identity: Identity, resource: Resource, permission: Schema.String, creationDate: Schema.optional(Schema.Date), lastUpdateDate: Schema.optional(Schema.Date)});
+export class AccessPolicySummary extends Schema.Class<AccessPolicySummary>("AccessPolicySummary")({id: Schema.String, identity: Identity, resource: Resource, permission: Schema.String, creationDate: Schema.optional(Schema.Date), lastUpdateDate: Schema.optional(Schema.Date)}) {}
 export const AccessPolicySummaries = Schema.Array(AccessPolicySummary);
-export const ActionSummary = Schema.Struct({actionId: Schema.optional(Schema.String), actionDefinitionId: Schema.optional(Schema.String), targetResource: Schema.optional(TargetResource), resolveTo: Schema.optional(ResolveTo)});
+export class ActionSummary extends Schema.Class<ActionSummary>("ActionSummary")({actionId: Schema.optional(Schema.String), actionDefinitionId: Schema.optional(Schema.String), targetResource: Schema.optional(TargetResource), resolveTo: Schema.optional(ResolveTo)}) {}
 export const ActionSummaries = Schema.Array(ActionSummary);
-export const AssetModelSummary = Schema.Struct({id: Schema.String, externalId: Schema.optional(Schema.String), arn: Schema.String, name: Schema.String, assetModelType: Schema.optional(Schema.String), description: Schema.String, creationDate: Schema.Date, lastUpdateDate: Schema.Date, status: AssetModelStatus, version: Schema.optional(Schema.String)});
+export class AssetModelSummary extends Schema.Class<AssetModelSummary>("AssetModelSummary")({id: Schema.String, externalId: Schema.optional(Schema.String), arn: Schema.String, name: Schema.String, assetModelType: Schema.optional(Schema.String), description: Schema.String, creationDate: Schema.Date, lastUpdateDate: Schema.Date, status: AssetModelStatus, version: Schema.optional(Schema.String)}) {}
 export const AssetModelSummaries = Schema.Array(AssetModelSummary);
-export const AssetPropertySummary = Schema.Struct({id: Schema.String, externalId: Schema.optional(Schema.String), alias: Schema.optional(Schema.String), unit: Schema.optional(Schema.String), notification: Schema.optional(PropertyNotification), assetCompositeModelId: Schema.optional(Schema.String), path: Schema.optional(AssetPropertyPath)});
+export class AssetPropertySummary extends Schema.Class<AssetPropertySummary>("AssetPropertySummary")({id: Schema.String, externalId: Schema.optional(Schema.String), alias: Schema.optional(Schema.String), unit: Schema.optional(Schema.String), notification: Schema.optional(PropertyNotification), assetCompositeModelId: Schema.optional(Schema.String), path: Schema.optional(AssetPropertyPath)}) {}
 export const AssetPropertySummaries = Schema.Array(AssetPropertySummary);
-export const AssetSummary = Schema.Struct({id: Schema.String, externalId: Schema.optional(Schema.String), arn: Schema.String, name: Schema.String, assetModelId: Schema.String, creationDate: Schema.Date, lastUpdateDate: Schema.Date, status: AssetStatus, hierarchies: AssetHierarchies, description: Schema.optional(Schema.String)});
+export class AssetSummary extends Schema.Class<AssetSummary>("AssetSummary")({id: Schema.String, externalId: Schema.optional(Schema.String), arn: Schema.String, name: Schema.String, assetModelId: Schema.String, creationDate: Schema.Date, lastUpdateDate: Schema.Date, status: AssetStatus, hierarchies: AssetHierarchies, description: Schema.optional(Schema.String)}) {}
 export const AssetSummaries = Schema.Array(AssetSummary);
-export const AssociatedAssetsSummary = Schema.Struct({id: Schema.String, externalId: Schema.optional(Schema.String), arn: Schema.String, name: Schema.String, assetModelId: Schema.String, creationDate: Schema.Date, lastUpdateDate: Schema.Date, status: AssetStatus, hierarchies: AssetHierarchies, description: Schema.optional(Schema.String)});
+export class AssociatedAssetsSummary extends Schema.Class<AssociatedAssetsSummary>("AssociatedAssetsSummary")({id: Schema.String, externalId: Schema.optional(Schema.String), arn: Schema.String, name: Schema.String, assetModelId: Schema.String, creationDate: Schema.Date, lastUpdateDate: Schema.Date, status: AssetStatus, hierarchies: AssetHierarchies, description: Schema.optional(Schema.String)}) {}
 export const AssociatedAssetsSummaries = Schema.Array(AssociatedAssetsSummary);
-export const JobSummary = Schema.Struct({id: Schema.String, name: Schema.String, status: Schema.String});
+export class JobSummary extends Schema.Class<JobSummary>("JobSummary")({id: Schema.String, name: Schema.String, status: Schema.String}) {}
 export const JobSummaries = Schema.Array(JobSummary);
-export const CompositionRelationshipSummary = Schema.Struct({assetModelId: Schema.String, assetModelCompositeModelId: Schema.String, assetModelCompositeModelType: Schema.String});
+export class CompositionRelationshipSummary extends Schema.Class<CompositionRelationshipSummary>("CompositionRelationshipSummary")({assetModelId: Schema.String, assetModelCompositeModelId: Schema.String, assetModelCompositeModelType: Schema.String}) {}
 export const CompositionRelationshipSummaries = Schema.Array(CompositionRelationshipSummary);
-export const DataBindingValueFilter = Schema.Struct({asset: Schema.optional(AssetBindingValueFilter), assetModel: Schema.optional(AssetModelBindingValueFilter), assetProperty: Schema.optional(AssetPropertyBindingValueFilter), assetModelProperty: Schema.optional(AssetModelPropertyBindingValueFilter)});
-export const ComputationModelResolveToResourceSummary = Schema.Struct({resolveTo: Schema.optional(ResolveTo)});
+export class DataBindingValueFilter extends Schema.Class<DataBindingValueFilter>("DataBindingValueFilter")({asset: Schema.optional(AssetBindingValueFilter), assetModel: Schema.optional(AssetModelBindingValueFilter), assetProperty: Schema.optional(AssetPropertyBindingValueFilter), assetModelProperty: Schema.optional(AssetModelPropertyBindingValueFilter)}) {}
+export class ComputationModelResolveToResourceSummary extends Schema.Class<ComputationModelResolveToResourceSummary>("ComputationModelResolveToResourceSummary")({resolveTo: Schema.optional(ResolveTo)}) {}
 export const ComputationModelResolveToResourceSummaries = Schema.Array(ComputationModelResolveToResourceSummary);
-export const ComputationModelSummary = Schema.Struct({id: Schema.String, arn: Schema.String, name: Schema.String, description: Schema.optional(Schema.String), type: Schema.String, creationDate: Schema.Date, lastUpdateDate: Schema.Date, status: ComputationModelStatus, version: Schema.String});
+export class ComputationModelSummary extends Schema.Class<ComputationModelSummary>("ComputationModelSummary")({id: Schema.String, arn: Schema.String, name: Schema.String, description: Schema.optional(Schema.String), type: Schema.String, creationDate: Schema.Date, lastUpdateDate: Schema.Date, status: ComputationModelStatus, version: Schema.String}) {}
 export const ComputationModelSummaries = Schema.Array(ComputationModelSummary);
-export const DashboardSummary = Schema.Struct({id: Schema.String, name: Schema.String, description: Schema.optional(Schema.String), creationDate: Schema.optional(Schema.Date), lastUpdateDate: Schema.optional(Schema.Date)});
+export class DashboardSummary extends Schema.Class<DashboardSummary>("DashboardSummary")({id: Schema.String, name: Schema.String, description: Schema.optional(Schema.String), creationDate: Schema.optional(Schema.Date), lastUpdateDate: Schema.optional(Schema.Date)}) {}
 export const DashboardSummaries = Schema.Array(DashboardSummary);
-export const DatasetSummary = Schema.Struct({id: Schema.String, arn: Schema.String, name: Schema.String, description: Schema.String, creationDate: Schema.Date, lastUpdateDate: Schema.Date, status: DatasetStatus});
+export class DatasetSummary extends Schema.Class<DatasetSummary>("DatasetSummary")({id: Schema.String, arn: Schema.String, name: Schema.String, description: Schema.String, creationDate: Schema.Date, lastUpdateDate: Schema.Date, status: DatasetStatus}) {}
 export const DatasetSummaries = Schema.Array(DatasetSummary);
-export const ExecutionSummary = Schema.Struct({executionId: Schema.String, actionType: Schema.optional(Schema.String), targetResource: TargetResource, targetResourceVersion: Schema.String, resolveTo: Schema.optional(ResolveTo), executionStartTime: Schema.Date, executionEndTime: Schema.optional(Schema.Date), executionStatus: ExecutionStatus, executionEntityVersion: Schema.optional(Schema.String)});
+export class ExecutionSummary extends Schema.Class<ExecutionSummary>("ExecutionSummary")({executionId: Schema.String, actionType: Schema.optional(Schema.String), targetResource: TargetResource, targetResourceVersion: Schema.String, resolveTo: Schema.optional(ResolveTo), executionStartTime: Schema.Date, executionEndTime: Schema.optional(Schema.Date), executionStatus: ExecutionStatus, executionEntityVersion: Schema.optional(Schema.String)}) {}
 export const ExecutionSummaries = Schema.Array(ExecutionSummary);
-export const GatewaySummary = Schema.Struct({gatewayId: Schema.String, gatewayName: Schema.String, gatewayPlatform: Schema.optional(GatewayPlatform), gatewayVersion: Schema.optional(Schema.String), gatewayCapabilitySummaries: Schema.optional(GatewayCapabilitySummaries), creationDate: Schema.Date, lastUpdateDate: Schema.Date});
+export class GatewaySummary extends Schema.Class<GatewaySummary>("GatewaySummary")({gatewayId: Schema.String, gatewayName: Schema.String, gatewayPlatform: Schema.optional(GatewayPlatform), gatewayVersion: Schema.optional(Schema.String), gatewayCapabilitySummaries: Schema.optional(GatewayCapabilitySummaries), creationDate: Schema.Date, lastUpdateDate: Schema.Date}) {}
 export const GatewaySummaries = Schema.Array(GatewaySummary);
-export const InterfaceRelationshipSummary = Schema.Struct({id: Schema.String});
+export class InterfaceRelationshipSummary extends Schema.Class<InterfaceRelationshipSummary>("InterfaceRelationshipSummary")({id: Schema.String}) {}
 export const InterfaceRelationshipSummaries = Schema.Array(InterfaceRelationshipSummary);
-export const MonitorErrorDetails = Schema.Struct({code: Schema.optional(Schema.String), message: Schema.optional(Schema.String)});
-export const PortalStatus = Schema.Struct({state: Schema.String, error: Schema.optional(MonitorErrorDetails)});
-export const PortalSummary = Schema.Struct({id: Schema.String, name: Schema.String, description: Schema.optional(Schema.String), startUrl: Schema.String, creationDate: Schema.optional(Schema.Date), lastUpdateDate: Schema.optional(Schema.Date), roleArn: Schema.optional(Schema.String), status: PortalStatus, portalType: Schema.optional(Schema.String)});
+export class MonitorErrorDetails extends Schema.Class<MonitorErrorDetails>("MonitorErrorDetails")({code: Schema.optional(Schema.String), message: Schema.optional(Schema.String)}) {}
+export class PortalStatus extends Schema.Class<PortalStatus>("PortalStatus")({state: Schema.String, error: Schema.optional(MonitorErrorDetails)}) {}
+export class PortalSummary extends Schema.Class<PortalSummary>("PortalSummary")({id: Schema.String, name: Schema.String, description: Schema.optional(Schema.String), startUrl: Schema.String, creationDate: Schema.optional(Schema.Date), lastUpdateDate: Schema.optional(Schema.Date), roleArn: Schema.optional(Schema.String), status: PortalStatus, portalType: Schema.optional(Schema.String)}) {}
 export const PortalSummaries = Schema.Array(PortalSummary);
-export const ProjectSummary = Schema.Struct({id: Schema.String, name: Schema.String, description: Schema.optional(Schema.String), creationDate: Schema.optional(Schema.Date), lastUpdateDate: Schema.optional(Schema.Date)});
+export class ProjectSummary extends Schema.Class<ProjectSummary>("ProjectSummary")({id: Schema.String, name: Schema.String, description: Schema.optional(Schema.String), creationDate: Schema.optional(Schema.Date), lastUpdateDate: Schema.optional(Schema.Date)}) {}
 export const ProjectSummaries = Schema.Array(ProjectSummary);
-export const TimeSeriesSummary = Schema.Struct({assetId: Schema.optional(Schema.String), propertyId: Schema.optional(Schema.String), alias: Schema.optional(Schema.String), timeSeriesId: Schema.String, dataType: Schema.String, dataTypeSpec: Schema.optional(Schema.String), timeSeriesCreationDate: Schema.Date, timeSeriesLastUpdateDate: Schema.Date, timeSeriesArn: Schema.String});
+export class TimeSeriesSummary extends Schema.Class<TimeSeriesSummary>("TimeSeriesSummary")({assetId: Schema.optional(Schema.String), propertyId: Schema.optional(Schema.String), alias: Schema.optional(Schema.String), timeSeriesId: Schema.String, dataType: Schema.String, dataTypeSpec: Schema.optional(Schema.String), timeSeriesCreationDate: Schema.Date, timeSeriesLastUpdateDate: Schema.Date, timeSeriesArn: Schema.String}) {}
 export const TimeSeriesSummaries = Schema.Array(TimeSeriesSummary);
-export const PropertyMappingConfiguration = Schema.Struct({matchByPropertyName: Schema.optional(Schema.Boolean), createMissingProperty: Schema.optional(Schema.Boolean), overrides: Schema.optional(PropertyMappings)});
-export const ResourceAlreadyExistsException = Schema.Struct({message: Schema.String, resourceId: Schema.String, resourceArn: Schema.String});
-export const BatchAssociateProjectAssetsResponse = Schema.Struct({errors: Schema.optional(BatchAssociateProjectAssetsErrors)});
-export const CreateAccessPolicyRequest = Schema.Struct({accessPolicyIdentity: Identity, accessPolicyResource: Resource, accessPolicyPermission: Schema.String, clientToken: Schema.optional(Schema.String), tags: Schema.optional(TagMap)});
-export const CreateAssetModelCompositeModelResponse = Schema.Struct({assetModelCompositeModelId: Schema.String, assetModelCompositeModelPath: AssetModelCompositeModelPath, assetModelStatus: AssetModelStatus});
-export const CreateGatewayRequest = Schema.Struct({gatewayName: Schema.String, gatewayPlatform: GatewayPlatform, gatewayVersion: Schema.optional(Schema.String), tags: Schema.optional(TagMap)});
-export const CreatePortalRequest = Schema.Struct({portalName: Schema.String, portalDescription: Schema.optional(Schema.String), portalContactEmail: Schema.String, clientToken: Schema.optional(Schema.String), portalLogoImageFile: Schema.optional(ImageFile), roleArn: Schema.String, tags: Schema.optional(TagMap), portalAuthMode: Schema.optional(Schema.String), notificationSenderEmail: Schema.optional(Schema.String), alarms: Schema.optional(Alarms), portalType: Schema.optional(Schema.String), portalTypeConfiguration: Schema.optional(PortalTypeConfiguration)});
-export const PreconditionFailedException = Schema.Struct({message: Schema.String, resourceId: Schema.String, resourceArn: Schema.String});
-export const DeleteComputationModelResponse = Schema.Struct({computationModelStatus: ComputationModelStatus});
-export const DeleteDatasetResponse = Schema.Struct({datasetStatus: DatasetStatus});
-export const DescribeAssetCompositeModelResponse = Schema.Struct({assetId: Schema.String, assetCompositeModelId: Schema.String, assetCompositeModelExternalId: Schema.optional(Schema.String), assetCompositeModelPath: AssetCompositeModelPath, assetCompositeModelName: Schema.String, assetCompositeModelDescription: Schema.String, assetCompositeModelType: Schema.String, assetCompositeModelProperties: AssetProperties, assetCompositeModelSummaries: AssetCompositeModelSummaries, actionDefinitions: Schema.optional(ActionDefinitions)});
-export const DescribeAssetModelResponse = Schema.Struct({assetModelId: Schema.String, assetModelExternalId: Schema.optional(Schema.String), assetModelArn: Schema.String, assetModelName: Schema.String, assetModelType: Schema.optional(Schema.String), assetModelDescription: Schema.String, assetModelProperties: AssetModelProperties, assetModelHierarchies: AssetModelHierarchies, assetModelCompositeModels: Schema.optional(AssetModelCompositeModels), assetModelCompositeModelSummaries: Schema.optional(AssetModelCompositeModelSummaries), assetModelCreationDate: Schema.Date, assetModelLastUpdateDate: Schema.Date, assetModelStatus: AssetModelStatus, assetModelVersion: Schema.optional(Schema.String), interfaceDetails: Schema.optional(InterfaceDetails), eTag: Schema.optional(Header("ETag"))});
-export const DescribeAssetModelInterfaceRelationshipResponse = Schema.Struct({assetModelId: Schema.String, interfaceAssetModelId: Schema.String, propertyMappings: PropertyMappings, hierarchyMappings: HierarchyMappings});
-export const DescribeAssetPropertyResponse = Schema.Struct({assetId: Schema.String, assetExternalId: Schema.optional(Schema.String), assetName: Schema.String, assetModelId: Schema.String, assetProperty: Schema.optional(Property), compositeModel: Schema.optional(CompositeModelProperty)});
-export const DescribeComputationModelExecutionSummaryResponse = Schema.Struct({computationModelId: Schema.String, resolveTo: Schema.optional(ResolveTo), computationModelExecutionSummary: ComputationModelExecutionSummary});
-export const DescribeDefaultEncryptionConfigurationResponse = Schema.Struct({encryptionType: Schema.String, kmsKeyArn: Schema.optional(Schema.String), configurationStatus: ConfigurationStatus});
-export const DescribeExecutionResponse = Schema.Struct({executionId: Schema.String, actionType: Schema.optional(Schema.String), targetResource: TargetResource, targetResourceVersion: Schema.String, resolveTo: Schema.optional(ResolveTo), executionStartTime: Schema.Date, executionEndTime: Schema.optional(Schema.Date), executionStatus: ExecutionStatus, executionResult: Schema.optional(ExecutionResult), executionDetails: Schema.optional(ExecutionDetails), executionEntityVersion: Schema.optional(Schema.String)});
-export const DescribeGatewayResponse = Schema.Struct({gatewayId: Schema.String, gatewayName: Schema.String, gatewayArn: Schema.String, gatewayPlatform: Schema.optional(GatewayPlatform), gatewayVersion: Schema.optional(Schema.String), gatewayCapabilitySummaries: GatewayCapabilitySummaries, creationDate: Schema.Date, lastUpdateDate: Schema.Date});
-export const DescribePortalResponse = Schema.Struct({portalId: Schema.String, portalArn: Schema.String, portalName: Schema.String, portalDescription: Schema.optional(Schema.String), portalClientId: Schema.String, portalStartUrl: Schema.String, portalContactEmail: Schema.String, portalStatus: PortalStatus, portalCreationDate: Schema.Date, portalLastUpdateDate: Schema.Date, portalLogoImageLocation: Schema.optional(ImageLocation), roleArn: Schema.optional(Schema.String), portalAuthMode: Schema.optional(Schema.String), notificationSenderEmail: Schema.optional(Schema.String), alarms: Schema.optional(Alarms), portalType: Schema.optional(Schema.String), portalTypeConfiguration: Schema.optional(PortalTypeConfiguration)});
-export const DescribeStorageConfigurationResponse = Schema.Struct({storageType: Schema.String, multiLayerStorage: Schema.optional(MultiLayerStorage), disassociatedDataStorage: Schema.optional(Schema.String), retentionPeriod: Schema.optional(RetentionPeriod), configurationStatus: ConfigurationStatus, lastUpdateDate: Schema.optional(Schema.Date), warmTier: Schema.optional(Schema.String), warmTierRetentionPeriod: Schema.optional(WarmTierRetentionPeriod), disallowIngestNullNaN: Schema.optional(Schema.Boolean)});
-export const ExecuteActionResponse = Schema.Struct({actionId: Schema.String});
-export const ServiceUnavailableException = Schema.Struct({message: Schema.String});
-export const GetInterpolatedAssetPropertyValuesResponse = Schema.Struct({interpolatedAssetPropertyValues: InterpolatedAssetPropertyValues, nextToken: Schema.optional(Schema.String)});
-export const ListAccessPoliciesResponse = Schema.Struct({accessPolicySummaries: AccessPolicySummaries, nextToken: Schema.optional(Schema.String)});
-export const ListActionsResponse = Schema.Struct({actionSummaries: ActionSummaries, nextToken: Schema.String});
-export const ListAssetModelsResponse = Schema.Struct({assetModelSummaries: AssetModelSummaries, nextToken: Schema.optional(Schema.String)});
-export const ListAssetPropertiesResponse = Schema.Struct({assetPropertySummaries: AssetPropertySummaries, nextToken: Schema.optional(Schema.String)});
-export const ListAssetsResponse = Schema.Struct({assetSummaries: AssetSummaries, nextToken: Schema.optional(Schema.String)});
-export const ListAssociatedAssetsResponse = Schema.Struct({assetSummaries: AssociatedAssetsSummaries, nextToken: Schema.optional(Schema.String)});
-export const ListBulkImportJobsResponse = Schema.Struct({jobSummaries: JobSummaries, nextToken: Schema.optional(Schema.String)});
-export const ListCompositionRelationshipsResponse = Schema.Struct({compositionRelationshipSummaries: CompositionRelationshipSummaries, nextToken: Schema.optional(Schema.String)});
-export const ListComputationModelDataBindingUsagesRequest = Schema.Struct({dataBindingValueFilter: DataBindingValueFilter, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListComputationModelResolveToResourcesResponse = Schema.Struct({computationModelResolveToResourceSummaries: ComputationModelResolveToResourceSummaries, nextToken: Schema.optional(Schema.String)});
-export const ListComputationModelsResponse = Schema.Struct({computationModelSummaries: ComputationModelSummaries, nextToken: Schema.optional(Schema.String)});
-export const ListDashboardsResponse = Schema.Struct({dashboardSummaries: DashboardSummaries, nextToken: Schema.optional(Schema.String)});
-export const ListDatasetsResponse = Schema.Struct({datasetSummaries: DatasetSummaries, nextToken: Schema.optional(Schema.String)});
-export const ListExecutionsResponse = Schema.Struct({executionSummaries: ExecutionSummaries, nextToken: Schema.optional(Schema.String)});
-export const ListGatewaysResponse = Schema.Struct({gatewaySummaries: GatewaySummaries, nextToken: Schema.optional(Schema.String)});
-export const ListInterfaceRelationshipsResponse = Schema.Struct({interfaceRelationshipSummaries: InterfaceRelationshipSummaries, nextToken: Schema.optional(Schema.String)});
-export const ListPortalsResponse = Schema.Struct({portalSummaries: Schema.optional(PortalSummaries), nextToken: Schema.optional(Schema.String)});
-export const ListProjectsResponse = Schema.Struct({projectSummaries: ProjectSummaries, nextToken: Schema.optional(Schema.String)});
-export const ListTimeSeriesResponse = Schema.Struct({TimeSeriesSummaries: TimeSeriesSummaries, nextToken: Schema.optional(Schema.String)});
-export const PutAssetModelInterfaceRelationshipRequest = Schema.Struct({assetModelId: Schema.String, interfaceAssetModelId: Schema.String, propertyMappingConfiguration: PropertyMappingConfiguration, clientToken: Schema.optional(Schema.String)});
-export const TooManyTagsException = Schema.Struct({message: Schema.optional(Schema.String), resourceName: Schema.optional(Schema.String)});
-export const UpdateAssetModelRequest = Schema.Struct({assetModelId: Schema.String, assetModelExternalId: Schema.optional(Schema.String), assetModelName: Schema.String, assetModelDescription: Schema.optional(Schema.String), assetModelProperties: Schema.optional(AssetModelProperties), assetModelHierarchies: Schema.optional(AssetModelHierarchies), assetModelCompositeModels: Schema.optional(AssetModelCompositeModels), clientToken: Schema.optional(Schema.String), ifMatch: Schema.optional(Header("If-Match")), ifNoneMatch: Schema.optional(Header("If-None-Match")), matchForVersionType: Schema.optional(Header("Match-For-Version-Type"))});
-export const UpdatePortalResponse = Schema.Struct({portalStatus: PortalStatus});
-export const CompositionRelationshipItem = Schema.Struct({id: Schema.optional(Schema.String)});
+export class PropertyMappingConfiguration extends Schema.Class<PropertyMappingConfiguration>("PropertyMappingConfiguration")({matchByPropertyName: Schema.optional(Schema.Boolean), createMissingProperty: Schema.optional(Schema.Boolean), overrides: Schema.optional(PropertyMappings)}) {}
+export class ResourceAlreadyExistsException extends Schema.Class<ResourceAlreadyExistsException>("ResourceAlreadyExistsException")({message: Schema.String, resourceId: Schema.String, resourceArn: Schema.String}) {}
+export class BatchAssociateProjectAssetsResponse extends Schema.Class<BatchAssociateProjectAssetsResponse>("BatchAssociateProjectAssetsResponse")({errors: Schema.optional(BatchAssociateProjectAssetsErrors)}) {}
+export class CreateAccessPolicyRequest extends Schema.Class<CreateAccessPolicyRequest>("CreateAccessPolicyRequest")({accessPolicyIdentity: Identity, accessPolicyResource: Resource, accessPolicyPermission: Schema.String, clientToken: Schema.optional(Schema.String), tags: Schema.optional(TagMap)}) {}
+export class CreateAssetModelCompositeModelResponse extends Schema.Class<CreateAssetModelCompositeModelResponse>("CreateAssetModelCompositeModelResponse")({assetModelCompositeModelId: Schema.String, assetModelCompositeModelPath: AssetModelCompositeModelPath, assetModelStatus: AssetModelStatus}) {}
+export class CreateGatewayRequest extends Schema.Class<CreateGatewayRequest>("CreateGatewayRequest")({gatewayName: Schema.String, gatewayPlatform: GatewayPlatform, gatewayVersion: Schema.optional(Schema.String), tags: Schema.optional(TagMap)}) {}
+export class CreatePortalRequest extends Schema.Class<CreatePortalRequest>("CreatePortalRequest")({portalName: Schema.String, portalDescription: Schema.optional(Schema.String), portalContactEmail: Schema.String, clientToken: Schema.optional(Schema.String), portalLogoImageFile: Schema.optional(ImageFile), roleArn: Schema.String, tags: Schema.optional(TagMap), portalAuthMode: Schema.optional(Schema.String), notificationSenderEmail: Schema.optional(Schema.String), alarms: Schema.optional(Alarms), portalType: Schema.optional(Schema.String), portalTypeConfiguration: Schema.optional(PortalTypeConfiguration)}) {}
+export class PreconditionFailedException extends Schema.Class<PreconditionFailedException>("PreconditionFailedException")({message: Schema.String, resourceId: Schema.String, resourceArn: Schema.String}) {}
+export class DeleteComputationModelResponse extends Schema.Class<DeleteComputationModelResponse>("DeleteComputationModelResponse")({computationModelStatus: ComputationModelStatus}) {}
+export class DeleteDatasetResponse extends Schema.Class<DeleteDatasetResponse>("DeleteDatasetResponse")({datasetStatus: DatasetStatus}) {}
+export class DescribeAssetCompositeModelResponse extends Schema.Class<DescribeAssetCompositeModelResponse>("DescribeAssetCompositeModelResponse")({assetId: Schema.String, assetCompositeModelId: Schema.String, assetCompositeModelExternalId: Schema.optional(Schema.String), assetCompositeModelPath: AssetCompositeModelPath, assetCompositeModelName: Schema.String, assetCompositeModelDescription: Schema.String, assetCompositeModelType: Schema.String, assetCompositeModelProperties: AssetProperties, assetCompositeModelSummaries: AssetCompositeModelSummaries, actionDefinitions: Schema.optional(ActionDefinitions)}) {}
+export class DescribeAssetModelResponse extends Schema.Class<DescribeAssetModelResponse>("DescribeAssetModelResponse")({assetModelId: Schema.String, assetModelExternalId: Schema.optional(Schema.String), assetModelArn: Schema.String, assetModelName: Schema.String, assetModelType: Schema.optional(Schema.String), assetModelDescription: Schema.String, assetModelProperties: AssetModelProperties, assetModelHierarchies: AssetModelHierarchies, assetModelCompositeModels: Schema.optional(AssetModelCompositeModels), assetModelCompositeModelSummaries: Schema.optional(AssetModelCompositeModelSummaries), assetModelCreationDate: Schema.Date, assetModelLastUpdateDate: Schema.Date, assetModelStatus: AssetModelStatus, assetModelVersion: Schema.optional(Schema.String), interfaceDetails: Schema.optional(InterfaceDetails), eTag: Schema.optional(Header("ETag"))}) {}
+export class DescribeAssetModelInterfaceRelationshipResponse extends Schema.Class<DescribeAssetModelInterfaceRelationshipResponse>("DescribeAssetModelInterfaceRelationshipResponse")({assetModelId: Schema.String, interfaceAssetModelId: Schema.String, propertyMappings: PropertyMappings, hierarchyMappings: HierarchyMappings}) {}
+export class DescribeAssetPropertyResponse extends Schema.Class<DescribeAssetPropertyResponse>("DescribeAssetPropertyResponse")({assetId: Schema.String, assetExternalId: Schema.optional(Schema.String), assetName: Schema.String, assetModelId: Schema.String, assetProperty: Schema.optional(Property), compositeModel: Schema.optional(CompositeModelProperty)}) {}
+export class DescribeComputationModelExecutionSummaryResponse extends Schema.Class<DescribeComputationModelExecutionSummaryResponse>("DescribeComputationModelExecutionSummaryResponse")({computationModelId: Schema.String, resolveTo: Schema.optional(ResolveTo), computationModelExecutionSummary: ComputationModelExecutionSummary}) {}
+export class DescribeDefaultEncryptionConfigurationResponse extends Schema.Class<DescribeDefaultEncryptionConfigurationResponse>("DescribeDefaultEncryptionConfigurationResponse")({encryptionType: Schema.String, kmsKeyArn: Schema.optional(Schema.String), configurationStatus: ConfigurationStatus}) {}
+export class DescribeExecutionResponse extends Schema.Class<DescribeExecutionResponse>("DescribeExecutionResponse")({executionId: Schema.String, actionType: Schema.optional(Schema.String), targetResource: TargetResource, targetResourceVersion: Schema.String, resolveTo: Schema.optional(ResolveTo), executionStartTime: Schema.Date, executionEndTime: Schema.optional(Schema.Date), executionStatus: ExecutionStatus, executionResult: Schema.optional(ExecutionResult), executionDetails: Schema.optional(ExecutionDetails), executionEntityVersion: Schema.optional(Schema.String)}) {}
+export class DescribeGatewayResponse extends Schema.Class<DescribeGatewayResponse>("DescribeGatewayResponse")({gatewayId: Schema.String, gatewayName: Schema.String, gatewayArn: Schema.String, gatewayPlatform: Schema.optional(GatewayPlatform), gatewayVersion: Schema.optional(Schema.String), gatewayCapabilitySummaries: GatewayCapabilitySummaries, creationDate: Schema.Date, lastUpdateDate: Schema.Date}) {}
+export class DescribePortalResponse extends Schema.Class<DescribePortalResponse>("DescribePortalResponse")({portalId: Schema.String, portalArn: Schema.String, portalName: Schema.String, portalDescription: Schema.optional(Schema.String), portalClientId: Schema.String, portalStartUrl: Schema.String, portalContactEmail: Schema.String, portalStatus: PortalStatus, portalCreationDate: Schema.Date, portalLastUpdateDate: Schema.Date, portalLogoImageLocation: Schema.optional(ImageLocation), roleArn: Schema.optional(Schema.String), portalAuthMode: Schema.optional(Schema.String), notificationSenderEmail: Schema.optional(Schema.String), alarms: Schema.optional(Alarms), portalType: Schema.optional(Schema.String), portalTypeConfiguration: Schema.optional(PortalTypeConfiguration)}) {}
+export class DescribeStorageConfigurationResponse extends Schema.Class<DescribeStorageConfigurationResponse>("DescribeStorageConfigurationResponse")({storageType: Schema.String, multiLayerStorage: Schema.optional(MultiLayerStorage), disassociatedDataStorage: Schema.optional(Schema.String), retentionPeriod: Schema.optional(RetentionPeriod), configurationStatus: ConfigurationStatus, lastUpdateDate: Schema.optional(Schema.Date), warmTier: Schema.optional(Schema.String), warmTierRetentionPeriod: Schema.optional(WarmTierRetentionPeriod), disallowIngestNullNaN: Schema.optional(Schema.Boolean)}) {}
+export class ExecuteActionResponse extends Schema.Class<ExecuteActionResponse>("ExecuteActionResponse")({actionId: Schema.String}) {}
+export class ServiceUnavailableException extends Schema.Class<ServiceUnavailableException>("ServiceUnavailableException")({message: Schema.String}) {}
+export class GetInterpolatedAssetPropertyValuesResponse extends Schema.Class<GetInterpolatedAssetPropertyValuesResponse>("GetInterpolatedAssetPropertyValuesResponse")({interpolatedAssetPropertyValues: InterpolatedAssetPropertyValues, nextToken: Schema.optional(Schema.String)}) {}
+export class ListAccessPoliciesResponse extends Schema.Class<ListAccessPoliciesResponse>("ListAccessPoliciesResponse")({accessPolicySummaries: AccessPolicySummaries, nextToken: Schema.optional(Schema.String)}) {}
+export class ListActionsResponse extends Schema.Class<ListActionsResponse>("ListActionsResponse")({actionSummaries: ActionSummaries, nextToken: Schema.String}) {}
+export class ListAssetModelsResponse extends Schema.Class<ListAssetModelsResponse>("ListAssetModelsResponse")({assetModelSummaries: AssetModelSummaries, nextToken: Schema.optional(Schema.String)}) {}
+export class ListAssetPropertiesResponse extends Schema.Class<ListAssetPropertiesResponse>("ListAssetPropertiesResponse")({assetPropertySummaries: AssetPropertySummaries, nextToken: Schema.optional(Schema.String)}) {}
+export class ListAssetsResponse extends Schema.Class<ListAssetsResponse>("ListAssetsResponse")({assetSummaries: AssetSummaries, nextToken: Schema.optional(Schema.String)}) {}
+export class ListAssociatedAssetsResponse extends Schema.Class<ListAssociatedAssetsResponse>("ListAssociatedAssetsResponse")({assetSummaries: AssociatedAssetsSummaries, nextToken: Schema.optional(Schema.String)}) {}
+export class ListBulkImportJobsResponse extends Schema.Class<ListBulkImportJobsResponse>("ListBulkImportJobsResponse")({jobSummaries: JobSummaries, nextToken: Schema.optional(Schema.String)}) {}
+export class ListCompositionRelationshipsResponse extends Schema.Class<ListCompositionRelationshipsResponse>("ListCompositionRelationshipsResponse")({compositionRelationshipSummaries: CompositionRelationshipSummaries, nextToken: Schema.optional(Schema.String)}) {}
+export class ListComputationModelDataBindingUsagesRequest extends Schema.Class<ListComputationModelDataBindingUsagesRequest>("ListComputationModelDataBindingUsagesRequest")({dataBindingValueFilter: DataBindingValueFilter, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListComputationModelResolveToResourcesResponse extends Schema.Class<ListComputationModelResolveToResourcesResponse>("ListComputationModelResolveToResourcesResponse")({computationModelResolveToResourceSummaries: ComputationModelResolveToResourceSummaries, nextToken: Schema.optional(Schema.String)}) {}
+export class ListComputationModelsResponse extends Schema.Class<ListComputationModelsResponse>("ListComputationModelsResponse")({computationModelSummaries: ComputationModelSummaries, nextToken: Schema.optional(Schema.String)}) {}
+export class ListDashboardsResponse extends Schema.Class<ListDashboardsResponse>("ListDashboardsResponse")({dashboardSummaries: DashboardSummaries, nextToken: Schema.optional(Schema.String)}) {}
+export class ListDatasetsResponse extends Schema.Class<ListDatasetsResponse>("ListDatasetsResponse")({datasetSummaries: DatasetSummaries, nextToken: Schema.optional(Schema.String)}) {}
+export class ListExecutionsResponse extends Schema.Class<ListExecutionsResponse>("ListExecutionsResponse")({executionSummaries: ExecutionSummaries, nextToken: Schema.optional(Schema.String)}) {}
+export class ListGatewaysResponse extends Schema.Class<ListGatewaysResponse>("ListGatewaysResponse")({gatewaySummaries: GatewaySummaries, nextToken: Schema.optional(Schema.String)}) {}
+export class ListInterfaceRelationshipsResponse extends Schema.Class<ListInterfaceRelationshipsResponse>("ListInterfaceRelationshipsResponse")({interfaceRelationshipSummaries: InterfaceRelationshipSummaries, nextToken: Schema.optional(Schema.String)}) {}
+export class ListPortalsResponse extends Schema.Class<ListPortalsResponse>("ListPortalsResponse")({portalSummaries: Schema.optional(PortalSummaries), nextToken: Schema.optional(Schema.String)}) {}
+export class ListProjectsResponse extends Schema.Class<ListProjectsResponse>("ListProjectsResponse")({projectSummaries: ProjectSummaries, nextToken: Schema.optional(Schema.String)}) {}
+export class ListTimeSeriesResponse extends Schema.Class<ListTimeSeriesResponse>("ListTimeSeriesResponse")({TimeSeriesSummaries: TimeSeriesSummaries, nextToken: Schema.optional(Schema.String)}) {}
+export class PutAssetModelInterfaceRelationshipRequest extends Schema.Class<PutAssetModelInterfaceRelationshipRequest>("PutAssetModelInterfaceRelationshipRequest")({assetModelId: Schema.String, interfaceAssetModelId: Schema.String, propertyMappingConfiguration: PropertyMappingConfiguration, clientToken: Schema.optional(Schema.String)}) {}
+export class TooManyTagsException extends Schema.Class<TooManyTagsException>("TooManyTagsException")({message: Schema.optional(Schema.String), resourceName: Schema.optional(Schema.String)}) {}
+export class UpdateAssetModelRequest extends Schema.Class<UpdateAssetModelRequest>("UpdateAssetModelRequest")({assetModelId: Schema.String, assetModelExternalId: Schema.optional(Schema.String), assetModelName: Schema.String, assetModelDescription: Schema.optional(Schema.String), assetModelProperties: Schema.optional(AssetModelProperties), assetModelHierarchies: Schema.optional(AssetModelHierarchies), assetModelCompositeModels: Schema.optional(AssetModelCompositeModels), clientToken: Schema.optional(Schema.String), ifMatch: Schema.optional(Header("If-Match")), ifNoneMatch: Schema.optional(Header("If-None-Match")), matchForVersionType: Schema.optional(Header("Match-For-Version-Type"))}) {}
+export class UpdatePortalResponse extends Schema.Class<UpdatePortalResponse>("UpdatePortalResponse")({portalStatus: PortalStatus}) {}
+export class CompositionRelationshipItem extends Schema.Class<CompositionRelationshipItem>("CompositionRelationshipItem")({id: Schema.optional(Schema.String)}) {}
 export const CompositionRelationship = Schema.Array(CompositionRelationshipItem);
-export const ColumnType = Schema.Struct({scalarType: Schema.optional(Schema.String)});
-export const DatumList = Schema.Array(Datum);
-export const Row = Schema.Struct({data: DatumList});
-export const Datum = Schema.Struct({scalarValue: Schema.optional(Schema.String), arrayValue: Schema.optional(DatumList), rowValue: Schema.optional(Row), nullValue: Schema.optional(Schema.Boolean)});
-export const Aggregates = Schema.Struct({average: Schema.optional(Schema.Number), count: Schema.optional(Schema.Number), maximum: Schema.optional(Schema.Number), minimum: Schema.optional(Schema.Number), sum: Schema.optional(Schema.Number), standardDeviation: Schema.optional(Schema.Number)});
-export const Trace = Schema.Struct({text: Schema.optional(Schema.String)});
-export const AccessDeniedException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const InterfaceSummary = Schema.Struct({interfaceAssetModelId: Schema.String, interfaceAssetModelPropertyId: Schema.String});
+export class ColumnType extends Schema.Class<ColumnType>("ColumnType")({scalarType: Schema.optional(Schema.String)}) {}
+export class Datum extends Schema.Class<Datum>("Datum")({scalarValue: Schema.optional(Schema.String), arrayValue: Schema.optional(Schema.suspend(() => DatumList)), rowValue: Schema.optional(Schema.suspend((): Schema.Schema<Row> => Row)), nullValue: Schema.optional(Schema.Boolean)}) {}
+export const DatumList = Schema.Array(Schema.suspend((): Schema.Schema<Datum> => Datum));
+export class Aggregates extends Schema.Class<Aggregates>("Aggregates")({average: Schema.optional(Schema.Number), count: Schema.optional(Schema.Number), maximum: Schema.optional(Schema.Number), minimum: Schema.optional(Schema.Number), sum: Schema.optional(Schema.Number), standardDeviation: Schema.optional(Schema.Number)}) {}
+export class Trace extends Schema.Class<Trace>("Trace")({text: Schema.optional(Schema.String)}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({message: Schema.optional(Schema.String)}) {}
+export class InterfaceSummary extends Schema.Class<InterfaceSummary>("InterfaceSummary")({interfaceAssetModelId: Schema.String, interfaceAssetModelPropertyId: Schema.String}) {}
 export const InterfaceSummaries = Schema.Array(InterfaceSummary);
-export const AssetHierarchyInfo = Schema.Struct({parentAssetId: Schema.optional(Schema.String), childAssetId: Schema.optional(Schema.String)});
-export const BatchGetAssetPropertyAggregatesErrorEntry = Schema.Struct({errorCode: Schema.String, errorMessage: Schema.String, entryId: Schema.String});
+export class AssetHierarchyInfo extends Schema.Class<AssetHierarchyInfo>("AssetHierarchyInfo")({parentAssetId: Schema.optional(Schema.String), childAssetId: Schema.optional(Schema.String)}) {}
+export class BatchGetAssetPropertyAggregatesErrorEntry extends Schema.Class<BatchGetAssetPropertyAggregatesErrorEntry>("BatchGetAssetPropertyAggregatesErrorEntry")({errorCode: Schema.String, errorMessage: Schema.String, entryId: Schema.String}) {}
 export const BatchGetAssetPropertyAggregatesErrorEntries = Schema.Array(BatchGetAssetPropertyAggregatesErrorEntry);
-export const AggregatedValue = Schema.Struct({timestamp: Schema.Date, quality: Schema.optional(Schema.String), value: Aggregates});
+export class AggregatedValue extends Schema.Class<AggregatedValue>("AggregatedValue")({timestamp: Schema.Date, quality: Schema.optional(Schema.String), value: Aggregates}) {}
 export const AggregatedValues = Schema.Array(AggregatedValue);
-export const BatchGetAssetPropertyAggregatesSuccessEntry = Schema.Struct({entryId: Schema.String, aggregatedValues: AggregatedValues});
+export class BatchGetAssetPropertyAggregatesSuccessEntry extends Schema.Class<BatchGetAssetPropertyAggregatesSuccessEntry>("BatchGetAssetPropertyAggregatesSuccessEntry")({entryId: Schema.String, aggregatedValues: AggregatedValues}) {}
 export const BatchGetAssetPropertyAggregatesSuccessEntries = Schema.Array(BatchGetAssetPropertyAggregatesSuccessEntry);
-export const BatchGetAssetPropertyValueErrorEntry = Schema.Struct({errorCode: Schema.String, errorMessage: Schema.String, entryId: Schema.String});
+export class BatchGetAssetPropertyValueErrorEntry extends Schema.Class<BatchGetAssetPropertyValueErrorEntry>("BatchGetAssetPropertyValueErrorEntry")({errorCode: Schema.String, errorMessage: Schema.String, entryId: Schema.String}) {}
 export const BatchGetAssetPropertyValueErrorEntries = Schema.Array(BatchGetAssetPropertyValueErrorEntry);
-export const BatchGetAssetPropertyValueSuccessEntry = Schema.Struct({entryId: Schema.String, assetPropertyValue: Schema.optional(AssetPropertyValue)});
+export class BatchGetAssetPropertyValueSuccessEntry extends Schema.Class<BatchGetAssetPropertyValueSuccessEntry>("BatchGetAssetPropertyValueSuccessEntry")({entryId: Schema.String, assetPropertyValue: Schema.optional(AssetPropertyValue)}) {}
 export const BatchGetAssetPropertyValueSuccessEntries = Schema.Array(BatchGetAssetPropertyValueSuccessEntry);
-export const BatchGetAssetPropertyValueHistoryErrorEntry = Schema.Struct({errorCode: Schema.String, errorMessage: Schema.String, entryId: Schema.String});
+export class BatchGetAssetPropertyValueHistoryErrorEntry extends Schema.Class<BatchGetAssetPropertyValueHistoryErrorEntry>("BatchGetAssetPropertyValueHistoryErrorEntry")({errorCode: Schema.String, errorMessage: Schema.String, entryId: Schema.String}) {}
 export const BatchGetAssetPropertyValueHistoryErrorEntries = Schema.Array(BatchGetAssetPropertyValueHistoryErrorEntry);
-export const BatchGetAssetPropertyValueHistorySuccessEntry = Schema.Struct({entryId: Schema.String, assetPropertyValueHistory: AssetPropertyValueHistory});
+export class BatchGetAssetPropertyValueHistorySuccessEntry extends Schema.Class<BatchGetAssetPropertyValueHistorySuccessEntry>("BatchGetAssetPropertyValueHistorySuccessEntry")({entryId: Schema.String, assetPropertyValueHistory: AssetPropertyValueHistory}) {}
 export const BatchGetAssetPropertyValueHistorySuccessEntries = Schema.Array(BatchGetAssetPropertyValueHistorySuccessEntry);
-export const CompositionDetails = Schema.Struct({compositionRelationship: Schema.optional(CompositionRelationship)});
-export const ColumnInfo = Schema.Struct({name: Schema.optional(Schema.String), type: Schema.optional(ColumnType)});
+export class CompositionDetails extends Schema.Class<CompositionDetails>("CompositionDetails")({compositionRelationship: Schema.optional(CompositionRelationship)}) {}
+export class ColumnInfo extends Schema.Class<ColumnInfo>("ColumnInfo")({name: Schema.optional(Schema.String), type: Schema.optional(ColumnType)}) {}
 export const ColumnsList = Schema.Array(ColumnInfo);
-export const Rows = Schema.Array(Row);
-export const AssetModelPropertySummary = Schema.Struct({id: Schema.optional(Schema.String), externalId: Schema.optional(Schema.String), name: Schema.String, dataType: Schema.String, dataTypeSpec: Schema.optional(Schema.String), unit: Schema.optional(Schema.String), type: PropertyType, assetModelCompositeModelId: Schema.optional(Schema.String), path: Schema.optional(AssetModelPropertyPath), interfaceSummaries: Schema.optional(InterfaceSummaries)});
+export class Row extends Schema.Class<Row>("Row")({data: Schema.suspend(() => DatumList)}) {}
+export const Rows = Schema.Array(Schema.suspend((): Schema.Schema<Row> => Row));
+export class AssetModelPropertySummary extends Schema.Class<AssetModelPropertySummary>("AssetModelPropertySummary")({id: Schema.optional(Schema.String), externalId: Schema.optional(Schema.String), name: Schema.String, dataType: Schema.String, dataTypeSpec: Schema.optional(Schema.String), unit: Schema.optional(Schema.String), type: PropertyType, assetModelCompositeModelId: Schema.optional(Schema.String), path: Schema.optional(AssetModelPropertyPath), interfaceSummaries: Schema.optional(InterfaceSummaries)}) {}
 export const AssetModelPropertySummaries = Schema.Array(AssetModelPropertySummary);
-export const AssetRelationshipSummary = Schema.Struct({hierarchyInfo: Schema.optional(AssetHierarchyInfo), relationshipType: Schema.String});
+export class AssetRelationshipSummary extends Schema.Class<AssetRelationshipSummary>("AssetRelationshipSummary")({hierarchyInfo: Schema.optional(AssetHierarchyInfo), relationshipType: Schema.String}) {}
 export const AssetRelationshipSummaries = Schema.Array(AssetRelationshipSummary);
-export const CreateAccessPolicyResponse = Schema.Struct({accessPolicyId: Schema.String, accessPolicyArn: Schema.String});
-export const CreateBulkImportJobRequest = Schema.Struct({jobName: Schema.String, jobRoleArn: Schema.String, files: Files, errorReportLocation: ErrorReportLocation, jobConfiguration: JobConfiguration, adaptiveIngestion: Schema.optional(Schema.Boolean), deleteFilesAfterImport: Schema.optional(Schema.Boolean)});
-export const CreateComputationModelRequest = Schema.Struct({computationModelName: Schema.String, computationModelDescription: Schema.optional(Schema.String), computationModelConfiguration: ComputationModelConfiguration, computationModelDataBinding: ComputationModelDataBinding, clientToken: Schema.optional(Schema.String), tags: Schema.optional(TagMap)});
-export const CreateDatasetRequest = Schema.Struct({datasetId: Schema.optional(Schema.String), datasetName: Schema.String, datasetDescription: Schema.optional(Schema.String), datasetSource: DatasetSource, clientToken: Schema.optional(Schema.String), tags: Schema.optional(TagMap)});
-export const CreateGatewayResponse = Schema.Struct({gatewayId: Schema.String, gatewayArn: Schema.String});
-export const CreatePortalResponse = Schema.Struct({portalId: Schema.String, portalArn: Schema.String, portalStartUrl: Schema.String, portalStatus: PortalStatus, ssoApplicationId: Schema.String});
-export const DeletePortalResponse = Schema.Struct({portalStatus: PortalStatus});
-export const DescribeAssetResponse = Schema.Struct({assetId: Schema.String, assetExternalId: Schema.optional(Schema.String), assetArn: Schema.String, assetName: Schema.String, assetModelId: Schema.String, assetProperties: AssetProperties, assetHierarchies: AssetHierarchies, assetCompositeModels: Schema.optional(AssetCompositeModels), assetCreationDate: Schema.Date, assetLastUpdateDate: Schema.Date, assetStatus: AssetStatus, assetDescription: Schema.optional(Schema.String), assetCompositeModelSummaries: Schema.optional(AssetCompositeModelSummaries)});
-export const DescribeAssetModelCompositeModelResponse = Schema.Struct({assetModelId: Schema.String, assetModelCompositeModelId: Schema.String, assetModelCompositeModelExternalId: Schema.optional(Schema.String), assetModelCompositeModelPath: AssetModelCompositeModelPath, assetModelCompositeModelName: Schema.String, assetModelCompositeModelDescription: Schema.String, assetModelCompositeModelType: Schema.String, assetModelCompositeModelProperties: AssetModelProperties, compositionDetails: Schema.optional(CompositionDetails), assetModelCompositeModelSummaries: AssetModelCompositeModelSummaries, actionDefinitions: Schema.optional(ActionDefinitions)});
-export const ExecuteQueryResponse = Schema.Struct({columns: Schema.optional(ColumnsList), rows: Schema.optional(Rows), nextToken: Schema.optional(Schema.String)});
-export const GetAssetPropertyAggregatesResponse = Schema.Struct({aggregatedValues: AggregatedValues, nextToken: Schema.optional(Schema.String)});
-export const ListAssetModelPropertiesResponse = Schema.Struct({assetModelPropertySummaries: AssetModelPropertySummaries, nextToken: Schema.optional(Schema.String)});
-export const ListAssetRelationshipsResponse = Schema.Struct({assetRelationshipSummaries: AssetRelationshipSummaries, nextToken: Schema.optional(Schema.String)});
-export const PutAssetModelInterfaceRelationshipResponse = Schema.Struct({assetModelId: Schema.String, interfaceAssetModelId: Schema.String, assetModelArn: Schema.String, assetModelStatus: AssetModelStatus});
-export const UpdateAssetModelResponse = Schema.Struct({assetModelStatus: AssetModelStatus});
-export const BatchGetAssetPropertyAggregatesErrorInfo = Schema.Struct({errorCode: Schema.String, errorTimestamp: Schema.Date});
-export const BatchGetAssetPropertyValueErrorInfo = Schema.Struct({errorCode: Schema.String, errorTimestamp: Schema.Date});
-export const BatchGetAssetPropertyValueHistoryErrorInfo = Schema.Struct({errorCode: Schema.String, errorTimestamp: Schema.Date});
+export class CreateAccessPolicyResponse extends Schema.Class<CreateAccessPolicyResponse>("CreateAccessPolicyResponse")({accessPolicyId: Schema.String, accessPolicyArn: Schema.String}) {}
+export class CreateBulkImportJobRequest extends Schema.Class<CreateBulkImportJobRequest>("CreateBulkImportJobRequest")({jobName: Schema.String, jobRoleArn: Schema.String, files: Files, errorReportLocation: ErrorReportLocation, jobConfiguration: JobConfiguration, adaptiveIngestion: Schema.optional(Schema.Boolean), deleteFilesAfterImport: Schema.optional(Schema.Boolean)}) {}
+export class CreateComputationModelRequest extends Schema.Class<CreateComputationModelRequest>("CreateComputationModelRequest")({computationModelName: Schema.String, computationModelDescription: Schema.optional(Schema.String), computationModelConfiguration: ComputationModelConfiguration, computationModelDataBinding: ComputationModelDataBinding, clientToken: Schema.optional(Schema.String), tags: Schema.optional(TagMap)}) {}
+export class CreateDatasetRequest extends Schema.Class<CreateDatasetRequest>("CreateDatasetRequest")({datasetId: Schema.optional(Schema.String), datasetName: Schema.String, datasetDescription: Schema.optional(Schema.String), datasetSource: DatasetSource, clientToken: Schema.optional(Schema.String), tags: Schema.optional(TagMap)}) {}
+export class CreateGatewayResponse extends Schema.Class<CreateGatewayResponse>("CreateGatewayResponse")({gatewayId: Schema.String, gatewayArn: Schema.String}) {}
+export class CreatePortalResponse extends Schema.Class<CreatePortalResponse>("CreatePortalResponse")({portalId: Schema.String, portalArn: Schema.String, portalStartUrl: Schema.String, portalStatus: PortalStatus, ssoApplicationId: Schema.String}) {}
+export class DeletePortalResponse extends Schema.Class<DeletePortalResponse>("DeletePortalResponse")({portalStatus: PortalStatus}) {}
+export class DescribeAssetResponse extends Schema.Class<DescribeAssetResponse>("DescribeAssetResponse")({assetId: Schema.String, assetExternalId: Schema.optional(Schema.String), assetArn: Schema.String, assetName: Schema.String, assetModelId: Schema.String, assetProperties: AssetProperties, assetHierarchies: AssetHierarchies, assetCompositeModels: Schema.optional(AssetCompositeModels), assetCreationDate: Schema.Date, assetLastUpdateDate: Schema.Date, assetStatus: AssetStatus, assetDescription: Schema.optional(Schema.String), assetCompositeModelSummaries: Schema.optional(AssetCompositeModelSummaries)}) {}
+export class DescribeAssetModelCompositeModelResponse extends Schema.Class<DescribeAssetModelCompositeModelResponse>("DescribeAssetModelCompositeModelResponse")({assetModelId: Schema.String, assetModelCompositeModelId: Schema.String, assetModelCompositeModelExternalId: Schema.optional(Schema.String), assetModelCompositeModelPath: AssetModelCompositeModelPath, assetModelCompositeModelName: Schema.String, assetModelCompositeModelDescription: Schema.String, assetModelCompositeModelType: Schema.String, assetModelCompositeModelProperties: AssetModelProperties, compositionDetails: Schema.optional(CompositionDetails), assetModelCompositeModelSummaries: AssetModelCompositeModelSummaries, actionDefinitions: Schema.optional(ActionDefinitions)}) {}
+export class ExecuteQueryResponse extends Schema.Class<ExecuteQueryResponse>("ExecuteQueryResponse")({columns: Schema.optional(ColumnsList), rows: Schema.optional(Rows), nextToken: Schema.optional(Schema.String)}) {}
+export class GetAssetPropertyAggregatesResponse extends Schema.Class<GetAssetPropertyAggregatesResponse>("GetAssetPropertyAggregatesResponse")({aggregatedValues: AggregatedValues, nextToken: Schema.optional(Schema.String)}) {}
+export class ListAssetModelPropertiesResponse extends Schema.Class<ListAssetModelPropertiesResponse>("ListAssetModelPropertiesResponse")({assetModelPropertySummaries: AssetModelPropertySummaries, nextToken: Schema.optional(Schema.String)}) {}
+export class ListAssetRelationshipsResponse extends Schema.Class<ListAssetRelationshipsResponse>("ListAssetRelationshipsResponse")({assetRelationshipSummaries: AssetRelationshipSummaries, nextToken: Schema.optional(Schema.String)}) {}
+export class PutAssetModelInterfaceRelationshipResponse extends Schema.Class<PutAssetModelInterfaceRelationshipResponse>("PutAssetModelInterfaceRelationshipResponse")({assetModelId: Schema.String, interfaceAssetModelId: Schema.String, assetModelArn: Schema.String, assetModelStatus: AssetModelStatus}) {}
+export class UpdateAssetModelResponse extends Schema.Class<UpdateAssetModelResponse>("UpdateAssetModelResponse")({assetModelStatus: AssetModelStatus}) {}
+export class BatchGetAssetPropertyAggregatesErrorInfo extends Schema.Class<BatchGetAssetPropertyAggregatesErrorInfo>("BatchGetAssetPropertyAggregatesErrorInfo")({errorCode: Schema.String, errorTimestamp: Schema.Date}) {}
+export class BatchGetAssetPropertyValueErrorInfo extends Schema.Class<BatchGetAssetPropertyValueErrorInfo>("BatchGetAssetPropertyValueErrorInfo")({errorCode: Schema.String, errorTimestamp: Schema.Date}) {}
+export class BatchGetAssetPropertyValueHistoryErrorInfo extends Schema.Class<BatchGetAssetPropertyValueHistoryErrorInfo>("BatchGetAssetPropertyValueHistoryErrorInfo")({errorCode: Schema.String, errorTimestamp: Schema.Date}) {}
 export const AssetPropertyValues = Schema.Array(AssetPropertyValue);
 export const ComputationModelIdList = Schema.Array(Schema.String);
-export const Content = Schema.Struct({text: Schema.optional(Schema.String)});
-export const BatchGetAssetPropertyAggregatesSkippedEntry = Schema.Struct({entryId: Schema.String, completionStatus: Schema.String, errorInfo: Schema.optional(BatchGetAssetPropertyAggregatesErrorInfo)});
+export class Content extends Schema.Class<Content>("Content")({text: Schema.optional(Schema.String)}) {}
+export class BatchGetAssetPropertyAggregatesSkippedEntry extends Schema.Class<BatchGetAssetPropertyAggregatesSkippedEntry>("BatchGetAssetPropertyAggregatesSkippedEntry")({entryId: Schema.String, completionStatus: Schema.String, errorInfo: Schema.optional(BatchGetAssetPropertyAggregatesErrorInfo)}) {}
 export const BatchGetAssetPropertyAggregatesSkippedEntries = Schema.Array(BatchGetAssetPropertyAggregatesSkippedEntry);
-export const BatchGetAssetPropertyValueSkippedEntry = Schema.Struct({entryId: Schema.String, completionStatus: Schema.String, errorInfo: Schema.optional(BatchGetAssetPropertyValueErrorInfo)});
+export class BatchGetAssetPropertyValueSkippedEntry extends Schema.Class<BatchGetAssetPropertyValueSkippedEntry>("BatchGetAssetPropertyValueSkippedEntry")({entryId: Schema.String, completionStatus: Schema.String, errorInfo: Schema.optional(BatchGetAssetPropertyValueErrorInfo)}) {}
 export const BatchGetAssetPropertyValueSkippedEntries = Schema.Array(BatchGetAssetPropertyValueSkippedEntry);
-export const BatchGetAssetPropertyValueHistorySkippedEntry = Schema.Struct({entryId: Schema.String, completionStatus: Schema.String, errorInfo: Schema.optional(BatchGetAssetPropertyValueHistoryErrorInfo)});
+export class BatchGetAssetPropertyValueHistorySkippedEntry extends Schema.Class<BatchGetAssetPropertyValueHistorySkippedEntry>("BatchGetAssetPropertyValueHistorySkippedEntry")({entryId: Schema.String, completionStatus: Schema.String, errorInfo: Schema.optional(BatchGetAssetPropertyValueHistoryErrorInfo)}) {}
 export const BatchGetAssetPropertyValueHistorySkippedEntries = Schema.Array(BatchGetAssetPropertyValueHistorySkippedEntry);
-export const PutAssetPropertyValueEntry = Schema.Struct({entryId: Schema.String, assetId: Schema.optional(Schema.String), propertyId: Schema.optional(Schema.String), propertyAlias: Schema.optional(Schema.String), propertyValues: AssetPropertyValues});
+export class PutAssetPropertyValueEntry extends Schema.Class<PutAssetPropertyValueEntry>("PutAssetPropertyValueEntry")({entryId: Schema.String, assetId: Schema.optional(Schema.String), propertyId: Schema.optional(Schema.String), propertyAlias: Schema.optional(Schema.String), propertyValues: AssetPropertyValues}) {}
 export const PutAssetPropertyValueEntries = Schema.Array(PutAssetPropertyValueEntry);
-export const BatchGetAssetPropertyAggregatesResponse = Schema.Struct({errorEntries: BatchGetAssetPropertyAggregatesErrorEntries, successEntries: BatchGetAssetPropertyAggregatesSuccessEntries, skippedEntries: BatchGetAssetPropertyAggregatesSkippedEntries, nextToken: Schema.optional(Schema.String)});
-export const BatchGetAssetPropertyValueResponse = Schema.Struct({errorEntries: BatchGetAssetPropertyValueErrorEntries, successEntries: BatchGetAssetPropertyValueSuccessEntries, skippedEntries: BatchGetAssetPropertyValueSkippedEntries, nextToken: Schema.optional(Schema.String)});
-export const BatchGetAssetPropertyValueHistoryResponse = Schema.Struct({errorEntries: BatchGetAssetPropertyValueHistoryErrorEntries, successEntries: BatchGetAssetPropertyValueHistorySuccessEntries, skippedEntries: BatchGetAssetPropertyValueHistorySkippedEntries, nextToken: Schema.optional(Schema.String)});
-export const BatchPutAssetPropertyValueRequest = Schema.Struct({enablePartialEntryProcessing: Schema.optional(Schema.Boolean), entries: PutAssetPropertyValueEntries});
-export const CreateAssetResponse = Schema.Struct({assetId: Schema.String, assetArn: Schema.String, assetStatus: AssetStatus});
-export const CreateBulkImportJobResponse = Schema.Struct({jobId: Schema.String, jobName: Schema.String, jobStatus: Schema.String});
-export const CreateComputationModelResponse = Schema.Struct({computationModelId: Schema.String, computationModelArn: Schema.String, computationModelStatus: ComputationModelStatus});
-export const CreateDatasetResponse = Schema.Struct({datasetId: Schema.String, datasetArn: Schema.String, datasetStatus: DatasetStatus});
-export const QueryTimeoutException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DataBindingValue = Schema.Struct({assetModelProperty: Schema.optional(AssetModelPropertyBindingValue), assetProperty: Schema.optional(AssetPropertyBindingValue)});
-export const CreateAssetModelRequest = Schema.Struct({assetModelName: Schema.String, assetModelType: Schema.optional(Schema.String), assetModelId: Schema.optional(Schema.String), assetModelExternalId: Schema.optional(Schema.String), assetModelDescription: Schema.optional(Schema.String), assetModelProperties: Schema.optional(AssetModelPropertyDefinitions), assetModelHierarchies: Schema.optional(AssetModelHierarchyDefinitions), assetModelCompositeModels: Schema.optional(AssetModelCompositeModelDefinitions), clientToken: Schema.optional(Schema.String), tags: Schema.optional(TagMap)});
-export const ValidationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const Location = Schema.Struct({uri: Schema.optional(Schema.String)});
-export const MatchedDataBinding = Schema.Struct({value: DataBindingValue});
-export const Source = Schema.Struct({arn: Schema.optional(Schema.String), location: Schema.optional(Location)});
-export const ComputationModelDataBindingUsageSummary = Schema.Struct({computationModelIds: ComputationModelIdList, matchedDataBinding: MatchedDataBinding});
+export class BatchGetAssetPropertyAggregatesResponse extends Schema.Class<BatchGetAssetPropertyAggregatesResponse>("BatchGetAssetPropertyAggregatesResponse")({errorEntries: BatchGetAssetPropertyAggregatesErrorEntries, successEntries: BatchGetAssetPropertyAggregatesSuccessEntries, skippedEntries: BatchGetAssetPropertyAggregatesSkippedEntries, nextToken: Schema.optional(Schema.String)}) {}
+export class BatchGetAssetPropertyValueResponse extends Schema.Class<BatchGetAssetPropertyValueResponse>("BatchGetAssetPropertyValueResponse")({errorEntries: BatchGetAssetPropertyValueErrorEntries, successEntries: BatchGetAssetPropertyValueSuccessEntries, skippedEntries: BatchGetAssetPropertyValueSkippedEntries, nextToken: Schema.optional(Schema.String)}) {}
+export class BatchGetAssetPropertyValueHistoryResponse extends Schema.Class<BatchGetAssetPropertyValueHistoryResponse>("BatchGetAssetPropertyValueHistoryResponse")({errorEntries: BatchGetAssetPropertyValueHistoryErrorEntries, successEntries: BatchGetAssetPropertyValueHistorySuccessEntries, skippedEntries: BatchGetAssetPropertyValueHistorySkippedEntries, nextToken: Schema.optional(Schema.String)}) {}
+export class BatchPutAssetPropertyValueRequest extends Schema.Class<BatchPutAssetPropertyValueRequest>("BatchPutAssetPropertyValueRequest")({enablePartialEntryProcessing: Schema.optional(Schema.Boolean), entries: PutAssetPropertyValueEntries}) {}
+export class CreateAssetResponse extends Schema.Class<CreateAssetResponse>("CreateAssetResponse")({assetId: Schema.String, assetArn: Schema.String, assetStatus: AssetStatus}) {}
+export class CreateBulkImportJobResponse extends Schema.Class<CreateBulkImportJobResponse>("CreateBulkImportJobResponse")({jobId: Schema.String, jobName: Schema.String, jobStatus: Schema.String}) {}
+export class CreateComputationModelResponse extends Schema.Class<CreateComputationModelResponse>("CreateComputationModelResponse")({computationModelId: Schema.String, computationModelArn: Schema.String, computationModelStatus: ComputationModelStatus}) {}
+export class CreateDatasetResponse extends Schema.Class<CreateDatasetResponse>("CreateDatasetResponse")({datasetId: Schema.String, datasetArn: Schema.String, datasetStatus: DatasetStatus}) {}
+export class QueryTimeoutException extends Schema.Class<QueryTimeoutException>("QueryTimeoutException")({message: Schema.optional(Schema.String)}) {}
+export class DataBindingValue extends Schema.Class<DataBindingValue>("DataBindingValue")({assetModelProperty: Schema.optional(AssetModelPropertyBindingValue), assetProperty: Schema.optional(AssetPropertyBindingValue)}) {}
+export class CreateAssetModelRequest extends Schema.Class<CreateAssetModelRequest>("CreateAssetModelRequest")({assetModelName: Schema.String, assetModelType: Schema.optional(Schema.String), assetModelId: Schema.optional(Schema.String), assetModelExternalId: Schema.optional(Schema.String), assetModelDescription: Schema.optional(Schema.String), assetModelProperties: Schema.optional(AssetModelPropertyDefinitions), assetModelHierarchies: Schema.optional(AssetModelHierarchyDefinitions), assetModelCompositeModels: Schema.optional(AssetModelCompositeModelDefinitions), clientToken: Schema.optional(Schema.String), tags: Schema.optional(TagMap)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({message: Schema.optional(Schema.String)}) {}
+export class Location extends Schema.Class<Location>("Location")({uri: Schema.optional(Schema.String)}) {}
+export class MatchedDataBinding extends Schema.Class<MatchedDataBinding>("MatchedDataBinding")({value: DataBindingValue}) {}
+export class Source extends Schema.Class<Source>("Source")({arn: Schema.optional(Schema.String), location: Schema.optional(Location)}) {}
+export class ComputationModelDataBindingUsageSummary extends Schema.Class<ComputationModelDataBindingUsageSummary>("ComputationModelDataBindingUsageSummary")({computationModelIds: ComputationModelIdList, matchedDataBinding: MatchedDataBinding}) {}
 export const ComputationModelDataBindingUsageSummaries = Schema.Array(ComputationModelDataBindingUsageSummary);
 export const Timestamps = Schema.Array(TimeInNanos);
-export const CreateAssetModelResponse = Schema.Struct({assetModelId: Schema.String, assetModelArn: Schema.String, assetModelStatus: AssetModelStatus});
-export const DataSetReference = Schema.Struct({datasetArn: Schema.optional(Schema.String), source: Schema.optional(Source)});
-export const ListComputationModelDataBindingUsagesResponse = Schema.Struct({dataBindingUsageSummaries: ComputationModelDataBindingUsageSummaries, nextToken: Schema.optional(Schema.String)});
-export const BatchPutAssetPropertyError = Schema.Struct({errorCode: Schema.String, errorMessage: Schema.String, timestamps: Timestamps});
+export class CreateAssetModelResponse extends Schema.Class<CreateAssetModelResponse>("CreateAssetModelResponse")({assetModelId: Schema.String, assetModelArn: Schema.String, assetModelStatus: AssetModelStatus}) {}
+export class DataSetReference extends Schema.Class<DataSetReference>("DataSetReference")({datasetArn: Schema.optional(Schema.String), source: Schema.optional(Source)}) {}
+export class ListComputationModelDataBindingUsagesResponse extends Schema.Class<ListComputationModelDataBindingUsagesResponse>("ListComputationModelDataBindingUsagesResponse")({dataBindingUsageSummaries: ComputationModelDataBindingUsageSummaries, nextToken: Schema.optional(Schema.String)}) {}
+export class BatchPutAssetPropertyError extends Schema.Class<BatchPutAssetPropertyError>("BatchPutAssetPropertyError")({errorCode: Schema.String, errorMessage: Schema.String, timestamps: Timestamps}) {}
 export const BatchPutAssetPropertyErrors = Schema.Array(BatchPutAssetPropertyError);
-export const Reference = Schema.Struct({dataset: Schema.optional(DataSetReference)});
-export const BatchPutAssetPropertyErrorEntry = Schema.Struct({entryId: Schema.String, errors: BatchPutAssetPropertyErrors});
+export class Reference extends Schema.Class<Reference>("Reference")({dataset: Schema.optional(DataSetReference)}) {}
+export class BatchPutAssetPropertyErrorEntry extends Schema.Class<BatchPutAssetPropertyErrorEntry>("BatchPutAssetPropertyErrorEntry")({entryId: Schema.String, errors: BatchPutAssetPropertyErrors}) {}
 export const BatchPutAssetPropertyErrorEntries = Schema.Array(BatchPutAssetPropertyErrorEntry);
-export const Citation = Schema.Struct({reference: Schema.optional(Reference), content: Schema.optional(Content)});
+export class Citation extends Schema.Class<Citation>("Citation")({reference: Schema.optional(Reference), content: Schema.optional(Content)}) {}
 export const Citations = Schema.Array(Citation);
-export const BatchPutAssetPropertyValueResponse = Schema.Struct({errorEntries: BatchPutAssetPropertyErrorEntries});
-export const InvocationOutput = Schema.Struct({message: Schema.optional(Schema.String), citations: Schema.optional(Citations)});
+export class BatchPutAssetPropertyValueResponse extends Schema.Class<BatchPutAssetPropertyValueResponse>("BatchPutAssetPropertyValueResponse")({errorEntries: BatchPutAssetPropertyErrorEntries}) {}
+export class InvocationOutput extends Schema.Class<InvocationOutput>("InvocationOutput")({message: Schema.optional(Schema.String), citations: Schema.optional(Citations)}) {}
 export const ResponseStream = Schema.Union(Trace, InvocationOutput, AccessDeniedException, ConflictingOperationException, InternalFailureException, InvalidRequestException, LimitExceededException, ResourceNotFoundException, ThrottlingException);
-export const InvokeAssistantResponse = Schema.Struct({body: Body("undefined", ResponseStream), conversationId: Header("x-amz-iotsitewise-assistant-conversation-id")});
+export class InvokeAssistantResponse extends Schema.Class<InvokeAssistantResponse>("InvokeAssistantResponse")({body: Body("undefined", ResponseStream), conversationId: Header("x-amz-iotsitewise-assistant-conversation-id")}) {}
 
 //# Errors
-export class ConflictingOperationExceptionError extends Schema.TaggedError<ConflictingOperationExceptionError>()("ConflictingOperationException", ConflictingOperationException) {};
-export class InternalFailureExceptionError extends Schema.TaggedError<InternalFailureExceptionError>()("InternalFailureException", InternalFailureException) {};
-export class InvalidRequestExceptionError extends Schema.TaggedError<InvalidRequestExceptionError>()("InvalidRequestException", InvalidRequestException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException) {};
-export class PreconditionFailedExceptionError extends Schema.TaggedError<PreconditionFailedExceptionError>()("PreconditionFailedException", PreconditionFailedException) {};
-export class ServiceUnavailableExceptionError extends Schema.TaggedError<ServiceUnavailableExceptionError>()("ServiceUnavailableException", ServiceUnavailableException) {};
-export class UnauthorizedExceptionError extends Schema.TaggedError<UnauthorizedExceptionError>()("UnauthorizedException", UnauthorizedException) {};
-export class ResourceAlreadyExistsExceptionError extends Schema.TaggedError<ResourceAlreadyExistsExceptionError>()("ResourceAlreadyExistsException", ResourceAlreadyExistsException) {};
-export class TooManyTagsExceptionError extends Schema.TaggedError<TooManyTagsExceptionError>()("TooManyTagsException", TooManyTagsException) {};
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class QueryTimeoutExceptionError extends Schema.TaggedError<QueryTimeoutExceptionError>()("QueryTimeoutException", QueryTimeoutException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
+export class ConflictingOperationExceptionError extends Schema.TaggedError<ConflictingOperationExceptionError>()("ConflictingOperationException", ConflictingOperationException.fields) {};
+export class InternalFailureExceptionError extends Schema.TaggedError<InternalFailureExceptionError>()("InternalFailureException", InternalFailureException.fields) {};
+export class InvalidRequestExceptionError extends Schema.TaggedError<InvalidRequestExceptionError>()("InvalidRequestException", InvalidRequestException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException.fields) {};
+export class PreconditionFailedExceptionError extends Schema.TaggedError<PreconditionFailedExceptionError>()("PreconditionFailedException", PreconditionFailedException.fields) {};
+export class ServiceUnavailableExceptionError extends Schema.TaggedError<ServiceUnavailableExceptionError>()("ServiceUnavailableException", ServiceUnavailableException.fields) {};
+export class UnauthorizedExceptionError extends Schema.TaggedError<UnauthorizedExceptionError>()("UnauthorizedException", UnauthorizedException.fields) {};
+export class ResourceAlreadyExistsExceptionError extends Schema.TaggedError<ResourceAlreadyExistsExceptionError>()("ResourceAlreadyExistsException", ResourceAlreadyExistsException.fields) {};
+export class TooManyTagsExceptionError extends Schema.TaggedError<TooManyTagsExceptionError>()("TooManyTagsException", TooManyTagsException.fields) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class QueryTimeoutExceptionError extends Schema.TaggedError<QueryTimeoutExceptionError>()("QueryTimeoutException", QueryTimeoutException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
 
 //# Operations
 export const deleteProject = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-12-02", uri: "/projects/{projectId}", method: "DELETE", sdkId: "IoTSiteWise", sigV4ServiceName: "iotsitewise", name: "AWSIoTSiteWise.DeleteProject" }, DeleteProjectRequest, DeleteProjectResponse, [InternalFailureExceptionError, InvalidRequestExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

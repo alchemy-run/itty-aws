@@ -6,113 +6,113 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 export const StandardNameList = Schema.Array(Schema.String);
 export const DomainNameList = Schema.Array(Schema.String);
 export const DynamicFieldNameList = Schema.Array(Schema.String);
-export const BuildSuggestersRequest = Schema.Struct({DomainName: Schema.String});
-export const CreateDomainRequest = Schema.Struct({DomainName: Schema.String});
-export const DeleteAnalysisSchemeRequest = Schema.Struct({DomainName: Schema.String, AnalysisSchemeName: Schema.String});
-export const DeleteDomainRequest = Schema.Struct({DomainName: Schema.String});
-export const DeleteExpressionRequest = Schema.Struct({DomainName: Schema.String, ExpressionName: Schema.String});
-export const DeleteIndexFieldRequest = Schema.Struct({DomainName: Schema.String, IndexFieldName: Schema.String});
-export const DeleteSuggesterRequest = Schema.Struct({DomainName: Schema.String, SuggesterName: Schema.String});
-export const DescribeAnalysisSchemesRequest = Schema.Struct({DomainName: Schema.String, AnalysisSchemeNames: Schema.optional(StandardNameList), Deployed: Schema.optional(Schema.Boolean)});
-export const DescribeAvailabilityOptionsRequest = Schema.Struct({DomainName: Schema.String, Deployed: Schema.optional(Schema.Boolean)});
-export const DescribeDomainEndpointOptionsRequest = Schema.Struct({DomainName: Schema.String, Deployed: Schema.optional(Schema.Boolean)});
-export const DescribeDomainsRequest = Schema.Struct({DomainNames: Schema.optional(DomainNameList)});
-export const DescribeExpressionsRequest = Schema.Struct({DomainName: Schema.String, ExpressionNames: Schema.optional(StandardNameList), Deployed: Schema.optional(Schema.Boolean)});
-export const DescribeIndexFieldsRequest = Schema.Struct({DomainName: Schema.String, FieldNames: Schema.optional(DynamicFieldNameList), Deployed: Schema.optional(Schema.Boolean)});
-export const DescribeScalingParametersRequest = Schema.Struct({DomainName: Schema.String});
-export const DescribeServiceAccessPoliciesRequest = Schema.Struct({DomainName: Schema.String, Deployed: Schema.optional(Schema.Boolean)});
-export const DescribeSuggestersRequest = Schema.Struct({DomainName: Schema.String, SuggesterNames: Schema.optional(StandardNameList), Deployed: Schema.optional(Schema.Boolean)});
-export const IndexDocumentsRequest = Schema.Struct({DomainName: Schema.String});
-export const UpdateAvailabilityOptionsRequest = Schema.Struct({DomainName: Schema.String, MultiAZ: Schema.Boolean});
-export const UpdateServiceAccessPoliciesRequest = Schema.Struct({DomainName: Schema.String, AccessPolicies: Schema.String});
+export class BuildSuggestersRequest extends Schema.Class<BuildSuggestersRequest>("BuildSuggestersRequest")({DomainName: Schema.String}) {}
+export class CreateDomainRequest extends Schema.Class<CreateDomainRequest>("CreateDomainRequest")({DomainName: Schema.String}) {}
+export class DeleteAnalysisSchemeRequest extends Schema.Class<DeleteAnalysisSchemeRequest>("DeleteAnalysisSchemeRequest")({DomainName: Schema.String, AnalysisSchemeName: Schema.String}) {}
+export class DeleteDomainRequest extends Schema.Class<DeleteDomainRequest>("DeleteDomainRequest")({DomainName: Schema.String}) {}
+export class DeleteExpressionRequest extends Schema.Class<DeleteExpressionRequest>("DeleteExpressionRequest")({DomainName: Schema.String, ExpressionName: Schema.String}) {}
+export class DeleteIndexFieldRequest extends Schema.Class<DeleteIndexFieldRequest>("DeleteIndexFieldRequest")({DomainName: Schema.String, IndexFieldName: Schema.String}) {}
+export class DeleteSuggesterRequest extends Schema.Class<DeleteSuggesterRequest>("DeleteSuggesterRequest")({DomainName: Schema.String, SuggesterName: Schema.String}) {}
+export class DescribeAnalysisSchemesRequest extends Schema.Class<DescribeAnalysisSchemesRequest>("DescribeAnalysisSchemesRequest")({DomainName: Schema.String, AnalysisSchemeNames: Schema.optional(StandardNameList), Deployed: Schema.optional(Schema.Boolean)}) {}
+export class DescribeAvailabilityOptionsRequest extends Schema.Class<DescribeAvailabilityOptionsRequest>("DescribeAvailabilityOptionsRequest")({DomainName: Schema.String, Deployed: Schema.optional(Schema.Boolean)}) {}
+export class DescribeDomainEndpointOptionsRequest extends Schema.Class<DescribeDomainEndpointOptionsRequest>("DescribeDomainEndpointOptionsRequest")({DomainName: Schema.String, Deployed: Schema.optional(Schema.Boolean)}) {}
+export class DescribeDomainsRequest extends Schema.Class<DescribeDomainsRequest>("DescribeDomainsRequest")({DomainNames: Schema.optional(DomainNameList)}) {}
+export class DescribeExpressionsRequest extends Schema.Class<DescribeExpressionsRequest>("DescribeExpressionsRequest")({DomainName: Schema.String, ExpressionNames: Schema.optional(StandardNameList), Deployed: Schema.optional(Schema.Boolean)}) {}
+export class DescribeIndexFieldsRequest extends Schema.Class<DescribeIndexFieldsRequest>("DescribeIndexFieldsRequest")({DomainName: Schema.String, FieldNames: Schema.optional(DynamicFieldNameList), Deployed: Schema.optional(Schema.Boolean)}) {}
+export class DescribeScalingParametersRequest extends Schema.Class<DescribeScalingParametersRequest>("DescribeScalingParametersRequest")({DomainName: Schema.String}) {}
+export class DescribeServiceAccessPoliciesRequest extends Schema.Class<DescribeServiceAccessPoliciesRequest>("DescribeServiceAccessPoliciesRequest")({DomainName: Schema.String, Deployed: Schema.optional(Schema.Boolean)}) {}
+export class DescribeSuggestersRequest extends Schema.Class<DescribeSuggestersRequest>("DescribeSuggestersRequest")({DomainName: Schema.String, SuggesterNames: Schema.optional(StandardNameList), Deployed: Schema.optional(Schema.Boolean)}) {}
+export class IndexDocumentsRequest extends Schema.Class<IndexDocumentsRequest>("IndexDocumentsRequest")({DomainName: Schema.String}) {}
+export class UpdateAvailabilityOptionsRequest extends Schema.Class<UpdateAvailabilityOptionsRequest>("UpdateAvailabilityOptionsRequest")({DomainName: Schema.String, MultiAZ: Schema.Boolean}) {}
+export class UpdateServiceAccessPoliciesRequest extends Schema.Class<UpdateServiceAccessPoliciesRequest>("UpdateServiceAccessPoliciesRequest")({DomainName: Schema.String, AccessPolicies: Schema.String}) {}
 export const FieldNameList = Schema.Array(Schema.String);
-export const Expression = Schema.Struct({ExpressionName: Schema.String, ExpressionValue: Schema.String});
-export const AnalysisOptions = Schema.Struct({Synonyms: Schema.optional(Schema.String), Stopwords: Schema.optional(Schema.String), StemmingDictionary: Schema.optional(Schema.String), JapaneseTokenizationDictionary: Schema.optional(Schema.String), AlgorithmicStemming: Schema.optional(Schema.String)});
-export const AnalysisScheme = Schema.Struct({AnalysisSchemeName: Schema.String, AnalysisSchemeLanguage: Schema.String, AnalysisOptions: Schema.optional(AnalysisOptions)});
-export const OptionStatus = Schema.Struct({CreationDate: Schema.Date, UpdateDate: Schema.Date, UpdateVersion: Schema.optional(Schema.Number), State: Schema.String, PendingDeletion: Schema.optional(Schema.Boolean)});
-export const AnalysisSchemeStatus = Schema.Struct({Options: AnalysisScheme, Status: OptionStatus});
+export class Expression extends Schema.Class<Expression>("Expression")({ExpressionName: Schema.String, ExpressionValue: Schema.String}) {}
+export class AnalysisOptions extends Schema.Class<AnalysisOptions>("AnalysisOptions")({Synonyms: Schema.optional(Schema.String), Stopwords: Schema.optional(Schema.String), StemmingDictionary: Schema.optional(Schema.String), JapaneseTokenizationDictionary: Schema.optional(Schema.String), AlgorithmicStemming: Schema.optional(Schema.String)}) {}
+export class AnalysisScheme extends Schema.Class<AnalysisScheme>("AnalysisScheme")({AnalysisSchemeName: Schema.String, AnalysisSchemeLanguage: Schema.String, AnalysisOptions: Schema.optional(AnalysisOptions)}) {}
+export class OptionStatus extends Schema.Class<OptionStatus>("OptionStatus")({CreationDate: Schema.Date, UpdateDate: Schema.Date, UpdateVersion: Schema.optional(Schema.Number), State: Schema.String, PendingDeletion: Schema.optional(Schema.Boolean)}) {}
+export class AnalysisSchemeStatus extends Schema.Class<AnalysisSchemeStatus>("AnalysisSchemeStatus")({Options: AnalysisScheme, Status: OptionStatus}) {}
 export const AnalysisSchemeStatusList = Schema.Array(AnalysisSchemeStatus);
-export const ServiceEndpoint = Schema.Struct({Endpoint: Schema.optional(Schema.String)});
-export const Limits = Schema.Struct({MaximumReplicationCount: Schema.Number, MaximumPartitionCount: Schema.Number});
-export const DomainStatus = Schema.Struct({DomainId: Schema.String, DomainName: Schema.String, ARN: Schema.optional(Schema.String), Created: Schema.optional(Schema.Boolean), Deleted: Schema.optional(Schema.Boolean), DocService: Schema.optional(ServiceEndpoint), SearchService: Schema.optional(ServiceEndpoint), RequiresIndexDocuments: Schema.Boolean, Processing: Schema.optional(Schema.Boolean), SearchInstanceType: Schema.optional(Schema.String), SearchPartitionCount: Schema.optional(Schema.Number), SearchInstanceCount: Schema.optional(Schema.Number), Limits: Schema.optional(Limits)});
+export class ServiceEndpoint extends Schema.Class<ServiceEndpoint>("ServiceEndpoint")({Endpoint: Schema.optional(Schema.String)}) {}
+export class Limits extends Schema.Class<Limits>("Limits")({MaximumReplicationCount: Schema.Number, MaximumPartitionCount: Schema.Number}) {}
+export class DomainStatus extends Schema.Class<DomainStatus>("DomainStatus")({DomainId: Schema.String, DomainName: Schema.String, ARN: Schema.optional(Schema.String), Created: Schema.optional(Schema.Boolean), Deleted: Schema.optional(Schema.Boolean), DocService: Schema.optional(ServiceEndpoint), SearchService: Schema.optional(ServiceEndpoint), RequiresIndexDocuments: Schema.Boolean, Processing: Schema.optional(Schema.Boolean), SearchInstanceType: Schema.optional(Schema.String), SearchPartitionCount: Schema.optional(Schema.Number), SearchInstanceCount: Schema.optional(Schema.Number), Limits: Schema.optional(Limits)}) {}
 export const DomainStatusList = Schema.Array(DomainStatus);
-export const ExpressionStatus = Schema.Struct({Options: Expression, Status: OptionStatus});
+export class ExpressionStatus extends Schema.Class<ExpressionStatus>("ExpressionStatus")({Options: Expression, Status: OptionStatus}) {}
 export const ExpressionStatusList = Schema.Array(ExpressionStatus);
-export const IntOptions = Schema.Struct({DefaultValue: Schema.optional(Schema.Number), SourceField: Schema.optional(Schema.String), FacetEnabled: Schema.optional(Schema.Boolean), SearchEnabled: Schema.optional(Schema.Boolean), ReturnEnabled: Schema.optional(Schema.Boolean), SortEnabled: Schema.optional(Schema.Boolean)});
-export const DoubleOptions = Schema.Struct({DefaultValue: Schema.optional(Schema.Number), SourceField: Schema.optional(Schema.String), FacetEnabled: Schema.optional(Schema.Boolean), SearchEnabled: Schema.optional(Schema.Boolean), ReturnEnabled: Schema.optional(Schema.Boolean), SortEnabled: Schema.optional(Schema.Boolean)});
-export const LiteralOptions = Schema.Struct({DefaultValue: Schema.optional(Schema.String), SourceField: Schema.optional(Schema.String), FacetEnabled: Schema.optional(Schema.Boolean), SearchEnabled: Schema.optional(Schema.Boolean), ReturnEnabled: Schema.optional(Schema.Boolean), SortEnabled: Schema.optional(Schema.Boolean)});
-export const TextOptions = Schema.Struct({DefaultValue: Schema.optional(Schema.String), SourceField: Schema.optional(Schema.String), ReturnEnabled: Schema.optional(Schema.Boolean), SortEnabled: Schema.optional(Schema.Boolean), HighlightEnabled: Schema.optional(Schema.Boolean), AnalysisScheme: Schema.optional(Schema.String)});
-export const DateOptions = Schema.Struct({DefaultValue: Schema.optional(Schema.String), SourceField: Schema.optional(Schema.String), FacetEnabled: Schema.optional(Schema.Boolean), SearchEnabled: Schema.optional(Schema.Boolean), ReturnEnabled: Schema.optional(Schema.Boolean), SortEnabled: Schema.optional(Schema.Boolean)});
-export const LatLonOptions = Schema.Struct({DefaultValue: Schema.optional(Schema.String), SourceField: Schema.optional(Schema.String), FacetEnabled: Schema.optional(Schema.Boolean), SearchEnabled: Schema.optional(Schema.Boolean), ReturnEnabled: Schema.optional(Schema.Boolean), SortEnabled: Schema.optional(Schema.Boolean)});
-export const IntArrayOptions = Schema.Struct({DefaultValue: Schema.optional(Schema.Number), SourceFields: Schema.optional(Schema.String), FacetEnabled: Schema.optional(Schema.Boolean), SearchEnabled: Schema.optional(Schema.Boolean), ReturnEnabled: Schema.optional(Schema.Boolean)});
-export const DoubleArrayOptions = Schema.Struct({DefaultValue: Schema.optional(Schema.Number), SourceFields: Schema.optional(Schema.String), FacetEnabled: Schema.optional(Schema.Boolean), SearchEnabled: Schema.optional(Schema.Boolean), ReturnEnabled: Schema.optional(Schema.Boolean)});
-export const LiteralArrayOptions = Schema.Struct({DefaultValue: Schema.optional(Schema.String), SourceFields: Schema.optional(Schema.String), FacetEnabled: Schema.optional(Schema.Boolean), SearchEnabled: Schema.optional(Schema.Boolean), ReturnEnabled: Schema.optional(Schema.Boolean)});
-export const TextArrayOptions = Schema.Struct({DefaultValue: Schema.optional(Schema.String), SourceFields: Schema.optional(Schema.String), ReturnEnabled: Schema.optional(Schema.Boolean), HighlightEnabled: Schema.optional(Schema.Boolean), AnalysisScheme: Schema.optional(Schema.String)});
-export const DateArrayOptions = Schema.Struct({DefaultValue: Schema.optional(Schema.String), SourceFields: Schema.optional(Schema.String), FacetEnabled: Schema.optional(Schema.Boolean), SearchEnabled: Schema.optional(Schema.Boolean), ReturnEnabled: Schema.optional(Schema.Boolean)});
-export const IndexField = Schema.Struct({IndexFieldName: Schema.String, IndexFieldType: Schema.String, IntOptions: Schema.optional(IntOptions), DoubleOptions: Schema.optional(DoubleOptions), LiteralOptions: Schema.optional(LiteralOptions), TextOptions: Schema.optional(TextOptions), DateOptions: Schema.optional(DateOptions), LatLonOptions: Schema.optional(LatLonOptions), IntArrayOptions: Schema.optional(IntArrayOptions), DoubleArrayOptions: Schema.optional(DoubleArrayOptions), LiteralArrayOptions: Schema.optional(LiteralArrayOptions), TextArrayOptions: Schema.optional(TextArrayOptions), DateArrayOptions: Schema.optional(DateArrayOptions)});
-export const IndexFieldStatus = Schema.Struct({Options: IndexField, Status: OptionStatus});
+export class IntOptions extends Schema.Class<IntOptions>("IntOptions")({DefaultValue: Schema.optional(Schema.Number), SourceField: Schema.optional(Schema.String), FacetEnabled: Schema.optional(Schema.Boolean), SearchEnabled: Schema.optional(Schema.Boolean), ReturnEnabled: Schema.optional(Schema.Boolean), SortEnabled: Schema.optional(Schema.Boolean)}) {}
+export class DoubleOptions extends Schema.Class<DoubleOptions>("DoubleOptions")({DefaultValue: Schema.optional(Schema.Number), SourceField: Schema.optional(Schema.String), FacetEnabled: Schema.optional(Schema.Boolean), SearchEnabled: Schema.optional(Schema.Boolean), ReturnEnabled: Schema.optional(Schema.Boolean), SortEnabled: Schema.optional(Schema.Boolean)}) {}
+export class LiteralOptions extends Schema.Class<LiteralOptions>("LiteralOptions")({DefaultValue: Schema.optional(Schema.String), SourceField: Schema.optional(Schema.String), FacetEnabled: Schema.optional(Schema.Boolean), SearchEnabled: Schema.optional(Schema.Boolean), ReturnEnabled: Schema.optional(Schema.Boolean), SortEnabled: Schema.optional(Schema.Boolean)}) {}
+export class TextOptions extends Schema.Class<TextOptions>("TextOptions")({DefaultValue: Schema.optional(Schema.String), SourceField: Schema.optional(Schema.String), ReturnEnabled: Schema.optional(Schema.Boolean), SortEnabled: Schema.optional(Schema.Boolean), HighlightEnabled: Schema.optional(Schema.Boolean), AnalysisScheme: Schema.optional(Schema.String)}) {}
+export class DateOptions extends Schema.Class<DateOptions>("DateOptions")({DefaultValue: Schema.optional(Schema.String), SourceField: Schema.optional(Schema.String), FacetEnabled: Schema.optional(Schema.Boolean), SearchEnabled: Schema.optional(Schema.Boolean), ReturnEnabled: Schema.optional(Schema.Boolean), SortEnabled: Schema.optional(Schema.Boolean)}) {}
+export class LatLonOptions extends Schema.Class<LatLonOptions>("LatLonOptions")({DefaultValue: Schema.optional(Schema.String), SourceField: Schema.optional(Schema.String), FacetEnabled: Schema.optional(Schema.Boolean), SearchEnabled: Schema.optional(Schema.Boolean), ReturnEnabled: Schema.optional(Schema.Boolean), SortEnabled: Schema.optional(Schema.Boolean)}) {}
+export class IntArrayOptions extends Schema.Class<IntArrayOptions>("IntArrayOptions")({DefaultValue: Schema.optional(Schema.Number), SourceFields: Schema.optional(Schema.String), FacetEnabled: Schema.optional(Schema.Boolean), SearchEnabled: Schema.optional(Schema.Boolean), ReturnEnabled: Schema.optional(Schema.Boolean)}) {}
+export class DoubleArrayOptions extends Schema.Class<DoubleArrayOptions>("DoubleArrayOptions")({DefaultValue: Schema.optional(Schema.Number), SourceFields: Schema.optional(Schema.String), FacetEnabled: Schema.optional(Schema.Boolean), SearchEnabled: Schema.optional(Schema.Boolean), ReturnEnabled: Schema.optional(Schema.Boolean)}) {}
+export class LiteralArrayOptions extends Schema.Class<LiteralArrayOptions>("LiteralArrayOptions")({DefaultValue: Schema.optional(Schema.String), SourceFields: Schema.optional(Schema.String), FacetEnabled: Schema.optional(Schema.Boolean), SearchEnabled: Schema.optional(Schema.Boolean), ReturnEnabled: Schema.optional(Schema.Boolean)}) {}
+export class TextArrayOptions extends Schema.Class<TextArrayOptions>("TextArrayOptions")({DefaultValue: Schema.optional(Schema.String), SourceFields: Schema.optional(Schema.String), ReturnEnabled: Schema.optional(Schema.Boolean), HighlightEnabled: Schema.optional(Schema.Boolean), AnalysisScheme: Schema.optional(Schema.String)}) {}
+export class DateArrayOptions extends Schema.Class<DateArrayOptions>("DateArrayOptions")({DefaultValue: Schema.optional(Schema.String), SourceFields: Schema.optional(Schema.String), FacetEnabled: Schema.optional(Schema.Boolean), SearchEnabled: Schema.optional(Schema.Boolean), ReturnEnabled: Schema.optional(Schema.Boolean)}) {}
+export class IndexField extends Schema.Class<IndexField>("IndexField")({IndexFieldName: Schema.String, IndexFieldType: Schema.String, IntOptions: Schema.optional(IntOptions), DoubleOptions: Schema.optional(DoubleOptions), LiteralOptions: Schema.optional(LiteralOptions), TextOptions: Schema.optional(TextOptions), DateOptions: Schema.optional(DateOptions), LatLonOptions: Schema.optional(LatLonOptions), IntArrayOptions: Schema.optional(IntArrayOptions), DoubleArrayOptions: Schema.optional(DoubleArrayOptions), LiteralArrayOptions: Schema.optional(LiteralArrayOptions), TextArrayOptions: Schema.optional(TextArrayOptions), DateArrayOptions: Schema.optional(DateArrayOptions)}) {}
+export class IndexFieldStatus extends Schema.Class<IndexFieldStatus>("IndexFieldStatus")({Options: IndexField, Status: OptionStatus}) {}
 export const IndexFieldStatusList = Schema.Array(IndexFieldStatus);
-export const DocumentSuggesterOptions = Schema.Struct({SourceField: Schema.String, FuzzyMatching: Schema.optional(Schema.String), SortExpression: Schema.optional(Schema.String)});
-export const Suggester = Schema.Struct({SuggesterName: Schema.String, DocumentSuggesterOptions: DocumentSuggesterOptions});
-export const SuggesterStatus = Schema.Struct({Options: Suggester, Status: OptionStatus});
+export class DocumentSuggesterOptions extends Schema.Class<DocumentSuggesterOptions>("DocumentSuggesterOptions")({SourceField: Schema.String, FuzzyMatching: Schema.optional(Schema.String), SortExpression: Schema.optional(Schema.String)}) {}
+export class Suggester extends Schema.Class<Suggester>("Suggester")({SuggesterName: Schema.String, DocumentSuggesterOptions: DocumentSuggesterOptions}) {}
+export class SuggesterStatus extends Schema.Class<SuggesterStatus>("SuggesterStatus")({Options: Suggester, Status: OptionStatus}) {}
 export const SuggesterStatusList = Schema.Array(SuggesterStatus);
 export const DomainNameMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const DomainEndpointOptions = Schema.Struct({EnforceHTTPS: Schema.optional(Schema.Boolean), TLSSecurityPolicy: Schema.optional(Schema.String)});
-export const ScalingParameters = Schema.Struct({DesiredInstanceType: Schema.optional(Schema.String), DesiredReplicationCount: Schema.optional(Schema.Number), DesiredPartitionCount: Schema.optional(Schema.Number)});
-export const BuildSuggestersResponse = Schema.Struct({FieldNames: Schema.optional(FieldNameList)});
-export const DefineExpressionRequest = Schema.Struct({DomainName: Schema.String, Expression: Expression});
-export const DeleteDomainResponse = Schema.Struct({DomainStatus: Schema.optional(DomainStatus)});
-export const DescribeAnalysisSchemesResponse = Schema.Struct({AnalysisSchemes: AnalysisSchemeStatusList});
-export const DescribeDomainsResponse = Schema.Struct({DomainStatusList: DomainStatusList});
-export const DescribeExpressionsResponse = Schema.Struct({Expressions: ExpressionStatusList});
-export const DescribeIndexFieldsResponse = Schema.Struct({IndexFields: IndexFieldStatusList});
-export const DescribeSuggestersResponse = Schema.Struct({Suggesters: SuggesterStatusList});
-export const IndexDocumentsResponse = Schema.Struct({FieldNames: Schema.optional(FieldNameList)});
-export const ListDomainNamesResponse = Schema.Struct({DomainNames: Schema.optional(DomainNameMap)});
-export const AvailabilityOptionsStatus = Schema.Struct({Options: Schema.Boolean, Status: OptionStatus});
-export const UpdateAvailabilityOptionsResponse = Schema.Struct({AvailabilityOptions: Schema.optional(AvailabilityOptionsStatus)});
-export const UpdateDomainEndpointOptionsRequest = Schema.Struct({DomainName: Schema.String, DomainEndpointOptions: DomainEndpointOptions});
-export const UpdateScalingParametersRequest = Schema.Struct({DomainName: Schema.String, ScalingParameters: ScalingParameters});
-export const AccessPoliciesStatus = Schema.Struct({Options: Schema.String, Status: OptionStatus});
-export const UpdateServiceAccessPoliciesResponse = Schema.Struct({AccessPolicies: AccessPoliciesStatus});
-export const DomainEndpointOptionsStatus = Schema.Struct({Options: DomainEndpointOptions, Status: OptionStatus});
-export const ScalingParametersStatus = Schema.Struct({Options: ScalingParameters, Status: OptionStatus});
-export const BaseException = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
-export const DefineAnalysisSchemeRequest = Schema.Struct({DomainName: Schema.String, AnalysisScheme: AnalysisScheme});
-export const DefineExpressionResponse = Schema.Struct({Expression: ExpressionStatus});
-export const DefineIndexFieldRequest = Schema.Struct({DomainName: Schema.String, IndexField: IndexField});
-export const DefineSuggesterRequest = Schema.Struct({DomainName: Schema.String, Suggester: Suggester});
-export const InternalException = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
-export const DeleteExpressionResponse = Schema.Struct({Expression: ExpressionStatus});
-export const DeleteIndexFieldResponse = Schema.Struct({IndexField: IndexFieldStatus});
-export const DeleteSuggesterResponse = Schema.Struct({Suggester: SuggesterStatus});
-export const ResourceNotFoundException = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
-export const DescribeAvailabilityOptionsResponse = Schema.Struct({AvailabilityOptions: Schema.optional(AvailabilityOptionsStatus)});
-export const DescribeDomainEndpointOptionsResponse = Schema.Struct({DomainEndpointOptions: Schema.optional(DomainEndpointOptionsStatus)});
-export const DescribeScalingParametersResponse = Schema.Struct({ScalingParameters: ScalingParametersStatus});
-export const DescribeServiceAccessPoliciesResponse = Schema.Struct({AccessPolicies: AccessPoliciesStatus});
-export const ValidationException = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
-export const DisabledOperationException = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
-export const UpdateDomainEndpointOptionsResponse = Schema.Struct({DomainEndpointOptions: Schema.optional(DomainEndpointOptionsStatus)});
-export const UpdateScalingParametersResponse = Schema.Struct({ScalingParameters: ScalingParametersStatus});
-export const InvalidTypeException = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
-export const CreateDomainResponse = Schema.Struct({DomainStatus: Schema.optional(DomainStatus)});
-export const DefineAnalysisSchemeResponse = Schema.Struct({AnalysisScheme: AnalysisSchemeStatus});
-export const LimitExceededException = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
-export const DefineIndexFieldResponse = Schema.Struct({IndexField: IndexFieldStatus});
-export const DefineSuggesterResponse = Schema.Struct({Suggester: SuggesterStatus});
-export const DeleteAnalysisSchemeResponse = Schema.Struct({AnalysisScheme: AnalysisSchemeStatus});
-export const ResourceAlreadyExistsException = Schema.Struct({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
+export class DomainEndpointOptions extends Schema.Class<DomainEndpointOptions>("DomainEndpointOptions")({EnforceHTTPS: Schema.optional(Schema.Boolean), TLSSecurityPolicy: Schema.optional(Schema.String)}) {}
+export class ScalingParameters extends Schema.Class<ScalingParameters>("ScalingParameters")({DesiredInstanceType: Schema.optional(Schema.String), DesiredReplicationCount: Schema.optional(Schema.Number), DesiredPartitionCount: Schema.optional(Schema.Number)}) {}
+export class BuildSuggestersResponse extends Schema.Class<BuildSuggestersResponse>("BuildSuggestersResponse")({FieldNames: Schema.optional(FieldNameList)}) {}
+export class DefineExpressionRequest extends Schema.Class<DefineExpressionRequest>("DefineExpressionRequest")({DomainName: Schema.String, Expression: Expression}) {}
+export class DeleteDomainResponse extends Schema.Class<DeleteDomainResponse>("DeleteDomainResponse")({DomainStatus: Schema.optional(DomainStatus)}) {}
+export class DescribeAnalysisSchemesResponse extends Schema.Class<DescribeAnalysisSchemesResponse>("DescribeAnalysisSchemesResponse")({AnalysisSchemes: AnalysisSchemeStatusList}) {}
+export class DescribeDomainsResponse extends Schema.Class<DescribeDomainsResponse>("DescribeDomainsResponse")({DomainStatusList: DomainStatusList}) {}
+export class DescribeExpressionsResponse extends Schema.Class<DescribeExpressionsResponse>("DescribeExpressionsResponse")({Expressions: ExpressionStatusList}) {}
+export class DescribeIndexFieldsResponse extends Schema.Class<DescribeIndexFieldsResponse>("DescribeIndexFieldsResponse")({IndexFields: IndexFieldStatusList}) {}
+export class DescribeSuggestersResponse extends Schema.Class<DescribeSuggestersResponse>("DescribeSuggestersResponse")({Suggesters: SuggesterStatusList}) {}
+export class IndexDocumentsResponse extends Schema.Class<IndexDocumentsResponse>("IndexDocumentsResponse")({FieldNames: Schema.optional(FieldNameList)}) {}
+export class ListDomainNamesResponse extends Schema.Class<ListDomainNamesResponse>("ListDomainNamesResponse")({DomainNames: Schema.optional(DomainNameMap)}) {}
+export class AvailabilityOptionsStatus extends Schema.Class<AvailabilityOptionsStatus>("AvailabilityOptionsStatus")({Options: Schema.Boolean, Status: OptionStatus}) {}
+export class UpdateAvailabilityOptionsResponse extends Schema.Class<UpdateAvailabilityOptionsResponse>("UpdateAvailabilityOptionsResponse")({AvailabilityOptions: Schema.optional(AvailabilityOptionsStatus)}) {}
+export class UpdateDomainEndpointOptionsRequest extends Schema.Class<UpdateDomainEndpointOptionsRequest>("UpdateDomainEndpointOptionsRequest")({DomainName: Schema.String, DomainEndpointOptions: DomainEndpointOptions}) {}
+export class UpdateScalingParametersRequest extends Schema.Class<UpdateScalingParametersRequest>("UpdateScalingParametersRequest")({DomainName: Schema.String, ScalingParameters: ScalingParameters}) {}
+export class AccessPoliciesStatus extends Schema.Class<AccessPoliciesStatus>("AccessPoliciesStatus")({Options: Schema.String, Status: OptionStatus}) {}
+export class UpdateServiceAccessPoliciesResponse extends Schema.Class<UpdateServiceAccessPoliciesResponse>("UpdateServiceAccessPoliciesResponse")({AccessPolicies: AccessPoliciesStatus}) {}
+export class DomainEndpointOptionsStatus extends Schema.Class<DomainEndpointOptionsStatus>("DomainEndpointOptionsStatus")({Options: DomainEndpointOptions, Status: OptionStatus}) {}
+export class ScalingParametersStatus extends Schema.Class<ScalingParametersStatus>("ScalingParametersStatus")({Options: ScalingParameters, Status: OptionStatus}) {}
+export class BaseException extends Schema.Class<BaseException>("BaseException")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
+export class DefineAnalysisSchemeRequest extends Schema.Class<DefineAnalysisSchemeRequest>("DefineAnalysisSchemeRequest")({DomainName: Schema.String, AnalysisScheme: AnalysisScheme}) {}
+export class DefineExpressionResponse extends Schema.Class<DefineExpressionResponse>("DefineExpressionResponse")({Expression: ExpressionStatus}) {}
+export class DefineIndexFieldRequest extends Schema.Class<DefineIndexFieldRequest>("DefineIndexFieldRequest")({DomainName: Schema.String, IndexField: IndexField}) {}
+export class DefineSuggesterRequest extends Schema.Class<DefineSuggesterRequest>("DefineSuggesterRequest")({DomainName: Schema.String, Suggester: Suggester}) {}
+export class InternalException extends Schema.Class<InternalException>("InternalException")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
+export class DeleteExpressionResponse extends Schema.Class<DeleteExpressionResponse>("DeleteExpressionResponse")({Expression: ExpressionStatus}) {}
+export class DeleteIndexFieldResponse extends Schema.Class<DeleteIndexFieldResponse>("DeleteIndexFieldResponse")({IndexField: IndexFieldStatus}) {}
+export class DeleteSuggesterResponse extends Schema.Class<DeleteSuggesterResponse>("DeleteSuggesterResponse")({Suggester: SuggesterStatus}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
+export class DescribeAvailabilityOptionsResponse extends Schema.Class<DescribeAvailabilityOptionsResponse>("DescribeAvailabilityOptionsResponse")({AvailabilityOptions: Schema.optional(AvailabilityOptionsStatus)}) {}
+export class DescribeDomainEndpointOptionsResponse extends Schema.Class<DescribeDomainEndpointOptionsResponse>("DescribeDomainEndpointOptionsResponse")({DomainEndpointOptions: Schema.optional(DomainEndpointOptionsStatus)}) {}
+export class DescribeScalingParametersResponse extends Schema.Class<DescribeScalingParametersResponse>("DescribeScalingParametersResponse")({ScalingParameters: ScalingParametersStatus}) {}
+export class DescribeServiceAccessPoliciesResponse extends Schema.Class<DescribeServiceAccessPoliciesResponse>("DescribeServiceAccessPoliciesResponse")({AccessPolicies: AccessPoliciesStatus}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
+export class DisabledOperationException extends Schema.Class<DisabledOperationException>("DisabledOperationException")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
+export class UpdateDomainEndpointOptionsResponse extends Schema.Class<UpdateDomainEndpointOptionsResponse>("UpdateDomainEndpointOptionsResponse")({DomainEndpointOptions: Schema.optional(DomainEndpointOptionsStatus)}) {}
+export class UpdateScalingParametersResponse extends Schema.Class<UpdateScalingParametersResponse>("UpdateScalingParametersResponse")({ScalingParameters: ScalingParametersStatus}) {}
+export class InvalidTypeException extends Schema.Class<InvalidTypeException>("InvalidTypeException")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
+export class CreateDomainResponse extends Schema.Class<CreateDomainResponse>("CreateDomainResponse")({DomainStatus: Schema.optional(DomainStatus)}) {}
+export class DefineAnalysisSchemeResponse extends Schema.Class<DefineAnalysisSchemeResponse>("DefineAnalysisSchemeResponse")({AnalysisScheme: AnalysisSchemeStatus}) {}
+export class LimitExceededException extends Schema.Class<LimitExceededException>("LimitExceededException")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
+export class DefineIndexFieldResponse extends Schema.Class<DefineIndexFieldResponse>("DefineIndexFieldResponse")({IndexField: IndexFieldStatus}) {}
+export class DefineSuggesterResponse extends Schema.Class<DefineSuggesterResponse>("DefineSuggesterResponse")({Suggester: SuggesterStatus}) {}
+export class DeleteAnalysisSchemeResponse extends Schema.Class<DeleteAnalysisSchemeResponse>("DeleteAnalysisSchemeResponse")({AnalysisScheme: AnalysisSchemeStatus}) {}
+export class ResourceAlreadyExistsException extends Schema.Class<ResourceAlreadyExistsException>("ResourceAlreadyExistsException")({Code: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class BaseExceptionError extends Schema.TaggedError<BaseExceptionError>()("BaseException", BaseException) {};
-export class InternalExceptionError extends Schema.TaggedError<InternalExceptionError>()("InternalException", InternalException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class InvalidTypeExceptionError extends Schema.TaggedError<InvalidTypeExceptionError>()("InvalidTypeException", InvalidTypeException) {};
-export class DisabledOperationExceptionError extends Schema.TaggedError<DisabledOperationExceptionError>()("DisabledOperationException", DisabledOperationException) {};
-export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException) {};
-export class ResourceAlreadyExistsExceptionError extends Schema.TaggedError<ResourceAlreadyExistsExceptionError>()("ResourceAlreadyExistsException", ResourceAlreadyExistsException) {};
+export class BaseExceptionError extends Schema.TaggedError<BaseExceptionError>()("BaseException", BaseException.fields) {};
+export class InternalExceptionError extends Schema.TaggedError<InternalExceptionError>()("InternalException", InternalException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class InvalidTypeExceptionError extends Schema.TaggedError<InvalidTypeExceptionError>()("InvalidTypeException", InvalidTypeException.fields) {};
+export class DisabledOperationExceptionError extends Schema.TaggedError<DisabledOperationExceptionError>()("DisabledOperationException", DisabledOperationException.fields) {};
+export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException.fields) {};
+export class ResourceAlreadyExistsExceptionError extends Schema.TaggedError<ResourceAlreadyExistsExceptionError>()("ResourceAlreadyExistsException", ResourceAlreadyExistsException.fields) {};
 
 //# Operations
 export const describeDomains = /*#__PURE__*/ makeOperation(() => Operation({ version: "2013-01-01", uri: "/", method: "POST", sdkId: "CloudSearch", sigV4ServiceName: "cloudsearch", name: "A9SearchCloudConfigService2013.DescribeDomains" }, DescribeDomainsRequest, DescribeDomainsResponse, [BaseExceptionError, InternalExceptionError]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAWSXMLError);

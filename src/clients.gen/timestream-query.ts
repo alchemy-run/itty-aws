@@ -3,111 +3,111 @@ import { FormatAwsJSON10Request,FormatJSONResponse,FormatAwsRestJSONError, makeO
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const DescribeAccountSettingsRequest = Schema.Struct({});
-export const DescribeEndpointsRequest = Schema.Struct({});
+export class DescribeAccountSettingsRequest extends Schema.Class<DescribeAccountSettingsRequest>("DescribeAccountSettingsRequest")({}) {}
+export class DescribeEndpointsRequest extends Schema.Class<DescribeEndpointsRequest>("DescribeEndpointsRequest")({}) {}
 export const TagKeyList = Schema.Array(Schema.String);
-export const CancelQueryRequest = Schema.Struct({QueryId: Schema.String});
-export const DeleteScheduledQueryRequest = Schema.Struct({ScheduledQueryArn: Schema.String});
-export const DescribeScheduledQueryRequest = Schema.Struct({ScheduledQueryArn: Schema.String});
-export const ListScheduledQueriesRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceRequest = Schema.Struct({ResourceARN: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const PrepareQueryRequest = Schema.Struct({QueryString: Schema.String, ValidateOnly: Schema.optional(Schema.Boolean)});
-export const Tag = Schema.Struct({Key: Schema.String, Value: Schema.String});
+export class CancelQueryRequest extends Schema.Class<CancelQueryRequest>("CancelQueryRequest")({QueryId: Schema.String}) {}
+export class DeleteScheduledQueryRequest extends Schema.Class<DeleteScheduledQueryRequest>("DeleteScheduledQueryRequest")({ScheduledQueryArn: Schema.String}) {}
+export class DescribeScheduledQueryRequest extends Schema.Class<DescribeScheduledQueryRequest>("DescribeScheduledQueryRequest")({ScheduledQueryArn: Schema.String}) {}
+export class ListScheduledQueriesRequest extends Schema.Class<ListScheduledQueriesRequest>("ListScheduledQueriesRequest")({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({ResourceARN: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class PrepareQueryRequest extends Schema.Class<PrepareQueryRequest>("PrepareQueryRequest")({QueryString: Schema.String, ValidateOnly: Schema.optional(Schema.Boolean)}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.String, Value: Schema.String}) {}
 export const TagList = Schema.Array(Tag);
-export const TagResourceRequest = Schema.Struct({ResourceARN: Schema.String, Tags: TagList});
-export const TagResourceResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({ResourceARN: Schema.String, TagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
-export const UpdateScheduledQueryRequest = Schema.Struct({ScheduledQueryArn: Schema.String, State: Schema.String});
-export const ScheduleConfiguration = Schema.Struct({ScheduleExpression: Schema.String});
-export const Endpoint = Schema.Struct({Address: Schema.String, CachePeriodInMinutes: Schema.Number});
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({ResourceARN: Schema.String, Tags: TagList}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({ResourceARN: Schema.String, TagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class UpdateScheduledQueryRequest extends Schema.Class<UpdateScheduledQueryRequest>("UpdateScheduledQueryRequest")({ScheduledQueryArn: Schema.String, State: Schema.String}) {}
+export class ScheduleConfiguration extends Schema.Class<ScheduleConfiguration>("ScheduleConfiguration")({ScheduleExpression: Schema.String}) {}
+export class Endpoint extends Schema.Class<Endpoint>("Endpoint")({Address: Schema.String, CachePeriodInMinutes: Schema.Number}) {}
 export const Endpoints = Schema.Array(Endpoint);
-export const ScheduledQueryInsights = Schema.Struct({Mode: Schema.String});
-export const QueryInsights = Schema.Struct({Mode: Schema.String});
-export const CancelQueryResponse = Schema.Struct({CancellationMessage: Schema.optional(Schema.String)});
-export const AccessDeniedException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DescribeEndpointsResponse = Schema.Struct({Endpoints: Endpoints});
-export const ExecuteScheduledQueryRequest = Schema.Struct({ScheduledQueryArn: Schema.String, InvocationTime: Schema.Date, ClientToken: Schema.optional(Schema.String), QueryInsights: Schema.optional(ScheduledQueryInsights)});
-export const ListTagsForResourceResponse = Schema.Struct({Tags: TagList, NextToken: Schema.optional(Schema.String)});
-export const QueryRequest = Schema.Struct({QueryString: Schema.String, ClientToken: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxRows: Schema.optional(Schema.Number), QueryInsights: Schema.optional(QueryInsights)});
-export const InvalidEndpointException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String), ScheduledQueryArn: Schema.optional(Schema.String)});
-export const InternalServerException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const SnsConfiguration = Schema.Struct({TopicArn: Schema.String});
-export const S3Configuration = Schema.Struct({BucketName: Schema.String, ObjectKeyPrefix: Schema.optional(Schema.String), EncryptionOption: Schema.optional(Schema.String)});
-export const ExecutionStats = Schema.Struct({ExecutionTimeInMillis: Schema.optional(Schema.Number), DataWrites: Schema.optional(Schema.Number), BytesMetered: Schema.optional(Schema.Number), CumulativeBytesScanned: Schema.optional(Schema.Number), RecordsIngested: Schema.optional(Schema.Number), QueryResultRows: Schema.optional(Schema.Number)});
+export class ScheduledQueryInsights extends Schema.Class<ScheduledQueryInsights>("ScheduledQueryInsights")({Mode: Schema.String}) {}
+export class QueryInsights extends Schema.Class<QueryInsights>("QueryInsights")({Mode: Schema.String}) {}
+export class CancelQueryResponse extends Schema.Class<CancelQueryResponse>("CancelQueryResponse")({CancellationMessage: Schema.optional(Schema.String)}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({Message: Schema.optional(Schema.String)}) {}
+export class DescribeEndpointsResponse extends Schema.Class<DescribeEndpointsResponse>("DescribeEndpointsResponse")({Endpoints: Endpoints}) {}
+export class ExecuteScheduledQueryRequest extends Schema.Class<ExecuteScheduledQueryRequest>("ExecuteScheduledQueryRequest")({ScheduledQueryArn: Schema.String, InvocationTime: Schema.Date, ClientToken: Schema.optional(Schema.String), QueryInsights: Schema.optional(ScheduledQueryInsights)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({Tags: TagList, NextToken: Schema.optional(Schema.String)}) {}
+export class QueryRequest extends Schema.Class<QueryRequest>("QueryRequest")({QueryString: Schema.String, ClientToken: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxRows: Schema.optional(Schema.Number), QueryInsights: Schema.optional(QueryInsights)}) {}
+export class InvalidEndpointException extends Schema.Class<InvalidEndpointException>("InvalidEndpointException")({Message: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({Message: Schema.optional(Schema.String), ScheduledQueryArn: Schema.optional(Schema.String)}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({Message: Schema.optional(Schema.String)}) {}
+export class SnsConfiguration extends Schema.Class<SnsConfiguration>("SnsConfiguration")({TopicArn: Schema.String}) {}
+export class S3Configuration extends Schema.Class<S3Configuration>("S3Configuration")({BucketName: Schema.String, ObjectKeyPrefix: Schema.optional(Schema.String), EncryptionOption: Schema.optional(Schema.String)}) {}
+export class ExecutionStats extends Schema.Class<ExecutionStats>("ExecutionStats")({ExecutionTimeInMillis: Schema.optional(Schema.Number), DataWrites: Schema.optional(Schema.Number), BytesMetered: Schema.optional(Schema.Number), CumulativeBytesScanned: Schema.optional(Schema.Number), RecordsIngested: Schema.optional(Schema.Number), QueryResultRows: Schema.optional(Schema.Number)}) {}
 export const PartitionKeyList = Schema.Array(Schema.String);
-export const QuerySpatialCoverageMax = Schema.Struct({Value: Schema.optional(Schema.Number), TableArn: Schema.optional(Schema.String), PartitionKey: Schema.optional(PartitionKeyList)});
-export const QuerySpatialCoverage = Schema.Struct({Max: Schema.optional(QuerySpatialCoverageMax)});
-export const QueryTemporalRangeMax = Schema.Struct({Value: Schema.optional(Schema.Number), TableArn: Schema.optional(Schema.String)});
-export const QueryTemporalRange = Schema.Struct({Max: Schema.optional(QueryTemporalRangeMax)});
-export const ScheduledQueryInsightsResponse = Schema.Struct({QuerySpatialCoverage: Schema.optional(QuerySpatialCoverage), QueryTemporalRange: Schema.optional(QueryTemporalRange), QueryTableCount: Schema.optional(Schema.Number), OutputRows: Schema.optional(Schema.Number), OutputBytes: Schema.optional(Schema.Number)});
-export const S3ReportLocation = Schema.Struct({BucketName: Schema.optional(Schema.String), ObjectKey: Schema.optional(Schema.String)});
-export const ErrorReportLocation = Schema.Struct({S3ReportLocation: Schema.optional(S3ReportLocation)});
-export const ScheduledQueryRunSummary = Schema.Struct({InvocationTime: Schema.optional(Schema.Date), TriggerTime: Schema.optional(Schema.Date), RunStatus: Schema.optional(Schema.String), ExecutionStats: Schema.optional(ExecutionStats), QueryInsightsResponse: Schema.optional(ScheduledQueryInsightsResponse), ErrorReportLocation: Schema.optional(ErrorReportLocation), FailureReason: Schema.optional(Schema.String)});
+export class QuerySpatialCoverageMax extends Schema.Class<QuerySpatialCoverageMax>("QuerySpatialCoverageMax")({Value: Schema.optional(Schema.Number), TableArn: Schema.optional(Schema.String), PartitionKey: Schema.optional(PartitionKeyList)}) {}
+export class QuerySpatialCoverage extends Schema.Class<QuerySpatialCoverage>("QuerySpatialCoverage")({Max: Schema.optional(QuerySpatialCoverageMax)}) {}
+export class QueryTemporalRangeMax extends Schema.Class<QueryTemporalRangeMax>("QueryTemporalRangeMax")({Value: Schema.optional(Schema.Number), TableArn: Schema.optional(Schema.String)}) {}
+export class QueryTemporalRange extends Schema.Class<QueryTemporalRange>("QueryTemporalRange")({Max: Schema.optional(QueryTemporalRangeMax)}) {}
+export class ScheduledQueryInsightsResponse extends Schema.Class<ScheduledQueryInsightsResponse>("ScheduledQueryInsightsResponse")({QuerySpatialCoverage: Schema.optional(QuerySpatialCoverage), QueryTemporalRange: Schema.optional(QueryTemporalRange), QueryTableCount: Schema.optional(Schema.Number), OutputRows: Schema.optional(Schema.Number), OutputBytes: Schema.optional(Schema.Number)}) {}
+export class S3ReportLocation extends Schema.Class<S3ReportLocation>("S3ReportLocation")({BucketName: Schema.optional(Schema.String), ObjectKey: Schema.optional(Schema.String)}) {}
+export class ErrorReportLocation extends Schema.Class<ErrorReportLocation>("ErrorReportLocation")({S3ReportLocation: Schema.optional(S3ReportLocation)}) {}
+export class ScheduledQueryRunSummary extends Schema.Class<ScheduledQueryRunSummary>("ScheduledQueryRunSummary")({InvocationTime: Schema.optional(Schema.Date), TriggerTime: Schema.optional(Schema.Date), RunStatus: Schema.optional(Schema.String), ExecutionStats: Schema.optional(ExecutionStats), QueryInsightsResponse: Schema.optional(ScheduledQueryInsightsResponse), ErrorReportLocation: Schema.optional(ErrorReportLocation), FailureReason: Schema.optional(Schema.String)}) {}
 export const ScheduledQueryRunSummaryList = Schema.Array(ScheduledQueryRunSummary);
-export const AccountSettingsNotificationConfiguration = Schema.Struct({SnsConfiguration: Schema.optional(SnsConfiguration), RoleArn: Schema.String});
-export const ProvisionedCapacityRequest = Schema.Struct({TargetQueryTCU: Schema.Number, NotificationConfiguration: Schema.optional(AccountSettingsNotificationConfiguration)});
-export const NotificationConfiguration = Schema.Struct({SnsConfiguration: SnsConfiguration});
-export const ErrorReportConfiguration = Schema.Struct({S3Configuration: S3Configuration});
-export const ColumnInfo = Schema.Struct({Name: Schema.optional(Schema.String), Type: Type});
-export const ColumnInfoList = Schema.Array(ColumnInfo);
-export const Type = Schema.Struct({ScalarType: Schema.optional(Schema.String), ArrayColumnInfo: Schema.optional(ColumnInfo), TimeSeriesMeasureValueColumnInfo: Schema.optional(ColumnInfo), RowColumnInfo: Schema.optional(ColumnInfoList)});
-export const ParameterMapping = Schema.Struct({Name: Schema.String, Type: Type});
+export class AccountSettingsNotificationConfiguration extends Schema.Class<AccountSettingsNotificationConfiguration>("AccountSettingsNotificationConfiguration")({SnsConfiguration: Schema.optional(SnsConfiguration), RoleArn: Schema.String}) {}
+export class ProvisionedCapacityRequest extends Schema.Class<ProvisionedCapacityRequest>("ProvisionedCapacityRequest")({TargetQueryTCU: Schema.Number, NotificationConfiguration: Schema.optional(AccountSettingsNotificationConfiguration)}) {}
+export class NotificationConfiguration extends Schema.Class<NotificationConfiguration>("NotificationConfiguration")({SnsConfiguration: SnsConfiguration}) {}
+export class ErrorReportConfiguration extends Schema.Class<ErrorReportConfiguration>("ErrorReportConfiguration")({S3Configuration: S3Configuration}) {}
+export class Type extends Schema.Class<Type>("Type")({ScalarType: Schema.optional(Schema.String), ArrayColumnInfo: Schema.optional(Schema.suspend((): Schema.Schema<ColumnInfo> => ColumnInfo)), TimeSeriesMeasureValueColumnInfo: Schema.optional(Schema.suspend((): Schema.Schema<ColumnInfo> => ColumnInfo)), RowColumnInfo: Schema.optional(Schema.suspend(() => ColumnInfoList))}) {}
+export class ParameterMapping extends Schema.Class<ParameterMapping>("ParameterMapping")({Name: Schema.String, Type: Type}) {}
 export const ParameterMappingList = Schema.Array(ParameterMapping);
-export const QueryComputeRequest = Schema.Struct({ComputeMode: Schema.optional(Schema.String), ProvisionedCapacity: Schema.optional(ProvisionedCapacityRequest)});
-export const DimensionMapping = Schema.Struct({Name: Schema.String, DimensionValueType: Schema.String});
+export class QueryComputeRequest extends Schema.Class<QueryComputeRequest>("QueryComputeRequest")({ComputeMode: Schema.optional(Schema.String), ProvisionedCapacity: Schema.optional(ProvisionedCapacityRequest)}) {}
+export class DimensionMapping extends Schema.Class<DimensionMapping>("DimensionMapping")({Name: Schema.String, DimensionValueType: Schema.String}) {}
 export const DimensionMappingList = Schema.Array(DimensionMapping);
-export const MultiMeasureAttributeMapping = Schema.Struct({SourceColumn: Schema.String, TargetMultiMeasureAttributeName: Schema.optional(Schema.String), MeasureValueType: Schema.String});
+export class MultiMeasureAttributeMapping extends Schema.Class<MultiMeasureAttributeMapping>("MultiMeasureAttributeMapping")({SourceColumn: Schema.String, TargetMultiMeasureAttributeName: Schema.optional(Schema.String), MeasureValueType: Schema.String}) {}
 export const MultiMeasureAttributeMappingList = Schema.Array(MultiMeasureAttributeMapping);
-export const MixedMeasureMapping = Schema.Struct({MeasureName: Schema.optional(Schema.String), SourceColumn: Schema.optional(Schema.String), TargetMeasureName: Schema.optional(Schema.String), MeasureValueType: Schema.String, MultiMeasureAttributeMappings: Schema.optional(MultiMeasureAttributeMappingList)});
+export class MixedMeasureMapping extends Schema.Class<MixedMeasureMapping>("MixedMeasureMapping")({MeasureName: Schema.optional(Schema.String), SourceColumn: Schema.optional(Schema.String), TargetMeasureName: Schema.optional(Schema.String), MeasureValueType: Schema.String, MultiMeasureAttributeMappings: Schema.optional(MultiMeasureAttributeMappingList)}) {}
 export const MixedMeasureMappingList = Schema.Array(MixedMeasureMapping);
-export const LastUpdate = Schema.Struct({TargetQueryTCU: Schema.optional(Schema.Number), Status: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String)});
-export const ThrottlingException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ValidationException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ServiceQuotaExceededException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const UpdateAccountSettingsRequest = Schema.Struct({MaxQueryTCU: Schema.optional(Schema.Number), QueryPricingModel: Schema.optional(Schema.String), QueryCompute: Schema.optional(QueryComputeRequest)});
-export const ProvisionedCapacityResponse = Schema.Struct({ActiveQueryTCU: Schema.optional(Schema.Number), NotificationConfiguration: Schema.optional(AccountSettingsNotificationConfiguration), LastUpdate: Schema.optional(LastUpdate)});
-export const QueryComputeResponse = Schema.Struct({ComputeMode: Schema.optional(Schema.String), ProvisionedCapacity: Schema.optional(ProvisionedCapacityResponse)});
-export const SelectColumn = Schema.Struct({Name: Schema.optional(Schema.String), Type: Schema.optional(Type), DatabaseName: Schema.optional(Schema.String), TableName: Schema.optional(Schema.String), Aliased: Schema.optional(Schema.Boolean)});
+export class LastUpdate extends Schema.Class<LastUpdate>("LastUpdate")({TargetQueryTCU: Schema.optional(Schema.Number), Status: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({Message: Schema.optional(Schema.String)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({Message: Schema.optional(Schema.String)}) {}
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({Message: Schema.optional(Schema.String)}) {}
+export class UpdateAccountSettingsRequest extends Schema.Class<UpdateAccountSettingsRequest>("UpdateAccountSettingsRequest")({MaxQueryTCU: Schema.optional(Schema.Number), QueryPricingModel: Schema.optional(Schema.String), QueryCompute: Schema.optional(QueryComputeRequest)}) {}
+export class ProvisionedCapacityResponse extends Schema.Class<ProvisionedCapacityResponse>("ProvisionedCapacityResponse")({ActiveQueryTCU: Schema.optional(Schema.Number), NotificationConfiguration: Schema.optional(AccountSettingsNotificationConfiguration), LastUpdate: Schema.optional(LastUpdate)}) {}
+export class QueryComputeResponse extends Schema.Class<QueryComputeResponse>("QueryComputeResponse")({ComputeMode: Schema.optional(Schema.String), ProvisionedCapacity: Schema.optional(ProvisionedCapacityResponse)}) {}
+export class SelectColumn extends Schema.Class<SelectColumn>("SelectColumn")({Name: Schema.optional(Schema.String), Type: Schema.optional(Type), DatabaseName: Schema.optional(Schema.String), TableName: Schema.optional(Schema.String), Aliased: Schema.optional(Schema.Boolean)}) {}
 export const SelectColumnList = Schema.Array(SelectColumn);
-export const QueryStatus = Schema.Struct({ProgressPercentage: Schema.optional(Schema.Number), CumulativeBytesScanned: Schema.optional(Schema.Number), CumulativeBytesMetered: Schema.optional(Schema.Number)});
-export const MultiMeasureMappings = Schema.Struct({TargetMultiMeasureName: Schema.optional(Schema.String), MultiMeasureAttributeMappings: MultiMeasureAttributeMappingList});
-export const TimestreamDestination = Schema.Struct({DatabaseName: Schema.optional(Schema.String), TableName: Schema.optional(Schema.String)});
-export const DescribeAccountSettingsResponse = Schema.Struct({MaxQueryTCU: Schema.optional(Schema.Number), QueryPricingModel: Schema.optional(Schema.String), QueryCompute: Schema.optional(QueryComputeResponse)});
-export const PrepareQueryResponse = Schema.Struct({QueryString: Schema.String, Columns: SelectColumnList, Parameters: ParameterMappingList});
-export const UpdateAccountSettingsResponse = Schema.Struct({MaxQueryTCU: Schema.optional(Schema.Number), QueryPricingModel: Schema.optional(Schema.String), QueryCompute: Schema.optional(QueryComputeResponse)});
-export const TimestreamConfiguration = Schema.Struct({DatabaseName: Schema.String, TableName: Schema.String, TimeColumn: Schema.String, DimensionMappings: DimensionMappingList, MultiMeasureMappings: Schema.optional(MultiMeasureMappings), MixedMeasureMappings: Schema.optional(MixedMeasureMappingList), MeasureNameColumn: Schema.optional(Schema.String)});
-export const TargetDestination = Schema.Struct({TimestreamDestination: Schema.optional(TimestreamDestination)});
-export const TargetConfiguration = Schema.Struct({TimestreamConfiguration: TimestreamConfiguration});
-export const ScheduledQuery = Schema.Struct({Arn: Schema.String, Name: Schema.String, CreationTime: Schema.optional(Schema.Date), State: Schema.String, PreviousInvocationTime: Schema.optional(Schema.Date), NextInvocationTime: Schema.optional(Schema.Date), ErrorReportConfiguration: Schema.optional(ErrorReportConfiguration), TargetDestination: Schema.optional(TargetDestination), LastRunStatus: Schema.optional(Schema.String)});
+export class ColumnInfo extends Schema.Class<ColumnInfo>("ColumnInfo")({Name: Schema.optional(Schema.String), Type: Schema.suspend((): Schema.Schema<Type> => Type)}) {}
+export const ColumnInfoList = Schema.Array(Schema.suspend((): Schema.Schema<ColumnInfo> => ColumnInfo));
+export class QueryStatus extends Schema.Class<QueryStatus>("QueryStatus")({ProgressPercentage: Schema.optional(Schema.Number), CumulativeBytesScanned: Schema.optional(Schema.Number), CumulativeBytesMetered: Schema.optional(Schema.Number)}) {}
+export class MultiMeasureMappings extends Schema.Class<MultiMeasureMappings>("MultiMeasureMappings")({TargetMultiMeasureName: Schema.optional(Schema.String), MultiMeasureAttributeMappings: MultiMeasureAttributeMappingList}) {}
+export class TimestreamDestination extends Schema.Class<TimestreamDestination>("TimestreamDestination")({DatabaseName: Schema.optional(Schema.String), TableName: Schema.optional(Schema.String)}) {}
+export class DescribeAccountSettingsResponse extends Schema.Class<DescribeAccountSettingsResponse>("DescribeAccountSettingsResponse")({MaxQueryTCU: Schema.optional(Schema.Number), QueryPricingModel: Schema.optional(Schema.String), QueryCompute: Schema.optional(QueryComputeResponse)}) {}
+export class PrepareQueryResponse extends Schema.Class<PrepareQueryResponse>("PrepareQueryResponse")({QueryString: Schema.String, Columns: SelectColumnList, Parameters: ParameterMappingList}) {}
+export class UpdateAccountSettingsResponse extends Schema.Class<UpdateAccountSettingsResponse>("UpdateAccountSettingsResponse")({MaxQueryTCU: Schema.optional(Schema.Number), QueryPricingModel: Schema.optional(Schema.String), QueryCompute: Schema.optional(QueryComputeResponse)}) {}
+export class TimestreamConfiguration extends Schema.Class<TimestreamConfiguration>("TimestreamConfiguration")({DatabaseName: Schema.String, TableName: Schema.String, TimeColumn: Schema.String, DimensionMappings: DimensionMappingList, MultiMeasureMappings: Schema.optional(MultiMeasureMappings), MixedMeasureMappings: Schema.optional(MixedMeasureMappingList), MeasureNameColumn: Schema.optional(Schema.String)}) {}
+export class TargetDestination extends Schema.Class<TargetDestination>("TargetDestination")({TimestreamDestination: Schema.optional(TimestreamDestination)}) {}
+export class TargetConfiguration extends Schema.Class<TargetConfiguration>("TargetConfiguration")({TimestreamConfiguration: TimestreamConfiguration}) {}
+export class ScheduledQuery extends Schema.Class<ScheduledQuery>("ScheduledQuery")({Arn: Schema.String, Name: Schema.String, CreationTime: Schema.optional(Schema.Date), State: Schema.String, PreviousInvocationTime: Schema.optional(Schema.Date), NextInvocationTime: Schema.optional(Schema.Date), ErrorReportConfiguration: Schema.optional(ErrorReportConfiguration), TargetDestination: Schema.optional(TargetDestination), LastRunStatus: Schema.optional(Schema.String)}) {}
 export const ScheduledQueryList = Schema.Array(ScheduledQuery);
-export const TimeSeriesDataPointList = Schema.Array(TimeSeriesDataPoint);
-export const DatumList = Schema.Array(Datum);
-export const Row = Schema.Struct({Data: DatumList});
-export const Datum = Schema.Struct({ScalarValue: Schema.optional(Schema.String), TimeSeriesValue: Schema.optional(TimeSeriesDataPointList), ArrayValue: Schema.optional(DatumList), RowValue: Schema.optional(Row), NullValue: Schema.optional(Schema.Boolean)});
-export const TimeSeriesDataPoint = Schema.Struct({Time: Schema.String, Value: Datum});
-export const CreateScheduledQueryRequest = Schema.Struct({Name: Schema.String, QueryString: Schema.String, ScheduleConfiguration: ScheduleConfiguration, NotificationConfiguration: NotificationConfiguration, TargetConfiguration: Schema.optional(TargetConfiguration), ClientToken: Schema.optional(Schema.String), ScheduledQueryExecutionRoleArn: Schema.String, Tags: Schema.optional(TagList), KmsKeyId: Schema.optional(Schema.String), ErrorReportConfiguration: ErrorReportConfiguration});
-export const ListScheduledQueriesResponse = Schema.Struct({ScheduledQueries: ScheduledQueryList, NextToken: Schema.optional(Schema.String)});
-export const ScheduledQueryDescription = Schema.Struct({Arn: Schema.String, Name: Schema.String, QueryString: Schema.String, CreationTime: Schema.optional(Schema.Date), State: Schema.String, PreviousInvocationTime: Schema.optional(Schema.Date), NextInvocationTime: Schema.optional(Schema.Date), ScheduleConfiguration: ScheduleConfiguration, NotificationConfiguration: NotificationConfiguration, TargetConfiguration: Schema.optional(TargetConfiguration), ScheduledQueryExecutionRoleArn: Schema.optional(Schema.String), KmsKeyId: Schema.optional(Schema.String), ErrorReportConfiguration: Schema.optional(ErrorReportConfiguration), LastRunSummary: Schema.optional(ScheduledQueryRunSummary), RecentlyFailedRuns: Schema.optional(ScheduledQueryRunSummaryList)});
-export const RowList = Schema.Array(Row);
-export const QueryInsightsResponse = Schema.Struct({QuerySpatialCoverage: Schema.optional(QuerySpatialCoverage), QueryTemporalRange: Schema.optional(QueryTemporalRange), QueryTableCount: Schema.optional(Schema.Number), OutputRows: Schema.optional(Schema.Number), OutputBytes: Schema.optional(Schema.Number), UnloadPartitionCount: Schema.optional(Schema.Number), UnloadWrittenRows: Schema.optional(Schema.Number), UnloadWrittenBytes: Schema.optional(Schema.Number)});
-export const CreateScheduledQueryResponse = Schema.Struct({Arn: Schema.String});
-export const DescribeScheduledQueryResponse = Schema.Struct({ScheduledQuery: ScheduledQueryDescription});
-export const QueryResponse = Schema.Struct({QueryId: Schema.String, NextToken: Schema.optional(Schema.String), Rows: RowList, ColumnInfo: ColumnInfoList, QueryStatus: Schema.optional(QueryStatus), QueryInsightsResponse: Schema.optional(QueryInsightsResponse)});
-export const ConflictException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const QueryExecutionException = Schema.Struct({Message: Schema.optional(Schema.String)});
+export class TimeSeriesDataPoint extends Schema.Class<TimeSeriesDataPoint>("TimeSeriesDataPoint")({Time: Schema.String, Value: Schema.suspend((): Schema.Schema<Datum> => Datum)}) {}
+export const TimeSeriesDataPointList = Schema.Array(Schema.suspend((): Schema.Schema<TimeSeriesDataPoint> => TimeSeriesDataPoint));
+export class CreateScheduledQueryRequest extends Schema.Class<CreateScheduledQueryRequest>("CreateScheduledQueryRequest")({Name: Schema.String, QueryString: Schema.String, ScheduleConfiguration: ScheduleConfiguration, NotificationConfiguration: NotificationConfiguration, TargetConfiguration: Schema.optional(TargetConfiguration), ClientToken: Schema.optional(Schema.String), ScheduledQueryExecutionRoleArn: Schema.String, Tags: Schema.optional(TagList), KmsKeyId: Schema.optional(Schema.String), ErrorReportConfiguration: ErrorReportConfiguration}) {}
+export class ListScheduledQueriesResponse extends Schema.Class<ListScheduledQueriesResponse>("ListScheduledQueriesResponse")({ScheduledQueries: ScheduledQueryList, NextToken: Schema.optional(Schema.String)}) {}
+export class Datum extends Schema.Class<Datum>("Datum")({ScalarValue: Schema.optional(Schema.String), TimeSeriesValue: Schema.optional(Schema.suspend(() => TimeSeriesDataPointList)), ArrayValue: Schema.optional(Schema.suspend(() => DatumList)), RowValue: Schema.optional(Schema.suspend((): Schema.Schema<Row> => Row)), NullValue: Schema.optional(Schema.Boolean)}) {}
+export const DatumList = Schema.Array(Schema.suspend((): Schema.Schema<Datum> => Datum));
+export class ScheduledQueryDescription extends Schema.Class<ScheduledQueryDescription>("ScheduledQueryDescription")({Arn: Schema.String, Name: Schema.String, QueryString: Schema.String, CreationTime: Schema.optional(Schema.Date), State: Schema.String, PreviousInvocationTime: Schema.optional(Schema.Date), NextInvocationTime: Schema.optional(Schema.Date), ScheduleConfiguration: ScheduleConfiguration, NotificationConfiguration: NotificationConfiguration, TargetConfiguration: Schema.optional(TargetConfiguration), ScheduledQueryExecutionRoleArn: Schema.optional(Schema.String), KmsKeyId: Schema.optional(Schema.String), ErrorReportConfiguration: Schema.optional(ErrorReportConfiguration), LastRunSummary: Schema.optional(ScheduledQueryRunSummary), RecentlyFailedRuns: Schema.optional(ScheduledQueryRunSummaryList)}) {}
+export class Row extends Schema.Class<Row>("Row")({Data: Schema.suspend(() => DatumList)}) {}
+export const RowList = Schema.Array(Schema.suspend((): Schema.Schema<Row> => Row));
+export class QueryInsightsResponse extends Schema.Class<QueryInsightsResponse>("QueryInsightsResponse")({QuerySpatialCoverage: Schema.optional(QuerySpatialCoverage), QueryTemporalRange: Schema.optional(QueryTemporalRange), QueryTableCount: Schema.optional(Schema.Number), OutputRows: Schema.optional(Schema.Number), OutputBytes: Schema.optional(Schema.Number), UnloadPartitionCount: Schema.optional(Schema.Number), UnloadWrittenRows: Schema.optional(Schema.Number), UnloadWrittenBytes: Schema.optional(Schema.Number)}) {}
+export class CreateScheduledQueryResponse extends Schema.Class<CreateScheduledQueryResponse>("CreateScheduledQueryResponse")({Arn: Schema.String}) {}
+export class DescribeScheduledQueryResponse extends Schema.Class<DescribeScheduledQueryResponse>("DescribeScheduledQueryResponse")({ScheduledQuery: ScheduledQueryDescription}) {}
+export class QueryResponse extends Schema.Class<QueryResponse>("QueryResponse")({QueryId: Schema.String, NextToken: Schema.optional(Schema.String), Rows: RowList, ColumnInfo: ColumnInfoList, QueryStatus: Schema.optional(QueryStatus), QueryInsightsResponse: Schema.optional(QueryInsightsResponse)}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({Message: Schema.optional(Schema.String)}) {}
+export class QueryExecutionException extends Schema.Class<QueryExecutionException>("QueryExecutionException")({Message: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class InvalidEndpointExceptionError extends Schema.TaggedError<InvalidEndpointExceptionError>()("InvalidEndpointException", InvalidEndpointException) {};
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class QueryExecutionExceptionError extends Schema.TaggedError<QueryExecutionExceptionError>()("QueryExecutionException", QueryExecutionException) {};
+export class InvalidEndpointExceptionError extends Schema.TaggedError<InvalidEndpointExceptionError>()("InvalidEndpointException", InvalidEndpointException.fields) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class QueryExecutionExceptionError extends Schema.TaggedError<QueryExecutionExceptionError>()("QueryExecutionException", QueryExecutionException.fields) {};
 
 //# Operations
 export const describeEndpoints = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-11-01", uri: "/", method: "POST", sdkId: "Timestream Query", sigV4ServiceName: "timestream", name: "Timestream_20181101.DescribeEndpoints" }, DescribeEndpointsRequest, DescribeEndpointsResponse, [InternalServerExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);

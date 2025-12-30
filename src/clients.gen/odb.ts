@@ -3,54 +3,61 @@ import { FormatAwsJSON10Request,FormatJSONResponse,FormatAwsRestJSONError, makeO
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const GetOciOnboardingStatusInput = Schema.Struct({});
-export const InitializeServiceInput = Schema.Struct({});
-export const InitializeServiceOutput = Schema.Struct({});
+export class GetOciOnboardingStatusInput extends Schema.Class<GetOciOnboardingStatusInput>("GetOciOnboardingStatusInput")({}) {}
 export const TagKeys = Schema.Array(Schema.String);
-export const AcceptMarketplaceRegistrationInput = Schema.Struct({marketplaceRegistrationToken: Schema.String});
-export const AcceptMarketplaceRegistrationOutput = Schema.Struct({});
-export const GetOciOnboardingStatusOutput = Schema.Struct({status: Schema.optional(Schema.String), existingTenancyActivationLink: Schema.optional(Schema.String), newTenancyActivationLink: Schema.optional(Schema.String)});
-export const AccessDeniedException = Schema.Struct({message: Schema.String});
-export const ListDbSystemShapesInput = Schema.Struct({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String), availabilityZone: Schema.optional(Schema.String), availabilityZoneId: Schema.optional(Schema.String)});
-export const ListGiVersionsInput = Schema.Struct({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String), shape: Schema.optional(Schema.String)});
-export const ListSystemVersionsInput = Schema.Struct({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String), giVersion: Schema.String, shape: Schema.String});
-export const ListTagsForResourceRequest = Schema.Struct({resourceArn: Schema.String});
-export const UntagResourceRequest = Schema.Struct({resourceArn: Schema.String, tagKeys: TagKeys});
-export const UntagResourceResponse = Schema.Struct({});
+export class AcceptMarketplaceRegistrationInput extends Schema.Class<AcceptMarketplaceRegistrationInput>("AcceptMarketplaceRegistrationInput")({marketplaceRegistrationToken: Schema.String}) {}
+export class AcceptMarketplaceRegistrationOutput extends Schema.Class<AcceptMarketplaceRegistrationOutput>("AcceptMarketplaceRegistrationOutput")({}) {}
+export class AssociateIamRoleToResourceInput extends Schema.Class<AssociateIamRoleToResourceInput>("AssociateIamRoleToResourceInput")({iamRoleArn: Schema.String, awsIntegration: Schema.String, resourceArn: Schema.String}) {}
+export class AssociateIamRoleToResourceOutput extends Schema.Class<AssociateIamRoleToResourceOutput>("AssociateIamRoleToResourceOutput")({}) {}
+export class DisassociateIamRoleFromResourceInput extends Schema.Class<DisassociateIamRoleFromResourceInput>("DisassociateIamRoleFromResourceInput")({iamRoleArn: Schema.String, awsIntegration: Schema.String, resourceArn: Schema.String}) {}
+export class DisassociateIamRoleFromResourceOutput extends Schema.Class<DisassociateIamRoleFromResourceOutput>("DisassociateIamRoleFromResourceOutput")({}) {}
+export class InitializeServiceInput extends Schema.Class<InitializeServiceInput>("InitializeServiceInput")({ociIdentityDomain: Schema.optional(Schema.Boolean)}) {}
+export class InitializeServiceOutput extends Schema.Class<InitializeServiceOutput>("InitializeServiceOutput")({}) {}
+export class ListDbSystemShapesInput extends Schema.Class<ListDbSystemShapesInput>("ListDbSystemShapesInput")({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String), availabilityZone: Schema.optional(Schema.String), availabilityZoneId: Schema.optional(Schema.String)}) {}
+export class ListGiVersionsInput extends Schema.Class<ListGiVersionsInput>("ListGiVersionsInput")({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String), shape: Schema.optional(Schema.String)}) {}
+export class ListSystemVersionsInput extends Schema.Class<ListSystemVersionsInput>("ListSystemVersionsInput")({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String), giVersion: Schema.String, shape: Schema.String}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({resourceArn: Schema.String}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({resourceArn: Schema.String, tagKeys: TagKeys}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class OciIdentityDomain extends Schema.Class<OciIdentityDomain>("OciIdentityDomain")({ociIdentityDomainId: Schema.optional(Schema.String), ociIdentityDomainResourceUrl: Schema.optional(Schema.String), ociIdentityDomainUrl: Schema.optional(Schema.String), status: Schema.optional(Schema.String), statusReason: Schema.optional(Schema.String), accountSetupCloudFormationUrl: Schema.optional(Schema.String)}) {}
 export const RequestTagMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const ConflictException = Schema.Struct({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String});
-export const InternalServerException = Schema.Struct({message: Schema.String, retryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))});
-export const ThrottlingException = Schema.Struct({message: Schema.String, retryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))});
-export const TagResourceRequest = Schema.Struct({resourceArn: Schema.String, tags: RequestTagMap});
-export const TagResourceResponse = Schema.Struct({});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String});
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({message: Schema.String}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({message: Schema.String, retryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))}) {}
+export class GetOciOnboardingStatusOutput extends Schema.Class<GetOciOnboardingStatusOutput>("GetOciOnboardingStatusOutput")({status: Schema.optional(Schema.String), existingTenancyActivationLink: Schema.optional(Schema.String), newTenancyActivationLink: Schema.optional(Schema.String), ociIdentityDomain: Schema.optional(OciIdentityDomain)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({message: Schema.String, retryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))}) {}
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({resourceArn: Schema.String, tags: RequestTagMap}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String}) {}
 export const StringList = Schema.Array(Schema.String);
-export const DbSystemShapeSummary = Schema.Struct({availableCoreCount: Schema.optional(Schema.Number), availableCoreCountPerNode: Schema.optional(Schema.Number), availableDataStorageInTBs: Schema.optional(Schema.Number), availableDataStoragePerServerInTBs: Schema.optional(Schema.Number), availableDbNodePerNodeInGBs: Schema.optional(Schema.Number), availableDbNodeStorageInGBs: Schema.optional(Schema.Number), availableMemoryInGBs: Schema.optional(Schema.Number), availableMemoryPerNodeInGBs: Schema.optional(Schema.Number), coreCountIncrement: Schema.optional(Schema.Number), maxStorageCount: Schema.optional(Schema.Number), maximumNodeCount: Schema.optional(Schema.Number), minCoreCountPerNode: Schema.optional(Schema.Number), minDataStorageInTBs: Schema.optional(Schema.Number), minDbNodeStoragePerNodeInGBs: Schema.optional(Schema.Number), minMemoryPerNodeInGBs: Schema.optional(Schema.Number), minStorageCount: Schema.optional(Schema.Number), minimumCoreCount: Schema.optional(Schema.Number), minimumNodeCount: Schema.optional(Schema.Number), runtimeMinimumCoreCount: Schema.optional(Schema.Number), shapeFamily: Schema.optional(Schema.String), shapeType: Schema.optional(Schema.String), name: Schema.optional(Schema.String), computeModel: Schema.optional(Schema.String), areServerTypesSupported: Schema.optional(Schema.Boolean)});
+export class DbSystemShapeSummary extends Schema.Class<DbSystemShapeSummary>("DbSystemShapeSummary")({availableCoreCount: Schema.optional(Schema.Number), availableCoreCountPerNode: Schema.optional(Schema.Number), availableDataStorageInTBs: Schema.optional(Schema.Number), availableDataStoragePerServerInTBs: Schema.optional(Schema.Number), availableDbNodePerNodeInGBs: Schema.optional(Schema.Number), availableDbNodeStorageInGBs: Schema.optional(Schema.Number), availableMemoryInGBs: Schema.optional(Schema.Number), availableMemoryPerNodeInGBs: Schema.optional(Schema.Number), coreCountIncrement: Schema.optional(Schema.Number), maxStorageCount: Schema.optional(Schema.Number), maximumNodeCount: Schema.optional(Schema.Number), minCoreCountPerNode: Schema.optional(Schema.Number), minDataStorageInTBs: Schema.optional(Schema.Number), minDbNodeStoragePerNodeInGBs: Schema.optional(Schema.Number), minMemoryPerNodeInGBs: Schema.optional(Schema.Number), minStorageCount: Schema.optional(Schema.Number), minimumCoreCount: Schema.optional(Schema.Number), minimumNodeCount: Schema.optional(Schema.Number), runtimeMinimumCoreCount: Schema.optional(Schema.Number), shapeFamily: Schema.optional(Schema.String), shapeType: Schema.optional(Schema.String), name: Schema.optional(Schema.String), computeModel: Schema.optional(Schema.String), areServerTypesSupported: Schema.optional(Schema.Boolean)}) {}
 export const DbSystemShapeList = Schema.Array(DbSystemShapeSummary);
-export const GiVersionSummary = Schema.Struct({version: Schema.optional(Schema.String)});
+export class GiVersionSummary extends Schema.Class<GiVersionSummary>("GiVersionSummary")({version: Schema.optional(Schema.String)}) {}
 export const GiVersionList = Schema.Array(GiVersionSummary);
-export const SystemVersionSummary = Schema.Struct({giVersion: Schema.optional(Schema.String), shape: Schema.optional(Schema.String), systemVersions: Schema.optional(StringList)});
+export class SystemVersionSummary extends Schema.Class<SystemVersionSummary>("SystemVersionSummary")({giVersion: Schema.optional(Schema.String), shape: Schema.optional(Schema.String), systemVersions: Schema.optional(StringList)}) {}
 export const SystemVersionList = Schema.Array(SystemVersionSummary);
 export const ResponseTagMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const ListDbSystemShapesOutput = Schema.Struct({nextToken: Schema.optional(Schema.String), dbSystemShapes: DbSystemShapeList});
-export const ListGiVersionsOutput = Schema.Struct({nextToken: Schema.optional(Schema.String), giVersions: GiVersionList});
-export const ListSystemVersionsOutput = Schema.Struct({nextToken: Schema.optional(Schema.String), systemVersions: SystemVersionList});
-export const ListTagsForResourceResponse = Schema.Struct({tags: Schema.optional(ResponseTagMap)});
-export const ServiceQuotaExceededException = Schema.Struct({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String, quotaCode: Schema.String});
-export const ValidationExceptionField = Schema.Struct({name: Schema.String, message: Schema.String});
+export class ListDbSystemShapesOutput extends Schema.Class<ListDbSystemShapesOutput>("ListDbSystemShapesOutput")({nextToken: Schema.optional(Schema.String), dbSystemShapes: DbSystemShapeList}) {}
+export class ListGiVersionsOutput extends Schema.Class<ListGiVersionsOutput>("ListGiVersionsOutput")({nextToken: Schema.optional(Schema.String), giVersions: GiVersionList}) {}
+export class ListSystemVersionsOutput extends Schema.Class<ListSystemVersionsOutput>("ListSystemVersionsOutput")({nextToken: Schema.optional(Schema.String), systemVersions: SystemVersionList}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({tags: Schema.optional(ResponseTagMap)}) {}
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({message: Schema.String, resourceId: Schema.String, resourceType: Schema.String, quotaCode: Schema.String}) {}
+export class ValidationExceptionField extends Schema.Class<ValidationExceptionField>("ValidationExceptionField")({name: Schema.String, message: Schema.String}) {}
 export const ValidationExceptionFieldList = Schema.Array(ValidationExceptionField);
-export const ValidationException = Schema.Struct({message: Schema.String, reason: Schema.String, fieldList: Schema.optional(ValidationExceptionFieldList)});
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({message: Schema.String, reason: Schema.String, fieldList: Schema.optional(ValidationExceptionFieldList)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
 
 //# Operations
+export const associateIamRoleToResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2024-08-20", uri: "/", method: "POST", sdkId: "odb", sigV4ServiceName: "odb", name: "Odb.AssociateIamRoleToResource" }, AssociateIamRoleToResourceInput, AssociateIamRoleToResourceOutput, [AccessDeniedExceptionError, ConflictExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const disassociateIamRoleFromResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2024-08-20", uri: "/", method: "POST", sdkId: "odb", sigV4ServiceName: "odb", name: "Odb.DisassociateIamRoleFromResource" }, DisassociateIamRoleFromResourceInput, DisassociateIamRoleFromResourceOutput, [AccessDeniedExceptionError, ConflictExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const getOciOnboardingStatus = /*#__PURE__*/ makeOperation(() => Operation({ version: "2024-08-20", uri: "/", method: "POST", sdkId: "odb", sigV4ServiceName: "odb", name: "Odb.GetOciOnboardingStatus" }, GetOciOnboardingStatusInput, GetOciOnboardingStatusOutput, [AccessDeniedExceptionError, InternalServerExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const initializeService = /*#__PURE__*/ makeOperation(() => Operation({ version: "2024-08-20", uri: "/", method: "POST", sdkId: "odb", sigV4ServiceName: "odb", name: "Odb.InitializeService" }, InitializeServiceInput, InitializeServiceOutput, [AccessDeniedExceptionError, InternalServerExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const untagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2024-08-20", uri: "/", method: "POST", sdkId: "odb", sigV4ServiceName: "odb", name: "Odb.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [ResourceNotFoundExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);

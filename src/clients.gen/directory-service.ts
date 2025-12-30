@@ -3,7 +3,7 @@ import { FormatAwsJSON11Request,FormatJSONResponse,FormatAwsRestJSONError, makeO
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const GetDirectoryLimitsRequest = Schema.Struct({});
+export class GetDirectoryLimitsRequest extends Schema.Class<GetDirectoryLimitsRequest>("GetDirectoryLimitsRequest")({}) {}
 export const DnsIpAddrs = Schema.Array(Schema.String);
 export const DnsIpv6Addrs = Schema.Array(Schema.String);
 export const RemoteDomainNames = Schema.Array(Schema.String);
@@ -15,330 +15,330 @@ export const TrustIds = Schema.Array(Schema.String);
 export const CidrIps = Schema.Array(Schema.String);
 export const CidrIpv6s = Schema.Array(Schema.String);
 export const TagKeys = Schema.Array(Schema.String);
-export const AcceptSharedDirectoryRequest = Schema.Struct({SharedDirectoryId: Schema.String});
-export const CancelSchemaExtensionRequest = Schema.Struct({DirectoryId: Schema.String, SchemaExtensionId: Schema.String});
-export const CancelSchemaExtensionResult = Schema.Struct({});
-export const CreateAliasRequest = Schema.Struct({DirectoryId: Schema.String, Alias: Schema.String});
-export const CreateConditionalForwarderRequest = Schema.Struct({DirectoryId: Schema.String, RemoteDomainName: Schema.String, DnsIpAddrs: Schema.optional(DnsIpAddrs), DnsIpv6Addrs: Schema.optional(DnsIpv6Addrs)});
-export const CreateConditionalForwarderResult = Schema.Struct({});
+export class AcceptSharedDirectoryRequest extends Schema.Class<AcceptSharedDirectoryRequest>("AcceptSharedDirectoryRequest")({SharedDirectoryId: Schema.String}) {}
+export class CancelSchemaExtensionRequest extends Schema.Class<CancelSchemaExtensionRequest>("CancelSchemaExtensionRequest")({DirectoryId: Schema.String, SchemaExtensionId: Schema.String}) {}
+export class CancelSchemaExtensionResult extends Schema.Class<CancelSchemaExtensionResult>("CancelSchemaExtensionResult")({}) {}
+export class CreateAliasRequest extends Schema.Class<CreateAliasRequest>("CreateAliasRequest")({DirectoryId: Schema.String, Alias: Schema.String}) {}
+export class CreateConditionalForwarderRequest extends Schema.Class<CreateConditionalForwarderRequest>("CreateConditionalForwarderRequest")({DirectoryId: Schema.String, RemoteDomainName: Schema.String, DnsIpAddrs: Schema.optional(DnsIpAddrs), DnsIpv6Addrs: Schema.optional(DnsIpv6Addrs)}) {}
+export class CreateConditionalForwarderResult extends Schema.Class<CreateConditionalForwarderResult>("CreateConditionalForwarderResult")({}) {}
 export const SubnetIds = Schema.Array(Schema.String);
-export const DirectoryVpcSettings = Schema.Struct({VpcId: Schema.String, SubnetIds: SubnetIds});
-export const Tag = Schema.Struct({Key: Schema.String, Value: Schema.String});
+export class DirectoryVpcSettings extends Schema.Class<DirectoryVpcSettings>("DirectoryVpcSettings")({VpcId: Schema.String, SubnetIds: SubnetIds}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.String, Value: Schema.String}) {}
 export const Tags = Schema.Array(Tag);
-export const CreateDirectoryRequest = Schema.Struct({Name: Schema.String, ShortName: Schema.optional(Schema.String), Password: Schema.String, Description: Schema.optional(Schema.String), Size: Schema.String, VpcSettings: Schema.optional(DirectoryVpcSettings), Tags: Schema.optional(Tags), NetworkType: Schema.optional(Schema.String)});
-export const CreateHybridADRequest = Schema.Struct({SecretArn: Schema.String, AssessmentId: Schema.String, Tags: Schema.optional(Tags)});
-export const CreateLogSubscriptionRequest = Schema.Struct({DirectoryId: Schema.String, LogGroupName: Schema.String});
-export const CreateLogSubscriptionResult = Schema.Struct({});
-export const CreateMicrosoftADRequest = Schema.Struct({Name: Schema.String, ShortName: Schema.optional(Schema.String), Password: Schema.String, Description: Schema.optional(Schema.String), VpcSettings: DirectoryVpcSettings, Edition: Schema.optional(Schema.String), Tags: Schema.optional(Tags), NetworkType: Schema.optional(Schema.String)});
-export const CreateSnapshotRequest = Schema.Struct({DirectoryId: Schema.String, Name: Schema.optional(Schema.String)});
-export const CreateTrustRequest = Schema.Struct({DirectoryId: Schema.String, RemoteDomainName: Schema.String, TrustPassword: Schema.String, TrustDirection: Schema.String, TrustType: Schema.optional(Schema.String), ConditionalForwarderIpAddrs: Schema.optional(DnsIpAddrs), ConditionalForwarderIpv6Addrs: Schema.optional(DnsIpv6Addrs), SelectiveAuth: Schema.optional(Schema.String)});
-export const DeleteADAssessmentRequest = Schema.Struct({AssessmentId: Schema.String});
-export const DeleteConditionalForwarderRequest = Schema.Struct({DirectoryId: Schema.String, RemoteDomainName: Schema.String});
-export const DeleteConditionalForwarderResult = Schema.Struct({});
-export const DeleteDirectoryRequest = Schema.Struct({DirectoryId: Schema.String});
-export const DeleteLogSubscriptionRequest = Schema.Struct({DirectoryId: Schema.String});
-export const DeleteLogSubscriptionResult = Schema.Struct({});
-export const DeleteSnapshotRequest = Schema.Struct({SnapshotId: Schema.String});
-export const DeleteTrustRequest = Schema.Struct({TrustId: Schema.String, DeleteAssociatedConditionalForwarder: Schema.optional(Schema.Boolean)});
-export const DeregisterCertificateRequest = Schema.Struct({DirectoryId: Schema.String, CertificateId: Schema.String});
-export const DeregisterCertificateResult = Schema.Struct({});
-export const DeregisterEventTopicRequest = Schema.Struct({DirectoryId: Schema.String, TopicName: Schema.String});
-export const DeregisterEventTopicResult = Schema.Struct({});
-export const DescribeADAssessmentRequest = Schema.Struct({AssessmentId: Schema.String});
-export const DescribeCAEnrollmentPolicyRequest = Schema.Struct({DirectoryId: Schema.String});
-export const DescribeCertificateRequest = Schema.Struct({DirectoryId: Schema.String, CertificateId: Schema.String});
-export const DescribeClientAuthenticationSettingsRequest = Schema.Struct({DirectoryId: Schema.String, Type: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)});
-export const DescribeConditionalForwardersRequest = Schema.Struct({DirectoryId: Schema.String, RemoteDomainNames: Schema.optional(RemoteDomainNames)});
-export const DescribeDirectoriesRequest = Schema.Struct({DirectoryIds: Schema.optional(DirectoryIds), NextToken: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)});
-export const DescribeDirectoryDataAccessRequest = Schema.Struct({DirectoryId: Schema.String});
-export const DescribeDomainControllersRequest = Schema.Struct({DirectoryId: Schema.String, DomainControllerIds: Schema.optional(DomainControllerIds), NextToken: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)});
-export const DescribeEventTopicsRequest = Schema.Struct({DirectoryId: Schema.optional(Schema.String), TopicNames: Schema.optional(TopicNames)});
-export const DescribeHybridADUpdateRequest = Schema.Struct({DirectoryId: Schema.String, UpdateType: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String)});
-export const DescribeLDAPSSettingsRequest = Schema.Struct({DirectoryId: Schema.String, Type: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)});
-export const DescribeRegionsRequest = Schema.Struct({DirectoryId: Schema.String, RegionName: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String)});
-export const DescribeSettingsRequest = Schema.Struct({DirectoryId: Schema.String, Status: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String)});
-export const DescribeSharedDirectoriesRequest = Schema.Struct({OwnerDirectoryId: Schema.String, SharedDirectoryIds: Schema.optional(DirectoryIds), NextToken: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)});
-export const DescribeSnapshotsRequest = Schema.Struct({DirectoryId: Schema.optional(Schema.String), SnapshotIds: Schema.optional(SnapshotIds), NextToken: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)});
-export const DescribeTrustsRequest = Schema.Struct({DirectoryId: Schema.optional(Schema.String), TrustIds: Schema.optional(TrustIds), NextToken: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)});
-export const DescribeUpdateDirectoryRequest = Schema.Struct({DirectoryId: Schema.String, UpdateType: Schema.String, RegionName: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String)});
-export const DisableCAEnrollmentPolicyRequest = Schema.Struct({DirectoryId: Schema.String});
-export const DisableCAEnrollmentPolicyResult = Schema.Struct({});
-export const DisableClientAuthenticationRequest = Schema.Struct({DirectoryId: Schema.String, Type: Schema.String});
-export const DisableClientAuthenticationResult = Schema.Struct({});
-export const DisableDirectoryDataAccessRequest = Schema.Struct({DirectoryId: Schema.String});
-export const DisableDirectoryDataAccessResult = Schema.Struct({});
-export const DisableLDAPSRequest = Schema.Struct({DirectoryId: Schema.String, Type: Schema.String});
-export const DisableLDAPSResult = Schema.Struct({});
-export const DisableRadiusRequest = Schema.Struct({DirectoryId: Schema.String});
-export const DisableRadiusResult = Schema.Struct({});
-export const DisableSsoRequest = Schema.Struct({DirectoryId: Schema.String, UserName: Schema.optional(Schema.String), Password: Schema.optional(Schema.String)});
-export const DisableSsoResult = Schema.Struct({});
-export const EnableCAEnrollmentPolicyRequest = Schema.Struct({DirectoryId: Schema.String, PcaConnectorArn: Schema.String});
-export const EnableCAEnrollmentPolicyResult = Schema.Struct({});
-export const EnableClientAuthenticationRequest = Schema.Struct({DirectoryId: Schema.String, Type: Schema.String});
-export const EnableClientAuthenticationResult = Schema.Struct({});
-export const EnableDirectoryDataAccessRequest = Schema.Struct({DirectoryId: Schema.String});
-export const EnableDirectoryDataAccessResult = Schema.Struct({});
-export const EnableLDAPSRequest = Schema.Struct({DirectoryId: Schema.String, Type: Schema.String});
-export const EnableLDAPSResult = Schema.Struct({});
-export const EnableSsoRequest = Schema.Struct({DirectoryId: Schema.String, UserName: Schema.optional(Schema.String), Password: Schema.optional(Schema.String)});
-export const EnableSsoResult = Schema.Struct({});
-export const GetSnapshotLimitsRequest = Schema.Struct({DirectoryId: Schema.String});
-export const ListADAssessmentsRequest = Schema.Struct({DirectoryId: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)});
-export const ListCertificatesRequest = Schema.Struct({DirectoryId: Schema.String, NextToken: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)});
-export const ListIpRoutesRequest = Schema.Struct({DirectoryId: Schema.String, NextToken: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)});
-export const ListLogSubscriptionsRequest = Schema.Struct({DirectoryId: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)});
-export const ListSchemaExtensionsRequest = Schema.Struct({DirectoryId: Schema.String, NextToken: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)});
-export const ListTagsForResourceRequest = Schema.Struct({ResourceId: Schema.String, NextToken: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)});
-export const RegisterEventTopicRequest = Schema.Struct({DirectoryId: Schema.String, TopicName: Schema.String});
-export const RegisterEventTopicResult = Schema.Struct({});
-export const RejectSharedDirectoryRequest = Schema.Struct({SharedDirectoryId: Schema.String});
-export const RemoveIpRoutesRequest = Schema.Struct({DirectoryId: Schema.String, CidrIps: Schema.optional(CidrIps), CidrIpv6s: Schema.optional(CidrIpv6s)});
-export const RemoveIpRoutesResult = Schema.Struct({});
-export const RemoveRegionRequest = Schema.Struct({DirectoryId: Schema.String});
-export const RemoveRegionResult = Schema.Struct({});
-export const RemoveTagsFromResourceRequest = Schema.Struct({ResourceId: Schema.String, TagKeys: TagKeys});
-export const RemoveTagsFromResourceResult = Schema.Struct({});
-export const ResetUserPasswordRequest = Schema.Struct({DirectoryId: Schema.String, UserName: Schema.String, NewPassword: Schema.String});
-export const ResetUserPasswordResult = Schema.Struct({});
-export const RestoreFromSnapshotRequest = Schema.Struct({SnapshotId: Schema.String});
-export const RestoreFromSnapshotResult = Schema.Struct({});
-export const StartSchemaExtensionRequest = Schema.Struct({DirectoryId: Schema.String, CreateSnapshotBeforeSchemaExtension: Schema.Boolean, LdifContent: Schema.String, Description: Schema.String});
-export const UpdateConditionalForwarderRequest = Schema.Struct({DirectoryId: Schema.String, RemoteDomainName: Schema.String, DnsIpAddrs: Schema.optional(DnsIpAddrs), DnsIpv6Addrs: Schema.optional(DnsIpv6Addrs)});
-export const UpdateConditionalForwarderResult = Schema.Struct({});
-export const UpdateNumberOfDomainControllersRequest = Schema.Struct({DirectoryId: Schema.String, DesiredNumber: Schema.Number});
-export const UpdateNumberOfDomainControllersResult = Schema.Struct({});
+export class CreateDirectoryRequest extends Schema.Class<CreateDirectoryRequest>("CreateDirectoryRequest")({Name: Schema.String, ShortName: Schema.optional(Schema.String), Password: Schema.String, Description: Schema.optional(Schema.String), Size: Schema.String, VpcSettings: Schema.optional(DirectoryVpcSettings), Tags: Schema.optional(Tags), NetworkType: Schema.optional(Schema.String)}) {}
+export class CreateHybridADRequest extends Schema.Class<CreateHybridADRequest>("CreateHybridADRequest")({SecretArn: Schema.String, AssessmentId: Schema.String, Tags: Schema.optional(Tags)}) {}
+export class CreateLogSubscriptionRequest extends Schema.Class<CreateLogSubscriptionRequest>("CreateLogSubscriptionRequest")({DirectoryId: Schema.String, LogGroupName: Schema.String}) {}
+export class CreateLogSubscriptionResult extends Schema.Class<CreateLogSubscriptionResult>("CreateLogSubscriptionResult")({}) {}
+export class CreateMicrosoftADRequest extends Schema.Class<CreateMicrosoftADRequest>("CreateMicrosoftADRequest")({Name: Schema.String, ShortName: Schema.optional(Schema.String), Password: Schema.String, Description: Schema.optional(Schema.String), VpcSettings: DirectoryVpcSettings, Edition: Schema.optional(Schema.String), Tags: Schema.optional(Tags), NetworkType: Schema.optional(Schema.String)}) {}
+export class CreateSnapshotRequest extends Schema.Class<CreateSnapshotRequest>("CreateSnapshotRequest")({DirectoryId: Schema.String, Name: Schema.optional(Schema.String)}) {}
+export class CreateTrustRequest extends Schema.Class<CreateTrustRequest>("CreateTrustRequest")({DirectoryId: Schema.String, RemoteDomainName: Schema.String, TrustPassword: Schema.String, TrustDirection: Schema.String, TrustType: Schema.optional(Schema.String), ConditionalForwarderIpAddrs: Schema.optional(DnsIpAddrs), ConditionalForwarderIpv6Addrs: Schema.optional(DnsIpv6Addrs), SelectiveAuth: Schema.optional(Schema.String)}) {}
+export class DeleteADAssessmentRequest extends Schema.Class<DeleteADAssessmentRequest>("DeleteADAssessmentRequest")({AssessmentId: Schema.String}) {}
+export class DeleteConditionalForwarderRequest extends Schema.Class<DeleteConditionalForwarderRequest>("DeleteConditionalForwarderRequest")({DirectoryId: Schema.String, RemoteDomainName: Schema.String}) {}
+export class DeleteConditionalForwarderResult extends Schema.Class<DeleteConditionalForwarderResult>("DeleteConditionalForwarderResult")({}) {}
+export class DeleteDirectoryRequest extends Schema.Class<DeleteDirectoryRequest>("DeleteDirectoryRequest")({DirectoryId: Schema.String}) {}
+export class DeleteLogSubscriptionRequest extends Schema.Class<DeleteLogSubscriptionRequest>("DeleteLogSubscriptionRequest")({DirectoryId: Schema.String}) {}
+export class DeleteLogSubscriptionResult extends Schema.Class<DeleteLogSubscriptionResult>("DeleteLogSubscriptionResult")({}) {}
+export class DeleteSnapshotRequest extends Schema.Class<DeleteSnapshotRequest>("DeleteSnapshotRequest")({SnapshotId: Schema.String}) {}
+export class DeleteTrustRequest extends Schema.Class<DeleteTrustRequest>("DeleteTrustRequest")({TrustId: Schema.String, DeleteAssociatedConditionalForwarder: Schema.optional(Schema.Boolean)}) {}
+export class DeregisterCertificateRequest extends Schema.Class<DeregisterCertificateRequest>("DeregisterCertificateRequest")({DirectoryId: Schema.String, CertificateId: Schema.String}) {}
+export class DeregisterCertificateResult extends Schema.Class<DeregisterCertificateResult>("DeregisterCertificateResult")({}) {}
+export class DeregisterEventTopicRequest extends Schema.Class<DeregisterEventTopicRequest>("DeregisterEventTopicRequest")({DirectoryId: Schema.String, TopicName: Schema.String}) {}
+export class DeregisterEventTopicResult extends Schema.Class<DeregisterEventTopicResult>("DeregisterEventTopicResult")({}) {}
+export class DescribeADAssessmentRequest extends Schema.Class<DescribeADAssessmentRequest>("DescribeADAssessmentRequest")({AssessmentId: Schema.String}) {}
+export class DescribeCAEnrollmentPolicyRequest extends Schema.Class<DescribeCAEnrollmentPolicyRequest>("DescribeCAEnrollmentPolicyRequest")({DirectoryId: Schema.String}) {}
+export class DescribeCertificateRequest extends Schema.Class<DescribeCertificateRequest>("DescribeCertificateRequest")({DirectoryId: Schema.String, CertificateId: Schema.String}) {}
+export class DescribeClientAuthenticationSettingsRequest extends Schema.Class<DescribeClientAuthenticationSettingsRequest>("DescribeClientAuthenticationSettingsRequest")({DirectoryId: Schema.String, Type: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)}) {}
+export class DescribeConditionalForwardersRequest extends Schema.Class<DescribeConditionalForwardersRequest>("DescribeConditionalForwardersRequest")({DirectoryId: Schema.String, RemoteDomainNames: Schema.optional(RemoteDomainNames)}) {}
+export class DescribeDirectoriesRequest extends Schema.Class<DescribeDirectoriesRequest>("DescribeDirectoriesRequest")({DirectoryIds: Schema.optional(DirectoryIds), NextToken: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)}) {}
+export class DescribeDirectoryDataAccessRequest extends Schema.Class<DescribeDirectoryDataAccessRequest>("DescribeDirectoryDataAccessRequest")({DirectoryId: Schema.String}) {}
+export class DescribeDomainControllersRequest extends Schema.Class<DescribeDomainControllersRequest>("DescribeDomainControllersRequest")({DirectoryId: Schema.String, DomainControllerIds: Schema.optional(DomainControllerIds), NextToken: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)}) {}
+export class DescribeEventTopicsRequest extends Schema.Class<DescribeEventTopicsRequest>("DescribeEventTopicsRequest")({DirectoryId: Schema.optional(Schema.String), TopicNames: Schema.optional(TopicNames)}) {}
+export class DescribeHybridADUpdateRequest extends Schema.Class<DescribeHybridADUpdateRequest>("DescribeHybridADUpdateRequest")({DirectoryId: Schema.String, UpdateType: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String)}) {}
+export class DescribeLDAPSSettingsRequest extends Schema.Class<DescribeLDAPSSettingsRequest>("DescribeLDAPSSettingsRequest")({DirectoryId: Schema.String, Type: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)}) {}
+export class DescribeRegionsRequest extends Schema.Class<DescribeRegionsRequest>("DescribeRegionsRequest")({DirectoryId: Schema.String, RegionName: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String)}) {}
+export class DescribeSettingsRequest extends Schema.Class<DescribeSettingsRequest>("DescribeSettingsRequest")({DirectoryId: Schema.String, Status: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String)}) {}
+export class DescribeSharedDirectoriesRequest extends Schema.Class<DescribeSharedDirectoriesRequest>("DescribeSharedDirectoriesRequest")({OwnerDirectoryId: Schema.String, SharedDirectoryIds: Schema.optional(DirectoryIds), NextToken: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)}) {}
+export class DescribeSnapshotsRequest extends Schema.Class<DescribeSnapshotsRequest>("DescribeSnapshotsRequest")({DirectoryId: Schema.optional(Schema.String), SnapshotIds: Schema.optional(SnapshotIds), NextToken: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)}) {}
+export class DescribeTrustsRequest extends Schema.Class<DescribeTrustsRequest>("DescribeTrustsRequest")({DirectoryId: Schema.optional(Schema.String), TrustIds: Schema.optional(TrustIds), NextToken: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)}) {}
+export class DescribeUpdateDirectoryRequest extends Schema.Class<DescribeUpdateDirectoryRequest>("DescribeUpdateDirectoryRequest")({DirectoryId: Schema.String, UpdateType: Schema.String, RegionName: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String)}) {}
+export class DisableCAEnrollmentPolicyRequest extends Schema.Class<DisableCAEnrollmentPolicyRequest>("DisableCAEnrollmentPolicyRequest")({DirectoryId: Schema.String}) {}
+export class DisableCAEnrollmentPolicyResult extends Schema.Class<DisableCAEnrollmentPolicyResult>("DisableCAEnrollmentPolicyResult")({}) {}
+export class DisableClientAuthenticationRequest extends Schema.Class<DisableClientAuthenticationRequest>("DisableClientAuthenticationRequest")({DirectoryId: Schema.String, Type: Schema.String}) {}
+export class DisableClientAuthenticationResult extends Schema.Class<DisableClientAuthenticationResult>("DisableClientAuthenticationResult")({}) {}
+export class DisableDirectoryDataAccessRequest extends Schema.Class<DisableDirectoryDataAccessRequest>("DisableDirectoryDataAccessRequest")({DirectoryId: Schema.String}) {}
+export class DisableDirectoryDataAccessResult extends Schema.Class<DisableDirectoryDataAccessResult>("DisableDirectoryDataAccessResult")({}) {}
+export class DisableLDAPSRequest extends Schema.Class<DisableLDAPSRequest>("DisableLDAPSRequest")({DirectoryId: Schema.String, Type: Schema.String}) {}
+export class DisableLDAPSResult extends Schema.Class<DisableLDAPSResult>("DisableLDAPSResult")({}) {}
+export class DisableRadiusRequest extends Schema.Class<DisableRadiusRequest>("DisableRadiusRequest")({DirectoryId: Schema.String}) {}
+export class DisableRadiusResult extends Schema.Class<DisableRadiusResult>("DisableRadiusResult")({}) {}
+export class DisableSsoRequest extends Schema.Class<DisableSsoRequest>("DisableSsoRequest")({DirectoryId: Schema.String, UserName: Schema.optional(Schema.String), Password: Schema.optional(Schema.String)}) {}
+export class DisableSsoResult extends Schema.Class<DisableSsoResult>("DisableSsoResult")({}) {}
+export class EnableCAEnrollmentPolicyRequest extends Schema.Class<EnableCAEnrollmentPolicyRequest>("EnableCAEnrollmentPolicyRequest")({DirectoryId: Schema.String, PcaConnectorArn: Schema.String}) {}
+export class EnableCAEnrollmentPolicyResult extends Schema.Class<EnableCAEnrollmentPolicyResult>("EnableCAEnrollmentPolicyResult")({}) {}
+export class EnableClientAuthenticationRequest extends Schema.Class<EnableClientAuthenticationRequest>("EnableClientAuthenticationRequest")({DirectoryId: Schema.String, Type: Schema.String}) {}
+export class EnableClientAuthenticationResult extends Schema.Class<EnableClientAuthenticationResult>("EnableClientAuthenticationResult")({}) {}
+export class EnableDirectoryDataAccessRequest extends Schema.Class<EnableDirectoryDataAccessRequest>("EnableDirectoryDataAccessRequest")({DirectoryId: Schema.String}) {}
+export class EnableDirectoryDataAccessResult extends Schema.Class<EnableDirectoryDataAccessResult>("EnableDirectoryDataAccessResult")({}) {}
+export class EnableLDAPSRequest extends Schema.Class<EnableLDAPSRequest>("EnableLDAPSRequest")({DirectoryId: Schema.String, Type: Schema.String}) {}
+export class EnableLDAPSResult extends Schema.Class<EnableLDAPSResult>("EnableLDAPSResult")({}) {}
+export class EnableSsoRequest extends Schema.Class<EnableSsoRequest>("EnableSsoRequest")({DirectoryId: Schema.String, UserName: Schema.optional(Schema.String), Password: Schema.optional(Schema.String)}) {}
+export class EnableSsoResult extends Schema.Class<EnableSsoResult>("EnableSsoResult")({}) {}
+export class GetSnapshotLimitsRequest extends Schema.Class<GetSnapshotLimitsRequest>("GetSnapshotLimitsRequest")({DirectoryId: Schema.String}) {}
+export class ListADAssessmentsRequest extends Schema.Class<ListADAssessmentsRequest>("ListADAssessmentsRequest")({DirectoryId: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)}) {}
+export class ListCertificatesRequest extends Schema.Class<ListCertificatesRequest>("ListCertificatesRequest")({DirectoryId: Schema.String, NextToken: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)}) {}
+export class ListIpRoutesRequest extends Schema.Class<ListIpRoutesRequest>("ListIpRoutesRequest")({DirectoryId: Schema.String, NextToken: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)}) {}
+export class ListLogSubscriptionsRequest extends Schema.Class<ListLogSubscriptionsRequest>("ListLogSubscriptionsRequest")({DirectoryId: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)}) {}
+export class ListSchemaExtensionsRequest extends Schema.Class<ListSchemaExtensionsRequest>("ListSchemaExtensionsRequest")({DirectoryId: Schema.String, NextToken: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({ResourceId: Schema.String, NextToken: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number)}) {}
+export class RegisterEventTopicRequest extends Schema.Class<RegisterEventTopicRequest>("RegisterEventTopicRequest")({DirectoryId: Schema.String, TopicName: Schema.String}) {}
+export class RegisterEventTopicResult extends Schema.Class<RegisterEventTopicResult>("RegisterEventTopicResult")({}) {}
+export class RejectSharedDirectoryRequest extends Schema.Class<RejectSharedDirectoryRequest>("RejectSharedDirectoryRequest")({SharedDirectoryId: Schema.String}) {}
+export class RemoveIpRoutesRequest extends Schema.Class<RemoveIpRoutesRequest>("RemoveIpRoutesRequest")({DirectoryId: Schema.String, CidrIps: Schema.optional(CidrIps), CidrIpv6s: Schema.optional(CidrIpv6s)}) {}
+export class RemoveIpRoutesResult extends Schema.Class<RemoveIpRoutesResult>("RemoveIpRoutesResult")({}) {}
+export class RemoveRegionRequest extends Schema.Class<RemoveRegionRequest>("RemoveRegionRequest")({DirectoryId: Schema.String}) {}
+export class RemoveRegionResult extends Schema.Class<RemoveRegionResult>("RemoveRegionResult")({}) {}
+export class RemoveTagsFromResourceRequest extends Schema.Class<RemoveTagsFromResourceRequest>("RemoveTagsFromResourceRequest")({ResourceId: Schema.String, TagKeys: TagKeys}) {}
+export class RemoveTagsFromResourceResult extends Schema.Class<RemoveTagsFromResourceResult>("RemoveTagsFromResourceResult")({}) {}
+export class ResetUserPasswordRequest extends Schema.Class<ResetUserPasswordRequest>("ResetUserPasswordRequest")({DirectoryId: Schema.String, UserName: Schema.String, NewPassword: Schema.String}) {}
+export class ResetUserPasswordResult extends Schema.Class<ResetUserPasswordResult>("ResetUserPasswordResult")({}) {}
+export class RestoreFromSnapshotRequest extends Schema.Class<RestoreFromSnapshotRequest>("RestoreFromSnapshotRequest")({SnapshotId: Schema.String}) {}
+export class RestoreFromSnapshotResult extends Schema.Class<RestoreFromSnapshotResult>("RestoreFromSnapshotResult")({}) {}
+export class StartSchemaExtensionRequest extends Schema.Class<StartSchemaExtensionRequest>("StartSchemaExtensionRequest")({DirectoryId: Schema.String, CreateSnapshotBeforeSchemaExtension: Schema.Boolean, LdifContent: Schema.String, Description: Schema.String}) {}
+export class UpdateConditionalForwarderRequest extends Schema.Class<UpdateConditionalForwarderRequest>("UpdateConditionalForwarderRequest")({DirectoryId: Schema.String, RemoteDomainName: Schema.String, DnsIpAddrs: Schema.optional(DnsIpAddrs), DnsIpv6Addrs: Schema.optional(DnsIpv6Addrs)}) {}
+export class UpdateConditionalForwarderResult extends Schema.Class<UpdateConditionalForwarderResult>("UpdateConditionalForwarderResult")({}) {}
+export class UpdateNumberOfDomainControllersRequest extends Schema.Class<UpdateNumberOfDomainControllersRequest>("UpdateNumberOfDomainControllersRequest")({DirectoryId: Schema.String, DesiredNumber: Schema.Number}) {}
+export class UpdateNumberOfDomainControllersResult extends Schema.Class<UpdateNumberOfDomainControllersResult>("UpdateNumberOfDomainControllersResult")({}) {}
 export const Servers = Schema.Array(Schema.String);
-export const RadiusSettings = Schema.Struct({RadiusServers: Schema.optional(Servers), RadiusServersIpv6: Schema.optional(Servers), RadiusPort: Schema.optional(Schema.Number), RadiusTimeout: Schema.optional(Schema.Number), RadiusRetries: Schema.optional(Schema.Number), SharedSecret: Schema.optional(Schema.String), AuthenticationProtocol: Schema.optional(Schema.String), DisplayLabel: Schema.optional(Schema.String), UseSameUsername: Schema.optional(Schema.Boolean)});
-export const UpdateRadiusRequest = Schema.Struct({DirectoryId: Schema.String, RadiusSettings: RadiusSettings});
-export const UpdateRadiusResult = Schema.Struct({});
-export const UpdateTrustRequest = Schema.Struct({TrustId: Schema.String, SelectiveAuth: Schema.optional(Schema.String)});
-export const VerifyTrustRequest = Schema.Struct({TrustId: Schema.String});
+export class RadiusSettings extends Schema.Class<RadiusSettings>("RadiusSettings")({RadiusServers: Schema.optional(Servers), RadiusServersIpv6: Schema.optional(Servers), RadiusPort: Schema.optional(Schema.Number), RadiusTimeout: Schema.optional(Schema.Number), RadiusRetries: Schema.optional(Schema.Number), SharedSecret: Schema.optional(Schema.String), AuthenticationProtocol: Schema.optional(Schema.String), DisplayLabel: Schema.optional(Schema.String), UseSameUsername: Schema.optional(Schema.Boolean)}) {}
+export class UpdateRadiusRequest extends Schema.Class<UpdateRadiusRequest>("UpdateRadiusRequest")({DirectoryId: Schema.String, RadiusSettings: RadiusSettings}) {}
+export class UpdateRadiusResult extends Schema.Class<UpdateRadiusResult>("UpdateRadiusResult")({}) {}
+export class UpdateTrustRequest extends Schema.Class<UpdateTrustRequest>("UpdateTrustRequest")({TrustId: Schema.String, SelectiveAuth: Schema.optional(Schema.String)}) {}
+export class VerifyTrustRequest extends Schema.Class<VerifyTrustRequest>("VerifyTrustRequest")({TrustId: Schema.String}) {}
 export const CustomerDnsIps = Schema.Array(Schema.String);
 export const AssessmentInstanceIds = Schema.Array(Schema.String);
 export const SecurityGroupIds = Schema.Array(Schema.String);
-export const IpRoute = Schema.Struct({CidrIp: Schema.optional(Schema.String), CidrIpv6: Schema.optional(Schema.String), Description: Schema.optional(Schema.String)});
+export class IpRoute extends Schema.Class<IpRoute>("IpRoute")({CidrIp: Schema.optional(Schema.String), CidrIpv6: Schema.optional(Schema.String), Description: Schema.optional(Schema.String)}) {}
 export const IpRoutes = Schema.Array(IpRoute);
-export const DirectoryConnectSettings = Schema.Struct({VpcId: Schema.String, SubnetIds: SubnetIds, CustomerDnsIps: Schema.optional(DnsIpAddrs), CustomerDnsIpsV6: Schema.optional(DnsIpv6Addrs), CustomerUserName: Schema.String});
-export const Attribute = Schema.Struct({Name: Schema.optional(Schema.String), Value: Schema.optional(Schema.String)});
+export class DirectoryConnectSettings extends Schema.Class<DirectoryConnectSettings>("DirectoryConnectSettings")({VpcId: Schema.String, SubnetIds: SubnetIds, CustomerDnsIps: Schema.optional(DnsIpAddrs), CustomerDnsIpsV6: Schema.optional(DnsIpv6Addrs), CustomerUserName: Schema.String}) {}
+export class Attribute extends Schema.Class<Attribute>("Attribute")({Name: Schema.optional(Schema.String), Value: Schema.optional(Schema.String)}) {}
 export const Attributes = Schema.Array(Attribute);
-export const SharedDirectory = Schema.Struct({OwnerAccountId: Schema.optional(Schema.String), OwnerDirectoryId: Schema.optional(Schema.String), ShareMethod: Schema.optional(Schema.String), SharedAccountId: Schema.optional(Schema.String), SharedDirectoryId: Schema.optional(Schema.String), ShareStatus: Schema.optional(Schema.String), ShareNotes: Schema.optional(Schema.String), CreatedDateTime: Schema.optional(Schema.Date), LastUpdatedDateTime: Schema.optional(Schema.Date)});
+export class SharedDirectory extends Schema.Class<SharedDirectory>("SharedDirectory")({OwnerAccountId: Schema.optional(Schema.String), OwnerDirectoryId: Schema.optional(Schema.String), ShareMethod: Schema.optional(Schema.String), SharedAccountId: Schema.optional(Schema.String), SharedDirectoryId: Schema.optional(Schema.String), ShareStatus: Schema.optional(Schema.String), ShareNotes: Schema.optional(Schema.String), CreatedDateTime: Schema.optional(Schema.Date), LastUpdatedDateTime: Schema.optional(Schema.Date)}) {}
 export const SharedDirectories = Schema.Array(SharedDirectory);
-export const DirectoryLimits = Schema.Struct({CloudOnlyDirectoriesLimit: Schema.optional(Schema.Number), CloudOnlyDirectoriesCurrentCount: Schema.optional(Schema.Number), CloudOnlyDirectoriesLimitReached: Schema.optional(Schema.Boolean), CloudOnlyMicrosoftADLimit: Schema.optional(Schema.Number), CloudOnlyMicrosoftADCurrentCount: Schema.optional(Schema.Number), CloudOnlyMicrosoftADLimitReached: Schema.optional(Schema.Boolean), ConnectedDirectoriesLimit: Schema.optional(Schema.Number), ConnectedDirectoriesCurrentCount: Schema.optional(Schema.Number), ConnectedDirectoriesLimitReached: Schema.optional(Schema.Boolean)});
-export const ClientCertAuthSettings = Schema.Struct({OCSPUrl: Schema.optional(Schema.String)});
-export const ShareTarget = Schema.Struct({Id: Schema.String, Type: Schema.String});
-export const AssessmentConfiguration = Schema.Struct({CustomerDnsIps: CustomerDnsIps, DnsName: Schema.String, VpcSettings: DirectoryVpcSettings, InstanceIds: AssessmentInstanceIds, SecurityGroupIds: Schema.optional(SecurityGroupIds)});
-export const UnshareTarget = Schema.Struct({Id: Schema.String, Type: Schema.String});
-export const OSUpdateSettings = Schema.Struct({OSVersion: Schema.optional(Schema.String)});
-export const DirectorySizeUpdateSettings = Schema.Struct({DirectorySize: Schema.optional(Schema.String)});
-export const NetworkUpdateSettings = Schema.Struct({NetworkType: Schema.optional(Schema.String), CustomerDnsIpsV6: Schema.optional(DnsIpv6Addrs)});
-export const HybridAdministratorAccountUpdate = Schema.Struct({SecretArn: Schema.String});
-export const HybridCustomerInstancesSettings = Schema.Struct({CustomerDnsIps: CustomerDnsIps, InstanceIds: AssessmentInstanceIds});
-export const Setting = Schema.Struct({Name: Schema.String, Value: Schema.String});
+export class DirectoryLimits extends Schema.Class<DirectoryLimits>("DirectoryLimits")({CloudOnlyDirectoriesLimit: Schema.optional(Schema.Number), CloudOnlyDirectoriesCurrentCount: Schema.optional(Schema.Number), CloudOnlyDirectoriesLimitReached: Schema.optional(Schema.Boolean), CloudOnlyMicrosoftADLimit: Schema.optional(Schema.Number), CloudOnlyMicrosoftADCurrentCount: Schema.optional(Schema.Number), CloudOnlyMicrosoftADLimitReached: Schema.optional(Schema.Boolean), ConnectedDirectoriesLimit: Schema.optional(Schema.Number), ConnectedDirectoriesCurrentCount: Schema.optional(Schema.Number), ConnectedDirectoriesLimitReached: Schema.optional(Schema.Boolean)}) {}
+export class ClientCertAuthSettings extends Schema.Class<ClientCertAuthSettings>("ClientCertAuthSettings")({OCSPUrl: Schema.optional(Schema.String)}) {}
+export class ShareTarget extends Schema.Class<ShareTarget>("ShareTarget")({Id: Schema.String, Type: Schema.String}) {}
+export class AssessmentConfiguration extends Schema.Class<AssessmentConfiguration>("AssessmentConfiguration")({CustomerDnsIps: CustomerDnsIps, DnsName: Schema.String, VpcSettings: DirectoryVpcSettings, InstanceIds: AssessmentInstanceIds, SecurityGroupIds: Schema.optional(SecurityGroupIds)}) {}
+export class UnshareTarget extends Schema.Class<UnshareTarget>("UnshareTarget")({Id: Schema.String, Type: Schema.String}) {}
+export class OSUpdateSettings extends Schema.Class<OSUpdateSettings>("OSUpdateSettings")({OSVersion: Schema.optional(Schema.String)}) {}
+export class DirectorySizeUpdateSettings extends Schema.Class<DirectorySizeUpdateSettings>("DirectorySizeUpdateSettings")({DirectorySize: Schema.optional(Schema.String)}) {}
+export class NetworkUpdateSettings extends Schema.Class<NetworkUpdateSettings>("NetworkUpdateSettings")({NetworkType: Schema.optional(Schema.String), CustomerDnsIpsV6: Schema.optional(DnsIpv6Addrs)}) {}
+export class HybridAdministratorAccountUpdate extends Schema.Class<HybridAdministratorAccountUpdate>("HybridAdministratorAccountUpdate")({SecretArn: Schema.String}) {}
+export class HybridCustomerInstancesSettings extends Schema.Class<HybridCustomerInstancesSettings>("HybridCustomerInstancesSettings")({CustomerDnsIps: CustomerDnsIps, InstanceIds: AssessmentInstanceIds}) {}
+export class Setting extends Schema.Class<Setting>("Setting")({Name: Schema.String, Value: Schema.String}) {}
 export const Settings = Schema.Array(Setting);
-export const AddIpRoutesRequest = Schema.Struct({DirectoryId: Schema.String, IpRoutes: IpRoutes, UpdateSecurityGroupForDirectoryControllers: Schema.optional(Schema.Boolean)});
-export const AddIpRoutesResult = Schema.Struct({});
-export const AddRegionRequest = Schema.Struct({DirectoryId: Schema.String, RegionName: Schema.String, VPCSettings: DirectoryVpcSettings});
-export const AddRegionResult = Schema.Struct({});
-export const AddTagsToResourceRequest = Schema.Struct({ResourceId: Schema.String, Tags: Tags});
-export const AddTagsToResourceResult = Schema.Struct({});
-export const ClientException = Schema.Struct({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)});
-export const ConnectDirectoryRequest = Schema.Struct({Name: Schema.String, ShortName: Schema.optional(Schema.String), Password: Schema.String, Description: Schema.optional(Schema.String), Size: Schema.String, ConnectSettings: DirectoryConnectSettings, Tags: Schema.optional(Tags), NetworkType: Schema.optional(Schema.String)});
-export const CreateAliasResult = Schema.Struct({DirectoryId: Schema.optional(Schema.String), Alias: Schema.optional(Schema.String)});
-export const CreateComputerRequest = Schema.Struct({DirectoryId: Schema.String, ComputerName: Schema.String, Password: Schema.String, OrganizationalUnitDistinguishedName: Schema.optional(Schema.String), ComputerAttributes: Schema.optional(Attributes)});
-export const DirectoryUnavailableException = Schema.Struct({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)});
-export const CreateDirectoryResult = Schema.Struct({DirectoryId: Schema.optional(Schema.String)});
-export const CreateHybridADResult = Schema.Struct({DirectoryId: Schema.optional(Schema.String)});
-export const EntityAlreadyExistsException = Schema.Struct({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)});
-export const CreateMicrosoftADResult = Schema.Struct({DirectoryId: Schema.optional(Schema.String)});
-export const CreateSnapshotResult = Schema.Struct({SnapshotId: Schema.optional(Schema.String)});
-export const CreateTrustResult = Schema.Struct({TrustId: Schema.optional(Schema.String)});
-export const DeleteADAssessmentResult = Schema.Struct({AssessmentId: Schema.optional(Schema.String)});
-export const EntityDoesNotExistException = Schema.Struct({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)});
-export const DeleteDirectoryResult = Schema.Struct({DirectoryId: Schema.optional(Schema.String)});
-export const ServiceException = Schema.Struct({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)});
-export const DeleteSnapshotResult = Schema.Struct({SnapshotId: Schema.optional(Schema.String)});
-export const DeleteTrustResult = Schema.Struct({TrustId: Schema.optional(Schema.String)});
-export const CertificateDoesNotExistException = Schema.Struct({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)});
-export const InvalidParameterException = Schema.Struct({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)});
-export const DescribeCAEnrollmentPolicyResult = Schema.Struct({DirectoryId: Schema.optional(Schema.String), PcaConnectorArn: Schema.optional(Schema.String), CaEnrollmentPolicyStatus: Schema.optional(Schema.String), LastUpdatedDateTime: Schema.optional(Schema.Date), CaEnrollmentPolicyStatusReason: Schema.optional(Schema.String)});
-export const DescribeDirectoryDataAccessResult = Schema.Struct({DataAccessStatus: Schema.optional(Schema.String)});
-export const DescribeSharedDirectoriesResult = Schema.Struct({SharedDirectories: Schema.optional(SharedDirectories), NextToken: Schema.optional(Schema.String)});
-export const AccessDeniedException = Schema.Struct({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)});
-export const DirectoryDoesNotExistException = Schema.Struct({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)});
-export const DirectoryInDesiredStateException = Schema.Struct({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)});
-export const InvalidLDAPSStatusException = Schema.Struct({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)});
-export const AuthenticationFailedException = Schema.Struct({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)});
-export const EnableAlreadyInProgressException = Schema.Struct({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)});
-export const InvalidClientAuthStatusException = Schema.Struct({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)});
-export const UnsupportedOperationException = Schema.Struct({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)});
-export const NoAvailableCertificateException = Schema.Struct({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)});
-export const EnableRadiusRequest = Schema.Struct({DirectoryId: Schema.String, RadiusSettings: RadiusSettings});
-export const EnableRadiusResult = Schema.Struct({});
-export const InsufficientPermissionsException = Schema.Struct({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)});
-export const GetDirectoryLimitsResult = Schema.Struct({DirectoryLimits: Schema.optional(DirectoryLimits)});
-export const ListTagsForResourceResult = Schema.Struct({Tags: Schema.optional(Tags), NextToken: Schema.optional(Schema.String)});
-export const RegisterCertificateRequest = Schema.Struct({DirectoryId: Schema.String, CertificateData: Schema.String, Type: Schema.optional(Schema.String), ClientCertAuthSettings: Schema.optional(ClientCertAuthSettings)});
-export const RejectSharedDirectoryResult = Schema.Struct({SharedDirectoryId: Schema.optional(Schema.String)});
-export const InvalidPasswordException = Schema.Struct({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)});
-export const ShareDirectoryRequest = Schema.Struct({DirectoryId: Schema.String, ShareNotes: Schema.optional(Schema.String), ShareTarget: ShareTarget, ShareMethod: Schema.String});
-export const StartADAssessmentRequest = Schema.Struct({AssessmentConfiguration: Schema.optional(AssessmentConfiguration), DirectoryId: Schema.optional(Schema.String)});
-export const StartSchemaExtensionResult = Schema.Struct({SchemaExtensionId: Schema.optional(Schema.String)});
-export const UnshareDirectoryRequest = Schema.Struct({DirectoryId: Schema.String, UnshareTarget: UnshareTarget});
-export const UpdateDirectorySetupRequest = Schema.Struct({DirectoryId: Schema.String, UpdateType: Schema.String, OSUpdateSettings: Schema.optional(OSUpdateSettings), DirectorySizeUpdateSettings: Schema.optional(DirectorySizeUpdateSettings), NetworkUpdateSettings: Schema.optional(NetworkUpdateSettings), CreateSnapshotBeforeUpdate: Schema.optional(Schema.Boolean)});
-export const UpdateDirectorySetupResult = Schema.Struct({});
-export const UpdateHybridADRequest = Schema.Struct({DirectoryId: Schema.String, HybridAdministratorAccountUpdate: Schema.optional(HybridAdministratorAccountUpdate), SelfManagedInstancesSettings: Schema.optional(HybridCustomerInstancesSettings)});
-export const DomainControllerLimitExceededException = Schema.Struct({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)});
-export const UpdateSettingsRequest = Schema.Struct({DirectoryId: Schema.String, Settings: Settings});
-export const UpdateTrustResult = Schema.Struct({RequestId: Schema.optional(Schema.String), TrustId: Schema.optional(Schema.String)});
-export const VerifyTrustResult = Schema.Struct({TrustId: Schema.optional(Schema.String)});
-export const Assessment = Schema.Struct({AssessmentId: Schema.optional(Schema.String), DirectoryId: Schema.optional(Schema.String), DnsName: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.Date), LastUpdateDateTime: Schema.optional(Schema.Date), Status: Schema.optional(Schema.String), StatusCode: Schema.optional(Schema.String), StatusReason: Schema.optional(Schema.String), CustomerDnsIps: Schema.optional(CustomerDnsIps), VpcId: Schema.optional(Schema.String), SubnetIds: Schema.optional(SubnetIds), SecurityGroupIds: Schema.optional(SecurityGroupIds), SelfManagedInstanceIds: Schema.optional(AssessmentInstanceIds), ReportType: Schema.optional(Schema.String), Version: Schema.optional(Schema.String)});
-export const Certificate = Schema.Struct({CertificateId: Schema.optional(Schema.String), State: Schema.optional(Schema.String), StateReason: Schema.optional(Schema.String), CommonName: Schema.optional(Schema.String), RegisteredDateTime: Schema.optional(Schema.Date), ExpiryDateTime: Schema.optional(Schema.Date), Type: Schema.optional(Schema.String), ClientCertAuthSettings: Schema.optional(ClientCertAuthSettings)});
-export const ClientAuthenticationSettingInfo = Schema.Struct({Type: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), LastUpdatedDateTime: Schema.optional(Schema.Date)});
+export class AddIpRoutesRequest extends Schema.Class<AddIpRoutesRequest>("AddIpRoutesRequest")({DirectoryId: Schema.String, IpRoutes: IpRoutes, UpdateSecurityGroupForDirectoryControllers: Schema.optional(Schema.Boolean)}) {}
+export class AddIpRoutesResult extends Schema.Class<AddIpRoutesResult>("AddIpRoutesResult")({}) {}
+export class AddRegionRequest extends Schema.Class<AddRegionRequest>("AddRegionRequest")({DirectoryId: Schema.String, RegionName: Schema.String, VPCSettings: DirectoryVpcSettings}) {}
+export class AddRegionResult extends Schema.Class<AddRegionResult>("AddRegionResult")({}) {}
+export class AddTagsToResourceRequest extends Schema.Class<AddTagsToResourceRequest>("AddTagsToResourceRequest")({ResourceId: Schema.String, Tags: Tags}) {}
+export class AddTagsToResourceResult extends Schema.Class<AddTagsToResourceResult>("AddTagsToResourceResult")({}) {}
+export class ClientException extends Schema.Class<ClientException>("ClientException")({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)}) {}
+export class ConnectDirectoryRequest extends Schema.Class<ConnectDirectoryRequest>("ConnectDirectoryRequest")({Name: Schema.String, ShortName: Schema.optional(Schema.String), Password: Schema.String, Description: Schema.optional(Schema.String), Size: Schema.String, ConnectSettings: DirectoryConnectSettings, Tags: Schema.optional(Tags), NetworkType: Schema.optional(Schema.String)}) {}
+export class CreateAliasResult extends Schema.Class<CreateAliasResult>("CreateAliasResult")({DirectoryId: Schema.optional(Schema.String), Alias: Schema.optional(Schema.String)}) {}
+export class CreateComputerRequest extends Schema.Class<CreateComputerRequest>("CreateComputerRequest")({DirectoryId: Schema.String, ComputerName: Schema.String, Password: Schema.String, OrganizationalUnitDistinguishedName: Schema.optional(Schema.String), ComputerAttributes: Schema.optional(Attributes)}) {}
+export class DirectoryUnavailableException extends Schema.Class<DirectoryUnavailableException>("DirectoryUnavailableException")({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)}) {}
+export class CreateDirectoryResult extends Schema.Class<CreateDirectoryResult>("CreateDirectoryResult")({DirectoryId: Schema.optional(Schema.String)}) {}
+export class CreateHybridADResult extends Schema.Class<CreateHybridADResult>("CreateHybridADResult")({DirectoryId: Schema.optional(Schema.String)}) {}
+export class EntityAlreadyExistsException extends Schema.Class<EntityAlreadyExistsException>("EntityAlreadyExistsException")({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)}) {}
+export class CreateMicrosoftADResult extends Schema.Class<CreateMicrosoftADResult>("CreateMicrosoftADResult")({DirectoryId: Schema.optional(Schema.String)}) {}
+export class CreateSnapshotResult extends Schema.Class<CreateSnapshotResult>("CreateSnapshotResult")({SnapshotId: Schema.optional(Schema.String)}) {}
+export class CreateTrustResult extends Schema.Class<CreateTrustResult>("CreateTrustResult")({TrustId: Schema.optional(Schema.String)}) {}
+export class DeleteADAssessmentResult extends Schema.Class<DeleteADAssessmentResult>("DeleteADAssessmentResult")({AssessmentId: Schema.optional(Schema.String)}) {}
+export class EntityDoesNotExistException extends Schema.Class<EntityDoesNotExistException>("EntityDoesNotExistException")({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)}) {}
+export class DeleteDirectoryResult extends Schema.Class<DeleteDirectoryResult>("DeleteDirectoryResult")({DirectoryId: Schema.optional(Schema.String)}) {}
+export class ServiceException extends Schema.Class<ServiceException>("ServiceException")({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)}) {}
+export class DeleteSnapshotResult extends Schema.Class<DeleteSnapshotResult>("DeleteSnapshotResult")({SnapshotId: Schema.optional(Schema.String)}) {}
+export class DeleteTrustResult extends Schema.Class<DeleteTrustResult>("DeleteTrustResult")({TrustId: Schema.optional(Schema.String)}) {}
+export class CertificateDoesNotExistException extends Schema.Class<CertificateDoesNotExistException>("CertificateDoesNotExistException")({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)}) {}
+export class InvalidParameterException extends Schema.Class<InvalidParameterException>("InvalidParameterException")({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)}) {}
+export class DescribeCAEnrollmentPolicyResult extends Schema.Class<DescribeCAEnrollmentPolicyResult>("DescribeCAEnrollmentPolicyResult")({DirectoryId: Schema.optional(Schema.String), PcaConnectorArn: Schema.optional(Schema.String), CaEnrollmentPolicyStatus: Schema.optional(Schema.String), LastUpdatedDateTime: Schema.optional(Schema.Date), CaEnrollmentPolicyStatusReason: Schema.optional(Schema.String)}) {}
+export class DescribeDirectoryDataAccessResult extends Schema.Class<DescribeDirectoryDataAccessResult>("DescribeDirectoryDataAccessResult")({DataAccessStatus: Schema.optional(Schema.String)}) {}
+export class DescribeSharedDirectoriesResult extends Schema.Class<DescribeSharedDirectoriesResult>("DescribeSharedDirectoriesResult")({SharedDirectories: Schema.optional(SharedDirectories), NextToken: Schema.optional(Schema.String)}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)}) {}
+export class DirectoryDoesNotExistException extends Schema.Class<DirectoryDoesNotExistException>("DirectoryDoesNotExistException")({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)}) {}
+export class DirectoryInDesiredStateException extends Schema.Class<DirectoryInDesiredStateException>("DirectoryInDesiredStateException")({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)}) {}
+export class InvalidLDAPSStatusException extends Schema.Class<InvalidLDAPSStatusException>("InvalidLDAPSStatusException")({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)}) {}
+export class AuthenticationFailedException extends Schema.Class<AuthenticationFailedException>("AuthenticationFailedException")({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)}) {}
+export class EnableAlreadyInProgressException extends Schema.Class<EnableAlreadyInProgressException>("EnableAlreadyInProgressException")({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)}) {}
+export class InvalidClientAuthStatusException extends Schema.Class<InvalidClientAuthStatusException>("InvalidClientAuthStatusException")({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)}) {}
+export class UnsupportedOperationException extends Schema.Class<UnsupportedOperationException>("UnsupportedOperationException")({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)}) {}
+export class NoAvailableCertificateException extends Schema.Class<NoAvailableCertificateException>("NoAvailableCertificateException")({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)}) {}
+export class EnableRadiusRequest extends Schema.Class<EnableRadiusRequest>("EnableRadiusRequest")({DirectoryId: Schema.String, RadiusSettings: RadiusSettings}) {}
+export class EnableRadiusResult extends Schema.Class<EnableRadiusResult>("EnableRadiusResult")({}) {}
+export class InsufficientPermissionsException extends Schema.Class<InsufficientPermissionsException>("InsufficientPermissionsException")({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)}) {}
+export class GetDirectoryLimitsResult extends Schema.Class<GetDirectoryLimitsResult>("GetDirectoryLimitsResult")({DirectoryLimits: Schema.optional(DirectoryLimits)}) {}
+export class ListTagsForResourceResult extends Schema.Class<ListTagsForResourceResult>("ListTagsForResourceResult")({Tags: Schema.optional(Tags), NextToken: Schema.optional(Schema.String)}) {}
+export class RegisterCertificateRequest extends Schema.Class<RegisterCertificateRequest>("RegisterCertificateRequest")({DirectoryId: Schema.String, CertificateData: Schema.String, Type: Schema.optional(Schema.String), ClientCertAuthSettings: Schema.optional(ClientCertAuthSettings)}) {}
+export class RejectSharedDirectoryResult extends Schema.Class<RejectSharedDirectoryResult>("RejectSharedDirectoryResult")({SharedDirectoryId: Schema.optional(Schema.String)}) {}
+export class InvalidPasswordException extends Schema.Class<InvalidPasswordException>("InvalidPasswordException")({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)}) {}
+export class ShareDirectoryRequest extends Schema.Class<ShareDirectoryRequest>("ShareDirectoryRequest")({DirectoryId: Schema.String, ShareNotes: Schema.optional(Schema.String), ShareTarget: ShareTarget, ShareMethod: Schema.String}) {}
+export class StartADAssessmentRequest extends Schema.Class<StartADAssessmentRequest>("StartADAssessmentRequest")({AssessmentConfiguration: Schema.optional(AssessmentConfiguration), DirectoryId: Schema.optional(Schema.String)}) {}
+export class StartSchemaExtensionResult extends Schema.Class<StartSchemaExtensionResult>("StartSchemaExtensionResult")({SchemaExtensionId: Schema.optional(Schema.String)}) {}
+export class UnshareDirectoryRequest extends Schema.Class<UnshareDirectoryRequest>("UnshareDirectoryRequest")({DirectoryId: Schema.String, UnshareTarget: UnshareTarget}) {}
+export class UpdateDirectorySetupRequest extends Schema.Class<UpdateDirectorySetupRequest>("UpdateDirectorySetupRequest")({DirectoryId: Schema.String, UpdateType: Schema.String, OSUpdateSettings: Schema.optional(OSUpdateSettings), DirectorySizeUpdateSettings: Schema.optional(DirectorySizeUpdateSettings), NetworkUpdateSettings: Schema.optional(NetworkUpdateSettings), CreateSnapshotBeforeUpdate: Schema.optional(Schema.Boolean)}) {}
+export class UpdateDirectorySetupResult extends Schema.Class<UpdateDirectorySetupResult>("UpdateDirectorySetupResult")({}) {}
+export class UpdateHybridADRequest extends Schema.Class<UpdateHybridADRequest>("UpdateHybridADRequest")({DirectoryId: Schema.String, HybridAdministratorAccountUpdate: Schema.optional(HybridAdministratorAccountUpdate), SelfManagedInstancesSettings: Schema.optional(HybridCustomerInstancesSettings)}) {}
+export class DomainControllerLimitExceededException extends Schema.Class<DomainControllerLimitExceededException>("DomainControllerLimitExceededException")({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)}) {}
+export class UpdateSettingsRequest extends Schema.Class<UpdateSettingsRequest>("UpdateSettingsRequest")({DirectoryId: Schema.String, Settings: Settings}) {}
+export class UpdateTrustResult extends Schema.Class<UpdateTrustResult>("UpdateTrustResult")({RequestId: Schema.optional(Schema.String), TrustId: Schema.optional(Schema.String)}) {}
+export class VerifyTrustResult extends Schema.Class<VerifyTrustResult>("VerifyTrustResult")({TrustId: Schema.optional(Schema.String)}) {}
+export class Assessment extends Schema.Class<Assessment>("Assessment")({AssessmentId: Schema.optional(Schema.String), DirectoryId: Schema.optional(Schema.String), DnsName: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.Date), LastUpdateDateTime: Schema.optional(Schema.Date), Status: Schema.optional(Schema.String), StatusCode: Schema.optional(Schema.String), StatusReason: Schema.optional(Schema.String), CustomerDnsIps: Schema.optional(CustomerDnsIps), VpcId: Schema.optional(Schema.String), SubnetIds: Schema.optional(SubnetIds), SecurityGroupIds: Schema.optional(SecurityGroupIds), SelfManagedInstanceIds: Schema.optional(AssessmentInstanceIds), ReportType: Schema.optional(Schema.String), Version: Schema.optional(Schema.String)}) {}
+export class Certificate extends Schema.Class<Certificate>("Certificate")({CertificateId: Schema.optional(Schema.String), State: Schema.optional(Schema.String), StateReason: Schema.optional(Schema.String), CommonName: Schema.optional(Schema.String), RegisteredDateTime: Schema.optional(Schema.Date), ExpiryDateTime: Schema.optional(Schema.Date), Type: Schema.optional(Schema.String), ClientCertAuthSettings: Schema.optional(ClientCertAuthSettings)}) {}
+export class ClientAuthenticationSettingInfo extends Schema.Class<ClientAuthenticationSettingInfo>("ClientAuthenticationSettingInfo")({Type: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), LastUpdatedDateTime: Schema.optional(Schema.Date)}) {}
 export const ClientAuthenticationSettingsInfo = Schema.Array(ClientAuthenticationSettingInfo);
-export const ConditionalForwarder = Schema.Struct({RemoteDomainName: Schema.optional(Schema.String), DnsIpAddrs: Schema.optional(DnsIpAddrs), DnsIpv6Addrs: Schema.optional(DnsIpv6Addrs), ReplicationScope: Schema.optional(Schema.String)});
+export class ConditionalForwarder extends Schema.Class<ConditionalForwarder>("ConditionalForwarder")({RemoteDomainName: Schema.optional(Schema.String), DnsIpAddrs: Schema.optional(DnsIpAddrs), DnsIpv6Addrs: Schema.optional(DnsIpv6Addrs), ReplicationScope: Schema.optional(Schema.String)}) {}
 export const ConditionalForwarders = Schema.Array(ConditionalForwarder);
-export const DomainController = Schema.Struct({DirectoryId: Schema.optional(Schema.String), DomainControllerId: Schema.optional(Schema.String), DnsIpAddr: Schema.optional(Schema.String), DnsIpv6Addr: Schema.optional(Schema.String), VpcId: Schema.optional(Schema.String), SubnetId: Schema.optional(Schema.String), AvailabilityZone: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), StatusReason: Schema.optional(Schema.String), LaunchTime: Schema.optional(Schema.Date), StatusLastUpdatedDateTime: Schema.optional(Schema.Date)});
+export class DomainController extends Schema.Class<DomainController>("DomainController")({DirectoryId: Schema.optional(Schema.String), DomainControllerId: Schema.optional(Schema.String), DnsIpAddr: Schema.optional(Schema.String), DnsIpv6Addr: Schema.optional(Schema.String), VpcId: Schema.optional(Schema.String), SubnetId: Schema.optional(Schema.String), AvailabilityZone: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), StatusReason: Schema.optional(Schema.String), LaunchTime: Schema.optional(Schema.Date), StatusLastUpdatedDateTime: Schema.optional(Schema.Date)}) {}
 export const DomainControllers = Schema.Array(DomainController);
-export const EventTopic = Schema.Struct({DirectoryId: Schema.optional(Schema.String), TopicName: Schema.optional(Schema.String), TopicArn: Schema.optional(Schema.String), CreatedDateTime: Schema.optional(Schema.Date), Status: Schema.optional(Schema.String)});
+export class EventTopic extends Schema.Class<EventTopic>("EventTopic")({DirectoryId: Schema.optional(Schema.String), TopicName: Schema.optional(Schema.String), TopicArn: Schema.optional(Schema.String), CreatedDateTime: Schema.optional(Schema.Date), Status: Schema.optional(Schema.String)}) {}
 export const EventTopics = Schema.Array(EventTopic);
-export const LDAPSSettingInfo = Schema.Struct({LDAPSStatus: Schema.optional(Schema.String), LDAPSStatusReason: Schema.optional(Schema.String), LastUpdatedDateTime: Schema.optional(Schema.Date)});
+export class LDAPSSettingInfo extends Schema.Class<LDAPSSettingInfo>("LDAPSSettingInfo")({LDAPSStatus: Schema.optional(Schema.String), LDAPSStatusReason: Schema.optional(Schema.String), LastUpdatedDateTime: Schema.optional(Schema.Date)}) {}
 export const LDAPSSettingsInfo = Schema.Array(LDAPSSettingInfo);
-export const RegionDescription = Schema.Struct({DirectoryId: Schema.optional(Schema.String), RegionName: Schema.optional(Schema.String), RegionType: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), VpcSettings: Schema.optional(DirectoryVpcSettings), DesiredNumberOfDomainControllers: Schema.optional(Schema.Number), LaunchTime: Schema.optional(Schema.Date), StatusLastUpdatedDateTime: Schema.optional(Schema.Date), LastUpdatedDateTime: Schema.optional(Schema.Date)});
+export class RegionDescription extends Schema.Class<RegionDescription>("RegionDescription")({DirectoryId: Schema.optional(Schema.String), RegionName: Schema.optional(Schema.String), RegionType: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), VpcSettings: Schema.optional(DirectoryVpcSettings), DesiredNumberOfDomainControllers: Schema.optional(Schema.Number), LaunchTime: Schema.optional(Schema.Date), StatusLastUpdatedDateTime: Schema.optional(Schema.Date), LastUpdatedDateTime: Schema.optional(Schema.Date)}) {}
 export const RegionsDescription = Schema.Array(RegionDescription);
-export const Snapshot = Schema.Struct({DirectoryId: Schema.optional(Schema.String), SnapshotId: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.Date)});
+export class Snapshot extends Schema.Class<Snapshot>("Snapshot")({DirectoryId: Schema.optional(Schema.String), SnapshotId: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.Date)}) {}
 export const Snapshots = Schema.Array(Snapshot);
-export const Trust = Schema.Struct({DirectoryId: Schema.optional(Schema.String), TrustId: Schema.optional(Schema.String), RemoteDomainName: Schema.optional(Schema.String), TrustType: Schema.optional(Schema.String), TrustDirection: Schema.optional(Schema.String), TrustState: Schema.optional(Schema.String), CreatedDateTime: Schema.optional(Schema.Date), LastUpdatedDateTime: Schema.optional(Schema.Date), StateLastUpdatedDateTime: Schema.optional(Schema.Date), TrustStateReason: Schema.optional(Schema.String), SelectiveAuth: Schema.optional(Schema.String)});
+export class Trust extends Schema.Class<Trust>("Trust")({DirectoryId: Schema.optional(Schema.String), TrustId: Schema.optional(Schema.String), RemoteDomainName: Schema.optional(Schema.String), TrustType: Schema.optional(Schema.String), TrustDirection: Schema.optional(Schema.String), TrustState: Schema.optional(Schema.String), CreatedDateTime: Schema.optional(Schema.Date), LastUpdatedDateTime: Schema.optional(Schema.Date), StateLastUpdatedDateTime: Schema.optional(Schema.Date), TrustStateReason: Schema.optional(Schema.String), SelectiveAuth: Schema.optional(Schema.String)}) {}
 export const Trusts = Schema.Array(Trust);
-export const SnapshotLimits = Schema.Struct({ManualSnapshotsLimit: Schema.optional(Schema.Number), ManualSnapshotsCurrentCount: Schema.optional(Schema.Number), ManualSnapshotsLimitReached: Schema.optional(Schema.Boolean)});
-export const AssessmentSummary = Schema.Struct({AssessmentId: Schema.optional(Schema.String), DirectoryId: Schema.optional(Schema.String), DnsName: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.Date), LastUpdateDateTime: Schema.optional(Schema.Date), Status: Schema.optional(Schema.String), CustomerDnsIps: Schema.optional(CustomerDnsIps), ReportType: Schema.optional(Schema.String)});
+export class SnapshotLimits extends Schema.Class<SnapshotLimits>("SnapshotLimits")({ManualSnapshotsLimit: Schema.optional(Schema.Number), ManualSnapshotsCurrentCount: Schema.optional(Schema.Number), ManualSnapshotsLimitReached: Schema.optional(Schema.Boolean)}) {}
+export class AssessmentSummary extends Schema.Class<AssessmentSummary>("AssessmentSummary")({AssessmentId: Schema.optional(Schema.String), DirectoryId: Schema.optional(Schema.String), DnsName: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.Date), LastUpdateDateTime: Schema.optional(Schema.Date), Status: Schema.optional(Schema.String), CustomerDnsIps: Schema.optional(CustomerDnsIps), ReportType: Schema.optional(Schema.String)}) {}
 export const Assessments = Schema.Array(AssessmentSummary);
-export const CertificateInfo = Schema.Struct({CertificateId: Schema.optional(Schema.String), CommonName: Schema.optional(Schema.String), State: Schema.optional(Schema.String), ExpiryDateTime: Schema.optional(Schema.Date), Type: Schema.optional(Schema.String)});
+export class CertificateInfo extends Schema.Class<CertificateInfo>("CertificateInfo")({CertificateId: Schema.optional(Schema.String), CommonName: Schema.optional(Schema.String), State: Schema.optional(Schema.String), ExpiryDateTime: Schema.optional(Schema.Date), Type: Schema.optional(Schema.String)}) {}
 export const CertificatesInfo = Schema.Array(CertificateInfo);
-export const IpRouteInfo = Schema.Struct({DirectoryId: Schema.optional(Schema.String), CidrIp: Schema.optional(Schema.String), CidrIpv6: Schema.optional(Schema.String), IpRouteStatusMsg: Schema.optional(Schema.String), AddedDateTime: Schema.optional(Schema.Date), IpRouteStatusReason: Schema.optional(Schema.String), Description: Schema.optional(Schema.String)});
+export class IpRouteInfo extends Schema.Class<IpRouteInfo>("IpRouteInfo")({DirectoryId: Schema.optional(Schema.String), CidrIp: Schema.optional(Schema.String), CidrIpv6: Schema.optional(Schema.String), IpRouteStatusMsg: Schema.optional(Schema.String), AddedDateTime: Schema.optional(Schema.Date), IpRouteStatusReason: Schema.optional(Schema.String), Description: Schema.optional(Schema.String)}) {}
 export const IpRoutesInfo = Schema.Array(IpRouteInfo);
-export const LogSubscription = Schema.Struct({DirectoryId: Schema.optional(Schema.String), LogGroupName: Schema.optional(Schema.String), SubscriptionCreatedDateTime: Schema.optional(Schema.Date)});
+export class LogSubscription extends Schema.Class<LogSubscription>("LogSubscription")({DirectoryId: Schema.optional(Schema.String), LogGroupName: Schema.optional(Schema.String), SubscriptionCreatedDateTime: Schema.optional(Schema.Date)}) {}
 export const LogSubscriptions = Schema.Array(LogSubscription);
-export const SchemaExtensionInfo = Schema.Struct({DirectoryId: Schema.optional(Schema.String), SchemaExtensionId: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), SchemaExtensionStatus: Schema.optional(Schema.String), SchemaExtensionStatusReason: Schema.optional(Schema.String), StartDateTime: Schema.optional(Schema.Date), EndDateTime: Schema.optional(Schema.Date)});
+export class SchemaExtensionInfo extends Schema.Class<SchemaExtensionInfo>("SchemaExtensionInfo")({DirectoryId: Schema.optional(Schema.String), SchemaExtensionId: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), SchemaExtensionStatus: Schema.optional(Schema.String), SchemaExtensionStatusReason: Schema.optional(Schema.String), StartDateTime: Schema.optional(Schema.Date), EndDateTime: Schema.optional(Schema.Date)}) {}
 export const SchemaExtensionsInfo = Schema.Array(SchemaExtensionInfo);
 export const AvailabilityZones = Schema.Array(Schema.String);
 export const IpAddrs = Schema.Array(Schema.String);
 export const IpV6Addrs = Schema.Array(Schema.String);
 export const AdditionalRegions = Schema.Array(Schema.String);
-export const AcceptSharedDirectoryResult = Schema.Struct({SharedDirectory: Schema.optional(SharedDirectory)});
-export const IpRouteLimitExceededException = Schema.Struct({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)});
-export const DirectoryAlreadyInRegionException = Schema.Struct({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)});
-export const TagLimitExceededException = Schema.Struct({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)});
-export const ConnectDirectoryResult = Schema.Struct({DirectoryId: Schema.optional(Schema.String)});
-export const DirectoryLimitExceededException = Schema.Struct({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)});
-export const ADAssessmentLimitExceededException = Schema.Struct({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)});
-export const SnapshotLimitExceededException = Schema.Struct({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)});
-export const CertificateInUseException = Schema.Struct({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)});
-export const DescribeCertificateResult = Schema.Struct({Certificate: Schema.optional(Certificate)});
-export const DescribeClientAuthenticationSettingsResult = Schema.Struct({ClientAuthenticationSettingsInfo: Schema.optional(ClientAuthenticationSettingsInfo), NextToken: Schema.optional(Schema.String)});
-export const DescribeConditionalForwardersResult = Schema.Struct({ConditionalForwarders: Schema.optional(ConditionalForwarders)});
-export const DescribeDomainControllersResult = Schema.Struct({DomainControllers: Schema.optional(DomainControllers), NextToken: Schema.optional(Schema.String)});
-export const DescribeEventTopicsResult = Schema.Struct({EventTopics: Schema.optional(EventTopics)});
-export const DescribeLDAPSSettingsResult = Schema.Struct({LDAPSSettingsInfo: Schema.optional(LDAPSSettingsInfo), NextToken: Schema.optional(Schema.String)});
-export const DescribeRegionsResult = Schema.Struct({RegionsDescription: Schema.optional(RegionsDescription), NextToken: Schema.optional(Schema.String)});
-export const InvalidNextTokenException = Schema.Struct({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)});
-export const DescribeSnapshotsResult = Schema.Struct({Snapshots: Schema.optional(Snapshots), NextToken: Schema.optional(Schema.String)});
-export const DescribeTrustsResult = Schema.Struct({Trusts: Schema.optional(Trusts), NextToken: Schema.optional(Schema.String)});
-export const DisableAlreadyInProgressException = Schema.Struct({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)});
-export const GetSnapshotLimitsResult = Schema.Struct({SnapshotLimits: Schema.optional(SnapshotLimits)});
-export const ListADAssessmentsResult = Schema.Struct({Assessments: Schema.optional(Assessments), NextToken: Schema.optional(Schema.String)});
-export const ListCertificatesResult = Schema.Struct({NextToken: Schema.optional(Schema.String), CertificatesInfo: Schema.optional(CertificatesInfo)});
-export const ListIpRoutesResult = Schema.Struct({IpRoutesInfo: Schema.optional(IpRoutesInfo), NextToken: Schema.optional(Schema.String)});
-export const ListLogSubscriptionsResult = Schema.Struct({LogSubscriptions: Schema.optional(LogSubscriptions), NextToken: Schema.optional(Schema.String)});
-export const ListSchemaExtensionsResult = Schema.Struct({SchemaExtensionsInfo: Schema.optional(SchemaExtensionsInfo), NextToken: Schema.optional(Schema.String)});
-export const RegisterCertificateResult = Schema.Struct({CertificateId: Schema.optional(Schema.String)});
-export const DirectoryAlreadySharedException = Schema.Struct({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)});
-export const UserDoesNotExistException = Schema.Struct({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)});
-export const ShareDirectoryResult = Schema.Struct({SharedDirectoryId: Schema.optional(Schema.String)});
-export const StartADAssessmentResult = Schema.Struct({AssessmentId: Schema.optional(Schema.String)});
-export const UnshareDirectoryResult = Schema.Struct({SharedDirectoryId: Schema.optional(Schema.String)});
-export const UpdateHybridADResult = Schema.Struct({DirectoryId: Schema.optional(Schema.String), AssessmentId: Schema.optional(Schema.String)});
-export const UpdateSettingsResult = Schema.Struct({DirectoryId: Schema.optional(Schema.String)});
-export const AssessmentValidation = Schema.Struct({Category: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), StatusCode: Schema.optional(Schema.String), StatusReason: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.Date), LastUpdateDateTime: Schema.optional(Schema.Date)});
+export class AcceptSharedDirectoryResult extends Schema.Class<AcceptSharedDirectoryResult>("AcceptSharedDirectoryResult")({SharedDirectory: Schema.optional(SharedDirectory)}) {}
+export class IpRouteLimitExceededException extends Schema.Class<IpRouteLimitExceededException>("IpRouteLimitExceededException")({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)}) {}
+export class DirectoryAlreadyInRegionException extends Schema.Class<DirectoryAlreadyInRegionException>("DirectoryAlreadyInRegionException")({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)}) {}
+export class TagLimitExceededException extends Schema.Class<TagLimitExceededException>("TagLimitExceededException")({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)}) {}
+export class ConnectDirectoryResult extends Schema.Class<ConnectDirectoryResult>("ConnectDirectoryResult")({DirectoryId: Schema.optional(Schema.String)}) {}
+export class DirectoryLimitExceededException extends Schema.Class<DirectoryLimitExceededException>("DirectoryLimitExceededException")({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)}) {}
+export class ADAssessmentLimitExceededException extends Schema.Class<ADAssessmentLimitExceededException>("ADAssessmentLimitExceededException")({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)}) {}
+export class SnapshotLimitExceededException extends Schema.Class<SnapshotLimitExceededException>("SnapshotLimitExceededException")({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)}) {}
+export class CertificateInUseException extends Schema.Class<CertificateInUseException>("CertificateInUseException")({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)}) {}
+export class DescribeCertificateResult extends Schema.Class<DescribeCertificateResult>("DescribeCertificateResult")({Certificate: Schema.optional(Certificate)}) {}
+export class DescribeClientAuthenticationSettingsResult extends Schema.Class<DescribeClientAuthenticationSettingsResult>("DescribeClientAuthenticationSettingsResult")({ClientAuthenticationSettingsInfo: Schema.optional(ClientAuthenticationSettingsInfo), NextToken: Schema.optional(Schema.String)}) {}
+export class DescribeConditionalForwardersResult extends Schema.Class<DescribeConditionalForwardersResult>("DescribeConditionalForwardersResult")({ConditionalForwarders: Schema.optional(ConditionalForwarders)}) {}
+export class DescribeDomainControllersResult extends Schema.Class<DescribeDomainControllersResult>("DescribeDomainControllersResult")({DomainControllers: Schema.optional(DomainControllers), NextToken: Schema.optional(Schema.String)}) {}
+export class DescribeEventTopicsResult extends Schema.Class<DescribeEventTopicsResult>("DescribeEventTopicsResult")({EventTopics: Schema.optional(EventTopics)}) {}
+export class DescribeLDAPSSettingsResult extends Schema.Class<DescribeLDAPSSettingsResult>("DescribeLDAPSSettingsResult")({LDAPSSettingsInfo: Schema.optional(LDAPSSettingsInfo), NextToken: Schema.optional(Schema.String)}) {}
+export class DescribeRegionsResult extends Schema.Class<DescribeRegionsResult>("DescribeRegionsResult")({RegionsDescription: Schema.optional(RegionsDescription), NextToken: Schema.optional(Schema.String)}) {}
+export class InvalidNextTokenException extends Schema.Class<InvalidNextTokenException>("InvalidNextTokenException")({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)}) {}
+export class DescribeSnapshotsResult extends Schema.Class<DescribeSnapshotsResult>("DescribeSnapshotsResult")({Snapshots: Schema.optional(Snapshots), NextToken: Schema.optional(Schema.String)}) {}
+export class DescribeTrustsResult extends Schema.Class<DescribeTrustsResult>("DescribeTrustsResult")({Trusts: Schema.optional(Trusts), NextToken: Schema.optional(Schema.String)}) {}
+export class DisableAlreadyInProgressException extends Schema.Class<DisableAlreadyInProgressException>("DisableAlreadyInProgressException")({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)}) {}
+export class GetSnapshotLimitsResult extends Schema.Class<GetSnapshotLimitsResult>("GetSnapshotLimitsResult")({SnapshotLimits: Schema.optional(SnapshotLimits)}) {}
+export class ListADAssessmentsResult extends Schema.Class<ListADAssessmentsResult>("ListADAssessmentsResult")({Assessments: Schema.optional(Assessments), NextToken: Schema.optional(Schema.String)}) {}
+export class ListCertificatesResult extends Schema.Class<ListCertificatesResult>("ListCertificatesResult")({NextToken: Schema.optional(Schema.String), CertificatesInfo: Schema.optional(CertificatesInfo)}) {}
+export class ListIpRoutesResult extends Schema.Class<ListIpRoutesResult>("ListIpRoutesResult")({IpRoutesInfo: Schema.optional(IpRoutesInfo), NextToken: Schema.optional(Schema.String)}) {}
+export class ListLogSubscriptionsResult extends Schema.Class<ListLogSubscriptionsResult>("ListLogSubscriptionsResult")({LogSubscriptions: Schema.optional(LogSubscriptions), NextToken: Schema.optional(Schema.String)}) {}
+export class ListSchemaExtensionsResult extends Schema.Class<ListSchemaExtensionsResult>("ListSchemaExtensionsResult")({SchemaExtensionsInfo: Schema.optional(SchemaExtensionsInfo), NextToken: Schema.optional(Schema.String)}) {}
+export class RegisterCertificateResult extends Schema.Class<RegisterCertificateResult>("RegisterCertificateResult")({CertificateId: Schema.optional(Schema.String)}) {}
+export class DirectoryAlreadySharedException extends Schema.Class<DirectoryAlreadySharedException>("DirectoryAlreadySharedException")({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)}) {}
+export class UserDoesNotExistException extends Schema.Class<UserDoesNotExistException>("UserDoesNotExistException")({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)}) {}
+export class ShareDirectoryResult extends Schema.Class<ShareDirectoryResult>("ShareDirectoryResult")({SharedDirectoryId: Schema.optional(Schema.String)}) {}
+export class StartADAssessmentResult extends Schema.Class<StartADAssessmentResult>("StartADAssessmentResult")({AssessmentId: Schema.optional(Schema.String)}) {}
+export class UnshareDirectoryResult extends Schema.Class<UnshareDirectoryResult>("UnshareDirectoryResult")({SharedDirectoryId: Schema.optional(Schema.String)}) {}
+export class UpdateHybridADResult extends Schema.Class<UpdateHybridADResult>("UpdateHybridADResult")({DirectoryId: Schema.optional(Schema.String), AssessmentId: Schema.optional(Schema.String)}) {}
+export class UpdateSettingsResult extends Schema.Class<UpdateSettingsResult>("UpdateSettingsResult")({DirectoryId: Schema.optional(Schema.String)}) {}
+export class AssessmentValidation extends Schema.Class<AssessmentValidation>("AssessmentValidation")({Category: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), StatusCode: Schema.optional(Schema.String), StatusReason: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.Date), LastUpdateDateTime: Schema.optional(Schema.Date)}) {}
 export const AssessmentValidations = Schema.Array(AssessmentValidation);
-export const DirectoryVpcSettingsDescription = Schema.Struct({VpcId: Schema.optional(Schema.String), SubnetIds: Schema.optional(SubnetIds), SecurityGroupId: Schema.optional(Schema.String), AvailabilityZones: Schema.optional(AvailabilityZones)});
-export const DirectoryConnectSettingsDescription = Schema.Struct({VpcId: Schema.optional(Schema.String), SubnetIds: Schema.optional(SubnetIds), CustomerUserName: Schema.optional(Schema.String), SecurityGroupId: Schema.optional(Schema.String), AvailabilityZones: Schema.optional(AvailabilityZones), ConnectIps: Schema.optional(IpAddrs), ConnectIpsV6: Schema.optional(IpV6Addrs)});
-export const OwnerDirectoryDescription = Schema.Struct({DirectoryId: Schema.optional(Schema.String), AccountId: Schema.optional(Schema.String), DnsIpAddrs: Schema.optional(DnsIpAddrs), DnsIpv6Addrs: Schema.optional(DnsIpv6Addrs), VpcSettings: Schema.optional(DirectoryVpcSettingsDescription), RadiusSettings: Schema.optional(RadiusSettings), RadiusStatus: Schema.optional(Schema.String), NetworkType: Schema.optional(Schema.String)});
-export const RegionsInfo = Schema.Struct({PrimaryRegion: Schema.optional(Schema.String), AdditionalRegions: Schema.optional(AdditionalRegions)});
-export const HybridSettingsDescription = Schema.Struct({SelfManagedDnsIpAddrs: Schema.optional(IpAddrs), SelfManagedInstanceIds: Schema.optional(AssessmentInstanceIds)});
+export class DirectoryVpcSettingsDescription extends Schema.Class<DirectoryVpcSettingsDescription>("DirectoryVpcSettingsDescription")({VpcId: Schema.optional(Schema.String), SubnetIds: Schema.optional(SubnetIds), SecurityGroupId: Schema.optional(Schema.String), AvailabilityZones: Schema.optional(AvailabilityZones)}) {}
+export class DirectoryConnectSettingsDescription extends Schema.Class<DirectoryConnectSettingsDescription>("DirectoryConnectSettingsDescription")({VpcId: Schema.optional(Schema.String), SubnetIds: Schema.optional(SubnetIds), CustomerUserName: Schema.optional(Schema.String), SecurityGroupId: Schema.optional(Schema.String), AvailabilityZones: Schema.optional(AvailabilityZones), ConnectIps: Schema.optional(IpAddrs), ConnectIpsV6: Schema.optional(IpV6Addrs)}) {}
+export class OwnerDirectoryDescription extends Schema.Class<OwnerDirectoryDescription>("OwnerDirectoryDescription")({DirectoryId: Schema.optional(Schema.String), AccountId: Schema.optional(Schema.String), DnsIpAddrs: Schema.optional(DnsIpAddrs), DnsIpv6Addrs: Schema.optional(DnsIpv6Addrs), VpcSettings: Schema.optional(DirectoryVpcSettingsDescription), RadiusSettings: Schema.optional(RadiusSettings), RadiusStatus: Schema.optional(Schema.String), NetworkType: Schema.optional(Schema.String)}) {}
+export class RegionsInfo extends Schema.Class<RegionsInfo>("RegionsInfo")({PrimaryRegion: Schema.optional(Schema.String), AdditionalRegions: Schema.optional(AdditionalRegions)}) {}
+export class HybridSettingsDescription extends Schema.Class<HybridSettingsDescription>("HybridSettingsDescription")({SelfManagedDnsIpAddrs: Schema.optional(IpAddrs), SelfManagedInstanceIds: Schema.optional(AssessmentInstanceIds)}) {}
 export const DirectoryConfigurationSettingRequestDetailedStatus = Schema.Record({key: Schema.String, value: Schema.String});
-export const UpdateValue = Schema.Struct({OSUpdateSettings: Schema.optional(OSUpdateSettings)});
-export const Computer = Schema.Struct({ComputerId: Schema.optional(Schema.String), ComputerName: Schema.optional(Schema.String), ComputerAttributes: Schema.optional(Attributes)});
-export const AssessmentReport = Schema.Struct({DomainControllerIp: Schema.optional(Schema.String), Validations: Schema.optional(AssessmentValidations)});
+export class UpdateValue extends Schema.Class<UpdateValue>("UpdateValue")({OSUpdateSettings: Schema.optional(OSUpdateSettings)}) {}
+export class Computer extends Schema.Class<Computer>("Computer")({ComputerId: Schema.optional(Schema.String), ComputerName: Schema.optional(Schema.String), ComputerAttributes: Schema.optional(Attributes)}) {}
+export class AssessmentReport extends Schema.Class<AssessmentReport>("AssessmentReport")({DomainControllerIp: Schema.optional(Schema.String), Validations: Schema.optional(AssessmentValidations)}) {}
 export const AssessmentReports = Schema.Array(AssessmentReport);
-export const DirectoryDescription = Schema.Struct({DirectoryId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), ShortName: Schema.optional(Schema.String), Size: Schema.optional(Schema.String), Edition: Schema.optional(Schema.String), Alias: Schema.optional(Schema.String), AccessUrl: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), DnsIpAddrs: Schema.optional(DnsIpAddrs), DnsIpv6Addrs: Schema.optional(DnsIpv6Addrs), Stage: Schema.optional(Schema.String), ShareStatus: Schema.optional(Schema.String), ShareMethod: Schema.optional(Schema.String), ShareNotes: Schema.optional(Schema.String), LaunchTime: Schema.optional(Schema.Date), StageLastUpdatedDateTime: Schema.optional(Schema.Date), Type: Schema.optional(Schema.String), VpcSettings: Schema.optional(DirectoryVpcSettingsDescription), ConnectSettings: Schema.optional(DirectoryConnectSettingsDescription), RadiusSettings: Schema.optional(RadiusSettings), RadiusStatus: Schema.optional(Schema.String), StageReason: Schema.optional(Schema.String), SsoEnabled: Schema.optional(Schema.Boolean), DesiredNumberOfDomainControllers: Schema.optional(Schema.Number), OwnerDirectoryDescription: Schema.optional(OwnerDirectoryDescription), RegionsInfo: Schema.optional(RegionsInfo), OsVersion: Schema.optional(Schema.String), HybridSettings: Schema.optional(HybridSettingsDescription), NetworkType: Schema.optional(Schema.String)});
+export class DirectoryDescription extends Schema.Class<DirectoryDescription>("DirectoryDescription")({DirectoryId: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), ShortName: Schema.optional(Schema.String), Size: Schema.optional(Schema.String), Edition: Schema.optional(Schema.String), Alias: Schema.optional(Schema.String), AccessUrl: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), DnsIpAddrs: Schema.optional(DnsIpAddrs), DnsIpv6Addrs: Schema.optional(DnsIpv6Addrs), Stage: Schema.optional(Schema.String), ShareStatus: Schema.optional(Schema.String), ShareMethod: Schema.optional(Schema.String), ShareNotes: Schema.optional(Schema.String), LaunchTime: Schema.optional(Schema.Date), StageLastUpdatedDateTime: Schema.optional(Schema.Date), Type: Schema.optional(Schema.String), VpcSettings: Schema.optional(DirectoryVpcSettingsDescription), ConnectSettings: Schema.optional(DirectoryConnectSettingsDescription), RadiusSettings: Schema.optional(RadiusSettings), RadiusStatus: Schema.optional(Schema.String), StageReason: Schema.optional(Schema.String), SsoEnabled: Schema.optional(Schema.Boolean), DesiredNumberOfDomainControllers: Schema.optional(Schema.Number), OwnerDirectoryDescription: Schema.optional(OwnerDirectoryDescription), RegionsInfo: Schema.optional(RegionsInfo), OsVersion: Schema.optional(Schema.String), HybridSettings: Schema.optional(HybridSettingsDescription), NetworkType: Schema.optional(Schema.String)}) {}
 export const DirectoryDescriptions = Schema.Array(DirectoryDescription);
-export const SettingEntry = Schema.Struct({Type: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), AllowedValues: Schema.optional(Schema.String), AppliedValue: Schema.optional(Schema.String), RequestedValue: Schema.optional(Schema.String), RequestStatus: Schema.optional(Schema.String), RequestDetailedStatus: Schema.optional(DirectoryConfigurationSettingRequestDetailedStatus), RequestStatusMessage: Schema.optional(Schema.String), LastUpdatedDateTime: Schema.optional(Schema.Date), LastRequestedDateTime: Schema.optional(Schema.Date), DataType: Schema.optional(Schema.String)});
+export class SettingEntry extends Schema.Class<SettingEntry>("SettingEntry")({Type: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), AllowedValues: Schema.optional(Schema.String), AppliedValue: Schema.optional(Schema.String), RequestedValue: Schema.optional(Schema.String), RequestStatus: Schema.optional(Schema.String), RequestDetailedStatus: Schema.optional(DirectoryConfigurationSettingRequestDetailedStatus), RequestStatusMessage: Schema.optional(Schema.String), LastUpdatedDateTime: Schema.optional(Schema.Date), LastRequestedDateTime: Schema.optional(Schema.Date), DataType: Schema.optional(Schema.String)}) {}
 export const SettingEntries = Schema.Array(SettingEntry);
-export const UpdateInfoEntry = Schema.Struct({Region: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), StatusReason: Schema.optional(Schema.String), InitiatedBy: Schema.optional(Schema.String), NewValue: Schema.optional(UpdateValue), PreviousValue: Schema.optional(UpdateValue), StartTime: Schema.optional(Schema.Date), LastUpdatedDateTime: Schema.optional(Schema.Date)});
+export class UpdateInfoEntry extends Schema.Class<UpdateInfoEntry>("UpdateInfoEntry")({Region: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), StatusReason: Schema.optional(Schema.String), InitiatedBy: Schema.optional(Schema.String), NewValue: Schema.optional(UpdateValue), PreviousValue: Schema.optional(UpdateValue), StartTime: Schema.optional(Schema.Date), LastUpdatedDateTime: Schema.optional(Schema.Date)}) {}
 export const UpdateActivities = Schema.Array(UpdateInfoEntry);
-export const HybridUpdateValue = Schema.Struct({InstanceIds: Schema.optional(AssessmentInstanceIds), DnsIps: Schema.optional(CustomerDnsIps)});
-export const RegionLimitExceededException = Schema.Struct({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)});
-export const CreateComputerResult = Schema.Struct({Computer: Schema.optional(Computer)});
-export const DescribeADAssessmentResult = Schema.Struct({Assessment: Schema.optional(Assessment), AssessmentReports: Schema.optional(AssessmentReports)});
-export const DescribeDirectoriesResult = Schema.Struct({DirectoryDescriptions: Schema.optional(DirectoryDescriptions), NextToken: Schema.optional(Schema.String)});
-export const DescribeSettingsResult = Schema.Struct({DirectoryId: Schema.optional(Schema.String), SettingEntries: Schema.optional(SettingEntries), NextToken: Schema.optional(Schema.String)});
-export const DescribeUpdateDirectoryResult = Schema.Struct({UpdateActivities: Schema.optional(UpdateActivities), NextToken: Schema.optional(Schema.String)});
-export const CertificateAlreadyExistsException = Schema.Struct({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)});
-export const InvalidTargetException = Schema.Struct({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)});
-export const DirectoryNotSharedException = Schema.Struct({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)});
-export const IncompatibleSettingsException = Schema.Struct({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)});
-export const HybridUpdateInfoEntry = Schema.Struct({Status: Schema.optional(Schema.String), StatusReason: Schema.optional(Schema.String), InitiatedBy: Schema.optional(Schema.String), NewValue: Schema.optional(HybridUpdateValue), PreviousValue: Schema.optional(HybridUpdateValue), StartTime: Schema.optional(Schema.Date), LastUpdatedDateTime: Schema.optional(Schema.Date), AssessmentId: Schema.optional(Schema.String)});
+export class HybridUpdateValue extends Schema.Class<HybridUpdateValue>("HybridUpdateValue")({InstanceIds: Schema.optional(AssessmentInstanceIds), DnsIps: Schema.optional(CustomerDnsIps)}) {}
+export class RegionLimitExceededException extends Schema.Class<RegionLimitExceededException>("RegionLimitExceededException")({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)}) {}
+export class CreateComputerResult extends Schema.Class<CreateComputerResult>("CreateComputerResult")({Computer: Schema.optional(Computer)}) {}
+export class DescribeADAssessmentResult extends Schema.Class<DescribeADAssessmentResult>("DescribeADAssessmentResult")({Assessment: Schema.optional(Assessment), AssessmentReports: Schema.optional(AssessmentReports)}) {}
+export class DescribeDirectoriesResult extends Schema.Class<DescribeDirectoriesResult>("DescribeDirectoriesResult")({DirectoryDescriptions: Schema.optional(DirectoryDescriptions), NextToken: Schema.optional(Schema.String)}) {}
+export class DescribeSettingsResult extends Schema.Class<DescribeSettingsResult>("DescribeSettingsResult")({DirectoryId: Schema.optional(Schema.String), SettingEntries: Schema.optional(SettingEntries), NextToken: Schema.optional(Schema.String)}) {}
+export class DescribeUpdateDirectoryResult extends Schema.Class<DescribeUpdateDirectoryResult>("DescribeUpdateDirectoryResult")({UpdateActivities: Schema.optional(UpdateActivities), NextToken: Schema.optional(Schema.String)}) {}
+export class CertificateAlreadyExistsException extends Schema.Class<CertificateAlreadyExistsException>("CertificateAlreadyExistsException")({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)}) {}
+export class InvalidTargetException extends Schema.Class<InvalidTargetException>("InvalidTargetException")({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)}) {}
+export class DirectoryNotSharedException extends Schema.Class<DirectoryNotSharedException>("DirectoryNotSharedException")({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)}) {}
+export class IncompatibleSettingsException extends Schema.Class<IncompatibleSettingsException>("IncompatibleSettingsException")({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)}) {}
+export class HybridUpdateInfoEntry extends Schema.Class<HybridUpdateInfoEntry>("HybridUpdateInfoEntry")({Status: Schema.optional(Schema.String), StatusReason: Schema.optional(Schema.String), InitiatedBy: Schema.optional(Schema.String), NewValue: Schema.optional(HybridUpdateValue), PreviousValue: Schema.optional(HybridUpdateValue), StartTime: Schema.optional(Schema.Date), LastUpdatedDateTime: Schema.optional(Schema.Date), AssessmentId: Schema.optional(Schema.String)}) {}
 export const HybridUpdateInfoEntries = Schema.Array(HybridUpdateInfoEntry);
-export const HybridUpdateActivities = Schema.Struct({SelfManagedInstances: Schema.optional(HybridUpdateInfoEntries), HybridAdministratorAccount: Schema.optional(HybridUpdateInfoEntries)});
-export const DescribeHybridADUpdateResult = Schema.Struct({UpdateActivities: Schema.optional(HybridUpdateActivities), NextToken: Schema.optional(Schema.String)});
-export const CertificateLimitExceededException = Schema.Struct({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)});
-export const OrganizationsException = Schema.Struct({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)});
-export const UnsupportedSettingsException = Schema.Struct({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)});
-export const InvalidCertificateException = Schema.Struct({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)});
-export const ShareLimitExceededException = Schema.Struct({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)});
+export class HybridUpdateActivities extends Schema.Class<HybridUpdateActivities>("HybridUpdateActivities")({SelfManagedInstances: Schema.optional(HybridUpdateInfoEntries), HybridAdministratorAccount: Schema.optional(HybridUpdateInfoEntries)}) {}
+export class DescribeHybridADUpdateResult extends Schema.Class<DescribeHybridADUpdateResult>("DescribeHybridADUpdateResult")({UpdateActivities: Schema.optional(HybridUpdateActivities), NextToken: Schema.optional(Schema.String)}) {}
+export class CertificateLimitExceededException extends Schema.Class<CertificateLimitExceededException>("CertificateLimitExceededException")({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)}) {}
+export class OrganizationsException extends Schema.Class<OrganizationsException>("OrganizationsException")({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)}) {}
+export class UnsupportedSettingsException extends Schema.Class<UnsupportedSettingsException>("UnsupportedSettingsException")({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)}) {}
+export class InvalidCertificateException extends Schema.Class<InvalidCertificateException>("InvalidCertificateException")({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)}) {}
+export class ShareLimitExceededException extends Schema.Class<ShareLimitExceededException>("ShareLimitExceededException")({Message: Schema.optional(Schema.String), RequestId: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class ClientExceptionError extends Schema.TaggedError<ClientExceptionError>()("ClientException", ClientException) {};
-export class DirectoryUnavailableExceptionError extends Schema.TaggedError<DirectoryUnavailableExceptionError>()("DirectoryUnavailableException", DirectoryUnavailableException) {};
-export class EntityDoesNotExistExceptionError extends Schema.TaggedError<EntityDoesNotExistExceptionError>()("EntityDoesNotExistException", EntityDoesNotExistException) {};
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class DirectoryDoesNotExistExceptionError extends Schema.TaggedError<DirectoryDoesNotExistExceptionError>()("DirectoryDoesNotExistException", DirectoryDoesNotExistException) {};
-export class ServiceExceptionError extends Schema.TaggedError<ServiceExceptionError>()("ServiceException", ServiceException) {};
-export class DirectoryInDesiredStateExceptionError extends Schema.TaggedError<DirectoryInDesiredStateExceptionError>()("DirectoryInDesiredStateException", DirectoryInDesiredStateException) {};
-export class InvalidLDAPSStatusExceptionError extends Schema.TaggedError<InvalidLDAPSStatusExceptionError>()("InvalidLDAPSStatusException", InvalidLDAPSStatusException) {};
-export class InvalidParameterExceptionError extends Schema.TaggedError<InvalidParameterExceptionError>()("InvalidParameterException", InvalidParameterException) {};
-export class AuthenticationFailedExceptionError extends Schema.TaggedError<AuthenticationFailedExceptionError>()("AuthenticationFailedException", AuthenticationFailedException) {};
-export class UnsupportedOperationExceptionError extends Schema.TaggedError<UnsupportedOperationExceptionError>()("UnsupportedOperationException", UnsupportedOperationException) {};
-export class EntityAlreadyExistsExceptionError extends Schema.TaggedError<EntityAlreadyExistsExceptionError>()("EntityAlreadyExistsException", EntityAlreadyExistsException) {};
-export class InsufficientPermissionsExceptionError extends Schema.TaggedError<InsufficientPermissionsExceptionError>()("InsufficientPermissionsException", InsufficientPermissionsException) {};
-export class DirectoryLimitExceededExceptionError extends Schema.TaggedError<DirectoryLimitExceededExceptionError>()("DirectoryLimitExceededException", DirectoryLimitExceededException) {};
-export class CertificateDoesNotExistExceptionError extends Schema.TaggedError<CertificateDoesNotExistExceptionError>()("CertificateDoesNotExistException", CertificateDoesNotExistException) {};
-export class InvalidClientAuthStatusExceptionError extends Schema.TaggedError<InvalidClientAuthStatusExceptionError>()("InvalidClientAuthStatusException", InvalidClientAuthStatusException) {};
-export class EnableAlreadyInProgressExceptionError extends Schema.TaggedError<EnableAlreadyInProgressExceptionError>()("EnableAlreadyInProgressException", EnableAlreadyInProgressException) {};
-export class NoAvailableCertificateExceptionError extends Schema.TaggedError<NoAvailableCertificateExceptionError>()("NoAvailableCertificateException", NoAvailableCertificateException) {};
-export class InvalidNextTokenExceptionError extends Schema.TaggedError<InvalidNextTokenExceptionError>()("InvalidNextTokenException", InvalidNextTokenException) {};
-export class InvalidPasswordExceptionError extends Schema.TaggedError<InvalidPasswordExceptionError>()("InvalidPasswordException", InvalidPasswordException) {};
-export class SnapshotLimitExceededExceptionError extends Schema.TaggedError<SnapshotLimitExceededExceptionError>()("SnapshotLimitExceededException", SnapshotLimitExceededException) {};
-export class DomainControllerLimitExceededExceptionError extends Schema.TaggedError<DomainControllerLimitExceededExceptionError>()("DomainControllerLimitExceededException", DomainControllerLimitExceededException) {};
-export class DirectoryAlreadySharedExceptionError extends Schema.TaggedError<DirectoryAlreadySharedExceptionError>()("DirectoryAlreadySharedException", DirectoryAlreadySharedException) {};
-export class IpRouteLimitExceededExceptionError extends Schema.TaggedError<IpRouteLimitExceededExceptionError>()("IpRouteLimitExceededException", IpRouteLimitExceededException) {};
-export class DirectoryAlreadyInRegionExceptionError extends Schema.TaggedError<DirectoryAlreadyInRegionExceptionError>()("DirectoryAlreadyInRegionException", DirectoryAlreadyInRegionException) {};
-export class TagLimitExceededExceptionError extends Schema.TaggedError<TagLimitExceededExceptionError>()("TagLimitExceededException", TagLimitExceededException) {};
-export class ADAssessmentLimitExceededExceptionError extends Schema.TaggedError<ADAssessmentLimitExceededExceptionError>()("ADAssessmentLimitExceededException", ADAssessmentLimitExceededException) {};
-export class CertificateInUseExceptionError extends Schema.TaggedError<CertificateInUseExceptionError>()("CertificateInUseException", CertificateInUseException) {};
-export class DisableAlreadyInProgressExceptionError extends Schema.TaggedError<DisableAlreadyInProgressExceptionError>()("DisableAlreadyInProgressException", DisableAlreadyInProgressException) {};
-export class UserDoesNotExistExceptionError extends Schema.TaggedError<UserDoesNotExistExceptionError>()("UserDoesNotExistException", UserDoesNotExistException) {};
-export class RegionLimitExceededExceptionError extends Schema.TaggedError<RegionLimitExceededExceptionError>()("RegionLimitExceededException", RegionLimitExceededException) {};
-export class CertificateAlreadyExistsExceptionError extends Schema.TaggedError<CertificateAlreadyExistsExceptionError>()("CertificateAlreadyExistsException", CertificateAlreadyExistsException) {};
-export class InvalidTargetExceptionError extends Schema.TaggedError<InvalidTargetExceptionError>()("InvalidTargetException", InvalidTargetException) {};
-export class DirectoryNotSharedExceptionError extends Schema.TaggedError<DirectoryNotSharedExceptionError>()("DirectoryNotSharedException", DirectoryNotSharedException) {};
-export class IncompatibleSettingsExceptionError extends Schema.TaggedError<IncompatibleSettingsExceptionError>()("IncompatibleSettingsException", IncompatibleSettingsException) {};
-export class CertificateLimitExceededExceptionError extends Schema.TaggedError<CertificateLimitExceededExceptionError>()("CertificateLimitExceededException", CertificateLimitExceededException) {};
-export class OrganizationsExceptionError extends Schema.TaggedError<OrganizationsExceptionError>()("OrganizationsException", OrganizationsException) {};
-export class UnsupportedSettingsExceptionError extends Schema.TaggedError<UnsupportedSettingsExceptionError>()("UnsupportedSettingsException", UnsupportedSettingsException) {};
-export class InvalidCertificateExceptionError extends Schema.TaggedError<InvalidCertificateExceptionError>()("InvalidCertificateException", InvalidCertificateException) {};
-export class ShareLimitExceededExceptionError extends Schema.TaggedError<ShareLimitExceededExceptionError>()("ShareLimitExceededException", ShareLimitExceededException) {};
+export class ClientExceptionError extends Schema.TaggedError<ClientExceptionError>()("ClientException", ClientException.fields) {};
+export class DirectoryUnavailableExceptionError extends Schema.TaggedError<DirectoryUnavailableExceptionError>()("DirectoryUnavailableException", DirectoryUnavailableException.fields) {};
+export class EntityDoesNotExistExceptionError extends Schema.TaggedError<EntityDoesNotExistExceptionError>()("EntityDoesNotExistException", EntityDoesNotExistException.fields) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class DirectoryDoesNotExistExceptionError extends Schema.TaggedError<DirectoryDoesNotExistExceptionError>()("DirectoryDoesNotExistException", DirectoryDoesNotExistException.fields) {};
+export class ServiceExceptionError extends Schema.TaggedError<ServiceExceptionError>()("ServiceException", ServiceException.fields) {};
+export class DirectoryInDesiredStateExceptionError extends Schema.TaggedError<DirectoryInDesiredStateExceptionError>()("DirectoryInDesiredStateException", DirectoryInDesiredStateException.fields) {};
+export class InvalidLDAPSStatusExceptionError extends Schema.TaggedError<InvalidLDAPSStatusExceptionError>()("InvalidLDAPSStatusException", InvalidLDAPSStatusException.fields) {};
+export class InvalidParameterExceptionError extends Schema.TaggedError<InvalidParameterExceptionError>()("InvalidParameterException", InvalidParameterException.fields) {};
+export class AuthenticationFailedExceptionError extends Schema.TaggedError<AuthenticationFailedExceptionError>()("AuthenticationFailedException", AuthenticationFailedException.fields) {};
+export class UnsupportedOperationExceptionError extends Schema.TaggedError<UnsupportedOperationExceptionError>()("UnsupportedOperationException", UnsupportedOperationException.fields) {};
+export class EntityAlreadyExistsExceptionError extends Schema.TaggedError<EntityAlreadyExistsExceptionError>()("EntityAlreadyExistsException", EntityAlreadyExistsException.fields) {};
+export class InsufficientPermissionsExceptionError extends Schema.TaggedError<InsufficientPermissionsExceptionError>()("InsufficientPermissionsException", InsufficientPermissionsException.fields) {};
+export class DirectoryLimitExceededExceptionError extends Schema.TaggedError<DirectoryLimitExceededExceptionError>()("DirectoryLimitExceededException", DirectoryLimitExceededException.fields) {};
+export class CertificateDoesNotExistExceptionError extends Schema.TaggedError<CertificateDoesNotExistExceptionError>()("CertificateDoesNotExistException", CertificateDoesNotExistException.fields) {};
+export class InvalidClientAuthStatusExceptionError extends Schema.TaggedError<InvalidClientAuthStatusExceptionError>()("InvalidClientAuthStatusException", InvalidClientAuthStatusException.fields) {};
+export class EnableAlreadyInProgressExceptionError extends Schema.TaggedError<EnableAlreadyInProgressExceptionError>()("EnableAlreadyInProgressException", EnableAlreadyInProgressException.fields) {};
+export class NoAvailableCertificateExceptionError extends Schema.TaggedError<NoAvailableCertificateExceptionError>()("NoAvailableCertificateException", NoAvailableCertificateException.fields) {};
+export class InvalidNextTokenExceptionError extends Schema.TaggedError<InvalidNextTokenExceptionError>()("InvalidNextTokenException", InvalidNextTokenException.fields) {};
+export class InvalidPasswordExceptionError extends Schema.TaggedError<InvalidPasswordExceptionError>()("InvalidPasswordException", InvalidPasswordException.fields) {};
+export class SnapshotLimitExceededExceptionError extends Schema.TaggedError<SnapshotLimitExceededExceptionError>()("SnapshotLimitExceededException", SnapshotLimitExceededException.fields) {};
+export class DomainControllerLimitExceededExceptionError extends Schema.TaggedError<DomainControllerLimitExceededExceptionError>()("DomainControllerLimitExceededException", DomainControllerLimitExceededException.fields) {};
+export class DirectoryAlreadySharedExceptionError extends Schema.TaggedError<DirectoryAlreadySharedExceptionError>()("DirectoryAlreadySharedException", DirectoryAlreadySharedException.fields) {};
+export class IpRouteLimitExceededExceptionError extends Schema.TaggedError<IpRouteLimitExceededExceptionError>()("IpRouteLimitExceededException", IpRouteLimitExceededException.fields) {};
+export class DirectoryAlreadyInRegionExceptionError extends Schema.TaggedError<DirectoryAlreadyInRegionExceptionError>()("DirectoryAlreadyInRegionException", DirectoryAlreadyInRegionException.fields) {};
+export class TagLimitExceededExceptionError extends Schema.TaggedError<TagLimitExceededExceptionError>()("TagLimitExceededException", TagLimitExceededException.fields) {};
+export class ADAssessmentLimitExceededExceptionError extends Schema.TaggedError<ADAssessmentLimitExceededExceptionError>()("ADAssessmentLimitExceededException", ADAssessmentLimitExceededException.fields) {};
+export class CertificateInUseExceptionError extends Schema.TaggedError<CertificateInUseExceptionError>()("CertificateInUseException", CertificateInUseException.fields) {};
+export class DisableAlreadyInProgressExceptionError extends Schema.TaggedError<DisableAlreadyInProgressExceptionError>()("DisableAlreadyInProgressException", DisableAlreadyInProgressException.fields) {};
+export class UserDoesNotExistExceptionError extends Schema.TaggedError<UserDoesNotExistExceptionError>()("UserDoesNotExistException", UserDoesNotExistException.fields) {};
+export class RegionLimitExceededExceptionError extends Schema.TaggedError<RegionLimitExceededExceptionError>()("RegionLimitExceededException", RegionLimitExceededException.fields) {};
+export class CertificateAlreadyExistsExceptionError extends Schema.TaggedError<CertificateAlreadyExistsExceptionError>()("CertificateAlreadyExistsException", CertificateAlreadyExistsException.fields) {};
+export class InvalidTargetExceptionError extends Schema.TaggedError<InvalidTargetExceptionError>()("InvalidTargetException", InvalidTargetException.fields) {};
+export class DirectoryNotSharedExceptionError extends Schema.TaggedError<DirectoryNotSharedExceptionError>()("DirectoryNotSharedException", DirectoryNotSharedException.fields) {};
+export class IncompatibleSettingsExceptionError extends Schema.TaggedError<IncompatibleSettingsExceptionError>()("IncompatibleSettingsException", IncompatibleSettingsException.fields) {};
+export class CertificateLimitExceededExceptionError extends Schema.TaggedError<CertificateLimitExceededExceptionError>()("CertificateLimitExceededException", CertificateLimitExceededException.fields) {};
+export class OrganizationsExceptionError extends Schema.TaggedError<OrganizationsExceptionError>()("OrganizationsException", OrganizationsException.fields) {};
+export class UnsupportedSettingsExceptionError extends Schema.TaggedError<UnsupportedSettingsExceptionError>()("UnsupportedSettingsException", UnsupportedSettingsException.fields) {};
+export class InvalidCertificateExceptionError extends Schema.TaggedError<InvalidCertificateExceptionError>()("InvalidCertificateException", InvalidCertificateException.fields) {};
+export class ShareLimitExceededExceptionError extends Schema.TaggedError<ShareLimitExceededExceptionError>()("ShareLimitExceededException", ShareLimitExceededException.fields) {};
 
 //# Operations
 export const disableRadius = /*#__PURE__*/ makeOperation(() => Operation({ version: "2015-04-16", uri: "/", method: "POST", sdkId: "Directory Service", sigV4ServiceName: "ds", name: "DirectoryService_20150416.DisableRadius" }, DisableRadiusRequest, DisableRadiusResult, [ClientExceptionError, EntityDoesNotExistExceptionError, ServiceExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

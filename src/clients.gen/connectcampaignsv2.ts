@@ -5,152 +5,159 @@ import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts"
 //# Schemas
 export const CampaignIdList = Schema.Array(Schema.String);
 export const TagKeyList = Schema.Array(Schema.String);
-export const DeleteCampaignRequest = Schema.Struct({id: Schema.String});
-export const DeleteCampaignChannelSubtypeConfigRequest = Schema.Struct({id: Schema.String, channelSubtype: Schema.String});
-export const DeleteCampaignCommunicationLimitsRequest = Schema.Struct({id: Schema.String, config: Schema.String});
-export const DeleteCampaignCommunicationTimeRequest = Schema.Struct({id: Schema.String, config: Schema.String});
-export const DeleteConnectInstanceConfigRequest = Schema.Struct({connectInstanceId: Schema.String, campaignDeletionPolicy: Schema.optional(Schema.String)});
-export const DeleteInstanceOnboardingJobRequest = Schema.Struct({connectInstanceId: Schema.String});
-export const DescribeCampaignRequest = Schema.Struct({id: Schema.String});
-export const GetCampaignStateRequest = Schema.Struct({id: Schema.String});
-export const GetCampaignStateBatchRequest = Schema.Struct({campaignIds: CampaignIdList});
-export const GetConnectInstanceConfigRequest = Schema.Struct({connectInstanceId: Schema.String});
-export const GetInstanceCommunicationLimitsRequest = Schema.Struct({connectInstanceId: Schema.String});
-export const GetInstanceOnboardingJobStatusRequest = Schema.Struct({connectInstanceId: Schema.String});
-export const ListConnectInstanceIntegrationsRequest = Schema.Struct({connectInstanceId: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceRequest = Schema.Struct({arn: Schema.String});
-export const PauseCampaignRequest = Schema.Struct({id: Schema.String});
-export const ResumeCampaignRequest = Schema.Struct({id: Schema.String});
-export const StartCampaignRequest = Schema.Struct({id: Schema.String});
-export const StopCampaignRequest = Schema.Struct({id: Schema.String});
+export class DeleteCampaignRequest extends Schema.Class<DeleteCampaignRequest>("DeleteCampaignRequest")({id: Schema.String}) {}
+export class DeleteCampaignChannelSubtypeConfigRequest extends Schema.Class<DeleteCampaignChannelSubtypeConfigRequest>("DeleteCampaignChannelSubtypeConfigRequest")({id: Schema.String, channelSubtype: Schema.String}) {}
+export class DeleteCampaignCommunicationLimitsRequest extends Schema.Class<DeleteCampaignCommunicationLimitsRequest>("DeleteCampaignCommunicationLimitsRequest")({id: Schema.String, config: Schema.String}) {}
+export class DeleteCampaignCommunicationTimeRequest extends Schema.Class<DeleteCampaignCommunicationTimeRequest>("DeleteCampaignCommunicationTimeRequest")({id: Schema.String, config: Schema.String}) {}
+export class DeleteConnectInstanceConfigRequest extends Schema.Class<DeleteConnectInstanceConfigRequest>("DeleteConnectInstanceConfigRequest")({connectInstanceId: Schema.String, campaignDeletionPolicy: Schema.optional(Schema.String)}) {}
+export class DeleteInstanceOnboardingJobRequest extends Schema.Class<DeleteInstanceOnboardingJobRequest>("DeleteInstanceOnboardingJobRequest")({connectInstanceId: Schema.String}) {}
+export class DescribeCampaignRequest extends Schema.Class<DescribeCampaignRequest>("DescribeCampaignRequest")({id: Schema.String}) {}
+export class GetCampaignStateRequest extends Schema.Class<GetCampaignStateRequest>("GetCampaignStateRequest")({id: Schema.String}) {}
+export class GetCampaignStateBatchRequest extends Schema.Class<GetCampaignStateBatchRequest>("GetCampaignStateBatchRequest")({campaignIds: CampaignIdList}) {}
+export class GetConnectInstanceConfigRequest extends Schema.Class<GetConnectInstanceConfigRequest>("GetConnectInstanceConfigRequest")({connectInstanceId: Schema.String}) {}
+export class GetInstanceCommunicationLimitsRequest extends Schema.Class<GetInstanceCommunicationLimitsRequest>("GetInstanceCommunicationLimitsRequest")({connectInstanceId: Schema.String}) {}
+export class GetInstanceOnboardingJobStatusRequest extends Schema.Class<GetInstanceOnboardingJobStatusRequest>("GetInstanceOnboardingJobStatusRequest")({connectInstanceId: Schema.String}) {}
+export class ListConnectInstanceIntegrationsRequest extends Schema.Class<ListConnectInstanceIntegrationsRequest>("ListConnectInstanceIntegrationsRequest")({connectInstanceId: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({arn: Schema.String}) {}
+export class PauseCampaignRequest extends Schema.Class<PauseCampaignRequest>("PauseCampaignRequest")({id: Schema.String}) {}
+export class ResumeCampaignRequest extends Schema.Class<ResumeCampaignRequest>("ResumeCampaignRequest")({id: Schema.String}) {}
+export class StartCampaignRequest extends Schema.Class<StartCampaignRequest>("StartCampaignRequest")({id: Schema.String}) {}
+export class StopCampaignRequest extends Schema.Class<StopCampaignRequest>("StopCampaignRequest")({id: Schema.String}) {}
 export const TagMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const TagResourceRequest = Schema.Struct({arn: Schema.String, tags: TagMap});
-export const UntagResourceRequest = Schema.Struct({arn: Schema.String, tagKeys: TagKeyList});
-export const ProgressiveConfig = Schema.Struct({bandwidthAllocation: Schema.Number});
-export const PredictiveConfig = Schema.Struct({bandwidthAllocation: Schema.Number});
-export const AgentlessConfig = Schema.Struct({});
-export const TimeoutConfig = Schema.Struct({durationInSeconds: Schema.Number});
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({arn: Schema.String, tags: TagMap}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({arn: Schema.String, tagKeys: TagKeyList}) {}
+export class ProgressiveConfig extends Schema.Class<ProgressiveConfig>("ProgressiveConfig")({bandwidthAllocation: Schema.Number}) {}
+export class PredictiveConfig extends Schema.Class<PredictiveConfig>("PredictiveConfig")({bandwidthAllocation: Schema.Number}) {}
+export class AgentlessConfig extends Schema.Class<AgentlessConfig>("AgentlessConfig")({}) {}
+export class TimeoutConfig extends Schema.Class<TimeoutConfig>("TimeoutConfig")({durationInSeconds: Schema.Number}) {}
 export const AgentActions = Schema.Array(Schema.String);
-export const PreviewConfig = Schema.Struct({bandwidthAllocation: Schema.Number, timeoutConfig: TimeoutConfig, agentActions: Schema.optional(AgentActions)});
+export class PreviewConfig extends Schema.Class<PreviewConfig>("PreviewConfig")({bandwidthAllocation: Schema.Number, timeoutConfig: TimeoutConfig, agentActions: Schema.optional(AgentActions)}) {}
 export const TelephonyOutboundMode = Schema.Union(ProgressiveConfig, PredictiveConfig, AgentlessConfig, PreviewConfig);
-export const AnswerMachineDetectionConfig = Schema.Struct({enableAnswerMachineDetection: Schema.Boolean, awaitAnswerMachinePrompt: Schema.optional(Schema.Boolean)});
-export const TelephonyOutboundConfig = Schema.Struct({connectContactFlowId: Schema.String, connectSourcePhoneNumber: Schema.optional(Schema.String), answerMachineDetectionConfig: Schema.optional(AnswerMachineDetectionConfig)});
-export const TelephonyChannelSubtypeConfig = Schema.Struct({capacity: Schema.optional(Schema.Number), connectQueueId: Schema.optional(Schema.String), outboundMode: TelephonyOutboundMode, defaultOutboundConfig: TelephonyOutboundConfig});
+export class AnswerMachineDetectionConfig extends Schema.Class<AnswerMachineDetectionConfig>("AnswerMachineDetectionConfig")({enableAnswerMachineDetection: Schema.Boolean, awaitAnswerMachinePrompt: Schema.optional(Schema.Boolean)}) {}
+export class TelephonyOutboundConfig extends Schema.Class<TelephonyOutboundConfig>("TelephonyOutboundConfig")({connectContactFlowId: Schema.String, connectSourcePhoneNumber: Schema.optional(Schema.String), answerMachineDetectionConfig: Schema.optional(AnswerMachineDetectionConfig), ringTimeout: Schema.optional(Schema.Number)}) {}
+export class TelephonyChannelSubtypeConfig extends Schema.Class<TelephonyChannelSubtypeConfig>("TelephonyChannelSubtypeConfig")({capacity: Schema.optional(Schema.Number), connectQueueId: Schema.optional(Schema.String), outboundMode: TelephonyOutboundMode, defaultOutboundConfig: TelephonyOutboundConfig}) {}
 export const SmsOutboundMode = Schema.Union(AgentlessConfig);
-export const SmsOutboundConfig = Schema.Struct({connectSourcePhoneNumberArn: Schema.String, wisdomTemplateArn: Schema.String});
-export const SmsChannelSubtypeConfig = Schema.Struct({capacity: Schema.optional(Schema.Number), outboundMode: SmsOutboundMode, defaultOutboundConfig: SmsOutboundConfig});
+export class SmsOutboundConfig extends Schema.Class<SmsOutboundConfig>("SmsOutboundConfig")({connectSourcePhoneNumberArn: Schema.String, wisdomTemplateArn: Schema.String}) {}
+export class SmsChannelSubtypeConfig extends Schema.Class<SmsChannelSubtypeConfig>("SmsChannelSubtypeConfig")({capacity: Schema.optional(Schema.Number), outboundMode: SmsOutboundMode, defaultOutboundConfig: SmsOutboundConfig}) {}
 export const EmailOutboundMode = Schema.Union(AgentlessConfig);
-export const EmailOutboundConfig = Schema.Struct({connectSourceEmailAddress: Schema.String, sourceEmailAddressDisplayName: Schema.optional(Schema.String), wisdomTemplateArn: Schema.String});
-export const EmailChannelSubtypeConfig = Schema.Struct({capacity: Schema.optional(Schema.Number), outboundMode: EmailOutboundMode, defaultOutboundConfig: EmailOutboundConfig});
-export const ChannelSubtypeConfig = Schema.Struct({telephony: Schema.optional(TelephonyChannelSubtypeConfig), sms: Schema.optional(SmsChannelSubtypeConfig), email: Schema.optional(EmailChannelSubtypeConfig)});
-export const UpdateCampaignChannelSubtypeConfigRequest = Schema.Struct({id: Schema.String, channelSubtypeConfig: ChannelSubtypeConfig});
-export const CommunicationLimit = Schema.Struct({maxCountPerRecipient: Schema.Number, frequency: Schema.Number, unit: Schema.String});
+export class EmailOutboundConfig extends Schema.Class<EmailOutboundConfig>("EmailOutboundConfig")({connectSourceEmailAddress: Schema.String, sourceEmailAddressDisplayName: Schema.optional(Schema.String), wisdomTemplateArn: Schema.String}) {}
+export class EmailChannelSubtypeConfig extends Schema.Class<EmailChannelSubtypeConfig>("EmailChannelSubtypeConfig")({capacity: Schema.optional(Schema.Number), outboundMode: EmailOutboundMode, defaultOutboundConfig: EmailOutboundConfig}) {}
+export const WhatsAppOutboundMode = Schema.Union(AgentlessConfig);
+export class WhatsAppOutboundConfig extends Schema.Class<WhatsAppOutboundConfig>("WhatsAppOutboundConfig")({connectSourcePhoneNumberArn: Schema.String, wisdomTemplateArn: Schema.String}) {}
+export class WhatsAppChannelSubtypeConfig extends Schema.Class<WhatsAppChannelSubtypeConfig>("WhatsAppChannelSubtypeConfig")({capacity: Schema.optional(Schema.Number), outboundMode: WhatsAppOutboundMode, defaultOutboundConfig: WhatsAppOutboundConfig}) {}
+export class ChannelSubtypeConfig extends Schema.Class<ChannelSubtypeConfig>("ChannelSubtypeConfig")({telephony: Schema.optional(TelephonyChannelSubtypeConfig), sms: Schema.optional(SmsChannelSubtypeConfig), email: Schema.optional(EmailChannelSubtypeConfig), whatsApp: Schema.optional(WhatsAppChannelSubtypeConfig)}) {}
+export class UpdateCampaignChannelSubtypeConfigRequest extends Schema.Class<UpdateCampaignChannelSubtypeConfigRequest>("UpdateCampaignChannelSubtypeConfigRequest")({id: Schema.String, channelSubtypeConfig: ChannelSubtypeConfig}) {}
+export class CommunicationLimit extends Schema.Class<CommunicationLimit>("CommunicationLimit")({maxCountPerRecipient: Schema.Number, frequency: Schema.Number, unit: Schema.String}) {}
 export const CommunicationLimitList = Schema.Array(CommunicationLimit);
 export const CommunicationLimits = Schema.Union(CommunicationLimitList);
-export const CommunicationLimitsConfig = Schema.Struct({allChannelSubtypes: Schema.optional(CommunicationLimits), instanceLimitsHandling: Schema.optional(Schema.String)});
-export const UpdateCampaignCommunicationLimitsRequest = Schema.Struct({id: Schema.String, communicationLimitsOverride: CommunicationLimitsConfig});
+export class CommunicationLimitsConfig extends Schema.Class<CommunicationLimitsConfig>("CommunicationLimitsConfig")({allChannelSubtypes: Schema.optional(CommunicationLimits), instanceLimitsHandling: Schema.optional(Schema.String)}) {}
+export class UpdateCampaignCommunicationLimitsRequest extends Schema.Class<UpdateCampaignCommunicationLimitsRequest>("UpdateCampaignCommunicationLimitsRequest")({id: Schema.String, communicationLimitsOverride: CommunicationLimitsConfig}) {}
 export const LocalTimeZoneDetection = Schema.Array(Schema.String);
-export const LocalTimeZoneConfig = Schema.Struct({defaultTimeZone: Schema.optional(Schema.String), localTimeZoneDetection: Schema.optional(LocalTimeZoneDetection)});
-export const TimeRange = Schema.Struct({startTime: Schema.String, endTime: Schema.String});
+export class LocalTimeZoneConfig extends Schema.Class<LocalTimeZoneConfig>("LocalTimeZoneConfig")({defaultTimeZone: Schema.optional(Schema.String), localTimeZoneDetection: Schema.optional(LocalTimeZoneDetection)}) {}
+export class TimeRange extends Schema.Class<TimeRange>("TimeRange")({startTime: Schema.String, endTime: Schema.String}) {}
 export const TimeRangeList = Schema.Array(TimeRange);
 export const DailyHours = Schema.Record({key: Schema.String, value: TimeRangeList});
 export const OpenHours = Schema.Union(DailyHours);
-export const RestrictedPeriod = Schema.Struct({name: Schema.optional(Schema.String), startDate: Schema.String, endDate: Schema.String});
+export class RestrictedPeriod extends Schema.Class<RestrictedPeriod>("RestrictedPeriod")({name: Schema.optional(Schema.String), startDate: Schema.String, endDate: Schema.String}) {}
 export const RestrictedPeriodList = Schema.Array(RestrictedPeriod);
 export const RestrictedPeriods = Schema.Union(RestrictedPeriodList);
-export const TimeWindow = Schema.Struct({openHours: OpenHours, restrictedPeriods: Schema.optional(RestrictedPeriods)});
-export const CommunicationTimeConfig = Schema.Struct({localTimeZoneConfig: LocalTimeZoneConfig, telephony: Schema.optional(TimeWindow), sms: Schema.optional(TimeWindow), email: Schema.optional(TimeWindow)});
-export const UpdateCampaignCommunicationTimeRequest = Schema.Struct({id: Schema.String, communicationTimeConfig: CommunicationTimeConfig});
-export const UpdateCampaignFlowAssociationRequest = Schema.Struct({id: Schema.String, connectCampaignFlowArn: Schema.String});
-export const UpdateCampaignNameRequest = Schema.Struct({id: Schema.String, name: Schema.String});
-export const Schedule = Schema.Struct({startTime: Schema.Date, endTime: Schema.Date, refreshFrequency: Schema.optional(Schema.String)});
-export const UpdateCampaignScheduleRequest = Schema.Struct({id: Schema.String, schedule: Schedule});
-export const EventTrigger = Schema.Struct({customerProfilesDomainArn: Schema.optional(Schema.String)});
+export class TimeWindow extends Schema.Class<TimeWindow>("TimeWindow")({openHours: OpenHours, restrictedPeriods: Schema.optional(RestrictedPeriods)}) {}
+export class CommunicationTimeConfig extends Schema.Class<CommunicationTimeConfig>("CommunicationTimeConfig")({localTimeZoneConfig: LocalTimeZoneConfig, telephony: Schema.optional(TimeWindow), sms: Schema.optional(TimeWindow), email: Schema.optional(TimeWindow), whatsApp: Schema.optional(TimeWindow)}) {}
+export class UpdateCampaignCommunicationTimeRequest extends Schema.Class<UpdateCampaignCommunicationTimeRequest>("UpdateCampaignCommunicationTimeRequest")({id: Schema.String, communicationTimeConfig: CommunicationTimeConfig}) {}
+export class UpdateCampaignFlowAssociationRequest extends Schema.Class<UpdateCampaignFlowAssociationRequest>("UpdateCampaignFlowAssociationRequest")({id: Schema.String, connectCampaignFlowArn: Schema.String}) {}
+export class UpdateCampaignNameRequest extends Schema.Class<UpdateCampaignNameRequest>("UpdateCampaignNameRequest")({id: Schema.String, name: Schema.String}) {}
+export class Schedule extends Schema.Class<Schedule>("Schedule")({startTime: Schema.Date, endTime: Schema.Date, refreshFrequency: Schema.optional(Schema.String)}) {}
+export class UpdateCampaignScheduleRequest extends Schema.Class<UpdateCampaignScheduleRequest>("UpdateCampaignScheduleRequest")({id: Schema.String, schedule: Schedule}) {}
+export class EventTrigger extends Schema.Class<EventTrigger>("EventTrigger")({customerProfilesDomainArn: Schema.optional(Schema.String)}) {}
 export const Source = Schema.Union(Schema.String, EventTrigger);
-export const UpdateCampaignSourceRequest = Schema.Struct({id: Schema.String, source: Source});
-export const InstanceCommunicationLimitsConfig = Schema.Struct({allChannelSubtypes: Schema.optional(CommunicationLimits)});
-export const ProfileOutboundRequest = Schema.Struct({clientToken: Schema.String, profileId: Schema.String, expirationTime: Schema.optional(Schema.Date)});
+export class UpdateCampaignSourceRequest extends Schema.Class<UpdateCampaignSourceRequest>("UpdateCampaignSourceRequest")({id: Schema.String, source: Source}) {}
+export class InstanceCommunicationLimitsConfig extends Schema.Class<InstanceCommunicationLimitsConfig>("InstanceCommunicationLimitsConfig")({allChannelSubtypes: Schema.optional(CommunicationLimits)}) {}
+export class ProfileOutboundRequest extends Schema.Class<ProfileOutboundRequest>("ProfileOutboundRequest")({clientToken: Schema.String, profileId: Schema.String, expirationTime: Schema.optional(Schema.Date)}) {}
 export const ProfileOutboundRequestList = Schema.Array(ProfileOutboundRequest);
-export const EncryptionConfig = Schema.Struct({enabled: Schema.Boolean, encryptionType: Schema.optional(Schema.String), keyArn: Schema.optional(Schema.String)});
-export const AccessDeniedException = Schema.Struct({message: Schema.String, xAmzErrorType: Schema.optional(Header("x-amzn-ErrorType"))});
-export const ConflictException = Schema.Struct({message: Schema.String, xAmzErrorType: Schema.optional(Header("x-amzn-ErrorType"))});
-export const InternalServerException = Schema.Struct({message: Schema.String, xAmzErrorType: Schema.optional(Header("x-amzn-ErrorType"))});
-export const InvalidCampaignStateException = Schema.Struct({state: Schema.String, message: Schema.String, xAmzErrorType: Schema.optional(Header("x-amzn-ErrorType"))});
-export const InvalidStateException = Schema.Struct({message: Schema.String, xAmzErrorType: Schema.optional(Header("x-amzn-ErrorType"))});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.String, xAmzErrorType: Schema.optional(Header("x-amzn-ErrorType"))});
-export const GetCampaignStateResponse = Schema.Struct({state: Schema.optional(Schema.String)});
-export const GetInstanceCommunicationLimitsResponse = Schema.Struct({communicationLimitsConfig: Schema.optional(InstanceCommunicationLimitsConfig)});
-export const ListTagsForResourceResponse = Schema.Struct({tags: Schema.optional(TagMap)});
-export const ThrottlingException = Schema.Struct({message: Schema.String, xAmzErrorType: Schema.optional(Header("x-amzn-ErrorType"))});
-export const PutInstanceCommunicationLimitsRequest = Schema.Struct({connectInstanceId: Schema.String, communicationLimitsConfig: InstanceCommunicationLimitsConfig});
-export const PutProfileOutboundRequestBatchRequest = Schema.Struct({id: Schema.String, profileOutboundRequests: ProfileOutboundRequestList});
-export const ValidationException = Schema.Struct({message: Schema.String, xAmzErrorType: Schema.optional(Header("x-amzn-ErrorType"))});
-export const StartInstanceOnboardingJobRequest = Schema.Struct({connectInstanceId: Schema.String, encryptionConfig: EncryptionConfig});
-export const CustomerProfilesIntegrationIdentifier = Schema.Struct({domainArn: Schema.String});
-export const QConnectIntegrationIdentifier = Schema.Struct({knowledgeBaseArn: Schema.String});
-export const InstanceIdFilter = Schema.Struct({value: Schema.String, operator: Schema.String});
-export const QConnectIntegrationConfig = Schema.Struct({knowledgeBaseArn: Schema.String});
-export const IntegrationIdentifier = Schema.Union(CustomerProfilesIntegrationIdentifier, QConnectIntegrationIdentifier);
-export const Campaign = Schema.Struct({id: Schema.String, arn: Schema.String, name: Schema.String, connectInstanceId: Schema.String, channelSubtypeConfig: ChannelSubtypeConfig, source: Schema.optional(Source), connectCampaignFlowArn: Schema.optional(Schema.String), schedule: Schema.optional(Schedule), communicationTimeConfig: Schema.optional(CommunicationTimeConfig), communicationLimitsOverride: Schema.optional(CommunicationLimitsConfig), tags: Schema.optional(TagMap)});
-export const SuccessfulCampaignStateResponse = Schema.Struct({campaignId: Schema.optional(Schema.String), state: Schema.optional(Schema.String)});
+export class EncryptionConfig extends Schema.Class<EncryptionConfig>("EncryptionConfig")({enabled: Schema.Boolean, encryptionType: Schema.optional(Schema.String), keyArn: Schema.optional(Schema.String)}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({message: Schema.String, xAmzErrorType: Schema.optional(Header("x-amzn-ErrorType"))}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({message: Schema.String, xAmzErrorType: Schema.optional(Header("x-amzn-ErrorType"))}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({message: Schema.String, xAmzErrorType: Schema.optional(Header("x-amzn-ErrorType"))}) {}
+export class InvalidCampaignStateException extends Schema.Class<InvalidCampaignStateException>("InvalidCampaignStateException")({state: Schema.String, message: Schema.String, xAmzErrorType: Schema.optional(Header("x-amzn-ErrorType"))}) {}
+export class InvalidStateException extends Schema.Class<InvalidStateException>("InvalidStateException")({message: Schema.String, xAmzErrorType: Schema.optional(Header("x-amzn-ErrorType"))}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.String, xAmzErrorType: Schema.optional(Header("x-amzn-ErrorType"))}) {}
+export class GetCampaignStateResponse extends Schema.Class<GetCampaignStateResponse>("GetCampaignStateResponse")({state: Schema.optional(Schema.String)}) {}
+export class GetInstanceCommunicationLimitsResponse extends Schema.Class<GetInstanceCommunicationLimitsResponse>("GetInstanceCommunicationLimitsResponse")({communicationLimitsConfig: Schema.optional(InstanceCommunicationLimitsConfig)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({tags: Schema.optional(TagMap)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({message: Schema.String, xAmzErrorType: Schema.optional(Header("x-amzn-ErrorType"))}) {}
+export class PutInstanceCommunicationLimitsRequest extends Schema.Class<PutInstanceCommunicationLimitsRequest>("PutInstanceCommunicationLimitsRequest")({connectInstanceId: Schema.String, communicationLimitsConfig: InstanceCommunicationLimitsConfig}) {}
+export class PutProfileOutboundRequestBatchRequest extends Schema.Class<PutProfileOutboundRequestBatchRequest>("PutProfileOutboundRequestBatchRequest")({id: Schema.String, profileOutboundRequests: ProfileOutboundRequestList}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({message: Schema.String, xAmzErrorType: Schema.optional(Header("x-amzn-ErrorType"))}) {}
+export class StartInstanceOnboardingJobRequest extends Schema.Class<StartInstanceOnboardingJobRequest>("StartInstanceOnboardingJobRequest")({connectInstanceId: Schema.String, encryptionConfig: EncryptionConfig}) {}
+export class CustomerProfilesIntegrationIdentifier extends Schema.Class<CustomerProfilesIntegrationIdentifier>("CustomerProfilesIntegrationIdentifier")({domainArn: Schema.String}) {}
+export class QConnectIntegrationIdentifier extends Schema.Class<QConnectIntegrationIdentifier>("QConnectIntegrationIdentifier")({knowledgeBaseArn: Schema.String}) {}
+export class LambdaIntegrationIdentifier extends Schema.Class<LambdaIntegrationIdentifier>("LambdaIntegrationIdentifier")({functionArn: Schema.String}) {}
+export class InstanceIdFilter extends Schema.Class<InstanceIdFilter>("InstanceIdFilter")({value: Schema.String, operator: Schema.String}) {}
+export class QConnectIntegrationConfig extends Schema.Class<QConnectIntegrationConfig>("QConnectIntegrationConfig")({knowledgeBaseArn: Schema.String}) {}
+export class LambdaIntegrationConfig extends Schema.Class<LambdaIntegrationConfig>("LambdaIntegrationConfig")({functionArn: Schema.String}) {}
+export const IntegrationIdentifier = Schema.Union(CustomerProfilesIntegrationIdentifier, QConnectIntegrationIdentifier, LambdaIntegrationIdentifier);
+export class Campaign extends Schema.Class<Campaign>("Campaign")({id: Schema.String, arn: Schema.String, name: Schema.String, connectInstanceId: Schema.String, channelSubtypeConfig: Schema.optional(ChannelSubtypeConfig), type: Schema.optional(Schema.String), source: Schema.optional(Source), connectCampaignFlowArn: Schema.optional(Schema.String), schedule: Schema.optional(Schedule), communicationTimeConfig: Schema.optional(CommunicationTimeConfig), communicationLimitsOverride: Schema.optional(CommunicationLimitsConfig), tags: Schema.optional(TagMap)}) {}
+export class SuccessfulCampaignStateResponse extends Schema.Class<SuccessfulCampaignStateResponse>("SuccessfulCampaignStateResponse")({campaignId: Schema.optional(Schema.String), state: Schema.optional(Schema.String)}) {}
 export const SuccessfulCampaignStateResponseList = Schema.Array(SuccessfulCampaignStateResponse);
-export const FailedCampaignStateResponse = Schema.Struct({campaignId: Schema.optional(Schema.String), failureCode: Schema.optional(Schema.String)});
+export class FailedCampaignStateResponse extends Schema.Class<FailedCampaignStateResponse>("FailedCampaignStateResponse")({campaignId: Schema.optional(Schema.String), failureCode: Schema.optional(Schema.String)}) {}
 export const FailedCampaignStateResponseList = Schema.Array(FailedCampaignStateResponse);
-export const InstanceConfig = Schema.Struct({connectInstanceId: Schema.String, serviceLinkedRoleArn: Schema.String, encryptionConfig: EncryptionConfig});
-export const InstanceOnboardingJobStatus = Schema.Struct({connectInstanceId: Schema.String, status: Schema.String, failureCode: Schema.optional(Schema.String)});
-export const CampaignFilters = Schema.Struct({instanceIdFilter: Schema.optional(InstanceIdFilter)});
+export class InstanceConfig extends Schema.Class<InstanceConfig>("InstanceConfig")({connectInstanceId: Schema.String, serviceLinkedRoleArn: Schema.String, encryptionConfig: EncryptionConfig}) {}
+export class InstanceOnboardingJobStatus extends Schema.Class<InstanceOnboardingJobStatus>("InstanceOnboardingJobStatus")({connectInstanceId: Schema.String, status: Schema.String, failureCode: Schema.optional(Schema.String)}) {}
+export class CampaignFilters extends Schema.Class<CampaignFilters>("CampaignFilters")({instanceIdFilter: Schema.optional(InstanceIdFilter)}) {}
 export const ObjectTypeNamesMap = Schema.Record({key: Schema.String, value: Schema.String});
 export const Attributes = Schema.Record({key: Schema.String, value: Schema.String});
-export const SmsChannelSubtypeParameters = Schema.Struct({destinationPhoneNumber: Schema.String, connectSourcePhoneNumberArn: Schema.optional(Schema.String), templateArn: Schema.optional(Schema.String), templateParameters: Attributes});
-export const EmailChannelSubtypeParameters = Schema.Struct({destinationEmailAddress: Schema.String, connectSourceEmailAddress: Schema.optional(Schema.String), templateArn: Schema.optional(Schema.String), templateParameters: Attributes});
-export const DeleteConnectInstanceIntegrationRequest = Schema.Struct({connectInstanceId: Schema.String, integrationIdentifier: IntegrationIdentifier});
-export const DescribeCampaignResponse = Schema.Struct({campaign: Schema.optional(Campaign)});
-export const GetCampaignStateBatchResponse = Schema.Struct({successfulRequests: Schema.optional(SuccessfulCampaignStateResponseList), failedRequests: Schema.optional(FailedCampaignStateResponseList)});
-export const GetConnectInstanceConfigResponse = Schema.Struct({connectInstanceConfig: Schema.optional(InstanceConfig)});
-export const GetInstanceOnboardingJobStatusResponse = Schema.Struct({connectInstanceOnboardingJobStatus: Schema.optional(InstanceOnboardingJobStatus)});
-export const ListCampaignsRequest = Schema.Struct({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String), filters: Schema.optional(CampaignFilters)});
-export const StartInstanceOnboardingJobResponse = Schema.Struct({connectInstanceOnboardingJobStatus: Schema.optional(InstanceOnboardingJobStatus)});
-export const CustomerProfilesIntegrationSummary = Schema.Struct({domainArn: Schema.String, objectTypeNames: ObjectTypeNamesMap});
-export const QConnectIntegrationSummary = Schema.Struct({knowledgeBaseArn: Schema.String});
-export const CustomerProfilesIntegrationConfig = Schema.Struct({domainArn: Schema.String, objectTypeNames: ObjectTypeNamesMap});
-export const IntegrationSummary = Schema.Union(CustomerProfilesIntegrationSummary, QConnectIntegrationSummary);
+export class SmsChannelSubtypeParameters extends Schema.Class<SmsChannelSubtypeParameters>("SmsChannelSubtypeParameters")({destinationPhoneNumber: Schema.String, connectSourcePhoneNumberArn: Schema.optional(Schema.String), templateArn: Schema.optional(Schema.String), templateParameters: Attributes}) {}
+export class EmailChannelSubtypeParameters extends Schema.Class<EmailChannelSubtypeParameters>("EmailChannelSubtypeParameters")({destinationEmailAddress: Schema.String, connectSourceEmailAddress: Schema.optional(Schema.String), templateArn: Schema.optional(Schema.String), templateParameters: Attributes}) {}
+export class WhatsAppChannelSubtypeParameters extends Schema.Class<WhatsAppChannelSubtypeParameters>("WhatsAppChannelSubtypeParameters")({destinationPhoneNumber: Schema.String, connectSourcePhoneNumberArn: Schema.optional(Schema.String), templateArn: Schema.optional(Schema.String), templateParameters: Attributes}) {}
+export class DeleteConnectInstanceIntegrationRequest extends Schema.Class<DeleteConnectInstanceIntegrationRequest>("DeleteConnectInstanceIntegrationRequest")({connectInstanceId: Schema.String, integrationIdentifier: IntegrationIdentifier}) {}
+export class DescribeCampaignResponse extends Schema.Class<DescribeCampaignResponse>("DescribeCampaignResponse")({campaign: Schema.optional(Campaign)}) {}
+export class GetCampaignStateBatchResponse extends Schema.Class<GetCampaignStateBatchResponse>("GetCampaignStateBatchResponse")({successfulRequests: Schema.optional(SuccessfulCampaignStateResponseList), failedRequests: Schema.optional(FailedCampaignStateResponseList)}) {}
+export class GetConnectInstanceConfigResponse extends Schema.Class<GetConnectInstanceConfigResponse>("GetConnectInstanceConfigResponse")({connectInstanceConfig: Schema.optional(InstanceConfig)}) {}
+export class GetInstanceOnboardingJobStatusResponse extends Schema.Class<GetInstanceOnboardingJobStatusResponse>("GetInstanceOnboardingJobStatusResponse")({connectInstanceOnboardingJobStatus: Schema.optional(InstanceOnboardingJobStatus)}) {}
+export class ListCampaignsRequest extends Schema.Class<ListCampaignsRequest>("ListCampaignsRequest")({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String), filters: Schema.optional(CampaignFilters)}) {}
+export class StartInstanceOnboardingJobResponse extends Schema.Class<StartInstanceOnboardingJobResponse>("StartInstanceOnboardingJobResponse")({connectInstanceOnboardingJobStatus: Schema.optional(InstanceOnboardingJobStatus)}) {}
+export class CustomerProfilesIntegrationSummary extends Schema.Class<CustomerProfilesIntegrationSummary>("CustomerProfilesIntegrationSummary")({domainArn: Schema.String, objectTypeNames: ObjectTypeNamesMap}) {}
+export class QConnectIntegrationSummary extends Schema.Class<QConnectIntegrationSummary>("QConnectIntegrationSummary")({knowledgeBaseArn: Schema.String}) {}
+export class LambdaIntegrationSummary extends Schema.Class<LambdaIntegrationSummary>("LambdaIntegrationSummary")({functionArn: Schema.String}) {}
+export class CustomerProfilesIntegrationConfig extends Schema.Class<CustomerProfilesIntegrationConfig>("CustomerProfilesIntegrationConfig")({domainArn: Schema.String, objectTypeNames: ObjectTypeNamesMap}) {}
+export const IntegrationSummary = Schema.Union(CustomerProfilesIntegrationSummary, QConnectIntegrationSummary, LambdaIntegrationSummary);
 export const IntegrationSummaryList = Schema.Array(IntegrationSummary);
-export const IntegrationConfig = Schema.Union(CustomerProfilesIntegrationConfig, QConnectIntegrationConfig);
-export const SuccessfulProfileOutboundRequest = Schema.Struct({clientToken: Schema.optional(Schema.String), id: Schema.optional(Schema.String)});
+export const IntegrationConfig = Schema.Union(CustomerProfilesIntegrationConfig, QConnectIntegrationConfig, LambdaIntegrationConfig);
+export class SuccessfulProfileOutboundRequest extends Schema.Class<SuccessfulProfileOutboundRequest>("SuccessfulProfileOutboundRequest")({clientToken: Schema.optional(Schema.String), id: Schema.optional(Schema.String)}) {}
 export const SuccessfulProfileOutboundRequestList = Schema.Array(SuccessfulProfileOutboundRequest);
-export const FailedProfileOutboundRequest = Schema.Struct({clientToken: Schema.optional(Schema.String), id: Schema.optional(Schema.String), failureCode: Schema.optional(Schema.String)});
+export class FailedProfileOutboundRequest extends Schema.Class<FailedProfileOutboundRequest>("FailedProfileOutboundRequest")({clientToken: Schema.optional(Schema.String), id: Schema.optional(Schema.String), failureCode: Schema.optional(Schema.String)}) {}
 export const FailedProfileOutboundRequestList = Schema.Array(FailedProfileOutboundRequest);
-export const TelephonyChannelSubtypeParameters = Schema.Struct({destinationPhoneNumber: Schema.String, attributes: Attributes, connectSourcePhoneNumber: Schema.optional(Schema.String), answerMachineDetectionConfig: Schema.optional(AnswerMachineDetectionConfig)});
-export const ListConnectInstanceIntegrationsResponse = Schema.Struct({nextToken: Schema.optional(Schema.String), integrationSummaryList: Schema.optional(IntegrationSummaryList)});
-export const PutConnectInstanceIntegrationRequest = Schema.Struct({connectInstanceId: Schema.String, integrationConfig: IntegrationConfig});
-export const PutProfileOutboundRequestBatchResponse = Schema.Struct({successfulRequests: Schema.optional(SuccessfulProfileOutboundRequestList), failedRequests: Schema.optional(FailedProfileOutboundRequestList)});
+export class TelephonyChannelSubtypeParameters extends Schema.Class<TelephonyChannelSubtypeParameters>("TelephonyChannelSubtypeParameters")({destinationPhoneNumber: Schema.String, attributes: Attributes, connectSourcePhoneNumber: Schema.optional(Schema.String), answerMachineDetectionConfig: Schema.optional(AnswerMachineDetectionConfig), ringTimeout: Schema.optional(Schema.Number)}) {}
+export class ListConnectInstanceIntegrationsResponse extends Schema.Class<ListConnectInstanceIntegrationsResponse>("ListConnectInstanceIntegrationsResponse")({nextToken: Schema.optional(Schema.String), integrationSummaryList: Schema.optional(IntegrationSummaryList)}) {}
+export class PutConnectInstanceIntegrationRequest extends Schema.Class<PutConnectInstanceIntegrationRequest>("PutConnectInstanceIntegrationRequest")({connectInstanceId: Schema.String, integrationConfig: IntegrationConfig}) {}
+export class PutProfileOutboundRequestBatchResponse extends Schema.Class<PutProfileOutboundRequestBatchResponse>("PutProfileOutboundRequestBatchResponse")({successfulRequests: Schema.optional(SuccessfulProfileOutboundRequestList), failedRequests: Schema.optional(FailedProfileOutboundRequestList)}) {}
 export const ChannelSubtypeList = Schema.Array(Schema.String);
-export const ChannelSubtypeParameters = Schema.Union(TelephonyChannelSubtypeParameters, SmsChannelSubtypeParameters, EmailChannelSubtypeParameters);
-export const CampaignSummary = Schema.Struct({id: Schema.String, arn: Schema.String, name: Schema.String, connectInstanceId: Schema.String, channelSubtypes: ChannelSubtypeList, schedule: Schema.optional(Schedule), connectCampaignFlowArn: Schema.optional(Schema.String)});
+export const ChannelSubtypeParameters = Schema.Union(TelephonyChannelSubtypeParameters, SmsChannelSubtypeParameters, EmailChannelSubtypeParameters, WhatsAppChannelSubtypeParameters);
+export class CampaignSummary extends Schema.Class<CampaignSummary>("CampaignSummary")({id: Schema.String, arn: Schema.String, name: Schema.String, connectInstanceId: Schema.String, channelSubtypes: ChannelSubtypeList, type: Schema.optional(Schema.String), schedule: Schema.optional(Schedule), connectCampaignFlowArn: Schema.optional(Schema.String)}) {}
 export const CampaignSummaryList = Schema.Array(CampaignSummary);
-export const OutboundRequest = Schema.Struct({clientToken: Schema.String, expirationTime: Schema.Date, channelSubtypeParameters: ChannelSubtypeParameters});
+export class OutboundRequest extends Schema.Class<OutboundRequest>("OutboundRequest")({clientToken: Schema.String, expirationTime: Schema.Date, channelSubtypeParameters: ChannelSubtypeParameters}) {}
 export const OutboundRequestList = Schema.Array(OutboundRequest);
-export const ListCampaignsResponse = Schema.Struct({nextToken: Schema.optional(Schema.String), campaignSummaryList: Schema.optional(CampaignSummaryList)});
-export const PutOutboundRequestBatchRequest = Schema.Struct({id: Schema.String, outboundRequests: OutboundRequestList});
-export const CreateCampaignRequest = Schema.Struct({name: Schema.String, connectInstanceId: Schema.String, channelSubtypeConfig: ChannelSubtypeConfig, source: Schema.optional(Source), connectCampaignFlowArn: Schema.optional(Schema.String), schedule: Schema.optional(Schedule), communicationTimeConfig: Schema.optional(CommunicationTimeConfig), communicationLimitsOverride: Schema.optional(CommunicationLimitsConfig), tags: Schema.optional(TagMap)});
-export const SuccessfulRequest = Schema.Struct({clientToken: Schema.optional(Schema.String), id: Schema.optional(Schema.String)});
+export class ListCampaignsResponse extends Schema.Class<ListCampaignsResponse>("ListCampaignsResponse")({nextToken: Schema.optional(Schema.String), campaignSummaryList: Schema.optional(CampaignSummaryList)}) {}
+export class PutOutboundRequestBatchRequest extends Schema.Class<PutOutboundRequestBatchRequest>("PutOutboundRequestBatchRequest")({id: Schema.String, outboundRequests: OutboundRequestList}) {}
+export class CreateCampaignRequest extends Schema.Class<CreateCampaignRequest>("CreateCampaignRequest")({name: Schema.String, connectInstanceId: Schema.String, channelSubtypeConfig: Schema.optional(ChannelSubtypeConfig), type: Schema.optional(Schema.String), source: Schema.optional(Source), connectCampaignFlowArn: Schema.optional(Schema.String), schedule: Schema.optional(Schedule), communicationTimeConfig: Schema.optional(CommunicationTimeConfig), communicationLimitsOverride: Schema.optional(CommunicationLimitsConfig), tags: Schema.optional(TagMap)}) {}
+export class SuccessfulRequest extends Schema.Class<SuccessfulRequest>("SuccessfulRequest")({clientToken: Schema.optional(Schema.String), id: Schema.optional(Schema.String)}) {}
 export const SuccessfulRequestList = Schema.Array(SuccessfulRequest);
-export const FailedRequest = Schema.Struct({clientToken: Schema.optional(Schema.String), id: Schema.optional(Schema.String), failureCode: Schema.optional(Schema.String)});
+export class FailedRequest extends Schema.Class<FailedRequest>("FailedRequest")({clientToken: Schema.optional(Schema.String), id: Schema.optional(Schema.String), failureCode: Schema.optional(Schema.String)}) {}
 export const FailedRequestList = Schema.Array(FailedRequest);
-export const CreateCampaignResponse = Schema.Struct({id: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), tags: Schema.optional(TagMap)});
-export const PutOutboundRequestBatchResponse = Schema.Struct({successfulRequests: Schema.optional(SuccessfulRequestList), failedRequests: Schema.optional(FailedRequestList)});
-export const ServiceQuotaExceededException = Schema.Struct({message: Schema.String, xAmzErrorType: Schema.optional(Header("x-amzn-ErrorType"))});
+export class CreateCampaignResponse extends Schema.Class<CreateCampaignResponse>("CreateCampaignResponse")({id: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), tags: Schema.optional(TagMap)}) {}
+export class PutOutboundRequestBatchResponse extends Schema.Class<PutOutboundRequestBatchResponse>("PutOutboundRequestBatchResponse")({successfulRequests: Schema.optional(SuccessfulRequestList), failedRequests: Schema.optional(FailedRequestList)}) {}
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({message: Schema.String, xAmzErrorType: Schema.optional(Header("x-amzn-ErrorType"))}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class InvalidStateExceptionError extends Schema.TaggedError<InvalidStateExceptionError>()("InvalidStateException", InvalidStateException) {};
-export class InvalidCampaignStateExceptionError extends Schema.TaggedError<InvalidCampaignStateExceptionError>()("InvalidCampaignStateException", InvalidCampaignStateException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class InvalidStateExceptionError extends Schema.TaggedError<InvalidStateExceptionError>()("InvalidStateException", InvalidStateException.fields) {};
+export class InvalidCampaignStateExceptionError extends Schema.TaggedError<InvalidCampaignStateExceptionError>()("InvalidCampaignStateException", InvalidCampaignStateException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
 
 //# Operations
 export const startCampaign = /*#__PURE__*/ makeOperation(() => Operation({ version: "2024-04-23", uri: "/v2/campaigns/{id}/start", method: "POST", sdkId: "ConnectCampaignsV2", sigV4ServiceName: "connect-campaigns", name: "AmazonConnectCampaignServiceV2.StartCampaign" }, StartCampaignRequest, Schema.Struct({}), [AccessDeniedExceptionError, ConflictExceptionError, InternalServerExceptionError, InvalidCampaignStateExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

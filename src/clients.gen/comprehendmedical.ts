@@ -3,115 +3,115 @@ import { FormatAwsJSON11Request,FormatJSONResponse,FormatAwsRestJSONError, makeO
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const DescribeEntitiesDetectionV2JobRequest = Schema.Struct({JobId: Schema.String});
-export const DescribeICD10CMInferenceJobRequest = Schema.Struct({JobId: Schema.String});
-export const DescribePHIDetectionJobRequest = Schema.Struct({JobId: Schema.String});
-export const DescribeRxNormInferenceJobRequest = Schema.Struct({JobId: Schema.String});
-export const DescribeSNOMEDCTInferenceJobRequest = Schema.Struct({JobId: Schema.String});
-export const DetectEntitiesRequest = Schema.Struct({Text: Schema.String});
-export const DetectEntitiesV2Request = Schema.Struct({Text: Schema.String});
-export const DetectPHIRequest = Schema.Struct({Text: Schema.String});
-export const InferICD10CMRequest = Schema.Struct({Text: Schema.String});
-export const InferRxNormRequest = Schema.Struct({Text: Schema.String});
-export const InferSNOMEDCTRequest = Schema.Struct({Text: Schema.String});
-export const ComprehendMedicalAsyncJobFilter = Schema.Struct({JobName: Schema.optional(Schema.String), JobStatus: Schema.optional(Schema.String), SubmitTimeBefore: Schema.optional(Schema.Date), SubmitTimeAfter: Schema.optional(Schema.Date)});
-export const ListICD10CMInferenceJobsRequest = Schema.Struct({Filter: Schema.optional(ComprehendMedicalAsyncJobFilter), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListPHIDetectionJobsRequest = Schema.Struct({Filter: Schema.optional(ComprehendMedicalAsyncJobFilter), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListRxNormInferenceJobsRequest = Schema.Struct({Filter: Schema.optional(ComprehendMedicalAsyncJobFilter), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListSNOMEDCTInferenceJobsRequest = Schema.Struct({Filter: Schema.optional(ComprehendMedicalAsyncJobFilter), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const InputDataConfig = Schema.Struct({S3Bucket: Schema.String, S3Key: Schema.optional(Schema.String)});
-export const OutputDataConfig = Schema.Struct({S3Bucket: Schema.String, S3Key: Schema.optional(Schema.String)});
-export const StartICD10CMInferenceJobRequest = Schema.Struct({InputDataConfig: InputDataConfig, OutputDataConfig: OutputDataConfig, DataAccessRoleArn: Schema.String, JobName: Schema.optional(Schema.String), ClientRequestToken: Schema.optional(Schema.String), KMSKey: Schema.optional(Schema.String), LanguageCode: Schema.String});
-export const StartPHIDetectionJobRequest = Schema.Struct({InputDataConfig: InputDataConfig, OutputDataConfig: OutputDataConfig, DataAccessRoleArn: Schema.String, JobName: Schema.optional(Schema.String), ClientRequestToken: Schema.optional(Schema.String), KMSKey: Schema.optional(Schema.String), LanguageCode: Schema.String});
-export const StartRxNormInferenceJobRequest = Schema.Struct({InputDataConfig: InputDataConfig, OutputDataConfig: OutputDataConfig, DataAccessRoleArn: Schema.String, JobName: Schema.optional(Schema.String), ClientRequestToken: Schema.optional(Schema.String), KMSKey: Schema.optional(Schema.String), LanguageCode: Schema.String});
-export const StartSNOMEDCTInferenceJobRequest = Schema.Struct({InputDataConfig: InputDataConfig, OutputDataConfig: OutputDataConfig, DataAccessRoleArn: Schema.String, JobName: Schema.optional(Schema.String), ClientRequestToken: Schema.optional(Schema.String), KMSKey: Schema.optional(Schema.String), LanguageCode: Schema.String});
-export const StopEntitiesDetectionV2JobRequest = Schema.Struct({JobId: Schema.String});
-export const StopICD10CMInferenceJobRequest = Schema.Struct({JobId: Schema.String});
-export const StopPHIDetectionJobRequest = Schema.Struct({JobId: Schema.String});
-export const StopRxNormInferenceJobRequest = Schema.Struct({JobId: Schema.String});
-export const StopSNOMEDCTInferenceJobRequest = Schema.Struct({JobId: Schema.String});
-export const ComprehendMedicalAsyncJobProperties = Schema.Struct({JobId: Schema.optional(Schema.String), JobName: Schema.optional(Schema.String), JobStatus: Schema.optional(Schema.String), Message: Schema.optional(Schema.String), SubmitTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date), ExpirationTime: Schema.optional(Schema.Date), InputDataConfig: Schema.optional(InputDataConfig), OutputDataConfig: Schema.optional(OutputDataConfig), LanguageCode: Schema.optional(Schema.String), DataAccessRoleArn: Schema.optional(Schema.String), ManifestFilePath: Schema.optional(Schema.String), KMSKey: Schema.optional(Schema.String), ModelVersion: Schema.optional(Schema.String)});
+export class DescribeEntitiesDetectionV2JobRequest extends Schema.Class<DescribeEntitiesDetectionV2JobRequest>("DescribeEntitiesDetectionV2JobRequest")({JobId: Schema.String}) {}
+export class DescribeICD10CMInferenceJobRequest extends Schema.Class<DescribeICD10CMInferenceJobRequest>("DescribeICD10CMInferenceJobRequest")({JobId: Schema.String}) {}
+export class DescribePHIDetectionJobRequest extends Schema.Class<DescribePHIDetectionJobRequest>("DescribePHIDetectionJobRequest")({JobId: Schema.String}) {}
+export class DescribeRxNormInferenceJobRequest extends Schema.Class<DescribeRxNormInferenceJobRequest>("DescribeRxNormInferenceJobRequest")({JobId: Schema.String}) {}
+export class DescribeSNOMEDCTInferenceJobRequest extends Schema.Class<DescribeSNOMEDCTInferenceJobRequest>("DescribeSNOMEDCTInferenceJobRequest")({JobId: Schema.String}) {}
+export class DetectEntitiesRequest extends Schema.Class<DetectEntitiesRequest>("DetectEntitiesRequest")({Text: Schema.String}) {}
+export class DetectEntitiesV2Request extends Schema.Class<DetectEntitiesV2Request>("DetectEntitiesV2Request")({Text: Schema.String}) {}
+export class DetectPHIRequest extends Schema.Class<DetectPHIRequest>("DetectPHIRequest")({Text: Schema.String}) {}
+export class InferICD10CMRequest extends Schema.Class<InferICD10CMRequest>("InferICD10CMRequest")({Text: Schema.String}) {}
+export class InferRxNormRequest extends Schema.Class<InferRxNormRequest>("InferRxNormRequest")({Text: Schema.String}) {}
+export class InferSNOMEDCTRequest extends Schema.Class<InferSNOMEDCTRequest>("InferSNOMEDCTRequest")({Text: Schema.String}) {}
+export class ComprehendMedicalAsyncJobFilter extends Schema.Class<ComprehendMedicalAsyncJobFilter>("ComprehendMedicalAsyncJobFilter")({JobName: Schema.optional(Schema.String), JobStatus: Schema.optional(Schema.String), SubmitTimeBefore: Schema.optional(Schema.Date), SubmitTimeAfter: Schema.optional(Schema.Date)}) {}
+export class ListICD10CMInferenceJobsRequest extends Schema.Class<ListICD10CMInferenceJobsRequest>("ListICD10CMInferenceJobsRequest")({Filter: Schema.optional(ComprehendMedicalAsyncJobFilter), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListPHIDetectionJobsRequest extends Schema.Class<ListPHIDetectionJobsRequest>("ListPHIDetectionJobsRequest")({Filter: Schema.optional(ComprehendMedicalAsyncJobFilter), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListRxNormInferenceJobsRequest extends Schema.Class<ListRxNormInferenceJobsRequest>("ListRxNormInferenceJobsRequest")({Filter: Schema.optional(ComprehendMedicalAsyncJobFilter), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListSNOMEDCTInferenceJobsRequest extends Schema.Class<ListSNOMEDCTInferenceJobsRequest>("ListSNOMEDCTInferenceJobsRequest")({Filter: Schema.optional(ComprehendMedicalAsyncJobFilter), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class InputDataConfig extends Schema.Class<InputDataConfig>("InputDataConfig")({S3Bucket: Schema.String, S3Key: Schema.optional(Schema.String)}) {}
+export class OutputDataConfig extends Schema.Class<OutputDataConfig>("OutputDataConfig")({S3Bucket: Schema.String, S3Key: Schema.optional(Schema.String)}) {}
+export class StartICD10CMInferenceJobRequest extends Schema.Class<StartICD10CMInferenceJobRequest>("StartICD10CMInferenceJobRequest")({InputDataConfig: InputDataConfig, OutputDataConfig: OutputDataConfig, DataAccessRoleArn: Schema.String, JobName: Schema.optional(Schema.String), ClientRequestToken: Schema.optional(Schema.String), KMSKey: Schema.optional(Schema.String), LanguageCode: Schema.String}) {}
+export class StartPHIDetectionJobRequest extends Schema.Class<StartPHIDetectionJobRequest>("StartPHIDetectionJobRequest")({InputDataConfig: InputDataConfig, OutputDataConfig: OutputDataConfig, DataAccessRoleArn: Schema.String, JobName: Schema.optional(Schema.String), ClientRequestToken: Schema.optional(Schema.String), KMSKey: Schema.optional(Schema.String), LanguageCode: Schema.String}) {}
+export class StartRxNormInferenceJobRequest extends Schema.Class<StartRxNormInferenceJobRequest>("StartRxNormInferenceJobRequest")({InputDataConfig: InputDataConfig, OutputDataConfig: OutputDataConfig, DataAccessRoleArn: Schema.String, JobName: Schema.optional(Schema.String), ClientRequestToken: Schema.optional(Schema.String), KMSKey: Schema.optional(Schema.String), LanguageCode: Schema.String}) {}
+export class StartSNOMEDCTInferenceJobRequest extends Schema.Class<StartSNOMEDCTInferenceJobRequest>("StartSNOMEDCTInferenceJobRequest")({InputDataConfig: InputDataConfig, OutputDataConfig: OutputDataConfig, DataAccessRoleArn: Schema.String, JobName: Schema.optional(Schema.String), ClientRequestToken: Schema.optional(Schema.String), KMSKey: Schema.optional(Schema.String), LanguageCode: Schema.String}) {}
+export class StopEntitiesDetectionV2JobRequest extends Schema.Class<StopEntitiesDetectionV2JobRequest>("StopEntitiesDetectionV2JobRequest")({JobId: Schema.String}) {}
+export class StopICD10CMInferenceJobRequest extends Schema.Class<StopICD10CMInferenceJobRequest>("StopICD10CMInferenceJobRequest")({JobId: Schema.String}) {}
+export class StopPHIDetectionJobRequest extends Schema.Class<StopPHIDetectionJobRequest>("StopPHIDetectionJobRequest")({JobId: Schema.String}) {}
+export class StopRxNormInferenceJobRequest extends Schema.Class<StopRxNormInferenceJobRequest>("StopRxNormInferenceJobRequest")({JobId: Schema.String}) {}
+export class StopSNOMEDCTInferenceJobRequest extends Schema.Class<StopSNOMEDCTInferenceJobRequest>("StopSNOMEDCTInferenceJobRequest")({JobId: Schema.String}) {}
+export class ComprehendMedicalAsyncJobProperties extends Schema.Class<ComprehendMedicalAsyncJobProperties>("ComprehendMedicalAsyncJobProperties")({JobId: Schema.optional(Schema.String), JobName: Schema.optional(Schema.String), JobStatus: Schema.optional(Schema.String), Message: Schema.optional(Schema.String), SubmitTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date), ExpirationTime: Schema.optional(Schema.Date), InputDataConfig: Schema.optional(InputDataConfig), OutputDataConfig: Schema.optional(OutputDataConfig), LanguageCode: Schema.optional(Schema.String), DataAccessRoleArn: Schema.optional(Schema.String), ManifestFilePath: Schema.optional(Schema.String), KMSKey: Schema.optional(Schema.String), ModelVersion: Schema.optional(Schema.String)}) {}
 export const ComprehendMedicalAsyncJobPropertiesList = Schema.Array(ComprehendMedicalAsyncJobProperties);
-export const DescribeICD10CMInferenceJobResponse = Schema.Struct({ComprehendMedicalAsyncJobProperties: Schema.optional(ComprehendMedicalAsyncJobProperties)});
-export const DescribePHIDetectionJobResponse = Schema.Struct({ComprehendMedicalAsyncJobProperties: Schema.optional(ComprehendMedicalAsyncJobProperties)});
-export const DescribeRxNormInferenceJobResponse = Schema.Struct({ComprehendMedicalAsyncJobProperties: Schema.optional(ComprehendMedicalAsyncJobProperties)});
-export const DescribeSNOMEDCTInferenceJobResponse = Schema.Struct({ComprehendMedicalAsyncJobProperties: Schema.optional(ComprehendMedicalAsyncJobProperties)});
-export const Trait = Schema.Struct({Name: Schema.optional(Schema.String), Score: Schema.optional(Schema.Number)});
+export class DescribeICD10CMInferenceJobResponse extends Schema.Class<DescribeICD10CMInferenceJobResponse>("DescribeICD10CMInferenceJobResponse")({ComprehendMedicalAsyncJobProperties: Schema.optional(ComprehendMedicalAsyncJobProperties)}) {}
+export class DescribePHIDetectionJobResponse extends Schema.Class<DescribePHIDetectionJobResponse>("DescribePHIDetectionJobResponse")({ComprehendMedicalAsyncJobProperties: Schema.optional(ComprehendMedicalAsyncJobProperties)}) {}
+export class DescribeRxNormInferenceJobResponse extends Schema.Class<DescribeRxNormInferenceJobResponse>("DescribeRxNormInferenceJobResponse")({ComprehendMedicalAsyncJobProperties: Schema.optional(ComprehendMedicalAsyncJobProperties)}) {}
+export class DescribeSNOMEDCTInferenceJobResponse extends Schema.Class<DescribeSNOMEDCTInferenceJobResponse>("DescribeSNOMEDCTInferenceJobResponse")({ComprehendMedicalAsyncJobProperties: Schema.optional(ComprehendMedicalAsyncJobProperties)}) {}
+export class Trait extends Schema.Class<Trait>("Trait")({Name: Schema.optional(Schema.String), Score: Schema.optional(Schema.Number)}) {}
 export const TraitList = Schema.Array(Trait);
-export const Attribute = Schema.Struct({Type: Schema.optional(Schema.String), Score: Schema.optional(Schema.Number), RelationshipScore: Schema.optional(Schema.Number), RelationshipType: Schema.optional(Schema.String), Id: Schema.optional(Schema.Number), BeginOffset: Schema.optional(Schema.Number), EndOffset: Schema.optional(Schema.Number), Text: Schema.optional(Schema.String), Category: Schema.optional(Schema.String), Traits: Schema.optional(TraitList)});
+export class Attribute extends Schema.Class<Attribute>("Attribute")({Type: Schema.optional(Schema.String), Score: Schema.optional(Schema.Number), RelationshipScore: Schema.optional(Schema.Number), RelationshipType: Schema.optional(Schema.String), Id: Schema.optional(Schema.Number), BeginOffset: Schema.optional(Schema.Number), EndOffset: Schema.optional(Schema.Number), Text: Schema.optional(Schema.String), Category: Schema.optional(Schema.String), Traits: Schema.optional(TraitList)}) {}
 export const AttributeList = Schema.Array(Attribute);
-export const Entity = Schema.Struct({Id: Schema.optional(Schema.Number), BeginOffset: Schema.optional(Schema.Number), EndOffset: Schema.optional(Schema.Number), Score: Schema.optional(Schema.Number), Text: Schema.optional(Schema.String), Category: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), Traits: Schema.optional(TraitList), Attributes: Schema.optional(AttributeList)});
+export class Entity extends Schema.Class<Entity>("Entity")({Id: Schema.optional(Schema.Number), BeginOffset: Schema.optional(Schema.Number), EndOffset: Schema.optional(Schema.Number), Score: Schema.optional(Schema.Number), Text: Schema.optional(Schema.String), Category: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), Traits: Schema.optional(TraitList), Attributes: Schema.optional(AttributeList)}) {}
 export const EntityList = Schema.Array(Entity);
-export const UnmappedAttribute = Schema.Struct({Type: Schema.optional(Schema.String), Attribute: Schema.optional(Attribute)});
+export class UnmappedAttribute extends Schema.Class<UnmappedAttribute>("UnmappedAttribute")({Type: Schema.optional(Schema.String), Attribute: Schema.optional(Attribute)}) {}
 export const UnmappedAttributeList = Schema.Array(UnmappedAttribute);
-export const DetectEntitiesV2Response = Schema.Struct({Entities: EntityList, UnmappedAttributes: Schema.optional(UnmappedAttributeList), PaginationToken: Schema.optional(Schema.String), ModelVersion: Schema.String});
-export const DetectPHIResponse = Schema.Struct({Entities: EntityList, PaginationToken: Schema.optional(Schema.String), ModelVersion: Schema.String});
-export const ListEntitiesDetectionV2JobsRequest = Schema.Struct({Filter: Schema.optional(ComprehendMedicalAsyncJobFilter), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListICD10CMInferenceJobsResponse = Schema.Struct({ComprehendMedicalAsyncJobPropertiesList: Schema.optional(ComprehendMedicalAsyncJobPropertiesList), NextToken: Schema.optional(Schema.String)});
-export const ListPHIDetectionJobsResponse = Schema.Struct({ComprehendMedicalAsyncJobPropertiesList: Schema.optional(ComprehendMedicalAsyncJobPropertiesList), NextToken: Schema.optional(Schema.String)});
-export const ListRxNormInferenceJobsResponse = Schema.Struct({ComprehendMedicalAsyncJobPropertiesList: Schema.optional(ComprehendMedicalAsyncJobPropertiesList), NextToken: Schema.optional(Schema.String)});
-export const ListSNOMEDCTInferenceJobsResponse = Schema.Struct({ComprehendMedicalAsyncJobPropertiesList: Schema.optional(ComprehendMedicalAsyncJobPropertiesList), NextToken: Schema.optional(Schema.String)});
-export const StartEntitiesDetectionV2JobRequest = Schema.Struct({InputDataConfig: InputDataConfig, OutputDataConfig: OutputDataConfig, DataAccessRoleArn: Schema.String, JobName: Schema.optional(Schema.String), ClientRequestToken: Schema.optional(Schema.String), KMSKey: Schema.optional(Schema.String), LanguageCode: Schema.String});
-export const StartICD10CMInferenceJobResponse = Schema.Struct({JobId: Schema.optional(Schema.String)});
-export const StartPHIDetectionJobResponse = Schema.Struct({JobId: Schema.optional(Schema.String)});
-export const StartRxNormInferenceJobResponse = Schema.Struct({JobId: Schema.optional(Schema.String)});
-export const StartSNOMEDCTInferenceJobResponse = Schema.Struct({JobId: Schema.optional(Schema.String)});
-export const StopEntitiesDetectionV2JobResponse = Schema.Struct({JobId: Schema.optional(Schema.String)});
-export const StopICD10CMInferenceJobResponse = Schema.Struct({JobId: Schema.optional(Schema.String)});
-export const StopPHIDetectionJobResponse = Schema.Struct({JobId: Schema.optional(Schema.String)});
-export const StopRxNormInferenceJobResponse = Schema.Struct({JobId: Schema.optional(Schema.String)});
-export const StopSNOMEDCTInferenceJobResponse = Schema.Struct({JobId: Schema.optional(Schema.String)});
-export const SNOMEDCTDetails = Schema.Struct({Edition: Schema.optional(Schema.String), Language: Schema.optional(Schema.String), VersionDate: Schema.optional(Schema.String)});
-export const Characters = Schema.Struct({OriginalTextCharacters: Schema.optional(Schema.Number)});
-export const DescribeEntitiesDetectionV2JobResponse = Schema.Struct({ComprehendMedicalAsyncJobProperties: Schema.optional(ComprehendMedicalAsyncJobProperties)});
-export const InternalServerException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const InvalidRequestException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const TooManyRequestsException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const InvalidEncodingException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ServiceUnavailableException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ListEntitiesDetectionV2JobsResponse = Schema.Struct({ComprehendMedicalAsyncJobPropertiesList: Schema.optional(ComprehendMedicalAsyncJobPropertiesList), NextToken: Schema.optional(Schema.String)});
-export const ValidationException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const StartEntitiesDetectionV2JobResponse = Schema.Struct({JobId: Schema.optional(Schema.String)});
-export const ICD10CMTrait = Schema.Struct({Name: Schema.optional(Schema.String), Score: Schema.optional(Schema.Number)});
+export class DetectEntitiesV2Response extends Schema.Class<DetectEntitiesV2Response>("DetectEntitiesV2Response")({Entities: EntityList, UnmappedAttributes: Schema.optional(UnmappedAttributeList), PaginationToken: Schema.optional(Schema.String), ModelVersion: Schema.String}) {}
+export class DetectPHIResponse extends Schema.Class<DetectPHIResponse>("DetectPHIResponse")({Entities: EntityList, PaginationToken: Schema.optional(Schema.String), ModelVersion: Schema.String}) {}
+export class ListEntitiesDetectionV2JobsRequest extends Schema.Class<ListEntitiesDetectionV2JobsRequest>("ListEntitiesDetectionV2JobsRequest")({Filter: Schema.optional(ComprehendMedicalAsyncJobFilter), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListICD10CMInferenceJobsResponse extends Schema.Class<ListICD10CMInferenceJobsResponse>("ListICD10CMInferenceJobsResponse")({ComprehendMedicalAsyncJobPropertiesList: Schema.optional(ComprehendMedicalAsyncJobPropertiesList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListPHIDetectionJobsResponse extends Schema.Class<ListPHIDetectionJobsResponse>("ListPHIDetectionJobsResponse")({ComprehendMedicalAsyncJobPropertiesList: Schema.optional(ComprehendMedicalAsyncJobPropertiesList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListRxNormInferenceJobsResponse extends Schema.Class<ListRxNormInferenceJobsResponse>("ListRxNormInferenceJobsResponse")({ComprehendMedicalAsyncJobPropertiesList: Schema.optional(ComprehendMedicalAsyncJobPropertiesList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListSNOMEDCTInferenceJobsResponse extends Schema.Class<ListSNOMEDCTInferenceJobsResponse>("ListSNOMEDCTInferenceJobsResponse")({ComprehendMedicalAsyncJobPropertiesList: Schema.optional(ComprehendMedicalAsyncJobPropertiesList), NextToken: Schema.optional(Schema.String)}) {}
+export class StartEntitiesDetectionV2JobRequest extends Schema.Class<StartEntitiesDetectionV2JobRequest>("StartEntitiesDetectionV2JobRequest")({InputDataConfig: InputDataConfig, OutputDataConfig: OutputDataConfig, DataAccessRoleArn: Schema.String, JobName: Schema.optional(Schema.String), ClientRequestToken: Schema.optional(Schema.String), KMSKey: Schema.optional(Schema.String), LanguageCode: Schema.String}) {}
+export class StartICD10CMInferenceJobResponse extends Schema.Class<StartICD10CMInferenceJobResponse>("StartICD10CMInferenceJobResponse")({JobId: Schema.optional(Schema.String)}) {}
+export class StartPHIDetectionJobResponse extends Schema.Class<StartPHIDetectionJobResponse>("StartPHIDetectionJobResponse")({JobId: Schema.optional(Schema.String)}) {}
+export class StartRxNormInferenceJobResponse extends Schema.Class<StartRxNormInferenceJobResponse>("StartRxNormInferenceJobResponse")({JobId: Schema.optional(Schema.String)}) {}
+export class StartSNOMEDCTInferenceJobResponse extends Schema.Class<StartSNOMEDCTInferenceJobResponse>("StartSNOMEDCTInferenceJobResponse")({JobId: Schema.optional(Schema.String)}) {}
+export class StopEntitiesDetectionV2JobResponse extends Schema.Class<StopEntitiesDetectionV2JobResponse>("StopEntitiesDetectionV2JobResponse")({JobId: Schema.optional(Schema.String)}) {}
+export class StopICD10CMInferenceJobResponse extends Schema.Class<StopICD10CMInferenceJobResponse>("StopICD10CMInferenceJobResponse")({JobId: Schema.optional(Schema.String)}) {}
+export class StopPHIDetectionJobResponse extends Schema.Class<StopPHIDetectionJobResponse>("StopPHIDetectionJobResponse")({JobId: Schema.optional(Schema.String)}) {}
+export class StopRxNormInferenceJobResponse extends Schema.Class<StopRxNormInferenceJobResponse>("StopRxNormInferenceJobResponse")({JobId: Schema.optional(Schema.String)}) {}
+export class StopSNOMEDCTInferenceJobResponse extends Schema.Class<StopSNOMEDCTInferenceJobResponse>("StopSNOMEDCTInferenceJobResponse")({JobId: Schema.optional(Schema.String)}) {}
+export class SNOMEDCTDetails extends Schema.Class<SNOMEDCTDetails>("SNOMEDCTDetails")({Edition: Schema.optional(Schema.String), Language: Schema.optional(Schema.String), VersionDate: Schema.optional(Schema.String)}) {}
+export class Characters extends Schema.Class<Characters>("Characters")({OriginalTextCharacters: Schema.optional(Schema.Number)}) {}
+export class DescribeEntitiesDetectionV2JobResponse extends Schema.Class<DescribeEntitiesDetectionV2JobResponse>("DescribeEntitiesDetectionV2JobResponse")({ComprehendMedicalAsyncJobProperties: Schema.optional(ComprehendMedicalAsyncJobProperties)}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({Message: Schema.optional(Schema.String)}) {}
+export class InvalidRequestException extends Schema.Class<InvalidRequestException>("InvalidRequestException")({Message: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class TooManyRequestsException extends Schema.Class<TooManyRequestsException>("TooManyRequestsException")({Message: Schema.optional(Schema.String)}) {}
+export class InvalidEncodingException extends Schema.Class<InvalidEncodingException>("InvalidEncodingException")({Message: Schema.optional(Schema.String)}) {}
+export class ServiceUnavailableException extends Schema.Class<ServiceUnavailableException>("ServiceUnavailableException")({Message: Schema.optional(Schema.String)}) {}
+export class ListEntitiesDetectionV2JobsResponse extends Schema.Class<ListEntitiesDetectionV2JobsResponse>("ListEntitiesDetectionV2JobsResponse")({ComprehendMedicalAsyncJobPropertiesList: Schema.optional(ComprehendMedicalAsyncJobPropertiesList), NextToken: Schema.optional(Schema.String)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({Message: Schema.optional(Schema.String)}) {}
+export class StartEntitiesDetectionV2JobResponse extends Schema.Class<StartEntitiesDetectionV2JobResponse>("StartEntitiesDetectionV2JobResponse")({JobId: Schema.optional(Schema.String)}) {}
+export class ICD10CMTrait extends Schema.Class<ICD10CMTrait>("ICD10CMTrait")({Name: Schema.optional(Schema.String), Score: Schema.optional(Schema.Number)}) {}
 export const ICD10CMTraitList = Schema.Array(ICD10CMTrait);
-export const ICD10CMAttribute = Schema.Struct({Type: Schema.optional(Schema.String), Score: Schema.optional(Schema.Number), RelationshipScore: Schema.optional(Schema.Number), Id: Schema.optional(Schema.Number), BeginOffset: Schema.optional(Schema.Number), EndOffset: Schema.optional(Schema.Number), Text: Schema.optional(Schema.String), Traits: Schema.optional(ICD10CMTraitList), Category: Schema.optional(Schema.String), RelationshipType: Schema.optional(Schema.String)});
+export class ICD10CMAttribute extends Schema.Class<ICD10CMAttribute>("ICD10CMAttribute")({Type: Schema.optional(Schema.String), Score: Schema.optional(Schema.Number), RelationshipScore: Schema.optional(Schema.Number), Id: Schema.optional(Schema.Number), BeginOffset: Schema.optional(Schema.Number), EndOffset: Schema.optional(Schema.Number), Text: Schema.optional(Schema.String), Traits: Schema.optional(ICD10CMTraitList), Category: Schema.optional(Schema.String), RelationshipType: Schema.optional(Schema.String)}) {}
 export const ICD10CMAttributeList = Schema.Array(ICD10CMAttribute);
-export const ICD10CMConcept = Schema.Struct({Description: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), Score: Schema.optional(Schema.Number)});
+export class ICD10CMConcept extends Schema.Class<ICD10CMConcept>("ICD10CMConcept")({Description: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), Score: Schema.optional(Schema.Number)}) {}
 export const ICD10CMConceptList = Schema.Array(ICD10CMConcept);
-export const RxNormTrait = Schema.Struct({Name: Schema.optional(Schema.String), Score: Schema.optional(Schema.Number)});
+export class RxNormTrait extends Schema.Class<RxNormTrait>("RxNormTrait")({Name: Schema.optional(Schema.String), Score: Schema.optional(Schema.Number)}) {}
 export const RxNormTraitList = Schema.Array(RxNormTrait);
-export const RxNormAttribute = Schema.Struct({Type: Schema.optional(Schema.String), Score: Schema.optional(Schema.Number), RelationshipScore: Schema.optional(Schema.Number), Id: Schema.optional(Schema.Number), BeginOffset: Schema.optional(Schema.Number), EndOffset: Schema.optional(Schema.Number), Text: Schema.optional(Schema.String), Traits: Schema.optional(RxNormTraitList)});
+export class RxNormAttribute extends Schema.Class<RxNormAttribute>("RxNormAttribute")({Type: Schema.optional(Schema.String), Score: Schema.optional(Schema.Number), RelationshipScore: Schema.optional(Schema.Number), Id: Schema.optional(Schema.Number), BeginOffset: Schema.optional(Schema.Number), EndOffset: Schema.optional(Schema.Number), Text: Schema.optional(Schema.String), Traits: Schema.optional(RxNormTraitList)}) {}
 export const RxNormAttributeList = Schema.Array(RxNormAttribute);
-export const RxNormConcept = Schema.Struct({Description: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), Score: Schema.optional(Schema.Number)});
+export class RxNormConcept extends Schema.Class<RxNormConcept>("RxNormConcept")({Description: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), Score: Schema.optional(Schema.Number)}) {}
 export const RxNormConceptList = Schema.Array(RxNormConcept);
-export const SNOMEDCTTrait = Schema.Struct({Name: Schema.optional(Schema.String), Score: Schema.optional(Schema.Number)});
+export class SNOMEDCTTrait extends Schema.Class<SNOMEDCTTrait>("SNOMEDCTTrait")({Name: Schema.optional(Schema.String), Score: Schema.optional(Schema.Number)}) {}
 export const SNOMEDCTTraitList = Schema.Array(SNOMEDCTTrait);
-export const SNOMEDCTConcept = Schema.Struct({Description: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), Score: Schema.optional(Schema.Number)});
+export class SNOMEDCTConcept extends Schema.Class<SNOMEDCTConcept>("SNOMEDCTConcept")({Description: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), Score: Schema.optional(Schema.Number)}) {}
 export const SNOMEDCTConceptList = Schema.Array(SNOMEDCTConcept);
-export const SNOMEDCTAttribute = Schema.Struct({Category: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), Score: Schema.optional(Schema.Number), RelationshipScore: Schema.optional(Schema.Number), RelationshipType: Schema.optional(Schema.String), Id: Schema.optional(Schema.Number), BeginOffset: Schema.optional(Schema.Number), EndOffset: Schema.optional(Schema.Number), Text: Schema.optional(Schema.String), Traits: Schema.optional(SNOMEDCTTraitList), SNOMEDCTConcepts: Schema.optional(SNOMEDCTConceptList)});
+export class SNOMEDCTAttribute extends Schema.Class<SNOMEDCTAttribute>("SNOMEDCTAttribute")({Category: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), Score: Schema.optional(Schema.Number), RelationshipScore: Schema.optional(Schema.Number), RelationshipType: Schema.optional(Schema.String), Id: Schema.optional(Schema.Number), BeginOffset: Schema.optional(Schema.Number), EndOffset: Schema.optional(Schema.Number), Text: Schema.optional(Schema.String), Traits: Schema.optional(SNOMEDCTTraitList), SNOMEDCTConcepts: Schema.optional(SNOMEDCTConceptList)}) {}
 export const SNOMEDCTAttributeList = Schema.Array(SNOMEDCTAttribute);
-export const ICD10CMEntity = Schema.Struct({Id: Schema.optional(Schema.Number), Text: Schema.optional(Schema.String), Category: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), Score: Schema.optional(Schema.Number), BeginOffset: Schema.optional(Schema.Number), EndOffset: Schema.optional(Schema.Number), Attributes: Schema.optional(ICD10CMAttributeList), Traits: Schema.optional(ICD10CMTraitList), ICD10CMConcepts: Schema.optional(ICD10CMConceptList)});
+export class ICD10CMEntity extends Schema.Class<ICD10CMEntity>("ICD10CMEntity")({Id: Schema.optional(Schema.Number), Text: Schema.optional(Schema.String), Category: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), Score: Schema.optional(Schema.Number), BeginOffset: Schema.optional(Schema.Number), EndOffset: Schema.optional(Schema.Number), Attributes: Schema.optional(ICD10CMAttributeList), Traits: Schema.optional(ICD10CMTraitList), ICD10CMConcepts: Schema.optional(ICD10CMConceptList)}) {}
 export const ICD10CMEntityList = Schema.Array(ICD10CMEntity);
-export const RxNormEntity = Schema.Struct({Id: Schema.optional(Schema.Number), Text: Schema.optional(Schema.String), Category: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), Score: Schema.optional(Schema.Number), BeginOffset: Schema.optional(Schema.Number), EndOffset: Schema.optional(Schema.Number), Attributes: Schema.optional(RxNormAttributeList), Traits: Schema.optional(RxNormTraitList), RxNormConcepts: Schema.optional(RxNormConceptList)});
+export class RxNormEntity extends Schema.Class<RxNormEntity>("RxNormEntity")({Id: Schema.optional(Schema.Number), Text: Schema.optional(Schema.String), Category: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), Score: Schema.optional(Schema.Number), BeginOffset: Schema.optional(Schema.Number), EndOffset: Schema.optional(Schema.Number), Attributes: Schema.optional(RxNormAttributeList), Traits: Schema.optional(RxNormTraitList), RxNormConcepts: Schema.optional(RxNormConceptList)}) {}
 export const RxNormEntityList = Schema.Array(RxNormEntity);
-export const SNOMEDCTEntity = Schema.Struct({Id: Schema.optional(Schema.Number), Text: Schema.optional(Schema.String), Category: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), Score: Schema.optional(Schema.Number), BeginOffset: Schema.optional(Schema.Number), EndOffset: Schema.optional(Schema.Number), Attributes: Schema.optional(SNOMEDCTAttributeList), Traits: Schema.optional(SNOMEDCTTraitList), SNOMEDCTConcepts: Schema.optional(SNOMEDCTConceptList)});
+export class SNOMEDCTEntity extends Schema.Class<SNOMEDCTEntity>("SNOMEDCTEntity")({Id: Schema.optional(Schema.Number), Text: Schema.optional(Schema.String), Category: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), Score: Schema.optional(Schema.Number), BeginOffset: Schema.optional(Schema.Number), EndOffset: Schema.optional(Schema.Number), Attributes: Schema.optional(SNOMEDCTAttributeList), Traits: Schema.optional(SNOMEDCTTraitList), SNOMEDCTConcepts: Schema.optional(SNOMEDCTConceptList)}) {}
 export const SNOMEDCTEntityList = Schema.Array(SNOMEDCTEntity);
-export const DetectEntitiesResponse = Schema.Struct({Entities: EntityList, UnmappedAttributes: Schema.optional(UnmappedAttributeList), PaginationToken: Schema.optional(Schema.String), ModelVersion: Schema.String});
-export const TextSizeLimitExceededException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const InferICD10CMResponse = Schema.Struct({Entities: ICD10CMEntityList, PaginationToken: Schema.optional(Schema.String), ModelVersion: Schema.optional(Schema.String)});
-export const InferRxNormResponse = Schema.Struct({Entities: RxNormEntityList, PaginationToken: Schema.optional(Schema.String), ModelVersion: Schema.optional(Schema.String)});
-export const InferSNOMEDCTResponse = Schema.Struct({Entities: SNOMEDCTEntityList, PaginationToken: Schema.optional(Schema.String), ModelVersion: Schema.optional(Schema.String), SNOMEDCTDetails: Schema.optional(SNOMEDCTDetails), Characters: Schema.optional(Characters)});
+export class DetectEntitiesResponse extends Schema.Class<DetectEntitiesResponse>("DetectEntitiesResponse")({Entities: EntityList, UnmappedAttributes: Schema.optional(UnmappedAttributeList), PaginationToken: Schema.optional(Schema.String), ModelVersion: Schema.String}) {}
+export class TextSizeLimitExceededException extends Schema.Class<TextSizeLimitExceededException>("TextSizeLimitExceededException")({Message: Schema.optional(Schema.String)}) {}
+export class InferICD10CMResponse extends Schema.Class<InferICD10CMResponse>("InferICD10CMResponse")({Entities: ICD10CMEntityList, PaginationToken: Schema.optional(Schema.String), ModelVersion: Schema.optional(Schema.String)}) {}
+export class InferRxNormResponse extends Schema.Class<InferRxNormResponse>("InferRxNormResponse")({Entities: RxNormEntityList, PaginationToken: Schema.optional(Schema.String), ModelVersion: Schema.optional(Schema.String)}) {}
+export class InferSNOMEDCTResponse extends Schema.Class<InferSNOMEDCTResponse>("InferSNOMEDCTResponse")({Entities: SNOMEDCTEntityList, PaginationToken: Schema.optional(Schema.String), ModelVersion: Schema.optional(Schema.String), SNOMEDCTDetails: Schema.optional(SNOMEDCTDetails), Characters: Schema.optional(Characters)}) {}
 
 //# Errors
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class InvalidRequestExceptionError extends Schema.TaggedError<InvalidRequestExceptionError>()("InvalidRequestException", InvalidRequestException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class InvalidEncodingExceptionError extends Schema.TaggedError<InvalidEncodingExceptionError>()("InvalidEncodingException", InvalidEncodingException) {};
-export class TooManyRequestsExceptionError extends Schema.TaggedError<TooManyRequestsExceptionError>()("TooManyRequestsException", TooManyRequestsException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class ServiceUnavailableExceptionError extends Schema.TaggedError<ServiceUnavailableExceptionError>()("ServiceUnavailableException", ServiceUnavailableException) {};
-export class TextSizeLimitExceededExceptionError extends Schema.TaggedError<TextSizeLimitExceededExceptionError>()("TextSizeLimitExceededException", TextSizeLimitExceededException) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class InvalidRequestExceptionError extends Schema.TaggedError<InvalidRequestExceptionError>()("InvalidRequestException", InvalidRequestException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class InvalidEncodingExceptionError extends Schema.TaggedError<InvalidEncodingExceptionError>()("InvalidEncodingException", InvalidEncodingException.fields) {};
+export class TooManyRequestsExceptionError extends Schema.TaggedError<TooManyRequestsExceptionError>()("TooManyRequestsException", TooManyRequestsException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class ServiceUnavailableExceptionError extends Schema.TaggedError<ServiceUnavailableExceptionError>()("ServiceUnavailableException", ServiceUnavailableException.fields) {};
+export class TextSizeLimitExceededExceptionError extends Schema.TaggedError<TextSizeLimitExceededExceptionError>()("TextSizeLimitExceededException", TextSizeLimitExceededException.fields) {};
 
 //# Operations
 export const listPHIDetectionJobs = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-10-30", uri: "/", method: "POST", sdkId: "ComprehendMedical", sigV4ServiceName: "comprehendmedical", name: "ComprehendMedical_20181030.ListPHIDetectionJobs" }, ListPHIDetectionJobsRequest, ListPHIDetectionJobsResponse, [InternalServerExceptionError, InvalidRequestExceptionError, TooManyRequestsExceptionError, ValidationExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

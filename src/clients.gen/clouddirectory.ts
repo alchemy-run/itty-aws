@@ -3,338 +3,338 @@ import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperat
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const SchemaFacet = Schema.Struct({SchemaArn: Schema.optional(Schema.String), FacetName: Schema.optional(Schema.String)});
+export class SchemaFacet extends Schema.Class<SchemaFacet>("SchemaFacet")({SchemaArn: Schema.optional(Schema.String), FacetName: Schema.optional(Schema.String)}) {}
 export const SchemaFacetList = Schema.Array(SchemaFacet);
 export const AttributeNameList = Schema.Array(Schema.String);
 export const TagKeyList = Schema.Array(Schema.String);
-export const ApplySchemaRequest = Schema.Struct({PublishedSchemaArn: Schema.String, DirectoryArn: Header("x-amz-data-partition")});
-export const ObjectReference = Schema.Struct({Selector: Schema.optional(Schema.String)});
-export const AttachObjectRequest = Schema.Struct({DirectoryArn: Header("x-amz-data-partition"), ParentReference: ObjectReference, ChildReference: ObjectReference, LinkName: Schema.String});
-export const AttachPolicyRequest = Schema.Struct({DirectoryArn: Header("x-amz-data-partition"), PolicyReference: ObjectReference, ObjectReference: ObjectReference});
-export const AttachPolicyResponse = Schema.Struct({});
-export const AttachToIndexRequest = Schema.Struct({DirectoryArn: Header("x-amz-data-partition"), IndexReference: ObjectReference, TargetReference: ObjectReference});
-export const CreateDirectoryRequest = Schema.Struct({Name: Schema.String, SchemaArn: Header("x-amz-data-partition")});
-export const AttributeKey = Schema.Struct({SchemaArn: Schema.String, FacetName: Schema.String, Name: Schema.String});
+export class ApplySchemaRequest extends Schema.Class<ApplySchemaRequest>("ApplySchemaRequest")({PublishedSchemaArn: Schema.String, DirectoryArn: Header("x-amz-data-partition")}) {}
+export class ObjectReference extends Schema.Class<ObjectReference>("ObjectReference")({Selector: Schema.optional(Schema.String)}) {}
+export class AttachObjectRequest extends Schema.Class<AttachObjectRequest>("AttachObjectRequest")({DirectoryArn: Header("x-amz-data-partition"), ParentReference: ObjectReference, ChildReference: ObjectReference, LinkName: Schema.String}) {}
+export class AttachPolicyRequest extends Schema.Class<AttachPolicyRequest>("AttachPolicyRequest")({DirectoryArn: Header("x-amz-data-partition"), PolicyReference: ObjectReference, ObjectReference: ObjectReference}) {}
+export class AttachPolicyResponse extends Schema.Class<AttachPolicyResponse>("AttachPolicyResponse")({}) {}
+export class AttachToIndexRequest extends Schema.Class<AttachToIndexRequest>("AttachToIndexRequest")({DirectoryArn: Header("x-amz-data-partition"), IndexReference: ObjectReference, TargetReference: ObjectReference}) {}
+export class CreateDirectoryRequest extends Schema.Class<CreateDirectoryRequest>("CreateDirectoryRequest")({Name: Schema.String, SchemaArn: Header("x-amz-data-partition")}) {}
+export class AttributeKey extends Schema.Class<AttributeKey>("AttributeKey")({SchemaArn: Schema.String, FacetName: Schema.String, Name: Schema.String}) {}
 export const TypedAttributeValue = Schema.Union(Schema.String, StreamBody(), Schema.Boolean, Schema.String, Schema.Date);
-export const AttributeKeyAndValue = Schema.Struct({Key: AttributeKey, Value: TypedAttributeValue});
+export class AttributeKeyAndValue extends Schema.Class<AttributeKeyAndValue>("AttributeKeyAndValue")({Key: AttributeKey, Value: TypedAttributeValue}) {}
 export const AttributeKeyAndValueList = Schema.Array(AttributeKeyAndValue);
-export const CreateObjectRequest = Schema.Struct({DirectoryArn: Header("x-amz-data-partition"), SchemaFacets: SchemaFacetList, ObjectAttributeList: Schema.optional(AttributeKeyAndValueList), ParentReference: Schema.optional(ObjectReference), LinkName: Schema.optional(Schema.String)});
-export const CreateSchemaRequest = Schema.Struct({Name: Schema.String});
-export const DeleteDirectoryRequest = Schema.Struct({DirectoryArn: Header("x-amz-data-partition")});
-export const DeleteFacetRequest = Schema.Struct({SchemaArn: Header("x-amz-data-partition"), Name: Schema.String});
-export const DeleteFacetResponse = Schema.Struct({});
-export const DeleteObjectRequest = Schema.Struct({DirectoryArn: Header("x-amz-data-partition"), ObjectReference: ObjectReference});
-export const DeleteObjectResponse = Schema.Struct({});
-export const DeleteSchemaRequest = Schema.Struct({SchemaArn: Header("x-amz-data-partition")});
-export const DeleteTypedLinkFacetRequest = Schema.Struct({SchemaArn: Header("x-amz-data-partition"), Name: Schema.String});
-export const DeleteTypedLinkFacetResponse = Schema.Struct({});
-export const DetachFromIndexRequest = Schema.Struct({DirectoryArn: Header("x-amz-data-partition"), IndexReference: ObjectReference, TargetReference: ObjectReference});
-export const DetachObjectRequest = Schema.Struct({DirectoryArn: Header("x-amz-data-partition"), ParentReference: ObjectReference, LinkName: Schema.String});
-export const DetachPolicyRequest = Schema.Struct({DirectoryArn: Header("x-amz-data-partition"), PolicyReference: ObjectReference, ObjectReference: ObjectReference});
-export const DetachPolicyResponse = Schema.Struct({});
-export const DisableDirectoryRequest = Schema.Struct({DirectoryArn: Header("x-amz-data-partition")});
-export const EnableDirectoryRequest = Schema.Struct({DirectoryArn: Header("x-amz-data-partition")});
-export const GetAppliedSchemaVersionRequest = Schema.Struct({SchemaArn: Schema.String});
-export const GetDirectoryRequest = Schema.Struct({DirectoryArn: Header("x-amz-data-partition")});
-export const GetFacetRequest = Schema.Struct({SchemaArn: Header("x-amz-data-partition"), Name: Schema.String});
-export const TypedLinkSchemaAndFacetName = Schema.Struct({SchemaArn: Schema.String, TypedLinkName: Schema.String});
-export const AttributeNameAndValue = Schema.Struct({AttributeName: Schema.String, Value: TypedAttributeValue});
+export class CreateObjectRequest extends Schema.Class<CreateObjectRequest>("CreateObjectRequest")({DirectoryArn: Header("x-amz-data-partition"), SchemaFacets: SchemaFacetList, ObjectAttributeList: Schema.optional(AttributeKeyAndValueList), ParentReference: Schema.optional(ObjectReference), LinkName: Schema.optional(Schema.String)}) {}
+export class CreateSchemaRequest extends Schema.Class<CreateSchemaRequest>("CreateSchemaRequest")({Name: Schema.String}) {}
+export class DeleteDirectoryRequest extends Schema.Class<DeleteDirectoryRequest>("DeleteDirectoryRequest")({DirectoryArn: Header("x-amz-data-partition")}) {}
+export class DeleteFacetRequest extends Schema.Class<DeleteFacetRequest>("DeleteFacetRequest")({SchemaArn: Header("x-amz-data-partition"), Name: Schema.String}) {}
+export class DeleteFacetResponse extends Schema.Class<DeleteFacetResponse>("DeleteFacetResponse")({}) {}
+export class DeleteObjectRequest extends Schema.Class<DeleteObjectRequest>("DeleteObjectRequest")({DirectoryArn: Header("x-amz-data-partition"), ObjectReference: ObjectReference}) {}
+export class DeleteObjectResponse extends Schema.Class<DeleteObjectResponse>("DeleteObjectResponse")({}) {}
+export class DeleteSchemaRequest extends Schema.Class<DeleteSchemaRequest>("DeleteSchemaRequest")({SchemaArn: Header("x-amz-data-partition")}) {}
+export class DeleteTypedLinkFacetRequest extends Schema.Class<DeleteTypedLinkFacetRequest>("DeleteTypedLinkFacetRequest")({SchemaArn: Header("x-amz-data-partition"), Name: Schema.String}) {}
+export class DeleteTypedLinkFacetResponse extends Schema.Class<DeleteTypedLinkFacetResponse>("DeleteTypedLinkFacetResponse")({}) {}
+export class DetachFromIndexRequest extends Schema.Class<DetachFromIndexRequest>("DetachFromIndexRequest")({DirectoryArn: Header("x-amz-data-partition"), IndexReference: ObjectReference, TargetReference: ObjectReference}) {}
+export class DetachObjectRequest extends Schema.Class<DetachObjectRequest>("DetachObjectRequest")({DirectoryArn: Header("x-amz-data-partition"), ParentReference: ObjectReference, LinkName: Schema.String}) {}
+export class DetachPolicyRequest extends Schema.Class<DetachPolicyRequest>("DetachPolicyRequest")({DirectoryArn: Header("x-amz-data-partition"), PolicyReference: ObjectReference, ObjectReference: ObjectReference}) {}
+export class DetachPolicyResponse extends Schema.Class<DetachPolicyResponse>("DetachPolicyResponse")({}) {}
+export class DisableDirectoryRequest extends Schema.Class<DisableDirectoryRequest>("DisableDirectoryRequest")({DirectoryArn: Header("x-amz-data-partition")}) {}
+export class EnableDirectoryRequest extends Schema.Class<EnableDirectoryRequest>("EnableDirectoryRequest")({DirectoryArn: Header("x-amz-data-partition")}) {}
+export class GetAppliedSchemaVersionRequest extends Schema.Class<GetAppliedSchemaVersionRequest>("GetAppliedSchemaVersionRequest")({SchemaArn: Schema.String}) {}
+export class GetDirectoryRequest extends Schema.Class<GetDirectoryRequest>("GetDirectoryRequest")({DirectoryArn: Header("x-amz-data-partition")}) {}
+export class GetFacetRequest extends Schema.Class<GetFacetRequest>("GetFacetRequest")({SchemaArn: Header("x-amz-data-partition"), Name: Schema.String}) {}
+export class TypedLinkSchemaAndFacetName extends Schema.Class<TypedLinkSchemaAndFacetName>("TypedLinkSchemaAndFacetName")({SchemaArn: Schema.String, TypedLinkName: Schema.String}) {}
+export class AttributeNameAndValue extends Schema.Class<AttributeNameAndValue>("AttributeNameAndValue")({AttributeName: Schema.String, Value: TypedAttributeValue}) {}
 export const AttributeNameAndValueList = Schema.Array(AttributeNameAndValue);
-export const TypedLinkSpecifier = Schema.Struct({TypedLinkFacet: TypedLinkSchemaAndFacetName, SourceObjectReference: ObjectReference, TargetObjectReference: ObjectReference, IdentityAttributeValues: AttributeNameAndValueList});
-export const GetLinkAttributesRequest = Schema.Struct({DirectoryArn: Header("x-amz-data-partition"), TypedLinkSpecifier: TypedLinkSpecifier, AttributeNames: AttributeNameList, ConsistencyLevel: Schema.optional(Schema.String)});
-export const GetObjectAttributesRequest = Schema.Struct({DirectoryArn: Header("x-amz-data-partition"), ObjectReference: ObjectReference, ConsistencyLevel: Schema.optional(Header("x-amz-consistency-level")), SchemaFacet: SchemaFacet, AttributeNames: AttributeNameList});
-export const GetObjectInformationRequest = Schema.Struct({DirectoryArn: Header("x-amz-data-partition"), ObjectReference: ObjectReference, ConsistencyLevel: Schema.optional(Header("x-amz-consistency-level"))});
-export const GetSchemaAsJsonRequest = Schema.Struct({SchemaArn: Header("x-amz-data-partition")});
-export const GetTypedLinkFacetInformationRequest = Schema.Struct({SchemaArn: Header("x-amz-data-partition"), Name: Schema.String});
-export const ListAppliedSchemaArnsRequest = Schema.Struct({DirectoryArn: Schema.String, SchemaArn: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListAttachedIndicesRequest = Schema.Struct({DirectoryArn: Header("x-amz-data-partition"), TargetReference: ObjectReference, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), ConsistencyLevel: Schema.optional(Header("x-amz-consistency-level"))});
-export const ListDevelopmentSchemaArnsRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListDirectoriesRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), state: Schema.optional(Schema.String)});
-export const ListFacetAttributesRequest = Schema.Struct({SchemaArn: Header("x-amz-data-partition"), Name: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListFacetNamesRequest = Schema.Struct({SchemaArn: Header("x-amz-data-partition"), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListManagedSchemaArnsRequest = Schema.Struct({SchemaArn: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListObjectAttributesRequest = Schema.Struct({DirectoryArn: Header("x-amz-data-partition"), ObjectReference: ObjectReference, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), ConsistencyLevel: Schema.optional(Header("x-amz-consistency-level")), FacetFilter: Schema.optional(SchemaFacet)});
-export const ListObjectChildrenRequest = Schema.Struct({DirectoryArn: Header("x-amz-data-partition"), ObjectReference: ObjectReference, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), ConsistencyLevel: Schema.optional(Header("x-amz-consistency-level"))});
-export const ListObjectParentPathsRequest = Schema.Struct({DirectoryArn: Header("x-amz-data-partition"), ObjectReference: ObjectReference, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListObjectParentsRequest = Schema.Struct({DirectoryArn: Header("x-amz-data-partition"), ObjectReference: ObjectReference, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), ConsistencyLevel: Schema.optional(Header("x-amz-consistency-level")), IncludeAllLinksToEachParent: Schema.optional(Schema.Boolean)});
-export const ListObjectPoliciesRequest = Schema.Struct({DirectoryArn: Header("x-amz-data-partition"), ObjectReference: ObjectReference, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), ConsistencyLevel: Schema.optional(Header("x-amz-consistency-level"))});
-export const TypedAttributeValueRange = Schema.Struct({StartMode: Schema.String, StartValue: Schema.optional(TypedAttributeValue), EndMode: Schema.String, EndValue: Schema.optional(TypedAttributeValue)});
-export const TypedLinkAttributeRange = Schema.Struct({AttributeName: Schema.optional(Schema.String), Range: TypedAttributeValueRange});
+export class TypedLinkSpecifier extends Schema.Class<TypedLinkSpecifier>("TypedLinkSpecifier")({TypedLinkFacet: TypedLinkSchemaAndFacetName, SourceObjectReference: ObjectReference, TargetObjectReference: ObjectReference, IdentityAttributeValues: AttributeNameAndValueList}) {}
+export class GetLinkAttributesRequest extends Schema.Class<GetLinkAttributesRequest>("GetLinkAttributesRequest")({DirectoryArn: Header("x-amz-data-partition"), TypedLinkSpecifier: TypedLinkSpecifier, AttributeNames: AttributeNameList, ConsistencyLevel: Schema.optional(Schema.String)}) {}
+export class GetObjectAttributesRequest extends Schema.Class<GetObjectAttributesRequest>("GetObjectAttributesRequest")({DirectoryArn: Header("x-amz-data-partition"), ObjectReference: ObjectReference, ConsistencyLevel: Schema.optional(Header("x-amz-consistency-level")), SchemaFacet: SchemaFacet, AttributeNames: AttributeNameList}) {}
+export class GetObjectInformationRequest extends Schema.Class<GetObjectInformationRequest>("GetObjectInformationRequest")({DirectoryArn: Header("x-amz-data-partition"), ObjectReference: ObjectReference, ConsistencyLevel: Schema.optional(Header("x-amz-consistency-level"))}) {}
+export class GetSchemaAsJsonRequest extends Schema.Class<GetSchemaAsJsonRequest>("GetSchemaAsJsonRequest")({SchemaArn: Header("x-amz-data-partition")}) {}
+export class GetTypedLinkFacetInformationRequest extends Schema.Class<GetTypedLinkFacetInformationRequest>("GetTypedLinkFacetInformationRequest")({SchemaArn: Header("x-amz-data-partition"), Name: Schema.String}) {}
+export class ListAppliedSchemaArnsRequest extends Schema.Class<ListAppliedSchemaArnsRequest>("ListAppliedSchemaArnsRequest")({DirectoryArn: Schema.String, SchemaArn: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListAttachedIndicesRequest extends Schema.Class<ListAttachedIndicesRequest>("ListAttachedIndicesRequest")({DirectoryArn: Header("x-amz-data-partition"), TargetReference: ObjectReference, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), ConsistencyLevel: Schema.optional(Header("x-amz-consistency-level"))}) {}
+export class ListDevelopmentSchemaArnsRequest extends Schema.Class<ListDevelopmentSchemaArnsRequest>("ListDevelopmentSchemaArnsRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListDirectoriesRequest extends Schema.Class<ListDirectoriesRequest>("ListDirectoriesRequest")({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), state: Schema.optional(Schema.String)}) {}
+export class ListFacetAttributesRequest extends Schema.Class<ListFacetAttributesRequest>("ListFacetAttributesRequest")({SchemaArn: Header("x-amz-data-partition"), Name: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListFacetNamesRequest extends Schema.Class<ListFacetNamesRequest>("ListFacetNamesRequest")({SchemaArn: Header("x-amz-data-partition"), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListManagedSchemaArnsRequest extends Schema.Class<ListManagedSchemaArnsRequest>("ListManagedSchemaArnsRequest")({SchemaArn: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListObjectAttributesRequest extends Schema.Class<ListObjectAttributesRequest>("ListObjectAttributesRequest")({DirectoryArn: Header("x-amz-data-partition"), ObjectReference: ObjectReference, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), ConsistencyLevel: Schema.optional(Header("x-amz-consistency-level")), FacetFilter: Schema.optional(SchemaFacet)}) {}
+export class ListObjectChildrenRequest extends Schema.Class<ListObjectChildrenRequest>("ListObjectChildrenRequest")({DirectoryArn: Header("x-amz-data-partition"), ObjectReference: ObjectReference, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), ConsistencyLevel: Schema.optional(Header("x-amz-consistency-level"))}) {}
+export class ListObjectParentPathsRequest extends Schema.Class<ListObjectParentPathsRequest>("ListObjectParentPathsRequest")({DirectoryArn: Header("x-amz-data-partition"), ObjectReference: ObjectReference, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListObjectParentsRequest extends Schema.Class<ListObjectParentsRequest>("ListObjectParentsRequest")({DirectoryArn: Header("x-amz-data-partition"), ObjectReference: ObjectReference, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), ConsistencyLevel: Schema.optional(Header("x-amz-consistency-level")), IncludeAllLinksToEachParent: Schema.optional(Schema.Boolean)}) {}
+export class ListObjectPoliciesRequest extends Schema.Class<ListObjectPoliciesRequest>("ListObjectPoliciesRequest")({DirectoryArn: Header("x-amz-data-partition"), ObjectReference: ObjectReference, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), ConsistencyLevel: Schema.optional(Header("x-amz-consistency-level"))}) {}
+export class TypedAttributeValueRange extends Schema.Class<TypedAttributeValueRange>("TypedAttributeValueRange")({StartMode: Schema.String, StartValue: Schema.optional(TypedAttributeValue), EndMode: Schema.String, EndValue: Schema.optional(TypedAttributeValue)}) {}
+export class TypedLinkAttributeRange extends Schema.Class<TypedLinkAttributeRange>("TypedLinkAttributeRange")({AttributeName: Schema.optional(Schema.String), Range: TypedAttributeValueRange}) {}
 export const TypedLinkAttributeRangeList = Schema.Array(TypedLinkAttributeRange);
-export const ListOutgoingTypedLinksRequest = Schema.Struct({DirectoryArn: Header("x-amz-data-partition"), ObjectReference: ObjectReference, FilterAttributeRanges: Schema.optional(TypedLinkAttributeRangeList), FilterTypedLink: Schema.optional(TypedLinkSchemaAndFacetName), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), ConsistencyLevel: Schema.optional(Schema.String)});
-export const ListPolicyAttachmentsRequest = Schema.Struct({DirectoryArn: Header("x-amz-data-partition"), PolicyReference: ObjectReference, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), ConsistencyLevel: Schema.optional(Header("x-amz-consistency-level"))});
-export const ListPublishedSchemaArnsRequest = Schema.Struct({SchemaArn: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListTagsForResourceRequest = Schema.Struct({ResourceArn: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListTypedLinkFacetAttributesRequest = Schema.Struct({SchemaArn: Header("x-amz-data-partition"), Name: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const ListTypedLinkFacetNamesRequest = Schema.Struct({SchemaArn: Header("x-amz-data-partition"), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const LookupPolicyRequest = Schema.Struct({DirectoryArn: Header("x-amz-data-partition"), ObjectReference: ObjectReference, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const PublishSchemaRequest = Schema.Struct({DevelopmentSchemaArn: Header("x-amz-data-partition"), Version: Schema.String, MinorVersion: Schema.optional(Schema.String), Name: Schema.optional(Schema.String)});
-export const PutSchemaFromJsonRequest = Schema.Struct({SchemaArn: Header("x-amz-data-partition"), Document: Schema.String});
-export const RemoveFacetFromObjectRequest = Schema.Struct({DirectoryArn: Header("x-amz-data-partition"), SchemaFacet: SchemaFacet, ObjectReference: ObjectReference});
-export const RemoveFacetFromObjectResponse = Schema.Struct({});
-export const UntagResourceRequest = Schema.Struct({ResourceArn: Schema.String, TagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
-export const UpdateSchemaRequest = Schema.Struct({SchemaArn: Header("x-amz-data-partition"), Name: Schema.String});
-export const UpgradeAppliedSchemaRequest = Schema.Struct({PublishedSchemaArn: Schema.String, DirectoryArn: Schema.String, DryRun: Schema.optional(Schema.Boolean)});
-export const UpgradePublishedSchemaRequest = Schema.Struct({DevelopmentSchemaArn: Schema.String, PublishedSchemaArn: Schema.String, MinorVersion: Schema.String, DryRun: Schema.optional(Schema.Boolean)});
+export class ListOutgoingTypedLinksRequest extends Schema.Class<ListOutgoingTypedLinksRequest>("ListOutgoingTypedLinksRequest")({DirectoryArn: Header("x-amz-data-partition"), ObjectReference: ObjectReference, FilterAttributeRanges: Schema.optional(TypedLinkAttributeRangeList), FilterTypedLink: Schema.optional(TypedLinkSchemaAndFacetName), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), ConsistencyLevel: Schema.optional(Schema.String)}) {}
+export class ListPolicyAttachmentsRequest extends Schema.Class<ListPolicyAttachmentsRequest>("ListPolicyAttachmentsRequest")({DirectoryArn: Header("x-amz-data-partition"), PolicyReference: ObjectReference, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), ConsistencyLevel: Schema.optional(Header("x-amz-consistency-level"))}) {}
+export class ListPublishedSchemaArnsRequest extends Schema.Class<ListPublishedSchemaArnsRequest>("ListPublishedSchemaArnsRequest")({SchemaArn: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({ResourceArn: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListTypedLinkFacetAttributesRequest extends Schema.Class<ListTypedLinkFacetAttributesRequest>("ListTypedLinkFacetAttributesRequest")({SchemaArn: Header("x-amz-data-partition"), Name: Schema.String, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class ListTypedLinkFacetNamesRequest extends Schema.Class<ListTypedLinkFacetNamesRequest>("ListTypedLinkFacetNamesRequest")({SchemaArn: Header("x-amz-data-partition"), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class LookupPolicyRequest extends Schema.Class<LookupPolicyRequest>("LookupPolicyRequest")({DirectoryArn: Header("x-amz-data-partition"), ObjectReference: ObjectReference, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class PublishSchemaRequest extends Schema.Class<PublishSchemaRequest>("PublishSchemaRequest")({DevelopmentSchemaArn: Header("x-amz-data-partition"), Version: Schema.String, MinorVersion: Schema.optional(Schema.String), Name: Schema.optional(Schema.String)}) {}
+export class PutSchemaFromJsonRequest extends Schema.Class<PutSchemaFromJsonRequest>("PutSchemaFromJsonRequest")({SchemaArn: Header("x-amz-data-partition"), Document: Schema.String}) {}
+export class RemoveFacetFromObjectRequest extends Schema.Class<RemoveFacetFromObjectRequest>("RemoveFacetFromObjectRequest")({DirectoryArn: Header("x-amz-data-partition"), SchemaFacet: SchemaFacet, ObjectReference: ObjectReference}) {}
+export class RemoveFacetFromObjectResponse extends Schema.Class<RemoveFacetFromObjectResponse>("RemoveFacetFromObjectResponse")({}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({ResourceArn: Schema.String, TagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class UpdateSchemaRequest extends Schema.Class<UpdateSchemaRequest>("UpdateSchemaRequest")({SchemaArn: Header("x-amz-data-partition"), Name: Schema.String}) {}
+export class UpgradeAppliedSchemaRequest extends Schema.Class<UpgradeAppliedSchemaRequest>("UpgradeAppliedSchemaRequest")({PublishedSchemaArn: Schema.String, DirectoryArn: Schema.String, DryRun: Schema.optional(Schema.Boolean)}) {}
+export class UpgradePublishedSchemaRequest extends Schema.Class<UpgradePublishedSchemaRequest>("UpgradePublishedSchemaRequest")({DevelopmentSchemaArn: Schema.String, PublishedSchemaArn: Schema.String, MinorVersion: Schema.String, DryRun: Schema.optional(Schema.Boolean)}) {}
 export const AttributeKeyList = Schema.Array(AttributeKey);
 export const Arns = Schema.Array(Schema.String);
-export const Directory = Schema.Struct({Name: Schema.optional(Schema.String), DirectoryArn: Schema.optional(Schema.String), State: Schema.optional(Schema.String), CreationDateTime: Schema.optional(Schema.Date)});
+export class Directory extends Schema.Class<Directory>("Directory")({Name: Schema.optional(Schema.String), DirectoryArn: Schema.optional(Schema.String), State: Schema.optional(Schema.String), CreationDateTime: Schema.optional(Schema.Date)}) {}
 export const DirectoryList = Schema.Array(Directory);
 export const FacetNameList = Schema.Array(Schema.String);
-export const ObjectAttributeRange = Schema.Struct({AttributeKey: Schema.optional(AttributeKey), Range: Schema.optional(TypedAttributeValueRange)});
+export class ObjectAttributeRange extends Schema.Class<ObjectAttributeRange>("ObjectAttributeRange")({AttributeKey: Schema.optional(AttributeKey), Range: Schema.optional(TypedAttributeValueRange)}) {}
 export const ObjectAttributeRangeList = Schema.Array(ObjectAttributeRange);
 export const ObjectIdentifierList = Schema.Array(Schema.String);
 export const TypedLinkSpecifierList = Schema.Array(TypedLinkSpecifier);
 export const TypedLinkNameList = Schema.Array(Schema.String);
-export const Tag = Schema.Struct({Key: Schema.optional(Schema.String), Value: Schema.optional(Schema.String)});
+export class Tag extends Schema.Class<Tag>("Tag")({Key: Schema.optional(Schema.String), Value: Schema.optional(Schema.String)}) {}
 export const TagList = Schema.Array(Tag);
 export const RuleParameterMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const Rule = Schema.Struct({Type: Schema.optional(Schema.String), Parameters: Schema.optional(RuleParameterMap)});
+export class Rule extends Schema.Class<Rule>("Rule")({Type: Schema.optional(Schema.String), Parameters: Schema.optional(RuleParameterMap)}) {}
 export const RuleMap = Schema.Record({key: Schema.String, value: Rule});
-export const FacetAttributeDefinition = Schema.Struct({Type: Schema.String, DefaultValue: Schema.optional(TypedAttributeValue), IsImmutable: Schema.optional(Schema.Boolean), Rules: Schema.optional(RuleMap)});
-export const FacetAttributeReference = Schema.Struct({TargetFacetName: Schema.String, TargetAttributeName: Schema.String});
-export const FacetAttribute = Schema.Struct({Name: Schema.String, AttributeDefinition: Schema.optional(FacetAttributeDefinition), AttributeReference: Schema.optional(FacetAttributeReference), RequiredBehavior: Schema.optional(Schema.String)});
-export const FacetAttributeUpdate = Schema.Struct({Attribute: Schema.optional(FacetAttribute), Action: Schema.optional(Schema.String)});
+export class FacetAttributeDefinition extends Schema.Class<FacetAttributeDefinition>("FacetAttributeDefinition")({Type: Schema.String, DefaultValue: Schema.optional(TypedAttributeValue), IsImmutable: Schema.optional(Schema.Boolean), Rules: Schema.optional(RuleMap)}) {}
+export class FacetAttributeReference extends Schema.Class<FacetAttributeReference>("FacetAttributeReference")({TargetFacetName: Schema.String, TargetAttributeName: Schema.String}) {}
+export class FacetAttribute extends Schema.Class<FacetAttribute>("FacetAttribute")({Name: Schema.String, AttributeDefinition: Schema.optional(FacetAttributeDefinition), AttributeReference: Schema.optional(FacetAttributeReference), RequiredBehavior: Schema.optional(Schema.String)}) {}
+export class FacetAttributeUpdate extends Schema.Class<FacetAttributeUpdate>("FacetAttributeUpdate")({Attribute: Schema.optional(FacetAttribute), Action: Schema.optional(Schema.String)}) {}
 export const FacetAttributeUpdateList = Schema.Array(FacetAttributeUpdate);
-export const TypedLinkAttributeDefinition = Schema.Struct({Name: Schema.String, Type: Schema.String, DefaultValue: Schema.optional(TypedAttributeValue), IsImmutable: Schema.optional(Schema.Boolean), Rules: Schema.optional(RuleMap), RequiredBehavior: Schema.String});
-export const TypedLinkFacetAttributeUpdate = Schema.Struct({Attribute: TypedLinkAttributeDefinition, Action: Schema.String});
+export class TypedLinkAttributeDefinition extends Schema.Class<TypedLinkAttributeDefinition>("TypedLinkAttributeDefinition")({Name: Schema.String, Type: Schema.String, DefaultValue: Schema.optional(TypedAttributeValue), IsImmutable: Schema.optional(Schema.Boolean), Rules: Schema.optional(RuleMap), RequiredBehavior: Schema.String}) {}
+export class TypedLinkFacetAttributeUpdate extends Schema.Class<TypedLinkFacetAttributeUpdate>("TypedLinkFacetAttributeUpdate")({Attribute: TypedLinkAttributeDefinition, Action: Schema.String}) {}
 export const TypedLinkFacetAttributeUpdateList = Schema.Array(TypedLinkFacetAttributeUpdate);
-export const ApplySchemaResponse = Schema.Struct({AppliedSchemaArn: Schema.optional(Schema.String), DirectoryArn: Schema.optional(Schema.String)});
-export const AttachObjectResponse = Schema.Struct({AttachedObjectIdentifier: Schema.optional(Schema.String)});
-export const AccessDeniedException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const AttachToIndexResponse = Schema.Struct({AttachedObjectIdentifier: Schema.optional(Schema.String)});
-export const AttachTypedLinkRequest = Schema.Struct({DirectoryArn: Header("x-amz-data-partition"), SourceObjectReference: ObjectReference, TargetObjectReference: ObjectReference, TypedLinkFacet: TypedLinkSchemaAndFacetName, Attributes: AttributeNameAndValueList});
-export const CreateDirectoryResponse = Schema.Struct({DirectoryArn: Schema.String, Name: Schema.String, ObjectIdentifier: Schema.String, AppliedSchemaArn: Schema.String});
-export const CreateIndexRequest = Schema.Struct({DirectoryArn: Header("x-amz-data-partition"), OrderedIndexedAttributeList: AttributeKeyList, IsUnique: Schema.Boolean, ParentReference: Schema.optional(ObjectReference), LinkName: Schema.optional(Schema.String)});
-export const CreateObjectResponse = Schema.Struct({ObjectIdentifier: Schema.optional(Schema.String)});
-export const CreateSchemaResponse = Schema.Struct({SchemaArn: Schema.optional(Schema.String)});
-export const DeleteDirectoryResponse = Schema.Struct({DirectoryArn: Schema.String});
-export const FacetInUseException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DirectoryNotEnabledException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DeleteSchemaResponse = Schema.Struct({SchemaArn: Schema.optional(Schema.String)});
-export const FacetNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DetachFromIndexResponse = Schema.Struct({DetachedObjectIdentifier: Schema.optional(Schema.String)});
-export const DetachObjectResponse = Schema.Struct({DetachedObjectIdentifier: Schema.optional(Schema.String)});
-export const InternalServiceException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DetachTypedLinkRequest = Schema.Struct({DirectoryArn: Header("x-amz-data-partition"), TypedLinkSpecifier: TypedLinkSpecifier});
-export const DisableDirectoryResponse = Schema.Struct({DirectoryArn: Schema.String});
-export const EnableDirectoryResponse = Schema.Struct({DirectoryArn: Schema.String});
-export const GetAppliedSchemaVersionResponse = Schema.Struct({AppliedSchemaArn: Schema.optional(Schema.String)});
-export const GetLinkAttributesResponse = Schema.Struct({Attributes: Schema.optional(AttributeKeyAndValueList)});
-export const GetObjectAttributesResponse = Schema.Struct({Attributes: Schema.optional(AttributeKeyAndValueList)});
-export const GetObjectInformationResponse = Schema.Struct({SchemaFacets: Schema.optional(SchemaFacetList), ObjectIdentifier: Schema.optional(Schema.String)});
-export const GetSchemaAsJsonResponse = Schema.Struct({Name: Schema.optional(Schema.String), Document: Schema.optional(Schema.String)});
-export const GetTypedLinkFacetInformationResponse = Schema.Struct({IdentityAttributeOrder: Schema.optional(AttributeNameList)});
-export const ListAppliedSchemaArnsResponse = Schema.Struct({SchemaArns: Schema.optional(Arns), NextToken: Schema.optional(Schema.String)});
-export const ListDevelopmentSchemaArnsResponse = Schema.Struct({SchemaArns: Schema.optional(Arns), NextToken: Schema.optional(Schema.String)});
-export const ListDirectoriesResponse = Schema.Struct({Directories: DirectoryList, NextToken: Schema.optional(Schema.String)});
+export class ApplySchemaResponse extends Schema.Class<ApplySchemaResponse>("ApplySchemaResponse")({AppliedSchemaArn: Schema.optional(Schema.String), DirectoryArn: Schema.optional(Schema.String)}) {}
+export class AttachObjectResponse extends Schema.Class<AttachObjectResponse>("AttachObjectResponse")({AttachedObjectIdentifier: Schema.optional(Schema.String)}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({Message: Schema.optional(Schema.String)}) {}
+export class AttachToIndexResponse extends Schema.Class<AttachToIndexResponse>("AttachToIndexResponse")({AttachedObjectIdentifier: Schema.optional(Schema.String)}) {}
+export class AttachTypedLinkRequest extends Schema.Class<AttachTypedLinkRequest>("AttachTypedLinkRequest")({DirectoryArn: Header("x-amz-data-partition"), SourceObjectReference: ObjectReference, TargetObjectReference: ObjectReference, TypedLinkFacet: TypedLinkSchemaAndFacetName, Attributes: AttributeNameAndValueList}) {}
+export class CreateDirectoryResponse extends Schema.Class<CreateDirectoryResponse>("CreateDirectoryResponse")({DirectoryArn: Schema.String, Name: Schema.String, ObjectIdentifier: Schema.String, AppliedSchemaArn: Schema.String}) {}
+export class CreateIndexRequest extends Schema.Class<CreateIndexRequest>("CreateIndexRequest")({DirectoryArn: Header("x-amz-data-partition"), OrderedIndexedAttributeList: AttributeKeyList, IsUnique: Schema.Boolean, ParentReference: Schema.optional(ObjectReference), LinkName: Schema.optional(Schema.String)}) {}
+export class CreateObjectResponse extends Schema.Class<CreateObjectResponse>("CreateObjectResponse")({ObjectIdentifier: Schema.optional(Schema.String)}) {}
+export class CreateSchemaResponse extends Schema.Class<CreateSchemaResponse>("CreateSchemaResponse")({SchemaArn: Schema.optional(Schema.String)}) {}
+export class DeleteDirectoryResponse extends Schema.Class<DeleteDirectoryResponse>("DeleteDirectoryResponse")({DirectoryArn: Schema.String}) {}
+export class FacetInUseException extends Schema.Class<FacetInUseException>("FacetInUseException")({Message: Schema.optional(Schema.String)}) {}
+export class DirectoryNotEnabledException extends Schema.Class<DirectoryNotEnabledException>("DirectoryNotEnabledException")({Message: Schema.optional(Schema.String)}) {}
+export class DeleteSchemaResponse extends Schema.Class<DeleteSchemaResponse>("DeleteSchemaResponse")({SchemaArn: Schema.optional(Schema.String)}) {}
+export class FacetNotFoundException extends Schema.Class<FacetNotFoundException>("FacetNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class DetachFromIndexResponse extends Schema.Class<DetachFromIndexResponse>("DetachFromIndexResponse")({DetachedObjectIdentifier: Schema.optional(Schema.String)}) {}
+export class DetachObjectResponse extends Schema.Class<DetachObjectResponse>("DetachObjectResponse")({DetachedObjectIdentifier: Schema.optional(Schema.String)}) {}
+export class InternalServiceException extends Schema.Class<InternalServiceException>("InternalServiceException")({Message: Schema.optional(Schema.String)}) {}
+export class DetachTypedLinkRequest extends Schema.Class<DetachTypedLinkRequest>("DetachTypedLinkRequest")({DirectoryArn: Header("x-amz-data-partition"), TypedLinkSpecifier: TypedLinkSpecifier}) {}
+export class DisableDirectoryResponse extends Schema.Class<DisableDirectoryResponse>("DisableDirectoryResponse")({DirectoryArn: Schema.String}) {}
+export class EnableDirectoryResponse extends Schema.Class<EnableDirectoryResponse>("EnableDirectoryResponse")({DirectoryArn: Schema.String}) {}
+export class GetAppliedSchemaVersionResponse extends Schema.Class<GetAppliedSchemaVersionResponse>("GetAppliedSchemaVersionResponse")({AppliedSchemaArn: Schema.optional(Schema.String)}) {}
+export class GetLinkAttributesResponse extends Schema.Class<GetLinkAttributesResponse>("GetLinkAttributesResponse")({Attributes: Schema.optional(AttributeKeyAndValueList)}) {}
+export class GetObjectAttributesResponse extends Schema.Class<GetObjectAttributesResponse>("GetObjectAttributesResponse")({Attributes: Schema.optional(AttributeKeyAndValueList)}) {}
+export class GetObjectInformationResponse extends Schema.Class<GetObjectInformationResponse>("GetObjectInformationResponse")({SchemaFacets: Schema.optional(SchemaFacetList), ObjectIdentifier: Schema.optional(Schema.String)}) {}
+export class GetSchemaAsJsonResponse extends Schema.Class<GetSchemaAsJsonResponse>("GetSchemaAsJsonResponse")({Name: Schema.optional(Schema.String), Document: Schema.optional(Schema.String)}) {}
+export class GetTypedLinkFacetInformationResponse extends Schema.Class<GetTypedLinkFacetInformationResponse>("GetTypedLinkFacetInformationResponse")({IdentityAttributeOrder: Schema.optional(AttributeNameList)}) {}
+export class ListAppliedSchemaArnsResponse extends Schema.Class<ListAppliedSchemaArnsResponse>("ListAppliedSchemaArnsResponse")({SchemaArns: Schema.optional(Arns), NextToken: Schema.optional(Schema.String)}) {}
+export class ListDevelopmentSchemaArnsResponse extends Schema.Class<ListDevelopmentSchemaArnsResponse>("ListDevelopmentSchemaArnsResponse")({SchemaArns: Schema.optional(Arns), NextToken: Schema.optional(Schema.String)}) {}
+export class ListDirectoriesResponse extends Schema.Class<ListDirectoriesResponse>("ListDirectoriesResponse")({Directories: DirectoryList, NextToken: Schema.optional(Schema.String)}) {}
 export const FacetAttributeList = Schema.Array(FacetAttribute);
-export const ListFacetAttributesResponse = Schema.Struct({Attributes: Schema.optional(FacetAttributeList), NextToken: Schema.optional(Schema.String)});
-export const ListFacetNamesResponse = Schema.Struct({FacetNames: Schema.optional(FacetNameList), NextToken: Schema.optional(Schema.String)});
-export const ListIndexRequest = Schema.Struct({DirectoryArn: Header("x-amz-data-partition"), RangesOnIndexedValues: Schema.optional(ObjectAttributeRangeList), IndexReference: ObjectReference, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), ConsistencyLevel: Schema.optional(Header("x-amz-consistency-level"))});
-export const ListManagedSchemaArnsResponse = Schema.Struct({SchemaArns: Schema.optional(Arns), NextToken: Schema.optional(Schema.String)});
-export const ListObjectAttributesResponse = Schema.Struct({Attributes: Schema.optional(AttributeKeyAndValueList), NextToken: Schema.optional(Schema.String)});
-export const ListObjectPoliciesResponse = Schema.Struct({AttachedPolicyIds: Schema.optional(ObjectIdentifierList), NextToken: Schema.optional(Schema.String)});
-export const ListOutgoingTypedLinksResponse = Schema.Struct({TypedLinkSpecifiers: Schema.optional(TypedLinkSpecifierList), NextToken: Schema.optional(Schema.String)});
-export const ListPolicyAttachmentsResponse = Schema.Struct({ObjectIdentifiers: Schema.optional(ObjectIdentifierList), NextToken: Schema.optional(Schema.String)});
-export const ListPublishedSchemaArnsResponse = Schema.Struct({SchemaArns: Schema.optional(Arns), NextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceResponse = Schema.Struct({Tags: Schema.optional(TagList), NextToken: Schema.optional(Schema.String)});
+export class ListFacetAttributesResponse extends Schema.Class<ListFacetAttributesResponse>("ListFacetAttributesResponse")({Attributes: Schema.optional(FacetAttributeList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListFacetNamesResponse extends Schema.Class<ListFacetNamesResponse>("ListFacetNamesResponse")({FacetNames: Schema.optional(FacetNameList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListIndexRequest extends Schema.Class<ListIndexRequest>("ListIndexRequest")({DirectoryArn: Header("x-amz-data-partition"), RangesOnIndexedValues: Schema.optional(ObjectAttributeRangeList), IndexReference: ObjectReference, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), ConsistencyLevel: Schema.optional(Header("x-amz-consistency-level"))}) {}
+export class ListManagedSchemaArnsResponse extends Schema.Class<ListManagedSchemaArnsResponse>("ListManagedSchemaArnsResponse")({SchemaArns: Schema.optional(Arns), NextToken: Schema.optional(Schema.String)}) {}
+export class ListObjectAttributesResponse extends Schema.Class<ListObjectAttributesResponse>("ListObjectAttributesResponse")({Attributes: Schema.optional(AttributeKeyAndValueList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListObjectPoliciesResponse extends Schema.Class<ListObjectPoliciesResponse>("ListObjectPoliciesResponse")({AttachedPolicyIds: Schema.optional(ObjectIdentifierList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListOutgoingTypedLinksResponse extends Schema.Class<ListOutgoingTypedLinksResponse>("ListOutgoingTypedLinksResponse")({TypedLinkSpecifiers: Schema.optional(TypedLinkSpecifierList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListPolicyAttachmentsResponse extends Schema.Class<ListPolicyAttachmentsResponse>("ListPolicyAttachmentsResponse")({ObjectIdentifiers: Schema.optional(ObjectIdentifierList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListPublishedSchemaArnsResponse extends Schema.Class<ListPublishedSchemaArnsResponse>("ListPublishedSchemaArnsResponse")({SchemaArns: Schema.optional(Arns), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({Tags: Schema.optional(TagList), NextToken: Schema.optional(Schema.String)}) {}
 export const TypedLinkAttributeDefinitionList = Schema.Array(TypedLinkAttributeDefinition);
-export const ListTypedLinkFacetAttributesResponse = Schema.Struct({Attributes: Schema.optional(TypedLinkAttributeDefinitionList), NextToken: Schema.optional(Schema.String)});
-export const ListTypedLinkFacetNamesResponse = Schema.Struct({FacetNames: Schema.optional(TypedLinkNameList), NextToken: Schema.optional(Schema.String)});
-export const PublishSchemaResponse = Schema.Struct({PublishedSchemaArn: Schema.optional(Schema.String)});
-export const PutSchemaFromJsonResponse = Schema.Struct({Arn: Schema.optional(Schema.String)});
-export const FacetValidationException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const TagResourceRequest = Schema.Struct({ResourceArn: Schema.String, Tags: TagList});
-export const TagResourceResponse = Schema.Struct({});
-export const InvalidArnException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const UpdateFacetRequest = Schema.Struct({SchemaArn: Header("x-amz-data-partition"), Name: Schema.String, AttributeUpdates: Schema.optional(FacetAttributeUpdateList), ObjectType: Schema.optional(Schema.String)});
-export const UpdateFacetResponse = Schema.Struct({});
-export const UpdateSchemaResponse = Schema.Struct({SchemaArn: Schema.optional(Schema.String)});
-export const UpdateTypedLinkFacetRequest = Schema.Struct({SchemaArn: Header("x-amz-data-partition"), Name: Schema.String, AttributeUpdates: TypedLinkFacetAttributeUpdateList, IdentityAttributeOrder: AttributeNameList});
-export const UpdateTypedLinkFacetResponse = Schema.Struct({});
-export const UpgradeAppliedSchemaResponse = Schema.Struct({UpgradedSchemaArn: Schema.optional(Schema.String), DirectoryArn: Schema.optional(Schema.String)});
-export const UpgradePublishedSchemaResponse = Schema.Struct({UpgradedSchemaArn: Schema.optional(Schema.String)});
-export const BatchListObjectAttributes = Schema.Struct({ObjectReference: ObjectReference, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), FacetFilter: Schema.optional(SchemaFacet)});
-export const BatchListObjectChildren = Schema.Struct({ObjectReference: ObjectReference, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const BatchListAttachedIndices = Schema.Struct({TargetReference: ObjectReference, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const BatchListObjectParentPaths = Schema.Struct({ObjectReference: ObjectReference, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const BatchGetObjectInformation = Schema.Struct({ObjectReference: ObjectReference});
-export const BatchGetObjectAttributes = Schema.Struct({ObjectReference: ObjectReference, SchemaFacet: SchemaFacet, AttributeNames: AttributeNameList});
-export const BatchListObjectParents = Schema.Struct({ObjectReference: ObjectReference, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const BatchListObjectPolicies = Schema.Struct({ObjectReference: ObjectReference, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const BatchListPolicyAttachments = Schema.Struct({PolicyReference: ObjectReference, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const BatchLookupPolicy = Schema.Struct({ObjectReference: ObjectReference, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const BatchListIndex = Schema.Struct({RangesOnIndexedValues: Schema.optional(ObjectAttributeRangeList), IndexReference: ObjectReference, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
-export const BatchListOutgoingTypedLinks = Schema.Struct({ObjectReference: ObjectReference, FilterAttributeRanges: Schema.optional(TypedLinkAttributeRangeList), FilterTypedLink: Schema.optional(TypedLinkSchemaAndFacetName), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const BatchListIncomingTypedLinks = Schema.Struct({ObjectReference: ObjectReference, FilterAttributeRanges: Schema.optional(TypedLinkAttributeRangeList), FilterTypedLink: Schema.optional(TypedLinkSchemaAndFacetName), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
-export const BatchGetLinkAttributes = Schema.Struct({TypedLinkSpecifier: TypedLinkSpecifier, AttributeNames: AttributeNameList});
-export const BatchCreateObject = Schema.Struct({SchemaFacet: SchemaFacetList, ObjectAttributeList: AttributeKeyAndValueList, ParentReference: Schema.optional(ObjectReference), LinkName: Schema.optional(Schema.String), BatchReferenceName: Schema.optional(Schema.String)});
-export const BatchAttachObject = Schema.Struct({ParentReference: ObjectReference, ChildReference: ObjectReference, LinkName: Schema.String});
-export const BatchDetachObject = Schema.Struct({ParentReference: ObjectReference, LinkName: Schema.String, BatchReferenceName: Schema.optional(Schema.String)});
-export const ObjectAttributeAction = Schema.Struct({ObjectAttributeActionType: Schema.optional(Schema.String), ObjectAttributeUpdateValue: Schema.optional(TypedAttributeValue)});
-export const ObjectAttributeUpdate = Schema.Struct({ObjectAttributeKey: Schema.optional(AttributeKey), ObjectAttributeAction: Schema.optional(ObjectAttributeAction)});
+export class ListTypedLinkFacetAttributesResponse extends Schema.Class<ListTypedLinkFacetAttributesResponse>("ListTypedLinkFacetAttributesResponse")({Attributes: Schema.optional(TypedLinkAttributeDefinitionList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListTypedLinkFacetNamesResponse extends Schema.Class<ListTypedLinkFacetNamesResponse>("ListTypedLinkFacetNamesResponse")({FacetNames: Schema.optional(TypedLinkNameList), NextToken: Schema.optional(Schema.String)}) {}
+export class PublishSchemaResponse extends Schema.Class<PublishSchemaResponse>("PublishSchemaResponse")({PublishedSchemaArn: Schema.optional(Schema.String)}) {}
+export class PutSchemaFromJsonResponse extends Schema.Class<PutSchemaFromJsonResponse>("PutSchemaFromJsonResponse")({Arn: Schema.optional(Schema.String)}) {}
+export class FacetValidationException extends Schema.Class<FacetValidationException>("FacetValidationException")({Message: Schema.optional(Schema.String)}) {}
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({ResourceArn: Schema.String, Tags: TagList}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class InvalidArnException extends Schema.Class<InvalidArnException>("InvalidArnException")({Message: Schema.optional(Schema.String)}) {}
+export class UpdateFacetRequest extends Schema.Class<UpdateFacetRequest>("UpdateFacetRequest")({SchemaArn: Header("x-amz-data-partition"), Name: Schema.String, AttributeUpdates: Schema.optional(FacetAttributeUpdateList), ObjectType: Schema.optional(Schema.String)}) {}
+export class UpdateFacetResponse extends Schema.Class<UpdateFacetResponse>("UpdateFacetResponse")({}) {}
+export class UpdateSchemaResponse extends Schema.Class<UpdateSchemaResponse>("UpdateSchemaResponse")({SchemaArn: Schema.optional(Schema.String)}) {}
+export class UpdateTypedLinkFacetRequest extends Schema.Class<UpdateTypedLinkFacetRequest>("UpdateTypedLinkFacetRequest")({SchemaArn: Header("x-amz-data-partition"), Name: Schema.String, AttributeUpdates: TypedLinkFacetAttributeUpdateList, IdentityAttributeOrder: AttributeNameList}) {}
+export class UpdateTypedLinkFacetResponse extends Schema.Class<UpdateTypedLinkFacetResponse>("UpdateTypedLinkFacetResponse")({}) {}
+export class UpgradeAppliedSchemaResponse extends Schema.Class<UpgradeAppliedSchemaResponse>("UpgradeAppliedSchemaResponse")({UpgradedSchemaArn: Schema.optional(Schema.String), DirectoryArn: Schema.optional(Schema.String)}) {}
+export class UpgradePublishedSchemaResponse extends Schema.Class<UpgradePublishedSchemaResponse>("UpgradePublishedSchemaResponse")({UpgradedSchemaArn: Schema.optional(Schema.String)}) {}
+export class BatchListObjectAttributes extends Schema.Class<BatchListObjectAttributes>("BatchListObjectAttributes")({ObjectReference: ObjectReference, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), FacetFilter: Schema.optional(SchemaFacet)}) {}
+export class BatchListObjectChildren extends Schema.Class<BatchListObjectChildren>("BatchListObjectChildren")({ObjectReference: ObjectReference, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class BatchListAttachedIndices extends Schema.Class<BatchListAttachedIndices>("BatchListAttachedIndices")({TargetReference: ObjectReference, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class BatchListObjectParentPaths extends Schema.Class<BatchListObjectParentPaths>("BatchListObjectParentPaths")({ObjectReference: ObjectReference, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class BatchGetObjectInformation extends Schema.Class<BatchGetObjectInformation>("BatchGetObjectInformation")({ObjectReference: ObjectReference}) {}
+export class BatchGetObjectAttributes extends Schema.Class<BatchGetObjectAttributes>("BatchGetObjectAttributes")({ObjectReference: ObjectReference, SchemaFacet: SchemaFacet, AttributeNames: AttributeNameList}) {}
+export class BatchListObjectParents extends Schema.Class<BatchListObjectParents>("BatchListObjectParents")({ObjectReference: ObjectReference, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class BatchListObjectPolicies extends Schema.Class<BatchListObjectPolicies>("BatchListObjectPolicies")({ObjectReference: ObjectReference, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class BatchListPolicyAttachments extends Schema.Class<BatchListPolicyAttachments>("BatchListPolicyAttachments")({PolicyReference: ObjectReference, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class BatchLookupPolicy extends Schema.Class<BatchLookupPolicy>("BatchLookupPolicy")({ObjectReference: ObjectReference, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class BatchListIndex extends Schema.Class<BatchListIndex>("BatchListIndex")({RangesOnIndexedValues: Schema.optional(ObjectAttributeRangeList), IndexReference: ObjectReference, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)}) {}
+export class BatchListOutgoingTypedLinks extends Schema.Class<BatchListOutgoingTypedLinks>("BatchListOutgoingTypedLinks")({ObjectReference: ObjectReference, FilterAttributeRanges: Schema.optional(TypedLinkAttributeRangeList), FilterTypedLink: Schema.optional(TypedLinkSchemaAndFacetName), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class BatchListIncomingTypedLinks extends Schema.Class<BatchListIncomingTypedLinks>("BatchListIncomingTypedLinks")({ObjectReference: ObjectReference, FilterAttributeRanges: Schema.optional(TypedLinkAttributeRangeList), FilterTypedLink: Schema.optional(TypedLinkSchemaAndFacetName), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)}) {}
+export class BatchGetLinkAttributes extends Schema.Class<BatchGetLinkAttributes>("BatchGetLinkAttributes")({TypedLinkSpecifier: TypedLinkSpecifier, AttributeNames: AttributeNameList}) {}
+export class BatchCreateObject extends Schema.Class<BatchCreateObject>("BatchCreateObject")({SchemaFacet: SchemaFacetList, ObjectAttributeList: AttributeKeyAndValueList, ParentReference: Schema.optional(ObjectReference), LinkName: Schema.optional(Schema.String), BatchReferenceName: Schema.optional(Schema.String)}) {}
+export class BatchAttachObject extends Schema.Class<BatchAttachObject>("BatchAttachObject")({ParentReference: ObjectReference, ChildReference: ObjectReference, LinkName: Schema.String}) {}
+export class BatchDetachObject extends Schema.Class<BatchDetachObject>("BatchDetachObject")({ParentReference: ObjectReference, LinkName: Schema.String, BatchReferenceName: Schema.optional(Schema.String)}) {}
+export class ObjectAttributeAction extends Schema.Class<ObjectAttributeAction>("ObjectAttributeAction")({ObjectAttributeActionType: Schema.optional(Schema.String), ObjectAttributeUpdateValue: Schema.optional(TypedAttributeValue)}) {}
+export class ObjectAttributeUpdate extends Schema.Class<ObjectAttributeUpdate>("ObjectAttributeUpdate")({ObjectAttributeKey: Schema.optional(AttributeKey), ObjectAttributeAction: Schema.optional(ObjectAttributeAction)}) {}
 export const ObjectAttributeUpdateList = Schema.Array(ObjectAttributeUpdate);
-export const BatchUpdateObjectAttributes = Schema.Struct({ObjectReference: ObjectReference, AttributeUpdates: ObjectAttributeUpdateList});
-export const BatchDeleteObject = Schema.Struct({ObjectReference: ObjectReference});
-export const BatchAddFacetToObject = Schema.Struct({SchemaFacet: SchemaFacet, ObjectAttributeList: AttributeKeyAndValueList, ObjectReference: ObjectReference});
-export const BatchRemoveFacetFromObject = Schema.Struct({SchemaFacet: SchemaFacet, ObjectReference: ObjectReference});
-export const BatchAttachPolicy = Schema.Struct({PolicyReference: ObjectReference, ObjectReference: ObjectReference});
-export const BatchDetachPolicy = Schema.Struct({PolicyReference: ObjectReference, ObjectReference: ObjectReference});
-export const BatchCreateIndex = Schema.Struct({OrderedIndexedAttributeList: AttributeKeyList, IsUnique: Schema.Boolean, ParentReference: Schema.optional(ObjectReference), LinkName: Schema.optional(Schema.String), BatchReferenceName: Schema.optional(Schema.String)});
-export const BatchAttachToIndex = Schema.Struct({IndexReference: ObjectReference, TargetReference: ObjectReference});
-export const BatchDetachFromIndex = Schema.Struct({IndexReference: ObjectReference, TargetReference: ObjectReference});
-export const BatchAttachTypedLink = Schema.Struct({SourceObjectReference: ObjectReference, TargetObjectReference: ObjectReference, TypedLinkFacet: TypedLinkSchemaAndFacetName, Attributes: AttributeNameAndValueList});
-export const BatchDetachTypedLink = Schema.Struct({TypedLinkSpecifier: TypedLinkSpecifier});
-export const LinkAttributeAction = Schema.Struct({AttributeActionType: Schema.optional(Schema.String), AttributeUpdateValue: Schema.optional(TypedAttributeValue)});
-export const LinkAttributeUpdate = Schema.Struct({AttributeKey: Schema.optional(AttributeKey), AttributeAction: Schema.optional(LinkAttributeAction)});
+export class BatchUpdateObjectAttributes extends Schema.Class<BatchUpdateObjectAttributes>("BatchUpdateObjectAttributes")({ObjectReference: ObjectReference, AttributeUpdates: ObjectAttributeUpdateList}) {}
+export class BatchDeleteObject extends Schema.Class<BatchDeleteObject>("BatchDeleteObject")({ObjectReference: ObjectReference}) {}
+export class BatchAddFacetToObject extends Schema.Class<BatchAddFacetToObject>("BatchAddFacetToObject")({SchemaFacet: SchemaFacet, ObjectAttributeList: AttributeKeyAndValueList, ObjectReference: ObjectReference}) {}
+export class BatchRemoveFacetFromObject extends Schema.Class<BatchRemoveFacetFromObject>("BatchRemoveFacetFromObject")({SchemaFacet: SchemaFacet, ObjectReference: ObjectReference}) {}
+export class BatchAttachPolicy extends Schema.Class<BatchAttachPolicy>("BatchAttachPolicy")({PolicyReference: ObjectReference, ObjectReference: ObjectReference}) {}
+export class BatchDetachPolicy extends Schema.Class<BatchDetachPolicy>("BatchDetachPolicy")({PolicyReference: ObjectReference, ObjectReference: ObjectReference}) {}
+export class BatchCreateIndex extends Schema.Class<BatchCreateIndex>("BatchCreateIndex")({OrderedIndexedAttributeList: AttributeKeyList, IsUnique: Schema.Boolean, ParentReference: Schema.optional(ObjectReference), LinkName: Schema.optional(Schema.String), BatchReferenceName: Schema.optional(Schema.String)}) {}
+export class BatchAttachToIndex extends Schema.Class<BatchAttachToIndex>("BatchAttachToIndex")({IndexReference: ObjectReference, TargetReference: ObjectReference}) {}
+export class BatchDetachFromIndex extends Schema.Class<BatchDetachFromIndex>("BatchDetachFromIndex")({IndexReference: ObjectReference, TargetReference: ObjectReference}) {}
+export class BatchAttachTypedLink extends Schema.Class<BatchAttachTypedLink>("BatchAttachTypedLink")({SourceObjectReference: ObjectReference, TargetObjectReference: ObjectReference, TypedLinkFacet: TypedLinkSchemaAndFacetName, Attributes: AttributeNameAndValueList}) {}
+export class BatchDetachTypedLink extends Schema.Class<BatchDetachTypedLink>("BatchDetachTypedLink")({TypedLinkSpecifier: TypedLinkSpecifier}) {}
+export class LinkAttributeAction extends Schema.Class<LinkAttributeAction>("LinkAttributeAction")({AttributeActionType: Schema.optional(Schema.String), AttributeUpdateValue: Schema.optional(TypedAttributeValue)}) {}
+export class LinkAttributeUpdate extends Schema.Class<LinkAttributeUpdate>("LinkAttributeUpdate")({AttributeKey: Schema.optional(AttributeKey), AttributeAction: Schema.optional(LinkAttributeAction)}) {}
 export const LinkAttributeUpdateList = Schema.Array(LinkAttributeUpdate);
-export const BatchUpdateLinkAttributes = Schema.Struct({TypedLinkSpecifier: TypedLinkSpecifier, AttributeUpdates: LinkAttributeUpdateList});
-export const BatchReadOperation = Schema.Struct({ListObjectAttributes: Schema.optional(BatchListObjectAttributes), ListObjectChildren: Schema.optional(BatchListObjectChildren), ListAttachedIndices: Schema.optional(BatchListAttachedIndices), ListObjectParentPaths: Schema.optional(BatchListObjectParentPaths), GetObjectInformation: Schema.optional(BatchGetObjectInformation), GetObjectAttributes: Schema.optional(BatchGetObjectAttributes), ListObjectParents: Schema.optional(BatchListObjectParents), ListObjectPolicies: Schema.optional(BatchListObjectPolicies), ListPolicyAttachments: Schema.optional(BatchListPolicyAttachments), LookupPolicy: Schema.optional(BatchLookupPolicy), ListIndex: Schema.optional(BatchListIndex), ListOutgoingTypedLinks: Schema.optional(BatchListOutgoingTypedLinks), ListIncomingTypedLinks: Schema.optional(BatchListIncomingTypedLinks), GetLinkAttributes: Schema.optional(BatchGetLinkAttributes)});
+export class BatchUpdateLinkAttributes extends Schema.Class<BatchUpdateLinkAttributes>("BatchUpdateLinkAttributes")({TypedLinkSpecifier: TypedLinkSpecifier, AttributeUpdates: LinkAttributeUpdateList}) {}
+export class BatchReadOperation extends Schema.Class<BatchReadOperation>("BatchReadOperation")({ListObjectAttributes: Schema.optional(BatchListObjectAttributes), ListObjectChildren: Schema.optional(BatchListObjectChildren), ListAttachedIndices: Schema.optional(BatchListAttachedIndices), ListObjectParentPaths: Schema.optional(BatchListObjectParentPaths), GetObjectInformation: Schema.optional(BatchGetObjectInformation), GetObjectAttributes: Schema.optional(BatchGetObjectAttributes), ListObjectParents: Schema.optional(BatchListObjectParents), ListObjectPolicies: Schema.optional(BatchListObjectPolicies), ListPolicyAttachments: Schema.optional(BatchListPolicyAttachments), LookupPolicy: Schema.optional(BatchLookupPolicy), ListIndex: Schema.optional(BatchListIndex), ListOutgoingTypedLinks: Schema.optional(BatchListOutgoingTypedLinks), ListIncomingTypedLinks: Schema.optional(BatchListIncomingTypedLinks), GetLinkAttributes: Schema.optional(BatchGetLinkAttributes)}) {}
 export const BatchReadOperationList = Schema.Array(BatchReadOperation);
-export const BatchWriteOperation = Schema.Struct({CreateObject: Schema.optional(BatchCreateObject), AttachObject: Schema.optional(BatchAttachObject), DetachObject: Schema.optional(BatchDetachObject), UpdateObjectAttributes: Schema.optional(BatchUpdateObjectAttributes), DeleteObject: Schema.optional(BatchDeleteObject), AddFacetToObject: Schema.optional(BatchAddFacetToObject), RemoveFacetFromObject: Schema.optional(BatchRemoveFacetFromObject), AttachPolicy: Schema.optional(BatchAttachPolicy), DetachPolicy: Schema.optional(BatchDetachPolicy), CreateIndex: Schema.optional(BatchCreateIndex), AttachToIndex: Schema.optional(BatchAttachToIndex), DetachFromIndex: Schema.optional(BatchDetachFromIndex), AttachTypedLink: Schema.optional(BatchAttachTypedLink), DetachTypedLink: Schema.optional(BatchDetachTypedLink), UpdateLinkAttributes: Schema.optional(BatchUpdateLinkAttributes)});
+export class BatchWriteOperation extends Schema.Class<BatchWriteOperation>("BatchWriteOperation")({CreateObject: Schema.optional(BatchCreateObject), AttachObject: Schema.optional(BatchAttachObject), DetachObject: Schema.optional(BatchDetachObject), UpdateObjectAttributes: Schema.optional(BatchUpdateObjectAttributes), DeleteObject: Schema.optional(BatchDeleteObject), AddFacetToObject: Schema.optional(BatchAddFacetToObject), RemoveFacetFromObject: Schema.optional(BatchRemoveFacetFromObject), AttachPolicy: Schema.optional(BatchAttachPolicy), DetachPolicy: Schema.optional(BatchDetachPolicy), CreateIndex: Schema.optional(BatchCreateIndex), AttachToIndex: Schema.optional(BatchAttachToIndex), DetachFromIndex: Schema.optional(BatchDetachFromIndex), AttachTypedLink: Schema.optional(BatchAttachTypedLink), DetachTypedLink: Schema.optional(BatchDetachTypedLink), UpdateLinkAttributes: Schema.optional(BatchUpdateLinkAttributes)}) {}
 export const BatchWriteOperationList = Schema.Array(BatchWriteOperation);
-export const TypedLinkFacet = Schema.Struct({Name: Schema.String, Attributes: TypedLinkAttributeDefinitionList, IdentityAttributeOrder: AttributeNameList});
-export const Facet = Schema.Struct({Name: Schema.optional(Schema.String), ObjectType: Schema.optional(Schema.String), FacetStyle: Schema.optional(Schema.String)});
-export const IndexAttachment = Schema.Struct({IndexedAttributes: Schema.optional(AttributeKeyAndValueList), ObjectIdentifier: Schema.optional(Schema.String)});
+export class TypedLinkFacet extends Schema.Class<TypedLinkFacet>("TypedLinkFacet")({Name: Schema.String, Attributes: TypedLinkAttributeDefinitionList, IdentityAttributeOrder: AttributeNameList}) {}
+export class Facet extends Schema.Class<Facet>("Facet")({Name: Schema.optional(Schema.String), ObjectType: Schema.optional(Schema.String), FacetStyle: Schema.optional(Schema.String)}) {}
+export class IndexAttachment extends Schema.Class<IndexAttachment>("IndexAttachment")({IndexedAttributes: Schema.optional(AttributeKeyAndValueList), ObjectIdentifier: Schema.optional(Schema.String)}) {}
 export const IndexAttachmentList = Schema.Array(IndexAttachment);
 export const LinkNameToObjectIdentifierMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const PathToObjectIdentifiers = Schema.Struct({Path: Schema.optional(Schema.String), ObjectIdentifiers: Schema.optional(ObjectIdentifierList)});
+export class PathToObjectIdentifiers extends Schema.Class<PathToObjectIdentifiers>("PathToObjectIdentifiers")({Path: Schema.optional(Schema.String), ObjectIdentifiers: Schema.optional(ObjectIdentifierList)}) {}
 export const PathToObjectIdentifiersList = Schema.Array(PathToObjectIdentifiers);
 export const ObjectIdentifierToLinkNameMap = Schema.Record({key: Schema.String, value: Schema.String});
-export const ObjectIdentifierAndLinkNameTuple = Schema.Struct({ObjectIdentifier: Schema.optional(Schema.String), LinkName: Schema.optional(Schema.String)});
+export class ObjectIdentifierAndLinkNameTuple extends Schema.Class<ObjectIdentifierAndLinkNameTuple>("ObjectIdentifierAndLinkNameTuple")({ObjectIdentifier: Schema.optional(Schema.String), LinkName: Schema.optional(Schema.String)}) {}
 export const ObjectIdentifierAndLinkNameList = Schema.Array(ObjectIdentifierAndLinkNameTuple);
-export const AddFacetToObjectRequest = Schema.Struct({DirectoryArn: Header("x-amz-data-partition"), SchemaFacet: SchemaFacet, ObjectAttributeList: Schema.optional(AttributeKeyAndValueList), ObjectReference: ObjectReference});
-export const AddFacetToObjectResponse = Schema.Struct({});
-export const InvalidAttachmentException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const LimitExceededException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const NotPolicyException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const IndexedAttributeMissingException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const AttachTypedLinkResponse = Schema.Struct({TypedLinkSpecifier: Schema.optional(TypedLinkSpecifier)});
-export const BatchReadRequest = Schema.Struct({DirectoryArn: Header("x-amz-data-partition"), Operations: BatchReadOperationList, ConsistencyLevel: Schema.optional(Header("x-amz-consistency-level"))});
-export const BatchWriteRequest = Schema.Struct({DirectoryArn: Header("x-amz-data-partition"), Operations: BatchWriteOperationList});
-export const DirectoryAlreadyExistsException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const CreateIndexResponse = Schema.Struct({ObjectIdentifier: Schema.optional(Schema.String)});
-export const LinkNameAlreadyInUseException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const RetryableConflictException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const CreateTypedLinkFacetRequest = Schema.Struct({SchemaArn: Header("x-amz-data-partition"), Facet: TypedLinkFacet});
-export const CreateTypedLinkFacetResponse = Schema.Struct({});
-export const DirectoryDeletedException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ObjectNotDetachedException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const StillContainsLinksException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ValidationException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const NotIndexException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const NotNodeException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const GetDirectoryResponse = Schema.Struct({Directory: Directory});
-export const GetFacetResponse = Schema.Struct({Facet: Schema.optional(Facet)});
-export const InvalidNextTokenException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ListAttachedIndicesResponse = Schema.Struct({IndexAttachments: Schema.optional(IndexAttachmentList), NextToken: Schema.optional(Schema.String)});
-export const ListIncomingTypedLinksRequest = Schema.Struct({DirectoryArn: Header("x-amz-data-partition"), ObjectReference: ObjectReference, FilterAttributeRanges: Schema.optional(TypedLinkAttributeRangeList), FilterTypedLink: Schema.optional(TypedLinkSchemaAndFacetName), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), ConsistencyLevel: Schema.optional(Schema.String)});
-export const ListIndexResponse = Schema.Struct({IndexAttachments: Schema.optional(IndexAttachmentList), NextToken: Schema.optional(Schema.String)});
-export const ListObjectChildrenResponse = Schema.Struct({Children: Schema.optional(LinkNameToObjectIdentifierMap), NextToken: Schema.optional(Schema.String)});
-export const ListObjectParentPathsResponse = Schema.Struct({PathToObjectIdentifiersList: Schema.optional(PathToObjectIdentifiersList), NextToken: Schema.optional(Schema.String)});
-export const ListObjectParentsResponse = Schema.Struct({Parents: Schema.optional(ObjectIdentifierToLinkNameMap), NextToken: Schema.optional(Schema.String), ParentLinks: Schema.optional(ObjectIdentifierAndLinkNameList)});
-export const InvalidTaggingRequestException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const SchemaAlreadyPublishedException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const InvalidRuleException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const InvalidFacetUpdateException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const UpdateLinkAttributesRequest = Schema.Struct({DirectoryArn: Header("x-amz-data-partition"), TypedLinkSpecifier: TypedLinkSpecifier, AttributeUpdates: LinkAttributeUpdateList});
-export const UpdateLinkAttributesResponse = Schema.Struct({});
-export const UpdateObjectAttributesRequest = Schema.Struct({DirectoryArn: Header("x-amz-data-partition"), ObjectReference: ObjectReference, AttributeUpdates: ObjectAttributeUpdateList});
-export const IncompatibleSchemaException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const PolicyAttachment = Schema.Struct({PolicyId: Schema.optional(Schema.String), ObjectIdentifier: Schema.optional(Schema.String), PolicyType: Schema.optional(Schema.String)});
+export class AddFacetToObjectRequest extends Schema.Class<AddFacetToObjectRequest>("AddFacetToObjectRequest")({DirectoryArn: Header("x-amz-data-partition"), SchemaFacet: SchemaFacet, ObjectAttributeList: Schema.optional(AttributeKeyAndValueList), ObjectReference: ObjectReference}) {}
+export class AddFacetToObjectResponse extends Schema.Class<AddFacetToObjectResponse>("AddFacetToObjectResponse")({}) {}
+export class InvalidAttachmentException extends Schema.Class<InvalidAttachmentException>("InvalidAttachmentException")({Message: Schema.optional(Schema.String)}) {}
+export class LimitExceededException extends Schema.Class<LimitExceededException>("LimitExceededException")({Message: Schema.optional(Schema.String)}) {}
+export class NotPolicyException extends Schema.Class<NotPolicyException>("NotPolicyException")({Message: Schema.optional(Schema.String)}) {}
+export class IndexedAttributeMissingException extends Schema.Class<IndexedAttributeMissingException>("IndexedAttributeMissingException")({Message: Schema.optional(Schema.String)}) {}
+export class AttachTypedLinkResponse extends Schema.Class<AttachTypedLinkResponse>("AttachTypedLinkResponse")({TypedLinkSpecifier: Schema.optional(TypedLinkSpecifier)}) {}
+export class BatchReadRequest extends Schema.Class<BatchReadRequest>("BatchReadRequest")({DirectoryArn: Header("x-amz-data-partition"), Operations: BatchReadOperationList, ConsistencyLevel: Schema.optional(Header("x-amz-consistency-level"))}) {}
+export class BatchWriteRequest extends Schema.Class<BatchWriteRequest>("BatchWriteRequest")({DirectoryArn: Header("x-amz-data-partition"), Operations: BatchWriteOperationList}) {}
+export class DirectoryAlreadyExistsException extends Schema.Class<DirectoryAlreadyExistsException>("DirectoryAlreadyExistsException")({Message: Schema.optional(Schema.String)}) {}
+export class CreateIndexResponse extends Schema.Class<CreateIndexResponse>("CreateIndexResponse")({ObjectIdentifier: Schema.optional(Schema.String)}) {}
+export class LinkNameAlreadyInUseException extends Schema.Class<LinkNameAlreadyInUseException>("LinkNameAlreadyInUseException")({Message: Schema.optional(Schema.String)}) {}
+export class RetryableConflictException extends Schema.Class<RetryableConflictException>("RetryableConflictException")({Message: Schema.optional(Schema.String)}) {}
+export class CreateTypedLinkFacetRequest extends Schema.Class<CreateTypedLinkFacetRequest>("CreateTypedLinkFacetRequest")({SchemaArn: Header("x-amz-data-partition"), Facet: TypedLinkFacet}) {}
+export class CreateTypedLinkFacetResponse extends Schema.Class<CreateTypedLinkFacetResponse>("CreateTypedLinkFacetResponse")({}) {}
+export class DirectoryDeletedException extends Schema.Class<DirectoryDeletedException>("DirectoryDeletedException")({Message: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({Message: Schema.optional(Schema.String)}) {}
+export class ObjectNotDetachedException extends Schema.Class<ObjectNotDetachedException>("ObjectNotDetachedException")({Message: Schema.optional(Schema.String)}) {}
+export class StillContainsLinksException extends Schema.Class<StillContainsLinksException>("StillContainsLinksException")({Message: Schema.optional(Schema.String)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({Message: Schema.optional(Schema.String)}) {}
+export class NotIndexException extends Schema.Class<NotIndexException>("NotIndexException")({Message: Schema.optional(Schema.String)}) {}
+export class NotNodeException extends Schema.Class<NotNodeException>("NotNodeException")({Message: Schema.optional(Schema.String)}) {}
+export class GetDirectoryResponse extends Schema.Class<GetDirectoryResponse>("GetDirectoryResponse")({Directory: Directory}) {}
+export class GetFacetResponse extends Schema.Class<GetFacetResponse>("GetFacetResponse")({Facet: Schema.optional(Facet)}) {}
+export class InvalidNextTokenException extends Schema.Class<InvalidNextTokenException>("InvalidNextTokenException")({Message: Schema.optional(Schema.String)}) {}
+export class ListAttachedIndicesResponse extends Schema.Class<ListAttachedIndicesResponse>("ListAttachedIndicesResponse")({IndexAttachments: Schema.optional(IndexAttachmentList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListIncomingTypedLinksRequest extends Schema.Class<ListIncomingTypedLinksRequest>("ListIncomingTypedLinksRequest")({DirectoryArn: Header("x-amz-data-partition"), ObjectReference: ObjectReference, FilterAttributeRanges: Schema.optional(TypedLinkAttributeRangeList), FilterTypedLink: Schema.optional(TypedLinkSchemaAndFacetName), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), ConsistencyLevel: Schema.optional(Schema.String)}) {}
+export class ListIndexResponse extends Schema.Class<ListIndexResponse>("ListIndexResponse")({IndexAttachments: Schema.optional(IndexAttachmentList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListObjectChildrenResponse extends Schema.Class<ListObjectChildrenResponse>("ListObjectChildrenResponse")({Children: Schema.optional(LinkNameToObjectIdentifierMap), NextToken: Schema.optional(Schema.String)}) {}
+export class ListObjectParentPathsResponse extends Schema.Class<ListObjectParentPathsResponse>("ListObjectParentPathsResponse")({PathToObjectIdentifiersList: Schema.optional(PathToObjectIdentifiersList), NextToken: Schema.optional(Schema.String)}) {}
+export class ListObjectParentsResponse extends Schema.Class<ListObjectParentsResponse>("ListObjectParentsResponse")({Parents: Schema.optional(ObjectIdentifierToLinkNameMap), NextToken: Schema.optional(Schema.String), ParentLinks: Schema.optional(ObjectIdentifierAndLinkNameList)}) {}
+export class InvalidTaggingRequestException extends Schema.Class<InvalidTaggingRequestException>("InvalidTaggingRequestException")({Message: Schema.optional(Schema.String)}) {}
+export class SchemaAlreadyPublishedException extends Schema.Class<SchemaAlreadyPublishedException>("SchemaAlreadyPublishedException")({Message: Schema.optional(Schema.String)}) {}
+export class InvalidRuleException extends Schema.Class<InvalidRuleException>("InvalidRuleException")({Message: Schema.optional(Schema.String)}) {}
+export class InvalidFacetUpdateException extends Schema.Class<InvalidFacetUpdateException>("InvalidFacetUpdateException")({Message: Schema.optional(Schema.String)}) {}
+export class UpdateLinkAttributesRequest extends Schema.Class<UpdateLinkAttributesRequest>("UpdateLinkAttributesRequest")({DirectoryArn: Header("x-amz-data-partition"), TypedLinkSpecifier: TypedLinkSpecifier, AttributeUpdates: LinkAttributeUpdateList}) {}
+export class UpdateLinkAttributesResponse extends Schema.Class<UpdateLinkAttributesResponse>("UpdateLinkAttributesResponse")({}) {}
+export class UpdateObjectAttributesRequest extends Schema.Class<UpdateObjectAttributesRequest>("UpdateObjectAttributesRequest")({DirectoryArn: Header("x-amz-data-partition"), ObjectReference: ObjectReference, AttributeUpdates: ObjectAttributeUpdateList}) {}
+export class IncompatibleSchemaException extends Schema.Class<IncompatibleSchemaException>("IncompatibleSchemaException")({Message: Schema.optional(Schema.String)}) {}
+export class PolicyAttachment extends Schema.Class<PolicyAttachment>("PolicyAttachment")({PolicyId: Schema.optional(Schema.String), ObjectIdentifier: Schema.optional(Schema.String), PolicyType: Schema.optional(Schema.String)}) {}
 export const PolicyAttachmentList = Schema.Array(PolicyAttachment);
-export const PolicyToPath = Schema.Struct({Path: Schema.optional(Schema.String), Policies: Schema.optional(PolicyAttachmentList)});
+export class PolicyToPath extends Schema.Class<PolicyToPath>("PolicyToPath")({Path: Schema.optional(Schema.String), Policies: Schema.optional(PolicyAttachmentList)}) {}
 export const PolicyToPathList = Schema.Array(PolicyToPath);
-export const SchemaAlreadyExistsException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const UnsupportedIndexTypeException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const FacetAlreadyExistsException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const DirectoryNotDisabledException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ObjectAlreadyDetachedException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ListIncomingTypedLinksResponse = Schema.Struct({LinkSpecifiers: Schema.optional(TypedLinkSpecifierList), NextToken: Schema.optional(Schema.String)});
-export const CannotListParentOfRootException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const LookupPolicyResponse = Schema.Struct({PolicyToPathList: Schema.optional(PolicyToPathList), NextToken: Schema.optional(Schema.String)});
-export const InvalidSchemaDocException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const UpdateObjectAttributesResponse = Schema.Struct({ObjectIdentifier: Schema.optional(Schema.String)});
-export const BatchDeleteObjectResponse = Schema.Struct({});
-export const BatchAddFacetToObjectResponse = Schema.Struct({});
-export const BatchRemoveFacetFromObjectResponse = Schema.Struct({});
-export const BatchAttachPolicyResponse = Schema.Struct({});
-export const BatchDetachPolicyResponse = Schema.Struct({});
-export const BatchDetachTypedLinkResponse = Schema.Struct({});
-export const BatchUpdateLinkAttributesResponse = Schema.Struct({});
-export const BatchReadException = Schema.Struct({Type: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
-export const BatchCreateObjectResponse = Schema.Struct({ObjectIdentifier: Schema.optional(Schema.String)});
-export const BatchAttachObjectResponse = Schema.Struct({attachedObjectIdentifier: Schema.optional(Schema.String)});
-export const BatchDetachObjectResponse = Schema.Struct({detachedObjectIdentifier: Schema.optional(Schema.String)});
-export const BatchUpdateObjectAttributesResponse = Schema.Struct({ObjectIdentifier: Schema.optional(Schema.String)});
-export const BatchCreateIndexResponse = Schema.Struct({ObjectIdentifier: Schema.optional(Schema.String)});
-export const BatchAttachToIndexResponse = Schema.Struct({AttachedObjectIdentifier: Schema.optional(Schema.String)});
-export const BatchDetachFromIndexResponse = Schema.Struct({DetachedObjectIdentifier: Schema.optional(Schema.String)});
-export const BatchAttachTypedLinkResponse = Schema.Struct({TypedLinkSpecifier: Schema.optional(TypedLinkSpecifier)});
-export const BatchWriteOperationResponse = Schema.Struct({CreateObject: Schema.optional(BatchCreateObjectResponse), AttachObject: Schema.optional(BatchAttachObjectResponse), DetachObject: Schema.optional(BatchDetachObjectResponse), UpdateObjectAttributes: Schema.optional(BatchUpdateObjectAttributesResponse), DeleteObject: Schema.optional(BatchDeleteObjectResponse), AddFacetToObject: Schema.optional(BatchAddFacetToObjectResponse), RemoveFacetFromObject: Schema.optional(BatchRemoveFacetFromObjectResponse), AttachPolicy: Schema.optional(BatchAttachPolicyResponse), DetachPolicy: Schema.optional(BatchDetachPolicyResponse), CreateIndex: Schema.optional(BatchCreateIndexResponse), AttachToIndex: Schema.optional(BatchAttachToIndexResponse), DetachFromIndex: Schema.optional(BatchDetachFromIndexResponse), AttachTypedLink: Schema.optional(BatchAttachTypedLinkResponse), DetachTypedLink: Schema.optional(BatchDetachTypedLinkResponse), UpdateLinkAttributes: Schema.optional(BatchUpdateLinkAttributesResponse)});
+export class SchemaAlreadyExistsException extends Schema.Class<SchemaAlreadyExistsException>("SchemaAlreadyExistsException")({Message: Schema.optional(Schema.String)}) {}
+export class UnsupportedIndexTypeException extends Schema.Class<UnsupportedIndexTypeException>("UnsupportedIndexTypeException")({Message: Schema.optional(Schema.String)}) {}
+export class FacetAlreadyExistsException extends Schema.Class<FacetAlreadyExistsException>("FacetAlreadyExistsException")({Message: Schema.optional(Schema.String)}) {}
+export class DirectoryNotDisabledException extends Schema.Class<DirectoryNotDisabledException>("DirectoryNotDisabledException")({Message: Schema.optional(Schema.String)}) {}
+export class ObjectAlreadyDetachedException extends Schema.Class<ObjectAlreadyDetachedException>("ObjectAlreadyDetachedException")({Message: Schema.optional(Schema.String)}) {}
+export class ListIncomingTypedLinksResponse extends Schema.Class<ListIncomingTypedLinksResponse>("ListIncomingTypedLinksResponse")({LinkSpecifiers: Schema.optional(TypedLinkSpecifierList), NextToken: Schema.optional(Schema.String)}) {}
+export class CannotListParentOfRootException extends Schema.Class<CannotListParentOfRootException>("CannotListParentOfRootException")({Message: Schema.optional(Schema.String)}) {}
+export class LookupPolicyResponse extends Schema.Class<LookupPolicyResponse>("LookupPolicyResponse")({PolicyToPathList: Schema.optional(PolicyToPathList), NextToken: Schema.optional(Schema.String)}) {}
+export class InvalidSchemaDocException extends Schema.Class<InvalidSchemaDocException>("InvalidSchemaDocException")({Message: Schema.optional(Schema.String)}) {}
+export class UpdateObjectAttributesResponse extends Schema.Class<UpdateObjectAttributesResponse>("UpdateObjectAttributesResponse")({ObjectIdentifier: Schema.optional(Schema.String)}) {}
+export class BatchDeleteObjectResponse extends Schema.Class<BatchDeleteObjectResponse>("BatchDeleteObjectResponse")({}) {}
+export class BatchAddFacetToObjectResponse extends Schema.Class<BatchAddFacetToObjectResponse>("BatchAddFacetToObjectResponse")({}) {}
+export class BatchRemoveFacetFromObjectResponse extends Schema.Class<BatchRemoveFacetFromObjectResponse>("BatchRemoveFacetFromObjectResponse")({}) {}
+export class BatchAttachPolicyResponse extends Schema.Class<BatchAttachPolicyResponse>("BatchAttachPolicyResponse")({}) {}
+export class BatchDetachPolicyResponse extends Schema.Class<BatchDetachPolicyResponse>("BatchDetachPolicyResponse")({}) {}
+export class BatchDetachTypedLinkResponse extends Schema.Class<BatchDetachTypedLinkResponse>("BatchDetachTypedLinkResponse")({}) {}
+export class BatchUpdateLinkAttributesResponse extends Schema.Class<BatchUpdateLinkAttributesResponse>("BatchUpdateLinkAttributesResponse")({}) {}
+export class BatchReadException extends Schema.Class<BatchReadException>("BatchReadException")({Type: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
+export class BatchCreateObjectResponse extends Schema.Class<BatchCreateObjectResponse>("BatchCreateObjectResponse")({ObjectIdentifier: Schema.optional(Schema.String)}) {}
+export class BatchAttachObjectResponse extends Schema.Class<BatchAttachObjectResponse>("BatchAttachObjectResponse")({attachedObjectIdentifier: Schema.optional(Schema.String)}) {}
+export class BatchDetachObjectResponse extends Schema.Class<BatchDetachObjectResponse>("BatchDetachObjectResponse")({detachedObjectIdentifier: Schema.optional(Schema.String)}) {}
+export class BatchUpdateObjectAttributesResponse extends Schema.Class<BatchUpdateObjectAttributesResponse>("BatchUpdateObjectAttributesResponse")({ObjectIdentifier: Schema.optional(Schema.String)}) {}
+export class BatchCreateIndexResponse extends Schema.Class<BatchCreateIndexResponse>("BatchCreateIndexResponse")({ObjectIdentifier: Schema.optional(Schema.String)}) {}
+export class BatchAttachToIndexResponse extends Schema.Class<BatchAttachToIndexResponse>("BatchAttachToIndexResponse")({AttachedObjectIdentifier: Schema.optional(Schema.String)}) {}
+export class BatchDetachFromIndexResponse extends Schema.Class<BatchDetachFromIndexResponse>("BatchDetachFromIndexResponse")({DetachedObjectIdentifier: Schema.optional(Schema.String)}) {}
+export class BatchAttachTypedLinkResponse extends Schema.Class<BatchAttachTypedLinkResponse>("BatchAttachTypedLinkResponse")({TypedLinkSpecifier: Schema.optional(TypedLinkSpecifier)}) {}
+export class BatchWriteOperationResponse extends Schema.Class<BatchWriteOperationResponse>("BatchWriteOperationResponse")({CreateObject: Schema.optional(BatchCreateObjectResponse), AttachObject: Schema.optional(BatchAttachObjectResponse), DetachObject: Schema.optional(BatchDetachObjectResponse), UpdateObjectAttributes: Schema.optional(BatchUpdateObjectAttributesResponse), DeleteObject: Schema.optional(BatchDeleteObjectResponse), AddFacetToObject: Schema.optional(BatchAddFacetToObjectResponse), RemoveFacetFromObject: Schema.optional(BatchRemoveFacetFromObjectResponse), AttachPolicy: Schema.optional(BatchAttachPolicyResponse), DetachPolicy: Schema.optional(BatchDetachPolicyResponse), CreateIndex: Schema.optional(BatchCreateIndexResponse), AttachToIndex: Schema.optional(BatchAttachToIndexResponse), DetachFromIndex: Schema.optional(BatchDetachFromIndexResponse), AttachTypedLink: Schema.optional(BatchAttachTypedLinkResponse), DetachTypedLink: Schema.optional(BatchDetachTypedLinkResponse), UpdateLinkAttributes: Schema.optional(BatchUpdateLinkAttributesResponse)}) {}
 export const BatchWriteOperationResponseList = Schema.Array(BatchWriteOperationResponse);
-export const BatchListObjectAttributesResponse = Schema.Struct({Attributes: Schema.optional(AttributeKeyAndValueList), NextToken: Schema.optional(Schema.String)});
-export const BatchListObjectChildrenResponse = Schema.Struct({Children: Schema.optional(LinkNameToObjectIdentifierMap), NextToken: Schema.optional(Schema.String)});
-export const BatchGetObjectInformationResponse = Schema.Struct({SchemaFacets: Schema.optional(SchemaFacetList), ObjectIdentifier: Schema.optional(Schema.String)});
-export const BatchGetObjectAttributesResponse = Schema.Struct({Attributes: Schema.optional(AttributeKeyAndValueList)});
-export const BatchListAttachedIndicesResponse = Schema.Struct({IndexAttachments: Schema.optional(IndexAttachmentList), NextToken: Schema.optional(Schema.String)});
-export const BatchListObjectParentPathsResponse = Schema.Struct({PathToObjectIdentifiersList: Schema.optional(PathToObjectIdentifiersList), NextToken: Schema.optional(Schema.String)});
-export const BatchListObjectPoliciesResponse = Schema.Struct({AttachedPolicyIds: Schema.optional(ObjectIdentifierList), NextToken: Schema.optional(Schema.String)});
-export const BatchListPolicyAttachmentsResponse = Schema.Struct({ObjectIdentifiers: Schema.optional(ObjectIdentifierList), NextToken: Schema.optional(Schema.String)});
-export const BatchLookupPolicyResponse = Schema.Struct({PolicyToPathList: Schema.optional(PolicyToPathList), NextToken: Schema.optional(Schema.String)});
-export const BatchListIndexResponse = Schema.Struct({IndexAttachments: Schema.optional(IndexAttachmentList), NextToken: Schema.optional(Schema.String)});
-export const BatchListOutgoingTypedLinksResponse = Schema.Struct({TypedLinkSpecifiers: Schema.optional(TypedLinkSpecifierList), NextToken: Schema.optional(Schema.String)});
-export const BatchListIncomingTypedLinksResponse = Schema.Struct({LinkSpecifiers: Schema.optional(TypedLinkSpecifierList), NextToken: Schema.optional(Schema.String)});
-export const BatchGetLinkAttributesResponse = Schema.Struct({Attributes: Schema.optional(AttributeKeyAndValueList)});
-export const BatchListObjectParentsResponse = Schema.Struct({ParentLinks: Schema.optional(ObjectIdentifierAndLinkNameList), NextToken: Schema.optional(Schema.String)});
-export const BatchWriteResponse = Schema.Struct({Responses: Schema.optional(BatchWriteOperationResponseList)});
-export const CreateFacetRequest = Schema.Struct({SchemaArn: Header("x-amz-data-partition"), Name: Schema.String, Attributes: Schema.optional(FacetAttributeList), ObjectType: Schema.optional(Schema.String), FacetStyle: Schema.optional(Schema.String)});
-export const CreateFacetResponse = Schema.Struct({});
-export const BatchReadSuccessfulResponse = Schema.Struct({ListObjectAttributes: Schema.optional(BatchListObjectAttributesResponse), ListObjectChildren: Schema.optional(BatchListObjectChildrenResponse), GetObjectInformation: Schema.optional(BatchGetObjectInformationResponse), GetObjectAttributes: Schema.optional(BatchGetObjectAttributesResponse), ListAttachedIndices: Schema.optional(BatchListAttachedIndicesResponse), ListObjectParentPaths: Schema.optional(BatchListObjectParentPathsResponse), ListObjectPolicies: Schema.optional(BatchListObjectPoliciesResponse), ListPolicyAttachments: Schema.optional(BatchListPolicyAttachmentsResponse), LookupPolicy: Schema.optional(BatchLookupPolicyResponse), ListIndex: Schema.optional(BatchListIndexResponse), ListOutgoingTypedLinks: Schema.optional(BatchListOutgoingTypedLinksResponse), ListIncomingTypedLinks: Schema.optional(BatchListIncomingTypedLinksResponse), GetLinkAttributes: Schema.optional(BatchGetLinkAttributesResponse), ListObjectParents: Schema.optional(BatchListObjectParentsResponse)});
-export const BatchReadOperationResponse = Schema.Struct({SuccessfulResponse: Schema.optional(BatchReadSuccessfulResponse), ExceptionResponse: Schema.optional(BatchReadException)});
+export class BatchListObjectAttributesResponse extends Schema.Class<BatchListObjectAttributesResponse>("BatchListObjectAttributesResponse")({Attributes: Schema.optional(AttributeKeyAndValueList), NextToken: Schema.optional(Schema.String)}) {}
+export class BatchListObjectChildrenResponse extends Schema.Class<BatchListObjectChildrenResponse>("BatchListObjectChildrenResponse")({Children: Schema.optional(LinkNameToObjectIdentifierMap), NextToken: Schema.optional(Schema.String)}) {}
+export class BatchGetObjectInformationResponse extends Schema.Class<BatchGetObjectInformationResponse>("BatchGetObjectInformationResponse")({SchemaFacets: Schema.optional(SchemaFacetList), ObjectIdentifier: Schema.optional(Schema.String)}) {}
+export class BatchGetObjectAttributesResponse extends Schema.Class<BatchGetObjectAttributesResponse>("BatchGetObjectAttributesResponse")({Attributes: Schema.optional(AttributeKeyAndValueList)}) {}
+export class BatchListAttachedIndicesResponse extends Schema.Class<BatchListAttachedIndicesResponse>("BatchListAttachedIndicesResponse")({IndexAttachments: Schema.optional(IndexAttachmentList), NextToken: Schema.optional(Schema.String)}) {}
+export class BatchListObjectParentPathsResponse extends Schema.Class<BatchListObjectParentPathsResponse>("BatchListObjectParentPathsResponse")({PathToObjectIdentifiersList: Schema.optional(PathToObjectIdentifiersList), NextToken: Schema.optional(Schema.String)}) {}
+export class BatchListObjectPoliciesResponse extends Schema.Class<BatchListObjectPoliciesResponse>("BatchListObjectPoliciesResponse")({AttachedPolicyIds: Schema.optional(ObjectIdentifierList), NextToken: Schema.optional(Schema.String)}) {}
+export class BatchListPolicyAttachmentsResponse extends Schema.Class<BatchListPolicyAttachmentsResponse>("BatchListPolicyAttachmentsResponse")({ObjectIdentifiers: Schema.optional(ObjectIdentifierList), NextToken: Schema.optional(Schema.String)}) {}
+export class BatchLookupPolicyResponse extends Schema.Class<BatchLookupPolicyResponse>("BatchLookupPolicyResponse")({PolicyToPathList: Schema.optional(PolicyToPathList), NextToken: Schema.optional(Schema.String)}) {}
+export class BatchListIndexResponse extends Schema.Class<BatchListIndexResponse>("BatchListIndexResponse")({IndexAttachments: Schema.optional(IndexAttachmentList), NextToken: Schema.optional(Schema.String)}) {}
+export class BatchListOutgoingTypedLinksResponse extends Schema.Class<BatchListOutgoingTypedLinksResponse>("BatchListOutgoingTypedLinksResponse")({TypedLinkSpecifiers: Schema.optional(TypedLinkSpecifierList), NextToken: Schema.optional(Schema.String)}) {}
+export class BatchListIncomingTypedLinksResponse extends Schema.Class<BatchListIncomingTypedLinksResponse>("BatchListIncomingTypedLinksResponse")({LinkSpecifiers: Schema.optional(TypedLinkSpecifierList), NextToken: Schema.optional(Schema.String)}) {}
+export class BatchGetLinkAttributesResponse extends Schema.Class<BatchGetLinkAttributesResponse>("BatchGetLinkAttributesResponse")({Attributes: Schema.optional(AttributeKeyAndValueList)}) {}
+export class BatchListObjectParentsResponse extends Schema.Class<BatchListObjectParentsResponse>("BatchListObjectParentsResponse")({ParentLinks: Schema.optional(ObjectIdentifierAndLinkNameList), NextToken: Schema.optional(Schema.String)}) {}
+export class BatchWriteResponse extends Schema.Class<BatchWriteResponse>("BatchWriteResponse")({Responses: Schema.optional(BatchWriteOperationResponseList)}) {}
+export class CreateFacetRequest extends Schema.Class<CreateFacetRequest>("CreateFacetRequest")({SchemaArn: Header("x-amz-data-partition"), Name: Schema.String, Attributes: Schema.optional(FacetAttributeList), ObjectType: Schema.optional(Schema.String), FacetStyle: Schema.optional(Schema.String)}) {}
+export class CreateFacetResponse extends Schema.Class<CreateFacetResponse>("CreateFacetResponse")({}) {}
+export class BatchReadSuccessfulResponse extends Schema.Class<BatchReadSuccessfulResponse>("BatchReadSuccessfulResponse")({ListObjectAttributes: Schema.optional(BatchListObjectAttributesResponse), ListObjectChildren: Schema.optional(BatchListObjectChildrenResponse), GetObjectInformation: Schema.optional(BatchGetObjectInformationResponse), GetObjectAttributes: Schema.optional(BatchGetObjectAttributesResponse), ListAttachedIndices: Schema.optional(BatchListAttachedIndicesResponse), ListObjectParentPaths: Schema.optional(BatchListObjectParentPathsResponse), ListObjectPolicies: Schema.optional(BatchListObjectPoliciesResponse), ListPolicyAttachments: Schema.optional(BatchListPolicyAttachmentsResponse), LookupPolicy: Schema.optional(BatchLookupPolicyResponse), ListIndex: Schema.optional(BatchListIndexResponse), ListOutgoingTypedLinks: Schema.optional(BatchListOutgoingTypedLinksResponse), ListIncomingTypedLinks: Schema.optional(BatchListIncomingTypedLinksResponse), GetLinkAttributes: Schema.optional(BatchGetLinkAttributesResponse), ListObjectParents: Schema.optional(BatchListObjectParentsResponse)}) {}
+export class BatchReadOperationResponse extends Schema.Class<BatchReadOperationResponse>("BatchReadOperationResponse")({SuccessfulResponse: Schema.optional(BatchReadSuccessfulResponse), ExceptionResponse: Schema.optional(BatchReadException)}) {}
 export const BatchReadOperationResponseList = Schema.Array(BatchReadOperationResponse);
-export const BatchReadResponse = Schema.Struct({Responses: Schema.optional(BatchReadOperationResponseList)});
-export const BatchWriteException = Schema.Struct({Index: Schema.optional(Schema.Number), Type: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
+export class BatchReadResponse extends Schema.Class<BatchReadResponse>("BatchReadResponse")({Responses: Schema.optional(BatchReadOperationResponseList)}) {}
+export class BatchWriteException extends Schema.Class<BatchWriteException>("BatchWriteException")({Index: Schema.optional(Schema.Number), Type: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class DirectoryNotEnabledExceptionError extends Schema.TaggedError<DirectoryNotEnabledExceptionError>()("DirectoryNotEnabledException", DirectoryNotEnabledException) {};
-export class InternalServiceExceptionError extends Schema.TaggedError<InternalServiceExceptionError>()("InternalServiceException", InternalServiceException) {};
-export class InvalidArnExceptionError extends Schema.TaggedError<InvalidArnExceptionError>()("InvalidArnException", InvalidArnException) {};
-export class FacetValidationExceptionError extends Schema.TaggedError<FacetValidationExceptionError>()("FacetValidationException", FacetValidationException) {};
-export class InvalidAttachmentExceptionError extends Schema.TaggedError<InvalidAttachmentExceptionError>()("InvalidAttachmentException", InvalidAttachmentException) {};
-export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException) {};
-export class FacetInUseExceptionError extends Schema.TaggedError<FacetInUseExceptionError>()("FacetInUseException", FacetInUseException) {};
-export class FacetNotFoundExceptionError extends Schema.TaggedError<FacetNotFoundExceptionError>()("FacetNotFoundException", FacetNotFoundException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class RetryableConflictExceptionError extends Schema.TaggedError<RetryableConflictExceptionError>()("RetryableConflictException", RetryableConflictException) {};
-export class NotPolicyExceptionError extends Schema.TaggedError<NotPolicyExceptionError>()("NotPolicyException", NotPolicyException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class DirectoryDeletedExceptionError extends Schema.TaggedError<DirectoryDeletedExceptionError>()("DirectoryDeletedException", DirectoryDeletedException) {};
-export class InvalidNextTokenExceptionError extends Schema.TaggedError<InvalidNextTokenExceptionError>()("InvalidNextTokenException", InvalidNextTokenException) {};
-export class InvalidTaggingRequestExceptionError extends Schema.TaggedError<InvalidTaggingRequestExceptionError>()("InvalidTaggingRequestException", InvalidTaggingRequestException) {};
-export class InvalidFacetUpdateExceptionError extends Schema.TaggedError<InvalidFacetUpdateExceptionError>()("InvalidFacetUpdateException", InvalidFacetUpdateException) {};
-export class InvalidRuleExceptionError extends Schema.TaggedError<InvalidRuleExceptionError>()("InvalidRuleException", InvalidRuleException) {};
-export class IncompatibleSchemaExceptionError extends Schema.TaggedError<IncompatibleSchemaExceptionError>()("IncompatibleSchemaException", IncompatibleSchemaException) {};
-export class LinkNameAlreadyInUseExceptionError extends Schema.TaggedError<LinkNameAlreadyInUseExceptionError>()("LinkNameAlreadyInUseException", LinkNameAlreadyInUseException) {};
-export class IndexedAttributeMissingExceptionError extends Schema.TaggedError<IndexedAttributeMissingExceptionError>()("IndexedAttributeMissingException", IndexedAttributeMissingException) {};
-export class NotIndexExceptionError extends Schema.TaggedError<NotIndexExceptionError>()("NotIndexException", NotIndexException) {};
-export class DirectoryAlreadyExistsExceptionError extends Schema.TaggedError<DirectoryAlreadyExistsExceptionError>()("DirectoryAlreadyExistsException", DirectoryAlreadyExistsException) {};
-export class UnsupportedIndexTypeExceptionError extends Schema.TaggedError<UnsupportedIndexTypeExceptionError>()("UnsupportedIndexTypeException", UnsupportedIndexTypeException) {};
-export class SchemaAlreadyExistsExceptionError extends Schema.TaggedError<SchemaAlreadyExistsExceptionError>()("SchemaAlreadyExistsException", SchemaAlreadyExistsException) {};
-export class ObjectNotDetachedExceptionError extends Schema.TaggedError<ObjectNotDetachedExceptionError>()("ObjectNotDetachedException", ObjectNotDetachedException) {};
-export class StillContainsLinksExceptionError extends Schema.TaggedError<StillContainsLinksExceptionError>()("StillContainsLinksException", StillContainsLinksException) {};
-export class NotNodeExceptionError extends Schema.TaggedError<NotNodeExceptionError>()("NotNodeException", NotNodeException) {};
-export class SchemaAlreadyPublishedExceptionError extends Schema.TaggedError<SchemaAlreadyPublishedExceptionError>()("SchemaAlreadyPublishedException", SchemaAlreadyPublishedException) {};
-export class FacetAlreadyExistsExceptionError extends Schema.TaggedError<FacetAlreadyExistsExceptionError>()("FacetAlreadyExistsException", FacetAlreadyExistsException) {};
-export class DirectoryNotDisabledExceptionError extends Schema.TaggedError<DirectoryNotDisabledExceptionError>()("DirectoryNotDisabledException", DirectoryNotDisabledException) {};
-export class ObjectAlreadyDetachedExceptionError extends Schema.TaggedError<ObjectAlreadyDetachedExceptionError>()("ObjectAlreadyDetachedException", ObjectAlreadyDetachedException) {};
-export class CannotListParentOfRootExceptionError extends Schema.TaggedError<CannotListParentOfRootExceptionError>()("CannotListParentOfRootException", CannotListParentOfRootException) {};
-export class InvalidSchemaDocExceptionError extends Schema.TaggedError<InvalidSchemaDocExceptionError>()("InvalidSchemaDocException", InvalidSchemaDocException) {};
-export class BatchWriteExceptionError extends Schema.TaggedError<BatchWriteExceptionError>()("BatchWriteException", BatchWriteException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class DirectoryNotEnabledExceptionError extends Schema.TaggedError<DirectoryNotEnabledExceptionError>()("DirectoryNotEnabledException", DirectoryNotEnabledException.fields) {};
+export class InternalServiceExceptionError extends Schema.TaggedError<InternalServiceExceptionError>()("InternalServiceException", InternalServiceException.fields) {};
+export class InvalidArnExceptionError extends Schema.TaggedError<InvalidArnExceptionError>()("InvalidArnException", InvalidArnException.fields) {};
+export class FacetValidationExceptionError extends Schema.TaggedError<FacetValidationExceptionError>()("FacetValidationException", FacetValidationException.fields) {};
+export class InvalidAttachmentExceptionError extends Schema.TaggedError<InvalidAttachmentExceptionError>()("InvalidAttachmentException", InvalidAttachmentException.fields) {};
+export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException.fields) {};
+export class FacetInUseExceptionError extends Schema.TaggedError<FacetInUseExceptionError>()("FacetInUseException", FacetInUseException.fields) {};
+export class FacetNotFoundExceptionError extends Schema.TaggedError<FacetNotFoundExceptionError>()("FacetNotFoundException", FacetNotFoundException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class RetryableConflictExceptionError extends Schema.TaggedError<RetryableConflictExceptionError>()("RetryableConflictException", RetryableConflictException.fields) {};
+export class NotPolicyExceptionError extends Schema.TaggedError<NotPolicyExceptionError>()("NotPolicyException", NotPolicyException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class DirectoryDeletedExceptionError extends Schema.TaggedError<DirectoryDeletedExceptionError>()("DirectoryDeletedException", DirectoryDeletedException.fields) {};
+export class InvalidNextTokenExceptionError extends Schema.TaggedError<InvalidNextTokenExceptionError>()("InvalidNextTokenException", InvalidNextTokenException.fields) {};
+export class InvalidTaggingRequestExceptionError extends Schema.TaggedError<InvalidTaggingRequestExceptionError>()("InvalidTaggingRequestException", InvalidTaggingRequestException.fields) {};
+export class InvalidFacetUpdateExceptionError extends Schema.TaggedError<InvalidFacetUpdateExceptionError>()("InvalidFacetUpdateException", InvalidFacetUpdateException.fields) {};
+export class InvalidRuleExceptionError extends Schema.TaggedError<InvalidRuleExceptionError>()("InvalidRuleException", InvalidRuleException.fields) {};
+export class IncompatibleSchemaExceptionError extends Schema.TaggedError<IncompatibleSchemaExceptionError>()("IncompatibleSchemaException", IncompatibleSchemaException.fields) {};
+export class LinkNameAlreadyInUseExceptionError extends Schema.TaggedError<LinkNameAlreadyInUseExceptionError>()("LinkNameAlreadyInUseException", LinkNameAlreadyInUseException.fields) {};
+export class IndexedAttributeMissingExceptionError extends Schema.TaggedError<IndexedAttributeMissingExceptionError>()("IndexedAttributeMissingException", IndexedAttributeMissingException.fields) {};
+export class NotIndexExceptionError extends Schema.TaggedError<NotIndexExceptionError>()("NotIndexException", NotIndexException.fields) {};
+export class DirectoryAlreadyExistsExceptionError extends Schema.TaggedError<DirectoryAlreadyExistsExceptionError>()("DirectoryAlreadyExistsException", DirectoryAlreadyExistsException.fields) {};
+export class UnsupportedIndexTypeExceptionError extends Schema.TaggedError<UnsupportedIndexTypeExceptionError>()("UnsupportedIndexTypeException", UnsupportedIndexTypeException.fields) {};
+export class SchemaAlreadyExistsExceptionError extends Schema.TaggedError<SchemaAlreadyExistsExceptionError>()("SchemaAlreadyExistsException", SchemaAlreadyExistsException.fields) {};
+export class ObjectNotDetachedExceptionError extends Schema.TaggedError<ObjectNotDetachedExceptionError>()("ObjectNotDetachedException", ObjectNotDetachedException.fields) {};
+export class StillContainsLinksExceptionError extends Schema.TaggedError<StillContainsLinksExceptionError>()("StillContainsLinksException", StillContainsLinksException.fields) {};
+export class NotNodeExceptionError extends Schema.TaggedError<NotNodeExceptionError>()("NotNodeException", NotNodeException.fields) {};
+export class SchemaAlreadyPublishedExceptionError extends Schema.TaggedError<SchemaAlreadyPublishedExceptionError>()("SchemaAlreadyPublishedException", SchemaAlreadyPublishedException.fields) {};
+export class FacetAlreadyExistsExceptionError extends Schema.TaggedError<FacetAlreadyExistsExceptionError>()("FacetAlreadyExistsException", FacetAlreadyExistsException.fields) {};
+export class DirectoryNotDisabledExceptionError extends Schema.TaggedError<DirectoryNotDisabledExceptionError>()("DirectoryNotDisabledException", DirectoryNotDisabledException.fields) {};
+export class ObjectAlreadyDetachedExceptionError extends Schema.TaggedError<ObjectAlreadyDetachedExceptionError>()("ObjectAlreadyDetachedException", ObjectAlreadyDetachedException.fields) {};
+export class CannotListParentOfRootExceptionError extends Schema.TaggedError<CannotListParentOfRootExceptionError>()("CannotListParentOfRootException", CannotListParentOfRootException.fields) {};
+export class InvalidSchemaDocExceptionError extends Schema.TaggedError<InvalidSchemaDocExceptionError>()("InvalidSchemaDocException", InvalidSchemaDocException.fields) {};
+export class BatchWriteExceptionError extends Schema.TaggedError<BatchWriteExceptionError>()("BatchWriteException", BatchWriteException.fields) {};
 
 //# Operations
 export const detachPolicy = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-01-11", uri: "/amazonclouddirectory/2017-01-11/policy/detach", method: "PUT", sdkId: "CloudDirectory", sigV4ServiceName: "clouddirectory", name: "AmazonCloudDirectory_20170111.DetachPolicy" }, DetachPolicyRequest, DetachPolicyResponse, [AccessDeniedExceptionError, DirectoryNotEnabledExceptionError, InternalServiceExceptionError, InvalidArnExceptionError, LimitExceededExceptionError, NotPolicyExceptionError, ResourceNotFoundExceptionError, RetryableConflictExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

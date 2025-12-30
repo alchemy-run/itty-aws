@@ -3,131 +3,131 @@ import { FormatAwsJSON11Request,FormatJSONResponse,FormatAwsRestJSONError, makeO
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const DeleteNamespaceRequest = Schema.Struct({});
-export const GetNamespaceDeletionStatusRequest = Schema.Struct({});
+export class DeleteNamespaceRequest extends Schema.Class<DeleteNamespaceRequest>("DeleteNamespaceRequest")({}) {}
+export class GetNamespaceDeletionStatusRequest extends Schema.Class<GetNamespaceDeletionStatusRequest>("GetNamespaceDeletionStatusRequest")({}) {}
 export const Urns = Schema.Array(Schema.String);
 export const EntityTypes = Schema.Array(Schema.String);
 export const TagKeyList = Schema.Array(Schema.String);
-export const AssociateEntityToThingRequest = Schema.Struct({thingName: Schema.String, entityId: Schema.String, namespaceVersion: Schema.optional(Schema.Number)});
-export const AssociateEntityToThingResponse = Schema.Struct({});
-export const DefinitionDocument = Schema.Struct({language: Schema.String, text: Schema.String});
-export const CreateSystemTemplateRequest = Schema.Struct({definition: DefinitionDocument, compatibleNamespaceVersion: Schema.optional(Schema.Number)});
-export const DeleteFlowTemplateRequest = Schema.Struct({id: Schema.String});
-export const DeleteFlowTemplateResponse = Schema.Struct({});
-export const DeleteNamespaceResponse = Schema.Struct({namespaceArn: Schema.optional(Schema.String), namespaceName: Schema.optional(Schema.String)});
-export const DeleteSystemInstanceRequest = Schema.Struct({id: Schema.optional(Schema.String)});
-export const DeleteSystemInstanceResponse = Schema.Struct({});
-export const DeleteSystemTemplateRequest = Schema.Struct({id: Schema.String});
-export const DeleteSystemTemplateResponse = Schema.Struct({});
-export const DeploySystemInstanceRequest = Schema.Struct({id: Schema.optional(Schema.String)});
-export const DeprecateFlowTemplateRequest = Schema.Struct({id: Schema.String});
-export const DeprecateFlowTemplateResponse = Schema.Struct({});
-export const DeprecateSystemTemplateRequest = Schema.Struct({id: Schema.String});
-export const DeprecateSystemTemplateResponse = Schema.Struct({});
-export const DescribeNamespaceRequest = Schema.Struct({namespaceName: Schema.optional(Schema.String)});
-export const DissociateEntityFromThingRequest = Schema.Struct({thingName: Schema.String, entityType: Schema.String});
-export const DissociateEntityFromThingResponse = Schema.Struct({});
-export const GetEntitiesRequest = Schema.Struct({ids: Urns, namespaceVersion: Schema.optional(Schema.Number)});
-export const GetFlowTemplateRequest = Schema.Struct({id: Schema.String, revisionNumber: Schema.optional(Schema.Number)});
-export const GetFlowTemplateRevisionsRequest = Schema.Struct({id: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const GetNamespaceDeletionStatusResponse = Schema.Struct({namespaceArn: Schema.optional(Schema.String), namespaceName: Schema.optional(Schema.String), status: Schema.optional(Schema.String), errorCode: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String)});
-export const GetSystemInstanceRequest = Schema.Struct({id: Schema.String});
-export const GetSystemTemplateRequest = Schema.Struct({id: Schema.String, revisionNumber: Schema.optional(Schema.Number)});
-export const GetSystemTemplateRevisionsRequest = Schema.Struct({id: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const GetUploadStatusRequest = Schema.Struct({uploadId: Schema.String});
-export const ListFlowExecutionMessagesRequest = Schema.Struct({flowExecutionId: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListTagsForResourceRequest = Schema.Struct({maxResults: Schema.optional(Schema.Number), resourceArn: Schema.String, nextToken: Schema.optional(Schema.String)});
-export const SearchFlowExecutionsRequest = Schema.Struct({systemInstanceId: Schema.String, flowExecutionId: Schema.optional(Schema.String), startTime: Schema.optional(Schema.Date), endTime: Schema.optional(Schema.Date), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const SearchThingsRequest = Schema.Struct({entityId: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), namespaceVersion: Schema.optional(Schema.Number)});
-export const Tag = Schema.Struct({key: Schema.String, value: Schema.String});
+export class AssociateEntityToThingRequest extends Schema.Class<AssociateEntityToThingRequest>("AssociateEntityToThingRequest")({thingName: Schema.String, entityId: Schema.String, namespaceVersion: Schema.optional(Schema.Number)}) {}
+export class AssociateEntityToThingResponse extends Schema.Class<AssociateEntityToThingResponse>("AssociateEntityToThingResponse")({}) {}
+export class DefinitionDocument extends Schema.Class<DefinitionDocument>("DefinitionDocument")({language: Schema.String, text: Schema.String}) {}
+export class CreateSystemTemplateRequest extends Schema.Class<CreateSystemTemplateRequest>("CreateSystemTemplateRequest")({definition: DefinitionDocument, compatibleNamespaceVersion: Schema.optional(Schema.Number)}) {}
+export class DeleteFlowTemplateRequest extends Schema.Class<DeleteFlowTemplateRequest>("DeleteFlowTemplateRequest")({id: Schema.String}) {}
+export class DeleteFlowTemplateResponse extends Schema.Class<DeleteFlowTemplateResponse>("DeleteFlowTemplateResponse")({}) {}
+export class DeleteNamespaceResponse extends Schema.Class<DeleteNamespaceResponse>("DeleteNamespaceResponse")({namespaceArn: Schema.optional(Schema.String), namespaceName: Schema.optional(Schema.String)}) {}
+export class DeleteSystemInstanceRequest extends Schema.Class<DeleteSystemInstanceRequest>("DeleteSystemInstanceRequest")({id: Schema.optional(Schema.String)}) {}
+export class DeleteSystemInstanceResponse extends Schema.Class<DeleteSystemInstanceResponse>("DeleteSystemInstanceResponse")({}) {}
+export class DeleteSystemTemplateRequest extends Schema.Class<DeleteSystemTemplateRequest>("DeleteSystemTemplateRequest")({id: Schema.String}) {}
+export class DeleteSystemTemplateResponse extends Schema.Class<DeleteSystemTemplateResponse>("DeleteSystemTemplateResponse")({}) {}
+export class DeploySystemInstanceRequest extends Schema.Class<DeploySystemInstanceRequest>("DeploySystemInstanceRequest")({id: Schema.optional(Schema.String)}) {}
+export class DeprecateFlowTemplateRequest extends Schema.Class<DeprecateFlowTemplateRequest>("DeprecateFlowTemplateRequest")({id: Schema.String}) {}
+export class DeprecateFlowTemplateResponse extends Schema.Class<DeprecateFlowTemplateResponse>("DeprecateFlowTemplateResponse")({}) {}
+export class DeprecateSystemTemplateRequest extends Schema.Class<DeprecateSystemTemplateRequest>("DeprecateSystemTemplateRequest")({id: Schema.String}) {}
+export class DeprecateSystemTemplateResponse extends Schema.Class<DeprecateSystemTemplateResponse>("DeprecateSystemTemplateResponse")({}) {}
+export class DescribeNamespaceRequest extends Schema.Class<DescribeNamespaceRequest>("DescribeNamespaceRequest")({namespaceName: Schema.optional(Schema.String)}) {}
+export class DissociateEntityFromThingRequest extends Schema.Class<DissociateEntityFromThingRequest>("DissociateEntityFromThingRequest")({thingName: Schema.String, entityType: Schema.String}) {}
+export class DissociateEntityFromThingResponse extends Schema.Class<DissociateEntityFromThingResponse>("DissociateEntityFromThingResponse")({}) {}
+export class GetEntitiesRequest extends Schema.Class<GetEntitiesRequest>("GetEntitiesRequest")({ids: Urns, namespaceVersion: Schema.optional(Schema.Number)}) {}
+export class GetFlowTemplateRequest extends Schema.Class<GetFlowTemplateRequest>("GetFlowTemplateRequest")({id: Schema.String, revisionNumber: Schema.optional(Schema.Number)}) {}
+export class GetFlowTemplateRevisionsRequest extends Schema.Class<GetFlowTemplateRevisionsRequest>("GetFlowTemplateRevisionsRequest")({id: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class GetNamespaceDeletionStatusResponse extends Schema.Class<GetNamespaceDeletionStatusResponse>("GetNamespaceDeletionStatusResponse")({namespaceArn: Schema.optional(Schema.String), namespaceName: Schema.optional(Schema.String), status: Schema.optional(Schema.String), errorCode: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String)}) {}
+export class GetSystemInstanceRequest extends Schema.Class<GetSystemInstanceRequest>("GetSystemInstanceRequest")({id: Schema.String}) {}
+export class GetSystemTemplateRequest extends Schema.Class<GetSystemTemplateRequest>("GetSystemTemplateRequest")({id: Schema.String, revisionNumber: Schema.optional(Schema.Number)}) {}
+export class GetSystemTemplateRevisionsRequest extends Schema.Class<GetSystemTemplateRevisionsRequest>("GetSystemTemplateRevisionsRequest")({id: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class GetUploadStatusRequest extends Schema.Class<GetUploadStatusRequest>("GetUploadStatusRequest")({uploadId: Schema.String}) {}
+export class ListFlowExecutionMessagesRequest extends Schema.Class<ListFlowExecutionMessagesRequest>("ListFlowExecutionMessagesRequest")({flowExecutionId: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({maxResults: Schema.optional(Schema.Number), resourceArn: Schema.String, nextToken: Schema.optional(Schema.String)}) {}
+export class SearchFlowExecutionsRequest extends Schema.Class<SearchFlowExecutionsRequest>("SearchFlowExecutionsRequest")({systemInstanceId: Schema.String, flowExecutionId: Schema.optional(Schema.String), startTime: Schema.optional(Schema.Date), endTime: Schema.optional(Schema.Date), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class SearchThingsRequest extends Schema.Class<SearchThingsRequest>("SearchThingsRequest")({entityId: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), namespaceVersion: Schema.optional(Schema.Number)}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({key: Schema.String, value: Schema.String}) {}
 export const TagList = Schema.Array(Tag);
-export const TagResourceRequest = Schema.Struct({resourceArn: Schema.String, tags: TagList});
-export const TagResourceResponse = Schema.Struct({});
-export const UndeploySystemInstanceRequest = Schema.Struct({id: Schema.optional(Schema.String)});
-export const UntagResourceRequest = Schema.Struct({resourceArn: Schema.String, tagKeys: TagKeyList});
-export const UntagResourceResponse = Schema.Struct({});
-export const UpdateFlowTemplateRequest = Schema.Struct({id: Schema.String, definition: DefinitionDocument, compatibleNamespaceVersion: Schema.optional(Schema.Number)});
-export const UpdateSystemTemplateRequest = Schema.Struct({id: Schema.String, definition: DefinitionDocument, compatibleNamespaceVersion: Schema.optional(Schema.Number)});
-export const UploadEntityDefinitionsRequest = Schema.Struct({document: Schema.optional(DefinitionDocument), syncWithPublicNamespace: Schema.optional(Schema.Boolean), deprecateExistingEntities: Schema.optional(Schema.Boolean)});
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({resourceArn: Schema.String, tags: TagList}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class UndeploySystemInstanceRequest extends Schema.Class<UndeploySystemInstanceRequest>("UndeploySystemInstanceRequest")({id: Schema.optional(Schema.String)}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({resourceArn: Schema.String, tagKeys: TagKeyList}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class UpdateFlowTemplateRequest extends Schema.Class<UpdateFlowTemplateRequest>("UpdateFlowTemplateRequest")({id: Schema.String, definition: DefinitionDocument, compatibleNamespaceVersion: Schema.optional(Schema.Number)}) {}
+export class UpdateSystemTemplateRequest extends Schema.Class<UpdateSystemTemplateRequest>("UpdateSystemTemplateRequest")({id: Schema.String, definition: DefinitionDocument, compatibleNamespaceVersion: Schema.optional(Schema.Number)}) {}
+export class UploadEntityDefinitionsRequest extends Schema.Class<UploadEntityDefinitionsRequest>("UploadEntityDefinitionsRequest")({document: Schema.optional(DefinitionDocument), syncWithPublicNamespace: Schema.optional(Schema.Boolean), deprecateExistingEntities: Schema.optional(Schema.Boolean)}) {}
 export const EntityFilterValues = Schema.Array(Schema.String);
 export const FlowTemplateFilterValues = Schema.Array(Schema.String);
 export const SystemInstanceFilterValues = Schema.Array(Schema.String);
 export const SystemTemplateFilterValues = Schema.Array(Schema.String);
-export const MetricsConfiguration = Schema.Struct({cloudMetricEnabled: Schema.optional(Schema.Boolean), metricRuleRoleArn: Schema.optional(Schema.String)});
-export const SystemTemplateSummary = Schema.Struct({id: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), revisionNumber: Schema.optional(Schema.Number), createdAt: Schema.optional(Schema.Date)});
+export class MetricsConfiguration extends Schema.Class<MetricsConfiguration>("MetricsConfiguration")({cloudMetricEnabled: Schema.optional(Schema.Boolean), metricRuleRoleArn: Schema.optional(Schema.String)}) {}
+export class SystemTemplateSummary extends Schema.Class<SystemTemplateSummary>("SystemTemplateSummary")({id: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), revisionNumber: Schema.optional(Schema.Number), createdAt: Schema.optional(Schema.Date)}) {}
 export const SystemTemplateSummaries = Schema.Array(SystemTemplateSummary);
 export const StringList = Schema.Array(Schema.String);
-export const EntityFilter = Schema.Struct({name: Schema.optional(Schema.String), value: Schema.optional(EntityFilterValues)});
+export class EntityFilter extends Schema.Class<EntityFilter>("EntityFilter")({name: Schema.optional(Schema.String), value: Schema.optional(EntityFilterValues)}) {}
 export const EntityFilters = Schema.Array(EntityFilter);
-export const FlowTemplateFilter = Schema.Struct({name: Schema.String, value: FlowTemplateFilterValues});
+export class FlowTemplateFilter extends Schema.Class<FlowTemplateFilter>("FlowTemplateFilter")({name: Schema.String, value: FlowTemplateFilterValues}) {}
 export const FlowTemplateFilters = Schema.Array(FlowTemplateFilter);
-export const SystemInstanceFilter = Schema.Struct({name: Schema.optional(Schema.String), value: Schema.optional(SystemInstanceFilterValues)});
+export class SystemInstanceFilter extends Schema.Class<SystemInstanceFilter>("SystemInstanceFilter")({name: Schema.optional(Schema.String), value: Schema.optional(SystemInstanceFilterValues)}) {}
 export const SystemInstanceFilters = Schema.Array(SystemInstanceFilter);
-export const SystemTemplateFilter = Schema.Struct({name: Schema.String, value: SystemTemplateFilterValues});
+export class SystemTemplateFilter extends Schema.Class<SystemTemplateFilter>("SystemTemplateFilter")({name: Schema.String, value: SystemTemplateFilterValues}) {}
 export const SystemTemplateFilters = Schema.Array(SystemTemplateFilter);
-export const InternalFailureException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const CreateFlowTemplateRequest = Schema.Struct({definition: DefinitionDocument, compatibleNamespaceVersion: Schema.optional(Schema.Number)});
-export const CreateSystemInstanceRequest = Schema.Struct({tags: Schema.optional(TagList), definition: DefinitionDocument, target: Schema.String, greengrassGroupName: Schema.optional(Schema.String), s3BucketName: Schema.optional(Schema.String), metricsConfiguration: Schema.optional(MetricsConfiguration), flowActionsRoleArn: Schema.optional(Schema.String)});
-export const InvalidRequestException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ThrottlingException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ResourceInUseException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const DescribeNamespaceResponse = Schema.Struct({namespaceArn: Schema.optional(Schema.String), namespaceName: Schema.optional(Schema.String), trackingNamespaceName: Schema.optional(Schema.String), trackingNamespaceVersion: Schema.optional(Schema.Number), namespaceVersion: Schema.optional(Schema.Number)});
-export const GetSystemTemplateRevisionsResponse = Schema.Struct({summaries: Schema.optional(SystemTemplateSummaries), nextToken: Schema.optional(Schema.String)});
-export const GetUploadStatusResponse = Schema.Struct({uploadId: Schema.String, uploadStatus: Schema.String, namespaceArn: Schema.optional(Schema.String), namespaceName: Schema.optional(Schema.String), namespaceVersion: Schema.optional(Schema.Number), failureReason: Schema.optional(StringList), createdDate: Schema.Date});
-export const ListTagsForResourceResponse = Schema.Struct({tags: Schema.optional(TagList), nextToken: Schema.optional(Schema.String)});
-export const SearchEntitiesRequest = Schema.Struct({entityTypes: EntityTypes, filters: Schema.optional(EntityFilters), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), namespaceVersion: Schema.optional(Schema.Number)});
-export const SearchFlowTemplatesRequest = Schema.Struct({filters: Schema.optional(FlowTemplateFilters), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const SearchSystemInstancesRequest = Schema.Struct({filters: Schema.optional(SystemInstanceFilters), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const SearchSystemTemplatesRequest = Schema.Struct({filters: Schema.optional(SystemTemplateFilters), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ResourceAlreadyExistsException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const SystemInstanceSummary = Schema.Struct({id: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), status: Schema.optional(Schema.String), target: Schema.optional(Schema.String), greengrassGroupName: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date), updatedAt: Schema.optional(Schema.Date), greengrassGroupId: Schema.optional(Schema.String), greengrassGroupVersionId: Schema.optional(Schema.String)});
-export const UndeploySystemInstanceResponse = Schema.Struct({summary: Schema.optional(SystemInstanceSummary)});
-export const FlowTemplateSummary = Schema.Struct({id: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), revisionNumber: Schema.optional(Schema.Number), createdAt: Schema.optional(Schema.Date)});
-export const UpdateFlowTemplateResponse = Schema.Struct({summary: Schema.optional(FlowTemplateSummary)});
-export const UpdateSystemTemplateResponse = Schema.Struct({summary: Schema.optional(SystemTemplateSummary)});
-export const UploadEntityDefinitionsResponse = Schema.Struct({uploadId: Schema.String});
-export const EntityDescription = Schema.Struct({id: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), type: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date), definition: Schema.optional(DefinitionDocument)});
+export class InternalFailureException extends Schema.Class<InternalFailureException>("InternalFailureException")({message: Schema.optional(Schema.String)}) {}
+export class CreateFlowTemplateRequest extends Schema.Class<CreateFlowTemplateRequest>("CreateFlowTemplateRequest")({definition: DefinitionDocument, compatibleNamespaceVersion: Schema.optional(Schema.Number)}) {}
+export class CreateSystemInstanceRequest extends Schema.Class<CreateSystemInstanceRequest>("CreateSystemInstanceRequest")({tags: Schema.optional(TagList), definition: DefinitionDocument, target: Schema.String, greengrassGroupName: Schema.optional(Schema.String), s3BucketName: Schema.optional(Schema.String), metricsConfiguration: Schema.optional(MetricsConfiguration), flowActionsRoleArn: Schema.optional(Schema.String)}) {}
+export class InvalidRequestException extends Schema.Class<InvalidRequestException>("InvalidRequestException")({message: Schema.optional(Schema.String)}) {}
+export class ThrottlingException extends Schema.Class<ThrottlingException>("ThrottlingException")({message: Schema.optional(Schema.String)}) {}
+export class ResourceInUseException extends Schema.Class<ResourceInUseException>("ResourceInUseException")({message: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class DescribeNamespaceResponse extends Schema.Class<DescribeNamespaceResponse>("DescribeNamespaceResponse")({namespaceArn: Schema.optional(Schema.String), namespaceName: Schema.optional(Schema.String), trackingNamespaceName: Schema.optional(Schema.String), trackingNamespaceVersion: Schema.optional(Schema.Number), namespaceVersion: Schema.optional(Schema.Number)}) {}
+export class GetSystemTemplateRevisionsResponse extends Schema.Class<GetSystemTemplateRevisionsResponse>("GetSystemTemplateRevisionsResponse")({summaries: Schema.optional(SystemTemplateSummaries), nextToken: Schema.optional(Schema.String)}) {}
+export class GetUploadStatusResponse extends Schema.Class<GetUploadStatusResponse>("GetUploadStatusResponse")({uploadId: Schema.String, uploadStatus: Schema.String, namespaceArn: Schema.optional(Schema.String), namespaceName: Schema.optional(Schema.String), namespaceVersion: Schema.optional(Schema.Number), failureReason: Schema.optional(StringList), createdDate: Schema.Date}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({tags: Schema.optional(TagList), nextToken: Schema.optional(Schema.String)}) {}
+export class SearchEntitiesRequest extends Schema.Class<SearchEntitiesRequest>("SearchEntitiesRequest")({entityTypes: EntityTypes, filters: Schema.optional(EntityFilters), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), namespaceVersion: Schema.optional(Schema.Number)}) {}
+export class SearchFlowTemplatesRequest extends Schema.Class<SearchFlowTemplatesRequest>("SearchFlowTemplatesRequest")({filters: Schema.optional(FlowTemplateFilters), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class SearchSystemInstancesRequest extends Schema.Class<SearchSystemInstancesRequest>("SearchSystemInstancesRequest")({filters: Schema.optional(SystemInstanceFilters), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class SearchSystemTemplatesRequest extends Schema.Class<SearchSystemTemplatesRequest>("SearchSystemTemplatesRequest")({filters: Schema.optional(SystemTemplateFilters), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ResourceAlreadyExistsException extends Schema.Class<ResourceAlreadyExistsException>("ResourceAlreadyExistsException")({message: Schema.optional(Schema.String)}) {}
+export class SystemInstanceSummary extends Schema.Class<SystemInstanceSummary>("SystemInstanceSummary")({id: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), status: Schema.optional(Schema.String), target: Schema.optional(Schema.String), greengrassGroupName: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date), updatedAt: Schema.optional(Schema.Date), greengrassGroupId: Schema.optional(Schema.String), greengrassGroupVersionId: Schema.optional(Schema.String)}) {}
+export class UndeploySystemInstanceResponse extends Schema.Class<UndeploySystemInstanceResponse>("UndeploySystemInstanceResponse")({summary: Schema.optional(SystemInstanceSummary)}) {}
+export class FlowTemplateSummary extends Schema.Class<FlowTemplateSummary>("FlowTemplateSummary")({id: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), revisionNumber: Schema.optional(Schema.Number), createdAt: Schema.optional(Schema.Date)}) {}
+export class UpdateFlowTemplateResponse extends Schema.Class<UpdateFlowTemplateResponse>("UpdateFlowTemplateResponse")({summary: Schema.optional(FlowTemplateSummary)}) {}
+export class UpdateSystemTemplateResponse extends Schema.Class<UpdateSystemTemplateResponse>("UpdateSystemTemplateResponse")({summary: Schema.optional(SystemTemplateSummary)}) {}
+export class UploadEntityDefinitionsResponse extends Schema.Class<UploadEntityDefinitionsResponse>("UploadEntityDefinitionsResponse")({uploadId: Schema.String}) {}
+export class EntityDescription extends Schema.Class<EntityDescription>("EntityDescription")({id: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), type: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date), definition: Schema.optional(DefinitionDocument)}) {}
 export const EntityDescriptions = Schema.Array(EntityDescription);
-export const FlowTemplateDescription = Schema.Struct({summary: Schema.optional(FlowTemplateSummary), definition: Schema.optional(DefinitionDocument), validatedNamespaceVersion: Schema.optional(Schema.Number)});
+export class FlowTemplateDescription extends Schema.Class<FlowTemplateDescription>("FlowTemplateDescription")({summary: Schema.optional(FlowTemplateSummary), definition: Schema.optional(DefinitionDocument), validatedNamespaceVersion: Schema.optional(Schema.Number)}) {}
 export const FlowTemplateSummaries = Schema.Array(FlowTemplateSummary);
-export const SystemTemplateDescription = Schema.Struct({summary: Schema.optional(SystemTemplateSummary), definition: Schema.optional(DefinitionDocument), validatedNamespaceVersion: Schema.optional(Schema.Number)});
-export const FlowExecutionMessage = Schema.Struct({messageId: Schema.optional(Schema.String), eventType: Schema.optional(Schema.String), timestamp: Schema.optional(Schema.Date), payload: Schema.optional(Schema.String)});
+export class SystemTemplateDescription extends Schema.Class<SystemTemplateDescription>("SystemTemplateDescription")({summary: Schema.optional(SystemTemplateSummary), definition: Schema.optional(DefinitionDocument), validatedNamespaceVersion: Schema.optional(Schema.Number)}) {}
+export class FlowExecutionMessage extends Schema.Class<FlowExecutionMessage>("FlowExecutionMessage")({messageId: Schema.optional(Schema.String), eventType: Schema.optional(Schema.String), timestamp: Schema.optional(Schema.Date), payload: Schema.optional(Schema.String)}) {}
 export const FlowExecutionMessages = Schema.Array(FlowExecutionMessage);
-export const FlowExecutionSummary = Schema.Struct({flowExecutionId: Schema.optional(Schema.String), status: Schema.optional(Schema.String), systemInstanceId: Schema.optional(Schema.String), flowTemplateId: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date), updatedAt: Schema.optional(Schema.Date)});
+export class FlowExecutionSummary extends Schema.Class<FlowExecutionSummary>("FlowExecutionSummary")({flowExecutionId: Schema.optional(Schema.String), status: Schema.optional(Schema.String), systemInstanceId: Schema.optional(Schema.String), flowTemplateId: Schema.optional(Schema.String), createdAt: Schema.optional(Schema.Date), updatedAt: Schema.optional(Schema.Date)}) {}
 export const FlowExecutionSummaries = Schema.Array(FlowExecutionSummary);
 export const SystemInstanceSummaries = Schema.Array(SystemInstanceSummary);
-export const Thing = Schema.Struct({thingArn: Schema.optional(Schema.String), thingName: Schema.optional(Schema.String)});
+export class Thing extends Schema.Class<Thing>("Thing")({thingArn: Schema.optional(Schema.String), thingName: Schema.optional(Schema.String)}) {}
 export const Things = Schema.Array(Thing);
-export const CreateFlowTemplateResponse = Schema.Struct({summary: Schema.optional(FlowTemplateSummary)});
-export const CreateSystemInstanceResponse = Schema.Struct({summary: Schema.optional(SystemInstanceSummary)});
-export const CreateSystemTemplateResponse = Schema.Struct({summary: Schema.optional(SystemTemplateSummary)});
-export const DeploySystemInstanceResponse = Schema.Struct({summary: SystemInstanceSummary, greengrassDeploymentId: Schema.optional(Schema.String)});
-export const GetEntitiesResponse = Schema.Struct({descriptions: Schema.optional(EntityDescriptions)});
-export const GetFlowTemplateResponse = Schema.Struct({description: Schema.optional(FlowTemplateDescription)});
-export const GetFlowTemplateRevisionsResponse = Schema.Struct({summaries: Schema.optional(FlowTemplateSummaries), nextToken: Schema.optional(Schema.String)});
-export const GetSystemTemplateResponse = Schema.Struct({description: Schema.optional(SystemTemplateDescription)});
-export const ListFlowExecutionMessagesResponse = Schema.Struct({messages: Schema.optional(FlowExecutionMessages), nextToken: Schema.optional(Schema.String)});
-export const SearchEntitiesResponse = Schema.Struct({descriptions: Schema.optional(EntityDescriptions), nextToken: Schema.optional(Schema.String)});
-export const SearchFlowExecutionsResponse = Schema.Struct({summaries: Schema.optional(FlowExecutionSummaries), nextToken: Schema.optional(Schema.String)});
-export const SearchFlowTemplatesResponse = Schema.Struct({summaries: Schema.optional(FlowTemplateSummaries), nextToken: Schema.optional(Schema.String)});
-export const SearchSystemInstancesResponse = Schema.Struct({summaries: Schema.optional(SystemInstanceSummaries), nextToken: Schema.optional(Schema.String)});
-export const SearchSystemTemplatesResponse = Schema.Struct({summaries: Schema.optional(SystemTemplateSummaries), nextToken: Schema.optional(Schema.String)});
-export const SearchThingsResponse = Schema.Struct({things: Schema.optional(Things), nextToken: Schema.optional(Schema.String)});
-export const DependencyRevision = Schema.Struct({id: Schema.optional(Schema.String), revisionNumber: Schema.optional(Schema.Number)});
+export class CreateFlowTemplateResponse extends Schema.Class<CreateFlowTemplateResponse>("CreateFlowTemplateResponse")({summary: Schema.optional(FlowTemplateSummary)}) {}
+export class CreateSystemInstanceResponse extends Schema.Class<CreateSystemInstanceResponse>("CreateSystemInstanceResponse")({summary: Schema.optional(SystemInstanceSummary)}) {}
+export class CreateSystemTemplateResponse extends Schema.Class<CreateSystemTemplateResponse>("CreateSystemTemplateResponse")({summary: Schema.optional(SystemTemplateSummary)}) {}
+export class DeploySystemInstanceResponse extends Schema.Class<DeploySystemInstanceResponse>("DeploySystemInstanceResponse")({summary: SystemInstanceSummary, greengrassDeploymentId: Schema.optional(Schema.String)}) {}
+export class GetEntitiesResponse extends Schema.Class<GetEntitiesResponse>("GetEntitiesResponse")({descriptions: Schema.optional(EntityDescriptions)}) {}
+export class GetFlowTemplateResponse extends Schema.Class<GetFlowTemplateResponse>("GetFlowTemplateResponse")({description: Schema.optional(FlowTemplateDescription)}) {}
+export class GetFlowTemplateRevisionsResponse extends Schema.Class<GetFlowTemplateRevisionsResponse>("GetFlowTemplateRevisionsResponse")({summaries: Schema.optional(FlowTemplateSummaries), nextToken: Schema.optional(Schema.String)}) {}
+export class GetSystemTemplateResponse extends Schema.Class<GetSystemTemplateResponse>("GetSystemTemplateResponse")({description: Schema.optional(SystemTemplateDescription)}) {}
+export class ListFlowExecutionMessagesResponse extends Schema.Class<ListFlowExecutionMessagesResponse>("ListFlowExecutionMessagesResponse")({messages: Schema.optional(FlowExecutionMessages), nextToken: Schema.optional(Schema.String)}) {}
+export class SearchEntitiesResponse extends Schema.Class<SearchEntitiesResponse>("SearchEntitiesResponse")({descriptions: Schema.optional(EntityDescriptions), nextToken: Schema.optional(Schema.String)}) {}
+export class SearchFlowExecutionsResponse extends Schema.Class<SearchFlowExecutionsResponse>("SearchFlowExecutionsResponse")({summaries: Schema.optional(FlowExecutionSummaries), nextToken: Schema.optional(Schema.String)}) {}
+export class SearchFlowTemplatesResponse extends Schema.Class<SearchFlowTemplatesResponse>("SearchFlowTemplatesResponse")({summaries: Schema.optional(FlowTemplateSummaries), nextToken: Schema.optional(Schema.String)}) {}
+export class SearchSystemInstancesResponse extends Schema.Class<SearchSystemInstancesResponse>("SearchSystemInstancesResponse")({summaries: Schema.optional(SystemInstanceSummaries), nextToken: Schema.optional(Schema.String)}) {}
+export class SearchSystemTemplatesResponse extends Schema.Class<SearchSystemTemplatesResponse>("SearchSystemTemplatesResponse")({summaries: Schema.optional(SystemTemplateSummaries), nextToken: Schema.optional(Schema.String)}) {}
+export class SearchThingsResponse extends Schema.Class<SearchThingsResponse>("SearchThingsResponse")({things: Schema.optional(Things), nextToken: Schema.optional(Schema.String)}) {}
+export class DependencyRevision extends Schema.Class<DependencyRevision>("DependencyRevision")({id: Schema.optional(Schema.String), revisionNumber: Schema.optional(Schema.Number)}) {}
 export const DependencyRevisions = Schema.Array(DependencyRevision);
-export const SystemInstanceDescription = Schema.Struct({summary: Schema.optional(SystemInstanceSummary), definition: Schema.optional(DefinitionDocument), s3BucketName: Schema.optional(Schema.String), metricsConfiguration: Schema.optional(MetricsConfiguration), validatedNamespaceVersion: Schema.optional(Schema.Number), validatedDependencyRevisions: Schema.optional(DependencyRevisions), flowActionsRoleArn: Schema.optional(Schema.String)});
-export const LimitExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const GetSystemInstanceResponse = Schema.Struct({description: Schema.optional(SystemInstanceDescription)});
+export class SystemInstanceDescription extends Schema.Class<SystemInstanceDescription>("SystemInstanceDescription")({summary: Schema.optional(SystemInstanceSummary), definition: Schema.optional(DefinitionDocument), s3BucketName: Schema.optional(Schema.String), metricsConfiguration: Schema.optional(MetricsConfiguration), validatedNamespaceVersion: Schema.optional(Schema.Number), validatedDependencyRevisions: Schema.optional(DependencyRevisions), flowActionsRoleArn: Schema.optional(Schema.String)}) {}
+export class LimitExceededException extends Schema.Class<LimitExceededException>("LimitExceededException")({message: Schema.optional(Schema.String)}) {}
+export class GetSystemInstanceResponse extends Schema.Class<GetSystemInstanceResponse>("GetSystemInstanceResponse")({description: Schema.optional(SystemInstanceDescription)}) {}
 
 //# Errors
-export class InternalFailureExceptionError extends Schema.TaggedError<InternalFailureExceptionError>()("InternalFailureException", InternalFailureException) {};
-export class InvalidRequestExceptionError extends Schema.TaggedError<InvalidRequestExceptionError>()("InvalidRequestException", InvalidRequestException) {};
-export class ResourceInUseExceptionError extends Schema.TaggedError<ResourceInUseExceptionError>()("ResourceInUseException", ResourceInUseException) {};
-export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ResourceAlreadyExistsExceptionError extends Schema.TaggedError<ResourceAlreadyExistsExceptionError>()("ResourceAlreadyExistsException", ResourceAlreadyExistsException) {};
-export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException) {};
+export class InternalFailureExceptionError extends Schema.TaggedError<InternalFailureExceptionError>()("InternalFailureException", InternalFailureException.fields) {};
+export class InvalidRequestExceptionError extends Schema.TaggedError<InvalidRequestExceptionError>()("InvalidRequestException", InvalidRequestException.fields) {};
+export class ResourceInUseExceptionError extends Schema.TaggedError<ResourceInUseExceptionError>()("ResourceInUseException", ResourceInUseException.fields) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ResourceAlreadyExistsExceptionError extends Schema.TaggedError<ResourceAlreadyExistsExceptionError>()("ResourceAlreadyExistsException", ResourceAlreadyExistsException.fields) {};
+export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException.fields) {};
 
 //# Operations
 export const deleteSystemTemplate = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-09-06", uri: "/", method: "POST", sdkId: "IoTThingsGraph", sigV4ServiceName: "iotthingsgraph", name: "IotThingsGraphFrontEndService.DeleteSystemTemplate" }, DeleteSystemTemplateRequest, DeleteSystemTemplateResponse, [InternalFailureExceptionError, InvalidRequestExceptionError, ResourceInUseExceptionError, ThrottlingExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

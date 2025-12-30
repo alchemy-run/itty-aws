@@ -9,37 +9,37 @@ export const BatchDescribeArnList = Schema.Array(Schema.String);
 export const BatchDescribeExclusionsArnList = Schema.Array(Schema.String);
 export const ListParentArnList = Schema.Array(Schema.String);
 export const UserAttributeKeyList = Schema.Array(Schema.String);
-export const CreateAssessmentTargetRequest = Schema.Struct({assessmentTargetName: Schema.String, resourceGroupArn: Schema.optional(Schema.String)});
-export const Attribute = Schema.Struct({key: Schema.String, value: Schema.optional(Schema.String)});
+export class CreateAssessmentTargetRequest extends Schema.Class<CreateAssessmentTargetRequest>("CreateAssessmentTargetRequest")({assessmentTargetName: Schema.String, resourceGroupArn: Schema.optional(Schema.String)}) {}
+export class Attribute extends Schema.Class<Attribute>("Attribute")({key: Schema.String, value: Schema.optional(Schema.String)}) {}
 export const UserAttributeList = Schema.Array(Attribute);
-export const CreateAssessmentTemplateRequest = Schema.Struct({assessmentTargetArn: Schema.String, assessmentTemplateName: Schema.String, durationInSeconds: Schema.Number, rulesPackageArns: AssessmentTemplateRulesPackageArnList, userAttributesForFindings: Schema.optional(UserAttributeList)});
-export const CreateExclusionsPreviewRequest = Schema.Struct({assessmentTemplateArn: Schema.String});
-export const DeleteAssessmentRunRequest = Schema.Struct({assessmentRunArn: Schema.String});
-export const DeleteAssessmentTargetRequest = Schema.Struct({assessmentTargetArn: Schema.String});
-export const DeleteAssessmentTemplateRequest = Schema.Struct({assessmentTemplateArn: Schema.String});
-export const DescribeAssessmentRunsRequest = Schema.Struct({assessmentRunArns: BatchDescribeArnList});
-export const DescribeAssessmentTargetsRequest = Schema.Struct({assessmentTargetArns: BatchDescribeArnList});
-export const DescribeAssessmentTemplatesRequest = Schema.Struct({assessmentTemplateArns: BatchDescribeArnList});
-export const DescribeCrossAccountAccessRoleResponse = Schema.Struct({roleArn: Schema.String, valid: Schema.Boolean, registeredAt: Schema.Date});
-export const DescribeExclusionsRequest = Schema.Struct({exclusionArns: BatchDescribeExclusionsArnList, locale: Schema.optional(Schema.String)});
-export const DescribeFindingsRequest = Schema.Struct({findingArns: BatchDescribeArnList, locale: Schema.optional(Schema.String)});
-export const DescribeResourceGroupsRequest = Schema.Struct({resourceGroupArns: BatchDescribeArnList});
-export const DescribeRulesPackagesRequest = Schema.Struct({rulesPackageArns: BatchDescribeArnList, locale: Schema.optional(Schema.String)});
-export const GetAssessmentReportRequest = Schema.Struct({assessmentRunArn: Schema.String, reportFileFormat: Schema.String, reportType: Schema.String});
-export const GetExclusionsPreviewRequest = Schema.Struct({assessmentTemplateArn: Schema.String, previewToken: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), locale: Schema.optional(Schema.String)});
-export const GetTelemetryMetadataRequest = Schema.Struct({assessmentRunArn: Schema.String});
-export const ListEventSubscriptionsRequest = Schema.Struct({resourceArn: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListExclusionsRequest = Schema.Struct({assessmentRunArn: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListRulesPackagesRequest = Schema.Struct({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListTagsForResourceRequest = Schema.Struct({resourceArn: Schema.String});
-export const PreviewAgentsRequest = Schema.Struct({previewAgentsArn: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const RegisterCrossAccountAccessRoleRequest = Schema.Struct({roleArn: Schema.String});
-export const RemoveAttributesFromFindingsRequest = Schema.Struct({findingArns: AddRemoveAttributesFindingArnList, attributeKeys: UserAttributeKeyList});
-export const StartAssessmentRunRequest = Schema.Struct({assessmentTemplateArn: Schema.String, assessmentRunName: Schema.optional(Schema.String)});
-export const StopAssessmentRunRequest = Schema.Struct({assessmentRunArn: Schema.String, stopAction: Schema.optional(Schema.String)});
-export const SubscribeToEventRequest = Schema.Struct({resourceArn: Schema.String, event: Schema.String, topicArn: Schema.String});
-export const UnsubscribeFromEventRequest = Schema.Struct({resourceArn: Schema.String, event: Schema.String, topicArn: Schema.String});
-export const UpdateAssessmentTargetRequest = Schema.Struct({assessmentTargetArn: Schema.String, assessmentTargetName: Schema.String, resourceGroupArn: Schema.optional(Schema.String)});
+export class CreateAssessmentTemplateRequest extends Schema.Class<CreateAssessmentTemplateRequest>("CreateAssessmentTemplateRequest")({assessmentTargetArn: Schema.String, assessmentTemplateName: Schema.String, durationInSeconds: Schema.Number, rulesPackageArns: AssessmentTemplateRulesPackageArnList, userAttributesForFindings: Schema.optional(UserAttributeList)}) {}
+export class CreateExclusionsPreviewRequest extends Schema.Class<CreateExclusionsPreviewRequest>("CreateExclusionsPreviewRequest")({assessmentTemplateArn: Schema.String}) {}
+export class DeleteAssessmentRunRequest extends Schema.Class<DeleteAssessmentRunRequest>("DeleteAssessmentRunRequest")({assessmentRunArn: Schema.String}) {}
+export class DeleteAssessmentTargetRequest extends Schema.Class<DeleteAssessmentTargetRequest>("DeleteAssessmentTargetRequest")({assessmentTargetArn: Schema.String}) {}
+export class DeleteAssessmentTemplateRequest extends Schema.Class<DeleteAssessmentTemplateRequest>("DeleteAssessmentTemplateRequest")({assessmentTemplateArn: Schema.String}) {}
+export class DescribeAssessmentRunsRequest extends Schema.Class<DescribeAssessmentRunsRequest>("DescribeAssessmentRunsRequest")({assessmentRunArns: BatchDescribeArnList}) {}
+export class DescribeAssessmentTargetsRequest extends Schema.Class<DescribeAssessmentTargetsRequest>("DescribeAssessmentTargetsRequest")({assessmentTargetArns: BatchDescribeArnList}) {}
+export class DescribeAssessmentTemplatesRequest extends Schema.Class<DescribeAssessmentTemplatesRequest>("DescribeAssessmentTemplatesRequest")({assessmentTemplateArns: BatchDescribeArnList}) {}
+export class DescribeCrossAccountAccessRoleResponse extends Schema.Class<DescribeCrossAccountAccessRoleResponse>("DescribeCrossAccountAccessRoleResponse")({roleArn: Schema.String, valid: Schema.Boolean, registeredAt: Schema.Date}) {}
+export class DescribeExclusionsRequest extends Schema.Class<DescribeExclusionsRequest>("DescribeExclusionsRequest")({exclusionArns: BatchDescribeExclusionsArnList, locale: Schema.optional(Schema.String)}) {}
+export class DescribeFindingsRequest extends Schema.Class<DescribeFindingsRequest>("DescribeFindingsRequest")({findingArns: BatchDescribeArnList, locale: Schema.optional(Schema.String)}) {}
+export class DescribeResourceGroupsRequest extends Schema.Class<DescribeResourceGroupsRequest>("DescribeResourceGroupsRequest")({resourceGroupArns: BatchDescribeArnList}) {}
+export class DescribeRulesPackagesRequest extends Schema.Class<DescribeRulesPackagesRequest>("DescribeRulesPackagesRequest")({rulesPackageArns: BatchDescribeArnList, locale: Schema.optional(Schema.String)}) {}
+export class GetAssessmentReportRequest extends Schema.Class<GetAssessmentReportRequest>("GetAssessmentReportRequest")({assessmentRunArn: Schema.String, reportFileFormat: Schema.String, reportType: Schema.String}) {}
+export class GetExclusionsPreviewRequest extends Schema.Class<GetExclusionsPreviewRequest>("GetExclusionsPreviewRequest")({assessmentTemplateArn: Schema.String, previewToken: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), locale: Schema.optional(Schema.String)}) {}
+export class GetTelemetryMetadataRequest extends Schema.Class<GetTelemetryMetadataRequest>("GetTelemetryMetadataRequest")({assessmentRunArn: Schema.String}) {}
+export class ListEventSubscriptionsRequest extends Schema.Class<ListEventSubscriptionsRequest>("ListEventSubscriptionsRequest")({resourceArn: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListExclusionsRequest extends Schema.Class<ListExclusionsRequest>("ListExclusionsRequest")({assessmentRunArn: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListRulesPackagesRequest extends Schema.Class<ListRulesPackagesRequest>("ListRulesPackagesRequest")({nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({resourceArn: Schema.String}) {}
+export class PreviewAgentsRequest extends Schema.Class<PreviewAgentsRequest>("PreviewAgentsRequest")({previewAgentsArn: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class RegisterCrossAccountAccessRoleRequest extends Schema.Class<RegisterCrossAccountAccessRoleRequest>("RegisterCrossAccountAccessRoleRequest")({roleArn: Schema.String}) {}
+export class RemoveAttributesFromFindingsRequest extends Schema.Class<RemoveAttributesFromFindingsRequest>("RemoveAttributesFromFindingsRequest")({findingArns: AddRemoveAttributesFindingArnList, attributeKeys: UserAttributeKeyList}) {}
+export class StartAssessmentRunRequest extends Schema.Class<StartAssessmentRunRequest>("StartAssessmentRunRequest")({assessmentTemplateArn: Schema.String, assessmentRunName: Schema.optional(Schema.String)}) {}
+export class StopAssessmentRunRequest extends Schema.Class<StopAssessmentRunRequest>("StopAssessmentRunRequest")({assessmentRunArn: Schema.String, stopAction: Schema.optional(Schema.String)}) {}
+export class SubscribeToEventRequest extends Schema.Class<SubscribeToEventRequest>("SubscribeToEventRequest")({resourceArn: Schema.String, event: Schema.String, topicArn: Schema.String}) {}
+export class UnsubscribeFromEventRequest extends Schema.Class<UnsubscribeFromEventRequest>("UnsubscribeFromEventRequest")({resourceArn: Schema.String, event: Schema.String, topicArn: Schema.String}) {}
+export class UpdateAssessmentTargetRequest extends Schema.Class<UpdateAssessmentTargetRequest>("UpdateAssessmentTargetRequest")({assessmentTargetArn: Schema.String, assessmentTargetName: Schema.String, resourceGroupArn: Schema.optional(Schema.String)}) {}
 export const AgentHealthList = Schema.Array(Schema.String);
 export const AgentHealthCodeList = Schema.Array(Schema.String);
 export const AssessmentRunStateList = Schema.Array(Schema.String);
@@ -49,127 +49,127 @@ export const AutoScalingGroupList = Schema.Array(Schema.String);
 export const RuleNameList = Schema.Array(Schema.String);
 export const SeverityList = Schema.Array(Schema.String);
 export const AttributeList = Schema.Array(Attribute);
-export const ResourceGroupTag = Schema.Struct({key: Schema.String, value: Schema.optional(Schema.String)});
+export class ResourceGroupTag extends Schema.Class<ResourceGroupTag>("ResourceGroupTag")({key: Schema.String, value: Schema.optional(Schema.String)}) {}
 export const ResourceGroupTags = Schema.Array(ResourceGroupTag);
 export const AssessmentRunInProgressArnList = Schema.Array(Schema.String);
-export const AgentFilter = Schema.Struct({agentHealths: AgentHealthList, agentHealthCodes: AgentHealthCodeList});
-export const AssessmentTargetFilter = Schema.Struct({assessmentTargetNamePattern: Schema.optional(Schema.String)});
-export const DurationRange = Schema.Struct({minSeconds: Schema.optional(Schema.Number), maxSeconds: Schema.optional(Schema.Number)});
-export const AssessmentTemplateFilter = Schema.Struct({namePattern: Schema.optional(Schema.String), durationRange: Schema.optional(DurationRange), rulesPackageArns: Schema.optional(FilterRulesPackageArnList)});
+export class AgentFilter extends Schema.Class<AgentFilter>("AgentFilter")({agentHealths: AgentHealthList, agentHealthCodes: AgentHealthCodeList}) {}
+export class AssessmentTargetFilter extends Schema.Class<AssessmentTargetFilter>("AssessmentTargetFilter")({assessmentTargetNamePattern: Schema.optional(Schema.String)}) {}
+export class DurationRange extends Schema.Class<DurationRange>("DurationRange")({minSeconds: Schema.optional(Schema.Number), maxSeconds: Schema.optional(Schema.Number)}) {}
+export class AssessmentTemplateFilter extends Schema.Class<AssessmentTemplateFilter>("AssessmentTemplateFilter")({namePattern: Schema.optional(Schema.String), durationRange: Schema.optional(DurationRange), rulesPackageArns: Schema.optional(FilterRulesPackageArnList)}) {}
 export const ListReturnedArnList = Schema.Array(Schema.String);
-export const TimestampRange = Schema.Struct({beginDate: Schema.optional(Schema.Date), endDate: Schema.optional(Schema.Date)});
-export const FindingFilter = Schema.Struct({agentIds: Schema.optional(AgentIdList), autoScalingGroups: Schema.optional(AutoScalingGroupList), ruleNames: Schema.optional(RuleNameList), severities: Schema.optional(SeverityList), rulesPackageArns: Schema.optional(FilterRulesPackageArnList), attributes: Schema.optional(AttributeList), userAttributes: Schema.optional(AttributeList), creationTimeRange: Schema.optional(TimestampRange)});
-export const Tag = Schema.Struct({key: Schema.String, value: Schema.optional(Schema.String)});
+export class TimestampRange extends Schema.Class<TimestampRange>("TimestampRange")({beginDate: Schema.optional(Schema.Date), endDate: Schema.optional(Schema.Date)}) {}
+export class FindingFilter extends Schema.Class<FindingFilter>("FindingFilter")({agentIds: Schema.optional(AgentIdList), autoScalingGroups: Schema.optional(AutoScalingGroupList), ruleNames: Schema.optional(RuleNameList), severities: Schema.optional(SeverityList), rulesPackageArns: Schema.optional(FilterRulesPackageArnList), attributes: Schema.optional(AttributeList), userAttributes: Schema.optional(AttributeList), creationTimeRange: Schema.optional(TimestampRange)}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({key: Schema.String, value: Schema.optional(Schema.String)}) {}
 export const TagList = Schema.Array(Tag);
-export const AddAttributesToFindingsRequest = Schema.Struct({findingArns: AddRemoveAttributesFindingArnList, attributes: UserAttributeList});
-export const CreateAssessmentTargetResponse = Schema.Struct({assessmentTargetArn: Schema.String});
-export const CreateAssessmentTemplateResponse = Schema.Struct({assessmentTemplateArn: Schema.String});
-export const CreateExclusionsPreviewResponse = Schema.Struct({previewToken: Schema.String});
-export const CreateResourceGroupRequest = Schema.Struct({resourceGroupTags: ResourceGroupTags});
-export const AccessDeniedException = Schema.Struct({message: Schema.String, errorCode: Schema.String, canRetry: Schema.Boolean});
-export const AssessmentRunInProgressException = Schema.Struct({message: Schema.String, assessmentRunArns: AssessmentRunInProgressArnList, assessmentRunArnsTruncated: Schema.Boolean, canRetry: Schema.Boolean});
-export const InternalException = Schema.Struct({message: Schema.String, canRetry: Schema.Boolean});
-export const GetAssessmentReportResponse = Schema.Struct({status: Schema.String, url: Schema.optional(Schema.String)});
-export const ListAssessmentRunAgentsRequest = Schema.Struct({assessmentRunArn: Schema.String, filter: Schema.optional(AgentFilter), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListAssessmentTargetsRequest = Schema.Struct({filter: Schema.optional(AssessmentTargetFilter), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListAssessmentTemplatesRequest = Schema.Struct({assessmentTargetArns: Schema.optional(ListParentArnList), filter: Schema.optional(AssessmentTemplateFilter), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListExclusionsResponse = Schema.Struct({exclusionArns: ListReturnedArnList, nextToken: Schema.optional(Schema.String)});
-export const ListFindingsRequest = Schema.Struct({assessmentRunArns: Schema.optional(ListParentArnList), filter: Schema.optional(FindingFilter), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListRulesPackagesResponse = Schema.Struct({rulesPackageArns: ListReturnedArnList, nextToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceResponse = Schema.Struct({tags: TagList});
-export const InvalidCrossAccountRoleException = Schema.Struct({message: Schema.String, errorCode: Schema.String, canRetry: Schema.Boolean});
-export const FailedItemDetails = Schema.Struct({failureCode: Schema.String, retryable: Schema.Boolean});
+export class AddAttributesToFindingsRequest extends Schema.Class<AddAttributesToFindingsRequest>("AddAttributesToFindingsRequest")({findingArns: AddRemoveAttributesFindingArnList, attributes: UserAttributeList}) {}
+export class CreateAssessmentTargetResponse extends Schema.Class<CreateAssessmentTargetResponse>("CreateAssessmentTargetResponse")({assessmentTargetArn: Schema.String}) {}
+export class CreateAssessmentTemplateResponse extends Schema.Class<CreateAssessmentTemplateResponse>("CreateAssessmentTemplateResponse")({assessmentTemplateArn: Schema.String}) {}
+export class CreateExclusionsPreviewResponse extends Schema.Class<CreateExclusionsPreviewResponse>("CreateExclusionsPreviewResponse")({previewToken: Schema.String}) {}
+export class CreateResourceGroupRequest extends Schema.Class<CreateResourceGroupRequest>("CreateResourceGroupRequest")({resourceGroupTags: ResourceGroupTags}) {}
+export class AccessDeniedException extends Schema.Class<AccessDeniedException>("AccessDeniedException")({message: Schema.String, errorCode: Schema.String, canRetry: Schema.Boolean}) {}
+export class AssessmentRunInProgressException extends Schema.Class<AssessmentRunInProgressException>("AssessmentRunInProgressException")({message: Schema.String, assessmentRunArns: AssessmentRunInProgressArnList, assessmentRunArnsTruncated: Schema.Boolean, canRetry: Schema.Boolean}) {}
+export class InternalException extends Schema.Class<InternalException>("InternalException")({message: Schema.String, canRetry: Schema.Boolean}) {}
+export class GetAssessmentReportResponse extends Schema.Class<GetAssessmentReportResponse>("GetAssessmentReportResponse")({status: Schema.String, url: Schema.optional(Schema.String)}) {}
+export class ListAssessmentRunAgentsRequest extends Schema.Class<ListAssessmentRunAgentsRequest>("ListAssessmentRunAgentsRequest")({assessmentRunArn: Schema.String, filter: Schema.optional(AgentFilter), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListAssessmentTargetsRequest extends Schema.Class<ListAssessmentTargetsRequest>("ListAssessmentTargetsRequest")({filter: Schema.optional(AssessmentTargetFilter), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListAssessmentTemplatesRequest extends Schema.Class<ListAssessmentTemplatesRequest>("ListAssessmentTemplatesRequest")({assessmentTargetArns: Schema.optional(ListParentArnList), filter: Schema.optional(AssessmentTemplateFilter), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListExclusionsResponse extends Schema.Class<ListExclusionsResponse>("ListExclusionsResponse")({exclusionArns: ListReturnedArnList, nextToken: Schema.optional(Schema.String)}) {}
+export class ListFindingsRequest extends Schema.Class<ListFindingsRequest>("ListFindingsRequest")({assessmentRunArns: Schema.optional(ListParentArnList), filter: Schema.optional(FindingFilter), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListRulesPackagesResponse extends Schema.Class<ListRulesPackagesResponse>("ListRulesPackagesResponse")({rulesPackageArns: ListReturnedArnList, nextToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({tags: TagList}) {}
+export class InvalidCrossAccountRoleException extends Schema.Class<InvalidCrossAccountRoleException>("InvalidCrossAccountRoleException")({message: Schema.String, errorCode: Schema.String, canRetry: Schema.Boolean}) {}
+export class FailedItemDetails extends Schema.Class<FailedItemDetails>("FailedItemDetails")({failureCode: Schema.String, retryable: Schema.Boolean}) {}
 export const FailedItems = Schema.Record({key: Schema.String, value: FailedItemDetails});
-export const RemoveAttributesFromFindingsResponse = Schema.Struct({failedItems: FailedItems});
-export const SetTagsForResourceRequest = Schema.Struct({resourceArn: Schema.String, tags: Schema.optional(TagList)});
-export const StartAssessmentRunResponse = Schema.Struct({assessmentRunArn: Schema.String});
-export const InvalidInputException = Schema.Struct({message: Schema.String, errorCode: Schema.String, canRetry: Schema.Boolean});
-export const LimitExceededException = Schema.Struct({message: Schema.String, errorCode: Schema.String, canRetry: Schema.Boolean});
-export const NoSuchEntityException = Schema.Struct({message: Schema.String, errorCode: Schema.String, canRetry: Schema.Boolean});
-export const ServiceTemporarilyUnavailableException = Schema.Struct({message: Schema.String, canRetry: Schema.Boolean});
+export class RemoveAttributesFromFindingsResponse extends Schema.Class<RemoveAttributesFromFindingsResponse>("RemoveAttributesFromFindingsResponse")({failedItems: FailedItems}) {}
+export class SetTagsForResourceRequest extends Schema.Class<SetTagsForResourceRequest>("SetTagsForResourceRequest")({resourceArn: Schema.String, tags: Schema.optional(TagList)}) {}
+export class StartAssessmentRunResponse extends Schema.Class<StartAssessmentRunResponse>("StartAssessmentRunResponse")({assessmentRunArn: Schema.String}) {}
+export class InvalidInputException extends Schema.Class<InvalidInputException>("InvalidInputException")({message: Schema.String, errorCode: Schema.String, canRetry: Schema.Boolean}) {}
+export class LimitExceededException extends Schema.Class<LimitExceededException>("LimitExceededException")({message: Schema.String, errorCode: Schema.String, canRetry: Schema.Boolean}) {}
+export class NoSuchEntityException extends Schema.Class<NoSuchEntityException>("NoSuchEntityException")({message: Schema.String, errorCode: Schema.String, canRetry: Schema.Boolean}) {}
+export class ServiceTemporarilyUnavailableException extends Schema.Class<ServiceTemporarilyUnavailableException>("ServiceTemporarilyUnavailableException")({message: Schema.String, canRetry: Schema.Boolean}) {}
 export const AssessmentRulesPackageArnList = Schema.Array(Schema.String);
-export const AssessmentTarget = Schema.Struct({arn: Schema.String, name: Schema.String, resourceGroupArn: Schema.optional(Schema.String), createdAt: Schema.Date, updatedAt: Schema.Date});
+export class AssessmentTarget extends Schema.Class<AssessmentTarget>("AssessmentTarget")({arn: Schema.String, name: Schema.String, resourceGroupArn: Schema.optional(Schema.String), createdAt: Schema.Date, updatedAt: Schema.Date}) {}
 export const AssessmentTargetList = Schema.Array(AssessmentTarget);
-export const AssessmentTemplate = Schema.Struct({arn: Schema.String, name: Schema.String, assessmentTargetArn: Schema.String, durationInSeconds: Schema.Number, rulesPackageArns: AssessmentTemplateRulesPackageArnList, userAttributesForFindings: UserAttributeList, lastAssessmentRunArn: Schema.optional(Schema.String), assessmentRunCount: Schema.Number, createdAt: Schema.Date});
+export class AssessmentTemplate extends Schema.Class<AssessmentTemplate>("AssessmentTemplate")({arn: Schema.String, name: Schema.String, assessmentTargetArn: Schema.String, durationInSeconds: Schema.Number, rulesPackageArns: AssessmentTemplateRulesPackageArnList, userAttributesForFindings: UserAttributeList, lastAssessmentRunArn: Schema.optional(Schema.String), assessmentRunCount: Schema.Number, createdAt: Schema.Date}) {}
 export const AssessmentTemplateList = Schema.Array(AssessmentTemplate);
-export const ResourceGroup = Schema.Struct({arn: Schema.String, tags: ResourceGroupTags, createdAt: Schema.Date});
+export class ResourceGroup extends Schema.Class<ResourceGroup>("ResourceGroup")({arn: Schema.String, tags: ResourceGroupTags, createdAt: Schema.Date}) {}
 export const ResourceGroupList = Schema.Array(ResourceGroup);
-export const RulesPackage = Schema.Struct({arn: Schema.String, name: Schema.String, version: Schema.String, provider: Schema.String, description: Schema.optional(Schema.String)});
+export class RulesPackage extends Schema.Class<RulesPackage>("RulesPackage")({arn: Schema.String, name: Schema.String, version: Schema.String, provider: Schema.String, description: Schema.optional(Schema.String)}) {}
 export const RulesPackageList = Schema.Array(RulesPackage);
-export const TelemetryMetadata = Schema.Struct({messageType: Schema.String, count: Schema.Number, dataSize: Schema.optional(Schema.Number)});
+export class TelemetryMetadata extends Schema.Class<TelemetryMetadata>("TelemetryMetadata")({messageType: Schema.String, count: Schema.Number, dataSize: Schema.optional(Schema.Number)}) {}
 export const TelemetryMetadataList = Schema.Array(TelemetryMetadata);
-export const AssessmentRunFilter = Schema.Struct({namePattern: Schema.optional(Schema.String), states: Schema.optional(AssessmentRunStateList), durationRange: Schema.optional(DurationRange), rulesPackageArns: Schema.optional(FilterRulesPackageArnList), startTimeRange: Schema.optional(TimestampRange), completionTimeRange: Schema.optional(TimestampRange), stateChangeTimeRange: Schema.optional(TimestampRange)});
-export const AgentPreview = Schema.Struct({hostname: Schema.optional(Schema.String), agentId: Schema.String, autoScalingGroup: Schema.optional(Schema.String), agentHealth: Schema.optional(Schema.String), agentVersion: Schema.optional(Schema.String), operatingSystem: Schema.optional(Schema.String), kernelVersion: Schema.optional(Schema.String), ipv4Address: Schema.optional(Schema.String)});
+export class AssessmentRunFilter extends Schema.Class<AssessmentRunFilter>("AssessmentRunFilter")({namePattern: Schema.optional(Schema.String), states: Schema.optional(AssessmentRunStateList), durationRange: Schema.optional(DurationRange), rulesPackageArns: Schema.optional(FilterRulesPackageArnList), startTimeRange: Schema.optional(TimestampRange), completionTimeRange: Schema.optional(TimestampRange), stateChangeTimeRange: Schema.optional(TimestampRange)}) {}
+export class AgentPreview extends Schema.Class<AgentPreview>("AgentPreview")({hostname: Schema.optional(Schema.String), agentId: Schema.String, autoScalingGroup: Schema.optional(Schema.String), agentHealth: Schema.optional(Schema.String), agentVersion: Schema.optional(Schema.String), operatingSystem: Schema.optional(Schema.String), kernelVersion: Schema.optional(Schema.String), ipv4Address: Schema.optional(Schema.String)}) {}
 export const AgentPreviewList = Schema.Array(AgentPreview);
 export const Ipv4AddressList = Schema.Array(Schema.String);
 export const Tags = Schema.Array(Tag);
-export const AddAttributesToFindingsResponse = Schema.Struct({failedItems: FailedItems});
-export const PreviewGenerationInProgressException = Schema.Struct({message: Schema.String});
-export const CreateResourceGroupResponse = Schema.Struct({resourceGroupArn: Schema.String});
-export const DescribeAssessmentTargetsResponse = Schema.Struct({assessmentTargets: AssessmentTargetList, failedItems: FailedItems});
-export const DescribeAssessmentTemplatesResponse = Schema.Struct({assessmentTemplates: AssessmentTemplateList, failedItems: FailedItems});
-export const DescribeResourceGroupsResponse = Schema.Struct({resourceGroups: ResourceGroupList, failedItems: FailedItems});
-export const DescribeRulesPackagesResponse = Schema.Struct({rulesPackages: RulesPackageList, failedItems: FailedItems});
-export const UnsupportedFeatureException = Schema.Struct({message: Schema.String, canRetry: Schema.Boolean});
-export const GetTelemetryMetadataResponse = Schema.Struct({telemetryMetadata: TelemetryMetadataList});
-export const ListAssessmentRunsRequest = Schema.Struct({assessmentTemplateArns: Schema.optional(ListParentArnList), filter: Schema.optional(AssessmentRunFilter), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
-export const ListAssessmentTargetsResponse = Schema.Struct({assessmentTargetArns: ListReturnedArnList, nextToken: Schema.optional(Schema.String)});
-export const ListAssessmentTemplatesResponse = Schema.Struct({assessmentTemplateArns: ListReturnedArnList, nextToken: Schema.optional(Schema.String)});
-export const ListFindingsResponse = Schema.Struct({findingArns: ListReturnedArnList, nextToken: Schema.optional(Schema.String)});
-export const PreviewAgentsResponse = Schema.Struct({agentPreviews: AgentPreviewList, nextToken: Schema.optional(Schema.String)});
-export const AssessmentRunStateChange = Schema.Struct({stateChangedAt: Schema.Date, state: Schema.String});
+export class AddAttributesToFindingsResponse extends Schema.Class<AddAttributesToFindingsResponse>("AddAttributesToFindingsResponse")({failedItems: FailedItems}) {}
+export class PreviewGenerationInProgressException extends Schema.Class<PreviewGenerationInProgressException>("PreviewGenerationInProgressException")({message: Schema.String}) {}
+export class CreateResourceGroupResponse extends Schema.Class<CreateResourceGroupResponse>("CreateResourceGroupResponse")({resourceGroupArn: Schema.String}) {}
+export class DescribeAssessmentTargetsResponse extends Schema.Class<DescribeAssessmentTargetsResponse>("DescribeAssessmentTargetsResponse")({assessmentTargets: AssessmentTargetList, failedItems: FailedItems}) {}
+export class DescribeAssessmentTemplatesResponse extends Schema.Class<DescribeAssessmentTemplatesResponse>("DescribeAssessmentTemplatesResponse")({assessmentTemplates: AssessmentTemplateList, failedItems: FailedItems}) {}
+export class DescribeResourceGroupsResponse extends Schema.Class<DescribeResourceGroupsResponse>("DescribeResourceGroupsResponse")({resourceGroups: ResourceGroupList, failedItems: FailedItems}) {}
+export class DescribeRulesPackagesResponse extends Schema.Class<DescribeRulesPackagesResponse>("DescribeRulesPackagesResponse")({rulesPackages: RulesPackageList, failedItems: FailedItems}) {}
+export class UnsupportedFeatureException extends Schema.Class<UnsupportedFeatureException>("UnsupportedFeatureException")({message: Schema.String, canRetry: Schema.Boolean}) {}
+export class GetTelemetryMetadataResponse extends Schema.Class<GetTelemetryMetadataResponse>("GetTelemetryMetadataResponse")({telemetryMetadata: TelemetryMetadataList}) {}
+export class ListAssessmentRunsRequest extends Schema.Class<ListAssessmentRunsRequest>("ListAssessmentRunsRequest")({assessmentTemplateArns: Schema.optional(ListParentArnList), filter: Schema.optional(AssessmentRunFilter), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)}) {}
+export class ListAssessmentTargetsResponse extends Schema.Class<ListAssessmentTargetsResponse>("ListAssessmentTargetsResponse")({assessmentTargetArns: ListReturnedArnList, nextToken: Schema.optional(Schema.String)}) {}
+export class ListAssessmentTemplatesResponse extends Schema.Class<ListAssessmentTemplatesResponse>("ListAssessmentTemplatesResponse")({assessmentTemplateArns: ListReturnedArnList, nextToken: Schema.optional(Schema.String)}) {}
+export class ListFindingsResponse extends Schema.Class<ListFindingsResponse>("ListFindingsResponse")({findingArns: ListReturnedArnList, nextToken: Schema.optional(Schema.String)}) {}
+export class PreviewAgentsResponse extends Schema.Class<PreviewAgentsResponse>("PreviewAgentsResponse")({agentPreviews: AgentPreviewList, nextToken: Schema.optional(Schema.String)}) {}
+export class AssessmentRunStateChange extends Schema.Class<AssessmentRunStateChange>("AssessmentRunStateChange")({stateChangedAt: Schema.Date, state: Schema.String}) {}
 export const AssessmentRunStateChangeList = Schema.Array(AssessmentRunStateChange);
-export const AssessmentRunNotification = Schema.Struct({date: Schema.Date, event: Schema.String, message: Schema.optional(Schema.String), error: Schema.Boolean, snsTopicArn: Schema.optional(Schema.String), snsPublishStatusCode: Schema.optional(Schema.String)});
+export class AssessmentRunNotification extends Schema.Class<AssessmentRunNotification>("AssessmentRunNotification")({date: Schema.Date, event: Schema.String, message: Schema.optional(Schema.String), error: Schema.Boolean, snsTopicArn: Schema.optional(Schema.String), snsPublishStatusCode: Schema.optional(Schema.String)}) {}
 export const AssessmentRunNotificationList = Schema.Array(AssessmentRunNotification);
 export const AssessmentRunFindingCounts = Schema.Record({key: Schema.String, value: Schema.Number});
-export const Scope = Schema.Struct({key: Schema.optional(Schema.String), value: Schema.optional(Schema.String)});
+export class Scope extends Schema.Class<Scope>("Scope")({key: Schema.optional(Schema.String), value: Schema.optional(Schema.String)}) {}
 export const ScopeList = Schema.Array(Scope);
-export const Exclusion = Schema.Struct({arn: Schema.String, title: Schema.String, description: Schema.String, recommendation: Schema.String, scopes: ScopeList, attributes: Schema.optional(AttributeList)});
-export const InspectorServiceAttributes = Schema.Struct({schemaVersion: Schema.Number, assessmentRunArn: Schema.optional(Schema.String), rulesPackageArn: Schema.optional(Schema.String)});
-export const EventSubscription = Schema.Struct({event: Schema.String, subscribedAt: Schema.Date});
+export class Exclusion extends Schema.Class<Exclusion>("Exclusion")({arn: Schema.String, title: Schema.String, description: Schema.String, recommendation: Schema.String, scopes: ScopeList, attributes: Schema.optional(AttributeList)}) {}
+export class InspectorServiceAttributes extends Schema.Class<InspectorServiceAttributes>("InspectorServiceAttributes")({schemaVersion: Schema.Number, assessmentRunArn: Schema.optional(Schema.String), rulesPackageArn: Schema.optional(Schema.String)}) {}
+export class EventSubscription extends Schema.Class<EventSubscription>("EventSubscription")({event: Schema.String, subscribedAt: Schema.Date}) {}
 export const EventSubscriptionList = Schema.Array(EventSubscription);
 export const Ipv6Addresses = Schema.Array(Schema.String);
-export const AssessmentRun = Schema.Struct({arn: Schema.String, name: Schema.String, assessmentTemplateArn: Schema.String, state: Schema.String, durationInSeconds: Schema.Number, rulesPackageArns: AssessmentRulesPackageArnList, userAttributesForFindings: UserAttributeList, createdAt: Schema.Date, startedAt: Schema.optional(Schema.Date), completedAt: Schema.optional(Schema.Date), stateChangedAt: Schema.Date, dataCollected: Schema.Boolean, stateChanges: AssessmentRunStateChangeList, notifications: AssessmentRunNotificationList, findingCounts: AssessmentRunFindingCounts});
+export class AssessmentRun extends Schema.Class<AssessmentRun>("AssessmentRun")({arn: Schema.String, name: Schema.String, assessmentTemplateArn: Schema.String, state: Schema.String, durationInSeconds: Schema.Number, rulesPackageArns: AssessmentRulesPackageArnList, userAttributesForFindings: UserAttributeList, createdAt: Schema.Date, startedAt: Schema.optional(Schema.Date), completedAt: Schema.optional(Schema.Date), stateChangedAt: Schema.Date, dataCollected: Schema.Boolean, stateChanges: AssessmentRunStateChangeList, notifications: AssessmentRunNotificationList, findingCounts: AssessmentRunFindingCounts}) {}
 export const AssessmentRunList = Schema.Array(AssessmentRun);
 export const ExclusionMap = Schema.Record({key: Schema.String, value: Exclusion});
-export const ExclusionPreview = Schema.Struct({title: Schema.String, description: Schema.String, recommendation: Schema.String, scopes: ScopeList, attributes: Schema.optional(AttributeList)});
+export class ExclusionPreview extends Schema.Class<ExclusionPreview>("ExclusionPreview")({title: Schema.String, description: Schema.String, recommendation: Schema.String, scopes: ScopeList, attributes: Schema.optional(AttributeList)}) {}
 export const ExclusionPreviewList = Schema.Array(ExclusionPreview);
-export const AssessmentRunAgent = Schema.Struct({agentId: Schema.String, assessmentRunArn: Schema.String, agentHealth: Schema.String, agentHealthCode: Schema.String, agentHealthDetails: Schema.optional(Schema.String), autoScalingGroup: Schema.optional(Schema.String), telemetryMetadata: TelemetryMetadataList});
+export class AssessmentRunAgent extends Schema.Class<AssessmentRunAgent>("AssessmentRunAgent")({agentId: Schema.String, assessmentRunArn: Schema.String, agentHealth: Schema.String, agentHealthCode: Schema.String, agentHealthDetails: Schema.optional(Schema.String), autoScalingGroup: Schema.optional(Schema.String), telemetryMetadata: TelemetryMetadataList}) {}
 export const AssessmentRunAgentList = Schema.Array(AssessmentRunAgent);
-export const Subscription = Schema.Struct({resourceArn: Schema.String, topicArn: Schema.String, eventSubscriptions: EventSubscriptionList});
+export class Subscription extends Schema.Class<Subscription>("Subscription")({resourceArn: Schema.String, topicArn: Schema.String, eventSubscriptions: EventSubscriptionList}) {}
 export const SubscriptionList = Schema.Array(Subscription);
-export const AgentAlreadyRunningAssessment = Schema.Struct({agentId: Schema.String, assessmentRunArn: Schema.String});
+export class AgentAlreadyRunningAssessment extends Schema.Class<AgentAlreadyRunningAssessment>("AgentAlreadyRunningAssessment")({agentId: Schema.String, assessmentRunArn: Schema.String}) {}
 export const AgentAlreadyRunningAssessmentList = Schema.Array(AgentAlreadyRunningAssessment);
-export const DescribeAssessmentRunsResponse = Schema.Struct({assessmentRuns: AssessmentRunList, failedItems: FailedItems});
-export const DescribeExclusionsResponse = Schema.Struct({exclusions: ExclusionMap, failedItems: FailedItems});
-export const GetExclusionsPreviewResponse = Schema.Struct({previewStatus: Schema.String, exclusionPreviews: Schema.optional(ExclusionPreviewList), nextToken: Schema.optional(Schema.String)});
-export const ListAssessmentRunAgentsResponse = Schema.Struct({assessmentRunAgents: AssessmentRunAgentList, nextToken: Schema.optional(Schema.String)});
-export const ListAssessmentRunsResponse = Schema.Struct({assessmentRunArns: ListReturnedArnList, nextToken: Schema.optional(Schema.String)});
-export const ListEventSubscriptionsResponse = Schema.Struct({subscriptions: SubscriptionList, nextToken: Schema.optional(Schema.String)});
-export const AgentsAlreadyRunningAssessmentException = Schema.Struct({message: Schema.String, agents: AgentAlreadyRunningAssessmentList, agentsTruncated: Schema.Boolean, canRetry: Schema.Boolean});
-export const PrivateIp = Schema.Struct({privateDnsName: Schema.optional(Schema.String), privateIpAddress: Schema.optional(Schema.String)});
+export class DescribeAssessmentRunsResponse extends Schema.Class<DescribeAssessmentRunsResponse>("DescribeAssessmentRunsResponse")({assessmentRuns: AssessmentRunList, failedItems: FailedItems}) {}
+export class DescribeExclusionsResponse extends Schema.Class<DescribeExclusionsResponse>("DescribeExclusionsResponse")({exclusions: ExclusionMap, failedItems: FailedItems}) {}
+export class GetExclusionsPreviewResponse extends Schema.Class<GetExclusionsPreviewResponse>("GetExclusionsPreviewResponse")({previewStatus: Schema.String, exclusionPreviews: Schema.optional(ExclusionPreviewList), nextToken: Schema.optional(Schema.String)}) {}
+export class ListAssessmentRunAgentsResponse extends Schema.Class<ListAssessmentRunAgentsResponse>("ListAssessmentRunAgentsResponse")({assessmentRunAgents: AssessmentRunAgentList, nextToken: Schema.optional(Schema.String)}) {}
+export class ListAssessmentRunsResponse extends Schema.Class<ListAssessmentRunsResponse>("ListAssessmentRunsResponse")({assessmentRunArns: ListReturnedArnList, nextToken: Schema.optional(Schema.String)}) {}
+export class ListEventSubscriptionsResponse extends Schema.Class<ListEventSubscriptionsResponse>("ListEventSubscriptionsResponse")({subscriptions: SubscriptionList, nextToken: Schema.optional(Schema.String)}) {}
+export class AgentsAlreadyRunningAssessmentException extends Schema.Class<AgentsAlreadyRunningAssessmentException>("AgentsAlreadyRunningAssessmentException")({message: Schema.String, agents: AgentAlreadyRunningAssessmentList, agentsTruncated: Schema.Boolean, canRetry: Schema.Boolean}) {}
+export class PrivateIp extends Schema.Class<PrivateIp>("PrivateIp")({privateDnsName: Schema.optional(Schema.String), privateIpAddress: Schema.optional(Schema.String)}) {}
 export const PrivateIpAddresses = Schema.Array(PrivateIp);
-export const SecurityGroup = Schema.Struct({groupName: Schema.optional(Schema.String), groupId: Schema.optional(Schema.String)});
+export class SecurityGroup extends Schema.Class<SecurityGroup>("SecurityGroup")({groupName: Schema.optional(Schema.String), groupId: Schema.optional(Schema.String)}) {}
 export const SecurityGroups = Schema.Array(SecurityGroup);
-export const NetworkInterface = Schema.Struct({networkInterfaceId: Schema.optional(Schema.String), subnetId: Schema.optional(Schema.String), vpcId: Schema.optional(Schema.String), privateDnsName: Schema.optional(Schema.String), privateIpAddress: Schema.optional(Schema.String), privateIpAddresses: Schema.optional(PrivateIpAddresses), publicDnsName: Schema.optional(Schema.String), publicIp: Schema.optional(Schema.String), ipv6Addresses: Schema.optional(Ipv6Addresses), securityGroups: Schema.optional(SecurityGroups)});
+export class NetworkInterface extends Schema.Class<NetworkInterface>("NetworkInterface")({networkInterfaceId: Schema.optional(Schema.String), subnetId: Schema.optional(Schema.String), vpcId: Schema.optional(Schema.String), privateDnsName: Schema.optional(Schema.String), privateIpAddress: Schema.optional(Schema.String), privateIpAddresses: Schema.optional(PrivateIpAddresses), publicDnsName: Schema.optional(Schema.String), publicIp: Schema.optional(Schema.String), ipv6Addresses: Schema.optional(Ipv6Addresses), securityGroups: Schema.optional(SecurityGroups)}) {}
 export const NetworkInterfaces = Schema.Array(NetworkInterface);
-export const AssetAttributes = Schema.Struct({schemaVersion: Schema.Number, agentId: Schema.optional(Schema.String), autoScalingGroup: Schema.optional(Schema.String), amiId: Schema.optional(Schema.String), hostname: Schema.optional(Schema.String), ipv4Addresses: Schema.optional(Ipv4AddressList), tags: Schema.optional(Tags), networkInterfaces: Schema.optional(NetworkInterfaces)});
-export const Finding = Schema.Struct({arn: Schema.String, schemaVersion: Schema.optional(Schema.Number), service: Schema.optional(Schema.String), serviceAttributes: Schema.optional(InspectorServiceAttributes), assetType: Schema.optional(Schema.String), assetAttributes: Schema.optional(AssetAttributes), id: Schema.optional(Schema.String), title: Schema.optional(Schema.String), description: Schema.optional(Schema.String), recommendation: Schema.optional(Schema.String), severity: Schema.optional(Schema.String), numericSeverity: Schema.optional(Schema.Number), confidence: Schema.optional(Schema.Number), indicatorOfCompromise: Schema.optional(Schema.Boolean), attributes: AttributeList, userAttributes: UserAttributeList, createdAt: Schema.Date, updatedAt: Schema.Date});
+export class AssetAttributes extends Schema.Class<AssetAttributes>("AssetAttributes")({schemaVersion: Schema.Number, agentId: Schema.optional(Schema.String), autoScalingGroup: Schema.optional(Schema.String), amiId: Schema.optional(Schema.String), hostname: Schema.optional(Schema.String), ipv4Addresses: Schema.optional(Ipv4AddressList), tags: Schema.optional(Tags), networkInterfaces: Schema.optional(NetworkInterfaces)}) {}
+export class Finding extends Schema.Class<Finding>("Finding")({arn: Schema.String, schemaVersion: Schema.optional(Schema.Number), service: Schema.optional(Schema.String), serviceAttributes: Schema.optional(InspectorServiceAttributes), assetType: Schema.optional(Schema.String), assetAttributes: Schema.optional(AssetAttributes), id: Schema.optional(Schema.String), title: Schema.optional(Schema.String), description: Schema.optional(Schema.String), recommendation: Schema.optional(Schema.String), severity: Schema.optional(Schema.String), numericSeverity: Schema.optional(Schema.Number), confidence: Schema.optional(Schema.Number), indicatorOfCompromise: Schema.optional(Schema.Boolean), attributes: AttributeList, userAttributes: UserAttributeList, createdAt: Schema.Date, updatedAt: Schema.Date}) {}
 export const FindingList = Schema.Array(Finding);
-export const DescribeFindingsResponse = Schema.Struct({findings: FindingList, failedItems: FailedItems});
+export class DescribeFindingsResponse extends Schema.Class<DescribeFindingsResponse>("DescribeFindingsResponse")({findings: FindingList, failedItems: FailedItems}) {}
 
 //# Errors
-export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
-export class AssessmentRunInProgressExceptionError extends Schema.TaggedError<AssessmentRunInProgressExceptionError>()("AssessmentRunInProgressException", AssessmentRunInProgressException) {};
-export class InternalExceptionError extends Schema.TaggedError<InternalExceptionError>()("InternalException", InternalException) {};
-export class InvalidInputExceptionError extends Schema.TaggedError<InvalidInputExceptionError>()("InvalidInputException", InvalidInputException) {};
-export class NoSuchEntityExceptionError extends Schema.TaggedError<NoSuchEntityExceptionError>()("NoSuchEntityException", NoSuchEntityException) {};
-export class InvalidCrossAccountRoleExceptionError extends Schema.TaggedError<InvalidCrossAccountRoleExceptionError>()("InvalidCrossAccountRoleException", InvalidCrossAccountRoleException) {};
-export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException) {};
-export class ServiceTemporarilyUnavailableExceptionError extends Schema.TaggedError<ServiceTemporarilyUnavailableExceptionError>()("ServiceTemporarilyUnavailableException", ServiceTemporarilyUnavailableException) {};
-export class PreviewGenerationInProgressExceptionError extends Schema.TaggedError<PreviewGenerationInProgressExceptionError>()("PreviewGenerationInProgressException", PreviewGenerationInProgressException) {};
-export class UnsupportedFeatureExceptionError extends Schema.TaggedError<UnsupportedFeatureExceptionError>()("UnsupportedFeatureException", UnsupportedFeatureException) {};
-export class AgentsAlreadyRunningAssessmentExceptionError extends Schema.TaggedError<AgentsAlreadyRunningAssessmentExceptionError>()("AgentsAlreadyRunningAssessmentException", AgentsAlreadyRunningAssessmentException) {};
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException.fields) {};
+export class AssessmentRunInProgressExceptionError extends Schema.TaggedError<AssessmentRunInProgressExceptionError>()("AssessmentRunInProgressException", AssessmentRunInProgressException.fields) {};
+export class InternalExceptionError extends Schema.TaggedError<InternalExceptionError>()("InternalException", InternalException.fields) {};
+export class InvalidInputExceptionError extends Schema.TaggedError<InvalidInputExceptionError>()("InvalidInputException", InvalidInputException.fields) {};
+export class NoSuchEntityExceptionError extends Schema.TaggedError<NoSuchEntityExceptionError>()("NoSuchEntityException", NoSuchEntityException.fields) {};
+export class InvalidCrossAccountRoleExceptionError extends Schema.TaggedError<InvalidCrossAccountRoleExceptionError>()("InvalidCrossAccountRoleException", InvalidCrossAccountRoleException.fields) {};
+export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException.fields) {};
+export class ServiceTemporarilyUnavailableExceptionError extends Schema.TaggedError<ServiceTemporarilyUnavailableExceptionError>()("ServiceTemporarilyUnavailableException", ServiceTemporarilyUnavailableException.fields) {};
+export class PreviewGenerationInProgressExceptionError extends Schema.TaggedError<PreviewGenerationInProgressExceptionError>()("PreviewGenerationInProgressException", PreviewGenerationInProgressException.fields) {};
+export class UnsupportedFeatureExceptionError extends Schema.TaggedError<UnsupportedFeatureExceptionError>()("UnsupportedFeatureException", UnsupportedFeatureException.fields) {};
+export class AgentsAlreadyRunningAssessmentExceptionError extends Schema.TaggedError<AgentsAlreadyRunningAssessmentExceptionError>()("AgentsAlreadyRunningAssessmentException", AgentsAlreadyRunningAssessmentException.fields) {};
 
 //# Operations
 export const describeCrossAccountAccessRole = /*#__PURE__*/ makeOperation(() => Operation({ version: "2016-02-16", uri: "/", method: "POST", sdkId: "Inspector", sigV4ServiceName: "inspector", name: "InspectorService.DescribeCrossAccountAccessRole" }, Schema.Struct({}), DescribeCrossAccountAccessRoleResponse, [InternalExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

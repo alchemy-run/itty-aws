@@ -3,81 +3,82 @@ import { FormatAwsJSON10Request,FormatJSONResponse,FormatAwsRestJSONError, makeO
 import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
-export const GetAccountSettingsRequest = Schema.Struct({});
-export const GetPoliciesStatsRequest = Schema.Struct({});
+export class GetAccountSettingsRequest extends Schema.Class<GetAccountSettingsRequest>("GetAccountSettingsRequest")({}) {}
+export class GetPoliciesStatsRequest extends Schema.Class<GetPoliciesStatsRequest>("GetPoliciesStatsRequest")({}) {}
 export const CollectionIds = Schema.Array(Schema.String);
 export const CollectionNames = Schema.Array(Schema.String);
 export const VpcEndpointIds = Schema.Array(Schema.String);
 export const TagKeys = Schema.Array(Schema.String);
 export const SubnetIds = Schema.Array(Schema.String);
 export const SecurityGroupIds = Schema.Array(Schema.String);
-export const BatchGetCollectionRequest = Schema.Struct({ids: Schema.optional(CollectionIds), names: Schema.optional(CollectionNames)});
-export const BatchGetVpcEndpointRequest = Schema.Struct({ids: VpcEndpointIds});
-export const CreateLifecyclePolicyRequest = Schema.Struct({type: Schema.String, name: Schema.String, description: Schema.optional(Schema.String), policy: Schema.String, clientToken: Schema.optional(Schema.String)});
-export const CreateSecurityPolicyRequest = Schema.Struct({type: Schema.String, name: Schema.String, description: Schema.optional(Schema.String), policy: Schema.String, clientToken: Schema.optional(Schema.String)});
-export const ListTagsForResourceRequest = Schema.Struct({resourceArn: Schema.String});
-export const UntagResourceRequest = Schema.Struct({resourceArn: Schema.String, tagKeys: TagKeys});
-export const UntagResourceResponse = Schema.Struct({});
-export const UpdateVpcEndpointRequest = Schema.Struct({id: Schema.String, addSubnetIds: Schema.optional(SubnetIds), removeSubnetIds: Schema.optional(SubnetIds), addSecurityGroupIds: Schema.optional(SecurityGroupIds), removeSecurityGroupIds: Schema.optional(SecurityGroupIds), clientToken: Schema.optional(Schema.String)});
-export const LifecyclePolicyResourceIdentifier = Schema.Struct({type: Schema.String, resource: Schema.String});
+export class BatchGetCollectionRequest extends Schema.Class<BatchGetCollectionRequest>("BatchGetCollectionRequest")({ids: Schema.optional(CollectionIds), names: Schema.optional(CollectionNames)}) {}
+export class BatchGetVpcEndpointRequest extends Schema.Class<BatchGetVpcEndpointRequest>("BatchGetVpcEndpointRequest")({ids: VpcEndpointIds}) {}
+export class CreateLifecyclePolicyRequest extends Schema.Class<CreateLifecyclePolicyRequest>("CreateLifecyclePolicyRequest")({type: Schema.String, name: Schema.String, description: Schema.optional(Schema.String), policy: Schema.String, clientToken: Schema.optional(Schema.String)}) {}
+export class CreateSecurityPolicyRequest extends Schema.Class<CreateSecurityPolicyRequest>("CreateSecurityPolicyRequest")({type: Schema.String, name: Schema.String, description: Schema.optional(Schema.String), policy: Schema.String, clientToken: Schema.optional(Schema.String)}) {}
+export class ListTagsForResourceRequest extends Schema.Class<ListTagsForResourceRequest>("ListTagsForResourceRequest")({resourceArn: Schema.String}) {}
+export class UntagResourceRequest extends Schema.Class<UntagResourceRequest>("UntagResourceRequest")({resourceArn: Schema.String, tagKeys: TagKeys}) {}
+export class UntagResourceResponse extends Schema.Class<UntagResourceResponse>("UntagResourceResponse")({}) {}
+export class UpdateVpcEndpointRequest extends Schema.Class<UpdateVpcEndpointRequest>("UpdateVpcEndpointRequest")({id: Schema.String, addSubnetIds: Schema.optional(SubnetIds), removeSubnetIds: Schema.optional(SubnetIds), addSecurityGroupIds: Schema.optional(SecurityGroupIds), removeSecurityGroupIds: Schema.optional(SecurityGroupIds), clientToken: Schema.optional(Schema.String)}) {}
+export class LifecyclePolicyResourceIdentifier extends Schema.Class<LifecyclePolicyResourceIdentifier>("LifecyclePolicyResourceIdentifier")({type: Schema.String, resource: Schema.String}) {}
 export const LifecyclePolicyResourceIdentifiers = Schema.Array(LifecyclePolicyResourceIdentifier);
-export const LifecyclePolicyIdentifier = Schema.Struct({type: Schema.String, name: Schema.String});
+export class LifecyclePolicyIdentifier extends Schema.Class<LifecyclePolicyIdentifier>("LifecyclePolicyIdentifier")({type: Schema.String, name: Schema.String}) {}
 export const LifecyclePolicyIdentifiers = Schema.Array(LifecyclePolicyIdentifier);
-export const CapacityLimits = Schema.Struct({maxIndexingCapacityInOCU: Schema.optional(Schema.Number), maxSearchCapacityInOCU: Schema.optional(Schema.Number)});
-export const AccountSettingsDetail = Schema.Struct({capacityLimits: Schema.optional(CapacityLimits)});
-export const AccessPolicyStats = Schema.Struct({DataPolicyCount: Schema.optional(Schema.Number)});
-export const SecurityPolicyStats = Schema.Struct({EncryptionPolicyCount: Schema.optional(Schema.Number), NetworkPolicyCount: Schema.optional(Schema.Number)});
-export const SecurityConfigStats = Schema.Struct({SamlConfigCount: Schema.optional(Schema.Number)});
-export const LifecyclePolicyStats = Schema.Struct({RetentionPolicyCount: Schema.optional(Schema.Number)});
-export const Tag = Schema.Struct({key: Schema.String, value: Schema.String});
+export class CapacityLimits extends Schema.Class<CapacityLimits>("CapacityLimits")({maxIndexingCapacityInOCU: Schema.optional(Schema.Number), maxSearchCapacityInOCU: Schema.optional(Schema.Number)}) {}
+export class AccountSettingsDetail extends Schema.Class<AccountSettingsDetail>("AccountSettingsDetail")({capacityLimits: Schema.optional(CapacityLimits)}) {}
+export class AccessPolicyStats extends Schema.Class<AccessPolicyStats>("AccessPolicyStats")({DataPolicyCount: Schema.optional(Schema.Number)}) {}
+export class SecurityPolicyStats extends Schema.Class<SecurityPolicyStats>("SecurityPolicyStats")({EncryptionPolicyCount: Schema.optional(Schema.Number), NetworkPolicyCount: Schema.optional(Schema.Number)}) {}
+export class SecurityConfigStats extends Schema.Class<SecurityConfigStats>("SecurityConfigStats")({SamlConfigCount: Schema.optional(Schema.Number)}) {}
+export class LifecyclePolicyStats extends Schema.Class<LifecyclePolicyStats>("LifecyclePolicyStats")({RetentionPolicyCount: Schema.optional(Schema.Number)}) {}
+export class Tag extends Schema.Class<Tag>("Tag")({key: Schema.String, value: Schema.String}) {}
 export const Tags = Schema.Array(Tag);
-export const BatchGetEffectiveLifecyclePolicyRequest = Schema.Struct({resourceIdentifiers: LifecyclePolicyResourceIdentifiers});
-export const BatchGetLifecyclePolicyRequest = Schema.Struct({identifiers: LifecyclePolicyIdentifiers});
-export const GetAccountSettingsResponse = Schema.Struct({accountSettingsDetail: Schema.optional(AccountSettingsDetail)});
-export const GetPoliciesStatsResponse = Schema.Struct({AccessPolicyStats: Schema.optional(AccessPolicyStats), SecurityPolicyStats: Schema.optional(SecurityPolicyStats), SecurityConfigStats: Schema.optional(SecurityConfigStats), LifecyclePolicyStats: Schema.optional(LifecyclePolicyStats), TotalPolicyCount: Schema.optional(Schema.Number)});
-export const ListTagsForResourceResponse = Schema.Struct({tags: Schema.optional(Tags)});
-export const TagResourceRequest = Schema.Struct({resourceArn: Schema.String, tags: Tags});
-export const TagResourceResponse = Schema.Struct({});
-export const ConflictException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UpdateAccountSettingsRequest = Schema.Struct({capacityLimits: Schema.optional(CapacityLimits)});
-export const CollectionErrorDetail = Schema.Struct({id: Schema.optional(Schema.String), name: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String), errorCode: Schema.optional(Schema.String)});
+export class BatchGetEffectiveLifecyclePolicyRequest extends Schema.Class<BatchGetEffectiveLifecyclePolicyRequest>("BatchGetEffectiveLifecyclePolicyRequest")({resourceIdentifiers: LifecyclePolicyResourceIdentifiers}) {}
+export class BatchGetLifecyclePolicyRequest extends Schema.Class<BatchGetLifecyclePolicyRequest>("BatchGetLifecyclePolicyRequest")({identifiers: LifecyclePolicyIdentifiers}) {}
+export class GetAccountSettingsResponse extends Schema.Class<GetAccountSettingsResponse>("GetAccountSettingsResponse")({accountSettingsDetail: Schema.optional(AccountSettingsDetail)}) {}
+export class GetPoliciesStatsResponse extends Schema.Class<GetPoliciesStatsResponse>("GetPoliciesStatsResponse")({AccessPolicyStats: Schema.optional(AccessPolicyStats), SecurityPolicyStats: Schema.optional(SecurityPolicyStats), SecurityConfigStats: Schema.optional(SecurityConfigStats), LifecyclePolicyStats: Schema.optional(LifecyclePolicyStats), TotalPolicyCount: Schema.optional(Schema.Number)}) {}
+export class ListTagsForResourceResponse extends Schema.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({tags: Schema.optional(Tags)}) {}
+export class TagResourceRequest extends Schema.Class<TagResourceRequest>("TagResourceRequest")({resourceArn: Schema.String, tags: Tags}) {}
+export class TagResourceResponse extends Schema.Class<TagResourceResponse>("TagResourceResponse")({}) {}
+export class ConflictException extends Schema.Class<ConflictException>("ConflictException")({message: Schema.optional(Schema.String)}) {}
+export class UpdateAccountSettingsRequest extends Schema.Class<UpdateAccountSettingsRequest>("UpdateAccountSettingsRequest")({capacityLimits: Schema.optional(CapacityLimits)}) {}
+export class CollectionErrorDetail extends Schema.Class<CollectionErrorDetail>("CollectionErrorDetail")({id: Schema.optional(Schema.String), name: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String), errorCode: Schema.optional(Schema.String)}) {}
 export const CollectionErrorDetails = Schema.Array(CollectionErrorDetail);
-export const LifecyclePolicyDetail = Schema.Struct({type: Schema.optional(Schema.String), name: Schema.optional(Schema.String), policyVersion: Schema.optional(Schema.String), description: Schema.optional(Schema.String), policy: Schema.optional(Schema.JsonValue), createdDate: Schema.optional(Schema.Number), lastModifiedDate: Schema.optional(Schema.Number)});
+export class LifecyclePolicyDetail extends Schema.Class<LifecyclePolicyDetail>("LifecyclePolicyDetail")({type: Schema.optional(Schema.String), name: Schema.optional(Schema.String), policyVersion: Schema.optional(Schema.String), description: Schema.optional(Schema.String), policy: Schema.optional(Schema.JsonValue), createdDate: Schema.optional(Schema.Number), lastModifiedDate: Schema.optional(Schema.Number)}) {}
 export const LifecyclePolicyDetails = Schema.Array(LifecyclePolicyDetail);
-export const VpcEndpointDetail = Schema.Struct({id: Schema.optional(Schema.String), name: Schema.optional(Schema.String), vpcId: Schema.optional(Schema.String), subnetIds: Schema.optional(SubnetIds), securityGroupIds: Schema.optional(SecurityGroupIds), status: Schema.optional(Schema.String), createdDate: Schema.optional(Schema.Number), failureCode: Schema.optional(Schema.String), failureMessage: Schema.optional(Schema.String)});
+export class VpcEndpointDetail extends Schema.Class<VpcEndpointDetail>("VpcEndpointDetail")({id: Schema.optional(Schema.String), name: Schema.optional(Schema.String), vpcId: Schema.optional(Schema.String), subnetIds: Schema.optional(SubnetIds), securityGroupIds: Schema.optional(SecurityGroupIds), status: Schema.optional(Schema.String), createdDate: Schema.optional(Schema.Number), failureCode: Schema.optional(Schema.String), failureMessage: Schema.optional(Schema.String)}) {}
 export const VpcEndpointDetails = Schema.Array(VpcEndpointDetail);
-export const VpcEndpointErrorDetail = Schema.Struct({id: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String), errorCode: Schema.optional(Schema.String)});
+export class VpcEndpointErrorDetail extends Schema.Class<VpcEndpointErrorDetail>("VpcEndpointErrorDetail")({id: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String), errorCode: Schema.optional(Schema.String)}) {}
 export const VpcEndpointErrorDetails = Schema.Array(VpcEndpointErrorDetail);
-export const SecurityPolicyDetail = Schema.Struct({type: Schema.optional(Schema.String), name: Schema.optional(Schema.String), policyVersion: Schema.optional(Schema.String), description: Schema.optional(Schema.String), policy: Schema.optional(Schema.JsonValue), createdDate: Schema.optional(Schema.Number), lastModifiedDate: Schema.optional(Schema.Number)});
-export const UpdateVpcEndpointDetail = Schema.Struct({id: Schema.optional(Schema.String), name: Schema.optional(Schema.String), status: Schema.optional(Schema.String), subnetIds: Schema.optional(SubnetIds), securityGroupIds: Schema.optional(SecurityGroupIds), lastModifiedDate: Schema.optional(Schema.Number)});
-export const BatchGetVpcEndpointResponse = Schema.Struct({vpcEndpointDetails: Schema.optional(VpcEndpointDetails), vpcEndpointErrorDetails: Schema.optional(VpcEndpointErrorDetails)});
-export const CreateLifecyclePolicyResponse = Schema.Struct({lifecyclePolicyDetail: Schema.optional(LifecyclePolicyDetail)});
-export const CreateSecurityPolicyResponse = Schema.Struct({securityPolicyDetail: Schema.optional(SecurityPolicyDetail)});
-export const InternalServerException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ResourceNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ServiceQuotaExceededException = Schema.Struct({message: Schema.String, resourceId: Schema.optional(Schema.String), resourceType: Schema.optional(Schema.String), serviceCode: Schema.String, quotaCode: Schema.optional(Schema.String)});
-export const ValidationException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UpdateAccountSettingsResponse = Schema.Struct({accountSettingsDetail: Schema.optional(AccountSettingsDetail)});
-export const UpdateVpcEndpointResponse = Schema.Struct({UpdateVpcEndpointDetail: Schema.optional(UpdateVpcEndpointDetail)});
-export const FipsEndpoints = Schema.Struct({collectionEndpoint: Schema.optional(Schema.String), dashboardEndpoint: Schema.optional(Schema.String)});
-export const CollectionDetail = Schema.Struct({id: Schema.optional(Schema.String), name: Schema.optional(Schema.String), status: Schema.optional(Schema.String), type: Schema.optional(Schema.String), description: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), kmsKeyArn: Schema.optional(Schema.String), standbyReplicas: Schema.optional(Schema.String), createdDate: Schema.optional(Schema.Number), lastModifiedDate: Schema.optional(Schema.Number), collectionEndpoint: Schema.optional(Schema.String), dashboardEndpoint: Schema.optional(Schema.String), fipsEndpoints: Schema.optional(FipsEndpoints), failureCode: Schema.optional(Schema.String), failureMessage: Schema.optional(Schema.String)});
+export class SecurityPolicyDetail extends Schema.Class<SecurityPolicyDetail>("SecurityPolicyDetail")({type: Schema.optional(Schema.String), name: Schema.optional(Schema.String), policyVersion: Schema.optional(Schema.String), description: Schema.optional(Schema.String), policy: Schema.optional(Schema.JsonValue), createdDate: Schema.optional(Schema.Number), lastModifiedDate: Schema.optional(Schema.Number)}) {}
+export class UpdateVpcEndpointDetail extends Schema.Class<UpdateVpcEndpointDetail>("UpdateVpcEndpointDetail")({id: Schema.optional(Schema.String), name: Schema.optional(Schema.String), status: Schema.optional(Schema.String), subnetIds: Schema.optional(SubnetIds), securityGroupIds: Schema.optional(SecurityGroupIds), lastModifiedDate: Schema.optional(Schema.Number)}) {}
+export class BatchGetVpcEndpointResponse extends Schema.Class<BatchGetVpcEndpointResponse>("BatchGetVpcEndpointResponse")({vpcEndpointDetails: Schema.optional(VpcEndpointDetails), vpcEndpointErrorDetails: Schema.optional(VpcEndpointErrorDetails)}) {}
+export class CreateLifecyclePolicyResponse extends Schema.Class<CreateLifecyclePolicyResponse>("CreateLifecyclePolicyResponse")({lifecyclePolicyDetail: Schema.optional(LifecyclePolicyDetail)}) {}
+export class CreateSecurityPolicyResponse extends Schema.Class<CreateSecurityPolicyResponse>("CreateSecurityPolicyResponse")({securityPolicyDetail: Schema.optional(SecurityPolicyDetail)}) {}
+export class InternalServerException extends Schema.Class<InternalServerException>("InternalServerException")({message: Schema.optional(Schema.String)}) {}
+export class ResourceNotFoundException extends Schema.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: Schema.optional(Schema.String)}) {}
+export class ServiceQuotaExceededException extends Schema.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({message: Schema.String, resourceId: Schema.optional(Schema.String), resourceType: Schema.optional(Schema.String), serviceCode: Schema.String, quotaCode: Schema.optional(Schema.String)}) {}
+export class ValidationException extends Schema.Class<ValidationException>("ValidationException")({message: Schema.optional(Schema.String)}) {}
+export class UpdateAccountSettingsResponse extends Schema.Class<UpdateAccountSettingsResponse>("UpdateAccountSettingsResponse")({accountSettingsDetail: Schema.optional(AccountSettingsDetail)}) {}
+export class UpdateVpcEndpointResponse extends Schema.Class<UpdateVpcEndpointResponse>("UpdateVpcEndpointResponse")({UpdateVpcEndpointDetail: Schema.optional(UpdateVpcEndpointDetail)}) {}
+export class VectorOptions extends Schema.Class<VectorOptions>("VectorOptions")({ServerlessVectorAcceleration: Schema.String}) {}
+export class FipsEndpoints extends Schema.Class<FipsEndpoints>("FipsEndpoints")({collectionEndpoint: Schema.optional(Schema.String), dashboardEndpoint: Schema.optional(Schema.String)}) {}
+export class CollectionDetail extends Schema.Class<CollectionDetail>("CollectionDetail")({id: Schema.optional(Schema.String), name: Schema.optional(Schema.String), status: Schema.optional(Schema.String), type: Schema.optional(Schema.String), description: Schema.optional(Schema.String), arn: Schema.optional(Schema.String), kmsKeyArn: Schema.optional(Schema.String), standbyReplicas: Schema.optional(Schema.String), vectorOptions: Schema.optional(VectorOptions), createdDate: Schema.optional(Schema.Number), lastModifiedDate: Schema.optional(Schema.Number), collectionEndpoint: Schema.optional(Schema.String), dashboardEndpoint: Schema.optional(Schema.String), fipsEndpoints: Schema.optional(FipsEndpoints), failureCode: Schema.optional(Schema.String), failureMessage: Schema.optional(Schema.String)}) {}
 export const CollectionDetails = Schema.Array(CollectionDetail);
-export const EffectiveLifecyclePolicyDetail = Schema.Struct({type: Schema.optional(Schema.String), resource: Schema.optional(Schema.String), policyName: Schema.optional(Schema.String), resourceType: Schema.optional(Schema.String), retentionPeriod: Schema.optional(Schema.String), noMinRetentionPeriod: Schema.optional(Schema.Boolean)});
+export class EffectiveLifecyclePolicyDetail extends Schema.Class<EffectiveLifecyclePolicyDetail>("EffectiveLifecyclePolicyDetail")({type: Schema.optional(Schema.String), resource: Schema.optional(Schema.String), policyName: Schema.optional(Schema.String), resourceType: Schema.optional(Schema.String), retentionPeriod: Schema.optional(Schema.String), noMinRetentionPeriod: Schema.optional(Schema.Boolean)}) {}
 export const EffectiveLifecyclePolicyDetails = Schema.Array(EffectiveLifecyclePolicyDetail);
-export const EffectiveLifecyclePolicyErrorDetail = Schema.Struct({type: Schema.optional(Schema.String), resource: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String), errorCode: Schema.optional(Schema.String)});
+export class EffectiveLifecyclePolicyErrorDetail extends Schema.Class<EffectiveLifecyclePolicyErrorDetail>("EffectiveLifecyclePolicyErrorDetail")({type: Schema.optional(Schema.String), resource: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String), errorCode: Schema.optional(Schema.String)}) {}
 export const EffectiveLifecyclePolicyErrorDetails = Schema.Array(EffectiveLifecyclePolicyErrorDetail);
-export const LifecyclePolicyErrorDetail = Schema.Struct({type: Schema.optional(Schema.String), name: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String), errorCode: Schema.optional(Schema.String)});
+export class LifecyclePolicyErrorDetail extends Schema.Class<LifecyclePolicyErrorDetail>("LifecyclePolicyErrorDetail")({type: Schema.optional(Schema.String), name: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String), errorCode: Schema.optional(Schema.String)}) {}
 export const LifecyclePolicyErrorDetails = Schema.Array(LifecyclePolicyErrorDetail);
-export const BatchGetCollectionResponse = Schema.Struct({collectionDetails: Schema.optional(CollectionDetails), collectionErrorDetails: Schema.optional(CollectionErrorDetails)});
-export const BatchGetEffectiveLifecyclePolicyResponse = Schema.Struct({effectiveLifecyclePolicyDetails: Schema.optional(EffectiveLifecyclePolicyDetails), effectiveLifecyclePolicyErrorDetails: Schema.optional(EffectiveLifecyclePolicyErrorDetails)});
-export const BatchGetLifecyclePolicyResponse = Schema.Struct({lifecyclePolicyDetails: Schema.optional(LifecyclePolicyDetails), lifecyclePolicyErrorDetails: Schema.optional(LifecyclePolicyErrorDetails)});
+export class BatchGetCollectionResponse extends Schema.Class<BatchGetCollectionResponse>("BatchGetCollectionResponse")({collectionDetails: Schema.optional(CollectionDetails), collectionErrorDetails: Schema.optional(CollectionErrorDetails)}) {}
+export class BatchGetEffectiveLifecyclePolicyResponse extends Schema.Class<BatchGetEffectiveLifecyclePolicyResponse>("BatchGetEffectiveLifecyclePolicyResponse")({effectiveLifecyclePolicyDetails: Schema.optional(EffectiveLifecyclePolicyDetails), effectiveLifecyclePolicyErrorDetails: Schema.optional(EffectiveLifecyclePolicyErrorDetails)}) {}
+export class BatchGetLifecyclePolicyResponse extends Schema.Class<BatchGetLifecyclePolicyResponse>("BatchGetLifecyclePolicyResponse")({lifecyclePolicyDetails: Schema.optional(LifecyclePolicyDetails), lifecyclePolicyErrorDetails: Schema.optional(LifecyclePolicyErrorDetails)}) {}
 
 //# Errors
-export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
-export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException) {};
-export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
-export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
-export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException.fields) {};
+export class ConflictExceptionError extends Schema.TaggedError<ConflictExceptionError>()("ConflictException", ConflictException.fields) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException.fields) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException.fields) {};
+export class ServiceQuotaExceededExceptionError extends Schema.TaggedError<ServiceQuotaExceededExceptionError>()("ServiceQuotaExceededException", ServiceQuotaExceededException.fields) {};
 
 //# Operations
 export const getPoliciesStats = /*#__PURE__*/ makeOperation(() => Operation({ version: "2021-11-01", uri: "/", method: "POST", sdkId: "OpenSearchServerless", sigV4ServiceName: "aoss", name: "OpenSearchServerless.GetPoliciesStats" }, GetPoliciesStatsRequest, GetPoliciesStatsResponse, [InternalServerExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
@@ -88,7 +89,7 @@ export const getAccountSettings = /*#__PURE__*/ makeOperation(() => Operation({ 
 export const listTagsForResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2021-11-01", uri: "/", method: "POST", sdkId: "OpenSearchServerless", sigV4ServiceName: "aoss", name: "OpenSearchServerless.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InternalServerExceptionError, ResourceNotFoundExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const tagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2021-11-01", uri: "/", method: "POST", sdkId: "OpenSearchServerless", sigV4ServiceName: "aoss", name: "OpenSearchServerless.TagResource" }, TagResourceRequest, TagResourceResponse, [ConflictExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ServiceQuotaExceededExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const untagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2021-11-01", uri: "/", method: "POST", sdkId: "OpenSearchServerless", sigV4ServiceName: "aoss", name: "OpenSearchServerless.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [ConflictExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateAccountSettings = /*#__PURE__*/ makeOperation(() => Operation({ version: "2021-11-01", uri: "/", method: "POST", sdkId: "OpenSearchServerless", sigV4ServiceName: "aoss", name: "OpenSearchServerless.UpdateAccountSettings" }, UpdateAccountSettingsRequest, UpdateAccountSettingsResponse, [InternalServerExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const updateAccountSettings = /*#__PURE__*/ makeOperation(() => Operation({ version: "2021-11-01", uri: "/", method: "POST", sdkId: "OpenSearchServerless", sigV4ServiceName: "aoss", name: "OpenSearchServerless.UpdateAccountSettings" }, UpdateAccountSettingsRequest, UpdateAccountSettingsResponse, [InternalServerExceptionError, ServiceQuotaExceededExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const updateVpcEndpoint = /*#__PURE__*/ makeOperation(() => Operation({ version: "2021-11-01", uri: "/", method: "POST", sdkId: "OpenSearchServerless", sigV4ServiceName: "aoss", name: "OpenSearchServerless.UpdateVpcEndpoint" }, UpdateVpcEndpointRequest, UpdateVpcEndpointResponse, [ConflictExceptionError, InternalServerExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const batchGetCollection = /*#__PURE__*/ makeOperation(() => Operation({ version: "2021-11-01", uri: "/", method: "POST", sdkId: "OpenSearchServerless", sigV4ServiceName: "aoss", name: "OpenSearchServerless.BatchGetCollection" }, BatchGetCollectionRequest, BatchGetCollectionResponse, [InternalServerExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 export const batchGetEffectiveLifecyclePolicy = /*#__PURE__*/ makeOperation(() => Operation({ version: "2021-11-01", uri: "/", method: "POST", sdkId: "OpenSearchServerless", sigV4ServiceName: "aoss", name: "OpenSearchServerless.BatchGetEffectiveLifecyclePolicy" }, BatchGetEffectiveLifecyclePolicyRequest, BatchGetEffectiveLifecyclePolicyResponse, [InternalServerExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
