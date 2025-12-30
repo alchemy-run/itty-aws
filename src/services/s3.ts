@@ -1,6 +1,7 @@
 import * as S from "effect/Schema"
 import { FormatXMLRequest,FormatXMLResponse,FormatAwsXMLError, makeOperation } from "../client.ts";
 import * as H from "../schema-helpers.ts";
+import * as M from "../middleware/index.ts";
 
 //# Schemas
 export const ObjectAttributesList = S.Array(S.String);
@@ -1457,7 +1458,7 @@ export class ObjectAlreadyInActiveTierError extends S.TaggedError<ObjectAlreadyI
  * 
  * 
  * You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
- */export const putBucketPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}?policy", method: "PUT", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.PutBucketPolicy" }, PutBucketPolicyRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const putBucketPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}?policy", method: "PUT", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.PutBucketPolicy" }, PutBucketPolicyRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError, M.HttpChecksum({ algorithmHeader: "x-amz-sdk-checksum-algorithm" }));
 /**
  * Renames an existing object in a directory bucket that uses the S3 Express One Zone storage class.
  * You can use `RenameObject` by specifying an existing object’s name as the source and the new
@@ -4222,7 +4223,7 @@ export class ObjectAlreadyInActiveTierError extends S.TaggedError<ObjectAlreadyI
  */export const listObjectsV2 = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}?list-type=2", method: "GET", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.ListObjectsV2" }, ListObjectsV2Request, ListObjectsV2Output, [NoSuchBucket]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Sets the attribute-based access control (ABAC) property of the general purpose bucket. You must have `s3:PutBucketABAC` permission to perform this action. When you enable ABAC, you can use tags for access control on your buckets. Additionally, when ABAC is enabled, you must use the TagResource and UntagResource actions to manage tags on your buckets. You can nolonger use the PutBucketTagging and DeleteBucketTagging actions to tag your bucket. For more information, see Enabling ABAC in general purpose buckets.
- */export const putBucketAbac = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}?abac", method: "PUT", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.PutBucketAbac" }, PutBucketAbacRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const putBucketAbac = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}?abac", method: "PUT", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.PutBucketAbac" }, PutBucketAbacRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError, M.HttpChecksum({ algorithmHeader: "x-amz-sdk-checksum-algorithm" }));
 /**
  * This operation is not supported for directory buckets.
  * 
@@ -4287,7 +4288,7 @@ export class ObjectAlreadyInActiveTierError extends S.TaggedError<ObjectAlreadyI
  * 
  * 
  * You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
- */export const putBucketAccelerateConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}?accelerate", method: "PUT", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.PutBucketAccelerateConfiguration" }, PutBucketAccelerateConfigurationRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const putBucketAccelerateConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}?accelerate", method: "PUT", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.PutBucketAccelerateConfiguration" }, PutBucketAccelerateConfigurationRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError, M.HttpChecksum({ algorithmHeader: "x-amz-sdk-checksum-algorithm" }));
 /**
  * This operation is not supported for directory buckets.
  * 
@@ -4319,7 +4320,7 @@ export class ObjectAlreadyInActiveTierError extends S.TaggedError<ObjectAlreadyI
  * 
  * 
  * You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
- */export const putBucketRequestPayment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}?requestPayment", method: "PUT", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.PutBucketRequestPayment" }, PutBucketRequestPaymentRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const putBucketRequestPayment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}?requestPayment", method: "PUT", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.PutBucketRequestPayment" }, PutBucketRequestPaymentRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError, M.HttpChecksum({ algorithmHeader: "x-amz-sdk-checksum-algorithm" }));
 /**
  * This operation is not supported for directory buckets.
  * 
@@ -4397,7 +4398,7 @@ export class ObjectAlreadyInActiveTierError extends S.TaggedError<ObjectAlreadyI
  * 
  * 
  * You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
- */export const putBucketTagging = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}?tagging", method: "PUT", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.PutBucketTagging" }, PutBucketTaggingRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const putBucketTagging = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}?tagging", method: "PUT", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.PutBucketTagging" }, PutBucketTaggingRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError, M.HttpChecksum({ algorithmHeader: "x-amz-sdk-checksum-algorithm" }));
 /**
  * This operation is not supported for directory buckets.
  * 
@@ -4476,7 +4477,7 @@ export class ObjectAlreadyInActiveTierError extends S.TaggedError<ObjectAlreadyI
  * 
  * 
  * You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
- */export const putBucketVersioning = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}?versioning", method: "PUT", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.PutBucketVersioning" }, PutBucketVersioningRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const putBucketVersioning = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}?versioning", method: "PUT", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.PutBucketVersioning" }, PutBucketVersioningRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError, M.HttpChecksum({ algorithmHeader: "x-amz-sdk-checksum-algorithm" }));
 /**
  * End of support notice: As of October 1, 2025, Amazon S3 has discontinued support for Email Grantee Access Control Lists (ACLs). If you attempt to use an Email Grantee ACL in a request after October 1, 2025,
  * the request will receive an `HTTP 405` (Method Not Allowed) error.
@@ -4684,7 +4685,7 @@ export class ObjectAlreadyInActiveTierError extends S.TaggedError<ObjectAlreadyI
  * 
  * 
  * You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
- */export const putObject = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}/{Key+}?x-id=PutObject", method: "PUT", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.PutObject" }, PutObjectRequest, PutObjectOutput, [EncryptionTypeMismatch, InvalidRequest, InvalidWriteOffset, TooManyParts]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const putObject = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}/{Key+}?x-id=PutObject", method: "PUT", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.PutObject" }, PutObjectRequest, PutObjectOutput, [EncryptionTypeMismatch, InvalidRequest, InvalidWriteOffset, TooManyParts]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError, M.HttpChecksum({ algorithmHeader: "x-amz-sdk-checksum-algorithm" }));
 /**
  * End of support notice: As of October 1, 2025, Amazon S3 has discontinued support for Email Grantee Access Control Lists (ACLs). If you attempt to use an Email Grantee ACL in a request after October 1, 2025,
  * the request will receive an `HTTP 405` (Method Not Allowed) error.
@@ -4967,7 +4968,7 @@ export class ObjectAlreadyInActiveTierError extends S.TaggedError<ObjectAlreadyI
  * 
  * 
  * You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
- */export const putObjectAcl = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}/{Key+}?acl", method: "PUT", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.PutObjectAcl" }, PutObjectAclRequest, PutObjectAclOutput, [NoSuchKey]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const putObjectAcl = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}/{Key+}?acl", method: "PUT", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.PutObjectAcl" }, PutObjectAclRequest, PutObjectAclOutput, [NoSuchKey]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError, M.HttpChecksum({ algorithmHeader: "x-amz-sdk-checksum-algorithm" }));
 /**
  * This operation is not supported for directory buckets.
  * 
@@ -5040,7 +5041,7 @@ export class ObjectAlreadyInActiveTierError extends S.TaggedError<ObjectAlreadyI
  * 
  * 
  * You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
- */export const putObjectTagging = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}/{Key+}?tagging", method: "PUT", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.PutObjectTagging" }, PutObjectTaggingRequest, PutObjectTaggingOutput, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const putObjectTagging = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}/{Key+}?tagging", method: "PUT", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.PutObjectTagging" }, PutObjectTaggingRequest, PutObjectTaggingOutput, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError, M.HttpChecksum({ algorithmHeader: "x-amz-sdk-checksum-algorithm" }));
 /**
  * This operation is not supported for directory buckets.
  * 
@@ -5098,7 +5099,7 @@ export class ObjectAlreadyInActiveTierError extends S.TaggedError<ObjectAlreadyI
  * 
  * 
  * You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
- */export const putPublicAccessBlock = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}?publicAccessBlock", method: "PUT", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.PutPublicAccessBlock" }, PutPublicAccessBlockRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const putPublicAccessBlock = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}?publicAccessBlock", method: "PUT", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.PutPublicAccessBlock" }, PutPublicAccessBlockRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError, M.HttpChecksum({ algorithmHeader: "x-amz-sdk-checksum-algorithm" }));
 /**
  * Uploads a part in a multipart upload.
  * 
@@ -5360,7 +5361,7 @@ export class ObjectAlreadyInActiveTierError extends S.TaggedError<ObjectAlreadyI
  * 
  * 
  * You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
- */export const uploadPart = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}/{Key+}?x-id=UploadPart", method: "PUT", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.UploadPart" }, UploadPartRequest, UploadPartOutput, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const uploadPart = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}/{Key+}?x-id=UploadPart", method: "PUT", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.UploadPart" }, UploadPartRequest, UploadPartOutput, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError, M.HttpChecksum({ algorithmHeader: "x-amz-sdk-checksum-algorithm" }));
 /**
  * Creates an S3 Metadata V2 metadata configuration for a general purpose bucket. For more information, see
  * Accelerating
@@ -5477,7 +5478,7 @@ export class ObjectAlreadyInActiveTierError extends S.TaggedError<ObjectAlreadyI
  * 
  * 
  * You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
- */export const createBucketMetadataConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}?metadataConfiguration", method: "POST", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.CreateBucketMetadataConfiguration" }, CreateBucketMetadataConfigurationRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const createBucketMetadataConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}?metadataConfiguration", method: "POST", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.CreateBucketMetadataConfiguration" }, CreateBucketMetadataConfigurationRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError, M.HttpChecksum({ algorithmHeader: "x-amz-sdk-checksum-algorithm" }));
 /**
  * We recommend that you create your S3 Metadata configurations by using the V2
  * CreateBucketMetadataConfiguration API operation. We no longer recommend using the V1
@@ -5570,7 +5571,7 @@ export class ObjectAlreadyInActiveTierError extends S.TaggedError<ObjectAlreadyI
  * 
  * 
  * You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
- */export const createBucketMetadataTableConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}?metadataTable", method: "POST", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.CreateBucketMetadataTableConfiguration" }, CreateBucketMetadataTableConfigurationRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const createBucketMetadataTableConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}?metadataTable", method: "POST", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.CreateBucketMetadataTableConfiguration" }, CreateBucketMetadataTableConfigurationRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError, M.HttpChecksum({ algorithmHeader: "x-amz-sdk-checksum-algorithm" }));
 /**
  * Creates a session that establishes temporary security credentials to support fast authentication and
  * authorization for the Zonal endpoint API operations on directory buckets. For more information about Zonal endpoint API operations that
@@ -6443,7 +6444,7 @@ export class ObjectAlreadyInActiveTierError extends S.TaggedError<ObjectAlreadyI
  * 
  * 
  * You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
- */export const putBucketCors = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}?cors", method: "PUT", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.PutBucketCors" }, PutBucketCorsRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const putBucketCors = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}?cors", method: "PUT", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.PutBucketCors" }, PutBucketCorsRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError, M.HttpChecksum({ algorithmHeader: "x-amz-sdk-checksum-algorithm" }));
 /**
  * This operation is not supported for directory buckets.
  * 
@@ -6477,7 +6478,7 @@ export class ObjectAlreadyInActiveTierError extends S.TaggedError<ObjectAlreadyI
  * 
  * 
  * You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
- */export const putBucketOwnershipControls = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}?ownershipControls", method: "PUT", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.PutBucketOwnershipControls" }, PutBucketOwnershipControlsRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const putBucketOwnershipControls = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}?ownershipControls", method: "PUT", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.PutBucketOwnershipControls" }, PutBucketOwnershipControlsRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError, M.HttpChecksum({ algorithmHeader: "x-amz-sdk-checksum-algorithm" }));
 /**
  * This operation is not supported for directory buckets.
  * 
@@ -6493,7 +6494,7 @@ export class ObjectAlreadyInActiveTierError extends S.TaggedError<ObjectAlreadyI
  * 
  * 
  * You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
- */export const putObjectLegalHold = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}/{Key+}?legal-hold", method: "PUT", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.PutObjectLegalHold" }, PutObjectLegalHoldRequest, PutObjectLegalHoldOutput, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const putObjectLegalHold = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}/{Key+}?legal-hold", method: "PUT", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.PutObjectLegalHold" }, PutObjectLegalHoldRequest, PutObjectLegalHoldOutput, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError, M.HttpChecksum({ algorithmHeader: "x-amz-sdk-checksum-algorithm" }));
 /**
  * This operation is not supported for directory buckets.
  * 
@@ -6512,7 +6513,7 @@ export class ObjectAlreadyInActiveTierError extends S.TaggedError<ObjectAlreadyI
  * 
  * 
  * You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
- */export const putObjectRetention = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}/{Key+}?retention", method: "PUT", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.PutObjectRetention" }, PutObjectRetentionRequest, PutObjectRetentionOutput, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const putObjectRetention = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}/{Key+}?retention", method: "PUT", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.PutObjectRetention" }, PutObjectRetentionRequest, PutObjectRetentionOutput, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError, M.HttpChecksum({ algorithmHeader: "x-amz-sdk-checksum-algorithm" }));
 /**
  * Enables or disables a live inventory table for an S3 Metadata configuration on a general
  * purpose bucket. For more information, see
@@ -6612,7 +6613,7 @@ export class ObjectAlreadyInActiveTierError extends S.TaggedError<ObjectAlreadyI
  * 
  * 
  * You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
- */export const updateBucketMetadataInventoryTableConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}?metadataInventoryTable", method: "PUT", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.UpdateBucketMetadataInventoryTableConfiguration" }, UpdateBucketMetadataInventoryTableConfigurationRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const updateBucketMetadataInventoryTableConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}?metadataInventoryTable", method: "PUT", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.UpdateBucketMetadataInventoryTableConfiguration" }, UpdateBucketMetadataInventoryTableConfigurationRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError, M.HttpChecksum({ algorithmHeader: "x-amz-sdk-checksum-algorithm" }));
 /**
  * Enables or disables journal table record expiration for an S3 Metadata configuration on a general
  * purpose bucket. For more information, see
@@ -6662,7 +6663,7 @@ export class ObjectAlreadyInActiveTierError extends S.TaggedError<ObjectAlreadyI
  * 
  * 
  * You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
- */export const updateBucketMetadataJournalTableConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}?metadataJournalTable", method: "PUT", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.UpdateBucketMetadataJournalTableConfiguration" }, UpdateBucketMetadataJournalTableConfigurationRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const updateBucketMetadataJournalTableConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}?metadataJournalTable", method: "PUT", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.UpdateBucketMetadataJournalTableConfiguration" }, UpdateBucketMetadataJournalTableConfigurationRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError, M.HttpChecksum({ algorithmHeader: "x-amz-sdk-checksum-algorithm" }));
 /**
  * Uploads a part by copying data from an existing object as data source. To specify the data source,
  * you add the request header `x-amz-copy-source` in your request. To specify a byte range, you
@@ -8257,7 +8258,7 @@ export class ObjectAlreadyInActiveTierError extends S.TaggedError<ObjectAlreadyI
  * 
  * 
  * You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
- */export const putBucketAcl = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}?acl", method: "PUT", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.PutBucketAcl" }, PutBucketAclRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const putBucketAcl = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}?acl", method: "PUT", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.PutBucketAcl" }, PutBucketAclRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError, M.HttpChecksum({ algorithmHeader: "x-amz-sdk-checksum-algorithm" }));
 /**
  * This operation configures default encryption and Amazon S3 Bucket Keys for an existing bucket. You can also block encryption types using this operation.
  * 
@@ -8420,7 +8421,7 @@ export class ObjectAlreadyInActiveTierError extends S.TaggedError<ObjectAlreadyI
  * 
  * 
  * You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
- */export const putBucketEncryption = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}?encryption", method: "PUT", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.PutBucketEncryption" }, PutBucketEncryptionRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const putBucketEncryption = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}?encryption", method: "PUT", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.PutBucketEncryption" }, PutBucketEncryptionRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError, M.HttpChecksum({ algorithmHeader: "x-amz-sdk-checksum-algorithm" }));
 /**
  * This operation is not supported for directory buckets.
  * 
@@ -8739,7 +8740,7 @@ export class ObjectAlreadyInActiveTierError extends S.TaggedError<ObjectAlreadyI
  * 
  * 
  * You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
- */export const putBucketWebsite = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}?website", method: "PUT", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.PutBucketWebsite" }, PutBucketWebsiteRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const putBucketWebsite = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}?website", method: "PUT", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.PutBucketWebsite" }, PutBucketWebsiteRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError, M.HttpChecksum({ algorithmHeader: "x-amz-sdk-checksum-algorithm" }));
 /**
  * This operation enables you to delete multiple objects from a bucket using a single HTTP request. If
  * you know the object keys that you want to delete, then this operation provides a suitable alternative to
@@ -8915,7 +8916,7 @@ export class ObjectAlreadyInActiveTierError extends S.TaggedError<ObjectAlreadyI
  * 
  * 
  * You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
- */export const deleteObjects = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}?delete", method: "POST", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.DeleteObjects" }, DeleteObjectsRequest, DeleteObjectsOutput, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const deleteObjects = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}?delete", method: "POST", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.DeleteObjects" }, DeleteObjectsRequest, DeleteObjectsOutput, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError, M.HttpChecksum({ algorithmHeader: "x-amz-sdk-checksum-algorithm" }));
 /**
  * Retrieves the S3 Metadata configuration for a general purpose bucket. For more information, see
  * Accelerating
@@ -9185,7 +9186,7 @@ export class ObjectAlreadyInActiveTierError extends S.TaggedError<ObjectAlreadyI
  * 
  * 
  * You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
- */export const putBucketLogging = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}?logging", method: "PUT", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.PutBucketLogging" }, PutBucketLoggingRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const putBucketLogging = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}?logging", method: "PUT", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.PutBucketLogging" }, PutBucketLoggingRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError, M.HttpChecksum({ algorithmHeader: "x-amz-sdk-checksum-algorithm" }));
 /**
  * This operation is not supported for directory buckets.
  * 
@@ -9223,7 +9224,7 @@ export class ObjectAlreadyInActiveTierError extends S.TaggedError<ObjectAlreadyI
  * 
  * 
  * You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
- */export const putObjectLockConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}?object-lock", method: "PUT", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.PutObjectLockConfiguration" }, PutObjectLockConfigurationRequest, PutObjectLockConfigurationOutput, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const putObjectLockConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}?object-lock", method: "PUT", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.PutObjectLockConfiguration" }, PutObjectLockConfigurationRequest, PutObjectLockConfigurationOutput, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError, M.HttpChecksum({ algorithmHeader: "x-amz-sdk-checksum-algorithm" }));
 /**
  * This operation is not supported for directory buckets.
  * 
@@ -9665,7 +9666,7 @@ export class ObjectAlreadyInActiveTierError extends S.TaggedError<ObjectAlreadyI
  * 
  * 
  * You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
- */export const putBucketLifecycleConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}?lifecycle", method: "PUT", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.PutBucketLifecycleConfiguration" }, PutBucketLifecycleConfigurationRequest, PutBucketLifecycleConfigurationOutput, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const putBucketLifecycleConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}?lifecycle", method: "PUT", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.PutBucketLifecycleConfiguration" }, PutBucketLifecycleConfigurationRequest, PutBucketLifecycleConfigurationOutput, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError, M.HttpChecksum({ algorithmHeader: "x-amz-sdk-checksum-algorithm" }));
 /**
  * This operation is not supported for directory buckets.
  * 
@@ -9858,7 +9859,7 @@ export class ObjectAlreadyInActiveTierError extends S.TaggedError<ObjectAlreadyI
  * 
  * 
  * You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
- */export const putBucketReplication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}?replication", method: "PUT", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.PutBucketReplication" }, PutBucketReplicationRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const putBucketReplication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}?replication", method: "PUT", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.PutBucketReplication" }, PutBucketReplicationRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError, M.HttpChecksum({ algorithmHeader: "x-amz-sdk-checksum-algorithm" }));
 /**
  * This operation is not supported for directory buckets.
  * 
@@ -10110,7 +10111,7 @@ export class ObjectAlreadyInActiveTierError extends S.TaggedError<ObjectAlreadyI
  * 
  * 
  * You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
- */export const restoreObject = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}/{Key+}?restore", method: "POST", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.RestoreObject" }, RestoreObjectRequest, RestoreObjectOutput, [ObjectAlreadyInActiveTierError]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const restoreObject = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}/{Key+}?restore", method: "POST", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.RestoreObject" }, RestoreObjectRequest, RestoreObjectOutput, [ObjectAlreadyInActiveTierError]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError, M.HttpChecksum({ algorithmHeader: "x-amz-sdk-checksum-algorithm" }));
 /**
  * This operation is not supported for directory buckets.
  * 

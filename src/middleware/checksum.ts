@@ -4,25 +4,38 @@ import { getCrc32ChecksumAlgorithmFunction } from "../hash/crc32.ts";
 import { toUint8Array } from "../hash/utf8.ts";
 import type { Middleware } from "../middleware.ts";
 
-export const ChecksumBody = (options: {
-  header: string;
-  algorithm: string;
-  body: string | Uint8Array | ReadableStream;
-}): Middleware => ({
+/**
+ * Middleware that computes a checksum for the request body.
+ * Reads the algorithm from a specified header and adds the checksum to another header.
+ *
+ * @param options.algorithmHeader - The header that contains the algorithm name (e.g., "x-amz-checksum-algorithm")
+ */
+export const HttpChecksum = (options: { algorithmHeader: string }): Middleware => ({
   request: Effect.fnUntraced(function* (request) {
-    const body = options.body;
-    const algorithm = options.algorithm;
-    const header = options.header;
+    const algorithmRaw = request.unsignedHeaders[options.algorithmHeader];
+    if (!algorithmRaw) {
+      // No algorithm specified, skip checksum
+      return request;
+    }
+
+    const algorithm = algorithmRaw.toLowerCase();
+    const body = request.unsignedBody;
 
     // TODO(sam): support streaming
+    if (!body || body instanceof ReadableStream) {
+      return request;
+    }
+
+    const checksumHeader = `x-amz-checksum-${algorithm}`;
 
     if (algorithm === "crc32") {
       const checksum = yield* stringHasher(getCrc32ChecksumAlgorithmFunction(), body);
       // @ts-expect-error - TODO(sam): we need to be able to write the Record
-      request.unsignedHeaders[header] = checksum.toBase64(); // TODO(sam): base64 encoding may be wrong
+      request.unsignedHeaders[checksumHeader] = checksum.toBase64();
       return request;
     }
-    return yield* Effect.die(new Error(`Unsupported algorithm: ${algorithm}`));
+
+    return yield* Effect.die(new Error(`Unsupported checksum algorithm: ${algorithm}`));
   }),
 });
 
