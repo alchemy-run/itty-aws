@@ -17,6 +17,12 @@ export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundExc
 export class TooManyTagsException extends S.TaggedError<TooManyTagsException>()("TooManyTagsException", {message: S.optional(S.String), resourceName: S.optional(S.String)}) {};
 
 //# Operations
-export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-19", uri: "/tags/{resourceArn}", method: "GET", sdkId: "QConnect", sigV4ServiceName: "wisdom", name: "WisdomService.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-19", uri: "/tags/{resourceArn}", method: "DELETE", sdkId: "QConnect", sigV4ServiceName: "wisdom", name: "WisdomService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-19", uri: "/tags/{resourceArn}", method: "POST", sdkId: "QConnect", sigV4ServiceName: "wisdom", name: "WisdomService.TagResource" }, TagResourceRequest, TagResourceResponse, [ResourceNotFoundException, TooManyTagsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the tags for the specified resource.
+ */export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-19", uri: "/tags/{resourceArn}", method: "GET", sdkId: "QConnect", sigV4ServiceName: "wisdom", name: "WisdomService.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Removes the specified tags from the specified resource.
+ */export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-19", uri: "/tags/{resourceArn}", method: "DELETE", sdkId: "QConnect", sigV4ServiceName: "wisdom", name: "WisdomService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Adds the specified tags to the specified resource.
+ */export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-10-19", uri: "/tags/{resourceArn}", method: "POST", sdkId: "QConnect", sigV4ServiceName: "wisdom", name: "WisdomService.TagResource" }, TagResourceRequest, TagResourceResponse, [ResourceNotFoundException, TooManyTagsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

@@ -198,16 +198,75 @@ export class ResourceNotSupportedException extends S.TaggedError<ResourceNotSupp
 export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExceededException>()("ServiceQuotaExceededException", {Message: S.optional(S.String)}) {};
 
 //# Operations
-export const getResourcePolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-17", uri: "/GetResourcePolicy", method: "GET", sdkId: "Marketplace Catalog", sigV4ServiceName: "aws-marketplace", name: "AWSMPSeymour.GetResourcePolicy" }, GetResourcePolicyRequest, GetResourcePolicyResponse, [AccessDeniedException, InternalServiceException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-17", uri: "/ListTagsForResource", method: "POST", sdkId: "Marketplace Catalog", sigV4ServiceName: "aws-marketplace", name: "AWSMPSeymour.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [AccessDeniedException, InternalServiceException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const putResourcePolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-17", uri: "/PutResourcePolicy", method: "POST", sdkId: "Marketplace Catalog", sigV4ServiceName: "aws-marketplace", name: "AWSMPSeymour.PutResourcePolicy" }, PutResourcePolicyRequest, PutResourcePolicyResponse, [AccessDeniedException, InternalServiceException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-17", uri: "/TagResource", method: "POST", sdkId: "Marketplace Catalog", sigV4ServiceName: "aws-marketplace", name: "AWSMPSeymour.TagResource" }, TagResourceRequest, TagResourceResponse, [AccessDeniedException, InternalServiceException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-17", uri: "/UntagResource", method: "POST", sdkId: "Marketplace Catalog", sigV4ServiceName: "aws-marketplace", name: "AWSMPSeymour.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [AccessDeniedException, InternalServiceException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const cancelChangeSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-17", uri: "/CancelChangeSet", method: "PATCH", sdkId: "Marketplace Catalog", sigV4ServiceName: "aws-marketplace", name: "AWSMPSeymour.CancelChangeSet" }, CancelChangeSetRequest, CancelChangeSetResponse, [AccessDeniedException, InternalServiceException, ResourceInUseException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteResourcePolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-17", uri: "/DeleteResourcePolicy", method: "DELETE", sdkId: "Marketplace Catalog", sigV4ServiceName: "aws-marketplace", name: "AWSMPSeymour.DeleteResourcePolicy" }, DeleteResourcePolicyRequest, DeleteResourcePolicyResponse, [AccessDeniedException, InternalServiceException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeEntity = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-17", uri: "/DescribeEntity", method: "GET", sdkId: "Marketplace Catalog", sigV4ServiceName: "aws-marketplace", name: "AWSMPSeymour.DescribeEntity" }, DescribeEntityRequest, DescribeEntityResponse, [AccessDeniedException, InternalServiceException, ResourceNotFoundException, ResourceNotSupportedException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeChangeSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-17", uri: "/DescribeChangeSet", method: "GET", sdkId: "Marketplace Catalog", sigV4ServiceName: "aws-marketplace", name: "AWSMPSeymour.DescribeChangeSet" }, DescribeChangeSetRequest, DescribeChangeSetResponse, [AccessDeniedException, InternalServiceException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listChangeSets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-17", uri: "/ListChangeSets", method: "POST", sdkId: "Marketplace Catalog", sigV4ServiceName: "aws-marketplace", name: "AWSMPSeymour.ListChangeSets" }, ListChangeSetsRequest, ListChangeSetsResponse, [AccessDeniedException, InternalServiceException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const batchDescribeEntities = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-17", uri: "/BatchDescribeEntities", method: "POST", sdkId: "Marketplace Catalog", sigV4ServiceName: "aws-marketplace", name: "AWSMPSeymour.BatchDescribeEntities" }, BatchDescribeEntitiesRequest, BatchDescribeEntitiesResponse, [AccessDeniedException, InternalServiceException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const startChangeSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-17", uri: "/StartChangeSet", method: "POST", sdkId: "Marketplace Catalog", sigV4ServiceName: "aws-marketplace", name: "AWSMPSeymour.StartChangeSet" }, StartChangeSetRequest, StartChangeSetResponse, [AccessDeniedException, InternalServiceException, ResourceInUseException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listEntities = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-17", uri: "/ListEntities", method: "POST", sdkId: "Marketplace Catalog", sigV4ServiceName: "aws-marketplace", name: "AWSMPSeymour.ListEntities" }, ListEntitiesRequest, ListEntitiesResponse, [AccessDeniedException, InternalServiceException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets a resource-based policy of an entity that is identified by its resource
+ * ARN.
+ */export const getResourcePolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-17", uri: "/GetResourcePolicy", method: "GET", sdkId: "Marketplace Catalog", sigV4ServiceName: "aws-marketplace", name: "AWSMPSeymour.GetResourcePolicy" }, GetResourcePolicyRequest, GetResourcePolicyResponse, [AccessDeniedException, InternalServiceException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists all tags that have been added to a resource (either an entity or change set).
+ */export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-17", uri: "/ListTagsForResource", method: "POST", sdkId: "Marketplace Catalog", sigV4ServiceName: "aws-marketplace", name: "AWSMPSeymour.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [AccessDeniedException, InternalServiceException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Attaches a resource-based policy to an entity. Examples of an entity include:
+ * `AmiProduct` and `ContainerProduct`.
+ */export const putResourcePolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-17", uri: "/PutResourcePolicy", method: "POST", sdkId: "Marketplace Catalog", sigV4ServiceName: "aws-marketplace", name: "AWSMPSeymour.PutResourcePolicy" }, PutResourcePolicyRequest, PutResourcePolicyResponse, [AccessDeniedException, InternalServiceException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Tags a resource (either an entity or change set).
+ */export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-17", uri: "/TagResource", method: "POST", sdkId: "Marketplace Catalog", sigV4ServiceName: "aws-marketplace", name: "AWSMPSeymour.TagResource" }, TagResourceRequest, TagResourceResponse, [AccessDeniedException, InternalServiceException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Removes a tag or list of tags from a resource (either an entity or change set).
+ */export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-17", uri: "/UntagResource", method: "POST", sdkId: "Marketplace Catalog", sigV4ServiceName: "aws-marketplace", name: "AWSMPSeymour.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [AccessDeniedException, InternalServiceException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Used to cancel an open change request. Must be sent before the status of the request
+ * changes to `APPLYING`, the final stage of completing your change request. You
+ * can describe a change during the 60-day request history retention period for API
+ * calls.
+ */export const cancelChangeSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-17", uri: "/CancelChangeSet", method: "PATCH", sdkId: "Marketplace Catalog", sigV4ServiceName: "aws-marketplace", name: "AWSMPSeymour.CancelChangeSet" }, CancelChangeSetRequest, CancelChangeSetResponse, [AccessDeniedException, InternalServiceException, ResourceInUseException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a resource-based policy on an entity that is identified by its resource
+ * ARN.
+ */export const deleteResourcePolicy = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-17", uri: "/DeleteResourcePolicy", method: "DELETE", sdkId: "Marketplace Catalog", sigV4ServiceName: "aws-marketplace", name: "AWSMPSeymour.DeleteResourcePolicy" }, DeleteResourcePolicyRequest, DeleteResourcePolicyResponse, [AccessDeniedException, InternalServiceException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns the metadata and content of the entity.
+ */export const describeEntity = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-17", uri: "/DescribeEntity", method: "GET", sdkId: "Marketplace Catalog", sigV4ServiceName: "aws-marketplace", name: "AWSMPSeymour.DescribeEntity" }, DescribeEntityRequest, DescribeEntityResponse, [AccessDeniedException, InternalServiceException, ResourceNotFoundException, ResourceNotSupportedException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Provides information about a given change set.
+ */export const describeChangeSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-17", uri: "/DescribeChangeSet", method: "GET", sdkId: "Marketplace Catalog", sigV4ServiceName: "aws-marketplace", name: "AWSMPSeymour.DescribeChangeSet" }, DescribeChangeSetRequest, DescribeChangeSetResponse, [AccessDeniedException, InternalServiceException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns the list of change sets owned by the account being used to make the call. You
+ * can filter this list by providing any combination of `entityId`,
+ * `ChangeSetName`, and status. If you provide more than one filter, the API
+ * operation applies a logical AND between the filters.
+ * 
+ * 
+ * You can describe a change during the 60-day request history retention period for API
+ * calls.
+ */export const listChangeSets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-17", uri: "/ListChangeSets", method: "POST", sdkId: "Marketplace Catalog", sigV4ServiceName: "aws-marketplace", name: "AWSMPSeymour.ListChangeSets" }, ListChangeSetsRequest, ListChangeSetsResponse, [AccessDeniedException, InternalServiceException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns metadata and content for multiple entities. This is the Batch version of the `DescribeEntity` API and uses the same IAM permission action as `DescribeEntity` API.
+ */export const batchDescribeEntities = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-17", uri: "/BatchDescribeEntities", method: "POST", sdkId: "Marketplace Catalog", sigV4ServiceName: "aws-marketplace", name: "AWSMPSeymour.BatchDescribeEntities" }, BatchDescribeEntitiesRequest, BatchDescribeEntitiesResponse, [AccessDeniedException, InternalServiceException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Allows you to request changes for your entities. Within a single
+ * `ChangeSet`, you can't start the same change type against the same entity
+ * multiple times. Additionally, when a `ChangeSet` is running, all the entities
+ * targeted by the different changes are locked until the change set has completed (either
+ * succeeded, cancelled, or failed). If you try to start a change set containing a change
+ * against an entity that is already locked, you will receive a
+ * `ResourceInUseException` error.
+ * 
+ * 
+ * For example, you can't start the `ChangeSet` described in the example later in this topic because it contains two changes to run the same
+ * change type (`AddRevisions`) against the same entity
+ * (`entity-id@1`).
+ * 
+ * 
+ * For more information about working with change sets, see Working with change sets. For information about change types for
+ * single-AMI products, see Working with single-AMI products. Also, for more information about change
+ * types available for container-based products, see Working with container products.
+ * 
+ * 
+ * To download "DetailsDocument" shapes, see Python
+ * and Java shapes on GitHub.
+ */export const startChangeSet = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-17", uri: "/StartChangeSet", method: "POST", sdkId: "Marketplace Catalog", sigV4ServiceName: "aws-marketplace", name: "AWSMPSeymour.StartChangeSet" }, StartChangeSetRequest, StartChangeSetResponse, [AccessDeniedException, InternalServiceException, ResourceInUseException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Provides the list of entities of a given type.
+ */export const listEntities = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-17", uri: "/ListEntities", method: "POST", sdkId: "Marketplace Catalog", sigV4ServiceName: "aws-marketplace", name: "AWSMPSeymour.ListEntities" }, ListEntitiesRequest, ListEntitiesResponse, [AccessDeniedException, InternalServiceException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

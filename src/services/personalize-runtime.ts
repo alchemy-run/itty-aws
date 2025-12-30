@@ -28,6 +28,51 @@ export class InvalidInputException extends S.TaggedError<InvalidInputException>(
 export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundException>()("ResourceNotFoundException", {}) {};
 
 //# Operations
-export const getRecommendations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/recommendations", method: "POST", sdkId: "Personalize Runtime", sigV4ServiceName: "personalize", name: "AmazonPersonalizeRuntime.GetRecommendations" }, GetRecommendationsRequest, GetRecommendationsResponse, [InvalidInputException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getActionRecommendations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/action-recommendations", method: "POST", sdkId: "Personalize Runtime", sigV4ServiceName: "personalize", name: "AmazonPersonalizeRuntime.GetActionRecommendations" }, GetActionRecommendationsRequest, GetActionRecommendationsResponse, [InvalidInputException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getPersonalizedRanking = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/personalize-ranking", method: "POST", sdkId: "Personalize Runtime", sigV4ServiceName: "personalize", name: "AmazonPersonalizeRuntime.GetPersonalizedRanking" }, GetPersonalizedRankingRequest, GetPersonalizedRankingResponse, [InvalidInputException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns a list of recommended items. For campaigns, the campaign's Amazon Resource Name (ARN) is required and the required user and item input depends on the recipe type used to
+ * create the solution backing the campaign as follows:
+ * 
+ * 
+ * 
+ * - USER_PERSONALIZATION - `userId` required, `itemId` not used
+ * 
+ * 
+ * 
+ * - RELATED_ITEMS - `itemId` required, `userId` not used
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * Campaigns that are backed by a solution created using a recipe of type
+ * PERSONALIZED_RANKING use the API.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * For recommenders, the recommender's ARN is required and the required item and user input depends on the use case (domain-based recipe) backing the recommender.
+ * For information on use case requirements see Choosing recommender use cases.
+ */export const getRecommendations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/recommendations", method: "POST", sdkId: "Personalize Runtime", sigV4ServiceName: "personalize", name: "AmazonPersonalizeRuntime.GetRecommendations" }, GetRecommendationsRequest, GetRecommendationsResponse, [InvalidInputException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns a list of recommended actions in sorted in descending order by prediction score.
+ * Use the `GetActionRecommendations` API if you have a custom
+ * campaign that deploys a solution version trained with a PERSONALIZED_ACTIONS recipe.
+ * 
+ * 
+ * 
+ * For more information about PERSONALIZED_ACTIONS recipes, see PERSONALIZED_ACTIONS recipes.
+ * For more information about getting action recommendations, see Getting action recommendations.
+ */export const getActionRecommendations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/action-recommendations", method: "POST", sdkId: "Personalize Runtime", sigV4ServiceName: "personalize", name: "AmazonPersonalizeRuntime.GetActionRecommendations" }, GetActionRecommendationsRequest, GetActionRecommendationsResponse, [InvalidInputException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Re-ranks a list of recommended items for the given user. The first item in the list is
+ * deemed the most likely item to be of interest to the user.
+ * 
+ * 
+ * 
+ * 
+ * The solution backing the campaign must have been created using a recipe of type
+ * PERSONALIZED_RANKING.
+ */export const getPersonalizedRanking = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/personalize-ranking", method: "POST", sdkId: "Personalize Runtime", sigV4ServiceName: "personalize", name: "AmazonPersonalizeRuntime.GetPersonalizedRanking" }, GetPersonalizedRankingRequest, GetPersonalizedRankingResponse, [InvalidInputException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

@@ -16,6 +16,12 @@ export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundExc
 export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExceededException>()("ServiceQuotaExceededException", {message: S.String}) {};
 
 //# Operations
-export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-01-27", uri: "/", method: "POST", sdkId: "Timestream InfluxDB", sigV4ServiceName: "timestream-influxdb", name: "AmazonTimestreamInfluxDB.UntagResource" }, UntagResourceRequest, S.Struct({}), [ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-01-27", uri: "/", method: "POST", sdkId: "Timestream InfluxDB", sigV4ServiceName: "timestream-influxdb", name: "AmazonTimestreamInfluxDB.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-01-27", uri: "/", method: "POST", sdkId: "Timestream InfluxDB", sigV4ServiceName: "timestream-influxdb", name: "AmazonTimestreamInfluxDB.TagResource" }, TagResourceRequest, S.Struct({}), [ResourceNotFoundException, ServiceQuotaExceededException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Removes the tag from the specified resource.
+ */export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-01-27", uri: "/", method: "POST", sdkId: "Timestream InfluxDB", sigV4ServiceName: "timestream-influxdb", name: "AmazonTimestreamInfluxDB.UntagResource" }, UntagResourceRequest, S.Struct({}), [ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * A list of tags applied to the resource.
+ */export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-01-27", uri: "/", method: "POST", sdkId: "Timestream InfluxDB", sigV4ServiceName: "timestream-influxdb", name: "AmazonTimestreamInfluxDB.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Tags are composed of a Key/Value pairs. You can use tags to categorize and track your Timestream for InfluxDB resources.
+ */export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2023-01-27", uri: "/", method: "POST", sdkId: "Timestream InfluxDB", sigV4ServiceName: "timestream-influxdb", name: "AmazonTimestreamInfluxDB.TagResource" }, TagResourceRequest, S.Struct({}), [ResourceNotFoundException, ServiceQuotaExceededException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);

@@ -247,58 +247,348 @@ export class InsufficientDBInstanceCapacityFault extends S.TaggedError<Insuffici
 export class StorageTypeNotSupportedFault extends S.TaggedError<StorageTypeNotSupportedFault>()("StorageTypeNotSupportedFault", {}) {};
 
 //# Operations
-export const describeDBClusterParameterGroups = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBClusterParameterGroups" }, DescribeDBClusterParameterGroupsMessage, DBClusterParameterGroupsMessage, [DBParameterGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const describeDBClusterParameters = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBClusterParameters" }, DescribeDBClusterParametersMessage, DBClusterParameterGroupDetails, [DBParameterGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const describeDBClusters = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBClusters" }, DescribeDBClustersMessage, DBClusterMessage, [DBClusterNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const describeDBClusterSnapshots = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBClusterSnapshots" }, DescribeDBClusterSnapshotsMessage, DBClusterSnapshotMessage, [DBClusterSnapshotNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const describeDBInstances = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBInstances" }, DescribeDBInstancesMessage, DBInstanceMessage, [DBInstanceNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const describeDBSubnetGroups = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBSubnetGroups" }, DescribeDBSubnetGroupsMessage, DBSubnetGroupMessage, [DBSubnetGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const describeGlobalClusters = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeGlobalClusters" }, DescribeGlobalClustersMessage, GlobalClustersMessage, [GlobalClusterNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const modifyDBClusterParameterGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyDBClusterParameterGroup" }, ModifyDBClusterParameterGroupMessage, DBClusterParameterGroupNameMessage, [DBParameterGroupNotFoundFault, InvalidDBParameterGroupStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const modifyGlobalCluster = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyGlobalCluster" }, ModifyGlobalClusterMessage, ModifyGlobalClusterResult, [GlobalClusterNotFoundFault, InvalidGlobalClusterStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const removeFromGlobalCluster = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.RemoveFromGlobalCluster" }, RemoveFromGlobalClusterMessage, RemoveFromGlobalClusterResult, [DBClusterNotFoundFault, GlobalClusterNotFoundFault, InvalidGlobalClusterStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const removeTagsFromResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.RemoveTagsFromResource" }, RemoveTagsFromResourceMessage, S.Struct({}), [DBClusterNotFoundFault, DBInstanceNotFoundFault, DBSnapshotNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const resetDBClusterParameterGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.ResetDBClusterParameterGroup" }, ResetDBClusterParameterGroupMessage, DBClusterParameterGroupNameMessage, [DBParameterGroupNotFoundFault, InvalidDBParameterGroupStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const startDBCluster = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.StartDBCluster" }, StartDBClusterMessage, StartDBClusterResult, [DBClusterNotFoundFault, InvalidDBClusterStateFault, InvalidDBInstanceStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const stopDBCluster = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.StopDBCluster" }, StopDBClusterMessage, StopDBClusterResult, [DBClusterNotFoundFault, InvalidDBClusterStateFault, InvalidDBInstanceStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const switchoverGlobalCluster = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.SwitchoverGlobalCluster" }, SwitchoverGlobalClusterMessage, SwitchoverGlobalClusterResult, [DBClusterNotFoundFault, GlobalClusterNotFoundFault, InvalidDBClusterStateFault, InvalidGlobalClusterStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const addSourceIdentifierToSubscription = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.AddSourceIdentifierToSubscription" }, AddSourceIdentifierToSubscriptionMessage, AddSourceIdentifierToSubscriptionResult, [SourceNotFoundFault, SubscriptionNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const addTagsToResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.AddTagsToResource" }, AddTagsToResourceMessage, S.Struct({}), [DBClusterNotFoundFault, DBInstanceNotFoundFault, DBSnapshotNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const createDBClusterParameterGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateDBClusterParameterGroup" }, CreateDBClusterParameterGroupMessage, CreateDBClusterParameterGroupResult, [DBParameterGroupAlreadyExistsFault, DBParameterGroupQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const deleteDBClusterParameterGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteDBClusterParameterGroup" }, DeleteDBClusterParameterGroupMessage, S.Struct({}), [DBParameterGroupNotFoundFault, InvalidDBParameterGroupStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const deleteDBClusterSnapshot = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteDBClusterSnapshot" }, DeleteDBClusterSnapshotMessage, DeleteDBClusterSnapshotResult, [DBClusterSnapshotNotFoundFault, InvalidDBClusterSnapshotStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const deleteDBInstance = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteDBInstance" }, DeleteDBInstanceMessage, DeleteDBInstanceResult, [DBInstanceNotFoundFault, DBSnapshotAlreadyExistsFault, InvalidDBClusterStateFault, InvalidDBInstanceStateFault, SnapshotQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const deleteEventSubscription = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteEventSubscription" }, DeleteEventSubscriptionMessage, DeleteEventSubscriptionResult, [InvalidEventSubscriptionStateFault, SubscriptionNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const deleteGlobalCluster = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteGlobalCluster" }, DeleteGlobalClusterMessage, DeleteGlobalClusterResult, [GlobalClusterNotFoundFault, InvalidGlobalClusterStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const describeEngineDefaultClusterParameters = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeEngineDefaultClusterParameters" }, DescribeEngineDefaultClusterParametersMessage, DescribeEngineDefaultClusterParametersResult, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const describeEventCategories = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeEventCategories" }, DescribeEventCategoriesMessage, EventCategoriesMessage, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const describeEvents = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeEvents" }, DescribeEventsMessage, EventsMessage, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const describeEventSubscriptions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeEventSubscriptions" }, DescribeEventSubscriptionsMessage, EventSubscriptionsMessage, [SubscriptionNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const describePendingMaintenanceActions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribePendingMaintenanceActions" }, DescribePendingMaintenanceActionsMessage, PendingMaintenanceActionsMessage, [ResourceNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const failoverDBCluster = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.FailoverDBCluster" }, FailoverDBClusterMessage, FailoverDBClusterResult, [DBClusterNotFoundFault, InvalidDBClusterStateFault, InvalidDBInstanceStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const failoverGlobalCluster = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.FailoverGlobalCluster" }, FailoverGlobalClusterMessage, FailoverGlobalClusterResult, [DBClusterNotFoundFault, GlobalClusterNotFoundFault, InvalidDBClusterStateFault, InvalidGlobalClusterStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.ListTagsForResource" }, ListTagsForResourceMessage, TagListMessage, [DBClusterNotFoundFault, DBInstanceNotFoundFault, DBSnapshotNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const rebootDBInstance = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.RebootDBInstance" }, RebootDBInstanceMessage, RebootDBInstanceResult, [DBInstanceNotFoundFault, InvalidDBInstanceStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const removeSourceIdentifierFromSubscription = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.RemoveSourceIdentifierFromSubscription" }, RemoveSourceIdentifierFromSubscriptionMessage, RemoveSourceIdentifierFromSubscriptionResult, [SourceNotFoundFault, SubscriptionNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const applyPendingMaintenanceAction = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.ApplyPendingMaintenanceAction" }, ApplyPendingMaintenanceActionMessage, ApplyPendingMaintenanceActionResult, [InvalidDBClusterStateFault, InvalidDBInstanceStateFault, ResourceNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const copyDBClusterParameterGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.CopyDBClusterParameterGroup" }, CopyDBClusterParameterGroupMessage, CopyDBClusterParameterGroupResult, [DBParameterGroupAlreadyExistsFault, DBParameterGroupNotFoundFault, DBParameterGroupQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const copyDBClusterSnapshot = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.CopyDBClusterSnapshot" }, CopyDBClusterSnapshotMessage, CopyDBClusterSnapshotResult, [DBClusterSnapshotAlreadyExistsFault, DBClusterSnapshotNotFoundFault, InvalidDBClusterSnapshotStateFault, InvalidDBClusterStateFault, KMSKeyNotAccessibleFault, SnapshotQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const createDBClusterSnapshot = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateDBClusterSnapshot" }, CreateDBClusterSnapshotMessage, CreateDBClusterSnapshotResult, [DBClusterNotFoundFault, DBClusterSnapshotAlreadyExistsFault, InvalidDBClusterSnapshotStateFault, InvalidDBClusterStateFault, SnapshotQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const deleteDBCluster = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteDBCluster" }, DeleteDBClusterMessage, DeleteDBClusterResult, [DBClusterNotFoundFault, DBClusterSnapshotAlreadyExistsFault, InvalidDBClusterSnapshotStateFault, InvalidDBClusterStateFault, SnapshotQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const deleteDBSubnetGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteDBSubnetGroup" }, DeleteDBSubnetGroupMessage, S.Struct({}), [DBSubnetGroupNotFoundFault, InvalidDBSubnetGroupStateFault, InvalidDBSubnetStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const describeCertificates = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeCertificates" }, DescribeCertificatesMessage, CertificateMessage, [CertificateNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const describeDBClusterSnapshotAttributes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBClusterSnapshotAttributes" }, DescribeDBClusterSnapshotAttributesMessage, DescribeDBClusterSnapshotAttributesResult, [DBClusterSnapshotNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const describeDBEngineVersions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBEngineVersions" }, DescribeDBEngineVersionsMessage, DBEngineVersionMessage, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const describeOrderableDBInstanceOptions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeOrderableDBInstanceOptions" }, DescribeOrderableDBInstanceOptionsMessage, OrderableDBInstanceOptionsMessage, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const modifyDBClusterSnapshotAttribute = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyDBClusterSnapshotAttribute" }, ModifyDBClusterSnapshotAttributeMessage, ModifyDBClusterSnapshotAttributeResult, [DBClusterSnapshotNotFoundFault, InvalidDBClusterSnapshotStateFault, SharedSnapshotQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const createEventSubscription = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateEventSubscription" }, CreateEventSubscriptionMessage, CreateEventSubscriptionResult, [EventSubscriptionQuotaExceededFault, SNSInvalidTopicFault, SNSNoAuthorizationFault, SNSTopicArnNotFoundFault, SourceNotFoundFault, SubscriptionAlreadyExistFault, SubscriptionCategoryNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const modifyDBSubnetGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyDBSubnetGroup" }, ModifyDBSubnetGroupMessage, ModifyDBSubnetGroupResult, [DBSubnetGroupDoesNotCoverEnoughAZs, DBSubnetGroupNotFoundFault, DBSubnetQuotaExceededFault, InvalidSubnet, SubnetAlreadyInUse]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const modifyEventSubscription = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyEventSubscription" }, ModifyEventSubscriptionMessage, ModifyEventSubscriptionResult, [EventSubscriptionQuotaExceededFault, SNSInvalidTopicFault, SNSNoAuthorizationFault, SNSTopicArnNotFoundFault, SubscriptionCategoryNotFoundFault, SubscriptionNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const restoreDBClusterFromSnapshot = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.RestoreDBClusterFromSnapshot" }, RestoreDBClusterFromSnapshotMessage, RestoreDBClusterFromSnapshotResult, [DBClusterAlreadyExistsFault, DBClusterQuotaExceededFault, DBClusterSnapshotNotFoundFault, DBSnapshotNotFoundFault, DBSubnetGroupNotFoundFault, InsufficientDBClusterCapacityFault, InsufficientStorageClusterCapacityFault, InvalidDBClusterSnapshotStateFault, InvalidDBSnapshotStateFault, InvalidRestoreFault, InvalidSubnet, InvalidVPCNetworkStateFault, KMSKeyNotAccessibleFault, NetworkTypeNotSupported, StorageQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const restoreDBClusterToPointInTime = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.RestoreDBClusterToPointInTime" }, RestoreDBClusterToPointInTimeMessage, RestoreDBClusterToPointInTimeResult, [DBClusterAlreadyExistsFault, DBClusterNotFoundFault, DBClusterQuotaExceededFault, DBClusterSnapshotNotFoundFault, DBSubnetGroupNotFoundFault, InsufficientDBClusterCapacityFault, InsufficientStorageClusterCapacityFault, InvalidDBClusterSnapshotStateFault, InvalidDBClusterStateFault, InvalidDBSnapshotStateFault, InvalidRestoreFault, InvalidSubnet, InvalidVPCNetworkStateFault, KMSKeyNotAccessibleFault, NetworkTypeNotSupported, StorageQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const createDBCluster = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateDBCluster" }, CreateDBClusterMessage, CreateDBClusterResult, [DBClusterAlreadyExistsFault, DBClusterNotFoundFault, DBClusterParameterGroupNotFoundFault, DBClusterQuotaExceededFault, DBInstanceNotFoundFault, DBSubnetGroupDoesNotCoverEnoughAZs, DBSubnetGroupNotFoundFault, GlobalClusterNotFoundFault, InsufficientStorageClusterCapacityFault, InvalidDBClusterStateFault, InvalidDBInstanceStateFault, InvalidDBSubnetGroupStateFault, InvalidGlobalClusterStateFault, InvalidSubnet, InvalidVPCNetworkStateFault, KMSKeyNotAccessibleFault, NetworkTypeNotSupported, StorageQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const createDBSubnetGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateDBSubnetGroup" }, CreateDBSubnetGroupMessage, CreateDBSubnetGroupResult, [DBSubnetGroupAlreadyExistsFault, DBSubnetGroupDoesNotCoverEnoughAZs, DBSubnetGroupQuotaExceededFault, DBSubnetQuotaExceededFault, InvalidSubnet]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const createGlobalCluster = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateGlobalCluster" }, CreateGlobalClusterMessage, CreateGlobalClusterResult, [DBClusterNotFoundFault, GlobalClusterAlreadyExistsFault, GlobalClusterQuotaExceededFault, InvalidDBClusterStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const modifyDBCluster = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyDBCluster" }, ModifyDBClusterMessage, ModifyDBClusterResult, [DBClusterAlreadyExistsFault, DBClusterNotFoundFault, DBClusterParameterGroupNotFoundFault, DBSubnetGroupNotFoundFault, InvalidDBClusterStateFault, InvalidDBInstanceStateFault, InvalidDBSecurityGroupStateFault, InvalidDBSubnetGroupStateFault, InvalidSubnet, InvalidVPCNetworkStateFault, NetworkTypeNotSupported, StorageQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const modifyDBInstance = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyDBInstance" }, ModifyDBInstanceMessage, ModifyDBInstanceResult, [AuthorizationNotFoundFault, CertificateNotFoundFault, DBInstanceAlreadyExistsFault, DBInstanceNotFoundFault, DBParameterGroupNotFoundFault, DBSecurityGroupNotFoundFault, DBUpgradeDependencyFailureFault, InsufficientDBInstanceCapacityFault, InvalidDBInstanceStateFault, InvalidDBSecurityGroupStateFault, InvalidVPCNetworkStateFault, StorageQuotaExceededFault, StorageTypeNotSupportedFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
-export const createDBInstance = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateDBInstance" }, CreateDBInstanceMessage, CreateDBInstanceResult, [AuthorizationNotFoundFault, DBClusterNotFoundFault, DBInstanceAlreadyExistsFault, DBParameterGroupNotFoundFault, DBSecurityGroupNotFoundFault, DBSubnetGroupDoesNotCoverEnoughAZs, DBSubnetGroupNotFoundFault, InstanceQuotaExceededFault, InsufficientDBInstanceCapacityFault, InvalidDBClusterStateFault, InvalidSubnet, InvalidVPCNetworkStateFault, KMSKeyNotAccessibleFault, StorageQuotaExceededFault, StorageTypeNotSupportedFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Returns a list of `DBClusterParameterGroup` descriptions. If a `DBClusterParameterGroupName` parameter is specified, the list contains only the description of the specified cluster parameter group.
+ */export const describeDBClusterParameterGroups = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBClusterParameterGroups" }, DescribeDBClusterParameterGroupsMessage, DBClusterParameterGroupsMessage, [DBParameterGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Returns the detailed parameter list for a particular cluster parameter
+ * group.
+ */export const describeDBClusterParameters = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBClusterParameters" }, DescribeDBClusterParametersMessage, DBClusterParameterGroupDetails, [DBParameterGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Returns information about provisioned Amazon DocumentDB clusters. This API
+ * operation supports pagination. For certain management features
+ * such as cluster and instance lifecycle management, Amazon DocumentDB leverages
+ * operational technology that is shared with Amazon RDS and Amazon
+ * Neptune. Use the `filterName=engine,Values=docdb` filter
+ * parameter to return only Amazon DocumentDB clusters.
+ */export const describeDBClusters = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBClusters" }, DescribeDBClustersMessage, DBClusterMessage, [DBClusterNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Returns information about cluster snapshots. This API operation supports pagination.
+ */export const describeDBClusterSnapshots = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBClusterSnapshots" }, DescribeDBClusterSnapshotsMessage, DBClusterSnapshotMessage, [DBClusterSnapshotNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Returns information about provisioned Amazon DocumentDB instances. This API supports pagination.
+ */export const describeDBInstances = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBInstances" }, DescribeDBInstancesMessage, DBInstanceMessage, [DBInstanceNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Returns a list of `DBSubnetGroup` descriptions. If a
+ * `DBSubnetGroupName` is specified, the list will contain only the descriptions of the specified `DBSubnetGroup`.
+ */export const describeDBSubnetGroups = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBSubnetGroups" }, DescribeDBSubnetGroupsMessage, DBSubnetGroupMessage, [DBSubnetGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Returns information about Amazon DocumentDB global clusters. This API supports pagination.
+ * 
+ * 
+ * 
+ * 
+ * This action only applies to Amazon DocumentDB clusters.
+ */export const describeGlobalClusters = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeGlobalClusters" }, DescribeGlobalClustersMessage, GlobalClustersMessage, [GlobalClusterNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Modifies the parameters of a cluster parameter group. To modify more than one
+ * parameter, submit a list of the following: `ParameterName`,
+ * `ParameterValue`, and `ApplyMethod`. A maximum of 20
+ * parameters can be modified in a single request.
+ * 
+ * 
+ * 
+ * 
+ * Changes to dynamic parameters are applied immediately. Changes to static
+ * parameters require a reboot or maintenance window
+ * 
+ * before the change can take effect.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * After you create a cluster parameter group, you should wait at least 5 minutes
+ * before creating your first cluster that uses that cluster parameter group as
+ * the default parameter group. This allows Amazon DocumentDB to fully complete the create action
+ * before the parameter group is used as the default for a new cluster. This step is
+ * especially important for parameters that are critical when creating the default
+ * database for a cluster, such as the character set for the default database
+ * defined by the `character_set_database` parameter.
+ */export const modifyDBClusterParameterGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyDBClusterParameterGroup" }, ModifyDBClusterParameterGroupMessage, DBClusterParameterGroupNameMessage, [DBParameterGroupNotFoundFault, InvalidDBParameterGroupStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Modify a setting for an Amazon DocumentDB global cluster. You can change one or more configuration parameters (for example: deletion protection), or the global cluster identifier by specifying these parameters and the new values in the request.
+ * 
+ * 
+ * 
+ * 
+ * This action only applies to Amazon DocumentDB clusters.
+ */export const modifyGlobalCluster = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyGlobalCluster" }, ModifyGlobalClusterMessage, ModifyGlobalClusterResult, [GlobalClusterNotFoundFault, InvalidGlobalClusterStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Detaches an Amazon DocumentDB secondary cluster from a global cluster. The cluster becomes a standalone cluster with read-write capability instead of being read-only and receiving data from a primary in a different region.
+ * 
+ * 
+ * 
+ * 
+ * This action only applies to Amazon DocumentDB clusters.
+ */export const removeFromGlobalCluster = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.RemoveFromGlobalCluster" }, RemoveFromGlobalClusterMessage, RemoveFromGlobalClusterResult, [DBClusterNotFoundFault, GlobalClusterNotFoundFault, InvalidGlobalClusterStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Removes metadata tags from an Amazon DocumentDB resource.
+ */export const removeTagsFromResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.RemoveTagsFromResource" }, RemoveTagsFromResourceMessage, S.Struct({}), [DBClusterNotFoundFault, DBInstanceNotFoundFault, DBSnapshotNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Modifies the parameters of a cluster parameter group to the default value. To
+ * reset specific parameters, submit a list of the following: `ParameterName`
+ * and `ApplyMethod`. To reset the entire cluster parameter group, specify
+ * the `DBClusterParameterGroupName` and `ResetAllParameters`
+ * parameters.
+ * 
+ * 
+ * When you reset the entire group, dynamic parameters are updated immediately and
+ * static parameters are set to `pending-reboot` to take effect on the next DB
+ * instance reboot.
+ */export const resetDBClusterParameterGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.ResetDBClusterParameterGroup" }, ResetDBClusterParameterGroupMessage, DBClusterParameterGroupNameMessage, [DBParameterGroupNotFoundFault, InvalidDBParameterGroupStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Restarts the stopped cluster that is specified by `DBClusterIdentifier`.
+ * For more information, see Stopping and
+ * Starting an Amazon DocumentDB Cluster.
+ */export const startDBCluster = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.StartDBCluster" }, StartDBClusterMessage, StartDBClusterResult, [DBClusterNotFoundFault, InvalidDBClusterStateFault, InvalidDBInstanceStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Stops the running cluster that is specified by `DBClusterIdentifier`. The
+ * cluster must be in the *available* state. For more information, see
+ * Stopping and
+ * Starting an Amazon DocumentDB Cluster.
+ */export const stopDBCluster = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.StopDBCluster" }, StopDBClusterMessage, StopDBClusterResult, [DBClusterNotFoundFault, InvalidDBClusterStateFault, InvalidDBInstanceStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Switches over the specified secondary Amazon DocumentDB cluster to be the new primary Amazon DocumentDB cluster in the global database cluster.
+ */export const switchoverGlobalCluster = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.SwitchoverGlobalCluster" }, SwitchoverGlobalClusterMessage, SwitchoverGlobalClusterResult, [DBClusterNotFoundFault, GlobalClusterNotFoundFault, InvalidDBClusterStateFault, InvalidGlobalClusterStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Adds a source identifier to an existing event notification
+ * subscription.
+ */export const addSourceIdentifierToSubscription = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.AddSourceIdentifierToSubscription" }, AddSourceIdentifierToSubscriptionMessage, AddSourceIdentifierToSubscriptionResult, [SourceNotFoundFault, SubscriptionNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Adds metadata tags to an Amazon DocumentDB resource. You can use these tags
+ * with cost allocation reporting to track costs that are associated
+ * with Amazon DocumentDB resources or in a `Condition` statement in
+ * an Identity and Access Management (IAM) policy for Amazon DocumentDB.
+ */export const addTagsToResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.AddTagsToResource" }, AddTagsToResourceMessage, S.Struct({}), [DBClusterNotFoundFault, DBInstanceNotFoundFault, DBSnapshotNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Creates a new cluster parameter group.
+ * 
+ * 
+ * Parameters in a cluster parameter group apply to all of the
+ * instances in a cluster.
+ * 
+ * 
+ * A cluster parameter group is initially created with the default
+ * parameters for the database engine used by instances in the cluster.
+ * In Amazon DocumentDB, you cannot make modifications directly to the
+ * `default.docdb3.6` cluster parameter group. If your
+ * Amazon DocumentDB cluster is using the default cluster parameter group and you
+ * want to modify a value in it, you must first
+ * create a new parameter group
+ * or
+ * copy an existing parameter group,
+ * modify it, and then apply the modified parameter group to your
+ * cluster. For the new cluster parameter group and associated settings
+ * to take effect, you must then reboot the instances in the cluster
+ * without failover. For more information,
+ * see
+ * Modifying Amazon DocumentDB Cluster Parameter Groups.
+ */export const createDBClusterParameterGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateDBClusterParameterGroup" }, CreateDBClusterParameterGroupMessage, CreateDBClusterParameterGroupResult, [DBParameterGroupAlreadyExistsFault, DBParameterGroupQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Deletes a specified cluster parameter group. The cluster parameter group to be deleted can't be associated with any clusters.
+ */export const deleteDBClusterParameterGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteDBClusterParameterGroup" }, DeleteDBClusterParameterGroupMessage, S.Struct({}), [DBParameterGroupNotFoundFault, InvalidDBParameterGroupStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Deletes a cluster snapshot. If the snapshot is being copied, the copy operation is terminated.
+ * 
+ * 
+ * 
+ * 
+ * The cluster snapshot must be in the `available` state to be deleted.
+ */export const deleteDBClusterSnapshot = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteDBClusterSnapshot" }, DeleteDBClusterSnapshotMessage, DeleteDBClusterSnapshotResult, [DBClusterSnapshotNotFoundFault, InvalidDBClusterSnapshotStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Deletes a previously provisioned instance.
+ */export const deleteDBInstance = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteDBInstance" }, DeleteDBInstanceMessage, DeleteDBInstanceResult, [DBInstanceNotFoundFault, DBSnapshotAlreadyExistsFault, InvalidDBClusterStateFault, InvalidDBInstanceStateFault, SnapshotQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Deletes an Amazon DocumentDB event notification subscription.
+ */export const deleteEventSubscription = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteEventSubscription" }, DeleteEventSubscriptionMessage, DeleteEventSubscriptionResult, [InvalidEventSubscriptionStateFault, SubscriptionNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Deletes a global cluster. The primary and secondary clusters must already be detached or deleted before attempting to delete a global cluster.
+ * 
+ * 
+ * 
+ * 
+ * This action only applies to Amazon DocumentDB clusters.
+ */export const deleteGlobalCluster = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteGlobalCluster" }, DeleteGlobalClusterMessage, DeleteGlobalClusterResult, [GlobalClusterNotFoundFault, InvalidGlobalClusterStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Returns the default engine and system parameter information for the cluster database
+ * engine.
+ */export const describeEngineDefaultClusterParameters = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeEngineDefaultClusterParameters" }, DescribeEngineDefaultClusterParametersMessage, DescribeEngineDefaultClusterParametersResult, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Displays a list of categories for all event source types, or, if specified, for a
+ * specified source type.
+ */export const describeEventCategories = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeEventCategories" }, DescribeEventCategoriesMessage, EventCategoriesMessage, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Returns events related to instances, security groups, snapshots, and DB parameter groups for the past 14 days. You can obtain events specific to a particular DB instance, security group, snapshot, or parameter group by providing the name as a parameter. By default, the events of the past hour are returned.
+ */export const describeEvents = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeEvents" }, DescribeEventsMessage, EventsMessage, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Lists all the subscription descriptions for a customer account. The description for a subscription includes `SubscriptionName`, `SNSTopicARN`, `CustomerID`, `SourceType`, `SourceID`, `CreationTime`, and `Status`.
+ * 
+ * 
+ * If you specify a `SubscriptionName`, lists the description for that subscription.
+ */export const describeEventSubscriptions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeEventSubscriptions" }, DescribeEventSubscriptionsMessage, EventSubscriptionsMessage, [SubscriptionNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Returns a list of resources (for example, instances) that have at least one pending
+ * maintenance action.
+ */export const describePendingMaintenanceActions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribePendingMaintenanceActions" }, DescribePendingMaintenanceActionsMessage, PendingMaintenanceActionsMessage, [ResourceNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Forces a failover for a cluster.
+ * 
+ * 
+ * A failover for a cluster promotes one of the Amazon DocumentDB replicas (read-only instances) in the cluster to be the primary instance (the cluster writer).
+ * 
+ * 
+ * If the primary instance fails, Amazon DocumentDB automatically fails over to an Amazon DocumentDB replica, if one exists. You can force a failover when you want to simulate a failure of a primary instance for testing.
+ */export const failoverDBCluster = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.FailoverDBCluster" }, FailoverDBClusterMessage, FailoverDBClusterResult, [DBClusterNotFoundFault, InvalidDBClusterStateFault, InvalidDBInstanceStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Promotes the specified secondary DB cluster to be the primary DB cluster in the global cluster when failing over a global cluster occurs.
+ * 
+ * 
+ * Use this operation to respond to an unplanned event, such as a regional disaster in the primary region.
+ * Failing over can result in a loss of write transaction data that wasn't replicated to the chosen secondary before the failover event occurred.
+ * However, the recovery process that promotes a DB instance on the chosen seconday DB cluster to be the primary writer DB instance guarantees that the data is in a transactionally consistent state.
+ */export const failoverGlobalCluster = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.FailoverGlobalCluster" }, FailoverGlobalClusterMessage, FailoverGlobalClusterResult, [DBClusterNotFoundFault, GlobalClusterNotFoundFault, InvalidDBClusterStateFault, InvalidGlobalClusterStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Lists all tags on an Amazon DocumentDB resource.
+ */export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.ListTagsForResource" }, ListTagsForResourceMessage, TagListMessage, [DBClusterNotFoundFault, DBInstanceNotFoundFault, DBSnapshotNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * You might need to reboot your instance, usually for maintenance reasons. For
+ * example, if you make certain changes, or if you change the cluster parameter group
+ * that is associated with the instance, you must reboot the instance for the changes to
+ * take effect.
+ * 
+ * 
+ * Rebooting an instance restarts the database engine service. Rebooting an instance
+ * results in a momentary outage, during which the instance status is set to
+ * *rebooting*.
+ */export const rebootDBInstance = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.RebootDBInstance" }, RebootDBInstanceMessage, RebootDBInstanceResult, [DBInstanceNotFoundFault, InvalidDBInstanceStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Removes a source identifier from an existing Amazon DocumentDB event notification
+ * subscription.
+ */export const removeSourceIdentifierFromSubscription = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.RemoveSourceIdentifierFromSubscription" }, RemoveSourceIdentifierFromSubscriptionMessage, RemoveSourceIdentifierFromSubscriptionResult, [SourceNotFoundFault, SubscriptionNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Applies a pending maintenance action to a resource (for example,
+ * to an Amazon DocumentDB instance).
+ */export const applyPendingMaintenanceAction = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.ApplyPendingMaintenanceAction" }, ApplyPendingMaintenanceActionMessage, ApplyPendingMaintenanceActionResult, [InvalidDBClusterStateFault, InvalidDBInstanceStateFault, ResourceNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Copies the specified cluster parameter group.
+ */export const copyDBClusterParameterGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.CopyDBClusterParameterGroup" }, CopyDBClusterParameterGroupMessage, CopyDBClusterParameterGroupResult, [DBParameterGroupAlreadyExistsFault, DBParameterGroupNotFoundFault, DBParameterGroupQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Copies a snapshot of a cluster.
+ * 
+ * 
+ * To copy a cluster snapshot from a shared manual cluster snapshot,
+ * `SourceDBClusterSnapshotIdentifier` must be the Amazon
+ * Resource Name (ARN) of the shared cluster snapshot. You can only
+ * copy a shared DB cluster snapshot, whether encrypted or not, in the
+ * same Amazon Web Services Region.
+ * 
+ * 
+ * To cancel the copy operation after it is in progress, delete the
+ * target cluster snapshot identified by
+ * `TargetDBClusterSnapshotIdentifier` while that cluster
+ * snapshot is in the *copying* status.
+ */export const copyDBClusterSnapshot = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.CopyDBClusterSnapshot" }, CopyDBClusterSnapshotMessage, CopyDBClusterSnapshotResult, [DBClusterSnapshotAlreadyExistsFault, DBClusterSnapshotNotFoundFault, InvalidDBClusterSnapshotStateFault, InvalidDBClusterStateFault, KMSKeyNotAccessibleFault, SnapshotQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Creates a snapshot of a cluster.
+ */export const createDBClusterSnapshot = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateDBClusterSnapshot" }, CreateDBClusterSnapshotMessage, CreateDBClusterSnapshotResult, [DBClusterNotFoundFault, DBClusterSnapshotAlreadyExistsFault, InvalidDBClusterSnapshotStateFault, InvalidDBClusterStateFault, SnapshotQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Deletes a previously provisioned cluster. When you delete a cluster, all automated backups for that cluster are deleted and can't be recovered. Manual DB cluster snapshots of the specified cluster are not deleted.
+ */export const deleteDBCluster = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteDBCluster" }, DeleteDBClusterMessage, DeleteDBClusterResult, [DBClusterNotFoundFault, DBClusterSnapshotAlreadyExistsFault, InvalidDBClusterSnapshotStateFault, InvalidDBClusterStateFault, SnapshotQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Deletes a subnet group.
+ * 
+ * 
+ * 
+ * 
+ * The specified database subnet group must not be associated with any DB
+ * instances.
+ */export const deleteDBSubnetGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteDBSubnetGroup" }, DeleteDBSubnetGroupMessage, S.Struct({}), [DBSubnetGroupNotFoundFault, InvalidDBSubnetGroupStateFault, InvalidDBSubnetStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Returns a list of certificate authority (CA) certificates provided by Amazon DocumentDB for this Amazon Web Services account.
+ */export const describeCertificates = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeCertificates" }, DescribeCertificatesMessage, CertificateMessage, [CertificateNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Returns a list of cluster snapshot attribute names and values for a manual DB
+ * cluster snapshot.
+ * 
+ * 
+ * When you share snapshots with other Amazon Web Services accounts,
+ * `DescribeDBClusterSnapshotAttributes` returns the `restore` attribute and a list of IDs for the Amazon Web Services accounts that are authorized to copy or restore the manual cluster snapshot. If `all` is included in the list of values for the `restore` attribute, then the manual cluster snapshot is public and can be copied or restored by all Amazon Web Services accounts.
+ */export const describeDBClusterSnapshotAttributes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBClusterSnapshotAttributes" }, DescribeDBClusterSnapshotAttributesMessage, DescribeDBClusterSnapshotAttributesResult, [DBClusterSnapshotNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Returns a list of the available engines.
+ */export const describeDBEngineVersions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBEngineVersions" }, DescribeDBEngineVersionsMessage, DBEngineVersionMessage, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Returns a list of orderable instance options for the specified engine.
+ */export const describeOrderableDBInstanceOptions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeOrderableDBInstanceOptions" }, DescribeOrderableDBInstanceOptionsMessage, OrderableDBInstanceOptionsMessage, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Adds an attribute and values to, or removes an attribute and values from, a manual cluster snapshot.
+ * 
+ * 
+ * To share a manual cluster snapshot with other Amazon Web Services accounts, specify `restore` as the `AttributeName`, and use the `ValuesToAdd` parameter to add a list of IDs of the Amazon Web Services accounts that are authorized to restore the manual cluster snapshot. Use the value `all` to make the manual cluster snapshot public, which means that it can be copied or restored by all Amazon Web Services accounts. Do not add the `all` value for any manual cluster snapshots that contain private information that you don't want available to all Amazon Web Services accounts. If a manual cluster snapshot is encrypted, it can be shared, but only by specifying a list of authorized Amazon Web Services account IDs for the `ValuesToAdd` parameter. You can't use `all` as a value for that parameter in this case.
+ */export const modifyDBClusterSnapshotAttribute = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyDBClusterSnapshotAttribute" }, ModifyDBClusterSnapshotAttributeMessage, ModifyDBClusterSnapshotAttributeResult, [DBClusterSnapshotNotFoundFault, InvalidDBClusterSnapshotStateFault, SharedSnapshotQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Creates an Amazon DocumentDB event notification subscription. This action requires a topic Amazon Resource Name (ARN) created by using the Amazon DocumentDB console, the Amazon SNS console, or the Amazon SNS API. To obtain an ARN with Amazon SNS, you must create a topic in Amazon SNS and subscribe to the topic. The ARN is displayed in the Amazon SNS console.
+ * 
+ * 
+ * You can specify the type of source (`SourceType`) that you want to be notified of. You can also provide a list of Amazon DocumentDB sources (`SourceIds`) that trigger the events, and you can provide a list of event categories (`EventCategories`) for events that you want to be notified of. For example, you can specify `SourceType = db-instance`, `SourceIds = mydbinstance1, mydbinstance2` and `EventCategories = Availability, Backup`.
+ * 
+ * 
+ * If you specify both the `SourceType` and `SourceIds` (such as `SourceType = db-instance` and `SourceIdentifier = myDBInstance1`), you are notified of all the `db-instance` events for the specified source. If you specify a `SourceType` but do not specify a `SourceIdentifier`, you receive notice of the events for that source type for all your Amazon DocumentDB sources. If you do not specify either the `SourceType` or the `SourceIdentifier`, you are notified of events generated from all Amazon DocumentDB sources belonging to your customer account.
+ */export const createEventSubscription = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateEventSubscription" }, CreateEventSubscriptionMessage, CreateEventSubscriptionResult, [EventSubscriptionQuotaExceededFault, SNSInvalidTopicFault, SNSNoAuthorizationFault, SNSTopicArnNotFoundFault, SourceNotFoundFault, SubscriptionAlreadyExistFault, SubscriptionCategoryNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Modifies an existing subnet group. subnet groups must contain at least one subnet in at least two Availability Zones in the Amazon Web Services Region.
+ */export const modifyDBSubnetGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyDBSubnetGroup" }, ModifyDBSubnetGroupMessage, ModifyDBSubnetGroupResult, [DBSubnetGroupDoesNotCoverEnoughAZs, DBSubnetGroupNotFoundFault, DBSubnetQuotaExceededFault, InvalidSubnet, SubnetAlreadyInUse]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Modifies an existing Amazon DocumentDB event notification subscription.
+ */export const modifyEventSubscription = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyEventSubscription" }, ModifyEventSubscriptionMessage, ModifyEventSubscriptionResult, [EventSubscriptionQuotaExceededFault, SNSInvalidTopicFault, SNSNoAuthorizationFault, SNSTopicArnNotFoundFault, SubscriptionCategoryNotFoundFault, SubscriptionNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Creates a new cluster from a snapshot or cluster snapshot.
+ * 
+ * 
+ * If a snapshot is specified, the target cluster is created from the source DB snapshot with a default configuration and default security group.
+ * 
+ * 
+ * If a cluster snapshot is specified, the target cluster is created from the source cluster restore point with the same configuration as the original source DB cluster, except that the new cluster is created with the default security group.
+ */export const restoreDBClusterFromSnapshot = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.RestoreDBClusterFromSnapshot" }, RestoreDBClusterFromSnapshotMessage, RestoreDBClusterFromSnapshotResult, [DBClusterAlreadyExistsFault, DBClusterQuotaExceededFault, DBClusterSnapshotNotFoundFault, DBSnapshotNotFoundFault, DBSubnetGroupNotFoundFault, InsufficientDBClusterCapacityFault, InsufficientStorageClusterCapacityFault, InvalidDBClusterSnapshotStateFault, InvalidDBSnapshotStateFault, InvalidRestoreFault, InvalidSubnet, InvalidVPCNetworkStateFault, KMSKeyNotAccessibleFault, NetworkTypeNotSupported, StorageQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Restores a cluster to an arbitrary point in time. Users can restore to any point in
+ * time before `LatestRestorableTime` for up to
+ * `BackupRetentionPeriod` days. The target cluster is created from the
+ * source cluster with the same configuration as the original cluster, except that
+ * the new cluster is created with the default security group.
+ */export const restoreDBClusterToPointInTime = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.RestoreDBClusterToPointInTime" }, RestoreDBClusterToPointInTimeMessage, RestoreDBClusterToPointInTimeResult, [DBClusterAlreadyExistsFault, DBClusterNotFoundFault, DBClusterQuotaExceededFault, DBClusterSnapshotNotFoundFault, DBSubnetGroupNotFoundFault, InsufficientDBClusterCapacityFault, InsufficientStorageClusterCapacityFault, InvalidDBClusterSnapshotStateFault, InvalidDBClusterStateFault, InvalidDBSnapshotStateFault, InvalidRestoreFault, InvalidSubnet, InvalidVPCNetworkStateFault, KMSKeyNotAccessibleFault, NetworkTypeNotSupported, StorageQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Creates a new Amazon DocumentDB cluster.
+ */export const createDBCluster = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateDBCluster" }, CreateDBClusterMessage, CreateDBClusterResult, [DBClusterAlreadyExistsFault, DBClusterNotFoundFault, DBClusterParameterGroupNotFoundFault, DBClusterQuotaExceededFault, DBInstanceNotFoundFault, DBSubnetGroupDoesNotCoverEnoughAZs, DBSubnetGroupNotFoundFault, GlobalClusterNotFoundFault, InsufficientStorageClusterCapacityFault, InvalidDBClusterStateFault, InvalidDBInstanceStateFault, InvalidDBSubnetGroupStateFault, InvalidGlobalClusterStateFault, InvalidSubnet, InvalidVPCNetworkStateFault, KMSKeyNotAccessibleFault, NetworkTypeNotSupported, StorageQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Creates a new subnet group. subnet groups must contain at least one subnet in at
+ * least two Availability Zones in the Amazon Web Services Region.
+ */export const createDBSubnetGroup = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateDBSubnetGroup" }, CreateDBSubnetGroupMessage, CreateDBSubnetGroupResult, [DBSubnetGroupAlreadyExistsFault, DBSubnetGroupDoesNotCoverEnoughAZs, DBSubnetGroupQuotaExceededFault, DBSubnetQuotaExceededFault, InvalidSubnet]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Creates an Amazon DocumentDB global cluster that can span multiple multiple Amazon Web Services Regions.
+ * The global cluster contains one primary cluster with read-write capability, and up-to 10 read-only secondary clusters. Global clusters uses storage-based fast replication across regions with latencies less than one second, using dedicated infrastructure with no impact to your workload’s performance.
+ * 
+ * 
+ * 
+ * 
+ * You can create a global cluster that is initially empty, and then add a primary and a secondary to it.
+ * Or you can specify an existing cluster during the create operation, and this cluster becomes the primary of the global cluster.
+ * 
+ * 
+ * 
+ * 
+ * This action only applies to Amazon DocumentDB clusters.
+ */export const createGlobalCluster = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateGlobalCluster" }, CreateGlobalClusterMessage, CreateGlobalClusterResult, [DBClusterNotFoundFault, GlobalClusterAlreadyExistsFault, GlobalClusterQuotaExceededFault, InvalidDBClusterStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Modifies a setting for an Amazon DocumentDB cluster. You can change one or more database
+ * configuration parameters by specifying these parameters and the new values in the
+ * request.
+ */export const modifyDBCluster = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyDBCluster" }, ModifyDBClusterMessage, ModifyDBClusterResult, [DBClusterAlreadyExistsFault, DBClusterNotFoundFault, DBClusterParameterGroupNotFoundFault, DBSubnetGroupNotFoundFault, InvalidDBClusterStateFault, InvalidDBInstanceStateFault, InvalidDBSecurityGroupStateFault, InvalidDBSubnetGroupStateFault, InvalidSubnet, InvalidVPCNetworkStateFault, NetworkTypeNotSupported, StorageQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Modifies settings for an instance. You can change one or more database configuration parameters by specifying these parameters and the new values in the request.
+ */export const modifyDBInstance = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyDBInstance" }, ModifyDBInstanceMessage, ModifyDBInstanceResult, [AuthorizationNotFoundFault, CertificateNotFoundFault, DBInstanceAlreadyExistsFault, DBInstanceNotFoundFault, DBParameterGroupNotFoundFault, DBSecurityGroupNotFoundFault, DBUpgradeDependencyFailureFault, InsufficientDBInstanceCapacityFault, InvalidDBInstanceStateFault, InvalidDBSecurityGroupStateFault, InvalidVPCNetworkStateFault, StorageQuotaExceededFault, StorageTypeNotSupportedFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+/**
+ * Creates a new instance.
+ */export const createDBInstance = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "DocDB", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateDBInstance" }, CreateDBInstanceMessage, CreateDBInstanceResult, [AuthorizationNotFoundFault, DBClusterNotFoundFault, DBInstanceAlreadyExistsFault, DBParameterGroupNotFoundFault, DBSecurityGroupNotFoundFault, DBSubnetGroupDoesNotCoverEnoughAZs, DBSubnetGroupNotFoundFault, InstanceQuotaExceededFault, InsufficientDBInstanceCapacityFault, InvalidDBClusterStateFault, InvalidSubnet, InvalidVPCNetworkStateFault, KMSKeyNotAccessibleFault, StorageQuotaExceededFault, StorageTypeNotSupportedFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);

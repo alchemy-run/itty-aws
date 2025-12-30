@@ -20,6 +20,28 @@ export class NotFoundException extends S.TaggedError<NotFoundException>()("NotFo
 export class ValidationException extends S.TaggedError<ValidationException>()("ValidationException", {}) {};
 
 //# Operations
-export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/tags/{resourceArn}", method: "DELETE", sdkId: "Pipes", sigV4ServiceName: "pipes", name: "Pipes.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InternalException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/tags/{resourceArn}", method: "GET", sdkId: "Pipes", sigV4ServiceName: "pipes", name: "Pipes.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InternalException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/tags/{resourceArn}", method: "POST", sdkId: "Pipes", sigV4ServiceName: "pipes", name: "Pipes.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Removes one or more tags from the specified pipes.
+ */export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/tags/{resourceArn}", method: "DELETE", sdkId: "Pipes", sigV4ServiceName: "pipes", name: "Pipes.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InternalException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Displays the tags associated with a pipe.
+ */export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/tags/{resourceArn}", method: "GET", sdkId: "Pipes", sigV4ServiceName: "pipes", name: "Pipes.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InternalException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Assigns one or more tags (key-value pairs) to the specified pipe. Tags can help you
+ * organize and categorize your resources. You can also use them to scope user permissions by
+ * granting a user permission to access or change only resources with certain tag
+ * values.
+ * 
+ * 
+ * Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly
+ * as strings of characters.
+ * 
+ * 
+ * You can use the `TagResource` action with a pipe that already has tags. If
+ * you specify a new tag key, this tag is appended to the list of tags associated with the
+ * pipe. If you specify a tag key that is already associated with the pipe, the new tag value
+ * that you specify replaces the previous value for that tag.
+ * 
+ * 
+ * You can associate as many as 50 tags with a pipe.
+ */export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/tags/{resourceArn}", method: "POST", sdkId: "Pipes", sigV4ServiceName: "pipes", name: "Pipes.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalException, NotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

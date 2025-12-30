@@ -27,4 +27,6 @@ export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundExc
 export class ThrottlingException extends S.TaggedError<ThrottlingException>()("ThrottlingException", {Message: S.String}) {};
 
 //# Operations
-export const listRealtimeContactAnalysisSegments = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-21", uri: "/realtime-contact-analysis/analysis-segments", method: "POST", sdkId: "Connect Contact Lens", sigV4ServiceName: "connect", name: "AmazonConnectContactLens.ListRealtimeContactAnalysisSegments" }, ListRealtimeContactAnalysisSegmentsRequest, ListRealtimeContactAnalysisSegmentsResponse, [AccessDeniedException, InternalServiceException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Provides a list of analysis segments for a real-time analysis session.
+ */export const listRealtimeContactAnalysisSegments = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-21", uri: "/realtime-contact-analysis/analysis-segments", method: "POST", sdkId: "Connect Contact Lens", sigV4ServiceName: "connect", name: "AmazonConnectContactLens.ListRealtimeContactAnalysisSegments" }, ListRealtimeContactAnalysisSegmentsRequest, ListRealtimeContactAnalysisSegmentsResponse, [AccessDeniedException, InternalServiceException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

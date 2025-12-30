@@ -85,17 +85,76 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
 export class NotFoundException extends S.TaggedError<NotFoundException>()("NotFoundException", {Message: S.optional(S.String)}) {};
 
 //# Operations
-export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-19", uri: "/tags/{resourceArn}", method: "POST", sdkId: "CodeGuru Reviewer", sigV4ServiceName: "codeguru-reviewer", name: "AWSGuruFrontendService.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-19", uri: "/tags/{resourceArn}", method: "DELETE", sdkId: "CodeGuru Reviewer", sigV4ServiceName: "codeguru-reviewer", name: "AWSGuruFrontendService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeRecommendationFeedback = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-19", uri: "/feedback/{CodeReviewArn}", method: "GET", sdkId: "CodeGuru Reviewer", sigV4ServiceName: "codeguru-reviewer", name: "AWSGuruFrontendService.DescribeRecommendationFeedback" }, DescribeRecommendationFeedbackRequest, DescribeRecommendationFeedbackResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listRecommendationFeedback = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-19", uri: "/feedback/{CodeReviewArn}/RecommendationFeedback", method: "GET", sdkId: "CodeGuru Reviewer", sigV4ServiceName: "codeguru-reviewer", name: "AWSGuruFrontendService.ListRecommendationFeedback" }, ListRecommendationFeedbackRequest, ListRecommendationFeedbackResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listRepositoryAssociations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-19", uri: "/associations", method: "GET", sdkId: "CodeGuru Reviewer", sigV4ServiceName: "codeguru-reviewer", name: "AWSGuruFrontendService.ListRepositoryAssociations" }, ListRepositoryAssociationsRequest, ListRepositoryAssociationsResponse, [InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-19", uri: "/tags/{resourceArn}", method: "GET", sdkId: "CodeGuru Reviewer", sigV4ServiceName: "codeguru-reviewer", name: "AWSGuruFrontendService.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const putRecommendationFeedback = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-19", uri: "/feedback", method: "PUT", sdkId: "CodeGuru Reviewer", sigV4ServiceName: "codeguru-reviewer", name: "AWSGuruFrontendService.PutRecommendationFeedback" }, PutRecommendationFeedbackRequest, PutRecommendationFeedbackResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const associateRepository = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-19", uri: "/associations", method: "POST", sdkId: "CodeGuru Reviewer", sigV4ServiceName: "codeguru-reviewer", name: "AWSGuruFrontendService.AssociateRepository" }, AssociateRepositoryRequest, AssociateRepositoryResponse, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeCodeReview = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-19", uri: "/codereviews/{CodeReviewArn}", method: "GET", sdkId: "CodeGuru Reviewer", sigV4ServiceName: "codeguru-reviewer", name: "AWSGuruFrontendService.DescribeCodeReview" }, DescribeCodeReviewRequest, DescribeCodeReviewResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const disassociateRepository = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-19", uri: "/associations/{AssociationArn}", method: "DELETE", sdkId: "CodeGuru Reviewer", sigV4ServiceName: "codeguru-reviewer", name: "AWSGuruFrontendService.DisassociateRepository" }, DisassociateRepositoryRequest, DisassociateRepositoryResponse, [AccessDeniedException, ConflictException, InternalServerException, NotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listCodeReviews = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-19", uri: "/codereviews", method: "GET", sdkId: "CodeGuru Reviewer", sigV4ServiceName: "codeguru-reviewer", name: "AWSGuruFrontendService.ListCodeReviews" }, ListCodeReviewsRequest, ListCodeReviewsResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listRecommendations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-19", uri: "/codereviews/{CodeReviewArn}/Recommendations", method: "GET", sdkId: "CodeGuru Reviewer", sigV4ServiceName: "codeguru-reviewer", name: "AWSGuruFrontendService.ListRecommendations" }, ListRecommendationsRequest, ListRecommendationsResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeRepositoryAssociation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-19", uri: "/associations/{AssociationArn}", method: "GET", sdkId: "CodeGuru Reviewer", sigV4ServiceName: "codeguru-reviewer", name: "AWSGuruFrontendService.DescribeRepositoryAssociation" }, DescribeRepositoryAssociationRequest, DescribeRepositoryAssociationResponse, [AccessDeniedException, InternalServerException, NotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createCodeReview = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-19", uri: "/codereviews", method: "POST", sdkId: "CodeGuru Reviewer", sigV4ServiceName: "codeguru-reviewer", name: "AWSGuruFrontendService.CreateCodeReview" }, CreateCodeReviewRequest, CreateCodeReviewResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Adds one or more tags to an associated repository.
+ */export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-19", uri: "/tags/{resourceArn}", method: "POST", sdkId: "CodeGuru Reviewer", sigV4ServiceName: "codeguru-reviewer", name: "AWSGuruFrontendService.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Removes a tag from an associated repository.
+ */export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-19", uri: "/tags/{resourceArn}", method: "DELETE", sdkId: "CodeGuru Reviewer", sigV4ServiceName: "codeguru-reviewer", name: "AWSGuruFrontendService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Describes the customer feedback for a CodeGuru Reviewer recommendation.
+ */export const describeRecommendationFeedback = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-19", uri: "/feedback/{CodeReviewArn}", method: "GET", sdkId: "CodeGuru Reviewer", sigV4ServiceName: "codeguru-reviewer", name: "AWSGuruFrontendService.DescribeRecommendationFeedback" }, DescribeRecommendationFeedbackRequest, DescribeRecommendationFeedbackResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns a list of RecommendationFeedbackSummary objects that contain customer recommendation
+ * feedback for all CodeGuru Reviewer users.
+ */export const listRecommendationFeedback = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-19", uri: "/feedback/{CodeReviewArn}/RecommendationFeedback", method: "GET", sdkId: "CodeGuru Reviewer", sigV4ServiceName: "codeguru-reviewer", name: "AWSGuruFrontendService.ListRecommendationFeedback" }, ListRecommendationFeedbackRequest, ListRecommendationFeedbackResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns a list of RepositoryAssociationSummary objects that contain summary information about a
+ * repository association. You can filter the returned list by ProviderType, Name, State, and Owner.
+ */export const listRepositoryAssociations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-19", uri: "/associations", method: "GET", sdkId: "CodeGuru Reviewer", sigV4ServiceName: "codeguru-reviewer", name: "AWSGuruFrontendService.ListRepositoryAssociations" }, ListRepositoryAssociationsRequest, ListRepositoryAssociationsResponse, [InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns the list of tags associated with an associated repository resource.
+ */export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-19", uri: "/tags/{resourceArn}", method: "GET", sdkId: "CodeGuru Reviewer", sigV4ServiceName: "codeguru-reviewer", name: "AWSGuruFrontendService.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Stores customer feedback for a CodeGuru Reviewer recommendation. When this API is called again with
+ * different reactions the previous feedback is overwritten.
+ */export const putRecommendationFeedback = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-19", uri: "/feedback", method: "PUT", sdkId: "CodeGuru Reviewer", sigV4ServiceName: "codeguru-reviewer", name: "AWSGuruFrontendService.PutRecommendationFeedback" }, PutRecommendationFeedbackRequest, PutRecommendationFeedbackResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Use to associate an Amazon Web Services CodeCommit repository or a repository managed by Amazon Web Services
+ * CodeStar Connections with Amazon CodeGuru Reviewer. When you associate a repository, CodeGuru Reviewer reviews
+ * source code changes in the repository's pull requests and provides automatic
+ * recommendations. You can view recommendations using the CodeGuru Reviewer console. For more
+ * information, see Recommendations in
+ * Amazon CodeGuru Reviewer in the *Amazon CodeGuru Reviewer User Guide.*
+ * 
+ * 
+ * 
+ * If you associate a CodeCommit or S3 repository, it must be in the same Amazon Web Services Region and
+ * Amazon Web Services account where its CodeGuru Reviewer code reviews are configured.
+ * 
+ * 
+ * Bitbucket and GitHub Enterprise Server repositories are managed by Amazon Web Services CodeStar
+ * Connections to connect to CodeGuru Reviewer. For more information, see Associate a
+ * repository in the *Amazon CodeGuru Reviewer User Guide.*
+ * 
+ * 
+ * 
+ * 
+ * 
+ * You cannot use the CodeGuru Reviewer SDK or the Amazon Web Services CLI to associate a GitHub repository with
+ * Amazon CodeGuru Reviewer. To associate a GitHub repository, use the console. For more information, see
+ * Getting started with
+ * CodeGuru Reviewer in the *CodeGuru Reviewer User Guide.*
+ */export const associateRepository = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-19", uri: "/associations", method: "POST", sdkId: "CodeGuru Reviewer", sigV4ServiceName: "codeguru-reviewer", name: "AWSGuruFrontendService.AssociateRepository" }, AssociateRepositoryRequest, AssociateRepositoryResponse, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns the metadata associated with the code review along with its status.
+ */export const describeCodeReview = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-19", uri: "/codereviews/{CodeReviewArn}", method: "GET", sdkId: "CodeGuru Reviewer", sigV4ServiceName: "codeguru-reviewer", name: "AWSGuruFrontendService.DescribeCodeReview" }, DescribeCodeReviewRequest, DescribeCodeReviewResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Removes the association between Amazon CodeGuru Reviewer and a repository.
+ */export const disassociateRepository = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-19", uri: "/associations/{AssociationArn}", method: "DELETE", sdkId: "CodeGuru Reviewer", sigV4ServiceName: "codeguru-reviewer", name: "AWSGuruFrontendService.DisassociateRepository" }, DisassociateRepositoryRequest, DisassociateRepositoryResponse, [AccessDeniedException, ConflictException, InternalServerException, NotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists all the code reviews that the customer has created in the past 90 days.
+ */export const listCodeReviews = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-19", uri: "/codereviews", method: "GET", sdkId: "CodeGuru Reviewer", sigV4ServiceName: "codeguru-reviewer", name: "AWSGuruFrontendService.ListCodeReviews" }, ListCodeReviewsRequest, ListCodeReviewsResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns the list of all recommendations for a completed code review.
+ */export const listRecommendations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-19", uri: "/codereviews/{CodeReviewArn}/Recommendations", method: "GET", sdkId: "CodeGuru Reviewer", sigV4ServiceName: "codeguru-reviewer", name: "AWSGuruFrontendService.ListRecommendations" }, ListRecommendationsRequest, ListRecommendationsResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns a RepositoryAssociation object that contains information about the requested
+ * repository association.
+ */export const describeRepositoryAssociation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-19", uri: "/associations/{AssociationArn}", method: "GET", sdkId: "CodeGuru Reviewer", sigV4ServiceName: "codeguru-reviewer", name: "AWSGuruFrontendService.DescribeRepositoryAssociation" }, DescribeRepositoryAssociationRequest, DescribeRepositoryAssociationResponse, [AccessDeniedException, InternalServerException, NotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Use to create a code review with a CodeReviewType of
+ * `RepositoryAnalysis`. This type of code review analyzes all code under a
+ * specified branch in an associated repository. `PullRequest` code reviews are
+ * automatically triggered by a pull request.
+ */export const createCodeReview = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-19", uri: "/codereviews", method: "POST", sdkId: "CodeGuru Reviewer", sigV4ServiceName: "codeguru-reviewer", name: "AWSGuruFrontendService.CreateCodeReview" }, CreateCodeReviewRequest, CreateCodeReviewResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

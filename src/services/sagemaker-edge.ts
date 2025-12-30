@@ -25,6 +25,12 @@ export class GetDeploymentsResult extends S.Class<GetDeploymentsResult>("GetDepl
 export class InternalServiceException extends S.TaggedError<InternalServiceException>()("InternalServiceException", {Message: S.optional(S.String)}) {};
 
 //# Operations
-export const getDeviceRegistration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-09-23", uri: "/GetDeviceRegistration", method: "POST", sdkId: "Sagemaker Edge", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerEdge.GetDeviceRegistration" }, GetDeviceRegistrationRequest, GetDeviceRegistrationResult, [InternalServiceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const sendHeartbeat = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-09-23", uri: "/SendHeartbeat", method: "POST", sdkId: "Sagemaker Edge", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerEdge.SendHeartbeat" }, SendHeartbeatRequest, S.Struct({}), [InternalServiceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getDeployments = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-09-23", uri: "/GetDeployments", method: "POST", sdkId: "Sagemaker Edge", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerEdge.GetDeployments" }, GetDeploymentsRequest, GetDeploymentsResult, [InternalServiceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Use to check if a device is registered with SageMaker Edge Manager.
+ */export const getDeviceRegistration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-09-23", uri: "/GetDeviceRegistration", method: "POST", sdkId: "Sagemaker Edge", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerEdge.GetDeviceRegistration" }, GetDeviceRegistrationRequest, GetDeviceRegistrationResult, [InternalServiceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Use to get the current status of devices registered on SageMaker Edge Manager.
+ */export const sendHeartbeat = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-09-23", uri: "/SendHeartbeat", method: "POST", sdkId: "Sagemaker Edge", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerEdge.SendHeartbeat" }, SendHeartbeatRequest, S.Struct({}), [InternalServiceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Use to get the active deployments from a device.
+ */export const getDeployments = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-09-23", uri: "/GetDeployments", method: "POST", sdkId: "Sagemaker Edge", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerEdge.GetDeployments" }, GetDeploymentsRequest, GetDeploymentsResult, [InternalServiceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

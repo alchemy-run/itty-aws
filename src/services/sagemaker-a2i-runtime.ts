@@ -29,8 +29,23 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
 export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExceededException>()("ServiceQuotaExceededException", {Message: S.optional(S.String)}) {};
 
 //# Operations
-export const deleteHumanLoop = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-07", uri: "/human-loops/{HumanLoopName}", method: "DELETE", sdkId: "SageMaker A2I Runtime", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerA2IRuntime.DeleteHumanLoop" }, DeleteHumanLoopRequest, DeleteHumanLoopResponse, [InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeHumanLoop = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-07", uri: "/human-loops/{HumanLoopName}", method: "GET", sdkId: "SageMaker A2I Runtime", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerA2IRuntime.DescribeHumanLoop" }, DescribeHumanLoopRequest, DescribeHumanLoopResponse, [InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listHumanLoops = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-07", uri: "/human-loops", method: "GET", sdkId: "SageMaker A2I Runtime", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerA2IRuntime.ListHumanLoops" }, ListHumanLoopsRequest, ListHumanLoopsResponse, [InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const stopHumanLoop = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-07", uri: "/human-loops/stop", method: "POST", sdkId: "SageMaker A2I Runtime", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerA2IRuntime.StopHumanLoop" }, StopHumanLoopRequest, StopHumanLoopResponse, [InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const startHumanLoop = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-07", uri: "/human-loops", method: "POST", sdkId: "SageMaker A2I Runtime", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerA2IRuntime.StartHumanLoop" }, StartHumanLoopRequest, StartHumanLoopResponse, [ConflictException, InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes the specified human loop for a flow definition.
+ * 
+ * 
+ * If the human loop was deleted, this operation will return a
+ * `ResourceNotFoundException`.
+ */export const deleteHumanLoop = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-07", uri: "/human-loops/{HumanLoopName}", method: "DELETE", sdkId: "SageMaker A2I Runtime", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerA2IRuntime.DeleteHumanLoop" }, DeleteHumanLoopRequest, DeleteHumanLoopResponse, [InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns information about the specified human loop. If the human loop was deleted, this
+ * operation will return a `ResourceNotFoundException` error.
+ */export const describeHumanLoop = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-07", uri: "/human-loops/{HumanLoopName}", method: "GET", sdkId: "SageMaker A2I Runtime", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerA2IRuntime.DescribeHumanLoop" }, DescribeHumanLoopRequest, DescribeHumanLoopResponse, [InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns information about human loops, given the specified parameters. If a human loop was deleted, it will not be included.
+ */export const listHumanLoops = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-07", uri: "/human-loops", method: "GET", sdkId: "SageMaker A2I Runtime", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerA2IRuntime.ListHumanLoops" }, ListHumanLoopsRequest, ListHumanLoopsResponse, [InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Stops the specified human loop.
+ */export const stopHumanLoop = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-07", uri: "/human-loops/stop", method: "POST", sdkId: "SageMaker A2I Runtime", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerA2IRuntime.StopHumanLoop" }, StopHumanLoopRequest, StopHumanLoopResponse, [InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Starts a human loop, provided that at least one activation condition is met.
+ */export const startHumanLoop = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-11-07", uri: "/human-loops", method: "POST", sdkId: "SageMaker A2I Runtime", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerA2IRuntime.StartHumanLoop" }, StartHumanLoopRequest, StartHumanLoopResponse, [ConflictException, InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

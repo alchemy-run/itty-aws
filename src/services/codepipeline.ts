@@ -297,47 +297,285 @@ export class ActionExecutionNotFoundException extends S.TaggedError<ActionExecut
 export class PipelineNameInUseException extends S.TaggedError<PipelineNameInUseException>()("PipelineNameInUseException", {message: S.optional(S.String)}) {};
 
 //# Operations
-export const deleteWebhook = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.DeleteWebhook" }, DeleteWebhookInput, DeleteWebhookOutput, [ConcurrentModificationException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deregisterWebhookWithThirdParty = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.DeregisterWebhookWithThirdParty" }, DeregisterWebhookWithThirdPartyInput, DeregisterWebhookWithThirdPartyOutput, [ValidationException, WebhookNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const registerWebhookWithThirdParty = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.RegisterWebhookWithThirdParty" }, RegisterWebhookWithThirdPartyInput, RegisterWebhookWithThirdPartyOutput, [ValidationException, WebhookNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteCustomActionType = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.DeleteCustomActionType" }, DeleteCustomActionTypeInput, S.Struct({}), [ConcurrentModificationException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deletePipeline = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.DeletePipeline" }, DeletePipelineInput, S.Struct({}), [ConcurrentModificationException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const disableStageTransition = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.DisableStageTransition" }, DisableStageTransitionInput, S.Struct({}), [PipelineNotFoundException, StageNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const enableStageTransition = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.EnableStageTransition" }, EnableStageTransitionInput, S.Struct({}), [PipelineNotFoundException, StageNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const putJobFailureResult = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.PutJobFailureResult" }, PutJobFailureResultInput, S.Struct({}), [InvalidJobStateException, JobNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const putThirdPartyJobFailureResult = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.PutThirdPartyJobFailureResult" }, PutThirdPartyJobFailureResultInput, S.Struct({}), [InvalidClientTokenException, InvalidJobStateException, JobNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const putThirdPartyJobSuccessResult = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.PutThirdPartyJobSuccessResult" }, PutThirdPartyJobSuccessResultInput, S.Struct({}), [InvalidClientTokenException, InvalidJobStateException, JobNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.UntagResource" }, UntagResourceInput, UntagResourceOutput, [ConcurrentModificationException, InvalidArnException, InvalidTagsException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const acknowledgeJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.AcknowledgeJob" }, AcknowledgeJobInput, AcknowledgeJobOutput, [InvalidNonceException, JobNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const acknowledgeThirdPartyJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.AcknowledgeThirdPartyJob" }, AcknowledgeThirdPartyJobInput, AcknowledgeThirdPartyJobOutput, [InvalidClientTokenException, InvalidNonceException, JobNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getActionType = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.GetActionType" }, GetActionTypeInput, GetActionTypeOutput, [ActionTypeNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listActionTypes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.ListActionTypes" }, ListActionTypesInput, ListActionTypesOutput, [InvalidNextTokenException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listPipelines = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.ListPipelines" }, ListPipelinesInput, ListPipelinesOutput, [InvalidNextTokenException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.ListTagsForResource" }, ListTagsForResourceInput, ListTagsForResourceOutput, [InvalidArnException, InvalidNextTokenException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listWebhooks = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.ListWebhooks" }, ListWebhooksInput, ListWebhooksOutput, [InvalidNextTokenException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const pollForThirdPartyJobs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.PollForThirdPartyJobs" }, PollForThirdPartyJobsInput, PollForThirdPartyJobsOutput, [ActionTypeNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const putJobSuccessResult = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.PutJobSuccessResult" }, PutJobSuccessResultInput, S.Struct({}), [InvalidJobStateException, JobNotFoundException, OutputVariablesSizeExceededException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const startPipelineExecution = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.StartPipelineExecution" }, StartPipelineExecutionInput, StartPipelineExecutionOutput, [ConcurrentPipelineExecutionsLimitExceededException, ConflictException, PipelineNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createCustomActionType = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.CreateCustomActionType" }, CreateCustomActionTypeInput, CreateCustomActionTypeOutput, [ConcurrentModificationException, InvalidTagsException, LimitExceededException, TooManyTagsException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getPipeline = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.GetPipeline" }, GetPipelineInput, GetPipelineOutput, [PipelineNotFoundException, PipelineVersionNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getPipelineExecution = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.GetPipelineExecution" }, GetPipelineExecutionInput, GetPipelineExecutionOutput, [PipelineExecutionNotFoundException, PipelineNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listRuleTypes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.ListRuleTypes" }, ListRuleTypesInput, ListRuleTypesOutput, [InvalidNextTokenException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const overrideStageCondition = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.OverrideStageCondition" }, OverrideStageConditionInput, S.Struct({}), [ConcurrentPipelineExecutionsLimitExceededException, ConditionNotOverridableException, ConflictException, NotLatestPipelineExecutionException, PipelineNotFoundException, StageNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const pollForJobs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.PollForJobs" }, PollForJobsInput, PollForJobsOutput, [ActionTypeNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const putActionRevision = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.PutActionRevision" }, PutActionRevisionInput, PutActionRevisionOutput, [ActionNotFoundException, ConcurrentPipelineExecutionsLimitExceededException, PipelineNotFoundException, StageNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const retryStageExecution = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.RetryStageExecution" }, RetryStageExecutionInput, RetryStageExecutionOutput, [ConcurrentPipelineExecutionsLimitExceededException, ConflictException, NotLatestPipelineExecutionException, PipelineNotFoundException, StageNotFoundException, StageNotRetryableException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const stopPipelineExecution = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.StopPipelineExecution" }, StopPipelineExecutionInput, StopPipelineExecutionOutput, [ConflictException, DuplicatedStopRequestException, PipelineExecutionNotStoppableException, PipelineNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.TagResource" }, TagResourceInput, TagResourceOutput, [ConcurrentModificationException, InvalidArnException, InvalidTagsException, ResourceNotFoundException, TooManyTagsException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getThirdPartyJobDetails = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.GetThirdPartyJobDetails" }, GetThirdPartyJobDetailsInput, GetThirdPartyJobDetailsOutput, [InvalidClientTokenException, InvalidJobException, JobNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const putApprovalResult = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.PutApprovalResult" }, PutApprovalResultInput, PutApprovalResultOutput, [ActionNotFoundException, ApprovalAlreadyCompletedException, InvalidApprovalTokenException, PipelineNotFoundException, StageNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const rollbackStage = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.RollbackStage" }, RollbackStageInput, RollbackStageOutput, [ConflictException, PipelineExecutionNotFoundException, PipelineExecutionOutdatedException, PipelineNotFoundException, StageNotFoundException, UnableToRollbackStageException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listPipelineExecutions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.ListPipelineExecutions" }, ListPipelineExecutionsInput, ListPipelineExecutionsOutput, [InvalidNextTokenException, PipelineNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const putWebhook = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.PutWebhook" }, PutWebhookInput, PutWebhookOutput, [ConcurrentModificationException, InvalidTagsException, InvalidWebhookAuthenticationParametersException, InvalidWebhookFilterPatternException, LimitExceededException, PipelineNotFoundException, TooManyTagsException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateActionType = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.UpdateActionType" }, UpdateActionTypeInput, S.Struct({}), [ActionTypeNotFoundException, RequestFailedException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updatePipeline = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.UpdatePipeline" }, UpdatePipelineInput, UpdatePipelineOutput, [InvalidActionDeclarationException, InvalidBlockerDeclarationException, InvalidStageDeclarationException, InvalidStructureException, LimitExceededException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getJobDetails = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.GetJobDetails" }, GetJobDetailsInput, GetJobDetailsOutput, [JobNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const getPipelineState = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.GetPipelineState" }, GetPipelineStateInput, GetPipelineStateOutput, [PipelineNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listActionExecutions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.ListActionExecutions" }, ListActionExecutionsInput, ListActionExecutionsOutput, [InvalidNextTokenException, PipelineExecutionNotFoundException, PipelineNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listDeployActionExecutionTargets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.ListDeployActionExecutionTargets" }, ListDeployActionExecutionTargetsInput, ListDeployActionExecutionTargetsOutput, [ActionExecutionNotFoundException, InvalidNextTokenException, PipelineNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listRuleExecutions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.ListRuleExecutions" }, ListRuleExecutionsInput, ListRuleExecutionsOutput, [InvalidNextTokenException, PipelineExecutionNotFoundException, PipelineNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createPipeline = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.CreatePipeline" }, CreatePipelineInput, CreatePipelineOutput, [ConcurrentModificationException, InvalidActionDeclarationException, InvalidBlockerDeclarationException, InvalidStageDeclarationException, InvalidStructureException, InvalidTagsException, LimitExceededException, PipelineNameInUseException, TooManyTagsException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a previously created webhook by name. Deleting the webhook stops CodePipeline from starting a pipeline every time an external event occurs. The API
+ * returns successfully when trying to delete a webhook that is already deleted. If a
+ * deleted webhook is re-created by calling PutWebhook with the same name, it will have a
+ * different URL.
+ */export const deleteWebhook = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.DeleteWebhook" }, DeleteWebhookInput, DeleteWebhookOutput, [ConcurrentModificationException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Removes the connection between the webhook that was created by CodePipeline
+ * and the external tool with events to be detected. Currently supported only for webhooks
+ * that target an action type of GitHub.
+ */export const deregisterWebhookWithThirdParty = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.DeregisterWebhookWithThirdParty" }, DeregisterWebhookWithThirdPartyInput, DeregisterWebhookWithThirdPartyOutput, [ValidationException, WebhookNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Configures a connection between the webhook that was created and the external tool
+ * with events to be detected.
+ */export const registerWebhookWithThirdParty = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.RegisterWebhookWithThirdParty" }, RegisterWebhookWithThirdPartyInput, RegisterWebhookWithThirdPartyOutput, [ValidationException, WebhookNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Marks a custom action as deleted. `PollForJobs` for the custom action
+ * fails after the action is marked for deletion. Used for custom actions only.
+ * 
+ * 
+ * 
+ * 
+ * To re-create a custom action after it has been deleted you must use a string in
+ * the version field that has never been used before. This string can be an incremented
+ * version number, for example. To restore a deleted custom action, use a JSON file
+ * that is identical to the deleted action, including the original string in the
+ * version field.
+ */export const deleteCustomActionType = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.DeleteCustomActionType" }, DeleteCustomActionTypeInput, S.Struct({}), [ConcurrentModificationException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes the specified pipeline.
+ */export const deletePipeline = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.DeletePipeline" }, DeletePipelineInput, S.Struct({}), [ConcurrentModificationException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Prevents artifacts in a pipeline from transitioning to the next stage in the
+ * pipeline.
+ */export const disableStageTransition = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.DisableStageTransition" }, DisableStageTransitionInput, S.Struct({}), [PipelineNotFoundException, StageNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Enables artifacts in a pipeline to transition to a stage in a pipeline.
+ */export const enableStageTransition = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.EnableStageTransition" }, EnableStageTransitionInput, S.Struct({}), [PipelineNotFoundException, StageNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Represents the failure of a job as returned to the pipeline by a job worker. Used
+ * for custom actions only.
+ */export const putJobFailureResult = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.PutJobFailureResult" }, PutJobFailureResultInput, S.Struct({}), [InvalidJobStateException, JobNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Represents the failure of a third party job as returned to the pipeline by a job
+ * worker. Used for partner actions only.
+ */export const putThirdPartyJobFailureResult = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.PutThirdPartyJobFailureResult" }, PutThirdPartyJobFailureResultInput, S.Struct({}), [InvalidClientTokenException, InvalidJobStateException, JobNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Represents the success of a third party job as returned to the pipeline by a job
+ * worker. Used for partner actions only.
+ */export const putThirdPartyJobSuccessResult = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.PutThirdPartyJobSuccessResult" }, PutThirdPartyJobSuccessResultInput, S.Struct({}), [InvalidClientTokenException, InvalidJobStateException, JobNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Removes tags from an Amazon Web Services resource.
+ */export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.UntagResource" }, UntagResourceInput, UntagResourceOutput, [ConcurrentModificationException, InvalidArnException, InvalidTagsException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns information about a specified job and whether that job has been received by
+ * the job worker. Used for custom actions only.
+ */export const acknowledgeJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.AcknowledgeJob" }, AcknowledgeJobInput, AcknowledgeJobOutput, [InvalidNonceException, JobNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Confirms a job worker has received the specified job. Used for partner actions
+ * only.
+ */export const acknowledgeThirdPartyJob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.AcknowledgeThirdPartyJob" }, AcknowledgeThirdPartyJobInput, AcknowledgeThirdPartyJobOutput, [InvalidClientTokenException, InvalidNonceException, JobNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns information about an action type created for an external provider, where the
+ * action is to be used by customers of the external provider. The action can be created
+ * with any supported integration model.
+ */export const getActionType = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.GetActionType" }, GetActionTypeInput, GetActionTypeOutput, [ActionTypeNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets a summary of all CodePipeline action types associated with your
+ * account.
+ */export const listActionTypes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.ListActionTypes" }, ListActionTypesInput, ListActionTypesOutput, [InvalidNextTokenException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets a summary of all of the pipelines associated with your account.
+ */export const listPipelines = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.ListPipelines" }, ListPipelinesInput, ListPipelinesOutput, [InvalidNextTokenException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets the set of key-value pairs (metadata) that are used to manage the
+ * resource.
+ */export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.ListTagsForResource" }, ListTagsForResourceInput, ListTagsForResourceOutput, [InvalidArnException, InvalidNextTokenException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets a listing of all the webhooks in this Amazon Web Services Region for this
+ * account. The output lists all webhooks and includes the webhook URL and ARN and the
+ * configuration for each webhook.
+ * 
+ * 
+ * 
+ * 
+ * If a secret token was provided, it will be redacted in the response.
+ */export const listWebhooks = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.ListWebhooks" }, ListWebhooksInput, ListWebhooksOutput, [InvalidNextTokenException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Determines whether there are any third party jobs for a job worker to act on. Used
+ * for partner actions only.
+ * 
+ * 
+ * 
+ * 
+ * When this API is called, CodePipeline returns temporary credentials for
+ * the S3 bucket used to store artifacts for the pipeline, if the action requires
+ * access to that S3 bucket for input or output artifacts.
+ */export const pollForThirdPartyJobs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.PollForThirdPartyJobs" }, PollForThirdPartyJobsInput, PollForThirdPartyJobsOutput, [ActionTypeNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Represents the success of a job as returned to the pipeline by a job worker. Used
+ * for custom actions only.
+ */export const putJobSuccessResult = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.PutJobSuccessResult" }, PutJobSuccessResultInput, S.Struct({}), [InvalidJobStateException, JobNotFoundException, OutputVariablesSizeExceededException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Starts the specified pipeline. Specifically, it begins processing the latest commit
+ * to the source location specified as part of the pipeline.
+ */export const startPipelineExecution = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.StartPipelineExecution" }, StartPipelineExecutionInput, StartPipelineExecutionOutput, [ConcurrentPipelineExecutionsLimitExceededException, ConflictException, PipelineNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a new custom action that can be used in all pipelines associated with the
+ * Amazon Web Services account. Only used for custom actions.
+ */export const createCustomActionType = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.CreateCustomActionType" }, CreateCustomActionTypeInput, CreateCustomActionTypeOutput, [ConcurrentModificationException, InvalidTagsException, LimitExceededException, TooManyTagsException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns the metadata, structure, stages, and actions of a pipeline. Can be used to
+ * return the entire structure of a pipeline in JSON format, which can then be modified and
+ * used to update the pipeline structure with UpdatePipeline.
+ */export const getPipeline = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.GetPipeline" }, GetPipelineInput, GetPipelineOutput, [PipelineNotFoundException, PipelineVersionNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns information about an execution of a pipeline, including details about
+ * artifacts, the pipeline execution ID, and the name, version, and status of the
+ * pipeline.
+ */export const getPipelineExecution = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.GetPipelineExecution" }, GetPipelineExecutionInput, GetPipelineExecutionOutput, [PipelineExecutionNotFoundException, PipelineNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the rules for the condition. For more information about conditions, see Stage
+ * conditions and How do
+ * stage conditions work?.For more information about rules, see the CodePipeline rule reference.
+ */export const listRuleTypes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.ListRuleTypes" }, ListRuleTypesInput, ListRuleTypesOutput, [InvalidNextTokenException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Used to override a stage condition. For more information about conditions, see Stage
+ * conditions and How do
+ * stage conditions work?.
+ */export const overrideStageCondition = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.OverrideStageCondition" }, OverrideStageConditionInput, S.Struct({}), [ConcurrentPipelineExecutionsLimitExceededException, ConditionNotOverridableException, ConflictException, NotLatestPipelineExecutionException, PipelineNotFoundException, StageNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns information about any jobs for CodePipeline to act on.
+ * `PollForJobs` is valid only for action types with "Custom" in the owner
+ * field. If the action type contains `AWS` or `ThirdParty` in the
+ * owner field, the `PollForJobs` action returns an error.
+ * 
+ * 
+ * 
+ * 
+ * When this API is called, CodePipeline returns temporary credentials for
+ * the S3 bucket used to store artifacts for the pipeline, if the action requires
+ * access to that S3 bucket for input or output artifacts. This API also returns any
+ * secret values defined for the action.
+ */export const pollForJobs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.PollForJobs" }, PollForJobsInput, PollForJobsOutput, [ActionTypeNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Provides information to CodePipeline about new revisions to a
+ * source.
+ */export const putActionRevision = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.PutActionRevision" }, PutActionRevisionInput, PutActionRevisionOutput, [ActionNotFoundException, ConcurrentPipelineExecutionsLimitExceededException, PipelineNotFoundException, StageNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * You can retry a stage that has failed without having to run a pipeline again from
+ * the beginning. You do this by either retrying the failed actions in a stage or by
+ * retrying all actions in the stage starting from the first action in the stage. When you
+ * retry the failed actions in a stage, all actions that are still in progress continue
+ * working, and failed actions are triggered again. When you retry a failed stage from the
+ * first action in the stage, the stage cannot have any actions in progress. Before a stage
+ * can be retried, it must either have all actions failed or some actions failed and some
+ * succeeded.
+ */export const retryStageExecution = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.RetryStageExecution" }, RetryStageExecutionInput, RetryStageExecutionOutput, [ConcurrentPipelineExecutionsLimitExceededException, ConflictException, NotLatestPipelineExecutionException, PipelineNotFoundException, StageNotFoundException, StageNotRetryableException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Stops the specified pipeline execution. You choose to either stop the pipeline
+ * execution by completing in-progress actions without starting subsequent actions, or by
+ * abandoning in-progress actions. While completing or abandoning in-progress actions, the
+ * pipeline execution is in a `Stopping` state. After all in-progress actions
+ * are completed or abandoned, the pipeline execution is in a `Stopped`
+ * state.
+ */export const stopPipelineExecution = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.StopPipelineExecution" }, StopPipelineExecutionInput, StopPipelineExecutionOutput, [ConflictException, DuplicatedStopRequestException, PipelineExecutionNotStoppableException, PipelineNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Adds to or modifies the tags of the given resource. Tags are metadata that can be used
+ * to manage a resource.
+ */export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.TagResource" }, TagResourceInput, TagResourceOutput, [ConcurrentModificationException, InvalidArnException, InvalidTagsException, ResourceNotFoundException, TooManyTagsException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Requests the details of a job for a third party action. Used for partner actions
+ * only.
+ * 
+ * 
+ * 
+ * 
+ * When this API is called, CodePipeline returns temporary credentials for
+ * the S3 bucket used to store artifacts for the pipeline, if the action requires
+ * access to that S3 bucket for input or output artifacts. This API also returns any
+ * secret values defined for the action.
+ */export const getThirdPartyJobDetails = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.GetThirdPartyJobDetails" }, GetThirdPartyJobDetailsInput, GetThirdPartyJobDetailsOutput, [InvalidClientTokenException, InvalidJobException, JobNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Provides the response to a manual approval request to CodePipeline. Valid
+ * responses include Approved and Rejected.
+ */export const putApprovalResult = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.PutApprovalResult" }, PutApprovalResultInput, PutApprovalResultOutput, [ActionNotFoundException, ApprovalAlreadyCompletedException, InvalidApprovalTokenException, PipelineNotFoundException, StageNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Rolls back a stage execution.
+ */export const rollbackStage = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.RollbackStage" }, RollbackStageInput, RollbackStageOutput, [ConflictException, PipelineExecutionNotFoundException, PipelineExecutionOutdatedException, PipelineNotFoundException, StageNotFoundException, UnableToRollbackStageException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets a summary of the most recent executions for a pipeline.
+ * 
+ * 
+ * 
+ * 
+ * When applying the filter for pipeline executions that have succeeded in the stage,
+ * the operation returns all executions in the current pipeline version beginning on
+ * February 1, 2024.
+ */export const listPipelineExecutions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.ListPipelineExecutions" }, ListPipelineExecutionsInput, ListPipelineExecutionsOutput, [InvalidNextTokenException, PipelineNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Defines a webhook and returns a unique webhook URL generated by CodePipeline.
+ * This URL can be supplied to third party source hosting providers to call every time
+ * there's a code change. When CodePipeline receives a POST request on this URL, the
+ * pipeline defined in the webhook is started as long as the POST request satisfied the
+ * authentication and filtering requirements supplied when defining the webhook.
+ * RegisterWebhookWithThirdParty and DeregisterWebhookWithThirdParty APIs can be used to
+ * automatically configure supported third parties to call the generated webhook
+ * URL.
+ * 
+ * 
+ * 
+ * 
+ * When creating CodePipeline webhooks, do not use your own credentials or
+ * reuse the same secret token across multiple webhooks. For optimal security, generate
+ * a unique secret token for each webhook you create. The secret token is an arbitrary
+ * string that you provide, which GitHub uses to compute and sign the webhook payloads
+ * sent to CodePipeline, for protecting the integrity and authenticity of the
+ * webhook payloads. Using your own credentials or reusing the same token across
+ * multiple webhooks can lead to security vulnerabilities.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * If a secret token was provided, it will be redacted in the response.
+ */export const putWebhook = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.PutWebhook" }, PutWebhookInput, PutWebhookOutput, [ConcurrentModificationException, InvalidTagsException, InvalidWebhookAuthenticationParametersException, InvalidWebhookFilterPatternException, LimitExceededException, PipelineNotFoundException, TooManyTagsException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates an action type that was created with any supported integration model, where
+ * the action type is to be used by customers of the action type provider. Use a JSON file
+ * with the action definition and `UpdateActionType` to provide the full
+ * structure.
+ */export const updateActionType = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.UpdateActionType" }, UpdateActionTypeInput, S.Struct({}), [ActionTypeNotFoundException, RequestFailedException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates a specified pipeline with edits or changes to its structure. Use a JSON
+ * file with the pipeline structure and `UpdatePipeline` to provide the full
+ * structure of the pipeline. Updating the pipeline increases the version number of the
+ * pipeline by 1.
+ */export const updatePipeline = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.UpdatePipeline" }, UpdatePipelineInput, UpdatePipelineOutput, [InvalidActionDeclarationException, InvalidBlockerDeclarationException, InvalidStageDeclarationException, InvalidStructureException, LimitExceededException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns information about a job. Used for custom actions only.
+ * 
+ * 
+ * 
+ * 
+ * When this API is called, CodePipeline returns temporary credentials for
+ * the S3 bucket used to store artifacts for the pipeline, if the action requires
+ * access to that S3 bucket for input or output artifacts. This API also returns any
+ * secret values defined for the action.
+ */export const getJobDetails = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.GetJobDetails" }, GetJobDetailsInput, GetJobDetailsOutput, [JobNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns information about the state of a pipeline, including the stages and
+ * actions.
+ * 
+ * 
+ * 
+ * 
+ * Values returned in the `revisionId` and `revisionUrl`
+ * fields indicate the source revision information, such as the commit ID, for the
+ * current state.
+ */export const getPipelineState = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.GetPipelineState" }, GetPipelineStateInput, GetPipelineStateOutput, [PipelineNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the action executions that have occurred in a pipeline.
+ */export const listActionExecutions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.ListActionExecutions" }, ListActionExecutionsInput, ListActionExecutionsOutput, [InvalidNextTokenException, PipelineExecutionNotFoundException, PipelineNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the targets for the deploy action.
+ */export const listDeployActionExecutionTargets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.ListDeployActionExecutionTargets" }, ListDeployActionExecutionTargetsInput, ListDeployActionExecutionTargetsOutput, [ActionExecutionNotFoundException, InvalidNextTokenException, PipelineNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the rule executions that have occurred in a pipeline configured for conditions
+ * with rules.
+ */export const listRuleExecutions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.ListRuleExecutions" }, ListRuleExecutionsInput, ListRuleExecutionsOutput, [InvalidNextTokenException, PipelineExecutionNotFoundException, PipelineNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a pipeline.
+ * 
+ * 
+ * 
+ * 
+ * In the pipeline structure, you must include either `artifactStore`
+ * or `artifactStores` in your pipeline, but you cannot use both. If you
+ * create a cross-region action in your pipeline, you must use
+ * `artifactStores`.
+ */export const createPipeline = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-07-09", uri: "/", method: "POST", sdkId: "CodePipeline", sigV4ServiceName: "codepipeline", name: "CodePipeline_20150709.CreatePipeline" }, CreatePipelineInput, CreatePipelineOutput, [ConcurrentModificationException, InvalidActionDeclarationException, InvalidBlockerDeclarationException, InvalidStageDeclarationException, InvalidStructureException, InvalidTagsException, LimitExceededException, PipelineNameInUseException, TooManyTagsException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

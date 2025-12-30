@@ -177,56 +177,437 @@ export class InternalException extends S.TaggedError<InternalException>()("Inter
 export class InvalidRequestException extends S.TaggedError<InvalidRequestException>()("InvalidRequestException", {}) {};
 
 //# Operations
-export const deleteLocation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.DeleteLocation" }, DeleteLocationRequest, DeleteLocationResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteTask = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.DeleteTask" }, DeleteTaskRequest, DeleteTaskResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateAgent = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.UpdateAgent" }, UpdateAgentRequest, UpdateAgentResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateLocationAzureBlob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.UpdateLocationAzureBlob" }, UpdateLocationAzureBlobRequest, UpdateLocationAzureBlobResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateLocationEfs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.UpdateLocationEfs" }, UpdateLocationEfsRequest, UpdateLocationEfsResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateLocationFsxLustre = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.UpdateLocationFsxLustre" }, UpdateLocationFsxLustreRequest, UpdateLocationFsxLustreResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateLocationFsxOpenZfs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.UpdateLocationFsxOpenZfs" }, UpdateLocationFsxOpenZfsRequest, UpdateLocationFsxOpenZfsResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateLocationFsxWindows = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.UpdateLocationFsxWindows" }, UpdateLocationFsxWindowsRequest, UpdateLocationFsxWindowsResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateLocationHdfs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.UpdateLocationHdfs" }, UpdateLocationHdfsRequest, UpdateLocationHdfsResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateLocationNfs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.UpdateLocationNfs" }, UpdateLocationNfsRequest, UpdateLocationNfsResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateLocationObjectStorage = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.UpdateLocationObjectStorage" }, UpdateLocationObjectStorageRequest, UpdateLocationObjectStorageResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateLocationS3 = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.UpdateLocationS3" }, UpdateLocationS3Request, UpdateLocationS3Response, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateLocationSmb = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.UpdateLocationSmb" }, UpdateLocationSmbRequest, UpdateLocationSmbResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateTask = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.UpdateTask" }, UpdateTaskRequest, UpdateTaskResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateTaskExecution = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.UpdateTaskExecution" }, UpdateTaskExecutionRequest, UpdateTaskExecutionResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const cancelTaskExecution = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.CancelTaskExecution" }, CancelTaskExecutionRequest, CancelTaskExecutionResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createLocationFsxLustre = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.CreateLocationFsxLustre" }, CreateLocationFsxLustreRequest, CreateLocationFsxLustreResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createLocationFsxOpenZfs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.CreateLocationFsxOpenZfs" }, CreateLocationFsxOpenZfsRequest, CreateLocationFsxOpenZfsResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createLocationFsxWindows = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.CreateLocationFsxWindows" }, CreateLocationFsxWindowsRequest, CreateLocationFsxWindowsResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createLocationObjectStorage = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.CreateLocationObjectStorage" }, CreateLocationObjectStorageRequest, CreateLocationObjectStorageResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteAgent = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.DeleteAgent" }, DeleteAgentRequest, DeleteAgentResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeLocationEfs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.DescribeLocationEfs" }, DescribeLocationEfsRequest, DescribeLocationEfsResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeLocationFsxLustre = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.DescribeLocationFsxLustre" }, DescribeLocationFsxLustreRequest, DescribeLocationFsxLustreResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeLocationFsxOntap = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.DescribeLocationFsxOntap" }, DescribeLocationFsxOntapRequest, DescribeLocationFsxOntapResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeLocationFsxOpenZfs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.DescribeLocationFsxOpenZfs" }, DescribeLocationFsxOpenZfsRequest, DescribeLocationFsxOpenZfsResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeLocationFsxWindows = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.DescribeLocationFsxWindows" }, DescribeLocationFsxWindowsRequest, DescribeLocationFsxWindowsResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeLocationHdfs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.DescribeLocationHdfs" }, DescribeLocationHdfsRequest, DescribeLocationHdfsResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeLocationNfs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.DescribeLocationNfs" }, DescribeLocationNfsRequest, DescribeLocationNfsResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeLocationObjectStorage = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.DescribeLocationObjectStorage" }, DescribeLocationObjectStorageRequest, DescribeLocationObjectStorageResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeLocationS3 = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.DescribeLocationS3" }, DescribeLocationS3Request, DescribeLocationS3Response, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeLocationSmb = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.DescribeLocationSmb" }, DescribeLocationSmbRequest, DescribeLocationSmbResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const startTaskExecution = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.StartTaskExecution" }, StartTaskExecutionRequest, StartTaskExecutionResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createAgent = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.CreateAgent" }, CreateAgentRequest, CreateAgentResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createLocationAzureBlob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.CreateLocationAzureBlob" }, CreateLocationAzureBlobRequest, CreateLocationAzureBlobResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createLocationEfs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.CreateLocationEfs" }, CreateLocationEfsRequest, CreateLocationEfsResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createLocationHdfs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.CreateLocationHdfs" }, CreateLocationHdfsRequest, CreateLocationHdfsResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createLocationNfs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.CreateLocationNfs" }, CreateLocationNfsRequest, CreateLocationNfsResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createLocationS3 = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.CreateLocationS3" }, CreateLocationS3Request, CreateLocationS3Response, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createLocationSmb = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.CreateLocationSmb" }, CreateLocationSmbRequest, CreateLocationSmbResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeAgent = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.DescribeAgent" }, DescribeAgentRequest, DescribeAgentResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeLocationAzureBlob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.DescribeLocationAzureBlob" }, DescribeLocationAzureBlobRequest, DescribeLocationAzureBlobResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeTask = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.DescribeTask" }, DescribeTaskRequest, DescribeTaskResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const describeTaskExecution = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.DescribeTaskExecution" }, DescribeTaskExecutionRequest, DescribeTaskExecutionResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listAgents = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.ListAgents" }, ListAgentsRequest, ListAgentsResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listTaskExecutions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.ListTaskExecutions" }, ListTaskExecutionsRequest, ListTaskExecutionsResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateLocationFsxOntap = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.UpdateLocationFsxOntap" }, UpdateLocationFsxOntapRequest, UpdateLocationFsxOntapResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createLocationFsxOntap = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.CreateLocationFsxOntap" }, CreateLocationFsxOntapRequest, CreateLocationFsxOntapResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listLocations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.ListLocations" }, ListLocationsRequest, ListLocationsResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const listTasks = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.ListTasks" }, ListTasksRequest, ListTasksResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const createTask = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.CreateTask" }, CreateTaskRequest, CreateTaskResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a transfer location resource from DataSync.
+ */export const deleteLocation = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.DeleteLocation" }, DeleteLocationRequest, DeleteLocationResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes a transfer task resource from DataSync.
+ */export const deleteTask = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.DeleteTask" }, DeleteTaskRequest, DeleteTaskResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Applies a *tag* to an Amazon Web Services resource. Tags are
+ * key-value pairs that can help you manage, filter, and search for your resources.
+ * 
+ * 
+ * These include DataSync resources, such as locations, tasks, and task
+ * executions.
+ */export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Removes tags from an Amazon Web Services resource.
+ */export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates the name of an DataSync agent.
+ */export const updateAgent = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.UpdateAgent" }, UpdateAgentRequest, UpdateAgentResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Modifies the following configurations of the Microsoft Azure Blob Storage transfer
+ * location that you're using with DataSync.
+ * 
+ * 
+ * For more information, see Configuring DataSync transfers with Azure Blob Storage.
+ */export const updateLocationAzureBlob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.UpdateLocationAzureBlob" }, UpdateLocationAzureBlobRequest, UpdateLocationAzureBlobResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Modifies the following configuration parameters of the Amazon EFS transfer
+ * location that you're using with DataSync.
+ * 
+ * 
+ * For more information, see Configuring DataSync
+ * transfers with Amazon EFS.
+ */export const updateLocationEfs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.UpdateLocationEfs" }, UpdateLocationEfsRequest, UpdateLocationEfsResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Modifies the following configuration parameters of the Amazon FSx for Lustre
+ * transfer location that you're using with DataSync.
+ * 
+ * 
+ * For more information, see Configuring DataSync
+ * transfers with FSx for Lustre.
+ */export const updateLocationFsxLustre = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.UpdateLocationFsxLustre" }, UpdateLocationFsxLustreRequest, UpdateLocationFsxLustreResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Modifies the following configuration parameters of the Amazon FSx for OpenZFS
+ * transfer location that you're using with DataSync.
+ * 
+ * 
+ * For more information, see Configuring DataSync
+ * transfers with FSx for OpenZFS.
+ * 
+ * 
+ * 
+ * 
+ * Request parameters related to `SMB` aren't supported with the
+ * `UpdateLocationFsxOpenZfs` operation.
+ */export const updateLocationFsxOpenZfs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.UpdateLocationFsxOpenZfs" }, UpdateLocationFsxOpenZfsRequest, UpdateLocationFsxOpenZfsResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Modifies the following configuration parameters of the Amazon FSx for Windows File Server
+ * transfer location that you're using with DataSync.
+ * 
+ * 
+ * For more information, see Configuring DataSync
+ * transfers with FSx for Windows File Server.
+ */export const updateLocationFsxWindows = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.UpdateLocationFsxWindows" }, UpdateLocationFsxWindowsRequest, UpdateLocationFsxWindowsResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Modifies the following configuration parameters of the Hadoop Distributed File System
+ * (HDFS) transfer location that you're using with DataSync.
+ * 
+ * 
+ * For more information, see Configuring DataSync
+ * transfers with an HDFS cluster.
+ */export const updateLocationHdfs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.UpdateLocationHdfs" }, UpdateLocationHdfsRequest, UpdateLocationHdfsResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Modifies the following configuration parameters of the Network File System (NFS) transfer
+ * location that you're using with DataSync.
+ * 
+ * 
+ * For more information, see Configuring transfers with an NFS
+ * file server.
+ */export const updateLocationNfs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.UpdateLocationNfs" }, UpdateLocationNfsRequest, UpdateLocationNfsResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Modifies the following configuration parameters of the object storage transfer location
+ * that you're using with DataSync.
+ * 
+ * 
+ * For more information, see Configuring DataSync
+ * transfers with an object storage system.
+ */export const updateLocationObjectStorage = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.UpdateLocationObjectStorage" }, UpdateLocationObjectStorageRequest, UpdateLocationObjectStorageResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Modifies the following configuration parameters of the Amazon S3 transfer location
+ * that you're using with DataSync.
+ * 
+ * 
+ * 
+ * 
+ * Before you begin, make sure that you read the following topics:
+ * 
+ * 
+ * 
+ * - Storage
+ * class considerations with Amazon S3 locations
+ * 
+ * 
+ * 
+ * 
+ * - Evaluating S3 request costs when using DataSync
+ */export const updateLocationS3 = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.UpdateLocationS3" }, UpdateLocationS3Request, UpdateLocationS3Response, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Modifies the following configuration parameters of the Server Message Block (SMB) transfer
+ * location that you're using with DataSync.
+ * 
+ * 
+ * For more information, see Configuring DataSync
+ * transfers with an SMB file server.
+ */export const updateLocationSmb = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.UpdateLocationSmb" }, UpdateLocationSmbRequest, UpdateLocationSmbResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates the configuration of a *task*, which defines where and how
+ * DataSync transfers your data.
+ */export const updateTask = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.UpdateTask" }, UpdateTaskRequest, UpdateTaskResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates the configuration of a running DataSync task execution.
+ * 
+ * 
+ * 
+ * 
+ * Currently, the only `Option` that you can modify with
+ * `UpdateTaskExecution` is
+ * BytesPerSecond
+ * , which throttles bandwidth for a running or queued task
+ * execution.
+ */export const updateTaskExecution = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.UpdateTaskExecution" }, UpdateTaskExecutionRequest, UpdateTaskExecutionResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Stops an DataSync task execution that's in progress. The transfer of some
+ * files are abruptly interrupted. File contents that're transferred to the destination might be
+ * incomplete or inconsistent with the source files.
+ * 
+ * 
+ * However, if you start a new task execution using the same task and allow it to finish,
+ * file content on the destination will be complete and consistent. This applies to other
+ * unexpected failures that interrupt a task execution. In all of these cases, DataSync
+ * successfully completes the transfer when you start the next task execution.
+ */export const cancelTaskExecution = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.CancelTaskExecution" }, CancelTaskExecutionRequest, CancelTaskExecutionResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a transfer *location* for an Amazon FSx for Lustre file
+ * system. DataSync can use this location as a source or destination for
+ * transferring data.
+ * 
+ * 
+ * Before you begin, make sure that you understand how DataSync
+ * accesses FSx for Lustre file systems.
+ */export const createLocationFsxLustre = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.CreateLocationFsxLustre" }, CreateLocationFsxLustreRequest, CreateLocationFsxLustreResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a transfer *location* for an Amazon FSx for OpenZFS file
+ * system. DataSync can use this location as a source or destination for
+ * transferring data.
+ * 
+ * 
+ * Before you begin, make sure that you understand how DataSync
+ * accesses
+ * FSx for OpenZFS file systems.
+ * 
+ * 
+ * 
+ * 
+ * Request parameters related to `SMB` aren't supported with the
+ * `CreateLocationFsxOpenZfs` operation.
+ */export const createLocationFsxOpenZfs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.CreateLocationFsxOpenZfs" }, CreateLocationFsxOpenZfsRequest, CreateLocationFsxOpenZfsResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a transfer *location* for an Amazon FSx for Windows File Server file
+ * system. DataSync can use this location as a source or destination for
+ * transferring data.
+ * 
+ * 
+ * Before you begin, make sure that you understand how DataSync
+ * accesses
+ * FSx for Windows File Server file systems.
+ */export const createLocationFsxWindows = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.CreateLocationFsxWindows" }, CreateLocationFsxWindowsRequest, CreateLocationFsxWindowsResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a transfer *location* for an object storage system. DataSync can use this location as a source or destination for transferring data. You
+ * can make transfers with or without a DataSync
+ * agent.
+ * 
+ * 
+ * Before you begin, make sure that you understand the prerequisites for DataSync to work with object storage systems.
+ */export const createLocationObjectStorage = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.CreateLocationObjectStorage" }, CreateLocationObjectStorageRequest, CreateLocationObjectStorageResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Removes an DataSync agent resource from your Amazon Web Services account.
+ * 
+ * 
+ * Keep in mind that this operation (which can't be undone) doesn't remove the agent's
+ * virtual machine (VM) or Amazon EC2 instance from your storage environment. For next
+ * steps, you can delete the VM or instance from your storage environment or reuse it to activate a new
+ * agent.
+ */export const deleteAgent = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.DeleteAgent" }, DeleteAgentRequest, DeleteAgentResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Provides details about how an DataSync transfer location for an Amazon EFS file system is configured.
+ */export const describeLocationEfs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.DescribeLocationEfs" }, DescribeLocationEfsRequest, DescribeLocationEfsResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Provides details about how an DataSync transfer location for an Amazon FSx for Lustre file system is configured.
+ */export const describeLocationFsxLustre = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.DescribeLocationFsxLustre" }, DescribeLocationFsxLustreRequest, DescribeLocationFsxLustreResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Provides details about how an DataSync transfer location for an Amazon FSx for NetApp ONTAP file system is configured.
+ * 
+ * 
+ * 
+ * 
+ * If your location uses SMB, the `DescribeLocationFsxOntap` operation doesn't
+ * actually return a `Password`.
+ */export const describeLocationFsxOntap = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.DescribeLocationFsxOntap" }, DescribeLocationFsxOntapRequest, DescribeLocationFsxOntapResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Provides details about how an DataSync transfer location for an Amazon FSx for OpenZFS file system is configured.
+ * 
+ * 
+ * 
+ * 
+ * Response elements related to `SMB` aren't supported with the
+ * `DescribeLocationFsxOpenZfs` operation.
+ */export const describeLocationFsxOpenZfs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.DescribeLocationFsxOpenZfs" }, DescribeLocationFsxOpenZfsRequest, DescribeLocationFsxOpenZfsResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Provides details about how an DataSync transfer location for an Amazon FSx for Windows File Server file system is configured.
+ */export const describeLocationFsxWindows = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.DescribeLocationFsxWindows" }, DescribeLocationFsxWindowsRequest, DescribeLocationFsxWindowsResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Provides details about how an DataSync transfer location for a Hadoop
+ * Distributed File System (HDFS) is configured.
+ */export const describeLocationHdfs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.DescribeLocationHdfs" }, DescribeLocationHdfsRequest, DescribeLocationHdfsResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Provides details about how an DataSync transfer location for a Network
+ * File System (NFS) file server is configured.
+ */export const describeLocationNfs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.DescribeLocationNfs" }, DescribeLocationNfsRequest, DescribeLocationNfsResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Provides details about how an DataSync transfer location for an object
+ * storage system is configured.
+ */export const describeLocationObjectStorage = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.DescribeLocationObjectStorage" }, DescribeLocationObjectStorageRequest, DescribeLocationObjectStorageResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Provides details about how an DataSync transfer location for an S3 bucket
+ * is configured.
+ */export const describeLocationS3 = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.DescribeLocationS3" }, DescribeLocationS3Request, DescribeLocationS3Response, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Provides details about how an DataSync transfer location for a Server
+ * Message Block (SMB) file server is configured.
+ */export const describeLocationSmb = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.DescribeLocationSmb" }, DescribeLocationSmbRequest, DescribeLocationSmbResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns all the tags associated with an Amazon Web Services resource.
+ */export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Starts an DataSync transfer task. For each task, you can only run one task
+ * execution at a time.
+ * 
+ * 
+ * There are several steps to a task execution. For more information, see Task execution statuses.
+ * 
+ * 
+ * 
+ * 
+ * If you're planning to transfer data to or from an Amazon S3 location, review
+ * how
+ * DataSync can affect your S3 request charges and the DataSync pricing page before
+ * you begin.
+ */export const startTaskExecution = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.StartTaskExecution" }, StartTaskExecutionRequest, StartTaskExecutionResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Activates an DataSync agent that you deploy in your storage environment.
+ * The activation process associates the agent with your Amazon Web Services account.
+ * 
+ * 
+ * If you haven't deployed an agent yet, see Do I need a DataSync
+ * agent?
+ */export const createAgent = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.CreateAgent" }, CreateAgentRequest, CreateAgentResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a transfer *location* for a Microsoft Azure Blob Storage
+ * container. DataSync can use this location as a transfer source or destination.
+ * You can make transfers with or without a DataSync agent that connects to your
+ * container.
+ * 
+ * 
+ * Before you begin, make sure you know how DataSync accesses Azure Blob Storage and works with access tiers and blob types.
+ */export const createLocationAzureBlob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.CreateLocationAzureBlob" }, CreateLocationAzureBlobRequest, CreateLocationAzureBlobResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a transfer *location* for an Amazon EFS file system.
+ * DataSync can use this location as a source or destination for transferring
+ * data.
+ * 
+ * 
+ * Before you begin, make sure that you understand how DataSync
+ * accesses
+ * Amazon EFS file systems.
+ */export const createLocationEfs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.CreateLocationEfs" }, CreateLocationEfsRequest, CreateLocationEfsResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a transfer *location* for a Hadoop Distributed File System
+ * (HDFS). DataSync can use this location as a source or destination for
+ * transferring data.
+ * 
+ * 
+ * Before you begin, make sure that you understand how DataSync
+ * accesses HDFS
+ * clusters.
+ */export const createLocationHdfs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.CreateLocationHdfs" }, CreateLocationHdfsRequest, CreateLocationHdfsResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a transfer *location* for a Network File System (NFS) file
+ * server. DataSync can use this location as a source or destination for
+ * transferring data.
+ * 
+ * 
+ * Before you begin, make sure that you understand how DataSync
+ * accesses NFS file
+ * servers.
+ */export const createLocationNfs = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.CreateLocationNfs" }, CreateLocationNfsRequest, CreateLocationNfsResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a transfer *location* for an Amazon S3 bucket.
+ * DataSync can use this location as a source or destination for transferring
+ * data.
+ * 
+ * 
+ * 
+ * 
+ * Before you begin, make sure that you read the following topics:
+ * 
+ * 
+ * 
+ * - Storage
+ * class considerations with Amazon S3 locations
+ * 
+ * 
+ * 
+ * 
+ * - Evaluating S3 request costs when using DataSync
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * For more information, see Configuring
+ * transfers with Amazon S3.
+ */export const createLocationS3 = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.CreateLocationS3" }, CreateLocationS3Request, CreateLocationS3Response, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a transfer *location* for a Server Message Block (SMB) file
+ * server. DataSync can use this location as a source or destination for
+ * transferring data.
+ * 
+ * 
+ * Before you begin, make sure that you understand how DataSync accesses SMB
+ * file servers. For more information, see Providing DataSync access to SMB file servers.
+ */export const createLocationSmb = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.CreateLocationSmb" }, CreateLocationSmbRequest, CreateLocationSmbResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns information about an DataSync agent, such as its name, service
+ * endpoint type, and status.
+ */export const describeAgent = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.DescribeAgent" }, DescribeAgentRequest, DescribeAgentResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Provides details about how an DataSync transfer location for Microsoft Azure
+ * Blob Storage is configured.
+ */export const describeLocationAzureBlob = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.DescribeLocationAzureBlob" }, DescribeLocationAzureBlobRequest, DescribeLocationAzureBlobResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Provides information about a *task*, which defines where and how
+ * DataSync transfers your data.
+ */export const describeTask = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.DescribeTask" }, DescribeTaskRequest, DescribeTaskResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Provides information about an execution of your DataSync task. You can
+ * use this operation to help monitor the progress of an ongoing data transfer or check the
+ * results of the transfer.
+ * 
+ * 
+ * 
+ * 
+ * Some `DescribeTaskExecution` response elements are only relevant to a
+ * specific task mode. For information, see Understanding task mode differences and Understanding data
+ * transfer performance counters.
+ */export const describeTaskExecution = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.DescribeTaskExecution" }, DescribeTaskExecutionRequest, DescribeTaskExecutionResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns a list of DataSync agents that belong to an Amazon Web Services account in the Amazon Web Services Region specified in the request.
+ * 
+ * 
+ * With pagination, you can reduce the number of agents returned in a response. If you get
+ * a truncated list of agents in a response, the response contains a marker that you can specify
+ * in your next request to fetch the next page of agents.
+ * 
+ * 
+ * 
+ * `ListAgents` is eventually consistent. This means the result of running the
+ * operation might not reflect that you just created or deleted an agent. For example, if you
+ * create an agent with CreateAgent and then
+ * immediately run `ListAgents`, that agent might not show up in the list right away.
+ * In situations like this, you can always confirm whether an agent has been created (or deleted)
+ * by using DescribeAgent.
+ */export const listAgents = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.ListAgents" }, ListAgentsRequest, ListAgentsResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns a list of executions for an DataSync transfer task.
+ */export const listTaskExecutions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.ListTaskExecutions" }, ListTaskExecutionsRequest, ListTaskExecutionsResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Modifies the following configuration parameters of the Amazon FSx for NetApp ONTAP
+ * transfer location that you're using with DataSync.
+ * 
+ * 
+ * For more information, see Configuring DataSync
+ * transfers with FSx for ONTAP.
+ */export const updateLocationFsxOntap = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.UpdateLocationFsxOntap" }, UpdateLocationFsxOntapRequest, UpdateLocationFsxOntapResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a transfer *location* for an Amazon FSx for NetApp ONTAP file
+ * system. DataSync can use this location as a source or destination for
+ * transferring data.
+ * 
+ * 
+ * Before you begin, make sure that you understand how DataSync
+ * accesses FSx for ONTAP file systems.
+ */export const createLocationFsxOntap = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.CreateLocationFsxOntap" }, CreateLocationFsxOntapRequest, CreateLocationFsxOntapResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns a list of source and destination locations.
+ * 
+ * 
+ * If you have more locations than are returned in a response (that is, the response
+ * returns only a truncated list of your agents), the response contains a token that you can
+ * specify in your next request to fetch the next page of locations.
+ */export const listLocations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.ListLocations" }, ListLocationsRequest, ListLocationsResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Returns a list of the DataSync tasks you created.
+ */export const listTasks = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.ListTasks" }, ListTasksRequest, ListTasksResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Configures a *task*, which defines where and how DataSync
+ * transfers your data.
+ * 
+ * 
+ * A task includes a source location, destination location, and transfer options (such as
+ * bandwidth limits, scheduling, and more).
+ * 
+ * 
+ * 
+ * 
+ * If you're planning to transfer data to or from an Amazon S3 location, review
+ * how
+ * DataSync can affect your S3 request charges and the DataSync pricing page before
+ * you begin.
+ */export const createTask = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-09", uri: "/", method: "POST", sdkId: "DataSync", sigV4ServiceName: "datasync", name: "FmrsService.CreateTask" }, CreateTaskRequest, CreateTaskResponse, [InternalException, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

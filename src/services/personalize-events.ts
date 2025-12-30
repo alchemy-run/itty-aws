@@ -28,8 +28,28 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
 export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundException>()("ResourceNotFoundException", {}) {};
 
 //# Operations
-export const putUsers = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-22", uri: "/users", method: "POST", sdkId: "Personalize Events", sigV4ServiceName: "personalize", name: "AmazonPersonalizeEvents.PutUsers" }, PutUsersRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const putActionInteractions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-22", uri: "/action-interactions", method: "POST", sdkId: "Personalize Events", sigV4ServiceName: "personalize", name: "AmazonPersonalizeEvents.PutActionInteractions" }, PutActionInteractionsRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const putActions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-22", uri: "/actions", method: "POST", sdkId: "Personalize Events", sigV4ServiceName: "personalize", name: "AmazonPersonalizeEvents.PutActions" }, PutActionsRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const putEvents = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-22", uri: "/events", method: "POST", sdkId: "Personalize Events", sigV4ServiceName: "personalize", name: "AmazonPersonalizeEvents.PutEvents" }, PutEventsRequest, S.Struct({}), [InvalidInputException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const putItems = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-22", uri: "/items", method: "POST", sdkId: "Personalize Events", sigV4ServiceName: "personalize", name: "AmazonPersonalizeEvents.PutItems" }, PutItemsRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Adds one or more users to a Users dataset. For more information see
+ * Importing users individually.
+ */export const putUsers = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-22", uri: "/users", method: "POST", sdkId: "Personalize Events", sigV4ServiceName: "personalize", name: "AmazonPersonalizeEvents.PutUsers" }, PutUsersRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Records action interaction event data. An *action interaction* event is an interaction between a user and an *action*.
+ * For example, a user taking an action, such a enrolling in a membership program or downloading your app.
+ * 
+ * 
+ * 
+ * For more information about recording action interactions, see Recording action interaction events.
+ * For more information about actions in an Actions dataset, see Actions dataset.
+ */export const putActionInteractions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-22", uri: "/action-interactions", method: "POST", sdkId: "Personalize Events", sigV4ServiceName: "personalize", name: "AmazonPersonalizeEvents.PutActionInteractions" }, PutActionInteractionsRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Adds one or more actions to an Actions dataset. For more information see
+ * Importing actions individually.
+ */export const putActions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-22", uri: "/actions", method: "POST", sdkId: "Personalize Events", sigV4ServiceName: "personalize", name: "AmazonPersonalizeEvents.PutActions" }, PutActionsRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Records item interaction event data. For more information see
+ * Recording item interaction events.
+ */export const putEvents = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-22", uri: "/events", method: "POST", sdkId: "Personalize Events", sigV4ServiceName: "personalize", name: "AmazonPersonalizeEvents.PutEvents" }, PutEventsRequest, S.Struct({}), [InvalidInputException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Adds one or more items to an Items dataset. For more information see
+ * Importing items individually.
+ */export const putItems = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-22", uri: "/items", method: "POST", sdkId: "Personalize Events", sigV4ServiceName: "personalize", name: "AmazonPersonalizeEvents.PutItems" }, PutItemsRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

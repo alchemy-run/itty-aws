@@ -178,29 +178,111 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
 export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExceededException>()("ServiceQuotaExceededException", {}) {};
 
 //# Operations
-export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/tags/{resourceArn}", method: "POST", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.TagResource" }, TagResourceRequest, TagResourceResponse, []), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/tags/{resourceArn}", method: "DELETE", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.UntagResource" }, UntagResourceRequest, UntagResourceResponse, []), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getTargetAccountConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/experimentTemplates/{experimentTemplateId}/targetAccountConfigurations/{accountId}", method: "GET", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.GetTargetAccountConfiguration" }, GetTargetAccountConfigurationRequest, GetTargetAccountConfigurationResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/tags/{resourceArn}", method: "GET", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, []), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const stopExperiment = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/experiments/{id}", method: "DELETE", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.StopExperiment" }, StopExperimentRequest, StopExperimentResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateTargetAccountConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/experimentTemplates/{experimentTemplateId}/targetAccountConfigurations/{accountId}", method: "PATCH", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.UpdateTargetAccountConfiguration" }, UpdateTargetAccountConfigurationRequest, UpdateTargetAccountConfigurationResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteTargetAccountConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/experimentTemplates/{experimentTemplateId}/targetAccountConfigurations/{accountId}", method: "DELETE", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.DeleteTargetAccountConfiguration" }, DeleteTargetAccountConfigurationRequest, DeleteTargetAccountConfigurationResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getExperimentTargetAccountConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/experiments/{experimentId}/targetAccountConfigurations/{accountId}", method: "GET", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.GetExperimentTargetAccountConfiguration" }, GetExperimentTargetAccountConfigurationRequest, GetExperimentTargetAccountConfigurationResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getExperimentTemplate = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/experimentTemplates/{id}", method: "GET", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.GetExperimentTemplate" }, GetExperimentTemplateRequest, GetExperimentTemplateResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listActions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/actions", method: "GET", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.ListActions" }, ListActionsRequest, ListActionsResponse, [ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listExperiments = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/experiments", method: "GET", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.ListExperiments" }, ListExperimentsRequest, ListExperimentsResponse, [ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listExperimentTargetAccountConfigurations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/experiments/{experimentId}/targetAccountConfigurations", method: "GET", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.ListExperimentTargetAccountConfigurations" }, ListExperimentTargetAccountConfigurationsRequest, ListExperimentTargetAccountConfigurationsResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listExperimentTemplates = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/experimentTemplates", method: "GET", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.ListExperimentTemplates" }, ListExperimentTemplatesRequest, ListExperimentTemplatesResponse, [ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listTargetAccountConfigurations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/experimentTemplates/{experimentTemplateId}/targetAccountConfigurations", method: "GET", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.ListTargetAccountConfigurations" }, ListTargetAccountConfigurationsRequest, ListTargetAccountConfigurationsResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listTargetResourceTypes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/targetResourceTypes", method: "GET", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.ListTargetResourceTypes" }, ListTargetResourceTypesRequest, ListTargetResourceTypesResponse, [ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateSafetyLeverState = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/safetyLevers/{id}/state", method: "PATCH", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.UpdateSafetyLeverState" }, UpdateSafetyLeverStateRequest, UpdateSafetyLeverStateResponse, [ConflictException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createTargetAccountConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/experimentTemplates/{experimentTemplateId}/targetAccountConfigurations/{accountId}", method: "POST", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.CreateTargetAccountConfiguration" }, CreateTargetAccountConfigurationRequest, CreateTargetAccountConfigurationResponse, [ConflictException, ResourceNotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getSafetyLever = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/safetyLevers/{id}", method: "GET", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.GetSafetyLever" }, GetSafetyLeverRequest, GetSafetyLeverResponse, [ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const listExperimentResolvedTargets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/experiments/{experimentId}/resolvedTargets", method: "GET", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.ListExperimentResolvedTargets" }, ListExperimentResolvedTargetsRequest, ListExperimentResolvedTargetsResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const startExperiment = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/experiments", method: "POST", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.StartExperiment" }, StartExperimentRequest, StartExperimentResponse, [ConflictException, ResourceNotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const updateExperimentTemplate = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/experimentTemplates/{id}", method: "PATCH", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.UpdateExperimentTemplate" }, UpdateExperimentTemplateRequest, UpdateExperimentTemplateResponse, [ResourceNotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const createExperimentTemplate = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/experimentTemplates", method: "POST", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.CreateExperimentTemplate" }, CreateExperimentTemplateRequest, CreateExperimentTemplateResponse, [ConflictException, ResourceNotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getAction = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/actions/{id}", method: "GET", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.GetAction" }, GetActionRequest, GetActionResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getTargetResourceType = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/targetResourceTypes/{resourceType}", method: "GET", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.GetTargetResourceType" }, GetTargetResourceTypeRequest, GetTargetResourceTypeResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const deleteExperimentTemplate = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/experimentTemplates/{id}", method: "DELETE", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.DeleteExperimentTemplate" }, DeleteExperimentTemplateRequest, DeleteExperimentTemplateResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const getExperiment = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/experiments/{id}", method: "GET", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.GetExperiment" }, GetExperimentRequest, GetExperimentResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Applies the specified tags to the specified resource.
+ */export const tagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/tags/{resourceArn}", method: "POST", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.TagResource" }, TagResourceRequest, TagResourceResponse, []), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Removes the specified tags from the specified resource.
+ */export const untagResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/tags/{resourceArn}", method: "DELETE", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.UntagResource" }, UntagResourceRequest, UntagResourceResponse, []), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets information about the specified target account configuration of the experiment template.
+ */export const getTargetAccountConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/experimentTemplates/{experimentTemplateId}/targetAccountConfigurations/{accountId}", method: "GET", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.GetTargetAccountConfiguration" }, GetTargetAccountConfigurationRequest, GetTargetAccountConfigurationResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the tags for the specified resource.
+ */export const listTagsForResource = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/tags/{resourceArn}", method: "GET", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, []), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Stops the specified experiment.
+ */export const stopExperiment = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/experiments/{id}", method: "DELETE", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.StopExperiment" }, StopExperimentRequest, StopExperimentResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates the target account configuration for the specified experiment template.
+ */export const updateTargetAccountConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/experimentTemplates/{experimentTemplateId}/targetAccountConfigurations/{accountId}", method: "PATCH", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.UpdateTargetAccountConfiguration" }, UpdateTargetAccountConfigurationRequest, UpdateTargetAccountConfigurationResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes the specified target account configuration of the experiment template.
+ */export const deleteTargetAccountConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/experimentTemplates/{experimentTemplateId}/targetAccountConfigurations/{accountId}", method: "DELETE", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.DeleteTargetAccountConfiguration" }, DeleteTargetAccountConfigurationRequest, DeleteTargetAccountConfigurationResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets information about the specified target account configuration of the experiment.
+ */export const getExperimentTargetAccountConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/experiments/{experimentId}/targetAccountConfigurations/{accountId}", method: "GET", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.GetExperimentTargetAccountConfiguration" }, GetExperimentTargetAccountConfigurationRequest, GetExperimentTargetAccountConfigurationResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets information about the specified experiment template.
+ */export const getExperimentTemplate = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/experimentTemplates/{id}", method: "GET", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.GetExperimentTemplate" }, GetExperimentTemplateRequest, GetExperimentTemplateResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the available FIS actions.
+ */export const listActions = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/actions", method: "GET", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.ListActions" }, ListActionsRequest, ListActionsResponse, [ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists your experiments.
+ */export const listExperiments = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/experiments", method: "GET", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.ListExperiments" }, ListExperimentsRequest, ListExperimentsResponse, [ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the target account configurations of the specified experiment.
+ */export const listExperimentTargetAccountConfigurations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/experiments/{experimentId}/targetAccountConfigurations", method: "GET", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.ListExperimentTargetAccountConfigurations" }, ListExperimentTargetAccountConfigurationsRequest, ListExperimentTargetAccountConfigurationsResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists your experiment templates.
+ */export const listExperimentTemplates = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/experimentTemplates", method: "GET", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.ListExperimentTemplates" }, ListExperimentTemplatesRequest, ListExperimentTemplatesResponse, [ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the target account configurations of the specified experiment template.
+ */export const listTargetAccountConfigurations = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/experimentTemplates/{experimentTemplateId}/targetAccountConfigurations", method: "GET", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.ListTargetAccountConfigurations" }, ListTargetAccountConfigurationsRequest, ListTargetAccountConfigurationsResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the target resource types.
+ */export const listTargetResourceTypes = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/targetResourceTypes", method: "GET", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.ListTargetResourceTypes" }, ListTargetResourceTypesRequest, ListTargetResourceTypesResponse, [ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates the specified safety lever state.
+ */export const updateSafetyLeverState = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/safetyLevers/{id}/state", method: "PATCH", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.UpdateSafetyLeverState" }, UpdateSafetyLeverStateRequest, UpdateSafetyLeverStateResponse, [ConflictException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates a target account configuration for the experiment template. A target account configuration
+ * is required when `accountTargeting` of `experimentOptions` is set to `multi-account`.
+ * For more information, see experiment options
+ * in the *Fault Injection Service User Guide*.
+ */export const createTargetAccountConfiguration = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/experimentTemplates/{experimentTemplateId}/targetAccountConfigurations/{accountId}", method: "POST", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.CreateTargetAccountConfiguration" }, CreateTargetAccountConfigurationRequest, CreateTargetAccountConfigurationResponse, [ConflictException, ResourceNotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets information about the specified safety lever.
+ */export const getSafetyLever = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/safetyLevers/{id}", method: "GET", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.GetSafetyLever" }, GetSafetyLeverRequest, GetSafetyLeverResponse, [ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Lists the resolved targets information of the specified experiment.
+ */export const listExperimentResolvedTargets = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/experiments/{experimentId}/resolvedTargets", method: "GET", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.ListExperimentResolvedTargets" }, ListExperimentResolvedTargetsRequest, ListExperimentResolvedTargetsResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Starts running an experiment from the specified experiment template.
+ */export const startExperiment = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/experiments", method: "POST", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.StartExperiment" }, StartExperimentRequest, StartExperimentResponse, [ConflictException, ResourceNotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Updates the specified experiment template.
+ */export const updateExperimentTemplate = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/experimentTemplates/{id}", method: "PATCH", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.UpdateExperimentTemplate" }, UpdateExperimentTemplateRequest, UpdateExperimentTemplateResponse, [ResourceNotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Creates an experiment template.
+ * 
+ * 
+ * An experiment template includes the following components:
+ * 
+ * 
+ * 
+ * - **Targets**: A target can be a specific resource in
+ * your Amazon Web Services environment, or one or more resources that match criteria that you
+ * specify, for example, resources that have specific tags.
+ * 
+ * 
+ * 
+ * - **Actions**: The actions to carry out on the
+ * target. You can specify multiple actions, the duration of each action, and when to start each action during an experiment.
+ * 
+ * 
+ * 
+ * - **Stop conditions**: If a stop condition is
+ * triggered while an experiment is running, the experiment is automatically
+ * stopped. You can define a stop condition as a CloudWatch alarm.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * For more information, see experiment templates
+ * in the *Fault Injection Service User Guide*.
+ */export const createExperimentTemplate = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/experimentTemplates", method: "POST", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.CreateExperimentTemplate" }, CreateExperimentTemplateRequest, CreateExperimentTemplateResponse, [ConflictException, ResourceNotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets information about the specified FIS action.
+ */export const getAction = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/actions/{id}", method: "GET", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.GetAction" }, GetActionRequest, GetActionResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets information about the specified resource type.
+ */export const getTargetResourceType = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/targetResourceTypes/{resourceType}", method: "GET", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.GetTargetResourceType" }, GetTargetResourceTypeRequest, GetTargetResourceTypeResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Deletes the specified experiment template.
+ */export const deleteExperimentTemplate = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/experimentTemplates/{id}", method: "DELETE", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.DeleteExperimentTemplate" }, DeleteExperimentTemplateRequest, DeleteExperimentTemplateResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+/**
+ * Gets information about the specified experiment.
+ */export const getExperiment = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/experiments/{id}", method: "GET", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.GetExperiment" }, GetExperimentRequest, GetExperimentResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
