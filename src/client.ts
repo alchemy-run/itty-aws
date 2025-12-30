@@ -18,12 +18,15 @@ import {
   requestHeaderSymbol,
   requestMetaSymbol,
   requestPathSymbol,
-  type ErrorSchema,
   OperationMeta,
 } from "./schema-helpers";
 import { HttpBody, HttpClient } from "@effect/platform";
 import type { HttpClientError } from "@effect/platform/HttpClientError";
-import { createDynamicTaggedError, type DynamicErrorUnion } from "./aws-errors";
+import {
+  COMMON_ERRORS,
+  type CommonAwsError,
+  UnknownAwsError,
+} from "./aws-errors";
 
 const builder = new XMLBuilder();
 const parser = new XMLParser();
@@ -430,7 +433,6 @@ export const makeFormatRequestSchema = <A extends Schema.Schema.AnyNoContext>(
   operationSchema: Schema.Struct<{
     input: A;
     output: Schema.Schema.AnyNoContext;
-    error: Schema.Union<Array<ErrorSchema>> | ErrorSchema | typeof Schema.Void;
   }>,
   MiddlewareSchema: Schema.Schema<
     Schema.Schema.Type<typeof unsignedRequest>,
@@ -525,7 +527,6 @@ export const makeFormatResponseSchema = <A extends Schema.Schema.AnyNoContext>(
   operationSchema: Schema.Struct<{
     output: A;
     input: Schema.Schema.AnyNoContext;
-    error: Schema.Union<Array<ErrorSchema>> | ErrorSchema | typeof Schema.Void;
   }>,
   MiddlewareSchema: Schema.Schema<
     Schema.Schema.Type<typeof response>,
@@ -588,57 +589,6 @@ const getNested = (obj: object, path: string) =>
   //@ts-expect-error
   path.split(".").reduce((acc, key) => acc?.[key], obj);
 
-export const makeFormatErrorSchema = <
-  A extends Schema.Union<Array<ErrorSchema>> | ErrorSchema | typeof Schema.Void,
->(
-  operationSchema: Schema.Struct<{
-    output: Schema.Schema.AnyNoContext;
-    input: Schema.Schema.AnyNoContext;
-    error: A;
-  }>,
-  MiddlewareSchema: Schema.Schema<
-    Schema.Schema.Type<typeof errorResponse>,
-    Schema.Schema.Type<typeof rawResponse>,
-    never
-  >,
-) => {
-  const errorSchema = operationSchema.fields.error;
-  const errorAst = errorSchema.ast;
-
-  const OutputFromResponse = Schema.asSchema(
-    Schema.transformOrFail(errorResponse, errorSchema, {
-      strict: true,
-      encode: (actual, _, ast) =>
-        ParseResult.fail(
-          new ParseResult.Forbidden(ast, actual, "cannot encode output"),
-        ),
-      decode: (value, _, ast) =>
-        Effect.gen(function* () {
-          const unsafeStructAst = AST.isTransformation(errorAst)
-            ? errorAst.from
-            : errorAst;
-
-          const safeStructAsts = AST.isUnion(unsafeStructAst)
-            ? unsafeStructAst.types
-            : [unsafeStructAst];
-
-          for (const structAst of safeStructAsts) {
-            if (value._tag === structAst.annotations[requestError]) {
-              return yield* Schema.decodeUnknown(errorSchema)(value.data);
-            }
-          }
-
-          //todo(pear): better unknown error
-          yield* Effect.fail(new ParseResult.Type(ast, value, "Unknown Error"));
-        }).pipe(
-          Effect.mapError((e) => new ParseResult.Type(ast, value, e.message)),
-        ),
-    }),
-  );
-
-  return Schema.asSchema(Schema.compose(MiddlewareSchema, OutputFromResponse));
-};
-
 export const makeOperation = <A extends ReturnType<typeof Operation>>(
   operationSchemaGenerator: () => A,
   RequestMiddleware: Schema.Schema<
@@ -657,15 +607,17 @@ export const makeOperation = <A extends ReturnType<typeof Operation>>(
     never
   >,
 ): ((
-  payload: Schema.Schema.Type<A["fields"]["input"]>,
+  payload: Schema.Schema.Type<A["schema"]["fields"]["input"]>,
 ) => Effect.Effect<
-  Schema.Schema.Type<A["fields"]["output"]>,
-  | DynamicErrorUnion<A["fields"]["error"]>
+  Schema.Schema.Type<A["schema"]["fields"]["output"]>,
+  | A["errors"]
   | ParseResult.ParseError
-  | HttpClientError,
+  | HttpClientError
+  | UnknownAwsError
+  | CommonAwsError,
   Region | Credentials | HttpClient.HttpClient
 >) => {
-  const operationSchema = operationSchemaGenerator();
+  const operationSchema = operationSchemaGenerator() as any as A["schema"];
   const FormatRequest = makeFormatRequestSchema(
     operationSchema,
     RequestMiddleware,
@@ -674,9 +626,9 @@ export const makeOperation = <A extends ReturnType<typeof Operation>>(
     operationSchema,
     ResponseMiddleware,
   );
-  const FormatError = makeFormatErrorSchema(operationSchema, ErrorMiddleware);
+  // const FormatError = makeFormatErrorSchema(operationSchema, ErrorMiddleware);
   return Effect.fn(function* (
-    payload: Schema.Schema.Type<A["fields"]["input"]>,
+    payload: Schema.Schema.Type<A["schema"]["fields"]["input"]>,
   ) {
     const httpClient = yield* HttpClient.HttpClient;
 
@@ -749,12 +701,27 @@ export const makeOperation = <A extends ReturnType<typeof Operation>>(
       );
       return response;
     } else {
-      const { _tag: errorTag, ...error } =
-        yield* Schema.decode(FormatError)(responsePayload);
-      yield* Effect.logDebug(
-        `AWS Request - ${meta.sdkId}:${meta.name} - parsed error: ${JSON.stringify(error)}`,
+      const { _tag: errorTag, data: errorData } =
+        yield* Schema.decode(ErrorMiddleware)(responsePayload);
+      const errorClasses = [
+        ...(operationSchema.ast.annotations[requestError] as Array<unknown>),
+        ...COMMON_ERRORS,
+      ] as Array<{ _tag: string; make: (data: unknown) => A["errors"] }>;
+      const matchingErrorClass = errorClasses.find(
+        (errorClass) => errorClass._tag === errorTag,
       );
-      return yield* Effect.fail(createDynamicTaggedError(errorTag, error));
+      if (matchingErrorClass == null) {
+        return yield* Effect.fail(
+          UnknownAwsError.make({
+            errorTag,
+            errorData,
+          }),
+        );
+      }
+      yield* Effect.logDebug(
+        `AWS Request - ${meta.sdkId}:${meta.name} - parsed error: ${JSON.stringify(errorData)}`,
+      );
+      return yield* Effect.fail(matchingErrorClass.make(errorData));
     }
   }) as any;
 };

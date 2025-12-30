@@ -1,5 +1,5 @@
 {
-  "name": "itty-aws-2",
+  "name": "distilled-aws-sdk",
   "module": "index.ts",
   "type": "module",
   "private": true,
@@ -11,8 +11,8 @@
     "dedent": "^1.7.0"
   },
   "exports": {
-    "./service/*": "./src/clients.gen/*.ts",
-    "./credentials": "./src/credentials.ts"
+    "./*": "./src/clients.gen/*.ts",
+    ".": "./src/credentials.ts"
   },
   "peerDependencies": {
     "typescript": "^5"

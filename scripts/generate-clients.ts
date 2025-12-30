@@ -22,6 +22,7 @@ import {
   ShapeTypeMap,
 } from "./model-schema";
 import dedent from "dedent";
+import { schema } from "@effect/platform/Transferable";
 
 class SdkFile extends Context.Tag("SdkFile")<
   SdkFile,
@@ -30,7 +31,10 @@ class SdkFile extends Context.Tag("SdkFile")<
       string,
       Deferred.Deferred<string, never>
     >;
-    schemas: Ref.Ref<Array<{ name: string; definition: string; deps: string[] }>>;
+    schemas: Ref.Ref<
+      Array<{ name: string; definition: string; deps: string[] }>
+    >;
+    errors: Ref.Ref<Array<{ name: string; definition: string }>>;
     operations: Ref.Ref<string>;
   }
 >() {}
@@ -414,6 +418,21 @@ const convertShapeToSchema: (
   return deferredValue;
 });
 
+const addError = Effect.fn(function* (error: { name: string; schema: string }) {
+  const sdkFile = yield* SdkFile;
+  const existingErrors = yield* Ref.get(sdkFile.errors);
+  if (!existingErrors.some((e) => e.name === error.name)) {
+    yield* Ref.update(sdkFile.errors, (errors) => [
+      ...errors,
+      {
+        name: error.name,
+        definition: `export class ${error.name}Error extends Schema.TaggedError<${error.name}Error>()("${error.name}", ${error.schema}) {};`,
+      },
+    ]);
+  }
+  return `${error.name}Error`;
+});
+
 const generateClient = Effect.fn(function* (
   modelPath: string,
   outputRootPath: string,
@@ -460,26 +479,22 @@ const generateClient = Effect.fn(function* (
           operationShape.output.target,
         ).pipe(Effect.flatMap(Deferred.await));
 
-        const errors =
+        const operationErrors =
           operationShape.errors == null || operationShape.errors.length === 0
-            ? "Schema.Void"
+            ? "[]"
             : yield* Effect.forEach(
                 operationShape.errors,
                 ({ target: errorShapeReference }) =>
                   convertShapeToSchema(errorShapeReference).pipe(
                     Effect.flatMap(Deferred.await),
-                    Effect.map(
-                      (s) =>
-                        `ErrorAnnotation("${formatName(errorShapeReference)}", ${s})`,
+                    Effect.flatMap((s) =>
+                      addError({
+                        name: formatName(errorShapeReference),
+                        schema: s,
+                      }),
                     ),
                   ),
-              ).pipe(
-                Effect.map((schemas) =>
-                  schemas.length === 1
-                    ? schemas[0]
-                    : `Schema.Union(${schemas.join(", ")})`,
-                ),
-              );
+              ).pipe(Effect.map((errors) => `[${errors.join(", ")}]`));
 
         const httpTrait = operationShape["traits"]["smithy.api#http"] ?? {
           method: "POST",
@@ -548,7 +563,7 @@ const generateClient = Effect.fn(function* (
           Ref.update(
             (c) =>
               c +
-              `export const ${formatName(operationShapeName)} = /*#__PURE__*/ makeOperation(() => Operation({ version: "${serviceShape.version}", uri: "${httpTrait["uri"]}", method: "${httpTrait["method"]}", sdkId: "${serviceShape.traits["aws.api#service"].sdkId}", sigV4ServiceName: ${serviceShape.traits["aws.auth#sigv4"]?.name == null ? "null" : `"${serviceShape.traits["aws.auth#sigv4"]?.name}"`}, name: "${operationName}" }, ${input}, ${output}, ${errors}), ${responseParser}, ${requestParser}, ${errorParser});\n`,
+              `export const ${formatName(operationShapeName, true)} = /*#__PURE__*/ makeOperation(() => Operation({ version: "${serviceShape.version}", uri: "${httpTrait["uri"]}", method: "${httpTrait["method"]}", sdkId: "${serviceShape.traits["aws.api#service"].sdkId}", sigV4ServiceName: ${serviceShape.traits["aws.auth#sigv4"]?.name == null ? "null" : `"${serviceShape.traits["aws.auth#sigv4"]?.name}"`}, name: "${operationName}" }, ${input}, ${output}, ${operationErrors}), ${responseParser}, ${requestParser}, ${errorParser});\n`,
           ),
         );
       }),
@@ -560,9 +575,10 @@ const generateClient = Effect.fn(function* (
     // Get schemas and sort them topologically
     const schemas = yield* Ref.get(sdkFile.schemas);
     const sortedSchemas = topologicalSort(schemas);
-    const schemaDefinitions = sortedSchemas
-      .map((s) => s.definition)
-      .join("\n");
+    const schemaDefinitions = sortedSchemas.map((s) => s.definition).join("\n");
+
+    const errors = yield* Ref.get(sdkFile.errors);
+    const errorDefinitions = errors.map((s) => s.definition).join("\n");
 
     const operations = yield* Ref.get(sdkFile.operations);
 
@@ -570,9 +586,9 @@ const generateClient = Effect.fn(function* (
     const imports = dedent`
       import { Schema} from "effect"
       import { ${Array.from(clientImports).join(",")}, makeOperation } from "../client";
-      import { Operation, Path, Header, StreamBody, Body, ErrorAnnotation } from "../schema-helpers";`;
+      import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers";`;
 
-    const fileContents = `${imports}\n${schemaDefinitions}\n${operations}`;
+    const fileContents = `${imports}\n\n//# Schemas\n${schemaDefinitions}\n\n//# Errors\n${errorDefinitions}\n\n//# Operations\n${operations}`;
 
     yield* fs.writeFileString(
       path.join(
@@ -588,6 +604,7 @@ const generateClient = Effect.fn(function* (
       schemas: yield* Ref.make<
         Array<{ name: string; definition: string; deps: string[] }>
       >([]),
+      errors: yield* Ref.make<Array<{ name: string; definition: string }>>([]),
       operations: yield* Ref.make(""),
       map: MutableHashMap.empty<string, Deferred.Deferred<string, never>>(),
     }),

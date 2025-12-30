@@ -1,80 +1,29 @@
 import { Schema, Effect } from "effect";
 import { Region } from "./src/region";
-import {
-  Operation,
-  Path,
-  Header,
-  StreamBody,
-  Body,
-  Error,
-} from "./src/schema-helpers";
-import {
-  FormatXMLResponse,
-  makeOperation,
-  NoopRequest,
-  NoopResponse,
-} from "./src/client";
-
-class NoSuchBucket extends Error(
-  "NoSuchBucket",
-  Schema.Struct({
-    Code: Body("Error.Code", Schema.Literal("NoSuchBucket")),
-    Message: Body("Error.Message", Schema.String),
-    BucketName: Body("Error.BucketName", Schema.String),
-  }),
-) {}
-
-const input = () =>
-  Operation(
-    {
-      uri: "/{Bucket}/{Key+}?x-id=PutObject",
-      method: "PUT",
-      sdkId: "S3",
-      sigV4ServiceName: "s3",
-      name: "PutObject",
-    },
-    Schema.Struct({
-      ACL: Schema.optional(
-        Header(
-          "x-amz-acl",
-          Schema.Literal(
-            "private",
-            "public-read",
-            "public-read-write",
-            "authenticated-read",
-          ),
-        ),
-      ),
-      Body: StreamBody(),
-      Bucket: Path("Bucket", Schema.String),
-      Key: Path("Key", Schema.String),
-    }),
-    Schema.Struct({
-      ETag: Header("etag", Schema.String),
-    }),
-    //todo(pear): make empty struct the default
-    Schema.Union(NoSuchBucket),
-  );
 
 import { BunContext, BunRuntime } from "@effect/platform-bun";
 import { Logger, LogLevel } from "effect";
 import { NodeProviderChainCredentialsLive } from "./src/credentials";
 import { FetchHttpClient } from "@effect/platform";
+// import { PutObject } from "./src/clients.gen/s3";
+
+export class TestError extends Schema.TaggedError<TestError>()(
+  "TestError",
+  Schema.Struct({}),
+) {}
 
 const program = Effect.gen(function* () {
-  const PutObject = makeOperation(
-    input,
-    NoopRequest,
-    NoopResponse,
-    FormatXMLResponse,
-  );
-  //todo(pear): make the errors more readable (probably just export from somewhere, idk)
-  const result = PutObject({
-    Bucket: "alchemy-7uzxjcr-test",
-    Key: "test-2.txt",
-    Body: "this is some text2",
+  const error = TestError.make({
+    message: "Test error message",
   });
-  yield* Effect.logDebug(result);
+  return yield* Effect.fail(error);
+  //todo(pear): make the errors more readable (probably just export from somewhere, idk)
+  // const result = yield* PutObject({
+  //   Bucket: "alchemy-7uzxjcr-test",
+  //   Key: "test-2.txt",
+  //   Body: "this is some text2",
+  // });
+  // yield* Effect.logDebug(result);
 });
 
 BunRuntime.runMain(

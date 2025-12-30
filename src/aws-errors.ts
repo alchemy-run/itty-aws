@@ -1,45 +1,5 @@
 import * as S from "effect/Schema";
 import { withCategory, ERROR_CATEGORIES } from "./errors";
-import type { ErrorSchema } from "./schema-helpers";
-
-export type CommonAwsError =
-  | AccessDeniedException
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | ThrottlingException
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | ValidationException;
-
-const COMMON_ERRORS = [
-  "AccessDeniedException",
-  "ExpiredTokenException",
-  "IncompleteSignature",
-  "InternalFailure",
-  "MalformedHttpRequestException",
-  "NotAuthorized",
-  "OptInRequired",
-  "RequestAbortedException",
-  "RequestEntityTooLargeException",
-  "RequestExpired",
-  "RequestTimeoutException",
-  "ServiceUnavailable",
-  "ThrottlingException",
-  "UnrecognizedClientException",
-  "UnknownOperationException",
-  "ValidationError",
-  "ValidationException",
-];
 
 //==== Common AWS Errors ====
 export declare class AccessDeniedException extends S.TaggedError<AccessDeniedException>()(
@@ -161,44 +121,49 @@ export declare class ValidationException extends S.TaggedError<ValidationExcepti
   withCategory(ERROR_CATEGORIES.AWS_ERROR, ERROR_CATEGORIES.COMMON_ERROR),
 ) {}
 
-//=====================
+export declare class UnknownAwsError extends S.TaggedError<UnknownAwsError>()(
+  "UnknownAwsError",
+  {
+    errorTag: S.String,
+    errorData: S.Any,
+  },
+).pipe(withCategory(ERROR_CATEGORIES.AWS_ERROR)) {}
 
-export function createDynamicTaggedError(
-  tag: string,
-  errorData: Record<string, unknown>,
-) {
-  const categories: Array<string> = [ERROR_CATEGORIES.AWS_ERROR];
+export const COMMON_ERRORS = [
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  ValidationException,
+] as const;
 
-  if (COMMON_ERRORS.includes(tag)) {
-    categories.push(ERROR_CATEGORIES.COMMON_ERROR);
-  }
-
-  return new (S.TaggedError()(
-    `${tag}Error`,
-    Object.fromEntries(Object.keys(errorData).map((k) => [k, S.Unknown])),
-    //@ts-expect-error
-  ).pipe(withCategory(...categories)))(errorData);
-}
-
-export type DynamicError<
-  Err extends S.Schema.Any & { fields: { _tag: S.Schema.Any } },
-> = S.TaggedErrorClass<
-  never,
-  S.Schema.Type<Err["fields"]["_tag"]>,
-  Err["fields"]
->;
-
-export type DynamicErrorUnion<
-  ErrorInput extends S.Union<Array<ErrorSchema>> | ErrorSchema | typeof S.Void,
-> = ErrorInput extends typeof S.Void
-  ? typeof S.Void
-  : ErrorInput extends ErrorSchema
-    ? DynamicError<ErrorInput>
-    : ErrorInput extends S.Union<infer Errors>
-      ? Errors[number] extends infer Error
-        ? Error extends { fields: { _tag: S.Schema.Any } }
-          ? //@ts-expect-error shhhh be quiet typescript
-            DynamicError<Error>
-          : never
-        : never
-      : never;
+export type CommonAwsError =
+  | AccessDeniedException
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | ThrottlingException
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | ValidationException;

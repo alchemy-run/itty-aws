@@ -36,20 +36,6 @@ export const Path = <S extends Schema.Schema.AnyNoContext>(
   pathName: string,
   schema: S,
 ) => schema.pipe(Schema.annotations({ [requestPathSymbol]: pathName }));
-export const ErrorAnnotation = <
-  Tag extends string,
-  S extends Schema.Struct.Fields,
->(
-  errorName: Tag,
-  schema: Schema.Struct<S>,
-) =>
-  Schema.Struct({
-    ...schema.fields,
-    _tag: Schema.Literal(errorName),
-  }).pipe(Schema.annotations({ [requestError]: errorName }));
-export type ErrorSchema = Schema.Schema.Any & {
-  fields: { _tag: Schema.Schema.Any };
-};
 
 export const OperationMeta = Schema.Struct({
   uri: Schema.String,
@@ -72,18 +58,25 @@ export const Operation = <
   Input extends Schema.Schema.AnyNoContext,
   Output extends Schema.Schema.AnyNoContext,
   //todo(pear): this should extend schema so we ensure errors are tagged
-  Error extends
-    | Schema.Union<Array<ErrorSchema>>
-    | ErrorSchema
-    | typeof Schema.Void,
+  Error,
 >(
   meta: Schema.Schema.Type<typeof OperationMeta>,
   inputSchema: Input,
   outputSchema: Output,
-  errorSchema: Error,
-) =>
+  errorList: Array<Error>,
+): {
+  errors: Error;
+  schema: Schema.Struct<{
+    input: Input;
+    output: Output;
+  }>;
+} =>
   Schema.Struct({
     input: inputSchema,
     output: outputSchema,
-    error: errorSchema,
-  }).pipe(Schema.annotations({ [requestMetaSymbol]: meta }));
+  }).pipe(
+    Schema.annotations({
+      [requestMetaSymbol]: meta,
+      [requestError]: errorList,
+    }),
+  ) as any;
