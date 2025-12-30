@@ -950,12 +950,29 @@ const generateClient = Effect.fn(function* (
         MutableHashSet.add(clientImports, requestParser);
         MutableHashSet.add(clientImports, errorParser);
 
+        // Build meta object, omitting uri if "/" and method if "POST"
+        const metaParts: string[] = [
+          `version: "${serviceShape.version}"`,
+        ];
+        if (httpTrait["uri"] !== "/") {
+          metaParts.push(`uri: "${httpTrait["uri"]}"`);
+        }
+        if (httpTrait["method"] !== "POST") {
+          metaParts.push(`method: "${httpTrait["method"]}"`);
+        }
+        metaParts.push(
+          `sdkId: "${serviceShape.traits["aws.api#service"].sdkId}"`,
+          `sigV4ServiceName: ${serviceShape.traits["aws.auth#sigv4"]?.name == null ? `"${serviceName}"` : `"${serviceShape.traits["aws.auth#sigv4"]?.name}"`}`,
+          `name: "${operationName}"`,
+        );
+        const metaObject = `{ ${metaParts.join(", ")} }`;
+
         yield* sdkFile.operations.pipe(
           Ref.update(
             (c) =>
               c +
               operationComment +
-              `export const ${formatName(operationShapeName, true)} = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "${serviceShape.version}", uri: "${httpTrait["uri"]}", method: "${httpTrait["method"]}", sdkId: "${serviceShape.traits["aws.api#service"].sdkId}", sigV4ServiceName: ${serviceShape.traits["aws.auth#sigv4"]?.name == null ? `"${serviceName}"` : `"${serviceShape.traits["aws.auth#sigv4"]?.name}"`}, name: "${operationName}" }, ${input}, ${output}, ${operationErrors}), ${responseParser}, ${requestParser}, ${errorParser});\n`,
+              `export const ${formatName(operationShapeName, true)} = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation(${metaObject}, ${input}, ${output}, ${operationErrors}), ${responseParser}, ${requestParser}, ${errorParser});\n`,
           ),
         );
       }),

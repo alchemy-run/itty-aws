@@ -39,15 +39,17 @@ export const Path = <S extends Schema.Schema.AnyNoContext>(
 ) => schema.pipe(Schema.annotations({ [requestPathSymbol]: pathName }));
 
 export const OperationMeta = Schema.Struct({
-  uri: Schema.String,
-  method: Schema.Union(
-    Schema.Literal("GET"),
-    Schema.Literal("POST"),
-    Schema.Literal("PUT"),
-    Schema.Literal("DELETE"),
-    Schema.Literal("PATCH"),
-    Schema.Literal("HEAD"),
-    Schema.Literal("OPTIONS"),
+  uri: Schema.optional(Schema.String),
+  method: Schema.optional(
+    Schema.Union(
+      Schema.Literal("GET"),
+      Schema.Literal("POST"),
+      Schema.Literal("PUT"),
+      Schema.Literal("DELETE"),
+      Schema.Literal("PATCH"),
+      Schema.Literal("HEAD"),
+      Schema.Literal("OPTIONS"),
+    ),
   ),
   sdkId: Schema.String,
   sigV4ServiceName: Schema.String,

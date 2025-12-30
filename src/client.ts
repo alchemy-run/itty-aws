@@ -429,6 +429,16 @@ export const NoopResponse = Schema.asSchema(
   }),
 );
 
+function getSafeMetadata(
+  partialMeta: Schema.Schema.Type<typeof OperationMeta>,
+): Required<Schema.Schema.Type<typeof OperationMeta>> {
+  return {
+    uri: partialMeta.uri ?? "/",
+    method: partialMeta.method ?? "POST",
+    ...partialMeta,
+  };
+}
+
 export const makeFormatRequestSchema = <A extends Schema.Schema.AnyNoContext>(
   operationSchema: Schema.Struct<{
     input: A;
@@ -458,9 +468,12 @@ export const makeFormatRequestSchema = <A extends Schema.Schema.AnyNoContext>(
           const props = AST.isTypeLiteral(structAst)
             ? structAst.propertySignatures
             : [];
-          const meta = yield* AST.getAnnotation<
-            Schema.Schema.Type<typeof OperationMeta>
-          >(operationSchema.ast, requestMetaSymbol);
+          const meta = getSafeMetadata(
+            yield* AST.getAnnotation<Schema.Schema.Type<typeof OperationMeta>>(
+              operationSchema.ast,
+              requestMetaSymbol,
+            ),
+          );
 
           const headers: Record<string, string> = {
             "User-Agent": "itty-aws",
@@ -685,8 +698,8 @@ export const makeOperation = <A extends ReturnType<typeof Operation>>(
       body: signedRequest.body
         ? typeof signedRequest.body === "string"
           ? HttpBody.text(signedRequest.body)
-          // @ts-expect-error - TODO(sam): what are the proper types here
-          : HttpBody.stream(signedRequest.body)
+          : // @ts-expect-error - TODO(sam): what are the proper types here
+            HttpBody.stream(signedRequest.body)
         : undefined,
     });
 
