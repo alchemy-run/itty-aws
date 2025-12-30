@@ -147,6 +147,7 @@ export const OperationShape = S.Struct({
     //* dynamic record must be first so schema doesn't remove the values when decoding
     S.Record({ key: S.String, value: S.Unknown }),
     S.Struct({
+      "smithy.api#documentation": S.optional(S.String),
       "smithy.api#http": S.optional(
         S.Struct({ method: S.String, uri: S.String }),
       ),

@@ -1,6 +1,6 @@
 import { Effect } from "effect";
 import { Region } from "./src/region";
-import { createBucket, putObject, getObject } from "./src/services/s3.ts";
+import { createBucket } from "./src/services/s3.ts";
 
 import { BunContext, BunRuntime } from "@effect/platform-bun";
 import { Logger, LogLevel } from "effect";

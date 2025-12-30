@@ -860,6 +860,9 @@ const generateClient = Effect.fn(function* (
 
         //todo(pear): we shouldn't default sigv4 to serviceName here, we should do that in client.ts so we don't take up as much space
         const operationName = `${serviceName}.${operationShapeName.split("#")[1]}`;
+        const operationComment = htmlToJsdoc(
+          operationShape["traits"]["smithy.api#documentation"] ?? "",
+        );
 
         const input = yield* convertShapeToSchema(
           operationShape.input.target,
@@ -951,6 +954,7 @@ const generateClient = Effect.fn(function* (
           Ref.update(
             (c) =>
               c +
+              operationComment +
               `export const ${formatName(operationShapeName, true)} = /*#__PURE__*/ makeOperation(() => H.Operation({ version: "${serviceShape.version}", uri: "${httpTrait["uri"]}", method: "${httpTrait["method"]}", sdkId: "${serviceShape.traits["aws.api#service"].sdkId}", sigV4ServiceName: ${serviceShape.traits["aws.auth#sigv4"]?.name == null ? `"${serviceName}"` : `"${serviceShape.traits["aws.auth#sigv4"]?.name}"`}, name: "${operationName}" }, ${input}, ${output}, ${operationErrors}), ${responseParser}, ${requestParser}, ${errorParser});\n`,
           ),
         );
@@ -1063,3 +1067,47 @@ BunRuntime.runMain(
     Effect.provide(BunContext.layer),
   ),
 );
+
+export function htmlToJsdoc(html: string): string {
+  let text = html
+    // Remove opening JSDoc comment if present
+    .replace(/^\/\*\*\s*/, "")
+    .replace(/\s*\*\/$/, "")
+    // Convert common HTML elements
+    .replace(/<\/?p>/gi, "\n")
+    .replace(/<br\s*\/?>/gi, "\n")
+    .replace(/<\/?note>/gi, "\n")
+    .replace(/<\/?important>/gi, "\n")
+    .replace(/<li>\s*/gi, "\n- ")
+    .replace(/<\/li>/gi, "")
+    .replace(/<\/ul>/gi, "\n")
+    .replace(/<ul>/gi, "")
+    .replace(/<dt>(.*?)<\/dt>/gi, "\n### $1\n")
+    .replace(/<dd>/gi, "")
+    .replace(/<\/dd>/gi, "\n")
+    .replace(/<dl>/gi, "")
+    .replace(/<\/dl>/gi, "")
+    // Handle code blocks
+    .replace(/<code>(.*?)<\/code>/gi, "`$1`")
+    // Handle links - extract text only
+    .replace(/<a[^>]*>(.*?)<\/a>/gi, "$1")
+    // Handle bold/emphasis
+    .replace(/<b>(.*?)<\/b>/gi, "**$1**")
+    .replace(/<i>(.*?)<\/i>/gi, "*$1*")
+    // Remove any remaining HTML tags
+    .replace(/<[^>]+>/g, "")
+    // Decode HTML entities
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&amp;/g, "&")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    // Clean up whitespace
+    .replace(/\n{3,}/g, "\n\n")
+    .replace(/[ \t]+/g, " ")
+    .trim();
+
+  // Format as JSDoc
+  const lines = text.split("\n").map((line) => ` * ${line.trim()}`);
+  return `/**\n${lines.join("\n")}\n */`;
+}
