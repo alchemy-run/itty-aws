@@ -1,6 +1,6 @@
 import { Schema} from "effect"
-import { FormatXMLRequest,FormatXMLResponse,FormatAwsXMLError, makeOperation } from "../client";
-import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers";
+import { FormatXMLRequest,FormatXMLResponse,FormatAwsXMLError, makeOperation } from "../client.ts";
+import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
 
 //# Schemas
 export const ObjectAttributesList = Schema.Array(Schema.String);

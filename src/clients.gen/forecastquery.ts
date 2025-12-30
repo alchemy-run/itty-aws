@@ -1,6 +1,8 @@
 import { Schema} from "effect"
-import { FormatAwsJSON11Request,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client";
-import { Operation, Path, Header, StreamBody, Body, ErrorAnnotation } from "../schema-helpers";
+import { FormatAwsJSON11Request,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client.ts";
+import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
+
+//# Schemas
 export const Filters = Schema.Record({key: Schema.String, value: Schema.String});
 export const QueryWhatIfForecastRequest = Schema.Struct({WhatIfForecastArn: Schema.String, StartDate: Schema.optional(Schema.String), EndDate: Schema.optional(Schema.String), Filters: Filters, NextToken: Schema.optional(Schema.String)});
 export const QueryForecastRequest = Schema.Struct({ForecastArn: Schema.String, StartDate: Schema.optional(Schema.String), EndDate: Schema.optional(Schema.String), Filters: Filters, NextToken: Schema.optional(Schema.String)});
@@ -15,5 +17,14 @@ export const QueryWhatIfForecastResponse = Schema.Struct({Forecast: Schema.optio
 export const LimitExceededException = Schema.Struct({Message: Schema.optional(Schema.String)});
 export const ResourceInUseException = Schema.Struct({Message: Schema.optional(Schema.String)});
 export const ResourceNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const QueryWhatIfForecast = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecastquery", sigV4ServiceName: "forecast", name: "AmazonForecastRuntime.QueryWhatIfForecast" }, QueryWhatIfForecastRequest, QueryWhatIfForecastResponse, Schema.Union(ErrorAnnotation("InvalidInputException", InvalidInputException), ErrorAnnotation("InvalidNextTokenException", InvalidNextTokenException), ErrorAnnotation("LimitExceededException", LimitExceededException), ErrorAnnotation("ResourceInUseException", ResourceInUseException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException))), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const QueryForecast = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecastquery", sigV4ServiceName: "forecast", name: "AmazonForecastRuntime.QueryForecast" }, QueryForecastRequest, QueryForecastResponse, Schema.Union(ErrorAnnotation("InvalidInputException", InvalidInputException), ErrorAnnotation("InvalidNextTokenException", InvalidNextTokenException), ErrorAnnotation("LimitExceededException", LimitExceededException), ErrorAnnotation("ResourceInUseException", ResourceInUseException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException))), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+
+//# Errors
+export class InvalidInputExceptionError extends Schema.TaggedError<InvalidInputExceptionError>()("InvalidInputException", InvalidInputException) {};
+export class InvalidNextTokenExceptionError extends Schema.TaggedError<InvalidNextTokenExceptionError>()("InvalidNextTokenException", InvalidNextTokenException) {};
+export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException) {};
+export class ResourceInUseExceptionError extends Schema.TaggedError<ResourceInUseExceptionError>()("ResourceInUseException", ResourceInUseException) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
+
+//# Operations
+export const queryWhatIfForecast = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecastquery", sigV4ServiceName: "forecast", name: "AmazonForecastRuntime.QueryWhatIfForecast" }, QueryWhatIfForecastRequest, QueryWhatIfForecastResponse, [InvalidInputExceptionError, InvalidNextTokenExceptionError, LimitExceededExceptionError, ResourceInUseExceptionError, ResourceNotFoundExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const queryForecast = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecastquery", sigV4ServiceName: "forecast", name: "AmazonForecastRuntime.QueryForecast" }, QueryForecastRequest, QueryForecastResponse, [InvalidInputExceptionError, InvalidNextTokenExceptionError, LimitExceededExceptionError, ResourceInUseExceptionError, ResourceNotFoundExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

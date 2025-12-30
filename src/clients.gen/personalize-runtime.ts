@@ -1,6 +1,8 @@
 import { Schema} from "effect"
-import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client";
-import { Operation, Path, Header, StreamBody, Body, ErrorAnnotation } from "../schema-helpers";
+import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client.ts";
+import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
+
+//# Schemas
 export const InputList = Schema.Array(Schema.String);
 export const ColumnNamesList = Schema.Array(Schema.String);
 export const FilterValues = Schema.Record({key: Schema.String, value: Schema.String});
@@ -22,6 +24,12 @@ export const GetActionRecommendationsResponse = Schema.Struct({actionList: Schem
 export const InvalidInputException = Schema.Struct({message: Schema.optional(Schema.String)});
 export const ResourceNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
 export const GetPersonalizedRankingResponse = Schema.Struct({personalizedRanking: Schema.optional(ItemList), recommendationId: Schema.optional(Schema.String)});
-export const GetRecommendations = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-05-22", uri: "/recommendations", method: "POST", sdkId: "Personalize Runtime", sigV4ServiceName: "personalize", name: "AmazonPersonalizeRuntime.GetRecommendations" }, GetRecommendationsRequest, GetRecommendationsResponse, Schema.Union(ErrorAnnotation("InvalidInputException", InvalidInputException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const GetActionRecommendations = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-05-22", uri: "/action-recommendations", method: "POST", sdkId: "Personalize Runtime", sigV4ServiceName: "personalize", name: "AmazonPersonalizeRuntime.GetActionRecommendations" }, GetActionRecommendationsRequest, GetActionRecommendationsResponse, Schema.Union(ErrorAnnotation("InvalidInputException", InvalidInputException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const GetPersonalizedRanking = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-05-22", uri: "/personalize-ranking", method: "POST", sdkId: "Personalize Runtime", sigV4ServiceName: "personalize", name: "AmazonPersonalizeRuntime.GetPersonalizedRanking" }, GetPersonalizedRankingRequest, GetPersonalizedRankingResponse, Schema.Union(ErrorAnnotation("InvalidInputException", InvalidInputException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+
+//# Errors
+export class InvalidInputExceptionError extends Schema.TaggedError<InvalidInputExceptionError>()("InvalidInputException", InvalidInputException) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
+
+//# Operations
+export const getRecommendations = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-05-22", uri: "/recommendations", method: "POST", sdkId: "Personalize Runtime", sigV4ServiceName: "personalize", name: "AmazonPersonalizeRuntime.GetRecommendations" }, GetRecommendationsRequest, GetRecommendationsResponse, [InvalidInputExceptionError, ResourceNotFoundExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const getActionRecommendations = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-05-22", uri: "/action-recommendations", method: "POST", sdkId: "Personalize Runtime", sigV4ServiceName: "personalize", name: "AmazonPersonalizeRuntime.GetActionRecommendations" }, GetActionRecommendationsRequest, GetActionRecommendationsResponse, [InvalidInputExceptionError, ResourceNotFoundExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const getPersonalizedRanking = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-05-22", uri: "/personalize-ranking", method: "POST", sdkId: "Personalize Runtime", sigV4ServiceName: "personalize", name: "AmazonPersonalizeRuntime.GetPersonalizedRanking" }, GetPersonalizedRankingRequest, GetPersonalizedRankingResponse, [InvalidInputExceptionError, ResourceNotFoundExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

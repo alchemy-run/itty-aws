@@ -1,6 +1,8 @@
 import { Schema} from "effect"
-import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client";
-import { Operation, Path, Header, StreamBody, Body, ErrorAnnotation } from "../schema-helpers";
+import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client.ts";
+import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
+
+//# Schemas
 export const SearchRequest = Schema.Struct({cursor: Schema.optional(Schema.String), expr: Schema.optional(Schema.String), facet: Schema.optional(Schema.String), filterQuery: Schema.optional(Schema.String), highlight: Schema.optional(Schema.String), partial: Schema.optional(Schema.Boolean), query: Schema.String, queryOptions: Schema.optional(Schema.String), queryParser: Schema.optional(Schema.String), return: Schema.optional(Schema.String), size: Schema.optional(Schema.Number), sort: Schema.optional(Schema.String), start: Schema.optional(Schema.Number), stats: Schema.optional(Schema.String)});
 export const SuggestRequest = Schema.Struct({query: Schema.String, suggester: Schema.String, size: Schema.optional(Schema.Number)});
 export const UploadDocumentsRequest = Schema.Struct({documents: Body("undefined", StreamBody()), contentType: Header("Content-Type")});
@@ -29,6 +31,12 @@ export const Hits = Schema.Struct({found: Schema.optional(Schema.Number), start:
 export const Facets = Schema.Record({key: Schema.String, value: BucketInfo});
 export const SearchResponse = Schema.Struct({status: Schema.optional(SearchStatus), hits: Schema.optional(Hits), facets: Schema.optional(Facets), stats: Schema.optional(Stats)});
 export const SearchException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UploadDocuments = /*#__PURE__*/ makeOperation(() => Operation({ version: "2013-01-01", uri: "/2013-01-01/documents/batch?format=sdk", method: "POST", sdkId: "CloudSearch Domain", sigV4ServiceName: "cloudsearch", name: "AmazonCloudSearch2013.UploadDocuments" }, UploadDocumentsRequest, UploadDocumentsResponse, ErrorAnnotation("DocumentServiceException", DocumentServiceException)), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const Search = /*#__PURE__*/ makeOperation(() => Operation({ version: "2013-01-01", uri: "/2013-01-01/search?format=sdk&pretty=true", method: "GET", sdkId: "CloudSearch Domain", sigV4ServiceName: "cloudsearch", name: "AmazonCloudSearch2013.Search" }, SearchRequest, SearchResponse, ErrorAnnotation("SearchException", SearchException)), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const Suggest = /*#__PURE__*/ makeOperation(() => Operation({ version: "2013-01-01", uri: "/2013-01-01/suggest?format=sdk&pretty=true", method: "GET", sdkId: "CloudSearch Domain", sigV4ServiceName: "cloudsearch", name: "AmazonCloudSearch2013.Suggest" }, SuggestRequest, SuggestResponse, ErrorAnnotation("SearchException", SearchException)), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+
+//# Errors
+export class DocumentServiceExceptionError extends Schema.TaggedError<DocumentServiceExceptionError>()("DocumentServiceException", DocumentServiceException) {};
+export class SearchExceptionError extends Schema.TaggedError<SearchExceptionError>()("SearchException", SearchException) {};
+
+//# Operations
+export const uploadDocuments = /*#__PURE__*/ makeOperation(() => Operation({ version: "2013-01-01", uri: "/2013-01-01/documents/batch?format=sdk", method: "POST", sdkId: "CloudSearch Domain", sigV4ServiceName: "cloudsearch", name: "AmazonCloudSearch2013.UploadDocuments" }, UploadDocumentsRequest, UploadDocumentsResponse, [DocumentServiceExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const search = /*#__PURE__*/ makeOperation(() => Operation({ version: "2013-01-01", uri: "/2013-01-01/search?format=sdk&pretty=true", method: "GET", sdkId: "CloudSearch Domain", sigV4ServiceName: "cloudsearch", name: "AmazonCloudSearch2013.Search" }, SearchRequest, SearchResponse, [SearchExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const suggest = /*#__PURE__*/ makeOperation(() => Operation({ version: "2013-01-01", uri: "/2013-01-01/suggest?format=sdk&pretty=true", method: "GET", sdkId: "CloudSearch Domain", sigV4ServiceName: "cloudsearch", name: "AmazonCloudSearch2013.Suggest" }, SuggestRequest, SuggestResponse, [SearchExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

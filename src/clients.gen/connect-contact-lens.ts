@@ -1,6 +1,8 @@
 import { Schema} from "effect"
-import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client";
-import { Operation, Path, Header, StreamBody, Body, ErrorAnnotation } from "../schema-helpers";
+import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client.ts";
+import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
+
+//# Schemas
 export const ListRealtimeContactAnalysisSegmentsRequest = Schema.Struct({InstanceId: Schema.String, ContactId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
 export const MatchedCategories = Schema.Array(Schema.String);
 export const PostContactSummary = Schema.Struct({Content: Schema.optional(Schema.String), Status: Schema.String, FailureCode: Schema.optional(Schema.String)});
@@ -21,4 +23,13 @@ export const InternalServiceException = Schema.Struct({Message: Schema.optional(
 export const InvalidRequestException = Schema.Struct({Message: Schema.optional(Schema.String)});
 export const ResourceNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String)});
 export const ThrottlingException = Schema.Struct({Message: Schema.String});
-export const ListRealtimeContactAnalysisSegments = /*#__PURE__*/ makeOperation(() => Operation({ version: "2020-08-21", uri: "/realtime-contact-analysis/analysis-segments", method: "POST", sdkId: "Connect Contact Lens", sigV4ServiceName: "connect", name: "AmazonConnectContactLens.ListRealtimeContactAnalysisSegments" }, ListRealtimeContactAnalysisSegmentsRequest, ListRealtimeContactAnalysisSegmentsResponse, Schema.Union(ErrorAnnotation("AccessDeniedException", AccessDeniedException), ErrorAnnotation("InternalServiceException", InternalServiceException), ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ThrottlingException", ThrottlingException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+
+//# Errors
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
+export class InternalServiceExceptionError extends Schema.TaggedError<InternalServiceExceptionError>()("InternalServiceException", InternalServiceException) {};
+export class InvalidRequestExceptionError extends Schema.TaggedError<InvalidRequestExceptionError>()("InvalidRequestException", InvalidRequestException) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
+
+//# Operations
+export const listRealtimeContactAnalysisSegments = /*#__PURE__*/ makeOperation(() => Operation({ version: "2020-08-21", uri: "/realtime-contact-analysis/analysis-segments", method: "POST", sdkId: "Connect Contact Lens", sigV4ServiceName: "connect", name: "AmazonConnectContactLens.ListRealtimeContactAnalysisSegments" }, ListRealtimeContactAnalysisSegmentsRequest, ListRealtimeContactAnalysisSegmentsResponse, [AccessDeniedExceptionError, InternalServiceExceptionError, InvalidRequestExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

@@ -1,6 +1,8 @@
 import { Schema} from "effect"
-import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client";
-import { Operation, Path, Header, StreamBody, Body, ErrorAnnotation } from "../schema-helpers";
+import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client.ts";
+import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
+
+//# Schemas
 export const MetricQuery = Schema.Struct({MetricName: Schema.String, ResourceArn: Schema.String, MetricStat: Schema.String, Period: Schema.String, XAxisType: Schema.String, Start: Schema.optional(Schema.Number), End: Schema.optional(Schema.Number)});
 export const MetricQueryList = Schema.Array(MetricQuery);
 export const RawMetricData = Schema.Struct({MetricName: Schema.String, Timestamp: Schema.Date, Step: Schema.optional(Schema.Number), Value: Schema.Number});
@@ -15,5 +17,10 @@ export const BatchPutMetricsError = Schema.Struct({Code: Schema.optional(Schema.
 export const BatchPutMetricsErrorList = Schema.Array(BatchPutMetricsError);
 export const BatchGetMetricsResponse = Schema.Struct({MetricQueryResults: Schema.optional(MetricQueryResultList)});
 export const BatchPutMetricsResponse = Schema.Struct({Errors: Schema.optional(BatchPutMetricsErrorList)});
-export const BatchGetMetrics = /*#__PURE__*/ makeOperation(() => Operation({ version: "2022-09-30", uri: "/BatchGetMetrics", method: "POST", sdkId: "SageMaker Metrics", sigV4ServiceName: "sagemaker", name: "SageMakerMetricsService.BatchGetMetrics" }, BatchGetMetricsRequest, BatchGetMetricsResponse, Schema.Void), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const BatchPutMetrics = /*#__PURE__*/ makeOperation(() => Operation({ version: "2022-09-30", uri: "/BatchPutMetrics", method: "PUT", sdkId: "SageMaker Metrics", sigV4ServiceName: "sagemaker", name: "SageMakerMetricsService.BatchPutMetrics" }, BatchPutMetricsRequest, BatchPutMetricsResponse, Schema.Void), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+
+//# Errors
+
+
+//# Operations
+export const batchGetMetrics = /*#__PURE__*/ makeOperation(() => Operation({ version: "2022-09-30", uri: "/BatchGetMetrics", method: "POST", sdkId: "SageMaker Metrics", sigV4ServiceName: "sagemaker", name: "SageMakerMetricsService.BatchGetMetrics" }, BatchGetMetricsRequest, BatchGetMetricsResponse, []), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const batchPutMetrics = /*#__PURE__*/ makeOperation(() => Operation({ version: "2022-09-30", uri: "/BatchPutMetrics", method: "PUT", sdkId: "SageMaker Metrics", sigV4ServiceName: "sagemaker", name: "SageMakerMetricsService.BatchPutMetrics" }, BatchPutMetricsRequest, BatchPutMetricsResponse, []), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

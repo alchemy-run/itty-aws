@@ -1,6 +1,8 @@
 import { Schema} from "effect"
-import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client";
-import { Operation, Path, Header, StreamBody, Body, ErrorAnnotation } from "../schema-helpers";
+import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client.ts";
+import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
+
+//# Schemas
 export const __listOfLoggingStrategies = Schema.Array(Schema.String);
 export const __listOf__string = Schema.Array(Schema.String);
 export const ListAlertsRequest = Schema.Struct({MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), ResourceArn: Schema.String});
@@ -20,8 +22,13 @@ export const Alert = Schema.Struct({AlertCode: Schema.String, AlertMessage: Sche
 export const __listOfAlert = Schema.Array(Alert);
 export const ConfigureLogsForPlaybackConfigurationResponse = Schema.Struct({PercentEnabled: Schema.Number, PlaybackConfigurationName: Schema.optional(Schema.String), EnabledLoggingStrategies: Schema.optional(__listOfLoggingStrategies), AdsInteractionLog: Schema.optional(AdsInteractionLog), ManifestServiceInteractionLog: Schema.optional(ManifestServiceInteractionLog)});
 export const ListAlertsResponse = Schema.Struct({Items: Schema.optional(__listOfAlert), NextToken: Schema.optional(Schema.String)});
-export const ListTagsForResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-04-23", uri: "/tags/{ResourceArn}", method: "GET", sdkId: "MediaTailor", sigV4ServiceName: "mediatailor", name: "MediaTailor.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, ErrorAnnotation("BadRequestException", BadRequestException)), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const TagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-04-23", uri: "/tags/{ResourceArn}", method: "POST", sdkId: "MediaTailor", sigV4ServiceName: "mediatailor", name: "MediaTailor.TagResource" }, TagResourceRequest, Schema.Struct({}), ErrorAnnotation("BadRequestException", BadRequestException)), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const UntagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-04-23", uri: "/tags/{ResourceArn}", method: "DELETE", sdkId: "MediaTailor", sigV4ServiceName: "mediatailor", name: "MediaTailor.UntagResource" }, UntagResourceRequest, Schema.Struct({}), ErrorAnnotation("BadRequestException", BadRequestException)), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const ConfigureLogsForPlaybackConfiguration = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-04-23", uri: "/configureLogs/playbackConfiguration", method: "PUT", sdkId: "MediaTailor", sigV4ServiceName: "mediatailor", name: "MediaTailor.ConfigureLogsForPlaybackConfiguration" }, ConfigureLogsForPlaybackConfigurationRequest, ConfigureLogsForPlaybackConfigurationResponse, Schema.Void), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const ListAlerts = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-04-23", uri: "/alerts", method: "GET", sdkId: "MediaTailor", sigV4ServiceName: "mediatailor", name: "MediaTailor.ListAlerts" }, ListAlertsRequest, ListAlertsResponse, Schema.Void), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+
+//# Errors
+export class BadRequestExceptionError extends Schema.TaggedError<BadRequestExceptionError>()("BadRequestException", BadRequestException) {};
+
+//# Operations
+export const listTagsForResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-04-23", uri: "/tags/{ResourceArn}", method: "GET", sdkId: "MediaTailor", sigV4ServiceName: "mediatailor", name: "MediaTailor.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [BadRequestExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const tagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-04-23", uri: "/tags/{ResourceArn}", method: "POST", sdkId: "MediaTailor", sigV4ServiceName: "mediatailor", name: "MediaTailor.TagResource" }, TagResourceRequest, Schema.Struct({}), [BadRequestExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const untagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-04-23", uri: "/tags/{ResourceArn}", method: "DELETE", sdkId: "MediaTailor", sigV4ServiceName: "mediatailor", name: "MediaTailor.UntagResource" }, UntagResourceRequest, Schema.Struct({}), [BadRequestExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const configureLogsForPlaybackConfiguration = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-04-23", uri: "/configureLogs/playbackConfiguration", method: "PUT", sdkId: "MediaTailor", sigV4ServiceName: "mediatailor", name: "MediaTailor.ConfigureLogsForPlaybackConfiguration" }, ConfigureLogsForPlaybackConfigurationRequest, ConfigureLogsForPlaybackConfigurationResponse, []), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const listAlerts = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-04-23", uri: "/alerts", method: "GET", sdkId: "MediaTailor", sigV4ServiceName: "mediatailor", name: "MediaTailor.ListAlerts" }, ListAlertsRequest, ListAlertsResponse, []), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

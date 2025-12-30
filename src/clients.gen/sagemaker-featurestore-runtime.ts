@@ -1,6 +1,8 @@
 import { Schema} from "effect"
-import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client";
-import { Operation, Path, Header, StreamBody, Body, ErrorAnnotation } from "../schema-helpers";
+import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client.ts";
+import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
+
+//# Schemas
 export const TargetStores = Schema.Array(Schema.String);
 export const FeatureNames = Schema.Array(Schema.String);
 export const DeleteRecordRequest = Schema.Struct({FeatureGroupName: Schema.String, RecordIdentifierValueAsString: Schema.String, EventTime: Schema.String, TargetStores: Schema.optional(TargetStores), DeletionMode: Schema.optional(Schema.String)});
@@ -26,7 +28,16 @@ export const BatchGetRecordError = Schema.Struct({FeatureGroupName: Schema.Strin
 export const BatchGetRecordErrors = Schema.Array(BatchGetRecordError);
 export const BatchGetRecordResponse = Schema.Struct({Records: BatchGetRecordResultDetails, Errors: BatchGetRecordErrors, UnprocessedIdentifiers: UnprocessedIdentifiers});
 export const ValidationError = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const GetRecord = /*#__PURE__*/ makeOperation(() => Operation({ version: "2020-07-01", uri: "/FeatureGroup/{FeatureGroupName}", method: "GET", sdkId: "SageMaker FeatureStore Runtime", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerFeatureStoreRuntime.GetRecord" }, GetRecordRequest, GetRecordResponse, Schema.Union(ErrorAnnotation("AccessForbidden", AccessForbidden), ErrorAnnotation("InternalFailure", InternalFailure), ErrorAnnotation("ResourceNotFound", ResourceNotFound), ErrorAnnotation("ServiceUnavailable", ServiceUnavailable), ErrorAnnotation("ValidationError", ValidationError))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const PutRecord = /*#__PURE__*/ makeOperation(() => Operation({ version: "2020-07-01", uri: "/FeatureGroup/{FeatureGroupName}", method: "PUT", sdkId: "SageMaker FeatureStore Runtime", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerFeatureStoreRuntime.PutRecord" }, PutRecordRequest, Schema.Struct({}), Schema.Union(ErrorAnnotation("AccessForbidden", AccessForbidden), ErrorAnnotation("InternalFailure", InternalFailure), ErrorAnnotation("ServiceUnavailable", ServiceUnavailable), ErrorAnnotation("ValidationError", ValidationError))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const BatchGetRecord = /*#__PURE__*/ makeOperation(() => Operation({ version: "2020-07-01", uri: "/BatchGetRecord", method: "POST", sdkId: "SageMaker FeatureStore Runtime", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerFeatureStoreRuntime.BatchGetRecord" }, BatchGetRecordRequest, BatchGetRecordResponse, Schema.Union(ErrorAnnotation("AccessForbidden", AccessForbidden), ErrorAnnotation("InternalFailure", InternalFailure), ErrorAnnotation("ServiceUnavailable", ServiceUnavailable), ErrorAnnotation("ValidationError", ValidationError))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const DeleteRecord = /*#__PURE__*/ makeOperation(() => Operation({ version: "2020-07-01", uri: "/FeatureGroup/{FeatureGroupName}", method: "DELETE", sdkId: "SageMaker FeatureStore Runtime", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerFeatureStoreRuntime.DeleteRecord" }, DeleteRecordRequest, Schema.Struct({}), Schema.Union(ErrorAnnotation("AccessForbidden", AccessForbidden), ErrorAnnotation("InternalFailure", InternalFailure), ErrorAnnotation("ServiceUnavailable", ServiceUnavailable), ErrorAnnotation("ValidationError", ValidationError))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+
+//# Errors
+export class AccessForbiddenError extends Schema.TaggedError<AccessForbiddenError>()("AccessForbidden", AccessForbidden) {};
+export class InternalFailureError extends Schema.TaggedError<InternalFailureError>()("InternalFailure", InternalFailure) {};
+export class ServiceUnavailableError extends Schema.TaggedError<ServiceUnavailableError>()("ServiceUnavailable", ServiceUnavailable) {};
+export class ResourceNotFoundError extends Schema.TaggedError<ResourceNotFoundError>()("ResourceNotFound", ResourceNotFound) {};
+export class ValidationErrorError extends Schema.TaggedError<ValidationErrorError>()("ValidationError", ValidationError) {};
+
+//# Operations
+export const getRecord = /*#__PURE__*/ makeOperation(() => Operation({ version: "2020-07-01", uri: "/FeatureGroup/{FeatureGroupName}", method: "GET", sdkId: "SageMaker FeatureStore Runtime", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerFeatureStoreRuntime.GetRecord" }, GetRecordRequest, GetRecordResponse, [AccessForbiddenError, InternalFailureError, ResourceNotFoundError, ServiceUnavailableError, ValidationErrorError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const putRecord = /*#__PURE__*/ makeOperation(() => Operation({ version: "2020-07-01", uri: "/FeatureGroup/{FeatureGroupName}", method: "PUT", sdkId: "SageMaker FeatureStore Runtime", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerFeatureStoreRuntime.PutRecord" }, PutRecordRequest, Schema.Struct({}), [AccessForbiddenError, InternalFailureError, ServiceUnavailableError, ValidationErrorError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const batchGetRecord = /*#__PURE__*/ makeOperation(() => Operation({ version: "2020-07-01", uri: "/BatchGetRecord", method: "POST", sdkId: "SageMaker FeatureStore Runtime", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerFeatureStoreRuntime.BatchGetRecord" }, BatchGetRecordRequest, BatchGetRecordResponse, [AccessForbiddenError, InternalFailureError, ServiceUnavailableError, ValidationErrorError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const deleteRecord = /*#__PURE__*/ makeOperation(() => Operation({ version: "2020-07-01", uri: "/FeatureGroup/{FeatureGroupName}", method: "DELETE", sdkId: "SageMaker FeatureStore Runtime", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerFeatureStoreRuntime.DeleteRecord" }, DeleteRecordRequest, Schema.Struct({}), [AccessForbiddenError, InternalFailureError, ServiceUnavailableError, ValidationErrorError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

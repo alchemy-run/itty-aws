@@ -1,6 +1,8 @@
 import { Schema} from "effect"
-import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client";
-import { Operation, Path, Header, StreamBody, Body, ErrorAnnotation } from "../schema-helpers";
+import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client.ts";
+import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
+
+//# Schemas
 export const InputFlowNodeConfiguration = Schema.Struct({});
 export const OutputFlowNodeConfiguration = Schema.Struct({});
 export const IteratorFlowNodeConfiguration = Schema.Struct({});
@@ -119,4 +121,12 @@ export const ThrottlingException = Schema.Struct({message: Schema.optional(Schem
 export const ValidationExceptionField = Schema.Struct({name: Schema.String, message: Schema.String});
 export const ValidationExceptionFieldList = Schema.Array(ValidationExceptionField);
 export const ValidationException = Schema.Struct({message: Schema.optional(Schema.String), fieldList: Schema.optional(ValidationExceptionFieldList)});
-export const ValidateFlowDefinition = /*#__PURE__*/ makeOperation(() => Operation({ version: "2023-06-05", uri: "/flows/validate-definition", method: "POST", sdkId: "Bedrock Agent", sigV4ServiceName: "bedrock", name: "AmazonBedrockAgentBuildTimeLambda.ValidateFlowDefinition" }, ValidateFlowDefinitionRequest, ValidateFlowDefinitionResponse, Schema.Union(ErrorAnnotation("AccessDeniedException", AccessDeniedException), ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("ThrottlingException", ThrottlingException), ErrorAnnotation("ValidationException", ValidationException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+
+//# Errors
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
+
+//# Operations
+export const validateFlowDefinition = /*#__PURE__*/ makeOperation(() => Operation({ version: "2023-06-05", uri: "/flows/validate-definition", method: "POST", sdkId: "Bedrock Agent", sigV4ServiceName: "bedrock", name: "AmazonBedrockAgentBuildTimeLambda.ValidateFlowDefinition" }, ValidateFlowDefinitionRequest, ValidateFlowDefinitionResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

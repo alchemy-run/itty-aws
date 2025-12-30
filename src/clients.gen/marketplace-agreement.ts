@@ -1,6 +1,8 @@
 import { Schema} from "effect"
-import { FormatAwsJSON10Request,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client";
-import { Operation, Path, Header, StreamBody, Body, ErrorAnnotation } from "../schema-helpers";
+import { FormatAwsJSON10Request,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client.ts";
+import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
+
+//# Schemas
 export const DescribeAgreementInput = Schema.Struct({agreementId: Schema.String});
 export const GetAgreementTermsInput = Schema.Struct({agreementId: Schema.String, maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
 export const FilterValueList = Schema.Array(Schema.String);
@@ -57,6 +59,15 @@ export const ThrottlingException = Schema.Struct({requestId: Schema.optional(Sch
 export const ValidationExceptionField = Schema.Struct({name: Schema.String, message: Schema.String});
 export const ValidationExceptionFieldList = Schema.Array(ValidationExceptionField);
 export const ValidationException = Schema.Struct({requestId: Schema.optional(Schema.String), message: Schema.optional(Schema.String), reason: Schema.optional(Schema.String), fields: Schema.optional(ValidationExceptionFieldList)});
-export const GetAgreementTerms = /*#__PURE__*/ makeOperation(() => Operation({ version: "2020-03-01", uri: "/", method: "POST", sdkId: "Marketplace Agreement", sigV4ServiceName: "aws-marketplace", name: "AWSMPCommerceService_v20200301.GetAgreementTerms" }, GetAgreementTermsInput, GetAgreementTermsOutput, Schema.Union(ErrorAnnotation("AccessDeniedException", AccessDeniedException), ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ThrottlingException", ThrottlingException), ErrorAnnotation("ValidationException", ValidationException))), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const SearchAgreements = /*#__PURE__*/ makeOperation(() => Operation({ version: "2020-03-01", uri: "/", method: "POST", sdkId: "Marketplace Agreement", sigV4ServiceName: "aws-marketplace", name: "AWSMPCommerceService_v20200301.SearchAgreements" }, SearchAgreementsInput, SearchAgreementsOutput, Schema.Union(ErrorAnnotation("AccessDeniedException", AccessDeniedException), ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("ThrottlingException", ThrottlingException), ErrorAnnotation("ValidationException", ValidationException))), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const DescribeAgreement = /*#__PURE__*/ makeOperation(() => Operation({ version: "2020-03-01", uri: "/", method: "POST", sdkId: "Marketplace Agreement", sigV4ServiceName: "aws-marketplace", name: "AWSMPCommerceService_v20200301.DescribeAgreement" }, DescribeAgreementInput, DescribeAgreementOutput, Schema.Union(ErrorAnnotation("AccessDeniedException", AccessDeniedException), ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ThrottlingException", ThrottlingException), ErrorAnnotation("ValidationException", ValidationException))), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+
+//# Errors
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
+
+//# Operations
+export const getAgreementTerms = /*#__PURE__*/ makeOperation(() => Operation({ version: "2020-03-01", uri: "/", method: "POST", sdkId: "Marketplace Agreement", sigV4ServiceName: "aws-marketplace", name: "AWSMPCommerceService_v20200301.GetAgreementTerms" }, GetAgreementTermsInput, GetAgreementTermsOutput, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const searchAgreements = /*#__PURE__*/ makeOperation(() => Operation({ version: "2020-03-01", uri: "/", method: "POST", sdkId: "Marketplace Agreement", sigV4ServiceName: "aws-marketplace", name: "AWSMPCommerceService_v20200301.SearchAgreements" }, SearchAgreementsInput, SearchAgreementsOutput, [AccessDeniedExceptionError, InternalServerExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const describeAgreement = /*#__PURE__*/ makeOperation(() => Operation({ version: "2020-03-01", uri: "/", method: "POST", sdkId: "Marketplace Agreement", sigV4ServiceName: "aws-marketplace", name: "AWSMPCommerceService_v20200301.DescribeAgreement" }, DescribeAgreementInput, DescribeAgreementOutput, [AccessDeniedExceptionError, InternalServerExceptionError, ResourceNotFoundExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);

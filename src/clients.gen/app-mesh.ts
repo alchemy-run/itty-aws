@@ -1,6 +1,8 @@
 import { Schema} from "effect"
-import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client";
-import { Operation, Path, Header, StreamBody, Body, ErrorAnnotation } from "../schema-helpers";
+import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client.ts";
+import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
+
+//# Schemas
 export const TagKeyList = Schema.Array(Schema.String);
 export const ListTagsForResourceInput = Schema.Struct({resourceArn: Schema.String, nextToken: Schema.optional(Schema.String), limit: Schema.optional(Schema.Number)});
 export const UntagResourceInput = Schema.Struct({resourceArn: Schema.String, tagKeys: TagKeyList});
@@ -17,6 +19,17 @@ export const NotFoundException = Schema.Struct({message: Schema.optional(Schema.
 export const ServiceUnavailableException = Schema.Struct({message: Schema.optional(Schema.String)});
 export const TooManyRequestsException = Schema.Struct({message: Schema.optional(Schema.String)});
 export const TooManyTagsException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const UntagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-01-25", uri: "/v20190125/untag", method: "PUT", sdkId: "App Mesh", sigV4ServiceName: "appmesh", name: "AppMesh.UntagResource" }, UntagResourceInput, UntagResourceOutput, Schema.Union(ErrorAnnotation("BadRequestException", BadRequestException), ErrorAnnotation("ForbiddenException", ForbiddenException), ErrorAnnotation("InternalServerErrorException", InternalServerErrorException), ErrorAnnotation("NotFoundException", NotFoundException), ErrorAnnotation("ServiceUnavailableException", ServiceUnavailableException), ErrorAnnotation("TooManyRequestsException", TooManyRequestsException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const ListTagsForResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-01-25", uri: "/v20190125/tags", method: "GET", sdkId: "App Mesh", sigV4ServiceName: "appmesh", name: "AppMesh.ListTagsForResource" }, ListTagsForResourceInput, ListTagsForResourceOutput, Schema.Union(ErrorAnnotation("BadRequestException", BadRequestException), ErrorAnnotation("ForbiddenException", ForbiddenException), ErrorAnnotation("InternalServerErrorException", InternalServerErrorException), ErrorAnnotation("NotFoundException", NotFoundException), ErrorAnnotation("ServiceUnavailableException", ServiceUnavailableException), ErrorAnnotation("TooManyRequestsException", TooManyRequestsException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const TagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-01-25", uri: "/v20190125/tag", method: "PUT", sdkId: "App Mesh", sigV4ServiceName: "appmesh", name: "AppMesh.TagResource" }, TagResourceInput, TagResourceOutput, Schema.Union(ErrorAnnotation("BadRequestException", BadRequestException), ErrorAnnotation("ForbiddenException", ForbiddenException), ErrorAnnotation("InternalServerErrorException", InternalServerErrorException), ErrorAnnotation("NotFoundException", NotFoundException), ErrorAnnotation("ServiceUnavailableException", ServiceUnavailableException), ErrorAnnotation("TooManyRequestsException", TooManyRequestsException), ErrorAnnotation("TooManyTagsException", TooManyTagsException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+
+//# Errors
+export class BadRequestExceptionError extends Schema.TaggedError<BadRequestExceptionError>()("BadRequestException", BadRequestException) {};
+export class ForbiddenExceptionError extends Schema.TaggedError<ForbiddenExceptionError>()("ForbiddenException", ForbiddenException) {};
+export class InternalServerErrorExceptionError extends Schema.TaggedError<InternalServerErrorExceptionError>()("InternalServerErrorException", InternalServerErrorException) {};
+export class NotFoundExceptionError extends Schema.TaggedError<NotFoundExceptionError>()("NotFoundException", NotFoundException) {};
+export class ServiceUnavailableExceptionError extends Schema.TaggedError<ServiceUnavailableExceptionError>()("ServiceUnavailableException", ServiceUnavailableException) {};
+export class TooManyRequestsExceptionError extends Schema.TaggedError<TooManyRequestsExceptionError>()("TooManyRequestsException", TooManyRequestsException) {};
+export class TooManyTagsExceptionError extends Schema.TaggedError<TooManyTagsExceptionError>()("TooManyTagsException", TooManyTagsException) {};
+
+//# Operations
+export const untagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-01-25", uri: "/v20190125/untag", method: "PUT", sdkId: "App Mesh", sigV4ServiceName: "appmesh", name: "AppMesh.UntagResource" }, UntagResourceInput, UntagResourceOutput, [BadRequestExceptionError, ForbiddenExceptionError, InternalServerErrorExceptionError, NotFoundExceptionError, ServiceUnavailableExceptionError, TooManyRequestsExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const listTagsForResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-01-25", uri: "/v20190125/tags", method: "GET", sdkId: "App Mesh", sigV4ServiceName: "appmesh", name: "AppMesh.ListTagsForResource" }, ListTagsForResourceInput, ListTagsForResourceOutput, [BadRequestExceptionError, ForbiddenExceptionError, InternalServerErrorExceptionError, NotFoundExceptionError, ServiceUnavailableExceptionError, TooManyRequestsExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const tagResource = /*#__PURE__*/ makeOperation(() => Operation({ version: "2019-01-25", uri: "/v20190125/tag", method: "PUT", sdkId: "App Mesh", sigV4ServiceName: "appmesh", name: "AppMesh.TagResource" }, TagResourceInput, TagResourceOutput, [BadRequestExceptionError, ForbiddenExceptionError, InternalServerErrorExceptionError, NotFoundExceptionError, ServiceUnavailableExceptionError, TooManyRequestsExceptionError, TooManyTagsExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

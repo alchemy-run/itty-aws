@@ -1,6 +1,8 @@
 import { Schema} from "effect"
-import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client";
-import { Operation, Path, Header, StreamBody, Body, ErrorAnnotation } from "../schema-helpers";
+import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client.ts";
+import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
+
+//# Schemas
 export const GetDeploymentsRequest = Schema.Struct({DeviceName: Schema.String, DeviceFleetName: Schema.String});
 export const GetDeviceRegistrationRequest = Schema.Struct({DeviceName: Schema.String, DeviceFleetName: Schema.String});
 export const EdgeMetric = Schema.Struct({Dimension: Schema.optional(Schema.String), MetricName: Schema.optional(Schema.String), Value: Schema.optional(Schema.Number), Timestamp: Schema.optional(Schema.Date)});
@@ -19,6 +21,11 @@ export const Definitions = Schema.Array(Definition);
 export const EdgeDeployment = Schema.Struct({DeploymentName: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), FailureHandlingPolicy: Schema.optional(Schema.String), Definitions: Schema.optional(Definitions)});
 export const EdgeDeployments = Schema.Array(EdgeDeployment);
 export const GetDeploymentsResult = Schema.Struct({Deployments: Schema.optional(EdgeDeployments)});
-export const GetDeviceRegistration = /*#__PURE__*/ makeOperation(() => Operation({ version: "2020-09-23", uri: "/GetDeviceRegistration", method: "POST", sdkId: "Sagemaker Edge", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerEdge.GetDeviceRegistration" }, GetDeviceRegistrationRequest, GetDeviceRegistrationResult, ErrorAnnotation("InternalServiceException", InternalServiceException)), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const SendHeartbeat = /*#__PURE__*/ makeOperation(() => Operation({ version: "2020-09-23", uri: "/SendHeartbeat", method: "POST", sdkId: "Sagemaker Edge", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerEdge.SendHeartbeat" }, SendHeartbeatRequest, Schema.Struct({}), ErrorAnnotation("InternalServiceException", InternalServiceException)), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
-export const GetDeployments = /*#__PURE__*/ makeOperation(() => Operation({ version: "2020-09-23", uri: "/GetDeployments", method: "POST", sdkId: "Sagemaker Edge", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerEdge.GetDeployments" }, GetDeploymentsRequest, GetDeploymentsResult, ErrorAnnotation("InternalServiceException", InternalServiceException)), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+
+//# Errors
+export class InternalServiceExceptionError extends Schema.TaggedError<InternalServiceExceptionError>()("InternalServiceException", InternalServiceException) {};
+
+//# Operations
+export const getDeviceRegistration = /*#__PURE__*/ makeOperation(() => Operation({ version: "2020-09-23", uri: "/GetDeviceRegistration", method: "POST", sdkId: "Sagemaker Edge", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerEdge.GetDeviceRegistration" }, GetDeviceRegistrationRequest, GetDeviceRegistrationResult, [InternalServiceExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const sendHeartbeat = /*#__PURE__*/ makeOperation(() => Operation({ version: "2020-09-23", uri: "/SendHeartbeat", method: "POST", sdkId: "Sagemaker Edge", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerEdge.SendHeartbeat" }, SendHeartbeatRequest, Schema.Struct({}), [InternalServiceExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const getDeployments = /*#__PURE__*/ makeOperation(() => Operation({ version: "2020-09-23", uri: "/GetDeployments", method: "POST", sdkId: "Sagemaker Edge", sigV4ServiceName: "sagemaker", name: "AmazonSageMakerEdge.GetDeployments" }, GetDeploymentsRequest, GetDeploymentsResult, [InternalServiceExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

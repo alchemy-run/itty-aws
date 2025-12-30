@@ -1,6 +1,8 @@
 import { Schema} from "effect"
-import { FormatAwsJSON10Request,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client";
-import { Operation, Path, Header, StreamBody, Body, ErrorAnnotation } from "../schema-helpers";
+import { FormatAwsJSON10Request,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client.ts";
+import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
+
+//# Schemas
 export const GetRecordsInput = Schema.Struct({ShardIterator: Schema.String, Limit: Schema.optional(Schema.Number)});
 export const GetShardIteratorInput = Schema.Struct({StreamArn: Schema.String, ShardId: Schema.String, ShardIteratorType: Schema.String, SequenceNumber: Schema.optional(Schema.String)});
 export const ListStreamsInput = Schema.Struct({TableName: Schema.optional(Schema.String), Limit: Schema.optional(Schema.Number), ExclusiveStartStreamArn: Schema.optional(Schema.String)});
@@ -34,7 +36,16 @@ export const RecordList = Schema.Array(Record);
 export const GetRecordsOutput = Schema.Struct({Records: Schema.optional(RecordList), NextShardIterator: Schema.optional(Schema.String)});
 export const ExpiredIteratorException = Schema.Struct({message: Schema.optional(Schema.String)});
 export const LimitExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const ListStreams = /*#__PURE__*/ makeOperation(() => Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB Streams", sigV4ServiceName: "dynamodb", name: "DynamoDBStreams_20120810.ListStreams" }, ListStreamsInput, ListStreamsOutput, Schema.Union(ErrorAnnotation("InternalServerError", InternalServerError), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException))), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const GetShardIterator = /*#__PURE__*/ makeOperation(() => Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB Streams", sigV4ServiceName: "dynamodb", name: "DynamoDBStreams_20120810.GetShardIterator" }, GetShardIteratorInput, GetShardIteratorOutput, Schema.Union(ErrorAnnotation("InternalServerError", InternalServerError), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("TrimmedDataAccessException", TrimmedDataAccessException))), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const DescribeStream = /*#__PURE__*/ makeOperation(() => Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB Streams", sigV4ServiceName: "dynamodb", name: "DynamoDBStreams_20120810.DescribeStream" }, DescribeStreamInput, DescribeStreamOutput, Schema.Union(ErrorAnnotation("InternalServerError", InternalServerError), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException))), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
-export const GetRecords = /*#__PURE__*/ makeOperation(() => Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB Streams", sigV4ServiceName: "dynamodb", name: "DynamoDBStreams_20120810.GetRecords" }, GetRecordsInput, GetRecordsOutput, Schema.Union(ErrorAnnotation("ExpiredIteratorException", ExpiredIteratorException), ErrorAnnotation("InternalServerError", InternalServerError), ErrorAnnotation("LimitExceededException", LimitExceededException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("TrimmedDataAccessException", TrimmedDataAccessException))), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+
+//# Errors
+export class InternalServerErrorError extends Schema.TaggedError<InternalServerErrorError>()("InternalServerError", InternalServerError) {};
+export class ResourceNotFoundExceptionError extends Schema.TaggedError<ResourceNotFoundExceptionError>()("ResourceNotFoundException", ResourceNotFoundException) {};
+export class TrimmedDataAccessExceptionError extends Schema.TaggedError<TrimmedDataAccessExceptionError>()("TrimmedDataAccessException", TrimmedDataAccessException) {};
+export class ExpiredIteratorExceptionError extends Schema.TaggedError<ExpiredIteratorExceptionError>()("ExpiredIteratorException", ExpiredIteratorException) {};
+export class LimitExceededExceptionError extends Schema.TaggedError<LimitExceededExceptionError>()("LimitExceededException", LimitExceededException) {};
+
+//# Operations
+export const listStreams = /*#__PURE__*/ makeOperation(() => Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB Streams", sigV4ServiceName: "dynamodb", name: "DynamoDBStreams_20120810.ListStreams" }, ListStreamsInput, ListStreamsOutput, [InternalServerErrorError, ResourceNotFoundExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const getShardIterator = /*#__PURE__*/ makeOperation(() => Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB Streams", sigV4ServiceName: "dynamodb", name: "DynamoDBStreams_20120810.GetShardIterator" }, GetShardIteratorInput, GetShardIteratorOutput, [InternalServerErrorError, ResourceNotFoundExceptionError, TrimmedDataAccessExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const describeStream = /*#__PURE__*/ makeOperation(() => Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB Streams", sigV4ServiceName: "dynamodb", name: "DynamoDBStreams_20120810.DescribeStream" }, DescribeStreamInput, DescribeStreamOutput, [InternalServerErrorError, ResourceNotFoundExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const getRecords = /*#__PURE__*/ makeOperation(() => Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB Streams", sigV4ServiceName: "dynamodb", name: "DynamoDBStreams_20120810.GetRecords" }, GetRecordsInput, GetRecordsOutput, [ExpiredIteratorExceptionError, InternalServerErrorError, LimitExceededExceptionError, ResourceNotFoundExceptionError, TrimmedDataAccessExceptionError]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);

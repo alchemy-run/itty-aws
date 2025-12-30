@@ -1,6 +1,8 @@
 import { Schema} from "effect"
-import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client";
-import { Operation, Path, Header, StreamBody, Body, ErrorAnnotation } from "../schema-helpers";
+import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client.ts";
+import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
+
+//# Schemas
 export const ControlArnFilterList = Schema.Array(Schema.String);
 export const CommonControlArnFilterList = Schema.Array(Schema.String);
 export const MappingTypeFilterList = Schema.Array(Schema.String);
@@ -8,8 +10,7 @@ export const ControlMappingFilter = Schema.Struct({ControlArns: Schema.optional(
 export const ListControlMappingsRequest = Schema.Struct({NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), Filter: Schema.optional(ControlMappingFilter)});
 export const FrameworkMappingDetails = Schema.Struct({Name: Schema.String, Item: Schema.String});
 export const CommonControlMappingDetails = Schema.Struct({CommonControlArn: Schema.String});
-export const RelatedControlMappingDetails = Schema.Struct({ControlArn: Schema.optional(Schema.String), RelationType: Schema.String});
-export const Mapping = Schema.Union(FrameworkMappingDetails, CommonControlMappingDetails, RelatedControlMappingDetails);
+export const Mapping = Schema.Union(FrameworkMappingDetails, CommonControlMappingDetails);
 export const ControlMapping = Schema.Struct({ControlArn: Schema.String, MappingType: Schema.String, Mapping: Mapping});
 export const ControlMappings = Schema.Array(ControlMapping);
 export const ListControlMappingsResponse = Schema.Struct({ControlMappings: ControlMappings, NextToken: Schema.optional(Schema.String)});
@@ -17,4 +18,12 @@ export const AccessDeniedException = Schema.Struct({Message: Schema.optional(Sch
 export const InternalServerException = Schema.Struct({Message: Schema.optional(Schema.String)});
 export const ThrottlingException = Schema.Struct({Message: Schema.optional(Schema.String)});
 export const ValidationException = Schema.Struct({Message: Schema.optional(Schema.String)});
-export const ListControlMappings = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-05-10", uri: "/list-control-mappings", method: "POST", sdkId: "ControlCatalog", sigV4ServiceName: "controlcatalog", name: "ControlCatalog.ListControlMappings" }, ListControlMappingsRequest, ListControlMappingsResponse, Schema.Union(ErrorAnnotation("AccessDeniedException", AccessDeniedException), ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("ThrottlingException", ThrottlingException), ErrorAnnotation("ValidationException", ValidationException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+
+//# Errors
+export class AccessDeniedExceptionError extends Schema.TaggedError<AccessDeniedExceptionError>()("AccessDeniedException", AccessDeniedException) {};
+export class InternalServerExceptionError extends Schema.TaggedError<InternalServerExceptionError>()("InternalServerException", InternalServerException) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
+export class ValidationExceptionError extends Schema.TaggedError<ValidationExceptionError>()("ValidationException", ValidationException) {};
+
+//# Operations
+export const listControlMappings = /*#__PURE__*/ makeOperation(() => Operation({ version: "2018-05-10", uri: "/list-control-mappings", method: "POST", sdkId: "ControlCatalog", sigV4ServiceName: "controlcatalog", name: "ControlCatalog.ListControlMappings" }, ListControlMappingsRequest, ListControlMappingsResponse, [AccessDeniedExceptionError, InternalServerExceptionError, ThrottlingExceptionError, ValidationExceptionError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

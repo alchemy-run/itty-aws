@@ -583,10 +583,11 @@ const generateClient = Effect.fn(function* (
     const operations = yield* Ref.get(sdkFile.operations);
 
     //todo(pear): optimize imports
+    const clientImportsArray = Array.from(clientImports);
     const imports = dedent`
       import { Schema} from "effect"
-      import { ${Array.from(clientImports).join(",")}, makeOperation } from "../client";
-      import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers";`;
+      import { ${clientImportsArray.join(",")}${clientImportsArray.length > 0 ? "," : ""} makeOperation } from "../client.ts";
+      import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";`;
 
     const fileContents = `${imports}\n\n//# Schemas\n${schemaDefinitions}\n\n//# Errors\n${errorDefinitions}\n\n//# Operations\n${operations}`;
 
@@ -612,8 +613,8 @@ const generateClient = Effect.fn(function* (
   );
 });
 
-const AWS_MODELS_PATH = "D:/code/OSS/aws/api-models-aws";
-const RESULT_ROOT_PATH = "D:/code/OSS/alchemy/itty-aws-2/src/clients.gen";
+const AWS_MODELS_PATH = "aws-models";
+const RESULT_ROOT_PATH = "src/clients.gen";
 
 BunRuntime.runMain(
   // generateClient(TEST_MODAL_PATH, TEST_OUTPUT_PATH)

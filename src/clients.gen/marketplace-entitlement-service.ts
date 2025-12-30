@@ -1,6 +1,8 @@
 import { Schema} from "effect"
-import { FormatAwsJSON11Request,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client";
-import { Operation, Path, Header, StreamBody, Body, ErrorAnnotation } from "../schema-helpers";
+import { FormatAwsJSON11Request,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client.ts";
+import { Operation, Path, Header, StreamBody, Body } from "../schema-helpers.ts";
+
+//# Schemas
 export const FilterValueList = Schema.Array(Schema.String);
 export const GetEntitlementFilters = Schema.Record({key: Schema.String, value: FilterValueList});
 export const GetEntitlementsRequest = Schema.Struct({ProductCode: Schema.String, Filter: Schema.optional(GetEntitlementFilters), NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
@@ -11,4 +13,11 @@ export const GetEntitlementsResult = Schema.Struct({Entitlements: Schema.optiona
 export const InternalServiceErrorException = Schema.Struct({message: Schema.optional(Schema.String)});
 export const InvalidParameterException = Schema.Struct({message: Schema.optional(Schema.String)});
 export const ThrottlingException = Schema.Struct({message: Schema.optional(Schema.String)});
-export const GetEntitlements = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-01-11", uri: "/", method: "POST", sdkId: "Marketplace Entitlement Service", sigV4ServiceName: "aws-marketplace", name: "AWSMPEntitlementService.GetEntitlements" }, GetEntitlementsRequest, GetEntitlementsResult, Schema.Union(ErrorAnnotation("InternalServiceErrorException", InternalServiceErrorException), ErrorAnnotation("InvalidParameterException", InvalidParameterException), ErrorAnnotation("ThrottlingException", ThrottlingException))), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+
+//# Errors
+export class InternalServiceErrorExceptionError extends Schema.TaggedError<InternalServiceErrorExceptionError>()("InternalServiceErrorException", InternalServiceErrorException) {};
+export class InvalidParameterExceptionError extends Schema.TaggedError<InvalidParameterExceptionError>()("InvalidParameterException", InvalidParameterException) {};
+export class ThrottlingExceptionError extends Schema.TaggedError<ThrottlingExceptionError>()("ThrottlingException", ThrottlingException) {};
+
+//# Operations
+export const getEntitlements = /*#__PURE__*/ makeOperation(() => Operation({ version: "2017-01-11", uri: "/", method: "POST", sdkId: "Marketplace Entitlement Service", sigV4ServiceName: "aws-marketplace", name: "AWSMPEntitlementService.GetEntitlements" }, GetEntitlementsRequest, GetEntitlementsResult, [InternalServiceErrorExceptionError, InvalidParameterExceptionError, ThrottlingExceptionError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
