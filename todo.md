@@ -24,9 +24,8 @@
 - make POST / the default behavior if not defined in operation meta so we can omit them for awsJson sdks
 - default sigV4service name to lowercase sdkId when it works
 - make name smaller
-- do we need to do both `/*#__PURE__*/` and `/*@__PURE__*/` for better support across bundlers
 - test coverage reporting
-
+- don't commit src/services
 
 ## Specific handling of errors
 
