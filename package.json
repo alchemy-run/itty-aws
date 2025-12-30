@@ -30,8 +30,10 @@
     "@effect/platform": "latest",
     "@effect/platform-bun": "latest",
     "aws4fetch": "^1.0.20",
-    "effect": "latest",
     "fast-xml-parser": "^5.3.2"
+  },
+  "peerDependencies": {
+    "effect": "latest"
   },
   "devDependencies": {
     "@effect/cluster": "latest",
@@ -44,6 +46,7 @@
     "@types/node": "^24.10.1",
     "@typescript/native-preview": "^7.0.0-dev.20251230.1",
     "dedent": "^1.7.0",
+    "effect": "latest",
     "typescript": "^5",
     "pathe": "^2.0.3"
   }
