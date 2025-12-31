@@ -8,14 +8,12 @@ import { Credentials } from "./aws/credentials.ts";
 import { Endpoint } from "./aws/endpoint.ts";
 import { COMMON_ERRORS, UnknownAwsError, type CommonAwsError } from "./aws/errors.ts";
 import { Region } from "./aws/region.ts";
-import type { Middleware } from "./middleware/middleware.ts";
 import type { Operation } from "./operation.ts";
 import * as RequestBuilder from "./request-builder.ts";
 import * as ResponseParser from "./response-parser.ts";
 
 export const make = <Op extends Operation>(
   initOperation: () => Op,
-  ...middlewares: Middleware[]
 ): ((
   payload: Operation.Input<Op>,
 ) => Effect.Effect<
