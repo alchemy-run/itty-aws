@@ -20,4 +20,3 @@ class NodeMd5 implements Checksum {
     this.hash = crypto.createHash("md5");
   }
 }
-

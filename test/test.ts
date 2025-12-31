@@ -8,8 +8,9 @@ import * as Effect from "effect/Effect";
 import * as Layer from "effect/Layer";
 import * as Logger from "effect/Logger";
 import * as Scope from "effect/Scope";
-import { Credentials, NodeProviderChainCredentialsLive } from "../src/credentials.ts";
-import { Region } from "../src/region.ts";
+import { Credentials, NodeProviderChainCredentialsLive } from "../src/aws/credentials.ts";
+import { Endpoint } from "../src/aws/endpoint.ts";
+import { Region } from "../src/aws/region.ts";
 
 type Provided =
   | Scope.Scope
@@ -60,6 +61,12 @@ export function test(
       }).pipe(
         Effect.provide(platform),
         Effect.provideService(Region, "us-east-1"),
+        Effect.provideService(
+          Endpoint,
+          process.env.LOCAL
+            ? "us-east-1.amazonaws.com"
+            : (process.env.LOCALSTACK_HOST ?? "localhost:4566"),
+        ),
         Effect.provide(NodeProviderChainCredentialsLive),
         Logger.withMinimumLogLevel(process.env.DEBUG ? LogLevel.Debug : LogLevel.Info),
         Effect.provide(NodeContext.layer),

@@ -1,179 +1,35 @@
-import * as Stream from "effect/Stream";
-import { XMLBuilder, XMLParser } from "fast-xml-parser";
-import type { ServiceMetadata } from "../client.ts";
-import type {
-  ParsedError,
-  ProtocolHandler,
-  ProtocolRequest,
-} from "./interface.ts";
+import * as Effect from "effect/Effect";
+import { ParseError } from "../error-parser.ts";
+import type { Operation } from "../operation.ts";
+import type { RawResponse } from "../response.ts";
+import * as XML from "../util/xml.ts";
 
-type Writeable<T> = { -readonly [P in keyof T]: T[P] };
+//todo(pear) support error wrapping https://smithy.io/2.0/aws/protocols/aws-restxml-protocol.html#restxml-errors
+export const FormatAwsXMLError = (op: Operation) =>
+  Effect.fn(function* (value: RawResponse) {
+    const data = yield* Effect.try({
+      try: () => XML.parser.parse(value.body),
+      catch: () => new ParseError({ message: "cannot decode XML" }),
+    });
 
-export class RestXmlHandler implements ProtocolHandler {
-  readonly name = "restXml";
-  readonly contentType = "application/xml";
+    //todo(pear): define options somehow in generate-client
+    //            part of the problem here is aws defaults might not be the smartest
+    //            which then creates bloat for each request and its all just gross
+    //            proper solution for just aws rest xml:
+    // const _tag = yield* Effect.if(options?.noErrorWrapping ?? false, {
+    //   onTrue: () => Effect.succeed(data?.Error?.Code),
+    //   onFalse: () => Effect.succeed(data?.ErrorResponse?.Error?.Code),
+    // });
+    //            however we also handle it for AWS query and AWS EC2 query
+    const _tag =
+      data?.Response?.Errors?.Error?.Code ?? data?.ErrorResponse?.Error?.Code ?? data?.Error?.Code;
 
-  buildHttpRequest(
-    input: Record<string, unknown>,
-    operation: string,
-    metadata: ServiceMetadata,
-  ): Promise<ProtocolRequest> {
-    const builder = new XMLBuilder();
-
-    const operationMeta = metadata?.operations?.[operation];
-    if (operationMeta == null || typeof operationMeta === "string") {
-      throw new Error("idk man?");
+    if (typeof _tag !== "string") {
+      return yield* Effect.fail(new ParseError({ message: "Unable to parse error code" }));
     }
-
-    const [method, urlTemplate] = operationMeta.http?.split?.(/ (.+)/) as [
-      string,
-      string,
-    ];
-
-    const hasBody = method !== "GET" && method !== "HEAD";
-
-    const request: Writeable<ProtocolRequest> = {
-      path: urlTemplate,
-      method,
-      headers: {
-        "User-Agent": "itty-aws",
-      },
-    };
-
-    // Only set Content-Type for methods that have a body
-    if (hasBody) {
-      request.headers["Content-Type"] =
-        operationMeta?.inputTraits?.Body === "httpStreaming"
-          ? "application/octet-stream"
-          : this.contentType;
-    }
-
-    let body: Record<string, unknown> = {};
-    let streamingBody = false;
-
-    for (const [key, value] of Object.entries(input)) {
-      const type = operationMeta.inputTraits?.[key];
-      if (type == null) {
-        request.path = request.path.replace(
-          new RegExp(`\\{${key}\\+?\\}`, "g"),
-          value as string,
-        );
-      } else if (type === "httpPayload") {
-        body[key] = value;
-      } else if (type === "httpStreaming") {
-        streamingBody = true;
-        request.body = value as any;
-      } else {
-        request.headers[type] = value as string;
-      }
-    }
-
-    // Only set body for methods that support it
-    if (!streamingBody && hasBody) {
-      request.body = builder.build(body);
-    }
-
-    return Promise.resolve(request);
-  }
-
-  async parseResponse(
-    response: Response,
-    _statusCode: number,
-    metadata?: ServiceMetadata,
-    headers?: Headers,
-    operation?: string,
-  ): Promise<unknown> {
-    const operationMeta = metadata?.operations?.[operation!];
-    if (operationMeta == null || typeof operationMeta === "string") {
-      throw new Error("idk man?");
-    }
-
-    let headerData: Record<string, unknown> = {};
-
-    for (const [key, value] of Object.entries(
-      operationMeta.outputTraits ?? {},
-    )) {
-      if (value !== "httpPayload" && value !== "httpStreaming") {
-        headerData[key] = headers?.get(value.toLowerCase());
-      }
-    }
-
-    try {
-      if (operationMeta?.outputTraits?.Body === "httpStreaming") {
-        return {
-          ...headerData,
-          Body: Stream.fromReadableStream(
-            () => response.body!,
-            (error) => new Error(`Stream error: ${error}`),
-          ),
-        };
-      } else {
-        const parser = new XMLParser();
-        return {
-          ...headerData,
-          ...parser.parse(await response.text()),
-        };
-      }
-    } catch {
-      return { data: await response.text() };
-    }
-  }
-
-  async parseError(
-    response: Response,
-    statusCode: number,
-    headers: Headers | undefined,
-    operation: string,
-    metadata?: ServiceMetadata,
-  ): Promise<ParsedError> {
-    const responseText = await response.text();
-    const parser = new XMLParser();
-    const error = responseText != null ? parser.parse(responseText) : null;
-
-    // Get the error status code mappings for this operation
-    const operationMeta = metadata?.operations?.[operation];
-    const errorStatusCodes =
-      typeof operationMeta === "object"
-        ? operationMeta.errorStatusCodes
-        : undefined;
-
-    // Try to determine error type from:
-    // 1. XML error code in response body
-    // 2. Status code mapping from metadata
-    // 3. Fallback to generic error
-    let errorType = error?.Error?.Code;
-    if (!errorType && errorStatusCodes) {
-      errorType = errorStatusCodes[statusCode];
-    }
-    if (!errorType) {
-      errorType = statusCode === 404 ? "NotFound" : "UnknownError";
-    }
-
-    const mappings: any = metadata?.sigV4ServiceName
-      ? errorMappings[metadata.sigV4ServiceName as keyof typeof errorMappings]
-      : {};
-    errorType = mappings[operation]?.[errorType] ?? errorType;
 
     return {
-      errorType,
-      message:
-        error?.Error?.Message ??
-        (statusCode === 404 ? "Not Found" : "Unknown error"),
-      requestId:
-        headers?.get("x-amzn-requestid") ||
-        headers?.get("x-amz-request-id") ||
-        undefined,
+      _tag,
+      data,
     };
-  }
-}
-
-const errorMappings = {
-  s3: {
-    HeadBucket: {
-      NotFound: "NoSuchBucket",
-    },
-    DeleteBucket: {
-      NotFound: "NoSuchBucket",
-    },
-  },
-};
+  });
