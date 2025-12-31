@@ -1,25 +1,34 @@
 {
+  "diffEditor.renderSideBySide": false,
+  "typescript.experimental.useTsgo": false,
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "typescript.preferences.importModuleSpecifierEnding": "js",
+  "oxc.fmt.experimental": true,
+  "oxc.enable": true,
+  "oxc.lint.run": "onSave",
+  "son.schemaDownload.enable": true,
+  "editor.defaultFormatter": "oxc.oxc-vscode",
   "editor.codeLens": false,
   "editor.formatOnSave": true,
   "editor.formatOnSaveMode": "file",
+  "editor.inlayHints.enabled": "offUnlessPressed",
+  "editor.tabSize": 2,
+  "editor.indentSize": 2,
+  "editor.insertSpaces": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll.ruff": "always",
     "source.fixAll": "explicit",
-    "source.organizeImports": "explicit",
-    "source.organizeImports.biome": "explicit"
-  },
-  "rewrap.autoWrap.enabled": false,
-  "[rust]": {
-    "editor.insertSpaces": true,
-    "editor.tabSize": 4
+    "source.organizeImports": "explicit"
   },
   "[toml]": {
     "editor.defaultFormatter": "tamasfe.even-better-toml"
   },
   "[json]": {
-    "editor.indentSize": 2,
-    "editor.insertSpaces": true,
-    "editor.defaultFormatter": "biomejs.biome"
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
   },
   "[markdown]": {
     "editor.formatOnSave": false,
@@ -29,26 +38,24 @@
     "editor.defaultFormatter": null,
     "editor.formatOnSave": false
   },
-  "editor.inlayHints.enabled": "offUnlessPressed",
   "files.exclude": {
     "**/__pycache__": true,
     "**/*.pyc": true
   },
-  "vitest.disableWorkspaceWarning": true,
   "[typescript]": {
     "editor.indentSize": 2,
-    "editor.defaultFormatter": "biomejs.biome"
+    "editor.defaultFormatter": "oxc.oxc-vscode"
   },
   "[javascript]": {
     "editor.indentSize": 2,
-    "editor.defaultFormatter": "biomejs.biome"
+    "editor.defaultFormatter": "oxc.oxc-vscode"
   },
   "[tsx]": {
     "editor.indentSize": 2,
-    "editor.defaultFormatter": "biomejs.biome"
+    "editor.defaultFormatter": "oxc.oxc-vscode"
   },
   "[jsx]": {
     "editor.indentSize": 2,
-    "editor.defaultFormatter": "biomejs.biome"
+    "editor.defaultFormatter": "oxc.oxc-vscode"
   }
 }
