@@ -1,4 +1,4 @@
-import { Context } from "effect";
+import * as Context from "effect/Context";
 
 export type AWSRegion =
   | "us-east-1"

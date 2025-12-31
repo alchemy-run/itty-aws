@@ -140,8 +140,8 @@ function schemaExprToTsType(
       return "Date";
     case "S.Any":
       return "any";
-    case "H.StreamBody()":
-      return "H.StreamBody";
+    case "A.StreamBody()":
+      return "A.StreamBody";
     case "S.Struct({})":
       return "Record<string, never>";
     default:
@@ -395,7 +395,7 @@ const convertShapeToSchema: (
         ),
         Match.when(
           (s) => s === "smithy.api#Blob",
-          () => Effect.succeed("H.StreamBody()"),
+          () => Effect.succeed("A.StreamBody()"),
         ),
         Match.when(
           //todo(pear): should this be S.Never?
@@ -433,7 +433,7 @@ const convertShapeToSchema: (
           ),
           Match.when(
             (s) => s.type === "blob",
-            () => Effect.succeed("H.StreamBody()"),
+            () => Effect.succeed("A.StreamBody()"),
           ),
           Match.when(
             (s) => s.type === "boolean",
@@ -545,19 +545,19 @@ const convertShapeToSchema: (
 
                       if (member.traits?.["smithy.api#httpHeader"] != null) {
                         if (baseSchema === "S.String") {
-                          schema = `H.Header("${member.traits?.["smithy.api#httpHeader"]}")`;
+                          schema = `A.Header("${member.traits?.["smithy.api#httpHeader"]}")`;
                         } else {
-                          schema = `H.Header("${member.traits?.["smithy.api#httpHeader"]}", ${schema})`;
+                          schema = `A.Header("${member.traits?.["smithy.api#httpHeader"]}", ${schema})`;
                         }
                       }
                       if (member.traits?.["smithy.api#httpPayload"] != null) {
-                        schema = `H.Body("${member.traits?.["smithy.api#xmlName"]}", ${schema})`;
+                        schema = `A.Body("${member.traits?.["smithy.api#xmlName"]}", ${schema})`;
                       }
                       if (
                         member.traits?.["smithy.api#httpLabel"] != null &&
                         member.traits?.["smithy.rules#contextParam"] != null
                       ) {
-                        schema = `H.Path("${(member.traits?.["smithy.rules#contextParam"] as { name: string })?.name}", ${schema})`;
+                        schema = `A.Path("${(member.traits?.["smithy.rules#contextParam"] as { name: string })?.name}", ${schema})`;
                       }
 
                       if (member.traits?.["smithy.api#required"] == null) {
@@ -595,7 +595,7 @@ const convertShapeToSchema: (
                   Effect.map((members) => {
                     const fields = `{${members.join(", ")}}`;
                     // Add xmlName annotation if present
-                    const annotations = xmlName ? `, { [H.xmlNameSymbol]: "${xmlName}" }` : "";
+                    const annotations = xmlName ? `, { [A.xmlNameSymbol]: "${xmlName}" }` : "";
                     return `export class ${currentSchemaName} extends S.Class<${currentSchemaName}>("${currentSchemaName}")(${fields}${annotations}) {}`;
                   }),
                 ),
@@ -848,7 +848,7 @@ const generateClient = Effect.fn(function* (modelPath: string, outputRootPath: s
           }
         }
 
-        const [responseParser, requestParser, errorParser] = yield* Match.value(protocol).pipe(
+        const [requestParser, responseParser, errorParser] = yield* Match.value(protocol).pipe(
           Match.when("aws.protocols#restXml", () =>
             Effect.succeed(["FormatXMLRequest", "FormatXMLResponse", "FormatAwsXMLError"]),
           ),
@@ -909,15 +909,23 @@ const generateClient = Effect.fn(function* (modelPath: string, outputRootPath: s
           `sdkId: "${serviceShape.traits["aws.api#service"].sdkId}"`,
           `sigV4ServiceName: ${serviceShape.traits["aws.auth#sigv4"]?.name == null ? `"${serviceName}"` : `"${serviceShape.traits["aws.auth#sigv4"]?.name}"`}`,
           `name: "${operationName}"`,
+          `inputSchema: ${input}`,
+          `outputSchema: ${output}`,
+          `errors: ${operationErrors}`,
+          // TODO(sam): these are backwards
+          `requestFormatter: P.${requestParser}`,
+          `responseParser: P.${responseParser}`,
+          `errorParser: P.${errorParser}`,
         );
         const metaObject = `{ ${metaParts.join(", ")} }`;
+        // O.Operation(${metaObject}, ${input}, ${output}, ${operationErrors}), P.${responseParser}, P.${requestParser}, P.${errorParser}${middlewareArgs}
 
         yield* sdkFile.operations.pipe(
           Ref.update(
             (c) =>
               c +
               operationComment +
-              `export const ${formatName(operationShapeName, true)} = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation(${metaObject}, ${input}, ${output}, ${operationErrors}), ${responseParser}, ${requestParser}, ${errorParser}${middlewareArgs});\n`,
+              `export const ${formatName(operationShapeName, true)} = /*@__PURE__*/ /*#__PURE__*/ API.make(() => (${metaObject}));\n`,
           ),
         );
       }),
@@ -942,9 +950,12 @@ const generateClient = Effect.fn(function* (modelPath: string, outputRootPath: s
     const clientImportsArray = Array.from(clientImports);
     const middlewareImport = usesMiddleware ? `\nimport * as M from "../middleware/index.ts";` : "";
     const imports = dedent`
-      import * as S from "effect/Schema"
-      import { ${clientImportsArray.join(",")}${clientImportsArray.length > 0 ? "," : ""} makeOperation } from "../client.ts";
-      import * as H from "../schema-helpers.ts";${middlewareImport}`;
+      import * as S from "effect/Schema";
+      import * as API from "../api.ts";
+      import * as A from "../annotations.ts";
+      import * as O from "../operation.ts";
+      import * as P from "../protocols/index.ts";
+      import * as M from "../middleware/index.ts";`;
 
     const fileContents = `${imports}\n\n//# Schemas\n${schemaDefinitions}\n\n//# Errors\n${errorDefinitions}\n\n//# Operations\n${operations}`;
 
@@ -1055,10 +1066,12 @@ export function htmlToJsdoc(html: string): string {
     // Clean up whitespace
     .replace(/\n{3,}/g, "\n\n")
     .replace(/[ \t]+/g, " ")
+    // Escape */ to prevent premature closing of JSDoc comment
+    .replace(/\*\//g, "*\\/")
     .trim();
 
   // Format as JSDoc
   const lines = text.split("\n").map((line) => ` * ${line.trim()}`);
   const dedupedLines = lines.filter((line, i) => !(line === " * " && lines[i - 1] === " * "));
-  return `/**\n${dedupedLines.join("\n")}\n */`;
+  return `/**\n${dedupedLines.join("\n")}\n */\n`;
 }

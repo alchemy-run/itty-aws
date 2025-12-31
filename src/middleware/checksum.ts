@@ -4,7 +4,7 @@ import * as Effect from "effect/Effect";
 import { getCrc32ChecksumAlgorithmFunction } from "../hash/crc32.ts";
 import { getMd5ChecksumAlgorithmFunction } from "../hash/md5.ts";
 import { toUint8Array } from "../hash/utf8.ts";
-import type { Middleware } from "../middleware.ts";
+import type { Middleware } from "./middleware.ts";
 
 /**
  * Middleware that computes a checksum for the request body.
@@ -13,7 +13,10 @@ import type { Middleware } from "../middleware.ts";
  *
  * @param options.algorithmHeader - The header that contains the algorithm name (e.g., "x-amz-checksum-algorithm")
  */
-export const HttpChecksum = (options: { algorithmHeader: string, algorithm?: string}): Middleware => ({
+export const HttpChecksum = (options: {
+  algorithmHeader: string;
+  algorithm?: string;
+}): Middleware => ({
   request: Effect.fnUntraced(function* (request) {
     const body = request.unsignedBody;
 
@@ -22,7 +25,10 @@ export const HttpChecksum = (options: { algorithmHeader: string, algorithm?: str
       return request;
     }
 
-    const algorithm = request.unsignedHeaders[options.algorithmHeader]?.toLowerCase() ?? options.algorithm ?? "crc32";
+    const algorithm =
+      request.unsignedHeaders[options.algorithmHeader]?.toLowerCase() ??
+      options.algorithm ??
+      "crc32";
     const checksumHeader = algorithm === "md5" ? "content-md5" : `x-amz-checksum-${algorithm}`;
 
     let hasher: ChecksumConstructor;

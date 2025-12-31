@@ -649,6 +649,121 @@ describe("parseXml", () => {
     });
   });
 
+  describe("date handling", () => {
+    it("returns date values as strings (for schema to decode)", () => {
+      class Event extends S.Class<Event>("Event")({
+        Name: S.String,
+        Timestamp: S.String, // Using String to verify what parseXml returns
+      }) {}
+
+      const xml = `<Event><Name>test</Name><Timestamp>2025-12-30T14:59:22.000Z</Timestamp></Event>`;
+      const result = parseXml(Event, xml);
+
+      expect(result).toEqual({
+        Name: "test",
+        Timestamp: "2025-12-30T14:59:22.000Z",
+      });
+      expect(typeof result.Timestamp).toBe("string");
+
+      // Verify full round-trip with schema decode
+      const decoded = S.decodeUnknownSync(Event)(result);
+      expect(decoded.Name).toBe("test");
+      expect(decoded.Timestamp).toBe("2025-12-30T14:59:22.000Z");
+    });
+
+    it("returns date values as strings with S.Date schema and decodes to Date", () => {
+      // Note: parseXml should return strings, Schema.decode handles the Date transformation
+      class Event extends S.Class<Event>("Event")({
+        Name: S.String,
+        Timestamp: S.Date, // S.Date = DateFromString, expects string input
+      }) {}
+
+      const xml = `<Event><Name>test</Name><Timestamp>2025-12-30T14:59:22.000Z</Timestamp></Event>`;
+      const result = parseXml(Event, xml);
+
+      // parseXml should return a string, not a Date
+      expect(typeof result.Timestamp).toBe("string");
+      expect(result.Timestamp).toBe("2025-12-30T14:59:22.000Z");
+
+      // Verify full round-trip with schema decode - should transform string to Date
+      const decoded = S.decodeUnknownSync(Event)(result);
+      expect(decoded.Name).toBe("test");
+      expect(decoded.Timestamp).toBeInstanceOf(Date);
+      expect(decoded.Timestamp.toISOString()).toBe("2025-12-30T14:59:22.000Z");
+    });
+
+    it("works with optional S.Date and decodes to Date", () => {
+      class Event extends S.Class<Event>("Event")({
+        Name: S.String,
+        Timestamp: S.optional(S.Date),
+      }) {}
+
+      const xml = `<Event><Name>test</Name><Timestamp>2025-12-30T14:59:22.000Z</Timestamp></Event>`;
+      const result = parseXml(Event, xml);
+
+      expect(typeof result.Timestamp).toBe("string");
+      expect(result.Timestamp).toBe("2025-12-30T14:59:22.000Z");
+
+      // Verify full round-trip with schema decode
+      const decoded = S.decodeUnknownSync(Event)(result);
+      expect(decoded.Name).toBe("test");
+      expect(decoded.Timestamp).toBeInstanceOf(Date);
+      expect(decoded.Timestamp?.toISOString()).toBe("2025-12-30T14:59:22.000Z");
+    });
+
+    it("handles missing optional date", () => {
+      class Event extends S.Class<Event>("Event")({
+        Name: S.String,
+        Timestamp: S.optional(S.Date),
+      }) {}
+
+      const xml = `<Event><Name>test</Name></Event>`;
+      const result = parseXml(Event, xml);
+
+      expect(result).toEqual({ Name: "test" });
+      expect(result.Timestamp).toBeUndefined();
+
+      // Verify full round-trip with schema decode
+      const decoded = S.decodeUnknownSync(Event)(result);
+      expect(decoded.Name).toBe("test");
+      expect(decoded.Timestamp).toBeUndefined();
+    });
+
+    it("works with optional S.Date in nested array (like S3 Buckets)", () => {
+      class Bucket extends S.Class<Bucket>("Bucket")({
+        Name: S.optional(S.String),
+        CreationDate: S.optional(S.Date),
+      }) {}
+      const Buckets = S.Array(Bucket);
+
+      class ListBucketsOutput extends S.Class<ListBucketsOutput>("ListBucketsOutput")({
+        Buckets: S.optional(Buckets),
+      }) {}
+
+      const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<ListAllMyBucketsResult xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+  <Buckets>
+    <Bucket>
+      <Name>test-bucket</Name>
+      <CreationDate>2025-12-30T14:59:22.000Z</CreationDate>
+    </Bucket>
+  </Buckets>
+</ListAllMyBucketsResult>`;
+
+      const result = parseXml(ListBucketsOutput, xml, "ListAllMyBucketsResult");
+
+      // Verify parseXml returns strings
+      expect(result.Buckets[0].CreationDate).toBe("2025-12-30T14:59:22.000Z");
+      expect(typeof result.Buckets[0].CreationDate).toBe("string");
+
+      // Verify full round-trip with schema decode
+      const decoded = S.decodeUnknownSync(ListBucketsOutput)(result);
+      expect(decoded.Buckets?.[0].Name).toBe("test-bucket");
+      expect(decoded.Buckets?.[0].CreationDate).toBeInstanceOf(Date);
+      expect(decoded.Buckets?.[0].CreationDate?.toISOString()).toBe("2025-12-30T14:59:22.000Z");
+    });
+  });
+
   describe("xmlName parameter (S3 GetObjectTaggingOutput pattern)", () => {
     it("parses XML with different root tag using xmlName", () => {
       // This mimics GetObjectTaggingOutput which has xmlName="Tagging"
@@ -787,6 +902,65 @@ describe("parseXml", () => {
       // by falling back to the actual content
       const result = parseXml(SimpleOutput, xml, "NonExistentWrapper");
       expect(result).toEqual({ Value: "test" });
+    });
+
+    it("parses S3 ListBuckets response with ListAllMyBucketsResult wrapper", () => {
+      class Owner extends S.Class<Owner>("Owner")({
+        DisplayName: S.optional(S.String),
+        ID: S.optional(S.String),
+      }) {}
+
+      class Bucket extends S.Class<Bucket>("Bucket")({
+        Name: S.optional(S.String),
+        CreationDate: S.optional(S.String),
+        BucketArn: S.optional(S.String),
+      }) {}
+      const Buckets = S.Array(Bucket);
+
+      class ListBucketsOutput extends S.Class<ListBucketsOutput>("ListBucketsOutput")({
+        Buckets: S.optional(Buckets),
+        Owner: S.optional(Owner),
+        ContinuationToken: S.optional(S.String),
+        Prefix: S.optional(S.String),
+      }) {}
+
+      const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<ListAllMyBucketsResult xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+  <Owner>
+    <ID>f9b07fb071cddc6ce4423228700b629f3bba6c2f93fd8d649a52232d0fd3cce0</ID>
+  </Owner>
+  <Buckets>
+    <Bucket>
+      <Name>alchemy-test</Name>
+      <CreationDate>2025-12-30T14:59:22.000Z</CreationDate>
+      <BucketArn>arn:aws:s3:::alchemy-test</BucketArn>
+    </Bucket>
+    <Bucket>
+      <Name>itty-aws-test</Name>
+      <CreationDate>2025-12-31T08:57:02.000Z</CreationDate>
+      <BucketArn>arn:aws:s3:::itty-aws-test</BucketArn>
+    </Bucket>
+  </Buckets>
+</ListAllMyBucketsResult>`;
+
+      const result = parseXml(ListBucketsOutput, xml, "ListAllMyBucketsResult");
+      expect(result).toEqual({
+        Owner: {
+          ID: "f9b07fb071cddc6ce4423228700b629f3bba6c2f93fd8d649a52232d0fd3cce0",
+        },
+        Buckets: [
+          {
+            Name: "alchemy-test",
+            CreationDate: "2025-12-30T14:59:22.000Z",
+            BucketArn: "arn:aws:s3:::alchemy-test",
+          },
+          {
+            Name: "itty-aws-test",
+            CreationDate: "2025-12-31T08:57:02.000Z",
+            BucketArn: "arn:aws:s3:::itty-aws-test",
+          },
+        ],
+      });
     });
   });
 });

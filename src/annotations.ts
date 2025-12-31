@@ -1,4 +1,5 @@
-import { Schema } from "effect";
+import * as Schema from "effect/Schema";
+import * as AST from "effect/SchemaAST";
 
 export const requestHeaderSymbol = Symbol.for("itty-aws/request-header");
 export const requestBodySymbol = Symbol.for("itty-aws/request-body");
@@ -33,54 +34,33 @@ export const StreamBody = () =>
 export const Path = <S extends Schema.Schema.AnyNoContext>(pathName: string, schema: S) =>
   schema.pipe(Schema.annotations({ [requestPathSymbol]: pathName }));
 
-export const OperationMeta = Schema.Struct({
-  inputSchema: Schema.optional(Schema.Any),
-  outputSchema: Schema.optional(Schema.Any),
-  uri: Schema.optional(Schema.String),
-  method: Schema.optional(
-    Schema.Union(
-      Schema.Literal("GET"),
-      Schema.Literal("POST"),
-      Schema.Literal("PUT"),
-      Schema.Literal("DELETE"),
-      Schema.Literal("PATCH"),
-      Schema.Literal("HEAD"),
-      Schema.Literal("OPTIONS"),
-    ),
-  ),
-  sdkId: Schema.String,
-  sigV4ServiceName: Schema.String,
-  name: Schema.String,
-  version: Schema.String,
-});
+export const getAnnotations = (schema: AST.AST) => {
+  const header = AST.getAnnotation<string>(schema, requestHeaderSymbol);
+  const body = AST.getAnnotation<string>(schema, requestBodySymbol);
+  const streamBody = AST.getAnnotation<string>(schema, requestBodyStreamSymbol);
+  const path = AST.getAnnotation<string>(schema, requestPathSymbol);
+  const xmlName = AST.getAnnotation<string>(schema, xmlNameSymbol);
+  const meta = AST.getAnnotation<string>(schema, requestMetaSymbol);
+  const error = AST.getAnnotation<string>(schema, requestError);
 
-export const Operation = <
-  Input extends Schema.Schema.AnyNoContext,
-  Output extends Schema.Schema.AnyNoContext,
-  //todo(pear): this should extend schema so we ensure errors are tagged
-  Error,
->(
-  meta: Schema.Schema.Type<typeof OperationMeta>,
-  inputSchema: Input,
-  outputSchema: Output,
-  errorList: Array<Error>,
-): {
-  errors: Error;
-  schema: Schema.Struct<{
-    input: Input;
-    output: Output;
-  }>;
-} =>
-  Schema.Struct({
-    input: inputSchema,
-    output: outputSchema,
-  }).pipe(
-    Schema.annotations({
-      [requestMetaSymbol]: {
-        ...meta,
-        inputSchema,
-        outputSchema,
-      },
-      [requestError]: errorList,
-    }),
-  ) as any;
+  return {
+    header,
+    body,
+    streamBody,
+    path,
+    xmlName,
+    meta,
+    error,
+  };
+};
+
+export function getSafeMetadata(
+  partialMeta: Schema.Schema.Type<typeof OperationMeta>,
+): Required<Schema.Schema.Type<typeof OperationMeta>> {
+  // @ts-expect-error - we known inputSchema and outputSchema are present
+  return {
+    ...partialMeta,
+    uri: partialMeta.uri ?? "/",
+    method: partialMeta.method ?? "POST",
+  };
+}

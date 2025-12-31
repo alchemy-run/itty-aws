@@ -1,1 +1,1 @@
-export * from "./credentials.ts";
+export * from "./aws/credentials.ts";

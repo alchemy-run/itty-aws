@@ -7,9 +7,10 @@
   "scripts": {
     "setup": "bun run scripts/setup.ts",
     "generate": "bun run scripts/generate-clients.ts",
-    "build": "bun generate && tsc -b",
+    "build": "bun generate && bun oxfmt ./src/services/* && tsc -b",
     "test:local": "LOCAL=1 bun run scripts/test.ts",
-    "test:live": "bun run scripts/test.ts"
+    "test:live": "bun run scripts/test.ts",
+    "format": "bun oxfmt ./src"
   },
   "files": [
     "src",

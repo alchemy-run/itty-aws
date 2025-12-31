@@ -1,5 +1,8 @@
 import { fromNodeProviderChain } from "@aws-sdk/credential-providers";
-import { Data, Effect, Context, Layer } from "effect";
+import * as Context from "effect/Context";
+import * as Data from "effect/Data";
+import * as Effect from "effect/Effect";
+import * as Layer from "effect/Layer";
 
 export interface AwsCredentials {
   readonly accessKeyId: string;
@@ -16,11 +19,7 @@ export class AwsCredentialProviderError extends Data.TaggedError(
 export class Credentials extends Context.Tag("Credentials")<
   Credentials,
   {
-    readonly getCredentials: () => Effect.Effect<
-      AwsCredentials,
-      AwsCredentialProviderError,
-      never
-    >;
+    readonly getCredentials: () => Effect.Effect<AwsCredentials, AwsCredentialProviderError, never>;
   }
 >() {}
 

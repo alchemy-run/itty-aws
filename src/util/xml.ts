@@ -1,20 +1,50 @@
 import * as S from "effect/Schema";
 import type { AST, PropertySignature } from "effect/SchemaAST";
-import { XMLParser } from "fast-xml-parser";
+import { XMLBuilder, XMLParser } from "fast-xml-parser";
 
 const Identifier = Symbol.for("effect/annotation/Identifier");
 const Surrogate = Symbol.for("effect/annotation/Surrogate");
 
-// Parser instance for parseXml
-const xmlParser = new XMLParser({
+export const builder = new XMLBuilder();
+
+export const parser = new XMLParser({
   ignoreAttributes: true,
-  parseTagValue: false, // Keep values as strings, we'll convert based on schema
+  parseTagValue: false,
 });
+
+/**
+ * Unwrap a Union type to get the non-undefined/null branch.
+ * S.optional(T) creates a Union of T | undefined, so we need to extract T.
+ * Returns the original AST if it's not a Union or can't be unwrapped.
+ */
+const unwrapUnionAST = (ast: AST): AST => {
+  if (ast._tag === "Union") {
+    // Filter out undefined and null types
+    const nonNullishTypes = ast.types.filter(
+      (t) => t._tag !== "UndefinedKeyword" && !(t._tag === "Literal" && t.literal === null),
+    );
+    // If we have exactly one non-nullish type, use it
+    if (nonNullishTypes.length === 1) {
+      return nonNullishTypes[0];
+    }
+    // If we have multiple, return the first one (best effort)
+    if (nonNullishTypes.length > 0) {
+      return nonNullishTypes[0];
+    }
+  }
+  return ast;
+};
 
 /**
  * Get the identifier (class name) from an AST node
  */
 const getIdentifier = (ast: AST): string | undefined => {
+  // Unwrap Union types first (for S.optional)
+  const unwrapped = unwrapUnionAST(ast);
+  if (unwrapped !== ast) {
+    return getIdentifier(unwrapped);
+  }
+
   // For Transformation (S.Class), look in ast.to.annotations
   if (ast._tag === "Transformation" && ast.to) {
     const id = ast.to.annotations?.[Identifier];
@@ -35,6 +65,12 @@ const getIdentifier = (ast: AST): string | undefined => {
  * Get property signatures from a class/struct schema
  */
 const getPropertySignatures = (ast: AST): readonly PropertySignature[] => {
+  // Unwrap Union types first (for S.optional)
+  const unwrapped = unwrapUnionAST(ast);
+  if (unwrapped !== ast) {
+    return getPropertySignatures(unwrapped);
+  }
+
   // For Transformation (S.Class), get surrogate's property signatures
   if (ast._tag === "Transformation" && ast.to) {
     const surrogate = ast.to.annotations?.[Surrogate] as AST | undefined;
@@ -60,8 +96,18 @@ const getPropertySignatures = (ast: AST): readonly PropertySignature[] => {
  * Get the element AST from an array/tuple type
  */
 const getArrayElementAST = (ast: AST): AST | undefined => {
+  // Unwrap Union types first (for S.optional)
+  const unwrapped = unwrapUnionAST(ast);
+  if (unwrapped !== ast) {
+    return getArrayElementAST(unwrapped);
+  }
+
   if (ast._tag === "TupleType" && ast.rest?.[0]) {
     return ast.rest[0].type;
+  }
+  // For Transformation wrapping an array
+  if (ast._tag === "Transformation") {
+    return getArrayElementAST(ast.from);
   }
   return undefined;
 };
@@ -159,6 +205,12 @@ const unescapeXml = (str: string): string => {
  * Check if an AST represents an array type
  */
 const isArrayAST = (ast: AST): boolean => {
+  // Unwrap Union types first (for S.optional)
+  const unwrapped = unwrapUnionAST(ast);
+  if (unwrapped !== ast) {
+    return isArrayAST(unwrapped);
+  }
+
   if (ast._tag === "TupleType" && ast.rest?.[0]) {
     return true;
   }
@@ -173,6 +225,12 @@ const isArrayAST = (ast: AST): boolean => {
  * Check if an AST represents a number type
  */
 const isNumberAST = (ast: AST): boolean => {
+  // Unwrap Union types first (for S.optional)
+  const unwrapped = unwrapUnionAST(ast);
+  if (unwrapped !== ast) {
+    return isNumberAST(unwrapped);
+  }
+
   if (ast._tag === "NumberKeyword") return true;
   if (ast._tag === "Transformation") return isNumberAST(ast.from);
   return false;
@@ -182,6 +240,12 @@ const isNumberAST = (ast: AST): boolean => {
  * Check if an AST represents a boolean type
  */
 const isBooleanAST = (ast: AST): boolean => {
+  // Unwrap Union types first (for S.optional)
+  const unwrapped = unwrapUnionAST(ast);
+  if (unwrapped !== ast) {
+    return isBooleanAST(unwrapped);
+  }
+
   if (ast._tag === "BooleanKeyword") return true;
   if (ast._tag === "Transformation") return isBooleanAST(ast.from);
   return false;
@@ -194,7 +258,7 @@ const isBooleanAST = (ast: AST): boolean => {
  * @param xmlName - Optional XML root tag name to unwrap before parsing (e.g., "Tagging" for S3 responses)
  */
 export const parseXml = (schema: S.Schema<any, any, any>, xml: string, xmlName?: string): any => {
-  const parsed = xmlParser.parse(xml);
+  const parsed = parser.parse(xml);
   const rootTag = getIdentifier(schema.ast);
 
   // First, try to unwrap using the explicit xmlName if provided
