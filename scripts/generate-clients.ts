@@ -1,4 +1,4 @@
-import { FileSystem, Path } from "@effect/platform";
+import { Command, FileSystem, Path } from "@effect/platform";
 import { BunContext, BunRuntime } from "@effect/platform-bun";
 import dedent from "dedent";
 import {
@@ -551,7 +551,7 @@ const convertShapeToSchema: (
                         }
                       }
                       if (member.traits?.["smithy.api#httpPayload"] != null) {
-                        schema = `A.Body("${member.traits?.["smithy.api#xmlName"]}", ${schema})`;
+                        schema = `A.Body("${member.traits?.["smithy.api#xmlName"] ?? memberName}", ${schema})`;
                       }
                       if (
                         member.traits?.["smithy.api#httpLabel"] != null &&
@@ -1034,6 +1034,8 @@ BunRuntime.runMain(
           ),
         ),
     );
+
+    yield* Command.make("bun", "format").pipe(Command.string);
   }).pipe(Logger.withMinimumLogLevel(LogLevel.Error), Effect.provide(BunContext.layer)),
 );
 

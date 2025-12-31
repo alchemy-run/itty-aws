@@ -1,6 +1,7 @@
 import * as S from "effect/Schema";
 import { describe, expect, it } from "vitest";
 import * as A from "../src/annotations.ts";
+import * as S3 from "../src/services/s3.ts";
 import { formatXml, parseNode, parseXml } from "../src/util/xml.ts";
 
 describe("formatXml", () => {
@@ -1040,6 +1041,87 @@ describe("parseNode", () => {
   });
 });
 
+describe("A.Body annotation (raw body content)", () => {
+  it("should NOT escape JSON content in body-annotated string fields", () => {
+    // Simulates PutBucketPolicyRequest with a JSON policy body
+    // The Policy field contains raw JSON that should NOT be XML-escaped
+    class PutBucketPolicyRequest extends S.Class<PutBucketPolicyRequest>("PutBucketPolicyRequest")({
+      Bucket: S.String,
+      Policy: A.Body("Policy", S.String),
+    }) {}
+
+    const policyJson = JSON.stringify({
+      Version: "2012-10-17",
+      Statement: [
+        {
+          Sid: "TestStatement",
+          Effect: "Deny",
+          Principal: "*",
+          Action: "s3:DeleteBucket",
+          Resource: "arn:aws:s3:::itty-aws-test",
+          Condition: {
+            StringNotEquals: {
+              "aws:PrincipalAccount": "000000000000",
+            },
+          },
+        },
+      ],
+    });
+
+    const value = new PutBucketPolicyRequest({
+      Bucket: "itty-aws-test",
+      Policy: policyJson,
+    });
+
+    // The raw Policy value should NOT have escaped quotes
+    // Currently formatXml escapes quotes which breaks JSON:
+    // Bad:  '{"Version":"2012-10-17"...}' becomes '{&quot;Version&quot;:&quot;2012-10-17&quot;...}'
+    // Good: '{"Version":"2012-10-17"...}' stays as '{"Version":"2012-10-17"...}'
+    const xml = formatXml(PutBucketPolicyRequest, value);
+
+    // The Policy field should contain the raw JSON, not XML-escaped JSON
+    expect(xml).toEqual(policyJson);
+    expect(xml).not.toContain("&quot;");
+  });
+
+  it("should output only body content for class body-annotated fields (S3 PutObjectTagging pattern)", () => {
+    // Simulates PutObjectTaggingRequest where Tagging is a class with Body annotation
+    class Tag extends S.Class<Tag>("Tag")({ Key: S.String, Value: S.String }) {}
+    const TagSet = S.Array(Tag);
+    class Tagging extends S.Class<Tagging>("Tagging")({ TagSet: TagSet }) {}
+
+    class PutObjectTaggingRequest extends S.Class<PutObjectTaggingRequest>(
+      "PutObjectTaggingRequest",
+    )({
+      Bucket: S.String,
+      Key: S.String,
+      Tagging: A.Body("Tagging", Tagging),
+    }) {}
+
+    const value = new PutObjectTaggingRequest({
+      Bucket: "my-bucket",
+      Key: "my-key",
+      Tagging: new Tagging({
+        TagSet: [
+          new Tag({ Key: "Environment", Value: "Test" }),
+          new Tag({ Key: "Project", Value: "itty-aws" }),
+        ],
+      }),
+    });
+
+    const xml = formatXml(PutObjectTaggingRequest, value);
+
+    // Should output ONLY the Tagging body content, not wrapped in PutObjectTaggingRequest
+    expect(xml).toEqual(
+      "<Tagging><TagSet><Tag><Key>Environment</Key><Value>Test</Value></Tag><Tag><Key>Project</Key><Value>itty-aws</Value></Tag></TagSet></Tagging>",
+    );
+    // Should NOT include the outer request wrapper or other fields
+    expect(xml).not.toContain("<PutObjectTaggingRequest>");
+    expect(xml).not.toContain("<Bucket>");
+    expect(xml).not.toContain("<Key>my-key</Key>");
+  });
+});
+
 describe("xmlName annotation on struct members", () => {
   describe("formatXml with xmlName annotations", () => {
     it("uses xmlName annotation for array elements (S3 CORS pattern)", () => {
@@ -1237,5 +1319,200 @@ describe("xmlName annotation on struct members", () => {
         ],
       });
     });
+  });
+});
+
+// ============================================================================
+// S3 API Request Serialization Tests
+// These tests ensure XML serialization is correct for actual S3 API calls
+// ============================================================================
+
+describe("S3 API XML Serialization", () => {
+  it("PutBucketTaggingRequest", () => {
+    const request = new S3.PutBucketTaggingRequest({
+      Bucket: "my-bucket",
+      Tagging: new S3.Tagging({
+        TagSet: [
+          new S3.Tag({ Key: "Environment", Value: "Test" }),
+          new S3.Tag({ Key: "Project", Value: "itty-aws" }),
+          new S3.Tag({ Key: "Team", Value: "Platform" }),
+        ],
+      }),
+    });
+
+    const xml = formatXml(S3.PutBucketTaggingRequest, request);
+    expect(xml).toEqual(
+      "<Tagging><TagSet><Tag><Key>Environment</Key><Value>Test</Value></Tag><Tag><Key>Project</Key><Value>itty-aws</Value></Tag><Tag><Key>Team</Key><Value>Platform</Value></Tag></TagSet></Tagging>",
+    );
+  });
+
+  it("PutBucketPolicyRequest", () => {
+    const policy = JSON.stringify({
+      Version: "2012-10-17",
+      Statement: [
+        {
+          Sid: "TestStatement",
+          Effect: "Deny",
+          Principal: "*",
+          Action: "s3:DeleteBucket",
+          Resource: "arn:aws:s3:::my-bucket",
+        },
+      ],
+    });
+
+    const request = new S3.PutBucketPolicyRequest({
+      Bucket: "my-bucket",
+      Policy: policy,
+    });
+
+    const xml = formatXml(S3.PutBucketPolicyRequest, request);
+    expect(xml).toEqual(policy);
+  });
+
+  it("PutBucketCorsRequest", () => {
+    const request = new S3.PutBucketCorsRequest({
+      Bucket: "my-bucket",
+      CORSConfiguration: new S3.CORSConfiguration({
+        CORSRules: [
+          new S3.CORSRule({
+            AllowedMethods: ["GET", "PUT"],
+            AllowedOrigins: ["https://example.com"],
+            AllowedHeaders: ["*"],
+            MaxAgeSeconds: 3600,
+          }),
+        ],
+      }),
+    });
+
+    const xml = formatXml(S3.PutBucketCorsRequest, request);
+    expect(xml).toEqual(
+      "<CORSConfiguration><CORSRule><AllowedHeader>*</AllowedHeader><AllowedMethod>GET</AllowedMethod><AllowedMethod>PUT</AllowedMethod><AllowedOrigin>https://example.com</AllowedOrigin><MaxAgeSeconds>3600</MaxAgeSeconds></CORSRule></CORSConfiguration>",
+    );
+  });
+
+  it("PutBucketVersioningRequest", () => {
+    const request = new S3.PutBucketVersioningRequest({
+      Bucket: "my-bucket",
+      VersioningConfiguration: new S3.VersioningConfiguration({
+        Status: "Enabled",
+      }),
+    });
+
+    const xml = formatXml(S3.PutBucketVersioningRequest, request);
+    expect(xml).toEqual(
+      "<VersioningConfiguration><Status>Enabled</Status></VersioningConfiguration>",
+    );
+  });
+
+  it("PutBucketWebsiteRequest", () => {
+    const request = new S3.PutBucketWebsiteRequest({
+      Bucket: "my-bucket",
+      WebsiteConfiguration: new S3.WebsiteConfiguration({
+        IndexDocument: new S3.IndexDocument({ Suffix: "index.html" }),
+        ErrorDocument: new S3.ErrorDocument({ Key: "error.html" }),
+      }),
+    });
+
+    const xml = formatXml(S3.PutBucketWebsiteRequest, request);
+    expect(xml).toEqual(
+      "<WebsiteConfiguration><ErrorDocument><Key>error.html</Key></ErrorDocument><IndexDocument><Suffix>index.html</Suffix></IndexDocument></WebsiteConfiguration>",
+    );
+  });
+
+  it("PutBucketEncryptionRequest", () => {
+    const request = new S3.PutBucketEncryptionRequest({
+      Bucket: "my-bucket",
+      ServerSideEncryptionConfiguration: new S3.ServerSideEncryptionConfiguration({
+        Rules: [
+          new S3.ServerSideEncryptionRule({
+            ApplyServerSideEncryptionByDefault: new S3.ServerSideEncryptionByDefault({
+              SSEAlgorithm: "AES256",
+            }),
+            BucketKeyEnabled: true,
+          }),
+        ],
+      }),
+    });
+
+    const xml = formatXml(S3.PutBucketEncryptionRequest, request);
+    expect(xml).toEqual(
+      "<ServerSideEncryptionConfiguration><Rule><ApplyServerSideEncryptionByDefault><SSEAlgorithm>AES256</SSEAlgorithm></ApplyServerSideEncryptionByDefault><BucketKeyEnabled>true</BucketKeyEnabled></Rule></ServerSideEncryptionConfiguration>",
+    );
+  });
+
+  it("PutBucketLifecycleConfigurationRequest", () => {
+    const request = new S3.PutBucketLifecycleConfigurationRequest({
+      Bucket: "my-bucket",
+      LifecycleConfiguration: new S3.BucketLifecycleConfiguration({
+        Rules: [
+          new S3.LifecycleRule({
+            ID: "ExpireOldObjects",
+            Status: "Enabled",
+            Filter: new S3.LifecycleRuleFilter({ Prefix: "logs/" }),
+            Expiration: new S3.LifecycleExpiration({ Days: 90 }),
+          }),
+        ],
+      }),
+    });
+
+    const xml = formatXml(S3.PutBucketLifecycleConfigurationRequest, request);
+    expect(xml).toEqual(
+      "<BucketLifecycleConfiguration><Rule><Expiration><Days>90</Days></Expiration><ID>ExpireOldObjects</ID><Filter><Prefix>logs/</Prefix></Filter><Status>Enabled</Status></Rule></BucketLifecycleConfiguration>",
+    );
+  });
+
+  it("PutPublicAccessBlockRequest", () => {
+    const request = new S3.PutPublicAccessBlockRequest({
+      Bucket: "my-bucket",
+      PublicAccessBlockConfiguration: new S3.PublicAccessBlockConfiguration({
+        BlockPublicAcls: true,
+        IgnorePublicAcls: true,
+        BlockPublicPolicy: true,
+        RestrictPublicBuckets: true,
+      }),
+    });
+
+    const xml = formatXml(S3.PutPublicAccessBlockRequest, request);
+    expect(xml).toEqual(
+      "<PublicAccessBlockConfiguration><BlockPublicAcls>true</BlockPublicAcls><IgnorePublicAcls>true</IgnorePublicAcls><BlockPublicPolicy>true</BlockPublicPolicy><RestrictPublicBuckets>true</RestrictPublicBuckets></PublicAccessBlockConfiguration>",
+    );
+  });
+
+  it("PutBucketOwnershipControlsRequest", () => {
+    const request = new S3.PutBucketOwnershipControlsRequest({
+      Bucket: "my-bucket",
+      OwnershipControls: new S3.OwnershipControls({
+        Rules: [new S3.OwnershipControlsRule({ ObjectOwnership: "BucketOwnerEnforced" })],
+      }),
+    });
+
+    const xml = formatXml(S3.PutBucketOwnershipControlsRequest, request);
+    expect(xml).toEqual(
+      "<OwnershipControls><Rule><ObjectOwnership>BucketOwnerEnforced</ObjectOwnership></Rule></OwnershipControls>",
+    );
+  });
+
+  it("PutBucketAccelerateConfigurationRequest", () => {
+    const request = new S3.PutBucketAccelerateConfigurationRequest({
+      Bucket: "my-bucket",
+      AccelerateConfiguration: new S3.AccelerateConfiguration({ Status: "Enabled" }),
+    });
+
+    const xml = formatXml(S3.PutBucketAccelerateConfigurationRequest, request);
+    expect(xml).toEqual(
+      "<AccelerateConfiguration><Status>Enabled</Status></AccelerateConfiguration>",
+    );
+  });
+
+  it("PutBucketRequestPaymentRequest", () => {
+    const request = new S3.PutBucketRequestPaymentRequest({
+      Bucket: "my-bucket",
+      RequestPaymentConfiguration: new S3.RequestPaymentConfiguration({ Payer: "Requester" }),
+    });
+
+    const xml = formatXml(S3.PutBucketRequestPaymentRequest, request);
+    expect(xml).toEqual(
+      "<RequestPaymentConfiguration><Payer>Requester</Payer></RequestPaymentConfiguration>",
+    );
   });
 });

@@ -1,38 +1,18 @@
 import * as Effect from "effect/Effect";
 import * as Option from "effect/Option";
 import * as AST from "effect/SchemaAST";
-import { getAnnotations, requestBodySymbol, xmlNameSymbol } from "../annotations.ts";
+import { getAnnotations, xmlNameSymbol } from "../annotations.ts";
 import type { Operation } from "../operation.ts";
 import type { RawRequest } from "../request.ts";
 import type { RawResponse } from "../response.ts";
-import type { AnyClass } from "../util/schema.ts";
 import * as XML from "../util/xml.ts";
 
-export const FormatXMLRequest = (op: Operation) => {
-  const structSchema = op.inputSchema as unknown as AnyClass;
-  const structAst = structSchema.ast.from;
-  const props = AST.isTypeLiteral(structAst) ? structAst.propertySignatures : [];
-
-  return (value: RawRequest) => {
-    let body = "";
-    for (const prop of props) {
-      op.name;
-      const bodyAnnotation = AST.getAnnotation<string>(prop.type, requestBodySymbol).pipe(
-        Option.getOrUndefined,
-      );
-      if (bodyAnnotation) {
-        const xml = XML.formatNode(
-          prop.type,
-          value.unsignedBody?.[prop.name as keyof typeof value.unsignedBody],
-        );
-        body += xml;
-      }
-    }
-    return Effect.succeed({
-      ...value,
-      unsignedBody: body,
-    });
-  };
+export const FormatXMLRequest = (op: Operation) => (value: RawRequest) => {
+  const xml = XML.formatXml(op.inputSchema, value.unsignedBody);
+  return Effect.succeed({
+    ...value,
+    unsignedBody: xml,
+  });
 };
 
 export const FormatXMLResponse = (op: Operation) => {

@@ -1,7 +1,7 @@
 import * as S from "effect/Schema";
 import type { AST, PropertySignature } from "effect/SchemaAST";
 import { XMLBuilder, XMLParser } from "fast-xml-parser";
-import { getXmlName } from "../annotations.ts";
+import { getXmlName, requestBodySymbol } from "../annotations.ts";
 
 const Identifier = Symbol.for("effect/annotation/Identifier");
 const Surrogate = Symbol.for("effect/annotation/Surrogate");
@@ -114,9 +114,82 @@ const getArrayElementAST = (ast: AST): AST | undefined => {
 };
 
 /**
+ * Get property signatures from the encoded (from) side of a class schema.
+ * This is needed to find annotations like Body that are on the encoded side.
+ */
+const getEncodedPropertySignatures = (ast: AST): readonly PropertySignature[] => {
+  // For Transformation (S.Class), check the from side which has the encoded properties
+  if (ast._tag === "Transformation" && ast.from) {
+    if (ast.from._tag === "TypeLiteral") {
+      return ast.from.propertySignatures;
+    }
+  }
+  // Fallback to regular property signatures
+  return getPropertySignatures(ast);
+};
+
+/**
+ * Get the inner body AST from a potentially wrapped type (handles S.optional)
+ * Returns the AST that has the actual body annotation and inner content
+ */
+const getBodyInnerAST = (ast: AST): AST => {
+  // For Union types (S.optional), find the branch with the body annotation
+  if (ast._tag === "Union") {
+    const nonNullishTypes = ast.types.filter(
+      (t) => t._tag !== "UndefinedKeyword" && !(t._tag === "Literal" && t.literal === null),
+    );
+    for (const t of nonNullishTypes) {
+      if (hasBodyAnnotation(t)) {
+        return getBodyInnerAST(t);
+      }
+    }
+  }
+
+  // For Transformation with body annotation, return as-is (it wraps the inner type)
+  if (ast._tag === "Transformation" && ast.annotations?.[requestBodySymbol]) {
+    return ast;
+  }
+
+  return ast;
+};
+
+/**
+ * Find the body-annotated property in an AST (if any)
+ * Returns the property name and value key if found
+ * Looks at the encoded side of the schema where Body annotations are stored.
+ */
+const findBodyProperty = (ast: AST): { key: string; propType: AST } | undefined => {
+  // Check the encoded side's property signatures for Body annotation
+  const props = getEncodedPropertySignatures(ast);
+  for (const prop of props) {
+    if (hasBodyAnnotation(prop.type)) {
+      const key = typeof prop.name === "string" ? prop.name : prop.name.toString();
+      // Get the inner body AST (unwrap optional if needed)
+      const innerAST = getBodyInnerAST(prop.type);
+      return { key, propType: innerAST };
+    }
+  }
+  return undefined;
+};
+
+/**
  * Format a value as XML based on its schema
+ * If the schema has a body-annotated property, returns only that property's raw value
  */
 export const formatXml = (schema: S.Schema<any, any, any>, value: any): string => {
+  // Check if schema has a body-annotated property - if so, return just that value
+  const bodyProp = findBodyProperty(schema.ast);
+  if (bodyProp && value != null && typeof value === "object") {
+    const bodyValue = value[bodyProp.key];
+    if (bodyValue !== undefined) {
+      // For string body values (like raw JSON), return as-is
+      if (typeof bodyValue === "string") {
+        return bodyValue;
+      }
+      // For object body values (like Tagging class), format as XML with root tag
+      return formatNode(bodyProp.propType, bodyValue, true);
+    }
+  }
   return formatNode(schema.ast, value, true);
 };
 
@@ -164,6 +237,32 @@ export const formatNode = (ast: AST, value: any, includeRootTag: boolean = true)
 };
 
 /**
+ * Check if an AST has a body annotation (raw body content that shouldn't be escaped)
+ * Handles nested cases like S.optional(A.Body(...)) by unwrapping Union types
+ */
+const hasBodyAnnotation = (ast: AST): boolean => {
+  // Check direct annotations
+  const bodyAnnotation = ast.annotations?.[requestBodySymbol];
+  if (typeof bodyAnnotation === "string") return true;
+
+  // For Union types (S.optional creates Union of T | undefined), check non-nullish branches
+  if (ast._tag === "Union") {
+    const nonNullishTypes = ast.types.filter(
+      (t) => t._tag !== "UndefinedKeyword" && !(t._tag === "Literal" && t.literal === null),
+    );
+    return nonNullishTypes.some((t) => hasBodyAnnotation(t));
+  }
+
+  // For Transformation, check from side (encoded) which has the annotations
+  if (ast._tag === "Transformation") {
+    if (ast.annotations?.[requestBodySymbol]) return true;
+    return hasBodyAnnotation(ast.from);
+  }
+
+  return false;
+};
+
+/**
  * Format just the properties of an object, without wrapping in a root tag
  */
 const formatObjectProperties = (ast: AST, value: any): string => {
@@ -190,6 +289,12 @@ const formatObjectProperties = (ast: AST, value: any): string => {
             return `<${xmlName}>${content}</${xmlName}>`;
           })
           .join("");
+      }
+
+      // Check for body annotation - raw body content should not be escaped
+      // This is used for fields like Policy in PutBucketPolicyRequest that contain raw JSON
+      if (hasBodyAnnotation(prop.type) && typeof propValue === "string") {
+        return propValue;
       }
 
       // Don't include root tag for nested objects - property name is the wrapper
