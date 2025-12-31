@@ -2,30 +2,27 @@ import { Schema } from "effect";
 
 export const requestHeaderSymbol = Symbol.for("itty-aws/request-header");
 export const requestBodySymbol = Symbol.for("itty-aws/request-body");
-export const requestBodyStreamSymbol = Symbol.for(
-  "itty-aws/request-body-stream",
-);
+export const requestBodyStreamSymbol = Symbol.for("itty-aws/request-body-stream");
+export const xmlNameSymbol = Symbol.for("itty-aws/xml-name");
 export const requestPathSymbol = Symbol.for("itty-aws/request-path");
 export const requestMetaSymbol = Symbol.for("itty-aws/request-meta");
 export const requestError = Symbol.for("itty-aws/error");
 
-export function Header(
-  headerName: string,
-): ReturnType<(typeof Schema.String)["annotations"]>;
+export const XmlName =
+  (name: string) =>
+  <S extends Schema.Schema.AnyNoContext>(schema: S) =>
+    schema.pipe(Schema.annotations({ [xmlNameSymbol]: name }));
+
+export function Header(headerName: string): ReturnType<(typeof Schema.String)["annotations"]>;
 export function Header<S extends Schema.Schema.AnyNoContext>(
   headerName: string,
   schema: S,
 ): ReturnType<S["annotations"]>;
-export function Header(
-  headerName: string,
-  schema: Schema.Schema.AnyNoContext = Schema.String,
-) {
+export function Header(headerName: string, schema: Schema.Schema.AnyNoContext = Schema.String) {
   return schema.pipe(Schema.annotations({ [requestHeaderSymbol]: headerName }));
 }
-export const Body = <S extends Schema.Schema.AnyNoContext>(
-  bodyName: string,
-  schema: S,
-) => schema.pipe(Schema.annotations({ [requestBodySymbol]: bodyName }));
+export const Body = <S extends Schema.Schema.AnyNoContext>(bodyName: string, schema: S) =>
+  schema.pipe(Schema.annotations({ [requestBodySymbol]: bodyName }));
 export type StreamBody = ReturnType<typeof StreamBody>["Type"];
 export const StreamBody = () =>
   Schema.Union(
@@ -33,10 +30,8 @@ export const StreamBody = () =>
     Schema.instanceOf(Uint8Array),
     Schema.instanceOf(ReadableStream),
   ).pipe(Schema.annotations({ [requestBodyStreamSymbol]: true }));
-export const Path = <S extends Schema.Schema.AnyNoContext>(
-  pathName: string,
-  schema: S,
-) => schema.pipe(Schema.annotations({ [requestPathSymbol]: pathName }));
+export const Path = <S extends Schema.Schema.AnyNoContext>(pathName: string, schema: S) =>
+  schema.pipe(Schema.annotations({ [requestPathSymbol]: pathName }));
 
 export const OperationMeta = Schema.Struct({
   inputSchema: Schema.optional(Schema.Any),
@@ -84,7 +79,7 @@ export const Operation = <
       [requestMetaSymbol]: {
         ...meta,
         inputSchema,
-        outputSchema
+        outputSchema,
       },
       [requestError]: errorList,
     }),

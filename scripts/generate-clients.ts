@@ -587,12 +587,16 @@ const convertShapeToSchema: (
                 });
               }
 
+              // Check for xmlName trait on the structure
+              const xmlName = s.traits?.["smithy.api#xmlName"] as string | undefined;
+
               return addAlias(
                 membersEffect.pipe(
                   Effect.map((members) => {
                     const fields = `{${members.join(", ")}}`;
-                    // Always use S.Class for structs
-                    return `export class ${currentSchemaName} extends S.Class<${currentSchemaName}>("${currentSchemaName}")(${fields}) {}`;
+                    // Add xmlName annotation if present
+                    const annotations = xmlName ? `, { [H.xmlNameSymbol]: "${xmlName}" }` : "";
+                    return `export class ${currentSchemaName} extends S.Class<${currentSchemaName}>("${currentSchemaName}")(${fields}${annotations}) {}`;
                   }),
                 ),
                 memberTargets,

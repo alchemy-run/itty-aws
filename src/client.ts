@@ -20,6 +20,7 @@ import {
   requestHeaderSymbol,
   requestMetaSymbol,
   requestPathSymbol,
+  xmlNameSymbol,
 } from "./schema-helpers";
 import { formatNode, parseNode } from "./xml.ts";
 
@@ -183,26 +184,27 @@ export const FormatXMLRequest = Schema.asSchema(
     strict: true,
     encode: (actual, _, ast) =>
       ParseResult.fail(new ParseResult.Forbidden(ast, actual, "cannot encode XML")),
-    decode: (value, _, ast) =>
-      {
-        const structSchema = value.meta.inputSchema;
-        const structAst = structSchema.ast.from;
-        const props = AST.isTypeLiteral(structAst) ? structAst.propertySignatures : [];
-        let body = "";
-        for (const prop of props) {
-          const bodyAnnotation = AST.getAnnotation<string>(prop.type, requestBodySymbol).pipe(
-            Option.getOrUndefined
+    decode: (value, _, ast) => {
+      const structSchema = value.meta.inputSchema;
+      const structAst = structSchema.ast.from;
+      const props = AST.isTypeLiteral(structAst) ? structAst.propertySignatures : [];
+      let body = "";
+      for (const prop of props) {
+        const bodyAnnotation = AST.getAnnotation<string>(prop.type, requestBodySymbol).pipe(
+          Option.getOrUndefined,
+        );
+        if (bodyAnnotation) {
+          body += formatNode(
+            prop.type,
+            value.unsignedBody?.[prop.name as keyof typeof value.unsignedBody],
           );
-          if (bodyAnnotation) {
-            body += formatNode(prop.type, value.unsignedBody?.[prop.name as keyof typeof value.unsignedBody])
-          }
         }
-        return Effect.succeed({
-          ...value,
-          unsignedBody: body
-        });
-      },
-      
+      }
+      return Effect.succeed({
+        ...value,
+        unsignedBody: body,
+      });
+    },
   }),
 );
 
@@ -211,30 +213,38 @@ export const FormatXMLResponse = Schema.asSchema(
     strict: true,
     encode: (actual, _, ast) =>
       ParseResult.fail(new ParseResult.Forbidden(ast, actual, "cannot encode XML")),
-    decode: (value) =>
-      {
-        const structSchema = value.meta.outputSchema;
-        const structAst = AST.isTransformation(structSchema.ast) ? structSchema.ast.from : undefined;
-        if (structAst) {
-          const props = AST.isTypeLiteral(structAst) ? structAst.propertySignatures : [];
-          for (const prop of props) {
-            // TODO(sam): detect if this property is meant to be parsed from the body
-            const isBodyProperty = prop.name === "TagSet";
-            if (isBodyProperty) {
-              const body = parseNode(prop.type, value.body);
-              return Effect.succeed({
-                headers: value.headers,
-                body,
-              })
-            }
+    decode: (value) => {
+      const structSchema = value.meta.outputSchema;
+      const structAst = AST.isTransformation(structSchema.ast) ? structSchema.ast.from : undefined;
+      // For S.Class schemas, the annotation is on ast.to (the Declaration), not the Transformation itself
+      const structXmlName = (
+        AST.isTransformation(structSchema.ast)
+          ? AST.getAnnotation<string>(structSchema.ast.to, xmlNameSymbol)
+          : AST.getAnnotation<string>(structSchema.ast, xmlNameSymbol)
+      ).pipe(Option.getOrUndefined);
+      const body = parser.parse(value.body);
+      if (structAst) {
+        const props = AST.isTypeLiteral(structAst) ? structAst.propertySignatures : [];
+        for (const prop of props) {
+          // TODO(sam): detect if this property is meant to be parsed from the body
+          const isBodyProperty = prop.name === "TagSet";
+          if (isBodyProperty) {
+            const parsedBody = parseNode(structAst, body, structXmlName);
+            // I don't need to do this because our job is to create the raw response
+            // const decodedBody = Schema.decodeSync(structSchema)(parsedBody);
+            return Effect.succeed({
+              headers: value.headers,
+              body: parsedBody,
+            });
           }
         }
-        return Effect.succeed({
-          headers: value.headers,
-          //todo(pear): wrap in a try-catch
-          body: parser.parse(value.body),
-        })
-      },
+      }
+      return Effect.succeed({
+        headers: value.headers,
+        //todo(pear): wrap in a try-catch
+        body: parser.parse(value.body),
+      });
+    },
   }),
 );
 
@@ -412,6 +422,7 @@ export const NoopResponse = Schema.asSchema(
 function getSafeMetadata(
   partialMeta: Schema.Schema.Type<typeof OperationMeta>,
 ): Required<Schema.Schema.Type<typeof OperationMeta>> {
+  // @ts-expect-error - we known inputSchema and outputSchema are present
   return {
     ...partialMeta,
     uri: partialMeta.uri ?? "/",
@@ -527,6 +538,8 @@ export const makeFormatResponseSchema = <A extends Schema.Schema.AnyNoContext>(
               payload[name] = value.headers[headerAannotations.value];
             } else if (Option.isSome(bodyAnnotation)) {
               payload[name] = getNested(value.body, bodyAnnotation.value);
+            } else if (name in value.body) {
+              payload[name] = value.body[name];
             }
           }
 
