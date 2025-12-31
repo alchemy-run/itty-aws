@@ -183,26 +183,27 @@ export const FormatXMLRequest = Schema.asSchema(
     strict: true,
     encode: (actual, _, ast) =>
       ParseResult.fail(new ParseResult.Forbidden(ast, actual, "cannot encode XML")),
-    decode: (value, _, ast) =>
-      {
-        const structSchema = value.meta.inputSchema;
-        const structAst = structSchema.ast.from;
-        const props = AST.isTypeLiteral(structAst) ? structAst.propertySignatures : [];
-        let body = "";
-        for (const prop of props) {
-          const bodyAnnotation = AST.getAnnotation<string>(prop.type, requestBodySymbol).pipe(
-            Option.getOrUndefined
+    decode: (value, _, ast) => {
+      const structSchema = value.meta.inputSchema;
+      const structAst = structSchema.ast.from;
+      const props = AST.isTypeLiteral(structAst) ? structAst.propertySignatures : [];
+      let body = "";
+      for (const prop of props) {
+        const bodyAnnotation = AST.getAnnotation<string>(prop.type, requestBodySymbol).pipe(
+          Option.getOrUndefined,
+        );
+        if (bodyAnnotation) {
+          body += formatNode(
+            prop.type,
+            value.unsignedBody?.[prop.name as keyof typeof value.unsignedBody],
           );
-          if (bodyAnnotation) {
-            body += formatNode(prop.type, value.unsignedBody?.[prop.name as keyof typeof value.unsignedBody])
-          }
         }
-        return Effect.succeed({
-          ...value,
-          unsignedBody: body
-        });
-      },
-      
+      }
+      return Effect.succeed({
+        ...value,
+        unsignedBody: body,
+      });
+    },
   }),
 );
 
@@ -211,30 +212,29 @@ export const FormatXMLResponse = Schema.asSchema(
     strict: true,
     encode: (actual, _, ast) =>
       ParseResult.fail(new ParseResult.Forbidden(ast, actual, "cannot encode XML")),
-    decode: (value) =>
-      {
-        const structSchema = value.meta.outputSchema;
-        const structAst = AST.isTransformation(structSchema.ast) ? structSchema.ast.from : undefined;
-        if (structAst) {
-          const props = AST.isTypeLiteral(structAst) ? structAst.propertySignatures : [];
-          for (const prop of props) {
-            // TODO(sam): detect if this property is meant to be parsed from the body
-            const isBodyProperty = prop.name === "TagSet";
-            if (isBodyProperty) {
-              const body = parseNode(prop.type, value.body);
-              return Effect.succeed({
-                headers: value.headers,
-                body,
-              })
-            }
+    decode: (value) => {
+      const structSchema = value.meta.outputSchema;
+      const structAst = AST.isTransformation(structSchema.ast) ? structSchema.ast.from : undefined;
+      if (structAst) {
+        const props = AST.isTypeLiteral(structAst) ? structAst.propertySignatures : [];
+        for (const prop of props) {
+          // TODO(sam): detect if this property is meant to be parsed from the body
+          const isBodyProperty = prop.name === "TagSet";
+          if (isBodyProperty) {
+            const body = parseNode(prop.type, value.body);
+            return Effect.succeed({
+              headers: value.headers,
+              body,
+            });
           }
         }
-        return Effect.succeed({
-          headers: value.headers,
-          //todo(pear): wrap in a try-catch
-          body: parser.parse(value.body),
-        })
-      },
+      }
+      return Effect.succeed({
+        headers: value.headers,
+        //todo(pear): wrap in a try-catch
+        body: parser.parse(value.body),
+      });
+    },
   }),
 );
 

@@ -1,0 +1,6 @@
+[submodule "aws-models"]
+	path = aws-models
+	url = https://github.com/aws/api-models-aws.git
+[submodule "terraform-provider-aws"]
+	path = terraform-provider-aws
+	url = git@github.com:hashicorp/terraform-provider-aws.git
