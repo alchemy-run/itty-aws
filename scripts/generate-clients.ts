@@ -560,6 +560,14 @@ const convertShapeToSchema: (
                         schema = `A.Path("${(member.traits?.["smithy.rules#contextParam"] as { name: string })?.name}", ${schema})`;
                       }
 
+                      // Apply xmlName annotation if present and not already handled by httpPayload
+                      if (
+                        member.traits?.["smithy.api#xmlName"] != null &&
+                        member.traits?.["smithy.api#httpPayload"] == null
+                      ) {
+                        schema = `${schema}.pipe(A.XmlName("${member.traits["smithy.api#xmlName"]}"))`;
+                      }
+
                       if (member.traits?.["smithy.api#required"] == null) {
                         schema = `S.optional(${schema})`;
                       }

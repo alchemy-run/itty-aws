@@ -53,3 +53,31 @@ export const getAnnotations = (schema: AST.AST) => {
     error,
   };
 };
+
+/**
+ * Get the xmlName annotation from an AST node, checking various locations
+ * where the annotation might be stored (direct, transformation, union unwrap)
+ */
+export const getXmlName = (ast: AST.AST): string | undefined => {
+  // Check direct annotations first
+  const direct = ast.annotations?.[xmlNameSymbol];
+  if (typeof direct === "string") return direct;
+
+  // For Transformation, check the from AST annotations
+  if (ast._tag === "Transformation") {
+    const fromXmlName = ast.from?.annotations?.[xmlNameSymbol];
+    if (typeof fromXmlName === "string") return fromXmlName;
+  }
+
+  // Unwrap Union types (for S.optional which creates Union of T | undefined)
+  if (ast._tag === "Union") {
+    const nonNullishTypes = ast.types.filter(
+      (t) => t._tag !== "UndefinedKeyword" && !(t._tag === "Literal" && t.literal === null),
+    );
+    if (nonNullishTypes.length === 1) {
+      return getXmlName(nonNullishTypes[0]);
+    }
+  }
+
+  return undefined;
+};

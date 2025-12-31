@@ -1,6 +1,7 @@
 import * as S from "effect/Schema";
 import { describe, expect, it } from "vitest";
-import { formatXml, parseNode, parseXml } from "../src/xml.ts";
+import * as A from "../src/annotations.ts";
+import { formatXml, parseNode, parseXml } from "../src/util/xml.ts";
 
 describe("formatXml", () => {
   describe("simple class schemas", () => {
@@ -1035,6 +1036,206 @@ describe("parseNode", () => {
       // xmlName doesn't exist in the object, so it should just parse as-is
       const result = parseNode(SimpleOutput.ast, parsedXml, "NonExistent");
       expect(result).toEqual({ Value: "test" });
+    });
+  });
+});
+
+describe("xmlName annotation on struct members", () => {
+  describe("formatXml with xmlName annotations", () => {
+    it("uses xmlName annotation for array elements (S3 CORS pattern)", () => {
+      // Simulates AllowedMethods with xmlName="AllowedMethod"
+      const AllowedMethods = S.Array(S.String);
+
+      class CORSRule extends S.Class<CORSRule>("CORSRule")({
+        AllowedMethods: AllowedMethods.pipe(A.XmlName("AllowedMethod")),
+      }) {}
+
+      const value = new CORSRule({
+        AllowedMethods: ["GET", "PUT"],
+      });
+
+      // Should output <AllowedMethod>GET</AllowedMethod><AllowedMethod>PUT</AllowedMethod>
+      // NOT <AllowedMethods>...</AllowedMethods>
+      expect(formatXml(CORSRule, value)).toBe(
+        "<CORSRule><AllowedMethod>GET</AllowedMethod><AllowedMethod>PUT</AllowedMethod></CORSRule>",
+      );
+    });
+
+    it("uses xmlName annotation for multiple array properties", () => {
+      const AllowedHeaders = S.Array(S.String);
+      const AllowedMethods = S.Array(S.String);
+      const AllowedOrigins = S.Array(S.String);
+
+      class CORSRule extends S.Class<CORSRule>("CORSRule")({
+        AllowedHeaders: S.optional(AllowedHeaders.pipe(A.XmlName("AllowedHeader"))),
+        AllowedMethods: AllowedMethods.pipe(A.XmlName("AllowedMethod")),
+        AllowedOrigins: AllowedOrigins.pipe(A.XmlName("AllowedOrigin")),
+      }) {}
+
+      const value = new CORSRule({
+        AllowedHeaders: ["Content-Type", "Authorization"],
+        AllowedMethods: ["GET", "POST"],
+        AllowedOrigins: ["https://example.com"],
+      });
+
+      expect(formatXml(CORSRule, value)).toBe(
+        "<CORSRule>" +
+          "<AllowedHeader>Content-Type</AllowedHeader><AllowedHeader>Authorization</AllowedHeader>" +
+          "<AllowedMethod>GET</AllowedMethod><AllowedMethod>POST</AllowedMethod>" +
+          "<AllowedOrigin>https://example.com</AllowedOrigin>" +
+          "</CORSRule>",
+      );
+    });
+
+    it("handles empty array with xmlName annotation", () => {
+      const AllowedMethods = S.Array(S.String);
+
+      class CORSRule extends S.Class<CORSRule>("CORSRule")({
+        AllowedMethods: AllowedMethods.pipe(A.XmlName("AllowedMethod")),
+      }) {}
+
+      const value = new CORSRule({
+        AllowedMethods: [],
+      });
+
+      // Empty array should produce no elements
+      expect(formatXml(CORSRule, value)).toBe("<CORSRule></CORSRule>");
+    });
+
+    it("handles single item array with xmlName annotation", () => {
+      const AllowedMethods = S.Array(S.String);
+
+      class CORSRule extends S.Class<CORSRule>("CORSRule")({
+        AllowedMethods: AllowedMethods.pipe(A.XmlName("AllowedMethod")),
+      }) {}
+
+      const value = new CORSRule({
+        AllowedMethods: ["GET"],
+      });
+
+      expect(formatXml(CORSRule, value)).toBe(
+        "<CORSRule><AllowedMethod>GET</AllowedMethod></CORSRule>",
+      );
+    });
+
+    it("uses xmlName annotation for nested class arrays", () => {
+      class Tag extends S.Class<Tag>("Tag")({
+        Key: S.String,
+        Value: S.String,
+      }) {}
+      const TagSet = S.Array(Tag);
+
+      class Tagging extends S.Class<Tagging>("Tagging")({
+        TagSet: TagSet.pipe(A.XmlName("Tag")),
+      }) {}
+
+      const value = new Tagging({
+        TagSet: [
+          new Tag({ Key: "env", Value: "test" }),
+          new Tag({ Key: "project", Value: "demo" }),
+        ],
+      });
+
+      // Each Tag should be wrapped directly in <Tag> without a <TagSet> wrapper
+      expect(formatXml(Tagging, value)).toBe(
+        "<Tagging>" +
+          "<Tag><Key>env</Key><Value>test</Value></Tag>" +
+          "<Tag><Key>project</Key><Value>demo</Value></Tag>" +
+          "</Tagging>",
+      );
+    });
+  });
+
+  describe("parseXml with xmlName annotations", () => {
+    it("parses flattened array elements using xmlName annotation", () => {
+      const AllowedMethods = S.Array(S.String);
+
+      class CORSRule extends S.Class<CORSRule>("CORSRule")({
+        AllowedMethods: AllowedMethods.pipe(A.XmlName("AllowedMethod")),
+      }) {}
+
+      // XML has flattened <AllowedMethod> elements, not wrapped in <AllowedMethods>
+      const xml =
+        "<CORSRule><AllowedMethod>GET</AllowedMethod><AllowedMethod>PUT</AllowedMethod></CORSRule>";
+      const result = parseXml(CORSRule, xml);
+      expect(result).toEqual({
+        AllowedMethods: ["GET", "PUT"],
+      });
+    });
+
+    it("parses multiple flattened array properties", () => {
+      const AllowedHeaders = S.Array(S.String);
+      const AllowedMethods = S.Array(S.String);
+
+      class CORSRule extends S.Class<CORSRule>("CORSRule")({
+        AllowedHeaders: S.optional(AllowedHeaders.pipe(A.XmlName("AllowedHeader"))),
+        AllowedMethods: AllowedMethods.pipe(A.XmlName("AllowedMethod")),
+      }) {}
+
+      const xml =
+        "<CORSRule>" +
+        "<AllowedHeader>Content-Type</AllowedHeader><AllowedHeader>Authorization</AllowedHeader>" +
+        "<AllowedMethod>GET</AllowedMethod><AllowedMethod>POST</AllowedMethod>" +
+        "</CORSRule>";
+      const result = parseXml(CORSRule, xml);
+      expect(result).toEqual({
+        AllowedHeaders: ["Content-Type", "Authorization"],
+        AllowedMethods: ["GET", "POST"],
+      });
+    });
+
+    it("parses single item flattened array", () => {
+      const AllowedMethods = S.Array(S.String);
+
+      class CORSRule extends S.Class<CORSRule>("CORSRule")({
+        AllowedMethods: AllowedMethods.pipe(A.XmlName("AllowedMethod")),
+      }) {}
+
+      const xml = "<CORSRule><AllowedMethod>GET</AllowedMethod></CORSRule>";
+      const result = parseXml(CORSRule, xml);
+      expect(result).toEqual({
+        AllowedMethods: ["GET"],
+      });
+    });
+
+    it("parses missing optional flattened array as undefined", () => {
+      const AllowedHeaders = S.Array(S.String);
+
+      class CORSRule extends S.Class<CORSRule>("CORSRule")({
+        ID: S.optional(S.String),
+        AllowedHeaders: S.optional(AllowedHeaders.pipe(A.XmlName("AllowedHeader"))),
+      }) {}
+
+      const xml = "<CORSRule><ID>rule-1</ID></CORSRule>";
+      const result = parseXml(CORSRule, xml);
+      expect(result).toEqual({
+        ID: "rule-1",
+      });
+    });
+
+    it("parses nested class arrays with xmlName annotation", () => {
+      class Tag extends S.Class<Tag>("Tag")({
+        Key: S.String,
+        Value: S.String,
+      }) {}
+      const TagSet = S.Array(Tag);
+
+      class Tagging extends S.Class<Tagging>("Tagging")({
+        TagSet: TagSet.pipe(A.XmlName("Tag")),
+      }) {}
+
+      const xml =
+        "<Tagging>" +
+        "<Tag><Key>env</Key><Value>test</Value></Tag>" +
+        "<Tag><Key>project</Key><Value>demo</Value></Tag>" +
+        "</Tagging>";
+      const result = parseXml(Tagging, xml);
+      expect(result).toEqual({
+        TagSet: [
+          { Key: "env", Value: "test" },
+          { Key: "project", Value: "demo" },
+        ],
+      });
     });
   });
 });

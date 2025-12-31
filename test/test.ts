@@ -46,8 +46,8 @@ export function test(
 
   return it.scopedLive(
     name,
-    () =>
-      Effect.gen(function* () {
+    () => {
+      const eff = Effect.gen(function* () {
         const fs = yield* FileSystem.FileSystem;
         if (yield* fs.exists(".env")) {
           const configProvider = ConfigProvider.orElse(
@@ -61,16 +61,20 @@ export function test(
       }).pipe(
         Effect.provide(platform),
         Effect.provideService(Region, "us-east-1"),
-        Effect.provideService(
-          Endpoint,
-          process.env.LOCAL
-            ? "us-east-1.amazonaws.com"
-            : (process.env.LOCALSTACK_HOST ?? "localhost:4566"),
-        ),
+
         Effect.provide(NodeProviderChainCredentialsLive),
         Logger.withMinimumLogLevel(process.env.DEBUG ? LogLevel.Debug : LogLevel.Info),
         Effect.provide(NodeContext.layer),
-      ),
+      );
+
+      if (process.env.LOCAL) {
+        return eff.pipe(
+          Effect.provideService(Endpoint, process.env.LOCALSTACK_HOST ?? "http://localhost:4566"),
+        );
+      } else {
+        return eff;
+      }
+    },
     options.timeout ?? 120_000,
   );
 }

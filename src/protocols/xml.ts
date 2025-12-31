@@ -16,14 +16,16 @@ export const FormatXMLRequest = (op: Operation) => {
   return (value: RawRequest) => {
     let body = "";
     for (const prop of props) {
+      op.name;
       const bodyAnnotation = AST.getAnnotation<string>(prop.type, requestBodySymbol).pipe(
         Option.getOrUndefined,
       );
       if (bodyAnnotation) {
-        body += XML.formatNode(
+        const xml = XML.formatNode(
           prop.type,
           value.unsignedBody?.[prop.name as keyof typeof value.unsignedBody],
         );
+        body += xml;
       }
     }
     return Effect.succeed({

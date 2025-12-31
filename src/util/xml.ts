@@ -1,6 +1,7 @@
 import * as S from "effect/Schema";
 import type { AST, PropertySignature } from "effect/SchemaAST";
 import { XMLBuilder, XMLParser } from "fast-xml-parser";
+import { getXmlName } from "../annotations.ts";
 
 const Identifier = Symbol.for("effect/annotation/Identifier");
 const Surrogate = Symbol.for("effect/annotation/Surrogate");
@@ -176,6 +177,21 @@ const formatObjectProperties = (ast: AST, value: any): string => {
     .map((prop) => {
       const key = typeof prop.name === "string" ? prop.name : prop.name.toString();
       const propValue = value[key];
+
+      // Check for xmlName annotation on this property
+      const xmlName = getXmlName(prop.type);
+
+      // If xmlName is set and value is an array, flatten the array elements
+      // Each element gets wrapped with the xmlName tag directly (no wrapper element)
+      if (xmlName && Array.isArray(propValue)) {
+        return propValue
+          .map((item) => {
+            const content = formatNode(getArrayElementAST(prop.type) ?? prop.type, item, false);
+            return `<${xmlName}>${content}</${xmlName}>`;
+          })
+          .join("");
+      }
+
       // Don't include root tag for nested objects - property name is the wrapper
       const content = formatNode(prop.type, propValue, false);
       return `<${key}>${content}</${key}>`;
@@ -378,10 +394,24 @@ const parseObjectProperties = (ast: AST, value: any): any => {
 
   for (const prop of props) {
     const key = typeof prop.name === "string" ? prop.name : prop.name.toString();
-    const propValue = value[key];
+
+    // Check for xmlName annotation - if present, look for that key in the XML
+    const xmlName = getXmlName(prop.type);
+
+    // Determine which key to look for in the parsed XML
+    const xmlKey = xmlName ?? key;
+    const propValue = value[xmlKey];
 
     if (propValue !== undefined) {
-      result[key] = parseNode(prop.type, propValue);
+      // If we have an xmlName and the prop is an array type, handle flattened array
+      if (xmlName && isArrayAST(prop.type)) {
+        const elementAST = getArrayElementAST(prop.type);
+        // Ensure we have an array (XML parser may return single item as object)
+        const items = Array.isArray(propValue) ? propValue : [propValue];
+        result[key] = items.map((item: any) => parseNode(elementAST ?? prop.type, item));
+      } else {
+        result[key] = parseNode(prop.type, propValue);
+      }
     }
   }
 

@@ -44,13 +44,13 @@ export const make = <Op extends Operation>(
     const region = yield* Region;
     const creds = yield* credentials.getCredentials();
     const endpoint = (yield* Effect.serviceOption(Endpoint)).pipe(
-      Option.getOrElse(() => `${region}.amazonaws.com`),
+      // TODO(sam): implement rule-based endpoint resolution
+      Option.getOrElse(() => `https://${op.sdkId.toLowerCase()}.${region}.amazonaws.com`),
     );
 
-    // TODO(sam): don't create this per request
     const signer = new AwsV4Signer({
       method: op.method ?? "POST",
-      url: `https://${op.sdkId.toLowerCase()}.${endpoint}${unsignedRequest.unsignedUri}`,
+      url: `${endpoint}${unsignedRequest.unsignedUri}`,
       headers: unsignedRequest.unsignedHeaders,
       body:
         // TODO(sam): is this efficient?
@@ -67,20 +67,14 @@ export const make = <Op extends Operation>(
 
     yield* Effect.logDebug(op.name, "Signed Request", signedRequest);
 
-    let httpClientMethod = signedRequest.method.toLocaleLowerCase() as
-      | "get"
-      | "post"
-      | "put"
-      | "del"
-      | "patch"
-      | "head"
-      | "options"
-      | "delete";
+    let httpClientMethod = signedRequest.method.toLocaleLowerCase();
     if (httpClientMethod === "delete") {
       httpClientMethod = "del";
     }
 
-    const rawResponse = yield* httpClient[httpClientMethod](signedRequest.url, {
+    const rawResponse = yield* httpClient[
+      httpClientMethod as "get" | "post" | "put" | "del" | "patch" | "head" | "options" | "del"
+    ](signedRequest.url, {
       // @ts-expect-error - TODO(sam): what are the proper types here
       headers: signedRequest.headers,
       body: signedRequest.body
