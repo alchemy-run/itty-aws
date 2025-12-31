@@ -1,11 +1,9 @@
-import * as Context from "effect/Context";
 import * as Effect from "effect/Effect";
-import * as Layer from "effect/Layer";
 import * as Option from "effect/Option";
 import * as ParseResult from "effect/ParseResult";
 import * as Schema from "effect/Schema";
 import * as AST from "effect/SchemaAST";
-import { requestBodySymbol, requestHeaderSymbol } from "./annotations.ts";
+import { getAnnotations } from "./annotations.ts";
 import type { Operation } from "./operation.ts";
 import type { ParsedResponse, RawResponse } from "./response.ts";
 
@@ -13,45 +11,36 @@ export type ParseResponse = (
   response: RawResponse,
 ) => Effect.Effect<ParsedResponse, ParseResult.ParseError, never>;
 
-export class ResponseParser extends Context.Tag("ResponseParser")<
-  ResponseParser,
-  ParseResponse
->() {}
+export type ParseResponseMiddleware = (op: Operation) => ParseResponse;
 
-export const make = <A extends Schema.Schema.AnyNoContext>(op: Operation) =>
-  Layer.effect(
-    ResponseParser,
-    // @ts-expect-error
-    Effect.gen(function* () {
-      const outputSchema = op.outputSchema.fields.output;
-      const outputAst = outputSchema.ast;
-      const structAst = AST.isTransformation(outputAst) ? outputAst.from : outputAst;
-      const props = AST.isTypeLiteral(structAst) ? structAst.propertySignatures : [];
+export const make = <Op extends Operation>(op: Op) => {
+  const outputSchema = op.outputSchema;
+  const outputAst = outputSchema.ast;
+  const structAst = AST.isTransformation(outputAst) ? outputAst.from : outputAst;
+  const props = AST.isTypeLiteral(structAst) ? structAst.propertySignatures : [];
+  const parseResponse = op.responseParser(op);
 
-      return Effect.fnUntraced(function* (value: RawResponse) {
-        const payload: Record<string, unknown> = {};
-        for (const prop of props) {
-          const name = prop.name as keyof typeof value;
+  return Effect.fnUntraced(function* (response: RawResponse) {
+    const parsedResponse = yield* parseResponse(response);
+    const payload: Record<string, unknown> = {};
+    for (const prop of props) {
+      const name = prop.name as keyof typeof payload;
 
-          const headerAannotations = AST.getAnnotation<string>(prop.type, requestHeaderSymbol);
-          const bodyAnnotation = AST.getAnnotation<string>(prop.type, requestBodySymbol);
+      const annotations = getAnnotations(prop.type);
 
-          if (Option.isSome(headerAannotations)) {
-            payload[name] = value.headers[headerAannotations.value];
-          } else if (Option.isSome(bodyAnnotation)) {
-            // TODO(sam): value.body needs to be parsed?
-            payload[name] = getNested(value.body, bodyAnnotation.value);
-          } else if (name in value.body) {
-            payload[name] = value.body[name];
-          }
-        }
+      if (Option.isSome(annotations.header)) {
+        payload[name] = response.headers[annotations.header.value];
+      } else if (Option.isSome(annotations.body)) {
+        // TODO(sam): value.body needs to be parsed?
+        payload[name] = getNested(parsedResponse.body, annotations.body.value);
+      } else if (name in parsedResponse.body) {
+        payload[name] = parsedResponse.body[name];
+      }
+    }
 
-        const result = yield* Schema.decodeUnknown(outputSchema)(payload);
-        return result;
-      });
-    }),
-  );
-
+    return yield* Schema.decodeUnknown(outputSchema)(payload);
+  });
+};
 // TODO(sam): what is this weird splitting logic? seems specific to a protocol or something?
 const getNested = (obj: object, path: string) =>
   //@ts-expect-error

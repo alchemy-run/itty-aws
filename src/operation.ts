@@ -1,7 +1,7 @@
 import * as S from "effect/Schema";
 import * as ErrorParser from "./error-parser.ts";
 import type { Middleware } from "./middleware/middleware.ts";
-import * as RequestFormatter from "./request-formatter.ts";
+import * as RequestFormatter from "./request-builder.ts";
 import * as ResponseParser from "./response-parser.ts";
 
 export declare namespace Operation {
@@ -26,8 +26,8 @@ export interface Operation<
   sigV4ServiceName: string;
   name: string;
   version: string;
-  requestFormatter: RequestFormatter.FormatRequest;
-  responseParser: ResponseParser.ParseResponse;
-  errorParser: ErrorParser.ParseErrors;
+  requestFormatter: RequestFormatter.FormatRequestMiddleware;
+  responseParser: ResponseParser.ParseResponseMiddleware;
+  errorParser: ErrorParser.ParseErrorsMiddleware;
   middleware?: Middleware[];
 }

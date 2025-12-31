@@ -1,53 +1,56 @@
 import * as Effect from "effect/Effect";
-import * as ParseResult from "effect/ParseResult";
+import { ParseError } from "../error-parser.ts";
+import type { Operation } from "../operation.ts";
 import type { RawRequest } from "../request.ts";
 import type { RawResponse } from "../response.ts";
 import * as XML from "../util/xml.ts";
 
-export const FormatAwsQueryRequest = Effect.fn(function* (value: RawRequest, _, ast) {
-  if (
-    typeof value.unsignedBody === "string" ||
-    value.unsignedBody instanceof Uint8Array ||
-    value.unsignedBody instanceof ReadableStream
-  ) {
-    return yield* Effect.fail(new ParseResult.Forbidden(ast, value, "cannot encode aws query"));
-  }
-
-  const params = new URLSearchParams();
-  params.append("Action", value.meta.name);
-  params.append("Version", value.meta.version);
-
-  if (value.unsignedBody) {
-    for (const [key, propertyValue] of Object.entries(value.unsignedBody)) {
-      serializeAwsQueryValue(params, key, propertyValue);
+export const FormatAwsQueryRequest = (op: Operation) =>
+  Effect.fn(function* (value: RawRequest) {
+    if (
+      typeof value.unsignedBody === "string" ||
+      value.unsignedBody instanceof Uint8Array ||
+      value.unsignedBody instanceof ReadableStream
+    ) {
+      return yield* Effect.fail(new ParseError({ message: "cannot encode aws query" }));
     }
-  }
 
-  const queryParams = `${value.unsignedUri}?${params.toString()}`;
+    const params = new URLSearchParams();
+    params.append("Action", op.name);
+    params.append("Version", op.version);
 
-  return {
-    unsignedUri: queryParams,
-    unsignedBody: undefined,
-    unsignedHeaders: {
-      ...value.unsignedHeaders,
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-  };
-});
+    if (value.unsignedBody) {
+      for (const [key, propertyValue] of Object.entries(value.unsignedBody)) {
+        serializeAwsQueryValue(params, key, propertyValue);
+      }
+    }
 
-export const FormatAwsQueryResponse = Effect.fn(function* (value: RawResponse, _, ast) {
-  const data = yield* Effect.try({
-    try: () => XML.parser.parse(value.body),
-    catch: () => new ParseResult.Forbidden(ast, value, "cannot decode JSON"),
+    const queryParams = `${value.unsignedUri}?${params.toString()}`;
+
+    return {
+      unsignedUri: queryParams,
+      unsignedBody: undefined,
+      unsignedHeaders: {
+        ...value.unsignedHeaders,
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+    };
   });
 
-  const name = value.meta.name.split(".")[1];
+export const FormatAwsQueryResponse = (op: Operation) =>
+  Effect.fn(function* (value: RawResponse) {
+    const data = yield* Effect.try({
+      try: () => XML.parser.parse(value.body),
+      catch: () => new ParseError({ message: "cannot decode XML" }),
+    });
 
-  return {
-    headers: value.headers,
-    body: data?.[`${name}Response`]?.[`${name}Result`],
-  };
-});
+    const name = op.name.split(".")[1];
+
+    return {
+      headers: value.headers,
+      body: data?.[`${name}Response`]?.[`${name}Result`],
+    };
+  });
 
 //todo(pear): this is vibe coded. maybe give it a 2nd look / move to effect match
 function serializeAwsQueryValue(params: URLSearchParams, key: string, value: unknown): void {

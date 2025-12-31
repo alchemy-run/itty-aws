@@ -8,9 +8,9 @@ import * as Effect from "effect/Effect";
 import * as Layer from "effect/Layer";
 import * as Logger from "effect/Logger";
 import * as Scope from "effect/Scope";
-import { Credentials, NodeProviderChainCredentialsLive } from "../src/credentials.ts";
-import { Endpoint } from "../src/endpoint.ts";
-import { Region } from "../src/region.ts";
+import { Credentials, NodeProviderChainCredentialsLive } from "../src/aws/credentials.ts";
+import { Endpoint } from "../src/aws/endpoint.ts";
+import { Region } from "../src/aws/region.ts";
 
 type Provided =
   | Scope.Scope

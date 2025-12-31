@@ -1,20 +1,21 @@
 import * as Effect from "effect/Effect";
+import type { Operation } from "../operation.ts";
 import type { RawRequest } from "../request.ts";
 import type { RawResponse } from "../response.ts";
 
-export const FormatJSONRequest = (value: RawRequest) =>
+export const FormatJSONRequest = (op: Operation) => (value: RawRequest) =>
   Effect.succeed({
     ...value,
     unsignedBody: value.unsignedBody ? JSON.stringify(value.unsignedBody) : undefined,
   });
 
-export const FormatJSONResponse = (value: RawResponse) =>
+export const FormatJSONResponse = (op: Operation) => (value: RawResponse) =>
   Effect.succeed({
     headers: value.headers,
     body: JSON.parse(value.body),
   });
 
-export const FormatAwsJSON10Request = (value: RawRequest) =>
+export const FormatAwsJSON10Request = (op: Operation) => (value: RawRequest) =>
   Effect.succeed({
     ...value,
     unsignedHeaders: {
@@ -25,7 +26,7 @@ export const FormatAwsJSON10Request = (value: RawRequest) =>
     unsignedBody: value.unsignedBody ? JSON.stringify(value.unsignedBody) : undefined,
   });
 
-export const FormatAwsJSON11Request = (value: RawRequest) =>
+export const FormatAwsJSON11Request = (op: Operation) => (value: RawRequest) =>
   Effect.succeed({
     ...value,
     unsignedHeaders: {

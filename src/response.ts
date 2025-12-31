@@ -1,26 +1,12 @@
-import * as Schema from "effect/Schema";
-
-export type RawResponse = Schema.Schema.Type<typeof RawResponse>;
-export const RawResponse = Schema.Struct({
+export interface RawResponse {
   //todo(pear): we create this so we don't need to validate
-  meta: OperationMeta,
-  headers: Schema.Record({
-    key: Schema.String,
-    value: Schema.Unknown,
-  }),
+  headers: Record<string, unknown>;
   //todo(pear): handle streams somehow
-  body: Schema.String,
-});
+  body: string;
+}
 
-export type ParsedResponse = Schema.Schema.Type<typeof ParsedResponse>;
-export const ParsedResponse = Schema.Struct({
-  headers: Schema.Record({
-    key: Schema.String,
-    value: Schema.Unknown,
-  }),
+export interface ParsedResponse {
+  headers: Record<string, unknown>;
   //todo(pear): handle streams somehow
-  body: Schema.Record({
-    key: Schema.String,
-    value: Schema.Unknown,
-  }),
-});
+  body: Record<string, unknown>;
+}

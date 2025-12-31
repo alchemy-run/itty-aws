@@ -53,14 +53,3 @@ export const getAnnotations = (schema: AST.AST) => {
     error,
   };
 };
-
-export function getSafeMetadata(
-  partialMeta: Schema.Schema.Type<typeof OperationMeta>,
-): Required<Schema.Schema.Type<typeof OperationMeta>> {
-  // @ts-expect-error - we known inputSchema and outputSchema are present
-  return {
-    ...partialMeta,
-    uri: partialMeta.uri ?? "/",
-    method: partialMeta.method ?? "POST",
-  };
-}
