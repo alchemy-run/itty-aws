@@ -6,7 +6,9 @@
 
 import type * as S from "effect/Schema";
 import type * as AST from "effect/SchemaAST";
-import { XMLParser } from "fast-xml-parser";
+import type { Protocol } from "../protocol.ts";
+import type { Request } from "../request.ts";
+import type { Response } from "../response.ts";
 import {
   getHttpHeader,
   getHttpPrefixHeaders,
@@ -19,9 +21,6 @@ import {
   hasXmlAttribute,
   hasXmlFlattened,
 } from "../traits.ts";
-import type { Protocol } from "../protocol.ts";
-import type { Request } from "../request.ts";
-import type { Response } from "../response.ts";
 import {
   getArrayElementAST,
   getEncodedPropertySignatures,
@@ -32,10 +31,17 @@ import {
   isBooleanAST,
   isNumberAST,
   unwrapUnion,
-} from "../util/ast.ts";
+} from "./util/ast.ts";
 import { extractStaticQueryParams } from "./util/query-params.ts";
 import { applyHttpTrait, bindInputToRequest } from "./util/serialize-input.ts";
 import { formatTimestamp } from "./util/timestamp.ts";
+import {
+  deserializePrimitive,
+  escapeXml,
+  parseXml,
+  unwrapArrayValue,
+  wrapTag,
+} from "./util/xml.ts";
 
 // =============================================================================
 // Protocol Export
@@ -132,9 +138,6 @@ export const restXmlProtocol: Protocol = {
 // XML Serialization
 // =============================================================================
 
-const wrapTag = (tag: string, content: string, xmlns?: string) =>
-  `<${tag}${xmlns ? ` xmlns="${escapeXml(xmlns)}"` : ""}>${content}</${tag}>`;
-
 function serializeValue(ast: AST.AST, value: unknown, tagName?: string, xmlns?: string): string {
   if (value == null) return "";
 
@@ -220,16 +223,14 @@ function deserializeValue(ast: AST.AST, value: unknown): unknown {
 
     // Handle wrapped arrays: { Item: [...] }
     const elTag = getIdentifier(elAST);
-    if (elTag && typeof value === "object" && !Array.isArray(value) && elTag in (value as object)) {
-      value = (value as Record<string, unknown>)[elTag];
-    }
+    const unwrapped = unwrapArrayValue(value, elTag);
 
-    const items = Array.isArray(value) ? value : [value];
+    const items = Array.isArray(unwrapped) ? unwrapped : [unwrapped];
     return items.map((item) => deserializeValue(elAST, item));
   }
 
   if (typeof value === "string") {
-    return isNumberAST(ast) ? Number(value) : isBooleanAST(ast) ? value === "true" : value;
+    return deserializePrimitive(ast, value);
   }
 
   if (typeof value === "object" && !Array.isArray(value)) {
@@ -285,35 +286,3 @@ function deserializeObject(ast: AST.AST, value: Record<string, unknown>): Record
 
   return result;
 }
-
-// =============================================================================
-// XML Parsing
-// =============================================================================
-
-const xmlParser = new XMLParser({
-  ignoreAttributes: false,
-  attributeNamePrefix: "@_",
-  textNodeName: "#text",
-  trimValues: true,
-  parseTagValue: false, // Keep values as strings, let schema handle conversion
-  parseAttributeValue: false,
-  removeNSPrefix: false,
-});
-
-function parseXml(xml: string): Record<string, unknown> {
-  if (!xml?.trim()) return {};
-  return xmlParser.parse(xml) as Record<string, unknown>;
-}
-
-// =============================================================================
-// XML Utilities
-// =============================================================================
-
-const xmlEscapes: Record<string, string> = {
-  "&": "&amp;",
-  "<": "&lt;",
-  ">": "&gt;",
-  '"': "&quot;",
-  "'": "&apos;",
-};
-const escapeXml = (s: string) => s.replace(/[&<>"']/g, (c) => xmlEscapes[c]);

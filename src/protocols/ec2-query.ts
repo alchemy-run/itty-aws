@@ -13,7 +13,6 @@
 
 import type * as S from "effect/Schema";
 import type * as AST from "effect/SchemaAST";
-import { XMLParser } from "fast-xml-parser";
 import type { Protocol } from "../protocol.ts";
 import type { Request } from "../request.ts";
 import type { Response } from "../response.ts";
@@ -30,11 +29,9 @@ import {
   getEncodedPropertySignatures,
   getIdentifier,
   isArrayAST,
-  isBooleanAST,
-  isDateAST,
-  isNumberAST,
-} from "../util/ast.ts";
+} from "./util/ast.ts";
 import { formatTimestamp } from "./util/timestamp.ts";
+import { deserializePrimitive, extractXmlRoot, parseXml, unwrapArrayValue } from "./util/xml.ts";
 
 // =============================================================================
 // Protocol Export
@@ -79,12 +76,7 @@ export const ec2QueryProtocol: Protocol = {
       const parsed = parseXml(response.body);
 
       // EC2 response root is {OperationName}Response
-      // Find the response element (should be the only top-level element)
-      const rootKeys = Object.keys(parsed).filter((k) => !k.startsWith("?"));
-      const responseKey = rootKeys[0];
-      const content = responseKey
-        ? (parsed[responseKey] as Record<string, unknown>)
-        : (parsed as Record<string, unknown>);
+      const content = extractXmlRoot(parsed);
 
       if (content && typeof content === "object") {
         Object.assign(result, deserializeObject(ast, content));
@@ -205,30 +197,17 @@ function deserializeValue(ast: AST.AST, value: unknown): unknown {
     const elAST = getArrayElementAST(ast);
     if (!elAST) return Array.isArray(value) ? value : [value];
 
-    // Handle wrapped arrays: { member: [...] } or { Item: [...] }
-    const elTag = getIdentifier(elAST) ?? "member";
-    if (typeof value === "object" && !Array.isArray(value)) {
-      const objValue = value as Record<string, unknown>;
-      // Check for common wrapper element names
-      if (elTag in objValue) {
-        value = objValue[elTag];
-      } else if ("member" in objValue) {
-        value = objValue["member"];
-      } else if ("item" in objValue) {
-        value = objValue["item"];
-      }
-    }
+    // Handle wrapped arrays: { member: [...] } or { item: [...] }
+    const elTag = getIdentifier(elAST);
+    const unwrapped = unwrapArrayValue(value, elTag, ["member", "item"]);
 
-    const items = Array.isArray(value) ? value : [value];
+    const items = Array.isArray(unwrapped) ? unwrapped : [unwrapped];
     return items.map((item) => deserializeValue(elAST, item));
   }
 
   // Handle strings
   if (typeof value === "string") {
-    if (isNumberAST(ast)) return Number(value);
-    if (isBooleanAST(ast)) return value === "true";
-    if (isDateAST(ast)) return new Date(value);
-    return value;
+    return deserializePrimitive(ast, value);
   }
 
   // Handle numbers/booleans from parser
@@ -277,25 +256,8 @@ function deserializeObject(ast: AST.AST, value: Record<string, unknown>): Record
       const elAST = getArrayElementAST(prop.type) ?? prop.type;
 
       // Unwrap list wrapper elements from XML parser output
-      // EC2 XML responses wrap list items in <item> elements:
-      //   <reservationSet><item>...</item><item>...</item></reservationSet>
-      // Parser converts to: { item: [...] }
-      // We need to extract the array from the wrapper.
-      let arrayValue: unknown = propValue;
-      if (typeof propValue === "object" && propValue !== null && !Array.isArray(propValue)) {
-        const objValue = propValue as Record<string, unknown>;
-        // First, try the element's schema identifier (e.g., "Reservation")
-        const elTag = getIdentifier(elAST);
-        if (elTag && elTag in objValue) {
-          arrayValue = objValue[elTag];
-        } else if ("item" in objValue) {
-          // EC2 protocol convention: list items wrapped in <item>
-          arrayValue = objValue["item"];
-        } else if ("member" in objValue) {
-          // awsQuery protocol convention: list items wrapped in <member>
-          arrayValue = objValue["member"];
-        }
-      }
+      const elTag = getIdentifier(elAST);
+      const arrayValue = unwrapArrayValue(propValue, elTag, ["item", "member"]);
 
       const items = Array.isArray(arrayValue) ? arrayValue : [arrayValue];
       result[key] = items.map((item) => deserializeValue(elAST, item));
@@ -305,23 +267,4 @@ function deserializeObject(ast: AST.AST, value: Record<string, unknown>): Record
   }
 
   return result;
-}
-
-// =============================================================================
-// XML Parsing
-// =============================================================================
-
-const xmlParser = new XMLParser({
-  ignoreAttributes: false,
-  attributeNamePrefix: "@_",
-  textNodeName: "#text",
-  trimValues: true,
-  parseTagValue: false, // Keep values as strings, let schema handle conversion
-  parseAttributeValue: false,
-  removeNSPrefix: false,
-});
-
-function parseXml(xml: string): Record<string, unknown> {
-  if (!xml?.trim()) return {};
-  return xmlParser.parse(xml) as Record<string, unknown>;
 }

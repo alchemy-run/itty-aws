@@ -13,7 +13,6 @@
 
 import type * as S from "effect/Schema";
 import type * as AST from "effect/SchemaAST";
-import { XMLParser } from "fast-xml-parser";
 import type { Protocol } from "../protocol.ts";
 import type { Request } from "../request.ts";
 import type { Response } from "../response.ts";
@@ -32,12 +31,10 @@ import {
   getIdentifier,
   getMapKeyValueAST,
   isArrayAST,
-  isBooleanAST,
-  isDateAST,
   isMapAST,
-  isNumberAST,
-} from "../util/ast.ts";
+} from "./util/ast.ts";
 import { formatTimestamp } from "./util/timestamp.ts";
+import { deserializePrimitive, extractXmlRoot, parseXml, unwrapArrayValue } from "./util/xml.ts";
 
 // =============================================================================
 // Protocol Export
@@ -91,12 +88,7 @@ export const awsQueryProtocol: Protocol = {
       //   </ResponseMetadata>
       // </{OperationName}Response>
 
-      // Find the response element (should be the only top-level element)
-      const rootKeys = Object.keys(parsed).filter((k) => !k.startsWith("?"));
-      const responseKey = rootKeys[0];
-      let content = responseKey
-        ? (parsed[responseKey] as Record<string, unknown>)
-        : (parsed as Record<string, unknown>);
+      let content = extractXmlRoot(parsed);
 
       // Look for the Result wrapper inside the Response
       if (content && typeof content === "object") {
@@ -253,28 +245,16 @@ function deserializeValue(ast: AST.AST, value: unknown): unknown {
     if (!elAST) return Array.isArray(value) ? value : [value];
 
     // Handle wrapped arrays: { member: [...] } or { Item: [...] }
-    // Use xmlName from element AST if present, otherwise try class identifier, fallback to "member"
-    const elTag = getXmlName(elAST) ?? getIdentifier(elAST) ?? "member";
-    if (typeof value === "object" && !Array.isArray(value)) {
-      const objValue = value as Record<string, unknown>;
-      // Check for wrapper element with xmlName or class name
-      if (elTag in objValue) {
-        value = objValue[elTag];
-      } else if ("member" in objValue) {
-        value = objValue["member"];
-      }
-    }
+    const elTag = getXmlName(elAST) ?? getIdentifier(elAST);
+    const unwrapped = unwrapArrayValue(value, elTag, ["member"]);
 
-    const items = Array.isArray(value) ? value : [value];
+    const items = Array.isArray(unwrapped) ? unwrapped : [unwrapped];
     return items.map((item) => deserializeValue(elAST, item));
   }
 
   // Handle strings
   if (typeof value === "string") {
-    if (isNumberAST(ast)) return Number(value);
-    if (isBooleanAST(ast)) return value === "true";
-    if (isDateAST(ast)) return new Date(value);
-    return value;
+    return deserializePrimitive(ast, value);
   }
 
   // Handle numbers/booleans from parser
@@ -314,21 +294,10 @@ function deserializeObject(ast: AST.AST, value: Record<string, unknown>): Record
     // Handle arrays
     if (isArrayAST(prop.type)) {
       const elAST = getArrayElementAST(prop.type) ?? prop.type;
-      const isFlattened = hasXmlFlattened(prop);
 
       // Unwrap list wrapper elements from XML parser output
-      let arrayValue: unknown = propValue;
-      if (typeof propValue === "object" && propValue !== null && !Array.isArray(propValue)) {
-        const objValue = propValue as Record<string, unknown>;
-        // First, try xmlName from element AST, then class identifier
-        const elTag = getXmlName(elAST) ?? getIdentifier(elAST);
-        if (elTag && elTag in objValue) {
-          arrayValue = objValue[elTag];
-        } else if ("member" in objValue) {
-          // AWS Query protocol convention: list items wrapped in <member>
-          arrayValue = objValue["member"];
-        }
-      }
+      const elTag = getXmlName(elAST) ?? getIdentifier(elAST);
+      const arrayValue = unwrapArrayValue(propValue, elTag, ["member"]);
 
       const items = Array.isArray(arrayValue) ? arrayValue : [arrayValue];
       result[key] = items.map((item) => deserializeValue(elAST, item));
@@ -338,23 +307,4 @@ function deserializeObject(ast: AST.AST, value: Record<string, unknown>): Record
   }
 
   return result;
-}
-
-// =============================================================================
-// XML Parsing
-// =============================================================================
-
-const xmlParser = new XMLParser({
-  ignoreAttributes: false,
-  attributeNamePrefix: "@_",
-  textNodeName: "#text",
-  trimValues: true,
-  parseTagValue: false, // Keep values as strings, let schema handle conversion
-  parseAttributeValue: false,
-  removeNSPrefix: false,
-});
-
-function parseXml(xml: string): Record<string, unknown> {
-  if (!xml?.trim()) return {};
-  return xmlParser.parse(xml) as Record<string, unknown>;
 }
