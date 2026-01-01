@@ -21,6 +21,16 @@ import {
   hasXmlAttribute,
   hasXmlFlattened,
 } from "../traits.ts";
+import { extractStaticQueryParams } from "../util/query-params.ts";
+import { applyHttpTrait, bindInputToRequest } from "../util/serialize-input.ts";
+import { formatTimestamp } from "../util/timestamp.ts";
+import {
+  deserializePrimitive,
+  escapeXml,
+  parseXml,
+  unwrapArrayValue,
+  wrapTag,
+} from "../util/xml.ts";
 import {
   getArrayElementAST,
   getEncodedPropertySignatures,
@@ -32,16 +42,6 @@ import {
   isNumberAST,
   unwrapUnion,
 } from "./util/ast.ts";
-import { extractStaticQueryParams } from "./util/query-params.ts";
-import { applyHttpTrait, bindInputToRequest } from "./util/serialize-input.ts";
-import { formatTimestamp } from "./util/timestamp.ts";
-import {
-  deserializePrimitive,
-  escapeXml,
-  parseXml,
-  unwrapArrayValue,
-  wrapTag,
-} from "./util/xml.ts";
 
 // =============================================================================
 // Protocol Export

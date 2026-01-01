@@ -24,14 +24,14 @@ import {
   getXmlNameProp,
   hasXmlAttribute,
 } from "../traits.ts";
+import { formatTimestamp } from "../util/timestamp.ts";
+import { deserializePrimitive, extractXmlRoot, parseXml, unwrapArrayValue } from "../util/xml.ts";
 import {
   getArrayElementAST,
   getEncodedPropertySignatures,
   getIdentifier,
   isArrayAST,
 } from "./util/ast.ts";
-import { formatTimestamp } from "./util/timestamp.ts";
-import { deserializePrimitive, extractXmlRoot, parseXml, unwrapArrayValue } from "./util/xml.ts";
 
 // =============================================================================
 // Protocol Export

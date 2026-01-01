@@ -1,5 +1,5 @@
 import type * as AST from "effect/SchemaAST";
-import { xmlNamespaceSymbol, xmlNameSymbol } from "../../traits.ts";
+import { xmlNamespaceSymbol, xmlNameSymbol } from "../traits.ts";
 
 const Identifier = Symbol.for("effect/annotation/Identifier");
 const Surrogate = Symbol.for("effect/annotation/Surrogate");

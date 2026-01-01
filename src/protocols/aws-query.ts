@@ -25,6 +25,8 @@ import {
   hasXmlAttribute,
   hasXmlFlattened,
 } from "../traits.ts";
+import { formatTimestamp } from "../util/timestamp.ts";
+import { deserializePrimitive, extractXmlRoot, parseXml, unwrapArrayValue } from "../util/xml.ts";
 import {
   getArrayElementAST,
   getEncodedPropertySignatures,
@@ -33,8 +35,6 @@ import {
   isArrayAST,
   isMapAST,
 } from "./util/ast.ts";
-import { formatTimestamp } from "./util/timestamp.ts";
-import { deserializePrimitive, extractXmlRoot, parseXml, unwrapArrayValue } from "./util/xml.ts";
 
 // =============================================================================
 // Protocol Export
