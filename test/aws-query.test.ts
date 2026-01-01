@@ -42,7 +42,6 @@ const parseResponse = <A, I>(schema: S.Schema<A, I>, response: Response) => {
   const operation = { input: schema, output: schema, errors: [] };
   const parser = makeResponseParser<A, I, never>(operation, {
     protocol: awsQueryProtocol,
-    skipValidation: true,
   });
   return parser(response);
 };
@@ -446,7 +445,7 @@ describe("awsQuery protocol", () => {
   // ==========================================================================
 
   describe("edge cases", () => {
-    it.effect("should handle empty response body gracefully", () =>
+    it.effect("should fail when required fields are missing (empty body)", () =>
       Effect.gen(function* () {
         const response: Response = {
           status: 200,
@@ -455,15 +454,16 @@ describe("awsQuery protocol", () => {
           body: "",
         };
 
-        const result = yield* parseResponse(GetUserResponse, response);
+        // Schemas with required fields should fail to parse when fields are missing
+        const result = yield* Effect.either(parseResponse(GetUserResponse, response));
 
-        expect(result).toEqual({});
+        expect(result._tag).toBe("Left"); // Should be a parse error
       }),
     );
 
-    it.effect("should handle response with only ResponseMetadata (no Result)", () =>
+    it.effect("should fail when required fields are missing (empty Result)", () =>
       Effect.gen(function* () {
-        // Some operations return empty results
+        // ListUsersResponse has required Users field
         const response: Response = {
           status: 200,
           statusText: "OK",
@@ -478,9 +478,10 @@ describe("awsQuery protocol", () => {
 </ListUsersResponse>`,
         };
 
-        const result = yield* parseResponse(ListUsersResponse, response);
+        // Schemas with required fields should fail to parse when fields are missing
+        const result = yield* Effect.either(parseResponse(ListUsersResponse, response));
 
-        expect(result.Users).toBeUndefined();
+        expect(result._tag).toBe("Left"); // Should be a parse error
       }),
     );
 

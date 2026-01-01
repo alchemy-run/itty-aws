@@ -20,8 +20,6 @@ import { getProtocol } from "./traits.ts";
 export interface ResponseParserOptions {
   /** Override the protocol (otherwise discovered from schema annotations) */
   protocol?: Protocol;
-  /** Skip schema validation (return raw deserialized object) */
-  skipValidation?: boolean;
 }
 
 export type ResponseParser<A, R> = (
@@ -60,11 +58,6 @@ export const makeResponseParser = <A, I, R>(
   return Effect.fn(function* (response: Response) {
     // Deserialize response using the protocol handler
     const deserialized = yield* protocol.deserializeResponse(response);
-
-    // Skip validation if requested (useful for testing raw deserialization)
-    if (options?.skipValidation) {
-      return deserialized as A;
-    }
 
     // Decode through schema for validation and transformation
     return yield* decode(deserialized);

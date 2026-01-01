@@ -36,7 +36,6 @@ const parseResponse = <A, I>(schema: S.Schema<A, I>, response: Response) => {
   const operation = { input: schema, output: schema, errors: [] };
   const parser = makeResponseParser<A, I, never>(operation, {
     protocol: ec2QueryProtocol,
-    skipValidation: true,
   });
   return parser(response);
 };

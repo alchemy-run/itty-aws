@@ -153,6 +153,10 @@ function renameKeys(ast: AST.AST, value: unknown, toWire: boolean): unknown {
     const [srcKey, dstKey] = toWire ? [internal, wire] : [wire, internal];
 
     const v = obj[srcKey];
+    // When deserializing (toWire=false), convert null to undefined
+    if (v === null && !toWire) {
+      continue; // Skip null values, treating them as undefined
+    }
     if (v !== undefined) {
       out[dstKey] = renameKeys(prop.type, v, toWire);
     }

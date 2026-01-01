@@ -82,7 +82,6 @@ const parseResponse = <A, I>(schema: S.Schema<A, I>, response: Response) => {
   const operation = { input: schema, output: schema, errors: [] };
   const parser = makeResponseParser<A, I, never>(operation, {
     protocol: restXmlProtocol,
-    skipValidation: true,
   });
   return parser(response);
 };
@@ -1140,7 +1139,7 @@ describe("restXml protocol", () => {
             "<Owner><ID>owner-id</ID></Owner>" +
             "<AccessControlList>" +
             "<Grant>" +
-            "<Grantee><ID>grantee-id</ID></Grantee>" +
+            '<Grantee xsi:type="CanonicalUser"><ID>grantee-id</ID></Grantee>' +
             "<Permission>FULL_CONTROL</Permission>" +
             "</Grant>" +
             "</AccessControlList>" +
@@ -1151,7 +1150,7 @@ describe("restXml protocol", () => {
 
         expect(result.Owner).toEqual({ ID: "owner-id" });
         expect(result.Grants).toEqual([
-          { Grantee: { ID: "grantee-id" }, Permission: "FULL_CONTROL" },
+          { Grantee: { Type: "CanonicalUser", ID: "grantee-id" }, Permission: "FULL_CONTROL" },
         ]);
       }),
     );

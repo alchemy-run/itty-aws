@@ -37,3 +37,4 @@ aws-models
 lib/
 src/services/*
 /smithy/
+prompt.txt

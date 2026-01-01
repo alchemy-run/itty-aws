@@ -54,7 +54,6 @@ const parseResponse = <A, I>(schema: S.Schema<A, I>, response: Response) => {
   const operation = { input: schema, output: schema, errors: [] };
   const parser = makeResponseParser<A, I, never>(operation, {
     protocol: restJson1Protocol,
-    skipValidation: true,
   });
   return parser(response);
 };

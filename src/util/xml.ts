@@ -4,7 +4,7 @@
 
 import type * as AST from "effect/SchemaAST";
 import { XMLParser } from "fast-xml-parser";
-import { isBooleanAST, isDateAST, isNumberAST } from "./ast.ts";
+import { isBooleanAST, isNumberAST } from "./ast.ts";
 
 // =============================================================================
 // XML Parser
@@ -85,12 +85,13 @@ export function extractXmlRoot(parsed: Record<string, unknown>): Record<string, 
 
 /**
  * Deserialize a primitive string value based on AST type.
- * Converts strings to numbers, booleans, or dates as needed.
+ * Converts strings to numbers or booleans as needed.
+ * Note: Dates are left as strings - Schema.decode handles the Date transformation.
  */
 export function deserializePrimitive(ast: AST.AST, value: string): unknown {
   if (isNumberAST(ast)) return Number(value);
   if (isBooleanAST(ast)) return value === "true";
-  if (isDateAST(ast)) return new Date(value);
+  // Dates stay as strings - S.Date (DateFromString) handles the conversion
   return value;
 }
 
