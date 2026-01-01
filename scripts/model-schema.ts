@@ -84,6 +84,7 @@ export const MapShape = S.Struct({
   value: S.Struct({
     target: S.String,
   }),
+  traits: S.optional(S.Record({ key: S.String, value: S.Unknown })),
 });
 
 export const UnionShape = S.Struct({
@@ -136,6 +137,7 @@ export const StructureShape = S.Struct({
 
 export const DocumentShape = S.Struct({
   type: S.Literal("document"),
+  traits: S.optional(S.Record({ key: S.String, value: S.Unknown })),
 });
 
 export const OperationShape = S.Struct({
@@ -148,9 +150,7 @@ export const OperationShape = S.Struct({
     S.Record({ key: S.String, value: S.Unknown }),
     S.Struct({
       "smithy.api#documentation": S.optional(S.String),
-      "smithy.api#http": S.optional(
-        S.Struct({ method: S.String, uri: S.String }),
-      ),
+      "smithy.api#http": S.optional(S.Struct({ method: S.String, uri: S.String })),
     }),
   ),
 });

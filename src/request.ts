@@ -1,11 +1,16 @@
-export interface RawRequest {
-  unsignedUri: string;
-  unsignedHeaders: Record<string, string>;
-  unsignedBody?: Record<string, unknown> | string | Uint8Array | ReadableStream | undefined;
-}
-
-export interface UnsignedRequest {
-  unsignedUri: string;
-  unsignedHeaders: Record<string, string>;
-  unsignedBody?: string | Uint8Array | ReadableStream | undefined;
+/**
+ * A protocol-agnostic HTTP request representation.
+ * This is what the protocol serializer produces.
+ */
+export interface Request {
+  /** HTTP method (GET, POST, PUT, DELETE, etc.) */
+  method: string;
+  /** Request path (e.g., "/{Bucket}/{Key+}") */
+  path: string;
+  /** Query string parameters */
+  query: Record<string, string>;
+  /** HTTP headers */
+  headers: Record<string, string>;
+  /** Request body (undefined for GET/HEAD/DELETE without body) */
+  body?: string | Uint8Array | ReadableStream;
 }

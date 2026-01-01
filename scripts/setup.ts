@@ -25,3 +25,19 @@ if (!exists) {
 } else {
   await $`git pull --ff-only`.cwd("aws-models");
 }
+
+const smithyModels = Bun.file("smithy");
+const smithyExists =
+  (await smithyModels.exists()) ||
+  (await smithyModels
+    .stat()
+    .then(() => true)
+    .catch(() => false));
+
+const smithyRepoUrl = "git@github.com:smithy-lang/smithy.git";
+
+if (!smithyExists) {
+  await $`git clone ${smithyRepoUrl} smithy --depth=1`;
+} else {
+  await $`git pull --ff-only`.cwd("smithy");
+}

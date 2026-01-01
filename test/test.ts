@@ -8,7 +8,11 @@ import * as Effect from "effect/Effect";
 import * as Layer from "effect/Layer";
 import * as Logger from "effect/Logger";
 import * as Scope from "effect/Scope";
-import { Credentials, NodeProviderChainCredentialsLive } from "../src/aws/credentials.ts";
+import {
+  Credentials,
+  LocalstackCredentialsLive,
+  NodeProviderChainCredentialsLive,
+} from "../src/aws/credentials.ts";
 import { Endpoint } from "../src/aws/endpoint.ts";
 import { Region } from "../src/aws/region.ts";
 
@@ -47,7 +51,7 @@ export function test(
   return it.scopedLive(
     name,
     () => {
-      const eff = Effect.gen(function* () {
+      let eff = Effect.gen(function* () {
         const fs = yield* FileSystem.FileSystem;
         if (yield* fs.exists(".env")) {
           const configProvider = ConfigProvider.orElse(
@@ -61,8 +65,6 @@ export function test(
       }).pipe(
         Effect.provide(platform),
         Effect.provideService(Region, "us-east-1"),
-
-        Effect.provide(NodeProviderChainCredentialsLive),
         Logger.withMinimumLogLevel(process.env.DEBUG ? LogLevel.Debug : LogLevel.Info),
         Effect.provide(NodeContext.layer),
       );
@@ -70,9 +72,10 @@ export function test(
       if (process.env.LOCAL) {
         return eff.pipe(
           Effect.provideService(Endpoint, process.env.LOCALSTACK_HOST ?? "http://localhost:4566"),
+          Effect.provide(LocalstackCredentialsLive),
         );
       } else {
-        return eff;
+        return eff.pipe(Effect.provide(NodeProviderChainCredentialsLive));
       }
     },
     options.timeout ?? 120_000,

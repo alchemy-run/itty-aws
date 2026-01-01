@@ -30,3 +30,12 @@ export const NodeProviderChainCredentialsLive = Layer.succeed(Credentials, {
       catch: () => new AwsCredentialProviderError(),
     }),
 });
+
+export const LocalstackCredentialsLive = Layer.succeed(Credentials, {
+  getCredentials: () =>
+    Effect.succeed({
+      accessKeyId: "test",
+      secretAccessKey: "test",
+      sessionToken: "test",
+    }),
+});

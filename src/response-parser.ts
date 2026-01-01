@@ -1,47 +1,71 @@
+/**
+ * Response Parser - wraps Protocol to parse responses.
+ *
+ * This layer:
+ * 1. Uses the Protocol to deserialize the response
+ * 2. Applies schema decoding/validation
+ * 3. Handles error responses
+ *
+ * This is independently testable without making HTTP requests.
+ */
+
 import * as Effect from "effect/Effect";
-import * as Option from "effect/Option";
 import * as ParseResult from "effect/ParseResult";
+import type * as S from "effect/Schema";
 import * as Schema from "effect/Schema";
-import * as AST from "effect/SchemaAST";
-import { getAnnotations } from "./annotations.ts";
-import type { Operation } from "./operation.ts";
-import type { ParsedResponse, RawResponse } from "./response.ts";
+import { getProtocol } from "./annotations.ts";
+import type { Protocol } from "./protocol.ts";
+import type { Response } from "./response.ts";
 
-export type ParseResponse = (
-  response: RawResponse,
-) => Effect.Effect<ParsedResponse, ParseResult.ParseError, never>;
+export interface ResponseParserOptions {
+  /** Override the protocol (otherwise discovered from schema annotations) */
+  protocol?: Protocol;
+  /** Skip schema validation (return raw deserialized object) */
+  skipValidation?: boolean;
+}
 
-export type ParseResponseMiddleware = (op: Operation) => ParseResponse;
+export type ResponseParser<A, R> = (
+  response: Response,
+) => Effect.Effect<A, ParseResult.ParseError, R>;
 
-export const make = <Op extends Operation>(op: Op) => {
-  const outputSchema = op.outputSchema;
-  const outputAst = outputSchema.ast;
-  const structAst = AST.isTransformation(outputAst) ? outputAst.from : outputAst;
-  const props = AST.isTypeLiteral(structAst) ? structAst.propertySignatures : [];
-  const parseResponse = op.responseParser(op);
+/**
+ * Create a response parser for a given output schema.
+ *
+ * Expensive work (protocol discovery) is done once at creation time.
+ *
+ * @param outputSchema - The output schema (with protocol annotations)
+ * @param options - Optional overrides
+ * @returns A function that parses responses
+ */
+export const makeResponseParser = <A, I, R>(
+  outputSchema: S.Schema<A, I, R>,
+  options?: ResponseParserOptions,
+): ResponseParser<A, R> => {
+  // Discover protocol from annotations or use override (done once)
+  const protocol = options?.protocol ?? getProtocol(outputSchema.ast);
+  if (!protocol) {
+    throw new Error("No protocol found on output schema");
+  }
 
-  return Effect.fnUntraced(function* (response: RawResponse) {
-    const parsedResponse = yield* parseResponse(response);
-    const payload: Record<string, unknown> = {};
-    for (const prop of props) {
-      const name = prop.name as keyof typeof payload;
+  // Pre-create the decoder (done once)
+  const decode = Schema.decodeUnknown(outputSchema);
 
-      const annotations = getAnnotations(prop.type);
+  // Return a function that parses responses
+  return (response: Response): Effect.Effect<A, ParseResult.ParseError, R> => {
+    return Effect.gen(function* () {
+      // Deserialize response using the protocol
+      const deserialized = protocol.deserializeResponse(
+        outputSchema as S.Schema.AnyNoContext,
+        response,
+      );
 
-      if (Option.isSome(annotations.header)) {
-        payload[name] = response.headers[annotations.header.value];
-      } else if (Option.isSome(annotations.body)) {
-        // TODO(sam): value.body needs to be parsed?
-        payload[name] = getNested(parsedResponse.body, annotations.body.value);
-      } else if (name in parsedResponse.body) {
-        payload[name] = parsedResponse.body[name];
+      // Skip validation if requested (useful for testing raw deserialization)
+      if (options?.skipValidation) {
+        return deserialized as A;
       }
-    }
 
-    return yield* Schema.decodeUnknown(outputSchema)(payload);
-  });
+      // Decode through schema for validation and transformation
+      return yield* decode(deserialized);
+    });
+  };
 };
-// TODO(sam): what is this weird splitting logic? seems specific to a protocol or something?
-const getNested = (obj: object, path: string) =>
-  //@ts-expect-error
-  path.split(".").reduce((acc, key) => acc?.[key], obj);
