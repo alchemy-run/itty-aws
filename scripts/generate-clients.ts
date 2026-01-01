@@ -599,9 +599,13 @@ const convertShapeToSchema: (
           () =>
             Effect.gen(function* () {
               const sdkFile = yield* SdkFile;
-              // Use epoch-seconds for restJson1, otherwise standard S.Date
-              if (sdkFile.serviceTraits.protocol === "aws.protocols#restJson1") {
-                return `T.TimestampFormat("epoch-seconds")`;
+              // Use epoch-seconds for restJson1 and awsJson1_0/1_1, otherwise standard S.Date
+              if (
+                sdkFile.serviceTraits.protocol === "aws.protocols#restJson1" ||
+                sdkFile.serviceTraits.protocol === "aws.protocols#awsJson1_0" ||
+                sdkFile.serviceTraits.protocol === "aws.protocols#awsJson1_1"
+              ) {
+                return `S.Date.pipe(T.TimestampFormat("epoch-seconds"))`;
               }
               return "S.Date";
             }),
@@ -674,7 +678,11 @@ const convertShapeToSchema: (
                   return `S.Date.pipe(T.TimestampFormat("${format}"))`;
                 }
                 // Default based on protocol
-                if (sdkFile.serviceTraits.protocol === "aws.protocols#restJson1") {
+                if (
+                  sdkFile.serviceTraits.protocol === "aws.protocols#restJson1" ||
+                  sdkFile.serviceTraits.protocol === "aws.protocols#awsJson1_0" ||
+                  sdkFile.serviceTraits.protocol === "aws.protocols#awsJson1_1"
+                ) {
                   return `S.Date.pipe(T.TimestampFormat("epoch-seconds"))`;
                 }
                 // aws-query and ec2-query use date-time (ISO 8601) by default

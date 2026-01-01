@@ -1,0 +1,745 @@
+import { it } from "@effect/vitest";
+import * as Effect from "effect/Effect";
+import * as S from "effect/Schema";
+import { describe, expect } from "vitest";
+import { awsJson1_0Protocol } from "../src/protocols/aws-json-1.0.ts";
+import { makeRequestBuilder } from "../src/request-builder.ts";
+import { makeResponseParser } from "../src/response-parser.ts";
+import type { Response } from "../src/response.ts";
+
+// Import real generated schemas from DynamoDB (uses awsJson1_0 protocol)
+import {
+  DescribeLimitsInput,
+  DescribeLimitsOutput,
+  DescribeTableInput,
+  GetItemInput,
+  GetItemOutput,
+  ListBackupsInput,
+  PutItemInput,
+  QueryInput,
+  QueryOutput,
+  ScanInput,
+  TagResourceInput,
+  TagResourceResponse,
+} from "../src/services/dynamodb.ts";
+
+// Import SFN schemas for timestamp testing
+import {
+  CreateActivityInput,
+  CreateActivityOutput,
+  ListExecutionsOutput,
+} from "../src/services/sfn.ts";
+
+// Helper to build a request from an instance
+const buildRequest = <A, I>(schema: S.Schema<A, I>, instance: A) => {
+  const operation = { input: schema, output: schema, errors: [] };
+  const builder = makeRequestBuilder(operation, { protocol: awsJson1_0Protocol });
+  return builder({ ...instance });
+};
+
+// Helper to parse a response
+const parseResponse = <A, I>(schema: S.Schema<A, I>, response: Response) => {
+  const operation = { input: schema, output: schema, errors: [] };
+  const parser = makeResponseParser<A, I, never>(operation, {
+    protocol: awsJson1_0Protocol,
+  });
+  return parser(response);
+};
+
+describe("awsJson1_0 protocol", () => {
+  // ==========================================================================
+  // Basic Request Serialization
+  // ==========================================================================
+
+  describe("request serialization", () => {
+    it.effect("should serialize empty input correctly", () =>
+      Effect.gen(function* () {
+        const request = yield* buildRequest(DescribeLimitsInput, {});
+
+        expect(request).toMatchObject({
+          method: "POST",
+          path: "/",
+          query: {},
+          headers: {
+            "Content-Type": "application/x-amz-json-1.0",
+            "X-Amz-Target": "dynamodb.DescribeLimits",
+          },
+          body: "{}",
+        });
+      }),
+    );
+
+    it.effect("should serialize simple string parameters", () =>
+      Effect.gen(function* () {
+        const request = yield* buildRequest(DescribeTableInput, {
+          TableName: "my-table",
+        });
+
+        expect(request).toMatchObject({
+          method: "POST",
+          path: "/",
+          query: {},
+          headers: {
+            "Content-Type": "application/x-amz-json-1.0",
+            "X-Amz-Target": "dynamodb.DescribeTable",
+          },
+          body: JSON.stringify({ TableName: "my-table" }),
+        });
+      }),
+    );
+
+    it.effect("should serialize with boolean true", () =>
+      Effect.gen(function* () {
+        const request = yield* buildRequest(GetItemInput, {
+          TableName: "my-table",
+          Key: { id: "123" },
+          ConsistentRead: true,
+        });
+
+        expect(request).toMatchObject({
+          method: "POST",
+          path: "/",
+          query: {},
+          headers: {
+            "Content-Type": "application/x-amz-json-1.0",
+            "X-Amz-Target": "dynamodb.GetItem",
+          },
+          body: JSON.stringify({
+            TableName: "my-table",
+            Key: { id: "123" },
+            ConsistentRead: true,
+          }),
+        });
+      }),
+    );
+
+    it.effect("should serialize with boolean false", () =>
+      Effect.gen(function* () {
+        const request = yield* buildRequest(GetItemInput, {
+          TableName: "my-table",
+          Key: { id: "123" },
+          ConsistentRead: false,
+        });
+
+        expect(request).toMatchObject({
+          method: "POST",
+          path: "/",
+          query: {},
+          headers: {
+            "Content-Type": "application/x-amz-json-1.0",
+            "X-Amz-Target": "dynamodb.GetItem",
+          },
+          body: JSON.stringify({
+            TableName: "my-table",
+            Key: { id: "123" },
+            ConsistentRead: false,
+          }),
+        });
+      }),
+    );
+
+    it.effect("should omit undefined parameters", () =>
+      Effect.gen(function* () {
+        const request = yield* buildRequest(GetItemInput, {
+          TableName: "my-table",
+          Key: { id: "123" },
+        });
+
+        expect(request).toMatchObject({
+          method: "POST",
+          path: "/",
+          query: {},
+          headers: {
+            "Content-Type": "application/x-amz-json-1.0",
+            "X-Amz-Target": "dynamodb.GetItem",
+          },
+          body: JSON.stringify({
+            TableName: "my-table",
+            Key: { id: "123" },
+          }),
+        });
+      }),
+    );
+  });
+
+  // ==========================================================================
+  // Map Serialization
+  // ==========================================================================
+
+  describe("map serialization", () => {
+    it.effect("should serialize ExpressionAttributeNames map", () =>
+      Effect.gen(function* () {
+        const request = yield* buildRequest(GetItemInput, {
+          TableName: "my-table",
+          Key: { id: "123" },
+          ExpressionAttributeNames: {
+            "#name": "userName",
+            "#status": "userStatus",
+          },
+        });
+
+        expect(request).toMatchObject({
+          method: "POST",
+          path: "/",
+          query: {},
+          headers: {
+            "Content-Type": "application/x-amz-json-1.0",
+            "X-Amz-Target": "dynamodb.GetItem",
+          },
+          body: JSON.stringify({
+            TableName: "my-table",
+            Key: { id: "123" },
+            ExpressionAttributeNames: {
+              "#name": "userName",
+              "#status": "userStatus",
+            },
+          }),
+        });
+      }),
+    );
+
+    it.effect("should serialize Key with multiple string values", () =>
+      Effect.gen(function* () {
+        const request = yield* buildRequest(GetItemInput, {
+          TableName: "my-table",
+          Key: {
+            pk: "user#123",
+            sk: "profile",
+          },
+        });
+
+        expect(request).toMatchObject({
+          method: "POST",
+          path: "/",
+          query: {},
+          headers: {
+            "Content-Type": "application/x-amz-json-1.0",
+            "X-Amz-Target": "dynamodb.GetItem",
+          },
+          body: JSON.stringify({
+            TableName: "my-table",
+            Key: {
+              pk: "user#123",
+              sk: "profile",
+            },
+          }),
+        });
+      }),
+    );
+  });
+
+  // ==========================================================================
+  // List Serialization
+  // ==========================================================================
+
+  describe("list serialization", () => {
+    it.effect("should serialize string lists", () =>
+      Effect.gen(function* () {
+        const request = yield* buildRequest(GetItemInput, {
+          TableName: "my-table",
+          Key: { id: "123" },
+          AttributesToGet: ["name", "email", "age"],
+        });
+
+        expect(request).toMatchObject({
+          method: "POST",
+          path: "/",
+          query: {},
+          headers: {
+            "Content-Type": "application/x-amz-json-1.0",
+            "X-Amz-Target": "dynamodb.GetItem",
+          },
+          body: JSON.stringify({
+            TableName: "my-table",
+            Key: { id: "123" },
+            AttributesToGet: ["name", "email", "age"],
+          }),
+        });
+      }),
+    );
+
+    it.effect("should serialize lists of objects (Tags)", () =>
+      Effect.gen(function* () {
+        const request = yield* buildRequest(TagResourceInput, {
+          ResourceArn: "arn:aws:dynamodb:us-east-1:123456789012:table/my-table",
+          Tags: [
+            { Key: "Environment", Value: "Production" },
+            { Key: "Team", Value: "Platform" },
+          ],
+        });
+
+        expect(request).toMatchObject({
+          method: "POST",
+          path: "/",
+          query: {},
+          headers: {
+            "Content-Type": "application/x-amz-json-1.0",
+            "X-Amz-Target": "dynamodb.TagResource",
+          },
+          body: JSON.stringify({
+            ResourceArn: "arn:aws:dynamodb:us-east-1:123456789012:table/my-table",
+            Tags: [
+              { Key: "Environment", Value: "Production" },
+              { Key: "Team", Value: "Platform" },
+            ],
+          }),
+        });
+      }),
+    );
+
+    it.effect("should serialize empty lists", () =>
+      Effect.gen(function* () {
+        const request = yield* buildRequest(GetItemInput, {
+          TableName: "my-table",
+          Key: { id: "123" },
+          AttributesToGet: [],
+        });
+
+        expect(request).toMatchObject({
+          method: "POST",
+          path: "/",
+          query: {},
+          headers: {
+            "Content-Type": "application/x-amz-json-1.0",
+            "X-Amz-Target": "dynamodb.GetItem",
+          },
+          body: JSON.stringify({
+            TableName: "my-table",
+            Key: { id: "123" },
+            AttributesToGet: [],
+          }),
+        });
+      }),
+    );
+  });
+
+  // ==========================================================================
+  // Nested Structure Serialization
+  // ==========================================================================
+
+  describe("nested structure serialization", () => {
+    it.effect("should serialize ScanInput with all parameters", () =>
+      Effect.gen(function* () {
+        const request = yield* buildRequest(ScanInput, {
+          TableName: "my-table",
+          FilterExpression: "#status = :status",
+          ExpressionAttributeNames: {
+            "#status": "status",
+          },
+          ExpressionAttributeValues: {
+            ":status": "active",
+          },
+          Limit: 100,
+          ConsistentRead: true,
+        });
+
+        expect(request.method).toBe("POST");
+        expect(request.path).toBe("/");
+        expect(request.query).toEqual({});
+        expect(request.headers).toMatchObject({
+          "Content-Type": "application/x-amz-json-1.0",
+          "X-Amz-Target": "dynamodb.Scan",
+        });
+        expect(JSON.parse(request.body as string)).toEqual({
+          TableName: "my-table",
+          FilterExpression: "#status = :status",
+          ExpressionAttributeNames: {
+            "#status": "status",
+          },
+          ExpressionAttributeValues: {
+            ":status": "active",
+          },
+          Limit: 100,
+          ConsistentRead: true,
+        });
+      }),
+    );
+
+    it.effect("should serialize QueryInput with ScanIndexForward false", () =>
+      Effect.gen(function* () {
+        const request = yield* buildRequest(QueryInput, {
+          TableName: "my-table",
+          KeyConditionExpression: "pk = :pk",
+          ExpressionAttributeValues: {
+            ":pk": "user#123",
+          },
+          ScanIndexForward: false,
+          Limit: 50,
+        });
+
+        expect(request.method).toBe("POST");
+        expect(request.path).toBe("/");
+        expect(request.query).toEqual({});
+        expect(request.headers).toMatchObject({
+          "Content-Type": "application/x-amz-json-1.0",
+          "X-Amz-Target": "dynamodb.Query",
+        });
+        expect(JSON.parse(request.body as string)).toEqual({
+          TableName: "my-table",
+          KeyConditionExpression: "pk = :pk",
+          ExpressionAttributeValues: {
+            ":pk": "user#123",
+          },
+          ScanIndexForward: false,
+          Limit: 50,
+        });
+      }),
+    );
+  });
+
+  // ==========================================================================
+  // Timestamp Serialization (epoch-seconds)
+  // ==========================================================================
+
+  describe("timestamp serialization", () => {
+    it.effect("should serialize timestamps as epoch-seconds", () =>
+      Effect.gen(function* () {
+        const request = yield* buildRequest(ListBackupsInput, {
+          TimeRangeLowerBound: new Date("2024-01-15T12:30:00.000Z"),
+          TimeRangeUpperBound: new Date("2024-01-16T12:30:00.000Z"),
+        });
+
+        expect(request).toMatchObject({
+          method: "POST",
+          path: "/",
+          query: {},
+          headers: {
+            "Content-Type": "application/x-amz-json-1.0",
+            "X-Amz-Target": "dynamodb.ListBackups",
+          },
+          body: JSON.stringify({
+            TimeRangeLowerBound: 1705321800,
+            TimeRangeUpperBound: 1705408200,
+          }),
+        });
+      }),
+    );
+
+    it.effect("should serialize SFN CreateActivityInput", () =>
+      Effect.gen(function* () {
+        const request = yield* buildRequest(CreateActivityInput, {
+          name: "my-activity",
+        });
+
+        expect(request).toMatchObject({
+          method: "POST",
+          path: "/",
+          query: {},
+          headers: {
+            "Content-Type": "application/x-amz-json-1.0",
+            "X-Amz-Target": "states.CreateActivity",
+          },
+          body: JSON.stringify({
+            name: "my-activity",
+          }),
+        });
+      }),
+    );
+  });
+
+  // ==========================================================================
+  // Response Deserialization
+  // ==========================================================================
+
+  describe("response deserialization", () => {
+    it.effect("should deserialize DescribeLimitsOutput", () =>
+      Effect.gen(function* () {
+        const response: Response = {
+          status: 200,
+          statusText: "OK",
+          headers: { "Content-Type": "application/x-amz-json-1.0" },
+          body: JSON.stringify({
+            AccountMaxReadCapacityUnits: 80000,
+            AccountMaxWriteCapacityUnits: 80000,
+            TableMaxReadCapacityUnits: 40000,
+            TableMaxWriteCapacityUnits: 40000,
+          }),
+        };
+
+        const result = yield* parseResponse(DescribeLimitsOutput, response);
+
+        expect(result).toMatchObject({
+          AccountMaxReadCapacityUnits: 80000,
+          AccountMaxWriteCapacityUnits: 80000,
+          TableMaxReadCapacityUnits: 40000,
+          TableMaxWriteCapacityUnits: 40000,
+        });
+      }),
+    );
+
+    it.effect("should deserialize GetItemOutput with string AttributeValues", () =>
+      Effect.gen(function* () {
+        const response: Response = {
+          status: 200,
+          statusText: "OK",
+          headers: { "Content-Type": "application/x-amz-json-1.0" },
+          body: JSON.stringify({
+            Item: {
+              pk: "user#123",
+              sk: "profile",
+              name: "John Doe",
+              active: true,
+            },
+          }),
+        };
+
+        const result = yield* parseResponse(GetItemOutput, response);
+
+        expect(result).toMatchObject({
+          Item: {
+            pk: "user#123",
+            sk: "profile",
+            name: "John Doe",
+            active: true,
+          },
+        });
+      }),
+    );
+
+    it.effect("should deserialize QueryOutput with Items list", () =>
+      Effect.gen(function* () {
+        const response: Response = {
+          status: 200,
+          statusText: "OK",
+          headers: { "Content-Type": "application/x-amz-json-1.0" },
+          body: JSON.stringify({
+            Items: [
+              { pk: "user#1", name: "Alice" },
+              { pk: "user#2", name: "Bob" },
+            ],
+            Count: 2,
+            ScannedCount: 2,
+          }),
+        };
+
+        const result = yield* parseResponse(QueryOutput, response);
+
+        expect(result).toMatchObject({
+          Items: [
+            { pk: "user#1", name: "Alice" },
+            { pk: "user#2", name: "Bob" },
+          ],
+          Count: 2,
+          ScannedCount: 2,
+        });
+      }),
+    );
+
+    it.effect("should deserialize CreateActivityOutput with timestamp", () =>
+      Effect.gen(function* () {
+        const response: Response = {
+          status: 200,
+          statusText: "OK",
+          headers: { "Content-Type": "application/x-amz-json-1.0" },
+          body: JSON.stringify({
+            activityArn: "arn:aws:states:us-east-1:123456789012:activity:my-activity",
+            creationDate: 1705321800,
+          }),
+        };
+
+        const result = yield* parseResponse(CreateActivityOutput, response);
+
+        expect(result).toMatchObject({
+          activityArn: "arn:aws:states:us-east-1:123456789012:activity:my-activity",
+          creationDate: new Date("2024-01-15T12:30:00.000Z"),
+        });
+      }),
+    );
+
+    it.effect("should deserialize ListExecutionsOutput with timestamp array", () =>
+      Effect.gen(function* () {
+        const response: Response = {
+          status: 200,
+          statusText: "OK",
+          headers: { "Content-Type": "application/x-amz-json-1.0" },
+          body: JSON.stringify({
+            executions: [
+              {
+                executionArn: "arn:aws:states:us-east-1:123:execution:my-sm:exec-1",
+                stateMachineArn: "arn:aws:states:us-east-1:123:stateMachine:my-sm",
+                name: "exec-1",
+                status: "SUCCEEDED",
+                startDate: 1705321800,
+                stopDate: 1705325400,
+              },
+            ],
+          }),
+        };
+
+        const result = yield* parseResponse(ListExecutionsOutput, response);
+
+        expect(result).toMatchObject({
+          executions: [
+            {
+              executionArn: "arn:aws:states:us-east-1:123:execution:my-sm:exec-1",
+              stateMachineArn: "arn:aws:states:us-east-1:123:stateMachine:my-sm",
+              name: "exec-1",
+              status: "SUCCEEDED",
+              startDate: new Date("2024-01-15T12:30:00.000Z"),
+              stopDate: new Date("2024-01-15T13:30:00.000Z"),
+            },
+          ],
+        });
+      }),
+    );
+
+    it.effect("should deserialize empty response body", () =>
+      Effect.gen(function* () {
+        const response: Response = {
+          status: 200,
+          statusText: "OK",
+          headers: {},
+          body: "",
+        };
+
+        const result = yield* parseResponse(TagResourceResponse, response);
+
+        expect(result).toMatchObject({});
+      }),
+    );
+
+    it.effect("should deserialize empty JSON object response", () =>
+      Effect.gen(function* () {
+        const response: Response = {
+          status: 200,
+          statusText: "OK",
+          headers: { "Content-Type": "application/x-amz-json-1.0" },
+          body: "{}",
+        };
+
+        const result = yield* parseResponse(TagResourceResponse, response);
+
+        expect(result).toMatchObject({});
+      }),
+    );
+
+    it.effect("should convert null to undefined in GetItemOutput", () =>
+      Effect.gen(function* () {
+        const response: Response = {
+          status: 200,
+          statusText: "OK",
+          headers: { "Content-Type": "application/x-amz-json-1.0" },
+          body: JSON.stringify({
+            Item: null,
+          }),
+        };
+
+        const result = yield* parseResponse(GetItemOutput, response);
+
+        expect(result).toMatchObject({});
+      }),
+    );
+  });
+
+  // ==========================================================================
+  // Edge Cases
+  // ==========================================================================
+
+  describe("edge cases", () => {
+    it.effect("should serialize zero value correctly", () =>
+      Effect.gen(function* () {
+        const request = yield* buildRequest(ScanInput, {
+          TableName: "table",
+          Limit: 0,
+        });
+
+        expect(request).toMatchObject({
+          method: "POST",
+          path: "/",
+          query: {},
+          headers: {
+            "Content-Type": "application/x-amz-json-1.0",
+            "X-Amz-Target": "dynamodb.Scan",
+          },
+          body: JSON.stringify({
+            TableName: "table",
+            Limit: 0,
+          }),
+        });
+      }),
+    );
+
+    it.effect("should serialize empty string values", () =>
+      Effect.gen(function* () {
+        const request = yield* buildRequest(ScanInput, {
+          TableName: "",
+          FilterExpression: "",
+        });
+
+        expect(request).toMatchObject({
+          method: "POST",
+          path: "/",
+          query: {},
+          headers: {
+            "Content-Type": "application/x-amz-json-1.0",
+            "X-Amz-Target": "dynamodb.Scan",
+          },
+          body: JSON.stringify({
+            TableName: "",
+            FilterExpression: "",
+          }),
+        });
+      }),
+    );
+
+    it.effect("should serialize special characters in strings", () =>
+      Effect.gen(function* () {
+        const request = yield* buildRequest(ScanInput, {
+          TableName: 'table-with-"quotes"',
+          FilterExpression: "contains(#name, :value)",
+        });
+
+        expect(request).toMatchObject({
+          method: "POST",
+          path: "/",
+          query: {},
+          headers: {
+            "Content-Type": "application/x-amz-json-1.0",
+            "X-Amz-Target": "dynamodb.Scan",
+          },
+          body: JSON.stringify({
+            TableName: 'table-with-"quotes"',
+            FilterExpression: "contains(#name, :value)",
+          }),
+        });
+      }),
+    );
+
+    it.effect("should serialize deeply nested structures", () =>
+      Effect.gen(function* () {
+        const request = yield* buildRequest(PutItemInput, {
+          TableName: "table",
+          Item: {
+            pk: "user#123",
+            data: {
+              nested: {
+                deep: "value",
+              },
+            },
+          },
+        });
+
+        expect(request).toMatchObject({
+          method: "POST",
+          path: "/",
+          query: {},
+          headers: {
+            "Content-Type": "application/x-amz-json-1.0",
+            "X-Amz-Target": "dynamodb.PutItem",
+          },
+          body: JSON.stringify({
+            TableName: "table",
+            Item: {
+              pk: "user#123",
+              data: {
+                nested: {
+                  deep: "value",
+                },
+              },
+            },
+          }),
+        });
+      }),
+    );
+  });
+});

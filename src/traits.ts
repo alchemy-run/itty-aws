@@ -4,6 +4,7 @@ import * as AST from "effect/SchemaAST";
 import type * as Stream from "effect/Stream";
 import { applyHttpChecksum } from "./middleware/checksum.ts";
 import type { Protocol } from "./protocol.ts";
+import { awsJson1_0Protocol } from "./protocols/aws-json-1.0.ts";
 import { awsQueryProtocol } from "./protocols/aws-query.ts";
 import { ec2QueryProtocol } from "./protocols/ec2-query.ts";
 import { restJson1Protocol } from "./protocols/rest-json.ts";
@@ -294,7 +295,29 @@ export const AwsProtocolsRestJson1 = (trait?: AwsProtocolsRestJson1Trait) => {
 
 /** aws.protocols#awsJson1_0 */
 export const awsProtocolsAwsJson1_0Symbol = Symbol.for("itty-aws/aws.protocols#awsJson1_0");
-export const AwsProtocolsAwsJson1_0 = () => makeAnnotation(awsProtocolsAwsJson1_0Symbol, {});
+export interface AwsProtocolsAwsJson1_0Trait {
+  http?: string[];
+  eventStreamHttp?: string[];
+}
+export const AwsProtocolsAwsJson1_0 = (trait?: AwsProtocolsAwsJson1_0Trait) => {
+  const value: ProtocolAnnotationValue & AwsProtocolsAwsJson1_0Trait = {
+    ...trait,
+    protocol: awsJson1_0Protocol,
+  };
+  // Create annotation with both protocol-specific symbol and common protocol symbol
+  const fn = <A extends Annotatable>(schema: A): A =>
+    schema.annotations({
+      [awsProtocolsAwsJson1_0Symbol]: value,
+      [protocolSymbol]: value,
+    }) as A;
+  (fn as any)[annotationMetaSymbol] = [
+    { symbol: awsProtocolsAwsJson1_0Symbol, value },
+    { symbol: protocolSymbol, value },
+  ];
+  (fn as any)[awsProtocolsAwsJson1_0Symbol] = value;
+  (fn as any)[protocolSymbol] = value;
+  return fn as Annotation;
+};
 
 /** aws.protocols#awsJson1_1 */
 export const awsProtocolsAwsJson1_1Symbol = Symbol.for("itty-aws/aws.protocols#awsJson1_1");
