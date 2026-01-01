@@ -72,6 +72,7 @@ export const ListShape = S.Struct({
   type: S.Literal("list"),
   member: S.Struct({
     target: S.String,
+    traits: S.optional(S.Record({ key: S.String, value: S.Unknown })),
   }),
   traits: S.optional(S.Record({ key: S.String, value: S.Unknown })),
 });
@@ -80,9 +81,11 @@ export const MapShape = S.Struct({
   type: S.Literal("map"),
   key: S.Struct({
     target: S.String,
+    traits: S.optional(S.Record({ key: S.String, value: S.Unknown })),
   }),
   value: S.Struct({
     target: S.String,
+    traits: S.optional(S.Record({ key: S.String, value: S.Unknown })),
   }),
   traits: S.optional(S.Record({ key: S.String, value: S.Unknown })),
 });

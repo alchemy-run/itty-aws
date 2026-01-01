@@ -3,6 +3,7 @@ import * as Schema from "effect/Schema";
 import * as AST from "effect/SchemaAST";
 import { applyHttpChecksum } from "./middleware/checksum.ts";
 import type { Protocol } from "./protocol.ts";
+import { awsQueryProtocol } from "./protocols/aws-query.ts";
 import { ec2QueryProtocol } from "./protocols/ec2-query.ts";
 import { restXmlProtocol } from "./protocols/rest-xml.ts";
 import type { Request as ProtocolRequest } from "./request.ts";
@@ -252,7 +253,24 @@ export const AwsProtocolsAwsJson1_1 = () => makeAnnotation(awsProtocolsAwsJson1_
 
 /** aws.protocols#awsQuery */
 export const awsProtocolsAwsQuerySymbol = Symbol.for("itty-aws/aws.protocols#awsQuery");
-export const AwsProtocolsAwsQuery = () => makeAnnotation(awsProtocolsAwsQuerySymbol, {});
+export const AwsProtocolsAwsQuery = () => {
+  const value: ProtocolAnnotationValue = {
+    protocol: awsQueryProtocol,
+  };
+  // Create annotation with both protocol-specific symbol and common protocol symbol
+  const fn = <A extends Annotatable>(schema: A): A =>
+    schema.annotations({
+      [awsProtocolsAwsQuerySymbol]: value,
+      [protocolSymbol]: value,
+    }) as A;
+  (fn as any)[annotationMetaSymbol] = [
+    { symbol: awsProtocolsAwsQuerySymbol, value },
+    { symbol: protocolSymbol, value },
+  ];
+  (fn as any)[awsProtocolsAwsQuerySymbol] = value;
+  (fn as any)[protocolSymbol] = value;
+  return fn as Annotation;
+};
 
 /** aws.protocols#ec2Query */
 export const awsProtocolsEc2QuerySymbol = Symbol.for("itty-aws/aws.protocols#ec2Query");
@@ -349,6 +367,15 @@ export const HttpError = (statusCode: number) => makeAnnotation(httpErrorSymbol,
 /** smithy.api#httpChecksumRequired - Indicates operation requires Content-MD5 checksum */
 export const httpChecksumRequiredSymbol = Symbol.for("itty-aws/http-checksum-required");
 export const HttpChecksumRequired = () => makeAnnotation(httpChecksumRequiredSymbol, true);
+
+/** aws.protocols#awsQueryError - Custom error Code and HTTP response code for awsQuery protocol */
+export const awsQueryErrorSymbol = Symbol.for("itty-aws/aws.protocols#awsQueryError");
+export interface AwsQueryErrorTrait {
+  code: string;
+  httpResponseCode: number;
+}
+export const AwsQueryError = (trait: AwsQueryErrorTrait) =>
+  makeAnnotation(awsQueryErrorSymbol, trait);
 
 // =============================================================================
 // Streaming Body
@@ -600,6 +627,10 @@ export const getAwsProtocolsHttpChecksum = (
 /** Check if schema has smithy.api#httpChecksumRequired trait */
 export const hasHttpChecksumRequired = (ast: AST.AST): boolean =>
   hasAnnotation(ast, httpChecksumRequiredSymbol);
+
+/** Get aws.protocols#awsQueryError trait from a schema (for error shapes) */
+export const getAwsQueryError = (ast: AST.AST): AwsQueryErrorTrait | undefined =>
+  getAnnotationUnwrap<AwsQueryErrorTrait>(ast, awsQueryErrorSymbol);
 
 /** Get timestampFormat annotation value from property */
 export const getTimestampFormat = (prop: AST.PropertySignature): TimestampFormatType | undefined =>

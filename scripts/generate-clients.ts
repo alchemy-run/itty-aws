@@ -32,8 +32,8 @@ class SdkFile extends Context.Tag("SdkFile")<
     cyclicClasses: Set<string>;
     // Set of ALL struct names (classes can be used directly as types)
     allStructNames: Set<string>;
-    // Map of error shape IDs to their httpError status codes (for TaggedError generation)
-    errorShapeIds: Map<string, number | undefined>;
+    // Map of error shape IDs to their error traits (for TaggedError generation)
+    errorShapeIds: Map<string, ErrorShapeTraits>;
     // Map of error shape names to their inline fields definition
     errorFields: Ref.Ref<Map<string, string>>;
     // Track if middleware import is needed
@@ -329,17 +329,29 @@ function findCyclicSchemasFromDeps(shapeDeps: Map<string, { deps: string[]; type
   return { cyclicSchemas, cyclicClasses, allStructNames };
 }
 
+// Error shape traits collected from the model
+interface ErrorShapeTraits {
+  httpError?: number;
+  awsQueryError?: {
+    code: string;
+    httpResponseCode: number;
+  };
+}
+
 //todo(pear): is this redundant over error in the file
-// Collect all error shape IDs from operation definitions, along with their httpError status codes
-function collectErrorShapeIds(model: SmithyModel): Map<string, number | undefined> {
-  const errorShapeIds = new Map<string, number | undefined>();
+// Collect all error shape IDs from operation definitions, along with their error traits
+function collectErrorShapeIds(model: SmithyModel): Map<string, ErrorShapeTraits> {
+  const errorShapeIds = new Map<string, ErrorShapeTraits>();
 
   for (const [shapeId, shape] of Object.entries(model.shapes)) {
     if (shape.type === "operation" && shape.errors) {
       for (const error of shape.errors) {
         const errorShape = model.shapes[error.target];
         const httpError = errorShape?.traits?.["smithy.api#httpError"] as number | undefined;
-        errorShapeIds.set(error.target, httpError);
+        const awsQueryError = errorShape?.traits?.["aws.protocols#awsQueryError"] as
+          | { code: string; httpResponseCode: number }
+          | undefined;
+        errorShapeIds.set(error.target, { httpError, awsQueryError });
       }
     }
   }
@@ -557,6 +569,8 @@ const convertShapeToSchema: (
               const schemaName = getSchemaName();
               const isCyclic = sdkFile.cyclicSchemas.has(schemaName);
               const isMemberErrorShape = sdkFile.errorShapeIds.has(s.member.target);
+              // Check for xmlName trait on list member
+              const memberXmlName = s.member.traits?.["smithy.api#xmlName"] as string | undefined;
               return addAlias(
                 convertShapeToSchema(s.member.target).pipe(
                   Effect.flatMap(Deferred.await),
@@ -573,6 +587,11 @@ const convertShapeToSchema: (
                         ? // TODO(sam): I had to add the any here because encoded type was creting circular errors. hopefully OK since we don't really need it
                           `S.suspend((): S.Schema<${type}, any> => ${type})`
                         : `S.suspend(() => ${type})`;
+                    }
+
+                    // Apply xmlName trait to the element schema if present
+                    if (memberXmlName) {
+                      innerType = `${innerType}.pipe(T.XmlName("${memberXmlName}"))`;
                     }
 
                     if (isCyclic) {
@@ -893,6 +912,9 @@ const convertShapeToSchema: (
               const valueTargetName = formatName(s.value.target);
               const isKeyErrorShape = sdkFile.errorShapeIds.has(s.key.target);
               const isValueErrorShape = sdkFile.errorShapeIds.has(s.value.target);
+              // Check for xmlName traits on map key/value
+              const keyXmlName = s.key.traits?.["smithy.api#xmlName"] as string | undefined;
+              const valueXmlName = s.value.traits?.["smithy.api#xmlName"] as string | undefined;
               return addAlias(
                 Effect.all(
                   [
@@ -920,6 +942,14 @@ const convertShapeToSchema: (
                       wrappedValue = sdkFile.cyclicClasses.has(valueTargetName)
                         ? `S.suspend((): S.Schema<${valueSchema}, any> => ${valueSchema})`
                         : `S.suspend(() => ${valueSchema})`;
+                    }
+
+                    // Apply xmlName traits to key/value schemas if present
+                    if (keyXmlName) {
+                      wrappedKey = `${wrappedKey}.pipe(T.XmlName("${keyXmlName}"))`;
+                    }
+                    if (valueXmlName) {
+                      wrappedValue = `${wrappedValue}.pipe(T.XmlName("${valueXmlName}"))`;
                     }
 
                     if (isCyclic) {
@@ -962,18 +992,33 @@ const convertShapeToSchema: (
   return deferredValue;
 });
 
-const addError = Effect.fn(function* (error: { name: string }) {
+const addError = Effect.fn(function* (error: { name: string; shapeId: string }) {
   const sdkFile = yield* SdkFile;
   const existingErrors = yield* Ref.get(sdkFile.errors);
   if (!existingErrors.some((e) => e.name === error.name)) {
     // Get the inline fields from errorFields map
     const errorFieldsMap = yield* Ref.get(sdkFile.errorFields);
     const fields = errorFieldsMap.get(error.name) ?? "{}";
+
+    // Get error traits for annotations
+    const errorTraits = sdkFile.errorShapeIds.get(error.shapeId);
+    const annotations: string[] = [];
+
+    // Add awsQueryError annotation if present
+    if (errorTraits?.awsQueryError) {
+      annotations.push(
+        `T.AwsQueryError({ code: "${errorTraits.awsQueryError.code}", httpResponseCode: ${errorTraits.awsQueryError.httpResponseCode} })`,
+      );
+    }
+
+    // Build the class definition with optional annotations
+    const annotationsArg = annotations.length > 0 ? `, ${annotations[0]}` : "";
+
     yield* Ref.update(sdkFile.errors, (errors) => [
       ...errors,
       {
         name: error.name,
-        definition: `export class ${error.name} extends S.TaggedError<${error.name}>()("${error.name}", ${fields}) {};`,
+        definition: `export class ${error.name} extends S.TaggedError<${error.name}>()("${error.name}", ${fields}${annotationsArg}) {};`,
       },
     ]);
   }
@@ -1016,12 +1061,73 @@ const generateClient = Effect.fn(function* (modelPath: string, outputRootPath: s
           operationShape["traits"]["smithy.api#documentation"] ?? "",
         );
 
-        const input = yield* convertShapeToSchema(operationShape.input.target).pipe(
-          Effect.flatMap(Deferred.await),
-        );
-        const output = yield* convertShapeToSchema(operationShape.output.target).pipe(
-          Effect.flatMap(Deferred.await),
-        );
+        // Get operation name for generating Unit type class names
+        const opName = operationShapeName.split("#")[1];
+
+        // Handle smithy.api#Unit specially - generate a proper class with protocol annotations
+        const input = yield* Effect.gen(function* () {
+          if (operationShape.input.target === "smithy.api#Unit") {
+            // Generate a Request class for Unit inputs with proper annotations
+            const className = `${opName}Request`;
+            const opTraits = sdkFile.operationInputTraits.get(className);
+            const classAnnotations: string[] = [];
+
+            // Add XML namespace if service has one
+            if (sdkFile.serviceXmlNamespace) {
+              classAnnotations.push("ns");
+            }
+            // Add HTTP trait
+            if (opTraits) {
+              classAnnotations.push(
+                `T.Http({ method: "${opTraits.method}", uri: "${opTraits.uri}" })`,
+              );
+            } else {
+              classAnnotations.push(`T.Http({ method: "POST", uri: "/" })`);
+            }
+            // Add service-level traits
+            classAnnotations.push("svc", "auth", "proto", "ver");
+
+            const annotations =
+              classAnnotations.length === 1
+                ? `, ${classAnnotations[0]}`
+                : `, T.all(${classAnnotations.join(", ")})`;
+            const definition = `export class ${className} extends S.Class<${className}>("${className}")({}${annotations}) {}`;
+            yield* Ref.update(sdkFile.schemas, (arr) => [
+              ...arr,
+              { name: className, definition, deps: [] },
+            ]);
+            return className;
+          }
+          return yield* convertShapeToSchema(operationShape.input.target).pipe(
+            Effect.flatMap(Deferred.await),
+          );
+        });
+
+        const output = yield* Effect.gen(function* () {
+          if (operationShape.output.target === "smithy.api#Unit") {
+            // Generate a Response class for Unit outputs
+            const className = `${opName}Response`;
+            const classAnnotations: string[] = [];
+            if (sdkFile.serviceXmlNamespace) {
+              classAnnotations.push("ns");
+            }
+            const annotations =
+              classAnnotations.length === 1
+                ? `, ${classAnnotations[0]}`
+                : classAnnotations.length > 0
+                  ? `, T.all(${classAnnotations.join(", ")})`
+                  : "";
+            const definition = `export class ${className} extends S.Class<${className}>("${className}")({}${annotations}) {}`;
+            yield* Ref.update(sdkFile.schemas, (arr) => [
+              ...arr,
+              { name: className, definition, deps: [] },
+            ]);
+            return className;
+          }
+          return yield* convertShapeToSchema(operationShape.output.target).pipe(
+            Effect.flatMap(Deferred.await),
+          );
+        });
 
         const operationErrors =
           operationShape.errors == null || operationShape.errors.length === 0
@@ -1032,6 +1138,7 @@ const generateClient = Effect.fn(function* (modelPath: string, outputRootPath: s
                   Effect.flatMap(() =>
                     addError({
                       name: formatName(errorShapeReference),
+                      shapeId: errorShapeReference,
                     }),
                   ),
                 ),

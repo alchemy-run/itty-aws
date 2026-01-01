@@ -177,3 +177,35 @@ export function getXmlNameFromAST(ast: AST.AST): string | undefined {
   }
   return unwrapped.annotations?.[xmlNameSymbol] as string | undefined;
 }
+
+/**
+ * Check if AST represents a map/record type
+ */
+export function isMapAST(ast: AST.AST): boolean {
+  const unwrapped = unwrapUnion(ast);
+  if (unwrapped !== ast) return isMapAST(unwrapped);
+
+  if (unwrapped._tag === "TypeLiteral" && unwrapped.indexSignatures?.length > 0) return true;
+  if (unwrapped._tag === "Transformation") return isMapAST(unwrapped.from);
+  return false;
+}
+
+/**
+ * Get key and value AST from map/record type
+ */
+export function getMapKeyValueAST(
+  ast: AST.AST,
+): { keyAST: AST.AST; valueAST: AST.AST } | undefined {
+  const unwrapped = unwrapUnion(ast);
+  if (unwrapped !== ast) return getMapKeyValueAST(unwrapped);
+
+  if (unwrapped._tag === "TypeLiteral" && unwrapped.indexSignatures?.length > 0) {
+    const indexSig = unwrapped.indexSignatures[0];
+    return {
+      keyAST: indexSig.parameter,
+      valueAST: indexSig.type,
+    };
+  }
+  if (unwrapped._tag === "Transformation") return getMapKeyValueAST(unwrapped.from);
+  return undefined;
+}
