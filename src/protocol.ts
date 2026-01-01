@@ -22,7 +22,7 @@ export interface ProtocolHandler {
    * @param response - The HTTP response to deserialize
    * @returns Effect yielding the deserialized output object
    */
-  deserializeResponse(response: Response): Effect.Effect<unknown>;
+  deserializeResponse(response: Response): Effect.Effect<unknown, ParseError>;
 }
 
 /**

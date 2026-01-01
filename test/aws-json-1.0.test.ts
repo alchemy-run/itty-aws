@@ -2,7 +2,7 @@ import { it } from "@effect/vitest";
 import * as Effect from "effect/Effect";
 import * as S from "effect/Schema";
 import { describe, expect } from "vitest";
-import { awsJson1_0Protocol } from "../src/protocols/aws-json-1.0.ts";
+import { awsJson1_0Protocol } from "../src/protocols/aws-json.ts";
 import { makeRequestBuilder } from "../src/request-builder.ts";
 import { makeResponseParser } from "../src/response-parser.ts";
 import type { Response } from "../src/response.ts";
