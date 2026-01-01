@@ -1,30 +1,35 @@
-import type * as S from "effect/Schema";
+import type * as Effect from "effect/Effect";
+import type { ParseError } from "./error-parser.ts";
+import type { Operation } from "./operation.ts";
 import type { Request } from "./request.ts";
 import type { Response } from "./response.ts";
 
 /**
- * A Protocol handles serialization and deserialization of requests/responses
- * according to a specific AWS protocol (restXml, restJson1, awsJson1_0, etc.)
+ * A ProtocolHandler is created by a Protocol factory function
+ * with the operation pre-bound, allowing one-time preprocessing
+ * of schema metadata (like getEncodedPropertySignatures, etc.).
  */
-export interface Protocol {
+export interface ProtocolHandler {
   /**
    * Serialize an input object into an HTTP request.
-   * The input schema contains all operation metadata via annotations:
-   * - A.Http({ method, uri }) - HTTP binding
-   * - A.AwsApiService({ sdkId }) - Service identification
-   * - A.XmlNamespace(uri) - XML namespace (for restXml)
-   *
-   * @param inputSchema - The input schema (contains operation metadata)
    * @param input - The input object to serialize
-   * @returns The serialized HTTP request
+   * @returns Effect yielding the serialized HTTP request
    */
-  serializeRequest(inputSchema: S.Schema.AnyNoContext, input: unknown): Request;
+  serializeRequest(input: unknown): Effect.Effect<Request, ParseError>;
 
   /**
    * Deserialize an HTTP response into an output object.
-   * @param outputSchema - The output schema
    * @param response - The HTTP response to deserialize
-   * @returns The deserialized output object
+   * @returns Effect yielding the deserialized output object
    */
-  deserializeResponse(outputSchema: S.Schema.AnyNoContext, response: Response): unknown;
+  deserializeResponse(response: Response): Effect.Effect<unknown>;
 }
+
+/**
+ * A Protocol is a factory function that takes an operation
+ * and returns a ProtocolHandler with pre-computed metadata.
+ *
+ * This allows expensive operations like getEncodedPropertySignatures
+ * to be done once at initialization time rather than on every request.
+ */
+export type Protocol = (operation: Operation) => ProtocolHandler;

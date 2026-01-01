@@ -11,9 +11,11 @@
  * - HTTP binding traits are ignored
  */
 
+import * as Effect from "effect/Effect";
 import * as S from "effect/Schema";
 import type * as AST from "effect/SchemaAST";
-import type { Protocol } from "../protocol.ts";
+import type { Operation } from "../operation.ts";
+import type { Protocol, ProtocolHandler } from "../protocol.ts";
 import type { Request } from "../request.ts";
 import type { Response } from "../response.ts";
 import { getEc2QueryName, getServiceVersion, getXmlNameProp, hasXmlAttribute } from "../traits.ts";
@@ -29,59 +31,64 @@ import { deserializePrimitive, extractXmlRoot, parseXml, unwrapArrayValue } from
 // Protocol Export
 // =============================================================================
 
-export const ec2QueryProtocol: Protocol = {
-  serializeRequest(inputSchema: S.Schema.AnyNoContext, input: unknown): Request {
-    const ast = inputSchema.ast;
+export const ec2QueryProtocol: Protocol = (operation: Operation): ProtocolHandler => {
+  const inputSchema = operation.input;
+  const outputSchema = operation.output;
+  const inputAst = inputSchema.ast;
+  const outputAst = outputSchema.ast;
 
-    // Step 1: Encode the input via schema - handles all transformations
-    // (TimestampFormat → ISO 8601 strings, etc.)
-    const encoded = S.encodeSync(inputSchema)(input);
+  // Pre-compute encoder (done once at init)
+  const encodeInput = S.encode(inputSchema);
 
-    const request: Request = {
-      method: "POST",
-      path: "/",
-      query: {},
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    };
+  // Pre-compute operation name and version from annotations
+  const identifier = getIdentifier(inputAst) ?? "";
+  const action = identifier.replace(/Request$/, "");
+  const version = getServiceVersion(inputAst) ?? "";
 
-    // Get operation name from the identifier (e.g., "DescribeInstancesRequest" -> "DescribeInstances")
-    const identifier = getIdentifier(ast) ?? "";
-    const action = identifier.replace(/Request$/, "");
+  return {
+    serializeRequest: Effect.fn(function* (input: unknown) {
+      // Encode the input via schema - handles all transformations
+      // (TimestampFormat → ISO 8601 strings, etc.)
+      const encoded = yield* encodeInput(input);
 
-    // Get service version from annotations
-    const version = getServiceVersion(ast) ?? "";
+      const request: Request = {
+        method: "POST",
+        path: "/",
+        query: {},
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      };
 
-    // Build form-urlencoded body
-    const params: string[] = [];
-    params.push(`Action=${encodeURIComponent(action)}`);
-    params.push(`Version=${encodeURIComponent(version)}`);
+      // Build form-urlencoded body
+      const params: string[] = [];
+      params.push(`Action=${encodeURIComponent(action)}`);
+      params.push(`Version=${encodeURIComponent(version)}`);
 
-    // Serialize already-encoded input members
-    serializeMembers(ast, encoded as Record<string, unknown>, "", params);
+      // Serialize already-encoded input members
+      serializeMembers(inputAst, encoded as Record<string, unknown>, "", params);
 
-    request.body = params.join("&");
+      request.body = params.join("&");
 
-    return request;
-  },
+      return request;
+    }),
 
-  deserializeResponse(outputSchema: S.Schema.AnyNoContext, response: Response): unknown {
-    const ast = outputSchema.ast;
-    const result: Record<string, unknown> = {};
+    deserializeResponse: Effect.fn(function* (response: Response) {
+      const result: Record<string, unknown> = {};
 
-    // Parse body XML
-    if (response.body) {
-      const parsed = parseXml(response.body);
+      // Parse body XML
+      if (response.body) {
+        const parsed = parseXml(response.body);
 
-      // EC2 response root is {OperationName}Response
-      const content = extractXmlRoot(parsed);
+        // EC2 response root is {OperationName}Response
+        const content = extractXmlRoot(parsed);
 
-      if (content && typeof content === "object") {
-        Object.assign(result, deserializeObject(ast, content));
+        if (content && typeof content === "object") {
+          Object.assign(result, deserializeObject(outputAst, content));
+        }
       }
-    }
 
-    return result;
-  },
+      return result;
+    }),
+  };
 };
 
 // =============================================================================

@@ -4,7 +4,6 @@ import { AwsV4Signer } from "aws4fetch";
 import * as Effect from "effect/Effect";
 import * as Option from "effect/Option";
 import type * as ParseResult from "effect/ParseResult";
-import * as Schema from "effect/Schema";
 import { Credentials } from "./aws/credentials.ts";
 import { Endpoint } from "./aws/endpoint.ts";
 import { UnknownAwsError, type CommonAwsError } from "./aws/errors.ts";
@@ -23,14 +22,16 @@ export const make = <Op extends Operation>(
 >) => {
   const op = initOperation();
   const inputSchema = op.input;
-  const outputSchema = op.output;
   const inputAst = inputSchema.ast;
 
-  // Discover protocol from input schema annotations
-  const protocol = getProtocol(inputAst);
-  if (!protocol) {
+  // Discover protocol factory from input schema annotations
+  const protocolFactory = getProtocol(inputAst);
+  if (!protocolFactory) {
     throw new Error("No protocol found on input schema");
   }
+
+  // Create the protocol handler with the operation (preprocessing done once)
+  const protocol = protocolFactory(op);
 
   // Discover middleware from input schema annotations
   const middleware = getMiddleware(inputAst);
@@ -44,8 +45,8 @@ export const make = <Op extends Operation>(
 
     yield* Effect.logDebug("Payload", payload);
 
-    // Serialize request using the protocol
-    let request = protocol.serializeRequest(inputSchema, payload);
+    // Serialize request using the protocol handler
+    let request = yield* protocol.serializeRequest(payload);
 
     yield* Effect.logDebug("Serialized Request", request);
 
@@ -116,8 +117,8 @@ export const make = <Op extends Operation>(
     yield* Effect.logDebug("Response Body", responseBody);
 
     if (rawResponse.status >= 200 && rawResponse.status < 300) {
-      // Deserialize response using the protocol
-      const parsed = protocol.deserializeResponse(outputSchema, {
+      // Deserialize response using the protocol handler
+      const parsed = yield* protocol.deserializeResponse({
         status: rawResponse.status,
         statusText: "",
         headers: responseHeaders,
@@ -127,7 +128,7 @@ export const make = <Op extends Operation>(
       yield* Effect.logDebug("Parsed Response", parsed);
 
       // Decode through schema for validation and transformation
-      return yield* Schema.decodeUnknown(outputSchema)(parsed);
+      return parsed;
     } else {
       // TODO: Parse error response
       return yield* Effect.fail(

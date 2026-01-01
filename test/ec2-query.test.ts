@@ -26,13 +26,18 @@ import {
 
 // Helper to build a request from an instance
 const buildRequest = <A, I>(schema: S.Schema<A, I>, instance: A) => {
-  const builder = makeRequestBuilder(schema, { protocol: ec2QueryProtocol });
+  const operation = { input: schema, output: schema, errors: [] };
+  const builder = makeRequestBuilder(operation, { protocol: ec2QueryProtocol });
   return builder({ ...instance });
 };
 
 // Helper to parse a response
 const parseResponse = <A, I>(schema: S.Schema<A, I>, response: Response) => {
-  const parser = makeResponseParser(schema, { protocol: ec2QueryProtocol, skipValidation: true });
+  const operation = { input: schema, output: schema, errors: [] };
+  const parser = makeResponseParser<A, I, never>(operation, {
+    protocol: ec2QueryProtocol,
+    skipValidation: true,
+  });
   return parser(response);
 };
 

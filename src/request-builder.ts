@@ -10,61 +10,59 @@
  */
 
 import * as Effect from "effect/Effect";
-import type * as S from "effect/Schema";
+import type { Operation } from "./operation.ts";
+import type { Protocol, ProtocolHandler } from "./protocol.ts";
 import { getMiddleware, getProtocol } from "./traits.ts";
-import type { Protocol } from "./protocol.ts";
-import type { Request } from "./request.ts";
 
 export interface RequestBuilderOptions {
   /** Override the protocol (otherwise discovered from schema annotations) */
   protocol?: Protocol;
 }
 
-export type RequestBuilder = (input: unknown) => Effect.Effect<Request>;
-
 /**
- * Create a request builder for a given input schema.
+ * Create a request builder for a given operation.
  *
- * Expensive work (protocol/middleware discovery) is done once at creation time.
+ * Expensive work (protocol/middleware discovery, preprocessing) is done once at creation time.
  *
- * @param inputSchema - The input schema (with protocol/middleware annotations)
+ * @param operation - The operation (with input/output schemas and protocol annotations)
  * @param options - Optional overrides
  * @returns A function that builds requests from input values
  */
-export const makeRequestBuilder = (
-  inputSchema: S.Schema.AnyNoContext,
-  options?: RequestBuilderOptions,
-): RequestBuilder => {
-  // Discover protocol from annotations or use override (done once)
-  const protocol = options?.protocol ?? getProtocol(inputSchema.ast);
-  if (!protocol) {
+export const makeRequestBuilder = (operation: Operation, options?: RequestBuilderOptions) => {
+  const inputSchema = operation.input;
+  const inputAst = inputSchema.ast;
+
+  // Discover protocol factory from annotations or use override (done once)
+  const protocolFactory = options?.protocol ?? getProtocol(inputAst);
+  if (!protocolFactory) {
     throw new Error("No protocol found on input schema");
   }
 
+  // Create the protocol handler (preprocessing done once)
+  const protocol: ProtocolHandler = protocolFactory(operation);
+
   // Discover middleware from annotations (done once)
-  const middleware = getMiddleware(inputSchema.ast);
+  const middleware = getMiddleware(inputAst);
 
   // Return a function that builds requests
-  return (input: unknown): Effect.Effect<Request> => {
-    return Effect.gen(function* () {
-      // Serialize request using the protocol
-      let request = protocol.serializeRequest(inputSchema, input);
+  return Effect.fn(function* (input: unknown) {
+    // Serialize request using the protocol handler
+    let request = yield* protocol.serializeRequest(input);
 
-      // Apply middleware
-      for (const mw of middleware) {
-        request = yield* mw(inputSchema, request);
-      }
+    // Apply middleware
+    for (const mw of middleware) {
+      request = yield* mw(inputSchema, request);
+    }
 
-      // Add common headers
-      request = {
-        ...request,
-        headers: {
-          ...request.headers,
-          "User-Agent": "itty-aws/1.0",
-        },
-      };
+    // Add common headers
+    request = {
+      ...request,
+      headers: {
+        ...request.headers,
+        "User-Agent": "itty-aws/1.0",
+      },
+    };
 
-      return request;
-    });
-  };
+    return request;
+  });
 };

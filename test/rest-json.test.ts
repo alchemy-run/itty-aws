@@ -44,13 +44,18 @@ import { CreateHostedConfigurationVersionRequest } from "../src/services/appconf
 
 // Helper to build a request from an instance
 const buildRequest = <A, I>(schema: S.Schema<A, I>, instance: A) => {
-  const builder = makeRequestBuilder(schema, { protocol: restJson1Protocol });
+  const operation = { input: schema, output: schema, errors: [] };
+  const builder = makeRequestBuilder(operation, { protocol: restJson1Protocol });
   return builder({ ...instance });
 };
 
 // Helper to parse a response
 const parseResponse = <A, I>(schema: S.Schema<A, I>, response: Response) => {
-  const parser = makeResponseParser(schema, { protocol: restJson1Protocol, skipValidation: true });
+  const operation = { input: schema, output: schema, errors: [] };
+  const parser = makeResponseParser<A, I, never>(operation, {
+    protocol: restJson1Protocol,
+    skipValidation: true,
+  });
   return parser(response);
 };
 

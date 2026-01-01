@@ -72,13 +72,18 @@ import { getAwsProtocolsHttpChecksum } from "../src/traits.ts";
 
 // Helper to build a request from an instance - gets schema from instance.constructor
 const buildRequest = <A, I>(schema: S.Schema<A, I>, instance: A) => {
-  const builder = makeRequestBuilder(schema, { protocol: restXmlProtocol });
+  const operation = { input: schema, output: schema, errors: [] };
+  const builder = makeRequestBuilder(operation, { protocol: restXmlProtocol });
   return builder({ ...instance });
 };
 
 // Helper to parse a response using the response parser with restXml protocol
 const parseResponse = <A, I>(schema: S.Schema<A, I>, response: Response) => {
-  const parser = makeResponseParser(schema, { protocol: restXmlProtocol, skipValidation: true });
+  const operation = { input: schema, output: schema, errors: [] };
+  const parser = makeResponseParser<A, I, never>(operation, {
+    protocol: restXmlProtocol,
+    skipValidation: true,
+  });
   return parser(response);
 };
 

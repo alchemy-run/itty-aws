@@ -9,9 +9,11 @@
  * - Default timestamp format is epoch-seconds
  */
 
+import * as Effect from "effect/Effect";
 import * as Schema from "effect/Schema";
 import * as AST from "effect/SchemaAST";
-import type { Protocol } from "../protocol.ts";
+import type { Operation } from "../operation.ts";
+import type { Protocol, ProtocolHandler } from "../protocol.ts";
 import type { Request } from "../request.ts";
 import type { Response } from "../response.ts";
 import {
@@ -25,89 +27,98 @@ import { getArrayElementAST, getEncodedPropertySignatures, unwrapUnion } from ".
 import { extractStaticQueryParams } from "../util/query-params.ts";
 import { applyHttpTrait, bindInputToRequest } from "../util/serialize-input.ts";
 
-export const restJson1Protocol: Protocol = {
-  serializeRequest(inputSchema: Schema.Schema.AnyNoContext, input: unknown): Request {
-    const ast = inputSchema.ast;
-    const encoded = Schema.encodeSync(inputSchema)(input);
+export const restJson1Protocol: Protocol = (operation: Operation): ProtocolHandler => {
+  const inputSchema = operation.input;
+  const outputSchema = operation.output;
+  const inputAst = inputSchema.ast;
+  const outputAst = outputSchema.ast;
 
-    const request: Request = {
-      method: "POST",
-      path: "/",
-      query: {},
-      headers: { "Content-Type": "application/json" },
-    };
+  // Pre-compute encoder/decoder and property signatures (done once at init)
+  const encodeInput = Schema.encode(inputSchema);
+  const outputProps = getEncodedPropertySignatures(outputAst);
 
-    applyHttpTrait(ast, request);
-    const { payloadValue, payloadAst, bodyMembers, hasBodyMembers } = bindInputToRequest(
-      ast,
-      encoded as Record<string, unknown>,
-      request,
-    );
-    extractStaticQueryParams(request);
+  return {
+    serializeRequest: Effect.fn(function* (input: unknown) {
+      const encoded = yield* encodeInput(input);
 
-    // Serialize body
-    if (payloadValue !== undefined && payloadAst !== undefined) {
-      request.body = isRawPayload(payloadAst)
-        ? (payloadValue as string)
-        : JSON.stringify(renameKeys(payloadAst, payloadValue, true));
-    } else if (hasBodyMembers) {
-      request.body = JSON.stringify(renameKeys(ast, bodyMembers, true));
-    }
+      const request: Request = {
+        method: "POST",
+        path: "/",
+        query: {},
+        headers: { "Content-Type": "application/json" },
+      };
 
-    return request;
-  },
+      applyHttpTrait(inputAst, request);
+      const { payloadValue, payloadAst, bodyMembers, hasBodyMembers } = bindInputToRequest(
+        inputAst,
+        encoded as Record<string, unknown>,
+        request,
+      );
+      extractStaticQueryParams(request);
 
-  deserializeResponse(outputSchema: Schema.Schema.AnyNoContext, response: Response): unknown {
-    const ast = outputSchema.ast;
-    const result: Record<string, unknown> = {};
-
-    // Extract header-bound and httpPayload values
-    for (const prop of getEncodedPropertySignatures(ast)) {
-      const name = String(prop.name);
-
-      // Header binding
-      const header = getHttpHeader(prop);
-      if (header) {
-        const v = response.headers[header.toLowerCase()] ?? response.headers[header];
-        if (v !== undefined) result[name] = v;
-        continue;
+      // Serialize body
+      if (payloadValue !== undefined && payloadAst !== undefined) {
+        request.body = isRawPayload(payloadAst)
+          ? (payloadValue as string)
+          : JSON.stringify(renameKeys(payloadAst, payloadValue, true));
+      } else if (hasBodyMembers) {
+        request.body = JSON.stringify(renameKeys(inputAst, bodyMembers, true));
       }
 
-      // Prefix headers binding
-      const prefix = getHttpPrefixHeaders(prop);
-      if (prefix) {
-        const lowerPrefix = prefix.toLowerCase();
-        const prefixed: Record<string, string> = {};
-        for (const [k, v] of Object.entries(response.headers)) {
-          if (k.toLowerCase().startsWith(lowerPrefix)) {
-            prefixed[k.slice(prefix.length)] = v;
+      return request;
+    }),
+
+    deserializeResponse: Effect.fn(function* (response: Response) {
+      const result: Record<string, unknown> = {};
+
+      // Extract header-bound and httpPayload values
+      for (const prop of outputProps) {
+        const name = String(prop.name);
+
+        // Header binding
+        const header = getHttpHeader(prop);
+        if (header) {
+          const v = response.headers[header.toLowerCase()] ?? response.headers[header];
+          if (v !== undefined) result[name] = v;
+          continue;
+        }
+
+        // Prefix headers binding
+        const prefix = getHttpPrefixHeaders(prop);
+        if (prefix) {
+          const lowerPrefix = prefix.toLowerCase();
+          const prefixed: Record<string, string> = {};
+          for (const [k, v] of Object.entries(response.headers)) {
+            if (k.toLowerCase().startsWith(lowerPrefix)) {
+              prefixed[k.slice(prefix.length)] = v;
+            }
           }
+          if (Object.keys(prefixed).length) result[name] = prefixed;
+          continue;
         }
-        if (Object.keys(prefixed).length) result[name] = prefixed;
-        continue;
-      }
 
-      // httpPayload with raw body
-      if (hasHttpPayload(prop) && isRawPayload(prop.type)) {
-        result[name] = response.body;
-      }
-    }
-
-    // Parse JSON body and decode
-    if (response.body) {
-      try {
-        const parsed = JSON.parse(response.body);
-        if (parsed && typeof parsed === "object" && !Array.isArray(parsed)) {
-          const renamed = renameKeys(ast, parsed, false);
-          Object.assign(result, Schema.decodeUnknownSync(outputSchema)(renamed));
+        // httpPayload with raw body
+        if (hasHttpPayload(prop) && isRawPayload(prop.type)) {
+          result[name] = response.body;
         }
-      } catch {
-        // Body might not be JSON
       }
-    }
 
-    return result;
-  },
+      // Parse JSON body and decode
+      if (response.body) {
+        try {
+          const parsed = JSON.parse(response.body);
+          if (parsed && typeof parsed === "object" && !Array.isArray(parsed)) {
+            const renamed = renameKeys(outputAst, parsed, false);
+            Object.assign(result, renamed);
+          }
+        } catch {
+          // Body might not be JSON
+        }
+      }
+
+      return result;
+    }),
+  };
 };
 
 /** Check if AST represents a raw payload type (string, blob, stream) */

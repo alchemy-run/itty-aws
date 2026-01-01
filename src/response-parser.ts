@@ -11,11 +11,11 @@
 
 import * as Effect from "effect/Effect";
 import * as ParseResult from "effect/ParseResult";
-import type * as S from "effect/Schema";
 import * as Schema from "effect/Schema";
-import { getProtocol } from "./traits.ts";
-import type { Protocol } from "./protocol.ts";
+import type { Operation } from "./operation.ts";
+import type { Protocol, ProtocolHandler } from "./protocol.ts";
 import type { Response } from "./response.ts";
+import { getProtocol } from "./traits.ts";
 
 export interface ResponseParserOptions {
   /** Override the protocol (otherwise discovered from schema annotations) */
@@ -29,43 +29,44 @@ export type ResponseParser<A, R> = (
 ) => Effect.Effect<A, ParseResult.ParseError, R>;
 
 /**
- * Create a response parser for a given output schema.
+ * Create a response parser for a given operation.
  *
- * Expensive work (protocol discovery) is done once at creation time.
+ * Expensive work (protocol discovery, preprocessing) is done once at creation time.
  *
- * @param outputSchema - The output schema (with protocol annotations)
+ * @param operation - The operation (with input/output schemas and protocol annotations)
  * @param options - Optional overrides
  * @returns A function that parses responses
  */
 export const makeResponseParser = <A, I, R>(
-  outputSchema: S.Schema<A, I, R>,
+  operation: Operation,
   options?: ResponseParserOptions,
 ): ResponseParser<A, R> => {
-  // Discover protocol from annotations or use override (done once)
-  const protocol = options?.protocol ?? getProtocol(outputSchema.ast);
-  if (!protocol) {
-    throw new Error("No protocol found on output schema");
+  const inputAst = operation.input.ast;
+  const outputSchema = operation.output;
+
+  // Discover protocol factory from annotations or use override (done once)
+  const protocolFactory = options?.protocol ?? getProtocol(inputAst);
+  if (!protocolFactory) {
+    throw new Error("No protocol found on input schema");
   }
+
+  // Create the protocol handler (preprocessing done once)
+  const protocol: ProtocolHandler = protocolFactory(operation as Operation);
 
   // Pre-create the decoder (done once)
   const decode = Schema.decodeUnknown(outputSchema);
 
   // Return a function that parses responses
-  return (response: Response): Effect.Effect<A, ParseResult.ParseError, R> => {
-    return Effect.gen(function* () {
-      // Deserialize response using the protocol
-      const deserialized = protocol.deserializeResponse(
-        outputSchema as S.Schema.AnyNoContext,
-        response,
-      );
+  return Effect.fn(function* (response: Response) {
+    // Deserialize response using the protocol handler
+    const deserialized = yield* protocol.deserializeResponse(response);
 
-      // Skip validation if requested (useful for testing raw deserialization)
-      if (options?.skipValidation) {
-        return deserialized as A;
-      }
+    // Skip validation if requested (useful for testing raw deserialization)
+    if (options?.skipValidation) {
+      return deserialized as A;
+    }
 
-      // Decode through schema for validation and transformation
-      return yield* decode(deserialized);
-    });
-  };
+    // Decode through schema for validation and transformation
+    return yield* decode(deserialized);
+  });
 };

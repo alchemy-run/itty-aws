@@ -4,9 +4,11 @@
  * https://smithy.io/2.0/aws/protocols/aws-restxml-protocol.html
  */
 
+import * as Effect from "effect/Effect";
 import * as S from "effect/Schema";
 import type * as AST from "effect/SchemaAST";
-import type { Protocol } from "../protocol.ts";
+import type { Operation } from "../operation.ts";
+import type { Protocol, ProtocolHandler } from "../protocol.ts";
 import type { Request } from "../request.ts";
 import type { Response } from "../response.ts";
 import {
@@ -47,96 +49,109 @@ import {
 // Protocol Export
 // =============================================================================
 
-export const restXmlProtocol: Protocol = {
-  serializeRequest(inputSchema: S.Schema.AnyNoContext, input: unknown): Request {
-    const ast = inputSchema.ast;
+export const restXmlProtocol: Protocol = (operation: Operation): ProtocolHandler => {
+  const inputSchema = operation.input;
+  const outputSchema = operation.output;
+  const inputAst = inputSchema.ast;
+  const outputAst = outputSchema.ast;
 
-    // Step 1: Encode the input via schema - handles all transformations
-    // (TimestampFormat for headers → http-date strings, etc.)
-    const encoded = S.encodeSync(inputSchema)(input);
+  // Pre-compute encoder and property signatures (done once at init)
+  const encodeInput = S.encode(inputSchema);
+  const outputProps = getEncodedPropertySignatures(outputAst);
 
-    const request: Request = {
-      method: "POST",
-      path: "/",
-      query: {},
-      headers: { "Content-Type": "application/xml" },
-    };
+  return {
+    serializeRequest: Effect.fn(function* (input: unknown) {
+      // Step 1: Encode the input via schema - handles all transformations
+      // (TimestampFormat for headers → http-date strings, etc.)
+      const encoded = yield* encodeInput(input);
 
-    applyHttpTrait(ast, request);
-    const { payloadValue, payloadAst, bodyMembers, hasBodyMembers } = bindInputToRequest(
-      ast,
-      encoded as Record<string, unknown>,
-      request,
-    );
-    extractStaticQueryParams(request);
+      const request: Request = {
+        method: "POST",
+        path: "/",
+        query: {},
+        headers: { "Content-Type": "application/xml" },
+      };
 
-    // Serialize body
-    if (payloadValue !== undefined && payloadAst !== undefined) {
-      if (typeof payloadValue === "string") {
-        request.body = payloadValue;
-      } else {
-        const tagName = getXmlNameFromAST(payloadAst) ?? getIdentifier(payloadAst);
-        request.body = serializeValue(payloadAst, payloadValue, tagName, getXmlNamespace(ast));
-      }
-    } else if (hasBodyMembers) {
-      const tagName = getIdentifier(ast);
-      request.body = serializeObject(ast, bodyMembers, tagName, getXmlNamespace(ast));
-    }
+      applyHttpTrait(inputAst, request);
+      const { payloadValue, payloadAst, bodyMembers, hasBodyMembers } = bindInputToRequest(
+        inputAst,
+        encoded as Record<string, unknown>,
+        request,
+      );
+      extractStaticQueryParams(request);
 
-    return request;
-  },
-
-  deserializeResponse(outputSchema: S.Schema.AnyNoContext, response: Response): unknown {
-    const ast = outputSchema.ast;
-    const result: Record<string, unknown> = {};
-
-    for (const prop of getEncodedPropertySignatures(ast)) {
-      const name = String(prop.name);
-      const header = getHttpHeader(prop);
-      const prefixHeader = getHttpPrefixHeaders(prop);
-
-      if (header) {
-        const v = response.headers[header.toLowerCase()] ?? response.headers[header];
-        if (v !== undefined) {
-          result[name] = isNumberAST(prop.type)
-            ? Number(v)
-            : isBooleanAST(prop.type)
-              ? v === "true"
-              : v;
-        }
-      } else if (prefixHeader) {
-        const prefix = prefixHeader.toLowerCase();
-        const prefixed: Record<string, string> = {};
-        for (const [k, v] of Object.entries(response.headers)) {
-          if (k.toLowerCase().startsWith(prefix)) prefixed[k.slice(prefix.length)] = v;
-        }
-        if (Object.keys(prefixed).length) result[name] = prefixed;
-      } else if (hasHttpPayload(prop)) {
-        const unwrapped = unwrapUnion(prop.type);
-        if (unwrapped._tag === "Union" || unwrapped._tag === "StringKeyword") {
-          result[name] = response.body;
+      // Serialize body
+      if (payloadValue !== undefined && payloadAst !== undefined) {
+        if (typeof payloadValue === "string") {
+          request.body = payloadValue;
         } else {
-          const parsed = parseXml(response.body);
-          const xmlName = getXmlNameFromAST(prop.type) ?? getIdentifier(prop.type);
-          result[name] = deserializeValue(
-            prop.type,
-            xmlName ? (parsed[xmlName] ?? parsed) : parsed,
+          const tagName = getXmlNameFromAST(payloadAst) ?? getIdentifier(payloadAst);
+          request.body = serializeValue(
+            payloadAst,
+            payloadValue,
+            tagName,
+            getXmlNamespace(inputAst),
           );
         }
+      } else if (hasBodyMembers) {
+        const tagName = getIdentifier(inputAst);
+        request.body = serializeObject(inputAst, bodyMembers, tagName, getXmlNamespace(inputAst));
       }
-    }
 
-    // Parse body XML
-    if (response.body) {
-      const parsed = parseXml(response.body);
-      const xmlName = getXmlNameFromAST(ast) ?? getIdentifier(ast);
-      const content = (xmlName ? parsed[xmlName] : parsed) as Record<string, unknown> | undefined;
-      if (content && typeof content === "object")
-        Object.assign(result, deserializeObject(ast, content));
-    }
+      return request;
+    }),
 
-    return result;
-  },
+    deserializeResponse: Effect.fn(function* (response: Response) {
+      const result: Record<string, unknown> = {};
+
+      for (const prop of outputProps) {
+        const name = String(prop.name);
+        const header = getHttpHeader(prop);
+        const prefixHeader = getHttpPrefixHeaders(prop);
+
+        if (header) {
+          const v = response.headers[header.toLowerCase()] ?? response.headers[header];
+          if (v !== undefined) {
+            result[name] = isNumberAST(prop.type)
+              ? Number(v)
+              : isBooleanAST(prop.type)
+                ? v === "true"
+                : v;
+          }
+        } else if (prefixHeader) {
+          const prefix = prefixHeader.toLowerCase();
+          const prefixed: Record<string, string> = {};
+          for (const [k, v] of Object.entries(response.headers)) {
+            if (k.toLowerCase().startsWith(prefix)) prefixed[k.slice(prefix.length)] = v;
+          }
+          if (Object.keys(prefixed).length) result[name] = prefixed;
+        } else if (hasHttpPayload(prop)) {
+          const unwrapped = unwrapUnion(prop.type);
+          if (unwrapped._tag === "Union" || unwrapped._tag === "StringKeyword") {
+            result[name] = response.body;
+          } else {
+            const parsed = parseXml(response.body);
+            const xmlName = getXmlNameFromAST(prop.type) ?? getIdentifier(prop.type);
+            result[name] = deserializeValue(
+              prop.type,
+              xmlName ? (parsed[xmlName] ?? parsed) : parsed,
+            );
+          }
+        }
+      }
+
+      // Parse body XML
+      if (response.body) {
+        const parsed = parseXml(response.body);
+        const xmlName = getXmlNameFromAST(outputAst) ?? getIdentifier(outputAst);
+        const content = (xmlName ? parsed[xmlName] : parsed) as Record<string, unknown> | undefined;
+        if (content && typeof content === "object")
+          Object.assign(result, deserializeObject(outputAst, content));
+      }
+
+      return result;
+    }),
+  };
 };
 
 // =============================================================================

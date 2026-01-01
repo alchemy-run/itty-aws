@@ -4,8 +4,8 @@ bun generate --sdk s3
 To run the s3 tests:
 bun test:local ./test/s3.test.ts
 
-To run the XML tests:
-bun vitest run ./test/xml.test.ts
+To run the Protocol tests:
+bun vitest run ./test/xml.test.ts ./test/rest-json.test.ts ./test/aws-query.test.ts ./test/ec2-query.test.ts
 
 If it is unclear what the XML format for an AWS API is, look up the AWS API reference for that operation.
 
