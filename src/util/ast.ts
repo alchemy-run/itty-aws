@@ -1,5 +1,5 @@
 import type * as AST from "effect/SchemaAST";
-import { xmlNamespaceSymbol, xmlNameSymbol } from "../annotations.ts";
+import { xmlNamespaceSymbol, xmlNameSymbol } from "../traits.ts";
 
 const Identifier = Symbol.for("effect/annotation/Identifier");
 const Surrogate = Symbol.for("effect/annotation/Surrogate");
@@ -137,10 +137,15 @@ export function isDateAST(ast: AST.AST): boolean {
   const unwrapped = unwrapUnion(ast);
   if (unwrapped !== ast) return isDateAST(unwrapped);
 
-  // S.Date is a Transformation from string to Date
+  // S.Date is wrapped in a Refinement that contains a Transformation
+  if (unwrapped._tag === "Refinement") {
+    return isDateAST(unwrapped.from);
+  }
+
+  // S.Date is a Transformation from string to Date (DateFromSelf)
   if (unwrapped._tag === "Transformation" && unwrapped.to?._tag === "Declaration") {
     const id = unwrapped.to.annotations?.[Identifier];
-    if (id === "Date") return true;
+    if (id === "Date" || id === "DateFromSelf") return true;
   }
   return false;
 }

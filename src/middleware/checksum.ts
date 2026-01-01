@@ -2,7 +2,7 @@ import type { Checksum } from "@smithy/types";
 import { toBase64 } from "@smithy/util-base64";
 import * as Effect from "effect/Effect";
 import type * as S from "effect/Schema";
-import { getAwsProtocolsHttpChecksum } from "../annotations.ts";
+import { getAwsProtocolsHttpChecksum } from "../traits.ts";
 import { getCrc32ChecksumAlgorithmFunction } from "../hash/crc32.ts";
 import { getMd5ChecksumAlgorithmFunction } from "../hash/md5.ts";
 import { toUint8Array } from "../hash/utf8.ts";

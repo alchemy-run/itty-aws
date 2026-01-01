@@ -2,7 +2,6 @@ import { it } from "@effect/vitest";
 import * as Effect from "effect/Effect";
 import * as S from "effect/Schema";
 import { describe, expect } from "vitest";
-import { getAwsProtocolsHttpChecksum } from "../src/annotations.ts";
 import { restXmlProtocol } from "../src/protocols/rest-xml.ts";
 import { makeRequestBuilder } from "../src/request-builder.ts";
 import { makeResponseParser } from "../src/response-parser.ts";
@@ -69,6 +68,7 @@ import {
   // Host label tests
   WriteGetObjectResponseRequest,
 } from "../src/services/s3.ts";
+import { getAwsProtocolsHttpChecksum } from "../src/traits.ts";
 
 // Helper to build a request from an instance - gets schema from instance.constructor
 const buildRequest = <A, I>(schema: S.Schema<A, I>, instance: A) => {

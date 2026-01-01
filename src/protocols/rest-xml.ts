@@ -18,7 +18,7 @@ import {
   hasHttpQueryParams,
   hasXmlAttribute,
   hasXmlFlattened,
-} from "../annotations.ts";
+} from "../traits.ts";
 import type { Protocol } from "../protocol.ts";
 import type { Request } from "../request.ts";
 import type { Response } from "../response.ts";

@@ -15,7 +15,7 @@ import {
   hasHttpLabel,
   hasHttpPayload,
   hasHttpQueryParams,
-} from "../../annotations.ts";
+} from "../../traits.ts";
 import type { Request } from "../../request.ts";
 import { formatTimestamp } from "./timestamp.ts";
 

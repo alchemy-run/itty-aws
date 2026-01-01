@@ -5,12 +5,12 @@ import * as Effect from "effect/Effect";
 import * as Option from "effect/Option";
 import type * as ParseResult from "effect/ParseResult";
 import * as Schema from "effect/Schema";
-import { getAwsAuthSigv4, getMiddleware, getProtocol } from "./annotations.ts";
 import { Credentials } from "./aws/credentials.ts";
 import { Endpoint } from "./aws/endpoint.ts";
 import { UnknownAwsError, type CommonAwsError } from "./aws/errors.ts";
 import { Region } from "./aws/region.ts";
 import type { Operation } from "./operation.ts";
+import { getAwsAuthSigv4, getMiddleware, getProtocol } from "./traits.ts";
 
 export const make = <Op extends Operation>(
   initOperation: () => Op,
@@ -38,6 +38,7 @@ export const make = <Op extends Operation>(
   // Get SigV4 service name from annotations
   const sigv4 = getAwsAuthSigv4(inputAst);
 
+  // @ts-expect-error
   return Effect.fnUntraced(function* (payload: Operation.Input<Op>) {
     const httpClient = yield* HttpClient.HttpClient;
 

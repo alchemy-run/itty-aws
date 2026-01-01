@@ -3,6 +3,7 @@ import * as Schema from "effect/Schema";
 import * as AST from "effect/SchemaAST";
 import { applyHttpChecksum } from "./middleware/checksum.ts";
 import type { Protocol } from "./protocol.ts";
+import { ec2QueryProtocol } from "./protocols/ec2-query.ts";
 import { restXmlProtocol } from "./protocols/rest-xml.ts";
 import type { Request as ProtocolRequest } from "./request.ts";
 
@@ -142,6 +143,14 @@ export const jsonNameSymbol = Symbol.for("itty-aws/json-name");
 export const JsonName = (name: string) => makeAnnotation(jsonNameSymbol, name);
 
 // =============================================================================
+// EC2 Query Protocol Traits (aws.protocols#ec2QueryName)
+// =============================================================================
+
+/** aws.protocols#ec2QueryName - Custom query key name for EC2 protocol */
+export const ec2QueryNameSymbol = Symbol.for("itty-aws/aws.protocols#ec2QueryName");
+export const Ec2QueryName = (name: string) => makeAnnotation(ec2QueryNameSymbol, name);
+
+// =============================================================================
 // Timestamp Traits
 // =============================================================================
 
@@ -247,7 +256,24 @@ export const AwsProtocolsAwsQuery = () => makeAnnotation(awsProtocolsAwsQuerySym
 
 /** aws.protocols#ec2Query */
 export const awsProtocolsEc2QuerySymbol = Symbol.for("itty-aws/aws.protocols#ec2Query");
-export const AwsProtocolsEc2Query = () => makeAnnotation(awsProtocolsEc2QuerySymbol, {});
+export const AwsProtocolsEc2Query = () => {
+  const value: ProtocolAnnotationValue = {
+    protocol: ec2QueryProtocol,
+  };
+  // Create annotation with both protocol-specific symbol and common protocol symbol
+  const fn = <A extends Annotatable>(schema: A): A =>
+    schema.annotations({
+      [awsProtocolsEc2QuerySymbol]: value,
+      [protocolSymbol]: value,
+    }) as A;
+  (fn as any)[annotationMetaSymbol] = [
+    { symbol: awsProtocolsEc2QuerySymbol, value },
+    { symbol: protocolSymbol, value },
+  ];
+  (fn as any)[awsProtocolsEc2QuerySymbol] = value;
+  (fn as any)[protocolSymbol] = value;
+  return fn as Annotation;
+};
 
 /** Middleware function type - applied to requests */
 export type MiddlewareFn = (
@@ -516,6 +542,10 @@ export const getXmlNameProp = (prop: AST.PropertySignature): string | undefined 
 /** Check if property has xmlFlattened annotation */
 export const hasXmlFlattened = (prop: AST.PropertySignature): boolean =>
   hasPropAnnotation(prop, xmlFlattenedSymbol);
+
+/** Get ec2QueryName annotation value from property */
+export const getEc2QueryName = (prop: AST.PropertySignature): string | undefined =>
+  getPropAnnotation<string>(prop, ec2QueryNameSymbol);
 
 // =============================================================================
 // Operation/Service-Level Annotation Helpers (for extracting from request schemas)

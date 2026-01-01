@@ -11,7 +11,7 @@
 
 import * as Effect from "effect/Effect";
 import type * as S from "effect/Schema";
-import { getMiddleware, getProtocol } from "./annotations.ts";
+import { getMiddleware, getProtocol } from "./traits.ts";
 import type { Protocol } from "./protocol.ts";
 import type { Request } from "./request.ts";
 

@@ -152,8 +152,8 @@ function schemaExprToTsType(
       return "Date";
     case "S.Any":
       return "any";
-    case "A.StreamBody()":
-      return "A.StreamBody";
+    case "T.StreamBody()":
+      return "T.StreamBody";
     case "S.Struct({})":
       return "Record<string, never>";
     default:
@@ -468,7 +468,7 @@ const convertShapeToSchema: (
         ),
         Match.when(
           (s) => s === "smithy.api#Blob",
-          () => Effect.succeed("A.StreamBody()"),
+          () => Effect.succeed("T.StreamBody()"),
         ),
         Match.when(
           //todo(pear): should this be S.Never?
@@ -506,7 +506,7 @@ const convertShapeToSchema: (
           ),
           Match.when(
             (s) => s.type === "blob",
-            () => Effect.succeed("A.StreamBody()"),
+            () => Effect.succeed("T.StreamBody()"),
           ),
           Match.when(
             (s) => s.type === "boolean",
@@ -518,7 +518,7 @@ const convertShapeToSchema: (
               // Check for timestampFormat trait on the timestamp shape itself
               const format = s.traits?.["smithy.api#timestampFormat"];
               if (format) {
-                return Effect.succeed(`S.Date.pipe(A.TimestampFormat("${format}"))`);
+                return Effect.succeed(`S.Date.pipe(T.TimestampFormat("${format}"))`);
               }
               return Effect.succeed("S.Date");
             },
@@ -628,65 +628,65 @@ const convertShapeToSchema: (
 
                       // smithy.api#httpHeader
                       if (member.traits?.["smithy.api#httpHeader"] != null) {
-                        pipes.push(`A.HttpHeader("${member.traits["smithy.api#httpHeader"]}")`);
+                        pipes.push(`T.HttpHeader("${member.traits["smithy.api#httpHeader"]}")`);
                       }
 
                       // smithy.api#httpPayload
                       if (member.traits?.["smithy.api#httpPayload"] != null) {
-                        pipes.push(`A.HttpPayload()`);
+                        pipes.push(`T.HttpPayload()`);
                       }
 
                       // smithy.api#httpLabel
                       if (member.traits?.["smithy.api#httpLabel"] != null) {
-                        pipes.push(`A.HttpLabel()`);
+                        pipes.push(`T.HttpLabel()`);
                       }
 
                       // smithy.api#httpQuery
                       if (member.traits?.["smithy.api#httpQuery"] != null) {
-                        pipes.push(`A.HttpQuery("${member.traits["smithy.api#httpQuery"]}")`);
+                        pipes.push(`T.HttpQuery("${member.traits["smithy.api#httpQuery"]}")`);
                       }
 
                       // smithy.api#httpQueryParams
                       if (member.traits?.["smithy.api#httpQueryParams"] != null) {
-                        pipes.push(`A.HttpQueryParams()`);
+                        pipes.push(`T.HttpQueryParams()`);
                       }
 
                       // smithy.api#httpPrefixHeaders
                       if (member.traits?.["smithy.api#httpPrefixHeaders"] != null) {
                         pipes.push(
-                          `A.HttpPrefixHeaders("${member.traits["smithy.api#httpPrefixHeaders"]}")`,
+                          `T.HttpPrefixHeaders("${member.traits["smithy.api#httpPrefixHeaders"]}")`,
                         );
                       }
 
                       // smithy.api#httpResponseCode
                       if (member.traits?.["smithy.api#httpResponseCode"] != null) {
-                        pipes.push(`A.HttpResponseCode()`);
+                        pipes.push(`T.HttpResponseCode()`);
                       }
 
                       // smithy.api#xmlName
                       if (member.traits?.["smithy.api#xmlName"] != null) {
-                        pipes.push(`A.XmlName("${member.traits["smithy.api#xmlName"]}")`);
+                        pipes.push(`T.XmlName("${member.traits["smithy.api#xmlName"]}")`);
                       }
 
                       // smithy.api#xmlFlattened
                       if (member.traits?.["smithy.api#xmlFlattened"] != null) {
-                        pipes.push(`A.XmlFlattened()`);
+                        pipes.push(`T.XmlFlattened()`);
                       }
 
                       // smithy.api#xmlAttribute
                       if (member.traits?.["smithy.api#xmlAttribute"] != null) {
-                        pipes.push(`A.XmlAttribute()`);
+                        pipes.push(`T.XmlAttribute()`);
                       }
 
                       // smithy.api#jsonName
                       if (member.traits?.["smithy.api#jsonName"] != null) {
-                        pipes.push(`A.JsonName("${member.traits["smithy.api#jsonName"]}")`);
+                        pipes.push(`T.JsonName("${member.traits["smithy.api#jsonName"]}")`);
                       }
 
                       // smithy.api#timestampFormat
                       if (member.traits?.["smithy.api#timestampFormat"] != null) {
                         pipes.push(
-                          `A.TimestampFormat("${member.traits["smithy.api#timestampFormat"]}")`,
+                          `T.TimestampFormat("${member.traits["smithy.api#timestampFormat"]}")`,
                         );
                       }
 
@@ -695,12 +695,19 @@ const convertShapeToSchema: (
                         const contextParam = member.traits["smithy.rules#contextParam"] as {
                           name: string;
                         };
-                        pipes.push(`A.ContextParam("${contextParam.name}")`);
+                        pipes.push(`T.ContextParam("${contextParam.name}")`);
                       }
 
                       // smithy.api#hostLabel
                       if (member.traits?.["smithy.api#hostLabel"] != null) {
-                        pipes.push(`A.HostLabel()`);
+                        pipes.push(`T.HostLabel()`);
+                      }
+
+                      // aws.protocols#ec2QueryName
+                      if (member.traits?.["aws.protocols#ec2QueryName"] != null) {
+                        pipes.push(
+                          `T.Ec2QueryName("${member.traits["aws.protocols#ec2QueryName"]}")`,
+                        );
                       }
 
                       // Wrap in S.optional first (if not required)
@@ -750,7 +757,7 @@ const convertShapeToSchema: (
 
               // Only apply service-level namespace to operation input/output schemas, not nested structures
               const xmlNamespaceRef = structXmlNamespace
-                ? `A.XmlNamespace("${structXmlNamespace.uri}")`
+                ? `T.XmlNamespace("${structXmlNamespace.uri}")`
                 : sdkFile.serviceXmlNamespace && (isOperationInput || isOperationOutput)
                   ? "ns"
                   : undefined;
@@ -762,7 +769,7 @@ const convertShapeToSchema: (
                     // Build class-level annotations array
                     const classAnnotations: string[] = [];
                     if (xmlName) {
-                      classAnnotations.push(`A.XmlName("${xmlName}")`);
+                      classAnnotations.push(`T.XmlName("${xmlName}")`);
                     }
                     if (xmlNamespaceRef) {
                       classAnnotations.push(xmlNamespaceRef);
@@ -771,7 +778,7 @@ const convertShapeToSchema: (
                     if (isOperationInput) {
                       // Add HTTP trait (method, uri)
                       classAnnotations.push(
-                        `A.Http({ method: "${opTraits.method}", uri: "${opTraits.uri}" })`,
+                        `T.Http({ method: "${opTraits.method}", uri: "${opTraits.uri}" })`,
                       );
                       // Add service-level traits using pre-defined constants
                       classAnnotations.push("svc");
@@ -795,16 +802,16 @@ const convertShapeToSchema: (
                           );
                         }
                         classAnnotations.push(
-                          `A.AwsProtocolsHttpChecksum({ ${checksumParts.join(", ")} })`,
+                          `T.AwsProtocolsHttpChecksum({ ${checksumParts.join(", ")} })`,
                         );
                       }
                     }
-                    // Only use A.all() when there are multiple annotations
+                    // Only use T.all() when there are multiple annotations
                     let annotations = "";
                     if (classAnnotations.length === 1) {
                       annotations = `, ${classAnnotations[0]}`;
                     } else if (classAnnotations.length > 1) {
-                      annotations = `, A.all(${classAnnotations.join(", ")})`;
+                      annotations = `, T.all(${classAnnotations.join(", ")})`;
                     }
                     return `export class ${currentSchemaName} extends S.Class<${currentSchemaName}>("${currentSchemaName}")(${fields}${annotations}) {}`;
                   }),
@@ -1061,31 +1068,31 @@ const generateClient = Effect.fn(function* (modelPath: string, outputRootPath: s
     const imports = dedent`
       import * as S from "effect/Schema";
       import * as API from "../api.ts";
-      import * as A from "../annotations.ts";`;
+      import * as T from "../traits.ts";`;
 
     // Define service-level constants
     const serviceConstants: string[] = [];
 
     // XML namespace constant if service has one
     if (sdkFile.serviceXmlNamespace) {
-      serviceConstants.push(`const ns = A.XmlNamespace("${sdkFile.serviceXmlNamespace}");`);
+      serviceConstants.push(`const ns = T.XmlNamespace("${sdkFile.serviceXmlNamespace}");`);
     }
 
     // Service trait constants (for operation input schemas)
     const { sdkId, sigV4ServiceName, version, protocol: svcProtocol } = sdkFile.serviceTraits;
-    serviceConstants.push(`const svc = A.AwsApiService({ sdkId: "${sdkId}" });`);
-    serviceConstants.push(`const auth = A.AwsAuthSigv4({ name: "${sigV4ServiceName}" });`);
-    serviceConstants.push(`const ver = A.ServiceVersion("${version}");`);
+    serviceConstants.push(`const svc = T.AwsApiService({ sdkId: "${sdkId}" });`);
+    serviceConstants.push(`const auth = T.AwsAuthSigv4({ name: "${sigV4ServiceName}" });`);
+    serviceConstants.push(`const ver = T.ServiceVersion("${version}");`);
 
     // Protocol constant
     const protoAnnotation = Match.value(svcProtocol).pipe(
-      Match.when("aws.protocols#restXml", () => "A.AwsProtocolsRestXml()"),
-      Match.when("aws.protocols#restJson1", () => "A.AwsProtocolsRestJson1()"),
-      Match.when("aws.protocols#awsJson1_0", () => "A.AwsProtocolsAwsJson1_0()"),
-      Match.when("aws.protocols#awsJson1_1", () => "A.AwsProtocolsAwsJson1_1()"),
-      Match.when("aws.protocols#awsQuery", () => "A.AwsProtocolsAwsQuery()"),
-      Match.when("aws.protocols#ec2Query", () => "A.AwsProtocolsEc2Query()"),
-      Match.orElse(() => "A.AwsProtocolsRestXml()"),
+      Match.when("aws.protocols#restXml", () => "T.AwsProtocolsRestXml()"),
+      Match.when("aws.protocols#restJson1", () => "T.AwsProtocolsRestJson1()"),
+      Match.when("aws.protocols#awsJson1_0", () => "T.AwsProtocolsAwsJson1_0()"),
+      Match.when("aws.protocols#awsJson1_1", () => "T.AwsProtocolsAwsJson1_1()"),
+      Match.when("aws.protocols#awsQuery", () => "T.AwsProtocolsAwsQuery()"),
+      Match.when("aws.protocols#ec2Query", () => "T.AwsProtocolsEc2Query()"),
+      Match.orElse(() => "T.AwsProtocolsRestXml()"),
     );
     serviceConstants.push(`const proto = ${protoAnnotation};`);
 

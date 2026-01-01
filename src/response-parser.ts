@@ -13,7 +13,7 @@ import * as Effect from "effect/Effect";
 import * as ParseResult from "effect/ParseResult";
 import type * as S from "effect/Schema";
 import * as Schema from "effect/Schema";
-import { getProtocol } from "./annotations.ts";
+import { getProtocol } from "./traits.ts";
 import type { Protocol } from "./protocol.ts";
 import type { Response } from "./response.ts";
 
