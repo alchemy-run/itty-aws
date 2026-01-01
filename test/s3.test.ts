@@ -1055,10 +1055,33 @@ test(
         return yield* Effect.fail(new Error("Expected ETag to be present"));
       }
 
-      // Cleanup - need to consume the body first
-      if (result.Body) {
-        yield* Stream.runDrain(result.Body);
+      // Also verify body content matches what we wrote
+      if (!result.Body) {
+        return yield* Effect.fail(new Error("Expected Body in response"));
       }
+
+      const chunks: Uint8Array[] = [];
+      yield* Stream.runForEach(result.Body, (chunk) =>
+        Effect.sync(() => {
+          chunks.push(chunk);
+        }),
+      );
+
+      const decoder = new TextDecoder();
+      let offset = 0;
+      const fullBuffer = new Uint8Array(chunks.reduce((acc, c) => acc + c.length, 0));
+      for (const chunk of chunks) {
+        fullBuffer.set(chunk, offset);
+        offset += chunk.length;
+      }
+      const actualContent = decoder.decode(fullBuffer);
+
+      if (actualContent !== testContent) {
+        return yield* Effect.fail(
+          new Error(`Content mismatch: expected "${testContent}", got "${actualContent}"`),
+        );
+      }
+
       yield* deleteObject({ Bucket: TEST_BUCKET, Key: testKey });
     }),
   ),
@@ -1342,6 +1365,41 @@ test(
           );
         }
 
+        // Check first few bytes of part 1 (should be 'A' = 65)
+        for (let i = 0; i < 100; i++) {
+          if (fullBuffer[i] !== 65) {
+            return yield* Effect.fail(
+              new Error(
+                `Part 1 content mismatch at byte ${i}: expected 65 ('A'), got ${fullBuffer[i]}`,
+              ),
+            );
+          }
+        }
+
+        // Check last few bytes of part 1 (should be 'A' = 65)
+        const part1End = part1Content.length - 1;
+        for (let i = part1End - 100; i <= part1End; i++) {
+          if (fullBuffer[i] !== 65) {
+            return yield* Effect.fail(
+              new Error(
+                `Part 1 content mismatch at byte ${i}: expected 65 ('A'), got ${fullBuffer[i]}`,
+              ),
+            );
+          }
+        }
+
+        // Check part 2 content (should be 'B' = 66)
+        const part2Start = part1Content.length;
+        for (let i = part2Start; i < fullBuffer.length; i++) {
+          if (fullBuffer[i] !== 66) {
+            return yield* Effect.fail(
+              new Error(
+                `Part 2 content mismatch at byte ${i}: expected 66 ('B'), got ${fullBuffer[i]}`,
+              ),
+            );
+          }
+        }
+
         // Cleanup
         yield* deleteObject({ Bucket: TEST_BUCKET, Key: testKey });
       } catch (e) {
@@ -1353,6 +1411,122 @@ test(
         }).pipe(Effect.ignore);
         throw e;
       }
+    }),
+  ),
+);
+
+// ============================================================================
+// Interruption Tests
+// ============================================================================
+
+test(
+  "streaming upload can be interrupted",
+  withBucket(
+    Effect.gen(function* () {
+      const testKey = "test-interruption.txt";
+
+      // Track chunks read
+      let chunksRead = 0;
+
+      // Create a slow stream that emits chunks with delays
+      const slowStream = new ReadableStream<Uint8Array>({
+        async pull(controller) {
+          // Emit chunks slowly
+          if (chunksRead < 100) {
+            await new Promise((resolve) => setTimeout(resolve, 50)); // 50ms per chunk
+            const chunk = new Uint8Array(1024).fill(65); // 1KB of 'A'
+            controller.enqueue(chunk);
+            chunksRead++;
+          } else {
+            controller.close();
+          }
+        },
+      });
+
+      // Try to upload but interrupt after 100ms
+      const uploadEffect = putObject({
+        Bucket: TEST_BUCKET,
+        Key: testKey,
+        Body: slowStream,
+        ContentType: "text/plain",
+        ContentLength: 100 * 1024, // 100KB total
+        ChecksumAlgorithm: "CRC32",
+      });
+
+      // Use Effect.timeout which properly interrupts when timeout fires
+      const result = yield* uploadEffect.pipe(
+        Effect.timeout("100 millis"),
+        Effect.option, // Convert TimeoutException to None
+      );
+
+      // The timeout should have triggered (result is None)
+      if (result._tag !== "None") {
+        return yield* Effect.fail(new Error("Expected upload to be interrupted by timeout"));
+      }
+
+      // Verify we didn't read all chunks (interrupted early)
+      // The fact that we got here with timeout means the effect was interrupted
+      if (chunksRead >= 100) {
+        return yield* Effect.fail(new Error(`Expected fewer than 100 chunks, got ${chunksRead}`));
+      }
+
+      // If we got here, the timeout worked - the upload was interrupted
+      // Note: Stream cancel() propagation depends on fetch implementation
+      // The key is that the Effect was interrupted and didn't complete all chunks
+
+      // Cleanup - object may or may not exist
+      yield* deleteObject({ Bucket: TEST_BUCKET, Key: testKey }).pipe(Effect.ignore);
+    }),
+  ),
+);
+
+test(
+  "streaming upload interruption via Effect.raceFirst with Effect.interrupt",
+  withBucket(
+    Effect.gen(function* () {
+      const testKey = "test-interruption-explicit.txt";
+      let chunksRead = 0;
+
+      // Create a slow stream
+      const slowStream = new ReadableStream<Uint8Array>({
+        async pull(controller) {
+          if (chunksRead < 50) {
+            await new Promise((resolve) => setTimeout(resolve, 20));
+            controller.enqueue(new Uint8Array(1024).fill(66)); // 1KB of 'B'
+            chunksRead++;
+          } else {
+            controller.close();
+          }
+        },
+      });
+
+      const uploadEffect = putObject({
+        Bucket: TEST_BUCKET,
+        Key: testKey,
+        Body: slowStream,
+        ContentType: "text/plain",
+        ContentLength: 50 * 1024,
+        ChecksumAlgorithm: "CRC32",
+      });
+
+      // Use raceFirst which returns the first to complete AND interrupts the other
+      const result = yield* Effect.raceFirst(
+        uploadEffect.pipe(Effect.as("completed" as const)),
+        Effect.sleep("50 millis").pipe(Effect.as("timeout" as const)),
+      );
+
+      // The timeout should win
+      if (result !== "timeout") {
+        return yield* Effect.fail(new Error("Expected timeout to win the race"));
+      }
+
+      // Verify partial upload (not all chunks)
+      if (chunksRead >= 50) {
+        return yield* Effect.fail(new Error(`Expected fewer than 50 chunks, got ${chunksRead}`));
+      }
+
+      // Cleanup
+      yield* deleteObject({ Bucket: TEST_BUCKET, Key: testKey }).pipe(Effect.ignore);
     }),
   ),
 );

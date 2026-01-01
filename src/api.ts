@@ -110,12 +110,14 @@ export const make = <Op extends Operation>(
     });
 
     // Make the fetch request with full control
+    // The signal from Effect.tryPromise enables proper interruption
     const rawResponse = yield* Effect.tryPromise({
       try: (signal) =>
         fetch(signedRequest.url, {
           method: signedRequest.method,
           headers: fetchHeaders,
           body: fetchBody,
+          signal, // Propagate abort signal for Effect interruption
           // Enable streaming uploads - required for ReadableStream bodies
           ...(isStreaming ? { duplex: "half" as const } : {}),
         } as RequestInit),

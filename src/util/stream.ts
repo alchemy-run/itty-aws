@@ -138,5 +138,10 @@ export function createBufferedReadableStream(
     }
   };
 
-  return new ReadableStream({ pull });
+  return new ReadableStream({
+    pull,
+    cancel(reason) {
+      reader.cancel(reason);
+    },
+  });
 }
