@@ -590,7 +590,15 @@ const convertShapeToSchema: (
         ),
         Match.when(
           (s) => s === "smithy.api#Timestamp",
-          () => Effect.succeed("S.Date"),
+          () =>
+            Effect.gen(function* () {
+              const sdkFile = yield* SdkFile;
+              // Use epoch-seconds for restJson1, otherwise standard S.Date
+              if (sdkFile.serviceTraits.protocol === "aws.protocols#restJson1") {
+                return `T.TimestampFormat("epoch-seconds")`;
+              }
+              return "S.Date";
+            }),
         ),
         Match.when(
           (s) => s === "smithy.api#Blob",
@@ -640,14 +648,27 @@ const convertShapeToSchema: (
           ),
           Match.when(
             (s) => s.type === "timestamp",
-            (s) => {
-              // Check for timestampFormat trait on the timestamp shape itself
-              const format = s.traits?.["smithy.api#timestampFormat"];
-              if (format) {
-                return Effect.succeed(`S.Date.pipe(T.TimestampFormat("${format}"))`);
-              }
-              return Effect.succeed("S.Date");
-            },
+            (s) =>
+              Effect.gen(function* () {
+                const sdkFile = yield* SdkFile;
+                // Check for timestampFormat trait on the timestamp shape itself
+                const format = s.traits?.["smithy.api#timestampFormat"] as string | undefined;
+                if (format) {
+                  return `S.Date.pipe(T.TimestampFormat("${format}"))`;
+                }
+                // Default based on protocol
+                if (sdkFile.serviceTraits.protocol === "aws.protocols#restJson1") {
+                  return `S.Date.pipe(T.TimestampFormat("epoch-seconds"))`;
+                }
+                // aws-query and ec2-query use date-time (ISO 8601) by default
+                if (
+                  sdkFile.serviceTraits.protocol === "aws.protocols#awsQuery" ||
+                  sdkFile.serviceTraits.protocol === "aws.protocols#ec2Query"
+                ) {
+                  return `S.Date.pipe(T.TimestampFormat("date-time"))`;
+                }
+                return "S.Date";
+              }),
           ),
           Match.when(
             (s) => s.type === "document",
@@ -733,10 +754,32 @@ const convertShapeToSchema: (
                 Object.entries(s.members).map(([memberName, member]) => {
                   const memberTargetName = formatName(member.target);
                   const isMemberErrorShape = sdkFile.errorShapeIds.has(member.target);
+
+                  // Check if this member has HTTP binding traits that affect timestamp format
+                  const hasHttpHeader = member.traits?.["smithy.api#httpHeader"] != null;
+                  const explicitFormat = member.traits?.["smithy.api#timestampFormat"] as
+                    | string
+                    | undefined;
+
                   return convertShapeToSchema(member.target).pipe(
                     Effect.flatMap(Deferred.await),
                     Effect.map((baseSchema) => {
                       let schema = baseSchema;
+
+                      // Check if base schema is a timestamp (contains S.Date or TimestampFormat)
+                      const isTimestampSchema =
+                        baseSchema.includes("S.Date") ||
+                        baseSchema.includes("TimestampFormat") ||
+                        member.target === "smithy.api#Timestamp";
+
+                      // Override timestamp schema for HTTP header bindings
+                      if (isTimestampSchema && hasHttpHeader && !explicitFormat) {
+                        // HTTP headers default to http-date format
+                        schema = `S.Date.pipe(T.TimestampFormat("http-date"))`;
+                      } else if (isTimestampSchema && explicitFormat) {
+                        // Explicit format on member overrides target
+                        schema = `S.Date.pipe(T.TimestampFormat("${explicitFormat}"))`;
+                      }
 
                       // Wrap error shape references in S.suspend (they're defined after schemas)
                       if (isMemberErrorShape) {

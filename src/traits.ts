@@ -5,6 +5,7 @@ import { applyHttpChecksum } from "./middleware/checksum.ts";
 import type { Protocol } from "./protocol.ts";
 import { awsQueryProtocol } from "./protocols/aws-query.ts";
 import { ec2QueryProtocol } from "./protocols/ec2-query.ts";
+import { restJson1Protocol } from "./protocols/rest-json.ts";
 import { restXmlProtocol } from "./protocols/rest-xml.ts";
 import type { Request as ProtocolRequest } from "./request.ts";
 
@@ -158,8 +159,38 @@ export const Ec2QueryName = (name: string) => makeAnnotation(ec2QueryNameSymbol,
 /** smithy.api#timestampFormat - Timestamp serialization format */
 export const timestampFormatSymbol = Symbol.for("itty-aws/timestamp-format");
 export type TimestampFormatType = "date-time" | "http-date" | "epoch-seconds";
-export const TimestampFormat = (format: TimestampFormatType) =>
-  makeAnnotation(timestampFormatSymbol, format);
+
+/**
+ * TimestampFormat trait - applies both annotation and transform.
+ * When piped to S.Date, transforms to the appropriate wire format.
+ *
+ * - "epoch-seconds": Date ↔ number (Unix timestamp)
+ * - "http-date": Date ↔ string (RFC 7231)
+ * - "date-time": Date ↔ string (ISO 8601)
+ */
+export const TimestampFormat = (format: TimestampFormatType) => {
+  return <A extends Schema.Schema.Any>(schema: A): A => {
+    // Apply the appropriate transform based on format
+    const transformed =
+      format === "epoch-seconds"
+        ? Schema.transform(Schema.Number, Schema.DateFromSelf, {
+            strict: true,
+            decode: (n) => new Date(n * 1000),
+            encode: (d) => d.getTime() / 1000,
+          })
+        : format === "http-date"
+          ? Schema.transform(Schema.String, Schema.DateFromSelf, {
+              strict: true,
+              decode: (s) => new Date(s),
+              encode: (d) => d.toUTCString(),
+            })
+          : // date-time (ISO 8601) - S.Date already handles this
+            schema;
+
+    // Add the annotation
+    return transformed.annotations({ [timestampFormatSymbol]: format }) as any;
+  };
+};
 
 // =============================================================================
 // Operation-Level HTTP Trait (smithy.api#http)
@@ -240,8 +271,25 @@ export interface AwsProtocolsRestJson1Trait {
   http?: string[];
   eventStreamHttp?: string[];
 }
-export const AwsProtocolsRestJson1 = (trait?: AwsProtocolsRestJson1Trait) =>
-  makeAnnotation(awsProtocolsRestJson1Symbol, trait ?? {});
+export const AwsProtocolsRestJson1 = (trait?: AwsProtocolsRestJson1Trait) => {
+  const value: ProtocolAnnotationValue & AwsProtocolsRestJson1Trait = {
+    ...trait,
+    protocol: restJson1Protocol,
+  };
+  // Create annotation with both protocol-specific symbol and common protocol symbol
+  const fn = <A extends Annotatable>(schema: A): A =>
+    schema.annotations({
+      [awsProtocolsRestJson1Symbol]: value,
+      [protocolSymbol]: value,
+    }) as A;
+  (fn as any)[annotationMetaSymbol] = [
+    { symbol: awsProtocolsRestJson1Symbol, value },
+    { symbol: protocolSymbol, value },
+  ];
+  (fn as any)[awsProtocolsRestJson1Symbol] = value;
+  (fn as any)[protocolSymbol] = value;
+  return fn as Annotation;
+};
 
 /** aws.protocols#awsJson1_0 */
 export const awsProtocolsAwsJson1_0Symbol = Symbol.for("itty-aws/aws.protocols#awsJson1_0");
@@ -378,13 +426,34 @@ export const AwsQueryError = (trait: AwsQueryErrorTrait) =>
   makeAnnotation(awsQueryErrorSymbol, trait);
 
 // =============================================================================
-// Streaming Body
+// Streaming Body (smithy.api#Blob / smithy.api#streaming)
 // =============================================================================
+
+/** smithy.api#streaming - Marks a type as streaming/blob (raw body, not serialized) */
+export const streamingSymbol = Symbol.for("itty-aws/streaming");
+export const Streaming = () => makeAnnotation(streamingSymbol, true);
+
+/** Check if an AST represents a streaming/blob type */
+export const isStreamingType = (ast: AST.AST): boolean => {
+  // Check direct annotation
+  if (ast.annotations?.[streamingSymbol]) return true;
+
+  // For Union types, check if any member has the annotation
+  if (ast._tag === "Union") {
+    return (ast as AST.Union).types.some((t) => isStreamingType(t));
+  }
+
+  return false;
+};
 
 /** Streaming body type (Blob in Smithy) */
 export type StreamBody = string | Uint8Array | ReadableStream;
 export const StreamBody = () =>
-  Schema.Union(Schema.String, Schema.instanceOf(Uint8Array), Schema.instanceOf(ReadableStream));
+  Schema.Union(
+    Schema.String,
+    Schema.instanceOf(Uint8Array),
+    Schema.instanceOf(ReadableStream),
+  ).annotations({ [streamingSymbol]: true });
 
 // =============================================================================
 // Annotation Retrieval Helpers

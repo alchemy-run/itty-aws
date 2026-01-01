@@ -11,22 +11,18 @@
  * - Errors wrapped in <ErrorResponse><Error>...</Error><RequestId>...</RequestId></ErrorResponse>
  */
 
-import type * as S from "effect/Schema";
+import * as S from "effect/Schema";
 import type * as AST from "effect/SchemaAST";
 import type { Protocol } from "../protocol.ts";
 import type { Request } from "../request.ts";
 import type { Response } from "../response.ts";
 import {
   getServiceVersion,
-  getTimestampFormat,
-  getTimestampFormatFromAST,
   getXmlName,
   getXmlNameProp,
   hasXmlAttribute,
   hasXmlFlattened,
 } from "../traits.ts";
-import { formatTimestamp } from "../util/timestamp.ts";
-import { deserializePrimitive, extractXmlRoot, parseXml, unwrapArrayValue } from "../util/xml.ts";
 import {
   getArrayElementAST,
   getEncodedPropertySignatures,
@@ -34,7 +30,8 @@ import {
   getMapKeyValueAST,
   isArrayAST,
   isMapAST,
-} from "./util/ast.ts";
+} from "../util/ast.ts";
+import { deserializePrimitive, extractXmlRoot, parseXml, unwrapArrayValue } from "../util/xml.ts";
 
 // =============================================================================
 // Protocol Export
@@ -43,6 +40,11 @@ import {
 export const awsQueryProtocol: Protocol = {
   serializeRequest(inputSchema: S.Schema.AnyNoContext, input: unknown): Request {
     const ast = inputSchema.ast;
+
+    // Step 1: Encode the input via schema - handles all transformations
+    // (TimestampFormat → ISO 8601 strings, etc.)
+    const encoded = S.encodeSync(inputSchema)(input);
+
     const request: Request = {
       method: "POST",
       path: "/",
@@ -62,8 +64,8 @@ export const awsQueryProtocol: Protocol = {
     params.push(`Action=${encodeURIComponent(action)}`);
     params.push(`Version=${encodeURIComponent(version)}`);
 
-    // Serialize input members
-    serializeMembers(ast, input as Record<string, unknown>, "", params);
+    // Serialize already-encoded input members
+    serializeMembers(ast, encoded as Record<string, unknown>, "", params);
 
     request.body = params.join("&");
 
@@ -146,7 +148,8 @@ function serializeMembers(
 }
 
 /**
- * Serialize a value to query parameters
+ * Serialize a value to query parameters.
+ * Values are already encoded (dates as ISO 8601 strings, etc.)
  */
 function serializeValue(
   ast: AST.AST,
@@ -157,17 +160,7 @@ function serializeValue(
 ): void {
   if (value === undefined || value === null) return;
 
-  // Handle Date
-  if (value instanceof Date) {
-    // Default to date-time for AWS Query (RFC 3339 / ISO 8601)
-    const format = prop
-      ? (getTimestampFormat(prop) ?? getTimestampFormatFromAST(prop.type) ?? "date-time")
-      : (getTimestampFormatFromAST(ast) ?? "date-time");
-    params.push(`${encodeURIComponent(key)}=${encodeURIComponent(formatTimestamp(value, format))}`);
-    return;
-  }
-
-  // Handle primitives
+  // Handle primitives (includes encoded dates as strings)
   if (typeof value !== "object") {
     params.push(`${encodeURIComponent(key)}=${encodeURIComponent(String(value))}`);
     return;

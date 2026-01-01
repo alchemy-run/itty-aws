@@ -4,7 +4,7 @@
  * https://smithy.io/2.0/aws/protocols/aws-restxml-protocol.html
  */
 
-import type * as S from "effect/Schema";
+import * as S from "effect/Schema";
 import type * as AST from "effect/SchemaAST";
 import type { Protocol } from "../protocol.ts";
 import type { Request } from "../request.ts";
@@ -21,16 +21,6 @@ import {
   hasXmlAttribute,
   hasXmlFlattened,
 } from "../traits.ts";
-import { extractStaticQueryParams } from "../util/query-params.ts";
-import { applyHttpTrait, bindInputToRequest } from "../util/serialize-input.ts";
-import { formatTimestamp } from "../util/timestamp.ts";
-import {
-  deserializePrimitive,
-  escapeXml,
-  parseXml,
-  unwrapArrayValue,
-  wrapTag,
-} from "../util/xml.ts";
 import {
   getArrayElementAST,
   getEncodedPropertySignatures,
@@ -41,7 +31,17 @@ import {
   isBooleanAST,
   isNumberAST,
   unwrapUnion,
-} from "./util/ast.ts";
+} from "../util/ast.ts";
+import { extractStaticQueryParams } from "../util/query-params.ts";
+import { applyHttpTrait, bindInputToRequest } from "../util/serialize-input.ts";
+import { formatTimestamp } from "../util/timestamp.ts";
+import {
+  deserializePrimitive,
+  escapeXml,
+  parseXml,
+  unwrapArrayValue,
+  wrapTag,
+} from "../util/xml.ts";
 
 // =============================================================================
 // Protocol Export
@@ -50,6 +50,11 @@ import {
 export const restXmlProtocol: Protocol = {
   serializeRequest(inputSchema: S.Schema.AnyNoContext, input: unknown): Request {
     const ast = inputSchema.ast;
+
+    // Step 1: Encode the input via schema - handles all transformations
+    // (TimestampFormat for headers → http-date strings, etc.)
+    const encoded = S.encodeSync(inputSchema)(input);
+
     const request: Request = {
       method: "POST",
       path: "/",
@@ -60,7 +65,7 @@ export const restXmlProtocol: Protocol = {
     applyHttpTrait(ast, request);
     const { payloadValue, payloadAst, bodyMembers, hasBodyMembers } = bindInputToRequest(
       ast,
-      input as Record<string, unknown>,
+      encoded as Record<string, unknown>,
       request,
     );
     extractStaticQueryParams(request);
