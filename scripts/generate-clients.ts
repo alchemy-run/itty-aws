@@ -78,6 +78,120 @@ class ProtocolNotImplemented extends Data.TaggedError("ProtocolNotImplemented")<
   message: string;
 }> {}
 
+// =============================================================================
+// Unified Trait Collection
+// =============================================================================
+
+/**
+ * Smithy traits object type - a record of trait names to their values
+ */
+type SmithyTraits = Record<string, unknown> | undefined;
+
+/**
+ * Collect serialization-relevant trait annotations from a Smithy traits object.
+ * This provides a single, reusable function for collecting traits from:
+ * - Structure members
+ * - List members
+ * - Map key/value
+ *
+ * Returns an array of annotation strings like 'T.XmlName("foo")'
+ */
+function collectSerializationTraits(traits: SmithyTraits): string[] {
+  if (!traits) return [];
+
+  const pipes: string[] = [];
+
+  // smithy.api#httpHeader
+  if (traits["smithy.api#httpHeader"] != null) {
+    pipes.push(`T.HttpHeader("${traits["smithy.api#httpHeader"]}")`);
+  }
+
+  // smithy.api#httpPayload
+  if (traits["smithy.api#httpPayload"] != null) {
+    pipes.push(`T.HttpPayload()`);
+  }
+
+  // smithy.api#httpLabel
+  if (traits["smithy.api#httpLabel"] != null) {
+    pipes.push(`T.HttpLabel()`);
+  }
+
+  // smithy.api#httpQuery
+  if (traits["smithy.api#httpQuery"] != null) {
+    pipes.push(`T.HttpQuery("${traits["smithy.api#httpQuery"]}")`);
+  }
+
+  // smithy.api#httpQueryParams
+  if (traits["smithy.api#httpQueryParams"] != null) {
+    pipes.push(`T.HttpQueryParams()`);
+  }
+
+  // smithy.api#httpPrefixHeaders
+  if (traits["smithy.api#httpPrefixHeaders"] != null) {
+    pipes.push(`T.HttpPrefixHeaders("${traits["smithy.api#httpPrefixHeaders"]}")`);
+  }
+
+  // smithy.api#httpResponseCode
+  if (traits["smithy.api#httpResponseCode"] != null) {
+    pipes.push(`T.HttpResponseCode()`);
+  }
+
+  // smithy.api#xmlName
+  if (traits["smithy.api#xmlName"] != null) {
+    pipes.push(`T.XmlName("${traits["smithy.api#xmlName"]}")`);
+  }
+
+  // smithy.api#xmlFlattened
+  if (traits["smithy.api#xmlFlattened"] != null) {
+    pipes.push(`T.XmlFlattened()`);
+  }
+
+  // smithy.api#xmlAttribute
+  if (traits["smithy.api#xmlAttribute"] != null) {
+    pipes.push(`T.XmlAttribute()`);
+  }
+
+  // smithy.api#jsonName
+  if (traits["smithy.api#jsonName"] != null) {
+    pipes.push(`T.JsonName("${traits["smithy.api#jsonName"]}")`);
+  }
+
+  // smithy.api#timestampFormat
+  if (traits["smithy.api#timestampFormat"] != null) {
+    pipes.push(`T.TimestampFormat("${traits["smithy.api#timestampFormat"]}")`);
+  }
+
+  // smithy.rules#contextParam
+  if (traits["smithy.rules#contextParam"] != null) {
+    const contextParam = traits["smithy.rules#contextParam"] as { name: string };
+    pipes.push(`T.ContextParam("${contextParam.name}")`);
+  }
+
+  // smithy.api#hostLabel
+  if (traits["smithy.api#hostLabel"] != null) {
+    pipes.push(`T.HostLabel()`);
+  }
+
+  // aws.protocols#ec2QueryName
+  if (traits["aws.protocols#ec2QueryName"] != null) {
+    pipes.push(`T.Ec2QueryName("${traits["aws.protocols#ec2QueryName"]}")`);
+  }
+
+  return pipes;
+}
+
+/**
+ * Apply collected traits to a schema expression.
+ * Returns the schema with .pipe(...traits) appended if there are any traits.
+ */
+function applyTraitsToSchema(schema: string, traits: SmithyTraits): string {
+  const pipes = collectSerializationTraits(traits);
+  if (pipes.length > 0) {
+    return `${schema}.pipe(${pipes.join(", ")})`;
+  }
+  return schema;
+}
+
 const findServiceShape = Effect.gen(function* () {
   const model = yield* ModelService;
   const serviceEntry = Object.entries(model.shapes).find(([_, shape]) => shape.type === "service");
@@ -569,8 +683,6 @@ const convertShapeToSchema: (
               const schemaName = getSchemaName();
               const isCyclic = sdkFile.cyclicSchemas.has(schemaName);
               const isMemberErrorShape = sdkFile.errorShapeIds.has(s.member.target);
-              // Check for xmlName trait on list member
-              const memberXmlName = s.member.traits?.["smithy.api#xmlName"] as string | undefined;
               return addAlias(
                 convertShapeToSchema(s.member.target).pipe(
                   Effect.flatMap(Deferred.await),
@@ -589,10 +701,8 @@ const convertShapeToSchema: (
                         : `S.suspend(() => ${type})`;
                     }
 
-                    // Apply xmlName trait to the element schema if present
-                    if (memberXmlName) {
-                      innerType = `${innerType}.pipe(T.XmlName("${memberXmlName}"))`;
-                    }
+                    // Apply serialization traits (xmlName, timestampFormat, etc.) using unified function
+                    innerType = applyTraitsToSchema(innerType, s.member.traits);
 
                     if (isCyclic) {
                       // For cyclic arrays, generate explicit type alias to help TypeScript inference
@@ -642,102 +752,13 @@ const convertShapeToSchema: (
                         }
                       }
 
-                      // Build pipe chain for Smithy trait annotations (1:1 mapping)
-                      const pipes: string[] = [];
-
-                      // smithy.api#httpHeader
-                      if (member.traits?.["smithy.api#httpHeader"] != null) {
-                        pipes.push(`T.HttpHeader("${member.traits["smithy.api#httpHeader"]}")`);
-                      }
-
-                      // smithy.api#httpPayload
-                      if (member.traits?.["smithy.api#httpPayload"] != null) {
-                        pipes.push(`T.HttpPayload()`);
-                      }
-
-                      // smithy.api#httpLabel
-                      if (member.traits?.["smithy.api#httpLabel"] != null) {
-                        pipes.push(`T.HttpLabel()`);
-                      }
-
-                      // smithy.api#httpQuery
-                      if (member.traits?.["smithy.api#httpQuery"] != null) {
-                        pipes.push(`T.HttpQuery("${member.traits["smithy.api#httpQuery"]}")`);
-                      }
-
-                      // smithy.api#httpQueryParams
-                      if (member.traits?.["smithy.api#httpQueryParams"] != null) {
-                        pipes.push(`T.HttpQueryParams()`);
-                      }
-
-                      // smithy.api#httpPrefixHeaders
-                      if (member.traits?.["smithy.api#httpPrefixHeaders"] != null) {
-                        pipes.push(
-                          `T.HttpPrefixHeaders("${member.traits["smithy.api#httpPrefixHeaders"]}")`,
-                        );
-                      }
-
-                      // smithy.api#httpResponseCode
-                      if (member.traits?.["smithy.api#httpResponseCode"] != null) {
-                        pipes.push(`T.HttpResponseCode()`);
-                      }
-
-                      // smithy.api#xmlName
-                      if (member.traits?.["smithy.api#xmlName"] != null) {
-                        pipes.push(`T.XmlName("${member.traits["smithy.api#xmlName"]}")`);
-                      }
-
-                      // smithy.api#xmlFlattened
-                      if (member.traits?.["smithy.api#xmlFlattened"] != null) {
-                        pipes.push(`T.XmlFlattened()`);
-                      }
-
-                      // smithy.api#xmlAttribute
-                      if (member.traits?.["smithy.api#xmlAttribute"] != null) {
-                        pipes.push(`T.XmlAttribute()`);
-                      }
-
-                      // smithy.api#jsonName
-                      if (member.traits?.["smithy.api#jsonName"] != null) {
-                        pipes.push(`T.JsonName("${member.traits["smithy.api#jsonName"]}")`);
-                      }
-
-                      // smithy.api#timestampFormat
-                      if (member.traits?.["smithy.api#timestampFormat"] != null) {
-                        pipes.push(
-                          `T.TimestampFormat("${member.traits["smithy.api#timestampFormat"]}")`,
-                        );
-                      }
-
-                      // smithy.rules#contextParam
-                      if (member.traits?.["smithy.rules#contextParam"] != null) {
-                        const contextParam = member.traits["smithy.rules#contextParam"] as {
-                          name: string;
-                        };
-                        pipes.push(`T.ContextParam("${contextParam.name}")`);
-                      }
-
-                      // smithy.api#hostLabel
-                      if (member.traits?.["smithy.api#hostLabel"] != null) {
-                        pipes.push(`T.HostLabel()`);
-                      }
-
-                      // aws.protocols#ec2QueryName
-                      if (member.traits?.["aws.protocols#ec2QueryName"] != null) {
-                        pipes.push(
-                          `T.Ec2QueryName("${member.traits["aws.protocols#ec2QueryName"]}")`,
-                        );
-                      }
-
                       // Wrap in S.optional first (if not required)
                       if (member.traits?.["smithy.api#required"] == null) {
                         schema = `S.optional(${schema})`;
                       }
 
-                      // Apply all annotation pipes on the OUTER schema
-                      if (pipes.length > 0) {
-                        schema = `${schema}.pipe(${pipes.join(", ")})`;
-                      }
+                      // Apply serialization traits using unified function
+                      schema = applyTraitsToSchema(schema, member.traits);
 
                       return `${memberName}: ${schema}`;
                     }),
@@ -912,9 +933,6 @@ const convertShapeToSchema: (
               const valueTargetName = formatName(s.value.target);
               const isKeyErrorShape = sdkFile.errorShapeIds.has(s.key.target);
               const isValueErrorShape = sdkFile.errorShapeIds.has(s.value.target);
-              // Check for xmlName traits on map key/value
-              const keyXmlName = s.key.traits?.["smithy.api#xmlName"] as string | undefined;
-              const valueXmlName = s.value.traits?.["smithy.api#xmlName"] as string | undefined;
               return addAlias(
                 Effect.all(
                   [
@@ -944,13 +962,9 @@ const convertShapeToSchema: (
                         : `S.suspend(() => ${valueSchema})`;
                     }
 
-                    // Apply xmlName traits to key/value schemas if present
-                    if (keyXmlName) {
-                      wrappedKey = `${wrappedKey}.pipe(T.XmlName("${keyXmlName}"))`;
-                    }
-                    if (valueXmlName) {
-                      wrappedValue = `${wrappedValue}.pipe(T.XmlName("${valueXmlName}"))`;
-                    }
+                    // Apply serialization traits (xmlName, etc.) using unified function
+                    wrappedKey = applyTraitsToSchema(wrappedKey, s.key.traits);
+                    wrappedValue = applyTraitsToSchema(wrappedValue, s.value.traits);
 
                     if (isCyclic) {
                       // For cyclic maps, generate explicit type alias to help TypeScript inference
