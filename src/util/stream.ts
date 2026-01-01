@@ -66,3 +66,77 @@ export const readableToEffectStream = (
         () => stream,
         (e) => new Error(String(e)),
       );
+
+/**
+ * Create a buffered ReadableStream that ensures chunks meet minimum size.
+ * This matches AWS SDK's createBufferedReadableStream behavior.
+ *
+ * Small chunks are accumulated until they reach the minimum size.
+ * Chunks already at or above minimum size pass through immediately (if buffer is empty).
+ * The last chunk can be any size.
+ */
+export function createBufferedReadableStream(
+  upstream: ReadableStream<Uint8Array>,
+  minSize: number,
+): ReadableStream<Uint8Array> {
+  const reader = upstream.getReader();
+  let buffer: Uint8Array[] = [];
+  let bufferSize = 0;
+
+  const flush = (): Uint8Array | null => {
+    if (bufferSize === 0) return null;
+
+    // Combine buffered chunks
+    const combined = new Uint8Array(bufferSize);
+    let offset = 0;
+    for (const chunk of buffer) {
+      combined.set(chunk, offset);
+      offset += chunk.length;
+    }
+
+    // Reset buffer
+    buffer = [];
+    bufferSize = 0;
+
+    return combined;
+  };
+
+  const pull = async (controller: ReadableStreamDefaultController<Uint8Array>) => {
+    const { value, done } = await reader.read();
+
+    if (done) {
+      // Flush any remaining buffered data
+      const remainder = flush();
+      if (remainder) {
+        controller.enqueue(remainder);
+      }
+      controller.close();
+      return;
+    }
+
+    const chunkSize = value.byteLength;
+
+    // If chunk is large enough and buffer is empty, emit immediately
+    if (chunkSize >= minSize && bufferSize === 0) {
+      controller.enqueue(value);
+      return;
+    }
+
+    // Add to buffer
+    buffer.push(value);
+    bufferSize += chunkSize;
+
+    // If buffer is large enough, flush it
+    if (bufferSize >= minSize) {
+      const flushed = flush();
+      if (flushed) {
+        controller.enqueue(flushed);
+      }
+    } else {
+      // Buffer not full yet, need to pull more data
+      await pull(controller);
+    }
+  };
+
+  return new ReadableStream({ pull });
+}

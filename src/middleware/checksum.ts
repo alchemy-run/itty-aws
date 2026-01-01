@@ -7,6 +7,7 @@ import { getMd5ChecksumAlgorithmFunction } from "../hash/md5.ts";
 import { toUint8Array } from "../hash/utf8.ts";
 import type { Request as ProtocolRequest } from "../request.ts";
 import { getAwsProtocolsHttpChecksum } from "../traits.ts";
+import { createBufferedReadableStream } from "../util/stream.ts";
 
 export type SourceData = string | ArrayBuffer | ArrayBufferView;
 
@@ -21,64 +22,8 @@ export const stringHasher = (checksumAlgorithmFn: ChecksumConstructor, body: any
     return hash.digest();
   });
 
-// =============================================================================
-// AWS Chunked Encoding with Trailing Checksum
-// =============================================================================
-
-/**
- * Create an aws-chunked encoded stream with trailing checksum.
- * Format: <chunk-size-hex>\r\n<chunk-data>\r\n...0\r\n<trailer>\r\n\r\n
- *
- * @see https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-streaming.html
- */
-function createAwsChunkedStream(
-  source: ReadableStream<Uint8Array>,
-  checksumAlgorithmFn: ChecksumConstructor,
-  checksumLocationName: string,
-): ReadableStream<Uint8Array> {
-  const hash = new checksumAlgorithmFn();
-  const reader = source.getReader();
-  const encoder = new TextEncoder();
-
-  return new ReadableStream({
-    async pull(controller) {
-      const { done, value } = await reader.read();
-
-      if (done) {
-        // Send final chunk (size 0) and trailer with checksum
-        const checksum = toBase64(await hash.digest());
-        const trailer = `0\r\n${checksumLocationName}:${checksum}\r\n\r\n`;
-        controller.enqueue(encoder.encode(trailer));
-        controller.close();
-        return;
-      }
-
-      // Update hash with chunk data
-      hash.update(value);
-
-      // Write chunk in aws-chunked format: <hex-size>\r\n<data>\r\n
-      const chunkSize = value.byteLength.toString(16);
-      const header = encoder.encode(`${chunkSize}\r\n`);
-      const footer = encoder.encode("\r\n");
-
-      // Combine header + data + footer
-      const combined = new Uint8Array(header.length + value.length + footer.length);
-      combined.set(header, 0);
-      combined.set(value, header.length);
-      combined.set(footer, header.length + value.length);
-
-      controller.enqueue(combined);
-    },
-    cancel() {
-      reader.cancel();
-    },
-  });
-}
-
-// =============================================================================
-// Protocol-v2 Compatible Checksum Functions
-// =============================================================================
-
+// Minimum chunk size for S3 aws-chunked encoding (8KB, except for the last chunk)
+const MIN_CHUNK_SIZE = 8 * 1024;
 /**
  * Apply checksum to a protocol Request based on schema annotations.
  * Uses the aws.protocols#httpChecksum trait to determine checksum requirements.
@@ -145,23 +90,32 @@ export const applyHttpChecksum = (
 
     // Handle streaming body with aws-chunked encoding
     if (isStreaming) {
-      const chunkedBody = createAwsChunkedStream(body, hasher, checksumHeader);
+      // Buffer small chunks to meet S3's 8KB minimum requirement
+      const bufferedStream = createBufferedReadableStream(body, MIN_CHUNK_SIZE);
+
+      // Create aws-chunked encoded stream with trailing checksum
+      const chunkedBody = createAwsChunkedStream(bufferedStream, hasher, checksumHeader);
+
       const contentLength = request.headers["Content-Length"] || request.headers["content-length"];
+
+      // Remove Content-Length as it's now chunked
+      const {
+        "Content-Length": _cl,
+        "content-length": _cl2,
+        ...headersWithoutContentLength
+      } = request.headers;
 
       return {
         ...request,
         body: chunkedBody,
         headers: {
-          ...request.headers,
+          ...headersWithoutContentLength,
           "Content-Encoding": request.headers["Content-Encoding"]
             ? `${request.headers["Content-Encoding"]},aws-chunked`
             : "aws-chunked",
-          "Transfer-Encoding": "chunked",
           "x-amz-decoded-content-length": contentLength,
           "x-amz-content-sha256": "STREAMING-UNSIGNED-PAYLOAD-TRAILER",
           "x-amz-trailer": checksumHeader,
-          // Remove content-length as it's now chunked
-          "Content-Length": undefined as unknown as string,
         },
       };
     }
@@ -177,3 +131,53 @@ export const applyHttpChecksum = (
       },
     };
   });
+
+/**
+ * Create an aws-chunked encoded stream with trailing checksum.
+ * Format: <chunk-size-hex>\r\n<chunk-data>\r\n...0\r\n<trailer>\r\n\r\n
+ *
+ * @see https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-streaming.html
+ */
+export function createAwsChunkedStream(
+  source: ReadableStream<Uint8Array>,
+  checksumAlgorithmFn: ChecksumConstructor,
+  checksumLocationName: string,
+): ReadableStream<Uint8Array> {
+  const hash = new checksumAlgorithmFn();
+  const reader = source.getReader();
+  const encoder = new TextEncoder();
+
+  return new ReadableStream({
+    async pull(controller) {
+      const { done, value } = await reader.read();
+
+      if (done) {
+        // Send final chunk (size 0) and trailer with checksum
+        const checksum = toBase64(await hash.digest());
+        const trailer = `0\r\n${checksumLocationName}:${checksum}\r\n\r\n`;
+        controller.enqueue(encoder.encode(trailer));
+        controller.close();
+        return;
+      }
+
+      // Update hash with chunk data
+      hash.update(value);
+
+      // Write chunk in aws-chunked format: <hex-size>\r\n<data>\r\n
+      const chunkSize = value.byteLength.toString(16);
+      const header = encoder.encode(`${chunkSize}\r\n`);
+      const footer = encoder.encode("\r\n");
+
+      // Combine header + data + footer
+      const combined = new Uint8Array(header.length + value.length + footer.length);
+      combined.set(header, 0);
+      combined.set(value, header.length);
+      combined.set(footer, header.length + value.length);
+
+      controller.enqueue(combined);
+    },
+    cancel() {
+      reader.cancel();
+    },
+  });
+}

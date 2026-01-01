@@ -1,10 +1,7 @@
-import { HttpBody, HttpClient } from "@effect/platform";
-import type { HttpClientError } from "@effect/platform/HttpClientError";
 import { AwsV4Signer } from "aws4fetch";
 import * as Effect from "effect/Effect";
 import * as Option from "effect/Option";
 import type * as ParseResult from "effect/ParseResult";
-import * as Stream from "effect/Stream";
 import { Credentials } from "./aws/credentials.ts";
 import { Endpoint } from "./aws/endpoint.ts";
 import { UnknownAwsError, type CommonAwsError } from "./aws/errors.ts";
@@ -18,8 +15,8 @@ export const make = <Op extends Operation>(
   payload: Operation.Input<Op>,
 ) => Effect.Effect<
   Operation.Output<Op>,
-  Operation.Error<Op> | ParseResult.ParseError | HttpClientError | UnknownAwsError | CommonAwsError,
-  Region | Credentials | HttpClient.HttpClient
+  Operation.Error<Op> | ParseResult.ParseError | Error | UnknownAwsError | CommonAwsError,
+  Region | Credentials
 >) => {
   const op = initOperation();
   const inputSchema = op.input;
@@ -42,8 +39,6 @@ export const make = <Op extends Operation>(
 
   // @ts-expect-error
   return Effect.fnUntraced(function* (payload: Operation.Input<Op>) {
-    const httpClient = yield* HttpClient.HttpClient;
-
     yield* Effect.logDebug("Payload", payload);
 
     // Serialize request using the protocol handler
@@ -91,64 +86,62 @@ export const make = <Op extends Operation>(
 
     yield* Effect.logDebug("Signed Request", signedRequest);
 
-    let httpClientMethod = signedRequest.method.toLowerCase();
-    if (httpClientMethod === "delete") {
-      httpClientMethod = "del";
-    }
+    // Determine the body for fetch
+    const isStreaming = signedRequest.body instanceof ReadableStream;
+    let fetchBody: BodyInit | undefined;
 
-    // Determine the correct HttpBody type based on the body content
-    // Use HttpBody.raw for string/binary bodies to preserve our Content-Type header
-    // (HttpBody.text would override with "text/plain")
-    let httpBody: HttpBody.HttpBody | undefined;
     if (signedRequest.body) {
       if (typeof signedRequest.body === "string") {
-        // Encode string to Uint8Array and use raw to preserve Content-Type header
-        httpBody = HttpBody.raw(new TextEncoder().encode(signedRequest.body));
+        fetchBody = signedRequest.body;
       } else if (
         signedRequest.body instanceof Uint8Array ||
         signedRequest.body instanceof ArrayBuffer
       ) {
-        httpBody = HttpBody.raw(
-          signedRequest.body instanceof ArrayBuffer
-            ? new Uint8Array(signedRequest.body)
-            : signedRequest.body,
-        );
-      } else if (signedRequest.body instanceof ReadableStream) {
-        // Convert ReadableStream to Effect Stream, then to HttpBody.stream
-        // This ensures duplex: "half" is set for streaming uploads
-        const effectStream = Stream.fromReadableStream(
-          () => signedRequest.body as ReadableStream,
-          (e) => new Error(String(e)),
-        );
-        httpBody = HttpBody.stream(effectStream);
+        fetchBody = signedRequest.body;
+      } else if (isStreaming) {
+        fetchBody = signedRequest.body;
       }
     }
 
-    const rawResponse = yield* httpClient[
-      httpClientMethod as "get" | "post" | "put" | "del" | "patch" | "head" | "options"
-    ](signedRequest.url, {
-      // @ts-expect-error - TODO: fix types
-      headers: signedRequest.headers,
-      body: httpBody,
+    // Build headers object for fetch
+    const fetchHeaders: Record<string, string> = {};
+    signedRequest.headers.forEach((value, key) => {
+      fetchHeaders[key] = value;
+    });
+
+    // Make the fetch request with full control
+    const rawResponse = yield* Effect.tryPromise({
+      try: (signal) =>
+        fetch(signedRequest.url, {
+          method: signedRequest.method,
+          headers: fetchHeaders,
+          body: fetchBody,
+          // Enable streaming uploads - required for ReadableStream bodies
+          ...(isStreaming ? { duplex: "half" as const } : {}),
+        } as RequestInit),
+      catch: (error) => new Error(`Fetch error: ${error}`),
     });
 
     yield* Effect.logDebug("Raw Response Status", rawResponse.status);
 
-    // Effect's Headers is already a Record<string, string> with lowercase keys
-    const responseHeaders = rawResponse.headers as unknown as Record<string, string>;
+    // Convert response headers to Record
+    const responseHeaders: Record<string, string> = {};
+    rawResponse.headers.forEach((value, key) => {
+      responseHeaders[key] = value;
+    });
 
-    // Create empty ReadableStream for empty bodies, otherwise convert Effect Stream
+    // Create response body stream
     const contentLength = responseHeaders["content-length"];
     const isEmptyBody = contentLength === "0" || rawResponse.status === 204;
     const responseBody = isEmptyBody
       ? new ReadableStream<Uint8Array>({ start: (c) => c.close() })
-      : Stream.toReadableStream(rawResponse.stream);
+      : (rawResponse.body ?? new ReadableStream<Uint8Array>({ start: (c) => c.close() }));
 
     if (rawResponse.status >= 200 && rawResponse.status < 300) {
       // Deserialize response using the protocol handler
       const parsed = yield* protocol.deserializeResponse({
         status: rawResponse.status,
-        statusText: "",
+        statusText: rawResponse.statusText,
         headers: responseHeaders,
         body: responseBody,
       });
@@ -159,7 +152,10 @@ export const make = <Op extends Operation>(
       return parsed;
     } else {
       // For errors, read the body as text for error message
-      const errorBody = yield* rawResponse.text;
+      const errorBody = yield* Effect.tryPromise({
+        try: () => rawResponse.text(),
+        catch: (e) => new Error(`Failed to read error body: ${e}`),
+      });
       return yield* Effect.fail(
         UnknownAwsError.make({
           errorTag: "UnknownError",

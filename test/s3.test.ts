@@ -1,7 +1,11 @@
 import { Effect, Stream } from "effect";
 import {
+  // Multipart upload operations
+  abortMultipartUpload,
+  completeMultipartUpload,
   // Bucket lifecycle operations
   createBucket,
+  createMultipartUpload,
   deleteBucket,
   deleteBucketCors,
   deleteBucketEncryption,
@@ -53,6 +57,7 @@ import {
   putObject,
   // Public Access Block
   putPublicAccessBlock,
+  uploadPart,
 } from "../src/services/s3.ts";
 import { test } from "./test.ts";
 
@@ -1157,6 +1162,196 @@ test(
       }
       if (lifecycle.Rules?.length !== 1) {
         return yield* Effect.fail(new Error("Lifecycle not configured correctly"));
+      }
+    }),
+  ),
+);
+
+// ============================================================================
+// Streaming Checksum Tests (aws-chunked encoding with trailing checksum)
+// ============================================================================
+
+test(
+  "putObject with streaming body and ChecksumAlgorithm triggers aws-chunked encoding",
+  withBucket(
+    Effect.gen(function* () {
+      const testKey = "test-streaming-checksum.txt";
+      const testChunks = ["Hello, ", "streaming ", "checksum ", "test!"];
+      const expectedContent = testChunks.join("");
+
+      // Create an Effect Stream from chunks
+      const encoder = new TextEncoder();
+      const inputStream = Stream.fromIterable(testChunks.map((s) => encoder.encode(s)));
+
+      // Calculate content length for the x-amz-decoded-content-length header
+      const contentLength = testChunks.reduce((acc, s) => acc + encoder.encode(s).length, 0);
+
+      // Put object with Effect Stream body AND ChecksumAlgorithm
+      // This triggers the aws-chunked encoding path in checksum.ts
+      yield* putObject({
+        Bucket: TEST_BUCKET,
+        Key: testKey,
+        Body: inputStream,
+        ContentType: "text/plain",
+        ContentLength: contentLength,
+        ChecksumAlgorithm: "CRC32",
+      });
+
+      // Get object and verify content was uploaded correctly
+      const result = yield* getObject({
+        Bucket: TEST_BUCKET,
+        Key: testKey,
+      });
+
+      if (!result.Body) {
+        return yield* Effect.fail(new Error("Expected Body in response"));
+      }
+
+      // Consume the stream
+      const chunks: Uint8Array[] = [];
+      yield* Stream.runForEach(result.Body, (chunk) =>
+        Effect.sync(() => {
+          chunks.push(chunk);
+        }),
+      );
+
+      const decoder = new TextDecoder();
+      let offset = 0;
+      const fullBuffer = new Uint8Array(chunks.reduce((acc, c) => acc + c.length, 0));
+      for (const chunk of chunks) {
+        fullBuffer.set(chunk, offset);
+        offset += chunk.length;
+      }
+      const actualContent = decoder.decode(fullBuffer);
+
+      if (actualContent !== expectedContent) {
+        return yield* Effect.fail(
+          new Error(`Content mismatch: expected "${expectedContent}", got "${actualContent}"`),
+        );
+      }
+
+      // Cleanup
+      yield* deleteObject({ Bucket: TEST_BUCKET, Key: testKey });
+    }),
+  ),
+);
+
+test(
+  "multipart upload with uploadPart streaming body and ChecksumAlgorithm",
+  withBucket(
+    Effect.gen(function* () {
+      const testKey = "test-multipart-streaming-checksum.txt";
+
+      // S3 requires minimum 5MB per part (except last part)
+      const part1Content = "A".repeat(5 * 1024 * 1024); // 5MB
+      const part2Content = "B".repeat(1024); // 1KB - last part can be any size
+
+      // 1. Initiate multipart upload
+      const initResult = yield* createMultipartUpload({
+        Bucket: TEST_BUCKET,
+        Key: testKey,
+        ContentType: "text/plain",
+      });
+
+      if (!initResult.UploadId) {
+        return yield* Effect.fail(new Error("Expected UploadId from createMultipartUpload"));
+      }
+
+      const uploadId = initResult.UploadId;
+
+      try {
+        // 2. Upload part 1 with streaming body and checksum
+        const encoder = new TextEncoder();
+        const part1Bytes = encoder.encode(part1Content);
+        const part1Stream = Stream.fromIterable([part1Bytes]);
+
+        const part1Result = yield* uploadPart({
+          Bucket: TEST_BUCKET,
+          Key: testKey,
+          UploadId: uploadId,
+          PartNumber: 1,
+          Body: part1Stream,
+          ContentLength: part1Bytes.length,
+          ChecksumAlgorithm: "CRC32",
+        });
+
+        if (!part1Result.ETag) {
+          return yield* Effect.fail(new Error("Expected ETag from uploadPart 1"));
+        }
+
+        // 3. Upload part 2 with streaming body and checksum
+        const part2Bytes = encoder.encode(part2Content);
+        const part2Stream = Stream.fromIterable([part2Bytes]);
+
+        const part2Result = yield* uploadPart({
+          Bucket: TEST_BUCKET,
+          Key: testKey,
+          UploadId: uploadId,
+          PartNumber: 2,
+          Body: part2Stream,
+          ContentLength: part2Bytes.length,
+          ChecksumAlgorithm: "CRC32",
+        });
+
+        if (!part2Result.ETag) {
+          return yield* Effect.fail(new Error("Expected ETag from uploadPart 2"));
+        }
+
+        // 4. Complete multipart upload
+        yield* completeMultipartUpload({
+          Bucket: TEST_BUCKET,
+          Key: testKey,
+          UploadId: uploadId,
+          MultipartUpload: {
+            Parts: [
+              { PartNumber: 1, ETag: part1Result.ETag },
+              { PartNumber: 2, ETag: part2Result.ETag },
+            ],
+          },
+        });
+
+        // 5. Verify the content
+        const result = yield* getObject({
+          Bucket: TEST_BUCKET,
+          Key: testKey,
+        });
+
+        if (!result.Body) {
+          return yield* Effect.fail(new Error("Expected Body in response"));
+        }
+
+        // Consume the stream
+        const chunks: Uint8Array[] = [];
+        yield* Stream.runForEach(result.Body, (chunk) =>
+          Effect.sync(() => {
+            chunks.push(chunk);
+          }),
+        );
+
+        let offset = 0;
+        const fullBuffer = new Uint8Array(chunks.reduce((acc, c) => acc + c.length, 0));
+        for (const chunk of chunks) {
+          fullBuffer.set(chunk, offset);
+          offset += chunk.length;
+        }
+
+        const expectedLength = part1Content.length + part2Content.length;
+        if (fullBuffer.length !== expectedLength) {
+          return yield* Effect.fail(
+            new Error(`Length mismatch: expected ${expectedLength}, got ${fullBuffer.length}`),
+          );
+        }
+
+        // Cleanup
+        yield* deleteObject({ Bucket: TEST_BUCKET, Key: testKey });
+      } catch (e) {
+        // Abort multipart upload on failure
+        yield* abortMultipartUpload({
+          Bucket: TEST_BUCKET,
+          Key: testKey,
+          UploadId: uploadId,
+        }).pipe(Effect.ignore);
+        throw e;
       }
     }),
   ),
