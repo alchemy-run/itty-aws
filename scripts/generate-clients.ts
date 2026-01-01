@@ -1,4 +1,4 @@
-import { FileSystem, Path } from "@effect/platform";
+import { Command, FileSystem, Path } from "@effect/platform";
 import { BunContext, BunRuntime } from "@effect/platform-bun";
 import dedent from "dedent";
 import {
@@ -11,7 +11,6 @@ import {
   Logger,
   Match,
   MutableHashMap,
-  MutableHashSet,
   Option,
   Ref,
   Schema as S,
@@ -33,12 +32,25 @@ class SdkFile extends Context.Tag("SdkFile")<
     cyclicClasses: Set<string>;
     // Set of ALL struct names (classes can be used directly as types)
     allStructNames: Set<string>;
-    // Set of shape IDs that are error shapes (should be inlined in TaggedError, not separate classes)
-    errorShapeIds: Set<string>;
+    // Map of error shape IDs to their error traits (for TaggedError generation)
+    errorShapeIds: Map<string, ErrorShapeTraits>;
     // Map of error shape names to their inline fields definition
     errorFields: Ref.Ref<Map<string, string>>;
     // Track if middleware import is needed
     usesMiddleware: Ref.Ref<boolean>;
+    // Service-level XML namespace (applies to all structures)
+    serviceXmlNamespace: string | undefined;
+    // Map of input schema names to their operation traits
+    operationInputTraits: Map<string, OperationInputTraits>;
+    // Set of output schema names (for applying namespace only to request/response schemas)
+    operationOutputNames: Set<string>;
+    // Service-level traits (applied to all request schemas)
+    serviceTraits: {
+      sdkId: string;
+      sigV4ServiceName: string;
+      version: string;
+      protocol: string;
+    };
   }
 >() {}
 
@@ -65,6 +77,120 @@ class UnableToTransformShapeToSchema extends Data.TaggedError("UnableToTransform
 class ProtocolNotImplemented extends Data.TaggedError("ProtocolNotImplemented")<{
   message: string;
 }> {}
+
+// =============================================================================
+// Unified Trait Collection
+// =============================================================================
+
+/**
+ * Smithy traits object type - a record of trait names to their values
+ */
+type SmithyTraits = Record<string, unknown> | undefined;
+
+/**
+ * Collect serialization-relevant trait annotations from a Smithy traits object.
+ * This provides a single, reusable function for collecting traits from:
+ * - Structure members
+ * - List members
+ * - Map key/value
+ *
+ * Returns an array of annotation strings like 'T.XmlName("foo")'
+ */
+function collectSerializationTraits(traits: SmithyTraits): string[] {
+  if (!traits) return [];
+
+  const pipes: string[] = [];
+
+  // smithy.api#httpHeader
+  if (traits["smithy.api#httpHeader"] != null) {
+    pipes.push(`T.HttpHeader("${traits["smithy.api#httpHeader"]}")`);
+  }
+
+  // smithy.api#httpPayload
+  if (traits["smithy.api#httpPayload"] != null) {
+    pipes.push(`T.HttpPayload()`);
+  }
+
+  // smithy.api#httpLabel
+  if (traits["smithy.api#httpLabel"] != null) {
+    pipes.push(`T.HttpLabel()`);
+  }
+
+  // smithy.api#httpQuery
+  if (traits["smithy.api#httpQuery"] != null) {
+    pipes.push(`T.HttpQuery("${traits["smithy.api#httpQuery"]}")`);
+  }
+
+  // smithy.api#httpQueryParams
+  if (traits["smithy.api#httpQueryParams"] != null) {
+    pipes.push(`T.HttpQueryParams()`);
+  }
+
+  // smithy.api#httpPrefixHeaders
+  if (traits["smithy.api#httpPrefixHeaders"] != null) {
+    pipes.push(`T.HttpPrefixHeaders("${traits["smithy.api#httpPrefixHeaders"]}")`);
+  }
+
+  // smithy.api#httpResponseCode
+  if (traits["smithy.api#httpResponseCode"] != null) {
+    pipes.push(`T.HttpResponseCode()`);
+  }
+
+  // smithy.api#xmlName
+  if (traits["smithy.api#xmlName"] != null) {
+    pipes.push(`T.XmlName("${traits["smithy.api#xmlName"]}")`);
+  }
+
+  // smithy.api#xmlFlattened
+  if (traits["smithy.api#xmlFlattened"] != null) {
+    pipes.push(`T.XmlFlattened()`);
+  }
+
+  // smithy.api#xmlAttribute
+  if (traits["smithy.api#xmlAttribute"] != null) {
+    pipes.push(`T.XmlAttribute()`);
+  }
+
+  // smithy.api#jsonName
+  if (traits["smithy.api#jsonName"] != null) {
+    pipes.push(`T.JsonName("${traits["smithy.api#jsonName"]}")`);
+  }
+
+  // smithy.api#timestampFormat
+  if (traits["smithy.api#timestampFormat"] != null) {
+    pipes.push(`T.TimestampFormat("${traits["smithy.api#timestampFormat"]}")`);
+  }
+
+  // smithy.rules#contextParam
+  if (traits["smithy.rules#contextParam"] != null) {
+    const contextParam = traits["smithy.rules#contextParam"] as { name: string };
+    pipes.push(`T.ContextParam("${contextParam.name}")`);
+  }
+
+  // smithy.api#hostLabel
+  if (traits["smithy.api#hostLabel"] != null) {
+    pipes.push(`T.HostLabel()`);
+  }
+
+  // aws.protocols#ec2QueryName
+  if (traits["aws.protocols#ec2QueryName"] != null) {
+    pipes.push(`T.Ec2QueryName("${traits["aws.protocols#ec2QueryName"]}")`);
+  }
+
+  return pipes;
+}
+
+/**
+ * Apply collected traits to a schema expression.
+ * Returns the schema with .pipe(...traits) appended if there are any traits.
+ */
+function applyTraitsToSchema(schema: string, traits: SmithyTraits): string {
+  const pipes = collectSerializationTraits(traits);
+  if (pipes.length > 0) {
+    return `${schema}.pipe(${pipes.join(", ")})`;
+  }
+  return schema;
+}
 
 const findServiceShape = Effect.gen(function* () {
   const model = yield* ModelService;
@@ -140,8 +266,8 @@ function schemaExprToTsType(
       return "Date";
     case "S.Any":
       return "any";
-    case "A.StreamBody()":
-      return "A.StreamBody";
+    case "T.StreamBody()":
+      return "T.StreamBody";
     case "S.Struct({})":
       return "Record<string, never>";
     default:
@@ -317,20 +443,93 @@ function findCyclicSchemasFromDeps(shapeDeps: Map<string, { deps: string[]; type
   return { cyclicSchemas, cyclicClasses, allStructNames };
 }
 
+// Error shape traits collected from the model
+interface ErrorShapeTraits {
+  httpError?: number;
+  awsQueryError?: {
+    code: string;
+    httpResponseCode: number;
+  };
+}
+
 //todo(pear): is this redundant over error in the file
-// Collect all error shape IDs from operation definitions
-function collectErrorShapeIds(model: SmithyModel): Set<string> {
-  const errorShapeIds = new Set<string>();
+// Collect all error shape IDs from operation definitions, along with their error traits
+function collectErrorShapeIds(model: SmithyModel): Map<string, ErrorShapeTraits> {
+  const errorShapeIds = new Map<string, ErrorShapeTraits>();
 
   for (const [shapeId, shape] of Object.entries(model.shapes)) {
     if (shape.type === "operation" && shape.errors) {
       for (const error of shape.errors) {
-        errorShapeIds.add(error.target);
+        const errorShape = model.shapes[error.target];
+        const httpError = errorShape?.traits?.["smithy.api#httpError"] as number | undefined;
+        const awsQueryError = errorShape?.traits?.["aws.protocols#awsQueryError"] as
+          | { code: string; httpResponseCode: number }
+          | undefined;
+        errorShapeIds.set(error.target, { httpError, awsQueryError });
       }
     }
   }
 
   return errorShapeIds;
+}
+
+// Operation traits collected for input schemas
+interface OperationInputTraits {
+  method: string;
+  uri: string;
+  httpChecksum?: {
+    requestAlgorithmMember?: string;
+    requestChecksumRequired?: boolean;
+    responseAlgorithms?: string[];
+  };
+  httpChecksumRequired?: boolean;
+}
+
+// Collect operation traits for input schemas
+function collectOperationInputTraits(model: SmithyModel): Map<string, OperationInputTraits> {
+  const inputTraits = new Map<string, OperationInputTraits>();
+
+  for (const [_shapeId, shape] of Object.entries(model.shapes)) {
+    if (shape.type === "operation" && shape.input) {
+      const httpTrait = (shape.traits?.["smithy.api#http"] as {
+        method?: string;
+        uri?: string;
+      }) ?? {
+        method: "POST",
+        uri: "/",
+      };
+      const httpChecksumTrait = shape.traits?.["aws.protocols#httpChecksum"] as
+        | {
+            requestAlgorithmMember?: string;
+            requestChecksumRequired?: boolean;
+            responseAlgorithms?: string[];
+          }
+        | undefined;
+
+      const inputName = formatName(shape.input.target);
+      inputTraits.set(inputName, {
+        method: httpTrait.method ?? "POST",
+        uri: httpTrait.uri ?? "/",
+        httpChecksum: httpChecksumTrait,
+      });
+    }
+  }
+
+  return inputTraits;
+}
+
+// Collect operation output schema names (for applying namespace only to request/response schemas)
+function collectOperationOutputNames(model: SmithyModel): Set<string> {
+  const outputNames = new Set<string>();
+
+  for (const [_shapeId, shape] of Object.entries(model.shapes)) {
+    if (shape.type === "operation" && shape.output) {
+      const outputName = formatName(shape.output.target);
+      outputNames.add(outputName);
+    }
+  }
+
+  return outputNames;
 }
 
 const convertShapeToSchema: (
@@ -395,7 +594,7 @@ const convertShapeToSchema: (
         ),
         Match.when(
           (s) => s === "smithy.api#Blob",
-          () => Effect.succeed("A.StreamBody()"),
+          () => Effect.succeed("T.StreamBody()"),
         ),
         Match.when(
           //todo(pear): should this be S.Never?
@@ -433,7 +632,7 @@ const convertShapeToSchema: (
           ),
           Match.when(
             (s) => s.type === "blob",
-            () => Effect.succeed("A.StreamBody()"),
+            () => Effect.succeed("T.StreamBody()"),
           ),
           Match.when(
             (s) => s.type === "boolean",
@@ -441,7 +640,14 @@ const convertShapeToSchema: (
           ),
           Match.when(
             (s) => s.type === "timestamp",
-            () => Effect.succeed("S.Date"),
+            (s) => {
+              // Check for timestampFormat trait on the timestamp shape itself
+              const format = s.traits?.["smithy.api#timestampFormat"];
+              if (format) {
+                return Effect.succeed(`S.Date.pipe(T.TimestampFormat("${format}"))`);
+              }
+              return Effect.succeed("S.Date");
+            },
           ),
           Match.when(
             (s) => s.type === "document",
@@ -495,6 +701,9 @@ const convertShapeToSchema: (
                         : `S.suspend(() => ${type})`;
                     }
 
+                    // Apply serialization traits (xmlName, timestampFormat, etc.) using unified function
+                    innerType = applyTraitsToSchema(innerType, s.member.traits);
+
                     if (isCyclic) {
                       // For cyclic arrays, generate explicit type alias to help TypeScript inference
                       const memberTsType = schemaExprToTsType(
@@ -543,26 +752,13 @@ const convertShapeToSchema: (
                         }
                       }
 
-                      if (member.traits?.["smithy.api#httpHeader"] != null) {
-                        if (baseSchema === "S.String") {
-                          schema = `A.Header("${member.traits?.["smithy.api#httpHeader"]}")`;
-                        } else {
-                          schema = `A.Header("${member.traits?.["smithy.api#httpHeader"]}", ${schema})`;
-                        }
-                      }
-                      if (member.traits?.["smithy.api#httpPayload"] != null) {
-                        schema = `A.Body("${member.traits?.["smithy.api#xmlName"]}", ${schema})`;
-                      }
-                      if (
-                        member.traits?.["smithy.api#httpLabel"] != null &&
-                        member.traits?.["smithy.rules#contextParam"] != null
-                      ) {
-                        schema = `A.Path("${(member.traits?.["smithy.rules#contextParam"] as { name: string })?.name}", ${schema})`;
-                      }
-
+                      // Wrap in S.optional first (if not required)
                       if (member.traits?.["smithy.api#required"] == null) {
                         schema = `S.optional(${schema})`;
                       }
+
+                      // Apply serialization traits using unified function
+                      schema = applyTraitsToSchema(schema, member.traits);
 
                       return `${memberName}: ${schema}`;
                     }),
@@ -587,15 +783,76 @@ const convertShapeToSchema: (
                 });
               }
 
-              // Check for xmlName trait on the structure
+              // Check for xmlName trait on the structure (class-level annotation)
               const xmlName = s.traits?.["smithy.api#xmlName"] as string | undefined;
+              // Check for structure-level xmlNamespace (overrides service-level)
+              const structXmlNamespace = s.traits?.["smithy.api#xmlNamespace"] as
+                | { uri: string }
+                | undefined;
+
+              // Check if this structure is an operation input or output
+              const opTraits = sdkFile.operationInputTraits.get(currentSchemaName);
+              const isOperationInput = opTraits !== undefined;
+              const isOperationOutput = sdkFile.operationOutputNames.has(currentSchemaName);
+
+              // Only apply service-level namespace to operation input/output schemas, not nested structures
+              const xmlNamespaceRef = structXmlNamespace
+                ? `T.XmlNamespace("${structXmlNamespace.uri}")`
+                : sdkFile.serviceXmlNamespace && (isOperationInput || isOperationOutput)
+                  ? "ns"
+                  : undefined;
 
               return addAlias(
                 membersEffect.pipe(
                   Effect.map((members) => {
                     const fields = `{${members.join(", ")}}`;
-                    // Add xmlName annotation if present
-                    const annotations = xmlName ? `, { [A.xmlNameSymbol]: "${xmlName}" }` : "";
+                    // Build class-level annotations array
+                    const classAnnotations: string[] = [];
+                    if (xmlName) {
+                      classAnnotations.push(`T.XmlName("${xmlName}")`);
+                    }
+                    if (xmlNamespaceRef) {
+                      classAnnotations.push(xmlNamespaceRef);
+                    }
+                    // Add operation-level annotations for request schemas
+                    if (isOperationInput) {
+                      // Add HTTP trait (method, uri)
+                      classAnnotations.push(
+                        `T.Http({ method: "${opTraits.method}", uri: "${opTraits.uri}" })`,
+                      );
+                      // Add service-level traits using pre-defined constants
+                      classAnnotations.push("svc");
+                      classAnnotations.push("auth");
+                      classAnnotations.push("proto");
+                      classAnnotations.push("ver");
+                      // Add httpChecksum trait if present
+                      if (opTraits.httpChecksum) {
+                        const checksumParts: string[] = [];
+                        if (opTraits.httpChecksum.requestAlgorithmMember) {
+                          checksumParts.push(
+                            `requestAlgorithmMember: "${opTraits.httpChecksum.requestAlgorithmMember}"`,
+                          );
+                        }
+                        if (opTraits.httpChecksum.requestChecksumRequired) {
+                          checksumParts.push(`requestChecksumRequired: true`);
+                        }
+                        if (opTraits.httpChecksum.responseAlgorithms) {
+                          checksumParts.push(
+                            `responseAlgorithms: [${opTraits.httpChecksum.responseAlgorithms.map((a) => `"${a}"`).join(", ")}]`,
+                          );
+                        }
+                        classAnnotations.push(
+                          `T.AwsProtocolsHttpChecksum({ ${checksumParts.join(", ")} })`,
+                        );
+                      }
+                    }
+                    // Only use T.all() when there are multiple annotations
+                    let annotations = "";
+                    if (classAnnotations.length === 1) {
+                      annotations = `, ${classAnnotations[0]}`;
+                    } else if (classAnnotations.length > 1) {
+                      annotations = `, T.all(${classAnnotations.join(", ")})`;
+                    }
                     return `export class ${currentSchemaName} extends S.Class<${currentSchemaName}>("${currentSchemaName}")(${fields}${annotations}) {}`;
                   }),
                 ),
@@ -705,6 +962,10 @@ const convertShapeToSchema: (
                         : `S.suspend(() => ${valueSchema})`;
                     }
 
+                    // Apply serialization traits (xmlName, etc.) using unified function
+                    wrappedKey = applyTraitsToSchema(wrappedKey, s.key.traits);
+                    wrappedValue = applyTraitsToSchema(wrappedValue, s.value.traits);
+
                     if (isCyclic) {
                       // For cyclic maps, generate explicit type alias to help TypeScript inference
                       const keyTsType = schemaExprToTsType(
@@ -745,18 +1006,33 @@ const convertShapeToSchema: (
   return deferredValue;
 });
 
-const addError = Effect.fn(function* (error: { name: string }) {
+const addError = Effect.fn(function* (error: { name: string; shapeId: string }) {
   const sdkFile = yield* SdkFile;
   const existingErrors = yield* Ref.get(sdkFile.errors);
   if (!existingErrors.some((e) => e.name === error.name)) {
     // Get the inline fields from errorFields map
     const errorFieldsMap = yield* Ref.get(sdkFile.errorFields);
     const fields = errorFieldsMap.get(error.name) ?? "{}";
+
+    // Get error traits for annotations
+    const errorTraits = sdkFile.errorShapeIds.get(error.shapeId);
+    const annotations: string[] = [];
+
+    // Add awsQueryError annotation if present
+    if (errorTraits?.awsQueryError) {
+      annotations.push(
+        `T.AwsQueryError({ code: "${errorTraits.awsQueryError.code}", httpResponseCode: ${errorTraits.awsQueryError.httpResponseCode} })`,
+      );
+    }
+
+    // Build the class definition with optional annotations
+    const annotationsArg = annotations.length > 0 ? `, ${annotations[0]}` : "";
+
     yield* Ref.update(sdkFile.errors, (errors) => [
       ...errors,
       {
         name: error.name,
-        definition: `export class ${error.name} extends S.TaggedError<${error.name}>()("${error.name}", ${fields}) {};`,
+        definition: `export class ${error.name} extends S.TaggedError<${error.name}>()("${error.name}", ${fields}${annotationsArg}) {};`,
       },
     ]);
   }
@@ -766,7 +1042,6 @@ const addError = Effect.fn(function* (error: { name: string }) {
 const generateClient = Effect.fn(function* (modelPath: string, outputRootPath: string) {
   const fs = yield* FileSystem.FileSystem;
   const path = yield* Path.Path;
-  const clientImports = MutableHashSet.empty<string>();
 
   const model = yield* fs
     .readFileString(modelPath)
@@ -800,12 +1075,73 @@ const generateClient = Effect.fn(function* (modelPath: string, outputRootPath: s
           operationShape["traits"]["smithy.api#documentation"] ?? "",
         );
 
-        const input = yield* convertShapeToSchema(operationShape.input.target).pipe(
-          Effect.flatMap(Deferred.await),
-        );
-        const output = yield* convertShapeToSchema(operationShape.output.target).pipe(
-          Effect.flatMap(Deferred.await),
-        );
+        // Get operation name for generating Unit type class names
+        const opName = operationShapeName.split("#")[1];
+
+        // Handle smithy.api#Unit specially - generate a proper class with protocol annotations
+        const input = yield* Effect.gen(function* () {
+          if (operationShape.input.target === "smithy.api#Unit") {
+            // Generate a Request class for Unit inputs with proper annotations
+            const className = `${opName}Request`;
+            const opTraits = sdkFile.operationInputTraits.get(className);
+            const classAnnotations: string[] = [];
+
+            // Add XML namespace if service has one
+            if (sdkFile.serviceXmlNamespace) {
+              classAnnotations.push("ns");
+            }
+            // Add HTTP trait
+            if (opTraits) {
+              classAnnotations.push(
+                `T.Http({ method: "${opTraits.method}", uri: "${opTraits.uri}" })`,
+              );
+            } else {
+              classAnnotations.push(`T.Http({ method: "POST", uri: "/" })`);
+            }
+            // Add service-level traits
+            classAnnotations.push("svc", "auth", "proto", "ver");
+
+            const annotations =
+              classAnnotations.length === 1
+                ? `, ${classAnnotations[0]}`
+                : `, T.all(${classAnnotations.join(", ")})`;
+            const definition = `export class ${className} extends S.Class<${className}>("${className}")({}${annotations}) {}`;
+            yield* Ref.update(sdkFile.schemas, (arr) => [
+              ...arr,
+              { name: className, definition, deps: [] },
+            ]);
+            return className;
+          }
+          return yield* convertShapeToSchema(operationShape.input.target).pipe(
+            Effect.flatMap(Deferred.await),
+          );
+        });
+
+        const output = yield* Effect.gen(function* () {
+          if (operationShape.output.target === "smithy.api#Unit") {
+            // Generate a Response class for Unit outputs
+            const className = `${opName}Response`;
+            const classAnnotations: string[] = [];
+            if (sdkFile.serviceXmlNamespace) {
+              classAnnotations.push("ns");
+            }
+            const annotations =
+              classAnnotations.length === 1
+                ? `, ${classAnnotations[0]}`
+                : classAnnotations.length > 0
+                  ? `, T.all(${classAnnotations.join(", ")})`
+                  : "";
+            const definition = `export class ${className} extends S.Class<${className}>("${className}")({}${annotations}) {}`;
+            yield* Ref.update(sdkFile.schemas, (arr) => [
+              ...arr,
+              { name: className, definition, deps: [] },
+            ]);
+            return className;
+          }
+          return yield* convertShapeToSchema(operationShape.output.target).pipe(
+            Effect.flatMap(Deferred.await),
+          );
+        });
 
         const operationErrors =
           operationShape.errors == null || operationShape.errors.length === 0
@@ -816,109 +1152,14 @@ const generateClient = Effect.fn(function* (modelPath: string, outputRootPath: s
                   Effect.flatMap(() =>
                     addError({
                       name: formatName(errorShapeReference),
+                      shapeId: errorShapeReference,
                     }),
                   ),
                 ),
               ).pipe(Effect.map((errors) => `[${errors.join(", ")}]`));
 
-        const httpTrait = operationShape["traits"]["smithy.api#http"] ?? {
-          method: "POST",
-          uri: "/",
-        };
-
-        // Detect httpChecksum trait and find the algorithm header
-        const httpChecksumTrait = operationShape["traits"]["aws.protocols#httpChecksum"] as
-          | {
-              requestAlgorithmMember?: string;
-              requestChecksumRequired?: boolean;
-            }
-          | undefined;
-
-        let checksumMiddleware: string | undefined;
-        if (httpChecksumTrait?.requestAlgorithmMember) {
-          // Find the input shape to get the header name for the algorithm member
-          const [, inputShape] = yield* findShape(operationShape.input.target, "structure");
-          const algorithmMember = inputShape.members[httpChecksumTrait.requestAlgorithmMember];
-          if (algorithmMember) {
-            const algorithmHeader = algorithmMember.traits?.["smithy.api#httpHeader"];
-            if (algorithmHeader) {
-              checksumMiddleware = `M.HttpChecksum({ algorithmHeader: "${algorithmHeader}" })`;
-              yield* Ref.set(sdkFile.usesMiddleware, true);
-            }
-          }
-        }
-
-        const [requestParser, responseParser, errorParser] = yield* Match.value(protocol).pipe(
-          Match.when("aws.protocols#restXml", () =>
-            Effect.succeed(["FormatXMLRequest", "FormatXMLResponse", "FormatAwsXMLError"]),
-          ),
-          Match.when("aws.protocols#restJson1", () =>
-            Effect.succeed(["FormatJSONRequest", "FormatJSONResponse", "FormatAwsRestJSONError"]),
-          ),
-          Match.when("aws.protocols#awsJson1_0", () =>
-            Effect.succeed([
-              "FormatAwsJSON10Request",
-              "FormatJSONResponse",
-              "FormatAwsRestJSONError",
-            ]),
-          ),
-          Match.when("aws.protocols#awsJson1_1", () =>
-            Effect.succeed([
-              "FormatAwsJSON11Request",
-              "FormatJSONResponse",
-              "FormatAwsRestJSONError",
-            ]),
-          ),
-          Match.when("aws.protocols#awsQuery", () =>
-            Effect.succeed([
-              "FormatAwsQueryRequest",
-              "FormatAwsQueryResponse",
-              "FormatAwsXMLError",
-            ]),
-          ),
-          Match.when("aws.protocols#ec2Query", () =>
-            Effect.succeed([
-              "FormatAwsQueryRequest",
-              "FormatAwsEc2QueryResponse",
-              "FormatAwsXMLError",
-            ]),
-          ),
-          Match.orElse(() =>
-            Effect.fail(
-              new ProtocolNotImplemented({
-                message: `protocol \`${protocol}\` not implemented for  ${serviceShapeName}`,
-              }),
-            ),
-          ),
-        );
-
-        MutableHashSet.add(clientImports, responseParser);
-        MutableHashSet.add(clientImports, requestParser);
-        MutableHashSet.add(clientImports, errorParser);
-
-        const middlewareArgs = checksumMiddleware ? `, ${checksumMiddleware}` : "";
-        // Build meta object, omitting uri if "/" and method if "POST"
-        const metaParts: string[] = [`version: "${serviceShape.version}"`];
-        if (httpTrait["uri"] !== "/") {
-          metaParts.push(`uri: "${httpTrait["uri"]}"`);
-        }
-        if (httpTrait["method"] !== "POST") {
-          metaParts.push(`method: "${httpTrait["method"]}"`);
-        }
-        metaParts.push(
-          `sdkId: "${serviceShape.traits["aws.api#service"].sdkId}"`,
-          `sigV4ServiceName: ${serviceShape.traits["aws.auth#sigv4"]?.name == null ? `"${serviceName}"` : `"${serviceShape.traits["aws.auth#sigv4"]?.name}"`}`,
-          `name: "${operationName}"`,
-          `inputSchema: ${input}`,
-          `outputSchema: ${output}`,
-          `errors: ${operationErrors}`,
-          // TODO(sam): these are backwards
-          `requestFormatter: P.${requestParser}`,
-          `responseParser: P.${responseParser}`,
-          `errorParser: P.${errorParser}`,
-        );
-        const metaObject = `{ ${metaParts.join(", ")} }`;
-        // O.Operation(${metaObject}, ${input}, ${output}, ${operationErrors}), P.${responseParser}, P.${requestParser}, P.${errorParser}${middlewareArgs}
+        // Build simplified operation object - metadata comes from annotations on input schema
+        const metaObject = `{ input: ${input}, output: ${output}, errors: ${operationErrors} }`;
 
         yield* sdkFile.operations.pipe(
           Ref.update(
@@ -944,20 +1185,42 @@ const generateClient = Effect.fn(function* (modelPath: string, outputRootPath: s
     const errorDefinitions = errors.map((s) => s.definition).join("\n");
 
     const operations = yield* Ref.get(sdkFile.operations);
-    const usesMiddleware = yield* Ref.get(sdkFile.usesMiddleware);
 
-    //todo(pear): optimize imports
-    const clientImportsArray = Array.from(clientImports);
-    const middlewareImport = usesMiddleware ? `\nimport * as M from "../middleware/index.ts";` : "";
     const imports = dedent`
       import * as S from "effect/Schema";
       import * as API from "../api.ts";
-      import * as A from "../annotations.ts";
-      import * as O from "../operation.ts";
-      import * as P from "../protocols/index.ts";
-      import * as M from "../middleware/index.ts";`;
+      import * as T from "../traits.ts";`;
 
-    const fileContents = `${imports}\n\n//# Schemas\n${schemaDefinitions}\n\n//# Errors\n${errorDefinitions}\n\n//# Operations\n${operations}`;
+    // Define service-level constants
+    const serviceConstants: string[] = [];
+
+    // XML namespace constant if service has one
+    if (sdkFile.serviceXmlNamespace) {
+      serviceConstants.push(`const ns = T.XmlNamespace("${sdkFile.serviceXmlNamespace}");`);
+    }
+
+    // Service trait constants (for operation input schemas)
+    const { sdkId, sigV4ServiceName, version, protocol: svcProtocol } = sdkFile.serviceTraits;
+    serviceConstants.push(`const svc = T.AwsApiService({ sdkId: "${sdkId}" });`);
+    serviceConstants.push(`const auth = T.AwsAuthSigv4({ name: "${sigV4ServiceName}" });`);
+    serviceConstants.push(`const ver = T.ServiceVersion("${version}");`);
+
+    // Protocol constant
+    const protoAnnotation = Match.value(svcProtocol).pipe(
+      Match.when("aws.protocols#restXml", () => "T.AwsProtocolsRestXml()"),
+      Match.when("aws.protocols#restJson1", () => "T.AwsProtocolsRestJson1()"),
+      Match.when("aws.protocols#awsJson1_0", () => "T.AwsProtocolsAwsJson1_0()"),
+      Match.when("aws.protocols#awsJson1_1", () => "T.AwsProtocolsAwsJson1_1()"),
+      Match.when("aws.protocols#awsQuery", () => "T.AwsProtocolsAwsQuery()"),
+      Match.when("aws.protocols#ec2Query", () => "T.AwsProtocolsEc2Query()"),
+      Match.orElse(() => "T.AwsProtocolsRestXml()"),
+    );
+    serviceConstants.push(`const proto = ${protoAnnotation};`);
+
+    const serviceConstantsBlock =
+      serviceConstants.length > 0 ? `\n${serviceConstants.join("\n")}` : "";
+
+    const fileContents = `${imports}${serviceConstantsBlock}\n\n//# Schemas\n${schemaDefinitions}\n\n//# Errors\n${errorDefinitions}\n\n//# Operations\n${operations}`;
 
     yield* fs.writeFileString(
       path.join(
@@ -975,6 +1238,35 @@ const generateClient = Effect.fn(function* (modelPath: string, outputRootPath: s
   // Pre-collect error shape IDs so we can inline their fields in TaggedError
   const errorShapeIds = collectErrorShapeIds(model);
 
+  // Pre-collect operation input traits and output names
+  const operationInputTraits = collectOperationInputTraits(model);
+  const operationOutputNames = collectOperationOutputNames(model);
+
+  // Extract service-level information
+  const serviceShape = Object.values(model.shapes).find((s) => s.type === "service") as
+    | ServiceShape
+    | undefined;
+  const serviceXmlNamespace = (
+    serviceShape?.traits?.["smithy.api#xmlNamespace"] as { uri: string } | undefined
+  )?.uri;
+
+  // Extract service-level traits
+  const serviceNameForTraits =
+    Object.entries(model.shapes)
+      .find(([_, s]) => s.type === "service")?.[0]
+      ?.split("#")[1] ?? "";
+  const serviceProtocol = serviceShape
+    ? (Object.keys(serviceShape.traits).find((key) => key.startsWith("aws.protocols#")) ?? "")
+    : "";
+  const serviceTraits = {
+    sdkId: serviceShape?.traits?.["aws.api#service"]?.sdkId ?? "",
+    sigV4ServiceName:
+      (serviceShape?.traits?.["aws.auth#sigv4"] as { name?: string } | undefined)?.name ??
+      serviceNameForTraits,
+    version: serviceShape?.version ?? "",
+    protocol: serviceProtocol,
+  };
+
   return yield* client.pipe(
     Effect.provideService(SdkFile, {
       schemas: yield* Ref.make<Array<{ name: string; definition: string; deps: string[] }>>([]),
@@ -987,6 +1279,10 @@ const generateClient = Effect.fn(function* (modelPath: string, outputRootPath: s
       errorShapeIds,
       errorFields: yield* Ref.make<Map<string, string>>(new Map()),
       usesMiddleware: yield* Ref.make<boolean>(false),
+      serviceXmlNamespace,
+      operationInputTraits,
+      operationOutputNames,
+      serviceTraits,
     }),
     Effect.provideService(ModelService, model),
   );
@@ -1026,6 +1322,8 @@ BunRuntime.runMain(
           ),
         ),
     );
+
+    yield* Command.make("bun", "format").pipe(Command.string);
   }).pipe(Logger.withMinimumLogLevel(LogLevel.Error), Effect.provide(BunContext.layer)),
 );
 

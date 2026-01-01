@@ -1,12 +1,14 @@
-export interface RawResponse {
-  //todo(pear): we create this so we don't need to validate
-  headers: Record<string, unknown>;
-  //todo(pear): handle streams somehow
+/**
+ * A protocol-agnostic HTTP response representation.
+ * This is what the protocol deserializer consumes.
+ */
+export interface Response {
+  /** HTTP status code */
+  status: number;
+  /** HTTP status text */
+  statusText: string;
+  /** Response headers */
+  headers: Record<string, string>;
+  /** Response body */
   body: string;
-}
-
-export interface ParsedResponse {
-  headers: Record<string, unknown>;
-  //todo(pear): handle streams somehow
-  body: Record<string, unknown>;
 }

@@ -1,13 +1,16 @@
-itty-aws is an AWS SDK gnerated from the aws-models repository.
+Generate a new client with a script like
+bun generate --sdk s3
 
-It has one major flaw: aws-models does not capture all the error codes for each operation.
+To run the s3 tests:
+bun test:local ./test/s3.test.ts
 
-To mitigate this, we use [service-patches.ts](./scripts/service-patches.ts) to patch the errors for each operation in each service.
+To run the XML tests:
+bun vitest run ./test/xml.test.ts
 
-To discover the important error codes, we look at the terraform provider-aws implementation of the service and find all API calls made in the providers and look at the error codes explicitly handled by the provider.
+If it is unclear what the XML format for an AWS API is, look up the AWS API reference for that operation.
 
-The terraform provider-aws implementation is available as a submodule in the ./terraform-provider-aws/internal//service/{service} directory. Use `ls` to find the service you are interested in and then read through all of the providers.
+When asked to explore the smithy models, use `bun -e` to evaluate inline Javascript that loads the JSON in aws-models/models/{service}/{version}.json. the models are too big to load into context.
 
-We then check our genreated code in src/services/{service}/types.ts to see if that error code is present and add it to the service-patches.ts file if it is not.
+Protocol tests must import and use generated request/output classes from ./src/services/*.ts. instead of re-defining them.
 
-After updating the service-patches.ts file, we `bun generate` to re-generate the client code and repeat.
+We aim to be 1:1 with smithy - all smithy traits make their way into generated code as traits piped to a schema.

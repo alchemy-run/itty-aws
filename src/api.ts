@@ -3,14 +3,14 @@ import type { HttpClientError } from "@effect/platform/HttpClientError";
 import { AwsV4Signer } from "aws4fetch";
 import * as Effect from "effect/Effect";
 import * as Option from "effect/Option";
-import * as ParseResult from "effect/ParseResult";
+import type * as ParseResult from "effect/ParseResult";
+import * as Schema from "effect/Schema";
 import { Credentials } from "./aws/credentials.ts";
 import { Endpoint } from "./aws/endpoint.ts";
-import { COMMON_ERRORS, UnknownAwsError, type CommonAwsError } from "./aws/errors.ts";
+import { UnknownAwsError, type CommonAwsError } from "./aws/errors.ts";
 import { Region } from "./aws/region.ts";
 import type { Operation } from "./operation.ts";
-import * as RequestBuilder from "./request-builder.ts";
-import * as ResponseParser from "./response-parser.ts";
+import { getAwsAuthSigv4, getMiddleware, getProtocol } from "./traits.ts";
 
 export const make = <Op extends Operation>(
   initOperation: () => Op,
@@ -22,98 +22,120 @@ export const make = <Op extends Operation>(
   Region | Credentials | HttpClient.HttpClient
 >) => {
   const op = initOperation();
-  // pass these in as Layers so they can use Effects as part of their initialization once per-operation
-  const createRequest = RequestBuilder.make(op);
-  const parseResponse = ResponseParser.make(op);
-  const parseError = op.errorParser(op);
+  const inputSchema = op.input;
+  const outputSchema = op.output;
+  const inputAst = inputSchema.ast;
 
-  const errorClasses = Object.fromEntries(
-    [...op.errors, ...COMMON_ERRORS].map((err) => [err._tag, err]),
-  );
+  // Discover protocol from input schema annotations
+  const protocol = getProtocol(inputAst);
+  if (!protocol) {
+    throw new Error("No protocol found on input schema");
+  }
 
+  // Discover middleware from input schema annotations
+  const middleware = getMiddleware(inputAst);
+
+  // Get SigV4 service name from annotations
+  const sigv4 = getAwsAuthSigv4(inputAst);
+
+  // @ts-expect-error
   return Effect.fnUntraced(function* (payload: Operation.Input<Op>) {
     const httpClient = yield* HttpClient.HttpClient;
 
-    yield* Effect.logDebug(op.name, "Payload", payload);
+    yield* Effect.logDebug("Payload", payload);
 
-    const unsignedRequest = yield* createRequest(payload);
+    // Serialize request using the protocol
+    let request = protocol.serializeRequest(inputSchema, payload);
 
-    yield* Effect.logDebug(op.name, "Unsigned Request", unsignedRequest);
+    yield* Effect.logDebug("Serialized Request", request);
 
+    // Apply middleware
+    for (const mw of middleware) {
+      request = yield* mw(inputSchema, request);
+    }
+
+    yield* Effect.logDebug("After Middleware", request);
+
+    // Sign the request
     const credentials = yield* Credentials;
     const region = yield* Region;
     const creds = yield* credentials.getCredentials();
+    const serviceName = sigv4?.name ?? "s3";
     const endpoint = (yield* Effect.serviceOption(Endpoint)).pipe(
-      Option.getOrElse(() => `${region}.amazonaws.com`),
+      Option.getOrElse(() => `https://${serviceName}.${region}.amazonaws.com`),
     );
 
-    // TODO(sam): don't create this per request
+    // Build full URL with query string
+    const queryString = Object.entries(request.query)
+      .filter(([_, v]) => v !== undefined)
+      .map(([k, v]) =>
+        v ? `${encodeURIComponent(k)}=${encodeURIComponent(v)}` : encodeURIComponent(k),
+      )
+      .join("&");
+    const fullPath = queryString ? `${request.path}?${queryString}` : request.path;
+
     const signer = new AwsV4Signer({
-      method: op.method ?? "POST",
-      url: `https://${op.sdkId.toLowerCase()}.${endpoint}${unsignedRequest.unsignedUri}`,
-      headers: unsignedRequest.unsignedHeaders,
-      body:
-        // TODO(sam): is this efficient?
-        unsignedRequest.unsignedBody instanceof Uint8Array
-          ? Buffer.from(unsignedRequest.unsignedBody)
-          : unsignedRequest.unsignedBody,
+      method: request.method,
+      url: `${endpoint}${fullPath}`,
+      headers: request.headers,
+      body: request.body instanceof Uint8Array ? Buffer.from(request.body) : request.body,
       accessKeyId: creds.accessKeyId,
       secretAccessKey: creds.secretAccessKey,
       sessionToken: creds.sessionToken,
-      service: op.sigV4ServiceName,
+      service: serviceName,
       region,
     });
     const signedRequest = yield* Effect.promise(() => signer.sign());
 
-    yield* Effect.logDebug(op.name, "Signed Request", signedRequest);
+    yield* Effect.logDebug("Signed Request", signedRequest);
 
-    let httpClientMethod = signedRequest.method.toLocaleLowerCase() as
-      | "get"
-      | "post"
-      | "put"
-      | "del"
-      | "patch"
-      | "head"
-      | "options"
-      | "delete";
+    let httpClientMethod = signedRequest.method.toLowerCase();
     if (httpClientMethod === "delete") {
       httpClientMethod = "del";
     }
 
-    const rawResponse = yield* httpClient[httpClientMethod](signedRequest.url, {
-      // @ts-expect-error - TODO(sam): what are the proper types here
+    const rawResponse = yield* httpClient[
+      httpClientMethod as "get" | "post" | "put" | "del" | "patch" | "head" | "options"
+    ](signedRequest.url, {
+      // @ts-expect-error - TODO: fix types
       headers: signedRequest.headers,
       body: signedRequest.body
         ? typeof signedRequest.body === "string"
           ? HttpBody.text(signedRequest.body)
-          : // @ts-expect-error - TODO(sam): what are the proper types here
+          : // @ts-expect-error - TODO: fix types
             HttpBody.stream(signedRequest.body)
         : undefined,
     });
 
-    const responsePayload = {
-      op,
-      body: yield* rawResponse.text,
-      headers: rawResponse.headers,
-    };
-    yield* Effect.logDebug(op.name, "Raw Response", responsePayload);
+    yield* Effect.logDebug("Raw Response Status", rawResponse.status);
+
+    const responseBody = yield* rawResponse.text;
+    // Effect's Headers is already a Record<string, string> with lowercase keys
+    const responseHeaders = rawResponse.headers as unknown as Record<string, string>;
+
+    yield* Effect.logDebug("Response Body", responseBody);
+
     if (rawResponse.status >= 200 && rawResponse.status < 300) {
-      const response = yield* parseResponse(responsePayload);
-      yield* Effect.logDebug(op.name, "Parsed Response", response);
-      return response;
+      // Deserialize response using the protocol
+      const parsed = protocol.deserializeResponse(outputSchema, {
+        status: rawResponse.status,
+        statusText: "",
+        headers: responseHeaders,
+        body: responseBody,
+      });
+
+      yield* Effect.logDebug("Parsed Response", parsed);
+
+      // Decode through schema for validation and transformation
+      return yield* Schema.decodeUnknown(outputSchema)(parsed);
     } else {
-      const { _tag: errorTag, data: errorData } = yield* parseError(responsePayload);
-      const matchingErrorClass = errorClasses[errorTag];
-      if (matchingErrorClass == null) {
-        return yield* Effect.fail(
-          UnknownAwsError.make({
-            errorTag,
-            errorData,
-          }),
-        );
-      }
-      yield* Effect.logDebug(op.name, "Parsed Error", errorData);
-      return yield* Effect.fail(matchingErrorClass.make(errorData));
+      // TODO: Parse error response
+      return yield* Effect.fail(
+        UnknownAwsError.make({
+          errorTag: "UnknownError",
+          errorData: { body: responseBody, status: rawResponse.status },
+        }),
+      );
     }
   });
 };

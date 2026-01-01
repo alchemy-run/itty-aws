@@ -1,81 +1,360 @@
-import * as Effect from "effect/Effect";
-import { ParseError } from "../error-parser.ts";
-import type { Operation } from "../operation.ts";
-import type { RawRequest } from "../request.ts";
-import type { RawResponse } from "../response.ts";
-import * as XML from "../util/xml.ts";
+/**
+ * AWS Query Protocol Implementation
+ *
+ * https://smithy.io/2.0/aws/protocols/aws-query-protocol.html
+ *
+ * Key differences from EC2 Query:
+ * - Query key uses xmlName directly (not capitalized like EC2)
+ * - Lists use .member.N format by default (not flattened)
+ * - Maps use .entry.N.key and .entry.N.value format
+ * - Response has {Op}Result wrapper inside {Op}Response
+ * - Errors wrapped in <ErrorResponse><Error>...</Error><RequestId>...</RequestId></ErrorResponse>
+ */
 
-export const FormatAwsQueryRequest = (op: Operation) =>
-  Effect.fn(function* (value: RawRequest) {
-    if (
-      typeof value.unsignedBody === "string" ||
-      value.unsignedBody instanceof Uint8Array ||
-      value.unsignedBody instanceof ReadableStream
-    ) {
-      return yield* Effect.fail(new ParseError({ message: "cannot encode aws query" }));
-    }
+import type * as S from "effect/Schema";
+import type * as AST from "effect/SchemaAST";
+import { XMLParser } from "fast-xml-parser";
+import type { Protocol } from "../protocol.ts";
+import type { Request } from "../request.ts";
+import type { Response } from "../response.ts";
+import {
+  getServiceVersion,
+  getTimestampFormat,
+  getTimestampFormatFromAST,
+  getXmlName,
+  getXmlNameProp,
+  hasXmlAttribute,
+  hasXmlFlattened,
+} from "../traits.ts";
+import {
+  getArrayElementAST,
+  getEncodedPropertySignatures,
+  getIdentifier,
+  getMapKeyValueAST,
+  isArrayAST,
+  isBooleanAST,
+  isDateAST,
+  isMapAST,
+  isNumberAST,
+} from "../util/ast.ts";
+import { formatTimestamp } from "./util/timestamp.ts";
 
-    const params = new URLSearchParams();
-    params.append("Action", op.name);
-    params.append("Version", op.version);
+// =============================================================================
+// Protocol Export
+// =============================================================================
 
-    if (value.unsignedBody) {
-      for (const [key, propertyValue] of Object.entries(value.unsignedBody)) {
-        serializeAwsQueryValue(params, key, propertyValue);
+export const awsQueryProtocol: Protocol = {
+  serializeRequest(inputSchema: S.Schema.AnyNoContext, input: unknown): Request {
+    const ast = inputSchema.ast;
+    const request: Request = {
+      method: "POST",
+      path: "/",
+      query: {},
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    };
+
+    // Get operation name from the identifier (e.g., "GetUserRequest" -> "GetUser")
+    const identifier = getIdentifier(ast) ?? "";
+    const action = identifier.replace(/Request$/, "");
+
+    // Get service version from annotations
+    const version = getServiceVersion(ast) ?? "";
+
+    // Build form-urlencoded body
+    const params: string[] = [];
+    params.push(`Action=${encodeURIComponent(action)}`);
+    params.push(`Version=${encodeURIComponent(version)}`);
+
+    // Serialize input members
+    serializeMembers(ast, input as Record<string, unknown>, "", params);
+
+    request.body = params.join("&");
+
+    return request;
+  },
+
+  deserializeResponse(outputSchema: S.Schema.AnyNoContext, response: Response): unknown {
+    const ast = outputSchema.ast;
+    const result: Record<string, unknown> = {};
+
+    // Parse body XML
+    if (response.body) {
+      const parsed = parseXml(response.body);
+
+      // AWS Query response structure:
+      // <{OperationName}Response xmlns="...">
+      //   <{OperationName}Result>
+      //     ...actual content...
+      //   </{OperationName}Result>
+      //   <ResponseMetadata>
+      //     <RequestId>...</RequestId>
+      //   </ResponseMetadata>
+      // </{OperationName}Response>
+
+      // Find the response element (should be the only top-level element)
+      const rootKeys = Object.keys(parsed).filter((k) => !k.startsWith("?"));
+      const responseKey = rootKeys[0];
+      let content = responseKey
+        ? (parsed[responseKey] as Record<string, unknown>)
+        : (parsed as Record<string, unknown>);
+
+      // Look for the Result wrapper inside the Response
+      if (content && typeof content === "object") {
+        // Find the *Result key (e.g., GetUserResult, ListUsersResult)
+        const resultKey = Object.keys(content).find((k) => k.endsWith("Result"));
+        if (resultKey) {
+          content = content[resultKey] as Record<string, unknown>;
+        }
+      }
+
+      if (content && typeof content === "object") {
+        Object.assign(result, deserializeObject(ast, content));
       }
     }
 
-    const queryParams = `${value.unsignedUri}?${params.toString()}`;
+    return result;
+  },
+};
 
-    return {
-      unsignedUri: queryParams,
-      unsignedBody: undefined,
-      unsignedHeaders: {
-        ...value.unsignedHeaders,
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-    };
-  });
+// =============================================================================
+// Query String Serialization
+// =============================================================================
 
-export const FormatAwsQueryResponse = (op: Operation) =>
-  Effect.fn(function* (value: RawResponse) {
-    const data = yield* Effect.try({
-      try: () => XML.parser.parse(value.body),
-      catch: () => new ParseError({ message: "cannot decode XML" }),
-    });
+/**
+ * Get the query key name for a member following AWS Query key resolution:
+ * 1. Use xmlName trait if present
+ * 2. Use member name (no capitalization, unlike EC2)
+ */
+function getQueryKeyName(prop: AST.PropertySignature): string {
+  const xmlName = getXmlNameProp(prop);
+  if (xmlName) return xmlName;
 
-    const name = op.name.split(".")[1];
+  return String(prop.name);
+}
 
-    return {
-      headers: value.headers,
-      body: data?.[`${name}Response`]?.[`${name}Result`],
-    };
-  });
+/**
+ * Serialize object members to query parameters
+ */
+function serializeMembers(
+  ast: AST.AST,
+  input: Record<string, unknown>,
+  prefix: string,
+  params: string[],
+): void {
+  for (const prop of getEncodedPropertySignatures(ast)) {
+    const memberName = String(prop.name);
+    const value = input[memberName];
+    if (value === undefined || value === null) continue;
 
-//todo(pear): this is vibe coded. maybe give it a 2nd look / move to effect match
-function serializeAwsQueryValue(params: URLSearchParams, key: string, value: unknown): void {
-  if (value === null || value === undefined) {
+    const queryKey = getQueryKeyName(prop);
+    const fullKey = prefix ? `${prefix}.${queryKey}` : queryKey;
+
+    serializeValue(prop.type, value, fullKey, params, prop);
+  }
+}
+
+/**
+ * Serialize a value to query parameters
+ */
+function serializeValue(
+  ast: AST.AST,
+  value: unknown,
+  key: string,
+  params: string[],
+  prop?: AST.PropertySignature,
+): void {
+  if (value === undefined || value === null) return;
+
+  // Handle Date
+  if (value instanceof Date) {
+    // Default to date-time for AWS Query (RFC 3339 / ISO 8601)
+    const format = prop
+      ? (getTimestampFormat(prop) ?? getTimestampFormatFromAST(prop.type) ?? "date-time")
+      : (getTimestampFormatFromAST(ast) ?? "date-time");
+    params.push(`${encodeURIComponent(key)}=${encodeURIComponent(formatTimestamp(value, format))}`);
     return;
   }
 
-  if (typeof value === "string") {
-    params.append(key, value);
-  } else if (typeof value === "boolean") {
-    params.append(key, value ? "true" : "false");
-  } else if (typeof value === "number" || typeof value === "bigint") {
-    params.append(key, String(value));
-  } else if (value instanceof Uint8Array) {
+  // Handle primitives
+  if (typeof value !== "object") {
+    params.push(`${encodeURIComponent(key)}=${encodeURIComponent(String(value))}`);
+    return;
+  }
+
+  // Handle Blob/Uint8Array (base64 encode)
+  if (value instanceof Uint8Array) {
     const base64 = btoa(String.fromCharCode(...value));
-    params.append(key, base64);
-  } else if (value instanceof Date) {
-    params.append(key, value.toISOString());
-  } else if (Array.isArray(value)) {
+    params.push(`${encodeURIComponent(key)}=${encodeURIComponent(base64)}`);
+    return;
+  }
+
+  // Handle arrays
+  if (Array.isArray(value)) {
+    // Empty arrays are not serialized
+    if (value.length === 0) return;
+
+    const elementAST = getArrayElementAST(ast);
+    const isFlattened = prop ? hasXmlFlattened(prop) : false;
+
+    // AWS Query uses "member" as default for list elements
+    // xmlName trait on the element AST can override this
+    const elementTag = elementAST ? (getXmlName(elementAST) ?? "member") : "member";
+
     for (let i = 0; i < value.length; i++) {
-      serializeAwsQueryValue(params, `${key}.${i + 1}`, value[i]);
+      // AWS Query format: Key.member.N for non-flattened, Key.N for flattened
+      const itemKey = isFlattened ? `${key}.${i + 1}` : `${key}.${elementTag}.${i + 1}`;
+      serializeValue(elementAST ?? ast, value[i], itemKey, params);
     }
-  } else if (typeof value === "object") {
-    for (const [memberName, memberValue] of Object.entries(value)) {
-      serializeAwsQueryValue(params, `${key}.${memberName}`, memberValue);
+    return;
+  }
+
+  // Handle maps
+  if (isMapAST(ast)) {
+    const mapValue = value as Record<string, unknown>;
+    const entries = Object.entries(mapValue);
+    if (entries.length === 0) return;
+
+    const { keyAST, valueAST } = getMapKeyValueAST(ast) ?? {};
+    const isFlattened = prop ? hasXmlFlattened(prop) : false;
+
+    // Get custom key/value names if specified via xmlName trait on the schema
+    const keyName = keyAST ? (getXmlName(keyAST) ?? "key") : "key";
+    const valueName = valueAST ? (getXmlName(valueAST) ?? "value") : "value";
+
+    for (let i = 0; i < entries.length; i++) {
+      const [k, v] = entries[i];
+      // AWS Query format: Key.entry.N.key/value for non-flattened
+      // Flattened: Key.N.key/value
+      const entryPrefix = isFlattened ? `${key}.${i + 1}` : `${key}.entry.${i + 1}`;
+      params.push(
+        `${encodeURIComponent(`${entryPrefix}.${keyName}`)}=${encodeURIComponent(String(k))}`,
+      );
+      serializeValue(valueAST ?? ast, v, `${entryPrefix}.${valueName}`, params);
+    }
+    return;
+  }
+
+  // Handle objects (nested structures)
+  if (typeof value === "object") {
+    serializeMembers(ast, value as Record<string, unknown>, key, params);
+  }
+}
+
+// =============================================================================
+// XML Deserialization
+// =============================================================================
+
+function deserializeValue(ast: AST.AST, value: unknown): unknown {
+  if (value == null || value === "") return undefined;
+
+  // Handle arrays
+  if (isArrayAST(ast)) {
+    const elAST = getArrayElementAST(ast);
+    if (!elAST) return Array.isArray(value) ? value : [value];
+
+    // Handle wrapped arrays: { member: [...] } or { Item: [...] }
+    // Use xmlName from element AST if present, otherwise try class identifier, fallback to "member"
+    const elTag = getXmlName(elAST) ?? getIdentifier(elAST) ?? "member";
+    if (typeof value === "object" && !Array.isArray(value)) {
+      const objValue = value as Record<string, unknown>;
+      // Check for wrapper element with xmlName or class name
+      if (elTag in objValue) {
+        value = objValue[elTag];
+      } else if ("member" in objValue) {
+        value = objValue["member"];
+      }
+    }
+
+    const items = Array.isArray(value) ? value : [value];
+    return items.map((item) => deserializeValue(elAST, item));
+  }
+
+  // Handle strings
+  if (typeof value === "string") {
+    if (isNumberAST(ast)) return Number(value);
+    if (isBooleanAST(ast)) return value === "true";
+    if (isDateAST(ast)) return new Date(value);
+    return value;
+  }
+
+  // Handle numbers/booleans from parser
+  if (typeof value === "number" || typeof value === "boolean") {
+    return value;
+  }
+
+  // Handle objects
+  if (typeof value === "object" && !Array.isArray(value)) {
+    return deserializeObject(ast, value as Record<string, unknown>);
+  }
+
+  return value;
+}
+
+function deserializeObject(ast: AST.AST, value: Record<string, unknown>): Record<string, unknown> {
+  const result: Record<string, unknown> = {};
+
+  for (const prop of getEncodedPropertySignatures(ast)) {
+    const key = String(prop.name);
+    const xmlName = getXmlNameProp(prop) ?? key;
+
+    // Handle XML attributes (parser prefixes attributes with @_)
+    if (hasXmlAttribute(prop)) {
+      const attrValue = value[`@_${xmlName}`];
+      if (attrValue !== undefined) {
+        result[key] = deserializeValue(prop.type, attrValue);
+      }
+      continue;
+    }
+
+    // Try member name first, then xmlName
+    let propValue = value[key] ?? value[xmlName];
+
+    if (propValue === undefined) continue;
+
+    // Handle arrays
+    if (isArrayAST(prop.type)) {
+      const elAST = getArrayElementAST(prop.type) ?? prop.type;
+      const isFlattened = hasXmlFlattened(prop);
+
+      // Unwrap list wrapper elements from XML parser output
+      let arrayValue: unknown = propValue;
+      if (typeof propValue === "object" && propValue !== null && !Array.isArray(propValue)) {
+        const objValue = propValue as Record<string, unknown>;
+        // First, try xmlName from element AST, then class identifier
+        const elTag = getXmlName(elAST) ?? getIdentifier(elAST);
+        if (elTag && elTag in objValue) {
+          arrayValue = objValue[elTag];
+        } else if ("member" in objValue) {
+          // AWS Query protocol convention: list items wrapped in <member>
+          arrayValue = objValue["member"];
+        }
+      }
+
+      const items = Array.isArray(arrayValue) ? arrayValue : [arrayValue];
+      result[key] = items.map((item) => deserializeValue(elAST, item));
+    } else {
+      result[key] = deserializeValue(prop.type, propValue);
     }
   }
+
+  return result;
+}
+
+// =============================================================================
+// XML Parsing
+// =============================================================================
+
+const xmlParser = new XMLParser({
+  ignoreAttributes: false,
+  attributeNamePrefix: "@_",
+  textNodeName: "#text",
+  trimValues: true,
+  parseTagValue: false, // Keep values as strings, let schema handle conversion
+  parseAttributeValue: false,
+  removeNSPrefix: false,
+});
+
+function parseXml(xml: string): Record<string, unknown> {
+  if (!xml?.trim()) return {};
+  return xmlParser.parse(xml) as Record<string, unknown>;
 }

@@ -1,59 +1,70 @@
+/**
+ * Request Builder - wraps Protocol and Middleware to build complete requests.
+ *
+ * This layer:
+ * 1. Uses the Protocol to serialize the input into a Request
+ * 2. Applies middleware (e.g., checksum computation)
+ * 3. Adds common headers
+ *
+ * This is independently testable without making HTTP requests.
+ */
+
 import * as Effect from "effect/Effect";
-import * as Option from "effect/Option";
-import * as ParseResult from "effect/ParseResult";
-import * as AST from "effect/SchemaAST";
-import { getAnnotations } from "./annotations.ts";
-import type { Operation } from "./operation.ts";
-import type { RawRequest, UnsignedRequest } from "./request.ts";
+import type * as S from "effect/Schema";
+import { getMiddleware, getProtocol } from "./traits.ts";
+import type { Protocol } from "./protocol.ts";
+import type { Request } from "./request.ts";
 
-export type FormatRequest = (
-  request: RawRequest,
-) => Effect.Effect<UnsignedRequest, ParseResult.ParseError, never>;
+export interface RequestBuilderOptions {
+  /** Override the protocol (otherwise discovered from schema annotations) */
+  protocol?: Protocol;
+}
 
-export type FormatRequestMiddleware = (op: Operation) => FormatRequest;
+export type RequestBuilder = (input: unknown) => Effect.Effect<Request>;
 
-export const make = <Op extends Operation>(op: Op) => {
-  const inputSchema = op.inputSchema;
-  const inputAst = inputSchema.ast;
-  const structAst = AST.isTransformation(inputAst) ? inputAst.from : inputAst;
-  const props = AST.isTypeLiteral(structAst) ? structAst.propertySignatures : [];
-  const formatRequest = op.requestFormatter(op);
+/**
+ * Create a request builder for a given input schema.
+ *
+ * Expensive work (protocol/middleware discovery) is done once at creation time.
+ *
+ * @param inputSchema - The input schema (with protocol/middleware annotations)
+ * @param options - Optional overrides
+ * @returns A function that builds requests from input values
+ */
+export const makeRequestBuilder = (
+  inputSchema: S.Schema.AnyNoContext,
+  options?: RequestBuilderOptions,
+): RequestBuilder => {
+  // Discover protocol from annotations or use override (done once)
+  const protocol = options?.protocol ?? getProtocol(inputSchema.ast);
+  if (!protocol) {
+    throw new Error("No protocol found on input schema");
+  }
 
-  return Effect.fnUntraced(function* (input: Operation.Input<Op>) {
-    const headers: Record<string, string> = {
-      "User-Agent": "distilled-aws-sdk",
-    };
-    let uri = op.uri ?? "/";
-    let body;
+  // Discover middleware from annotations (done once)
+  const middleware = getMiddleware(inputSchema.ast);
 
-    for (const prop of props) {
-      const name = prop.name as keyof typeof input;
-      const annotations = getAnnotations(prop.type);
+  // Return a function that builds requests
+  return (input: unknown): Effect.Effect<Request> => {
+    return Effect.gen(function* () {
+      // Serialize request using the protocol
+      let request = protocol.serializeRequest(inputSchema, input);
 
-      if (Option.isSome(annotations.header)) {
-        headers[annotations.header.value] = input[name] as string;
-      } else if (Option.isSome(annotations.path)) {
-        uri = uri.replace(new RegExp(`{${annotations.path.value}\\+?}`), `${input[name]}`);
-        // uri = `https://s3.us-east-1.amazonaws.com/${value[name]}`;
-      } else if (Option.isSome(annotations.body)) {
-        body = { [annotations.body.value]: input[name] };
-      } else if (Option.isSome(annotations.streamBody)) {
-        body = input[name];
+      // Apply middleware
+      for (const mw of middleware) {
+        request = yield* mw(inputSchema, request);
       }
-    }
 
-    let unsignedRequest = yield* formatRequest({
-      unsignedHeaders: headers,
-      unsignedUri: uri,
-      unsignedBody: body,
+      // Add common headers
+      request = {
+        ...request,
+        headers: {
+          ...request.headers,
+          "User-Agent": "itty-aws/1.0",
+        },
+      };
+
+      return request;
     });
-
-    for (const middleware of op.middleware ?? []) {
-      if (middleware.request) {
-        unsignedRequest = yield* middleware.request(unsignedRequest);
-      }
-    }
-
-    return unsignedRequest;
-  });
+  };
 };
