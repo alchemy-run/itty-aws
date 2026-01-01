@@ -1,6 +1,7 @@
 import type * as Effect from "effect/Effect";
 import * as Schema from "effect/Schema";
 import * as AST from "effect/SchemaAST";
+import type * as Stream from "effect/Stream";
 import { applyHttpChecksum } from "./middleware/checksum.ts";
 import type { Protocol } from "./protocol.ts";
 import { awsQueryProtocol } from "./protocols/aws-query.ts";
@@ -426,7 +427,27 @@ export const AwsQueryError = (trait: AwsQueryErrorTrait) =>
   makeAnnotation(awsQueryErrorSymbol, trait);
 
 // =============================================================================
-// Streaming Body (smithy.api#Blob / smithy.api#streaming)
+// Blob Type (smithy.api#blob without @streaming)
+// =============================================================================
+
+/**
+ * Smithy blob type - binary data that encodes to base64 on the wire.
+ * Used for non-streaming blobs in request/response bodies.
+ *
+ * For streaming blobs (@httpPayload with @streaming), use StreamingInput/StreamingOutput.
+ */
+export const Blob = Schema.transform(
+  Schema.String, // wire format: base64 string
+  Schema.instanceOf(Uint8Array), // internal: Uint8Array
+  {
+    strict: true,
+    decode: (s) => Uint8Array.from(atob(s), (c) => c.charCodeAt(0)),
+    encode: (u) => btoa(String.fromCharCode(...u)),
+  },
+).annotations({ identifier: "Blob" });
+
+// =============================================================================
+// Streaming Body (smithy.api#blob + smithy.api#streaming)
 // =============================================================================
 
 /** smithy.api#streaming - Marks a type as streaming/blob (raw body, not serialized) */
@@ -446,7 +467,54 @@ export const isStreamingType = (ast: AST.AST): boolean => {
   return false;
 };
 
-/** Streaming body type (Blob in Smithy) */
+/**
+ * Streaming input body - accepts multiple source types.
+ * The protocol converts these to the appropriate format for fetch.
+ *
+ * Used for @httpPayload members with @streaming trait (e.g., S3 PutObject Body).
+ */
+export type StreamingInputBody =
+  | string
+  | Uint8Array
+  | ArrayBuffer
+  | globalThis.Blob
+  | ReadableStream<Uint8Array>
+  | Stream.Stream<Uint8Array, unknown, unknown>;
+
+/**
+ * Schema for streaming input bodies.
+ * Validates that the input is one of the accepted streaming types.
+ */
+export const StreamingInput = Schema.declare(
+  (u): u is StreamingInputBody =>
+    typeof u === "string" ||
+    u instanceof Uint8Array ||
+    u instanceof ArrayBuffer ||
+    (typeof globalThis.Blob !== "undefined" && u instanceof globalThis.Blob) ||
+    u instanceof ReadableStream ||
+    isEffectStream(u),
+).annotations({ [streamingSymbol]: true, identifier: "StreamingInput" });
+
+/**
+ * Streaming output body - always Effect Stream for composability.
+ * Provides lazy, backpressure-aware consumption of response data.
+ *
+ * Used for @httpPayload members with @streaming trait (e.g., S3 GetObject Body).
+ */
+
+export const StreamingOutput = Schema.declare((u): u is Stream.Stream<Uint8Array, Error, never> =>
+  isEffectStream(u),
+).annotations({ [streamingSymbol]: true, identifier: "StreamingOutput" });
+
+/**
+ * Check if a value is an Effect Stream.
+ * Uses duck typing since Stream doesn't have a built-in type guard.
+ */
+function isEffectStream(u: unknown): u is Stream.Stream<unknown, unknown, unknown> {
+  return u !== null && typeof u === "object" && Symbol.for("effect/Stream") in (u as object);
+}
+
+/** Legacy StreamBody type - kept for backwards compatibility */
 export type StreamBody = string | Uint8Array | ReadableStream;
 export const StreamBody = () =>
   Schema.Union(

@@ -268,6 +268,12 @@ function schemaExprToTsType(
       return "any";
     case "T.StreamBody()":
       return "T.StreamBody";
+    case "T.StreamingInput":
+      return "T.StreamingInputBody";
+    case "T.StreamingOutput":
+      return "T.StreamingOutputBody";
+    case "T.Blob":
+      return "Uint8Array";
     case "S.Struct({})":
       return "Record<string, never>";
     default:
@@ -602,7 +608,8 @@ const convertShapeToSchema: (
         ),
         Match.when(
           (s) => s === "smithy.api#Blob",
-          () => Effect.succeed("T.StreamBody()"),
+          // Primitive blob - not streaming, so use base64 encoded Blob type
+          () => Effect.succeed("T.Blob"),
         ),
         Match.when(
           //todo(pear): should this be S.Never?
@@ -640,7 +647,17 @@ const convertShapeToSchema: (
           ),
           Match.when(
             (s) => s.type === "blob",
-            () => Effect.succeed("T.StreamBody()"),
+            (s) => {
+              // Check for @streaming trait
+              if (s.traits?.["smithy.api#streaming"] != null) {
+                // Streaming blob - used for large payloads like S3 objects
+                // NOTE: Context-specific types (StreamingInput/StreamingOutput) are
+                // handled at the member level. This fallback is for direct references.
+                return Effect.succeed("T.StreamBody()");
+              }
+              // Non-streaming blob - base64 encoded in body
+              return Effect.succeed("T.Blob");
+            },
           ),
           Match.when(
             (s) => s.type === "boolean",
@@ -750,63 +767,91 @@ const convertShapeToSchema: (
               const isCurrentCyclic = sdkFile.cyclicSchemas.has(currentSchemaName);
               const isErrorShape = sdkFile.errorShapeIds.has(target);
 
+              // Check if this structure is an operation input or output FIRST (needed for member processing)
+              const opTraits = sdkFile.operationInputTraits.get(currentSchemaName);
+              const isOperationInput = opTraits !== undefined;
+              const isOperationOutput = sdkFile.operationOutputNames.has(currentSchemaName);
+
               const membersEffect = Effect.all(
-                Object.entries(s.members).map(([memberName, member]) => {
-                  const memberTargetName = formatName(member.target);
-                  const isMemberErrorShape = sdkFile.errorShapeIds.has(member.target);
+                Object.entries(s.members).map(([memberName, member]) =>
+                  Effect.gen(function* () {
+                    const memberTargetName = formatName(member.target);
+                    const isMemberErrorShape = sdkFile.errorShapeIds.has(member.target);
 
-                  // Check if this member has HTTP binding traits that affect timestamp format
-                  const hasHttpHeader = member.traits?.["smithy.api#httpHeader"] != null;
-                  const explicitFormat = member.traits?.["smithy.api#timestampFormat"] as
-                    | string
-                    | undefined;
+                    // Check if this member has HTTP binding traits that affect timestamp format
+                    const hasHttpHeader = member.traits?.["smithy.api#httpHeader"] != null;
+                    const explicitFormat = member.traits?.["smithy.api#timestampFormat"] as
+                      | string
+                      | undefined;
 
-                  return convertShapeToSchema(member.target).pipe(
-                    Effect.flatMap(Deferred.await),
-                    Effect.map((baseSchema) => {
-                      let schema = baseSchema;
+                    // Check if member target is a streaming blob - if so, use context-specific type
+                    const model = yield* ModelService;
+                    const memberTargetShape = model.shapes[member.target] as
+                      | GenericShape
+                      | undefined;
+                    const isStreamingBlob =
+                      memberTargetShape?.type === "blob" &&
+                      memberTargetShape?.traits?.["smithy.api#streaming"] != null;
 
-                      // Check if base schema is a timestamp (contains S.Date or TimestampFormat)
-                      const isTimestampSchema =
-                        baseSchema.includes("S.Date") ||
-                        baseSchema.includes("TimestampFormat") ||
-                        member.target === "smithy.api#Timestamp";
-
-                      // Override timestamp schema for HTTP header bindings
-                      if (isTimestampSchema && hasHttpHeader && !explicitFormat) {
-                        // HTTP headers default to http-date format
-                        schema = `S.Date.pipe(T.TimestampFormat("http-date"))`;
-                      } else if (isTimestampSchema && explicitFormat) {
-                        // Explicit format on member overrides target
-                        schema = `S.Date.pipe(T.TimestampFormat("${explicitFormat}"))`;
+                    let baseSchema: string;
+                    if (isStreamingBlob) {
+                      // Use different schema based on input vs output context
+                      if (isOperationOutput) {
+                        baseSchema = "T.StreamingOutput";
+                      } else if (isOperationInput) {
+                        baseSchema = "T.StreamingInput";
+                      } else {
+                        // Nested structure - fallback to general StreamBody
+                        baseSchema = "T.StreamBody()";
                       }
+                    } else {
+                      baseSchema = yield* convertShapeToSchema(member.target).pipe(
+                        Effect.flatMap(Deferred.await),
+                      );
+                    }
 
-                      // Wrap error shape references in S.suspend (they're defined after schemas)
-                      if (isMemberErrorShape) {
+                    let schema = baseSchema;
+
+                    // Check if base schema is a timestamp (contains S.Date or TimestampFormat)
+                    const isTimestampSchema =
+                      baseSchema.includes("S.Date") ||
+                      baseSchema.includes("TimestampFormat") ||
+                      member.target === "smithy.api#Timestamp";
+
+                    // Override timestamp schema for HTTP header bindings
+                    if (isTimestampSchema && hasHttpHeader && !explicitFormat) {
+                      // HTTP headers default to http-date format
+                      schema = `S.Date.pipe(T.TimestampFormat("http-date"))`;
+                    } else if (isTimestampSchema && explicitFormat) {
+                      // Explicit format on member overrides target
+                      schema = `S.Date.pipe(T.TimestampFormat("${explicitFormat}"))`;
+                    }
+
+                    // Wrap error shape references in S.suspend (they're defined after schemas)
+                    if (isMemberErrorShape) {
+                      schema = `S.suspend(() => ${schema})`;
+                    }
+                    // Wrap cyclic references in S.suspend (only if current schema is also cyclic)
+                    else if (isCurrentCyclic && sdkFile.cyclicSchemas.has(memberTargetName)) {
+                      if (sdkFile.cyclicClasses.has(memberTargetName)) {
+                        // TODO(sam): I had to add the any here because encoded type was creting circular errors. hopefully OK since we don't really need it
+                        schema = `S.suspend((): S.Schema<${schema}, any> => ${schema})`;
+                      } else {
                         schema = `S.suspend(() => ${schema})`;
                       }
-                      // Wrap cyclic references in S.suspend (only if current schema is also cyclic)
-                      else if (isCurrentCyclic && sdkFile.cyclicSchemas.has(memberTargetName)) {
-                        if (sdkFile.cyclicClasses.has(memberTargetName)) {
-                          // TODO(sam): I had to add the any here because encoded type was creting circular errors. hopefully OK since we don't really need it
-                          schema = `S.suspend((): S.Schema<${schema}, any> => ${schema})`;
-                        } else {
-                          schema = `S.suspend(() => ${schema})`;
-                        }
-                      }
+                    }
 
-                      // Wrap in S.optional first (if not required)
-                      if (member.traits?.["smithy.api#required"] == null) {
-                        schema = `S.optional(${schema})`;
-                      }
+                    // Wrap in S.optional first (if not required)
+                    if (member.traits?.["smithy.api#required"] == null) {
+                      schema = `S.optional(${schema})`;
+                    }
 
-                      // Apply serialization traits using unified function
-                      schema = applyTraitsToSchema(schema, member.traits);
+                    // Apply serialization traits using unified function
+                    schema = applyTraitsToSchema(schema, member.traits);
 
-                      return `${memberName}: ${schema}`;
-                    }),
-                  );
-                }),
+                    return `${memberName}: ${schema}`;
+                  }),
+                ),
                 { concurrency: "unbounded" },
               );
 
@@ -832,11 +877,6 @@ const convertShapeToSchema: (
               const structXmlNamespace = s.traits?.["smithy.api#xmlNamespace"] as
                 | { uri: string }
                 | undefined;
-
-              // Check if this structure is an operation input or output
-              const opTraits = sdkFile.operationInputTraits.get(currentSchemaName);
-              const isOperationInput = opTraits !== undefined;
-              const isOperationOutput = sdkFile.operationOutputNames.has(currentSchemaName);
 
               // Only apply service-level namespace to operation input/output schemas, not nested structures
               const xmlNamespaceRef = structXmlNamespace

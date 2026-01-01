@@ -7,37 +7,38 @@ const { values } = parseArgs({
     http: { type: "boolean", default: false },
   },
 });
+const repos: Array<string | { repo: string; name: string }> = [
+  { repo: "aws/api-models-aws", name: "aws-models" }, // alias: aws-models
+  "smithy-lang/smithy",
+  "aws/aws-sdk-js-v3",
+];
 
-const awsModels = Bun.file("aws-models");
-const exists =
-  (await awsModels.exists()) ||
-  (await awsModels
-    .stat()
-    .then(() => true)
-    .catch(() => false));
+for (const repoEntry of repos) {
+  const repoPath = typeof repoEntry === "string" ? repoEntry : repoEntry.repo;
+  // Determine directory name: use alias (name) if present, otherwise last path component
+  const dir =
+    typeof repoEntry === "string"
+      ? repoPath
+          .split("/")
+          .pop()!
+          .replace(/\.git$/, "")
+      : repoEntry.name;
 
-const repoUrl = values.http
-  ? "https://github.com/aws/api-models-aws.git"
-  : "git@github.com:aws/api-models-aws.git";
+  // Build repo URL
+  const repo = values.http
+    ? `https://github.com/${repoPath}.git`
+    : `git@github.com:${repoPath}.git`;
 
-if (!exists) {
-  await $`git clone ${repoUrl} aws-models --depth=1`;
-} else {
-  await $`git pull --ff-only`.cwd("aws-models");
-}
-
-const smithyModels = Bun.file("smithy");
-const smithyExists =
-  (await smithyModels.exists()) ||
-  (await smithyModels
-    .stat()
-    .then(() => true)
-    .catch(() => false));
-
-const smithyRepoUrl = "git@github.com:smithy-lang/smithy.git";
-
-if (!smithyExists) {
-  await $`git clone ${smithyRepoUrl} smithy --depth=1`;
-} else {
-  await $`git pull --ff-only`.cwd("smithy");
+  const file = Bun.file(dir);
+  const exists =
+    (await file.exists()) ||
+    (await file
+      .stat()
+      .then(() => true)
+      .catch(() => false));
+  if (!exists) {
+    await $`git clone ${repo} ${dir} --depth=1`;
+  } else {
+    await $`git pull --ff-only`.cwd(dir);
+  }
 }

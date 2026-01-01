@@ -22,10 +22,12 @@ import {
   hasHttpPayload,
   isStreamingType,
   jsonNameSymbol,
+  type StreamingInputBody,
 } from "../traits.ts";
 import { getArrayElementAST, getEncodedPropertySignatures, unwrapUnion } from "../util/ast.ts";
 import { extractStaticQueryParams } from "../util/query-params.ts";
 import { applyHttpTrait, bindInputToRequest } from "../util/serialize-input.ts";
+import { convertStreamingInput, readableToEffectStream, readStreamAsText } from "../util/stream.ts";
 
 export const restJson1Protocol: Protocol = (operation: Operation): ProtocolHandler => {
   const inputSchema = operation.input;
@@ -58,9 +60,14 @@ export const restJson1Protocol: Protocol = (operation: Operation): ProtocolHandl
 
       // Serialize body
       if (payloadValue !== undefined && payloadAst !== undefined) {
-        request.body = isRawPayload(payloadAst)
-          ? (payloadValue as string)
-          : JSON.stringify(renameKeys(payloadAst, payloadValue, true));
+        if (isStreamingType(payloadAst)) {
+          // Streaming input - convert to appropriate format for fetch
+          request.body = convertStreamingInput(payloadValue as StreamingInputBody);
+        } else if (isRawPayload(payloadAst)) {
+          request.body = payloadValue as string;
+        } else {
+          request.body = JSON.stringify(renameKeys(payloadAst, payloadValue, true));
+        }
       } else if (hasBodyMembers) {
         request.body = JSON.stringify(renameKeys(inputAst, bodyMembers, true));
       }
@@ -71,21 +78,16 @@ export const restJson1Protocol: Protocol = (operation: Operation): ProtocolHandl
     deserializeResponse: Effect.fn(function* (response: Response) {
       const result: Record<string, unknown> = {};
 
-      // Extract header-bound and httpPayload values
+      // Extract header-bound properties first
       for (const prop of outputProps) {
         const name = String(prop.name);
-
-        // Header binding
         const header = getHttpHeader(prop);
+        const prefix = getHttpPrefixHeaders(prop);
+
         if (header) {
           const v = response.headers[header.toLowerCase()] ?? response.headers[header];
           if (v !== undefined) result[name] = v;
-          continue;
-        }
-
-        // Prefix headers binding
-        const prefix = getHttpPrefixHeaders(prop);
-        if (prefix) {
+        } else if (prefix) {
           const lowerPrefix = prefix.toLowerCase();
           const prefixed: Record<string, string> = {};
           for (const [k, v] of Object.entries(response.headers)) {
@@ -94,19 +96,33 @@ export const restJson1Protocol: Protocol = (operation: Operation): ProtocolHandl
             }
           }
           if (Object.keys(prefixed).length) result[name] = prefixed;
-          continue;
         }
+      }
 
-        // httpPayload with raw body
+      // Check for streaming output payload - return early
+      for (const prop of outputProps) {
+        if (hasHttpPayload(prop) && isStreamingType(prop.type)) {
+          const name = String(prop.name);
+          result[name] = readableToEffectStream(response.body);
+          return result;
+        }
+      }
+
+      // Non-streaming response - read body as text
+      const bodyText = yield* readStreamAsText(response.body);
+
+      // Handle httpPayload with raw body
+      for (const prop of outputProps) {
         if (hasHttpPayload(prop) && isRawPayload(prop.type)) {
-          result[name] = response.body;
+          const name = String(prop.name);
+          result[name] = bodyText;
         }
       }
 
       // Parse JSON body and decode
-      if (response.body) {
+      if (bodyText) {
         try {
-          const parsed = JSON.parse(response.body);
+          const parsed = JSON.parse(bodyText);
           if (parsed && typeof parsed === "object" && !Array.isArray(parsed)) {
             const renamed = renameKeys(outputAst, parsed, false);
             Object.assign(result, renamed);

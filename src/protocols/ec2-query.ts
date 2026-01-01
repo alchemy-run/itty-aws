@@ -25,6 +25,7 @@ import {
   getIdentifier,
   isArrayAST,
 } from "../util/ast.ts";
+import { readStreamAsText } from "../util/stream.ts";
 import { deserializePrimitive, extractXmlRoot, parseXml, unwrapArrayValue } from "../util/xml.ts";
 
 // =============================================================================
@@ -74,9 +75,12 @@ export const ec2QueryProtocol: Protocol = (operation: Operation): ProtocolHandle
     deserializeResponse: Effect.fn(function* (response: Response) {
       const result: Record<string, unknown> = {};
 
+      // Read body as text
+      const bodyText = yield* readStreamAsText(response.body);
+
       // Parse body XML
-      if (response.body) {
-        const parsed = parseXml(response.body);
+      if (bodyText) {
+        const parsed = parseXml(bodyText);
 
         // EC2 response root is {OperationName}Response
         const content = extractXmlRoot(parsed);
@@ -148,16 +152,10 @@ function serializeValue(
 ): void {
   if (value === undefined || value === null) return;
 
-  // Handle primitives (includes encoded dates as strings)
+  // Handle primitives (includes encoded dates as strings, blobs as base64)
+  // Blob schema transforms Uint8Array → base64 string during encoding
   if (typeof value !== "object") {
     params.push(`${encodeURIComponent(key)}=${encodeURIComponent(String(value))}`);
-    return;
-  }
-
-  // Handle Blob/Uint8Array (base64 encode)
-  if (value instanceof Uint8Array) {
-    const base64 = btoa(String.fromCharCode(...value));
-    params.push(`${encodeURIComponent(key)}=${encodeURIComponent(base64)}`);
     return;
   }
 

@@ -5,7 +5,7 @@ To run the s3 tests:
 bun test:local ./test/s3.test.ts
 
 To run the Protocol tests:
-bun vitest run ./test/xml.test.ts ./test/rest-json.test.ts ./test/aws-query.test.ts ./test/ec2-query.test.ts
+bun test:protocols
 
 If it is unclear what the XML format for an AWS API is, look up the AWS API reference for that operation.
 

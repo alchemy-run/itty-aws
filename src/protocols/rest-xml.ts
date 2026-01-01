@@ -22,6 +22,8 @@ import {
   hasHttpQueryParams,
   hasXmlAttribute,
   hasXmlFlattened,
+  isStreamingType,
+  type StreamingInputBody,
 } from "../traits.ts";
 import {
   getArrayElementAST,
@@ -36,6 +38,7 @@ import {
 } from "../util/ast.ts";
 import { extractStaticQueryParams } from "../util/query-params.ts";
 import { applyHttpTrait, bindInputToRequest } from "../util/serialize-input.ts";
+import { convertStreamingInput, readableToEffectStream, readStreamAsText } from "../util/stream.ts";
 import { formatTimestamp } from "../util/timestamp.ts";
 import {
   deserializePrimitive,
@@ -69,7 +72,7 @@ export const restXmlProtocol: Protocol = (operation: Operation): ProtocolHandler
         method: "POST",
         path: "/",
         query: {},
-        headers: { "Content-Type": "application/xml" },
+        headers: {},
       };
 
       applyHttpTrait(inputAst, request);
@@ -80,11 +83,19 @@ export const restXmlProtocol: Protocol = (operation: Operation): ProtocolHandler
       );
       extractStaticQueryParams(request);
 
-      // Serialize body
+      // Serialize body - Content-Type is set based on what we're actually sending
       if (payloadValue !== undefined && payloadAst !== undefined) {
-        if (typeof payloadValue === "string") {
+        if (isStreamingType(payloadAst)) {
+          // Streaming payload - body is raw bytes, Content-Type comes from user's header binding
+          // (e.g., ContentType field with @httpHeader("Content-Type") trait)
+          // If user didn't set it, leave it unset (browser/fetch will handle it)
+          request.body = convertStreamingInput(payloadValue as StreamingInputBody);
+        } else if (typeof payloadValue === "string") {
+          // String payload - raw string body, no Content-Type override
           request.body = payloadValue;
         } else {
+          // Structure payload - serialize as XML with proper Content-Type
+          request.headers["Content-Type"] = "application/xml";
           const tagName = getXmlNameFromAST(payloadAst) ?? getIdentifier(payloadAst);
           request.body = serializeValue(
             payloadAst,
@@ -94,6 +105,8 @@ export const restXmlProtocol: Protocol = (operation: Operation): ProtocolHandler
           );
         }
       } else if (hasBodyMembers) {
+        // Body members - serialize as XML with proper Content-Type
+        request.headers["Content-Type"] = "application/xml";
         const tagName = getIdentifier(inputAst);
         request.body = serializeObject(inputAst, bodyMembers, tagName, getXmlNamespace(inputAst));
       }
@@ -104,6 +117,7 @@ export const restXmlProtocol: Protocol = (operation: Operation): ProtocolHandler
     deserializeResponse: Effect.fn(function* (response: Response) {
       const result: Record<string, unknown> = {};
 
+      // Extract header-bound properties first (always available)
       for (const prop of outputProps) {
         const name = String(prop.name);
         const header = getHttpHeader(prop);
@@ -125,12 +139,30 @@ export const restXmlProtocol: Protocol = (operation: Operation): ProtocolHandler
             if (k.toLowerCase().startsWith(prefix)) prefixed[k.slice(prefix.length)] = v;
           }
           if (Object.keys(prefixed).length) result[name] = prefixed;
-        } else if (hasHttpPayload(prop)) {
+        }
+      }
+
+      // Check for streaming output payload - return early without consuming body
+      for (const prop of outputProps) {
+        if (hasHttpPayload(prop) && isStreamingType(prop.type)) {
+          const name = String(prop.name);
+          result[name] = readableToEffectStream(response.body);
+          return result;
+        }
+      }
+
+      // Non-streaming response - read body as text for parsing
+      const bodyText = yield* readStreamAsText(response.body);
+
+      // Handle httpPayload properties
+      for (const prop of outputProps) {
+        if (hasHttpPayload(prop)) {
+          const name = String(prop.name);
           const unwrapped = unwrapUnion(prop.type);
           if (unwrapped._tag === "Union" || unwrapped._tag === "StringKeyword") {
-            result[name] = response.body;
+            result[name] = bodyText;
           } else {
-            const parsed = parseXml(response.body);
+            const parsed = parseXml(bodyText);
             const xmlName = getXmlNameFromAST(prop.type) ?? getIdentifier(prop.type);
             result[name] = deserializeValue(
               prop.type,
@@ -140,9 +172,9 @@ export const restXmlProtocol: Protocol = (operation: Operation): ProtocolHandler
         }
       }
 
-      // Parse body XML
-      if (response.body) {
-        const parsed = parseXml(response.body);
+      // Parse body XML for non-payload properties
+      if (bodyText) {
+        const parsed = parseXml(bodyText);
         const xmlName = getXmlNameFromAST(outputAst) ?? getIdentifier(outputAst);
         const content = (xmlName ? parsed[xmlName] : parsed) as Record<string, unknown> | undefined;
         if (content && typeof content === "object")

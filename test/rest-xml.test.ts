@@ -69,6 +69,7 @@ import {
   WriteGetObjectResponseRequest,
 } from "../src/services/s3.ts";
 import { getAwsProtocolsHttpChecksum } from "../src/traits.ts";
+import { readEffectStreamAsText } from "../src/util/stream.ts";
 
 // Helper to build a request from an instance - gets schema from instance.constructor
 const buildRequest = <A, I>(schema: S.Schema<A, I>, instance: A) => {
@@ -909,7 +910,7 @@ describe("restXml protocol", () => {
 
         const result = yield* parseResponse(GetObjectOutput, response);
 
-        expect(result.Body).toBe("raw file content here");
+        expect(yield* readEffectStreamAsText(result.Body!)).toBe("raw file content here");
       }),
     );
   });

@@ -1,4 +1,4 @@
-import { Effect } from "effect";
+import { Effect, Stream } from "effect";
 import {
   // Bucket lifecycle operations
   createBucket,
@@ -10,6 +10,7 @@ import {
   deleteBucketPolicy,
   deleteBucketTagging,
   deleteBucketWebsite,
+  deleteObject,
   deletePublicAccessBlock,
   getBucketAccelerateConfiguration,
   // ACL
@@ -24,6 +25,8 @@ import {
   getBucketTagging,
   getBucketVersioning,
   getBucketWebsite,
+  // Object operations
+  getObject,
   getPublicAccessBlock,
   headBucket,
   listBuckets,
@@ -47,6 +50,7 @@ import {
   putBucketVersioning,
   // Website
   putBucketWebsite,
+  putObject,
   // Public Access Block
   putPublicAccessBlock,
 } from "../src/services/s3.ts";
@@ -825,6 +829,232 @@ test(
           new Error(`Expected Payer=BucketOwner, got ${ownerPayment.Payer}`),
         );
       }
+    }),
+  ),
+);
+
+// ============================================================================
+// Object Streaming Tests
+// ============================================================================
+
+test(
+  "putObject and getObject with string body",
+  withBucket(
+    Effect.gen(function* () {
+      const testKey = "test-string.txt";
+      const testContent = "Hello, itty-aws! This is a test string.";
+
+      // Put object with string body
+      yield* putObject({
+        Bucket: TEST_BUCKET,
+        Key: testKey,
+        Body: testContent,
+        ContentType: "text/plain",
+      });
+
+      // Get object and verify
+      const result = yield* getObject({
+        Bucket: TEST_BUCKET,
+        Key: testKey,
+      });
+
+      if (!result.Body) {
+        return yield* Effect.fail(new Error("Expected Body in response"));
+      }
+
+      // Body should be an Effect Stream - consume it
+      const chunks: Uint8Array[] = [];
+      yield* Stream.runForEach(result.Body, (chunk) =>
+        Effect.sync(() => {
+          chunks.push(chunk);
+        }),
+      );
+
+      const decoder = new TextDecoder();
+      const receivedContent = decoder.decode(
+        new Uint8Array(chunks.reduce((acc, c) => acc + c.length, 0)),
+      );
+
+      // Reconstruct the buffer properly
+      let offset = 0;
+      const fullBuffer = new Uint8Array(chunks.reduce((acc, c) => acc + c.length, 0));
+      for (const chunk of chunks) {
+        fullBuffer.set(chunk, offset);
+        offset += chunk.length;
+      }
+      const actualContent = decoder.decode(fullBuffer);
+
+      if (actualContent !== testContent) {
+        return yield* Effect.fail(
+          new Error(`Content mismatch: expected "${testContent}", got "${actualContent}"`),
+        );
+      }
+
+      // Cleanup
+      yield* deleteObject({ Bucket: TEST_BUCKET, Key: testKey });
+    }),
+  ),
+);
+
+test(
+  "putObject with Uint8Array body",
+  withBucket(
+    Effect.gen(function* () {
+      const testKey = "test-binary.bin";
+      const testContent = new Uint8Array([0x00, 0x01, 0x02, 0x03, 0xff, 0xfe, 0xfd]);
+
+      // Put object with Uint8Array body
+      yield* putObject({
+        Bucket: TEST_BUCKET,
+        Key: testKey,
+        Body: testContent,
+        ContentType: "application/octet-stream",
+      });
+
+      // Get object and verify
+      const result = yield* getObject({
+        Bucket: TEST_BUCKET,
+        Key: testKey,
+      });
+
+      if (!result.Body) {
+        return yield* Effect.fail(new Error("Expected Body in response"));
+      }
+
+      // Consume the stream
+      const chunks: Uint8Array[] = [];
+      yield* Stream.runForEach(result.Body, (chunk) =>
+        Effect.sync(() => {
+          chunks.push(chunk);
+        }),
+      );
+
+      let offset = 0;
+      const fullBuffer = new Uint8Array(chunks.reduce((acc, c) => acc + c.length, 0));
+      for (const chunk of chunks) {
+        fullBuffer.set(chunk, offset);
+        offset += chunk.length;
+      }
+
+      if (fullBuffer.length !== testContent.length) {
+        return yield* Effect.fail(
+          new Error(`Length mismatch: expected ${testContent.length}, got ${fullBuffer.length}`),
+        );
+      }
+
+      for (let i = 0; i < testContent.length; i++) {
+        if (fullBuffer[i] !== testContent[i]) {
+          return yield* Effect.fail(new Error(`Byte mismatch at index ${i}`));
+        }
+      }
+
+      // Cleanup
+      yield* deleteObject({ Bucket: TEST_BUCKET, Key: testKey });
+    }),
+  ),
+);
+
+test(
+  "putObject with Effect Stream body",
+  withBucket(
+    Effect.gen(function* () {
+      const testKey = "test-stream.txt";
+      const testChunks = ["Hello, ", "Effect ", "Stream!"];
+
+      // Create an Effect Stream from chunks
+      const encoder = new TextEncoder();
+      const inputStream = Stream.fromIterable(testChunks.map((s) => encoder.encode(s)));
+
+      // Put object with Effect Stream body
+      yield* putObject({
+        Bucket: TEST_BUCKET,
+        Key: testKey,
+        Body: inputStream,
+        ContentType: "text/plain",
+      });
+
+      // Get object and verify
+      const result = yield* getObject({
+        Bucket: TEST_BUCKET,
+        Key: testKey,
+      });
+
+      if (!result.Body) {
+        return yield* Effect.fail(new Error("Expected Body in response"));
+      }
+
+      // Consume the stream
+      const chunks: Uint8Array[] = [];
+      yield* Stream.runForEach(result.Body, (chunk) =>
+        Effect.sync(() => {
+          chunks.push(chunk);
+        }),
+      );
+
+      const decoder = new TextDecoder();
+      let offset = 0;
+      const fullBuffer = new Uint8Array(chunks.reduce((acc, c) => acc + c.length, 0));
+      for (const chunk of chunks) {
+        fullBuffer.set(chunk, offset);
+        offset += chunk.length;
+      }
+      const actualContent = decoder.decode(fullBuffer);
+      const expectedContent = testChunks.join("");
+
+      if (actualContent !== expectedContent) {
+        return yield* Effect.fail(
+          new Error(`Content mismatch: expected "${expectedContent}", got "${actualContent}"`),
+        );
+      }
+
+      // Cleanup
+      yield* deleteObject({ Bucket: TEST_BUCKET, Key: testKey });
+    }),
+  ),
+);
+
+test(
+  "getObject returns headers (ContentType, ContentLength, ETag)",
+  withBucket(
+    Effect.gen(function* () {
+      const testKey = "test-headers.json";
+      const testContent = JSON.stringify({ message: "hello" });
+
+      // Put object
+      yield* putObject({
+        Bucket: TEST_BUCKET,
+        Key: testKey,
+        Body: testContent,
+        ContentType: "application/json",
+      });
+
+      // Get object and check headers
+      const result = yield* getObject({
+        Bucket: TEST_BUCKET,
+        Key: testKey,
+      });
+
+      if (result.ContentType !== "application/json") {
+        return yield* Effect.fail(
+          new Error(`Expected ContentType=application/json, got ${result.ContentType}`),
+        );
+      }
+
+      if (result.ContentLength !== testContent.length) {
+        return yield* Effect.fail(
+          new Error(`Expected ContentLength=${testContent.length}, got ${result.ContentLength}`),
+        );
+      }
+
+      if (!result.ETag) {
+        return yield* Effect.fail(new Error("Expected ETag to be present"));
+      }
+
+      // Cleanup - need to consume the body first
+      if (result.Body) {
+        yield* Stream.runDrain(result.Body);
+      }
+      yield* deleteObject({ Bucket: TEST_BUCKET, Key: testKey });
     }),
   ),
 );
