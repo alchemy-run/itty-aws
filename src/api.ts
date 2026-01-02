@@ -124,30 +124,18 @@ export const make = <Op extends Operation>(
       ? new ReadableStream<Uint8Array>({ start: (c) => c.close() })
       : (rawResponse.body ?? new ReadableStream<Uint8Array>({ start: (c) => c.close() }));
 
-    if (rawResponse.status >= 200 && rawResponse.status < 300) {
-      // Parse response using the response parser (handles protocol deserialization + schema decoding)
-      const parsed = yield* parseResponse({
-        status: rawResponse.status,
-        statusText: rawResponse.statusText,
-        headers: responseHeaders,
-        body: responseBody,
-      });
+    // Parse response using the response parser
+    // Handles both success (protocol deserialization + schema decoding)
+    // and error responses (error deserialization + schema matching)
+    const parsed = yield* parseResponse({
+      status: rawResponse.status,
+      statusText: rawResponse.statusText,
+      headers: responseHeaders,
+      body: responseBody,
+    });
 
-      yield* Effect.logDebug("Parsed Response", parsed);
+    yield* Effect.logDebug("Parsed Response", parsed);
 
-      return parsed;
-    } else {
-      // For errors, read the body as text for error message
-      const errorBody = yield* Effect.tryPromise({
-        try: () => rawResponse.text(),
-        catch: (e) => new Error(`Failed to read error body: ${e}`),
-      });
-      return yield* Effect.fail(
-        UnknownAwsError.make({
-          errorTag: "UnknownError",
-          errorData: { body: errorBody, status: rawResponse.status },
-        }),
-      );
-    }
+    return parsed;
   });
 };

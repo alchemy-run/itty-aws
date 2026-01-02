@@ -27,6 +27,7 @@ import type { Request } from "../request.ts";
 import type { Response } from "../response.ts";
 import { getAwsApiService, getAwsAuthSigv4 } from "../traits.ts";
 import { getIdentifier } from "../util/ast.ts";
+import { extractJsonErrorCode, extractJsonErrorData, sanitizeErrorCode } from "../util/error.ts";
 import { readStreamAsText } from "../util/stream.ts";
 
 /** AWS JSON 1.0 Protocol */
@@ -95,6 +96,46 @@ function createAwsJsonProtocol(version: "1.0" | "1.1"): Protocol {
         }
 
         return {};
+      }),
+
+      deserializeError: Effect.fn(function* (response: Response) {
+        // Read body as text
+        const bodyText = yield* readStreamAsText(response.body);
+
+        // Parse JSON body
+        let body: Record<string, unknown> = {};
+        if (bodyText) {
+          try {
+            const parsed = JSON.parse(bodyText);
+            if (parsed && typeof parsed === "object") {
+              body = parsed as Record<string, unknown>;
+            }
+          } catch {
+            return yield* new ParseError({
+              message: `Failed to parse error JSON body: ${bodyText}`,
+            });
+          }
+        }
+
+        // Extract error code: check X-Amzn-Errortype header first, then body fields
+        const rawErrorCode =
+          response.headers["x-amzn-errortype"] ??
+          response.headers["X-Amzn-Errortype"] ??
+          extractJsonErrorCode(body);
+
+        if (!rawErrorCode) {
+          return yield* new ParseError({
+            message: `No error code found in response. Headers: ${JSON.stringify(response.headers)}, Body: ${bodyText}`,
+          });
+        }
+
+        // Sanitize the error code
+        const errorCode = sanitizeErrorCode(rawErrorCode);
+
+        // Extract data (remove __type and code fields)
+        const data = extractJsonErrorData(body);
+
+        return { errorCode, data };
       }),
     };
   };

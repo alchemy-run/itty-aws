@@ -14,6 +14,7 @@
 import * as Effect from "effect/Effect";
 import * as S from "effect/Schema";
 import type * as AST from "effect/SchemaAST";
+import { ParseError } from "../error-parser.ts";
 import type { Operation } from "../operation.ts";
 import type { Protocol, ProtocolHandler } from "../protocol.ts";
 import type { Request } from "../request.ts";
@@ -33,6 +34,7 @@ import {
   isArrayAST,
   isMapAST,
 } from "../util/ast.ts";
+import { sanitizeErrorCode } from "../util/error.ts";
 import { readStreamAsText } from "../util/stream.ts";
 import { deserializePrimitive, extractXmlRoot, parseXml, unwrapArrayValue } from "../util/xml.ts";
 
@@ -117,6 +119,68 @@ export const awsQueryProtocol: Protocol = (operation: Operation): ProtocolHandle
       }
 
       return result;
+    }),
+
+    deserializeError: Effect.fn(function* (response: Response) {
+      // Read body as text
+      const bodyText = yield* readStreamAsText(response.body);
+
+      if (!bodyText) {
+        return yield* new ParseError({ message: "Empty error response body" });
+      }
+
+      // Parse XML body
+      const parsed = parseXml(bodyText);
+
+      // AWS Query error structure:
+      // <ErrorResponse>
+      //   <Error>
+      //     <Type>Sender</Type>
+      //     <Code>InvalidGreeting</Code>
+      //     <Message>Hi</Message>
+      //     ...other members...
+      //   </Error>
+      //   <RequestId>xxx</RequestId>
+      // </ErrorResponse>
+
+      let errorContent: Record<string, unknown> | undefined;
+      let requestId: string | undefined;
+
+      if (parsed.ErrorResponse && typeof parsed.ErrorResponse === "object") {
+        const errorResponse = parsed.ErrorResponse as Record<string, unknown>;
+        if (errorResponse.Error && typeof errorResponse.Error === "object") {
+          errorContent = errorResponse.Error as Record<string, unknown>;
+        }
+        if (typeof errorResponse.RequestId === "string") {
+          requestId = errorResponse.RequestId;
+        }
+      }
+
+      if (!errorContent) {
+        return yield* new ParseError({
+          message: `Could not find Error element in XML response: ${bodyText}`,
+        });
+      }
+
+      // Extract error code from <Code> element
+      const rawErrorCode = errorContent.Code;
+      if (typeof rawErrorCode !== "string") {
+        return yield* new ParseError({
+          message: `No Code element found in error response: ${bodyText}`,
+        });
+      }
+
+      const errorCode = sanitizeErrorCode(rawErrorCode);
+
+      // Extract remaining data (remove Code, keep Message, Type, etc.)
+      const { Code, ...data } = errorContent;
+
+      // Include RequestId if present
+      if (requestId) {
+        data.RequestId = requestId;
+      }
+
+      return { errorCode, data };
     }),
   };
 };

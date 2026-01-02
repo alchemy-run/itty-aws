@@ -2,6 +2,7 @@ import { it } from "@effect/vitest";
 import * as Effect from "effect/Effect";
 import * as S from "effect/Schema";
 import { describe, expect } from "vitest";
+import { UnknownAwsError, ValidationException } from "../../src/aws/errors.ts";
 import { restXmlProtocol } from "../../src/protocols/rest-xml.ts";
 import { makeRequestBuilder } from "../../src/request-builder.ts";
 import { makeResponseParser } from "../../src/response-parser.ts";
@@ -43,6 +44,9 @@ import {
   HeadBucketRequest,
   ListBucketsOutput,
   ListBucketsRequest,
+  // Error types
+  NoSuchBucket,
+  NoSuchKey,
   // Accelerate
   PutBucketAccelerateConfigurationRequest,
   // XML trait tests
@@ -79,8 +83,12 @@ const buildRequest = <A, I>(schema: S.Schema<A, I>, instance: A) => {
 };
 
 // Helper to parse a response using the response parser with restXml protocol
-const parseResponse = <A, I>(schema: S.Schema<A, I>, response: Response) => {
-  const operation = { input: schema, output: schema, errors: [] };
+const parseResponse = <A, I>(
+  schema: S.Schema<A, I>,
+  response: Response,
+  errors: S.Schema.AnyNoContext[] = [],
+) => {
+  const operation = { input: schema, output: schema, errors };
   const parser = makeResponseParser<A, I, never>(operation, {
     protocol: restXmlProtocol,
   });
@@ -1307,5 +1315,138 @@ describe("restXml protocol", () => {
         "SHA1",
       ]);
     });
+  });
+
+  // ==========================================================================
+  // Error Deserialization
+  // ==========================================================================
+
+  describe("error deserialization", () => {
+    it.effect("should deserialize wrapped error (ErrorResponse > Error)", () =>
+      Effect.gen(function* () {
+        const response: Response = {
+          status: 404,
+          statusText: "Not Found",
+          headers: {},
+          body: `<?xml version="1.0" encoding="UTF-8"?>
+<ErrorResponse>
+  <Error>
+    <Type>Sender</Type>
+    <Code>NoSuchBucket</Code>
+    <Message>The specified bucket does not exist</Message>
+    <BucketName>my-bucket</BucketName>
+  </Error>
+  <RequestId>abc123</RequestId>
+</ErrorResponse>`,
+        };
+
+        const result = yield* parseResponse(GetBucketAclRequest, response, [NoSuchBucket]).pipe(
+          Effect.flip,
+        );
+
+        expect(result).toBeInstanceOf(NoSuchBucket);
+        expect(result._tag).toBe("NoSuchBucket");
+      }),
+    );
+
+    it.effect("should deserialize unwrapped error (just Error element)", () =>
+      Effect.gen(function* () {
+        // Some S3 errors use unwrapped format
+        const response: Response = {
+          status: 404,
+          statusText: "Not Found",
+          headers: {},
+          body: `<?xml version="1.0" encoding="UTF-8"?>
+<Error>
+  <Code>NoSuchKey</Code>
+  <Message>The specified key does not exist.</Message>
+  <Key>my-object.txt</Key>
+  <RequestId>xyz789</RequestId>
+</Error>`,
+        };
+
+        const result = yield* parseResponse(GetObjectRequest, response, [NoSuchKey]).pipe(
+          Effect.flip,
+        );
+
+        expect(result).toBeInstanceOf(NoSuchKey);
+        expect(result._tag).toBe("NoSuchKey");
+      }),
+    );
+
+    it.effect("should preserve error data fields (Message, Type, RequestId)", () =>
+      Effect.gen(function* () {
+        const response: Response = {
+          status: 404,
+          statusText: "Not Found",
+          headers: {},
+          body: `<?xml version="1.0" encoding="UTF-8"?>
+<ErrorResponse>
+  <Error>
+    <Type>Sender</Type>
+    <Code>NoSuchBucket</Code>
+    <Message>Bucket not found</Message>
+  </Error>
+  <RequestId>req-123</RequestId>
+</ErrorResponse>`,
+        };
+
+        const result = yield* parseResponse(GetBucketAclRequest, response, [NoSuchBucket]).pipe(
+          Effect.flip,
+        );
+
+        expect(result).toBeInstanceOf(NoSuchBucket);
+      }),
+    );
+
+    it.effect("should match common AWS errors", () =>
+      Effect.gen(function* () {
+        const response: Response = {
+          status: 400,
+          statusText: "Bad Request",
+          headers: {},
+          body: `<?xml version="1.0" encoding="UTF-8"?>
+<ErrorResponse>
+  <Error>
+    <Type>Sender</Type>
+    <Code>ValidationException</Code>
+    <Message>Invalid parameter</Message>
+  </Error>
+</ErrorResponse>`,
+        };
+
+        const result = yield* parseResponse(GetBucketAclRequest, response, []).pipe(Effect.flip);
+
+        expect(result).toBeInstanceOf(ValidationException);
+      }),
+    );
+
+    it.effect("should return UnknownAwsError for unknown error codes", () =>
+      Effect.gen(function* () {
+        const response: Response = {
+          status: 500,
+          statusText: "Internal Server Error",
+          headers: {},
+          body: `<?xml version="1.0" encoding="UTF-8"?>
+<ErrorResponse>
+  <Error>
+    <Type>Receiver</Type>
+    <Code>SomeFutureError</Code>
+    <Message>Something unexpected happened</Message>
+  </Error>
+  <RequestId>err-456</RequestId>
+</ErrorResponse>`,
+        };
+
+        const result = yield* parseResponse(GetBucketAclRequest, response, []).pipe(Effect.flip);
+
+        expect(result).toBeInstanceOf(UnknownAwsError);
+        expect((result as UnknownAwsError).errorTag).toBe("SomeFutureError");
+        expect((result as UnknownAwsError).errorData).toMatchObject({
+          Type: "Receiver",
+          Message: "Something unexpected happened",
+        });
+      }),
+    );
   });
 });

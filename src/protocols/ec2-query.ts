@@ -14,6 +14,7 @@
 import * as Effect from "effect/Effect";
 import * as S from "effect/Schema";
 import type * as AST from "effect/SchemaAST";
+import { ParseError } from "../error-parser.ts";
 import type { Operation } from "../operation.ts";
 import type { Protocol, ProtocolHandler } from "../protocol.ts";
 import type { Request } from "../request.ts";
@@ -25,6 +26,7 @@ import {
   getIdentifier,
   isArrayAST,
 } from "../util/ast.ts";
+import { sanitizeErrorCode } from "../util/error.ts";
 import { readStreamAsText } from "../util/stream.ts";
 import { deserializePrimitive, extractXmlRoot, parseXml, unwrapArrayValue } from "../util/xml.ts";
 
@@ -91,6 +93,80 @@ export const ec2QueryProtocol: Protocol = (operation: Operation): ProtocolHandle
       }
 
       return result;
+    }),
+
+    deserializeError: Effect.fn(function* (response: Response) {
+      // Read body as text
+      const bodyText = yield* readStreamAsText(response.body);
+
+      if (!bodyText) {
+        return yield* new ParseError({ message: "Empty error response body" });
+      }
+
+      // Parse XML body
+      const parsed = parseXml(bodyText);
+
+      // EC2 Query error structure:
+      // <Response>
+      //   <Errors>
+      //     <Error>
+      //       <Code>InvalidParameterValue</Code>
+      //       <Message>...</Message>
+      //     </Error>
+      //   </Errors>
+      //   <RequestID>xxx</RequestID>
+      // </Response>
+
+      let errorContent: Record<string, unknown> | undefined;
+      let requestId: string | undefined;
+
+      if (parsed.Response && typeof parsed.Response === "object") {
+        const responseObj = parsed.Response as Record<string, unknown>;
+
+        // Extract RequestID
+        if (typeof responseObj.RequestID === "string") {
+          requestId = responseObj.RequestID;
+        }
+
+        // Navigate to Errors.Error
+        if (responseObj.Errors && typeof responseObj.Errors === "object") {
+          const errors = responseObj.Errors as Record<string, unknown>;
+          if (errors.Error && typeof errors.Error === "object") {
+            // Could be a single error or an array - take the first one
+            if (Array.isArray(errors.Error)) {
+              errorContent = errors.Error[0] as Record<string, unknown>;
+            } else {
+              errorContent = errors.Error as Record<string, unknown>;
+            }
+          }
+        }
+      }
+
+      if (!errorContent) {
+        return yield* new ParseError({
+          message: `Could not find Error element in EC2 XML response: ${bodyText}`,
+        });
+      }
+
+      // Extract error code from <Code> element
+      const rawErrorCode = errorContent.Code;
+      if (typeof rawErrorCode !== "string") {
+        return yield* new ParseError({
+          message: `No Code element found in error response: ${bodyText}`,
+        });
+      }
+
+      const errorCode = sanitizeErrorCode(rawErrorCode);
+
+      // Extract remaining data (remove Code, keep Message, etc.)
+      const { Code, ...data } = errorContent;
+
+      // Include RequestID if present
+      if (requestId) {
+        data.RequestID = requestId;
+      }
+
+      return { errorCode, data };
     }),
   };
 };

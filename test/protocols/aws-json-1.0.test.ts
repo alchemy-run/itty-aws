@@ -2,6 +2,7 @@ import { it } from "@effect/vitest";
 import * as Effect from "effect/Effect";
 import * as S from "effect/Schema";
 import { describe, expect } from "vitest";
+import { UnknownAwsError, ValidationException } from "../../src/aws/errors.ts";
 import { awsJson1_0Protocol } from "../../src/protocols/aws-json.ts";
 import { makeRequestBuilder } from "../../src/request-builder.ts";
 import { makeResponseParser } from "../../src/response-parser.ts";
@@ -18,6 +19,7 @@ import {
   PutItemInput,
   QueryInput,
   QueryOutput,
+  ResourceNotFoundException,
   ScanInput,
   TagResourceInput,
   TagResourceResponse,
@@ -38,8 +40,12 @@ const buildRequest = <A, I>(schema: S.Schema<A, I>, instance: A) => {
 };
 
 // Helper to parse a response
-const parseResponse = <A, I>(schema: S.Schema<A, I>, response: Response) => {
-  const operation = { input: schema, output: schema, errors: [] };
+const parseResponse = <A, I>(
+  schema: S.Schema<A, I>,
+  response: Response,
+  errors: S.Schema.AnyNoContext[] = [],
+) => {
+  const operation = { input: schema, output: schema, errors };
   const parser = makeResponseParser<A, I, never>(operation, {
     protocol: awsJson1_0Protocol,
   });
@@ -722,6 +728,202 @@ describe("awsJson1_0 protocol", () => {
             },
           }),
         });
+      }),
+    );
+  });
+
+  // ==========================================================================
+  // Error Deserialization
+  // ==========================================================================
+
+  describe("error deserialization", () => {
+    it.effect("should deserialize error from __type body field", () =>
+      Effect.gen(function* () {
+        const response: Response = {
+          status: 400,
+          statusText: "Bad Request",
+          headers: {},
+          body: JSON.stringify({
+            __type: "ResourceNotFoundException",
+            message: "Requested resource not found",
+          }),
+        };
+
+        const result = yield* parseResponse(DescribeTableInput, response, [
+          ResourceNotFoundException,
+        ]).pipe(Effect.flip);
+
+        expect(result).toBeInstanceOf(ResourceNotFoundException);
+        expect(result._tag).toBe("ResourceNotFoundException");
+      }),
+    );
+
+    it.effect("should deserialize error from code body field", () =>
+      Effect.gen(function* () {
+        const response: Response = {
+          status: 400,
+          statusText: "Bad Request",
+          headers: {},
+          body: JSON.stringify({
+            code: "ResourceNotFoundException",
+            message: "Table not found",
+          }),
+        };
+
+        const result = yield* parseResponse(DescribeTableInput, response, [
+          ResourceNotFoundException,
+        ]).pipe(Effect.flip);
+
+        expect(result).toBeInstanceOf(ResourceNotFoundException);
+      }),
+    );
+
+    it.effect("should deserialize error from X-Amzn-Errortype header", () =>
+      Effect.gen(function* () {
+        const response: Response = {
+          status: 400,
+          statusText: "Bad Request",
+          headers: {
+            "x-amzn-errortype": "ResourceNotFoundException",
+          },
+          body: JSON.stringify({
+            message: "Resource not found",
+          }),
+        };
+
+        const result = yield* parseResponse(DescribeTableInput, response, [
+          ResourceNotFoundException,
+        ]).pipe(Effect.flip);
+
+        expect(result).toBeInstanceOf(ResourceNotFoundException);
+      }),
+    );
+
+    it.effect("should sanitize error code with namespace prefix", () =>
+      Effect.gen(function* () {
+        const response: Response = {
+          status: 400,
+          statusText: "Bad Request",
+          headers: {},
+          body: JSON.stringify({
+            __type: "com.amazonaws.dynamodb#ResourceNotFoundException",
+            message: "Not found",
+          }),
+        };
+
+        const result = yield* parseResponse(DescribeTableInput, response, [
+          ResourceNotFoundException,
+        ]).pipe(Effect.flip);
+
+        expect(result).toBeInstanceOf(ResourceNotFoundException);
+        expect(result._tag).toBe("ResourceNotFoundException");
+      }),
+    );
+
+    it.effect("should sanitize error code with colon suffix", () =>
+      Effect.gen(function* () {
+        const response: Response = {
+          status: 400,
+          statusText: "Bad Request",
+          headers: {},
+          body: JSON.stringify({
+            __type: "ResourceNotFoundException:http://internal.amazon.com/coral/validate/",
+            message: "Not found",
+          }),
+        };
+
+        const result = yield* parseResponse(DescribeTableInput, response, [
+          ResourceNotFoundException,
+        ]).pipe(Effect.flip);
+
+        expect(result).toBeInstanceOf(ResourceNotFoundException);
+      }),
+    );
+
+    it.effect("should sanitize error code with both # and :", () =>
+      Effect.gen(function* () {
+        const response: Response = {
+          status: 400,
+          statusText: "Bad Request",
+          headers: {},
+          body: JSON.stringify({
+            __type: "com.amazonaws.dynamodb#ResourceNotFoundException:http://extra",
+            message: "Not found",
+          }),
+        };
+
+        const result = yield* parseResponse(DescribeTableInput, response, [
+          ResourceNotFoundException,
+        ]).pipe(Effect.flip);
+
+        expect(result).toBeInstanceOf(ResourceNotFoundException);
+      }),
+    );
+
+    it.effect("should match common AWS errors", () =>
+      Effect.gen(function* () {
+        const response: Response = {
+          status: 400,
+          statusText: "Bad Request",
+          headers: {},
+          body: JSON.stringify({
+            __type: "ValidationException",
+            message: "Invalid input",
+          }),
+        };
+
+        // ValidationException is in COMMON_ERRORS, so it should match even without being in operation.errors
+        const result = yield* parseResponse(DescribeTableInput, response, []).pipe(Effect.flip);
+
+        expect(result).toBeInstanceOf(ValidationException);
+        expect(result._tag).toBe("ValidationException");
+      }),
+    );
+
+    it.effect("should return UnknownAwsError for unknown error codes", () =>
+      Effect.gen(function* () {
+        const response: Response = {
+          status: 400,
+          statusText: "Bad Request",
+          headers: {},
+          body: JSON.stringify({
+            __type: "SomeUnknownError",
+            message: "Something went wrong",
+            customField: "extra data",
+          }),
+        };
+
+        const result = yield* parseResponse(DescribeTableInput, response, []).pipe(Effect.flip);
+
+        expect(result).toBeInstanceOf(UnknownAwsError);
+        expect((result as UnknownAwsError).errorTag).toBe("SomeUnknownError");
+        expect((result as UnknownAwsError).errorData).toEqual({
+          message: "Something went wrong",
+          customField: "extra data",
+        });
+      }),
+    );
+
+    it.effect("should prefer X-Amzn-Errortype header over body fields", () =>
+      Effect.gen(function* () {
+        const response: Response = {
+          status: 400,
+          statusText: "Bad Request",
+          headers: {
+            "x-amzn-errortype": "ResourceNotFoundException",
+          },
+          body: JSON.stringify({
+            __type: "SomeOtherError",
+            code: "AnotherError",
+            message: "This should be ignored for type resolution",
+          }),
+        };
+
+        const result = yield* parseResponse(DescribeTableInput, response, [
+          ResourceNotFoundException,
+        ]).pipe(Effect.flip);
+
+        expect(result).toBeInstanceOf(ResourceNotFoundException);
       }),
     );
   });

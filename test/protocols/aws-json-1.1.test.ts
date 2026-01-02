@@ -2,6 +2,7 @@ import { it } from "@effect/vitest";
 import * as Effect from "effect/Effect";
 import * as S from "effect/Schema";
 import { describe, expect } from "vitest";
+import { UnknownAwsError, ValidationException } from "../../src/aws/errors.ts";
 import { awsJson1_1Protocol } from "../../src/protocols/aws-json.ts";
 import { makeRequestBuilder } from "../../src/request-builder.ts";
 import { makeResponseParser } from "../../src/response-parser.ts";
@@ -20,6 +21,7 @@ import {
   DisableKeyResponse,
   EncryptRequest,
   GenerateDataKeyRequest,
+  NotFoundException,
 } from "../../src/services/kms.ts";
 
 // Import Redshift Serverless schemas for JsonName testing (awsJson1_1 protocol)
@@ -34,8 +36,12 @@ const buildRequest = <A, I>(schema: S.Schema<A, I>, instance: A) => {
 };
 
 // Helper to parse a response
-const parseResponse = <A, I>(schema: S.Schema<A, I>, response: Response) => {
-  const operation = { input: schema, output: schema, errors: [] };
+const parseResponse = <A, I>(
+  schema: S.Schema<A, I>,
+  response: Response,
+  errors: S.Schema.AnyNoContext[] = [],
+) => {
+  const operation = { input: schema, output: schema, errors };
   const parser = makeResponseParser<A, I, never>(operation, {
     protocol: awsJson1_1Protocol,
   });
@@ -375,6 +381,133 @@ describe("awsJson1_1 protocol", () => {
           expect(result.expirationTime).toBeInstanceOf(Date);
           expect(result.expirationTime?.toISOString()).toBe("2024-12-31T23:59:59.000Z");
         }),
+    );
+  });
+
+  // ==========================================================================
+  // Error Deserialization
+  // ==========================================================================
+
+  describe("error deserialization", () => {
+    it.effect("should deserialize error from __type body field", () =>
+      Effect.gen(function* () {
+        const response: Response = {
+          status: 400,
+          statusText: "Bad Request",
+          headers: {},
+          body: JSON.stringify({
+            __type: "NotFoundException",
+            message: "Key not found",
+          }),
+        };
+
+        const result = yield* parseResponse(DescribeKeyRequest, response, [NotFoundException]).pipe(
+          Effect.flip,
+        );
+
+        expect(result).toBeInstanceOf(NotFoundException);
+        expect(result._tag).toBe("NotFoundException");
+      }),
+    );
+
+    it.effect("should deserialize error from X-Amzn-Errortype header", () =>
+      Effect.gen(function* () {
+        const response: Response = {
+          status: 404,
+          statusText: "Not Found",
+          headers: {
+            "x-amzn-errortype": "NotFoundException",
+          },
+          body: JSON.stringify({
+            message: "The specified key was not found",
+          }),
+        };
+
+        const result = yield* parseResponse(DescribeKeyRequest, response, [NotFoundException]).pipe(
+          Effect.flip,
+        );
+
+        expect(result).toBeInstanceOf(NotFoundException);
+      }),
+    );
+
+    it.effect("should sanitize error code with shape name only (awsJson1_1 style)", () =>
+      Effect.gen(function* () {
+        // awsJson1_1 typically sends just the shape name, but clients must handle both
+        const response: Response = {
+          status: 400,
+          statusText: "Bad Request",
+          headers: {},
+          body: JSON.stringify({
+            __type: "NotFoundException",
+            message: "Not found",
+          }),
+        };
+
+        const result = yield* parseResponse(DescribeKeyRequest, response, [NotFoundException]).pipe(
+          Effect.flip,
+        );
+
+        expect(result).toBeInstanceOf(NotFoundException);
+      }),
+    );
+
+    it.effect("should still sanitize full shape-id (for backwards compatibility)", () =>
+      Effect.gen(function* () {
+        // Even though 1.1 should send shape name only, clients must accept full shape-id
+        const response: Response = {
+          status: 400,
+          statusText: "Bad Request",
+          headers: {},
+          body: JSON.stringify({
+            __type: "com.amazonaws.kms#NotFoundException",
+            message: "Not found",
+          }),
+        };
+
+        const result = yield* parseResponse(DescribeKeyRequest, response, [NotFoundException]).pipe(
+          Effect.flip,
+        );
+
+        expect(result).toBeInstanceOf(NotFoundException);
+      }),
+    );
+
+    it.effect("should match common AWS errors", () =>
+      Effect.gen(function* () {
+        const response: Response = {
+          status: 400,
+          statusText: "Bad Request",
+          headers: {},
+          body: JSON.stringify({
+            __type: "ValidationException",
+            message: "Invalid request",
+          }),
+        };
+
+        const result = yield* parseResponse(DescribeKeyRequest, response, []).pipe(Effect.flip);
+
+        expect(result).toBeInstanceOf(ValidationException);
+      }),
+    );
+
+    it.effect("should return UnknownAwsError for unknown error codes", () =>
+      Effect.gen(function* () {
+        const response: Response = {
+          status: 500,
+          statusText: "Internal Server Error",
+          headers: {},
+          body: JSON.stringify({
+            __type: "SomeInternalError",
+            message: "Something went wrong",
+          }),
+        };
+
+        const result = yield* parseResponse(DescribeKeyRequest, response, []).pipe(Effect.flip);
+
+        expect(result).toBeInstanceOf(UnknownAwsError);
+        expect((result as UnknownAwsError).errorTag).toBe("SomeInternalError");
+      }),
     );
   });
 });

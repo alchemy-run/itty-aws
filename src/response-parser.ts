@@ -12,10 +12,12 @@
 import * as Effect from "effect/Effect";
 import * as ParseResult from "effect/ParseResult";
 import * as Schema from "effect/Schema";
+import { COMMON_ERRORS, UnknownAwsError } from "./aws/errors.ts";
 import type { Operation } from "./operation.ts";
 import type { Protocol, ProtocolHandler } from "./protocol.ts";
 import type { Response } from "./response.ts";
 import { getProtocol } from "./traits.ts";
+import { getIdentifier } from "./util/ast.ts";
 
 export interface ResponseParserOptions {
   /** Override the protocol (otherwise discovered from schema annotations) */
@@ -54,12 +56,38 @@ export const makeResponseParser = <A, I, R>(
   // Pre-create the decoder (done once)
   const decode = Schema.decodeUnknown(outputSchema);
 
+  // Build error schema map: _tag -> Schema (done once)
+  const errorSchemas = new Map<string, Schema.Schema.AnyNoContext>();
+  for (const err of operation.errors ?? []) {
+    const tag = getIdentifier(err.ast);
+    if (tag) errorSchemas.set(tag, err);
+  }
+  for (const err of COMMON_ERRORS) {
+    const tag = getIdentifier(err.ast);
+    if (tag) errorSchemas.set(tag, err);
+  }
+
   // Return a function that parses responses
   return Effect.fn(function* (response: Response) {
-    // Deserialize response using the protocol handler
-    const deserialized = yield* protocol.deserializeResponse(response);
+    // Success path
+    if (response.status >= 200 && response.status < 300) {
+      const deserialized = yield* protocol.deserializeResponse(response);
+      return yield* decode(deserialized);
+    }
 
-    // Decode through schema for validation and transformation
-    return yield* decode(deserialized);
+    // Error path
+    const { errorCode, data } = yield* protocol.deserializeError(response);
+    const errorSchema = errorSchemas.get(errorCode);
+
+    if (errorSchema) {
+      // Add _tag to data for TaggedError decoding
+      const dataWithTag = { _tag: errorCode, ...data };
+      const decoded = yield* Schema.decodeUnknown(errorSchema)(dataWithTag).pipe(
+        Effect.catchAll(() => Effect.succeed(dataWithTag)),
+      );
+      return yield* Effect.fail(decoded);
+    }
+
+    return yield* Effect.fail(new UnknownAwsError({ errorTag: errorCode, errorData: data }));
   });
 };

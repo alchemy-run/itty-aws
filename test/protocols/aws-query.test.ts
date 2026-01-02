@@ -2,6 +2,7 @@ import { it } from "@effect/vitest";
 import * as Effect from "effect/Effect";
 import * as S from "effect/Schema";
 import { describe, expect } from "vitest";
+import { UnknownAwsError, ValidationException } from "../../src/aws/errors.ts";
 import { awsQueryProtocol } from "../../src/protocols/aws-query.ts";
 import { makeRequestBuilder } from "../../src/request-builder.ts";
 import { makeResponseParser } from "../../src/response-parser.ts";
@@ -19,6 +20,8 @@ import {
   GetUserResponse,
   ListUsersRequest,
   ListUsersResponse,
+  // Error types
+  NoSuchEntityException,
 } from "../../src/services/iam.ts";
 
 // Import SNS for map with xmlName on key/value
@@ -38,8 +41,12 @@ const buildRequest = <A, I>(schema: S.Schema<A, I>, instance: A) => {
 };
 
 // Helper to parse a response
-const parseResponse = <A, I>(schema: S.Schema<A, I>, response: Response) => {
-  const operation = { input: schema, output: schema, errors: [] };
+const parseResponse = <A, I>(
+  schema: S.Schema<A, I>,
+  response: Response,
+  errors: S.Schema.AnyNoContext[] = [],
+) => {
+  const operation = { input: schema, output: schema, errors };
   const parser = makeResponseParser<A, I, never>(operation, {
     protocol: awsQueryProtocol,
   });
@@ -561,6 +568,115 @@ describe("awsQuery protocol", () => {
         // AWS Query: uses member name as-is
         // EC2 Query: would capitalize first letter
         expect(params["PathPrefix"]).toBe("/test/");
+      }),
+    );
+  });
+
+  // ==========================================================================
+  // Error Deserialization
+  // ==========================================================================
+
+  describe("error deserialization", () => {
+    it.effect("should deserialize awsQuery error format", () =>
+      Effect.gen(function* () {
+        const response: Response = {
+          status: 404,
+          statusText: "Not Found",
+          headers: {},
+          body: `<?xml version="1.0" encoding="UTF-8"?>
+<ErrorResponse xmlns="https://iam.amazonaws.com/doc/2010-05-08/">
+  <Error>
+    <Type>Sender</Type>
+    <Code>NoSuchEntityException</Code>
+    <Message>The user with name test-user cannot be found.</Message>
+  </Error>
+  <RequestId>abc123-def456</RequestId>
+</ErrorResponse>`,
+        };
+
+        const result = yield* parseResponse(GetUserRequest, response, [NoSuchEntityException]).pipe(
+          Effect.flip,
+        );
+
+        expect(result).toBeInstanceOf(NoSuchEntityException);
+        expect(result._tag).toBe("NoSuchEntityException");
+      }),
+    );
+
+    it.effect("should preserve Type and RequestId in error data", () =>
+      Effect.gen(function* () {
+        const response: Response = {
+          status: 404,
+          statusText: "Not Found",
+          headers: {},
+          body: `<?xml version="1.0" encoding="UTF-8"?>
+<ErrorResponse>
+  <Error>
+    <Type>Sender</Type>
+    <Code>NoSuchEntityException</Code>
+    <Message>User not found</Message>
+  </Error>
+  <RequestId>req-789</RequestId>
+</ErrorResponse>`,
+        };
+
+        const result = yield* parseResponse(GetUserRequest, response, [NoSuchEntityException]).pipe(
+          Effect.flip,
+        );
+
+        expect(result).toBeInstanceOf(NoSuchEntityException);
+      }),
+    );
+
+    it.effect("should match common AWS errors", () =>
+      Effect.gen(function* () {
+        const response: Response = {
+          status: 400,
+          statusText: "Bad Request",
+          headers: {},
+          body: `<?xml version="1.0" encoding="UTF-8"?>
+<ErrorResponse>
+  <Error>
+    <Type>Sender</Type>
+    <Code>ValidationException</Code>
+    <Message>Invalid input parameter</Message>
+  </Error>
+  <RequestId>val-123</RequestId>
+</ErrorResponse>`,
+        };
+
+        const result = yield* parseResponse(GetUserRequest, response, []).pipe(Effect.flip);
+
+        expect(result).toBeInstanceOf(ValidationException);
+      }),
+    );
+
+    it.effect("should return UnknownAwsError for unknown error codes", () =>
+      Effect.gen(function* () {
+        const response: Response = {
+          status: 500,
+          statusText: "Internal Server Error",
+          headers: {},
+          body: `<?xml version="1.0" encoding="UTF-8"?>
+<ErrorResponse>
+  <Error>
+    <Type>Receiver</Type>
+    <Code>InternalServiceError</Code>
+    <Message>An internal error occurred</Message>
+  </Error>
+  <RequestId>int-456</RequestId>
+</ErrorResponse>`,
+        };
+
+        const result = yield* parseResponse(GetUserRequest, response, []).pipe(Effect.flip);
+
+        expect(result).toBeInstanceOf(UnknownAwsError);
+        expect((result as UnknownAwsError).errorTag).toBe("InternalServiceError");
+        expect((result as UnknownAwsError).errorData).toMatchObject({
+          Type: "Receiver",
+          Message: "An internal error occurred",
+          RequestId: "int-456",
+        });
       }),
     );
   });

@@ -2,6 +2,7 @@ import { it } from "@effect/vitest";
 import * as Effect from "effect/Effect";
 import * as S from "effect/Schema";
 import { describe, expect } from "vitest";
+import { UnknownAwsError, ValidationException } from "../../src/aws/errors.ts";
 import { restJson1Protocol } from "../../src/protocols/rest-json.ts";
 import { makeRequestBuilder } from "../../src/request-builder.ts";
 import { makeResponseParser } from "../../src/response-parser.ts";
@@ -24,6 +25,8 @@ import {
   // GET with path label
   ListTagsRequest,
   ListTagsResponse,
+  // Error types
+  ResourceNotFoundException,
   // POST with path label and JSON body (map)
   TagResourceRequest,
   TagResourceResponse,
@@ -63,8 +66,12 @@ const buildRequest = <A, I>(schema: S.Schema<A, I>, instance: A) => {
 };
 
 // Helper to parse a response
-const parseResponse = <A, I>(schema: S.Schema<A, I>, response: Response) => {
-  const operation = { input: schema, output: schema, errors: [] };
+const parseResponse = <A, I>(
+  schema: S.Schema<A, I>,
+  response: Response,
+  errors: S.Schema.AnyNoContext[] = [],
+) => {
+  const operation = { input: schema, output: schema, errors };
   const parser = makeResponseParser<A, I, never>(operation, {
     protocol: restJson1Protocol,
   });
@@ -757,6 +764,185 @@ describe("restJson1 protocol", () => {
 
         expect(result.LastModified).toBeInstanceOf(Date);
         expect(result.LastModified?.toISOString()).toBe("2024-01-15T12:30:00.000Z");
+      }),
+    );
+  });
+
+  // ==========================================================================
+  // Error Deserialization
+  // ==========================================================================
+
+  describe("error deserialization", () => {
+    it.effect("should deserialize error from X-Amzn-Errortype header", () =>
+      Effect.gen(function* () {
+        const response: Response = {
+          status: 404,
+          statusText: "Not Found",
+          headers: {
+            "x-amzn-errortype": "ResourceNotFoundException",
+          },
+          body: JSON.stringify({
+            message: "Function not found: my-function",
+          }),
+        };
+
+        const result = yield* parseResponse(GetAccountSettingsRequest, response, [
+          ResourceNotFoundException,
+        ]).pipe(Effect.flip);
+
+        expect(result).toBeInstanceOf(ResourceNotFoundException);
+        expect(result._tag).toBe("ResourceNotFoundException");
+      }),
+    );
+
+    it.effect("should deserialize error from __type body field", () =>
+      Effect.gen(function* () {
+        const response: Response = {
+          status: 404,
+          statusText: "Not Found",
+          headers: {},
+          body: JSON.stringify({
+            __type: "ResourceNotFoundException",
+            message: "Function not found",
+          }),
+        };
+
+        const result = yield* parseResponse(GetAccountSettingsRequest, response, [
+          ResourceNotFoundException,
+        ]).pipe(Effect.flip);
+
+        expect(result).toBeInstanceOf(ResourceNotFoundException);
+      }),
+    );
+
+    it.effect("should deserialize error from code body field", () =>
+      Effect.gen(function* () {
+        const response: Response = {
+          status: 404,
+          statusText: "Not Found",
+          headers: {},
+          body: JSON.stringify({
+            code: "ResourceNotFoundException",
+            message: "Resource does not exist",
+          }),
+        };
+
+        const result = yield* parseResponse(GetAccountSettingsRequest, response, [
+          ResourceNotFoundException,
+        ]).pipe(Effect.flip);
+
+        expect(result).toBeInstanceOf(ResourceNotFoundException);
+      }),
+    );
+
+    it.effect("should sanitize error code with namespace prefix", () =>
+      Effect.gen(function* () {
+        const response: Response = {
+          status: 404,
+          statusText: "Not Found",
+          headers: {
+            "x-amzn-errortype": "com.amazonaws.lambda#ResourceNotFoundException",
+          },
+          body: JSON.stringify({
+            message: "Not found",
+          }),
+        };
+
+        const result = yield* parseResponse(GetAccountSettingsRequest, response, [
+          ResourceNotFoundException,
+        ]).pipe(Effect.flip);
+
+        expect(result).toBeInstanceOf(ResourceNotFoundException);
+      }),
+    );
+
+    it.effect("should sanitize error code with colon suffix", () =>
+      Effect.gen(function* () {
+        const response: Response = {
+          status: 404,
+          statusText: "Not Found",
+          headers: {
+            "x-amzn-errortype": "ResourceNotFoundException:http://internal.amazon.com",
+          },
+          body: JSON.stringify({
+            message: "Not found",
+          }),
+        };
+
+        const result = yield* parseResponse(GetAccountSettingsRequest, response, [
+          ResourceNotFoundException,
+        ]).pipe(Effect.flip);
+
+        expect(result).toBeInstanceOf(ResourceNotFoundException);
+      }),
+    );
+
+    it.effect("should match common AWS errors", () =>
+      Effect.gen(function* () {
+        const response: Response = {
+          status: 400,
+          statusText: "Bad Request",
+          headers: {},
+          body: JSON.stringify({
+            __type: "ValidationException",
+            message: "Invalid parameter",
+          }),
+        };
+
+        const result = yield* parseResponse(GetAccountSettingsRequest, response, []).pipe(
+          Effect.flip,
+        );
+
+        expect(result).toBeInstanceOf(ValidationException);
+      }),
+    );
+
+    it.effect("should return UnknownAwsError for unknown error codes", () =>
+      Effect.gen(function* () {
+        const response: Response = {
+          status: 500,
+          statusText: "Internal Server Error",
+          headers: {},
+          body: JSON.stringify({
+            __type: "SomeFutureError",
+            message: "Unexpected error",
+            requestId: "abc-123",
+          }),
+        };
+
+        const result = yield* parseResponse(GetAccountSettingsRequest, response, []).pipe(
+          Effect.flip,
+        );
+
+        expect(result).toBeInstanceOf(UnknownAwsError);
+        expect((result as UnknownAwsError).errorTag).toBe("SomeFutureError");
+        expect((result as UnknownAwsError).errorData).toEqual({
+          message: "Unexpected error",
+          requestId: "abc-123",
+        });
+      }),
+    );
+
+    it.effect("should prefer X-Amzn-Errortype header over body fields", () =>
+      Effect.gen(function* () {
+        const response: Response = {
+          status: 404,
+          statusText: "Not Found",
+          headers: {
+            "x-amzn-errortype": "ResourceNotFoundException",
+          },
+          body: JSON.stringify({
+            __type: "SomeOtherError",
+            code: "AnotherError",
+            message: "Header should win",
+          }),
+        };
+
+        const result = yield* parseResponse(GetAccountSettingsRequest, response, [
+          ResourceNotFoundException,
+        ]).pipe(Effect.flip);
+
+        expect(result).toBeInstanceOf(ResourceNotFoundException);
       }),
     );
   });

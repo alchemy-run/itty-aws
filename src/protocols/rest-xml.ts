@@ -7,6 +7,7 @@
 import * as Effect from "effect/Effect";
 import * as S from "effect/Schema";
 import type * as AST from "effect/SchemaAST";
+import { ParseError } from "../error-parser.ts";
 import type { Operation } from "../operation.ts";
 import type { Protocol, ProtocolHandler } from "../protocol.ts";
 import type { Request } from "../request.ts";
@@ -36,6 +37,7 @@ import {
   isNumberAST,
   unwrapUnion,
 } from "../util/ast.ts";
+import { sanitizeErrorCode } from "../util/error.ts";
 import { extractStaticQueryParams } from "../util/query-params.ts";
 import { applyHttpTrait, bindInputToRequest } from "../util/serialize-input.ts";
 import { convertStreamingInput, readableToEffectStream, readStreamAsText } from "../util/stream.ts";
@@ -182,6 +184,58 @@ export const restXmlProtocol: Protocol = (operation: Operation): ProtocolHandler
       }
 
       return result;
+    }),
+
+    deserializeError: Effect.fn(function* (response: Response) {
+      // Read body as text
+      const bodyText = yield* readStreamAsText(response.body);
+
+      if (!bodyText) {
+        return yield* new ParseError({ message: "Empty error response body" });
+      }
+
+      // Parse XML body
+      const parsed = parseXml(bodyText);
+
+      // restXml error structure:
+      // Default: <ErrorResponse><Error><Code>...</Code><Message>...</Message>...</Error><RequestId>...</RequestId></ErrorResponse>
+      // With noErrorWrapping: <Error><Code>...</Code><Message>...</Message>...</Error>
+      // Note: noErrorWrapping is a protocol trait, but we handle both formats for flexibility
+      let errorContent: Record<string, unknown> | undefined;
+
+      // Try wrapped format first: <ErrorResponse><Error>...</Error></ErrorResponse>
+      if (parsed.ErrorResponse && typeof parsed.ErrorResponse === "object") {
+        const errorResponse = parsed.ErrorResponse as Record<string, unknown>;
+        if (errorResponse.Error && typeof errorResponse.Error === "object") {
+          errorContent = errorResponse.Error as Record<string, unknown>;
+        }
+      }
+
+      // Try unwrapped format: <Error>...</Error>
+      if (!errorContent && parsed.Error && typeof parsed.Error === "object") {
+        errorContent = parsed.Error as Record<string, unknown>;
+      }
+
+      if (!errorContent) {
+        return yield* new ParseError({
+          message: `Could not find Error element in XML response: ${bodyText}`,
+        });
+      }
+
+      // Extract error code from <Code> element
+      const rawErrorCode = errorContent.Code;
+      if (typeof rawErrorCode !== "string") {
+        return yield* new ParseError({
+          message: `No Code element found in error response: ${bodyText}`,
+        });
+      }
+
+      const errorCode = sanitizeErrorCode(rawErrorCode);
+
+      // Extract remaining data (remove Code, keep Message, Type, RequestId, etc.)
+      const { Code, ...data } = errorContent;
+
+      return { errorCode, data };
     }),
   };
 };

@@ -25,6 +25,7 @@ import {
   type StreamingInputBody,
 } from "../traits.ts";
 import { getEncodedPropertySignatures } from "../util/ast.ts";
+import { extractJsonErrorCode, extractJsonErrorData, sanitizeErrorCode } from "../util/error.ts";
 import { extractStaticQueryParams } from "../util/query-params.ts";
 import { applyHttpTrait, bindInputToRequest } from "../util/serialize-input.ts";
 import { convertStreamingInput, readableToEffectStream, readStreamAsText } from "../util/stream.ts";
@@ -132,6 +133,48 @@ export const restJson1Protocol: Protocol = (operation: Operation): ProtocolHandl
       }
 
       return result;
+    }),
+
+    deserializeError: Effect.fn(function* (response: Response) {
+      // Read body as text
+      const bodyText = yield* readStreamAsText(response.body);
+
+      // Parse JSON body
+      let body: Record<string, unknown> = {};
+      if (bodyText) {
+        try {
+          const parsed = JSON.parse(bodyText);
+          if (parsed && typeof parsed === "object") {
+            body = parsed as Record<string, unknown>;
+          }
+        } catch {
+          return yield* new ParseError({
+            message: `Failed to parse error JSON body: ${bodyText}`,
+          });
+        }
+      }
+
+      // Extract error code: check X-Amzn-Errortype header first, then body fields
+      const rawErrorCode =
+        response.headers["x-amzn-errortype"] ??
+        response.headers["X-Amzn-Errortype"] ??
+        extractJsonErrorCode(body);
+
+      if (!rawErrorCode) {
+        return yield* new ParseError({
+          message: `No error code found in response. Headers: ${JSON.stringify(response.headers)}, Body: ${bodyText}`,
+        });
+      }
+
+      // Sanitize the error code
+      const errorCode = sanitizeErrorCode(rawErrorCode);
+
+      // Extract data (remove __type and code fields)
+      // Note: Error shapes can have HTTP bindings (httpHeader, etc.) but we extract
+      // those in the response-parser when matching against error schemas
+      const data = extractJsonErrorData(body);
+
+      return { errorCode, data };
     }),
   };
 };

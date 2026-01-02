@@ -2,6 +2,7 @@ import { it } from "@effect/vitest";
 import * as Effect from "effect/Effect";
 import * as S from "effect/Schema";
 import { describe, expect } from "vitest";
+import { UnknownAwsError, ValidationException } from "../../src/aws/errors.ts";
 import { ec2QueryProtocol } from "../../src/protocols/ec2-query.ts";
 import { makeRequestBuilder } from "../../src/request-builder.ts";
 import { makeResponseParser } from "../../src/response-parser.ts";
@@ -32,8 +33,12 @@ const buildRequest = <A, I>(schema: S.Schema<A, I>, instance: A) => {
 };
 
 // Helper to parse a response
-const parseResponse = <A, I>(schema: S.Schema<A, I>, response: Response) => {
-  const operation = { input: schema, output: schema, errors: [] };
+const parseResponse = <A, I>(
+  schema: S.Schema<A, I>,
+  response: Response,
+  errors: S.Schema.AnyNoContext[] = [],
+) => {
+  const operation = { input: schema, output: schema, errors };
   const parser = makeResponseParser<A, I, never>(operation, {
     protocol: ec2QueryProtocol,
   });
@@ -544,6 +549,98 @@ describe("ec2Query protocol", () => {
         // Should still be an array with one item
         expect(Array.isArray(result.Reservations)).toBe(true);
         expect(result.Reservations).toHaveLength(1);
+      }),
+    );
+  });
+
+  // ==========================================================================
+  // Error Deserialization
+  // ==========================================================================
+
+  describe("error deserialization", () => {
+    it.effect("should deserialize EC2-style error format (Response > Errors > Error)", () =>
+      Effect.gen(function* () {
+        // EC2 uses a different error format than awsQuery
+        const response: Response = {
+          status: 400,
+          statusText: "Bad Request",
+          headers: {},
+          body: `<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+  <Errors>
+    <Error>
+      <Code>ValidationException</Code>
+      <Message>Invalid parameter value</Message>
+    </Error>
+  </Errors>
+  <RequestID>ec2-req-123</RequestID>
+</Response>`,
+        };
+
+        const result = yield* parseResponse(DescribeInstancesRequest, response, []).pipe(
+          Effect.flip,
+        );
+
+        expect(result).toBeInstanceOf(ValidationException);
+        expect(result._tag).toBe("ValidationException");
+      }),
+    );
+
+    it.effect("should preserve RequestID in error data", () =>
+      Effect.gen(function* () {
+        const response: Response = {
+          status: 400,
+          statusText: "Bad Request",
+          headers: {},
+          body: `<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+  <Errors>
+    <Error>
+      <Code>InvalidParameterValue</Code>
+      <Message>The value 'invalid' is not valid for parameter 'InstanceType'</Message>
+    </Error>
+  </Errors>
+  <RequestID>req-abc-456</RequestID>
+</Response>`,
+        };
+
+        const result = yield* parseResponse(DescribeInstancesRequest, response, []).pipe(
+          Effect.flip,
+        );
+
+        expect(result).toBeInstanceOf(UnknownAwsError);
+        expect((result as UnknownAwsError).errorTag).toBe("InvalidParameterValue");
+        expect((result as UnknownAwsError).errorData).toMatchObject({
+          Message: "The value 'invalid' is not valid for parameter 'InstanceType'",
+          RequestID: "req-abc-456",
+        });
+      }),
+    );
+
+    it.effect("should return UnknownAwsError for unknown error codes", () =>
+      Effect.gen(function* () {
+        const response: Response = {
+          status: 500,
+          statusText: "Internal Server Error",
+          headers: {},
+          body: `<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+  <Errors>
+    <Error>
+      <Code>InternalError</Code>
+      <Message>An internal error has occurred</Message>
+    </Error>
+  </Errors>
+  <RequestID>err-789</RequestID>
+</Response>`,
+        };
+
+        const result = yield* parseResponse(DescribeInstancesRequest, response, []).pipe(
+          Effect.flip,
+        );
+
+        expect(result).toBeInstanceOf(UnknownAwsError);
+        expect((result as UnknownAwsError).errorTag).toBe("InternalError");
       }),
     );
   });

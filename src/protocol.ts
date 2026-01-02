@@ -9,6 +9,17 @@ import type { Response } from "./response.ts";
  * with the operation pre-bound, allowing one-time preprocessing
  * of schema metadata (like getEncodedPropertySignatures, etc.).
  */
+/**
+ * Result of deserializing an error response.
+ * Contains the sanitized error code and any additional data fields.
+ */
+export interface DeserializedError {
+  /** The sanitized error code (e.g., "ValidationException") */
+  errorCode: string;
+  /** Additional data fields from the error response */
+  data: Record<string, unknown>;
+}
+
 export interface ProtocolHandler {
   /**
    * Serialize an input object into an HTTP request.
@@ -23,6 +34,13 @@ export interface ProtocolHandler {
    * @returns Effect yielding the deserialized output object
    */
   deserializeResponse(response: Response): Effect.Effect<unknown, ParseError>;
+
+  /**
+   * Deserialize an error response and extract the error code and data.
+   * @param response - The HTTP error response to deserialize
+   * @returns Effect yielding the error code and additional data
+   */
+  deserializeError(response: Response): Effect.Effect<DeserializedError, ParseError>;
 }
 
 /**
