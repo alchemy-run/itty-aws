@@ -7,7 +7,9 @@ import { Endpoint } from "./aws/endpoint.ts";
 import { UnknownAwsError, type CommonAwsError } from "./aws/errors.ts";
 import { Region } from "./aws/region.ts";
 import type { Operation } from "./operation.ts";
-import { getAwsAuthSigv4, getMiddleware, getProtocol } from "./traits.ts";
+import { makeRequestBuilder } from "./request-builder.ts";
+import { makeResponseParser } from "./response-parser.ts";
+import { getAwsAuthSigv4 } from "./traits.ts";
 
 export const make = <Op extends Operation>(
   initOperation: () => Op,
@@ -19,39 +21,22 @@ export const make = <Op extends Operation>(
   Region | Credentials
 >) => {
   const op = initOperation();
-  const inputSchema = op.input;
-  const inputAst = inputSchema.ast;
+  const inputAst = op.input.ast;
 
-  // Discover protocol factory from input schema annotations
-  const protocolFactory = getProtocol(inputAst);
-  if (!protocolFactory) {
-    throw new Error("No protocol found on input schema");
-  }
-
-  // Create the protocol handler with the operation (preprocessing done once)
-  const protocol = protocolFactory(op);
-
-  // Discover middleware from input schema annotations
-  const middleware = getMiddleware(inputAst);
+  // Create request builder and response parser (preprocessing done once)
+  const buildRequest = makeRequestBuilder(op);
+  const parseResponse = makeResponseParser(op);
 
   // Get SigV4 service name from annotations
   const sigv4 = getAwsAuthSigv4(inputAst);
 
-  // @ts-expect-error
   return Effect.fnUntraced(function* (payload: Operation.Input<Op>) {
     yield* Effect.logDebug("Payload", payload);
 
-    // Serialize request using the protocol handler
-    let request = yield* protocol.serializeRequest(payload);
+    // Build request using the request builder (handles protocol serialization + middleware)
+    const request = yield* buildRequest(payload);
 
-    yield* Effect.logDebug("Serialized Request", request);
-
-    // Apply middleware
-    for (const mw of middleware) {
-      request = yield* mw(inputSchema, request);
-    }
-
-    yield* Effect.logDebug("After Middleware", request);
+    yield* Effect.logDebug("Built Request", request);
 
     // Sign the request
     const credentials = yield* Credentials;
@@ -140,8 +125,8 @@ export const make = <Op extends Operation>(
       : (rawResponse.body ?? new ReadableStream<Uint8Array>({ start: (c) => c.close() }));
 
     if (rawResponse.status >= 200 && rawResponse.status < 300) {
-      // Deserialize response using the protocol handler
-      const parsed = yield* protocol.deserializeResponse({
+      // Parse response using the response parser (handles protocol deserialization + schema decoding)
+      const parsed = yield* parseResponse({
         status: rawResponse.status,
         statusText: rawResponse.statusText,
         headers: responseHeaders,
@@ -150,7 +135,6 @@ export const make = <Op extends Operation>(
 
       yield* Effect.logDebug("Parsed Response", parsed);
 
-      // Decode through schema for validation and transformation
       return parsed;
     } else {
       // For errors, read the body as text for error message

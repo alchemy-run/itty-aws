@@ -38,7 +38,7 @@ export type ResponseParser<A, R> = (
 export const makeResponseParser = <A, I, R>(
   operation: Operation,
   options?: ResponseParserOptions,
-): ResponseParser<A, R> => {
+) => {
   const inputAst = operation.input.ast;
   const outputSchema = operation.output;
 
