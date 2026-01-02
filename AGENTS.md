@@ -2,13 +2,16 @@ Generate a new client with a script like
 bun generate --sdk s3
 
 To run the s3 tests:
-bun test:local ./test/s3.test.ts
+bun test:local ./test/services/s3.test.ts
+
+To run all service tests:
+bun test:local ./test/services/
 
 To run the Protocol tests:
 bun test:protocols
 
 To run a single protocol test suite:
-bun vitest run ./test/aws-json-1.0.test.ts
+bun vitest run ./test/protocols/aws-json-1.0.test.ts
 
 If it is unclear what the XML format for an AWS API is, look up the AWS API reference for that operation.
 

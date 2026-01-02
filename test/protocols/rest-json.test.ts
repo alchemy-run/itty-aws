@@ -2,10 +2,10 @@ import { it } from "@effect/vitest";
 import * as Effect from "effect/Effect";
 import * as S from "effect/Schema";
 import { describe, expect } from "vitest";
-import { restJson1Protocol } from "../src/protocols/rest-json.ts";
-import { makeRequestBuilder } from "../src/request-builder.ts";
-import { makeResponseParser } from "../src/response-parser.ts";
-import type { Response } from "../src/response.ts";
+import { restJson1Protocol } from "../../src/protocols/rest-json.ts";
+import { makeRequestBuilder } from "../../src/request-builder.ts";
+import { makeResponseParser } from "../../src/response-parser.ts";
+import type { Response } from "../../src/response.ts";
 
 // Import real generated schemas from Lambda (uses restJson1 protocol)
 import {
@@ -29,7 +29,7 @@ import {
   TagResourceResponse,
   // POST with path label, query param, and nested structures
   UpdateFunctionEventInvokeConfigRequest,
-} from "../src/services/lambda.ts";
+} from "../../src/services/lambda.ts";
 
 // Import API Gateway schemas (restJson1 protocol) for JsonName testing
 import {
@@ -37,7 +37,7 @@ import {
   ApiKeys,
   // Request with multiple fields for body testing
   CreateBasePathMappingRequest,
-} from "../src/services/api-gateway.ts";
+} from "../../src/services/api-gateway.ts";
 
 // Import API Gateway V2 schemas (restJson1 protocol) for comprehensive JsonName testing
 // These use PascalCase -> camelCase transformations
@@ -50,10 +50,10 @@ import {
   CreateApiRequest,
   // Response with nested structure
   CreateApiResponse,
-} from "../src/services/apigatewayv2.ts";
+} from "../../src/services/apigatewayv2.ts";
 
 // Import AppConfig schemas (restJson1 protocol) for HttpHeader testing
-import { CreateHostedConfigurationVersionRequest } from "../src/services/appconfig.ts";
+import { CreateHostedConfigurationVersionRequest } from "../../src/services/appconfig.ts";
 
 // Helper to build a request from an instance
 const buildRequest = <A, I>(schema: S.Schema<A, I>, instance: A) => {

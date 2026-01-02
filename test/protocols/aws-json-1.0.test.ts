@@ -2,10 +2,10 @@ import { it } from "@effect/vitest";
 import * as Effect from "effect/Effect";
 import * as S from "effect/Schema";
 import { describe, expect } from "vitest";
-import { awsJson1_0Protocol } from "../src/protocols/aws-json.ts";
-import { makeRequestBuilder } from "../src/request-builder.ts";
-import { makeResponseParser } from "../src/response-parser.ts";
-import type { Response } from "../src/response.ts";
+import { awsJson1_0Protocol } from "../../src/protocols/aws-json.ts";
+import { makeRequestBuilder } from "../../src/request-builder.ts";
+import { makeResponseParser } from "../../src/response-parser.ts";
+import type { Response } from "../../src/response.ts";
 
 // Import real generated schemas from DynamoDB (uses awsJson1_0 protocol)
 import {
@@ -21,14 +21,14 @@ import {
   ScanInput,
   TagResourceInput,
   TagResourceResponse,
-} from "../src/services/dynamodb.ts";
+} from "../../src/services/dynamodb.ts";
 
 // Import SFN schemas for timestamp testing
 import {
   CreateActivityInput,
   CreateActivityOutput,
   ListExecutionsOutput,
-} from "../src/services/sfn.ts";
+} from "../../src/services/sfn.ts";
 
 // Helper to build a request from an instance
 const buildRequest = <A, I>(schema: S.Schema<A, I>, instance: A) => {

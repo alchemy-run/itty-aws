@@ -2,10 +2,10 @@ import { it } from "@effect/vitest";
 import * as Effect from "effect/Effect";
 import * as S from "effect/Schema";
 import { describe, expect } from "vitest";
-import { ec2QueryProtocol } from "../src/protocols/ec2-query.ts";
-import { makeRequestBuilder } from "../src/request-builder.ts";
-import { makeResponseParser } from "../src/response-parser.ts";
-import type { Response } from "../src/response.ts";
+import { ec2QueryProtocol } from "../../src/protocols/ec2-query.ts";
+import { makeRequestBuilder } from "../../src/request-builder.ts";
+import { makeResponseParser } from "../../src/response-parser.ts";
+import type { Response } from "../../src/response.ts";
 import {
   // Simple request/response operations
   AcceptVpcPeeringConnectionRequest,
@@ -22,7 +22,7 @@ import {
   // Operations with timestamps
   DescribeSpotFleetRequestHistoryRequest,
   DescribeSpotFleetRequestHistoryResponse,
-} from "../src/services/ec2.ts";
+} from "../../src/services/ec2.ts";
 
 // Helper to build a request from an instance
 const buildRequest = <A, I>(schema: S.Schema<A, I>, instance: A) => {

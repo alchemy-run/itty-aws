@@ -58,8 +58,8 @@ import {
   // Public Access Block
   putPublicAccessBlock,
   uploadPart,
-} from "../src/services/s3.ts";
-import { test } from "./test.ts";
+} from "../../src/services/s3.ts";
+import { test } from "../test.ts";
 
 const TEST_BUCKET = "itty-aws-test";
 

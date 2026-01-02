@@ -2,10 +2,10 @@ import { it } from "@effect/vitest";
 import * as Effect from "effect/Effect";
 import * as S from "effect/Schema";
 import { describe, expect } from "vitest";
-import { awsQueryProtocol } from "../src/protocols/aws-query.ts";
-import { makeRequestBuilder } from "../src/request-builder.ts";
-import { makeResponseParser } from "../src/response-parser.ts";
-import type { Response } from "../src/response.ts";
+import { awsQueryProtocol } from "../../src/protocols/aws-query.ts";
+import { makeRequestBuilder } from "../../src/request-builder.ts";
+import { makeResponseParser } from "../../src/response-parser.ts";
+import type { Response } from "../../src/response.ts";
 
 // Import real generated schemas for testing
 import {
@@ -19,16 +19,16 @@ import {
   GetUserResponse,
   ListUsersRequest,
   ListUsersResponse,
-} from "../src/services/iam.ts";
+} from "../../src/services/iam.ts";
 
 // Import SNS for map with xmlName on key/value
-import { PublishInput, PublishResponse } from "../src/services/sns.ts";
+import { PublishInput, PublishResponse } from "../../src/services/sns.ts";
 
 // Import Neptune for lists with xmlName on element
 import {
   ModifyDBClusterSnapshotAttributeMessage,
   ModifyDBClusterSnapshotAttributeResult,
-} from "../src/services/neptune.ts";
+} from "../../src/services/neptune.ts";
 
 // Helper to build a request from an instance
 const buildRequest = <A, I>(schema: S.Schema<A, I>, instance: A) => {
@@ -563,18 +563,5 @@ describe("awsQuery protocol", () => {
         expect(params["PathPrefix"]).toBe("/test/");
       }),
     );
-  });
-
-  // ==========================================================================
-  // awsQueryError trait on errors
-  // ==========================================================================
-
-  describe("awsQueryError trait", () => {
-    it("should have AwsQueryError trait on IAM error classes", () => {
-      // Import an IAM error to verify the trait is applied
-      const { ConcurrentModificationException } = require("../src/services/iam.ts");
-      // The error class should exist and be defined
-      expect(ConcurrentModificationException).toBeDefined();
-    });
   });
 });

@@ -2,10 +2,10 @@ import { it } from "@effect/vitest";
 import * as Effect from "effect/Effect";
 import * as S from "effect/Schema";
 import { describe, expect } from "vitest";
-import { awsJson1_1Protocol } from "../src/protocols/aws-json.ts";
-import { makeRequestBuilder } from "../src/request-builder.ts";
-import { makeResponseParser } from "../src/response-parser.ts";
-import type { Response } from "../src/response.ts";
+import { awsJson1_1Protocol } from "../../src/protocols/aws-json.ts";
+import { makeRequestBuilder } from "../../src/request-builder.ts";
+import { makeResponseParser } from "../../src/response-parser.ts";
+import type { Response } from "../../src/response.ts";
 
 // Import real generated schemas from KMS (uses awsJson1_1 protocol)
 import {
@@ -20,11 +20,11 @@ import {
   DisableKeyResponse,
   EncryptRequest,
   GenerateDataKeyRequest,
-} from "../src/services/kms.ts";
+} from "../../src/services/kms.ts";
 
 // Import Redshift Serverless schemas for JsonName testing (awsJson1_1 protocol)
 // This service has jsonName traits: token -> "Token", expirationTime -> "ExpirationTime"
-import { GetIdentityCenterAuthTokenResponse } from "../src/services/redshift-serverless.ts";
+import { GetIdentityCenterAuthTokenResponse } from "../../src/services/redshift-serverless.ts";
 
 // Helper to build a request from an instance
 const buildRequest = <A, I>(schema: S.Schema<A, I>, instance: A) => {

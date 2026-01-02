@@ -10,7 +10,8 @@
     "build": "bun generate && bun oxfmt ./src/services/* && tsc -b",
     "test:local": "LOCAL=1 bun run scripts/test.ts",
     "test:live": "bun run scripts/test.ts",
-    "test:protocols": "bun vitest run ./test/xml.test.ts ./test/rest-json.test.ts ./test/aws-query.test.ts ./test/ec2-query.test.ts ./test/rest-xml.test.ts ./test/aws-json-1.0.test.ts",
+    "test:protocols": "bun vitest run ./test/protocols/",
+    "test:services": "bun test:local ./test/services/",
     "format": "bun oxfmt ./src"
   },
   "files": [
