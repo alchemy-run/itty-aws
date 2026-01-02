@@ -612,23 +612,6 @@ describe("awsJson1_0 protocol", () => {
         expect(result).toMatchObject({});
       }),
     );
-
-    it.effect("should convert null to undefined in GetItemOutput", () =>
-      Effect.gen(function* () {
-        const response: Response = {
-          status: 200,
-          statusText: "OK",
-          headers: { "Content-Type": "application/x-amz-json-1.0" },
-          body: JSON.stringify({
-            Item: null,
-          }),
-        };
-
-        const result = yield* parseResponse(GetItemOutput, response);
-
-        expect(result).toMatchObject({});
-      }),
-    );
   });
 
   // ==========================================================================

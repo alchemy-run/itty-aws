@@ -65,6 +65,22 @@ export function getPropertySignatures(ast: AST.AST): readonly AST.PropertySignat
 }
 
 /**
+ * Recursively find the TypeLiteral on the "from" (encoded/wire) side of transformations.
+ * S.Class + S.fromKey (JsonName) creates nested transformation layers.
+ */
+function findEncodedTypeLiteral(ast: AST.AST): AST.TypeLiteral | undefined {
+  if (ast._tag === "TypeLiteral") return ast;
+  if (ast._tag === "Transformation") {
+    // Prioritize the "from" side (encoded/wire format)
+    const fromResult = findEncodedTypeLiteral(ast.from);
+    if (fromResult) return fromResult;
+    // Fall back to "to" side
+    return findEncodedTypeLiteral(ast.to);
+  }
+  return undefined;
+}
+
+/**
  * Get encoded property signatures (from side of Transformation)
  */
 export function getEncodedPropertySignatures(ast: AST.AST): readonly AST.PropertySignature[] {
@@ -72,8 +88,10 @@ export function getEncodedPropertySignatures(ast: AST.AST): readonly AST.Propert
   const unwrapped = unwrapUnion(ast);
   if (unwrapped !== ast) return getEncodedPropertySignatures(unwrapped);
 
-  if (unwrapped._tag === "Transformation" && unwrapped.from?._tag === "TypeLiteral") {
-    return unwrapped.from.propertySignatures;
+  // Recursively find TypeLiteral through nested transformations
+  const typeLiteral = findEncodedTypeLiteral(unwrapped);
+  if (typeLiteral) {
+    return typeLiteral.propertySignatures;
   }
   return getPropertySignatures(unwrapped);
 }

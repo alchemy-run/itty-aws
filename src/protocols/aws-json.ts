@@ -19,19 +19,14 @@
 
 import * as Effect from "effect/Effect";
 import * as Schema from "effect/Schema";
-import * as AST from "effect/SchemaAST";
+import type * as AST from "effect/SchemaAST";
 import { ParseError } from "../error-parser.ts";
 import type { Operation } from "../operation.ts";
 import type { Protocol, ProtocolHandler } from "../protocol.ts";
 import type { Request } from "../request.ts";
 import type { Response } from "../response.ts";
-import { getAwsApiService, getAwsAuthSigv4, jsonNameSymbol } from "../traits.ts";
-import {
-  getArrayElementAST,
-  getEncodedPropertySignatures,
-  getIdentifier,
-  unwrapUnion,
-} from "../util/ast.ts";
+import { getAwsApiService, getAwsAuthSigv4 } from "../traits.ts";
+import { getIdentifier } from "../util/ast.ts";
 import { readStreamAsText } from "../util/stream.ts";
 
 /** AWS JSON 1.0 Protocol */
@@ -48,9 +43,7 @@ function createAwsJsonProtocol(version: "1.0" | "1.1"): Protocol {
 
   return (operation: Operation): ProtocolHandler => {
     const inputSchema = operation.input;
-    const outputSchema = operation.output;
     const inputAst = inputSchema.ast;
-    const outputAst = outputSchema.ast;
 
     // Pre-compute encoder (done once at init)
     const encodeInput = Schema.encode(inputSchema);
@@ -79,9 +72,8 @@ function createAwsJsonProtocol(version: "1.0" | "1.1"): Protocol {
         };
 
         // Serialize body - always JSON, no HTTP bindings
-        // Empty input becomes empty JSON object
-        const body = renameKeys(inputAst, encoded, true);
-        request.body = JSON.stringify(body ?? {});
+        // Effect Schema handles jsonName key renaming via S.fromKey
+        request.body = JSON.stringify(encoded ?? {});
 
         return request;
       }),
@@ -90,12 +82,12 @@ function createAwsJsonProtocol(version: "1.0" | "1.1"): Protocol {
         // Read body as text
         const bodyText = yield* readStreamAsText(response.body);
 
-        // Parse JSON body and decode
+        // Parse JSON body - Effect Schema handles jsonName key renaming via S.fromKey
         if (bodyText) {
           try {
             const parsed = JSON.parse(bodyText);
             if (parsed && typeof parsed === "object") {
-              return renameKeys(outputAst, parsed, false) as Record<string, unknown>;
+              return parsed as Record<string, unknown>;
             }
           } catch {
             return yield* new ParseError({ message: `Failed to parse JSON body: ${bodyText}` });
@@ -123,40 +115,4 @@ function buildXAmzTarget(ast: AST.AST, operationName: string): string {
   }
 
   return operationName;
-}
-
-/**
- * Bidirectional key renaming based on jsonName annotation.
- * @param toWire - true: internal→wire (serialize), false: wire→internal (deserialize)
- */
-function renameKeys(ast: AST.AST, value: unknown, toWire: boolean): unknown {
-  if (value == null || typeof value !== "object") return value;
-
-  if (Array.isArray(value)) {
-    const elemAst = getArrayElementAST(unwrapUnion(ast));
-    return elemAst ? value.map((item) => renameKeys(elemAst, item, toWire)) : value;
-  }
-
-  const props = getEncodedPropertySignatures(ast);
-  if (!props.length) return value; // Maps, primitives
-
-  const obj = value as Record<string, unknown>;
-  const out: Record<string, unknown> = {};
-
-  for (const prop of props) {
-    const internal = String(prop.name);
-    const wire = (prop.annotations?.[jsonNameSymbol] as string) ?? internal;
-    const [srcKey, dstKey] = toWire ? [internal, wire] : [wire, internal];
-
-    const v = obj[srcKey];
-    // When deserializing (toWire=false), convert null to undefined
-    if (v === null && !toWire) {
-      continue;
-    }
-    if (v !== undefined) {
-      out[dstKey] = renameKeys(prop.type, v, toWire);
-    }
-  }
-
-  return out;
 }

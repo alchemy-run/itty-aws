@@ -12,6 +12,7 @@
 import * as Effect from "effect/Effect";
 import * as Schema from "effect/Schema";
 import * as AST from "effect/SchemaAST";
+import { ParseError } from "../error-parser.ts";
 import type { Operation } from "../operation.ts";
 import type { Protocol, ProtocolHandler } from "../protocol.ts";
 import type { Request } from "../request.ts";
@@ -21,10 +22,9 @@ import {
   getHttpPrefixHeaders,
   hasHttpPayload,
   isStreamingType,
-  jsonNameSymbol,
   type StreamingInputBody,
 } from "../traits.ts";
-import { getArrayElementAST, getEncodedPropertySignatures, unwrapUnion } from "../util/ast.ts";
+import { getEncodedPropertySignatures } from "../util/ast.ts";
 import { extractStaticQueryParams } from "../util/query-params.ts";
 import { applyHttpTrait, bindInputToRequest } from "../util/serialize-input.ts";
 import { convertStreamingInput, readableToEffectStream, readStreamAsText } from "../util/stream.ts";
@@ -58,7 +58,7 @@ export const restJson1Protocol: Protocol = (operation: Operation): ProtocolHandl
       );
       extractStaticQueryParams(request);
 
-      // Serialize body
+      // Serialize body - Effect Schema handles jsonName key renaming via S.fromKey
       if (payloadValue !== undefined && payloadAst !== undefined) {
         if (isStreamingType(payloadAst)) {
           // Streaming input - convert to appropriate format for fetch
@@ -66,10 +66,10 @@ export const restJson1Protocol: Protocol = (operation: Operation): ProtocolHandl
         } else if (isRawPayload(payloadAst)) {
           request.body = payloadValue as string;
         } else {
-          request.body = JSON.stringify(renameKeys(payloadAst, payloadValue, true));
+          request.body = JSON.stringify(payloadValue);
         }
       } else if (hasBodyMembers) {
-        request.body = JSON.stringify(renameKeys(inputAst, bodyMembers, true));
+        request.body = JSON.stringify(bodyMembers);
       }
 
       return request;
@@ -119,16 +119,15 @@ export const restJson1Protocol: Protocol = (operation: Operation): ProtocolHandl
         }
       }
 
-      // Parse JSON body and decode
+      // Parse JSON body - Effect Schema handles jsonName key renaming via S.fromKey
       if (bodyText) {
         try {
           const parsed = JSON.parse(bodyText);
           if (parsed && typeof parsed === "object" && !Array.isArray(parsed)) {
-            const renamed = renameKeys(outputAst, parsed, false);
-            Object.assign(result, renamed);
+            Object.assign(result, parsed);
           }
         } catch {
-          // Body might not be JSON
+          return yield* new ParseError({ message: `Failed to parse JSON body: ${bodyText}` });
         }
       }
 
@@ -143,40 +142,4 @@ function isRawPayload(ast: AST.AST): boolean {
   if (ast._tag === "StringKeyword") return true;
   if (AST.isUnion(ast)) return ast.types.some(isRawPayload);
   return false;
-}
-
-/**
- * Bidirectional key renaming based on jsonName annotation.
- * @param toWire - true: internal→wire (serialize), false: wire→internal (deserialize)
- */
-function renameKeys(ast: AST.AST, value: unknown, toWire: boolean): unknown {
-  if (value == null || typeof value !== "object") return value;
-
-  if (Array.isArray(value)) {
-    const elemAst = getArrayElementAST(unwrapUnion(ast));
-    return elemAst ? value.map((item) => renameKeys(elemAst, item, toWire)) : value;
-  }
-
-  const props = getEncodedPropertySignatures(ast);
-  if (!props.length) return value; // Maps, primitives
-
-  const obj = value as Record<string, unknown>;
-  const out: Record<string, unknown> = {};
-
-  for (const prop of props) {
-    const internal = String(prop.name);
-    const wire = (prop.annotations?.[jsonNameSymbol] as string) ?? internal;
-    const [srcKey, dstKey] = toWire ? [internal, wire] : [wire, internal];
-
-    const v = obj[srcKey];
-    // When deserializing (toWire=false), convert null to undefined
-    if (v === null && !toWire) {
-      continue; // Skip null values, treating them as undefined
-    }
-    if (v !== undefined) {
-      out[dstKey] = renameKeys(prop.type, v, toWire);
-    }
-  }
-
-  return out;
 }

@@ -5,7 +5,7 @@
  * based on Smithy HTTP trait annotations.
  */
 
-import * as AST from "effect/SchemaAST";
+import type * as AST from "effect/SchemaAST";
 import type { Request } from "../request.ts";
 import {
   getHttpHeader,
@@ -16,6 +16,7 @@ import {
   hasHttpPayload,
   hasHttpQueryParams,
 } from "../traits.ts";
+import { getEncodedPropertySignatures } from "./ast.ts";
 
 /**
  * Apply the @http trait (method, uri) to the request.
@@ -40,8 +41,8 @@ export function applyHttpTrait(ast: AST.AST, request: Request): void {
  * - Collects remaining members as body content
  */
 export function bindInputToRequest(ast: AST.AST, input: Record<string, unknown>, request: Request) {
-  const structAst = AST.isTransformation(ast) ? ast.from : ast;
-  const props = AST.isTypeLiteral(structAst) ? structAst.propertySignatures : [];
+  // Use encoded property signatures - these have wire format keys matching the encoded input
+  const props = getEncodedPropertySignatures(ast);
 
   let payloadValue: unknown = undefined;
   let payloadAst: AST.AST | undefined = undefined;

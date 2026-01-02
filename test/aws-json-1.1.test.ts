@@ -22,6 +22,10 @@ import {
   GenerateDataKeyRequest,
 } from "../src/services/kms.ts";
 
+// Import Redshift Serverless schemas for JsonName testing (awsJson1_1 protocol)
+// This service has jsonName traits: token -> "Token", expirationTime -> "ExpirationTime"
+import { GetIdentityCenterAuthTokenResponse } from "../src/services/redshift-serverless.ts";
+
 // Helper to build a request from an instance
 const buildRequest = <A, I>(schema: S.Schema<A, I>, instance: A) => {
   const operation = { input: schema, output: schema, errors: [] };
@@ -338,6 +342,39 @@ describe("awsJson1_1 protocol", () => {
           GrantTokens: ["grant-token-1"],
         });
       }),
+    );
+  });
+
+  // ==========================================================================
+  // JsonName Trait Handling (awsJson1_1)
+  // ==========================================================================
+
+  describe("jsonName trait", () => {
+    it.effect(
+      "should deserialize response with camelCase -> PascalCase jsonName (redshift-serverless)",
+      () =>
+        Effect.gen(function* () {
+          // GetIdentityCenterAuthTokenResponse has:
+          // - token: S.optional(S.String).pipe(T.JsonName("Token"))
+          // - expirationTime: S.optional(S.Date...).pipe(T.JsonName("ExpirationTime"))
+          // Wire format uses PascalCase, internal schema uses camelCase
+          const response: Response = {
+            status: 200,
+            statusText: "OK",
+            headers: { "Content-Type": "application/x-amz-json-1.1" },
+            body: JSON.stringify({
+              Token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+              ExpirationTime: "2024-12-31T23:59:59.000Z",
+            }),
+          };
+
+          const result = yield* parseResponse(GetIdentityCenterAuthTokenResponse, response);
+
+          // Internal schema uses camelCase
+          expect(result.token).toBe("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...");
+          expect(result.expirationTime).toBeInstanceOf(Date);
+          expect(result.expirationTime?.toISOString()).toBe("2024-12-31T23:59:59.000Z");
+        }),
     );
   });
 });

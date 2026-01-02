@@ -156,10 +156,9 @@ function collectSerializationTraits(traits: SmithyTraits): string[] {
     pipes.push(`T.JsonName("${traits["smithy.api#jsonName"]}")`);
   }
 
-  // smithy.api#timestampFormat
-  if (traits["smithy.api#timestampFormat"] != null) {
-    pipes.push(`T.TimestampFormat("${traits["smithy.api#timestampFormat"]}")`);
-  }
+  // Note: timestampFormat is NOT handled here - it's applied directly to S.Date
+  // in the structure member processing code, since it needs to be on the inner
+  // type, not as an outer pipe on optional wrappers.
 
   // smithy.rules#contextParam
   if (traits["smithy.rules#contextParam"] != null) {
@@ -788,22 +787,26 @@ const convertShapeToSchema: (
 
                     // Check if this member has HTTP binding traits that affect timestamp format
                     const hasHttpHeader = member.traits?.["smithy.api#httpHeader"] != null;
+                    const hasHttpPayload = member.traits?.["smithy.api#httpPayload"] != null;
                     const explicitFormat = member.traits?.["smithy.api#timestampFormat"] as
                       | string
                       | undefined;
 
-                    // Check if member target is a streaming blob - if so, use context-specific type
+                    // Check if member target is a blob - streaming or with httpPayload needs raw bytes
                     const model = yield* ModelService;
                     const memberTargetShape = model.shapes[member.target] as
                       | GenericShape
                       | undefined;
+                    const isBlob = memberTargetShape?.type === "blob";
                     const isStreamingBlob =
-                      memberTargetShape?.type === "blob" &&
-                      memberTargetShape?.traits?.["smithy.api#streaming"] != null;
+                      isBlob && memberTargetShape?.traits?.["smithy.api#streaming"] != null;
+                    // Non-streaming blob with httpPayload should also use raw bytes (not base64)
+                    const isBlobPayload = isBlob && hasHttpPayload && !isStreamingBlob;
 
                     let baseSchema: string;
-                    if (isStreamingBlob) {
+                    if (isStreamingBlob || isBlobPayload) {
                       // Use different schema based on input vs output context
+                      // Both streaming blobs and httpPayload blobs need raw bytes (not base64)
                       if (isOperationOutput) {
                         baseSchema = "T.StreamingOutput";
                       } else if (isOperationInput) {

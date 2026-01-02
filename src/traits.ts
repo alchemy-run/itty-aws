@@ -1,5 +1,5 @@
 import type * as Effect from "effect/Effect";
-import * as Schema from "effect/Schema";
+import * as S from "effect/Schema";
 import * as AST from "effect/SchemaAST";
 import type * as Stream from "effect/Stream";
 import { applyHttpChecksum } from "./middleware/checksum.ts";
@@ -10,10 +10,6 @@ import { ec2QueryProtocol } from "./protocols/ec2-query.ts";
 import { restJson1Protocol } from "./protocols/rest-json.ts";
 import { restXmlProtocol } from "./protocols/rest-xml.ts";
 import type { Request as ProtocolRequest } from "./request.ts";
-
-// =============================================================================
-// Annotation System
-// =============================================================================
 
 /**
  * Internal symbol for annotation metadata storage
@@ -144,7 +140,36 @@ export const XmlNamespace = (uri: string) => makeAnnotation(xmlNamespaceSymbol, 
 
 /** smithy.api#jsonName - Custom JSON key name */
 export const jsonNameSymbol = Symbol.for("itty-aws/json-name");
-export const JsonName = (name: string) => makeAnnotation(jsonNameSymbol, name);
+
+/** Symbol used to detect PropertySignature types */
+const propertySignatureSymbol = Symbol.for("effect/PropertySignature");
+
+/**
+ * JsonName trait - uses Effect Schema's fromKey for automatic key renaming.
+ *
+ * When applied to a PropertySignature (from S.optional), pipes S.fromKey.
+ * When applied to a Schema, wraps in S.propertySignature and pipes S.fromKey.
+ *
+ * This allows Effect Schema's encode/decode to handle key renaming automatically,
+ * eliminating the need for manual renameKeys logic in protocols.
+ */
+export const JsonName = (name: string) => {
+  return <A extends Annotatable>(schema: A): A => {
+    // Check if it's a PropertySignature (has the symbol)
+    if (propertySignatureSymbol in schema) {
+      // It's already a PropertySignature - pipe fromKey onto it
+      return (schema as any).pipe(S.fromKey(name)) as A;
+    }
+
+    // It's a Schema - wrap in propertySignature and apply fromKey
+    if (S.isSchema(schema)) {
+      return S.propertySignature(schema as S.Schema.Any).pipe(S.fromKey(name)) as any;
+    }
+
+    // Fallback: just add annotation (shouldn't happen in practice)
+    return schema.annotations({ [jsonNameSymbol]: name }) as A;
+  };
+};
 
 // =============================================================================
 // EC2 Query Protocol Traits (aws.protocols#ec2QueryName)
@@ -171,17 +196,17 @@ export type TimestampFormatType = "date-time" | "http-date" | "epoch-seconds";
  * - "date-time": Date ↔ string (ISO 8601)
  */
 export const TimestampFormat = (format: TimestampFormatType) => {
-  return <A extends Schema.Schema.Any>(schema: A): A => {
+  return <A extends S.Schema.Any>(schema: A): A => {
     // Apply the appropriate transform based on format
     const transformed =
       format === "epoch-seconds"
-        ? Schema.transform(Schema.Number, Schema.DateFromSelf, {
+        ? S.transform(S.Number, S.DateFromSelf, {
             strict: true,
             decode: (n) => new Date(n * 1000),
             encode: (d) => d.getTime() / 1000,
           })
         : format === "http-date"
-          ? Schema.transform(Schema.String, Schema.DateFromSelf, {
+          ? S.transform(S.String, S.DateFromSelf, {
               strict: true,
               decode: (s) => new Date(s),
               encode: (d) => d.toUTCString(),
@@ -389,7 +414,7 @@ export const AwsProtocolsEc2Query = () => {
 
 /** Middleware function type - applied to requests */
 export type MiddlewareFn = (
-  schema: Schema.Schema.AnyNoContext,
+  schema: S.Schema.AnyNoContext,
   request: ProtocolRequest,
 ) => Effect.Effect<ProtocolRequest>;
 
@@ -481,9 +506,9 @@ export const AwsQueryError = (trait: AwsQueryErrorTrait) =>
  *
  * For streaming blobs (@httpPayload with @streaming), use StreamingInput/StreamingOutput.
  */
-export const Blob = Schema.transform(
-  Schema.String, // wire format: base64 string
-  Schema.instanceOf(Uint8Array), // internal: Uint8Array
+export const Blob = S.transform(
+  S.String, // wire format: base64 string
+  S.instanceOf(Uint8Array), // internal: Uint8Array
   {
     strict: true,
     decode: (s) => Uint8Array.from(atob(s), (c) => c.charCodeAt(0)),
@@ -530,7 +555,7 @@ export type StreamingInputBody =
  * Schema for streaming input bodies.
  * Validates that the input is one of the accepted streaming types.
  */
-export const StreamingInput = Schema.declare(
+export const StreamingInput = S.declare(
   (u): u is StreamingInputBody =>
     typeof u === "string" ||
     u instanceof Uint8Array ||
@@ -547,7 +572,7 @@ export const StreamingInput = Schema.declare(
  * Used for @httpPayload members with @streaming trait (e.g., S3 GetObject Body).
  */
 
-export const StreamingOutput = Schema.declare((u): u is Stream.Stream<Uint8Array, Error, never> =>
+export const StreamingOutput = S.declare((u): u is Stream.Stream<Uint8Array, Error, never> =>
   isEffectStream(u),
 ).annotations({ [streamingSymbol]: true, identifier: "StreamingOutput" });
 
@@ -562,11 +587,9 @@ function isEffectStream(u: unknown): u is Stream.Stream<unknown, unknown, unknow
 /** Legacy StreamBody type - kept for backwards compatibility */
 export type StreamBody = string | Uint8Array | ReadableStream;
 export const StreamBody = () =>
-  Schema.Union(
-    Schema.String,
-    Schema.instanceOf(Uint8Array),
-    Schema.instanceOf(ReadableStream),
-  ).annotations({ [streamingSymbol]: true });
+  S.Union(S.String, S.instanceOf(Uint8Array), S.instanceOf(ReadableStream)).annotations({
+    [streamingSymbol]: true,
+  });
 
 // =============================================================================
 // Annotation Retrieval Helpers

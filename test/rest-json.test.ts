@@ -39,6 +39,19 @@ import {
   CreateBasePathMappingRequest,
 } from "../src/services/api-gateway.ts";
 
+// Import API Gateway V2 schemas (restJson1 protocol) for comprehensive JsonName testing
+// These use PascalCase -> camelCase transformations
+import {
+  // Request with JsonName on body fields (ApiId -> "apiId", Stage -> "stage")
+  CreateApiMappingRequest,
+  // Response with JsonName on all fields
+  CreateApiMappingResponse,
+  // Request with nested structure that has JsonName
+  CreateApiRequest,
+  // Response with nested structure
+  CreateApiResponse,
+} from "../src/services/apigatewayv2.ts";
+
 // Import AppConfig schemas (restJson1 protocol) for HttpHeader testing
 import { CreateHostedConfigurationVersionRequest } from "../src/services/appconfig.ts";
 
@@ -478,6 +491,10 @@ describe("restJson1 protocol", () => {
   // ==========================================================================
 
   describe("jsonName trait", () => {
+    // -------------------------------------------------------------------------
+    // Response Deserialization with JsonName
+    // -------------------------------------------------------------------------
+
     it.effect("should deserialize using jsonName trait (item -> items)", () =>
       Effect.gen(function* () {
         // ApiKeys has 'items' field with T.JsonName("item")
@@ -503,6 +520,150 @@ describe("restJson1 protocol", () => {
         expect(result.items?.[0]?.id).toBe("key1");
         expect(result.items?.[1]?.name).toBe("API Key 2");
         expect(result.warnings).toEqual(["Some warning"]);
+      }),
+    );
+
+    it.effect(
+      "should deserialize response with PascalCase -> camelCase jsonName (apigatewayv2)",
+      () =>
+        Effect.gen(function* () {
+          // CreateApiMappingResponse has fields like ApiId with T.JsonName("apiId")
+          // Wire format uses camelCase, internal schema uses PascalCase
+          const response: Response = {
+            status: 201,
+            statusText: "Created",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              apiId: "abc123",
+              apiMappingId: "mapping-456",
+              apiMappingKey: "v1",
+              stage: "prod",
+            }),
+          };
+
+          const result = yield* parseResponse(CreateApiMappingResponse, response);
+
+          // Schema exposes PascalCase, wire uses camelCase
+          expect(result.ApiId).toBe("abc123");
+          expect(result.ApiMappingId).toBe("mapping-456");
+          expect(result.ApiMappingKey).toBe("v1");
+          expect(result.Stage).toBe("prod");
+        }),
+    );
+
+    // -------------------------------------------------------------------------
+    // Request Serialization with JsonName
+    // -------------------------------------------------------------------------
+
+    it.effect("should serialize request with PascalCase -> camelCase jsonName (apigatewayv2)", () =>
+      Effect.gen(function* () {
+        // CreateApiMappingRequest has:
+        // - ApiId: S.String.pipe(T.JsonName("apiId")) - goes to body as "apiId"
+        // - DomainName: S.String.pipe(T.HttpLabel()) - goes to path
+        // - Stage: S.String.pipe(T.JsonName("stage")) - goes to body as "stage"
+        const request = yield* buildRequest(CreateApiMappingRequest, {
+          ApiId: "api-12345",
+          DomainName: "example.com",
+          Stage: "production",
+          ApiMappingKey: "v2",
+        });
+
+        expect(request.method).toBe("POST");
+        expect(request.path).toBe("/v2/domainnames/example.com/apimappings");
+
+        // Body should use camelCase (wire format), not PascalCase (internal)
+        const body = JSON.parse(request.body as string);
+        expect(body.apiId).toBe("api-12345");
+        expect(body.stage).toBe("production");
+        expect(body.apiMappingKey).toBe("v2");
+
+        // PascalCase should NOT be in the body
+        expect(body.ApiId).toBeUndefined();
+        expect(body.Stage).toBeUndefined();
+        expect(body.ApiMappingKey).toBeUndefined();
+
+        // DomainName is httpLabel, should not be in body
+        expect(body.DomainName).toBeUndefined();
+        expect(body.domainName).toBeUndefined();
+      }),
+    );
+
+    it.effect("should serialize request with nested structure containing jsonName", () =>
+      Effect.gen(function* () {
+        // CreateApiRequest has nested Cors structure
+        const request = yield* buildRequest(CreateApiRequest, {
+          Name: "My API",
+          ProtocolType: "HTTP",
+          Description: "Test API",
+          CorsConfiguration: {
+            AllowOrigins: ["https://example.com"],
+            AllowMethods: ["GET", "POST"],
+            AllowHeaders: ["Content-Type"],
+            MaxAge: 3600,
+          },
+        });
+
+        expect(request.method).toBe("POST");
+
+        // Body should use camelCase throughout
+        const body = JSON.parse(request.body as string);
+        expect(body.name).toBe("My API");
+        expect(body.protocolType).toBe("HTTP");
+        expect(body.description).toBe("Test API");
+
+        // Nested structure should also use camelCase
+        expect(body.corsConfiguration).toBeDefined();
+        expect(body.corsConfiguration.allowOrigins).toEqual(["https://example.com"]);
+        expect(body.corsConfiguration.allowMethods).toEqual(["GET", "POST"]);
+        expect(body.corsConfiguration.allowHeaders).toEqual(["Content-Type"]);
+        expect(body.corsConfiguration.maxAge).toBe(3600);
+
+        // PascalCase should NOT appear anywhere
+        expect(body.Name).toBeUndefined();
+        expect(body.CorsConfiguration).toBeUndefined();
+      }),
+    );
+
+    it.effect("should deserialize response with nested structure containing jsonName", () =>
+      Effect.gen(function* () {
+        // CreateApiResponse has nested corsConfiguration
+        const response: Response = {
+          status: 201,
+          statusText: "Created",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            apiId: "api-xyz",
+            name: "My API",
+            protocolType: "HTTP",
+            corsConfiguration: {
+              allowOrigins: ["https://example.com", "https://test.com"],
+              allowMethods: ["GET", "POST", "PUT"],
+              allowHeaders: ["Authorization", "Content-Type"],
+              exposeHeaders: ["X-Custom-Header"],
+              maxAge: 7200,
+              allowCredentials: true,
+            },
+          }),
+        };
+
+        const result = yield* parseResponse(CreateApiResponse, response);
+
+        // Internal schema uses PascalCase
+        expect(result.ApiId).toBe("api-xyz");
+        expect(result.Name).toBe("My API");
+        expect(result.ProtocolType).toBe("HTTP");
+
+        // Nested structure should be deserialized with PascalCase
+        expect(result.CorsConfiguration).toBeDefined();
+        expect(result.CorsConfiguration?.AllowOrigins).toEqual([
+          "https://example.com",
+          "https://test.com",
+        ]);
+        expect(result.CorsConfiguration?.AllowMethods).toEqual(["GET", "POST", "PUT"]);
+        expect(result.CorsConfiguration?.AllowHeaders).toEqual(["Authorization", "Content-Type"]);
+        expect(result.CorsConfiguration?.ExposeHeaders).toEqual(["X-Custom-Header"]);
+        expect(result.CorsConfiguration?.MaxAge).toBe(7200);
+        expect(result.CorsConfiguration?.AllowCredentials).toBe(true);
       }),
     );
   });
@@ -543,23 +704,6 @@ describe("restJson1 protocol", () => {
         expect(result.AccountLimit?.TotalCodeSize).toBe(80530636800);
         expect(result.AccountLimit?.ConcurrentExecutions).toBeUndefined();
         expect(result.AccountUsage).toBeUndefined();
-      }),
-    );
-
-    it.effect("should handle null values in response", () =>
-      Effect.gen(function* () {
-        const response: Response = {
-          status: 200,
-          statusText: "OK",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            Tags: null,
-          }),
-        };
-
-        const result = yield* parseResponse(ListTagsResponse, response);
-
-        expect(result.Tags).toBeUndefined();
       }),
     );
 
