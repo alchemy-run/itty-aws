@@ -1,0 +1,46 @@
+{
+  "operations": {
+    "cancelMessageMoveTask": {
+      "errors": [
+        "InvalidParameterValueException"
+      ]
+    },
+    "startMessageMoveTask": {
+      "errors": [
+        "CommonServiceException"
+      ]
+    },
+    "createQueue": {
+      "errors": [
+        "InvalidParameterValueException"
+      ]
+    },
+    "listMessageMoveTasks": {
+      "errors": [
+        "InvalidParameterValueException"
+      ]
+    },
+    "sendMessage": {
+      "errors": [
+        "InvalidParameterValueException",
+        "MissingRequiredParameterException"
+      ]
+    },
+    "sendMessageBatch": {
+      "errors": [
+        "InvalidParameterValueException",
+        "ParseError"
+      ]
+    },
+    "receiveMessage": {
+      "errors": [
+        "InvalidParameterValueException"
+      ]
+    },
+    "setQueueAttributes": {
+      "errors": [
+        "CommonServiceException"
+      ]
+    }
+  }
+}
