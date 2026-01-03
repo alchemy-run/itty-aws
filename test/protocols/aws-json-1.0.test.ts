@@ -70,7 +70,7 @@ describe("awsJson1_0 protocol", () => {
           query: {},
           headers: {
             "Content-Type": "application/x-amz-json-1.0",
-            "X-Amz-Target": "dynamodb.DescribeLimits",
+            "X-Amz-Target": "DynamoDB_20120810.DescribeLimits",
           },
           body: "{}",
         });
@@ -89,7 +89,7 @@ describe("awsJson1_0 protocol", () => {
           query: {},
           headers: {
             "Content-Type": "application/x-amz-json-1.0",
-            "X-Amz-Target": "dynamodb.DescribeTable",
+            "X-Amz-Target": "DynamoDB_20120810.DescribeTable",
           },
           body: JSON.stringify({ TableName: "my-table" }),
         });
@@ -100,7 +100,7 @@ describe("awsJson1_0 protocol", () => {
       Effect.gen(function* () {
         const request = yield* buildRequest(GetItemInput, {
           TableName: "my-table",
-          Key: { id: "123" },
+          Key: { id: { S: "123" } },
           ConsistentRead: true,
         });
 
@@ -110,11 +110,11 @@ describe("awsJson1_0 protocol", () => {
           query: {},
           headers: {
             "Content-Type": "application/x-amz-json-1.0",
-            "X-Amz-Target": "dynamodb.GetItem",
+            "X-Amz-Target": "DynamoDB_20120810.GetItem",
           },
           body: JSON.stringify({
             TableName: "my-table",
-            Key: { id: "123" },
+            Key: { id: { S: "123" } },
             ConsistentRead: true,
           }),
         });
@@ -125,7 +125,7 @@ describe("awsJson1_0 protocol", () => {
       Effect.gen(function* () {
         const request = yield* buildRequest(GetItemInput, {
           TableName: "my-table",
-          Key: { id: "123" },
+          Key: { id: { S: "123" } },
           ConsistentRead: false,
         });
 
@@ -135,11 +135,11 @@ describe("awsJson1_0 protocol", () => {
           query: {},
           headers: {
             "Content-Type": "application/x-amz-json-1.0",
-            "X-Amz-Target": "dynamodb.GetItem",
+            "X-Amz-Target": "DynamoDB_20120810.GetItem",
           },
           body: JSON.stringify({
             TableName: "my-table",
-            Key: { id: "123" },
+            Key: { id: { S: "123" } },
             ConsistentRead: false,
           }),
         });
@@ -150,7 +150,7 @@ describe("awsJson1_0 protocol", () => {
       Effect.gen(function* () {
         const request = yield* buildRequest(GetItemInput, {
           TableName: "my-table",
-          Key: { id: "123" },
+          Key: { id: { S: "123" } },
         });
 
         expect(request).toMatchObject({
@@ -159,11 +159,11 @@ describe("awsJson1_0 protocol", () => {
           query: {},
           headers: {
             "Content-Type": "application/x-amz-json-1.0",
-            "X-Amz-Target": "dynamodb.GetItem",
+            "X-Amz-Target": "DynamoDB_20120810.GetItem",
           },
           body: JSON.stringify({
             TableName: "my-table",
-            Key: { id: "123" },
+            Key: { id: { S: "123" } },
           }),
         });
       }),
@@ -179,7 +179,7 @@ describe("awsJson1_0 protocol", () => {
       Effect.gen(function* () {
         const request = yield* buildRequest(GetItemInput, {
           TableName: "my-table",
-          Key: { id: "123" },
+          Key: { id: { S: "123" } },
           ExpressionAttributeNames: {
             "#name": "userName",
             "#status": "userStatus",
@@ -192,11 +192,11 @@ describe("awsJson1_0 protocol", () => {
           query: {},
           headers: {
             "Content-Type": "application/x-amz-json-1.0",
-            "X-Amz-Target": "dynamodb.GetItem",
+            "X-Amz-Target": "DynamoDB_20120810.GetItem",
           },
           body: JSON.stringify({
             TableName: "my-table",
-            Key: { id: "123" },
+            Key: { id: { S: "123" } },
             ExpressionAttributeNames: {
               "#name": "userName",
               "#status": "userStatus",
@@ -211,8 +211,8 @@ describe("awsJson1_0 protocol", () => {
         const request = yield* buildRequest(GetItemInput, {
           TableName: "my-table",
           Key: {
-            pk: "user#123",
-            sk: "profile",
+            pk: { S: "user#123" },
+            sk: { S: "profile" },
           },
         });
 
@@ -222,13 +222,13 @@ describe("awsJson1_0 protocol", () => {
           query: {},
           headers: {
             "Content-Type": "application/x-amz-json-1.0",
-            "X-Amz-Target": "dynamodb.GetItem",
+            "X-Amz-Target": "DynamoDB_20120810.GetItem",
           },
           body: JSON.stringify({
             TableName: "my-table",
             Key: {
-              pk: "user#123",
-              sk: "profile",
+              pk: { S: "user#123" },
+              sk: { S: "profile" },
             },
           }),
         });
@@ -245,7 +245,7 @@ describe("awsJson1_0 protocol", () => {
       Effect.gen(function* () {
         const request = yield* buildRequest(GetItemInput, {
           TableName: "my-table",
-          Key: { id: "123" },
+          Key: { id: { S: "123" } },
           AttributesToGet: ["name", "email", "age"],
         });
 
@@ -255,11 +255,11 @@ describe("awsJson1_0 protocol", () => {
           query: {},
           headers: {
             "Content-Type": "application/x-amz-json-1.0",
-            "X-Amz-Target": "dynamodb.GetItem",
+            "X-Amz-Target": "DynamoDB_20120810.GetItem",
           },
           body: JSON.stringify({
             TableName: "my-table",
-            Key: { id: "123" },
+            Key: { id: { S: "123" } },
             AttributesToGet: ["name", "email", "age"],
           }),
         });
@@ -282,7 +282,7 @@ describe("awsJson1_0 protocol", () => {
           query: {},
           headers: {
             "Content-Type": "application/x-amz-json-1.0",
-            "X-Amz-Target": "dynamodb.TagResource",
+            "X-Amz-Target": "DynamoDB_20120810.TagResource",
           },
           body: JSON.stringify({
             ResourceArn:
@@ -300,7 +300,7 @@ describe("awsJson1_0 protocol", () => {
       Effect.gen(function* () {
         const request = yield* buildRequest(GetItemInput, {
           TableName: "my-table",
-          Key: { id: "123" },
+          Key: { id: { S: "123" } },
           AttributesToGet: [],
         });
 
@@ -310,11 +310,11 @@ describe("awsJson1_0 protocol", () => {
           query: {},
           headers: {
             "Content-Type": "application/x-amz-json-1.0",
-            "X-Amz-Target": "dynamodb.GetItem",
+            "X-Amz-Target": "DynamoDB_20120810.GetItem",
           },
           body: JSON.stringify({
             TableName: "my-table",
-            Key: { id: "123" },
+            Key: { id: { S: "123" } },
             AttributesToGet: [],
           }),
         });
@@ -336,7 +336,7 @@ describe("awsJson1_0 protocol", () => {
             "#status": "status",
           },
           ExpressionAttributeValues: {
-            ":status": "active",
+            ":status": { S: "active" },
           },
           Limit: 100,
           ConsistentRead: true,
@@ -347,7 +347,7 @@ describe("awsJson1_0 protocol", () => {
         expect(request.query).toEqual({});
         expect(request.headers).toMatchObject({
           "Content-Type": "application/x-amz-json-1.0",
-          "X-Amz-Target": "dynamodb.Scan",
+          "X-Amz-Target": "DynamoDB_20120810.Scan",
         });
         expect(JSON.parse(request.body as string)).toEqual({
           TableName: "my-table",
@@ -356,7 +356,7 @@ describe("awsJson1_0 protocol", () => {
             "#status": "status",
           },
           ExpressionAttributeValues: {
-            ":status": "active",
+            ":status": { S: "active" },
           },
           Limit: 100,
           ConsistentRead: true,
@@ -370,7 +370,7 @@ describe("awsJson1_0 protocol", () => {
           TableName: "my-table",
           KeyConditionExpression: "pk = :pk",
           ExpressionAttributeValues: {
-            ":pk": "user#123",
+            ":pk": { S: "user#123" },
           },
           ScanIndexForward: false,
           Limit: 50,
@@ -381,13 +381,13 @@ describe("awsJson1_0 protocol", () => {
         expect(request.query).toEqual({});
         expect(request.headers).toMatchObject({
           "Content-Type": "application/x-amz-json-1.0",
-          "X-Amz-Target": "dynamodb.Query",
+          "X-Amz-Target": "DynamoDB_20120810.Query",
         });
         expect(JSON.parse(request.body as string)).toEqual({
           TableName: "my-table",
           KeyConditionExpression: "pk = :pk",
           ExpressionAttributeValues: {
-            ":pk": "user#123",
+            ":pk": { S: "user#123" },
           },
           ScanIndexForward: false,
           Limit: 50,
@@ -414,7 +414,7 @@ describe("awsJson1_0 protocol", () => {
           query: {},
           headers: {
             "Content-Type": "application/x-amz-json-1.0",
-            "X-Amz-Target": "dynamodb.ListBackups",
+            "X-Amz-Target": "DynamoDB_20120810.ListBackups",
           },
           body: JSON.stringify({
             TimeRangeLowerBound: 1705321800,
@@ -436,7 +436,7 @@ describe("awsJson1_0 protocol", () => {
           query: {},
           headers: {
             "Content-Type": "application/x-amz-json-1.0",
-            "X-Amz-Target": "states.CreateActivity",
+            "X-Amz-Target": "SFN_20161123.CreateActivity",
           },
           body: JSON.stringify({
             name: "my-activity",
@@ -486,10 +486,10 @@ describe("awsJson1_0 protocol", () => {
             headers: { "Content-Type": "application/x-amz-json-1.0" },
             body: JSON.stringify({
               Item: {
-                pk: "user#123",
-                sk: "profile",
-                name: "John Doe",
-                active: true,
+                pk: { S: "user#123" },
+                sk: { S: "profile" },
+                name: { S: "John Doe" },
+                active: { BOOL: true },
               },
             }),
           };
@@ -498,10 +498,10 @@ describe("awsJson1_0 protocol", () => {
 
           expect(result).toMatchObject({
             Item: {
-              pk: "user#123",
-              sk: "profile",
-              name: "John Doe",
-              active: true,
+              pk: { S: "user#123" },
+              sk: { S: "profile" },
+              name: { S: "John Doe" },
+              active: { BOOL: true },
             },
           });
         }),
@@ -515,8 +515,8 @@ describe("awsJson1_0 protocol", () => {
           headers: { "Content-Type": "application/x-amz-json-1.0" },
           body: JSON.stringify({
             Items: [
-              { pk: "user#1", name: "Alice" },
-              { pk: "user#2", name: "Bob" },
+              { pk: { S: "user#1" }, name: { S: "Alice" } },
+              { pk: { S: "user#2" }, name: { S: "Bob" } },
             ],
             Count: 2,
             ScannedCount: 2,
@@ -527,8 +527,8 @@ describe("awsJson1_0 protocol", () => {
 
         expect(result).toMatchObject({
           Items: [
-            { pk: "user#1", name: "Alice" },
-            { pk: "user#2", name: "Bob" },
+            { pk: { S: "user#1" }, name: { S: "Alice" } },
+            { pk: { S: "user#2" }, name: { S: "Bob" } },
           ],
           Count: 2,
           ScannedCount: 2,
@@ -651,7 +651,7 @@ describe("awsJson1_0 protocol", () => {
           query: {},
           headers: {
             "Content-Type": "application/x-amz-json-1.0",
-            "X-Amz-Target": "dynamodb.Scan",
+            "X-Amz-Target": "DynamoDB_20120810.Scan",
           },
           body: JSON.stringify({
             TableName: "table",
@@ -674,7 +674,7 @@ describe("awsJson1_0 protocol", () => {
           query: {},
           headers: {
             "Content-Type": "application/x-amz-json-1.0",
-            "X-Amz-Target": "dynamodb.Scan",
+            "X-Amz-Target": "DynamoDB_20120810.Scan",
           },
           body: JSON.stringify({
             TableName: "",
@@ -697,7 +697,7 @@ describe("awsJson1_0 protocol", () => {
           query: {},
           headers: {
             "Content-Type": "application/x-amz-json-1.0",
-            "X-Amz-Target": "dynamodb.Scan",
+            "X-Amz-Target": "DynamoDB_20120810.Scan",
           },
           body: JSON.stringify({
             TableName: 'table-with-"quotes"',
@@ -712,10 +712,14 @@ describe("awsJson1_0 protocol", () => {
         const request = yield* buildRequest(PutItemInput, {
           TableName: "table",
           Item: {
-            pk: "user#123",
+            pk: { S: "user#123" },
             data: {
-              nested: {
-                deep: "value",
+              M: {
+                nested: {
+                  M: {
+                    deep: { S: "value" },
+                  },
+                },
               },
             },
           },
@@ -727,15 +731,19 @@ describe("awsJson1_0 protocol", () => {
           query: {},
           headers: {
             "Content-Type": "application/x-amz-json-1.0",
-            "X-Amz-Target": "dynamodb.PutItem",
+            "X-Amz-Target": "DynamoDB_20120810.PutItem",
           },
           body: JSON.stringify({
             TableName: "table",
             Item: {
-              pk: "user#123",
+              pk: { S: "user#123" },
               data: {
-                nested: {
-                  deep: "value",
+                M: {
+                  nested: {
+                    M: {
+                      deep: { S: "value" },
+                    },
+                  },
                 },
               },
             },

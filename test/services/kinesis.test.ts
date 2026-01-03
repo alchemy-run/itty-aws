@@ -16,9 +16,7 @@ import {
 } from "../../src/services/kinesis.ts";
 import { test } from "../test.ts";
 
-// Use unique stream names per test to avoid conflicts
-const randomSuffix = () => Math.random().toString(36).substring(2, 8);
-const TEST_STREAM_PREFIX = "itty-aws-kinesis-test";
+const TEST_STREAM_NAME = "itty-aws-kinesis-test-stream";
 
 // Helper to wait for stream to become active
 function waitForStreamActive(streamName: string) {
@@ -74,18 +72,62 @@ function waitForConsumerActive(consumerArn: string) {
   });
 }
 
+// Helper to create a stream, handling the case where it already exists
+function ensureStreamCreated(streamName: string) {
+  return Effect.gen(function* () {
+    let attempts = 0;
+    const maxAttempts = 30;
+
+    while (attempts < maxAttempts) {
+      // Try to create the stream
+      const createResult = yield* createStream({
+        StreamName: streamName,
+        ShardCount: 1,
+      }).pipe(
+        Effect.map(() => "created" as const),
+        Effect.catchAll((error) => {
+          // Check if stream already exists
+          if (
+            error &&
+            typeof error === "object" &&
+            "_tag" in error &&
+            error._tag === "ResourceInUseException"
+          ) {
+            return Effect.succeed("in_use" as const);
+          }
+          return Effect.fail(error);
+        }),
+      );
+
+      if (createResult === "created") {
+        return;
+      }
+
+      // Stream is in use (being deleted) - wait and retry
+      yield* deleteStream({
+        StreamName: streamName,
+        EnforceConsumerDeletion: true,
+      }).pipe(Effect.ignore);
+
+      yield* Effect.sleep("2 seconds");
+      attempts++;
+    }
+
+    return yield* Effect.fail(
+      new Error("Failed to create stream after retries"),
+    );
+  });
+}
+
 // Helper to ensure cleanup happens even on failure
 function withStream<A, E, R>(
   testFn: (streamName: string) => Effect.Effect<A, E, R>,
 ) {
   return Effect.gen(function* () {
-    const streamName = `${TEST_STREAM_PREFIX}-${randomSuffix()}`;
+    const streamName = TEST_STREAM_NAME;
 
-    // Create stream with 1 shard
-    yield* createStream({
-      StreamName: streamName,
-      ShardCount: 1,
-    });
+    // Create stream (handles ResourceInUseException by waiting)
+    yield* ensureStreamCreated(streamName);
 
     // Wait for stream to become active
     yield* waitForStreamActive(streamName);

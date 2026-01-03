@@ -1121,10 +1121,20 @@ const convertShapeToSchema: (
                             wrappedSchema = `S.suspend(() => ${schema})`;
                           }
                         }
+
+                        // Apply serialization traits (jsonName, xmlName, etc.) to the inner schema
+                        wrappedSchema = applyTraitsToSchema(
+                          wrappedSchema,
+                          member.traits,
+                        );
+
+                        // Wrap in a struct with the member name as the key (Smithy unions are tagged)
+                        const structWrapped = `S.Struct({ ${memberName}: ${wrappedSchema} })`;
+
                         return {
                           name: memberName,
                           raw: schema,
-                          wrapped: wrappedSchema,
+                          wrapped: structWrapped,
                           isError: isMemberErrorShape,
                         };
                       }),
@@ -1142,18 +1152,15 @@ const convertShapeToSchema: (
 
                     if (isCurrentCyclic) {
                       // For cyclic unions, generate explicit type alias to help TypeScript inference
-                      // Deduplicate the TypeScript types for cleaner output
-                      const memberTsTypes = [
-                        ...new Set(
-                          members.map((m) =>
-                            schemaExprToTsType(
-                              m.raw,
-                              sdkFile.allStructNames,
-                              sdkFile.cyclicSchemas,
-                            ),
-                          ),
-                        ),
-                      ];
+                      // Each member is now a struct { memberName: type }, so the TS types need to reflect that
+                      const memberTsTypes = members.map((m) => {
+                        const innerType = schemaExprToTsType(
+                          m.raw,
+                          sdkFile.allStructNames,
+                          sdkFile.cyclicSchemas,
+                        );
+                        return `{ ${m.name}: ${innerType} }`;
+                      });
                       const typeAlias = `export type ${schemaName} = ${memberTsTypes.join(" | ")};`;
                       return `${typeAlias}\nexport const ${schemaName} = S.Union(${wrappedMembers.join(", ")}) as any as S.Schema<${schemaName}>;`;
                     }
