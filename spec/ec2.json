@@ -8,12 +8,14 @@
     },
     "deleteVpc": {
       "errors": [
+        "DependencyViolation",
         "InvalidVpcID.NotFound"
       ]
     },
     "createSubnet": {
       "errors": [
-        "InvalidVpcID.NotFound"
+        "InvalidVpcID.NotFound",
+        "ParseError"
       ]
     },
     "deleteSubnet": {
@@ -43,11 +45,13 @@
     },
     "createRouteTable": {
       "errors": [
-        "InvalidVpcID.NotFound"
+        "InvalidVpcID.NotFound",
+        "ParseError"
       ]
     },
     "deleteRouteTable": {
       "errors": [
+        "DependencyViolation",
         "InvalidRouteTableID.NotFound"
       ]
     },
@@ -58,7 +62,8 @@
     },
     "createNatGateway": {
       "errors": [
-        "InvalidSubnetID.NotFound"
+        "InvalidSubnetID.NotFound",
+        "ParseError"
       ]
     },
     "describeVpcs": {
@@ -75,12 +80,14 @@
     },
     "describeInternetGateways": {
       "errors": [
-        "InvalidInternetGatewayID.NotFound"
+        "InvalidInternetGatewayID.NotFound",
+        "ParseError"
       ]
     },
     "describeRouteTables": {
       "errors": [
-        "InvalidRouteTableID.NotFound"
+        "InvalidRouteTableID.NotFound",
+        "ParseError"
       ]
     },
     "deleteSecurityGroup": {
@@ -90,7 +97,8 @@
     },
     "createNetworkAcl": {
       "errors": [
-        "InvalidVpcID.NotFound"
+        "InvalidVpcID.NotFound",
+        "ParseError"
       ]
     },
     "deleteNetworkAcl": {
@@ -100,7 +108,8 @@
     },
     "createVpcPeeringConnection": {
       "errors": [
-        "InvalidVpcID.NotFound"
+        "InvalidVpcID.NotFound",
+        "ParseError"
       ]
     },
     "acceptVpcPeeringConnection": {
@@ -180,7 +189,8 @@
     },
     "createNetworkInterface": {
       "errors": [
-        "InvalidSubnetID.NotFound"
+        "InvalidSubnetID.NotFound",
+        "ParseError"
       ]
     },
     "deleteNetworkInterface": {
@@ -190,7 +200,8 @@
     },
     "createEgressOnlyInternetGateway": {
       "errors": [
-        "InvalidVpcID.NotFound"
+        "InvalidVpcID.NotFound",
+        "ParseError"
       ]
     },
     "deleteEgressOnlyInternetGateway": {
@@ -246,7 +257,8 @@
     },
     "createVpnConnection": {
       "errors": [
-        "InvalidCustomerGatewayID.NotFound"
+        "InvalidCustomerGatewayID.NotFound",
+        "ParseError"
       ]
     },
     "deleteVpnConnection": {
@@ -302,7 +314,8 @@
     },
     "createCarrierGateway": {
       "errors": [
-        "InvalidVpcID.NotFound"
+        "InvalidVpcID.NotFound",
+        "ParseError"
       ]
     },
     "deleteCarrierGateway": {
@@ -609,6 +622,161 @@
     "deleteVolume": {
       "errors": [
         "InvalidVolume.NotFound"
+      ]
+    },
+    "runInstances": {
+      "errors": [
+        "ParseError"
+      ]
+    },
+    "attachVolume": {
+      "errors": [
+        "InvalidVolume.NotFound"
+      ]
+    },
+    "terminateInstances": {
+      "errors": [
+        "InvalidInstanceID.NotFound"
+      ]
+    },
+    "describeInstances": {
+      "errors": [
+        "InvalidInstanceID.NotFound"
+      ]
+    },
+    "detachVolume": {
+      "errors": [
+        "InvalidVolume.NotFound"
+      ]
+    },
+    "createSnapshot": {
+      "errors": [
+        "InvalidVolume.NotFound"
+      ]
+    },
+    "startInstances": {
+      "errors": [
+        "InvalidInstanceID.NotFound"
+      ]
+    },
+    "stopInstances": {
+      "errors": [
+        "InvalidInstanceID.NotFound"
+      ]
+    },
+    "rebootInstances": {
+      "errors": [
+        "InvalidInstanceID.NotFound"
+      ]
+    },
+    "modifyVolume": {
+      "errors": [
+        "InvalidVolume.NotFound"
+      ]
+    },
+    "describeImages": {
+      "errors": [
+        "InvalidAMIID.NotFound"
+      ]
+    },
+    "deregisterImage": {
+      "errors": [
+        "InvalidAMIID.NotFound"
+      ]
+    },
+    "describeKeyPairs": {
+      "errors": [
+        "InvalidKeyPair.NotFound"
+      ]
+    },
+    "copySnapshot": {
+      "errors": [
+        "InvalidSnapshot.NotFound"
+      ]
+    },
+    "describeSnapshotAttribute": {
+      "errors": [
+        "InvalidSnapshot.NotFound"
+      ]
+    },
+    "modifyImageAttribute": {
+      "errors": [
+        "InvalidAMIID.NotFound"
+      ]
+    },
+    "createLaunchTemplate": {
+      "errors": [
+        "MissingParameter"
+      ]
+    },
+    "deleteLaunchTemplate": {
+      "errors": [
+        "InvalidLaunchTemplateName.NotFoundException"
+      ]
+    },
+    "describeLaunchTemplates": {
+      "errors": [
+        "ParseError"
+      ]
+    },
+    "createTransitGateway": {
+      "errors": [
+        "ParseError"
+      ]
+    },
+    "describeInstanceStatus": {
+      "errors": [
+        "InvalidInstanceID.NotFound"
+      ]
+    },
+    "getConsoleOutput": {
+      "errors": [
+        "InvalidInstanceID.NotFound"
+      ]
+    },
+    "getPasswordData": {
+      "errors": [
+        "InvalidInstanceID.NotFound"
+      ]
+    },
+    "createImage": {
+      "errors": [
+        "InvalidInstanceID.NotFound"
+      ]
+    },
+    "copyImage": {
+      "errors": [
+        "InvalidAMIID.NotFound"
+      ]
+    },
+    "describeSpotInstanceRequests": {
+      "errors": [
+        "ParseError"
+      ]
+    },
+    "describeSpotFleetRequests": {
+      "errors": [
+        "ParseError"
+      ]
+    },
+    "getManagedPrefixListEntries": {
+      "errors": [
+        "ParseError"
+      ]
+    },
+    "describeAvailabilityZones": {
+      "errors": [
+        "ParseError"
+      ]
+    },
+    "deleteTransitGateway": {
+      "errors": [
+        "ParseError"
+      ]
+    },
+    "createTransitGatewayRouteTable": {
+      "errors": [
+        "ParseError"
       ]
     }
   }
