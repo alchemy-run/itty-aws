@@ -56,15 +56,41 @@ export const restJson1Protocol: Protocol = (
   const inputAst = inputSchema.ast;
   const outputAst = outputSchema.ast;
 
-  // Pre-compute encoder/decoder and property signatures (done once at init)
+  // Pre-compute encoder (done once at init)
   const encodeInput = Schema.encode(inputSchema);
-  const outputProps = getEncodedPropertySignatures(outputAst);
 
   // Check for service-specific customizations (done once at init)
   const serviceInfo = getAwsApiService(inputAst);
   const isApiGatewayService = isApiGateway(serviceInfo?.sdkId);
   const isGlacierService = isGlacier(serviceInfo?.sdkId);
   const serviceVersion = getServiceVersion(inputAst);
+
+  // Pre-classify output properties by their HTTP binding (done once at init)
+  type HeaderProp = { name: string; header: string; headerLower: string };
+  type PrefixHeaderProp = { name: string; prefix: string };
+  type PayloadProp = { name: string; isStreaming: boolean; isRaw: boolean };
+
+  const headerProps: HeaderProp[] = [];
+  const prefixHeaderProps: PrefixHeaderProp[] = [];
+  let outputPayloadProp: PayloadProp | undefined;
+
+  for (const prop of getEncodedPropertySignatures(outputAst)) {
+    const name = String(prop.name);
+    const header = getHttpHeader(prop);
+    const prefix = getHttpPrefixHeaders(prop);
+
+    if (header) {
+      headerProps.push({ name, header, headerLower: header.toLowerCase() });
+    } else if (prefix) {
+      prefixHeaderProps.push({ name, prefix: prefix.toLowerCase() });
+    } else if (hasHttpPayload(prop)) {
+      outputPayloadProp = {
+        name,
+        isStreaming: isStreamingType(prop.type),
+        isRaw: isRawPayload(prop.type),
+      };
+    }
+  }
 
   return {
     serializeRequest: Effect.fn(function* (input: unknown) {
@@ -86,10 +112,9 @@ export const restJson1Protocol: Protocol = (
         );
       extractStaticQueryParams(request);
 
-      // Serialize body - Effect Schema handles jsonName key renaming via S.fromKey
+      // Serialize body
       if (payloadValue !== undefined && payloadAst !== undefined) {
         if (isStreamingType(payloadAst)) {
-          // Streaming input - convert to appropriate format for fetch
           request.body = convertStreamingInput(
             payloadValue as StreamingInputBody,
           );
@@ -102,12 +127,12 @@ export const restJson1Protocol: Protocol = (
         request.body = JSON.stringify(bodyMembers);
       }
 
-      // Apply API Gateway customizations (Accept header)
+      // Apply API Gateway customizations
       if (isApiGatewayService) {
         request = applyApiGatewayCustomizations(request);
       }
 
-      // Apply Glacier customizations (X-Amz-Glacier-Version header)
+      // Apply Glacier customizations
       if (isGlacierService && serviceVersion) {
         request = applyGlacierCustomizations(request, serviceVersion);
       }
@@ -118,49 +143,39 @@ export const restJson1Protocol: Protocol = (
     deserializeResponse: Effect.fn(function* (response: Response) {
       const result: Record<string, unknown> = {};
 
-      // Extract header-bound properties first
-      for (const prop of outputProps) {
-        const name = String(prop.name);
-        const header = getHttpHeader(prop);
-        const prefix = getHttpPrefixHeaders(prop);
-
-        if (header) {
-          const v =
-            response.headers[header.toLowerCase()] ?? response.headers[header];
-          if (v !== undefined) result[name] = v;
-        } else if (prefix) {
-          const lowerPrefix = prefix.toLowerCase();
-          const prefixed: Record<string, string> = {};
-          for (const [k, v] of Object.entries(response.headers)) {
-            if (k.toLowerCase().startsWith(lowerPrefix)) {
-              prefixed[k.slice(prefix.length)] = v;
-            }
-          }
-          if (Object.keys(prefixed).length) result[name] = prefixed;
-        }
+      // Extract header-bound properties using pre-computed metadata
+      for (const hp of headerProps) {
+        const v =
+          response.headers[hp.headerLower] ?? response.headers[hp.header];
+        if (v !== undefined) result[hp.name] = v;
       }
 
-      // Check for streaming output payload - return early
-      for (const prop of outputProps) {
-        if (hasHttpPayload(prop) && isStreamingType(prop.type)) {
-          const name = String(prop.name);
-          result[name] = readableToEffectStream(response.body);
-          return result;
+      // Extract prefix header properties
+      for (const php of prefixHeaderProps) {
+        const prefixed: Record<string, string> = {};
+        for (const [k, v] of Object.entries(response.headers)) {
+          if (k.toLowerCase().startsWith(php.prefix)) {
+            prefixed[k.slice(php.prefix.length)] = v;
+          }
         }
+        if (Object.keys(prefixed).length) result[php.name] = prefixed;
+      }
+
+      // Handle streaming output payload - return early
+      if (outputPayloadProp?.isStreaming) {
+        result[outputPayloadProp.name] = readableToEffectStream(response.body);
+        return result;
       }
 
       // Non-streaming response - read body as text
       const bodyText = yield* readStreamAsText(response.body);
 
       // Handle httpPayload with raw body
-      for (const prop of outputProps) {
-        if (hasHttpPayload(prop) && isRawPayload(prop.type)) {
-          const name = String(prop.name);
-          result[name] = bodyText;
-        }
+      if (outputPayloadProp?.isRaw && bodyText) {
+        result[outputPayloadProp.name] = bodyText;
       }
 
-      // Parse JSON body - Effect Schema handles jsonName key renaming via S.fromKey
+      // Parse JSON body
       if (bodyText) {
         try {
           const parsed = JSON.parse(bodyText);

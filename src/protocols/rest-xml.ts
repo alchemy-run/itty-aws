@@ -67,16 +67,14 @@ export const restXmlProtocol: Protocol = (
   const inputAst = inputSchema.ast;
   const outputAst = outputSchema.ast;
 
-  // Pre-compute encoder and property signatures (done once at init)
+  // Pre-compute encoder (done once at init)
   const encodeInput = S.encode(inputSchema);
-  const inputProps = getEncodedPropertySignatures(inputAst);
-  const outputProps = getEncodedPropertySignatures(outputAst);
   const outputXmlName =
     getXmlNameFromAST(outputAst) ?? getIdentifier(outputAst);
 
   // Pre-compute s3UnwrappedXmlOutput handling (done once at init)
-  // For unwrapped output, find the property that matches the output's xmlName
   const isUnwrappedOutput = hasS3UnwrappedXmlOutput(outputAst);
+  const outputProps = getEncodedPropertySignatures(outputAst);
   const unwrappedPropName = isUnwrappedOutput
     ? outputProps.find(
         (prop) => (getXmlNameProp(prop) ?? String(prop.name)) === outputXmlName,
@@ -84,6 +82,7 @@ export const restXmlProtocol: Protocol = (
     : undefined;
 
   // Pre-compute httpPayload property info for serialization (done once at init)
+  const inputProps = getEncodedPropertySignatures(inputAst);
   const payloadProp = inputProps.find((prop) => hasHttpPayload(prop));
   const payloadXmlName = payloadProp
     ? (getXmlNameProp(payloadProp) ??
@@ -95,10 +94,59 @@ export const restXmlProtocol: Protocol = (
     : false;
   const inputXmlNamespace = getXmlNamespace(inputAst);
 
+  // Pre-classify output properties by their HTTP binding (done once at init)
+  // This avoids repeated trait lookups during deserialization
+  type HeaderProp = {
+    name: string;
+    header: string;
+    headerLower: string;
+    isNumber: boolean;
+    isBoolean: boolean;
+  };
+  type PrefixHeaderProp = { name: string; prefix: string };
+  type PayloadProp = {
+    name: string;
+    type: AST.AST;
+    isStreaming: boolean;
+    isRawString: boolean;
+    xmlName?: string;
+  };
+
+  const headerProps: HeaderProp[] = [];
+  const prefixHeaderProps: PrefixHeaderProp[] = [];
+  let outputPayloadProp: PayloadProp | undefined;
+
+  for (const prop of outputProps) {
+    const name = String(prop.name);
+    const header = getHttpHeader(prop);
+    const prefixHeader = getHttpPrefixHeaders(prop);
+
+    if (header) {
+      headerProps.push({
+        name,
+        header,
+        headerLower: header.toLowerCase(),
+        isNumber: isNumberAST(prop.type),
+        isBoolean: isBooleanAST(prop.type),
+      });
+    } else if (prefixHeader) {
+      prefixHeaderProps.push({ name, prefix: prefixHeader.toLowerCase() });
+    } else if (hasHttpPayload(prop)) {
+      const unwrapped = unwrapUnion(prop.type);
+      outputPayloadProp = {
+        name,
+        type: prop.type,
+        isStreaming: isStreamingType(prop.type),
+        isRawString:
+          unwrapped._tag === "Union" || unwrapped._tag === "StringKeyword",
+        xmlName: getXmlNameFromAST(prop.type) ?? getIdentifier(prop.type),
+      };
+    }
+  }
+
   return {
     serializeRequest: Effect.fn(function* (input: unknown) {
-      // Step 1: Encode the input via schema - handles all transformations
-      // (TimestampFormat for headers → http-date strings, etc.)
+      // Encode the input via schema - handles all transformations
       const encoded = yield* encodeInput(input);
 
       const request: Request = {
@@ -117,20 +165,15 @@ export const restXmlProtocol: Protocol = (
         );
       extractStaticQueryParams(request);
 
-      // Serialize body - Content-Type is set based on what we're actually sending
+      // Serialize body
       if (payloadValue !== undefined && payloadAst !== undefined) {
         if (payloadIsStreaming) {
-          // Streaming payload - body is raw bytes, Content-Type comes from user's header binding
-          // (e.g., ContentType field with @httpHeader("Content-Type") trait)
-          // If user didn't set it, leave it unset (browser/fetch will handle it)
           request.body = convertStreamingInput(
             payloadValue as StreamingInputBody,
           );
         } else if (typeof payloadValue === "string") {
-          // String payload - raw string body, no Content-Type override
           request.body = payloadValue;
         } else {
-          // Structure payload - serialize as XML with proper Content-Type
           request.headers["Content-Type"] = "application/xml";
           request.body = serializeValue(
             payloadAst,
@@ -140,7 +183,6 @@ export const restXmlProtocol: Protocol = (
           );
         }
       } else if (hasBodyMembers) {
-        // Body members - serialize as XML with proper Content-Type
         request.headers["Content-Type"] = "application/xml";
         const tagName = getIdentifier(inputAst);
         request.body = serializeObject(
@@ -157,74 +199,60 @@ export const restXmlProtocol: Protocol = (
     deserializeResponse: Effect.fn(function* (response: Response) {
       const result: Record<string, unknown> = {};
 
-      // Extract header-bound properties first (always available)
-      for (const prop of outputProps) {
-        const name = String(prop.name);
-        const header = getHttpHeader(prop);
-        const prefixHeader = getHttpPrefixHeaders(prop);
-
-        if (header) {
-          const v =
-            response.headers[header.toLowerCase()] ?? response.headers[header];
-          if (v !== undefined) {
-            result[name] = isNumberAST(prop.type)
-              ? Number(v)
-              : isBooleanAST(prop.type)
-                ? v === "true"
-                : v;
-          }
-        } else if (prefixHeader) {
-          const prefix = prefixHeader.toLowerCase();
-          const prefixed: Record<string, string> = {};
-          for (const [k, v] of Object.entries(response.headers)) {
-            if (k.toLowerCase().startsWith(prefix))
-              prefixed[k.slice(prefix.length)] = v;
-          }
-          if (Object.keys(prefixed).length) result[name] = prefixed;
+      // Extract header-bound properties using pre-computed metadata
+      for (const hp of headerProps) {
+        const v =
+          response.headers[hp.headerLower] ?? response.headers[hp.header];
+        if (v !== undefined) {
+          result[hp.name] = hp.isNumber
+            ? Number(v)
+            : hp.isBoolean
+              ? v === "true"
+              : v;
         }
       }
 
-      // Check for streaming output payload - return early without consuming body
-      for (const prop of outputProps) {
-        if (hasHttpPayload(prop) && isStreamingType(prop.type)) {
-          const name = String(prop.name);
-          result[name] = readableToEffectStream(response.body);
-          return result;
+      // Extract prefix header properties
+      for (const php of prefixHeaderProps) {
+        const prefixed: Record<string, string> = {};
+        for (const [k, v] of Object.entries(response.headers)) {
+          if (k.toLowerCase().startsWith(php.prefix)) {
+            prefixed[k.slice(php.prefix.length)] = v;
+          }
         }
+        if (Object.keys(prefixed).length) result[php.name] = prefixed;
       }
 
-      // Non-streaming response - read body as text for parsing
+      // Handle streaming output payload - return early
+      if (outputPayloadProp?.isStreaming) {
+        result[outputPayloadProp.name] = readableToEffectStream(response.body);
+        return result;
+      }
+
+      // Non-streaming response - read body as text
       const bodyText = yield* readStreamAsText(response.body);
 
-      // Handle httpPayload properties
-      for (const prop of outputProps) {
-        if (hasHttpPayload(prop)) {
-          const name = String(prop.name);
-          const unwrapped = unwrapUnion(prop.type);
-          if (
-            unwrapped._tag === "Union" ||
-            unwrapped._tag === "StringKeyword"
-          ) {
-            result[name] = bodyText;
-          } else {
-            const parsed = parseXml(bodyText);
-            const xmlName =
-              getXmlNameFromAST(prop.type) ?? getIdentifier(prop.type);
-            result[name] = deserializeValue(
-              prop.type,
-              xmlName ? (parsed[xmlName] ?? parsed) : parsed,
-            );
-          }
+      // Handle httpPayload property
+      if (outputPayloadProp && bodyText) {
+        if (outputPayloadProp.isRawString) {
+          result[outputPayloadProp.name] = bodyText;
+        } else {
+          const parsed = parseXml(bodyText);
+          result[outputPayloadProp.name] = deserializeValue(
+            outputPayloadProp.type,
+            outputPayloadProp.xmlName
+              ? (parsed[outputPayloadProp.xmlName] ?? parsed)
+              : parsed,
+          );
         }
       }
 
       // Parse body XML for non-payload properties
-      if (bodyText) {
+      if (bodyText && !outputPayloadProp) {
         const parsed = parseXml(bodyText);
         const rawContent = outputXmlName ? parsed[outputXmlName] : parsed;
 
         if (isUnwrappedOutput && unwrappedPropName) {
-          // s3UnwrappedXmlOutput: root element text content goes to matching property
           const textContent = extractTextContent(rawContent);
           if (textContent !== undefined) {
             result[String(unwrappedPropName)] = textContent;
