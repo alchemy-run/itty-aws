@@ -21,6 +21,7 @@ import {
   SmithyModel,
   type ShapeTypeMap,
 } from "./model-schema.ts";
+import { loadServiceSpecPatch, ServiceSpec } from "../src/patch/spec-schema.ts";
 //todo(pear): swap out for effect platform path
 import path from "pathe";
 
@@ -67,6 +68,8 @@ class SdkFile extends Context.Tag("SdkFile")<
     clientContextParams:
       | Record<string, { type: string; documentation?: string }>
       | undefined;
+    // Spec patches from spec/{service}.json for additional errors
+    serviceSpec: ServiceSpec;
   }
 >() {}
 
@@ -1370,22 +1373,44 @@ const generateClient = Effect.fn(function* (
           );
         });
 
-        const operationErrors =
-          operationShape.errors == null || operationShape.errors.length === 0
-            ? "[]"
-            : yield* Effect.forEach(
-                operationShape.errors,
-                ({ target: errorShapeReference }) =>
-                  convertShapeToSchema(errorShapeReference).pipe(
-                    Effect.flatMap(Deferred.await),
-                    Effect.flatMap(() =>
-                      addError({
-                        name: formatName(errorShapeReference),
-                        shapeId: errorShapeReference,
-                      }),
+        // Get patched errors from spec file for this operation
+        const patchedErrors =
+          sdkFile.serviceSpec.operations[opName]?.errors ?? [];
+
+        const operationErrors = yield* Effect.gen(function* () {
+          // Process model-defined errors
+          const modelErrors =
+            operationShape.errors == null || operationShape.errors.length === 0
+              ? []
+              : yield* Effect.forEach(
+                  operationShape.errors,
+                  ({ target: errorShapeReference }) =>
+                    convertShapeToSchema(errorShapeReference).pipe(
+                      Effect.flatMap(Deferred.await),
+                      Effect.flatMap(() =>
+                        addError({
+                          name: formatName(errorShapeReference),
+                          shapeId: errorShapeReference,
+                        }),
+                      ),
                     ),
-                  ),
-              ).pipe(Effect.map((errors) => `[${errors.join(", ")}]`));
+                );
+
+          // Process patched errors (these are just error names, not shape IDs)
+          // They will be generated as simple TaggedErrors
+          const patchErrors = yield* Effect.forEach(
+            patchedErrors,
+            (errorName) =>
+              addError({
+                name: errorName,
+                shapeId: `patched#${errorName}`, // Synthetic shape ID for patched errors
+              }),
+          );
+
+          // Combine and deduplicate
+          const allErrors = [...new Set([...modelErrors, ...patchErrors])];
+          return allErrors.length === 0 ? "[]" : `[${allErrors.join(", ")}]`;
+        });
 
         // Build simplified operation object - metadata comes from annotations on input schema
         const metaObject = `{ input: ${input}, output: ${output}, errors: ${operationErrors} }`;
@@ -1538,6 +1563,9 @@ const generateClient = Effect.fn(function* (
     "smithy.rules#clientContextParams"
   ] as Record<string, { type: string; documentation?: string }> | undefined;
 
+  // Load spec patches for this service
+  const serviceSpec = yield* loadServiceSpecPatch(serviceTraits.sdkId);
+
   return yield* client.pipe(
     Effect.provideService(SdkFile, {
       schemas: yield* Ref.make<
@@ -1558,6 +1586,7 @@ const generateClient = Effect.fn(function* (
       serviceTraits,
       endpointRuleSet,
       clientContextParams,
+      serviceSpec,
     }),
     Effect.provideService(ModelService, model),
   );

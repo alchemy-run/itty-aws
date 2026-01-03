@@ -1,4 +1,16 @@
 import { Tool, Toolkit } from "@effect/ai";
+import * as Chat from "@effect/ai/Chat";
+import { Args, Command } from "@effect/cli";
+import { FileSystem, Path } from "@effect/platform";
+import {
+  NodeContext,
+  NodeHttpClient,
+  NodeRuntime,
+} from "@effect/platform-node";
+import * as Config from "effect/Config";
+import * as Effect from "effect/Effect";
+import * as Logger from "effect/Logger";
+import * as S from "effect/Schema";
 import {
   COMMON_ERRORS,
   Credentials,
@@ -11,22 +23,13 @@ import type { AWSRegion } from "../aws/region.ts";
 import type { Operation } from "../operation.ts";
 // import * as AWS from "../services/index.ts";
 const AWS = (await import("../services/index.ts")) as any;
-import { Command, Args } from "@effect/cli";
-import * as Effect from "effect/Effect";
-import * as Logger from "effect/Logger";
-import {
-  NodeContext,
-  NodeHttpClient,
-  NodeRuntime,
-} from "@effect/platform-node";
-import * as S from "effect/Schema";
-import * as Chat from "@effect/ai/Chat";
-import * as Config from "effect/Config";
 // import { OpenAiClient, OpenAiLanguageModel } from "@effect/ai-openai";
 import { AnthropicClient, AnthropicLanguageModel } from "@effect/ai-anthropic";
-import * as PlatformConfigProvider from "@effect/platform/PlatformConfigProvider";
 import * as Persistence from "@effect/experimental/Persistence";
+import * as PlatformConfigProvider from "@effect/platform/PlatformConfigProvider";
 import { Console, Either, JSONSchema, Layer, LogLevel, Stream } from "effect";
+import { locks, Locks } from "./locks.ts";
+import { ServiceSpec } from "./spec-schema.ts";
 
 // Open AI performed terribly, so we're using Anthropic instead
 // const OpenAi = OpenAiClient.layerConfig({
@@ -87,31 +90,18 @@ export const done = Tool.make("Done", {
   },
 });
 
-export const renameError = Tool.make("RenameError", {
-  description: "Rename an error for a given operation",
-  failure: S.String,
-  parameters: {
-    service: S.String.annotations({
-      description: "The AWS service to rename the error for",
-    }),
-    operation: S.String.annotations({
-      description: "The AWS operation to rename the error for",
-    }),
-    oldTag: S.String.annotations({
-      description: "The old tag of the error",
-    }),
-    newTag: S.String.annotations({
-      description: "The new tag of the error",
-    }),
-  },
-});
-
 export const callApi = Tool.make("CallApi", {
   description:
     "Call a given AWS API. You can optionally specify a region to test region-specific behavior.",
   success: S.String,
   failure: S.Any,
-  dependencies: [Credentials, Endpoint],
+  dependencies: [
+    Credentials,
+    Endpoint,
+    FileSystem.FileSystem,
+    Path.Path,
+    Locks,
+  ],
   parameters: {
     service: S.String.annotations({
       description: "The AWS service to call the API for",
@@ -135,7 +125,6 @@ const toolkit = Toolkit.make(
   listOperations,
   describeOperation,
   // done,
-  renameError,
   callApi,
 );
 
@@ -164,26 +153,25 @@ const tools = toolkit.toLayer(
       //   yield* Console.log(summary);
       //   return "Discovery session complete.";
       // }),
-      RenameError: Effect.fn(function* ({
-        service,
-        operation,
-        oldTag,
-        newTag,
-      }) {
-        // Validate operation exists
-        yield* getOperation(service, operation);
-        yield* Console.log(
-          `🔄 RENAME: ${service}.${operation} -> ${oldTag} should be ${newTag}`,
-        );
-      }),
       CallApi: Effect.fn(function* ({ service, operation, input, region }) {
+        // Resolve to the canonical operation name used in generated code
+        const operationName = yield* resolveOperationName(service, operation);
         const api = yield* getOperation(service, operation);
         const effectiveRegion = region ?? "us-west-2";
 
+        // Load spec patches to include discovered errors and aliases
+        const specPatches = yield* loadSpec(service);
+        const opPatches = specPatches.operations[operationName];
+        const patchedErrors = opPatches?.errors ?? [];
+        const patchedAliases = opPatches?.aliases ?? [];
+
         // Get defined error names to check if discovered error is known
+        // Include both the canonical error names and the aliased (from) names
         const definedErrorNames = new Set([
           ...api.errors.map((err) => err._tag),
           ...COMMON_ERRORS.map((err) => err._tag),
+          ...patchedErrors,
+          ...patchedAliases.map((a) => a.from), // Also treat aliased errors as known
         ]);
 
         let json;
@@ -206,7 +194,7 @@ const tools = toolkit.toLayer(
                 Effect.gen(function* () {
                   // Log the API call with decoded input and region
                   yield* Console.log(
-                    `\x1b[34m[${effectiveRegion}] ${service}.${operation}(${JSON.stringify(decodedInput, null, 2)})\x1b[0m`,
+                    `\x1b[34m[${effectiveRegion}] ${service}.${operationName}(${JSON.stringify(decodedInput, null, 2)})\x1b[0m`,
                   );
 
                   const result = yield* api(decodedInput).pipe(
@@ -240,16 +228,52 @@ const tools = toolkit.toLayer(
                   if (result.success) {
                     return result.responseStr;
                   } else {
-                    if (result.isKnown) {
+                    if (
+                      result.isKnown ||
+                      // it may have been added recently
+                      definedErrorNames.has(result.errorTag)
+                    ) {
                       yield* Console.log(
                         `\x1b[32mEncountered known error: ${result.errorTag}\x1b[0m`,
                       );
                       return `Error "${result.errorTag}" (already defined): ${result.message}`;
                     } else {
-                      yield* Console.log(
-                        `\x1b[31mDiscovered error tag: ${result.errorTag}\x1b[0m`,
+                      // Check if this error is a variant of a known error (e.g., NoSuchBucketException -> NoSuchBucket)
+                      const canonicalError = findCanonicalError(
+                        result.errorTag,
+                        definedErrorNames,
                       );
-                      return `⚠️ NEW ERROR DISCOVERED: "${result.errorTag}" - This error is NOT in the defined errors list! Message: ${result.message}`;
+
+                      const locks = yield* Locks;
+                      const lock = yield* locks.getLock(
+                        `spec/${service.toLowerCase()}.json`,
+                      );
+
+                      if (canonicalError) {
+                        // Record as an alias instead of a new error
+                        yield* lock.withPermits(1)(
+                          recordAlias(
+                            service,
+                            operationName,
+                            result.errorTag,
+                            canonicalError,
+                          ),
+                        );
+                        yield* Console.log(
+                          `\x1b[33m🔄 ALIAS: ${result.errorTag} -> ${canonicalError} (saved to spec/${service.toLowerCase()}.json)\x1b[0m`,
+                        );
+                        return `🔄 ERROR ALIAS DETECTED: "${result.errorTag}" is an alias for "${canonicalError}" - recorded as alias. Message: ${result.message}`;
+                      } else {
+                        // Record as a new error
+                        definedErrorNames.add(result.errorTag);
+                        yield* lock.withPermits(1)(
+                          recordError(service, operationName, result.errorTag),
+                        );
+                        yield* Console.log(
+                          `\x1b[31mDiscovered error tag: ${result.errorTag} (saved to spec/${service.toLowerCase()}.json)\x1b[0m`,
+                        );
+                        return `⚠️ NEW ERROR DISCOVERED: "${result.errorTag}" - This error is NOT in the defined errors list! Message: ${result.message}`;
+                      }
                     }
                   }
                 }),
@@ -260,6 +284,103 @@ const tools = toolkit.toLayer(
     };
   }),
 );
+
+/**
+ * Get the spec file path for a service.
+ */
+const getSpecPath = (service: string) => `spec/${service.toLowerCase()}.json`;
+
+/**
+ * Load the spec file for a service.
+ */
+const loadSpec = Effect.fn(function* (service: string) {
+  const fs = yield* FileSystem.FileSystem;
+  const specPath = getSpecPath(service);
+  return yield* fs.readFileString(specPath).pipe(
+    Effect.flatMap(S.decodeUnknown(S.parseJson(ServiceSpec))),
+    Effect.catchAll(() => Effect.succeed({ operations: {} } as ServiceSpec)),
+  );
+});
+
+/**
+ * Save the spec file for a service.
+ */
+const saveSpec = Effect.fn(function* (service: string, spec: ServiceSpec) {
+  const fs = yield* FileSystem.FileSystem;
+  const specPath = getSpecPath(service);
+  yield* fs.makeDirectory("spec", { recursive: true });
+  yield* fs.writeFileString(specPath, JSON.stringify(spec, null, 2) + "\n");
+});
+
+/**
+ * Record a discovered error to the spec file for a service.
+ */
+const recordError = Effect.fn(function* (
+  service: string,
+  operation: string,
+  errorTag: string,
+) {
+  const existingSpec = yield* loadSpec(service);
+  const opErrors = existingSpec.operations[operation]?.errors ?? [];
+
+  if (!opErrors.includes(errorTag)) {
+    yield* saveSpec(service, {
+      operations: {
+        ...existingSpec.operations,
+        [operation]: {
+          ...existingSpec.operations[operation],
+          errors: [...opErrors, errorTag].sort(),
+        },
+      },
+    });
+  }
+});
+
+/**
+ * Record an error alias to the spec file for a service.
+ */
+const recordAlias = Effect.fn(function* (
+  service: string,
+  operation: string,
+  from: string,
+  to: string,
+) {
+  const existingSpec = yield* loadSpec(service);
+  const opAliases = existingSpec.operations[operation]?.aliases ?? [];
+  const aliasExists = opAliases.some((a) => a.from === from && a.to === to);
+
+  if (!aliasExists) {
+    yield* saveSpec(service, {
+      operations: {
+        ...existingSpec.operations,
+        [operation]: {
+          ...existingSpec.operations[operation],
+          aliases: [...opAliases, { from, to }],
+        },
+      },
+    });
+  }
+});
+
+/**
+ * Check if an error tag is a variant of a known error (with Exception/Error suffix).
+ * Returns the canonical error name if it's a variant, otherwise null.
+ */
+function findCanonicalError(
+  errorTag: string,
+  knownErrors: Set<string>,
+): string | null {
+  // Check if this error ends with "Exception" or "Error" and the base is known
+  for (const suffix of ["Exception", "Error"]) {
+    if (errorTag.endsWith(suffix)) {
+      const baseName = errorTag.slice(0, -suffix.length);
+      if (knownErrors.has(baseName)) {
+        return baseName;
+      }
+    }
+  }
+  return null;
+}
 
 const getService = Effect.fn(function* (service: string) {
   if (service in AWS) {
@@ -273,24 +394,33 @@ const getService = Effect.fn(function* (service: string) {
   return yield* Effect.fail(`Service ${service} not found in AWS`);
 });
 
+/**
+ * Resolve an operation name to the canonical name used in the generated service.
+ * Performs case-insensitive matching and returns the actual exported name.
+ */
+const resolveOperationName = Effect.fn(function* (
+  service: string,
+  operation: string,
+) {
+  const svc = yield* getService(service);
+  if (operation in svc) {
+    return operation;
+  }
+  for (const op in svc) {
+    if (op.toLowerCase() === operation.toLowerCase()) {
+      return op;
+    }
+  }
+  return yield* Effect.fail(`Operation ${operation} not found`);
+});
+
 const getOperation = Effect.fn(function* (service: string, operation: string) {
   type Op = Operation & {
     (input: any): Effect.Effect<any, any, Region | Credentials>;
   };
   const svc = yield* getService(service);
-  if (operation in svc) {
-    return svc[operation as keyof typeof svc] as Op;
-  }
-  for (const op in svc) {
-    if (op.toLowerCase() === operation.toLowerCase()) {
-      operation = op;
-      break;
-    }
-  }
-  if (operation in svc) {
-    return svc[operation as keyof typeof svc] as Op;
-  }
-  return yield* Effect.fail(`Operation ${operation} not found`);
+  const resolvedName = yield* resolveOperationName(service, operation);
+  return svc[resolvedName as keyof typeof svc] as Op;
 });
 
 const SYSTEM_PROMPT = `You are an AWS API error discovery agent. Your mission is to discover undocumented or incorrectly named error codes in AWS API operations by systematically probing them with various inputs AND by setting up real resources to trigger state-based errors.
@@ -309,8 +439,8 @@ We need to discover the ACTUAL error codes returned by AWS APIs and compare them
   - Success message
   - Known error (already in the spec)
   - ⚠️ NEW ERROR DISCOVERED (automatically recorded - this is what we're looking for!)
+  - 🔄 ERROR ALIAS DETECTED (when an error like "FooException" is a variant of known error "Foo")
   - You can pass a "region" parameter to test region-specific behavior!
-- **RenameError**: Use when you believe a defined error has the wrong name (e.g., spec says "NotFound" but should be "NoSuchBucket")
 
 ## Strategy
 1. First, use DescribeOperation to understand:
@@ -382,7 +512,13 @@ We need to discover the ACTUAL error codes returned by AWS APIs and compare them
    **Permission errors:**
    - AccessDenied, NotAuthorized
 
-7. When you're satisfied you've found all discoverable errors, provide a summary of what you found.
+7. **CLEANUP: Before summarizing, DELETE all resources you created!**
+   - Delete any buckets you created (first delete all objects in them)
+   - Delete any other resources (queues, tables, etc.)
+   - Use ListOperations to find the appropriate delete operations (DeleteObject, DeleteBucket, etc.)
+   - This keeps the test environment clean for future runs
+
+8. When you're satisfied you've found all discoverable errors and cleaned up, provide a summary of what you found.
 
 ## Important Notes
 - You're running against LocalStack, so you can safely make any API calls - CREATE RESOURCES FREELY!
@@ -412,6 +548,7 @@ const discover = Command.make(
         },
       ]);
 
+      // TODO(sam): should we reduce this down? It's a lot of tokens to add per iteration
       const prompt = `Discover missing or incorrectly named errors for the ${service}.${operation} operation.
 
 1. Use DescribeOperation to see the input schema and currently defined errors.
@@ -430,7 +567,11 @@ const discover = Command.make(
    - Invalid/missing input scenarios
    - State-based scenarios (resources that already exist, wrong state, etc.)
    - Region-specific scenarios
-8. When done, provide a summary of what you found.
+8. **CLEANUP before summarizing**: Delete all resources you created during testing:
+   - Delete objects from buckets first, then delete the buckets
+   - Delete any other resources (queues, tables, etc.)
+   - This keeps the environment clean for future runs
+9. When done cleaning up, provide a summary of what you found.
 
 Begin by describing the operation, then list operations to find helpers for setting up test resources.`;
 
@@ -497,6 +638,7 @@ Effect.gen(function* () {
     process.env.DEBUG ? LogLevel.Debug : LogLevel.Info,
   ),
   Effect.scoped,
+  Effect.provide(locks),
   Effect.provide(NodeContext.layer),
   Effect.provide(NodeHttpClient.layer),
   Effect.provide(LocalstackCredentialsLive),

@@ -1,0 +1,33 @@
+{
+  "operations": {
+    "createBucket": {
+      "errors": [
+        "IllegalLocationConstraintException",
+        "InvalidArgument",
+        "InvalidBucketName",
+        "InvalidLocationConstraint"
+      ]
+    },
+    "deleteBucket": {
+      "errors": [
+        "BucketNotEmpty",
+        "NoSuchBucket"
+      ]
+    },
+    "putBucketLifecycleConfiguration": {
+      "errors": [
+        "MalformedXML"
+      ]
+    },
+    "putBucketReplication": {
+      "errors": [
+        "InvalidRequest"
+      ]
+    },
+    "putObjectLockConfiguration": {
+      "errors": [
+        "InvalidBucketState"
+      ]
+    }
+  }
+}

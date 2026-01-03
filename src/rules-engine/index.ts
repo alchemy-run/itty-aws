@@ -24,10 +24,10 @@ export type {
   RuleObject,
   RuleSetObject,
   RulesValue,
-} from "./types.ts";
+} from "./model.ts";
 
 // Error types
-export { EndpointError, NoMatchingRuleError } from "./types.ts";
+export { EndpointError, NoMatchingRuleError } from "./model.ts";
 
 // Type guards
 export {
@@ -36,7 +36,7 @@ export {
   isFunction,
   isReference,
   isTreeRule,
-} from "./types.ts";
+} from "./model.ts";
 
 // Standard functions
 export {

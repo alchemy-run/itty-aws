@@ -7,7 +7,7 @@
 
 import type { ParsedArn, PartitionInfo, RulesValue } from "./model.ts";
 // NOTE: partitions.json is copied from smithy during client generation (see scripts/generate-clients.ts)
-import partitionsData from "./partitions.json";
+import partitionsData from "./partitions.json" with { type: "json" };
 import { isIpAddress, isValidHostLabel } from "./standard-functions.ts";
 
 interface PartitionOutputs {

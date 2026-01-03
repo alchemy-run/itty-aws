@@ -12,7 +12,8 @@
     "test:live": "bun run scripts/test.ts",
     "test:protocols": "bun vitest run ./test/protocols/",
     "test:services": "bun test:local ./test/services/",
-    "format": "bun oxfmt ./scripts ./src ./test"
+    "format": "bun oxfmt ./scripts ./src ./test",
+    "find:errors": "bun run scripts/find-errors.ts"
   },
   "files": [
     "src",
