@@ -89,6 +89,13 @@ export const restJson1Protocol: Protocol = (
         isStreaming: isStreamingType(prop.type),
         isRaw: isRawPayload(prop.type),
       };
+    } else if (isStreamingType(prop.type)) {
+      // Streaming members (including event streams) implicitly become the payload
+      outputPayloadProp = {
+        name,
+        isStreaming: true,
+        isRaw: false,
+      };
     }
   }
 

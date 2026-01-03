@@ -1,7 +1,7 @@
 import type * as Effect from "effect/Effect";
 import * as S from "effect/Schema";
 import * as AST from "effect/SchemaAST";
-import type * as Stream from "effect/Stream";
+import * as Stream from "effect/Stream";
 import { applyHttpChecksum } from "./middleware/checksum.ts";
 import type { Protocol } from "./protocol.ts";
 import {
@@ -534,7 +534,58 @@ export const Blob = S.transform(
 
 /** smithy.api#streaming - Marks a type as streaming/blob (raw body, not serialized) */
 export const streamingSymbol = Symbol.for("itty-aws/streaming");
-export const Streaming = () => makeAnnotation(streamingSymbol, true);
+
+/**
+ * Streaming trait - behavior depends on what it's applied to:
+ * - On a blob: marks it as a streaming body (raw bytes)
+ * - On a union: transforms it into a Stream of those event types
+ *
+ * For unions (event streams), the output schema type is Stream.Stream<EventType>.
+ */
+export const Streaming: {
+  // Overload for union schemas - returns Stream type
+  <A, I, R>(
+    schema: S.Schema<A, I, R> & { ast: { _tag: "Union" } },
+  ): S.Schema<Stream.Stream<A, Error, never>>;
+  // Overload for other schemas - preserves type with annotation
+  <A, I, R>(schema: S.Schema<A, I, R>): S.Schema<A, I, R>;
+  // Overload for pipe() usage - returns a function
+  (): <A, I, R>(
+    schema: S.Schema<A, I, R>,
+  ) => S.Schema<Stream.Stream<A, Error, never>> | S.Schema<A, I, R>;
+} = (<A, I, R>(schema?: S.Schema<A, I, R>) => {
+  if (schema) {
+    // Direct call with schema argument
+    const ast = schema.ast;
+    if (ast._tag === "Union") {
+      // For unions, return a Stream type declaration
+      return S.declare((u): u is Stream.Stream<A, Error, never> =>
+        isEffectStream(u),
+      ).annotations({
+        [streamingSymbol]: true,
+        identifier: "StreamingUnion",
+        eventSchema: schema,
+      });
+    }
+    // For non-unions, just add the annotation
+    return schema.annotations({ [streamingSymbol]: true });
+  }
+
+  // Called as annotation factory (for .pipe())
+  return <B, IB, RB>(s: S.Schema<B, IB, RB>) => {
+    const ast = s.ast;
+    if (ast._tag === "Union") {
+      return S.declare((u): u is Stream.Stream<B, Error, never> =>
+        isEffectStream(u),
+      ).annotations({
+        [streamingSymbol]: true,
+        identifier: "StreamingUnion",
+        eventSchema: s,
+      });
+    }
+    return s.annotations({ [streamingSymbol]: true });
+  };
+}) as any;
 
 /** Check if an AST represents a streaming/blob type */
 export const isStreamingType = (ast: AST.AST): boolean => {
@@ -619,6 +670,36 @@ export const StreamBody = () =>
     S.instanceOf(ReadableStream),
   ).annotations({
     [streamingSymbol]: true,
+  });
+
+// =============================================================================
+// Event Stream Traits (smithy.api#eventHeader, smithy.api#eventPayload)
+// =============================================================================
+
+/** smithy.api#eventHeader - Bind member to an event stream header */
+export const eventHeaderSymbol = Symbol.for("itty-aws/event-header");
+export const EventHeader = () => makeAnnotation(eventHeaderSymbol, true);
+
+/** smithy.api#eventPayload - Bind member to the event payload */
+export const eventPayloadSymbol = Symbol.for("itty-aws/event-payload");
+export const EventPayload = () => makeAnnotation(eventPayloadSymbol, true);
+
+/**
+ * Event stream schema helper - wraps a union schema into a Stream type.
+ * Used for @streaming unions in generated code.
+ *
+ * This creates a schema where the TypeScript type is Stream<EventType>
+ * but at runtime it validates that the value is an Effect Stream.
+ */
+export const EventStream = <A, I, R>(
+  eventSchema: S.Schema<A, I, R>,
+): S.Schema<Stream.Stream<A, Error, never>> =>
+  S.declare((u): u is Stream.Stream<A, Error, never> =>
+    isEffectStream(u),
+  ).annotations({
+    [streamingSymbol]: true,
+    identifier: "EventStream",
+    eventSchema,
   });
 
 // =============================================================================

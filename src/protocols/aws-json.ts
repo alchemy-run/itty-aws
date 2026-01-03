@@ -19,14 +19,18 @@
 
 import * as Effect from "effect/Effect";
 import * as Schema from "effect/Schema";
-import type * as AST from "effect/SchemaAST";
+import * as AST from "effect/SchemaAST";
 import { ParseError } from "../error-parser.ts";
 import type { Operation } from "../operation.ts";
 import type { Protocol, ProtocolHandler } from "../protocol.ts";
 import type { Request } from "../request.ts";
 import type { Response } from "../response.ts";
-import { getAwsApiService, getAwsAuthSigv4 } from "../traits.ts";
-import { getIdentifier } from "../util/ast.ts";
+import {
+  getAwsApiService,
+  getServiceVersion,
+  isStreamingType,
+} from "../traits.ts";
+import { getEncodedPropertySignatures, getIdentifier } from "../util/ast.ts";
 import {
   extractJsonErrorCode,
   extractJsonErrorData,
@@ -48,7 +52,9 @@ function createAwsJsonProtocol(version: "1.0" | "1.1"): Protocol {
 
   return (operation: Operation): ProtocolHandler => {
     const inputSchema = operation.input;
+    const outputSchema = operation.output;
     const inputAst = inputSchema.ast;
+    const outputAst = outputSchema.ast;
 
     // Pre-compute encoder (done once at init)
     const encodeInput = Schema.encode(inputSchema);
@@ -60,6 +66,15 @@ function createAwsJsonProtocol(version: "1.0" | "1.1"): Protocol {
 
     // Build X-Amz-Target from the identifier structure
     const targetHeader = buildXAmzTarget(inputAst, operationName);
+
+    // Check for streaming output member (event stream)
+    let streamingOutputProp: { name: string } | undefined;
+    for (const prop of getEncodedPropertySignatures(outputAst)) {
+      if (isStreamingType(prop.type)) {
+        streamingOutputProp = { name: String(prop.name) };
+        break;
+      }
+    }
 
     return {
       serializeRequest: Effect.fn(function* (input: unknown) {
@@ -84,6 +99,13 @@ function createAwsJsonProtocol(version: "1.0" | "1.1"): Protocol {
       }),
 
       deserializeResponse: Effect.fn(function* (response: Response) {
+        // Handle streaming output (event stream) - return the raw stream
+        if (streamingOutputProp) {
+          return {
+            [streamingOutputProp.name]: response.body,
+          };
+        }
+
         // Read body as text
         const bodyText = yield* readStreamAsText(response.body);
 
@@ -149,16 +171,23 @@ function createAwsJsonProtocol(version: "1.0" | "1.1"): Protocol {
 
 /**
  * Build the X-Amz-Target header value.
- * Format: ServiceShapeName.OperationName
+ * Format: ServiceName_ServiceVersion.OperationName
+ * Example: Kinesis_20131202.CreateStream
  */
 function buildXAmzTarget(ast: AST.AST, operationName: string): string {
-  const awsAuthSigv4 = getAwsAuthSigv4(ast);
   const awsApiService = getAwsApiService(ast);
+  const serviceVersion = getServiceVersion(ast);
 
-  const serviceName = awsAuthSigv4?.name ?? awsApiService?.sdkId ?? "";
+  // Use sdkId as the service name (e.g., "Kinesis", "DynamoDB")
+  const serviceName = awsApiService?.sdkId ?? "";
+
+  // Format version: remove hyphens from date (2013-12-02 -> 20131202)
+  const versionSuffix = serviceVersion
+    ? `_${serviceVersion.replace(/-/g, "")}`
+    : "";
 
   if (serviceName) {
-    return `${serviceName}.${operationName}`;
+    return `${serviceName}${versionSuffix}.${operationName}`;
   }
 
   return operationName;

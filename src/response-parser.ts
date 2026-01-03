@@ -5,6 +5,7 @@
  * 1. Uses the Protocol to deserialize the response
  * 2. Applies schema decoding/validation
  * 3. Handles error responses
+ * 4. Delegates event stream parsing to stream-parser.ts
  *
  * This is independently testable without making HTTP requests.
  */
@@ -16,6 +17,7 @@ import { COMMON_ERRORS, UnknownAwsError } from "./aws/errors.ts";
 import type { Operation } from "./operation.ts";
 import type { Protocol, ProtocolHandler } from "./protocol.ts";
 import type { Response } from "./response.ts";
+import { makeStreamParser } from "./stream-parser.ts";
 import { getProtocol } from "./traits.ts";
 import { getIdentifier } from "./util/ast.ts";
 
@@ -43,6 +45,7 @@ export const makeResponseParser = <A, I, R>(
 ) => {
   const inputAst = operation.input.ast;
   const outputSchema = operation.output;
+  const outputAst = outputSchema.ast;
 
   // Discover protocol factory from annotations or use override (done once)
   const protocolFactory = options?.protocol ?? getProtocol(inputAst);
@@ -55,6 +58,9 @@ export const makeResponseParser = <A, I, R>(
 
   // Pre-create the decoder (done once)
   const decode = Schema.decodeUnknown(outputSchema);
+
+  // Create stream parser if output has event stream member (done once)
+  const streamParser = makeStreamParser(outputAst);
 
   // Build error schema map: _tag -> Schema (done once)
   const errorSchemas = new Map<string, Schema.Schema.AnyNoContext>();
@@ -71,7 +77,16 @@ export const makeResponseParser = <A, I, R>(
   return Effect.fn(function* (response: Response) {
     // Success path
     if (response.status >= 200 && response.status < 300) {
-      const deserialized = yield* protocol.deserializeResponse(response);
+      const deserialized = (yield* protocol.deserializeResponse(response)) as
+        | Record<string, unknown>
+        | undefined;
+
+      // If the output has an event stream member, parse and decode it
+      const stream = streamParser?.(deserialized);
+      if (stream) {
+        return stream as A;
+      }
+
       return yield* decode(deserialized);
     }
 

@@ -884,7 +884,7 @@ const convertShapeToSchema: (
                       "smithy.api#timestampFormat"
                     ] as string | undefined;
 
-                    // Check if member target is a blob - streaming or with httpPayload needs raw bytes
+                    // Check if member target is a blob or event stream - streaming types need special handling
                     const model = yield* ModelService;
                     const memberTargetShape = model.shapes[member.target] as
                       | GenericShape
@@ -897,6 +897,11 @@ const convertShapeToSchema: (
                     // Non-streaming blob with httpPayload should also use raw bytes (not base64)
                     const isBlobPayload =
                       isBlob && hasHttpPayload && !isStreamingBlob;
+                    // Check if member target is an event stream (streaming union)
+                    const isEventStream =
+                      memberTargetShape?.type === "union" &&
+                      memberTargetShape?.traits?.["smithy.api#streaming"] !=
+                        null;
 
                     let baseSchema: string;
                     if (isStreamingBlob || isBlobPayload) {
@@ -909,6 +914,17 @@ const convertShapeToSchema: (
                       } else {
                         // Nested structure - fallback to general StreamBody
                         baseSchema = "T.StreamBody()";
+                      }
+                    } else if (isEventStream) {
+                      // Event stream member - get the union schema and note it's a stream
+                      // The actual schema is the union type, but we need to wrap it for
+                      // proper stream handling in the API
+                      baseSchema = yield* convertShapeToSchema(
+                        member.target,
+                      ).pipe(Effect.flatMap(Deferred.await));
+                      // Add httpPayload annotation since event streams are the body
+                      if (!hasHttpPayload) {
+                        // Event stream members implicitly act as httpPayload
                       }
                     } else {
                       baseSchema = yield* convertShapeToSchema(
@@ -1074,10 +1090,12 @@ const convertShapeToSchema: (
               );
               const schemaName = getSchemaName();
               const isCurrentCyclic = sdkFile.cyclicSchemas.has(schemaName);
+              // Check if this is a streaming union (event stream)
+              const isEventStream = s.traits?.["smithy.api#streaming"] != null;
 
               return addAlias(
                 Effect.all(
-                  Object.entries(s.members).map(([_memberName, member]) => {
+                  Object.entries(s.members).map(([memberName, member]) => {
                     const memberTargetName = formatName(member.target);
                     const isMemberErrorShape = sdkFile.errorShapeIds.has(
                       member.target,
@@ -1103,7 +1121,12 @@ const convertShapeToSchema: (
                             wrappedSchema = `S.suspend(() => ${schema})`;
                           }
                         }
-                        return { raw: schema, wrapped: wrappedSchema };
+                        return {
+                          name: memberName,
+                          raw: schema,
+                          wrapped: wrappedSchema,
+                          isError: isMemberErrorShape,
+                        };
                       }),
                     );
                   }),
@@ -1111,6 +1134,11 @@ const convertShapeToSchema: (
                 ).pipe(
                   Effect.map((members) => {
                     const wrappedMembers = members.map((m) => m.wrapped);
+
+                    // Event stream unions use T.EventStream() to get Stream<EventType> type
+                    if (isEventStream) {
+                      return `export const ${schemaName} = T.EventStream(S.Union(${wrappedMembers.join(", ")}));`;
+                    }
 
                     if (isCurrentCyclic) {
                       // For cyclic unions, generate explicit type alias to help TypeScript inference
