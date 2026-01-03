@@ -9,6 +9,11 @@ import { Region } from "./aws/region.ts";
 import type { Operation } from "./operation.ts";
 import { makeRequestBuilder } from "./request-builder.ts";
 import { makeResponseParser } from "./response-parser.ts";
+import type {
+  EndpointError,
+  NoMatchingRuleError,
+} from "./rules-engine/index.ts";
+import { makeRulesResolver } from "./rules-engine/resolver.ts";
 import { getAwsAuthSigv4 } from "./traits.ts";
 
 export const make = <Op extends Operation>(
@@ -21,7 +26,9 @@ export const make = <Op extends Operation>(
   | ParseResult.ParseError
   | Error
   | UnknownAwsError
-  | CommonAwsError,
+  | CommonAwsError
+  | EndpointError
+  | NoMatchingRuleError,
   Region | Credentials
 >) => {
   const op = initOperation();
@@ -35,15 +42,20 @@ export const make = <Op extends Operation>(
 
     // Get SigV4 service name from annotations
     const sigv4 = getAwsAuthSigv4(inputAst);
+
+    // Create rules resolver (if rule set available)
+    const rulesResolver = makeRulesResolver(op);
+
     return {
       buildRequest,
       parseResponse,
       sigv4,
+      rulesResolver,
     };
   };
 
   const fn = Effect.fnUntraced(function* (payload: Operation.Input<Op>) {
-    const { buildRequest, parseResponse, sigv4 } = (_init ??=
+    const { buildRequest, parseResponse, sigv4, rulesResolver } = (_init ??=
       init()) as ReturnType<typeof init>;
     yield* Effect.logDebug("Payload", payload);
 
@@ -57,9 +69,25 @@ export const make = <Op extends Operation>(
     const region = yield* Region;
     const creds = yield* credentials.getCredentials();
     const serviceName = sigv4?.name ?? "s3";
-    const endpoint = (yield* Effect.serviceOption(Endpoint)).pipe(
-      Option.getOrElse(() => `https://${serviceName}.${region}.amazonaws.com`),
-    );
+
+    // Resolve endpoint - use rules engine if available, otherwise static endpoint
+    let endpoint: string;
+    const customEndpoint = yield* Effect.serviceOption(Endpoint);
+
+    if (Option.isSome(customEndpoint)) {
+      // User provided a custom endpoint - use it directly
+      endpoint = customEndpoint.value;
+    } else if (rulesResolver) {
+      // Use the rules resolver
+      const resolved = yield* rulesResolver({
+        input: payload,
+        region,
+      });
+      endpoint = resolved.url;
+    } else {
+      // Fallback to static endpoint
+      endpoint = `https://${serviceName}.${region}.amazonaws.com`;
+    }
 
     // Build full URL with query string
     const queryString = Object.entries(request.query)

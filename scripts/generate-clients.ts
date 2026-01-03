@@ -61,6 +61,12 @@ class SdkFile extends Context.Tag("SdkFile")<
       version: string;
       protocol: string;
     };
+    // Endpoint rule set for dynamic endpoint resolution
+    endpointRuleSet: unknown | undefined;
+    // Client context parameters for endpoint resolution
+    clientContextParams:
+      | Record<string, { type: string; documentation?: string }>
+      | undefined;
   }
 >() {}
 
@@ -1006,6 +1012,10 @@ const convertShapeToSchema: (
                       classAnnotations.push("auth");
                       classAnnotations.push("proto");
                       classAnnotations.push("ver");
+                      // Add endpoint rule set if available
+                      if (sdkFile.endpointRuleSet) {
+                        classAnnotations.push("rules");
+                      }
                       // Add httpChecksum trait if present
                       if (opTraits.httpChecksum) {
                         const checksumParts: string[] = [];
@@ -1313,6 +1323,10 @@ const generateClient = Effect.fn(function* (
             }
             // Add service-level traits
             classAnnotations.push("svc", "auth", "proto", "ver");
+            // Add endpoint rule set if available
+            if (sdkFile.endpointRuleSet) {
+              classAnnotations.push("rules");
+            }
 
             const annotations =
               classAnnotations.length === 1
@@ -1452,6 +1466,13 @@ const generateClient = Effect.fn(function* (
     );
     serviceConstants.push(`const proto = ${protoAnnotation};`);
 
+    // Endpoint rule set constant (if available)
+    if (sdkFile.endpointRuleSet) {
+      serviceConstants.push(
+        `const rules = T.EndpointRuleSet(${JSON.stringify(sdkFile.endpointRuleSet)});`,
+      );
+    }
+
     const serviceConstantsBlock =
       serviceConstants.length > 0 ? `\n${serviceConstants.join("\n")}` : "";
 
@@ -1510,6 +1531,13 @@ const generateClient = Effect.fn(function* (
     protocol: serviceProtocol,
   };
 
+  // Extract endpoint rule set and client context params
+  const endpointRuleSet =
+    serviceShape?.traits?.["smithy.rules#endpointRuleSet"];
+  const clientContextParams = serviceShape?.traits?.[
+    "smithy.rules#clientContextParams"
+  ] as Record<string, { type: string; documentation?: string }> | undefined;
+
   return yield* client.pipe(
     Effect.provideService(SdkFile, {
       schemas: yield* Ref.make<
@@ -1528,6 +1556,8 @@ const generateClient = Effect.fn(function* (
       operationInputTraits,
       operationOutputTraits,
       serviceTraits,
+      endpointRuleSet,
+      clientContextParams,
     }),
     Effect.provideService(ModelService, model),
   );
@@ -1541,6 +1571,28 @@ BunRuntime.runMain(
   Effect.gen(function* () {
     const path = yield* Path.Path;
     const fs = yield* FileSystem.FileSystem;
+
+    // Copy partitions.json from Smithy to rules-engine
+    const partitionsSrc = path.join(
+      "smithy",
+      "smithy-aws-endpoints",
+      "src",
+      "main",
+      "resources",
+      "software",
+      "amazon",
+      "smithy",
+      "rulesengine",
+      "aws",
+      "language",
+      "functions",
+      "partition",
+      "partitions.json",
+    );
+    const partitionsDest = path.join("src", "rules-engine", "partitions.json");
+    yield* fs.copyFile(partitionsSrc, partitionsDest);
+    yield* Console.log("📦 Copied partitions.json from Smithy");
+
     const rootModelsPath = path.join(AWS_MODELS_PATH, "models");
     const folders = yield* fs.readDirectory(rootModelsPath);
 

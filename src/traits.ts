@@ -13,6 +13,7 @@ import { ec2QueryProtocol } from "./protocols/ec2-query.ts";
 import { restJson1Protocol } from "./protocols/rest-json.ts";
 import { restXmlProtocol } from "./protocols/rest-xml.ts";
 import type { Request as ProtocolRequest } from "./request.ts";
+import type { RuleSetObject } from "./rules-engine/model.ts";
 
 /**
  * Internal symbol for annotation metadata storage
@@ -449,6 +450,25 @@ export const ServiceVersion = (version: string) =>
 // Endpoint Routing Traits (smithy.rules#*)
 // =============================================================================
 
+/** smithy.rules#endpointRuleSet - Endpoint resolution rule set */
+export const endpointRuleSetSymbol = Symbol.for(
+  "itty-aws/smithy.rules#endpointRuleSet",
+);
+export const EndpointRuleSet = (ruleSet: unknown) =>
+  makeAnnotation(endpointRuleSetSymbol, ruleSet);
+
+/** smithy.rules#clientContextParams - Client-level endpoint parameters */
+export const clientContextParamsSymbol = Symbol.for(
+  "itty-aws/smithy.rules#clientContextParams",
+);
+export interface ClientContextParamDefinition {
+  type: string;
+  documentation?: string;
+}
+export const ClientContextParams = (
+  params: Record<string, ClientContextParamDefinition>,
+) => makeAnnotation(clientContextParamsSymbol, params);
+
 /** smithy.rules#contextParam - Endpoint routing context parameter */
 export const contextParamSymbol = Symbol.for("itty-aws/context-param");
 export const ContextParam = (name: string) =>
@@ -881,6 +901,24 @@ export const getTimestampFormatFromAST = (
 /** Check if schema has aws.customizations#s3UnwrappedXmlOutput trait */
 export const hasS3UnwrappedXmlOutput = (ast: AST.AST): boolean =>
   hasAnnotation(ast, s3UnwrappedXmlOutputSymbol);
+
+/** Get smithy.rules#endpointRuleSet trait from a schema */
+export const getEndpointRuleSet = (ast: AST.AST) =>
+  getAnnotationUnwrap<RuleSetObject>(ast, endpointRuleSetSymbol);
+
+/** Get smithy.rules#clientContextParams trait from a schema */
+export const getClientContextParams = (
+  ast: AST.AST,
+): Record<string, ClientContextParamDefinition> | undefined =>
+  getAnnotationUnwrap<Record<string, ClientContextParamDefinition>>(
+    ast,
+    clientContextParamsSymbol,
+  );
+
+/** Get smithy.rules#contextParam annotation value from property */
+export const getContextParam = (
+  prop: AST.PropertySignature,
+): string | undefined => getPropAnnotation<string>(prop, contextParamSymbol);
 
 // =============================================================================
 // Protocol and Middleware Discovery (for use by api.ts)
