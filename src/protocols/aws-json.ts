@@ -27,7 +27,11 @@ import type { Request } from "../request.ts";
 import type { Response } from "../response.ts";
 import { getAwsApiService, getAwsAuthSigv4 } from "../traits.ts";
 import { getIdentifier } from "../util/ast.ts";
-import { extractJsonErrorCode, extractJsonErrorData, sanitizeErrorCode } from "../util/error.ts";
+import {
+  extractJsonErrorCode,
+  extractJsonErrorData,
+  sanitizeErrorCode,
+} from "../util/error.ts";
 import { readStreamAsText } from "../util/stream.ts";
 
 /** AWS JSON 1.0 Protocol */
@@ -91,7 +95,9 @@ function createAwsJsonProtocol(version: "1.0" | "1.1"): Protocol {
               return parsed as Record<string, unknown>;
             }
           } catch {
-            return yield* new ParseError({ message: `Failed to parse JSON body: ${bodyText}` });
+            return yield* new ParseError({
+              message: `Failed to parse JSON body: ${bodyText}`,
+            });
           }
         }
 

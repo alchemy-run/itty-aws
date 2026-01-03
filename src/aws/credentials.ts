@@ -19,7 +19,11 @@ export class AwsCredentialProviderError extends Data.TaggedError(
 export class Credentials extends Context.Tag("Credentials")<
   Credentials,
   {
-    readonly getCredentials: () => Effect.Effect<AwsCredentials, AwsCredentialProviderError, never>;
+    readonly getCredentials: () => Effect.Effect<
+      AwsCredentials,
+      AwsCredentialProviderError,
+      never
+    >;
   }
 >() {}
 

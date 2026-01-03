@@ -45,7 +45,9 @@ export function sanitizeErrorCode(value: string): string {
  * @param body - The parsed JSON body
  * @returns The raw error code (before sanitization), or undefined if not found
  */
-export function extractJsonErrorCode(body: Record<string, unknown>): string | undefined {
+export function extractJsonErrorCode(
+  body: Record<string, unknown>,
+): string | undefined {
   // Check __type first (standard for AWS JSON protocols)
   if (typeof body.__type === "string") {
     return body.__type;
@@ -63,7 +65,9 @@ export function extractJsonErrorCode(body: Record<string, unknown>): string | un
  * @param body - The parsed JSON body
  * @returns The body with __type and code fields removed
  */
-export function extractJsonErrorData(body: Record<string, unknown>): Record<string, unknown> {
+export function extractJsonErrorData(
+  body: Record<string, unknown>,
+): Record<string, unknown> {
   const { __type, code, ...data } = body;
   return data;
 }

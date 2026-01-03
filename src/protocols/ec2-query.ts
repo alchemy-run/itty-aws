@@ -19,7 +19,12 @@ import type { Operation } from "../operation.ts";
 import type { Protocol, ProtocolHandler } from "../protocol.ts";
 import type { Request } from "../request.ts";
 import type { Response } from "../response.ts";
-import { getEc2QueryName, getServiceVersion, getXmlNameProp, hasXmlAttribute } from "../traits.ts";
+import {
+  getEc2QueryName,
+  getServiceVersion,
+  getXmlNameProp,
+  hasXmlAttribute,
+} from "../traits.ts";
 import {
   getArrayElementAST,
   getEncodedPropertySignatures,
@@ -28,13 +33,20 @@ import {
 } from "../util/ast.ts";
 import { sanitizeErrorCode } from "../util/error.ts";
 import { readStreamAsText } from "../util/stream.ts";
-import { deserializePrimitive, extractXmlRoot, parseXml, unwrapArrayValue } from "../util/xml.ts";
+import {
+  deserializePrimitive,
+  extractXmlRoot,
+  parseXml,
+  unwrapArrayValue,
+} from "../util/xml.ts";
 
 // =============================================================================
 // Protocol Export
 // =============================================================================
 
-export const ec2QueryProtocol: Protocol = (operation: Operation): ProtocolHandler => {
+export const ec2QueryProtocol: Protocol = (
+  operation: Operation,
+): ProtocolHandler => {
   const inputSchema = operation.input;
   const outputSchema = operation.output;
   const inputAst = inputSchema.ast;
@@ -67,7 +79,12 @@ export const ec2QueryProtocol: Protocol = (operation: Operation): ProtocolHandle
       params.push(`Version=${encodeURIComponent(version)}`);
 
       // Serialize already-encoded input members
-      serializeMembers(inputAst, encoded as Record<string, unknown>, "", params);
+      serializeMembers(
+        inputAst,
+        encoded as Record<string, unknown>,
+        "",
+        params,
+      );
 
       request.body = params.join("&");
 
@@ -231,7 +248,9 @@ function serializeValue(
   // Handle primitives (includes encoded dates as strings, blobs as base64)
   // Blob schema transforms Uint8Array → base64 string during encoding
   if (typeof value !== "object") {
-    params.push(`${encodeURIComponent(key)}=${encodeURIComponent(String(value))}`);
+    params.push(
+      `${encodeURIComponent(key)}=${encodeURIComponent(String(value))}`,
+    );
     return;
   }
 
@@ -292,7 +311,10 @@ function deserializeValue(ast: AST.AST, value: unknown): unknown {
   return value;
 }
 
-function deserializeObject(ast: AST.AST, value: Record<string, unknown>): Record<string, unknown> {
+function deserializeObject(
+  ast: AST.AST,
+  value: Record<string, unknown>,
+): Record<string, unknown> {
   const result: Record<string, unknown> = {};
 
   for (const prop of getEncodedPropertySignatures(ast)) {

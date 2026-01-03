@@ -60,8 +60,8 @@
     "@typescript/native-preview": "^7.0.0-dev.20251230.1",
     "dedent": "^1.7.0",
     "effect": "latest",
-    "oxfmt": "latest",
-    "oxlint": "^1.36.0",
+    "oxfmt": "0.21.0",
+    "oxlint": "1.36.0",
     "pathe": "^2.0.3",
     "typescript": "^5"
   }

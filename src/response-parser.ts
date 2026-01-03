@@ -82,12 +82,14 @@ export const makeResponseParser = <A, I, R>(
     if (errorSchema) {
       // Add _tag to data for TaggedError decoding
       const dataWithTag = { _tag: errorCode, ...data };
-      const decoded = yield* Schema.decodeUnknown(errorSchema)(dataWithTag).pipe(
-        Effect.catchAll(() => Effect.succeed(dataWithTag)),
-      );
+      const decoded = yield* Schema.decodeUnknown(errorSchema)(
+        dataWithTag,
+      ).pipe(Effect.catchAll(() => Effect.succeed(dataWithTag)));
       return yield* Effect.fail(decoded);
     }
 
-    return yield* Effect.fail(new UnknownAwsError({ errorTag: errorCode, errorData: data }));
+    return yield* Effect.fail(
+      new UnknownAwsError({ errorTag: errorCode, errorData: data }),
+    );
   });
 };

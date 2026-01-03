@@ -10,7 +10,9 @@ const Surrogate = Symbol.for("effect/annotation/Surrogate");
 export function unwrapUnion(ast: AST.AST): AST.AST {
   if (ast._tag === "Union") {
     const nonNullish = ast.types.filter(
-      (t) => t._tag !== "UndefinedKeyword" && !(t._tag === "Literal" && t.literal === null),
+      (t) =>
+        t._tag !== "UndefinedKeyword" &&
+        !(t._tag === "Literal" && t.literal === null),
     );
     if (nonNullish.length === 1) {
       return unwrapUnion(nonNullish[0]);
@@ -42,12 +44,16 @@ export function getIdentifier(ast: AST.AST): string | undefined {
 /**
  * Get property signatures from a schema AST
  */
-export function getPropertySignatures(ast: AST.AST): readonly AST.PropertySignature[] {
+export function getPropertySignatures(
+  ast: AST.AST,
+): readonly AST.PropertySignature[] {
   const unwrapped = unwrapUnion(ast);
   if (unwrapped !== ast) return getPropertySignatures(unwrapped);
 
   if (unwrapped._tag === "Transformation" && unwrapped.to) {
-    const surrogate = unwrapped.to.annotations?.[Surrogate] as AST.AST | undefined;
+    const surrogate = unwrapped.to.annotations?.[Surrogate] as
+      | AST.AST
+      | undefined;
     if (surrogate && surrogate._tag === "TypeLiteral") {
       return surrogate.propertySignatures;
     }
@@ -83,7 +89,9 @@ function findEncodedTypeLiteral(ast: AST.AST): AST.TypeLiteral | undefined {
 /**
  * Get encoded property signatures (from side of Transformation)
  */
-export function getEncodedPropertySignatures(ast: AST.AST): readonly AST.PropertySignature[] {
+export function getEncodedPropertySignatures(
+  ast: AST.AST,
+): readonly AST.PropertySignature[] {
   // First unwrap Union (handles S.optional)
   const unwrapped = unwrapUnion(ast);
   if (unwrapped !== ast) return getEncodedPropertySignatures(unwrapped);
@@ -161,7 +169,10 @@ export function isDateAST(ast: AST.AST): boolean {
   }
 
   // S.Date is a Transformation from string to Date (DateFromSelf)
-  if (unwrapped._tag === "Transformation" && unwrapped.to?._tag === "Declaration") {
+  if (
+    unwrapped._tag === "Transformation" &&
+    unwrapped.to?._tag === "Declaration"
+  ) {
     const id = unwrapped.to.annotations?.[Identifier];
     if (id === "Date" || id === "DateFromSelf") return true;
   }
@@ -176,7 +187,9 @@ export function getXmlNamespace(ast: AST.AST): string | undefined {
   if (unwrapped !== ast) return getXmlNamespace(unwrapped);
 
   if (unwrapped._tag === "Transformation" && unwrapped.to) {
-    const ns = unwrapped.to.annotations?.[xmlNamespaceSymbol] as string | undefined;
+    const ns = unwrapped.to.annotations?.[xmlNamespaceSymbol] as
+      | string
+      | undefined;
     if (ns) return ns;
   }
   return unwrapped.annotations?.[xmlNamespaceSymbol] as string | undefined;
@@ -190,7 +203,9 @@ export function getXmlNameFromAST(ast: AST.AST): string | undefined {
   if (unwrapped !== ast) return getXmlNameFromAST(unwrapped);
 
   if (unwrapped._tag === "Transformation" && unwrapped.to) {
-    const name = unwrapped.to.annotations?.[xmlNameSymbol] as string | undefined;
+    const name = unwrapped.to.annotations?.[xmlNameSymbol] as
+      | string
+      | undefined;
     if (name) return name;
   }
   return unwrapped.annotations?.[xmlNameSymbol] as string | undefined;
@@ -203,7 +218,8 @@ export function isMapAST(ast: AST.AST): boolean {
   const unwrapped = unwrapUnion(ast);
   if (unwrapped !== ast) return isMapAST(unwrapped);
 
-  if (unwrapped._tag === "TypeLiteral" && unwrapped.indexSignatures?.length > 0) return true;
+  if (unwrapped._tag === "TypeLiteral" && unwrapped.indexSignatures?.length > 0)
+    return true;
   if (unwrapped._tag === "Transformation") return isMapAST(unwrapped.from);
   return false;
 }
@@ -217,13 +233,17 @@ export function getMapKeyValueAST(
   const unwrapped = unwrapUnion(ast);
   if (unwrapped !== ast) return getMapKeyValueAST(unwrapped);
 
-  if (unwrapped._tag === "TypeLiteral" && unwrapped.indexSignatures?.length > 0) {
+  if (
+    unwrapped._tag === "TypeLiteral" &&
+    unwrapped.indexSignatures?.length > 0
+  ) {
     const indexSig = unwrapped.indexSignatures[0];
     return {
       keyAST: indexSig.parameter,
       valueAST: indexSig.type,
     };
   }
-  if (unwrapped._tag === "Transformation") return getMapKeyValueAST(unwrapped.from);
+  if (unwrapped._tag === "Transformation")
+    return getMapKeyValueAST(unwrapped.from);
   return undefined;
 }

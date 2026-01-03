@@ -4,7 +4,10 @@ import * as AST from "effect/SchemaAST";
 import type * as Stream from "effect/Stream";
 import { applyHttpChecksum } from "./middleware/checksum.ts";
 import type { Protocol } from "./protocol.ts";
-import { awsJson1_0Protocol, awsJson1_1Protocol } from "./protocols/aws-json.ts";
+import {
+  awsJson1_0Protocol,
+  awsJson1_1Protocol,
+} from "./protocols/aws-json.ts";
 import { awsQueryProtocol } from "./protocols/aws-query.ts";
 import { ec2QueryProtocol } from "./protocols/ec2-query.ts";
 import { restJson1Protocol } from "./protocols/rest-json.ts";
@@ -44,7 +47,8 @@ export interface Annotation {
  * Create an annotation builder for a given symbol and value
  */
 function makeAnnotation<T>(sym: symbol, value: T): Annotation {
-  const fn = <A extends Annotatable>(schema: A): A => schema.annotations({ [sym]: value }) as A;
+  const fn = <A extends Annotatable>(schema: A): A =>
+    schema.annotations({ [sym]: value }) as A;
 
   (fn as any)[annotationMetaSymbol] = [{ symbol: sym, value }];
   (fn as any)[sym] = value;
@@ -70,7 +74,8 @@ export function all(...annotations: Annotation[]): Annotation {
     }
   }
 
-  const fn = <A extends Annotatable>(schema: A): A => schema.annotations(raw) as A;
+  const fn = <A extends Annotatable>(schema: A): A =>
+    schema.annotations(raw) as A;
 
   (fn as any)[annotationMetaSymbol] = entries;
 
@@ -87,7 +92,8 @@ export function all(...annotations: Annotation[]): Annotation {
 
 /** smithy.api#httpHeader - Bind member to an HTTP header */
 export const httpHeaderSymbol = Symbol.for("itty-aws/http-header");
-export const HttpHeader = (name: string) => makeAnnotation(httpHeaderSymbol, name);
+export const HttpHeader = (name: string) =>
+  makeAnnotation(httpHeaderSymbol, name);
 
 /** smithy.api#httpPayload - Bind member to the HTTP body */
 export const httpPayloadSymbol = Symbol.for("itty-aws/http-payload");
@@ -99,20 +105,25 @@ export const HttpLabel = () => makeAnnotation(httpLabelSymbol, true);
 
 /** smithy.api#httpQuery - Bind member to a query string parameter */
 export const httpQuerySymbol = Symbol.for("itty-aws/http-query");
-export const HttpQuery = (name: string) => makeAnnotation(httpQuerySymbol, name);
+export const HttpQuery = (name: string) =>
+  makeAnnotation(httpQuerySymbol, name);
 
 /** smithy.api#httpQueryParams - Bind map members to query string parameters */
 export const httpQueryParamsSymbol = Symbol.for("itty-aws/http-query-params");
-export const HttpQueryParams = () => makeAnnotation(httpQueryParamsSymbol, true);
+export const HttpQueryParams = () =>
+  makeAnnotation(httpQueryParamsSymbol, true);
 
 /** smithy.api#httpPrefixHeaders - Bind map members to prefixed HTTP headers */
-export const httpPrefixHeadersSymbol = Symbol.for("itty-aws/http-prefix-headers");
+export const httpPrefixHeadersSymbol = Symbol.for(
+  "itty-aws/http-prefix-headers",
+);
 export const HttpPrefixHeaders = (prefix: string) =>
   makeAnnotation(httpPrefixHeadersSymbol, prefix);
 
 /** smithy.api#httpResponseCode - Bind member to the HTTP response status code */
 export const httpResponseCodeSymbol = Symbol.for("itty-aws/http-response-code");
-export const HttpResponseCode = () => makeAnnotation(httpResponseCodeSymbol, true);
+export const HttpResponseCode = () =>
+  makeAnnotation(httpResponseCodeSymbol, true);
 
 // =============================================================================
 // XML Serialization Traits (smithy.api#xml*)
@@ -132,7 +143,8 @@ export const XmlAttribute = () => makeAnnotation(xmlAttributeSymbol, true);
 
 /** smithy.api#xmlNamespace - XML namespace URI for the element */
 export const xmlNamespaceSymbol = Symbol.for("itty-aws/xml-namespace");
-export const XmlNamespace = (uri: string) => makeAnnotation(xmlNamespaceSymbol, uri);
+export const XmlNamespace = (uri: string) =>
+  makeAnnotation(xmlNamespaceSymbol, uri);
 
 // =============================================================================
 // JSON Serialization Traits (smithy.api#json*)
@@ -163,7 +175,9 @@ export const JsonName = (name: string) => {
 
     // It's a Schema - wrap in propertySignature and apply fromKey
     if (S.isSchema(schema)) {
-      return S.propertySignature(schema as S.Schema.Any).pipe(S.fromKey(name)) as any;
+      return S.propertySignature(schema as S.Schema.Any).pipe(
+        S.fromKey(name),
+      ) as any;
     }
 
     // Fallback: just add annotation (shouldn't happen in practice)
@@ -176,8 +190,11 @@ export const JsonName = (name: string) => {
 // =============================================================================
 
 /** aws.protocols#ec2QueryName - Custom query key name for EC2 protocol */
-export const ec2QueryNameSymbol = Symbol.for("itty-aws/aws.protocols#ec2QueryName");
-export const Ec2QueryName = (name: string) => makeAnnotation(ec2QueryNameSymbol, name);
+export const ec2QueryNameSymbol = Symbol.for(
+  "itty-aws/aws.protocols#ec2QueryName",
+);
+export const Ec2QueryName = (name: string) =>
+  makeAnnotation(ec2QueryNameSymbol, name);
 
 // =============================================================================
 // Timestamp Traits
@@ -252,7 +269,8 @@ export const awsAuthSigv4Symbol = Symbol.for("itty-aws/aws.auth#sigv4");
 export interface AwsAuthSigv4Trait {
   name: string;
 }
-export const AwsAuthSigv4 = (trait: AwsAuthSigv4Trait) => makeAnnotation(awsAuthSigv4Symbol, trait);
+export const AwsAuthSigv4 = (trait: AwsAuthSigv4Trait) =>
+  makeAnnotation(awsAuthSigv4Symbol, trait);
 
 // =============================================================================
 // AWS Protocol Traits (aws.protocols#*)
@@ -268,7 +286,9 @@ export interface ProtocolAnnotationValue {
 export const protocolSymbol = Symbol.for("itty-aws/protocol");
 
 /** aws.protocols#restXml */
-export const awsProtocolsRestXmlSymbol = Symbol.for("itty-aws/aws.protocols#restXml");
+export const awsProtocolsRestXmlSymbol = Symbol.for(
+  "itty-aws/aws.protocols#restXml",
+);
 export interface AwsProtocolsRestXmlTrait {
   noErrorWrapping?: boolean;
 }
@@ -293,7 +313,9 @@ export const AwsProtocolsRestXml = (trait?: AwsProtocolsRestXmlTrait) => {
 };
 
 /** aws.protocols#restJson1 */
-export const awsProtocolsRestJson1Symbol = Symbol.for("itty-aws/aws.protocols#restJson1");
+export const awsProtocolsRestJson1Symbol = Symbol.for(
+  "itty-aws/aws.protocols#restJson1",
+);
 export interface AwsProtocolsRestJson1Trait {
   http?: string[];
   eventStreamHttp?: string[];
@@ -319,7 +341,9 @@ export const AwsProtocolsRestJson1 = (trait?: AwsProtocolsRestJson1Trait) => {
 };
 
 /** aws.protocols#awsJson1_0 */
-export const awsProtocolsAwsJson1_0Symbol = Symbol.for("itty-aws/aws.protocols#awsJson1_0");
+export const awsProtocolsAwsJson1_0Symbol = Symbol.for(
+  "itty-aws/aws.protocols#awsJson1_0",
+);
 export interface AwsProtocolsAwsJson1_0Trait {
   http?: string[];
   eventStreamHttp?: string[];
@@ -345,7 +369,9 @@ export const AwsProtocolsAwsJson1_0 = (trait?: AwsProtocolsAwsJson1_0Trait) => {
 };
 
 /** aws.protocols#awsJson1_1 */
-export const awsProtocolsAwsJson1_1Symbol = Symbol.for("itty-aws/aws.protocols#awsJson1_1");
+export const awsProtocolsAwsJson1_1Symbol = Symbol.for(
+  "itty-aws/aws.protocols#awsJson1_1",
+);
 export interface AwsProtocolsAwsJson1_1Trait {
   http?: string[];
   eventStreamHttp?: string[];
@@ -371,7 +397,9 @@ export const AwsProtocolsAwsJson1_1 = (trait?: AwsProtocolsAwsJson1_1Trait) => {
 };
 
 /** aws.protocols#awsQuery */
-export const awsProtocolsAwsQuerySymbol = Symbol.for("itty-aws/aws.protocols#awsQuery");
+export const awsProtocolsAwsQuerySymbol = Symbol.for(
+  "itty-aws/aws.protocols#awsQuery",
+);
 export const AwsProtocolsAwsQuery = () => {
   const value: ProtocolAnnotationValue = {
     protocol: awsQueryProtocol,
@@ -392,7 +420,9 @@ export const AwsProtocolsAwsQuery = () => {
 };
 
 /** aws.protocols#ec2Query */
-export const awsProtocolsEc2QuerySymbol = Symbol.for("itty-aws/aws.protocols#ec2Query");
+export const awsProtocolsEc2QuerySymbol = Symbol.for(
+  "itty-aws/aws.protocols#ec2Query",
+);
 export const AwsProtocolsEc2Query = () => {
   const value: ProtocolAnnotationValue = {
     protocol: ec2QueryProtocol,
@@ -427,13 +457,17 @@ export interface MiddlewareAnnotationValue {
 export const middlewareSymbol = Symbol.for("itty-aws/middleware");
 
 /** aws.protocols#httpChecksum - HTTP checksum configuration with embedded middleware */
-export const awsProtocolsHttpChecksumSymbol = Symbol.for("itty-aws/aws.protocols#httpChecksum");
+export const awsProtocolsHttpChecksumSymbol = Symbol.for(
+  "itty-aws/aws.protocols#httpChecksum",
+);
 export interface AwsProtocolsHttpChecksumTrait {
   requestAlgorithmMember?: string;
   requestChecksumRequired?: boolean;
   responseAlgorithms?: string[];
 }
-export const AwsProtocolsHttpChecksum = (trait: AwsProtocolsHttpChecksumTrait) => {
+export const AwsProtocolsHttpChecksum = (
+  trait: AwsProtocolsHttpChecksumTrait,
+) => {
   const value: MiddlewareAnnotationValue & AwsProtocolsHttpChecksumTrait = {
     ...trait,
     middleware: applyHttpChecksum,
@@ -454,7 +488,9 @@ export const AwsProtocolsHttpChecksum = (trait: AwsProtocolsHttpChecksumTrait) =
 };
 
 /** Helper to get existing middleware list from a schema */
-function getMiddlewareList(schema: Annotatable): MiddlewareAnnotationValue[] | undefined {
+function getMiddlewareList(
+  schema: Annotatable,
+): MiddlewareAnnotationValue[] | undefined {
   // @ts-expect-error - accessing internal annotations
   return schema?.ast?.annotations?.[middlewareSymbol];
 }
@@ -465,7 +501,8 @@ function getMiddlewareList(schema: Annotatable): MiddlewareAnnotationValue[] | u
 
 /** Service API version (from service shape's version property) */
 export const serviceVersionSymbol = Symbol.for("itty-aws/service-version");
-export const ServiceVersion = (version: string) => makeAnnotation(serviceVersionSymbol, version);
+export const ServiceVersion = (version: string) =>
+  makeAnnotation(serviceVersionSymbol, version);
 
 // =============================================================================
 // Endpoint Routing Traits (smithy.rules#*)
@@ -473,7 +510,8 @@ export const ServiceVersion = (version: string) => makeAnnotation(serviceVersion
 
 /** smithy.rules#contextParam - Endpoint routing context parameter */
 export const contextParamSymbol = Symbol.for("itty-aws/context-param");
-export const ContextParam = (name: string) => makeAnnotation(contextParamSymbol, name);
+export const ContextParam = (name: string) =>
+  makeAnnotation(contextParamSymbol, name);
 
 /** smithy.api#hostLabel - Bind member to a label in the endpoint hostPrefix */
 export const hostLabelSymbol = Symbol.for("itty-aws/host-label");
@@ -481,14 +519,20 @@ export const HostLabel = () => makeAnnotation(hostLabelSymbol, true);
 
 /** smithy.api#httpError - Custom HTTP status code for error responses */
 export const httpErrorSymbol = Symbol.for("itty-aws/http-error");
-export const HttpError = (statusCode: number) => makeAnnotation(httpErrorSymbol, statusCode);
+export const HttpError = (statusCode: number) =>
+  makeAnnotation(httpErrorSymbol, statusCode);
 
 /** smithy.api#httpChecksumRequired - Indicates operation requires Content-MD5 checksum */
-export const httpChecksumRequiredSymbol = Symbol.for("itty-aws/http-checksum-required");
-export const HttpChecksumRequired = () => makeAnnotation(httpChecksumRequiredSymbol, true);
+export const httpChecksumRequiredSymbol = Symbol.for(
+  "itty-aws/http-checksum-required",
+);
+export const HttpChecksumRequired = () =>
+  makeAnnotation(httpChecksumRequiredSymbol, true);
 
 /** aws.protocols#awsQueryError - Custom error Code and HTTP response code for awsQuery protocol */
-export const awsQueryErrorSymbol = Symbol.for("itty-aws/aws.protocols#awsQueryError");
+export const awsQueryErrorSymbol = Symbol.for(
+  "itty-aws/aws.protocols#awsQueryError",
+);
 export interface AwsQueryErrorTrait {
   code: string;
   httpResponseCode: number;
@@ -572,22 +616,32 @@ export const StreamingInput = S.declare(
  * Used for @httpPayload members with @streaming trait (e.g., S3 GetObject Body).
  */
 
-export const StreamingOutput = S.declare((u): u is Stream.Stream<Uint8Array, Error, never> =>
-  isEffectStream(u),
+export const StreamingOutput = S.declare(
+  (u): u is Stream.Stream<Uint8Array, Error, never> => isEffectStream(u),
 ).annotations({ [streamingSymbol]: true, identifier: "StreamingOutput" });
 
 /**
  * Check if a value is an Effect Stream.
  * Uses duck typing since Stream doesn't have a built-in type guard.
  */
-function isEffectStream(u: unknown): u is Stream.Stream<unknown, unknown, unknown> {
-  return u !== null && typeof u === "object" && Symbol.for("effect/Stream") in (u as object);
+function isEffectStream(
+  u: unknown,
+): u is Stream.Stream<unknown, unknown, unknown> {
+  return (
+    u !== null &&
+    typeof u === "object" &&
+    Symbol.for("effect/Stream") in (u as object)
+  );
 }
 
 /** Legacy StreamBody type - kept for backwards compatibility */
 export type StreamBody = string | Uint8Array | ReadableStream;
 export const StreamBody = () =>
-  S.Union(S.String, S.instanceOf(Uint8Array), S.instanceOf(ReadableStream)).annotations({
+  S.Union(
+    S.String,
+    S.instanceOf(Uint8Array),
+    S.instanceOf(ReadableStream),
+  ).annotations({
     [streamingSymbol]: true,
   });
 
@@ -598,7 +652,10 @@ export const StreamBody = () =>
 /**
  * Get a single annotation from an AST node
  */
-export const getAnnotation = <T>(ast: AST.AST, symbol: symbol): T | undefined => {
+export const getAnnotation = <T>(
+  ast: AST.AST,
+  symbol: symbol,
+): T | undefined => {
   return ast.annotations?.[symbol] as T | undefined;
 };
 
@@ -621,7 +678,10 @@ export const getPropAnnotation = <T>(
 /**
  * Check if a PropertySignature has a specific annotation
  */
-export const hasPropAnnotation = (prop: AST.PropertySignature, symbol: symbol): boolean => {
+export const hasPropAnnotation = (
+  prop: AST.PropertySignature,
+  symbol: symbol,
+): boolean => {
   if (prop.annotations?.[symbol] !== undefined) return true;
   return hasAnnotation(prop.type, symbol);
 };
@@ -693,7 +753,8 @@ export const hasAnnotation = (ast: AST.AST, symbol: symbol): boolean => {
   if (ast._tag === "Union") {
     const nonNullishTypes = ast.types.filter(
       (t: AST.AST) =>
-        t._tag !== "UndefinedKeyword" && !(t._tag === "Literal" && t.literal === null),
+        t._tag !== "UndefinedKeyword" &&
+        !(t._tag === "Literal" && t.literal === null),
     );
     return nonNullishTypes.some((t: AST.AST) => hasAnnotation(t, symbol));
   }
@@ -709,7 +770,10 @@ export const hasAnnotation = (ast: AST.AST, symbol: symbol): boolean => {
 /**
  * Get annotation value, unwrapping Union/Transformation if needed
  */
-export const getAnnotationUnwrap = <T>(ast: AST.AST, symbol: symbol): T | undefined => {
+export const getAnnotationUnwrap = <T>(
+  ast: AST.AST,
+  symbol: symbol,
+): T | undefined => {
   const direct = ast.annotations?.[symbol] as T | undefined;
   if (direct !== undefined) return direct;
 
@@ -725,7 +789,9 @@ export const getAnnotationUnwrap = <T>(ast: AST.AST, symbol: symbol): T | undefi
 
   if (ast._tag === "Union") {
     const nonNullishTypes = ast.types.filter(
-      (t) => t._tag !== "UndefinedKeyword" && !(t._tag === "Literal" && t.literal === null),
+      (t) =>
+        t._tag !== "UndefinedKeyword" &&
+        !(t._tag === "Literal" && t.literal === null),
     );
     if (nonNullishTypes.length === 1) {
       return getAnnotationUnwrap(nonNullishTypes[0], symbol);
@@ -740,8 +806,9 @@ export const getAnnotationUnwrap = <T>(ast: AST.AST, symbol: symbol): T | undefi
 // =============================================================================
 
 /** Get httpHeader annotation value from property */
-export const getHttpHeader = (prop: AST.PropertySignature): string | undefined =>
-  getPropAnnotation<string>(prop, httpHeaderSymbol);
+export const getHttpHeader = (
+  prop: AST.PropertySignature,
+): string | undefined => getPropAnnotation<string>(prop, httpHeaderSymbol);
 
 /** Check if property has httpLabel annotation */
 export const hasHttpLabel = (prop: AST.PropertySignature): boolean =>
@@ -756,7 +823,9 @@ export const hasHttpQueryParams = (prop: AST.PropertySignature): boolean =>
   hasPropAnnotation(prop, httpQueryParamsSymbol);
 
 /** Get httpPrefixHeaders annotation value from property */
-export const getHttpPrefixHeaders = (prop: AST.PropertySignature): string | undefined =>
+export const getHttpPrefixHeaders = (
+  prop: AST.PropertySignature,
+): string | undefined =>
   getPropAnnotation<string>(prop, httpPrefixHeadersSymbol);
 
 /** Check if property has httpPayload annotation */
@@ -768,16 +837,18 @@ export const hasXmlAttribute = (prop: AST.PropertySignature): boolean =>
   hasPropAnnotation(prop, xmlAttributeSymbol);
 
 /** Get xmlName annotation value from property */
-export const getXmlNameProp = (prop: AST.PropertySignature): string | undefined =>
-  getPropAnnotation<string>(prop, xmlNameSymbol);
+export const getXmlNameProp = (
+  prop: AST.PropertySignature,
+): string | undefined => getPropAnnotation<string>(prop, xmlNameSymbol);
 
 /** Check if property has xmlFlattened annotation */
 export const hasXmlFlattened = (prop: AST.PropertySignature): boolean =>
   hasPropAnnotation(prop, xmlFlattenedSymbol);
 
 /** Get ec2QueryName annotation value from property */
-export const getEc2QueryName = (prop: AST.PropertySignature): string | undefined =>
-  getPropAnnotation<string>(prop, ec2QueryNameSymbol);
+export const getEc2QueryName = (
+  prop: AST.PropertySignature,
+): string | undefined => getPropAnnotation<string>(prop, ec2QueryNameSymbol);
 
 // =============================================================================
 // Operation/Service-Level Annotation Helpers (for extracting from request schemas)
@@ -788,7 +859,9 @@ export const getHttpTrait = (ast: AST.AST): HttpTrait | undefined =>
   getAnnotationUnwrap<HttpTrait>(ast, httpSymbol);
 
 /** Get aws.api#service trait from a schema */
-export const getAwsApiService = (ast: AST.AST): AwsApiServiceTrait | undefined =>
+export const getAwsApiService = (
+  ast: AST.AST,
+): AwsApiServiceTrait | undefined =>
   getAnnotationUnwrap<AwsApiServiceTrait>(ast, awsApiServiceSymbol);
 
 /** Get aws.auth#sigv4 trait from a schema */
@@ -827,22 +900,31 @@ export const hasEc2QueryProtocol = (ast: AST.AST): boolean =>
 export const getAwsProtocolsHttpChecksum = (
   ast: AST.AST,
 ): AwsProtocolsHttpChecksumTrait | undefined =>
-  getAnnotationUnwrap<AwsProtocolsHttpChecksumTrait>(ast, awsProtocolsHttpChecksumSymbol);
+  getAnnotationUnwrap<AwsProtocolsHttpChecksumTrait>(
+    ast,
+    awsProtocolsHttpChecksumSymbol,
+  );
 
 /** Check if schema has smithy.api#httpChecksumRequired trait */
 export const hasHttpChecksumRequired = (ast: AST.AST): boolean =>
   hasAnnotation(ast, httpChecksumRequiredSymbol);
 
 /** Get aws.protocols#awsQueryError trait from a schema (for error shapes) */
-export const getAwsQueryError = (ast: AST.AST): AwsQueryErrorTrait | undefined =>
+export const getAwsQueryError = (
+  ast: AST.AST,
+): AwsQueryErrorTrait | undefined =>
   getAnnotationUnwrap<AwsQueryErrorTrait>(ast, awsQueryErrorSymbol);
 
 /** Get timestampFormat annotation value from property */
-export const getTimestampFormat = (prop: AST.PropertySignature): TimestampFormatType | undefined =>
+export const getTimestampFormat = (
+  prop: AST.PropertySignature,
+): TimestampFormatType | undefined =>
   getPropAnnotation<TimestampFormatType>(prop, timestampFormatSymbol);
 
 /** Get timestampFormat annotation value from AST */
-export const getTimestampFormatFromAST = (ast: AST.AST): TimestampFormatType | undefined =>
+export const getTimestampFormatFromAST = (
+  ast: AST.AST,
+): TimestampFormatType | undefined =>
   getAnnotationUnwrap<TimestampFormatType>(ast, timestampFormatSymbol);
 
 // =============================================================================
@@ -851,16 +933,18 @@ export const getTimestampFormatFromAST = (ast: AST.AST): TimestampFormatType | u
 
 /** Get the protocol implementation from a schema's annotations */
 export const getProtocol = (ast: AST.AST): Protocol | undefined => {
-  const value = getAnnotationUnwrap<ProtocolAnnotationValue>(ast, protocolSymbol);
+  const value = getAnnotationUnwrap<ProtocolAnnotationValue>(
+    ast,
+    protocolSymbol,
+  );
   return value?.protocol;
 };
 
 /** Get all middleware implementations from a schema's annotations */
 export const getMiddleware = (ast: AST.AST): MiddlewareFn[] => {
-  const value = getAnnotationUnwrap<MiddlewareAnnotationValue | MiddlewareAnnotationValue[]>(
-    ast,
-    middlewareSymbol,
-  );
+  const value = getAnnotationUnwrap<
+    MiddlewareAnnotationValue | MiddlewareAnnotationValue[]
+  >(ast, middlewareSymbol);
   if (!value) {
     return [];
   }

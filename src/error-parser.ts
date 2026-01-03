@@ -15,4 +15,7 @@ export type ParseErrors = (
 
 export type ParseErrorsMiddleware = (op: Operation) => ParseErrors;
 
-export class ErrorParser extends Context.Tag("ErrorParser")<ErrorParser, ParseErrors>() {}
+export class ErrorParser extends Context.Tag("ErrorParser")<
+  ErrorParser,
+  ParseErrors
+>() {}

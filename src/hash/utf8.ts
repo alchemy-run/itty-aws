@@ -1,4 +1,6 @@
-export const toUint8Array = (data: string | ArrayBuffer | ArrayBufferView): Uint8Array => {
+export const toUint8Array = (
+  data: string | ArrayBuffer | ArrayBufferView,
+): Uint8Array => {
   if (typeof data === "string") {
     return fromUtf8(data);
   }
@@ -16,7 +18,11 @@ export const toUint8Array = (data: string | ArrayBuffer | ArrayBufferView): Uint
 
 export const fromUtf8 = (input: string): Uint8Array => {
   const buf = fromString(input, "utf8");
-  return new Uint8Array(buf.buffer, buf.byteOffset, buf.byteLength / Uint8Array.BYTES_PER_ELEMENT);
+  return new Uint8Array(
+    buf.buffer,
+    buf.byteOffset,
+    buf.byteLength / Uint8Array.BYTES_PER_ELEMENT,
+  );
 };
 
 export const fromArrayBuffer = (
@@ -35,7 +41,10 @@ export type StringEncoding =
   | "binary"
   | "hex";
 
-export const fromString = (input: string, encoding?: StringEncoding): Buffer => {
+export const fromString = (
+  input: string,
+  encoding?: StringEncoding,
+): Buffer => {
   return encoding ? Buffer.from(input, encoding) : Buffer.from(input);
 };
 

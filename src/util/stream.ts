@@ -9,7 +9,8 @@ import type { StreamingInputBody } from "../traits.ts";
 
 export const readEffectStreamAsText = <Err>(
   stream: Stream.Stream<Uint8Array, Err>,
-): Effect.Effect<string, Err> => readStreamAsText(effectStreamToReadable(stream));
+): Effect.Effect<string, Err> =>
+  readStreamAsText(effectStreamToReadable(stream));
 
 /**
  * Read a ReadableStream as text (for non-streaming responses).
@@ -25,15 +26,22 @@ export const readStreamAsText = (
 /**
  * Convert Effect Stream to ReadableStream for fetch.
  */
-export const effectStreamToReadable = <Err>(stream: Stream.Stream<Uint8Array, Err>) =>
-  Stream.toReadableStream(stream);
+export const effectStreamToReadable = <Err>(
+  stream: Stream.Stream<Uint8Array, Err>,
+) => Stream.toReadableStream(stream);
 
 /**
  * Check if a value is an Effect Stream.
  * Uses duck typing since Stream doesn't have a built-in type guard.
  */
-export function isEffectStream(u: unknown): u is Stream.Stream<unknown, unknown, unknown> {
-  return u !== null && typeof u === "object" && Symbol.for("effect/Stream") in (u as object);
+export function isEffectStream(
+  u: unknown,
+): u is Stream.Stream<unknown, unknown, unknown> {
+  return (
+    u !== null &&
+    typeof u === "object" &&
+    Symbol.for("effect/Stream") in (u as object)
+  );
 }
 
 /**
@@ -46,7 +54,10 @@ export function convertStreamingInput(
   if (typeof value === "string") return value;
   if (value instanceof Uint8Array) return value;
   if (value instanceof ArrayBuffer) return new Uint8Array(value);
-  if (typeof globalThis.Blob !== "undefined" && value instanceof globalThis.Blob) {
+  if (
+    typeof globalThis.Blob !== "undefined" &&
+    value instanceof globalThis.Blob
+  ) {
     return value.stream();
   }
   if (value instanceof ReadableStream) return value;
@@ -101,7 +112,9 @@ export function createBufferedReadableStream(
     return combined;
   };
 
-  const pull = async (controller: ReadableStreamDefaultController<Uint8Array>) => {
+  const pull = async (
+    controller: ReadableStreamDefaultController<Uint8Array>,
+  ) => {
     const { value, done } = await reader.read();
 
     if (done) {

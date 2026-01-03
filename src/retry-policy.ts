@@ -8,6 +8,10 @@ export class RetryPolicy extends Context.Tag("RetryPolicy")<
     readonly getSchedule: (
       error: unknown,
       errorDetails?: unknown,
-    ) => Effect.Effect<Schedule.Schedule<unknown, unknown, unknown>, never, never>;
+    ) => Effect.Effect<
+      Schedule.Schedule<unknown, unknown, unknown>,
+      never,
+      never
+    >;
   }
 >() {}

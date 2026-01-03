@@ -40,7 +40,11 @@ import {
 import { sanitizeErrorCode } from "../util/error.ts";
 import { extractStaticQueryParams } from "../util/query-params.ts";
 import { applyHttpTrait, bindInputToRequest } from "../util/serialize-input.ts";
-import { convertStreamingInput, readableToEffectStream, readStreamAsText } from "../util/stream.ts";
+import {
+  convertStreamingInput,
+  readableToEffectStream,
+  readStreamAsText,
+} from "../util/stream.ts";
 import { formatTimestamp } from "../util/timestamp.ts";
 import {
   deserializePrimitive,
@@ -54,7 +58,9 @@ import {
 // Protocol Export
 // =============================================================================
 
-export const restXmlProtocol: Protocol = (operation: Operation): ProtocolHandler => {
+export const restXmlProtocol: Protocol = (
+  operation: Operation,
+): ProtocolHandler => {
   const inputSchema = operation.input;
   const outputSchema = operation.output;
   const inputAst = inputSchema.ast;
@@ -78,11 +84,12 @@ export const restXmlProtocol: Protocol = (operation: Operation): ProtocolHandler
       };
 
       applyHttpTrait(inputAst, request);
-      const { payloadValue, payloadAst, bodyMembers, hasBodyMembers } = bindInputToRequest(
-        inputAst,
-        encoded as Record<string, unknown>,
-        request,
-      );
+      const { payloadValue, payloadAst, bodyMembers, hasBodyMembers } =
+        bindInputToRequest(
+          inputAst,
+          encoded as Record<string, unknown>,
+          request,
+        );
       extractStaticQueryParams(request);
 
       // Serialize body - Content-Type is set based on what we're actually sending
@@ -91,14 +98,17 @@ export const restXmlProtocol: Protocol = (operation: Operation): ProtocolHandler
           // Streaming payload - body is raw bytes, Content-Type comes from user's header binding
           // (e.g., ContentType field with @httpHeader("Content-Type") trait)
           // If user didn't set it, leave it unset (browser/fetch will handle it)
-          request.body = convertStreamingInput(payloadValue as StreamingInputBody);
+          request.body = convertStreamingInput(
+            payloadValue as StreamingInputBody,
+          );
         } else if (typeof payloadValue === "string") {
           // String payload - raw string body, no Content-Type override
           request.body = payloadValue;
         } else {
           // Structure payload - serialize as XML with proper Content-Type
           request.headers["Content-Type"] = "application/xml";
-          const tagName = getXmlNameFromAST(payloadAst) ?? getIdentifier(payloadAst);
+          const tagName =
+            getXmlNameFromAST(payloadAst) ?? getIdentifier(payloadAst);
           request.body = serializeValue(
             payloadAst,
             payloadValue,
@@ -110,7 +120,12 @@ export const restXmlProtocol: Protocol = (operation: Operation): ProtocolHandler
         // Body members - serialize as XML with proper Content-Type
         request.headers["Content-Type"] = "application/xml";
         const tagName = getIdentifier(inputAst);
-        request.body = serializeObject(inputAst, bodyMembers, tagName, getXmlNamespace(inputAst));
+        request.body = serializeObject(
+          inputAst,
+          bodyMembers,
+          tagName,
+          getXmlNamespace(inputAst),
+        );
       }
 
       return request;
@@ -126,7 +141,8 @@ export const restXmlProtocol: Protocol = (operation: Operation): ProtocolHandler
         const prefixHeader = getHttpPrefixHeaders(prop);
 
         if (header) {
-          const v = response.headers[header.toLowerCase()] ?? response.headers[header];
+          const v =
+            response.headers[header.toLowerCase()] ?? response.headers[header];
           if (v !== undefined) {
             result[name] = isNumberAST(prop.type)
               ? Number(v)
@@ -138,7 +154,8 @@ export const restXmlProtocol: Protocol = (operation: Operation): ProtocolHandler
           const prefix = prefixHeader.toLowerCase();
           const prefixed: Record<string, string> = {};
           for (const [k, v] of Object.entries(response.headers)) {
-            if (k.toLowerCase().startsWith(prefix)) prefixed[k.slice(prefix.length)] = v;
+            if (k.toLowerCase().startsWith(prefix))
+              prefixed[k.slice(prefix.length)] = v;
           }
           if (Object.keys(prefixed).length) result[name] = prefixed;
         }
@@ -161,11 +178,15 @@ export const restXmlProtocol: Protocol = (operation: Operation): ProtocolHandler
         if (hasHttpPayload(prop)) {
           const name = String(prop.name);
           const unwrapped = unwrapUnion(prop.type);
-          if (unwrapped._tag === "Union" || unwrapped._tag === "StringKeyword") {
+          if (
+            unwrapped._tag === "Union" ||
+            unwrapped._tag === "StringKeyword"
+          ) {
             result[name] = bodyText;
           } else {
             const parsed = parseXml(bodyText);
-            const xmlName = getXmlNameFromAST(prop.type) ?? getIdentifier(prop.type);
+            const xmlName =
+              getXmlNameFromAST(prop.type) ?? getIdentifier(prop.type);
             result[name] = deserializeValue(
               prop.type,
               xmlName ? (parsed[xmlName] ?? parsed) : parsed,
@@ -177,8 +198,11 @@ export const restXmlProtocol: Protocol = (operation: Operation): ProtocolHandler
       // Parse body XML for non-payload properties
       if (bodyText) {
         const parsed = parseXml(bodyText);
-        const xmlName = getXmlNameFromAST(outputAst) ?? getIdentifier(outputAst);
-        const content = (xmlName ? parsed[xmlName] : parsed) as Record<string, unknown> | undefined;
+        const xmlName =
+          getXmlNameFromAST(outputAst) ?? getIdentifier(outputAst);
+        const content = (xmlName ? parsed[xmlName] : parsed) as
+          | Record<string, unknown>
+          | undefined;
         if (content && typeof content === "object")
           Object.assign(result, deserializeObject(outputAst, content));
       }
@@ -244,7 +268,12 @@ export const restXmlProtocol: Protocol = (operation: Operation): ProtocolHandler
 // XML Serialization
 // =============================================================================
 
-function serializeValue(ast: AST.AST, value: unknown, tagName?: string, xmlns?: string): string {
+function serializeValue(
+  ast: AST.AST,
+  value: unknown,
+  tagName?: string,
+  xmlns?: string,
+): string {
   if (value == null) return "";
 
   // Primitives and Dates
@@ -263,7 +292,14 @@ function serializeValue(ast: AST.AST, value: unknown, tagName?: string, xmlns?: 
     const elementAST = getArrayElementAST(ast);
     const tag = tagName ?? (elementAST && getIdentifier(elementAST));
     return value
-      .map((item, i) => serializeValue(elementAST ?? ast, item, tag, i === 0 ? xmlns : undefined))
+      .map((item, i) =>
+        serializeValue(
+          elementAST ?? ast,
+          item,
+          tag,
+          i === 0 ? xmlns : undefined,
+        ),
+      )
       .join("");
   }
 
@@ -299,7 +335,11 @@ function serializeObject(
 
     const elementAST = getArrayElementAST(prop.type);
     if (hasXmlFlattened(prop)) {
-      elems.push(v.map((item) => serializeValue(elementAST ?? prop.type, item, xmlName)).join(""));
+      elems.push(
+        v
+          .map((item) => serializeValue(elementAST ?? prop.type, item, xmlName))
+          .join(""),
+      );
     } else {
       const itemTag = elementAST && getIdentifier(elementAST);
       elems.push(
@@ -312,7 +352,8 @@ function serializeObject(
 
   const ns = xmlns ?? getXmlNamespace(ast);
   const attrStr =
-    (ns ? ` xmlns="${escapeXml(ns)}"` : "") + (attrs.length ? ` ${attrs.join(" ")}` : "");
+    (ns ? ` xmlns="${escapeXml(ns)}"` : "") +
+    (attrs.length ? ` ${attrs.join(" ")}` : "");
   return `<${tagName}${attrStr}>${elems.join("")}</${tagName}>`;
 }
 
@@ -346,7 +387,10 @@ function deserializeValue(ast: AST.AST, value: unknown): unknown {
   return value;
 }
 
-function deserializeObject(ast: AST.AST, value: Record<string, unknown>): Record<string, unknown> {
+function deserializeObject(
+  ast: AST.AST,
+  value: Record<string, unknown>,
+): Record<string, unknown> {
   const result: Record<string, unknown> = {};
 
   for (const prop of getEncodedPropertySignatures(ast)) {

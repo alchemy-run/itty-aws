@@ -25,12 +25,22 @@ import {
   type StreamingInputBody,
 } from "../traits.ts";
 import { getEncodedPropertySignatures } from "../util/ast.ts";
-import { extractJsonErrorCode, extractJsonErrorData, sanitizeErrorCode } from "../util/error.ts";
+import {
+  extractJsonErrorCode,
+  extractJsonErrorData,
+  sanitizeErrorCode,
+} from "../util/error.ts";
 import { extractStaticQueryParams } from "../util/query-params.ts";
 import { applyHttpTrait, bindInputToRequest } from "../util/serialize-input.ts";
-import { convertStreamingInput, readableToEffectStream, readStreamAsText } from "../util/stream.ts";
+import {
+  convertStreamingInput,
+  readableToEffectStream,
+  readStreamAsText,
+} from "../util/stream.ts";
 
-export const restJson1Protocol: Protocol = (operation: Operation): ProtocolHandler => {
+export const restJson1Protocol: Protocol = (
+  operation: Operation,
+): ProtocolHandler => {
   const inputSchema = operation.input;
   const outputSchema = operation.output;
   const inputAst = inputSchema.ast;
@@ -52,18 +62,21 @@ export const restJson1Protocol: Protocol = (operation: Operation): ProtocolHandl
       };
 
       applyHttpTrait(inputAst, request);
-      const { payloadValue, payloadAst, bodyMembers, hasBodyMembers } = bindInputToRequest(
-        inputAst,
-        encoded as Record<string, unknown>,
-        request,
-      );
+      const { payloadValue, payloadAst, bodyMembers, hasBodyMembers } =
+        bindInputToRequest(
+          inputAst,
+          encoded as Record<string, unknown>,
+          request,
+        );
       extractStaticQueryParams(request);
 
       // Serialize body - Effect Schema handles jsonName key renaming via S.fromKey
       if (payloadValue !== undefined && payloadAst !== undefined) {
         if (isStreamingType(payloadAst)) {
           // Streaming input - convert to appropriate format for fetch
-          request.body = convertStreamingInput(payloadValue as StreamingInputBody);
+          request.body = convertStreamingInput(
+            payloadValue as StreamingInputBody,
+          );
         } else if (isRawPayload(payloadAst)) {
           request.body = payloadValue as string;
         } else {
@@ -86,7 +99,8 @@ export const restJson1Protocol: Protocol = (operation: Operation): ProtocolHandl
         const prefix = getHttpPrefixHeaders(prop);
 
         if (header) {
-          const v = response.headers[header.toLowerCase()] ?? response.headers[header];
+          const v =
+            response.headers[header.toLowerCase()] ?? response.headers[header];
           if (v !== undefined) result[name] = v;
         } else if (prefix) {
           const lowerPrefix = prefix.toLowerCase();
@@ -128,7 +142,9 @@ export const restJson1Protocol: Protocol = (operation: Operation): ProtocolHandl
             Object.assign(result, parsed);
           }
         } catch {
-          return yield* new ParseError({ message: `Failed to parse JSON body: ${bodyText}` });
+          return yield* new ParseError({
+            message: `Failed to parse JSON body: ${bodyText}`,
+          });
         }
       }
 
