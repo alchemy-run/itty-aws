@@ -207,24 +207,68 @@ describe("restXml protocol", () => {
       }),
     );
 
-    it.effect("GetBucketLocationOutput - should deserialize location XML", () =>
+    it.effect(
+      "GetBucketLocationOutput - should deserialize unwrapped S3 XML (s3UnwrappedXmlOutput trait)",
+      () =>
+        Effect.gen(function* () {
+          // GetBucketLocationOutput uses s3UnwrappedXmlOutput trait - the response is NOT wrapped
+          // in an operation-level XML node. The root element IS the content directly.
+          // Standard rest-xml would expect: <LocationConstraint><LocationConstraint>value</LocationConstraint></LocationConstraint>
+          // With s3UnwrappedXmlOutput: <LocationConstraint>value</LocationConstraint>
+          const response: Response = {
+            status: 200,
+            statusText: "OK",
+            headers: {},
+            body: `<?xml version="1.0" encoding="UTF-8"?>
+<LocationConstraint xmlns="http://s3.amazonaws.com/doc/2006-03-01/">us-west-2</LocationConstraint>`,
+          };
+
+          const result = (yield* parseResponse(GetBucketLocationOutput, response)) as {
+            LocationConstraint?: string;
+          };
+
+          // The s3UnwrappedXmlOutput trait means the text content "us-west-2" is parsed
+          // directly into the LocationConstraint field
+          expect(result.LocationConstraint).toBe("us-west-2");
+        }),
+    );
+
+    it.effect("GetBucketLocationOutput - should handle empty location (us-east-1)", () =>
       Effect.gen(function* () {
-        // GetBucketLocationOutput has XmlName("LocationConstraint") - the root element IS the constraint
+        // Buckets in us-east-1 return an empty LocationConstraint element
         const response: Response = {
           status: 200,
           statusText: "OK",
           headers: {},
           body: `<?xml version="1.0" encoding="UTF-8"?>
-<LocationConstraint xmlns="http://s3.amazonaws.com/doc/2006-03-01/">us-west-2</LocationConstraint>`,
+<LocationConstraint xmlns="http://s3.amazonaws.com/doc/2006-03-01/"></LocationConstraint>`,
         };
 
-        const result = (yield* parseResponse(GetBucketLocationOutput, response)) as Record<
-          string,
-          unknown
-        >;
+        const result = (yield* parseResponse(GetBucketLocationOutput, response)) as {
+          LocationConstraint?: string;
+        };
 
-        // For this edge case, the root element is the value itself - test what parser returns
-        expect(result).toBeDefined();
+        // Empty content should result in undefined LocationConstraint
+        expect(result.LocationConstraint).toBeUndefined();
+      }),
+    );
+
+    it.effect("GetBucketLocationOutput - should handle EU location", () =>
+      Effect.gen(function* () {
+        // Some old buckets use "EU" which maps to eu-west-1
+        const response: Response = {
+          status: 200,
+          statusText: "OK",
+          headers: {},
+          body: `<?xml version="1.0" encoding="UTF-8"?>
+<LocationConstraint xmlns="http://s3.amazonaws.com/doc/2006-03-01/">EU</LocationConstraint>`,
+        };
+
+        const result = (yield* parseResponse(GetBucketLocationOutput, response)) as {
+          LocationConstraint?: string;
+        };
+
+        expect(result.LocationConstraint).toBe("EU");
       }),
     );
   });

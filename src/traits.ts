@@ -285,6 +285,39 @@ export interface ProtocolAnnotationValue {
 /** Common symbol for discovering the protocol from any annotation */
 export const protocolSymbol = Symbol.for("itty-aws/protocol");
 
+/**
+ * Helper to create protocol annotations with embedded implementation.
+ * Reduces boilerplate by handling the common pattern of:
+ * - Creating value with protocol + optional trait data
+ * - Setting both protocol-specific and common protocol symbols
+ * - Setting up annotationMetaSymbol array
+ */
+function makeProtocolAnnotation<T extends object = object>(
+  sym: symbol,
+  protocol: Protocol,
+  trait?: T,
+): Annotation {
+  const value: ProtocolAnnotationValue & T = {
+    ...trait,
+    protocol,
+  } as ProtocolAnnotationValue & T;
+
+  const fn = <A extends Annotatable>(schema: A): A =>
+    schema.annotations({
+      [sym]: value,
+      [protocolSymbol]: value,
+    }) as A;
+
+  (fn as any)[annotationMetaSymbol] = [
+    { symbol: sym, value },
+    { symbol: protocolSymbol, value },
+  ];
+  (fn as any)[sym] = value;
+  (fn as any)[protocolSymbol] = value;
+
+  return fn as Annotation;
+}
+
 /** aws.protocols#restXml */
 export const awsProtocolsRestXmlSymbol = Symbol.for(
   "itty-aws/aws.protocols#restXml",
@@ -292,25 +325,8 @@ export const awsProtocolsRestXmlSymbol = Symbol.for(
 export interface AwsProtocolsRestXmlTrait {
   noErrorWrapping?: boolean;
 }
-export const AwsProtocolsRestXml = (trait?: AwsProtocolsRestXmlTrait) => {
-  const value: ProtocolAnnotationValue & AwsProtocolsRestXmlTrait = {
-    ...trait,
-    protocol: restXmlProtocol,
-  };
-  // Create annotation with both protocol-specific symbol and common protocol symbol
-  const fn = <A extends Annotatable>(schema: A): A =>
-    schema.annotations({
-      [awsProtocolsRestXmlSymbol]: value,
-      [protocolSymbol]: value,
-    }) as A;
-  (fn as any)[annotationMetaSymbol] = [
-    { symbol: awsProtocolsRestXmlSymbol, value },
-    { symbol: protocolSymbol, value },
-  ];
-  (fn as any)[awsProtocolsRestXmlSymbol] = value;
-  (fn as any)[protocolSymbol] = value;
-  return fn as Annotation;
-};
+export const AwsProtocolsRestXml = (trait?: AwsProtocolsRestXmlTrait) =>
+  makeProtocolAnnotation(awsProtocolsRestXmlSymbol, restXmlProtocol, trait);
 
 /** aws.protocols#restJson1 */
 export const awsProtocolsRestJson1Symbol = Symbol.for(
@@ -320,25 +336,8 @@ export interface AwsProtocolsRestJson1Trait {
   http?: string[];
   eventStreamHttp?: string[];
 }
-export const AwsProtocolsRestJson1 = (trait?: AwsProtocolsRestJson1Trait) => {
-  const value: ProtocolAnnotationValue & AwsProtocolsRestJson1Trait = {
-    ...trait,
-    protocol: restJson1Protocol,
-  };
-  // Create annotation with both protocol-specific symbol and common protocol symbol
-  const fn = <A extends Annotatable>(schema: A): A =>
-    schema.annotations({
-      [awsProtocolsRestJson1Symbol]: value,
-      [protocolSymbol]: value,
-    }) as A;
-  (fn as any)[annotationMetaSymbol] = [
-    { symbol: awsProtocolsRestJson1Symbol, value },
-    { symbol: protocolSymbol, value },
-  ];
-  (fn as any)[awsProtocolsRestJson1Symbol] = value;
-  (fn as any)[protocolSymbol] = value;
-  return fn as Annotation;
-};
+export const AwsProtocolsRestJson1 = (trait?: AwsProtocolsRestJson1Trait) =>
+  makeProtocolAnnotation(awsProtocolsRestJson1Symbol, restJson1Protocol, trait);
 
 /** aws.protocols#awsJson1_0 */
 export const awsProtocolsAwsJson1_0Symbol = Symbol.for(
@@ -348,25 +347,12 @@ export interface AwsProtocolsAwsJson1_0Trait {
   http?: string[];
   eventStreamHttp?: string[];
 }
-export const AwsProtocolsAwsJson1_0 = (trait?: AwsProtocolsAwsJson1_0Trait) => {
-  const value: ProtocolAnnotationValue & AwsProtocolsAwsJson1_0Trait = {
-    ...trait,
-    protocol: awsJson1_0Protocol,
-  };
-  // Create annotation with both protocol-specific symbol and common protocol symbol
-  const fn = <A extends Annotatable>(schema: A): A =>
-    schema.annotations({
-      [awsProtocolsAwsJson1_0Symbol]: value,
-      [protocolSymbol]: value,
-    }) as A;
-  (fn as any)[annotationMetaSymbol] = [
-    { symbol: awsProtocolsAwsJson1_0Symbol, value },
-    { symbol: protocolSymbol, value },
-  ];
-  (fn as any)[awsProtocolsAwsJson1_0Symbol] = value;
-  (fn as any)[protocolSymbol] = value;
-  return fn as Annotation;
-};
+export const AwsProtocolsAwsJson1_0 = (trait?: AwsProtocolsAwsJson1_0Trait) =>
+  makeProtocolAnnotation(
+    awsProtocolsAwsJson1_0Symbol,
+    awsJson1_0Protocol,
+    trait,
+  );
 
 /** aws.protocols#awsJson1_1 */
 export const awsProtocolsAwsJson1_1Symbol = Symbol.for(
@@ -376,71 +362,26 @@ export interface AwsProtocolsAwsJson1_1Trait {
   http?: string[];
   eventStreamHttp?: string[];
 }
-export const AwsProtocolsAwsJson1_1 = (trait?: AwsProtocolsAwsJson1_1Trait) => {
-  const value: ProtocolAnnotationValue & AwsProtocolsAwsJson1_1Trait = {
-    ...trait,
-    protocol: awsJson1_1Protocol,
-  };
-  // Create annotation with both protocol-specific symbol and common protocol symbol
-  const fn = <A extends Annotatable>(schema: A): A =>
-    schema.annotations({
-      [awsProtocolsAwsJson1_1Symbol]: value,
-      [protocolSymbol]: value,
-    }) as A;
-  (fn as any)[annotationMetaSymbol] = [
-    { symbol: awsProtocolsAwsJson1_1Symbol, value },
-    { symbol: protocolSymbol, value },
-  ];
-  (fn as any)[awsProtocolsAwsJson1_1Symbol] = value;
-  (fn as any)[protocolSymbol] = value;
-  return fn as Annotation;
-};
+export const AwsProtocolsAwsJson1_1 = (trait?: AwsProtocolsAwsJson1_1Trait) =>
+  makeProtocolAnnotation(
+    awsProtocolsAwsJson1_1Symbol,
+    awsJson1_1Protocol,
+    trait,
+  );
 
 /** aws.protocols#awsQuery */
 export const awsProtocolsAwsQuerySymbol = Symbol.for(
   "itty-aws/aws.protocols#awsQuery",
 );
-export const AwsProtocolsAwsQuery = () => {
-  const value: ProtocolAnnotationValue = {
-    protocol: awsQueryProtocol,
-  };
-  // Create annotation with both protocol-specific symbol and common protocol symbol
-  const fn = <A extends Annotatable>(schema: A): A =>
-    schema.annotations({
-      [awsProtocolsAwsQuerySymbol]: value,
-      [protocolSymbol]: value,
-    }) as A;
-  (fn as any)[annotationMetaSymbol] = [
-    { symbol: awsProtocolsAwsQuerySymbol, value },
-    { symbol: protocolSymbol, value },
-  ];
-  (fn as any)[awsProtocolsAwsQuerySymbol] = value;
-  (fn as any)[protocolSymbol] = value;
-  return fn as Annotation;
-};
+export const AwsProtocolsAwsQuery = () =>
+  makeProtocolAnnotation(awsProtocolsAwsQuerySymbol, awsQueryProtocol);
 
 /** aws.protocols#ec2Query */
 export const awsProtocolsEc2QuerySymbol = Symbol.for(
   "itty-aws/aws.protocols#ec2Query",
 );
-export const AwsProtocolsEc2Query = () => {
-  const value: ProtocolAnnotationValue = {
-    protocol: ec2QueryProtocol,
-  };
-  // Create annotation with both protocol-specific symbol and common protocol symbol
-  const fn = <A extends Annotatable>(schema: A): A =>
-    schema.annotations({
-      [awsProtocolsEc2QuerySymbol]: value,
-      [protocolSymbol]: value,
-    }) as A;
-  (fn as any)[annotationMetaSymbol] = [
-    { symbol: awsProtocolsEc2QuerySymbol, value },
-    { symbol: protocolSymbol, value },
-  ];
-  (fn as any)[awsProtocolsEc2QuerySymbol] = value;
-  (fn as any)[protocolSymbol] = value;
-  return fn as Annotation;
-};
+export const AwsProtocolsEc2Query = () =>
+  makeProtocolAnnotation(awsProtocolsEc2QuerySymbol, ec2QueryProtocol);
 
 /** Middleware function type - applied to requests */
 export type MiddlewareFn = (
@@ -539,6 +480,13 @@ export interface AwsQueryErrorTrait {
 }
 export const AwsQueryError = (trait: AwsQueryErrorTrait) =>
   makeAnnotation(awsQueryErrorSymbol, trait);
+
+/** aws.customizations#s3UnwrappedXmlOutput - S3 output not wrapped in operation-level XML node */
+export const s3UnwrappedXmlOutputSymbol = Symbol.for(
+  "itty-aws/aws.customizations#s3UnwrappedXmlOutput",
+);
+export const S3UnwrappedXmlOutput = () =>
+  makeAnnotation(s3UnwrappedXmlOutputSymbol, true);
 
 // =============================================================================
 // Blob Type (smithy.api#blob without @streaming)
@@ -761,6 +709,9 @@ export const hasAnnotation = (ast: AST.AST, symbol: symbol): boolean => {
 
   if (ast._tag === "Transformation") {
     if (ast.annotations?.[symbol] !== undefined) return true;
+    // For S.Class, annotations are on the 'to' side (the class instance)
+    if (ast.to?.annotations?.[symbol] !== undefined) return true;
+    // Also check 'from' side for other transformations
     return hasAnnotation(ast.from, symbol);
   }
 
@@ -926,6 +877,10 @@ export const getTimestampFormatFromAST = (
   ast: AST.AST,
 ): TimestampFormatType | undefined =>
   getAnnotationUnwrap<TimestampFormatType>(ast, timestampFormatSymbol);
+
+/** Check if schema has aws.customizations#s3UnwrappedXmlOutput trait */
+export const hasS3UnwrappedXmlOutput = (ast: AST.AST): boolean =>
+  hasAnnotation(ast, s3UnwrappedXmlOutputSymbol);
 
 // =============================================================================
 // Protocol and Middleware Discovery (for use by api.ts)

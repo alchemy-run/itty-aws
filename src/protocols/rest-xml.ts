@@ -21,6 +21,7 @@ import {
   hasHttpLabel,
   hasHttpPayload,
   hasHttpQueryParams,
+  hasS3UnwrappedXmlOutput,
   hasXmlAttribute,
   hasXmlFlattened,
   isStreamingType,
@@ -69,6 +70,17 @@ export const restXmlProtocol: Protocol = (
   // Pre-compute encoder and property signatures (done once at init)
   const encodeInput = S.encode(inputSchema);
   const outputProps = getEncodedPropertySignatures(outputAst);
+  const outputXmlName =
+    getXmlNameFromAST(outputAst) ?? getIdentifier(outputAst);
+
+  // Pre-compute s3UnwrappedXmlOutput handling (done once at init)
+  // For unwrapped output, find the property that matches the output's xmlName
+  const isUnwrappedOutput = hasS3UnwrappedXmlOutput(outputAst);
+  const unwrappedPropName = isUnwrappedOutput
+    ? outputProps.find(
+        (prop) => (getXmlNameProp(prop) ?? String(prop.name)) === outputXmlName,
+      )?.name
+    : undefined;
 
   return {
     serializeRequest: Effect.fn(function* (input: unknown) {
@@ -198,13 +210,20 @@ export const restXmlProtocol: Protocol = (
       // Parse body XML for non-payload properties
       if (bodyText) {
         const parsed = parseXml(bodyText);
-        const xmlName =
-          getXmlNameFromAST(outputAst) ?? getIdentifier(outputAst);
-        const content = (xmlName ? parsed[xmlName] : parsed) as
-          | Record<string, unknown>
-          | undefined;
-        if (content && typeof content === "object")
-          Object.assign(result, deserializeObject(outputAst, content));
+        const rawContent = outputXmlName ? parsed[outputXmlName] : parsed;
+
+        if (isUnwrappedOutput && unwrappedPropName) {
+          // s3UnwrappedXmlOutput: root element text content goes to matching property
+          const textContent = extractTextContent(rawContent);
+          if (textContent !== undefined) {
+            result[String(unwrappedPropName)] = textContent;
+          }
+        } else if (rawContent && typeof rawContent === "object") {
+          Object.assign(
+            result,
+            deserializeObject(outputAst, rawContent as Record<string, unknown>),
+          );
+        }
       }
 
       return result;
@@ -384,6 +403,21 @@ function deserializeValue(ast: AST.AST, value: unknown): unknown {
     return deserializeObject(ast, value as Record<string, unknown>);
   }
 
+  return value;
+}
+
+/**
+ * Extract text content from fast-xml-parser's format.
+ * Handles: { "#text": "value", "@_xmlns": "..." } → "value"
+ * Or: { "@_xmlns": "..." } (empty element) → undefined
+ */
+function extractTextContent(value: unknown): unknown {
+  if (value == null) return undefined;
+  if (typeof value !== "object") return value;
+
+  const obj = value as Record<string, unknown>;
+  if ("#text" in obj) return obj["#text"];
+  if (Object.keys(obj).every((k) => k.startsWith("@_"))) return undefined;
   return value;
 }
 
