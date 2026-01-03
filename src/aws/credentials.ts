@@ -27,13 +27,19 @@ export class Credentials extends Context.Tag("Credentials")<
   }
 >() {}
 
-export const NodeProviderChainCredentialsLive = Layer.succeed(Credentials, {
-  getCredentials: () =>
-    Effect.tryPromise({
-      try: () => fromNodeProviderChain()(),
-      catch: () => new AwsCredentialProviderError(),
-    }),
-});
+export const NodeProviderChainCredentialsLive = Layer.effect(
+  Credentials,
+  Effect.sync(() => {
+    const provider = fromNodeProviderChain();
+    return {
+      getCredentials: () =>
+        Effect.tryPromise({
+          try: () => provider(),
+          catch: () => new AwsCredentialProviderError(),
+        }),
+    };
+  }),
+);
 
 export const LocalstackCredentialsLive = Layer.succeed(Credentials, {
   getCredentials: () =>
