@@ -591,6 +591,148 @@ test(
   ),
 );
 
+// Test various lifecycle configurations that have been reported to produce MalformedXML
+test(
+  "bucket lifecycle: test various rule configurations",
+  withBucket(
+    Effect.gen(function* () {
+      // Test 1: Simple rule with Filter and Transitions (like AWS example)
+      yield* putBucketLifecycleConfiguration({
+        Bucket: TEST_BUCKET,
+        LifecycleConfiguration: {
+          Rules: [
+            {
+              ID: "TestFilterTransition",
+              Filter: {
+                Prefix: "documents/",
+              },
+              Status: "Enabled",
+              Transitions: [
+                {
+                  Days: 30,
+                  StorageClass: "GLACIER",
+                },
+              ],
+            },
+          ],
+        },
+      });
+
+      // Verify it was set correctly
+      let lifecycleResult = yield* getBucketLifecycleConfiguration({
+        Bucket: TEST_BUCKET,
+      });
+      if (lifecycleResult.Rules?.length !== 1) {
+        return yield* Effect.fail(
+          new Error(
+            `Test 1: Expected 1 rule, got ${lifecycleResult.Rules?.length}`,
+          ),
+        );
+      }
+
+      // Test 2: Rule with Expiration and Filter
+      yield* putBucketLifecycleConfiguration({
+        Bucket: TEST_BUCKET,
+        LifecycleConfiguration: {
+          Rules: [
+            {
+              ID: "TestExpirationFilter",
+              Filter: {
+                Prefix: "temp/",
+              },
+              Status: "Enabled",
+              Expiration: {
+                Days: 7,
+              },
+            },
+          ],
+        },
+      });
+
+      lifecycleResult = yield* getBucketLifecycleConfiguration({
+        Bucket: TEST_BUCKET,
+      });
+      if (lifecycleResult.Rules?.[0]?.Expiration?.Days !== 7) {
+        return yield* Effect.fail(
+          new Error(
+            `Test 2: Expected Days=7, got ${lifecycleResult.Rules?.[0]?.Expiration?.Days}`,
+          ),
+        );
+      }
+
+      // Test 3: Complete rule with ID, Filter, Expiration, and Transitions (like AWS smithy example)
+      yield* putBucketLifecycleConfiguration({
+        Bucket: TEST_BUCKET,
+        LifecycleConfiguration: {
+          Rules: [
+            {
+              ID: "TestComplete",
+              Filter: {
+                Prefix: "data/",
+              },
+              Status: "Enabled",
+              Expiration: {
+                Days: 3650,
+              },
+              Transitions: [
+                {
+                  Days: 365,
+                  StorageClass: "GLACIER",
+                },
+              ],
+            },
+          ],
+        },
+      });
+
+      lifecycleResult = yield* getBucketLifecycleConfiguration({
+        Bucket: TEST_BUCKET,
+      });
+      if (lifecycleResult.Rules?.[0]?.ID !== "TestComplete") {
+        return yield* Effect.fail(
+          new Error(
+            `Test 3: Expected ID=TestComplete, got ${lifecycleResult.Rules?.[0]?.ID}`,
+          ),
+        );
+      }
+
+      // Test 4: Empty Filter prefix (applies to all objects)
+      yield* putBucketLifecycleConfiguration({
+        Bucket: TEST_BUCKET,
+        LifecycleConfiguration: {
+          Rules: [
+            {
+              ID: "TestEmptyPrefix",
+              Filter: {
+                Prefix: "",
+              },
+              Status: "Enabled",
+              AbortIncompleteMultipartUpload: {
+                DaysAfterInitiation: 1,
+              },
+            },
+          ],
+        },
+      });
+
+      lifecycleResult = yield* getBucketLifecycleConfiguration({
+        Bucket: TEST_BUCKET,
+      });
+      if (
+        lifecycleResult.Rules?.[0]?.AbortIncompleteMultipartUpload
+          ?.DaysAfterInitiation !== 1
+      ) {
+        return yield* Effect.fail(
+          new Error(`Test 4: Expected DaysAfterInitiation=1`),
+        );
+      }
+
+      // Cleanup
+      yield* deleteBucketLifecycle({ Bucket: TEST_BUCKET });
+    }),
+  ),
+);
+
 // ============================================================================
 // Public Access Block Tests
 // ============================================================================

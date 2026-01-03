@@ -997,6 +997,163 @@ describe("restXml protocol", () => {
           );
         }),
     );
+
+    it.effect(
+      "PutBucketLifecycleConfigurationRequest - should serialize rule with Filter and Transitions",
+      () =>
+        Effect.gen(function* () {
+          const request = yield* buildRequest(
+            PutBucketLifecycleConfigurationRequest,
+            {
+              Bucket: "test-lifecycle-bucket-001",
+              LifecycleConfiguration: {
+                Rules: [
+                  {
+                    Filter: {
+                      Prefix: "documents/",
+                    },
+                    Status: "Enabled",
+                    Transitions: [
+                      {
+                        Days: 30,
+                        StorageClass: "GLACIER",
+                      },
+                    ],
+                  },
+                ],
+              },
+            },
+          );
+
+          expect(request.method).toBe("PUT");
+          expect(request.path).toBe("/test-lifecycle-bucket-001");
+          expect(request.query["lifecycle"]).toBe("");
+          expect(request.body).toEqual(
+            '<LifecycleConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">' +
+              "<Rule>" +
+              "<Filter><Prefix>documents/</Prefix></Filter>" +
+              "<Status>Enabled</Status>" +
+              "<Transition><Days>30</Days><StorageClass>GLACIER</StorageClass></Transition>" +
+              "</Rule>" +
+              "</LifecycleConfiguration>",
+          );
+          // Checksum should be added since requestChecksumRequired: true
+          expect(request.headers["Content-MD5"]).toBeDefined();
+        }),
+    );
+
+    it.effect(
+      "PutBucketLifecycleConfigurationRequest - should serialize rule with Expiration and deprecated Prefix",
+      () =>
+        Effect.gen(function* () {
+          const request = yield* buildRequest(
+            PutBucketLifecycleConfigurationRequest,
+            {
+              Bucket: "test-lifecycle-bucket-001",
+              LifecycleConfiguration: {
+                Rules: [
+                  {
+                    Expiration: {
+                      Days: 30,
+                    },
+                    Prefix: "documents/",
+                    Status: "Enabled",
+                  },
+                ],
+              },
+            },
+          );
+
+          expect(request.method).toBe("PUT");
+          expect(request.body).toEqual(
+            '<LifecycleConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">' +
+              "<Rule>" +
+              "<Expiration><Days>30</Days></Expiration>" +
+              "<Prefix>documents/</Prefix>" +
+              "<Status>Enabled</Status>" +
+              "</Rule>" +
+              "</LifecycleConfiguration>",
+          );
+        }),
+    );
+
+    it.effect(
+      "PutBucketLifecycleConfigurationRequest - should serialize minimal rule with just ID and Status",
+      () =>
+        Effect.gen(function* () {
+          const request = yield* buildRequest(
+            PutBucketLifecycleConfigurationRequest,
+            {
+              Bucket: "test-lifecycle-bucket-001",
+              LifecycleConfiguration: {
+                Rules: [
+                  {
+                    ID: "rule1",
+                    Status: "Enabled",
+                  },
+                ],
+              },
+            },
+          );
+
+          expect(request.method).toBe("PUT");
+          expect(request.body).toEqual(
+            '<LifecycleConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">' +
+              "<Rule>" +
+              "<ID>rule1</ID>" +
+              "<Status>Enabled</Status>" +
+              "</Rule>" +
+              "</LifecycleConfiguration>",
+          );
+        }),
+    );
+
+    it.effect(
+      "PutBucketLifecycleConfigurationRequest - should serialize complete rule with ID, Filter, Expiration, and Transitions",
+      () =>
+        Effect.gen(function* () {
+          const request = yield* buildRequest(
+            PutBucketLifecycleConfigurationRequest,
+            {
+              Bucket: "test-lifecycle-bucket-001",
+              LifecycleConfiguration: {
+                Rules: [
+                  {
+                    ID: "TestOnly",
+                    Filter: {
+                      Prefix: "documents/",
+                    },
+                    Status: "Enabled",
+                    Expiration: {
+                      Days: 3650,
+                    },
+                    Transitions: [
+                      {
+                        Days: 365,
+                        StorageClass: "GLACIER",
+                      },
+                    ],
+                  },
+                ],
+              },
+            },
+          );
+
+          expect(request.method).toBe("PUT");
+          // Order should match smithy model: Expiration, ID, Prefix, Filter, Status, Transitions
+          expect(request.body).toEqual(
+            '<LifecycleConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">' +
+              "<Rule>" +
+              "<Expiration><Days>3650</Days></Expiration>" +
+              "<ID>TestOnly</ID>" +
+              "<Filter><Prefix>documents/</Prefix></Filter>" +
+              "<Status>Enabled</Status>" +
+              "<Transition><Days>365</Days><StorageClass>GLACIER</StorageClass></Transition>" +
+              "</Rule>" +
+              "</LifecycleConfiguration>",
+          );
+        }),
+    );
   });
 
   // ==========================================================================
