@@ -1417,6 +1417,26 @@ BunRuntime.runMain(
         ),
     );
 
+    // Generate index.ts with exports for all generated services
+    const generatedFiles = yield* fs.readDirectory(RESULT_ROOT_PATH);
+    const serviceFiles = generatedFiles.filter((f) => f.endsWith(".ts") && f !== "index.ts").sort();
+
+    const indexExports = serviceFiles
+      .map((file) => {
+        const baseName = file.replace(/\.ts$/, "");
+        // Convert file name to valid JS identifier (e.g., "amazon-s3" -> "S3", "api-gateway" -> "APIGateway")
+        const exportName = baseName
+          .replace(/^amazon-/, "") // Remove "amazon-" prefix
+          .replace(/^aws-/, "") // Remove "aws-" prefix
+          .split("-")
+          .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+          .join("");
+        return `export * as ${exportName} from "./${baseName}.ts";`;
+      })
+      .join("\n");
+
+    yield* fs.writeFileString(path.join(RESULT_ROOT_PATH, "index.ts"), indexExports + "\n");
+
     yield* Command.make("bun", "format").pipe(Command.string);
   }).pipe(Logger.withMinimumLogLevel(LogLevel.Error), Effect.provide(BunContext.layer)),
 );

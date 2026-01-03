@@ -17,20 +17,34 @@ export const make = <Op extends Operation>(
   payload: Operation.Input<Op>,
 ) => Effect.Effect<
   Operation.Output<Op>,
-  Operation.Error<Op> | ParseResult.ParseError | Error | UnknownAwsError | CommonAwsError,
+  | Operation.Error<Op>
+  | ParseResult.ParseError
+  | Error
+  | UnknownAwsError
+  | CommonAwsError,
   Region | Credentials
 >) => {
   const op = initOperation();
-  const inputAst = op.input.ast;
+  let _init;
+  const init = () => {
+    const inputAst = op.input.ast;
 
-  // Create request builder and response parser (preprocessing done once)
-  const buildRequest = makeRequestBuilder(op);
-  const parseResponse = makeResponseParser(op);
+    // Create request builder and response parser (preprocessing done once)
+    const buildRequest = makeRequestBuilder(op);
+    const parseResponse = makeResponseParser(op);
 
-  // Get SigV4 service name from annotations
-  const sigv4 = getAwsAuthSigv4(inputAst);
+    // Get SigV4 service name from annotations
+    const sigv4 = getAwsAuthSigv4(inputAst);
+    return {
+      buildRequest,
+      parseResponse,
+      sigv4,
+    };
+  };
 
-  return Effect.fnUntraced(function* (payload: Operation.Input<Op>) {
+  const fn = Effect.fnUntraced(function* (payload: Operation.Input<Op>) {
+    const { buildRequest, parseResponse, sigv4 } = (_init ??=
+      init()) as ReturnType<typeof init>;
     yield* Effect.logDebug("Payload", payload);
 
     // Build request using the request builder (handles protocol serialization + middleware)
@@ -51,16 +65,23 @@ export const make = <Op extends Operation>(
     const queryString = Object.entries(request.query)
       .filter(([_, v]) => v !== undefined)
       .map(([k, v]) =>
-        v ? `${encodeURIComponent(k)}=${encodeURIComponent(v)}` : encodeURIComponent(k),
+        v
+          ? `${encodeURIComponent(k)}=${encodeURIComponent(v)}`
+          : encodeURIComponent(k),
       )
       .join("&");
-    const fullPath = queryString ? `${request.path}?${queryString}` : request.path;
+    const fullPath = queryString
+      ? `${request.path}?${queryString}`
+      : request.path;
 
     const signer = new AwsV4Signer({
       method: request.method,
       url: `${endpoint}${fullPath}`,
       headers: request.headers,
-      body: request.body instanceof Uint8Array ? Buffer.from(request.body) : request.body,
+      body:
+        request.body instanceof Uint8Array
+          ? Buffer.from(request.body)
+          : request.body,
       accessKeyId: creds.accessKeyId,
       secretAccessKey: creds.secretAccessKey,
       sessionToken: creds.sessionToken,
@@ -122,7 +143,8 @@ export const make = <Op extends Operation>(
     const isEmptyBody = contentLength === "0" || rawResponse.status === 204;
     const responseBody = isEmptyBody
       ? new ReadableStream<Uint8Array>({ start: (c) => c.close() })
-      : (rawResponse.body ?? new ReadableStream<Uint8Array>({ start: (c) => c.close() }));
+      : (rawResponse.body ??
+        new ReadableStream<Uint8Array>({ start: (c) => c.close() }));
 
     // Parse response using the response parser
     // Handles both success (protocol deserialization + schema decoding)
@@ -138,4 +160,6 @@ export const make = <Op extends Operation>(
 
     return parsed;
   });
+
+  return Object.assign(fn, op);
 };
