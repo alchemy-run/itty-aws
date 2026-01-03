@@ -12,12 +12,17 @@
 import * as Effect from "effect/Effect";
 import * as Schema from "effect/Schema";
 import * as AST from "effect/SchemaAST";
+import {
+  applyApiGatewayCustomizations,
+  isApiGateway,
+} from "../customizations/api-gateway.ts";
 import { ParseError } from "../error-parser.ts";
 import type { Operation } from "../operation.ts";
 import type { Protocol, ProtocolHandler } from "../protocol.ts";
 import type { Request } from "../request.ts";
 import type { Response } from "../response.ts";
 import {
+  getAwsApiService,
   getHttpHeader,
   getHttpPrefixHeaders,
   hasHttpPayload,
@@ -50,11 +55,15 @@ export const restJson1Protocol: Protocol = (
   const encodeInput = Schema.encode(inputSchema);
   const outputProps = getEncodedPropertySignatures(outputAst);
 
+  // Check if this is API Gateway service (done once at init)
+  const serviceInfo = getAwsApiService(inputAst);
+  const isApiGatewayService = isApiGateway(serviceInfo?.sdkId);
+
   return {
     serializeRequest: Effect.fn(function* (input: unknown) {
       const encoded = yield* encodeInput(input);
 
-      const request: Request = {
+      let request: Request = {
         method: "POST",
         path: "/",
         query: {},
@@ -84,6 +93,11 @@ export const restJson1Protocol: Protocol = (
         }
       } else if (hasBodyMembers) {
         request.body = JSON.stringify(bodyMembers);
+      }
+
+      // Apply API Gateway customizations (Accept header)
+      if (isApiGatewayService) {
+        request = applyApiGatewayCustomizations(request);
       }
 
       return request;

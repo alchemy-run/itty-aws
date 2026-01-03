@@ -1044,4 +1044,37 @@ describe("restJson1 protocol", () => {
       }),
     );
   });
+
+  // ==========================================================================
+  // API Gateway Customizations
+  // ==========================================================================
+
+  describe("API Gateway customizations", () => {
+    it.effect(
+      "should set Accept header to application/json for API Gateway requests",
+      () =>
+        Effect.gen(function* () {
+          // CreateBasePathMappingRequest is from API Gateway service (sdkId: "API Gateway")
+          const request = yield* buildRequest(CreateBasePathMappingRequest, {
+            domainName: "api.example.com",
+            restApiId: "abc123def456",
+          });
+
+          // API Gateway customization: Accept header must be "application/json"
+          expect(request.headers["Accept"]).toBe("application/json");
+        }),
+    );
+
+    it.effect(
+      "should NOT set Accept header for non-API Gateway services (Lambda)",
+      () =>
+        Effect.gen(function* () {
+          // GetAccountSettingsRequest is from Lambda service (sdkId: "Lambda")
+          const request = yield* buildRequest(GetAccountSettingsRequest, {});
+
+          // Lambda should NOT have the API Gateway Accept header customization
+          expect(request.headers["Accept"]).toBeUndefined();
+        }),
+    );
+  });
 });
