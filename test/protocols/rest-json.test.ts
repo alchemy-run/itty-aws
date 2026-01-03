@@ -58,6 +58,19 @@ import {
 // Import AppConfig schemas (restJson1 protocol) for HttpHeader testing
 import { CreateHostedConfigurationVersionRequest } from "../../src/services/appconfig.ts";
 
+// Import Glacier schemas (restJson1 protocol) for Glacier customization testing
+import {
+  // Simple request with accountId path label
+  CreateVaultInput,
+} from "../../src/services/glacier.ts";
+
+// Import Glacier checksum functions for testing
+import {
+  applyGlacierChecksums,
+  computeSha256,
+  computeTreeHash,
+} from "../../src/customizations/glacier.ts";
+
 // Helper to build a request from an instance
 const buildRequest = <A, I>(schema: S.Schema<A, I>, instance: A) => {
   const operation = { input: schema, output: schema, errors: [] };
@@ -1075,6 +1088,167 @@ describe("restJson1 protocol", () => {
           // Lambda should NOT have the API Gateway Accept header customization
           expect(request.headers["Accept"]).toBeUndefined();
         }),
+    );
+  });
+
+  // ==========================================================================
+  // Glacier Customizations
+  // ==========================================================================
+
+  describe("Glacier customizations", () => {
+    it.effect(
+      "should set X-Amz-Glacier-Version header to service version for Glacier requests",
+      () =>
+        Effect.gen(function* () {
+          // CreateVaultInput is from Glacier service (sdkId: "Glacier")
+          const request = yield* buildRequest(CreateVaultInput, {
+            accountId: "-",
+            vaultName: "my-vault",
+          });
+
+          // Glacier customization: X-Amz-Glacier-Version must be set to service version
+          expect(request.headers["X-Amz-Glacier-Version"]).toBe("2012-06-01");
+        }),
+    );
+
+    it.effect(
+      "should NOT set X-Amz-Glacier-Version header for non-Glacier services (Lambda)",
+      () =>
+        Effect.gen(function* () {
+          // GetAccountSettingsRequest is from Lambda service (sdkId: "Lambda")
+          const request = yield* buildRequest(GetAccountSettingsRequest, {});
+
+          // Lambda should NOT have the Glacier header
+          expect(request.headers["X-Amz-Glacier-Version"]).toBeUndefined();
+        }),
+    );
+
+    it.effect(
+      "should correctly build path with accountId for Glacier operations",
+      () =>
+        Effect.gen(function* () {
+          const request = yield* buildRequest(CreateVaultInput, {
+            accountId: "-",
+            vaultName: "test-vault",
+          });
+
+          expect(request.method).toBe("PUT");
+          expect(request.path).toBe("/-/vaults/test-vault");
+        }),
+    );
+
+    it.effect("computeSha256 should compute correct SHA256 hash", () =>
+      Effect.gen(function* () {
+        const hash = yield* Effect.promise(() => computeSha256("hello world"));
+
+        // Known SHA256 of "hello world"
+        expect(hash).toBe(
+          "b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9",
+        );
+      }),
+    );
+
+    it.effect("computeSha256 should work with Uint8Array", () =>
+      Effect.gen(function* () {
+        const bytes = new TextEncoder().encode("hello world");
+        const hash = yield* Effect.promise(() => computeSha256(bytes));
+
+        expect(hash).toBe(
+          "b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9",
+        );
+      }),
+    );
+
+    it.effect(
+      "computeTreeHash should match SHA256 for data smaller than 1MB",
+      () =>
+        Effect.gen(function* () {
+          // For data smaller than 1MB, tree hash equals SHA256
+          const data = "hello world";
+          const sha256 = yield* Effect.promise(() => computeSha256(data));
+          const treeHash = yield* Effect.promise(() => computeTreeHash(data));
+
+          expect(treeHash).toBe(sha256);
+        }),
+    );
+
+    it.effect("computeTreeHash should handle empty data", () =>
+      Effect.gen(function* () {
+        const treeHash = yield* Effect.promise(() => computeTreeHash(""));
+
+        // SHA256 of empty string
+        expect(treeHash).toBe(
+          "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        );
+      }),
+    );
+
+    it.effect("applyGlacierChecksums should add both checksum headers", () =>
+      Effect.gen(function* () {
+        const request = {
+          method: "POST" as const,
+          path: "/-/vaults/test-vault/archives",
+          query: {},
+          headers: { "Content-Type": "application/octet-stream" },
+          body: "test archive data",
+        };
+
+        const result = yield* Effect.promise(() =>
+          applyGlacierChecksums(request),
+        );
+
+        // Both headers should be set
+        expect(result.headers["X-Amz-Content-Sha256"]).toBeDefined();
+        expect(result.headers["X-Amz-Sha256-Tree-Hash"]).toBeDefined();
+
+        // Verify the SHA256 is correct
+        const expectedSha256 = yield* Effect.promise(() =>
+          computeSha256("test archive data"),
+        );
+        expect(result.headers["X-Amz-Content-Sha256"]).toBe(expectedSha256);
+
+        // For small data, tree hash equals SHA256
+        expect(result.headers["X-Amz-Sha256-Tree-Hash"]).toBe(expectedSha256);
+      }),
+    );
+
+    it.effect("applyGlacierChecksums should work with Uint8Array body", () =>
+      Effect.gen(function* () {
+        const bodyBytes = new Uint8Array([1, 2, 3, 4, 5]);
+        const request = {
+          method: "POST" as const,
+          path: "/-/vaults/test-vault/archives",
+          query: {},
+          headers: {},
+          body: bodyBytes,
+        };
+
+        const result = yield* Effect.promise(() =>
+          applyGlacierChecksums(request),
+        );
+
+        expect(result.headers["X-Amz-Content-Sha256"]).toBeDefined();
+        expect(result.headers["X-Amz-Sha256-Tree-Hash"]).toBeDefined();
+      }),
+    );
+
+    it.effect("applyGlacierChecksums should skip if body is missing", () =>
+      Effect.gen(function* () {
+        const request = {
+          method: "GET" as const,
+          path: "/-/vaults",
+          query: {},
+          headers: {},
+        };
+
+        const result = yield* Effect.promise(() =>
+          applyGlacierChecksums(request),
+        );
+
+        // No checksum headers should be added
+        expect(result.headers["X-Amz-Content-Sha256"]).toBeUndefined();
+        expect(result.headers["X-Amz-Sha256-Tree-Hash"]).toBeUndefined();
+      }),
     );
   });
 });

@@ -16,6 +16,10 @@ import {
   applyApiGatewayCustomizations,
   isApiGateway,
 } from "../customizations/api-gateway.ts";
+import {
+  applyGlacierCustomizations,
+  isGlacier,
+} from "../customizations/glacier.ts";
 import { ParseError } from "../error-parser.ts";
 import type { Operation } from "../operation.ts";
 import type { Protocol, ProtocolHandler } from "../protocol.ts";
@@ -25,6 +29,7 @@ import {
   getAwsApiService,
   getHttpHeader,
   getHttpPrefixHeaders,
+  getServiceVersion,
   hasHttpPayload,
   isStreamingType,
   type StreamingInputBody,
@@ -55,9 +60,11 @@ export const restJson1Protocol: Protocol = (
   const encodeInput = Schema.encode(inputSchema);
   const outputProps = getEncodedPropertySignatures(outputAst);
 
-  // Check if this is API Gateway service (done once at init)
+  // Check for service-specific customizations (done once at init)
   const serviceInfo = getAwsApiService(inputAst);
   const isApiGatewayService = isApiGateway(serviceInfo?.sdkId);
+  const isGlacierService = isGlacier(serviceInfo?.sdkId);
+  const serviceVersion = getServiceVersion(inputAst);
 
   return {
     serializeRequest: Effect.fn(function* (input: unknown) {
@@ -98,6 +105,11 @@ export const restJson1Protocol: Protocol = (
       // Apply API Gateway customizations (Accept header)
       if (isApiGatewayService) {
         request = applyApiGatewayCustomizations(request);
+      }
+
+      // Apply Glacier customizations (X-Amz-Glacier-Version header)
+      if (isGlacierService && serviceVersion) {
+        request = applyGlacierCustomizations(request, serviceVersion);
       }
 
       return request;

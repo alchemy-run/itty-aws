@@ -276,7 +276,7 @@ export const restXmlProtocol: Protocol = (
       const errorCode = sanitizeErrorCode(rawErrorCode);
 
       // Extract remaining data (remove Code, keep Message, Type, RequestId, etc.)
-      const { Code, ...data } = errorContent;
+      const { Code: _Code, ...data } = errorContent;
 
       return { errorCode, data };
     }),
