@@ -30,6 +30,13 @@
       "errors": [
         "InvalidBucketState"
       ]
+    },
+    "putBucketPolicy": {
+      "errors": [
+        "AccessDenied",
+        "MalformedPolicy",
+        "NoSuchBucket"
+      ]
     }
   }
 }

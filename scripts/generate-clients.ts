@@ -7,21 +7,21 @@ import {
   Data,
   Deferred,
   Effect,
-  LogLevel,
   Logger,
+  LogLevel,
   Match,
   MutableHashMap,
   Option,
   Ref,
   Schema as S,
 } from "effect";
+import { loadServiceSpecPatch, ServiceSpec } from "../src/patch/spec-schema.ts";
 import {
   GenericShape,
   ServiceShape,
   SmithyModel,
   type ShapeTypeMap,
 } from "./model-schema.ts";
-import { loadServiceSpecPatch, ServiceSpec } from "../src/patch/spec-schema.ts";
 //todo(pear): swap out for effect platform path
 import path from "pathe";
 
@@ -1374,8 +1374,10 @@ const generateClient = Effect.fn(function* (
         });
 
         // Get patched errors from spec file for this operation
+        // Use lowercase operation name to match spec file format
         const patchedErrors =
-          sdkFile.serviceSpec.operations[opName]?.errors ?? [];
+          sdkFile.serviceSpec.operations[formatName(operationShapeName, true)]
+            ?.errors ?? [];
 
         const operationErrors = yield* Effect.gen(function* () {
           // Process model-defined errors
@@ -1620,7 +1622,7 @@ BunRuntime.runMain(
     );
     const partitionsDest = path.join("src", "rules-engine", "partitions.json");
     yield* fs.copyFile(partitionsSrc, partitionsDest);
-    yield* Console.log("📦 Copied partitions.json from Smithy");
+    yield* Console.log("✅ partitions.json");
 
     const rootModelsPath = path.join(AWS_MODELS_PATH, "models");
     const folders = yield* fs.readDirectory(rootModelsPath);
@@ -1635,7 +1637,6 @@ BunRuntime.runMain(
       folders.filter((service) => sdkFlag == null || sdkFlag === service),
       (service) =>
         Effect.gen(function* () {
-          yield* Console.log(`⏩ STARTED SERVICE: ${service}`);
           const baseModelPath = path.join(rootModelsPath, service, "service");
           const folder = (yield* fs.readDirectory(baseModelPath))[0]!;
           const modelPath = path.join(
@@ -1645,11 +1646,11 @@ BunRuntime.runMain(
           );
           yield* generateClient(modelPath, RESULT_ROOT_PATH);
         }).pipe(
-          Effect.andThen(() => Console.log(`✅ SUCCEEDED SERVICE: ${service}`)),
+          Effect.andThen(() => Console.log(`✅ ${service}`)),
           Effect.catchAll(
             (error) =>
               Console.error(
-                `❌ FAILED SERVICE: ${service}\n\tUnable to generate client: ${error}`,
+                `❌ ${service}\n\tUnable to generate client: ${error}`,
               ), //.pipe(Effect.andThen(() => Effect.die(error))),
           ),
         ),
