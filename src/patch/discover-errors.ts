@@ -16,6 +16,7 @@ import {
   Credentials,
   Endpoint,
   LocalstackCredentialsLive,
+  NodeProviderChainCredentialsLive,
   Region,
   UnknownAwsError,
 } from "../aws/index.ts";
@@ -95,13 +96,7 @@ export const callApi = Tool.make("CallApi", {
     "Call a given AWS API. You can optionally specify a region to test region-specific behavior.",
   success: S.String,
   failure: S.Any,
-  dependencies: [
-    Credentials,
-    Endpoint,
-    FileSystem.FileSystem,
-    Path.Path,
-    Locks,
-  ],
+  dependencies: [Credentials, FileSystem.FileSystem, Path.Path, Locks],
   parameters: {
     service: S.String.annotations({
       description: "The AWS service to call the API for",
@@ -646,7 +641,7 @@ const cli = Command.run(discover, {
   version: "1.0.0",
 });
 
-Effect.gen(function* () {
+const eff = Effect.gen(function* () {
   yield* cli(process.argv).pipe(
     Effect.withConfigProvider(yield* PlatformConfigProvider.fromDotEnv(".env")),
     Effect.provide(tools),
@@ -660,11 +655,26 @@ Effect.gen(function* () {
   Effect.provide(locks),
   Effect.provide(NodeContext.layer),
   Effect.provide(NodeHttpClient.layer),
-  Effect.provide(LocalstackCredentialsLive),
+  Effect.provide(
+    process.env.LIVE
+      ? LocalstackCredentialsLive
+      : NodeProviderChainCredentialsLive,
+  ),
   Effect.provideService(Region, "us-west-2"),
-  Effect.provideService(Endpoint, "http://localhost:4566"),
   Effect.provide(Persistence.layerMemory),
-  // Effect.runPromise,
-  NodeRuntime.runMain,
 );
+
+if (process.env.LIVE) {
+  eff.pipe(
+    Effect.provideService(Endpoint, "http://localhost:4566"),
+    Effect.provide(LocalstackCredentialsLive),
+    NodeRuntime.runMain,
+  );
+} else {
+  eff.pipe(
+    Effect.provide(NodeProviderChainCredentialsLive),
+    NodeRuntime.runMain,
+  );
+}
+
 // Prepare and run the CLI application

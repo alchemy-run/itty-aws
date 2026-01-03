@@ -611,7 +611,8 @@
     },
     "describeVolumes": {
       "errors": [
-        "InvalidVolume.NotFound"
+        "InvalidVolume.NotFound",
+        "ParseError"
       ]
     },
     "deleteSnapshot": {
@@ -711,7 +712,8 @@
     },
     "deleteLaunchTemplate": {
       "errors": [
-        "InvalidLaunchTemplateName.NotFoundException"
+        "InvalidLaunchTemplateName.NotFoundException",
+        "MissingParameter"
       ]
     },
     "describeLaunchTemplates": {
@@ -775,6 +777,26 @@
       ]
     },
     "createTransitGatewayRouteTable": {
+      "errors": [
+        "ParseError"
+      ]
+    },
+    "deleteTransitGatewayRouteTable": {
+      "errors": [
+        "ParseError"
+      ]
+    },
+    "modifySnapshotAttribute": {
+      "errors": [
+        "InvalidSnapshot.NotFound"
+      ]
+    },
+    "createKeyPair": {
+      "errors": [
+        "InvalidKeyPair.Duplicate"
+      ]
+    },
+    "describeTransitGatewayRouteTables": {
       "errors": [
         "ParseError"
       ]
