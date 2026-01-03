@@ -69,6 +69,7 @@ export const restXmlProtocol: Protocol = (
 
   // Pre-compute encoder and property signatures (done once at init)
   const encodeInput = S.encode(inputSchema);
+  const inputProps = getEncodedPropertySignatures(inputAst);
   const outputProps = getEncodedPropertySignatures(outputAst);
   const outputXmlName =
     getXmlNameFromAST(outputAst) ?? getIdentifier(outputAst);
@@ -81,6 +82,18 @@ export const restXmlProtocol: Protocol = (
         (prop) => (getXmlNameProp(prop) ?? String(prop.name)) === outputXmlName,
       )?.name
     : undefined;
+
+  // Pre-compute httpPayload property info for serialization (done once at init)
+  const payloadProp = inputProps.find((prop) => hasHttpPayload(prop));
+  const payloadXmlName = payloadProp
+    ? (getXmlNameProp(payloadProp) ??
+      getXmlNameFromAST(payloadProp.type) ??
+      getIdentifier(payloadProp.type))
+    : undefined;
+  const payloadIsStreaming = payloadProp
+    ? isStreamingType(payloadProp.type)
+    : false;
+  const inputXmlNamespace = getXmlNamespace(inputAst);
 
   return {
     serializeRequest: Effect.fn(function* (input: unknown) {
@@ -106,7 +119,7 @@ export const restXmlProtocol: Protocol = (
 
       // Serialize body - Content-Type is set based on what we're actually sending
       if (payloadValue !== undefined && payloadAst !== undefined) {
-        if (isStreamingType(payloadAst)) {
+        if (payloadIsStreaming) {
           // Streaming payload - body is raw bytes, Content-Type comes from user's header binding
           // (e.g., ContentType field with @httpHeader("Content-Type") trait)
           // If user didn't set it, leave it unset (browser/fetch will handle it)
@@ -119,13 +132,11 @@ export const restXmlProtocol: Protocol = (
         } else {
           // Structure payload - serialize as XML with proper Content-Type
           request.headers["Content-Type"] = "application/xml";
-          const tagName =
-            getXmlNameFromAST(payloadAst) ?? getIdentifier(payloadAst);
           request.body = serializeValue(
             payloadAst,
             payloadValue,
-            tagName,
-            getXmlNamespace(inputAst),
+            payloadXmlName,
+            inputXmlNamespace,
           );
         }
       } else if (hasBodyMembers) {

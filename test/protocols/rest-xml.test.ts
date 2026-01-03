@@ -55,6 +55,8 @@ import {
   PutBucketCorsRequest,
   // Encryption
   PutBucketEncryptionRequest,
+  // Lifecycle configuration test
+  PutBucketLifecycleConfigurationRequest,
   // Policy
   PutBucketPolicyRequest,
   // Request Payment
@@ -951,6 +953,53 @@ describe("restXml protocol", () => {
   });
 
   // ==========================================================================
+  // Lifecycle Configuration Operations
+  // ==========================================================================
+
+  describe("lifecycle configuration operations", () => {
+    it.effect(
+      "PutBucketLifecycleConfigurationRequest - should serialize with correct xmlName on payload",
+      () =>
+        Effect.gen(function* () {
+          const request = yield* buildRequest(
+            PutBucketLifecycleConfigurationRequest,
+            {
+              Bucket: "test-lifecycle-bucket",
+              LifecycleConfiguration: {
+                Rules: [
+                  {
+                    Expiration: {
+                      Days: 30,
+                    },
+                    ID: "rule1",
+                    Prefix: "logs/",
+                    Status: "Enabled",
+                  },
+                ],
+              },
+            },
+          );
+
+          expect(request.method).toBe("PUT");
+          expect(request.path).toBe("/test-lifecycle-bucket");
+          expect(request.query["lifecycle"]).toBe("");
+          // The root element should be LifecycleConfiguration (from xmlName trait),
+          // NOT BucketLifecycleConfiguration (the class name)
+          expect(request.body).toBe(
+            '<LifecycleConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">' +
+              "<Rule>" +
+              "<Expiration><Days>30</Days></Expiration>" +
+              "<ID>rule1</ID>" +
+              "<Prefix>logs/</Prefix>" +
+              "<Status>Enabled</Status>" +
+              "</Rule>" +
+              "</LifecycleConfiguration>",
+          );
+        }),
+    );
+  });
+
+  // ==========================================================================
   // Object Operations (from original tests)
   // ==========================================================================
 
@@ -1145,11 +1194,13 @@ describe("restXml protocol", () => {
             },
           });
 
+          // The root element is "Retention" because the member has xmlName="Retention"
+          // (not ObjectLockRetention which is the type name)
           expect(request.body).toBe(
-            '<ObjectLockRetention xmlns="http://s3.amazonaws.com/doc/2006-03-01/">' +
+            '<Retention xmlns="http://s3.amazonaws.com/doc/2006-03-01/">' +
               "<Mode>GOVERNANCE</Mode>" +
               "<RetainUntilDate>2025-12-31T23:59:59.000Z</RetainUntilDate>" +
-              "</ObjectLockRetention>",
+              "</Retention>",
           );
         }),
     );
