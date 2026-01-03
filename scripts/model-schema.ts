@@ -153,7 +153,9 @@ export const OperationShape = S.Struct({
     S.Record({ key: S.String, value: S.Unknown }),
     S.Struct({
       "smithy.api#documentation": S.optional(S.String),
-      "smithy.api#http": S.optional(S.Struct({ method: S.String, uri: S.String })),
+      "smithy.api#http": S.optional(
+        S.Struct({ method: S.String, uri: S.String }),
+      ),
     }),
   ),
 });

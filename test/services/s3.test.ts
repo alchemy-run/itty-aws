@@ -68,7 +68,9 @@ function withBucket<A, E, R>(testFn: Effect.Effect<A, E, R>) {
   return Effect.gen(function* () {
     yield* createBucket({ Bucket: TEST_BUCKET });
     return yield* testFn.pipe(
-      Effect.ensuring(deleteBucket({ Bucket: TEST_BUCKET }).pipe(Effect.ignore)),
+      Effect.ensuring(
+        deleteBucket({ Bucket: TEST_BUCKET }).pipe(Effect.ignore),
+      ),
     );
   });
 }
@@ -91,7 +93,9 @@ test(
 
       // List buckets and verify our bucket is in the list
       const listResult = yield* listBuckets({});
-      const foundBucket = listResult.Buckets?.find((b) => b.Name === TEST_BUCKET);
+      const foundBucket = listResult.Buckets?.find(
+        (b) => b.Name === TEST_BUCKET,
+      );
       if (!foundBucket) {
         return yield* Effect.fail(new Error("Bucket not found in list"));
       }
@@ -122,12 +126,16 @@ test(
       // Get and verify tags
       const tags = yield* getBucketTagging({ Bucket: TEST_BUCKET });
       if (tags.TagSet?.length !== 3) {
-        return yield* Effect.fail(new Error(`Expected 3 tags, got ${tags.TagSet?.length}`));
+        return yield* Effect.fail(
+          new Error(`Expected 3 tags, got ${tags.TagSet?.length}`),
+        );
       }
 
       const envTag = tags.TagSet?.find((t) => t.Key === "Environment");
       if (envTag?.Value !== "Test") {
-        return yield* Effect.fail(new Error(`Expected Environment=Test, got ${envTag?.Value}`));
+        return yield* Effect.fail(
+          new Error(`Expected Environment=Test, got ${envTag?.Value}`),
+        );
       }
 
       // Update tags (replace all)
@@ -142,7 +150,9 @@ test(
       const updatedTags = yield* getBucketTagging({ Bucket: TEST_BUCKET });
       if (updatedTags.TagSet?.length !== 1) {
         return yield* Effect.fail(
-          new Error(`Expected 1 tag after update, got ${updatedTags.TagSet?.length}`),
+          new Error(
+            `Expected 1 tag after update, got ${updatedTags.TagSet?.length}`,
+          ),
         );
       }
 
@@ -155,7 +165,9 @@ test(
         Effect.catchAll(() => Effect.succeed("error" as const)),
       );
       if (result !== "error") {
-        return yield* Effect.fail(new Error("Expected error after deleting tags"));
+        return yield* Effect.fail(
+          new Error("Expected error after deleting tags"),
+        );
       }
     }),
   ),
@@ -215,7 +227,9 @@ test(
         Effect.catchAll(() => Effect.succeed("error" as const)),
       );
       if (result !== "error") {
-        return yield* Effect.fail(new Error("Expected error after deleting policy"));
+        return yield* Effect.fail(
+          new Error("Expected error after deleting policy"),
+        );
       }
     }),
   ),
@@ -236,7 +250,10 @@ test(
           CORSRules: [
             {
               AllowedMethods: ["GET", "PUT", "POST"],
-              AllowedOrigins: ["https://example.com", "https://app.example.com"],
+              AllowedOrigins: [
+                "https://example.com",
+                "https://app.example.com",
+              ],
               AllowedHeaders: ["*"],
               ExposeHeaders: ["ETag", "x-amz-meta-custom"],
               MaxAgeSeconds: 3600,
@@ -254,7 +271,9 @@ test(
       const corsResult = yield* getBucketCors({ Bucket: TEST_BUCKET });
       if (corsResult.CORSRules?.length !== 2) {
         return yield* Effect.fail(
-          new Error(`Expected 2 CORS rules, got ${corsResult.CORSRules?.length}`),
+          new Error(
+            `Expected 2 CORS rules, got ${corsResult.CORSRules?.length}`,
+          ),
         );
       }
 
@@ -264,7 +283,9 @@ test(
       }
       if (firstRule?.MaxAgeSeconds !== 3600) {
         return yield* Effect.fail(
-          new Error(`Expected MaxAgeSeconds=3600, got ${firstRule?.MaxAgeSeconds}`),
+          new Error(
+            `Expected MaxAgeSeconds=3600, got ${firstRule?.MaxAgeSeconds}`,
+          ),
         );
       }
 
@@ -277,7 +298,9 @@ test(
         Effect.catchAll(() => Effect.succeed("error" as const)),
       );
       if (result !== "error") {
-        return yield* Effect.fail(new Error("Expected error after deleting CORS"));
+        return yield* Effect.fail(
+          new Error("Expected error after deleting CORS"),
+        );
       }
     }),
   ),
@@ -329,7 +352,9 @@ test(
       });
       if (suspendedVersioning.Status !== "Suspended") {
         return yield* Effect.fail(
-          new Error(`Expected Status=Suspended, got ${suspendedVersioning.Status}`),
+          new Error(
+            `Expected Status=Suspended, got ${suspendedVersioning.Status}`,
+          ),
         );
       }
     }),
@@ -398,7 +423,9 @@ test(
       const updatedWebsite = yield* getBucketWebsite({ Bucket: TEST_BUCKET });
       if (updatedWebsite.RoutingRules?.length !== 1) {
         return yield* Effect.fail(
-          new Error(`Expected 1 routing rule, got ${updatedWebsite.RoutingRules?.length}`),
+          new Error(
+            `Expected 1 routing rule, got ${updatedWebsite.RoutingRules?.length}`,
+          ),
         );
       }
 
@@ -411,7 +438,9 @@ test(
         Effect.catchAll(() => Effect.succeed("error" as const)),
       );
       if (result !== "error") {
-        return yield* Effect.fail(new Error("Expected error after deleting website config"));
+        return yield* Effect.fail(
+          new Error("Expected error after deleting website config"),
+        );
       }
     }),
   ),
@@ -444,7 +473,8 @@ test(
       const encryptionResult = yield* getBucketEncryption({
         Bucket: TEST_BUCKET,
       });
-      const rule = encryptionResult.ServerSideEncryptionConfiguration?.Rules?.[0];
+      const rule =
+        encryptionResult.ServerSideEncryptionConfiguration?.Rules?.[0];
       if (rule?.ApplyServerSideEncryptionByDefault?.SSEAlgorithm !== "AES256") {
         return yield* Effect.fail(
           new Error(
@@ -518,18 +548,26 @@ test(
       });
       if (lifecycleResult.Rules?.length !== 3) {
         return yield* Effect.fail(
-          new Error(`Expected 3 lifecycle rules, got ${lifecycleResult.Rules?.length}`),
+          new Error(
+            `Expected 3 lifecycle rules, got ${lifecycleResult.Rules?.length}`,
+          ),
         );
       }
 
-      const expireRule = lifecycleResult.Rules?.find((r) => r.ID === "ExpireOldObjects");
+      const expireRule = lifecycleResult.Rules?.find(
+        (r) => r.ID === "ExpireOldObjects",
+      );
       if (expireRule?.Expiration?.Days !== 90) {
         return yield* Effect.fail(
-          new Error(`Expected Expiration.Days=90, got ${expireRule?.Expiration?.Days}`),
+          new Error(
+            `Expected Expiration.Days=90, got ${expireRule?.Expiration?.Days}`,
+          ),
         );
       }
 
-      const transitionRule = lifecycleResult.Rules?.find((r) => r.ID === "TransitionToGlacier");
+      const transitionRule = lifecycleResult.Rules?.find(
+        (r) => r.ID === "TransitionToGlacier",
+      );
       if (transitionRule?.Transitions?.[0]?.StorageClass !== "GLACIER") {
         return yield* Effect.fail(new Error("Expected transition to GLACIER"));
       }
@@ -545,7 +583,9 @@ test(
         Effect.catchAll(() => Effect.succeed("error" as const)),
       );
       if (result !== "error") {
-        return yield* Effect.fail(new Error("Expected error after deleting lifecycle config"));
+        return yield* Effect.fail(
+          new Error("Expected error after deleting lifecycle config"),
+        );
       }
     }),
   ),
@@ -583,7 +623,9 @@ test(
         return yield* Effect.fail(new Error("Expected BlockPublicPolicy=true"));
       }
       if (config?.RestrictPublicBuckets !== true) {
-        return yield* Effect.fail(new Error("Expected RestrictPublicBuckets=true"));
+        return yield* Effect.fail(
+          new Error("Expected RestrictPublicBuckets=true"),
+        );
       }
 
       // Update with partial block
@@ -599,8 +641,12 @@ test(
 
       // Verify update
       const updatedPab = yield* getPublicAccessBlock({ Bucket: TEST_BUCKET });
-      if (updatedPab.PublicAccessBlockConfiguration?.IgnorePublicAcls !== false) {
-        return yield* Effect.fail(new Error("Expected IgnorePublicAcls=false after update"));
+      if (
+        updatedPab.PublicAccessBlockConfiguration?.IgnorePublicAcls !== false
+      ) {
+        return yield* Effect.fail(
+          new Error("Expected IgnorePublicAcls=false after update"),
+        );
       }
 
       // Delete public access block
@@ -612,7 +658,9 @@ test(
         Effect.catchAll(() => Effect.succeed("error" as const)),
       );
       if (result !== "error") {
-        return yield* Effect.fail(new Error("Expected error after deleting public access block"));
+        return yield* Effect.fail(
+          new Error("Expected error after deleting public access block"),
+        );
       }
     }),
   ),
@@ -645,7 +693,9 @@ test(
       const rule = ownershipResult.OwnershipControls?.Rules?.[0];
       if (rule?.ObjectOwnership !== "BucketOwnerEnforced") {
         return yield* Effect.fail(
-          new Error(`Expected ObjectOwnership=BucketOwnerEnforced, got ${rule?.ObjectOwnership}`),
+          new Error(
+            `Expected ObjectOwnership=BucketOwnerEnforced, got ${rule?.ObjectOwnership}`,
+          ),
         );
       }
 
@@ -665,8 +715,13 @@ test(
       const updatedOwnership = yield* getBucketOwnershipControls({
         Bucket: TEST_BUCKET,
       });
-      if (updatedOwnership.OwnershipControls?.Rules?.[0]?.ObjectOwnership !== "ObjectWriter") {
-        return yield* Effect.fail(new Error("Expected ObjectOwnership=ObjectWriter after update"));
+      if (
+        updatedOwnership.OwnershipControls?.Rules?.[0]?.ObjectOwnership !==
+        "ObjectWriter"
+      ) {
+        return yield* Effect.fail(
+          new Error("Expected ObjectOwnership=ObjectWriter after update"),
+        );
       }
 
       // Delete ownership controls
@@ -680,7 +735,9 @@ test(
         Effect.catchAll(() => Effect.succeed("error" as const)),
       );
       if (result !== "error") {
-        return yield* Effect.fail(new Error("Expected error after deleting ownership controls"));
+        return yield* Effect.fail(
+          new Error("Expected error after deleting ownership controls"),
+        );
       }
     }),
   ),
@@ -720,9 +777,13 @@ test(
       }
 
       // The owner should have FULL_CONTROL by default
-      const fullControlGrant = aclResult.Grants?.find((g) => g.Permission === "FULL_CONTROL");
+      const fullControlGrant = aclResult.Grants?.find(
+        (g) => g.Permission === "FULL_CONTROL",
+      );
       if (!fullControlGrant) {
-        return yield* Effect.fail(new Error("Expected FULL_CONTROL grant for bucket owner"));
+        return yield* Effect.fail(
+          new Error("Expected FULL_CONTROL grant for bucket owner"),
+        );
       }
     }),
   ),
@@ -774,7 +835,9 @@ test(
       });
       if (suspendedAccelerate.Status !== "Suspended") {
         return yield* Effect.fail(
-          new Error(`Expected Status=Suspended, got ${suspendedAccelerate.Status}`),
+          new Error(
+            `Expected Status=Suspended, got ${suspendedAccelerate.Status}`,
+          ),
         );
       }
     }),
@@ -795,7 +858,9 @@ test(
       });
       if (initialPayment.Payer !== "BucketOwner") {
         return yield* Effect.fail(
-          new Error(`Expected initial Payer=BucketOwner, got ${initialPayment.Payer}`),
+          new Error(
+            `Expected initial Payer=BucketOwner, got ${initialPayment.Payer}`,
+          ),
         );
       }
 
@@ -882,7 +947,9 @@ test(
 
       // Reconstruct the buffer properly
       let offset = 0;
-      const fullBuffer = new Uint8Array(chunks.reduce((acc, c) => acc + c.length, 0));
+      const fullBuffer = new Uint8Array(
+        chunks.reduce((acc, c) => acc + c.length, 0),
+      );
       for (const chunk of chunks) {
         fullBuffer.set(chunk, offset);
         offset += chunk.length;
@@ -891,7 +958,9 @@ test(
 
       if (actualContent !== testContent) {
         return yield* Effect.fail(
-          new Error(`Content mismatch: expected "${testContent}", got "${actualContent}"`),
+          new Error(
+            `Content mismatch: expected "${testContent}", got "${actualContent}"`,
+          ),
         );
       }
 
@@ -906,7 +975,9 @@ test(
   withBucket(
     Effect.gen(function* () {
       const testKey = "test-binary.bin";
-      const testContent = new Uint8Array([0x00, 0x01, 0x02, 0x03, 0xff, 0xfe, 0xfd]);
+      const testContent = new Uint8Array([
+        0x00, 0x01, 0x02, 0x03, 0xff, 0xfe, 0xfd,
+      ]);
 
       // Put object with Uint8Array body
       yield* putObject({
@@ -935,7 +1006,9 @@ test(
       );
 
       let offset = 0;
-      const fullBuffer = new Uint8Array(chunks.reduce((acc, c) => acc + c.length, 0));
+      const fullBuffer = new Uint8Array(
+        chunks.reduce((acc, c) => acc + c.length, 0),
+      );
       for (const chunk of chunks) {
         fullBuffer.set(chunk, offset);
         offset += chunk.length;
@@ -943,7 +1016,9 @@ test(
 
       if (fullBuffer.length !== testContent.length) {
         return yield* Effect.fail(
-          new Error(`Length mismatch: expected ${testContent.length}, got ${fullBuffer.length}`),
+          new Error(
+            `Length mismatch: expected ${testContent.length}, got ${fullBuffer.length}`,
+          ),
         );
       }
 
@@ -968,7 +1043,9 @@ test(
 
       // Create an Effect Stream from chunks
       const encoder = new TextEncoder();
-      const inputStream = Stream.fromIterable(testChunks.map((s) => encoder.encode(s)));
+      const inputStream = Stream.fromIterable(
+        testChunks.map((s) => encoder.encode(s)),
+      );
 
       // Put object with Effect Stream body
       yield* putObject({
@@ -998,7 +1075,9 @@ test(
 
       const decoder = new TextDecoder();
       let offset = 0;
-      const fullBuffer = new Uint8Array(chunks.reduce((acc, c) => acc + c.length, 0));
+      const fullBuffer = new Uint8Array(
+        chunks.reduce((acc, c) => acc + c.length, 0),
+      );
       for (const chunk of chunks) {
         fullBuffer.set(chunk, offset);
         offset += chunk.length;
@@ -1008,7 +1087,9 @@ test(
 
       if (actualContent !== expectedContent) {
         return yield* Effect.fail(
-          new Error(`Content mismatch: expected "${expectedContent}", got "${actualContent}"`),
+          new Error(
+            `Content mismatch: expected "${expectedContent}", got "${actualContent}"`,
+          ),
         );
       }
 
@@ -1041,13 +1122,17 @@ test(
 
       if (result.ContentType !== "application/json") {
         return yield* Effect.fail(
-          new Error(`Expected ContentType=application/json, got ${result.ContentType}`),
+          new Error(
+            `Expected ContentType=application/json, got ${result.ContentType}`,
+          ),
         );
       }
 
       if (result.ContentLength !== testContent.length) {
         return yield* Effect.fail(
-          new Error(`Expected ContentLength=${testContent.length}, got ${result.ContentLength}`),
+          new Error(
+            `Expected ContentLength=${testContent.length}, got ${result.ContentLength}`,
+          ),
         );
       }
 
@@ -1069,7 +1154,9 @@ test(
 
       const decoder = new TextDecoder();
       let offset = 0;
-      const fullBuffer = new Uint8Array(chunks.reduce((acc, c) => acc + c.length, 0));
+      const fullBuffer = new Uint8Array(
+        chunks.reduce((acc, c) => acc + c.length, 0),
+      );
       for (const chunk of chunks) {
         fullBuffer.set(chunk, offset);
         offset += chunk.length;
@@ -1078,7 +1165,9 @@ test(
 
       if (actualContent !== testContent) {
         return yield* Effect.fail(
-          new Error(`Content mismatch: expected "${testContent}", got "${actualContent}"`),
+          new Error(
+            `Content mismatch: expected "${testContent}", got "${actualContent}"`,
+          ),
         );
       }
 
@@ -1175,16 +1264,22 @@ test(
         return yield* Effect.fail(new Error("Versioning not enabled"));
       }
       if (
-        encryption.ServerSideEncryptionConfiguration?.Rules?.[0]?.ApplyServerSideEncryptionByDefault
-          ?.SSEAlgorithm !== "AES256"
+        encryption.ServerSideEncryptionConfiguration?.Rules?.[0]
+          ?.ApplyServerSideEncryptionByDefault?.SSEAlgorithm !== "AES256"
       ) {
-        return yield* Effect.fail(new Error("Encryption not configured correctly"));
+        return yield* Effect.fail(
+          new Error("Encryption not configured correctly"),
+        );
       }
       if (pab.PublicAccessBlockConfiguration?.BlockPublicAcls !== true) {
-        return yield* Effect.fail(new Error("Public access block not configured correctly"));
+        return yield* Effect.fail(
+          new Error("Public access block not configured correctly"),
+        );
       }
       if (lifecycle.Rules?.length !== 1) {
-        return yield* Effect.fail(new Error("Lifecycle not configured correctly"));
+        return yield* Effect.fail(
+          new Error("Lifecycle not configured correctly"),
+        );
       }
     }),
   ),
@@ -1204,10 +1299,15 @@ test(
 
       // Create an Effect Stream from chunks
       const encoder = new TextEncoder();
-      const inputStream = Stream.fromIterable(testChunks.map((s) => encoder.encode(s)));
+      const inputStream = Stream.fromIterable(
+        testChunks.map((s) => encoder.encode(s)),
+      );
 
       // Calculate content length for the x-amz-decoded-content-length header
-      const contentLength = testChunks.reduce((acc, s) => acc + encoder.encode(s).length, 0);
+      const contentLength = testChunks.reduce(
+        (acc, s) => acc + encoder.encode(s).length,
+        0,
+      );
 
       // Put object with Effect Stream body AND ChecksumAlgorithm
       // This triggers the aws-chunked encoding path in checksum.ts
@@ -1240,7 +1340,9 @@ test(
 
       const decoder = new TextDecoder();
       let offset = 0;
-      const fullBuffer = new Uint8Array(chunks.reduce((acc, c) => acc + c.length, 0));
+      const fullBuffer = new Uint8Array(
+        chunks.reduce((acc, c) => acc + c.length, 0),
+      );
       for (const chunk of chunks) {
         fullBuffer.set(chunk, offset);
         offset += chunk.length;
@@ -1249,7 +1351,9 @@ test(
 
       if (actualContent !== expectedContent) {
         return yield* Effect.fail(
-          new Error(`Content mismatch: expected "${expectedContent}", got "${actualContent}"`),
+          new Error(
+            `Content mismatch: expected "${expectedContent}", got "${actualContent}"`,
+          ),
         );
       }
 
@@ -1277,7 +1381,9 @@ test(
       });
 
       if (!initResult.UploadId) {
-        return yield* Effect.fail(new Error("Expected UploadId from createMultipartUpload"));
+        return yield* Effect.fail(
+          new Error("Expected UploadId from createMultipartUpload"),
+        );
       }
 
       const uploadId = initResult.UploadId;
@@ -1299,7 +1405,9 @@ test(
         });
 
         if (!part1Result.ETag) {
-          return yield* Effect.fail(new Error("Expected ETag from uploadPart 1"));
+          return yield* Effect.fail(
+            new Error("Expected ETag from uploadPart 1"),
+          );
         }
 
         // 3. Upload part 2 with streaming body and checksum
@@ -1317,7 +1425,9 @@ test(
         });
 
         if (!part2Result.ETag) {
-          return yield* Effect.fail(new Error("Expected ETag from uploadPart 2"));
+          return yield* Effect.fail(
+            new Error("Expected ETag from uploadPart 2"),
+          );
         }
 
         // 4. Complete multipart upload
@@ -1352,7 +1462,9 @@ test(
         );
 
         let offset = 0;
-        const fullBuffer = new Uint8Array(chunks.reduce((acc, c) => acc + c.length, 0));
+        const fullBuffer = new Uint8Array(
+          chunks.reduce((acc, c) => acc + c.length, 0),
+        );
         for (const chunk of chunks) {
           fullBuffer.set(chunk, offset);
           offset += chunk.length;
@@ -1361,7 +1473,9 @@ test(
         const expectedLength = part1Content.length + part2Content.length;
         if (fullBuffer.length !== expectedLength) {
           return yield* Effect.fail(
-            new Error(`Length mismatch: expected ${expectedLength}, got ${fullBuffer.length}`),
+            new Error(
+              `Length mismatch: expected ${expectedLength}, got ${fullBuffer.length}`,
+            ),
           );
         }
 
@@ -1461,13 +1575,17 @@ test(
 
       // The timeout should have triggered (result is None)
       if (result._tag !== "None") {
-        return yield* Effect.fail(new Error("Expected upload to be interrupted by timeout"));
+        return yield* Effect.fail(
+          new Error("Expected upload to be interrupted by timeout"),
+        );
       }
 
       // Verify we didn't read all chunks (interrupted early)
       // The fact that we got here with timeout means the effect was interrupted
       if (chunksRead >= 100) {
-        return yield* Effect.fail(new Error(`Expected fewer than 100 chunks, got ${chunksRead}`));
+        return yield* Effect.fail(
+          new Error(`Expected fewer than 100 chunks, got ${chunksRead}`),
+        );
       }
 
       // If we got here, the timeout worked - the upload was interrupted
@@ -1475,7 +1593,9 @@ test(
       // The key is that the Effect was interrupted and didn't complete all chunks
 
       // Cleanup - object may or may not exist
-      yield* deleteObject({ Bucket: TEST_BUCKET, Key: testKey }).pipe(Effect.ignore);
+      yield* deleteObject({ Bucket: TEST_BUCKET, Key: testKey }).pipe(
+        Effect.ignore,
+      );
     }),
   ),
 );
@@ -1517,16 +1637,22 @@ test(
 
       // The timeout should win
       if (result !== "timeout") {
-        return yield* Effect.fail(new Error("Expected timeout to win the race"));
+        return yield* Effect.fail(
+          new Error("Expected timeout to win the race"),
+        );
       }
 
       // Verify partial upload (not all chunks)
       if (chunksRead >= 50) {
-        return yield* Effect.fail(new Error(`Expected fewer than 50 chunks, got ${chunksRead}`));
+        return yield* Effect.fail(
+          new Error(`Expected fewer than 50 chunks, got ${chunksRead}`),
+        );
       }
 
       // Cleanup
-      yield* deleteObject({ Bucket: TEST_BUCKET, Key: testKey }).pipe(Effect.ignore);
+      yield* deleteObject({ Bucket: TEST_BUCKET, Key: testKey }).pipe(
+        Effect.ignore,
+      );
     }),
   ),
 );

@@ -32,7 +32,10 @@ export function test(
   testCase: Effect.Effect<void, any, Provided>,
 ): void;
 
-export function test(name: string, testCase: Effect.Effect<void, any, Provided>): void;
+export function test(
+  name: string,
+  testCase: Effect.Effect<void, any, Provided>,
+): void;
 
 export function test(
   name: string,
@@ -45,8 +48,13 @@ export function test(
       ]
     | [Effect.Effect<void, any, Provided>]
 ) {
-  const [options = {}, testCase] = args.length === 1 ? [undefined, args[0]] : args;
-  const platform = Layer.mergeAll(NodeContext.layer, FetchHttpClient.layer, Logger.pretty);
+  const [options = {}, testCase] =
+    args.length === 1 ? [undefined, args[0]] : args;
+  const platform = Layer.mergeAll(
+    NodeContext.layer,
+    FetchHttpClient.layer,
+    Logger.pretty,
+  );
 
   return it.scopedLive(
     name,
@@ -58,20 +66,29 @@ export function test(
             yield* PlatformConfigProvider.fromDotEnv(".env"),
             ConfigProvider.fromEnv,
           );
-          return yield* testCase.pipe(Effect.withConfigProvider(configProvider));
+          return yield* testCase.pipe(
+            Effect.withConfigProvider(configProvider),
+          );
         } else {
-          return yield* testCase.pipe(Effect.withConfigProvider(ConfigProvider.fromEnv()));
+          return yield* testCase.pipe(
+            Effect.withConfigProvider(ConfigProvider.fromEnv()),
+          );
         }
       }).pipe(
         Effect.provide(platform),
         Effect.provideService(Region, "us-east-1"),
-        Logger.withMinimumLogLevel(process.env.DEBUG ? LogLevel.Debug : LogLevel.Info),
+        Logger.withMinimumLogLevel(
+          process.env.DEBUG ? LogLevel.Debug : LogLevel.Info,
+        ),
         Effect.provide(NodeContext.layer),
       );
 
       if (process.env.LOCAL) {
         return eff.pipe(
-          Effect.provideService(Endpoint, process.env.LOCALSTACK_HOST ?? "http://localhost:4566"),
+          Effect.provideService(
+            Endpoint,
+            process.env.LOCALSTACK_HOST ?? "http://localhost:4566",
+          ),
           Effect.provide(LocalstackCredentialsLive),
         );
       } else {

@@ -61,7 +61,9 @@ import { CreateHostedConfigurationVersionRequest } from "../../src/services/appc
 // Helper to build a request from an instance
 const buildRequest = <A, I>(schema: S.Schema<A, I>, instance: A) => {
   const operation = { input: schema, output: schema, errors: [] };
-  const builder = makeRequestBuilder(operation, { protocol: restJson1Protocol });
+  const builder = makeRequestBuilder(operation, {
+    protocol: restJson1Protocol,
+  });
   return builder({ ...instance });
 };
 
@@ -84,20 +86,23 @@ describe("restJson1 protocol", () => {
   // ==========================================================================
 
   describe("request serialization", () => {
-    it.effect("should serialize simple GET request with correct method and path", () =>
-      Effect.gen(function* () {
-        const request = yield* buildRequest(GetAccountSettingsRequest, {});
+    it.effect(
+      "should serialize simple GET request with correct method and path",
+      () =>
+        Effect.gen(function* () {
+          const request = yield* buildRequest(GetAccountSettingsRequest, {});
 
-        expect(request.method).toBe("GET");
-        expect(request.path).toBe("/2016-08-19/account-settings");
-        expect(request.headers["Content-Type"]).toBe("application/json");
-      }),
+          expect(request.method).toBe("GET");
+          expect(request.path).toBe("/2016-08-19/account-settings");
+          expect(request.headers["Content-Type"]).toBe("application/json");
+        }),
     );
 
     it.effect("should serialize GET request with path label", () =>
       Effect.gen(function* () {
         const request = yield* buildRequest(ListTagsRequest, {
-          Resource: "arn:aws:lambda:us-east-1:123456789012:function:my-function",
+          Resource:
+            "arn:aws:lambda:us-east-1:123456789012:function:my-function",
         });
 
         expect(request.method).toBe("GET");
@@ -107,17 +112,19 @@ describe("restJson1 protocol", () => {
       }),
     );
 
-    it.effect("should serialize DELETE request with path label and query param", () =>
-      Effect.gen(function* () {
-        const request = yield* buildRequest(DeleteFunctionRequest, {
-          FunctionName: "my-function",
-          Qualifier: "1",
-        });
+    it.effect(
+      "should serialize DELETE request with path label and query param",
+      () =>
+        Effect.gen(function* () {
+          const request = yield* buildRequest(DeleteFunctionRequest, {
+            FunctionName: "my-function",
+            Qualifier: "1",
+          });
 
-        expect(request.method).toBe("DELETE");
-        expect(request.path).toBe("/2015-03-31/functions/my-function");
-        expect(request.query["Qualifier"]).toBe("1");
-      }),
+          expect(request.method).toBe("DELETE");
+          expect(request.path).toBe("/2015-03-31/functions/my-function");
+          expect(request.query["Qualifier"]).toBe("1");
+        }),
     );
 
     it.effect("should not include undefined query params", () =>
@@ -130,61 +137,73 @@ describe("restJson1 protocol", () => {
       }),
     );
 
-    it.effect("should serialize POST request with path label and JSON body", () =>
-      Effect.gen(function* () {
-        const request = yield* buildRequest(TagResourceRequest, {
-          Resource: "arn:aws:lambda:us-east-1:123456789012:function:my-function",
-          Tags: {
+    it.effect(
+      "should serialize POST request with path label and JSON body",
+      () =>
+        Effect.gen(function* () {
+          const request = yield* buildRequest(TagResourceRequest, {
+            Resource:
+              "arn:aws:lambda:us-east-1:123456789012:function:my-function",
+            Tags: {
+              Environment: "Production",
+              Team: "Platform",
+            },
+          });
+
+          expect(request.method).toBe("POST");
+          expect(request.path).toBe(
+            "/2017-03-31/tags/arn%3Aaws%3Alambda%3Aus-east-1%3A123456789012%3Afunction%3Amy-function",
+          );
+          expect(request.headers["Content-Type"]).toBe("application/json");
+
+          const body = JSON.parse(request.body as string);
+          expect(body.Tags).toEqual({
             Environment: "Production",
             Team: "Platform",
-          },
-        });
-
-        expect(request.method).toBe("POST");
-        expect(request.path).toBe(
-          "/2017-03-31/tags/arn%3Aaws%3Alambda%3Aus-east-1%3A123456789012%3Afunction%3Amy-function",
-        );
-        expect(request.headers["Content-Type"]).toBe("application/json");
-
-        const body = JSON.parse(request.body as string);
-        expect(body.Tags).toEqual({
-          Environment: "Production",
-          Team: "Platform",
-        });
-      }),
+          });
+        }),
     );
 
-    it.effect("should serialize POST request with nested structures in body", () =>
-      Effect.gen(function* () {
-        const request = yield* buildRequest(UpdateFunctionEventInvokeConfigRequest, {
-          FunctionName: "my-function",
-          Qualifier: "LATEST",
-          MaximumRetryAttempts: 2,
-          MaximumEventAgeInSeconds: 3600,
-          DestinationConfig: {
-            OnSuccess: {
-              Destination: "arn:aws:sqs:us-east-1:123456789012:success-queue",
+    it.effect(
+      "should serialize POST request with nested structures in body",
+      () =>
+        Effect.gen(function* () {
+          const request = yield* buildRequest(
+            UpdateFunctionEventInvokeConfigRequest,
+            {
+              FunctionName: "my-function",
+              Qualifier: "LATEST",
+              MaximumRetryAttempts: 2,
+              MaximumEventAgeInSeconds: 3600,
+              DestinationConfig: {
+                OnSuccess: {
+                  Destination:
+                    "arn:aws:sqs:us-east-1:123456789012:success-queue",
+                },
+                OnFailure: {
+                  Destination:
+                    "arn:aws:sqs:us-east-1:123456789012:failure-queue",
+                },
+              },
             },
-            OnFailure: {
-              Destination: "arn:aws:sqs:us-east-1:123456789012:failure-queue",
-            },
-          },
-        });
+          );
 
-        expect(request.method).toBe("POST");
-        expect(request.path).toBe("/2019-09-25/functions/my-function/event-invoke-config");
-        expect(request.query["Qualifier"]).toBe("LATEST");
+          expect(request.method).toBe("POST");
+          expect(request.path).toBe(
+            "/2019-09-25/functions/my-function/event-invoke-config",
+          );
+          expect(request.query["Qualifier"]).toBe("LATEST");
 
-        const body = JSON.parse(request.body as string);
-        expect(body.MaximumRetryAttempts).toBe(2);
-        expect(body.MaximumEventAgeInSeconds).toBe(3600);
-        expect(body.DestinationConfig.OnSuccess.Destination).toBe(
-          "arn:aws:sqs:us-east-1:123456789012:success-queue",
-        );
-        expect(body.DestinationConfig.OnFailure.Destination).toBe(
-          "arn:aws:sqs:us-east-1:123456789012:failure-queue",
-        );
-      }),
+          const body = JSON.parse(request.body as string);
+          expect(body.MaximumRetryAttempts).toBe(2);
+          expect(body.MaximumEventAgeInSeconds).toBe(3600);
+          expect(body.DestinationConfig.OnSuccess.Destination).toBe(
+            "arn:aws:sqs:us-east-1:123456789012:success-queue",
+          );
+          expect(body.DestinationConfig.OnFailure.Destination).toBe(
+            "arn:aws:sqs:us-east-1:123456789012:failure-queue",
+          );
+        }),
     );
   });
 
@@ -196,7 +215,8 @@ describe("restJson1 protocol", () => {
     it.effect("should serialize boolean query params (true)", () =>
       Effect.gen(function* () {
         const request = yield* buildRequest(GetDurableExecutionHistoryRequest, {
-          DurableExecutionArn: "arn:aws:lambda:us-east-1:123:durable-execution:abc",
+          DurableExecutionArn:
+            "arn:aws:lambda:us-east-1:123:durable-execution:abc",
           IncludeExecutionData: true,
           ReverseOrder: false,
         });
@@ -210,7 +230,8 @@ describe("restJson1 protocol", () => {
     it.effect("should serialize number query params", () =>
       Effect.gen(function* () {
         const request = yield* buildRequest(GetDurableExecutionHistoryRequest, {
-          DurableExecutionArn: "arn:aws:lambda:us-east-1:123:durable-execution:abc",
+          DurableExecutionArn:
+            "arn:aws:lambda:us-east-1:123:durable-execution:abc",
           MaxItems: 100,
         });
 
@@ -218,18 +239,23 @@ describe("restJson1 protocol", () => {
       }),
     );
 
-    it.effect("should serialize timestamp as epoch-seconds in query params", () =>
-      Effect.gen(function* () {
-        const request = yield* buildRequest(ListDurableExecutionsByFunctionRequest, {
-          FunctionName: "my-function",
-          StartedAfter: new Date("2024-01-15T12:30:00.000Z"),
-          StartedBefore: new Date("2024-01-16T12:30:00.000Z"),
-        });
+    it.effect(
+      "should serialize timestamp as epoch-seconds in query params",
+      () =>
+        Effect.gen(function* () {
+          const request = yield* buildRequest(
+            ListDurableExecutionsByFunctionRequest,
+            {
+              FunctionName: "my-function",
+              StartedAfter: new Date("2024-01-15T12:30:00.000Z"),
+              StartedBefore: new Date("2024-01-16T12:30:00.000Z"),
+            },
+          );
 
-        // EpochSecondsDate encodes as number, then query string converts to string
-        expect(request.query["StartedAfter"]).toBe("1705321800");
-        expect(request.query["StartedBefore"]).toBe("1705408200");
-      }),
+          // EpochSecondsDate encodes as number, then query string converts to string
+          expect(request.query["StartedAfter"]).toBe("1705321800");
+          expect(request.query["StartedBefore"]).toBe("1705408200");
+        }),
     );
   });
 
@@ -260,11 +286,14 @@ describe("restJson1 protocol", () => {
 
     it.effect("should not include undefined properties in body", () =>
       Effect.gen(function* () {
-        const request = yield* buildRequest(UpdateFunctionEventInvokeConfigRequest, {
-          FunctionName: "my-function",
-          MaximumRetryAttempts: 2,
-          // DestinationConfig is undefined
-        });
+        const request = yield* buildRequest(
+          UpdateFunctionEventInvokeConfigRequest,
+          {
+            FunctionName: "my-function",
+            MaximumRetryAttempts: 2,
+            // DestinationConfig is undefined
+          },
+        );
 
         const body = JSON.parse(request.body as string);
         expect(body.MaximumRetryAttempts).toBe(2);
@@ -275,11 +304,14 @@ describe("restJson1 protocol", () => {
 
     it.effect("should serialize numbers correctly including zero", () =>
       Effect.gen(function* () {
-        const request = yield* buildRequest(UpdateFunctionEventInvokeConfigRequest, {
-          FunctionName: "my-function",
-          MaximumRetryAttempts: 0,
-          MaximumEventAgeInSeconds: 3600,
-        });
+        const request = yield* buildRequest(
+          UpdateFunctionEventInvokeConfigRequest,
+          {
+            FunctionName: "my-function",
+            MaximumRetryAttempts: 0,
+            MaximumEventAgeInSeconds: 3600,
+          },
+        );
 
         const body = JSON.parse(request.body as string);
         expect(body.MaximumRetryAttempts).toBe(0);
@@ -299,7 +331,9 @@ describe("restJson1 protocol", () => {
           });
 
           expect(request.method).toBe("POST");
-          expect(request.path).toBe("/domainnames/api.example.com/basepathmappings");
+          expect(request.path).toBe(
+            "/domainnames/api.example.com/basepathmappings",
+          );
 
           const body = JSON.parse(request.body as string);
           expect(body.restApiId).toBe("abc123def456");
@@ -318,15 +352,18 @@ describe("restJson1 protocol", () => {
       "should serialize httpHeader fields to request headers (CreateHostedConfigurationVersionRequest)",
       () =>
         Effect.gen(function* () {
-          const request = yield* buildRequest(CreateHostedConfigurationVersionRequest, {
-            ApplicationId: "app123",
-            ConfigurationProfileId: "config456",
-            Content: "config-content-here",
-            ContentType: "application/json",
-            Description: "My configuration",
-            LatestVersionNumber: 5,
-            VersionLabel: "v1.0.0",
-          });
+          const request = yield* buildRequest(
+            CreateHostedConfigurationVersionRequest,
+            {
+              ApplicationId: "app123",
+              ConfigurationProfileId: "config456",
+              Content: "config-content-here",
+              ContentType: "application/json",
+              Description: "My configuration",
+              LatestVersionNumber: 5,
+              VersionLabel: "v1.0.0",
+            },
+          );
 
           expect(request.method).toBe("POST");
           expect(request.path).toBe(
@@ -371,7 +408,10 @@ describe("restJson1 protocol", () => {
           }),
         };
 
-        const result = yield* parseResponse(GetAccountSettingsResponse, response);
+        const result = yield* parseResponse(
+          GetAccountSettingsResponse,
+          response,
+        );
 
         expect(result.AccountLimit).toBeDefined();
         expect(result.AccountLimit?.TotalCodeSize).toBe(80530636800);
@@ -414,7 +454,8 @@ describe("restJson1 protocol", () => {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             LastModified: 1704067200.0, // epoch-seconds: 2024-01-01T00:00:00Z
-            FunctionArn: "arn:aws:lambda:us-east-1:123456789012:function:my-function",
+            FunctionArn:
+              "arn:aws:lambda:us-east-1:123456789012:function:my-function",
             MaximumRetryAttempts: 2,
             MaximumEventAgeInSeconds: 3600,
             DestinationConfig: {
@@ -428,7 +469,10 @@ describe("restJson1 protocol", () => {
           }),
         };
 
-        const result = yield* parseResponse(FunctionEventInvokeConfig, response);
+        const result = yield* parseResponse(
+          FunctionEventInvokeConfig,
+          response,
+        );
 
         expect(result.FunctionArn).toBe(
           "arn:aws:lambda:us-east-1:123456789012:function:my-function",
@@ -455,10 +499,15 @@ describe("restJson1 protocol", () => {
           }),
         };
 
-        const result = yield* parseResponse(FunctionEventInvokeConfig, response);
+        const result = yield* parseResponse(
+          FunctionEventInvokeConfig,
+          response,
+        );
 
         expect(result.LastModified).toBeInstanceOf(Date);
-        expect(result.LastModified?.toISOString()).toBe("2024-01-01T00:00:00.000Z");
+        expect(result.LastModified?.toISOString()).toBe(
+          "2024-01-01T00:00:00.000Z",
+        );
       }),
     );
 
@@ -548,7 +597,10 @@ describe("restJson1 protocol", () => {
             }),
           };
 
-          const result = yield* parseResponse(CreateApiMappingResponse, response);
+          const result = yield* parseResponse(
+            CreateApiMappingResponse,
+            response,
+          );
 
           // Schema exposes PascalCase, wire uses camelCase
           expect(result.ApiId).toBe("abc123");
@@ -562,116 +614,133 @@ describe("restJson1 protocol", () => {
     // Request Serialization with JsonName
     // -------------------------------------------------------------------------
 
-    it.effect("should serialize request with PascalCase -> camelCase jsonName (apigatewayv2)", () =>
-      Effect.gen(function* () {
-        // CreateApiMappingRequest has:
-        // - ApiId: S.String.pipe(T.JsonName("apiId")) - goes to body as "apiId"
-        // - DomainName: S.String.pipe(T.HttpLabel()) - goes to path
-        // - Stage: S.String.pipe(T.JsonName("stage")) - goes to body as "stage"
-        const request = yield* buildRequest(CreateApiMappingRequest, {
-          ApiId: "api-12345",
-          DomainName: "example.com",
-          Stage: "production",
-          ApiMappingKey: "v2",
-        });
+    it.effect(
+      "should serialize request with PascalCase -> camelCase jsonName (apigatewayv2)",
+      () =>
+        Effect.gen(function* () {
+          // CreateApiMappingRequest has:
+          // - ApiId: S.String.pipe(T.JsonName("apiId")) - goes to body as "apiId"
+          // - DomainName: S.String.pipe(T.HttpLabel()) - goes to path
+          // - Stage: S.String.pipe(T.JsonName("stage")) - goes to body as "stage"
+          const request = yield* buildRequest(CreateApiMappingRequest, {
+            ApiId: "api-12345",
+            DomainName: "example.com",
+            Stage: "production",
+            ApiMappingKey: "v2",
+          });
 
-        expect(request.method).toBe("POST");
-        expect(request.path).toBe("/v2/domainnames/example.com/apimappings");
+          expect(request.method).toBe("POST");
+          expect(request.path).toBe("/v2/domainnames/example.com/apimappings");
 
-        // Body should use camelCase (wire format), not PascalCase (internal)
-        const body = JSON.parse(request.body as string);
-        expect(body.apiId).toBe("api-12345");
-        expect(body.stage).toBe("production");
-        expect(body.apiMappingKey).toBe("v2");
+          // Body should use camelCase (wire format), not PascalCase (internal)
+          const body = JSON.parse(request.body as string);
+          expect(body.apiId).toBe("api-12345");
+          expect(body.stage).toBe("production");
+          expect(body.apiMappingKey).toBe("v2");
 
-        // PascalCase should NOT be in the body
-        expect(body.ApiId).toBeUndefined();
-        expect(body.Stage).toBeUndefined();
-        expect(body.ApiMappingKey).toBeUndefined();
+          // PascalCase should NOT be in the body
+          expect(body.ApiId).toBeUndefined();
+          expect(body.Stage).toBeUndefined();
+          expect(body.ApiMappingKey).toBeUndefined();
 
-        // DomainName is httpLabel, should not be in body
-        expect(body.DomainName).toBeUndefined();
-        expect(body.domainName).toBeUndefined();
-      }),
+          // DomainName is httpLabel, should not be in body
+          expect(body.DomainName).toBeUndefined();
+          expect(body.domainName).toBeUndefined();
+        }),
     );
 
-    it.effect("should serialize request with nested structure containing jsonName", () =>
-      Effect.gen(function* () {
-        // CreateApiRequest has nested Cors structure
-        const request = yield* buildRequest(CreateApiRequest, {
-          Name: "My API",
-          ProtocolType: "HTTP",
-          Description: "Test API",
-          CorsConfiguration: {
-            AllowOrigins: ["https://example.com"],
-            AllowMethods: ["GET", "POST"],
-            AllowHeaders: ["Content-Type"],
-            MaxAge: 3600,
-          },
-        });
-
-        expect(request.method).toBe("POST");
-
-        // Body should use camelCase throughout
-        const body = JSON.parse(request.body as string);
-        expect(body.name).toBe("My API");
-        expect(body.protocolType).toBe("HTTP");
-        expect(body.description).toBe("Test API");
-
-        // Nested structure should also use camelCase
-        expect(body.corsConfiguration).toBeDefined();
-        expect(body.corsConfiguration.allowOrigins).toEqual(["https://example.com"]);
-        expect(body.corsConfiguration.allowMethods).toEqual(["GET", "POST"]);
-        expect(body.corsConfiguration.allowHeaders).toEqual(["Content-Type"]);
-        expect(body.corsConfiguration.maxAge).toBe(3600);
-
-        // PascalCase should NOT appear anywhere
-        expect(body.Name).toBeUndefined();
-        expect(body.CorsConfiguration).toBeUndefined();
-      }),
-    );
-
-    it.effect("should deserialize response with nested structure containing jsonName", () =>
-      Effect.gen(function* () {
-        // CreateApiResponse has nested corsConfiguration
-        const response: Response = {
-          status: 201,
-          statusText: "Created",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            apiId: "api-xyz",
-            name: "My API",
-            protocolType: "HTTP",
-            corsConfiguration: {
-              allowOrigins: ["https://example.com", "https://test.com"],
-              allowMethods: ["GET", "POST", "PUT"],
-              allowHeaders: ["Authorization", "Content-Type"],
-              exposeHeaders: ["X-Custom-Header"],
-              maxAge: 7200,
-              allowCredentials: true,
+    it.effect(
+      "should serialize request with nested structure containing jsonName",
+      () =>
+        Effect.gen(function* () {
+          // CreateApiRequest has nested Cors structure
+          const request = yield* buildRequest(CreateApiRequest, {
+            Name: "My API",
+            ProtocolType: "HTTP",
+            Description: "Test API",
+            CorsConfiguration: {
+              AllowOrigins: ["https://example.com"],
+              AllowMethods: ["GET", "POST"],
+              AllowHeaders: ["Content-Type"],
+              MaxAge: 3600,
             },
-          }),
-        };
+          });
 
-        const result = yield* parseResponse(CreateApiResponse, response);
+          expect(request.method).toBe("POST");
 
-        // Internal schema uses PascalCase
-        expect(result.ApiId).toBe("api-xyz");
-        expect(result.Name).toBe("My API");
-        expect(result.ProtocolType).toBe("HTTP");
+          // Body should use camelCase throughout
+          const body = JSON.parse(request.body as string);
+          expect(body.name).toBe("My API");
+          expect(body.protocolType).toBe("HTTP");
+          expect(body.description).toBe("Test API");
 
-        // Nested structure should be deserialized with PascalCase
-        expect(result.CorsConfiguration).toBeDefined();
-        expect(result.CorsConfiguration?.AllowOrigins).toEqual([
-          "https://example.com",
-          "https://test.com",
-        ]);
-        expect(result.CorsConfiguration?.AllowMethods).toEqual(["GET", "POST", "PUT"]);
-        expect(result.CorsConfiguration?.AllowHeaders).toEqual(["Authorization", "Content-Type"]);
-        expect(result.CorsConfiguration?.ExposeHeaders).toEqual(["X-Custom-Header"]);
-        expect(result.CorsConfiguration?.MaxAge).toBe(7200);
-        expect(result.CorsConfiguration?.AllowCredentials).toBe(true);
-      }),
+          // Nested structure should also use camelCase
+          expect(body.corsConfiguration).toBeDefined();
+          expect(body.corsConfiguration.allowOrigins).toEqual([
+            "https://example.com",
+          ]);
+          expect(body.corsConfiguration.allowMethods).toEqual(["GET", "POST"]);
+          expect(body.corsConfiguration.allowHeaders).toEqual(["Content-Type"]);
+          expect(body.corsConfiguration.maxAge).toBe(3600);
+
+          // PascalCase should NOT appear anywhere
+          expect(body.Name).toBeUndefined();
+          expect(body.CorsConfiguration).toBeUndefined();
+        }),
+    );
+
+    it.effect(
+      "should deserialize response with nested structure containing jsonName",
+      () =>
+        Effect.gen(function* () {
+          // CreateApiResponse has nested corsConfiguration
+          const response: Response = {
+            status: 201,
+            statusText: "Created",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              apiId: "api-xyz",
+              name: "My API",
+              protocolType: "HTTP",
+              corsConfiguration: {
+                allowOrigins: ["https://example.com", "https://test.com"],
+                allowMethods: ["GET", "POST", "PUT"],
+                allowHeaders: ["Authorization", "Content-Type"],
+                exposeHeaders: ["X-Custom-Header"],
+                maxAge: 7200,
+                allowCredentials: true,
+              },
+            }),
+          };
+
+          const result = yield* parseResponse(CreateApiResponse, response);
+
+          // Internal schema uses PascalCase
+          expect(result.ApiId).toBe("api-xyz");
+          expect(result.Name).toBe("My API");
+          expect(result.ProtocolType).toBe("HTTP");
+
+          // Nested structure should be deserialized with PascalCase
+          expect(result.CorsConfiguration).toBeDefined();
+          expect(result.CorsConfiguration?.AllowOrigins).toEqual([
+            "https://example.com",
+            "https://test.com",
+          ]);
+          expect(result.CorsConfiguration?.AllowMethods).toEqual([
+            "GET",
+            "POST",
+            "PUT",
+          ]);
+          expect(result.CorsConfiguration?.AllowHeaders).toEqual([
+            "Authorization",
+            "Content-Type",
+          ]);
+          expect(result.CorsConfiguration?.ExposeHeaders).toEqual([
+            "X-Custom-Header",
+          ]);
+          expect(result.CorsConfiguration?.MaxAge).toBe(7200);
+          expect(result.CorsConfiguration?.AllowCredentials).toBe(true);
+        }),
     );
   });
 
@@ -683,7 +752,8 @@ describe("restJson1 protocol", () => {
     it.effect("should URL-encode special characters in path labels", () =>
       Effect.gen(function* () {
         const request = yield* buildRequest(ListTagsRequest, {
-          Resource: "arn:aws:lambda:us-east-1:123456789012:function:my/function+name",
+          Resource:
+            "arn:aws:lambda:us-east-1:123456789012:function:my/function+name",
         });
 
         // Forward slash and plus should be encoded
@@ -706,7 +776,10 @@ describe("restJson1 protocol", () => {
           }),
         };
 
-        const result = yield* parseResponse(GetAccountSettingsResponse, response);
+        const result = yield* parseResponse(
+          GetAccountSettingsResponse,
+          response,
+        );
 
         expect(result.AccountLimit?.TotalCodeSize).toBe(80530636800);
         expect(result.AccountLimit?.ConcurrentExecutions).toBeUndefined();
@@ -745,26 +818,33 @@ describe("restJson1 protocol", () => {
       }),
     );
 
-    it.effect("should serialize timestamps as epoch-seconds numbers in body", () =>
-      Effect.gen(function* () {
-        // FunctionEventInvokeConfig has LastModified with EpochSecondsDate
-        // We can't directly test request body timestamp serialization with real Lambda schemas
-        // because Lambda's timestamp fields are query params or response fields.
-        // Let's verify the response deserialization instead - if decode works, encode should too.
-        const response: Response = {
-          status: 200,
-          statusText: "OK",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            LastModified: 1705321800, // 2024-01-15T12:30:00Z in epoch-seconds
-          }),
-        };
+    it.effect(
+      "should serialize timestamps as epoch-seconds numbers in body",
+      () =>
+        Effect.gen(function* () {
+          // FunctionEventInvokeConfig has LastModified with EpochSecondsDate
+          // We can't directly test request body timestamp serialization with real Lambda schemas
+          // because Lambda's timestamp fields are query params or response fields.
+          // Let's verify the response deserialization instead - if decode works, encode should too.
+          const response: Response = {
+            status: 200,
+            statusText: "OK",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              LastModified: 1705321800, // 2024-01-15T12:30:00Z in epoch-seconds
+            }),
+          };
 
-        const result = yield* parseResponse(FunctionEventInvokeConfig, response);
+          const result = yield* parseResponse(
+            FunctionEventInvokeConfig,
+            response,
+          );
 
-        expect(result.LastModified).toBeInstanceOf(Date);
-        expect(result.LastModified?.toISOString()).toBe("2024-01-15T12:30:00.000Z");
-      }),
+          expect(result.LastModified).toBeInstanceOf(Date);
+          expect(result.LastModified?.toISOString()).toBe(
+            "2024-01-15T12:30:00.000Z",
+          );
+        }),
     );
   });
 
@@ -786,9 +866,11 @@ describe("restJson1 protocol", () => {
           }),
         };
 
-        const result = yield* parseResponse(GetAccountSettingsRequest, response, [
-          ResourceNotFoundException,
-        ]).pipe(Effect.flip);
+        const result = yield* parseResponse(
+          GetAccountSettingsRequest,
+          response,
+          [ResourceNotFoundException],
+        ).pipe(Effect.flip);
 
         expect(result).toBeInstanceOf(ResourceNotFoundException);
         expect(result._tag).toBe("ResourceNotFoundException");
@@ -807,9 +889,11 @@ describe("restJson1 protocol", () => {
           }),
         };
 
-        const result = yield* parseResponse(GetAccountSettingsRequest, response, [
-          ResourceNotFoundException,
-        ]).pipe(Effect.flip);
+        const result = yield* parseResponse(
+          GetAccountSettingsRequest,
+          response,
+          [ResourceNotFoundException],
+        ).pipe(Effect.flip);
 
         expect(result).toBeInstanceOf(ResourceNotFoundException);
       }),
@@ -827,9 +911,11 @@ describe("restJson1 protocol", () => {
           }),
         };
 
-        const result = yield* parseResponse(GetAccountSettingsRequest, response, [
-          ResourceNotFoundException,
-        ]).pipe(Effect.flip);
+        const result = yield* parseResponse(
+          GetAccountSettingsRequest,
+          response,
+          [ResourceNotFoundException],
+        ).pipe(Effect.flip);
 
         expect(result).toBeInstanceOf(ResourceNotFoundException);
       }),
@@ -841,16 +927,19 @@ describe("restJson1 protocol", () => {
           status: 404,
           statusText: "Not Found",
           headers: {
-            "x-amzn-errortype": "com.amazonaws.lambda#ResourceNotFoundException",
+            "x-amzn-errortype":
+              "com.amazonaws.lambda#ResourceNotFoundException",
           },
           body: JSON.stringify({
             message: "Not found",
           }),
         };
 
-        const result = yield* parseResponse(GetAccountSettingsRequest, response, [
-          ResourceNotFoundException,
-        ]).pipe(Effect.flip);
+        const result = yield* parseResponse(
+          GetAccountSettingsRequest,
+          response,
+          [ResourceNotFoundException],
+        ).pipe(Effect.flip);
 
         expect(result).toBeInstanceOf(ResourceNotFoundException);
       }),
@@ -862,16 +951,19 @@ describe("restJson1 protocol", () => {
           status: 404,
           statusText: "Not Found",
           headers: {
-            "x-amzn-errortype": "ResourceNotFoundException:http://internal.amazon.com",
+            "x-amzn-errortype":
+              "ResourceNotFoundException:http://internal.amazon.com",
           },
           body: JSON.stringify({
             message: "Not found",
           }),
         };
 
-        const result = yield* parseResponse(GetAccountSettingsRequest, response, [
-          ResourceNotFoundException,
-        ]).pipe(Effect.flip);
+        const result = yield* parseResponse(
+          GetAccountSettingsRequest,
+          response,
+          [ResourceNotFoundException],
+        ).pipe(Effect.flip);
 
         expect(result).toBeInstanceOf(ResourceNotFoundException);
       }),
@@ -889,9 +981,11 @@ describe("restJson1 protocol", () => {
           }),
         };
 
-        const result = yield* parseResponse(GetAccountSettingsRequest, response, []).pipe(
-          Effect.flip,
-        );
+        const result = yield* parseResponse(
+          GetAccountSettingsRequest,
+          response,
+          [],
+        ).pipe(Effect.flip);
 
         expect(result).toBeInstanceOf(ValidationException);
       }),
@@ -910,9 +1004,11 @@ describe("restJson1 protocol", () => {
           }),
         };
 
-        const result = yield* parseResponse(GetAccountSettingsRequest, response, []).pipe(
-          Effect.flip,
-        );
+        const result = yield* parseResponse(
+          GetAccountSettingsRequest,
+          response,
+          [],
+        ).pipe(Effect.flip);
 
         expect(result).toBeInstanceOf(UnknownAwsError);
         expect((result as UnknownAwsError).errorTag).toBe("SomeFutureError");
@@ -938,9 +1034,11 @@ describe("restJson1 protocol", () => {
           }),
         };
 
-        const result = yield* parseResponse(GetAccountSettingsRequest, response, [
-          ResourceNotFoundException,
-        ]).pipe(Effect.flip);
+        const result = yield* parseResponse(
+          GetAccountSettingsRequest,
+          response,
+          [ResourceNotFoundException],
+        ).pipe(Effect.flip);
 
         expect(result).toBeInstanceOf(ResourceNotFoundException);
       }),

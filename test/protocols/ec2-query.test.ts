@@ -63,11 +63,16 @@ describe("ec2Query protocol", () => {
   describe("request serialization", () => {
     it.effect("should serialize Action and Version parameters", () =>
       Effect.gen(function* () {
-        const request = yield* buildRequest(DescribeAccountAttributesRequest, {});
+        const request = yield* buildRequest(
+          DescribeAccountAttributesRequest,
+          {},
+        );
 
         expect(request.method).toBe("POST");
         expect(request.path).toBe("/");
-        expect(request.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+        expect(request.headers["Content-Type"]).toBe(
+          "application/x-www-form-urlencoded",
+        );
 
         const params = parseFormBody(request.body as string);
         expect(params["Action"]).toBe("DescribeAccountAttributes");
@@ -154,18 +159,20 @@ describe("ec2Query protocol", () => {
       }),
     );
 
-    it.effect("should capitalize xmlName when ec2QueryName is not present", () =>
-      Effect.gen(function* () {
-        // InstanceIds has xmlName("InstanceId") but no ec2QueryName
-        // Should capitalize to "InstanceId"
-        const request = yield* buildRequest(DescribeInstancesRequest, {
-          InstanceIds: ["i-12345678"],
-        });
+    it.effect(
+      "should capitalize xmlName when ec2QueryName is not present",
+      () =>
+        Effect.gen(function* () {
+          // InstanceIds has xmlName("InstanceId") but no ec2QueryName
+          // Should capitalize to "InstanceId"
+          const request = yield* buildRequest(DescribeInstancesRequest, {
+            InstanceIds: ["i-12345678"],
+          });
 
-        const params = parseFormBody(request.body as string);
-        // Should capitalize first letter of xmlName
-        expect(params["InstanceId.1"]).toBe("i-12345678");
-      }),
+          const params = parseFormBody(request.body as string);
+          // Should capitalize first letter of xmlName
+          expect(params["InstanceId.1"]).toBe("i-12345678");
+        }),
     );
 
     it.effect("should use ec2QueryName on nested structure members", () =>
@@ -210,7 +217,9 @@ describe("ec2Query protocol", () => {
 
         const params = parseFormBody(request.body as string);
         // Empty lists should not produce any entries
-        expect(Object.keys(params).filter((k) => k.startsWith("InstanceId"))).toHaveLength(0);
+        expect(
+          Object.keys(params).filter((k) => k.startsWith("InstanceId")),
+        ).toHaveLength(0);
       }),
     );
 
@@ -236,27 +245,31 @@ describe("ec2Query protocol", () => {
       }),
     );
 
-    it.effect("should serialize deeply nested structures (TagSpecifications)", () =>
-      Effect.gen(function* () {
-        const request = yield* buildRequest(AllocateHostsRequest, {
-          TagSpecifications: [
-            {
-              ResourceType: "dedicated-host",
-              Tags: [
-                { Key: "Name", Value: "MyHost" },
-                { Key: "Env", Value: "Dev" },
-              ],
-            },
-          ],
-        });
+    it.effect(
+      "should serialize deeply nested structures (TagSpecifications)",
+      () =>
+        Effect.gen(function* () {
+          const request = yield* buildRequest(AllocateHostsRequest, {
+            TagSpecifications: [
+              {
+                ResourceType: "dedicated-host",
+                Tags: [
+                  { Key: "Name", Value: "MyHost" },
+                  { Key: "Env", Value: "Dev" },
+                ],
+              },
+            ],
+          });
 
-        const params = parseFormBody(request.body as string);
-        expect(params["TagSpecification.1.ResourceType"]).toBe("dedicated-host");
-        expect(params["TagSpecification.1.Tag.1.Key"]).toBe("Name");
-        expect(params["TagSpecification.1.Tag.1.Value"]).toBe("MyHost");
-        expect(params["TagSpecification.1.Tag.2.Key"]).toBe("Env");
-        expect(params["TagSpecification.1.Tag.2.Value"]).toBe("Dev");
-      }),
+          const params = parseFormBody(request.body as string);
+          expect(params["TagSpecification.1.ResourceType"]).toBe(
+            "dedicated-host",
+          );
+          expect(params["TagSpecification.1.Tag.1.Key"]).toBe("Name");
+          expect(params["TagSpecification.1.Tag.1.Value"]).toBe("MyHost");
+          expect(params["TagSpecification.1.Tag.2.Key"]).toBe("Env");
+          expect(params["TagSpecification.1.Tag.2.Value"]).toBe("Dev");
+        }),
     );
   });
 
@@ -268,10 +281,13 @@ describe("ec2Query protocol", () => {
     it.effect("should serialize timestamps as ISO 8601 by default", () =>
       Effect.gen(function* () {
         const testDate = new Date("2024-01-15T12:30:00.000Z");
-        const request = yield* buildRequest(DescribeSpotFleetRequestHistoryRequest, {
-          SpotFleetRequestId: "sfr-12345678",
-          StartTime: testDate,
-        });
+        const request = yield* buildRequest(
+          DescribeSpotFleetRequestHistoryRequest,
+          {
+            SpotFleetRequestId: "sfr-12345678",
+            StartTime: testDate,
+          },
+        );
 
         const params = parseFormBody(request.body as string);
         // EC2 Query uses ISO 8601 (date-time) format by default
@@ -300,7 +316,10 @@ describe("ec2Query protocol", () => {
 </AcceptVpcPeeringConnectionResponse>`,
         };
 
-        const result = yield* parseResponse(AcceptVpcPeeringConnectionResult, response);
+        const result = yield* parseResponse(
+          AcceptVpcPeeringConnectionResult,
+          response,
+        );
 
         expect(result.VpcPeeringConnection).toBeDefined();
       }),
@@ -334,13 +353,15 @@ describe("ec2Query protocol", () => {
       }),
     );
 
-    it.effect("should deserialize response with nested object (RouteTableAssociationState)", () =>
-      Effect.gen(function* () {
-        const response: Response = {
-          status: 200,
-          statusText: "OK",
-          headers: { "Content-Type": "text/xml;charset=UTF-8" },
-          body: `<?xml version="1.0" encoding="UTF-8"?>
+    it.effect(
+      "should deserialize response with nested object (RouteTableAssociationState)",
+      () =>
+        Effect.gen(function* () {
+          const response: Response = {
+            status: 200,
+            statusText: "OK",
+            headers: { "Content-Type": "text/xml;charset=UTF-8" },
+            body: `<?xml version="1.0" encoding="UTF-8"?>
 <AssociateRouteTableResponse xmlns="http://ec2.amazonaws.com/doc/2016-11-15/">
     <requestId>abc123</requestId>
     <associationId>rtbassoc-12345678</associationId>
@@ -349,15 +370,20 @@ describe("ec2Query protocol", () => {
         <statusMessage>Route table associated</statusMessage>
     </associationState>
 </AssociateRouteTableResponse>`,
-        };
+          };
 
-        const result = yield* parseResponse(AssociateRouteTableResult, response);
+          const result = yield* parseResponse(
+            AssociateRouteTableResult,
+            response,
+          );
 
-        expect(result.AssociationId).toBe("rtbassoc-12345678");
-        expect(result.AssociationState).toBeDefined();
-        expect(result.AssociationState?.State).toBe("associated");
-        expect(result.AssociationState?.StatusMessage).toBe("Route table associated");
-      }),
+          expect(result.AssociationId).toBe("rtbassoc-12345678");
+          expect(result.AssociationState).toBeDefined();
+          expect(result.AssociationState?.State).toBe("associated");
+          expect(result.AssociationState?.StatusMessage).toBe(
+            "Route table associated",
+          );
+        }),
     );
 
     it.effect("should deserialize response with timestamps", () =>
@@ -385,7 +411,10 @@ describe("ec2Query protocol", () => {
 </DescribeSpotFleetRequestHistoryResponse>`,
         };
 
-        const result = yield* parseResponse(DescribeSpotFleetRequestHistoryResponse, response);
+        const result = yield* parseResponse(
+          DescribeSpotFleetRequestHistoryResponse,
+          response,
+        );
 
         expect(result.SpotFleetRequestId).toBe("sfr-12345678");
         expect(result.StartTime).toBeInstanceOf(Date);
@@ -393,8 +422,12 @@ describe("ec2Query protocol", () => {
         expect(result.HistoryRecords).toHaveLength(1);
         expect(result.HistoryRecords?.[0].Timestamp).toBeInstanceOf(Date);
         expect(result.HistoryRecords?.[0].EventType).toBe("instanceChange");
-        expect(result.HistoryRecords?.[0].EventInformation?.InstanceId).toBe("i-12345678");
-        expect(result.HistoryRecords?.[0].EventInformation?.EventSubType).toBe("launched");
+        expect(result.HistoryRecords?.[0].EventInformation?.InstanceId).toBe(
+          "i-12345678",
+        );
+        expect(result.HistoryRecords?.[0].EventInformation?.EventSubType).toBe(
+          "launched",
+        );
       }),
     );
 
@@ -428,25 +461,30 @@ describe("ec2Query protocol", () => {
   // ==========================================================================
 
   describe("XML trait handling in responses", () => {
-    it.effect("should handle xmlName for response properties (lowercase to PascalCase)", () =>
-      Effect.gen(function* () {
-        // nextToken has xmlName("nextToken") - lowercase in XML
-        // But property name is NextToken - PascalCase
-        const response: Response = {
-          status: 200,
-          statusText: "OK",
-          headers: { "Content-Type": "text/xml;charset=UTF-8" },
-          body: `<?xml version="1.0" encoding="UTF-8"?>
+    it.effect(
+      "should handle xmlName for response properties (lowercase to PascalCase)",
+      () =>
+        Effect.gen(function* () {
+          // nextToken has xmlName("nextToken") - lowercase in XML
+          // But property name is NextToken - PascalCase
+          const response: Response = {
+            status: 200,
+            statusText: "OK",
+            headers: { "Content-Type": "text/xml;charset=UTF-8" },
+            body: `<?xml version="1.0" encoding="UTF-8"?>
 <DescribeInstancesResponse xmlns="http://ec2.amazonaws.com/doc/2016-11-15/">
     <requestId>abc123</requestId>
     <nextToken>abc-next-token</nextToken>
 </DescribeInstancesResponse>`,
-        };
+          };
 
-        const result = yield* parseResponse(DescribeInstancesResult, response);
+          const result = yield* parseResponse(
+            DescribeInstancesResult,
+            response,
+          );
 
-        expect(result.NextToken).toBe("abc-next-token");
-      }),
+          expect(result.NextToken).toBe("abc-next-token");
+        }),
     );
 
     it.effect("should handle reservationSet xmlName mapping", () =>
@@ -526,14 +564,16 @@ describe("ec2Query protocol", () => {
       }),
     );
 
-    it.effect("should handle single item in list (not wrapped in array by parser)", () =>
-      Effect.gen(function* () {
-        // When XML has only one item, the parser may return an object instead of array
-        const response: Response = {
-          status: 200,
-          statusText: "OK",
-          headers: { "Content-Type": "text/xml;charset=UTF-8" },
-          body: `<?xml version="1.0" encoding="UTF-8"?>
+    it.effect(
+      "should handle single item in list (not wrapped in array by parser)",
+      () =>
+        Effect.gen(function* () {
+          // When XML has only one item, the parser may return an object instead of array
+          const response: Response = {
+            status: 200,
+            statusText: "OK",
+            headers: { "Content-Type": "text/xml;charset=UTF-8" },
+            body: `<?xml version="1.0" encoding="UTF-8"?>
 <DescribeInstancesResponse xmlns="http://ec2.amazonaws.com/doc/2016-11-15/">
     <requestId>abc123</requestId>
     <reservationSet>
@@ -542,14 +582,17 @@ describe("ec2Query protocol", () => {
         </item>
     </reservationSet>
 </DescribeInstancesResponse>`,
-        };
+          };
 
-        const result = yield* parseResponse(DescribeInstancesResult, response);
+          const result = yield* parseResponse(
+            DescribeInstancesResult,
+            response,
+          );
 
-        // Should still be an array with one item
-        expect(Array.isArray(result.Reservations)).toBe(true);
-        expect(result.Reservations).toHaveLength(1);
-      }),
+          // Should still be an array with one item
+          expect(Array.isArray(result.Reservations)).toBe(true);
+          expect(result.Reservations).toHaveLength(1);
+        }),
     );
   });
 
@@ -558,14 +601,16 @@ describe("ec2Query protocol", () => {
   // ==========================================================================
 
   describe("error deserialization", () => {
-    it.effect("should deserialize EC2-style error format (Response > Errors > Error)", () =>
-      Effect.gen(function* () {
-        // EC2 uses a different error format than awsQuery
-        const response: Response = {
-          status: 400,
-          statusText: "Bad Request",
-          headers: {},
-          body: `<?xml version="1.0" encoding="UTF-8"?>
+    it.effect(
+      "should deserialize EC2-style error format (Response > Errors > Error)",
+      () =>
+        Effect.gen(function* () {
+          // EC2 uses a different error format than awsQuery
+          const response: Response = {
+            status: 400,
+            statusText: "Bad Request",
+            headers: {},
+            body: `<?xml version="1.0" encoding="UTF-8"?>
 <Response>
   <Errors>
     <Error>
@@ -575,15 +620,17 @@ describe("ec2Query protocol", () => {
   </Errors>
   <RequestID>ec2-req-123</RequestID>
 </Response>`,
-        };
+          };
 
-        const result = yield* parseResponse(DescribeInstancesRequest, response, []).pipe(
-          Effect.flip,
-        );
+          const result = yield* parseResponse(
+            DescribeInstancesRequest,
+            response,
+            [],
+          ).pipe(Effect.flip);
 
-        expect(result).toBeInstanceOf(ValidationException);
-        expect(result._tag).toBe("ValidationException");
-      }),
+          expect(result).toBeInstanceOf(ValidationException);
+          expect(result._tag).toBe("ValidationException");
+        }),
     );
 
     it.effect("should preserve RequestID in error data", () =>
@@ -604,14 +651,19 @@ describe("ec2Query protocol", () => {
 </Response>`,
         };
 
-        const result = yield* parseResponse(DescribeInstancesRequest, response, []).pipe(
-          Effect.flip,
-        );
+        const result = yield* parseResponse(
+          DescribeInstancesRequest,
+          response,
+          [],
+        ).pipe(Effect.flip);
 
         expect(result).toBeInstanceOf(UnknownAwsError);
-        expect((result as UnknownAwsError).errorTag).toBe("InvalidParameterValue");
+        expect((result as UnknownAwsError).errorTag).toBe(
+          "InvalidParameterValue",
+        );
         expect((result as UnknownAwsError).errorData).toMatchObject({
-          Message: "The value 'invalid' is not valid for parameter 'InstanceType'",
+          Message:
+            "The value 'invalid' is not valid for parameter 'InstanceType'",
           RequestID: "req-abc-456",
         });
       }),
@@ -627,7 +679,7 @@ describe("ec2Query protocol", () => {
 <Response>
   <Errors>
     <Error>
-      <Code>InternalError</Code>
+      <Code>SomeUnknownEC2Error</Code>
       <Message>An internal error has occurred</Message>
     </Error>
   </Errors>
@@ -635,12 +687,16 @@ describe("ec2Query protocol", () => {
 </Response>`,
         };
 
-        const result = yield* parseResponse(DescribeInstancesRequest, response, []).pipe(
-          Effect.flip,
-        );
+        const result = yield* parseResponse(
+          DescribeInstancesRequest,
+          response,
+          [],
+        ).pipe(Effect.flip);
 
         expect(result).toBeInstanceOf(UnknownAwsError);
-        expect((result as UnknownAwsError).errorTag).toBe("InternalError");
+        expect((result as UnknownAwsError).errorTag).toBe(
+          "SomeUnknownEC2Error",
+        );
       }),
     );
   });

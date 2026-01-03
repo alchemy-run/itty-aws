@@ -75,7 +75,9 @@ describe("awsQuery protocol", () => {
 
         expect(request.method).toBe("POST");
         expect(request.path).toBe("/");
-        expect(request.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+        expect(request.headers["Content-Type"]).toBe(
+          "application/x-www-form-urlencoded",
+        );
 
         const params = parseFormBody(request.body as string);
         expect(params["Action"]).toBe("GetUser");
@@ -83,17 +85,19 @@ describe("awsQuery protocol", () => {
       }),
     );
 
-    it.effect("should serialize simple string parameters (no capitalization)", () =>
-      Effect.gen(function* () {
-        const request = yield* buildRequest(GetUserRequest, {
-          UserName: "john.doe",
-        });
+    it.effect(
+      "should serialize simple string parameters (no capitalization)",
+      () =>
+        Effect.gen(function* () {
+          const request = yield* buildRequest(GetUserRequest, {
+            UserName: "john.doe",
+          });
 
-        const params = parseFormBody(request.body as string);
-        expect(params["Action"]).toBe("GetUser");
-        // AWS Query uses member names directly (no capitalization unlike EC2)
-        expect(params["UserName"]).toBe("john.doe");
-      }),
+          const params = parseFormBody(request.body as string);
+          expect(params["Action"]).toBe("GetUser");
+          // AWS Query uses member names directly (no capitalization unlike EC2)
+          expect(params["UserName"]).toBe("john.doe");
+        }),
     );
 
     it.effect("should serialize boolean true parameters", () =>
@@ -135,18 +139,20 @@ describe("awsQuery protocol", () => {
   // ==========================================================================
 
   describe("query key resolution", () => {
-    it.effect("should use member name directly (unlike EC2 which capitalizes)", () =>
-      Effect.gen(function* () {
-        const request = yield* buildRequest(ListUsersRequest, {
-          PathPrefix: "/engineering/",
-          Marker: "next-token-123",
-        });
+    it.effect(
+      "should use member name directly (unlike EC2 which capitalizes)",
+      () =>
+        Effect.gen(function* () {
+          const request = yield* buildRequest(ListUsersRequest, {
+            PathPrefix: "/engineering/",
+            Marker: "next-token-123",
+          });
 
-        const params = parseFormBody(request.body as string);
-        // AWS Query uses member names directly
-        expect(params["PathPrefix"]).toBe("/engineering/");
-        expect(params["Marker"]).toBe("next-token-123");
-      }),
+          const params = parseFormBody(request.body as string);
+          // AWS Query uses member names directly
+          expect(params["PathPrefix"]).toBe("/engineering/");
+          expect(params["Marker"]).toBe("next-token-123");
+        }),
     );
   });
 
@@ -155,23 +161,25 @@ describe("awsQuery protocol", () => {
   // ==========================================================================
 
   describe("list serialization", () => {
-    it.effect("should serialize lists with .member.N format (not flattened by default)", () =>
-      Effect.gen(function* () {
-        const request = yield* buildRequest(CreateUserRequest, {
-          UserName: "new-user",
-          Tags: [
-            { Key: "Environment", Value: "Production" },
-            { Key: "Team", Value: "Platform" },
-          ],
-        });
+    it.effect(
+      "should serialize lists with .member.N format (not flattened by default)",
+      () =>
+        Effect.gen(function* () {
+          const request = yield* buildRequest(CreateUserRequest, {
+            UserName: "new-user",
+            Tags: [
+              { Key: "Environment", Value: "Production" },
+              { Key: "Team", Value: "Platform" },
+            ],
+          });
 
-        const params = parseFormBody(request.body as string);
-        // AWS Query format: Key.member.N for non-flattened lists
-        expect(params["Tags.member.1.Key"]).toBe("Environment");
-        expect(params["Tags.member.1.Value"]).toBe("Production");
-        expect(params["Tags.member.2.Key"]).toBe("Team");
-        expect(params["Tags.member.2.Value"]).toBe("Platform");
-      }),
+          const params = parseFormBody(request.body as string);
+          // AWS Query format: Key.member.N for non-flattened lists
+          expect(params["Tags.member.1.Key"]).toBe("Environment");
+          expect(params["Tags.member.1.Value"]).toBe("Production");
+          expect(params["Tags.member.2.Key"]).toBe("Team");
+          expect(params["Tags.member.2.Value"]).toBe("Platform");
+        }),
     );
 
     it.effect("should not serialize empty lists", () =>
@@ -183,7 +191,9 @@ describe("awsQuery protocol", () => {
 
         const params = parseFormBody(request.body as string);
         // Empty lists should not produce any entries
-        expect(Object.keys(params).filter((k) => k.startsWith("Tags"))).toHaveLength(0);
+        expect(
+          Object.keys(params).filter((k) => k.startsWith("Tags")),
+        ).toHaveLength(0);
       }),
     );
 
@@ -211,11 +221,14 @@ describe("awsQuery protocol", () => {
       "should serialize lists using xmlName from element schema (AttributeValue instead of member)",
       () =>
         Effect.gen(function* () {
-          const request = yield* buildRequest(ModifyDBClusterSnapshotAttributeMessage, {
-            DBClusterSnapshotIdentifier: "my-snapshot",
-            AttributeName: "restore",
-            ValuesToAdd: ["111111111111", "222222222222"],
-          });
+          const request = yield* buildRequest(
+            ModifyDBClusterSnapshotAttributeMessage,
+            {
+              DBClusterSnapshotIdentifier: "my-snapshot",
+              AttributeName: "restore",
+              ValuesToAdd: ["111111111111", "222222222222"],
+            },
+          );
 
           const params = parseFormBody(request.body as string);
           // Neptune's AttributeValueList has xmlName="AttributeValue" on element
@@ -252,7 +265,10 @@ describe("awsQuery protocol", () => {
 </ModifyDBClusterSnapshotAttributeResponse>`,
         };
 
-        const result = yield* parseResponse(ModifyDBClusterSnapshotAttributeResult, response);
+        const result = yield* parseResponse(
+          ModifyDBClusterSnapshotAttributeResult,
+          response,
+        );
         expect(result.DBClusterSnapshotAttributesResult).toBeDefined();
       }),
     );
@@ -281,8 +297,12 @@ describe("awsQuery protocol", () => {
           const params = parseFormBody(request.body as string);
           // SNS MessageAttributeMap has xmlName="Name" on key and xmlName="Value" on value
           expect(params["MessageAttributes.entry.1.Name"]).toBe("priority");
-          expect(params["MessageAttributes.entry.1.Value.DataType"]).toBe("String");
-          expect(params["MessageAttributes.entry.1.Value.StringValue"]).toBe("high");
+          expect(params["MessageAttributes.entry.1.Value.DataType"]).toBe(
+            "String",
+          );
+          expect(params["MessageAttributes.entry.1.Value.StringValue"]).toBe(
+            "high",
+          );
         }),
     );
 
@@ -345,18 +365,22 @@ describe("awsQuery protocol", () => {
         expect(result.User?.UserName).toBe("john.doe");
         expect(result.User?.UserId).toBe("AIDACKCEVSQ6C2EXAMPLE");
         expect(result.User?.Path).toBe("/");
-        expect(result.User?.Arn).toBe("arn:aws:iam::123456789012:user/john.doe");
+        expect(result.User?.Arn).toBe(
+          "arn:aws:iam::123456789012:user/john.doe",
+        );
         expect(result.User?.CreateDate).toBeInstanceOf(Date);
       }),
     );
 
-    it.effect("should deserialize response with lists using member wrapper", () =>
-      Effect.gen(function* () {
-        const response: Response = {
-          status: 200,
-          statusText: "OK",
-          headers: { "Content-Type": "text/xml;charset=UTF-8" },
-          body: `<?xml version="1.0" encoding="UTF-8"?>
+    it.effect(
+      "should deserialize response with lists using member wrapper",
+      () =>
+        Effect.gen(function* () {
+          const response: Response = {
+            status: 200,
+            statusText: "OK",
+            headers: { "Content-Type": "text/xml;charset=UTF-8" },
+            body: `<?xml version="1.0" encoding="UTF-8"?>
 <ListUsersResponse xmlns="https://iam.amazonaws.com/doc/2010-05-08/">
     <ListUsersResult>
         <IsTruncated>false</IsTruncated>
@@ -381,15 +405,15 @@ describe("awsQuery protocol", () => {
         <RequestId>abc123</RequestId>
     </ResponseMetadata>
 </ListUsersResponse>`,
-        };
+          };
 
-        const result = yield* parseResponse(ListUsersResponse, response);
+          const result = yield* parseResponse(ListUsersResponse, response);
 
-        expect(result.IsTruncated).toBe(false);
-        expect(result.Users).toHaveLength(2);
-        expect(result.Users[0].UserName).toBe("alice");
-        expect(result.Users[1].UserName).toBe("bob");
-      }),
+          expect(result.IsTruncated).toBe(false);
+          expect(result.Users).toHaveLength(2);
+          expect(result.Users[0].UserName).toBe("alice");
+          expect(result.Users[1].UserName).toBe("bob");
+        }),
     );
 
     it.effect("should deserialize response with map (summaryMapType)", () =>
@@ -418,7 +442,10 @@ describe("awsQuery protocol", () => {
 </GetAccountSummaryResponse>`,
         };
 
-        const result = yield* parseResponse(GetAccountSummaryResponse, response);
+        const result = yield* parseResponse(
+          GetAccountSummaryResponse,
+          response,
+        );
 
         expect(result.SummaryMap).toBeDefined();
       }),
@@ -462,20 +489,24 @@ describe("awsQuery protocol", () => {
         };
 
         // Schemas with required fields should fail to parse when fields are missing
-        const result = yield* Effect.either(parseResponse(GetUserResponse, response));
+        const result = yield* Effect.either(
+          parseResponse(GetUserResponse, response),
+        );
 
         expect(result._tag).toBe("Left"); // Should be a parse error
       }),
     );
 
-    it.effect("should fail when required fields are missing (empty Result)", () =>
-      Effect.gen(function* () {
-        // ListUsersResponse has required Users field
-        const response: Response = {
-          status: 200,
-          statusText: "OK",
-          headers: { "Content-Type": "text/xml;charset=UTF-8" },
-          body: `<?xml version="1.0" encoding="UTF-8"?>
+    it.effect(
+      "should fail when required fields are missing (empty Result)",
+      () =>
+        Effect.gen(function* () {
+          // ListUsersResponse has required Users field
+          const response: Response = {
+            status: 200,
+            statusText: "OK",
+            headers: { "Content-Type": "text/xml;charset=UTF-8" },
+            body: `<?xml version="1.0" encoding="UTF-8"?>
 <ListUsersResponse xmlns="https://iam.amazonaws.com/doc/2010-05-08/">
     <ListUsersResult>
     </ListUsersResult>
@@ -483,13 +514,15 @@ describe("awsQuery protocol", () => {
         <RequestId>abc123</RequestId>
     </ResponseMetadata>
 </ListUsersResponse>`,
-        };
+          };
 
-        // Schemas with required fields should fail to parse when fields are missing
-        const result = yield* Effect.either(parseResponse(ListUsersResponse, response));
+          // Schemas with required fields should fail to parse when fields are missing
+          const result = yield* Effect.either(
+            parseResponse(ListUsersResponse, response),
+          );
 
-        expect(result._tag).toBe("Left"); // Should be a parse error
-      }),
+          expect(result._tag).toBe("Left"); // Should be a parse error
+        }),
     );
 
     it.effect("should URL-encode special characters in request values", () =>
@@ -503,14 +536,16 @@ describe("awsQuery protocol", () => {
       }),
     );
 
-    it.effect("should handle single item in list (not wrapped in array by parser)", () =>
-      Effect.gen(function* () {
-        // When XML has only one item, the parser may return an object instead of array
-        const response: Response = {
-          status: 200,
-          statusText: "OK",
-          headers: { "Content-Type": "text/xml;charset=UTF-8" },
-          body: `<?xml version="1.0" encoding="UTF-8"?>
+    it.effect(
+      "should handle single item in list (not wrapped in array by parser)",
+      () =>
+        Effect.gen(function* () {
+          // When XML has only one item, the parser may return an object instead of array
+          const response: Response = {
+            status: 200,
+            statusText: "OK",
+            headers: { "Content-Type": "text/xml;charset=UTF-8" },
+            body: `<?xml version="1.0" encoding="UTF-8"?>
 <ListUsersResponse xmlns="https://iam.amazonaws.com/doc/2010-05-08/">
     <ListUsersResult>
         <Users>
@@ -527,14 +562,14 @@ describe("awsQuery protocol", () => {
         <RequestId>abc123</RequestId>
     </ResponseMetadata>
 </ListUsersResponse>`,
-        };
+          };
 
-        const result = yield* parseResponse(ListUsersResponse, response);
+          const result = yield* parseResponse(ListUsersResponse, response);
 
-        // Should still be an array with one item
-        expect(Array.isArray(result.Users)).toBe(true);
-        expect(result.Users).toHaveLength(1);
-      }),
+          // Should still be an array with one item
+          expect(Array.isArray(result.Users)).toBe(true);
+          expect(result.Users).toHaveLength(1);
+        }),
     );
   });
 
@@ -543,19 +578,21 @@ describe("awsQuery protocol", () => {
   // ==========================================================================
 
   describe("differences from EC2 Query", () => {
-    it.effect("should use .member.N format for lists (not flattened like EC2)", () =>
-      Effect.gen(function* () {
-        const request = yield* buildRequest(CreateUserRequest, {
-          UserName: "test-user",
-          Tags: [{ Key: "env", Value: "test" }],
-        });
+    it.effect(
+      "should use .member.N format for lists (not flattened like EC2)",
+      () =>
+        Effect.gen(function* () {
+          const request = yield* buildRequest(CreateUserRequest, {
+            UserName: "test-user",
+            Tags: [{ Key: "env", Value: "test" }],
+          });
 
-        const params = parseFormBody(request.body as string);
-        // AWS Query: Tags.member.1.Key
-        // EC2 Query would be: Tag.1.Key (flattened, capitalized)
-        expect(params["Tags.member.1.Key"]).toBe("env");
-        expect(params["Tags.member.1.Value"]).toBe("test");
-      }),
+          const params = parseFormBody(request.body as string);
+          // AWS Query: Tags.member.1.Key
+          // EC2 Query would be: Tag.1.Key (flattened, capitalized)
+          expect(params["Tags.member.1.Key"]).toBe("env");
+          expect(params["Tags.member.1.Value"]).toBe("test");
+        }),
     );
 
     it.effect("should use member name directly without capitalization", () =>
@@ -594,9 +631,9 @@ describe("awsQuery protocol", () => {
 </ErrorResponse>`,
         };
 
-        const result = yield* parseResponse(GetUserRequest, response, [NoSuchEntityException]).pipe(
-          Effect.flip,
-        );
+        const result = yield* parseResponse(GetUserRequest, response, [
+          NoSuchEntityException,
+        ]).pipe(Effect.flip);
 
         expect(result).toBeInstanceOf(NoSuchEntityException);
         expect(result._tag).toBe("NoSuchEntityException");
@@ -620,9 +657,9 @@ describe("awsQuery protocol", () => {
 </ErrorResponse>`,
         };
 
-        const result = yield* parseResponse(GetUserRequest, response, [NoSuchEntityException]).pipe(
-          Effect.flip,
-        );
+        const result = yield* parseResponse(GetUserRequest, response, [
+          NoSuchEntityException,
+        ]).pipe(Effect.flip);
 
         expect(result).toBeInstanceOf(NoSuchEntityException);
       }),
@@ -645,7 +682,9 @@ describe("awsQuery protocol", () => {
 </ErrorResponse>`,
         };
 
-        const result = yield* parseResponse(GetUserRequest, response, []).pipe(Effect.flip);
+        const result = yield* parseResponse(GetUserRequest, response, []).pipe(
+          Effect.flip,
+        );
 
         expect(result).toBeInstanceOf(ValidationException);
       }),
@@ -668,10 +707,14 @@ describe("awsQuery protocol", () => {
 </ErrorResponse>`,
         };
 
-        const result = yield* parseResponse(GetUserRequest, response, []).pipe(Effect.flip);
+        const result = yield* parseResponse(GetUserRequest, response, []).pipe(
+          Effect.flip,
+        );
 
         expect(result).toBeInstanceOf(UnknownAwsError);
-        expect((result as UnknownAwsError).errorTag).toBe("InternalServiceError");
+        expect((result as UnknownAwsError).errorTag).toBe(
+          "InternalServiceError",
+        );
         expect((result as UnknownAwsError).errorData).toMatchObject({
           Type: "Receiver",
           Message: "An internal error occurred",

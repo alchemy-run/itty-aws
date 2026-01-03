@@ -35,7 +35,9 @@ import {
 // Helper to build a request from an instance
 const buildRequest = <A, I>(schema: S.Schema<A, I>, instance: A) => {
   const operation = { input: schema, output: schema, errors: [] };
-  const builder = makeRequestBuilder(operation, { protocol: awsJson1_0Protocol });
+  const builder = makeRequestBuilder(operation, {
+    protocol: awsJson1_0Protocol,
+  });
   return builder({ ...instance });
 };
 
@@ -283,7 +285,8 @@ describe("awsJson1_0 protocol", () => {
             "X-Amz-Target": "dynamodb.TagResource",
           },
           body: JSON.stringify({
-            ResourceArn: "arn:aws:dynamodb:us-east-1:123456789012:table/my-table",
+            ResourceArn:
+              "arn:aws:dynamodb:us-east-1:123456789012:table/my-table",
             Tags: [
               { Key: "Environment", Value: "Production" },
               { Key: "Team", Value: "Platform" },
@@ -473,33 +476,35 @@ describe("awsJson1_0 protocol", () => {
       }),
     );
 
-    it.effect("should deserialize GetItemOutput with string AttributeValues", () =>
-      Effect.gen(function* () {
-        const response: Response = {
-          status: 200,
-          statusText: "OK",
-          headers: { "Content-Type": "application/x-amz-json-1.0" },
-          body: JSON.stringify({
+    it.effect(
+      "should deserialize GetItemOutput with string AttributeValues",
+      () =>
+        Effect.gen(function* () {
+          const response: Response = {
+            status: 200,
+            statusText: "OK",
+            headers: { "Content-Type": "application/x-amz-json-1.0" },
+            body: JSON.stringify({
+              Item: {
+                pk: "user#123",
+                sk: "profile",
+                name: "John Doe",
+                active: true,
+              },
+            }),
+          };
+
+          const result = yield* parseResponse(GetItemOutput, response);
+
+          expect(result).toMatchObject({
             Item: {
               pk: "user#123",
               sk: "profile",
               name: "John Doe",
               active: true,
             },
-          }),
-        };
-
-        const result = yield* parseResponse(GetItemOutput, response);
-
-        expect(result).toMatchObject({
-          Item: {
-            pk: "user#123",
-            sk: "profile",
-            name: "John Doe",
-            active: true,
-          },
-        });
-      }),
+          });
+        }),
     );
 
     it.effect("should deserialize QueryOutput with Items list", () =>
@@ -538,7 +543,8 @@ describe("awsJson1_0 protocol", () => {
           statusText: "OK",
           headers: { "Content-Type": "application/x-amz-json-1.0" },
           body: JSON.stringify({
-            activityArn: "arn:aws:states:us-east-1:123456789012:activity:my-activity",
+            activityArn:
+              "arn:aws:states:us-east-1:123456789012:activity:my-activity",
             creationDate: 1705321800,
           }),
         };
@@ -546,47 +552,54 @@ describe("awsJson1_0 protocol", () => {
         const result = yield* parseResponse(CreateActivityOutput, response);
 
         expect(result).toMatchObject({
-          activityArn: "arn:aws:states:us-east-1:123456789012:activity:my-activity",
+          activityArn:
+            "arn:aws:states:us-east-1:123456789012:activity:my-activity",
           creationDate: new Date("2024-01-15T12:30:00.000Z"),
         });
       }),
     );
 
-    it.effect("should deserialize ListExecutionsOutput with timestamp array", () =>
-      Effect.gen(function* () {
-        const response: Response = {
-          status: 200,
-          statusText: "OK",
-          headers: { "Content-Type": "application/x-amz-json-1.0" },
-          body: JSON.stringify({
+    it.effect(
+      "should deserialize ListExecutionsOutput with timestamp array",
+      () =>
+        Effect.gen(function* () {
+          const response: Response = {
+            status: 200,
+            statusText: "OK",
+            headers: { "Content-Type": "application/x-amz-json-1.0" },
+            body: JSON.stringify({
+              executions: [
+                {
+                  executionArn:
+                    "arn:aws:states:us-east-1:123:execution:my-sm:exec-1",
+                  stateMachineArn:
+                    "arn:aws:states:us-east-1:123:stateMachine:my-sm",
+                  name: "exec-1",
+                  status: "SUCCEEDED",
+                  startDate: 1705321800,
+                  stopDate: 1705325400,
+                },
+              ],
+            }),
+          };
+
+          const result = yield* parseResponse(ListExecutionsOutput, response);
+
+          expect(result).toMatchObject({
             executions: [
               {
-                executionArn: "arn:aws:states:us-east-1:123:execution:my-sm:exec-1",
-                stateMachineArn: "arn:aws:states:us-east-1:123:stateMachine:my-sm",
+                executionArn:
+                  "arn:aws:states:us-east-1:123:execution:my-sm:exec-1",
+                stateMachineArn:
+                  "arn:aws:states:us-east-1:123:stateMachine:my-sm",
                 name: "exec-1",
                 status: "SUCCEEDED",
-                startDate: 1705321800,
-                stopDate: 1705325400,
+                startDate: new Date("2024-01-15T12:30:00.000Z"),
+                stopDate: new Date("2024-01-15T13:30:00.000Z"),
               },
             ],
-          }),
-        };
-
-        const result = yield* parseResponse(ListExecutionsOutput, response);
-
-        expect(result).toMatchObject({
-          executions: [
-            {
-              executionArn: "arn:aws:states:us-east-1:123:execution:my-sm:exec-1",
-              stateMachineArn: "arn:aws:states:us-east-1:123:stateMachine:my-sm",
-              name: "exec-1",
-              status: "SUCCEEDED",
-              startDate: new Date("2024-01-15T12:30:00.000Z"),
-              stopDate: new Date("2024-01-15T13:30:00.000Z"),
-            },
-          ],
-        });
-      }),
+          });
+        }),
     );
 
     it.effect("should deserialize empty response body", () =>
@@ -827,7 +840,8 @@ describe("awsJson1_0 protocol", () => {
           statusText: "Bad Request",
           headers: {},
           body: JSON.stringify({
-            __type: "ResourceNotFoundException:http://internal.amazon.com/coral/validate/",
+            __type:
+              "ResourceNotFoundException:http://internal.amazon.com/coral/validate/",
             message: "Not found",
           }),
         };
@@ -847,7 +861,8 @@ describe("awsJson1_0 protocol", () => {
           statusText: "Bad Request",
           headers: {},
           body: JSON.stringify({
-            __type: "com.amazonaws.dynamodb#ResourceNotFoundException:http://extra",
+            __type:
+              "com.amazonaws.dynamodb#ResourceNotFoundException:http://extra",
             message: "Not found",
           }),
         };
@@ -873,7 +888,11 @@ describe("awsJson1_0 protocol", () => {
         };
 
         // ValidationException is in COMMON_ERRORS, so it should match even without being in operation.errors
-        const result = yield* parseResponse(DescribeTableInput, response, []).pipe(Effect.flip);
+        const result = yield* parseResponse(
+          DescribeTableInput,
+          response,
+          [],
+        ).pipe(Effect.flip);
 
         expect(result).toBeInstanceOf(ValidationException);
         expect(result._tag).toBe("ValidationException");
@@ -893,7 +912,11 @@ describe("awsJson1_0 protocol", () => {
           }),
         };
 
-        const result = yield* parseResponse(DescribeTableInput, response, []).pipe(Effect.flip);
+        const result = yield* parseResponse(
+          DescribeTableInput,
+          response,
+          [],
+        ).pipe(Effect.flip);
 
         expect(result).toBeInstanceOf(UnknownAwsError);
         expect((result as UnknownAwsError).errorTag).toBe("SomeUnknownError");
