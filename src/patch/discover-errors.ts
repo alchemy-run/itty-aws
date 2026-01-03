@@ -141,6 +141,9 @@ const tools = toolkit.toLayer(
       }),
       DescribeOperation: Effect.fn(function* ({ service, operation }) {
         const api = yield* getOperation(service, operation);
+        if (!api) {
+          return `Operation '${operation}' not found in service '${service}'`;
+        }
         const spec = {
           inputSchema: JSONSchema.make(api.input),
           knownErrors: api.errors.map((err) => err._tag),
@@ -155,8 +158,14 @@ const tools = toolkit.toLayer(
       // }),
       CallApi: Effect.fn(function* ({ service, operation, input, region }) {
         // Resolve to the canonical operation name used in generated code
-        const operationName = yield* resolveOperationName(service, operation);
+        const operationName = (yield* resolveOperationName(
+          service,
+          operation,
+        ))!;
         const api = yield* getOperation(service, operation);
+        if (!api) {
+          return `Operation '${operation}' not found in service '${service}'`;
+        }
         const effectiveRegion = region ?? "us-west-2";
 
         // Load spec patches to include discovered errors and aliases
@@ -411,7 +420,7 @@ const resolveOperationName = Effect.fn(function* (
       return op;
     }
   }
-  return yield* Effect.fail(`Operation ${operation} not found`);
+  return undefined;
 });
 
 const getOperation = Effect.fn(function* (service: string, operation: string) {
@@ -419,6 +428,9 @@ const getOperation = Effect.fn(function* (service: string, operation: string) {
     (input: any): Effect.Effect<any, any, Region | Credentials>;
   };
   const svc = yield* getService(service);
+  if (!svc) {
+    return undefined;
+  }
   const resolvedName = yield* resolveOperationName(service, operation);
   return svc[resolvedName as keyof typeof svc] as Op;
 });
@@ -532,18 +544,13 @@ We need to discover the ACTUAL error codes returned by AWS APIs and compare them
 const discover = Command.make(
   "discover",
   {
-    service: Args.text({ name: "service" }).pipe(
-      Args.withDescription("AWS service name (e.g., S3, DynamoDb)"),
-    ),
-    operation: Args.text({ name: "operation" }).pipe(
-      Args.withDescription("Operation name (e.g., getObject, putObject)"),
-    ),
-    extraContext: Args.text({ name: "extra-context" }).pipe(
-      Args.withDescription("Additional context to append to the prompt"),
-      Args.optional,
+    prompt: Args.text({ name: "prompt" }).pipe(
+      Args.withDescription(
+        "What to explore (e.g., 'discover S3 errors' or 'explore DynamoDB GetItem')",
+      ),
     ),
   },
-  ({ service, operation, extraContext }) =>
+  ({ prompt: userPrompt }) =>
     Effect.gen(function* () {
       const chat = yield* Chat.fromPrompt([
         {
@@ -552,44 +559,48 @@ const discover = Command.make(
         },
       ]);
 
-      // TODO(sam): should we reduce this down? It's a lot of tokens to add per iteration
-      const basePrompt = `Discover missing or incorrectly named errors for the ${service}.${operation} operation.
+      const basePrompt = `Discover missing or incorrectly named errors for AWS APIs.
 
-1. Use DescribeOperation to see the input schema and currently defined errors.
-2. Use ListOperations to find helper operations you can use to SET UP RESOURCES (e.g., CreateBucket, PutObject).
-3. **Create resources first** to trigger state-based errors:
+**Your task:** ${userPrompt}
+
+## How to proceed:
+
+1. Use ListServices to see available services, then ListOperations to find operations.
+2. Use DescribeOperation to see the input schema and currently defined errors for operations you want to explore.
+3. Use ListOperations to find helper operations you can use to SET UP RESOURCES (e.g., CreateBucket, PutObject).
+4. **Create resources first** to trigger state-based errors:
    - Create a bucket/resource, then try to create it again (AlreadyExists errors)
    - Create a bucket, add objects, try to delete (BucketNotEmpty)
    - Create resources so you can test the target operation with real state
-4. **Test region-specific behavior** using the "region" parameter in CallApi:
+5. **Test region-specific behavior** using the "region" parameter in CallApi:
    - Try operations in different regions (us-east-1, eu-west-1, ap-southeast-1)
    - For S3 CreateBucket: test with/without LocationConstraint in different regions
    - Test mismatched regions (e.g., create in one region, access from another)
-5. Also test with non-existent resources and invalid inputs for validation errors.
-6. When you see "⚠️ NEW ERROR DISCOVERED", that error has been recorded automatically.
-7. Keep probing until you've discovered errors from ALL categories:
+6. Also test with non-existent resources and invalid inputs for validation errors.
+7. When you see "⚠️ NEW ERROR DISCOVERED", that error has been recorded automatically.
+8. Keep probing until you've discovered errors from ALL categories:
    - Invalid/missing input scenarios
    - State-based scenarios (resources that already exist, wrong state, etc.)
    - Region-specific scenarios
-8. **CLEANUP before summarizing**: Delete all resources you created during testing:
+9. **CLEANUP before summarizing**: Delete all resources you created during testing:
    - Delete objects from buckets first, then delete the buckets
    - Delete any other resources (queues, tables, etc.)
    - This keeps the environment clean for future runs
-9. When done cleaning up, provide a summary of what you found.
+10. When done cleaning up, provide a summary of what you found.
 
-Begin by describing the operation, then list operations to find helpers for setting up test resources.`;
+Begin by understanding what the user wants to explore, then use the appropriate tools.`;
 
-      const prompt = extraContext
-        ? `${basePrompt}\n\n**Additional Context:**\n${extraContext}`
-        : basePrompt;
+      let isFirstIteration = true;
 
       while (true) {
         let finishReason: string | undefined;
 
         const stream = chat.streamText({
           toolkit,
-          prompt,
+          // Only send the full prompt on the first iteration
+          prompt: isFirstIteration ? basePrompt : "Continue.",
         });
+        isFirstIteration = false;
 
         yield* Stream.runForEach(stream, (part) =>
           Effect.sync(() => {

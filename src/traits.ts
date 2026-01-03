@@ -575,7 +575,11 @@ export const StreamingInput = S.declare(
     (typeof globalThis.Blob !== "undefined" && u instanceof globalThis.Blob) ||
     u instanceof ReadableStream ||
     isEffectStream(u),
-).annotations({ [streamingSymbol]: true, identifier: "StreamingInput" });
+).annotations({
+  [streamingSymbol]: true,
+  identifier: "StreamingInput",
+  jsonSchema: { type: "string" },
+});
 
 /**
  * Streaming output body - always Effect Stream for composability.
@@ -586,7 +590,11 @@ export const StreamingInput = S.declare(
 
 export const StreamingOutput = S.declare(
   (u): u is Stream.Stream<Uint8Array, Error, never> => isEffectStream(u),
-).annotations({ [streamingSymbol]: true, identifier: "StreamingOutput" });
+).annotations({
+  [streamingSymbol]: true,
+  identifier: "StreamingOutput",
+  jsonSchema: { type: "string" },
+});
 
 /**
  * Check if a value is an Effect Stream.

@@ -23,18 +23,408 @@
     },
     "putBucketReplication": {
       "errors": [
-        "InvalidRequest"
+        "InvalidRequest",
+        "NoSuchBucket"
       ]
     },
     "putObjectLockConfiguration": {
       "errors": [
-        "InvalidBucketState"
+        "InvalidBucketState",
+        "NoSuchBucket"
       ]
     },
     "putBucketPolicy": {
       "errors": [
         "AccessDenied",
         "MalformedPolicy",
+        "NoSuchBucket"
+      ]
+    },
+    "headBucket": {
+      "errors": [
+        "ParseError"
+      ]
+    },
+    "getBucketPolicy": {
+      "errors": [
+        "NoSuchBucket",
+        "NoSuchBucketPolicy"
+      ]
+    },
+    "getBucketTagging": {
+      "errors": [
+        "NoSuchBucket",
+        "NoSuchTagSet"
+      ]
+    },
+    "putBucketTagging": {
+      "errors": [
+        "NoSuchBucket"
+      ]
+    },
+    "deleteBucketTagging": {
+      "errors": [
+        "NoSuchBucket"
+      ]
+    },
+    "getBucketLifecycleConfiguration": {
+      "errors": [
+        "NoSuchBucket",
+        "NoSuchLifecycleConfiguration"
+      ]
+    },
+    "putBucketVersioning": {
+      "errors": [
+        "NoSuchBucket"
+      ]
+    },
+    "putBucketCors": {
+      "errors": [
+        "NoSuchBucket"
+      ]
+    },
+    "getBucketCors": {
+      "errors": [
+        "NoSuchBucket",
+        "NoSuchCORSConfiguration"
+      ]
+    },
+    "deleteBucketCors": {
+      "errors": [
+        "NoSuchBucket"
+      ]
+    },
+    "putBucketEncryption": {
+      "errors": [
+        "NoSuchBucket"
+      ]
+    },
+    "putBucketAcl": {
+      "errors": [
+        "NoSuchBucket"
+      ]
+    },
+    "deleteObject": {
+      "errors": [
+        "NoSuchBucket"
+      ]
+    },
+    "putObject": {
+      "errors": [
+        "NoSuchBucket"
+      ]
+    },
+    "deleteBucketEncryption": {
+      "errors": [
+        "NoSuchBucket"
+      ]
+    },
+    "getBucketEncryption": {
+      "errors": [
+        "NoSuchBucket",
+        "ParseError"
+      ]
+    },
+    "getBucketAcl": {
+      "errors": [
+        "NoSuchBucket"
+      ]
+    },
+    "getBucketVersioning": {
+      "errors": [
+        "NoSuchBucket"
+      ]
+    },
+    "getBucketLocation": {
+      "errors": [
+        "NoSuchBucket"
+      ]
+    },
+    "getBucketLogging": {
+      "errors": [
+        "NoSuchBucket"
+      ]
+    },
+    "getBucketAccelerateConfiguration": {
+      "errors": [
+        "NoSuchBucket"
+      ]
+    },
+    "getBucketRequestPayment": {
+      "errors": [
+        "NoSuchBucket"
+      ]
+    },
+    "putBucketLogging": {
+      "errors": [
+        "NoSuchBucket"
+      ]
+    },
+    "putBucketAccelerateConfiguration": {
+      "errors": [
+        "NoSuchBucket"
+      ]
+    },
+    "putBucketRequestPayment": {
+      "errors": [
+        "NoSuchBucket"
+      ]
+    },
+    "getPublicAccessBlock": {
+      "errors": [
+        "NoSuchBucket"
+      ]
+    },
+    "putPublicAccessBlock": {
+      "errors": [
+        "NoSuchBucket"
+      ]
+    },
+    "deletePublicAccessBlock": {
+      "errors": [
+        "NoSuchBucket"
+      ]
+    },
+    "putBucketNotificationConfiguration": {
+      "errors": [
+        "NoSuchBucket"
+      ]
+    },
+    "getBucketNotificationConfiguration": {
+      "errors": [
+        "NoSuchBucket"
+      ]
+    },
+    "getBucketAnalyticsConfiguration": {
+      "errors": [
+        "NoSuchBucket",
+        "NoSuchConfiguration"
+      ]
+    },
+    "deleteBucketAnalyticsConfiguration": {
+      "errors": [
+        "NoSuchBucket"
+      ]
+    },
+    "listBucketAnalyticsConfigurations": {
+      "errors": [
+        "NoSuchBucket"
+      ]
+    },
+    "putBucketMetricsConfiguration": {
+      "errors": [
+        "NoSuchBucket"
+      ]
+    },
+    "getBucketMetricsConfiguration": {
+      "errors": [
+        "NoSuchBucket",
+        "NoSuchConfiguration"
+      ]
+    },
+    "deleteBucketMetricsConfiguration": {
+      "errors": [
+        "NoSuchBucket"
+      ]
+    },
+    "listBucketMetricsConfigurations": {
+      "errors": [
+        "NoSuchBucket"
+      ]
+    },
+    "putBucketInventoryConfiguration": {
+      "errors": [
+        "NoSuchBucket"
+      ]
+    },
+    "getBucketInventoryConfiguration": {
+      "errors": [
+        "NoSuchBucket",
+        "NoSuchConfiguration"
+      ]
+    },
+    "deleteBucketInventoryConfiguration": {
+      "errors": [
+        "NoSuchBucket"
+      ]
+    },
+    "listBucketInventoryConfigurations": {
+      "errors": [
+        "NoSuchBucket"
+      ]
+    },
+    "getBucketReplication": {
+      "errors": [
+        "NoSuchBucket",
+        "ReplicationConfigurationNotFoundError"
+      ]
+    },
+    "deleteBucketReplication": {
+      "errors": [
+        "NoSuchBucket"
+      ]
+    },
+    "putBucketOwnershipControls": {
+      "errors": [
+        "NoSuchBucket"
+      ]
+    },
+    "getBucketOwnershipControls": {
+      "errors": [
+        "NoSuchBucket"
+      ]
+    },
+    "putBucketWebsite": {
+      "errors": [
+        "NoSuchBucket"
+      ]
+    },
+    "getBucketWebsite": {
+      "errors": [
+        "NoSuchBucket",
+        "NoSuchWebsiteConfiguration"
+      ]
+    },
+    "deleteBucketOwnershipControls": {
+      "errors": [
+        "NoSuchBucket"
+      ]
+    },
+    "deleteBucketWebsite": {
+      "errors": [
+        "NoSuchBucket"
+      ]
+    },
+    "getObjectLockConfiguration": {
+      "errors": [
+        "NoSuchBucket",
+        "ObjectLockConfigurationNotFoundError"
+      ]
+    },
+    "putBucketIntelligentTieringConfiguration": {
+      "errors": [
+        "NoSuchBucket"
+      ]
+    },
+    "getBucketIntelligentTieringConfiguration": {
+      "errors": [
+        "NoSuchBucket",
+        "NoSuchConfiguration"
+      ]
+    },
+    "deleteBucketIntelligentTieringConfiguration": {
+      "errors": [
+        "NoSuchBucket"
+      ]
+    },
+    "listBucketIntelligentTieringConfigurations": {
+      "errors": [
+        "NoSuchBucket"
+      ]
+    },
+    "deleteBucketPolicy": {
+      "errors": [
+        "NoSuchBucket"
+      ]
+    },
+    "getObject": {
+      "errors": [
+        "NoSuchBucket"
+      ]
+    },
+    "headObject": {
+      "errors": [
+        "ParseError"
+      ]
+    },
+    "getObjectAcl": {
+      "errors": [
+        "NoSuchBucket"
+      ]
+    },
+    "getObjectTagging": {
+      "errors": [
+        "NoSuchBucket",
+        "NoSuchKey"
+      ]
+    },
+    "deleteObjectTagging": {
+      "errors": [
+        "NoSuchKey"
+      ]
+    },
+    "putObjectTagging": {
+      "errors": [
+        "NoSuchKey"
+      ]
+    },
+    "getObjectRetention": {
+      "errors": [
+        "InvalidRequest"
+      ]
+    },
+    "putObjectRetention": {
+      "errors": [
+        "InvalidRequest"
+      ]
+    },
+    "getObjectLegalHold": {
+      "errors": [
+        "InvalidRequest"
+      ]
+    },
+    "putObjectLegalHold": {
+      "errors": [
+        "MalformedXML"
+      ]
+    },
+    "listMultipartUploads": {
+      "errors": [
+        "NoSuchBucket"
+      ]
+    },
+    "listObjectVersions": {
+      "errors": [
+        "NoSuchBucket"
+      ]
+    },
+    "createMultipartUpload": {
+      "errors": [
+        "NoSuchBucket"
+      ]
+    },
+    "copyObject": {
+      "errors": [
+        "NoSuchBucket"
+      ]
+    },
+    "uploadPart": {
+      "errors": [
+        "NoSuchBucket"
+      ]
+    },
+    "listParts": {
+      "errors": [
+        "NoSuchBucket"
+      ]
+    },
+    "abortMultipartUpload": {
+      "errors": [
+        "NoSuchBucket"
+      ]
+    },
+    "deleteObjects": {
+      "errors": [
+        "NoSuchBucket"
+      ]
+    },
+    "restoreObject": {
+      "errors": [
+        "NoSuchKey"
+      ]
+    },
+    "uploadPartCopy": {
+      "errors": [
         "NoSuchBucket"
       ]
     }
