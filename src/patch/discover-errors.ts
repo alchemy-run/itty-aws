@@ -538,8 +538,12 @@ const discover = Command.make(
     operation: Args.text({ name: "operation" }).pipe(
       Args.withDescription("Operation name (e.g., getObject, putObject)"),
     ),
+    extraContext: Args.text({ name: "extra-context" }).pipe(
+      Args.withDescription("Additional context to append to the prompt"),
+      Args.optional,
+    ),
   },
-  ({ service, operation }) =>
+  ({ service, operation, extraContext }) =>
     Effect.gen(function* () {
       const chat = yield* Chat.fromPrompt([
         {
@@ -549,7 +553,7 @@ const discover = Command.make(
       ]);
 
       // TODO(sam): should we reduce this down? It's a lot of tokens to add per iteration
-      const prompt = `Discover missing or incorrectly named errors for the ${service}.${operation} operation.
+      const basePrompt = `Discover missing or incorrectly named errors for the ${service}.${operation} operation.
 
 1. Use DescribeOperation to see the input schema and currently defined errors.
 2. Use ListOperations to find helper operations you can use to SET UP RESOURCES (e.g., CreateBucket, PutObject).
@@ -574,6 +578,10 @@ const discover = Command.make(
 9. When done cleaning up, provide a summary of what you found.
 
 Begin by describing the operation, then list operations to find helpers for setting up test resources.`;
+
+      const prompt = extraContext
+        ? `${basePrompt}\n\n**Additional Context:**\n${extraContext}`
+        : basePrompt;
 
       while (true) {
         let finishReason: string | undefined;

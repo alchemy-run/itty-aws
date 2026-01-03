@@ -16,7 +16,9 @@
     },
     "putBucketLifecycleConfiguration": {
       "errors": [
-        "MalformedXML"
+        "InvalidRequest",
+        "MalformedXML",
+        "NoSuchBucket"
       ]
     },
     "putBucketReplication": {
