@@ -282,6 +282,11 @@ function formatName(shapeId: string, lowercase = false) {
   return name;
 }
 
+// Helper to sanitize error names by removing dots (e.g., "InvalidVpcID.NotFound" -> "InvalidVpcIDNotFound")
+function sanitizeErrorName(name: string): string {
+  return name.replace(/\./g, "");
+}
+
 // Helper to convert schema expression to TypeScript type for type aliases
 // - allStructNames: set of all struct (class) names that can be used directly as types
 // - cyclicSchemas: set of cyclic schemas that have explicit type aliases
@@ -1400,11 +1405,12 @@ const generateClient = Effect.fn(function* (
 
           // Process patched errors (these are just error names, not shape IDs)
           // They will be generated as simple TaggedErrors
+          // Sanitize names to remove dots (e.g., "InvalidVpcID.NotFound" -> "InvalidVpcIDNotFound")
           const patchErrors = yield* Effect.forEach(
             patchedErrors,
             (errorName) =>
               addError({
-                name: errorName,
+                name: sanitizeErrorName(errorName),
                 shapeId: `patched#${errorName}`, // Synthetic shape ID for patched errors
               }),
           );

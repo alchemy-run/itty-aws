@@ -1,0 +1,615 @@
+{
+  "operations": {
+    "createVpc": {
+      "errors": [
+        "InvalidParameterValue",
+        "ParseError"
+      ]
+    },
+    "deleteVpc": {
+      "errors": [
+        "InvalidVpcID.NotFound"
+      ]
+    },
+    "createSubnet": {
+      "errors": [
+        "InvalidVpcID.NotFound"
+      ]
+    },
+    "deleteSubnet": {
+      "errors": [
+        "InvalidSubnetID.NotFound"
+      ]
+    },
+    "createInternetGateway": {
+      "errors": [
+        "ParseError"
+      ]
+    },
+    "deleteInternetGateway": {
+      "errors": [
+        "InvalidInternetGatewayID.NotFound"
+      ]
+    },
+    "attachInternetGateway": {
+      "errors": [
+        "InvalidInternetGatewayID.NotFound"
+      ]
+    },
+    "detachInternetGateway": {
+      "errors": [
+        "InvalidInternetGatewayID.NotFound"
+      ]
+    },
+    "createRouteTable": {
+      "errors": [
+        "InvalidVpcID.NotFound"
+      ]
+    },
+    "deleteRouteTable": {
+      "errors": [
+        "InvalidRouteTableID.NotFound"
+      ]
+    },
+    "createRoute": {
+      "errors": [
+        "InvalidRouteTableID.NotFound"
+      ]
+    },
+    "createNatGateway": {
+      "errors": [
+        "InvalidSubnetID.NotFound"
+      ]
+    },
+    "describeVpcs": {
+      "errors": [
+        "InvalidVpcID.NotFound",
+        "ParseError"
+      ]
+    },
+    "describeSubnets": {
+      "errors": [
+        "InvalidSubnetID.NotFound",
+        "ParseError"
+      ]
+    },
+    "describeInternetGateways": {
+      "errors": [
+        "InvalidInternetGatewayID.NotFound"
+      ]
+    },
+    "describeRouteTables": {
+      "errors": [
+        "InvalidRouteTableID.NotFound"
+      ]
+    },
+    "deleteSecurityGroup": {
+      "errors": [
+        "InvalidGroup.NotFound"
+      ]
+    },
+    "createNetworkAcl": {
+      "errors": [
+        "InvalidVpcID.NotFound"
+      ]
+    },
+    "deleteNetworkAcl": {
+      "errors": [
+        "InvalidNetworkAclID.NotFound"
+      ]
+    },
+    "createVpcPeeringConnection": {
+      "errors": [
+        "InvalidVpcID.NotFound"
+      ]
+    },
+    "acceptVpcPeeringConnection": {
+      "errors": [
+        "InvalidVpcPeeringConnectionId.NotFound"
+      ]
+    },
+    "deleteDhcpOptions": {
+      "errors": [
+        "InvalidDhcpOptionID.NotFound"
+      ]
+    },
+    "associateDhcpOptions": {
+      "errors": [
+        "InvalidVpcID.NotFound"
+      ]
+    },
+    "associateRouteTable": {
+      "errors": [
+        "InvalidRouteTableID.NotFound"
+      ]
+    },
+    "disassociateRouteTable": {
+      "errors": [
+        "InvalidAssociationID.NotFound"
+      ]
+    },
+    "describeNatGateways": {
+      "errors": [
+        "ParseError"
+      ]
+    },
+    "createVpcEndpoint": {
+      "errors": [
+        "InvalidVpcID.NotFound"
+      ]
+    },
+    "deleteVpcEndpoints": {
+      "errors": [
+        "ParseError"
+      ]
+    },
+    "rejectVpcPeeringConnection": {
+      "errors": [
+        "InvalidVpcPeeringConnectionId.NotFound"
+      ]
+    },
+    "deleteVpcPeeringConnection": {
+      "errors": [
+        "InvalidVpcPeeringConnectionId.NotFound"
+      ]
+    },
+    "associateVpcCidrBlock": {
+      "errors": [
+        "InvalidVpcID.NotFound"
+      ]
+    },
+    "modifySubnetAttribute": {
+      "errors": [
+        "InvalidSubnetID.NotFound"
+      ]
+    },
+    "disassociateVpcCidrBlock": {
+      "errors": [
+        "InvalidVpcCidrBlockAssociationIdError.NotFound"
+      ]
+    },
+    "authorizeSecurityGroupIngress": {
+      "errors": [
+        "InvalidGroup.NotFound"
+      ]
+    },
+    "revokeSecurityGroupIngress": {
+      "errors": [
+        "InvalidGroup.NotFound"
+      ]
+    },
+    "createNetworkInterface": {
+      "errors": [
+        "InvalidSubnetID.NotFound"
+      ]
+    },
+    "deleteNetworkInterface": {
+      "errors": [
+        "InvalidNetworkInterfaceID.NotFound"
+      ]
+    },
+    "createEgressOnlyInternetGateway": {
+      "errors": [
+        "InvalidVpcID.NotFound"
+      ]
+    },
+    "deleteEgressOnlyInternetGateway": {
+      "errors": [
+        "InvalidGatewayID.NotFound"
+      ]
+    },
+    "createVpnGateway": {
+      "errors": [
+        "ParseError"
+      ]
+    },
+    "deleteVpnGateway": {
+      "errors": [
+        "InvalidVpnGatewayID.NotFound"
+      ]
+    },
+    "attachVpnGateway": {
+      "errors": [
+        "InvalidVpnGatewayID.NotFound"
+      ]
+    },
+    "detachVpnGateway": {
+      "errors": [
+        "InvalidVpnGatewayID.NotFound"
+      ]
+    },
+    "createSecurityGroup": {
+      "errors": [
+        "InvalidGroup.Duplicate",
+        "MissingParameter"
+      ]
+    },
+    "createDhcpOptions": {
+      "errors": [
+        "ParseError"
+      ]
+    },
+    "createNetworkAclEntry": {
+      "errors": [
+        "InvalidNetworkAclID.NotFound"
+      ]
+    },
+    "deleteNetworkAclEntry": {
+      "errors": [
+        "InvalidNetworkAclID.NotFound"
+      ]
+    },
+    "replaceNetworkAclEntry": {
+      "errors": [
+        "InvalidNetworkAclID.NotFound"
+      ]
+    },
+    "createVpnConnection": {
+      "errors": [
+        "InvalidCustomerGatewayID.NotFound"
+      ]
+    },
+    "deleteVpnConnection": {
+      "errors": [
+        "InvalidVpnConnectionID.NotFound"
+      ]
+    },
+    "createCustomerGateway": {
+      "errors": [
+        "ParseError"
+      ]
+    },
+    "createTransitGatewayVpcAttachment": {
+      "errors": [
+        "InvalidTransitGatewayID.NotFound"
+      ]
+    },
+    "describeVpcAttribute": {
+      "errors": [
+        "InvalidVpcID.NotFound"
+      ]
+    },
+    "describeVpnGateways": {
+      "errors": [
+        "ParseError"
+      ]
+    },
+    "describeCustomerGateways": {
+      "errors": [
+        "ParseError"
+      ]
+    },
+    "authorizeSecurityGroupEgress": {
+      "errors": [
+        "InvalidGroup.NotFound"
+      ]
+    },
+    "revokeSecurityGroupEgress": {
+      "errors": [
+        "InvalidGroup.NotFound"
+      ]
+    },
+    "describeSecurityGroups": {
+      "errors": [
+        "InvalidGroup.NotFound",
+        "ParseError"
+      ]
+    },
+    "describeNetworkAcls": {
+      "errors": [
+        "InvalidRouteTableID.NotFound"
+      ]
+    },
+    "createCarrierGateway": {
+      "errors": [
+        "InvalidVpcID.NotFound"
+      ]
+    },
+    "deleteCarrierGateway": {
+      "errors": [
+        "InvalidCarrierGatewayID.NotFound"
+      ]
+    },
+    "createFlowLogs": {
+      "errors": [
+        "InvalidID"
+      ]
+    },
+    "deleteFlowLogs": {
+      "errors": [
+        "InvalidFlowLogId.NotFound"
+      ]
+    },
+    "createManagedPrefixList": {
+      "errors": [
+        "ParseError"
+      ]
+    },
+    "describeVpcPeeringConnections": {
+      "errors": [
+        "ParseError"
+      ]
+    },
+    "modifyVpcPeeringConnectionOptions": {
+      "errors": [
+        "InvalidVpcPeeringConnectionId.NotFound"
+      ]
+    },
+    "describeVpcEndpoints": {
+      "errors": [
+        "InvalidVpcEndpointId.NotFound"
+      ]
+    },
+    "modifyVpcEndpoint": {
+      "errors": [
+        "InvalidVpcEndpointId.NotFound"
+      ]
+    },
+    "replaceRoute": {
+      "errors": [
+        "InvalidRouteTableID.NotFound"
+      ]
+    },
+    "deleteRoute": {
+      "errors": [
+        "InvalidRouteTableID.NotFound"
+      ]
+    },
+    "describeVpcEndpointServices": {
+      "errors": [
+        "ParseError"
+      ]
+    },
+    "modifyNetworkInterfaceAttribute": {
+      "errors": [
+        "InvalidNetworkInterfaceID.NotFound"
+      ]
+    },
+    "describeNetworkInterfaces": {
+      "errors": [
+        "InvalidNetworkInterfaceID.NotFound"
+      ]
+    },
+    "describeManagedPrefixLists": {
+      "errors": [
+        "ParseError"
+      ]
+    },
+    "describeTransitGateways": {
+      "errors": [
+        "ParseError"
+      ]
+    },
+    "describeCarrierGateways": {
+      "errors": [
+        "ParseError"
+      ]
+    },
+    "describeFlowLogs": {
+      "errors": [
+        "ParseError"
+      ]
+    },
+    "describeTransitGatewayAttachments": {
+      "errors": [
+        "ParseError"
+      ]
+    },
+    "describeVpnConnections": {
+      "errors": [
+        "InvalidVpnConnectionID.NotFound"
+      ]
+    },
+    "deleteCustomerGateway": {
+      "errors": [
+        "InvalidCustomerGatewayID.NotFound"
+      ]
+    },
+    "modifyVpcAttribute": {
+      "errors": [
+        "InvalidVpcID.NotFound"
+      ]
+    },
+    "replaceRouteTableAssociation": {
+      "errors": [
+        "InvalidRouteTableID.NotFound"
+      ]
+    },
+    "modifyVpcEndpointServiceConfiguration": {
+      "errors": [
+        "InvalidVpcEndpointServiceId.NotFound"
+      ]
+    },
+    "describeVpcEndpointServiceConfigurations": {
+      "errors": [
+        "InvalidVpcEndpointServiceId.NotFound"
+      ]
+    },
+    "describeDhcpOptions": {
+      "errors": [
+        "InvalidDhcpOptionID.NotFound",
+        "ParseError"
+      ]
+    },
+    "describeNetworkInterfaceAttribute": {
+      "errors": [
+        "InvalidNetworkInterfaceID.NotFound"
+      ]
+    },
+    "attachNetworkInterface": {
+      "errors": [
+        "InvalidNetworkInterfaceID.NotFound"
+      ]
+    },
+    "detachNetworkInterface": {
+      "errors": [
+        "InvalidAttachmentID.NotFound"
+      ]
+    },
+    "assignPrivateIpAddresses": {
+      "errors": [
+        "InvalidNetworkInterfaceID.NotFound"
+      ]
+    },
+    "unassignPrivateIpAddresses": {
+      "errors": [
+        "InvalidNetworkInterfaceID.NotFound"
+      ]
+    },
+    "assignIpv6Addresses": {
+      "errors": [
+        "InvalidNetworkInterfaceID.NotFound"
+      ]
+    },
+    "unassignIpv6Addresses": {
+      "errors": [
+        "InvalidNetworkInterfaceID.NotFound"
+      ]
+    },
+    "associateSubnetCidrBlock": {
+      "errors": [
+        "InvalidSubnetID.NotFound"
+      ]
+    },
+    "disassociateSubnetCidrBlock": {
+      "errors": [
+        "InvalidSubnetCidrBlockAssociationID.NotFound"
+      ]
+    },
+    "getSecurityGroupsForVpc": {
+      "errors": [
+        "ParseError"
+      ]
+    },
+    "modifyVpcTenancy": {
+      "errors": [
+        "InvalidVpcID.NotFound"
+      ]
+    },
+    "createDefaultSubnet": {
+      "errors": [
+        "DefaultSubnetAlreadyExistsInAvailabilityZone"
+      ]
+    },
+    "createDefaultVpc": {
+      "errors": [
+        "DefaultVpcAlreadyExists"
+      ]
+    },
+    "describeVpcClassicLink": {
+      "errors": [
+        "InvalidVpcID.NotFound"
+      ]
+    },
+    "describeVpcClassicLinkDnsSupport": {
+      "errors": [
+        "InvalidVpcID.NotFound"
+      ]
+    },
+    "enableVpcClassicLink": {
+      "errors": [
+        "InvalidVpcID.NotFound"
+      ]
+    },
+    "disableVpcClassicLink": {
+      "errors": [
+        "InvalidVpcID.NotFound"
+      ]
+    },
+    "enableVpcClassicLinkDnsSupport": {
+      "errors": [
+        "InvalidVpcID.NotFound"
+      ]
+    },
+    "disableVpcClassicLinkDnsSupport": {
+      "errors": [
+        "InvalidVpcID.NotFound"
+      ]
+    },
+    "deleteManagedPrefixList": {
+      "errors": [
+        "ParseError"
+      ]
+    },
+    "releaseAddress": {
+      "errors": [
+        "InvalidAllocationID.NotFound"
+      ]
+    },
+    "associateAddress": {
+      "errors": [
+        "InvalidInstanceID.NotFound"
+      ]
+    },
+    "disassociateAddress": {
+      "errors": [
+        "InvalidAssociationID.NotFound"
+      ]
+    },
+    "describeAddresses": {
+      "errors": [
+        "InvalidAllocationID.NotFound"
+      ]
+    },
+    "describeEgressOnlyInternetGateways": {
+      "errors": [
+        "ParseError"
+      ]
+    },
+    "describeAddressesAttribute": {
+      "errors": [
+        "InvalidAllocationID.NotFound"
+      ]
+    },
+    "describeSecurityGroupRules": {
+      "errors": [
+        "InvalidSecurityGroupRuleId.NotFound"
+      ]
+    },
+    "describeTags": {
+      "errors": [
+        "ParseError"
+      ]
+    },
+    "deleteTags": {
+      "errors": [
+        "InvalidID"
+      ]
+    },
+    "createTags": {
+      "errors": [
+        "InvalidID"
+      ]
+    },
+    "describeInstanceAttribute": {
+      "errors": [
+        "InvalidInstanceID.NotFound"
+      ]
+    },
+    "modifyInstanceAttribute": {
+      "errors": [
+        "InvalidInstanceID.NotFound"
+      ]
+    },
+    "describeSnapshots": {
+      "errors": [
+        "InvalidSnapshot.NotFound"
+      ]
+    },
+    "describeVolumes": {
+      "errors": [
+        "InvalidVolume.NotFound"
+      ]
+    },
+    "deleteSnapshot": {
+      "errors": [
+        "InvalidSnapshot.NotFound"
+      ]
+    },
+    "deleteVolume": {
+      "errors": [
+        "InvalidVolume.NotFound"
+      ]
+    }
+  }
+}
